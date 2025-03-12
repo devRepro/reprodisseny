@@ -4,7 +4,7 @@
     <header class="bg-blue-600 text-white py-4 shadow-md">
       <div class="container mx-auto flex justify-between items-center px-4">
         <!-- Logo -->
-        <NuxtLink to="/" class="text-2xl font-bold">Mi Proyecto</NuxtLink>
+        <NuxtLink to="/" class="text-2xl font-bold">Logo</NuxtLink>
 
         <!-- Desktop Menu -->
         <nav class="hidden md:flex space-x-6">
