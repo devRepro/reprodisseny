@@ -1,6 +1,4 @@
-<template>
-    <NuxtLink to="/" class="flex items-center">
-      <svg
+     <svg
    width="60mm"
    height="auto"
    viewBox="0 0 248.62895 45.614166"
@@ -111,5 +109,3 @@
     </g>
   </g>
     </svg>
-    </NuxtLink>
-</template>
