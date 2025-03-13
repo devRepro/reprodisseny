@@ -8,6 +8,6 @@ useSeoMeta({
 </script>
 
 <template>
-  
+  <CategoriasGridCategory/>
   
 </template>
