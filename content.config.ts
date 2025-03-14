@@ -14,7 +14,8 @@ export default defineContentConfig({
         description: z.string(),
         keywords: z.array(z.string()),
         slug: z.string(),
-        image: z.string().optional(), // Imagen opcional
+        image: z.string().optional(),
+        alt: z.string().optional(), 
         draft: z.boolean().default(false), // Indica si está en borrador o no
         tags: z.array(z.string()).optional() // Lista de etiquetas opcionales
       })
