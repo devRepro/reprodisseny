@@ -11,6 +11,7 @@ export default defineContentConfig({
       source:'categorias/*.md',
       schema: z.object({
         title: z.string(),
+        nav: z.string(),
         description: z.string(),
         keywords: z.array(z.string()),
         slug: z.string(),

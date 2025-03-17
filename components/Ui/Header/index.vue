@@ -3,7 +3,7 @@
         <div class="container mx-auto flex flex-nowrap p-2 flex-col md:flex-row justify-between items-center">
             <!--Logo-->
             <a href="/" class="flex items-center md:mb-0">
-                <Logo />
+                <UiLogo />
             </a>
             <!--Buscador-->
 
@@ -37,7 +37,7 @@
     </header>
 </template>
 <script setup>
-    import Logo from './Logo.vue';
+    
 </script>
 
 <style></style>

@@ -1,5 +1,6 @@
 ---
 title: "Material Publicitario Personalizado y Publicidad Impresa para Eventos"
+nav: "Eventos"
 description: "Descubre nuestra impresión de material publicitario online. Displays publicitarios, publicidad impresa y material publicitario personalizado para eventos"        
 keywords: ["Material publicitario personalizado","Publicidad impresa","Impresión de material publicitario online","Displays publicitarios","Material publicitario para eventos"]
 slug: "eventos"
@@ -9,4 +10,4 @@ draft: false
 tags: ["branding", "publicidad", "visual"]
 ---
 
-# Eventos
+<CategoryHeader :title="title" :image="image" :link="slug"/>

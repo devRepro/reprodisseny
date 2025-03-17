@@ -1,5 +1,6 @@
 ---
 title: "Impresión Gran Formato en Materiales Rígidos | Repro Disseny"
+nav: "Material rígido"
 description: "Soluciones creativas para publicidad y oficina, publicidad y comunicación visual en eventos."
 keywords: ["Impresión digital gran formato Barcelona","Impresión UV en materiales rígidos","Impresión materiales rígidos Barcelona"]
 slug: "material-rigido"
@@ -9,4 +10,4 @@ draft: false
 tags: ["branding", "publicidad", "visual"]
 ---
 
-## Material de gran formato rígido oficina y Publicidad
+<CategoryHeader :title="title" :image="image" :link="slug"/>

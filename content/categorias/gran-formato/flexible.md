@@ -1,5 +1,6 @@
 ---
 title: "Impresión Gran Formato en Materiales Flexible | Repro Disseny"
+nav: "Material flexible"
 description: "Especialistas en impresión digital de gran formato en Barcelona. Imprimimos carteles publicitarios, vinilos y rótulos con máxima calidad. ¡Solicita presupuesto!."
 keywords: ["Carteles publicitarios gran formato","Vinilos publicitarios gran formato","Impresión digital en Barcelona","Impresión gran formato Barcelona"]
 slug: "flexible"
@@ -8,5 +9,4 @@ alt: "Imagen de la categoria de materiales para oficina y publicidad que fabrica
 draft: false
 tags: ["branding", "publicidad", "visual"]
 ---
-
-## Material de gran formatooficina y Publicidad
+<CategoryHeader :title="title" :image="image" :link="slug"/>

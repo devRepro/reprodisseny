@@ -1,6 +1,7 @@
 <template>
+    <NuxtLoadingIndicator />
      <!-- Render the blog post as Prose & Vue components -->
-  <ContentRenderer :value="page" />
+  <ContentRenderer :value="page || {}" />
 </template>
 
 <script setup lang="ts">
