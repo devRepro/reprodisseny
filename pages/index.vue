@@ -3,4 +3,5 @@
 
 <template>
     <CategoryGrid />
+    <UiFeatures />
 </template>
