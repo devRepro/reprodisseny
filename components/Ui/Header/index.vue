@@ -32,7 +32,7 @@
                     <a href="/blog" class="hover:text-gray-900">Blog</a>
                 </nav>
             </div>
-
+          
         </div>
     </header>
 </template>

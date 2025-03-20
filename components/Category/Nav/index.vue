@@ -3,7 +3,7 @@
    <nav class="categoryMenu__block">
     <ul v-if="docs && docs[0]?.children" class="flex justify-between w-full">
       <li v-for="doc in docs[0].children" :key="doc.path" class="categoryMenu__item">
-        <NuxtLink :to="doc._path" class="categoryMenu__link">
+        <NuxtLink :to="doc.path" class="categoryMenu__link">
           {{ doc.nav }}
         </NuxtLink>
       </li>
