@@ -10,4 +10,4 @@ draft: false
 tags: ["branding", "publicidad", "visual"]
 ---
 
-<CategoryHeader :title="title" :image="image" :link="slug"/>
+# Eventos

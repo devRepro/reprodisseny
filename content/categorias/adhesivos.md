@@ -10,4 +10,4 @@ draft: false
 tags: ["branding", "publicidad", "visual"]
 ---
 
-#Adhesivos
+# Adhesivos
