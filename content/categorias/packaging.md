@@ -9,4 +9,3 @@ alt: "Imagen de la categoria de Packaging de Repro Disseny, imprenta digital en 
 draft: false
 tags: ["Packaging personalizado", "publicidad", "visual"]
 ---
-# packaging

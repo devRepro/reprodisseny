@@ -7,7 +7,7 @@ export default defineNuxtConfig({
       siteUrl: 'http://localhost:3000' // Define la URL de producción
     }
   },
-
+  
   //Importamos modulos necesarios
   modules: [
     '@nuxt/content',
@@ -18,6 +18,18 @@ export default defineNuxtConfig({
   ],
   //Cargamos esilos globales
   css: ['@/assets/styles/main.scss'],
+
+  //Definimos transiciones globales
+  app: {
+    pageTransition: {
+      name: 'fade',
+      mode: 'out-in' // default
+    },
+    layoutTransition: {
+      name: 'slide',
+      mode: 'out-in' // default
+    }
+  },
  
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },

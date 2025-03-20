@@ -9,5 +9,3 @@ alt: "Imagen de la categoria de Restauración de Repro Disseny, especialistas en
 draft: false
 tags: ["branding", "publicidad", "visual"]
 ---
-
-# hoteles-restaurantes

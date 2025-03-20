@@ -10,4 +10,3 @@ draft: false
 tags: ["branding", "publicidad", "visual"]
 ---
 
-# gran-formato

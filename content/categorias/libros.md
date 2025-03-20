@@ -11,6 +11,6 @@ tags: ["branding", "publicidad", "visual"]
 ---
 
 
-#  Libros, revistas y catálogos
+
 
 

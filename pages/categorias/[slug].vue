@@ -1,5 +1,11 @@
 <template>
   <div v-if="category">
+     <!-- Usamos el componente reutilizable y le pasamos las props -->
+     <CategoryHeader 
+      :title="category.title"
+      :link="'/categorias/' + category.slug"
+      :image="category.image"
+    />
     <ContentRenderer :value="category.body" />
   </div>
   <div v-else>
@@ -18,7 +24,7 @@ const slug = route.params.slug
 const { data: category } = await useAsyncData('category', () => 
   queryCollection('categorias')
   .where('slug', '=', slug )
-  .select('title', 'nav', 'body') //Filtrar por slug
+  .select('title', 'nav', 'slug', 'image', 'body') //Filtrar por slug
   .first() //Obtengo resultado  
 
 );

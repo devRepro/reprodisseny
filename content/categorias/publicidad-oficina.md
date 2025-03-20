@@ -9,4 +9,3 @@ alt: "Imagen de la categoria de materiales para oficina y publicidad que fabrica
 draft: false
 tags: ["branding", "publicidad", "visual"]
 ---
-# Material publicitario y Oficinas
