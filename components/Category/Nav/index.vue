@@ -1,24 +1,27 @@
+<!--Menu navegación categorias-->
 <template>
-  <<nav class="categoryMenu__block">
-     <ul class="flex justify-between w-full">
-       <li v-for="doc in categorias" :key="doc.path" class="categoryMenu__item">
-         <NuxtLink :to="doc.path" class="categoryMenu__link">
-           {{ doc.title }}
-         </NuxtLink>
-       </li>
-     </ul>
-   </nav>
+   <nav class="categoryMenu__block">
+    <ul v-if="docs && docs[0]?.children" class="flex justify-between w-full">
+      <li v-for="doc in docs[0].children" :key="doc.path" class="categoryMenu__item">
+        <NuxtLink :to="doc._path" class="categoryMenu__link">
+          {{ doc.nav }}
+        </NuxtLink>
+      </li>
+    </ul>
+  </nav>
 </template>
 
 <script setup lang="ts">
      
-     const { data:categorias } = await useAsyncData('navigation', () => {
-         return queryCollectionNavigation('categorias').order('title', 'DESC')
- })
+     const { data: docs } = await useAsyncData("documents-list", () =>
+  queryCollectionNavigation("categorias", ["nav"])
+);
 
 </script>
 
 <style scoped>
+
+
 .categoryMenu__block {
   background: #1a1c20;
   border-radius: 4px;
