@@ -14,16 +14,8 @@
                         Now</a>
                 </div>
                 <div class="hidden md:col-span-5 md:mt-0 md:flex">
-                    <NuxtPicture>
-                        {{ image }}
-                    </NuxtPicture>
-                    <img class="dark:hidden"
-                        src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/girl-shopping-list.svg"
-                        alt="shopping illustration" />
-                    <img class="hidden dark:block"
-                        src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/girl-shopping-list-dark.svg"
-                        alt="shopping illustration" />
-                </div>
+                    <NuxtPicture v-if="image" :src="image" :alt="alt" class="w-full h-auto rounded-lg shadow-lg" />
+                </div>    
             </div>
         </section>
     </div>
@@ -39,9 +31,14 @@ const props = defineProps({
         type: String,
         required: false
     },
+    alt: {
+    type: String,
+    required: false,
+    default: "Imagen por defecto"
+    }, 
     image: {
         type: String,
         required: false
     }
-});
+    });
 </script>
