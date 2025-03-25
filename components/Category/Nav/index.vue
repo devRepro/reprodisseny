@@ -18,109 +18,116 @@
     </div>
 
     <!-- Menú de navegación en escritorio -->
-    <ul v-if="computedDocs.length > 0 && computedDocs[0]?.children" class="hidden sm:flex justify-between w-full">
-      <li v-for="doc in computedDocs[0].children" 
-          :key="doc.path" 
-          class="categoryMenu__item">
-        
-        <!-- Contenedor de la categoría -->
+    <ul v-if="computedDocs.length > 0" class="hidden sm:flex justify-between w-full">
+      <li v-for="doc in computedDocs" :key="doc._path" class="categoryMenu__item">
         <div class="categoryContainer" 
-            @mouseover="showSubmenu(doc.slug)" 
-            @mouseleave="startHideTimer">
-          
-          <!-- Enlace de la categoría -->
-          <NuxtLink :to="doc.path" class="categoryMenu__link">
-            {{ doc.nav }}
+             @mouseover="showSubmenu(doc.slug)" 
+             @mouseleave="startHideTimer">
+
+          <NuxtLink :to="doc._path" class="categoryMenu__link">
+            {{ doc.nav || doc.title }}
           </NuxtLink>
+
+          <!-- Submenú con productos -->
+          <div 
+            v-if="hoveredCategory === doc.slug && doc.products?.length"
+            class="submenu"
+            :style="{ width: navWidth + 'px' }"
+            @mouseover="cancelHideTimer"
+            @mouseleave="startHideTimer"
+          >
+            <ul class="grid grid-cols-3 gap-4 p-4">
+              <li v-for="product in doc.products" :key="product._path">
+                <NuxtLink :to="product._path" class="text-white hover:underline">
+                  {{ product.nav || product.title }}
+                </NuxtLink>
+              </li>
+            </ul>
+          </div>
+
         </div>
       </li>
     </ul>
 
-    <!-- Div desplegable debajo del nav -->
-    <div 
-      v-if="hoveredCategory" 
-      class="submenu"
-      :style="{ width: navWidth + 'px' }"
-      @mouseover="cancelHideTimer"
-      @mouseleave="startHideTimer">
-      Contenido de la categoría: {{ hoveredCategory }}
-    </div>
-
     <!-- Menú móvil desplegable -->
     <ul v-if="menuOpen" class="sm:hidden flex flex-col space-y-2 mt-2">
-      <li v-for="doc in computedDocs[0].children" :key="doc.path" class="categoryMenu__item">
-        <NuxtLink :to="doc.path" class="categoryMenu__link">
-          {{ doc.nav }}
+      <li v-for="doc in computedDocs" :key="doc._path" class="categoryMenu__item">
+        <NuxtLink :to="doc._path" class="categoryMenu__link">
+          {{ doc.nav || doc.title }}
         </NuxtLink>
+        <ul v-if="doc.products?.length" class="ml-4 text-sm text-white">
+          <li v-for="product in doc.products" :key="product._path">
+            <NuxtLink :to="product._path">{{ product.nav || product.title }}</NuxtLink>
+          </li>
+        </ul>
       </li>
-      <ul>
-        <li><NuxtLink to="/contacto">Contacto</NuxtLink></li>
-        <li><NuxtLink to="/novedades">Novedades</NuxtLink></li>
-        <li><NuxtLink to="/blog">Blog</NuxtLink></li>
-      </ul>
+      <li><NuxtLink to="/contacto">Contacto</NuxtLink></li>
+      <li><NuxtLink to="/novedades">Novedades</NuxtLink></li>
+      <li><NuxtLink to="/blog">Blog</NuxtLink></li>
     </ul>
   </nav>
 </template>
 
 <script setup lang="ts">
 import { ref, computed, onMounted, nextTick } from 'vue';
+import { queryContent } from '#content';
 
-// Estado para manejar la visibilidad del menú móvil
+// Estado del menú
 const menuOpen = ref(false);
-const toggleMenu = () => {
-  menuOpen.value = !menuOpen.value;
-};
+const toggleMenu = () => (menuOpen.value = !menuOpen.value);
 
-// Estado para mostrar el div desplegable y evitar ocultarlo prematuramente
+// Hover submenu
 const hoveredCategory = ref<string | null>(null);
 let hideTimer: ReturnType<typeof setTimeout> | null = null;
-
-// Referencia al elemento nav para calcular el ancho dinámico
-const navElement = ref<HTMLElement | null>(null);
-const navWidth = ref<number>(0);
-
-// Obtener el ancho del nav cuando el componente se monta
-onMounted(() => {
-  nextTick(() => {
-    if (navElement.value) {
-      navWidth.value = navElement.value.offsetWidth;
-    }
-  });
-
-  // Recalcular el ancho en caso de redimensionar la ventana
-  window.addEventListener("resize", () => {
-    if (navElement.value) {
-      navWidth.value = navElement.value.offsetWidth;
-    }
-  });
-});
-
-// Función para mostrar el submenu
 const showSubmenu = (slug: string) => {
   if (hideTimer) clearTimeout(hideTimer);
   hoveredCategory.value = slug;
 };
-
-// Función para ocultar el submenu con un delay
 const startHideTimer = () => {
-  hideTimer = setTimeout(() => {
-    hoveredCategory.value = null;
-  }, 200); // Pequeño delay para evitar desaparición brusca
+  hideTimer = setTimeout(() => (hoveredCategory.value = null), 200);
 };
-
-// Cancelar el temporizador si el mouse entra en el div
 const cancelHideTimer = () => {
   if (hideTimer) clearTimeout(hideTimer);
 };
 
-// Cargar categorías
-const { data: docs } = await useAsyncData("documents-list", async () =>  {
-  const categories = await queryCollectionNavigation("categorias", ["nav", "slug"]);
-  return categories || [];
+// Referencia al ancho del menú
+const navElement = ref<HTMLElement | null>(null);
+const navWidth = ref<number>(0);
+onMounted(() => {
+  nextTick(() => {
+    if (navElement.value) navWidth.value = navElement.value.offsetWidth;
+  });
+  window.addEventListener("resize", () => {
+    if (navElement.value) navWidth.value = navElement.value.offsetWidth;
+  });
 });
 
-// ✅ Computed para asegurar que docs.value siempre sea un array
-const computedDocs = computed(() => (docs.value && Array.isArray(docs.value) ? docs.value : []));
+// Cargar categorías y productos
+const { data: categories } = await useAsyncData('categories', async () => {
+  const cats = await queryContent('/categorias')
+    .where({ _file: 'index.md' })
+    .only(['title', 'nav', 'slug', 'path', '_path'])
+    .sort({ nav: 1 })
+    .find();
+
+  const categoriesWithProducts = await Promise.all(
+    cats.map(async (cat) => {
+      const products = await queryContent(`${cat._path}/productos`)
+        .only(['title', 'nav', 'slug', '_path'])
+        .find();
+      return {
+        ...cat,
+        products
+      };
+    })
+  );
+
+  return categoriesWithProducts;
+});
+
+const computedDocs = computed(() =>
+  categories.value && Array.isArray(categories.value) ? categories.value : []
+);
 </script>
 
 <style scoped>
@@ -139,14 +146,10 @@ const computedDocs = computed(() => (docs.value && Array.isArray(docs.value) ? d
   list-style: none;
   position: relative;
 }
-
-/* Contenedor de la categoría */
 .categoryContainer {
   position: relative;
   display: inline-block;
 }
-
-/* Enlace de categoría */
 .categoryMenu__link {
   display: flex;
   align-items: center;
@@ -156,25 +159,17 @@ const computedDocs = computed(() => (docs.value && Array.isArray(docs.value) ? d
   border-radius: 6px;
   transition: background 0.3s ease-in-out;
 }
-
 .categoryMenu__link:hover {
   background: #333;
 }
-
-/* Estilos del div desplegable */
 .submenu {
   position: absolute;
   top: 100%;
   left: 50%;
   transform: translateX(-50%);
-  height: 150px;
   background: rgba(30, 30, 30, 0.95);
   color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   transition: opacity 0.3s ease-in-out;
-  opacity: 1;
   z-index: 10;
 }
 </style>

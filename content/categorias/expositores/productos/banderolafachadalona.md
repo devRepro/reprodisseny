@@ -1,6 +1,6 @@
 ---
 title: "Banderolas para fachada de lona"
-category: "gran formato"
+category: "expositores"
 nav: "Banderolas de Lona"
 description: 'Lorem Ipsum'
 keywords: [ 'Banderolas de lona', 'Banderolas para fachada']
