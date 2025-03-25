@@ -2,7 +2,7 @@
 title: "Banner"
 category: "expositores"
 nav: "banner"
-description: "Las estructuras banner son prácticas y de fácil uso para mostrar gráficas impresas digitalmente de manera fácil, rápida y a un precio económico.""
+description: "Las estructuras banner son prácticas y de fácil uso para mostrar gráficas impresas digitalmente de manera fácil, rápida y a un precio económico."
 keywords: ['x banner','xbanner', 'x baner', 'banenr publicitario', 'xbanner']
 slug: "banner"
 image: "@/assets/img/productos/banner/banner.png"
