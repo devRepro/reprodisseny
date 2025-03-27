@@ -2,40 +2,17 @@ import { defineContentConfig, defineCollection, z } from '@nuxt/content'
 
 export default defineContentConfig({
   collections: {
-    content: defineCollection({
-      type: 'page',
-      source: '**/*.md'
-    }),
     categorias: defineCollection({
+      source: 'categorias/**/*.{md,yml,json}',
       type: 'page',
-      source:'categorias/*.md',
       schema: z.object({
         title: z.string(),
-        nav: z.string(),
-        description: z.string(),
-        keywords: z.array(z.string()),
-        slug: z.string(),
-        image: z.string().optional(),
-        alt: z.string().optional(), 
-        draft: z.boolean().default(false), // Indica si está en borrador o no
-        tags: z.array(z.string()).optional() // Lista de etiquetas opcionales
-      })
-    }),
-    productos: defineCollection({
-      type: 'page',
-      source:'productos/*.md',
-      schema: z.object({
-        title: z.string(),
-        nav: z.string(),
-        description: z.string(),
-        keywords: z.array(z.string()),
-        slug: z.string(),
-        image: z.string().optional(),
-        alt: z.string().optional(), 
-        draft: z.boolean().default(false), // Indica si está en borrador o no
-        tags: z.array(z.string()).optional() // Lista de etiquetas opcionales
+        slug: z.string().optional(),
+        category: z.string().optional(),
+        description: z.string().optional(),
+        navigation: z.boolean().optional(),
+        nav: z.string().optional()
       })
     })
-
   }
 })

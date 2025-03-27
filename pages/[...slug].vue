@@ -1,11 +1,6 @@
 <template>
   <div v-if="category">
-    
-    <CategoryHeader 
-      :title="category?.title" 
-      :link="category?.slug"
-      :image="category?.image"
-    />
+
     <ContentRenderer :value="category.body" />
   </div>
   <div v-else>
@@ -24,17 +19,10 @@ const slug = route.params.slug
 const { data: category } = await useAsyncData('category', () => 
   queryCollection('categorias')
   .where('slug', '=', slug )
-  .select('title', 'alt', 'slug','image','nav', 'body') //Filtrar por slug
+  .select('title', 'nav', 'slug',  'body') //Filtrar por slug
   .first() //Obtengo resultado  
 
 );
-
-//Consultamos el contenido de la carpeta productos
-const { data: product } = await useAsyncData( 'product', () => {
-  queryCollection('productos')
-  .where('category', '=', slug)
-  .select( 'description', 'category')
-})
 
 </script> 
 

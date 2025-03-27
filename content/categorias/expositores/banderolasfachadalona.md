@@ -1,17 +1,12 @@
 ---
 title: "Banderola de Fachada y Lona Publicitaria"
-nav: "Banderola Fachada / Lona"
 slug: "banderolafachadalona"
 category: "expositores"
 description: "Impresión de banderolas y lonas publicitarias para fachadas, ferias y espacios comerciales. Visibilidad máxima en gran formato."
 keywords: ["banderolas fachada", "lonas publicitarias", "impresión gran formato"]
-tags: ["expositores", "lonas", "fachadas"]
 image: "/img/productos/expositores/banderola.png"
 alt: "Banderola y lona publicitaria personalizada instalada en fachada por Repro Disseny"
-metatitle: "Banderolas y Lonas Publicitarias | Repro Disseny"
-metadescription: "Lonas y banderolas para fachadas y espacios comerciales. Impresión gran formato personalizada para tu negocio."
-draft: false
-date: 2025-03-25
+navigation: false
 ---
 # Banderolas y Lonas Publicitarias
 

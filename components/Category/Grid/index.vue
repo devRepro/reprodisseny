@@ -4,13 +4,7 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
       <div v-for="category in categories" :key="category.path"
         class="group flex flex-col max-w-sm bg-white border border-gray-200 rounded-2xl shadow-md hover:shadow-xl transition-transform transform hover:-translate-y-1 h-full overflow-hidden">
-
-        <!-- Imagen con overlay al pasar el mouse -->
-        <div class="relative w-full h-48">
-          <NuxtImg :src="category.image" :alt="category.alt"
-            class="w-full h-full object-cover rounded-t-2xl transition-opacity duration-300 group-hover:opacity-80" />
-        </div>
-
+        
         <!-- Contenedor del título -->
         <div class="p-4 bg-white flex flex-col items-center">
 
@@ -31,7 +25,7 @@
 //recuperamos todas las categorias guardadas en content/*.md
 const { data: categories } = await useAsyncData("categories-list", () => {
   return queryCollection("categorias")
-    .select("title", "nav", "slug", "path", "description", "image", "alt")
+    .select("title", "nav", "slug", "path", "description", )
     .all();
 });
 
