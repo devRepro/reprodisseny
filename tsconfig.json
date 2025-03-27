@@ -1,9 +1,3 @@
 {
-  "extends": "./.nuxt/tsconfig.json",
-  "compilerOptions": {
-    "paths": {
-      "#content": ["./node_modules/@nuxt/content"]
-    }
-  }
+  "extends": "./.nuxt/tsconfig.json"
 }
-

@@ -12,8 +12,6 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/content',
     '@nuxtjs/tailwindcss',
-    '@nuxt/ui',
-    '@nuxt/icon',
     '@nuxt/image'
   ],
   //Cargamos esilos globales
