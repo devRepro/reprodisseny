@@ -2,30 +2,24 @@ import { defineContentConfig, defineCollection, z } from '@nuxt/content'
 
 export default defineContentConfig({
   collections: {
-    content: defineCollection({
-      type: 'page',
-      source: '**/*.md'
-    }),
     categorias: defineCollection({
+      // Incluir todos los archivos dentro de content/categorias/**
+      source: 'categorias/**/*.{md,yml,json}', 
       type: 'page',
-      source:'categorias/*.md',
       schema: z.object({
         title: z.string(),
-        nav: z.string(),
-        description: z.string(),
-        keywords: z.array(z.string()),
-        slug: z.string(),
-        image: z.string().optional(),
-        alt: z.string().optional(), 
-        draft: z.boolean().default(false), // Indica si está en borrador o no
-        tags: z.array(z.string()).optional() // Lista de etiquetas opcionales
+        slug: z.string().optional(),
+        category: z.string().optional(),
+        description: z.string().optional(),
+        // El campo "navigation" es generado automáticamente para type 'page'
+        // (boolean u objeto, default true)&#8203;:contentReference[oaicite:0]{index=0}
+        image: z.string().optional(), 
+        navigation: z.boolean().optional(),
+        // Cualquier otro campo frontmatter personalizado:
+        nav: z.any().optional() ,
+        alt: z.string().optional()
       })
-    }),
+    })
+    // Podríamos definir otras colecciones para otras partes del contenido si es necesario
   }
 })
-
-
-
-image: ""
-draft: false
-tags: ["branding", "publicidad", "visual"]

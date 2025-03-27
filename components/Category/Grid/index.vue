@@ -5,11 +5,11 @@
       <div v-for="category in categories" :key="category.path"
         class="group flex flex-col max-w-sm bg-white border border-gray-200 rounded-2xl shadow-md hover:shadow-xl transition-transform transform hover:-translate-y-1 h-full overflow-hidden">
 
-        <!-- Imagen con overlay al pasar el mouse -->
-        <div class="relative w-full h-48">
-          <NuxtImg :src="category.image" :alt="category.alt"
+         <!-- Imagen con overlay al pasar el mouse -->
+         <div class="relative w-full h-48">
+          <NuxtImg :src="useAssetUrl('category', category.image)" :alt="category.alt"
             class="w-full h-full object-cover rounded-t-2xl transition-opacity duration-300 group-hover:opacity-80" />
-        </div>
+          </div>
 
         <!-- Contenedor del título -->
         <div class="p-4 bg-white flex flex-col items-center">
@@ -28,9 +28,16 @@
 
 
 <script lang="ts" setup>
+//composable para construir la ruta de la imagen en assets
+const getAssetUrl = (subfolder: string, fileName: string) => {
+  return new URL(`../assets/img/${subfolder}/${fileName}`, import.meta.url).href;
+}
+
+console.log(getAssetUrl("categorias", "Catalogos-revistas.png"))
 //recuperamos todas las categorias guardadas en content/*.md
 const { data: categories } = await useAsyncData("categories-list", () => {
   return queryCollection("categorias")
+    .where('navigation', '=', true)  // Filtra solo documentos con navegación activa
     .select("title", "nav", "slug", "path", "description", "image", "alt")
     .all();
 });

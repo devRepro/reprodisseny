@@ -1,11 +1,6 @@
 <template>
   <div v-if="category">
      <!-- Usamos el componente reutilizable y le pasamos las props -->
-     <CategoryHeader 
-      :title="category.title"
-      :link="'/categorias/' + category.slug"
-      :image="category.image"
-    />
     <ContentRenderer :value="category.body" />
   </div>
   <div v-else>
