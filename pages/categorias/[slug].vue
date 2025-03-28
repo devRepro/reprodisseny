@@ -10,18 +10,25 @@
 
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
-
+import { watch } from 'vue'
 // Obtener el parámetro 'slug' de la URL
 const route = useRoute()
 const slug = route.params.slug
 
-// Consultar el contenido del archivo Markdown correspondiente al slug
-const { data: category } = await useAsyncData('category', () => 
-  queryCollection('categorias')
-  .where('slug', '=', slug )
-  .select('title', 'nav', 'slug', 'image', 'body') //Filtrar por slug
-  .first() //Obtengo resultado  
+const fetchCategory = () => {
+  return queryCollection('categorias')
+    .where('slug', '=', slug)
+    .select('title', 'nav', 'slug', 'image', 'body')
+    .first()
+}
 
-);
+// Carga inicial
+const { data: category, refresh } = await useAsyncData('category', fetchCategory)
+
+// Recargar si cambia el slug (por navegación interna)
+watch(() => route.params.slug, () => {
+  refresh()
+})
+
 </script>
 

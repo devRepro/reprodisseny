@@ -10,3 +10,12 @@ alt: 'Lorem'
 ---
 
 # Libros, Revistas y catágogos
+
+
+<ClientOnly>
+  <CategoryHeader 
+    :title="title" 
+    :link="`/categorias/${slug}`" 
+    :image="`/img/categorias/${image}`" 
+  />
+</ClientOnly>

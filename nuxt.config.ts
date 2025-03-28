@@ -1,5 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-
+import { defineNuxtConfig } from 'nuxt/config'
 export default defineNuxtConfig({
   //Definimos url
   runtimeConfig: {
@@ -16,9 +16,13 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/image'
   ],
+  
   //Cargamos esilos globales
   css: ['@/assets/styles/main.scss'],
-
+  
+  //Auto import componentes
+  components: true, 
+  
   //Definimos transiciones globales
   app: {
     pageTransition: {
