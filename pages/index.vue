@@ -3,7 +3,9 @@
 </script>
 
 <template>
-    <CategoryNav />
-    <CategoryGrid />
-    <UiFeatures />
+    <div>
+        <CategoryNav />
+        <CategoryGrid />
+        <UiFeatures />
+    </div>
 </template>
