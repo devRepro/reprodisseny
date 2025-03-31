@@ -6,8 +6,9 @@
     :alt="page?.alt"
     :link="`/categorias/${page?.slug}`"
   />
+  
   <ContentRenderer v-if="page" :value="page" class="mb-10" />
-  <ProductGrid :category="myCategory" />
+
   </template>
 
 <script setup lang="ts">

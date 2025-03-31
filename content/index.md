@@ -1,7 +1,7 @@
 ---
 title: "Página Principal"
 description: "Bienvenido a nuestro sitio web. Aquí encontrarás información relevante sobre nuestras categorías y productos."
-image: '../../../public/img/categorias/mockup.web'  # Nota: es importante usar comillas para valores de tipo string.
+image: '/img/categorias/mockup.web'  # Nota: es importante usar comillas para valores de tipo string.
 layout: "default"
 ---
 

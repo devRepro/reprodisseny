@@ -31,8 +31,8 @@
   <script lang="ts" setup>
     const { data: categories } = await useAsyncData("categories-list", () => {
       return queryCollection( "categorias")
-        .where('navigation', '=', true)
-        .select("title", "nav", "slug", "path", "description", "image", "alt")
-        .all();
+      .where('type', '=', 'categoria')
+      .select("title", "nav", "slug", "path", "description", "image", "alt")
+      .all();
     });
   </script>

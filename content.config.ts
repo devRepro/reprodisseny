@@ -17,7 +17,9 @@ export default defineContentConfig({
         navigation: z.boolean().optional(),
         // Cualquier otro campo frontmatter personalizado:
         nav: z.any().optional() ,
-        alt: z.string().optional()
+        alt: z.string().optional(),
+        categoria: z.string().optional(),
+        type: z.string().optional()
       })
     })
     // Podríamos definir otras colecciones para otras partes del contenido si es necesario
