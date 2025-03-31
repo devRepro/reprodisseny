@@ -4,7 +4,7 @@ slug: 'posavasos'
 category: 'restauracion'
 description: 'Descripción detallada del producto delantal'
 keywords: ['posavaso', 'restauracion']
-image: '../../../public/img/categorias/mockup.webp'
+image: '/img/categorias/mockup.webp'
 alt: 'Imagen del producto posavaso'
 ---
 # Producto 1

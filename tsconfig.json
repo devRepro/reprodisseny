@@ -9,7 +9,8 @@
     "types": [],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "#content": ["node_modules/@nuxt/content/dist/runtime"]
     }
   }
 }

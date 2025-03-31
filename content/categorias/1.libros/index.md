@@ -1,5 +1,5 @@
 ---
-title: 'Libros y Revistas'
+title: 'Libros y Revistas de casa'
 navigation: true
 nav: 'Libros' # 👈 Necesario para que el menú muestre texto
 slug: 'libros-revistas' # 👈 Necesario si lo usas en `hoveredCategory`
@@ -9,13 +9,6 @@ image: 'Catalogos-revistas.png'
 alt: 'Lorem'
 ---
 
-# Libros, Revistas y catágogos
+# Libros, Revistas y Catálogos
 
 
-<ClientOnly>
-  <CategoryHeader 
-    :title="title" 
-    :link="`/categorias/${slug}`" 
-    :image="`/img/categorias/${image}`" 
-  />
-</ClientOnly>

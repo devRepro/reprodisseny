@@ -1,10 +1,10 @@
 ---
-title: 'Delantales'
-slug: 'delantales'
-category: 'restauracion'
+title: 'Encuadernado con Grapas'
+slug: 'encuadernado-grapas'
+category: 'libros'
 description: 'Descripción detallada del producto delantal'
-keywords: ['delantales', 'restauracion']
-image: '../../../public/img/categorias/mockup.webp'
+keywords: ['Encuadernado', 'restauracion']
+image: '/img/categorias/mockup.webp'
 alt: 'Imagen del producto display'
 ---
 # Producto 1
