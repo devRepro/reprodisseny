@@ -6,7 +6,7 @@
     "moduleResolution": "Bundler",
     "lib": ["ES2020", "DOM"],
     "strict": true,
-    "types": [],
+    "types": ["@nuxt/content"],
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],

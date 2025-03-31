@@ -7,8 +7,7 @@
     :link="`/categorias/${page?.slug}`"
   />
   <ContentRenderer v-if="page" :value="page" class="mb-10" />
-  <ProductLoad :category="myCategory" />
-</template>
+  </template>
 
 <script setup lang="ts">
 
@@ -17,7 +16,9 @@ const myCategory = route.params.category as string
 
 // Cargar la categoría
 const { data: page } = await useAsyncData(`categoria-${myCategory}`, () => {
-  return queryCollection('categorias').path(`/categorias/${myCategory}`).first()
+  return queryCollection('categorias')
+  .path(`/categorias/${myCategory}`)
+  .first()
 })
 
 </script>
