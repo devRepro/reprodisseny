@@ -43,8 +43,11 @@ useSeoMeta({
     />
 
     <ContentRenderer :value="producto" />
+    <div>
+      <UiFormsProduct />
+    </div>
   </div>
-
+    
   <div v-else class="text-center py-20">
     <p class="text-xl text-gray-500">Cargando producto o no encontrado…</p>
   </div>

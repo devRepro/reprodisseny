@@ -1,18 +1,18 @@
 ---
-title: 'Nombres de Sobremesa'
-slug: 'nombres-sobremesa'
+title: 'Abanicos'
+slug: 'abanicos'
 category: 'eventos'
 type: 'producto'
 
 # Descripción única (sirve también como metadescripción SEO)
-description: 'Impresión de acreditaciones personalizadas para un mejor reconocimiento visual durante la organización de eventos. Refuerza el branding en el acto.'
+description: 'Encuadernación cosida con tapa dura, ideal para catálogos, libros y publicaciones de alta calidad.'
 
 # Imagen principal del producto
-image: "/img/productos/Nombre-sobremesa.webp"
-alt: 'Nombres sobremesa producidos por Repro Disseny'
+image: '/img/productos/abanico.webp'
+alt: 'Abanicos personalizados producidos por Repro Disseny'
 
 # Meta title para SEO (si quieres usar uno más largo o específico)
-metatitle: 'Nombres de sobremesa para tus eventos | Repro Disseny'
+metatitle: 'Abanicos personalizados para eventos | Repro Disseny'
 
 # ⚠️ metadescription es opcional. Si no lo incluyes, se usará `description` como fallback.
 # metadescription: 'Solicita precio para encuadernaciones cosidas con tapa dura. Alta calidad y presentación profesional.'
@@ -24,7 +24,7 @@ tags: ['Eventos']
 navigation: true
 
 # 📦 Campos ecommerce (opcional por ahora, pero ya definidos en el schema)
-sku: '06-NOMB-001'
+sku: '06-ABANI-001'
 price: 8.90
 priceCurrency: 'EUR'
 inStock: true
@@ -33,10 +33,10 @@ brand: 'Reprodisseny'
 # 🎯 Schema.org (recomendado para rich snippets en Google)
 schema:
   "@type": "Product"
-  name: "Lanyards personalizados"
-  description: "Nombres de sobremesa personalizados para un mejor reconocimiento visual durante la organización de eventos."
-  image: "/img/productos/Nombre-sobremesa.webp"
-  sku: "06-LANYA-001"
+  name: "Abanicos personalizados"
+  description: "Impresión de abanicos personalizados para eventos. Un elemento indispensable para la organización de eventos en épocas de mucha calor al aire libre."
+  image: "/img/productos/abanico.webp"
+  sku: "06-ABANI-001"
   brand:
     "@type": "Organization"
     name: "Reprodisseny"

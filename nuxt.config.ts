@@ -45,4 +45,9 @@ export default defineNuxtConfig({
     exposeConfig: true,
   },
 
+  //configuración DarkMode
+  colorMode: {
+    preference: 'light'
+  }
+
 })
