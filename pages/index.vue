@@ -3,9 +3,6 @@
 </script>
 
 <template>
-    <div>
-        <CategoryNav />
         <CategoryGrid />
         <UiFeatures />
-    </div>
 </template>
