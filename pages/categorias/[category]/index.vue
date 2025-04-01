@@ -9,18 +9,19 @@
     />
 
     <ContentRenderer v-if="page" :value="page" class="mb-10" />
-
-    <ProductGrid :category="myCategory" />
+    <Nav :categories="categories" />
+    
+    <ProductGrid :category="categorySlug" />
   </div>
 </template>
 
 <script setup lang="ts">
-const route = useRoute()
-const myCategory = route.params.category
 
-const { data: page } = await useAsyncData(`categoria-${myCategory}`, () => {
-  return queryCollection('categorias')
-    .path(`/categorias/${myCategory}`)
-    .first()
-})
+const { data: categories } = await useCategorias()
+
+const route = useRoute()
+const categorySlug = route.params.category as string
+
+const { data: page } = await useCategoriaBySlug(categorySlug)
 </script>
+
