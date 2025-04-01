@@ -48,6 +48,22 @@ export default defineNuxtConfig({
   //configuración DarkMode
   colorMode: {
     preference: 'light'
+  },
+
+  content: {
+    documentDriven: true,
+    highlight: {
+      theme: 'github-dark',
+    },
+    markdown: {
+      toc: { depth: 2, searchDepth: 2 },
+    },
+    // 👇 esta línea es la clave
+    experimental: {
+      // permite importar funciones como queryContent sin importarlas manualmente
+      payloadExtraction: true
+    }
   }
+  
 
 })
