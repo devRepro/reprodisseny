@@ -10,4 +10,4 @@ slug: 'packaging' # 👈 Necesario si lo usas en `hoveredCategory`
 type: 'categoria'
 ---
 
-# Eventos
+# Packaging

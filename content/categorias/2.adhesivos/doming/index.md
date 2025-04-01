@@ -9,5 +9,3 @@ alt: 'Imagen del producto 1'
 navigation: true
 type: 'producto'
 ---
-# Producto 1
-Detalles y características del producto...

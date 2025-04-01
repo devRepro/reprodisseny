@@ -23,16 +23,20 @@ const { data: productos } = await useAsyncData(() => {
     <div
       class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
     >
-      <div
+      <NuxtLink
         v-for="product in productos"
         :key="product.path"
+        :to="`/categorias/${category}/${product.slug}`"
         class="group flex flex-col bg-white border border-gray-200 rounded-2xl shadow-md hover:shadow-xl transition-transform transform hover:-translate-y-1 h-full overflow-hidden"
       >
         <div class="p-4 text-center">
           <h5 class="font-semibold text-lg">{{ product.title }}</h5>
           <p class="text-sm text-gray-600">{{ product.description }}</p>
         </div>
-      </div>
+           <div v-if="product.image">
+          <img :src="product.image" :alt="product.alt" class="w-full h-auto" />
+        </div>
+      </NuxtLink>
     </div>
   </section>
 </template>
