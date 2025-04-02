@@ -9,15 +9,13 @@
     />
 
     <ContentRenderer v-if="page" :value="page" class="mb-10" />
-    <Nav :categories="categories" />
-    
     <ProductGrid :category="categorySlug" />
+    
   </div>
 </template>
 
 <script setup lang="ts">
 
-const { data: categories } = await useCategorias()
 
 const route = useRoute()
 const categorySlug = route.params.category as string

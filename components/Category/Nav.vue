@@ -1,29 +1,28 @@
 <template>
   <nav>
-    <ul v-if="categories && categories.length" class="flex gap-4 categoryMenu px-4 py-2">
+    <ul v-if="docs?.[0]?.children?.length" class="flex gap-4 categoryMenu">
       <li
-        v-for="category in categories"
-        :key="category._path"
-        class="relative group"
-        @mouseenter="loadProducts(category.slug)"
+        v-for="item in docs[0].children"
+        :key="item._path"
+        class="relative"
+        @mouseenter="onEnter(item._path)"
+        @mouseleave="onLeave"
       >
-        <NuxtLink :to="category._path" class="font-semibold">
-          {{ category.title }}
+        <NuxtLink :to="item._path" class="block px-4 py-2">
+          {{ item.title }}
         </NuxtLink>
 
-        <!-- Submenú de productos -->
-        <ul
-          v-if="productsByCategory[category.slug]?.length"
-          class="absolute top-full left-0 mt-2 bg-white text-black p-3 rounded shadow-lg hidden group-hover:block min-w-[200px] z-50"
+        <!-- Submenú solo cuando está activo -->
+        <div
+          v-if="activeCategory === item._path"
+          class="absolute left-0 top-full mt-2 bg-white text-black p-4 rounded shadow-lg z-50 min-w-[250px]"
+          @mouseenter="onEnter(item._path)"
+          @mouseleave="onLeave"
         >
-          <li
-            v-for="product in productsByCategory[category.slug]"
-            :key="product._path"
-            class="hover:underline"
-          >
-            <NuxtLink :to="product._path">{{ product.title }}</NuxtLink>
-          </li>
-        </ul>
+          <p class="font-semibold mb-2">Productos de {{ item.title }}</p>
+          <!-- Cargar productos de la categoría -->
+          <CategoryProducts :categoriaSlug="item.slug" />
+        </div>
       </li>
     </ul>
   </nav>
@@ -32,23 +31,20 @@
 <script setup lang="ts">
 
 
-// ✅ defineProps con valor por defecto para evitar `undefined`
-const props = withDefaults(defineProps<{
-  categories?: {
-    title: string
-    slug: string
-    _path: string
-  }[]
-}>(), {
-  categories: () => []
-})
+const { data: docs } = await useCategoriasNav()
 
-const productsByCategory = reactive<Record<string, any[]>>({})
+const activeCategory = ref<string | null>(null)
+let hideTimeout: ReturnType<typeof setTimeout> | null = null
 
-const loadProducts = async (slug: string) => {
-  if (productsByCategory[slug]) return
-  const productos = await useProductosByCategoria(slug)
-  productsByCategory[slug] = productos
+function onEnter(path: string) {
+  if (hideTimeout) clearTimeout(hideTimeout)
+  activeCategory.value = path
+}
+
+function onLeave() {
+  hideTimeout = setTimeout(() => {
+    activeCategory.value = null
+  }, 200)
 }
 </script>
 
@@ -59,7 +55,6 @@ const loadProducts = async (slug: string) => {
 }
 .categoryMenu a {
   color: #fff;
-  padding: 0.5rem 1rem;
   display: block;
 }
 .categoryMenu li:hover > a {

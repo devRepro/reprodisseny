@@ -10,7 +10,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
-      "#content": ["node_modules/@nuxt/content/dist/runtime"]
+      "#content": ["node_modules/@nuxt/content/dist/runtime"],
+      "#imports": ["./.nuxt/imports"]
     }
   }
 }

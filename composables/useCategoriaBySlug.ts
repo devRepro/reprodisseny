@@ -1,6 +1,9 @@
+
+
 export const useCategoriaBySlug = (slug: string) => {
-    return useAsyncData(`categoria-${slug}`, () =>
-      queryContent(`/categorias/${slug}`).findOne()
-    )
-  }
-  
+  return useAsyncData(`categoria-${slug}`, () =>
+    queryCollection('categorias')
+      .where('slug', '=', slug)
+      .first()
+  )
+}
