@@ -1,12 +1,11 @@
 // composables/useProductosByCategoria.ts
 
-
-export const useProductosByCategoria = async (categoriaSlug: string) => {
-  console.log('🔍 Buscando productos para:', categoriaSlug)
-  const productos = await queryCollection("categorias")
-    .where({ type: 'producto', categoria: categoriaSlug })
-    .only(['title', '_path', 'image'])
-    .find()
-    console.log('✅ Productos encontrados:', productos)
-  return productos as CategoriasCollectionItem[]
+export const useProductosByCategoria = (category: string) => {
+  return useAsyncData(`productos-${category}`, () => {
+    return queryCollection('categorias')
+      .where('type', '=', 'producto')
+      .where('category', '=', category)
+      .select('title', 'slug', 'path', 'description', 'image', 'alt')
+      .all()
+  })
 }

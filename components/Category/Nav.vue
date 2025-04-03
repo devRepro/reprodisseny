@@ -1,63 +1,68 @@
 <template>
-  <nav>
-    <ul v-if="docs?.[0]?.children?.length" class="flex gap-4 categoryMenu">
+  <nav class="relative">
+    <!-- Menú de categorías -->
+    <ul v-if="docs?.[0]?.children?.length" class="flex justify-between categoryMenu">
       <li
         v-for="item in docs[0].children"
-        :key="item._path"
+        :key="item.path"
         class="relative"
-        @mouseenter="onEnter(item._path)"
-        @mouseleave="onLeave"
+        @mouseenter="activeCategory = item"
+        @mouseleave="activeCategory = null"
       >
-        <NuxtLink :to="item._path" class="block px-4 py-2">
+        <NuxtLink :to="item.path" class="block px-4 py-2" @click="activeCategory = null">
           {{ item.title }}
         </NuxtLink>
-
-        <!-- Submenú solo cuando está activo -->
-        <div
-          v-if="activeCategory === item._path"
-          class="absolute left-0 top-full mt-2 bg-white text-black p-4 rounded shadow-lg z-50 min-w-[250px]"
-          @mouseenter="onEnter(item._path)"
-          @mouseleave="onLeave"
-        >
-          <p class="font-semibold mb-2">Productos de {{ item.title }}</p>
-          <!-- Cargar productos de la categoría -->
-          <CategoryProducts :categoriaSlug="item.slug" />
-        </div>
       </li>
     </ul>
+
+    <!-- Submenú desplegable centrado y de ancho completo -->
+    <transition name="fade">
+      <div
+        v-if="activeCategory"
+        class="absolute left-0 right-0 top-full mt-2 bg-white text-black p-4 rounded shadow-lg z-50"
+        @mouseenter="activeCategory = activeCategory"
+        @mouseleave="activeCategory = null"
+        @click="activeCategory = null"
+      >
+        <CategoryProducts :category="activeCategory.slug" />
+      </div>
+    </transition>
   </nav>
 </template>
 
 <script setup lang="ts">
-
-
 const { data: docs } = await useCategoriasNav()
-
-const activeCategory = ref<string | null>(null)
-let hideTimeout: ReturnType<typeof setTimeout> | null = null
-
-function onEnter(path: string) {
-  if (hideTimeout) clearTimeout(hideTimeout)
-  activeCategory.value = path
-}
-
-function onLeave() {
-  hideTimeout = setTimeout(() => {
-    activeCategory.value = null
-  }, 200)
-}
+const activeCategory = ref(null)
 </script>
 
 <style scoped>
 .categoryMenu {
-  background-color: #333;
+  background-color: #1a1c20;
   color: #fff;
+  border-radius: 0.3rem;
 }
+
 .categoryMenu a {
   color: #fff;
   display: block;
 }
+
 .categoryMenu li:hover > a {
-  background-color: #444;
+  background-color: #666;
+  text-decoration: none;
+}
+
+/* Transición para el submenú */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+.fade-enter-to,
+.fade-leave-from {
+  opacity: 1;
 }
 </style>

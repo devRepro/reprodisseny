@@ -1,8 +1,8 @@
 ---
-title: 'Pegatinas individuales'
-slug: 'pegatinas-individuales'
+title: 'Vinilos a Medida'
+slug: 'vinilos-a-medida'
 category: 'adhesivos'
-description: 'Descripción detallada del producto 1.'
+description: 'Descripción detallada del vinilo a medida.'
 keywords: ['producto 1', 'adhesivos']
 image: '/img/categorias/mockup.webp'
 alt: 'Imagen del producto 1'

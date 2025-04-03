@@ -19,7 +19,7 @@
         </div>
         <!-- Contenedor del título -->
         <div class="p-4 flex flex-col items-center">
-          <h5 class="text-lg md:text-xl font-bold text-gray-900 transition-colors duration-200 group-hover:text-primary">
+          <h5 class="text-lg md:text-sm font-bold text-gray-900 transition-colors duration-200 group-hover:text-primary">
             <NuxtLink :to="`/categorias/${category.slug}`">{{ category.nav }}</NuxtLink>
           </h5>
         </div>
