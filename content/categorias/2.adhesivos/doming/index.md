@@ -1,6 +1,7 @@
 ---
 title: 'Doming'
 slug: 'doming'
+nav: 'Doming'
 category: 'adhesivos'
 description: 'Descripción detallada del producto 1.'
 keywords: ['producto 1', 'adhesivos']

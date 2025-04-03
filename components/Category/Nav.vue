@@ -1,13 +1,12 @@
 <template>
   <nav class="relative">
-    <!-- Menú de categorías -->
     <ul v-if="docs?.[0]?.children?.length" class="flex justify-between categoryMenu">
       <li
         v-for="item in docs[0].children"
         :key="item.path"
         class="relative"
-        @mouseenter="activeCategory = item"
-        @mouseleave="activeCategory = null"
+        @mouseenter="showCategory(item)"
+        @mouseleave="hideCategory"
       >
         <NuxtLink :to="item.path" class="block px-4 py-2" @click="activeCategory = null">
           {{ item.title }}
@@ -15,13 +14,13 @@
       </li>
     </ul>
 
-    <!-- Submenú desplegable centrado y de ancho completo -->
+    <!-- Submenú desplegable de ancho completo -->
     <transition name="fade">
       <div
         v-if="activeCategory"
         class="absolute left-0 right-0 top-full mt-2 bg-white text-black p-4 rounded shadow-lg z-50"
-        @mouseenter="activeCategory = activeCategory"
-        @mouseleave="activeCategory = null"
+        @mouseenter="cancelHide"
+        @mouseleave="hideCategory"
         @click="activeCategory = null"
       >
         <CategoryProducts :category="activeCategory.slug" />
@@ -31,8 +30,27 @@
 </template>
 
 <script setup lang="ts">
-const { data: docs } = await useCategoriasNav()
-const activeCategory = ref(null)
+const { data: docs } = await useCategoriasNav();
+const activeCategory = ref<any>(null);
+let hideTimeout: number | null = null;
+
+function showCategory(item: any) {
+  cancelHide();
+  activeCategory.value = item;
+}
+
+function hideCategory() {
+  hideTimeout = window.setTimeout(() => {
+    activeCategory.value = null;
+  }, 200); // Retardo de 200ms, ajustable según prefieras
+}
+
+function cancelHide() {
+  if (hideTimeout) {
+    clearTimeout(hideTimeout);
+    hideTimeout = null;
+  }
+}
 </script>
 
 <style scoped>
