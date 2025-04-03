@@ -1,9 +1,9 @@
 <template>
     <div class="relative overflow-hidden" ref="emblaRef">
-      <div class="flex transition-transform duration-300 ease-in-out">
+      <div class="flex transition-transform duration-150 ease-in-out">
   
         <!-- Slide 1: imagen izquierda -->
-        <div class="min-w-full grid grid-cols-2 h-[400px]">
+        <div class="min-w-full grid grid-cols-2 h-[350px]">
           <!-- Imagen -->
           <div class="h-[400px] overflow-hidden">
             <img src="/img/sliderHome/LibrosRepro.webp" class="w-full h-full object-cover" />

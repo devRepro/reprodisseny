@@ -1,0 +1,15 @@
+{
+  "abanicos": {
+    "Tamaño": ["Estándar", "Mini", "Extra grande"],
+    "Material": ["Cartón", "Plástico", "Madera"],
+    "Impresión": ["Una cara", "Doble cara"],
+    "Cantidad": [25, 50, 100, 250, 500]
+  },
+
+  "diplomas": {
+    "Tamaño": ["Estándar", "Mini", "Extra grande"],
+    "Material": ["Cartón", "Plástico", "Madera"],
+    "Impresión": ["Una cara", "Doble cara"],
+    "Cantidad": [25, 50, 100, 250, 500]
+  }
+}

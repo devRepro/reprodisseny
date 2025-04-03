@@ -1,0 +1,9 @@
+{
+    "roll-up": {
+      "Tamaño": ["85x200 cm", "100x200 cm", "120x200 cm"],
+      "Material": ["PVC 510g", "Tela poliéster"],
+      "Estructura": ["Estándar", "Premium", "Sin estructura"],
+      "Cantidad": [1, 2, 5, 10]
+    }
+  }
+  

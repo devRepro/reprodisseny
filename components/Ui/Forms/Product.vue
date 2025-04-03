@@ -1,101 +1,79 @@
 <template>
-    <UForm
-      :schema="schema"
-      :state="formState"
-      @submit="onSubmit"
-      class="space-y-6 p-6 bg-white rounded-md shadow"
-    >
-      <UFormGroup label="Nombre completo" name="nombre">
-        <UInput v-model="formState.nombre" placeholder="Tu nombre" />
-      </UFormGroup>
-  
-      <UFormGroup label="Email" name="email">
-        <UInput v-model="formState.email" type="email" placeholder="tucorreo@email.com" />
-      </UFormGroup>
-  
-      <UFormGroup label="Teléfono" name="telefono">
-        <UInput v-model="formState.telefono" type="tel" placeholder="+34..." />
-      </UFormGroup>
-  
-        <UFormGroup label="Producto" name="producto">
-            <USelect v-model="formState.producto" :options="productos" placeholder="Selecciona un producto" />
-        </UFormGroup>
-    
-        <UFormGroup label="Cantidad" name="cantidad">
-            <UInput v-model="formState.cantidad" type="number" min="1" />
-        </UFormGroup>
-    
-        <UFormGroup label="Detalles adicionales (opcional)" name="detalles">
-            <UTextarea v-model="formState.detalles" rows="4" />
-        </UFormGroup>
-  
-        <UButton
-        type="submit"
-        block
-        color="primary"
-        size="lg"
-        >
-        Solicitar precio
-        </UButton>
-  
-      <div v-if="success" class="text-green-600 mt-4">✅ Solicitud enviada correctamente</div>
-      <div v-if="error" class="text-red-600 mt-4">❌ Hubo un error al enviar tu solicitud</div>
-    </UForm>
-  </template>
-  
-  <script setup lang="ts">
-  import { reactive, ref } from 'vue'
-  import { z } from 'zod'
-  import type { FormSubmitEvent } from '#ui/types'
-  
-  const productos = [
-    { label: 'Tarjetas de visita', value: 'tarjetas' },
-    { label: 'Vinilos adhesivos', value: 'vinilos' },
-    { label: 'Catálogos grapados', value: 'catalogos' }
-    // Puedes cargar esto dinámicamente si lo prefieres
-  ]
-  
-  // Esquema de validación con Zod
-  const schema = z.object({
-    nombre: z.string().min(1, 'Tu nombre es obligatorio'),
-    email: z.string().email('Correo electrónico inválido'),
-    telefono: z.string().min(6, 'El teléfono es obligatorio'),
-    producto: z.string().min(1, 'Selecciona un producto'),
-    cantidad: z.coerce.number().min(1, 'La cantidad debe ser mayor a 0'),
-    detalles: z.string().optional()
-  })
-  
-  const formState = reactive({
-    nombre: '',
-    email: '',
-    telefono: '',
-    producto: '',
-    cantidad: 1,
-    detalles: ''
-  })
-  
-  const loading = ref(false)
-  const success = ref(false)
-  const error = ref(false)
-  
-  const onSubmit = async (event: FormSubmitEvent<typeof schema>) => {
-    loading.value = true
-    success.value = false
-    error.value = false
-  
-    try {
-      // Aquí iría tu lógica de envío, por ejemplo con $fetch o una API externa
-      console.log('Datos del formulario:', event.data)
-  
-      await new Promise((resolve) => setTimeout(resolve, 1000)) // Simula espera
-  
-      success.value = true
-    } catch (e) {
-      console.error(e)
-      error.value = true
-    } finally {
-      loading.value = false
+  <form class="space-y-4" @submit.prevent="submitForm">
+    <!-- Mostrar campos dinámicos -->
+    <div v-for="(options, label) in variantes" :key="label">
+      <label :for="label" class="block font-semibold text-gray-700">{{ label }}</label>
+      <select
+        :id="label"
+        v-model="form[label]"
+        class="w-full border border-gray-300 rounded-lg px-4 py-2"
+      >
+        <option disabled value="">Selecciona una opción</option>
+        <option v-for="option in options" :key="option" :value="option">
+          {{ option }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Datos del cliente -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <input type="text" v-model="form.nombre" placeholder="Tu nombre" required class="input" />
+      <input type="email" v-model="form.email" placeholder="Tu email" required class="input" />
+    </div>
+
+    <textarea
+      v-model="form.comentarios"
+      placeholder="Comentarios adicionales"
+      class="w-full border border-gray-300 rounded-lg px-4 py-2"
+      rows="3"
+    ></textarea>
+
+    <button type="submit" class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary-dark">
+      Enviar solicitud
+    </button>
+  </form>
+</template>
+
+<script setup lang="ts">
+import { ref, watchEffect } from 'vue'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+const form = ref<any>({
+  nombre: '',
+  email: '',
+  comentarios: ''
+})
+
+const variantes = ref<Record<string, string[]>>({})
+
+watchEffect(async () => {
+  const categoria = route.params.category
+  const producto = route.params.product
+
+  try {
+    const json = await import(`~/data/opciones/${categoria}.json`)
+    variantes.value = json.default?.[producto] || {}
+  } catch (e) {
+    variantes.value = {}
+  }
+
+  // Inicializa los selects
+  for (const key of Object.keys(variantes.value)) {
+    if (!(key in form.value)) {
+      form.value[key] = ''
     }
   }
-  </script>
-  
+})
+
+function submitForm() {
+  // Aquí podrías enviar el formulario por email, a Netlify, Formspree, etc.
+  console.log('Formulario enviado:', form.value)
+}
+</script>
+
+<style scoped>
+.input {
+  @apply w-full border border-gray-300 rounded-lg px-4 py-2;
+}
+</style>

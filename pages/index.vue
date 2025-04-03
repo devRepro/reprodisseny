@@ -9,7 +9,7 @@
 
 <template>
     <UiSliderHome />
-    <CategoryGrid v-if="categories" :categories="categories ?? []" />
+    <CategoryCarrousel v-if="categories" :categories="categories ?? []" />
     <FeaturesSection />
     <UiFeatures />
 
