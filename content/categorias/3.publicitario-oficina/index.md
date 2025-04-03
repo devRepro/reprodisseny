@@ -6,7 +6,7 @@ image: 'Material-oficina.png'
 alt: 'Lorem'
 nav: 'Material Oficina' # 👈 Necesario para que el menú muestre texto
 navigation: true
-slug: 'eventos' # 👈 Necesario si lo usas en `hoveredCategory`
+slug: 'publicitario-oficina' # 👈 Necesario si lo usas en `hoveredCategory`
 type: 'categoria'
 ---
 

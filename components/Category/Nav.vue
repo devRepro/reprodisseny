@@ -1,6 +1,6 @@
 <template>
   <nav class="relative">
-    <ul v-if="docs?.[0]?.children?.length" class="flex justify-between categoryMenu">
+    <ul v-if="docs?.[0]?.children?.length" class="flex justify-between rounded-t-md rounded-b-none categoryMenu">
       <li
         v-for="item in docs[0].children"
         :key="item.path"
@@ -57,7 +57,7 @@ function cancelHide() {
 .categoryMenu {
   background-color: #1a1c20;
   color: #fff;
-  border-radius: 0.3rem;
+
 }
 
 .categoryMenu a {
