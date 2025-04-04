@@ -10,4 +10,4 @@ slug: 'publicitario-oficina' # 👈 Necesario si lo usas en `hoveredCategory`
 type: 'categoria'
 ---
 
-# Eventos
+# Publicidad y Oficina
