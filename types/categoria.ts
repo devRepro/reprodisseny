@@ -1,3 +1,11 @@
+export interface FormField {
+  label: string
+  name: string
+  type: 'text' | 'number' | 'select'
+  required: boolean
+  options?: string[]
+}
+
 export interface Categoria {
   title: string
   navigation?: boolean
@@ -7,6 +15,9 @@ export interface Categoria {
   keywords?: string[]
   image?: string
   alt?: string
-  type?: 'categoria'
+  type?: 'categoria' | 'producto'
   path: string
+
+  // ✅ Nuevo campo para productos que contienen formulario
+  formFields?: FormField[]
 }

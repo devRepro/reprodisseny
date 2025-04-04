@@ -21,7 +21,7 @@
         <!-- Aquí podrías incluir opciones seleccionables en el futuro -->
 
         <!-- Formulario para solicitar presupuesto -->
-        <UiFormsProduct />
+        <UiFormsProduct :producto="producto"/>
       </div>
     </div>
 

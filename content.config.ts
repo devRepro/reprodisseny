@@ -32,7 +32,17 @@ export default defineContentConfig({
         price: z.number().optional(),
         priceCurrency: z.string().optional(),
         inStock: z.boolean().optional(),
-        brand: z.string().optional()
+        brand: z.string().optional(),
+         // ✅ Campos del formulario dinámico
+         formFields: z.array(
+          z.object({
+            label: z.string(),
+            name: z.string(),
+            type: z.enum(['text', 'number', 'select']),
+            required: z.boolean(),
+            options: z.array(z.string()).optional()
+          })
+        ).optional()
       })
     })
   }

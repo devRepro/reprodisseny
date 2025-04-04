@@ -1,17 +1,36 @@
 <template>
   <form class="space-y-4" @submit.prevent="submitForm">
-    <!-- Mostrar campos dinámicos -->
-    <div v-for="(options, label) in variantes" :key="label">
-      <label :for="label" class="block font-semibold text-gray-700">{{ label }}</label>
+    <!-- Campos personalizados del producto -->
+    <div v-for="field in producto?.formFields || []" :key="field.name">
+      <label :for="field.name" class="block font-semibold text-gray-700">{{ field.label }}</label>
+
+      <input
+        v-if="field.type === 'text'"
+        type="text"
+        :id="field.name"
+        v-model="form[field.name]"
+        class="input"
+        :required="field.required"
+      />
+
+      <input
+        v-else-if="field.type === 'number'"
+        type="number"
+        :id="field.name"
+        v-model="form[field.name]"
+        class="input"
+        :required="field.required"
+      />
+
       <select
-        :id="label"
-        v-model="form[label]"
-        class="w-full border border-gray-300 rounded-lg px-4 py-2"
+        v-else-if="field.type === 'select'"
+        :id="field.name"
+        v-model="form[field.name]"
+        class="input"
+        :required="field.required"
       >
         <option disabled value="">Selecciona una opción</option>
-        <option v-for="option in options" :key="option" :value="option">
-          {{ option }}
-        </option>
+        <option v-for="option in field.options" :key="option" :value="option">{{ option }}</option>
       </select>
     </div>
 
@@ -24,7 +43,7 @@
     <textarea
       v-model="form.comentarios"
       placeholder="Comentarios adicionales"
-      class="w-full border border-gray-300 rounded-lg px-4 py-2"
+      class="input"
       rows="3"
     ></textarea>
 
@@ -32,42 +51,37 @@
       Enviar solicitud
     </button>
   </form>
+
 </template>
 
 <script setup lang="ts">
-import { ref, watchEffect } from 'vue'
-import { useRoute } from 'vue-router'
+import { ref, watch } from 'vue'
 
-const route = useRoute()
-const form = ref<any>({
+// Recibir props del producto
+const props = defineProps<{ producto: any }>()
+
+const form = ref<Record<string, any>>({
   nombre: '',
   email: '',
   comentarios: ''
 })
 
-const variantes = ref<Record<string, string[]>>({})
-
-watchEffect(async () => {
-  const categoria = route.params.category
-  const producto = route.params.product
-
-  try {
-    const json = await import(`~/data/opciones/${categoria}.json`)
-    variantes.value = json.default?.[producto] || {}
-  } catch (e) {
-    variantes.value = {}
-  }
-
-  // Inicializa los selects
-  for (const key of Object.keys(variantes.value)) {
-    if (!(key in form.value)) {
-      form.value[key] = ''
+// ✅ Cargar los campos dinámicos del producto al detectar cambios
+watch(
+  () => props.producto?.formFields,
+  (fields) => {
+    if (fields && Array.isArray(fields)) {
+      for (const field of fields) {
+        if (!(field.name in form.value)) {
+          form.value[field.name] = field.type === 'select' ? '' : ''
+        }
+      }
     }
-  }
-})
+  },
+  { immediate: true } // importante para que también lo haga la primera vez
+)
 
 function submitForm() {
-  // Aquí podrías enviar el formulario por email, a Netlify, Formspree, etc.
   console.log('Formulario enviado:', form.value)
 }
 </script>
