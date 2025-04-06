@@ -9,7 +9,7 @@
         @mouseleave="hideCategory"
       >
         <NuxtLink :to="item.path" class="block px-4 py-2" @click="activeCategory = null">
-          {{ item.title }}
+          {{ item.nav }}
         </NuxtLink>
       </li>
     </ul>
