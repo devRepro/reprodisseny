@@ -9,7 +9,7 @@
     <main class="flex-1 container mx-auto px-4 py-8"> 
       
       <!-- Menú de navegación global -->
-      <CategoryNav v-if="categories" :categories="categories" />
+      <MenuBar />
       <!--Cargamos contenido de la página-->
       <slot />
     </main>

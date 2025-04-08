@@ -7,6 +7,8 @@
     
     <!-- Contenido principal de producto -->
     <main class="flex-1 container mx-auto px-4 py-8">
+          <!-- Menú de navegación global -->
+      <MenuBar />
       <!-- Aquí se insertará la página del producto -->
       <slot />
     </main>
