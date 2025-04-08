@@ -19,9 +19,8 @@
         <p class="text-lg text-gray-600">{{ producto.description }}</p>
 
         <!-- Aquí podrías incluir opciones seleccionables en el futuro -->
-
-        <!-- Formulario para solicitar presupuesto -->
-        <UiFormsProduct :producto="producto"/>
+        <h2>asfasfas</h2>
+ 
       </div>
     </div>
 

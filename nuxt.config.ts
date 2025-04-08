@@ -3,6 +3,9 @@ import { defineNuxtConfig } from 'nuxt/config'
 export default defineNuxtConfig({
   //Definimos url
   runtimeConfig: {
+    // ✅ Solo accesibles en el server y conectarnos a sendgrid para enviar los correos
+    SENDGRID_API_KEY: process.env.SENDGRID_API_KEY,
+    SENDGRID_FROM: process.env.SENDGRID_FROM,
     public: {
       siteUrl: 'http://localhost:3000' // Define la URL de producción
     }
