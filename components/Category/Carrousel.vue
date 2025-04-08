@@ -45,7 +45,7 @@ defineProps<{
 }>()
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 /* Oculta la barra de scroll horizontal visualmente pero permite el scroll */
 .hide-scrollbar {
   -ms-overflow-style: none;  /* IE y Edge */

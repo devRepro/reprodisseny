@@ -26,7 +26,7 @@
         v-else-if="field.type === 'select'"
         :id="field.name"
         v-model="form[field.name]"
-        class="input"
+        class="w-full border border-gray-300 rounded-lg px-4 py-2 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition duration-200"
         :required="field.required"
       >
         <option disabled value="">Selecciona una opción</option>
@@ -86,8 +86,8 @@ function submitForm() {
 }
 </script>
 
-<style scoped>
-.input {
-  @apply w-full border border-gray-300 rounded-lg px-4 py-2;
-}
+<style scoped lang="scss">
+
+
 </style>
+

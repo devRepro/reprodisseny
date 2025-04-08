@@ -14,7 +14,7 @@
   
           <!-- Texto a la derecha -->
           <div class="w-full md:w-[60%]">
-            <h3 class="text-2xl font-bold text-[#1a78b3] mb-3">{{ item.title }}</h3>
+            <h3 class="text-2xl font-bold text-secundary mb-3">{{ item.title }}</h3>
             <div class="text-gray-700 space-y-3 text-sm leading-relaxed" v-html="item.description"></div>
           </div>
         </div>

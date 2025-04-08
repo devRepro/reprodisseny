@@ -53,7 +53,7 @@ function cancelHide() {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .categoryMenu {
   background-color: #1a1c20;
   color: #fff;

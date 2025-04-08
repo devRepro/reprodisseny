@@ -12,7 +12,6 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/content',
     '@nuxtjs/tailwindcss',
-    '@nuxt/ui',
     '@nuxt/icon',
     '@nuxt/image'
   ],
@@ -36,12 +35,12 @@ export default defineNuxtConfig({
   },
  
   compatibilityDate: '2024-11-01',
-  devtools: { enabled: true },
+  devtools: { enabled: false },
 
 
   //configuración Tailwind
   tailwindcss: {
-    configPath: 'tailwind.config.js',
+    configPath: 'tailwind.config.ts',
     exposeConfig: true,
   },
 

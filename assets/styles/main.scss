@@ -19,14 +19,12 @@
   }
 
   :root {
-    /* Paleta de colores */
-    --color-primary: #1a78b3;
-    --color-secondary: #f2a900;
-    --color-accent: #f28d35,  
-    --color-light: #f8f8f8;
-    --color-dark: #333333;
-    --color-gray: #707070;
-
+    --color-primary: 204 73% 41%;      /* Azul corporativo */
+  --color-secondary: 0 0% 27%;       /* Gris oscuro sugerido (#454545) */
+  --color-accent: 28 89% 59%;        /* Naranja */
+  --color-light: 0 0% 97%;           /* Gris claro */
+  --color-dark: 0 0% 20%;            /* Gris muy oscuro */
+  --color-gray: 0 0% 44%;            /* Gris medio */
     /* Factor de reducción: 13px / 16px = 0.8125 */
     /* Medidas originales (para 16px base):
        h1: 3.5rem, h2: 2.5rem, h3: 1.75rem, h4: 1.5rem, h5: 1.25rem, h6: 1rem,
@@ -50,6 +48,7 @@
     --line-h5: 1.4;
     --line-h6: 1.4;
     --line-body: 1.6;
+    --color-primary-DEFAULT: var(--color-primary);
   }
 
   body {
