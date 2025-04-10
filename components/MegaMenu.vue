@@ -30,7 +30,7 @@ defineProps<{
     <MenubarTrigger>
       {{ category.nav || category.title || category.slug }}
     </MenubarTrigger>
-
+    {{ category.image }}
     <MenubarContent class="w-[720px] grid grid-cols-3 gap-6 p-4 bg-white shadow-xl rounded-xl z-50">
       <!-- 🧾 Lista de productos (col 1-2) -->
       <div class="col-span-2">
