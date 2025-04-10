@@ -72,31 +72,21 @@ const isMobileOpen = ref(false)
             {{ category.nav || category.title || category.slug }}
           </MenubarTrigger>
 
-          <MenubarContent class="w-[700px] grid grid-cols-3 gap-4 p-4">
-  <!-- 📦 Lista de productos -->
-  <div class="col-span-2 space-y-1">
-    <h4 class="text-sm font-semibold text-gray-600 mb-2">Productos</h4>
-    <MenubarItem
-      v-for="product in category.children"
-      :key="product.slug"
-      @click="navigateTo(`/categorias/${product.slug}`)"
-      class="text-sm text-gray-700 hover:text-primary"
-    >
-      {{ product.title || product.slug }}
-    </MenubarItem>
-  </div>
+          <MenubarContent>
+            <!-- Ver categoría -->
+            <MenubarItem @click="navigateTo(`/categorias/${category.slug}`)">
+              Ver categoría
+            </MenubarItem>
 
-  <!-- 🖼 Imagen de categoría -->
-  <div class="col-span-1">
-    <NuxtImg
-      v-if="category.image"
-      :src="`/img/categorias/${category.image}`"
-      :alt="category.alt"
-      class="rounded-xl w-full h-40 object-cover shadow"
-    />
-    <p class="text-xs text-gray-500 mt-2 text-center">{{ category.nav || category.title }}</p>
-  </div>
-</MenubarContent>
+            <!-- Productos -->
+            <MenubarItem
+              v-for="product in category.children"
+              :key="product.slug"
+              @click="navigateTo(`/categorias/${product.slug}`)"
+            >
+              {{ product.title || product.slug }}
+    </MenubarItem>
+  </MenubarContent>
         </MenubarMenu>
 
       </Menubar>
