@@ -1,4 +1,20 @@
 {
-  // https://nuxt.com/docs/guide/concepts/typescript
-  "extends": "./.nuxt/tsconfig.json"
+  "extends": "./.nuxt/tsconfig.json",
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": ["ES2020", "DOM"],
+    "strict": true,
+    "types": ["@nuxt/content"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"],
+      "#content": ["node_modules/@nuxt/content/dist/runtime"],
+      "#imports": ["./.nuxt/imports"]
+    }
+  }
 }
+
+
+

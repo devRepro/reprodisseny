@@ -7,17 +7,40 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "clean": "rm -rf .nuxt node_modules dist .output && npm cache clean --force && npm install && npm run dev"
   },
   "dependencies": {
     "@nuxt/content": "^3.3.0",
-    "@nuxt/ui": "^2.21.1",
-    "@nuxtjs/tailwindcss": "^6.13.2",
-    "nuxt": "^3.16.0",
-    "vue": "^3.5.13",
-    "vue-router": "^4.5.0"
+    "@nuxt/icon": "^1.11.0",
+    "@nuxt/image": "1.9.0",
+    "@sendgrid/mail": "^8.1.5",
+    "@vee-validate/zod": "^4.15.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "embla-carousel": "^8.5.2",
+    "lucide-vue-next": "^0.487.0",
+    "nuxt": "3.16.0",
+    "reka-ui": "^2.2.0",
+    "tailwind-merge": "^3.2.0",
+    "tailwindcss-animate": "^1.0.7",
+    "vee-validate": "^4.15.0",
+    "vue": "3.5.13",
+    "vue-router": "4.5.0",
+    "zod": "^3.24.2"
   },
   "devDependencies": {
-    "sass": "^1.85.1"
+    "@iconify-json/tabler": "^1.2.17",
+    "@nuxt/types": "^2.18.1",
+    "@nuxtjs/tailwindcss": "^6.13.2",
+    "@types/node": "^22.13.17",
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "sass": "1.85.1",
+    "tailwind-config-viewer": "^2.0.4",
+    "tailwindcss": "^3.4.1"
+  },
+  "resolutions": {
+    "parse-git-config": "latest"
   }
 }

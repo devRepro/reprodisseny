@@ -1,13 +1,17 @@
 <script setup lang="ts">
-const { data: home } = await useAsyncData(() => queryCollection('content').path('/').first())
 
-useSeoMeta({
-  title: home.value?.title,
-  description: home.value?.description
-})
+
+  const { data: categories } = await useCategorias()
+
+  
+
 </script>
 
 <template>
-  <ContentRenderer v-if="home" :value="home" />
-  <div v-else>Home not found</div>
+  <div> 
+    <UiSliderHome />
+    <CategoryCarrousel v-if="categories" :categories="categories ?? []" />
+    <FeaturesSection />
+    <UiFeatures />
+  </div>  
 </template>
