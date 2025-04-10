@@ -7,6 +7,7 @@ import {
   MenubarTrigger
 } from '@/components/ui/menubar'
 import { Icon } from '#components'
+import { navigateTo } from '#app'
 
 const { data: docs } = await useCategoriasNav()
 const isMobileOpen = ref(false)
@@ -26,21 +27,15 @@ const isMobileOpen = ref(false)
 
   <!-- ✅ MENÚ MÓVIL -->
   <transition name="fade">
-    <div
-      v-if="isMobileOpen"
-      class="md:hidden px-4 pt-4 pb-8 space-y-8"
-    >
+    <div v-if="isMobileOpen" class="md:hidden px-4 pt-4 pb-8 space-y-8">
       <!-- Categorías -->
       <div>
         <h2 class="text-xl font-semibold text-gray-800 mb-4">Categorías</h2>
         <ul class="space-y-2">
-          <li
-            v-for="category in docs?.[0]?.children"
-            :key="category._path"
-          >
+          <li v-for="category in docs?.[0]?.children" :key="category.slug">
             <NuxtLink
-              :to="category._path"
-              class="block text-gray-800 text-base font-medium hover:underline"
+              :to="`/categorias/${category.slug}`"
+              class="block text-gray-800 text-base font-medium hover:text-gray-600"
               @click="isMobileOpen = false"
             >
               {{ category.nav || category.title || category.slug }}
@@ -67,26 +62,29 @@ const isMobileOpen = ref(false)
 
   <!-- ✅ MENÚ DE ESCRITORIO -->
   <div class="hidden md:flex justify-center border-b">
-    <div class="max-w-screen-xl w-full mx-auto">
-      <Menubar class="gap-4 justify-center">
+    <div class="w-full">
+      <Menubar class="gap-4 justify-start">
         <MenubarMenu
           v-for="category in docs?.[0]?.children"
-          :key="category._path"
+          :key="category.slug"
         >
           <MenubarTrigger>
             {{ category.nav || category.title || category.slug }}
           </MenubarTrigger>
 
-          <!-- Solo mostrar productos si hay -->
-          <MenubarContent v-if="category.children?.length">
+          <MenubarContent>
+            <!-- Enlace directo a la categoría -->
+            <MenubarItem @click="navigateTo(`/categorias/${category.slug}`)">
+              Ver categoría
+            </MenubarItem>
+
+            <!-- Productos -->
             <MenubarItem
               v-for="product in category.children"
-              :key="product._path"
-              as-child
+              :key="product.slug"
+              @click="navigateTo(`/categorias/${product.slug}`)"
             >
-              <NuxtLink :to="product._path">
-                {{ product.title || product.nav || product.slug }}
-              </NuxtLink>
+              {{ product.nav || product.title || product.slug }}
             </MenubarItem>
           </MenubarContent>
         </MenubarMenu>

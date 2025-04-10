@@ -1,0 +1,33 @@
+@layer components {
+    input,
+    textarea {
+      @apply w-full px-4 py-2 border rounded-md text-secondary focus:outline-none;
+      border-color: hsl(var(--color-gray));
+      font-size: var(--font-body);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+  
+    input:focus,
+    textarea:focus {
+      border-color: hsl(var(--color-primary));
+      box-shadow: 0 0 4px hsl(var(--color-primary));
+    }
+  
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: hsl(var(--color-secondary));
+    }
+  
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+  
+    .form-error {
+      font-size: 0.75rem;
+      color: hsl(0, 100%, 60%);
+      margin-top: 0.25rem;
+    }
+  }
+  

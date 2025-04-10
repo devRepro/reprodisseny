@@ -7,7 +7,8 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "clean": "rm -rf .nuxt node_modules dist .output && npm cache clean --force && npm install && npm run dev"
   },
   "dependencies": {
     "@nuxt/content": "^3.3.0",
