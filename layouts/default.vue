@@ -10,6 +10,7 @@
       
       <!--Cargamos menu de categorias MainMenu-->
       <MenuCat />
+        <UiBreadcrumbBreadcrumbsComponent />
 
       <!--Cargamos contenido de la página-->
       <slot />
