@@ -4,7 +4,7 @@ description: Adhesivos vinílicos, troquelados y removibles para campañas, prod
   y decoración. Soluciones creativas y personalizadas para agencias y negocios en
   Cataluña.
 keywords:
-- 'Adhesivos personalizados para empresas​
+  'Adhesivos personalizados para empresas​
 
   Etiquetas adhesivas en Cataluña​
 

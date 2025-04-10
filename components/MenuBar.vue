@@ -64,31 +64,11 @@ const isMobileOpen = ref(false)
   <div class="hidden md:flex justify-center border-b">
     <div class="w-full">
       <Menubar class="gap-4 justify-start">
-        <MenubarMenu
+        <MegaMenu
           v-for="category in docs?.[0]?.children"
           :key="category.slug"
-        >
-          <MenubarTrigger>
-            {{ category.nav || category.title || category.slug }}
-          </MenubarTrigger>
-
-          <MenubarContent>
-            <!-- Ver categoría -->
-            <MenubarItem @click="navigateTo(`/categorias/${category.slug}`)">
-              Ver categoría
-            </MenubarItem>
-
-            <!-- Productos -->
-            <MenubarItem
-              v-for="product in category.children"
-              :key="product.slug"
-              @click="navigateTo(`/categorias/${product.slug}`)"
-            >
-              {{ product.title || product.slug }}
-    </MenubarItem>
-  </MenubarContent>
-        </MenubarMenu>
-
+          :category="category"
+        />
       </Menubar>
     </div>
   </div>
