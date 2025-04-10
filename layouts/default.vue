@@ -6,24 +6,18 @@
     </header>
     
     <!-- Main Content Layout -->
-    <main class="flex-1 container mx-auto px-4 py-8"> 
+    <main class="flex-1 container mx-auto px-4 py-8">
       
-      <!-- Menú de navegación global -->
-      <MenuBar />
+      <!--Cargamos menu de categorias MainMenu-->
+      <MenuCat />
+
       <!--Cargamos contenido de la página-->
       <slot />
+    
     </main>
 
     <!-- Footer -->
      <UiFooter />
   </div>
 </template>
-
-<script setup>
-
-//Cargamos las categorias
-const { data: categories } = await useCategoriasNav()
-
-</script>
-
 

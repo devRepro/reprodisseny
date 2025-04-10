@@ -2,8 +2,9 @@
 title: Expositores impresos para punto de venta y eventos | Repro Disseny
 description: Stoppers, PLV, displays y peanas de cartón. Expositores personalizados
   para destacar en retail, showrooms y ferias.
-keywords:
-- 'Diseño de stands para ferias​
+keywords: 
+  
+  Diseño de stands para ferias​
 
   Expositores personalizados para puntos de venta​
 

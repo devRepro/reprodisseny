@@ -3,7 +3,8 @@ title: Impresión personalizada para eventos corporativos | Repro Disseny
 description: Acreditaciones, invitaciones, soportes gráficos y detalles para eventos.
   Producción local y adaptada a las necesidades de agencias y organizadores.
 keywords:
-- 'Material gráfico para eventos corporativos​
+  
+  Material gráfico para eventos corporativos​
 
   Impresión de acreditaciones y lanyards​
 

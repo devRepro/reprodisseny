@@ -1,9 +1,23 @@
-//Lógica para la navagación y construir el componente MenuBar.vue
-     
-export const useCategoriasNav = async () => {
-  const { data: docs } = await useAsyncData("categorias-navigation", () =>
-    queryCollectionNavigation("categorias", ["title", "nav", "slug"])
-  )
+// composables/useCategoriasNav.ts
+import type { Categoria } from '@/types/index'
 
-  return { data: docs }
+export const useCategoriasNav = () => {
+  return useAsyncData<Categoria[]>('categorias-navigation', async () => {
+    const categoriasRaiz = await queryCollectionNavigation('categorias', [
+      'title',
+      'nav',
+      'slug',
+      'formFields',
+      'type',
+      'path'
+    ])
+
+    const categorias = categoriasRaiz?.[0]?.children || []
+
+    return categorias.map((categoria: any) => ({
+      ...categoria,
+      children: categoria.children?.filter((p: any) => p.type === 'producto')
+    }))
+  })
 }
+
