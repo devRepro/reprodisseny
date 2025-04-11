@@ -1,0 +1,16 @@
+{
+    "path": "./components/ui",
+    "rsc": false,
+    "typescript": true,
+    "tailwind": {
+      "config": "tailwind.config.ts",
+      "css": "assets/css/main.scss",
+      "baseColor": "zinc",
+      "cssVariables": true
+    },
+    "aliases": {
+      "components": "@/components",
+      "utils": "@/lib/utils"
+    }
+  }
+  
