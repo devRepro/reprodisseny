@@ -1,5 +1,5 @@
 ---
-title: ' Impresión en gran formato para publicidad y eventos | Repro Disseny'
+title: 'Impresión en gran formato para publicidad y eventos | Repro Disseny'
 description: Roll-ups, lonas, paneles rígidos, foam y más. Impresión en gran formato
   ideal para ferias, campañas y retail. Calidad premium y producción local en Cataluña.
 keywords:

@@ -1,7 +1,8 @@
 
 <template>
   <AppLayoutShell>
-    <template #top>  
+    <template #top>
+      <MenuCat />
     </template>
     <slot />
   </AppLayoutShell>

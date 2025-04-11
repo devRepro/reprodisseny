@@ -15,9 +15,9 @@ const { data: categories } = await useCategoriasNav()
 </script>
 
 <template>
-  <div class="hidden md:flex justify-center border-b">
+  <div class="hidden md:flex justify-center ">
     <div class="w-full">
-      <Menubar class="gap-4 justify-start">
+      <Menubar class="container mx-auto gap-4 justify-start">
         <template
           v-for="category in categories"
           :key="category.slug"

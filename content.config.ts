@@ -9,16 +9,17 @@ export default defineContentConfig({
         // SEO y estructura básica
         title: z.string(),
         slug: z.string().optional(),
-        category: z.string().optional(),
+        category: z.string().optional(), // categoría madre si aplica
         description: z.string(),
         image: z.string().optional(),
         alt: z.string().optional(),
-        type: z.string().optional(),
+        type: z.enum(['categoria', 'subcategoria', 'producto']).optional(),
 
         // Navegación y organización
         navigation: z.boolean().optional(),
         nav: z.any().optional(),
         categoria: z.string().optional(),
+        parent: z.string().optional(), // 💡 NUEVO: para saber la categoría madre
 
         // SEO opcional avanzado
         metatitle: z.string().optional(),
@@ -27,14 +28,15 @@ export default defineContentConfig({
         // Schema.org estructurado
         schema: z.record(z.any()).optional(),
 
-        // 🔜 Campos para ecommerce (opcional por ahora)
+        // Campos para ecommerce
         sku: z.string().optional(),
         price: z.number().optional(),
         priceCurrency: z.string().optional(),
         inStock: z.boolean().optional(),
         brand: z.string().optional(),
-         // ✅ Campos del formulario dinámico
-         formFields: z.array(
+
+        // Campos del formulario dinámico
+        formFields: z.array(
           z.object({
             label: z.string(),
             name: z.string(),

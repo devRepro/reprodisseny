@@ -1,7 +1,7 @@
 <template>
   <section class="container mx-auto px-4 py-10">
     <h2 class="text-3xl font-bold text-gray-900 text-center mb-8">Conoce Nuestras Categorías</h2>
-
+    
     <div class="flex gap-6 overflow-x-auto pb-4 hide-scrollbar">
       <div
         v-for="category in categories"
@@ -43,6 +43,7 @@ defineProps<{
     alt?: string
   }[]
 }>()
+
 </script>
 
 <style scoped lang="scss">

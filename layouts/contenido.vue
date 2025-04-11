@@ -1,7 +1,7 @@
 
 <template>
   <AppLayoutShell>
-    <template #top>  
+    <template #top>
     </template>
     <slot />
   </AppLayoutShell>

@@ -1,4 +1,3 @@
-// composables/useCategoriasNav.ts
 import type { Categoria } from '@/types/index'
 
 export const useCategoriasNav = () => {
@@ -14,10 +13,23 @@ export const useCategoriasNav = () => {
 
     const categorias = categoriasRaiz?.[0]?.children || []
 
-    return categorias.map((categoria: any) => ({
-      ...categoria,
-      children: categoria.children?.filter((p: any) => p.type === 'producto')
-    }))
+    return categorias.map((categoria: any) => {
+      const subcategorias = categoria.children?.filter((c: any) => c.type === 'subcategoria') || []
+
+      const subcategoriasConProductos = subcategorias.map((sub: any) => ({
+        ...sub,
+        children: sub.children?.filter((p: any) => p.type === 'producto') || []
+      }))
+
+      // Si no hay subcategorías, los productos van directo bajo la categoría
+      const productosDirectos = categoria.children?.filter((p: any) => p.type === 'producto') || []
+
+      return {
+        ...categoria,
+        children: subcategoriasConProductos.length > 0 ? subcategoriasConProductos : productosDirectos
+      }
+    })
   })
 }
+
 
