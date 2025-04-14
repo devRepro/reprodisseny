@@ -30,3 +30,6 @@ schema:
     priceCurrency: EUR
     availability: https://schema.org/InStock
 ---
+
+## Cajas de luz
+

@@ -42,6 +42,70 @@
   .text-secondary {
     @apply text-black;
   }
+  .menu-link {
+    @apply text-[hsl(var(--color-secondary))] font-medium transition-colors duration-200;
+  }
+  .menu-link:hover {
+    @apply text-[hsl(var(--color-primary))] font-semibold;
+  }
+
+  .dark .menu-link {
+    @apply text-[hsl(var(--foreground))];
+  }
+
+  .dark .menu-link:hover {
+    @apply text-[hsl(var(--color-primary))] font-semibold;
+  }
+  .menu-link[aria-current="page"] {
+    @apply font-semibold text-[hsl(var(--color-primary))] border-b-2 border-[hsl(var(--color-primary))];
+  }
+  
+  .dark .menu-link[aria-current="page"] {
+    @apply text-[hsl(var(--color-primary))] border-b-2 border-[hsl(var(--color-primary))];
+  }
+  // Botón primario (AWS-style)
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors;
+    background-color: hsl(var(--color-primary));
+    color: hsl(var(--primary-foreground));
+    border: 1px solid hsl(var(--color-primary));
+  }
+
+  .btn-primary:hover {
+    filter: brightness(0.95);
+  }
+
+  // Botón secundario con borde (ideal filtros)
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors;
+    background-color: transparent;
+    color: hsl(var(--color-secondary));
+    border: 1px solid hsl(var(--color-gray));
+  }
+
+  .btn-outline:hover {
+    border-color: hsl(var(--color-primary));
+    color: hsl(var(--color-primary));
+    background-color: hsl(var(--color-light));
+  }
+  // Botón ghost (sólo texto)
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors;
+    background-color: transparent;
+    color: hsl(var(--color-secondary));
+  }
+
+  .btn-ghost:hover {
+    background-color: hsl(var(--muted));
+  }
+
+  // Botón de filtro activo
+  .btn-filter-active {
+    background-color: hsl(var(--color-primary));
+    color: hsl(var(--primary-foreground));
+    border-color: hsl(var(--color-primary));
+  }
+
 }
 
 @layer base {

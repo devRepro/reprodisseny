@@ -1,23 +1,24 @@
+<!-- layouts/default.vue -->
+<script setup lang="ts">
+import { useSearch } from '@/composables/useSearch'
+
+const { searchOpen, closeSearch } = useSearch()
+</script>
+
 <template>
-  <div class="flex flex-col min-h-screen">
-    <!-- Navbar -->
+  <div class="flex flex-col min-h-screen bg-white">
     <header class="py-4 shadow-md">
       <UiHeader />
+      <UiCommandSearch v-if="searchOpen" @close="closeSearch" />
     </header>
-    
-    <!-- Main Content Layout -->
-    <main class="flex-1 container mx-auto px-4 py-8">
-      
-      <!--Cargamos menu de categorias MainMenu-->
-      <MenuCat />
 
-      <!--Cargamos contenido de la página-->
+
+    <main class="flex-1 container mx-auto px-4 py-8">
+       <!--Cargamos menu de categorias MainMenu-->
+      <MenuCat />
       <slot />
-    
     </main>
 
-    <!-- Footer -->
-     <UiFooter />
+    <UiFooter />
   </div>
 </template>
-

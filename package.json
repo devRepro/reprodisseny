@@ -8,7 +8,10 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "clean": "rm -rf .nuxt node_modules dist .output && npm cache clean --force && npm install && npm run dev"
+    "clean": "rm -rf .nuxt node_modules dist .output && npm cache clean --force && npm install && npm run dev",
+    "validate-md": "node scripts/validate-md-structure.js",
+    "fix:types": "rm -rf .nuxt node_modules package-lock.json && npm install && npx nuxi prepare",
+    "refresh:types": "npx nuxi prepare"
   },
   "dependencies": {
     "@nuxt/content": "^3.3.0",
@@ -20,13 +23,14 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "embla-carousel": "^8.5.2",
+    "gray-matter": "^4.0.3",
     "lucide-vue-next": "^0.487.0",
     "nuxt": "3.16.0",
     "reka-ui": "^2.2.0",
     "tailwind-merge": "^3.2.0",
     "tailwindcss-animate": "^1.0.7",
     "vee-validate": "^4.15.0",
-    "vue": "3.5.13",
+    "vue": "^3.5.13",
     "vue-router": "4.5.0",
     "zod": "^3.24.2"
   },

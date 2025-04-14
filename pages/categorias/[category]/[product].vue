@@ -37,8 +37,10 @@
 </template>
 
 <script lang="ts" setup>
+
+//definimos el layout
 definePageMeta({
-  layout: 'product'
+  layout: 'producto'
 })
 
 import { ref, watchEffect } from 'vue'

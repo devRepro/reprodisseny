@@ -8,20 +8,22 @@ import {
 } from '@/components/ui/menubar'
 
 import { Icon } from '#components'
-import { navigateTo } from '#app'
-import type { Categoria, Producto } from '@/types/index'
+import { useRouter } from 'vue-router'
+import { useCategoriasNav } from '@/composables/useCategoriasNav'
 
+const router = useRouter()
 const { data: categories } = await useCategoriasNav()
+
+const navigateTo = (path: string) => {
+  router.push(path)
+}
 </script>
 
 <template>
   <div class="hidden md:flex justify-center border-b">
     <div class="w-full">
       <Menubar class="gap-4 justify-start">
-        <template
-          v-for="category in categories"
-          :key="category.slug"
-        >
+        <template v-if="categories.length > 0" v-for="category in categories" :key="category.slug">
           <MenubarMenu>
             <MenubarTrigger>
               {{ category.nav || category.slug }}
@@ -38,13 +40,8 @@ const { data: categories } = await useCategoriasNav()
 
               <div class="border-t my-1" />
 
-              <template
-                v-for="product in category.children || []"
-                :key="product.slug"
-              >
-                <MenubarItem
-                  @click="navigateTo(`/categorias/${product.slug}`)"
-                >
+              <template v-for="product in category.children || []" :key="product.slug">
+                <MenubarItem @click="navigateTo(`/categorias/${product.slug}`)">
                   {{ product.title || product.slug }}
                 </MenubarItem>
               </template>

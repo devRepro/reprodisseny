@@ -16,7 +16,10 @@
 
 <script setup lang="ts">
 
-
+//cargamos layout
+definePageMeta({
+  layout: 'categorias'
+})
 const route = useRoute()
 const categorySlug = route.params.category as string
 

@@ -36,7 +36,7 @@ let hideTimeout: number | null = null;
 
 function showCategory(item: any) {
   cancelHide();
-  activeCategory.value = item;
+  activeCategory.value = item;∫∫∫
 }
 
 function hideCategory() {
