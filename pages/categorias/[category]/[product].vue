@@ -29,7 +29,10 @@
       <ContentRenderer :value="producto" />
     </div>
   </div>
-  
+  <!-- Spinner mientras carga -->
+  <div v-else-if="loading" class="text-center py-20">
+    <UiSpinner />
+  </div>
   <!-- Estado de carga -->
   <div v-else class="text-center py-20">
     <p class="text-xl text-gray-500">Cargando producto o no encontrado…</p>
@@ -47,6 +50,7 @@ import { ref, watchEffect } from 'vue'
 
 const route = useRoute()
 const producto = ref(null)
+const loading = ref(true)
 
 // Cargar el producto según categoría y slug
 watchEffect(async () => {
@@ -61,6 +65,7 @@ watchEffect(async () => {
       .first()
 
     producto.value = data
+    loading.value = false
   }
 })
 
