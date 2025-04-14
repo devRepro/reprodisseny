@@ -1,50 +1,73 @@
-import { ref, computed } from 'vue'
+import { ref, watch, type Ref } from 'vue'
+import type { Categoria, Producto } from '@/types'
 
-export const useContentSearch = () => {
-  const searchTerm = ref('')
-  const results = ref<any[]>([])
-
-  const filteredCategories = computed(() => {
-    return results.value.filter((r: any) => r.type === 'categoria')
+export function useContentSearch(search: Ref<string>) {
+  const results = ref<{ categorias: Categoria[]; productos: Producto[] }>({
+    categorias: [],
+    productos: []
   })
 
-  const filteredProducts = computed(() => {
-    return results.value.filter((r: any) => r.type === 'producto')
-  })
+  const loading = ref(false)
+  let debounceTimeout: ReturnType<typeof setTimeout>
 
-  const search = async (term: string) => {
-    if (!term) {
-      results.value = []
+  watch(search, (val) => {
+    const searchTerm = val?.toLowerCase()?.trim() ?? ''
+
+    if (debounceTimeout) clearTimeout(debounceTimeout)
+
+    // Mostrar resultados antiguos mientras escribe
+    if (searchTerm.length < 2) {
+      results.value = { categorias: [], productos: [] }
       return
     }
 
-    try {
-      // Usamos queryCollectionSearchSections para obtener las secciones de 'categorias'
-      const sections = await queryCollectionSearchSections('categorias', {
-        ignoredTags: ['code'],
-      })
+    loading.value = true
 
-      console.log('Secciones:', sections) // Verifica qué estamos obteniendo de las categorías
+    debounceTimeout = setTimeout(async () => {
+      try {
+        const all = await queryCollection('categorias').all()
 
-      // Filtramos las secciones por el término de búsqueda
-      const filtered = sections.filter((section) =>
-        section.title?.toLowerCase().includes(term.toLowerCase())
-      )
+        // Crear mapa: slug -> title de categoría
+        const categoriasMap = new Map<string, string>()
+        all.forEach((item: any) => {
+          if (item.type === 'categoria' && item.slug && item.title) {
+            categoriasMap.set(item.slug, item.title.toLowerCase())
+          }
+        })
 
-      console.log('Filtrados:', filtered) // Asegúrate de que solo las categorías correctas estén en los resultados
+        const categorias = all.filter(
+          (item: any) =>
+            item.type === 'categoria' &&
+            item.slug &&
+            (
+              item.title?.toLowerCase().includes(searchTerm) ||
+              item.description?.toLowerCase().includes(searchTerm)
+            )
+        )
 
-      results.value = filtered
-    } catch (error) {
-      console.error('Error al buscar con queryCollectionSearchSections:', error)
-      results.value = []
-    }
-  }
+        const productos = all.filter((item: any) => {
+          if (item.type !== 'producto' || !item.slug) return false
+          const catTitle = categoriasMap.get(item.category) || ''
+          return (
+            item.title?.toLowerCase().includes(searchTerm) ||
+            item.description?.toLowerCase().includes(searchTerm) ||
+            item.category?.toLowerCase().includes(searchTerm) ||
+            catTitle.includes(searchTerm)
+          )
+        })
 
-  return {
-    searchTerm,
-    results,
-    search,
-    filteredCategories,
-    filteredProducts
-  }
+        results.value = {
+          categorias: categorias.map((item) => ({ ...item, type: 'categoria' as const })),
+          productos: productos.map((item) => ({ ...item, type: 'producto' as const }))
+        }
+        
+      } catch (err) {
+        console.error('[useContentSearch] Error:', err)
+      } finally {
+        loading.value = false
+      }
+    }, 200) // puedes ajustar el tiempo de espera aquí
+  }, { immediate: true })
+
+  return { results, loading }
 }

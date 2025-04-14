@@ -11,12 +11,14 @@
     "clean": "rm -rf .nuxt node_modules dist .output && npm cache clean --force && npm install && npm run dev",
     "validate-md": "node scripts/validate-md-structure.js",
     "fix:types": "rm -rf .nuxt node_modules package-lock.json && npm install && npx nuxi prepare",
-    "refresh:types": "npx nuxi prepare"
+    "refresh:types": "npx nuxi prepare",
+    "validate-md-seo": "node scripts/validate-md-seo.js"
   },
   "dependencies": {
     "@nuxt/content": "^3.3.0",
     "@nuxt/icon": "^1.11.0",
     "@nuxt/image": "1.9.0",
+    "@nuxtjs/color-mode": "^3.5.2",
     "@sendgrid/mail": "^8.1.5",
     "@vee-validate/zod": "^4.15.0",
     "@vueuse/core": "^13.1.0",

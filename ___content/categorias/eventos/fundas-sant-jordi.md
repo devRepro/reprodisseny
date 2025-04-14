@@ -4,7 +4,7 @@ slug: fundas-sant-jordi
 category: eventos
 type: producto
 description: descripción genérica de mi producto para probar
-image: /img/productos/mockupProduct.web
+image: img/productos/mockupProduct.webp
 alt: alt descripció de la foto
 metatitle: .nan
 tags:
@@ -19,7 +19,7 @@ schema:
   '@type': Product
   name: Fundas Rosas Sant Jordi personalizados
   description: descripción genérica de mi producto para probar
-  image: /img/productos/mockupProduct.web
+  image: img/productos/mockupProduct.webp
   sku: 01-EVEN-0001
   brand:
     '@type': Organization

@@ -4,7 +4,7 @@ slug: delantales
 category: eventos
 type: producto
 description: descripción genérica de mi producto para probar
-image: /img/productos/mockupProduct.webp
+image: img/productos/mockupProduct.webpp
 alt: alt descripció de la foto
 metatitle: .nan
 tags:
@@ -19,7 +19,7 @@ schema:
   '@type': Product
   name: Delantales personalizados
   description: descripción genérica de mi producto para probar
-  image: /img/productos/mockupProduct.webp
+  image: img/productos/mockupProduct.webpp
   sku: 01-EVEN-0019
   brand:
     '@type': Organization

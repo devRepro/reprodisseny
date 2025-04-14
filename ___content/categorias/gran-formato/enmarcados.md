@@ -4,7 +4,7 @@ slug: enmarcados
 category: gran-formato
 type: producto
 description: descripción genérica de mi producto para probar
-image: /img/productos/mockupProduct.web
+image: img/productos/mockupProduct.webp
 alt: alt descripció de la foto
 metatitle: .nan
 tags:
@@ -19,7 +19,7 @@ schema:
   '@type': Product
   name: Enmarcados personalizados
   description: descripción genérica de mi producto para probar
-  image: /img/productos/mockupProduct.web
+  image: img/productos/mockupProduct.webp
   sku: 01-GRFO-0020
   brand:
     '@type': Organization

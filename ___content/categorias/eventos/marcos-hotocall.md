@@ -4,7 +4,7 @@ slug: marcos-hotocall
 category: eventos
 type: producto
 description: descripción genérica de mi producto para probar
-image: /img/productos/mockupProduct.web
+image: img/productos/mockupProduct.webp
 alt: alt descripció de la foto
 metatitle: .nan
 tags:
@@ -19,7 +19,7 @@ schema:
   '@type': Product
   name: Marcos photocall personalizados
   description: descripción genérica de mi producto para probar
-  image: /img/productos/mockupProduct.web
+  image: img/productos/mockupProduct.webp
   sku: 01-EVEN-0008
   brand:
     '@type': Organization

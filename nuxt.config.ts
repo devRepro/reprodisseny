@@ -1,71 +1,79 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 import { defineNuxtConfig } from 'nuxt/config'
+
 export default defineNuxtConfig({
-  //Definimos url
   runtimeConfig: {
-    // ✅ Solo accesibles en el server y conectarnos a sendgrid para enviar los correos
     SENDGRID_API_KEY: process.env.SENDGRID_API_KEY,
     SENDGRID_FROM: process.env.SENDGRID_FROM,
     public: {
-      siteUrl: 'http://localhost:3000' // Define la URL de producción
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000'
     }
   },
-  
-  //Importamos modulos necesarios
+
   modules: [
     '@nuxt/content',
     '@nuxtjs/tailwindcss',
+    '@nuxtjs/color-mode',
     '@nuxt/icon',
     '@nuxt/image'
   ],
-  
-  //Cargamos esilos globales
+
   css: ['@/assets/styles/main.scss'],
-  
-  //Auto import componentes
-  components: true, 
-  
-  //Definimos transiciones globales
+
+  components: true,
+
   app: {
+    head: {
+      titleTemplate: '%s · Reprodisseny',
+      title: 'Impresión profesional en Cataluña',
+      meta: [
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'description', content: 'Impresión digital y offset para empresas y agencias en Cataluña. Catálogos, packaging, gran formato y más.' },
+        { name: 'author', content: 'Reprodisseny' },
+        { name: 'robots', content: 'index, follow' },
+        { property: 'og:title', content: 'Impresión profesional en Cataluña · Reprodisseny' },
+        { property: 'og:description', content: 'Catálogos, adhesivos, expositores, packaging... todo lo que tu empresa necesita con calidad y rapidez.' },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:url', content: 'https://reprodisseny.com' },
+        { property: 'og:image', content: 'https://reprodisseny.com/og-image.jpg' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:title', content: 'Reprodisseny · Impresión profesional' },
+        { name: 'twitter:description', content: 'Tu imprenta en Cataluña para proyectos de calidad.' },
+        { name: 'twitter:image', content: 'https://reprodisseny.com/og-image.jpg' }
+      ],
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      ]
+    },
     pageTransition: {
       name: 'fade',
-      mode: 'out-in' // default
+      mode: 'out-in'
     },
     layoutTransition: {
       name: 'slide',
-      mode: 'out-in' // default
+      mode: 'out-in'
     }
   },
- 
+
+  alias: {
+    '@components': '/components',
+    '@assets': '/assets',
+    '@utils': '/utils',
+    '@types': '/types',
+  },
+
   compatibilityDate: '2024-11-01',
+
   devtools: { enabled: true },
 
-
-  //configuración Tailwind
   tailwindcss: {
     configPath: 'tailwind.config.ts',
-    exposeConfig: true,
+    exposeConfig: true
   },
 
-  //configuración DarkMode
   colorMode: {
-    preference: 'light'
-  },
-
-  content: {
-    documentDriven: true,
-    highlight: {
-      theme: 'github-dark',
-    },
-    markdown: {
-      toc: { depth: 2, searchDepth: 2 },
-    },
-    // 👇 esta línea es la clave
-    experimental: {
-      // permite importar funciones como queryContent sin importarlas manualmente
-      payloadExtraction: true
-    }
+    preference: 'light',
+    fallback: 'light',
+    classSuffix: ''
   }
   
-
 })

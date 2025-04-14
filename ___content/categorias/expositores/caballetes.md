@@ -4,7 +4,7 @@ slug: caballetes
 category: expositores
 type: producto
 description: descripción genérica de mi producto para probar
-image: /img/productos/mockupProduct.web
+image: img/productos/mockupProduct.webp
 alt: alt descripció de la foto
 metatitle: .nan
 tags:
@@ -19,7 +19,7 @@ schema:
   '@type': Product
   name: Caballetes personalizados
   description: descripción genérica de mi producto para probar
-  image: /img/productos/mockupProduct.web
+  image: img/productos/mockupProduct.webp
   sku: 01-EXPO-0015
   brand:
     '@type': Organization

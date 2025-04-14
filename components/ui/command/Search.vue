@@ -1,85 +1,82 @@
+
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref, nextTick } from 'vue'
+import { useMagicKeys } from '@vueuse/core'
 import { useSearch } from '@/composables/useSearch'
-import { useSearchResults } from '@/composables/useSearchResults'
-import { onClickOutside } from '@vueuse/core'
-import { useRouter } from 'vue-router'
-import { Command } from '@/components/ui/command'
+import {
+  CommandDialog,
+  CommandInput,
+  CommandList,
+  CommandGroup,
+  CommandItem,
+  CommandEmpty
+} from '@/components/ui/command'
+import { useContentSearch } from '@/composables/useContentSearch'
 
-const root = ref(null)
-const { closeSearch } = useSearch()
-const { searchTerm, results, search, filteredCategories, filteredProducts } = useSearchResults()
+const search = ref('')
+const { results, loading } = useContentSearch(search)
+const { searchOpen, closeSearch } = useSearch()
 
-// Realiza la búsqueda cada vez que el término de búsqueda cambia
-onClickOutside(root, () => closeSearch())
+// Cmd+J para abrir
+const keys = useMagicKeys()
+const CmdJ = keys['Meta+J']
+CmdJ?.value && (searchOpen.value = true)
 
-// Ejecuta la búsqueda y actualiza los resultados en tiempo real
-watch(searchTerm, (value) => {
-  search(value)
-})
+// Navegar y cerrar
+function goTo(path: string) {
+  closeSearch()
+  return navigateTo(path)
+}
 
-const navigateTo = (path: string) => {
-  useRouter().push(path)
+function handleOpenChange(open: boolean) {
+  if (!open) closeSearch()
 }
 </script>
 
 <template>
-  <div
-    class="fixed inset-0 z-50 bg-black/40 backdrop-blur-sm flex items-start justify-center pt-32 px-4"
+  <CommandDialog
+    :open="searchOpen"
+    @update:open="handleOpenChange"
+    class="z-50"
   >
-    <div
-      ref="root"
-      class="w-full max-w-[600px] bg-[hsl(var(--popover))] text-[hsl(var(--popover-foreground))] border border-[hsl(var(--border))] rounded-xl shadow-xl"
-    >
-      <!-- 🔍 BUSCADOR -->
-      <Command>
-        <div class="relative p-4 pb-2">
-          <input
-            type="text"
-            v-model="searchTerm"
-            placeholder="Busca productos o categorías..."
-            class="w-full p-3 rounded-md border bg-transparent text-[hsl(var(--foreground))] placeholder:text-[hsl(var(--muted-foreground))]"
-          />
-        </div>
-      </Command>
+    <h2 class="sr-only">Buscar</h2>
 
-      <!-- 🔢 RESUMEN -->
-      <div v-if="filteredCategories.length || filteredProducts.length" class="px-4 text-sm text-muted-foreground mb-2">
-        {{ filteredCategories.length }} categoría(s), {{ filteredProducts.length }} producto(s) encontrados
-      </div>
+    <CommandInput
+      v-model="search"
+      autofocus
+      placeholder="Buscar productos o categorías..."
+      class="px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground"
+    />
 
-      <!-- 🧩 CATEGORÍAS -->
-      <div v-if="filteredCategories.length" class="px-4 space-y-2 mb-4">
-        <h3 class="text-sm font-semibold text-muted-foreground">Categorías</h3>
-        <div
-          v-for="cat in filteredCategories"
-          :key="cat._path"
-          @click="navigateTo(cat._path)"
-          class="flex items-center gap-4 cursor-pointer hover:bg-[hsl(var(--muted))] rounded-md p-2 transition"
+    <CommandList>
+      <CommandEmpty>No se encontraron resultados</CommandEmpty>
+
+      <CommandGroup heading="Categorías" v-if="results.categorias.length">
+        <CommandItem
+          v-for="cat in results.categorias"
+          :key="cat.slug"
+          @select="goTo(`/categorias/${cat.slug}`)"
         >
-          <img
-            :src="cat.image"
-            alt=""
-            class="w-10 h-10 rounded-md object-cover"
-          />
-          <span class="text-sm font-medium">{{ cat.title }}</span>
-        </div>
-      </div>
+          <div class="w-full px-3 py-2 flex items-center gap-2 text-sm">
+            <img :src="cat.image" :alt="cat.alt" class="w-6 h-6 object-cover rounded" />
+            <span>{{ cat.title }}</span>
+          </div>
+        </CommandItem>
+      </CommandGroup>
 
-      <!-- 📦 PRODUCTOS -->
-      <div v-if="filteredProducts.length" class="px-4 space-y-2">
-        <h3 class="text-sm font-semibold text-muted-foreground">Productos</h3>
-        <div v-for="prod in filteredProducts" :key="prod.id" @click="navigateTo(`${prod._path}#${prod.id}`)" class="cursor-pointer hover:bg-[hsl(var(--muted))] rounded-md p-2 transition">
-          <img :src="prod.image" alt="" class="w-10 h-10 rounded-md object-cover" />
-          <p class="text-sm font-medium">{{ prod.title }}</p>
-          <p class="text-xs text-muted-foreground">{{ prod._path }}</p>
-        </div>
-      </div>
-
-      <!-- ❌ NADA ENCONTRADO -->
-      <div v-if="!filteredCategories.length && !filteredProducts.length && searchTerm" class="px-4 py-4 text-center text-sm text-muted-foreground">
-        No se encontraron resultados.
-      </div>
-    </div>
-  </div>
+      <CommandGroup heading="Productos" v-if="results.productos.length">
+        <CommandItem
+          v-for="prod in results.productos"
+          :key="prod.slug"
+          @select="goTo(`/categorias/${prod.category}/${prod.slug}`)"
+        >
+          <div class="w-full px-3 py-2 flex items-center gap-2 text-sm">
+            <img :src="prod.image" :alt="prod.alt" class="w-6 h-6 object-cover rounded" />
+            <span>{{ prod.title }}</span>
+          </div>
+        </CommandItem>
+      </CommandGroup>
+    </CommandList>
+  </CommandDialog>
 </template>
+
