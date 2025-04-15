@@ -2,7 +2,7 @@
 <template>
   <NuxtLayout name="default">
     <template #navigation>
-      <MenuCat />
+      
     </template>
 
     <slot />

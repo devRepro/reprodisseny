@@ -1,35 +1,23 @@
 ---
-title: Marcos click system
+metaTitle: ''
+metaDescription: ''
+keywords: ''
+searchTerms: ''
+image: /img/productos/mockupProduct.web
+galleryImages: []
+alt: alt descripció de la foto
 slug: marcos-systm
 category: expositores
-type: producto
-description: descripción genérica de mi producto para probar
-image: /img/productos/mockupProduct.web
-alt: alt descripció de la foto
-metatitle: .nan
-tags:
-- nan
-navigation: true
 sku: 01-EXPO-0014
-price: 0.0
-priceCurrency: EUR
-inStock: true
+price: 0
 brand: Reprodisseny
-schema:
-  '@type': Product
-  name: Marcos click system personalizados
-  description: descripción genérica de mi producto para probar
-  image: /img/productos/mockupProduct.web
-  sku: 01-EXPO-0014
-  brand:
-    '@type': Organization
-    name: Reprodisseny
-  offers:
-    '@type': Offer
-    price: 0.0
-    priceCurrency: EUR
-    availability: https://schema.org/InStock
+inStock: true
+formFields: []
+ratingValue: 0
+reviewCount: 0
+schemaType: Product
+type: producto
+title: Marcos click system
+description: descripción genérica de mi producto para probar
 ---
-
 ## Marcos click system
-

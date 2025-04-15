@@ -1,10 +1,5 @@
 <script setup lang="ts">
-
-
   const { data: categories } = await useCategorias()
-
-  
-
 </script>
 
 <template>

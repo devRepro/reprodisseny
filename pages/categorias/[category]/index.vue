@@ -12,7 +12,6 @@
     <UiSpinner v-else />
 
     <ContentRenderer v-if="page" :value="page" class="mb-10" />
-    <ProductGrid v-if="page" :category="categorySlug" />
   </div>
 </template>
 

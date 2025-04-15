@@ -1,35 +1,23 @@
 ---
-title: Carteles
+metaTitle: ''
+metaDescription: ''
+keywords: ''
+searchTerms: ''
+image: /img/productos/Carteles.webp
+galleryImages: []
+alt: alt descripció de la foto
 slug: carteles
 category: gran-formato
-type: producto
-description: descripción genérica de mi producto para probar
-image: /img/productos/Carteles.webp
-alt: alt descripció de la foto
-metatitle: .nan
-tags:
-- nan
-navigation: true
 sku: 01-GRFO-0002
-price: 0.0
-priceCurrency: EUR
-inStock: true
+price: 0
 brand: Reprodisseny
-schema:
-  '@type': Product
-  name: Carteles personalizados
-  description: descripción genérica de mi producto para probar
-  image: /img/productos/Carteles.webp
-  sku: 01-GRFO-0002
-  brand:
-    '@type': Organization
-    name: Reprodisseny
-  offers:
-    '@type': Offer
-    price: 0.0
-    priceCurrency: EUR
-    availability: https://schema.org/InStock
+inStock: true
+formFields: []
+ratingValue: 0
+reviewCount: 0
+schemaType: Product
+type: producto
+title: Carteles
+description: descripción genérica de mi producto para probar
 ---
-
 ## Carteles
-

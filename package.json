@@ -12,7 +12,8 @@
     "validate-md": "node scripts/validate-md-structure.js",
     "fix:types": "rm -rf .nuxt node_modules package-lock.json && npm install && npx nuxi prepare",
     "refresh:types": "npx nuxi prepare",
-    "validate-md-seo": "node scripts/validate-md-seo.js"
+    "validate-md-seo": "node scripts/validate-md-seo.js",
+    "reinstall:prepare": "rm -rf node_modules .nuxt && npm i && npx nuxi prepare"
   },
   "dependencies": {
     "@nuxt/content": "^3.3.0",
@@ -25,6 +26,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "embla-carousel": "^8.5.2",
+    "fuse.js": "^7.1.0",
     "gray-matter": "^4.0.3",
     "lucide-vue-next": "^0.487.0",
     "nuxt": "3.16.0",

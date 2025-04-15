@@ -1,35 +1,23 @@
 ---
-title: Cajas de luz
+metaTitle: ''
+metaDescription: ''
+keywords: ''
+searchTerms: ''
+image: /img/productos/Backlight.webp
+galleryImages: []
+alt: alt descripció de la foto
 slug: cajas-luz
 category: expositores
-type: producto
-description: descripción genérica de mi producto para probar
-image: /img/productos/Backlight.webp
-alt: alt descripció de la foto
-metatitle: .nan
-tags:
-- nan
-navigation: true
 sku: 01-EXPO-0010
-price: 0.0
-priceCurrency: EUR
-inStock: true
+price: 0
 brand: Reprodisseny
-schema:
-  '@type': Product
-  name: Cajas de luz personalizados
-  description: descripción genérica de mi producto para probar
-  image: /img/productos/Backlight.webp
-  sku: 01-EXPO-0010
-  brand:
-    '@type': Organization
-    name: Reprodisseny
-  offers:
-    '@type': Offer
-    price: 0.0
-    priceCurrency: EUR
-    availability: https://schema.org/InStock
+inStock: true
+formFields: []
+ratingValue: 0
+reviewCount: 0
+schemaType: Product
+type: producto
+title: Cajas de luz
+description: descripción genérica de mi producto para probar
 ---
-
 ## Cajas de luz
-

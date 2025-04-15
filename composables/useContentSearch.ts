@@ -1,4 +1,5 @@
 import { ref, watch, type Ref } from 'vue'
+import Fuse from 'fuse.js'
 import type { Categoria, Producto } from '@/types'
 
 export function useContentSearch(search: Ref<string>) {
@@ -14,59 +15,42 @@ export function useContentSearch(search: Ref<string>) {
     const searchTerm = val?.toLowerCase()?.trim() ?? ''
 
     if (debounceTimeout) clearTimeout(debounceTimeout)
-
-    // Mostrar resultados antiguos mientras escribe
-    if (searchTerm.length < 2) {
-      results.value = { categorias: [], productos: [] }
-      return
-    }
-
     loading.value = true
 
     debounceTimeout = setTimeout(async () => {
       try {
         const all = await queryCollection('categorias').all()
 
-        // Crear mapa: slug -> title de categoría
-        const categoriasMap = new Map<string, string>()
-        all.forEach((item: any) => {
-          if (item.type === 'categoria' && item.slug && item.title) {
-            categoriasMap.set(item.slug, item.title.toLowerCase())
-          }
+        const categoriasRaw = all.filter((item: any) => item.type === 'categoria')
+        const productosRaw = all.filter((item: any) => item.type === 'producto')
+
+        const fuseCategorias = new Fuse(categoriasRaw, {
+          keys: ['title', 'description'],
+          includeScore: true,
+          threshold: 0.4
         })
 
-        const categorias = all.filter(
-          (item: any) =>
-            item.type === 'categoria' &&
-            item.slug &&
-            (
-              item.title?.toLowerCase().includes(searchTerm) ||
-              item.description?.toLowerCase().includes(searchTerm)
-            )
-        )
-
-        const productos = all.filter((item: any) => {
-          if (item.type !== 'producto' || !item.slug) return false
-          const catTitle = categoriasMap.get(item.category) || ''
-          return (
-            item.title?.toLowerCase().includes(searchTerm) ||
-            item.description?.toLowerCase().includes(searchTerm) ||
-            item.category?.toLowerCase().includes(searchTerm) ||
-            catTitle.includes(searchTerm)
-          )
+        const fuseProductos = new Fuse(productosRaw, {
+          keys: ['title', 'description', 'category'],
+          includeScore: true,
+          threshold: 0.4
         })
 
-        results.value = {
-          categorias: categorias.map((item) => ({ ...item, type: 'categoria' as const })),
-          productos: productos.map((item) => ({ ...item, type: 'producto' as const }))
-        }
-        
+        const categorias = searchTerm
+          ? fuseCategorias.search(searchTerm).map((r) => ({ ...r.item, type: 'categoria' as const }))
+          : []
+
+        const productos = searchTerm
+          ? fuseProductos.search(searchTerm).map((r) => ({ ...r.item, type: 'producto' as const }))
+          : []
+
+        results.value = { categorias, productos }
       } catch (err) {
         console.error('[useContentSearch] Error:', err)
       } finally {
         loading.value = false
       }
-    }, 200) // puedes ajustar el tiempo de espera aquí
+    }, 200)
   }, { immediate: true })
 
   return { results, loading }

@@ -3,6 +3,10 @@ import type { Config } from 'tailwindcss'
 
 const config: Config = {
   darkMode: ['class'],
+  safelist: [
+    'data-[state=open]:slide-in-from-top-[48%]',
+    'data-[state=closed]:slide-out-to-top-[48%]',
+  ],
   content: [
     './components/**/*.{vue,js,ts}',
     './layouts/**/*.vue',

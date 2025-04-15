@@ -1,7 +1,11 @@
 <!-- layouts/default.vue -->
 <script setup lang="ts">
-import { useSearch } from '@/composables/useSearch'
 
+import { useSearch } from '@/composables/useSearch'
+import { useCategoriasNav } from '@/composables/useCategoriasNav'
+
+
+const { data: categorias, pending, error } = await useCategoriasNav()
 const { searchOpen, closeSearch } = useSearch()
 </script>
 
@@ -12,10 +16,8 @@ const { searchOpen, closeSearch } = useSearch()
       <UiCommandSearch v-if="searchOpen" @close="closeSearch" />
     </header>
 
-
     <main class="flex-1 container mx-auto px-4 py-8">
-       <!--Cargamos menu de categorias MainMenu-->
-      <MenuCat />
+      <UiNavigationMenuMegaMenu/>
       <slot />
     </main>
 

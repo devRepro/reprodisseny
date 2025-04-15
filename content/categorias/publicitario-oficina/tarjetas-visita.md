@@ -1,35 +1,23 @@
 ---
-title: Tarjetas de visita
+metaTitle: ''
+metaDescription: ''
+keywords: ''
+searchTerms: ''
+image: /img/productos/mockupProduct.web
+galleryImages: []
+alt: alt descripció de la foto
 slug: tarjetas-visita
 category: publicitario-oficina
-type: producto
-description: descripción genérica de mi producto para probar
-image: /img/productos/mockupProduct.web
-alt: alt descripció de la foto
-metatitle: .nan
-tags:
-- nan
-navigation: true
 sku: 01-OFICI-0016
-price: 0.0
-priceCurrency: EUR
-inStock: true
+price: 0
 brand: Reprodisseny
-schema:
-  '@type': Product
-  name: Tarjetas de visita personalizados
-  description: descripción genérica de mi producto para probar
-  image: /img/productos/mockupProduct.web
-  sku: 01-OFICI-0016
-  brand:
-    '@type': Organization
-    name: Reprodisseny
-  offers:
-    '@type': Offer
-    price: 0.0
-    priceCurrency: EUR
-    availability: https://schema.org/InStock
+inStock: true
+formFields: []
+ratingValue: 0
+reviewCount: 0
+schemaType: Product
+type: producto
+title: Tarjetas de visita
+description: descripción genérica de mi producto para probar
 ---
-
 ## Tarjetas de visita
-

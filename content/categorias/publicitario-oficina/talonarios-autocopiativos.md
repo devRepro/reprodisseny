@@ -1,35 +1,23 @@
 ---
-title: Talonarios autocopiativos
+metaTitle: ''
+metaDescription: ''
+keywords: ''
+searchTerms: ''
+image: /img/productos/mockupProduct.web
+galleryImages: []
+alt: alt descripció de la foto
 slug: talonarios-autocopiativos
 category: publicitario-oficina
-type: producto
-description: descripción genérica de mi producto para probar
-image: /img/productos/mockupProduct.web
-alt: alt descripció de la foto
-metatitle: .nan
-tags:
-- nan
-navigation: true
 sku: 01-OFICI-0023
-price: 0.0
-priceCurrency: EUR
-inStock: true
+price: 0
 brand: Reprodisseny
-schema:
-  '@type': Product
-  name: Talonarios autocopiativos personalizados
-  description: descripción genérica de mi producto para probar
-  image: /img/productos/mockupProduct.web
-  sku: 01-OFICI-0023
-  brand:
-    '@type': Organization
-    name: Reprodisseny
-  offers:
-    '@type': Offer
-    price: 0.0
-    priceCurrency: EUR
-    availability: https://schema.org/InStock
+inStock: true
+formFields: []
+ratingValue: 0
+reviewCount: 0
+schemaType: Product
+type: producto
+title: Talonarios autocopiativos
+description: descripción genérica de mi producto para probar
 ---
-
 ## Talonarios autocopiativos
-

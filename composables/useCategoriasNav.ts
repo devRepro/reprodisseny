@@ -1,23 +1,28 @@
-// composables/useCategoriasNav.ts
-import type { Categoria } from '@/types/index'
+
 
 export const useCategoriasNav = () => {
-  return useAsyncData<Categoria[]>('categorias-navigation', async () => {
-    const categoriasRaiz = await queryCollectionNavigation('categorias', [
-      'title',
-      'nav',
-      'slug',
-      'formFields',
-      'type',
-      'path'
-    ])
+  return useAsyncData('categorias-nav', async () => {
+    // Obtenemos todas las categorías
+    const categorias = await queryContent('categorias')
+      .where({ type: 'categoria' })
+      .only(['title', 'slug', 'path', 'image', 'alt', 'description'])
+      .find()
 
-    const categorias = categoriasRaiz?.[0]?.children || []
+    // Para cada categoría, obtenemos sus productos hijos
+    const result = await Promise.all(
+      categorias.map(async (categoria:any) => {
+        const productos = await queryContent(`categorias/${categoria.slug}`)
+          .where({ type: 'producto' })
+          .only(['title', 'slug', 'path'])
+          .find()
 
-    return categorias.map((categoria: any) => ({
-      ...categoria,
-      children: categoria.children?.filter((p: any) => p.type === 'producto')
-    }))
+        return {
+          ...categoria,
+          children: productos
+        }
+      })
+    )
+
+    return result
   })
 }
-
