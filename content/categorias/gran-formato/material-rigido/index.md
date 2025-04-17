@@ -18,7 +18,7 @@ searchTerms:
 - "impresi\xF3n r\xEDgidos gran formato"
 - "carteles materiales r\xEDgidos"
 - "se\xF1alizaci\xF3n r\xEDgida personalizada"
-image: mockup2.webp
+image: mockup2.png
 alt: "Ejemplo de impresi\xF3n en material r\xEDgido para carteler\xEDa"
 slug: material-rigido
 category: gran-formato

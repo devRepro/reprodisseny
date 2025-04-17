@@ -9,7 +9,7 @@ image: /img/productos/mockupProduct.web
 galleryImages: []
 alt: "alt descripci\xF3 de la foto"
 slug: imanes
-category: material-publicitario
+category: material-publicidad
 sku: 01-OFICI-0012
 price: 0
 brand: Reprodisseny

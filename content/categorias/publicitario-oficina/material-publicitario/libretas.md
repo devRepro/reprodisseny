@@ -9,7 +9,7 @@ image: /img/productos/libretas.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: libretas
-category: material-publicitario
+category: material-publicidad
 sku: 01-OFICI-0022
 price: 0
 brand: Reprodisseny

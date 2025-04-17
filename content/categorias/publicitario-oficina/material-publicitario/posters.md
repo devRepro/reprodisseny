@@ -9,7 +9,7 @@ image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: posters
-category: material-publicitario
+category: material-publicidad
 sku: 01-OFICI-0004
 price: 0
 brand: Reprodisseny

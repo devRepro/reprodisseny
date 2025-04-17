@@ -9,7 +9,7 @@ image: /img/productos/mockupProduct.web
 galleryImages: []
 alt: alt descripció de la foto
 slug: letras-corporeas
-category: material-publicitario
+category: material-publicidad
 sku: 01-OFICI-0029
 price: 0
 brand: Reprodisseny

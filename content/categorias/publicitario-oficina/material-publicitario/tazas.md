@@ -9,7 +9,7 @@ image: /img/productos/mockupProduct.web
 galleryImages: []
 alt: alt descripció de la foto
 slug: tazas
-category: material-publicitario
+category: material-publicidad
 sku: 01-OFICI-0027
 price: 0
 brand: Reprodisseny

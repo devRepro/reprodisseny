@@ -15,7 +15,7 @@ searchTerms:
 - "impresi\xF3n lonas gran formato"
 - vinilos personalizados
 - publicidad en materiales flexibles
-image: mockup2.webp
+image: mockup2.png
 alt: "Ejemplo de impresi\xF3n en material flexible para publicidad"
 slug: material-flexible
 category: gran-formato

@@ -1,39 +1,53 @@
-<!-- components/ui/header/headerMobile.vue -->
+<!-- components/ui/menu/HeaderContacto.vue -->
 <script setup lang="ts">
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
-import { Button } from '@/components/ui/button'
-import { Menu } from 'lucide-vue-next'
+import { useRoute } from 'vue-router'
+import { PhoneCall } from 'lucide-vue-next'
+
+// Obtiene la ruta actual para marcar el enlace activo
+const route = useRoute()
+
+// Define tus enlaces
+const links = [
+  {
+    name: 'Teléfono',
+    href: 'tel:+34932749890',
+    icon: PhoneCall,
+    label: '+34 93 274 98 90'
+  },
+  { name: 'Contacto', to: '/contacto' },
+  { name: 'Novedades', to: '/novedades' },
+  { name: 'Blog', to: '/blog' },
+]
+
+// Helper para determinar si un enlace interno está activo
+const isActive = (to: string) => route.path === to
 </script>
 
 <template>
-  <div class="flex items-center justify-between px-4 h-16 border-b border-border md:hidden">
-    <!-- Logo -->
-    <UiLogoMobile />
+  <nav class="flex items-center space-x-5 text-sm">
+    <template v-for="link in links" :key="link.name">
+      <!-- Enlaces internos -->
+      <NuxtLink
+        v-if="link.to"
+        :to="link.to"
+        :class="[
+          'transition-colors duration-150 underline decoration-transparent underline-offset-4',
+          'text-gray-400 hover:text-gray-800 hover:decoration-blue-600',
+          { 'text-gray-800 decoration-blue-600': isActive(link.to) }
+        ]"
+      >
+        {{ link.name }}
+      </NuxtLink>
 
-    <!-- Menú hamburguesa -->
-    <Sheet>
-      <SheetTrigger as-child>
-        <Button variant="ghost" size="icon" aria-label="Abrir menú">
-          <Menu class="h-6 w-6 text-foreground" />
-        </Button>
-      </SheetTrigger>
-
-      <SheetContent side="left" class="w-[260px]">
-        <div class="py-4 space-y-6">
-          <UiLogoMobile class="mb-4" />
-
-          <nav class="flex flex-col gap-3">
-            <NuxtLink to="/categorias/adhesivos" class="menu-link">Adhesivos</NuxtLink>
-            <NuxtLink to="/categorias/libros" class="menu-link">Libros</NuxtLink>
-            <NuxtLink to="/contacto" class="menu-link">Contacto</NuxtLink>
-            <NuxtLink to="/novedades" class="menu-link">Novedades</NuxtLink>
-            <NuxtLink to="/blog" class="menu-link">Blog</NuxtLink>
-            <NuxtLink to="tel:+34932749890" class="menu-link mt-6">
-              📞 +34 93 274 98 90
-            </NuxtLink>
-          </nav>
-        </div>
-      </SheetContent>
-    </Sheet>
-  </div>
+      <!-- Enlaces externos/teléfono -->
+      <a
+        v-else
+        :href="link.href"
+        class="flex items-center transition-colors duration-150 underline decoration-transparent underline-offset-4 text-gray-400 hover:text-gray-800 hover:decoration-blue-600"
+      >
+        <component :is="link.icon" class="mr-1 w-4 h-4 flex-shrink-0" />
+        {{ link.label }}
+      </a>
+    </template>
+  </nav>
 </template>

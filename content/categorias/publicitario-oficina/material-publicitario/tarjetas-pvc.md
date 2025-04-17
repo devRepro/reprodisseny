@@ -9,7 +9,7 @@ image: /img/productos/tarjetas-pvc.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: tarjetas-pvc
-category: material-publicitario
+category: material-publicidad
 sku: 01-OFICI-0013
 price: 0
 brand: Reprodisseny

@@ -9,7 +9,7 @@ image: /img/productos/mockupProduct.web
 galleryImages: []
 alt: alt descripció de la foto
 slug: talonarios-autocopiativos
-category: material-publicitario
+category: material-publicidad
 sku: 01-OFICI-0023
 price: 0
 brand: Reprodisseny

@@ -14,7 +14,7 @@ searchTerms:
 - "impresi\xF3n material oficina Barcelona"
 - "papeler\xEDa corporativa personalizada"
 - "material oficina empresas Catalu\xF1a"
-image: /img/categorias/material-oficina.webp
+image: mockup2.png
 alt: Material de oficina personalizado para empresas en Barcelona
 slug: material-oficina
 schemaType: CollectionPage

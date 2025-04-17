@@ -16,12 +16,12 @@ searchTerms:
 - merchandising personalizado empresas
 image: mockup2.png
 alt: "Papeler\xEDa corporativa impresa para empresas, agencias y oficinas en Barcelona"
-slug: publicitario-oficina
+slug: material-publicidad
 schemaType: CollectionPage
 featured: false
 order: 0
 type: subcategoria
-category: material-publicitario
+category: publicitario-oficina
 ratingValue: 4.7
 reviewCount: 89
 structuredData: "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"CollectionPage\"\

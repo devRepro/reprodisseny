@@ -9,7 +9,7 @@ image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: sobres
-category: material-publicitario
+category: material-publicidad
 sku: 01-OFICI-0019
 price: 0
 brand: Reprodisseny
