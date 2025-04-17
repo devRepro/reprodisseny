@@ -10,10 +10,15 @@
     "postinstall": "nuxt prepare",
     "clean": "rm -rf .nuxt node_modules dist .output && npm cache clean --force && npm install && npm run dev",
     "validate-md": "node scripts/validate-md-structure.js",
+    "validate:categorias": "node scripts/validateCategorias.js",
+    "validate-md-seo": "node scripts/validate-md-seo.js",
+    "validate:all": "npm run validate-md && npm run validate-md-seo && npm run validate:categorias",
     "fix:types": "rm -rf .nuxt node_modules package-lock.json && npm install && npx nuxi prepare",
     "refresh:types": "npx nuxi prepare",
-    "validate-md-seo": "node scripts/validate-md-seo.js",
-    "reinstall:prepare": "rm -rf node_modules .nuxt && npm i && npx nuxi prepare"
+    "reinstall:prepare": "rm -rf node_modules .nuxt && npm i && npx nuxi prepare",
+    "generate:products": "node scripts/create-product-files.js",
+    "validate:products": "node scripts/validate-products.js"
+
   },
   "dependencies": {
     "@nuxt/content": "^3.3.0",
@@ -26,6 +31,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "embla-carousel": "^8.5.2",
+    "exceljs": "^4.4.0",
     "fuse.js": "^7.1.0",
     "gray-matter": "^4.0.3",
     "lucide-vue-next": "^0.487.0",

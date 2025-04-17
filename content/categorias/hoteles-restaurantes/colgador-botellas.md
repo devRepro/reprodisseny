@@ -1,11 +1,14 @@
 ---
-metaTitle: ''
-metaDescription: ''
-keywords: ''
-searchTerms: ''
+metaTitle: Colgador de botellas | Repro Disseny
+metaDescription: "Colgador de botellas personalizadas con calidad profesional en Catalu\xF1\
+  a."
+keywords:
+- colgador de botellas
+searchTerms:
+- colgador de botellas
 image: /img/productos/mockupProduct.web
 galleryImages: []
-alt: alt descripció de la foto
+alt: "alt descripci\xF3 de la foto"
 slug: colgador-botellas
 category: hoteles-restaurantes
 sku: 01-HORE-0007
@@ -18,6 +21,25 @@ reviewCount: 0
 schemaType: Product
 type: producto
 title: Colgador de botellas
-description: descripción genérica de mi producto para probar
+description: "descripci\xF3n gen\xE9rica de mi producto para probar"
+priceCurrency: EUR
+schema:
+  '@type': Product
+  name: Colgador de botellas
+  description: "descripci\xF3n gen\xE9rica de mi producto para probar"
+  image: https://reprodisseny.com/img/productos/mockupProduct.web
+  sku: 01-HORE-0007
+  brand:
+    '@type': Organization
+    name: Repro Disseny
+  offers:
+    '@type': Offer
+    price: 0
+    priceCurrency: EUR
+    availability: https://schema.org/InStock
+nav: Colgador de botellas
 ---
+
+## Colgador de botellas
+
 ## Colgador de botellas

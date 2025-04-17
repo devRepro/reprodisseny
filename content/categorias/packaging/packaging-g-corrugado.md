@@ -1,11 +1,14 @@
 ---
-metaTitle: ''
-metaDescription: ''
-keywords: ''
-searchTerms: ''
+metaTitle: Packaging Corrugado | Repro Disseny
+metaDescription: "Packaging Corrugado personalizadas con calidad profesional en Catalu\xF1\
+  a."
+keywords:
+- packaging corrugado
+searchTerms:
+- packaging corrugado
 image: /img/productos/mockupProduct.web
 galleryImages: []
-alt: alt descripció de la foto
+alt: "alt descripci\xF3 de la foto"
 slug: packaging-g-corrugado
 category: packaging
 sku: 01-PACK-0002
@@ -18,6 +21,25 @@ reviewCount: 0
 schemaType: Product
 type: producto
 title: Packaging Corrugado
-description: descripción genérica de mi producto para probar
+description: "descripci\xF3n gen\xE9rica de mi producto para probar"
+priceCurrency: EUR
+schema:
+  '@type': Product
+  name: Packaging Corrugado
+  description: "descripci\xF3n gen\xE9rica de mi producto para probar"
+  image: https://reprodisseny.com/img/productos/mockupProduct.web
+  sku: 01-PACK-0002
+  brand:
+    '@type': Organization
+    name: Repro Disseny
+  offers:
+    '@type': Offer
+    price: 0
+    priceCurrency: EUR
+    availability: https://schema.org/InStock
+nav: Packaging Corrugado
 ---
+
+## Packaging Corrugado
+
 ## Packaging Corrugado

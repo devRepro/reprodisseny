@@ -49,11 +49,20 @@ export interface Producto {
   schema?: SchemaOrg
 }
 
+export interface Subcategoria {
+  title: string
+  slug: string
+  type: 'subcategoria'
+  path: string
+  children?: Producto[]
+  [key: string]: any
+}
+
 export interface Categoria {
   title: string
   navigation?: boolean
-  nav?: string
-  slug?: string
+  nav: string
+  slug: string
   description: string
   keywords?: string[]
   image?: string
@@ -61,5 +70,5 @@ export interface Categoria {
   type?: 'categoria'
   path: string
   formFields?: FormField[]
-  children?: Producto[]
+  children?: (Producto | Subcategoria)[]
 }

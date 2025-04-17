@@ -1,11 +1,14 @@
 ---
-metaTitle: ''
-metaDescription: ''
-keywords: ''
-searchTerms: ''
+metaTitle: Nombres de sobremesa | Repro Disseny
+metaDescription: "Nombres de sobremesa personalizadas con calidad profesional en Catalu\xF1\
+  a."
+keywords:
+- nombres de sobremesa
+searchTerms:
+- nombres de sobremesa
 image: /img/productos/Nombre-sobremesa.webp
 galleryImages: []
-alt: alt descripció de la foto
+alt: "alt descripci\xF3 de la foto"
 slug: nombres-sobremesa
 category: eventos
 sku: 01-EVEN-0007
@@ -18,6 +21,25 @@ reviewCount: 0
 schemaType: Product
 type: producto
 title: Nombres de sobremesa
-description: descripción genérica de mi producto para probar
+description: "descripci\xF3n gen\xE9rica de mi producto para probar"
+priceCurrency: EUR
+schema:
+  '@type': Product
+  name: Nombres de sobremesa
+  description: "descripci\xF3n gen\xE9rica de mi producto para probar"
+  image: https://reprodisseny.com/img/productos/Nombre-sobremesa.webp
+  sku: 01-EVEN-0007
+  brand:
+    '@type': Organization
+    name: Repro Disseny
+  offers:
+    '@type': Offer
+    price: 0
+    priceCurrency: EUR
+    availability: https://schema.org/InStock
+nav: Nombres de sobremesa
 ---
+
+## Nombres de sobremesa
+
 ## Nombres de sobremesa

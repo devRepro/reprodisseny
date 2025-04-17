@@ -11,7 +11,8 @@
     "paths": {
       "@/*": ["./*"],
       "#content": ["node_modules/@nuxt/content/dist/runtime"],
-      "#imports": ["./.nuxt/imports"]
+      "#imports": ["./.nuxt/imports"],
+      "@/types": ["types/index.ts"]
     }
   }
 }
