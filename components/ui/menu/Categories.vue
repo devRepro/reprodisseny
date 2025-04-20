@@ -43,6 +43,11 @@ const navigateTo = (path: string) => {
 
               <template v-for="product in category.children || []" :key="product.slug">
                 <MenubarItem @click="navigateTo(`/categorias/${product.slug}`)">
+                 <MenubarItem
+                +   @click="navigateTo(
+                +     `/categorias/${category.slug}/${product.slug}`
+                +   )"
+                + >
                   {{ product.title || product.slug }}
                 </MenubarItem>
               </template>

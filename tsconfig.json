@@ -1,19 +1,17 @@
 {
   "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "ESNext",
-    "moduleResolution": "node",
-    "lib": ["ES2020", "DOM"],
-    "strict": true,
-    "types": ["vue", "@nuxt/content"],
+    // …tus otras opciones…
     "baseUrl": ".",
     "paths": {
+      "components/*": ["components/*"],
+      "composables/*": ["composables/*"],
+      "utils/*": ["lib/utils/*"],
+      "ui/*": ["components/ui/*"],
+      "lib/*": ["lib/*"],
       "@/*": ["./*"],
       "#content": ["node_modules/@nuxt/content/dist/runtime"],
-      "#imports": ["./.nuxt/imports"],
-      "@/types": ["types/index.ts"]
+      "#imports": ["./.nuxt/imports"]
     }
   }
 }
-

@@ -8,10 +8,10 @@ import { useSearch } from "@/composables/useSearch";
 
 <template>
   <header class="text-gray-600">
-    <div class="container mx-auto flex items-center justify-between p-2 gap-6">
+    <div class="container mx-auto flex items-center justify-around p-2 gap-6">
       <!-- Logo -->
       <a href="/" class="flex items-center shrink-0">
-        <UiLogo />
+        <UiLogo class="h-10 w-auto"/>
       </a>
 
       <!-- Buscador + Menú -->

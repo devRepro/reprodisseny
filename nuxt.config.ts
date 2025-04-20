@@ -1,5 +1,12 @@
+// nuxt.config.ts
 import { defineNuxtConfig } from 'nuxt/config'
 
+// Capturamos aquí cualquier unhandledRejection
+// para evitar que termine en un error EPIPE que rompa el proceso
+process.on('unhandledRejection', (reason, promise) => {
+  // Puedes filtrar por código o mensaje si quieres silenciar solo EPIPE
+  console.warn('🔔 Unhandled Rejection captured:', reason)
+})
 export default defineNuxtConfig({
   runtimeConfig: {
     SENDGRID_API_KEY: process.env.SENDGRID_API_KEY,
@@ -74,6 +81,17 @@ export default defineNuxtConfig({
     preference: 'light',
     fallback: 'light',
     classSuffix: ''
+  },
+  experimental: {
+    // Deshabilita la serialización de payloads en dev y limpia estos warnings
+    renderJsonPayloads: false
+  },
+  vite: {
+    server: {
+      hmr: {
+        // desactivamos el overlay de errores HMR en navegador
+        overlay: false
+      }
+    }
   }
-  
 })

@@ -1,69 +1,31 @@
-<template>
-  <div>
-    <CategoryHeader
-      v-if="page"
-      :title="page.title"
-      :description="page.description"
-      :image="`/img/categorias/${page.image}`"
-      :alt="page.alt"
-      :link="`/categorias/${page.slug}`"
-    />
-
-    <UiSpinner v-else />
-
-    <ContentRenderer v-if="page" :value="page" class="mb-10" />
-  </div>
-</template>
-
 <script setup lang="ts">
-definePageMeta({
-  layout: 'categorias'
-})
+definePageMeta({ layout: 'categorias' })
 
 import { useRoute } from 'vue-router'
 import { useCategoriaBySlug } from '@/composables/useCategoriaBySlug'
-import { useHead } from '#imports'
 
-const route = useRoute()
-const categorySlug = route.params.category as string
+const route   = useRoute()
+const slug    = route.params.category as string
+const { data: categoria, pending, error } = useCategoriaBySlug(slug)
 
-const { data: page } = await useCategoriaBySlug(categorySlug)
-
-useHead(() => ({
-  title: page.value?.metaTitle || page.value?.title,
-  meta: [
-    {
-      name: 'description',
-      content: page.value?.metaDescription || page.value?.description
-    },
-    {
-      name: 'keywords',
-      content: Array.isArray(page.value?.keywords)
-        ? page.value.keywords.join(', ')
-        : typeof page.value?.keywords === 'string'
-        ? page.value.keywords
-        : ''
-    },
-    {
-      property: 'og:title',
-      content: page.value?.metaTitle || page.value?.title
-    },
-    {
-      property: 'og:description',
-      content: page.value?.metaDescription || page.value?.description
-    },
-    {
-      property: 'og:image',
-      content: `https://reprodisseny.com${page.value?.image}`
-    }
-  ],
-  script: page.value?.structuredData
-    ? [
-        {
-          type: 'application/ld+json',
-          children: page.value.structuredData
-        }
-      ]
-    : []
-}))
+// DEBUG: comprueba en consola
+console.log('slug:', slug)
+console.log('categoria.value:', categoria.value)
 </script>
+
+<template>
+  <div class="max-w-7xl mx-auto px-4 py-8">
+    <div v-if="pending" class="text-center py-12">Cargando…</div>
+    <div v-else-if="error" class="text-center text-red-600 py-12">
+      Error al cargar la categoría.
+    </div>
+    <div v-else-if="categoria">
+      <!-- Renderizamos solo el header por ahora -->
+      <CategoryHeader :categoria="categoria" />
+    </div>
+  </div>
+</template>
+
+<style scoped>
+/* Centrado y espacios básicos ya definidos en el container */
+</style>

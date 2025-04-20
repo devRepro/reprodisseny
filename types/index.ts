@@ -8,7 +8,8 @@ export interface FormField {
   options?: string[]
 }
 
-export interface SchemaOrg {
+// Schema.org para un producto
+export interface SchemaProduct {
   '@type': 'Product'
   name: string
   description: string
@@ -26,6 +27,27 @@ export interface SchemaOrg {
   }
 }
 
+// Schema.org para una página de colección (categoría)
+export interface SchemaCollectionPage {
+  '@context': 'https://schema.org'
+  '@type': 'CollectionPage'
+  name: string
+  description: string
+  url: string
+  image?: string
+  provider?: {
+    '@type': 'Organization'
+    name: string
+    url: string
+    logo?: {
+      '@type': 'ImageObject'
+      url: string
+    }
+  }
+  hasPart?: { '@type': 'CollectionPage'; name: string; url: string }[]
+}
+
+// Un producto individual
 export interface Producto {
   title: string
   slug: string
@@ -46,9 +68,10 @@ export interface Producto {
   brand?: string
   path: string
   formFields?: FormField[]
-  schema?: SchemaOrg
+  schema?: SchemaProduct
 }
 
+// Subcategoría que agrupa productos
 export interface Subcategoria {
   title: string
   slug: string
@@ -58,11 +81,18 @@ export interface Subcategoria {
   [key: string]: any
 }
 
+// FAQ item para la sección de preguntas frecuentes
+export interface FaqItem {
+  question: string
+  answer: string
+}
+
+// Datos completos de una categoría, tal como los usa la página `/categorias/[category]`
 export interface Categoria {
   title: string
-  navigation?: boolean
-  nav: string
   slug: string
+  nav?: string                   // texto corto para menú
+  navigation?: boolean
   description: string
   keywords?: string[]
   image?: string
@@ -71,4 +101,28 @@ export interface Categoria {
   path: string
   formFields?: FormField[]
   children?: (Producto | Subcategoria)[]
+  
+  // NUEVOS CAMPOS para la página de categoría:
+  productos?: Producto[]         // lista a mostrar en el grid
+  topProducts?: Producto[]       // top ventas
+  newProducts?: Producto[]       // novedades
+  popularProducts?: Producto[]   // populares
+  faqs?: FaqItem[]               // preguntas frecuentes
+  
+  // Schema.org para SEO
+  schemaPage?: SchemaCollectionPage
+}
+
+// Datos para el formulario de consulta rápida
+export interface InquiryData {
+  name: string
+  email: string
+  message: string
+}
+
+// Interfaz de retorno de useCategoriaBySlug()
+export interface UseCategoriaBySlugResult {
+  data: Categoria | null
+  pending: boolean
+  error: Error | null
 }
