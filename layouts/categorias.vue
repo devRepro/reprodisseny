@@ -6,9 +6,9 @@ const { data: categorias } = await useCategoriasNav()
 
 <template>
   <NuxtLayout name="default">
-    <template #navigation>
+    <template>
       <!-- reutiliza tu megamenu del default layout -->
-      <UiNavigationMenuMegaMenu :categorias="categorias || []" />
+      <UiNavigationMenuMegaMenu/>
     </template>
     <!-- aquí irá siempre el contenido de la página [category] -->
     <slot />

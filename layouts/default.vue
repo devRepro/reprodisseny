@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import { useSearch } from '@/composables/useSearch'
-import { useCategoriasNav } from '@/composables/useCategoriasNav'
+const { data: categorias, pending, error } = await useCategoriasNav()
+
 
 const { data: categorias } = await useCategoriasNav()
 const { searchOpen, closeSearch } = useSearch()
+
+
 </script>
 
 <template>
@@ -30,7 +33,7 @@ const { searchOpen, closeSearch } = useSearch()
     <!-- MEGA MENU -->
     <nav aria-label="Navegación principal" class="bg-white border-b">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <UiNavigationMenuMegaMenu :categorias="categorias || []" />
+        <UiNavigationMenuMegaMenu />
       </div>
     </nav>
 

@@ -1,9 +1,10 @@
+<!-- components/category/Header.vue -->
 <script setup lang="ts">
 import { Button } from '@/components/ui/button'
 import { NuxtImg } from '#components'
 
 const props = defineProps<{
-  title?: string
+  title: string
   description?: string
   link?: string
   image?: string
@@ -17,17 +18,30 @@ const props = defineProps<{
     class="bg-white dark:bg-gray-900 py-8 md:py-16"
   >
     <div class="mx-auto max-w-screen-xl px-4 grid grid-cols-1 md:grid-cols-12 gap-6">
-      <div v-if="pending" class="text-center py-12">Cargando…</div>
-    <div v-else-if="error" class="text-center text-red-600 py-12">Error al cargar la categoría.</div>
-    <div v-else-if="categoria">
-      <CategoryHeader
-        :title="categoria.value.titulo"
-        :description="categoria.value.descripcion"
-        :link="`/contacto?from=${categoria.value.slug}`"
-        :image="categoria.value.imagen"
-        :alt="categoria.value.titulo"
-      />
-    </div>
+      <!-- Texto -->
+      <div class="md:col-span-7 flex flex-col justify-center">
+        <h1
+          id="category-hero-title"
+          class="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight text-gray-900 dark:text-white mb-4"
+        >
+          {{ props.title }}
+        </h1>
+        <p
+          v-if="props.description"
+          class="text-gray-600 dark:text-gray-400 md:text-lg lg:text-xl mb-6"
+        >
+          {{ props.description }}
+        </p>
+        <Button
+          v-if="props.link"
+          as="nuxt-link"
+          :to="props.link"
+          variant="primary"
+          size="lg"
+        >
+          Saber más
+        </Button>
+      </div>
 
       <!-- Imagen -->
       <div v-if="props.image" class="md:col-span-5 flex items-center">

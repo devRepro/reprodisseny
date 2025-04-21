@@ -9,7 +9,9 @@ import {
 import { useCategoriasNav } from "@/composables/useCategoriasNav";
 import { useRouter } from "vue-router";
 import { computed } from "vue";
+import { PhoneCall, Mail } from "lucide-vue-next";
 
+// Router para navegación interna
 const router = useRouter();
 const { data } = await useCategoriasNav();
 const categorias = computed(() => data.value?.menuItems || []);
@@ -17,11 +19,9 @@ const navigateTo = (path: string) => router.push(path);
 </script>
 
 <template>
-  <footer
-    class="bg-[hsl(var(--color-dark))] text-[hsl(var(--primary-foreground))]"
-  >
+  <footer class="bg-[hsl(var(--color-dark))] text-[hsl(var(--primary-foreground))]">
     <div class="max-w-7xl mx-auto px-6 py-8">
-      <!-- Logo + RRSS -->
+      <!-- Logo + Redes Sociales -->
       <div class="flex flex-col md:flex-row items-center justify-between mb-8">
         <UiLogoFooter class="h-10 md:h-20 w-auto mb-4 md:mb-0" />
         <UiSocialMedia />
@@ -32,31 +32,35 @@ const navigateTo = (path: string) => router.push(path);
       <!-- Mobile Accordion -->
       <div class="md:hidden mb-8">
         <Accordion type="single" collapsible>
+          <!-- Contacto -->
           <AccordionItem value="contacto">
             <AccordionTrigger>Contacto</AccordionTrigger>
             <AccordionContent>
               <ul class="space-y-2 text-sm">
-                <li>C/ Juan de Mena, 19 Barcelona</li>
+                <li>Juan de Mena 19, 08035 Barcelona</li>
                 <li>
                   <a
                     href="tel:+34932749890"
-                    class="block hover:underline hover:decoration-[hsl(var(--color-accent))] hover:decoration-2 hover:underline-offset-2 transition"
+                    class="flex items-center hover:underline hover:decoration-[hsl(var(--color-accent))] hover:decoration-2 hover:underline-offset-2 transition"
                   >
-                    93 274 9890
+                    <PhoneCall class="w-4 h-4 mr-2 flex-shrink-0" />
+                    +34 93 274 98 90
                   </a>
                 </li>
                 <li>
                   <a
-                    href="mailto:repro@reprodisseny.com"
-                    class="block hover:underline hover:decoration-[hsl(var(--color-accent))] hover:decoration-2 hover:underline-offset-2 transition"
+                    href="mailto:comercial@reprodisseny.com"
+                    class="flex items-center hover:underline hover:decoration-[hsl(var(--color-accent))] hover:decoration-2 hover:underline-offset-2 transition"
                   >
-                    repro@reprodisseny.com
+                    <Mail class="w-4 h-4 mr-2 flex-shrink-0" />
+                    comercial@reprodisseny.com
                   </a>
                 </li>
               </ul>
             </AccordionContent>
           </AccordionItem>
 
+          <!-- Categorías -->
           <AccordionItem value="categorias">
             <AccordionTrigger>Categorías</AccordionTrigger>
             <AccordionContent>
@@ -73,6 +77,7 @@ const navigateTo = (path: string) => router.push(path);
             </AccordionContent>
           </AccordionItem>
 
+          <!-- Empresa -->
           <AccordionItem value="empresa">
             <AccordionTrigger>Empresa</AccordionTrigger>
             <AccordionContent>
@@ -105,6 +110,7 @@ const navigateTo = (path: string) => router.push(path);
             </AccordionContent>
           </AccordionItem>
 
+          <!-- Recursos -->
           <AccordionItem value="recursos">
             <AccordionTrigger>Recursos</AccordionTrigger>
             <AccordionContent>
@@ -113,19 +119,25 @@ const navigateTo = (path: string) => router.push(path);
                   <a
                     href="/blog"
                     class="hover:underline hover:decoration-[hsl(var(--color-accent))] hover:decoration-2 hover:underline-offset-2 transition"
-                  >Blog</a>
+                  >
+                    Blog
+                  </a>
                 </li>
                 <li>
                   <a
                     href="/faq"
                     class="hover:underline hover:decoration-[hsl(var(--color-accent))] hover:decoration-2 hover:underline-offset-2 transition"
-                  >FAQ</a>
+                  >
+                    FAQ
+                  </a>
                 </li>
                 <li>
                   <a
                     href="/mapa-web"
                     class="hover:underline hover:decoration-[hsl(var(--color-accent))] hover:decoration-2 hover:underline-offset-2 transition"
-                  >Mapa web</a>
+                  >
+                    Mapa web
+                  </a>
                 </li>
               </ul>
             </AccordionContent>
@@ -139,21 +151,23 @@ const navigateTo = (path: string) => router.push(path);
         <div>
           <h4 class="font-semibold mb-4">Contacto</h4>
           <ul class="space-y-2 text-sm">
-            <li>C/ Gran Via, 123, Barcelona</li>
+            <li>Juan de Mena 19, 08035 Barcelona</li>
             <li>
               <a
-                href="tel:+34932123456"
-                class="hover:underline hover:decoration-[hsl(var(--color-accent))] hover:decoration-2 hover:underline-offset-2 transition"
+                href="tel:+34932749890"
+                class="flex items-center hover:underline hover:decoration-[hsl(var(--color-accent))] hover:decoration-2 hover:underline-offset-2 transition"
               >
-                93 212 3456
+                <PhoneCall class="w-4 h-4 mr-2 flex-shrink-0" />
+                +34 93 274 98 90
               </a>
             </li>
             <li>
               <a
-                href="mailto:info@reprodisseny.com"
-                class="hover:underline hover:decoration-[hsl(var(--color-accent))] hover:decoration-2 hover:underline-offset-2 transition"
+                href="mailto:comercial@reprodisseny.com"
+                class="flex items-center hover:underline hover:decoration-[hsl(var(--color-accent))] hover:decoration-2 hover:underline-offset-2 transition"
               >
-                info@reprodisseny.com
+                <Mail class="w-4 h-4 mr-2 flex-shrink-0" />
+                comercial@reprodisseny.com
               </a>
             </li>
           </ul>
@@ -213,52 +227,55 @@ const navigateTo = (path: string) => router.push(path);
               <a
                 href="/blog"
                 class="hover:underline hover:decoration-[hsl(var(--color-accent))] hover:decoration-2 hover:underline-offset-2 transition"
-              >Blog</a>
+              >
+                Blog
+              </a>
             </li>
             <li>
               <a
                 href="/faq"
                 class="hover:underline hover:decoration-[hsl(var(--color-accent))] hover:decoration-2 hover:underline-offset-2 transition"
-              >FAQ</a>
+              >
+                FAQ
+              </a>
             </li>
             <li>
               <a
                 href="/mapa-web"
                 class="hover:underline hover:decoration-[hsl(var(--color-accent))] hover:decoration-2 hover:underline-offset-2 transition"
-              >Mapa web</a>
+              >
+                Mapa web
+              </a>
             </li>
           </ul>
         </div>
       </div>
+
     </div>
 
-    <!-- Bottom bar -->
+    <!-- Bottom Bar -->
     <div class="border-t border-[hsl(var(--primary-foreground))]">
-      <div
-        class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center text-xs"
-      >
+      <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center text-xs">
         <div class="flex space-x-4">
           <a
             href="/mapa-web"
             class="hover:underline hover:decoration-[hsl(var(--color-accent))] hover:decoration-2 hover:underline-offset-2 transition"
           >Mapa web</a>
           <a
-            href="/politica-privacidad"
+            href="/aviso-legal"
             class="hover:underline hover:decoration-[hsl(var(--color-accent))] hover:decoration-2 hover:underline-offset-2 transition"
-          >
-            Política de privacidad
-          </a>
+          >Aviso legal</a>
           <a
-            href="/terminos"
+            href="/privacidad"
             class="hover:underline hover:decoration-[hsl(var(--color-accent))] hover:decoration-2 hover:underline-offset-2 transition"
-          >
-            Términos y condiciones
-          </a>
+          >Política de privacidad</a>
         </div>
-        <p class="mt-4 md:mt-0">
-          © {{ new Date().getFullYear() }} Repro Disseny. Todos los derechos reservados.
-        </p>
+        <p class="mt-4 md:mt-0">© {{ new Date().getFullYear() }} Repro Disseny. Todos los derechos reservados.</p>
       </div>
     </div>
   </footer>
 </template>
+
+<style scoped>
+/* Estilos adicionales si es necesario */
+</style>
