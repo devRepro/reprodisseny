@@ -18,7 +18,7 @@ import { useSearch } from "@/composables/useSearch";
       <div id="buscar" class="flex items-center gap-6 flex-1 justify-end">
         <!-- Input con lupa simulado -->
         <div class="relative w-[280px]">
-          <Search
+          <UiCommandSearch
             class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none"
           />
           <Button
@@ -38,7 +38,7 @@ import { useSearch } from "@/composables/useSearch";
         </div>
 
         <!-- Menú de contacto y-->
-        <UiMenuHeaderContacto/>
+        <UiMenuHeaderContacto />
 
       </div>
     </div>

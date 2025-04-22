@@ -5,8 +5,6 @@ const config: Config = {
   darkMode: ['class'],
    safelist: [
     // Simplemente lista las clases exactas que necesitas forzar
-    'data-[state=closed]:slide-out-to-top-[48%]',
-    'data-[state=open]:slide-in-from-top-[48%]',
     // Puedes añadir más clases o patrones más generales si es necesario
     // Ejemplo de patrón más general (si usas otros porcentajes):
     // {

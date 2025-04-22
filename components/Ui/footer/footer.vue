@@ -22,7 +22,7 @@ const navigateTo = (path: string) => router.push(path)
     <div class="max-w-7xl mx-auto px-6 py-8">
       <!-- Logo + RRSS -->
       <div class="flex flex-col md:flex-row items-center justify-between mb-8">
-        <UiLogoFooter class="h-10 w-auto mb-4 md:mb-0" />
+        <UiLogoImgFooter class="h-10 w-auto mb-4 md:mb-0" />
         <UiSocialMedia />
       </div>
 
