@@ -3,13 +3,15 @@ import type { Config } from 'tailwindcss'
 
 const config: Config = {
   darkMode: ['class'],
-  safelist: [
-    {
-      pattern: /^data-\[state=closed\]:slide-out-to-top-\[48%\]$/,
-    },
-    {
-      pattern: /^data-\[state=open\]:slide-in-from-top-\[48%\]$/,
-    },
+   safelist: [
+    // Simplemente lista las clases exactas que necesitas forzar
+    'data-[state=closed]:slide-out-to-top-[48%]',
+    'data-[state=open]:slide-in-from-top-[48%]',
+    // Puedes añadir más clases o patrones más generales si es necesario
+    // Ejemplo de patrón más general (si usas otros porcentajes):
+    // {
+    //   pattern: /^data-\[state=(open|closed)\]:(slide-in-from-top|slide-out-to-top)-\[\d+%\]$/,
+    // },
   ],
   content: [
     './components/**/*.{vue,js,ts}',

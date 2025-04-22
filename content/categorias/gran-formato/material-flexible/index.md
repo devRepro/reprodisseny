@@ -18,7 +18,7 @@ alt: Ejemplo de impresión en material flexible para publicidad
 slug: material-flexible
 category: gran-formato
 schemaType: CollectionPage
-type: categoria
+type: subcategoria
 nav: Material Flexible
 ratingValue: 4.7
 reviewCount: 68

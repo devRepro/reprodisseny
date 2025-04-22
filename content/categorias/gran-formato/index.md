@@ -27,11 +27,10 @@ priceCurrency: EUR
 brand: Repro Disseny
 inStock: true
 formFields: []
-nav: Gran Formato
 schema:
   '@type': CollectionPage
   name: Impresión en Gran Formato en Barcelona y Cataluña | Repro Disseny
-  description: Servicios de impresión en gran formato en Barcelona y Cataluña: lonas publicitarias, carteles, vinilos decorativos y más. Calidad premium y producción local.
+  description: "Servicios de impresión en gran formato en Barcelona y Cataluña: lonas publicitarias, carteles, vinilos decorativos y más. Calidad premium y producción local."
   image: https://reprodisseny.com/img/categorias/gran-formato.png
   brand:
     '@type': Organization

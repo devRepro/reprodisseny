@@ -19,7 +19,7 @@ alt: Ejemplo de impresión en material rígido para cartelería
 slug: material-rigido
 category: gran-formato
 schemaType: CollectionPage
-type: categoria
+type: subcategoria
 nav: Material Rígido
 ratingValue: 4.8
 reviewCount: 64

@@ -18,7 +18,7 @@ slug: material-publicidad
 schemaType: CollectionPage
 featured: false
 order: 0
-type: categoria
+type: subcategoria
 category: publicitario-oficina
 ratingValue: 4.7
 reviewCount: 89
@@ -31,7 +31,7 @@ formFields: []
 schema:
   '@type': CollectionPage
   name: Material Publicitario y de Oficina Personalizado | Repro Disseny
-  description: Impresión de material publicitario y de oficina personalizado: carpetas, blocs, talonarios, flyers, trípticos y papelería corporativa. Soluciones para empresas en Barcelona y Cataluña.
+  description: "Impresión de material publicitario y de oficina personalizado: carpetas, blocs, talonarios, flyers, trípticos y papelería corporativa. Soluciones para empresas en Barcelona y Cataluña."
   image: https://reprodisseny.com/img/categorias/material-publicidad.webp
   url: https://reprodisseny.com/categorias/publicitario-oficina/material-publicidad
   brand:
