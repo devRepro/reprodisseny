@@ -18,7 +18,6 @@
     "reinstall:prepare": "rm -rf node_modules .nuxt && npm i && npx nuxi prepare",
     "generate:products": "node scripts/create-product-files.js",
     "validate:products": "node scripts/validate-products.js"
-
   },
   "dependencies": {
     "@nuxt/content": "^3.3.0",

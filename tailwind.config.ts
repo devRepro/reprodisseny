@@ -4,8 +4,12 @@ import type { Config } from 'tailwindcss'
 const config: Config = {
   darkMode: ['class'],
   safelist: [
-    'data-[state=open]:slide-in-from-top-[48%]',
-    'data-[state=closed]:slide-out-to-top-[48%]',
+    {
+      pattern: /^data-\[state=closed\]:slide-out-to-top-\[48%\]$/,
+    },
+    {
+      pattern: /^data-\[state=open\]:slide-in-from-top-\[48%\]$/,
+    },
   ],
   content: [
     './components/**/*.{vue,js,ts}',
@@ -46,12 +50,30 @@ const config: Config = {
   					transform: 'scale(1)',
   					opacity: '1'
   				}
+  			},
+  			'accordion-down': {
+  				from: {
+  					height: '0'
+  				},
+  				to: {
+  					height: 'var(--reka-accordion-content-height)'
+  				}
+  			},
+  			'accordion-up': {
+  				from: {
+  					height: 'var(--reka-accordion-content-height)'
+  				},
+  				to: {
+  					height: '0'
+  				}
   			}
   		},
   		animation: {
   			fade: 'fadeIn 300ms ease-out forwards',
   			'slide-up': 'slideUp 300ms ease-out forwards',
-  			'scale-in': 'scaleIn 200ms ease-out forwards'
+  			'scale-in': 'scaleIn 200ms ease-out forwards',
+  			'accordion-down': 'accordion-down 0.2s ease-out',
+  			'accordion-up': 'accordion-up 0.2s ease-out'
   		},
   		colors: {
   			primary: {
@@ -116,6 +138,7 @@ const config: Config = {
   	}
   },
   plugins: [require('tailwindcss-animate')],
+  
 }
 
 export default config
