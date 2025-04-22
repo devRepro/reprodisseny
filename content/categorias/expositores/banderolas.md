@@ -1,14 +1,13 @@
 ---
 metaTitle: Banderolas | Repro Disseny
-metaDescription: "Banderolas personalizadas con calidad profesional en Catalu\xF1\
-  a."
+metaDescription: Banderolas personalizadas con calidad profesional en Cataluña.
 keywords:
 - banderolas
 searchTerms:
 - banderolas
 image: /img/productos/Banderolas.webp
 galleryImages: []
-alt: "alt descripci\xF3 de la foto"
+alt: alt descripció de la foto
 slug: banderolas
 category: expositores
 sku: 01-EXPO-0006
@@ -21,12 +20,12 @@ reviewCount: 0
 schemaType: Product
 type: producto
 title: Banderolas
-description: "descripci\xF3n gen\xE9rica de mi producto para probar"
+description: descripción genérica de mi producto para probar
 priceCurrency: EUR
 schema:
   '@type': Product
   name: Banderolas
-  description: "descripci\xF3n gen\xE9rica de mi producto para probar"
+  description: descripción genérica de mi producto para probar
   image: https://reprodisseny.com/img/productos/Banderolas.webp
   sku: 01-EXPO-0006
   brand:
@@ -38,6 +37,7 @@ schema:
     priceCurrency: EUR
     availability: https://schema.org/InStock
 nav: Banderolas
+faqs: []
 ---
 
 ## Banderolas

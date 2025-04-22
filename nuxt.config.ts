@@ -16,7 +16,32 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/image'
   ],
-
+  image: {
+    // El proveedor IPX es ideal para imágenes locales (public/ y assets/)
+    provider: 'ipx',
+    dir: 'public', // para imágenes dentro de /public
+    domains: [],   // si en el futuro usas imágenes externas, puedes añadir dominios aquí
+    screens: {
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+      '2xl': 1536
+    },
+    // Estas opciones mejoran el rendimiento y calidad visual
+    format: ['webp', 'avif'], // intentará usar formatos modernos primero
+    quality: 75,              // calidad recomendada para equilibrio visual/peso
+    presets: {
+      category: {
+        modifiers: {
+          fit: 'cover',
+          width: 600,
+          height: 400,
+          format: 'webp'
+        }
+      }
+    }
+  },
   css: ['@/assets/styles/main.scss'],
 
   components: true,

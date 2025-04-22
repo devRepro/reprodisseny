@@ -1,14 +1,14 @@
 ---
-metaTitle: "Encuadernaci\xF3n  Wire O Oculto | Repro Disseny"
-metaDescription: "Encuadernaci\xF3n  Wire O Oculto personalizadas con calidad profesional\
-  \ en Catalu\xF1a."
+metaTitle: Encuadernación  Wire O Oculto | Repro Disseny
+metaDescription: Encuadernación  Wire O Oculto personalizadas con calidad profesional
+  en Cataluña.
 keywords:
-- "encuadernaci\xF3n  wire o oculto"
+- encuadernación  wire o oculto
 searchTerms:
-- "encuadernaci\xF3n  wire o oculto"
+- encuadernación  wire o oculto
 image: /img/productos/Carteles.webp
 galleryImages: []
-alt: "alt descripci\xF3 de la foto"
+alt: alt descripció de la foto
 slug: wire-o-oculto
 category: libros-revistas-catalogos
 sku: 01-PUBLI-0005
@@ -20,13 +20,13 @@ ratingValue: 0
 reviewCount: 0
 schemaType: Product
 type: producto
-title: "Encuadernaci\xF3n  Wire O Oculto"
-description: "descripci\xF3n gen\xE9rica de mi producto para probar"
+title: Encuadernación  Wire O Oculto
+description: descripción genérica de mi producto para probar
 priceCurrency: EUR
 schema:
   '@type': Product
-  name: "Encuadernaci\xF3n  Wire O Oculto"
-  description: "descripci\xF3n gen\xE9rica de mi producto para probar"
+  name: Encuadernación  Wire O Oculto
+  description: descripción genérica de mi producto para probar
   image: https://reprodisseny.com/img/productos/Carteles.webp
   sku: 01-PUBLI-0005
   brand:
@@ -37,7 +37,8 @@ schema:
     price: 0
     priceCurrency: EUR
     availability: https://schema.org/InStock
-nav: "Encuadernaci\xF3n  Wire O Oculto"
+nav: Encuadernación  Wire O Oculto
+faqs: []
 ---
 
 ## Encuadernación  Wire O Oculto

@@ -1,61 +1,39 @@
 ---
-title: Material Publicitario y de Oficina Personalizado | Repro Disseny
-metaTitle: Material Publicitario y de Oficina Personalizado | Repro Disseny
-metaDescription: "Impresi\xF3n de material publicitario y de oficina personalizado:\
-  \ carpetas, blocs, talonarios, flyers, tr\xEDpticos y papeler\xEDa corporativa.\
-  \ Soluciones para empresas en Barcelona y Catalu\xF1a."
+title: Material de Oficina Personalizado para Empresas
+metaTitle: Material de Oficina Personalizado para Empresas | Repro Disseny
+metaDescription: "Impresión de material de oficina personalizado: blocs, talonarios, carpetas y más. Soluciones profesionales para empresas en Barcelona y Cataluña."
 keywords:
-- Material promocional para ferias
-- "Papeler\xEDa corporativa personalizada"
-- "Impresi\xF3n de folletos publicitarios"
-- Merchandising para empresas
-- Material de oficina personalizado
+  - Material de oficina personalizado
+  - Blocs y talonarios impresos
+  - Carpetas corporativas
+  - Papelería de oficina Barcelona
+  - Impresión material oficina Cataluña
 searchTerms:
-- "impresi\xF3n material publicitario Barcelona"
-- "papeler\xEDa corporativa Catalu\xF1a"
-- merchandising personalizado empresas
-image: publicidad.webp
-alt: "Papeler\xEDa corporativa impresa para empresas, agencias y oficinas en Barcelona"
-slug: publicitario-oficina
+  - impresión material oficina Barcelona
+  - papelería corporativa personalizada
+  - material oficina empresas Cataluña
+image: material-oficina.webp
+alt: Material de oficina personalizado para empresas en Barcelona
+slug: material-oficina
 schemaType: CollectionPage
 featured: false
-order: 0
+order: 1
 type: categoria
-ratingValue: 4.7
-reviewCount: 89
-structuredData: "{\n  \"@context\": \"https://schema.org\",\n  \"@type\": \"CollectionPage\"\
-  ,\n  \"name\": \"Material Publicitario y de Oficina Personalizado\",\n  \"description\"\
-  : \"Impresi\xF3n de material publicitario y de oficina personalizado: carpetas,\
-  \ blocs, talonarios, flyers, tr\xEDpticos y papeler\xEDa corporativa. Soluciones\
-  \ para empresas en Barcelona y Catalu\xF1a.\",\n  \"url\": \"https://reprodisseny.com/categorias/publicitario-oficina\"\
-  ,\n  \"image\": \"https://reprodisseny.com/img/categorias/publicidad.webp\",\n \
-  \ \"provider\": {\n    \"@type\": \"Organization\",\n    \"name\": \"Repro Disseny\"\
-  ,\n    \"url\": \"https://reprodisseny.com\",\n    \"logo\": {\n      \"@type\"\
-  : \"ImageObject\",\n      \"url\": \"https://reprodisseny.com/logo.svg\"\n    }\n\
-  \  },\n  \"hasPart\": [\n    {\n      \"@type\": \"CollectionPage\",\n      \"name\"\
-  : \"Material de Oficina\",\n      \"url\": \"https://reprodisseny.com/categorias/publicitario-oficina/material-oficina\"\
-  \n    },\n    {\n      \"@type\": \"CollectionPage\",\n      \"name\": \"Material\
-  \ Publicitario\",\n      \"url\": \"https://reprodisseny.com/categorias/publicitario-oficina/material-publicidad\"\
-  \n    }\n  ]\n}\n"
-description: "En **Repro Disseny**, ofrecemos soluciones de impresi\xF3n personalizadas\
-  \ para cubrir todas las necesidades de material publicitario y de oficina. Desde\
-  \ papeler\xEDa corporativa hasta material promocional para ferias y eventos, proporcionamos\
-  \ productos de alta calidad que refuerzan la imagen de tu empresa."
-nav: Publicidad y Oficina
+category: publicitario-oficina
+ratingValue: 4.6
+reviewCount: 75
+nav: Material oficina
 galleryImages: []
 priceCurrency: EUR
 brand: Repro Disseny
 inStock: true
 formFields: []
 schema:
-  '@type': Product
-  name: Material Publicitario y de Oficina Personalizado | Repro Disseny
-  description: "En **Repro Disseny**, ofrecemos soluciones de impresi\xF3n personalizadas\
-    \ para cubrir todas las necesidades de material publicitario y de oficina. Desde\
-    \ papeler\xEDa corporativa hasta material promocional para ferias y eventos, proporcionamos\
-    \ productos de alta calidad que refuerzan la imagen de tu empresa."
-  image: https://reprodisseny.com/img/categorias/publicidad.webp
-  sku: ''
+  '@type': CollectionPage
+  name: Material de Oficina Personalizado para Empresas | Repro Disseny
+  description: Impresión de material de oficina personalizado: blocs, talonarios, carpetas y más. Soluciones profesionales para empresas en Barcelona y Cataluña.
+  image: https://reprodisseny.com/img/categorias/material-oficina.webp
+  url: https://reprodisseny.com/categorias/publicitario-oficina/material-oficina
   brand:
     '@type': Organization
     name: Repro Disseny
@@ -64,32 +42,43 @@ schema:
     price: 0
     priceCurrency: EUR
     availability: https://schema.org/InStock
+faqs:
+- question: ¿Qué tipo de adhesivos son mejores para escaparates?
+  answer: Los adhesivos vinílicos removibles son ideales para escaparates, ya que
+    se pueden aplicar fácilmente y retirar sin dejar residuos ni dañar el cristal.
+- question: ¿Se pueden fabricar adhesivos con formas personalizadas?
+  answer: Sí, ofrecemos troquelado personalizado para crear adhesivos con cualquier
+    forma según tu diseño o logotipo.
+- question: ¿Los adhesivos son resistentes al agua y al exterior?
+  answer: Sí, contamos con materiales resistentes al agua, al sol y a la intemperie,
+    perfectos para uso exterior prolongado.
+- question: ¿Qué opciones de acabado están disponibles para los adhesivos?
+  answer: Disponemos de acabados mate, brillo y laminado protector, según el uso y
+    el diseño del adhesivo.
+- question: ¿Puedo pedir un adhesivo con impresión personalizada y en cantidades pequeñas?
+  answer: Claro, trabajamos desde pequeñas tiradas hasta grandes producciones, adaptándonos
+    a las necesidades de cada cliente.
 ---
 
-## Material Publicitario y de Oficina Personalizado | Repro Disseny
+## Material de Oficina Personalizado para Empresas | Repro Disseny
 
-# Material Publicitario y de Oficina Personalizado
+# Material de Oficina Personalizado para Empresas
 
-En **Repro Disseny**, ofrecemos soluciones de impresión personalizadas para cubrir todas las necesidades de material publicitario y de oficina. Desde papelería corporativa hasta material promocional para ferias y eventos, proporcionamos productos de alta calidad que refuerzan la imagen de tu empresa.
+En **Repro Disseny**, entendemos la importancia de contar con material de oficina que refleje la identidad y profesionalismo de tu empresa. Ofrecemos una amplia gama de productos personalizados que se adaptan a tus necesidades.
 
-## Nuestros Servicios Incluyen
+## Nuestros Productos
 
-- **Carpetas Personalizadas**: Presenta tus documentos con estilo y profesionalismo.
-- **Blocs y Talonarios**: Herramientas esenciales para el día a día en la oficina.
-- **Flyers y Trípticos**: Promociona tus servicios y productos de manera efectiva.
-- **Papelería Corporativa**: Refuerza la identidad de tu marca con materiales coherentes y de calidad.
+- **Blocs y Talonarios**: Personalizados con el logotipo y colores de tu empresa.
+- **Carpetas Corporativas**: Diseñadas para presentar documentos de manera profesional.
+- **Papelería de Oficina**: Incluye sobres, hojas membretadas y otros formatos esenciales para tu día a día.
 
 ## ¿Por Qué Elegir Repro Disseny?
 
-- **Calidad Superior**: Utilizamos materiales y técnicas de impresión de alta gama.
-- **Atención Personalizada**: Asesoramiento experto para cada proyecto.
-- **Producción Local**: Fabricación en Barcelona con entregas en toda Cataluña.
-- **Compromiso con el Cliente**: Nos adaptamos a tus necesidades y plazos.
-
-## Ámbito de Servicio
-
-Ofrecemos nuestros servicios en toda la provincia de **Barcelona** y el resto de **Cataluña**, garantizando entregas puntuales y atención personalizada.
+- **Calidad Profesional**: Impresión con materiales de alta calidad.
+- **Personalización Total**: Diseños únicos para cada empresa.
+- **Producción Local**: Fabricado en Barcelona, entregas en toda Cataluña.
+- **Atención Personalizada**: Te acompañamos en todo el proceso de diseño e impresión.
 
 ## Contacto
 
-¿Listo para mejorar la imagen de tu empresa con material publicitario y de oficina personalizado? [Contáctanos](https://reprodisseny.com/contacto) y descubre cómo podemos ayudarte.
+¿Necesitas renovar tu papelería de empresa o lanzar un nuevo material corporativo? [Contáctanos](https://reprodisseny.com/contacto) y hablemos de tu proyecto.

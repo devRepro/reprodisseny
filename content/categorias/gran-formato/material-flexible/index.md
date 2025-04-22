@@ -1,39 +1,36 @@
 ---
-title: "Impresi\xF3n en Materiales Flexibles - Gran Formato"
-metaTitle: "Impresi\xF3n en Materiales Flexibles | Lonas y Vinilos de Alta Calidad"
-description: "Ofrecemos soluciones de impresi\xF3n en materiales flexibles como lonas\
-  \ y vinilos, ideales para publicidad y decoraci\xF3n en gran formato."
-metaDescription: "Especialistas en impresi\xF3n digital en materiales flexibles, incluyendo\
-  \ lonas publicitarias y vinilos adhesivos, para aplicaciones interiores y exteriores."
+title: Impresión en Materiales Flexibles - Gran Formato
+metaTitle: Impresión en Materiales Flexibles | Lonas y Vinilos de Alta Calidad
+metaDescription: Especialistas en impresión digital en materiales flexibles como lonas publicitarias y vinilos adhesivos para interior y exterior.
+description: Ofrecemos soluciones de impresión en materiales flexibles como lonas y vinilos, ideales para publicidad y decoración en gran formato.
 keywords:
-- "impresi\xF3n en materiales flexibles"
-- lonas publicitarias
-- vinilos adhesivos
-- "impresi\xF3n gran formato flexible"
-- "decoraci\xF3n con vinilos"
+  - impresión en materiales flexibles
+  - lonas publicitarias
+  - vinilos adhesivos
+  - impresión gran formato flexible
+  - decoración con vinilos
 searchTerms:
-- "impresi\xF3n lonas gran formato"
-- vinilos personalizados
-- publicidad en materiales flexibles
-image: mockup2.png
-alt: "Ejemplo de impresi\xF3n en material flexible para publicidad"
+  - impresión lonas gran formato
+  - vinilos personalizados
+  - publicidad en materiales flexibles
+image: material-flexible.jpg
+alt: Ejemplo de impresión en material flexible para publicidad
 slug: material-flexible
 category: gran-formato
 schemaType: CollectionPage
-type: subcategoria
-nav: "Material Flexible"
-ratingValue: 0
-reviewCount: 0
+type: categoria
+nav: Material Flexible
+ratingValue: 4.7
+reviewCount: 68
 galleryImages: []
 priceCurrency: EUR
 brand: Repro Disseny
 inStock: true
 formFields: []
 schema:
-  '@type': Product
-  name: "Impresi\xF3n en Materiales Flexibles - Gran Formato"
-  description: "Ofrecemos soluciones de impresi\xF3n en materiales flexibles como\
-    \ lonas y vinilos, ideales para publicidad y decoraci\xF3n en gran formato."
+  '@type': CollectionPage
+  name: Impresión en Materiales Flexibles - Gran Formato
+  description: Ofrecemos soluciones de impresión en materiales flexibles como lonas y vinilos, ideales para publicidad y decoración en gran formato.
   image: https://reprodisseny.com/img/categorias/material-flexible.jpg
   sku: ''
   brand:
@@ -44,6 +41,17 @@ schema:
     price: 0
     priceCurrency: EUR
     availability: https://schema.org/InStock
+faqs:
+  - question: ¿Qué tipo de lonas y vinilos utilizáis?
+    answer: Utilizamos lonas frontlit, backlit y microperforadas, así como vinilos monoméricos, poliméricos y de corte, todos adaptados para interior o exterior.
+  - question: ¿Las impresiones resisten la intemperie?
+    answer: Sí, nuestras impresiones están preparadas para exteriores con tintas resistentes a los rayos UV y materiales impermeables.
+  - question: ¿Puedo pedir formatos personalizados?
+    answer: Por supuesto, todas las impresiones en material flexible se adaptan a las dimensiones que necesites, con posibilidad de acabados personalizados.
+  - question: ¿Ofrecéis asesoramiento para elegir el material adecuado?
+    answer: Sí, te asesoramos sin compromiso para elegir entre lona, vinilo o textil según el uso, durabilidad y estética que necesites.
+  - question: ¿Hacéis instalación o solo impresión?
+    answer: Ofrecemos impresión, acabado y también instalación en la zona de Barcelona y alrededores.
 ---
 
 ## Impresión en Materiales Flexibles - Gran Formato
@@ -56,18 +64,20 @@ Nuestra impresión en materiales flexibles es ideal para proyectos que requieren
 
 - **Lonas Publicitarias:** Perfectas para banners y anuncios de gran tamaño, resistentes al clima.
 - **Vinilos Adhesivos:** Ideales para decoración de escaparates, vehículos y paredes.
-- **Textiles:** Ofrecen una apariencia elegante para stands y eventos.&#8203;:contentReference[oaicite:14]{index=14}
+- **Textiles:** Ofrecen una apariencia elegante para stands y eventos.
 
 ## Aplicaciones Comunes
 
-- **Publicidad Exterior:** :contentReference[oaicite:15]{index=15}
-- **Decoración Comercial:** :contentReference[oaicite:16]{index=16}
-- **Eventos y Ferias:** :contentReference[oaicite:17]{index=17}&#8203;:contentReference[oaicite:18]{index=18}
+- **Publicidad Exterior**
+- **Decoración Comercial**
+- **Eventos y Ferias**
 
 ## Ventajas de Nuestros Servicios
 
-- **Flexibilidad:** :contentReference[oaicite:19]{index=19}
-- **Instalación Sencilla:** :contentReference[oaicite:20]{index=20}
-- **Calidad de Impresión:** :contentReference[oaicite:21]{index=21}&#8203;:contentReference[oaicite:22]{index=22}
+- **Flexibilidad**
+- **Instalación Sencilla**
+- **Calidad de Impresión**
 
-¿Quieres destacar con tus proyectos? :contentReference[oaicite:23]{index=23}&#8203;:contentReference[oaicite:24]{index=24}
+## ¿Necesitas ayuda con tu proyecto?
+
+[Contáctanos](https://reprodisseny.com/contacto) y te asesoraremos para que elijas la mejor opción en impresión flexible para tu negocio o evento.

@@ -2,9 +2,9 @@
 metaTitle: Posters | Repro Disseny
 metaDescription: Posters personalizadas con calidad profesional en Cataluña.
 keywords:
-  - posters
+- posters
 searchTerms:
-  - posters
+- posters
 image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
@@ -26,7 +26,7 @@ schema:
   '@type': Product
   name: Posters
   description: descripción genérica de mi producto para probar
-  image: 'https://reprodisseny.com/img/productos/mockupProduct.webp'
+  image: https://reprodisseny.com/img/productos/mockupProduct.webp
   sku: 01-OFICI-0004
   brand:
     '@type': Organization
@@ -35,8 +35,9 @@ schema:
     '@type': Offer
     price: 0
     priceCurrency: EUR
-    availability: 'https://schema.org/InStock'
+    availability: https://schema.org/InStock
 nav: Posters
+faqs: []
 ---
 
 ## Posters

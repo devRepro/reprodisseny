@@ -2,9 +2,9 @@
 metaTitle: Bloc de notas | Repro Disseny
 metaDescription: Bloc de notas personalizadas con calidad profesional en Cataluña.
 keywords:
-  - bloc de notas
+- bloc de notas
 searchTerms:
-  - bloc de notas
+- bloc de notas
 image: /img/productos/bloc-de-notas.webp
 galleryImages: []
 alt: alt descripció de la foto
@@ -26,7 +26,7 @@ schema:
   '@type': Product
   name: Bloc de notas
   description: descripción genérica de mi producto para probar
-  image: 'https://reprodisseny.com/img/productos/bloc-de-notas.webp'
+  image: https://reprodisseny.com/img/productos/bloc-de-notas.webp
   sku: 01-OFICI-0021
   brand:
     '@type': Organization
@@ -35,8 +35,9 @@ schema:
     '@type': Offer
     price: 0
     priceCurrency: EUR
-    availability: 'https://schema.org/InStock'
+    availability: https://schema.org/InStock
 nav: Bloc de notas
+faqs: []
 ---
 
 ## Bloc de notas

@@ -23,7 +23,7 @@ schema:
   '@type': Product
   name: Cartel rígido forex
   description: Cartel rígido forex personalizadas con calidad profesional en Cataluña.
-  image: 'https://reprodisseny.com/img/product/cartel-forex.webp'
+  image: https://reprodisseny.com/img/product/cartel-forex.webp
   sku: GF-MR-001
   brand:
     '@type': Organization
@@ -32,8 +32,9 @@ schema:
     '@type': Offer
     price: 19.99
     priceCurrency: EUR
-    availability: 'https://schema.org/InStock'
+    availability: https://schema.org/InStock
 nav: Cartel rígido forex
+faqs: []
 ---
 
 ## Cartel rígido forex

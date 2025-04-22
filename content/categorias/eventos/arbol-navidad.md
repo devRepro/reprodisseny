@@ -1,14 +1,13 @@
 ---
-metaTitle: "\xC1rbol de navidad | Repro Disseny"
-metaDescription: "\xC1rbol de navidad personalizadas con calidad profesional en Catalu\xF1\
-  a."
+metaTitle: Árbol de navidad | Repro Disseny
+metaDescription: Árbol de navidad personalizadas con calidad profesional en Cataluña.
 keywords:
-- "\xE1rbol de navidad"
+- árbol de navidad
 searchTerms:
-- "\xE1rbol de navidad"
+- árbol de navidad
 image: /img/productos/mockupProduct.web
 galleryImages: []
-alt: "alt descripci\xF3 de la foto"
+alt: alt descripció de la foto
 slug: arbol-navidad
 category: eventos
 sku: 01-EVEN-0017
@@ -20,13 +19,13 @@ ratingValue: 0
 reviewCount: 0
 schemaType: Product
 type: producto
-title: "\xC1rbol de navidad"
-description: "descripci\xF3n gen\xE9rica de mi producto para probar"
+title: Árbol de navidad
+description: descripción genérica de mi producto para probar
 priceCurrency: EUR
 schema:
   '@type': Product
-  name: "\xC1rbol de navidad"
-  description: "descripci\xF3n gen\xE9rica de mi producto para probar"
+  name: Árbol de navidad
+  description: descripción genérica de mi producto para probar
   image: https://reprodisseny.com/img/productos/mockupProduct.web
   sku: 01-EVEN-0017
   brand:
@@ -37,7 +36,8 @@ schema:
     price: 0
     priceCurrency: EUR
     availability: https://schema.org/InStock
-nav: "\xC1rbol de navidad"
+nav: Árbol de navidad
+faqs: []
 ---
 
 ## Árbol de navidad

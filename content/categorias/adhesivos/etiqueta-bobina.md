@@ -1,14 +1,13 @@
 ---
 metaTitle: Etiquetas en bobina | Repro Disseny
-metaDescription: "Etiquetas en bobina personalizadas con calidad profesional en Catalu\xF1\
-  a."
+metaDescription: Etiquetas en bobina personalizadas con calidad profesional en Cataluña.
 keywords:
 - etiquetas en bobina
 searchTerms:
 - etiquetas en bobina
 image: /img/productos/Etiqueta-adhesiva-bobina.webp
 galleryImages: []
-alt: "alt descripci\xF3 de la foto"
+alt: alt descripció de la foto
 slug: etiqueta-bobina
 category: adhesivos
 sku: 01-ADHE-0003
@@ -21,12 +20,12 @@ reviewCount: 0
 schemaType: Product
 type: producto
 title: Etiquetas en bobina
-description: "descripci\xF3n gen\xE9rica de mi producto para probar"
+description: descripción genérica de mi producto para probar
 priceCurrency: EUR
 schema:
   '@type': Product
   name: Etiquetas en bobina
-  description: "descripci\xF3n gen\xE9rica de mi producto para probar"
+  description: descripción genérica de mi producto para probar
   image: https://reprodisseny.com/img/productos/Etiqueta-adhesiva-bobina.webp
   sku: 01-ADHE-0003
   brand:
@@ -38,6 +37,7 @@ schema:
     priceCurrency: EUR
     availability: https://schema.org/InStock
 nav: Etiquetas en bobina
+faqs: []
 ---
 
 ## Etiquetas en bobina

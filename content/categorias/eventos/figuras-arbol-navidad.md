@@ -1,14 +1,14 @@
 ---
-metaTitle: "Figuras \xE1rbol de navidad | Repro Disseny"
-metaDescription: "Figuras \xE1rbol de navidad personalizadas con calidad profesional\
-  \ en Catalu\xF1a."
+metaTitle: Figuras árbol de navidad | Repro Disseny
+metaDescription: Figuras árbol de navidad personalizadas con calidad profesional en
+  Cataluña.
 keywords:
-- "figuras \xE1rbol de navidad"
+- figuras árbol de navidad
 searchTerms:
-- "figuras \xE1rbol de navidad"
+- figuras árbol de navidad
 image: /img/productos/mockupProduct.web
 galleryImages: []
-alt: "alt descripci\xF3 de la foto"
+alt: alt descripció de la foto
 slug: figuras-arbol-navidad
 category: eventos
 sku: 01-EVEN-0018
@@ -20,13 +20,13 @@ ratingValue: 0
 reviewCount: 0
 schemaType: Product
 type: producto
-title: "Figuras \xE1rbol de navidad"
-description: "descripci\xF3n gen\xE9rica de mi producto para probar"
+title: Figuras árbol de navidad
+description: descripción genérica de mi producto para probar
 priceCurrency: EUR
 schema:
   '@type': Product
-  name: "Figuras \xE1rbol de navidad"
-  description: "descripci\xF3n gen\xE9rica de mi producto para probar"
+  name: Figuras árbol de navidad
+  description: descripción genérica de mi producto para probar
   image: https://reprodisseny.com/img/productos/mockupProduct.web
   sku: 01-EVEN-0018
   brand:
@@ -37,7 +37,8 @@ schema:
     price: 0
     priceCurrency: EUR
     availability: https://schema.org/InStock
-nav: "Figuras \xE1rbol de navidad"
+nav: Figuras árbol de navidad
+faqs: []
 ---
 
 ## Figuras árbol de navidad

@@ -2,9 +2,9 @@
 metaTitle: Dispa | Repro Disseny
 metaDescription: Dispa personalizadas con calidad profesional en Cataluña.
 keywords:
-  - dispa
+- dispa
 searchTerms:
-  - dispa
+- dispa
 image: /img/productos/mockupProduct.web
 galleryImages: []
 alt: alt descripció de la foto
@@ -26,7 +26,7 @@ schema:
   '@type': Product
   name: Dispa
   description: descripción genérica de mi producto para probar
-  image: 'https://reprodisseny.com/img/productos/mockupProduct.web'
+  image: https://reprodisseny.com/img/productos/mockupProduct.web
   sku: 01-GRFO-0014
   brand:
     '@type': Organization
@@ -35,8 +35,9 @@ schema:
     '@type': Offer
     price: 0
     priceCurrency: EUR
-    availability: 'https://schema.org/InStock'
+    availability: https://schema.org/InStock
 nav: Dispa
+faqs: []
 ---
 
 ## Dispa

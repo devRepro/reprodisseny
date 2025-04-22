@@ -2,9 +2,9 @@
 metaTitle: Folletos plegados | Repro Disseny
 metaDescription: Folletos plegados personalizadas con calidad profesional en Cataluña.
 keywords:
-  - folletos plegados
+- folletos plegados
 searchTerms:
-  - folletos plegados
+- folletos plegados
 image: /img/productos/Folletos-plegados.webp
 galleryImages: []
 alt: alt descripció de la foto
@@ -26,7 +26,7 @@ schema:
   '@type': Product
   name: Folletos plegados
   description: descripción genérica de mi producto para probar
-  image: 'https://reprodisseny.com/img/productos/Folletos-plegados.webp'
+  image: https://reprodisseny.com/img/productos/Folletos-plegados.webp
   sku: 01-OFICI-0006
   brand:
     '@type': Organization
@@ -35,8 +35,9 @@ schema:
     '@type': Offer
     price: 0
     priceCurrency: EUR
-    availability: 'https://schema.org/InStock'
+    availability: https://schema.org/InStock
 nav: Folletos plegados
+faqs: []
 ---
 
 ## Folletos plegados

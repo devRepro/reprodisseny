@@ -1,14 +1,14 @@
 ---
-metaTitle: "D\xEDptico tarjeta habitaci\xF3n | Repro Disseny"
-metaDescription: "D\xEDptico tarjeta habitaci\xF3n personalizadas con calidad profesional\
-  \ en Catalu\xF1a."
+metaTitle: Díptico tarjeta habitación | Repro Disseny
+metaDescription: Díptico tarjeta habitación personalizadas con calidad profesional
+  en Cataluña.
 keywords:
-- "d\xEDptico tarjeta habitaci\xF3n"
+- díptico tarjeta habitación
 searchTerms:
-- "d\xEDptico tarjeta habitaci\xF3n"
+- díptico tarjeta habitación
 image: /img/productos/mockupProduct.web
 galleryImages: []
-alt: "alt descripci\xF3 de la foto"
+alt: alt descripció de la foto
 slug: diptico-habitacion
 category: hoteles-restaurantes
 sku: 01-HORE-0001
@@ -20,13 +20,13 @@ ratingValue: 0
 reviewCount: 0
 schemaType: Product
 type: producto
-title: "D\xEDptico tarjeta habitaci\xF3n"
-description: "descripci\xF3n gen\xE9rica de mi producto para probar"
+title: Díptico tarjeta habitación
+description: descripción genérica de mi producto para probar
 priceCurrency: EUR
 schema:
   '@type': Product
-  name: "D\xEDptico tarjeta habitaci\xF3n"
-  description: "descripci\xF3n gen\xE9rica de mi producto para probar"
+  name: Díptico tarjeta habitación
+  description: descripción genérica de mi producto para probar
   image: https://reprodisseny.com/img/productos/mockupProduct.web
   sku: 01-HORE-0001
   brand:
@@ -37,7 +37,8 @@ schema:
     price: 0
     priceCurrency: EUR
     availability: https://schema.org/InStock
-nav: "D\xEDptico tarjeta habitaci\xF3n"
+nav: Díptico tarjeta habitación
+faqs: []
 ---
 
 ## Díptico tarjeta habitación

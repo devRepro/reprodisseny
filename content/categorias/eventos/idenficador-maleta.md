@@ -1,14 +1,14 @@
 ---
 metaTitle: Identificador de maleta | Repro Disseny
-metaDescription: "Identificador de maleta personalizadas con calidad profesional en\
-  \ Catalu\xF1a."
+metaDescription: Identificador de maleta personalizadas con calidad profesional en
+  Cataluña.
 keywords:
 - identificador de maleta
 searchTerms:
 - identificador de maleta
 image: /img/productos/mockupProduct.web
 galleryImages: []
-alt: "alt descripci\xF3 de la foto"
+alt: alt descripció de la foto
 slug: idenficador-maleta
 category: eventos
 sku: 01-EVEN-0016
@@ -21,12 +21,12 @@ reviewCount: 0
 schemaType: Product
 type: producto
 title: Identificador de maleta
-description: "descripci\xF3n gen\xE9rica de mi producto para probar"
+description: descripción genérica de mi producto para probar
 priceCurrency: EUR
 schema:
   '@type': Product
   name: Identificador de maleta
-  description: "descripci\xF3n gen\xE9rica de mi producto para probar"
+  description: descripción genérica de mi producto para probar
   image: https://reprodisseny.com/img/productos/mockupProduct.web
   sku: 01-EVEN-0016
   brand:
@@ -38,6 +38,7 @@ schema:
     priceCurrency: EUR
     availability: https://schema.org/InStock
 nav: Identificador de maleta
+faqs: []
 ---
 
 ## Identificador de maleta

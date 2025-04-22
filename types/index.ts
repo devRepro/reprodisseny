@@ -71,4 +71,5 @@ export interface Categoria {
   path: string
   formFields?: FormField[]
   children?: (Producto | Subcategoria)[]
+  structuredData?: Record<string, any>
 }

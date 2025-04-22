@@ -2,9 +2,9 @@
 metaTitle: Nido abeja | Repro Disseny
 metaDescription: Nido abeja personalizadas con calidad profesional en Cataluña.
 keywords:
-  - nido abeja
+- nido abeja
 searchTerms:
-  - nido abeja
+- nido abeja
 image: /img/productos/mockupProduct.web
 galleryImages: []
 alt: alt descripció de la foto
@@ -26,7 +26,7 @@ schema:
   '@type': Product
   name: Nido abeja
   description: descripción genérica de mi producto para probar
-  image: 'https://reprodisseny.com/img/productos/mockupProduct.web'
+  image: https://reprodisseny.com/img/productos/mockupProduct.web
   sku: 01-GRFO-0013
   brand:
     '@type': Organization
@@ -35,8 +35,9 @@ schema:
     '@type': Offer
     price: 0
     priceCurrency: EUR
-    availability: 'https://schema.org/InStock'
+    availability: https://schema.org/InStock
 nav: Nido abeja
+faqs: []
 ---
 
 ## Nido abeja

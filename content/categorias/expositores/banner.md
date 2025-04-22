@@ -1,13 +1,13 @@
 ---
 metaTitle: Banner | Repro Disseny
-metaDescription: "Banner personalizadas con calidad profesional en Catalu\xF1a."
+metaDescription: Banner personalizadas con calidad profesional en Cataluña.
 keywords:
 - banner
 searchTerms:
 - banner
 image: /img/productos/Banners.webp
 galleryImages: []
-alt: "alt descripci\xF3 de la foto"
+alt: alt descripció de la foto
 slug: banner
 category: expositores
 sku: 01-EXPO-0002
@@ -20,12 +20,12 @@ reviewCount: 0
 schemaType: Product
 type: producto
 title: Banner
-description: "descripci\xF3n gen\xE9rica de mi producto para probar"
+description: descripción genérica de mi producto para probar
 priceCurrency: EUR
 schema:
   '@type': Product
   name: Banner
-  description: "descripci\xF3n gen\xE9rica de mi producto para probar"
+  description: descripción genérica de mi producto para probar
   image: https://reprodisseny.com/img/productos/Banners.webp
   sku: 01-EXPO-0002
   brand:
@@ -37,6 +37,7 @@ schema:
     priceCurrency: EUR
     availability: https://schema.org/InStock
 nav: Banner
+faqs: []
 ---
 
 ## Banner

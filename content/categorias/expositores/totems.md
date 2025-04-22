@@ -1,13 +1,13 @@
 ---
 metaTitle: Totems | Repro Disseny
-metaDescription: "Totems personalizadas con calidad profesional en Catalu\xF1a."
+metaDescription: Totems personalizadas con calidad profesional en Cataluña.
 keywords:
 - totems
 searchTerms:
 - totems
 image: /img/productos/mockupProduct.web
 galleryImages: []
-alt: "alt descripci\xF3 de la foto"
+alt: alt descripció de la foto
 slug: totems
 category: expositores
 sku: 01-EXPO-0003
@@ -20,12 +20,12 @@ reviewCount: 0
 schemaType: Product
 type: producto
 title: Totems
-description: "descripci\xF3n gen\xE9rica de mi producto para probar"
+description: descripción genérica de mi producto para probar
 priceCurrency: EUR
 schema:
   '@type': Product
   name: Totems
-  description: "descripci\xF3n gen\xE9rica de mi producto para probar"
+  description: descripción genérica de mi producto para probar
   image: https://reprodisseny.com/img/productos/mockupProduct.web
   sku: 01-EXPO-0003
   brand:
@@ -37,6 +37,7 @@ schema:
     priceCurrency: EUR
     availability: https://schema.org/InStock
 nav: Totems
+faqs: []
 ---
 
 ## Totems

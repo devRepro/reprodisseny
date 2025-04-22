@@ -1,13 +1,13 @@
 ---
 metaTitle: Diplomas | Repro Disseny
-metaDescription: "Diplomas personalizadas con calidad profesional en Catalu\xF1a."
+metaDescription: Diplomas personalizadas con calidad profesional en Cataluña.
 keywords:
 - diplomas
 searchTerms:
 - diplomas
 image: /img/productos/Diplomas.webp
 galleryImages: []
-alt: "alt descripci\xF3 de la foto"
+alt: alt descripció de la foto
 slug: diplomas
 category: eventos
 sku: 01-EVEN-0002
@@ -20,12 +20,12 @@ reviewCount: 0
 schemaType: Product
 type: producto
 title: Diplomas
-description: "descripci\xF3n gen\xE9rica de mi producto para probar"
+description: descripción genérica de mi producto para probar
 priceCurrency: EUR
 schema:
   '@type': Product
   name: Diplomas
-  description: "descripci\xF3n gen\xE9rica de mi producto para probar"
+  description: descripción genérica de mi producto para probar
   image: https://reprodisseny.com/img/productos/Diplomas.webp
   sku: 01-EVEN-0002
   brand:
@@ -37,6 +37,7 @@ schema:
     priceCurrency: EUR
     availability: https://schema.org/InStock
 nav: Diplomas
+faqs: []
 ---
 
 ## Diplomas

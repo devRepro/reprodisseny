@@ -2,9 +2,9 @@
 metaTitle: Libretas | Repro Disseny
 metaDescription: Libretas personalizadas con calidad profesional en Cataluña.
 keywords:
-  - libretas
+- libretas
 searchTerms:
-  - libretas
+- libretas
 image: /img/productos/libretas.webp
 galleryImages: []
 alt: alt descripció de la foto
@@ -26,7 +26,7 @@ schema:
   '@type': Product
   name: Libretas
   description: descripción genérica de mi producto para probar
-  image: 'https://reprodisseny.com/img/productos/libretas.webp'
+  image: https://reprodisseny.com/img/productos/libretas.webp
   sku: 01-OFICI-0022
   brand:
     '@type': Organization
@@ -35,8 +35,9 @@ schema:
     '@type': Offer
     price: 0
     priceCurrency: EUR
-    availability: 'https://schema.org/InStock'
+    availability: https://schema.org/InStock
 nav: Libretas
+faqs: []
 ---
 
 ## Libretas

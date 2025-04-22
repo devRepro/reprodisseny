@@ -2,9 +2,9 @@
 metaTitle: Etiquetas colgantes | Repro Disseny
 metaDescription: Etiquetas colgantes personalizadas con calidad profesional en Cataluña.
 keywords:
-  - etiquetas colgantes
+- etiquetas colgantes
 searchTerms:
-  - etiquetas colgantes
+- etiquetas colgantes
 image: /img/productos/mockupProduct.web
 galleryImages: []
 alt: alt descripció de la foto
@@ -26,7 +26,7 @@ schema:
   '@type': Product
   name: Etiquetas colgantes
   description: descripción genérica de mi producto para probar
-  image: 'https://reprodisseny.com/img/productos/mockupProduct.web'
+  image: https://reprodisseny.com/img/productos/mockupProduct.web
   sku: 01-OFICI-0008
   brand:
     '@type': Organization
@@ -35,8 +35,9 @@ schema:
     '@type': Offer
     price: 0
     priceCurrency: EUR
-    availability: 'https://schema.org/InStock'
+    availability: https://schema.org/InStock
 nav: Etiquetas colgantes
+faqs: []
 ---
 
 ## Etiquetas colgantes
