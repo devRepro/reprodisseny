@@ -3,28 +3,17 @@ import { Icon } from '#components'
 
 // Define las redes sociales y sus respectivas URLs e iconos
 const socialLinks = [
-  {
-    name: 'facebook',
-    icon: 'lucide:facebook',
-    url: 'https://www.facebook.com/YourPage',
-    label: 'Facebook'
-  },
+ 
   {
     name: 'instagram',
     icon: 'lucide:instagram',
-    url: 'https://www.instagram.com/YourProfile',
+    url: 'https://www.instagram.com/reprodissenybcn/?hl=es',
     label: 'Instagram'
-  },
-  {
-    name: 'twitter',
-    icon: 'lucide:twitter',
-    url: 'https://twitter.com/YourHandle',
-    label: 'Twitter'
   },
   {
     name: 'linkedin',
     icon: 'lucide:linkedin',
-    url: 'https://www.linkedin.com/company/YourCompany',
+    url: 'https://es.linkedin.com/company/repro-disseny-s.l',
     label: 'LinkedIn'
   }
 ]
@@ -38,7 +27,7 @@ const socialLinks = [
       :href="link.url"
       target="_blank"
       rel="noopener noreferrer"
-      class="hover:text-primary transition-colors"
+      class="text-white hover:underline hover:text-[hsl(var(--color-accent))]"
       :aria-label="link.label"
     >
       <Icon :name="link.icon" class="h-5 w-5" />

@@ -77,9 +77,8 @@ function getImage(image?: string): string {
              <Button
                size="sm"
                variant="outline"
-               class="mt-auto inline-flex items-center gap-2 text-primary-700 dark:text-primary-300 hover:underline"
-               :to="item._path || `/productos/${item.slug}`" <!-- Puedes usar item._path si Nuxt Content lo añade -->
-             >
+               class="mt-auto inline-flex items-center gap-2 text-primary-700 dark:text-primary-300 hover:underline decoration-blue-600 hover:!text-secondary-foreground"
+               :to="item._path || `/productos/${item.slug}`">
                Más información
                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-primary-700 dark:text-primary-300 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />

@@ -8,8 +8,12 @@
     <ProductSection v-if="productos?.length" :items="productos" id="productos" />
     <ContentRenderer v-if="page" :value="page" class="mb-10" />
     <UiCallAction />
-    <UiFaqSection v-if="page?.faqs?.length" :faqs="page.faqs" />
 
+    <div v-if="page?.faqs"> <UiFaqSection :faqs="page?.faqs" />
+    </div>
+    <div v-else>
+      <p>No hay preguntas frecuentes disponibles.</p> 
+    </div>
   </div>
 </template>
 
@@ -20,8 +24,9 @@ definePageMeta({
 
 import { useRoute } from 'vue-router'
 import { useCategoriaBySlug } from '@/composables/useCategoriaBySlug'
+import { useProductosByCategoria } from '@/composables/useProductosByCategoria'
 import { useStructuredData } from '@/composables/useStructuredData'
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 
 const route = useRoute()
 const categorySlug = route.params.category as string
@@ -29,6 +34,9 @@ const categorySlug = route.params.category as string
 const { data: page } = await useCategoriaBySlug(categorySlug)
 const { data: productos } = await useProductosByCategoria(categorySlug)
 
+onMounted(() => {
+  console.log('Page data:', page.value); // <-- AÑADE ESTA LÍNEA AQUÍ
+});
 
 const structuredData = computed(() =>
   page.value ? useStructuredData({

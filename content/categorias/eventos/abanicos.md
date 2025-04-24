@@ -58,5 +58,3 @@ faqs: []
 ---
 
 ## Abanicos
-
-## Abanicos

@@ -10,7 +10,7 @@ keywords:
   - Packaging creativo para marcas
 searchTerms:
   - packaging personalizado para productos y marcas | repro disseny
-image: packaging.webp
+image: mockup.webp
 galleryImages: []
 alt: Cajas y envases impresos para packaging de productos personalizados en Cataluña
 slug: packaging

@@ -18,16 +18,16 @@ const navigateTo = (path: string) => router.push(path)
 </script>
 
 <template>
-  <footer class="bg-[hsl(var(--color-dark))] text-[hsl(var(--primary-foreground))]">
+  <footer class="bg-gradient-to-b from-[hsl(240,5%,20%)] to-[hsl(240,5%,15%)] text-[hsl(var(--primary-foreground))]">
     <div class="max-w-7xl mx-auto px-6 py-8">
       <!-- Logo + RRSS -->
       <div class="flex flex-col md:flex-row items-center justify-between mb-8">
-        <UiLogoImgFooter class="h-10 w-auto mb-4 md:mb-0" />
+        <UiLogoImgFooter class="h-32 w-auto mb-4 md:mb-0" />
         <UiSocialMedia />
       </div>
 
       <!-- Separador -->
-      <Separator class="mb-8" />
+      <Separator class="mb-8 bg-[hsl(var(--primary-foreground)/20%)]"  />
 
       <!-- Accordion móvil -->
       <div class="md:hidden mb-8">
@@ -63,7 +63,7 @@ const navigateTo = (path: string) => router.push(path)
               <ul class="space-y-2 text-sm">
                 <li v-for="cat in categorias" :key="cat.slug">
                   <button
-                    class="block w-full text-left hover:underline hover:text-[hsl(var(--color-accent))]"
+                    class="block w-full text-left hover:underline hover:text-foreground/80 focus-visible:underline focus-visible:text-foreground/80 transition-colors duration-200"
                     @click="navigateTo(`/categorias/${cat.slug}`)"
                   >
                     {{ cat.nav || cat.title }}
@@ -80,7 +80,7 @@ const navigateTo = (path: string) => router.push(path)
               <ul class="space-y-2 text-sm">
                 <li>
                   <button
-                    class="block hover:underline hover:text-[hsl(var(--color-accent))]"
+                    class="block hover:underline hover:text-foreground/80 focus-visible:underline focus-visible:text-foreground/80 transition-colors duration-200"
                     @click="navigateTo('/nosotros')"
                   >
                     Sobre Nosotros

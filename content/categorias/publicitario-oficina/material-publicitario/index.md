@@ -12,7 +12,7 @@ searchTerms:
   - impresión material publicitario Barcelona
   - papelería corporativa Cataluña
   - merchandising personalizado empresas
-image: material-publicidad.webp
+image: mockup.webp
 alt: Papelería corporativa impresa para empresas, agencias y oficinas en Barcelona
 slug: material-publicidad
 schemaType: CollectionPage

@@ -13,7 +13,7 @@ searchTerms:
   - impresión lonas gran formato
   - vinilos personalizados
   - publicidad en materiales flexibles
-image: material-flexible.jpg
+image: mockup.webp
 alt: Ejemplo de impresión en material flexible para publicidad
 slug: material-flexible
 category: gran-formato

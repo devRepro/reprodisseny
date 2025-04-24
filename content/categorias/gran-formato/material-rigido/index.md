@@ -14,7 +14,7 @@ searchTerms:
   - impresión rígidos gran formato
   - carteles materiales rígidos
   - señalización rígida personalizada
-image: material-rigido.jpg
+image: mockup.webp
 alt: Ejemplo de impresión en material rígido para cartelería
 slug: material-rigido
 category: gran-formato

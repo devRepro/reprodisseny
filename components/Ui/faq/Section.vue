@@ -19,7 +19,17 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent
+} from '@/components/ui/accordion'
+
+const { faqs } = defineProps<{ // <-- Desestructura 'faqs' directamente
   faqs: Array<{ pregunta?: string; respuesta?: string; question?: string; answer?: string }>
-}>()
+}>();
+onMounted(() => {
+  console.log('FAQs prop received in UiFaqSection:', props.faqs); // <-- AÑADE ESTA LÍNEA
+});
 </script>

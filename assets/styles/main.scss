@@ -241,6 +241,7 @@
     border-color: hsl(var(--color-primary));
     box-shadow: 0 0 4px hsl(var(--color-primary));
   }
+  
 
   .dark {
     --background: 0 0% 3.9%;
@@ -286,3 +287,4 @@
     @apply bg-background text-foreground;
   }
 }
+

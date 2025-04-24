@@ -9,7 +9,7 @@ keywords:
 searchTerms:
   - impresión material oficina Barcelona
   # ...
-image: material-oficina.webp
+image: mockup.webp
 alt: Material de oficina personalizado para empresas en Barcelona
 slug: material-oficina     # Slug de la subcategoría
 schemaType: CollectionPage
