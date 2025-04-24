@@ -1,3 +1,4 @@
+// tsconfig.json (CORREGIDO)
 {
   "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
@@ -6,13 +7,13 @@
     "moduleResolution": "node",
     "lib": ["ES2020", "DOM"],
     "strict": true,
-    "types": ["vue", "@nuxt/content"],
+    // "types": ["vue", "@nuxt/content"], // 'types' puede ser opcional si 'extends' funciona bien
     "baseUrl": ".",
     "paths": {
+      // Confía en .nuxt/tsconfig.json para #imports, #content, etc.
       "@/*": ["./*"],
-      "#content": ["node_modules/@nuxt/content/dist/runtime"],
-      "#imports": ["./.nuxt/imports"],
-      "@/types": ["types/index.ts"]
+      // Asegúrate que este archivo exista o elimina el alias si no lo usas
+      "@/types": ["types/index.ts"] 
     }
   }
 }
