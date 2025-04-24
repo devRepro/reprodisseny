@@ -9,12 +9,14 @@
     <ContentRenderer v-if="page" :value="page" class="mb-10" />
     <UiCallAction />
 
-    <div v-if="page?.faqs"> <UiFaqSection :faqs="page?.faqs" />
+    <div v-if="page?.meta?.faqs?.length">
+      <UiFaqSection :faqs="page.meta.faqs" />
     </div>
+
     <div v-else>
-      <p>No hay preguntas frecuentes disponibles.</p> 
+      <p>No hay preguntas frecuentes disponibles.</p>
     </div>
-  </div>
+</div>
 </template>
 
 <script setup lang="ts">
@@ -37,7 +39,7 @@ const { data: productos } = await useProductosByCategoria(categorySlug)
 onMounted(() => {
   console.log('Page data:', page.value); // <-- AÑADE ESTA LÍNEA AQUÍ
 });
-
+const faqs = computed(() => categoria.value?.faqs || [])
 const structuredData = computed(() =>
   page.value ? useStructuredData({
     title: page.value.title,

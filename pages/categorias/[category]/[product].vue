@@ -3,33 +3,14 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
       
       <!-- Imagen destacada -->
-      <div>
-        <NuxtImg
-          v-if="producto.image"
-          :src="producto.image"
-          :alt="producto.alt || producto.title"
-          class="rounded-2xl shadow-lg w-full h-auto object-cover"
-          width="800"
-          height="600"
-        />
-      </div>
-
+      <ProductImageGallery :images="producto.images" />
+      
       <!-- Información del producto -->
       <div class="space-y-6">
         <h1 class="text-4xl font-bold text-gray-900 leading-tight">{{ producto.title }}</h1>
         <p class="text-lg text-gray-600">{{ producto.description }}</p>
 
-        <div class="flex flex-wrap gap-4 text-sm text-gray-500">
-          <span v-if="producto.brand"><strong>Marca:</strong> {{ producto.brand }}</span>
-          <span v-if="producto.sku"><strong>SKU:</strong> {{ producto.sku }}</span>
-          <span v-if="producto.price"><strong>Precio:</strong> {{ producto.price }} €</span>
-          <span v-if="producto.inStock !== undefined">
-            <strong>Disponibilidad:</strong> 
-            <span :class="producto.inStock ? 'text-green-600' : 'text-red-500'">
-              {{ producto.inStock ? 'En stock' : 'Agotado' }}
-            </span>
-          </span>
-        </div>
+        <ProductDetails :product="producto" />
 
         <!-- Formulario dinámico si hay campos -->
         <UiFormsProduct
@@ -88,7 +69,6 @@ watchEffect(async () => {
       .where('slug', '=', slug)
       .first()
 
-    producto.value = data
     loading.value = false
   }
 })
