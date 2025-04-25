@@ -5,7 +5,7 @@ keywords:
 - cartas de restaurante
 searchTerms:
 - cartas de restaurante
-image: /img/productos/mockupProduct.web
+image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: carta-restaurane
@@ -26,7 +26,7 @@ schema:
   '@type': Product
   name: Cartas de restaurante
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.web
+  image: https://reprodisseny.com/img/productos/mockupProduct.webp
   sku: 01-HORE-0005
   brand:
     '@type': Organization
@@ -39,7 +39,3 @@ schema:
 nav: Cartas de restaurante
 faqs: []
 ---
-
-## Cartas de restaurante
-
-## Cartas de restaurante

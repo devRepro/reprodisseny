@@ -6,7 +6,7 @@ keywords:
 - fundas rosas sant jordi
 searchTerms:
 - fundas rosas sant jordi
-image: /img/productos/mockupProduct.web
+image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: fundas-sant-jordi
@@ -27,7 +27,7 @@ schema:
   '@type': Product
   name: Fundas Rosas Sant Jordi
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.web
+  image: https://reprodisseny.com/img/productos/mockupProduct.webp
   sku: 01-EVEN-0001
   brand:
     '@type': Organization
@@ -40,7 +40,3 @@ schema:
 nav: Fundas Rosas Sant Jordi
 faqs: []
 ---
-
-## Fundas Rosas Sant Jordi
-
-## Fundas Rosas Sant Jordi

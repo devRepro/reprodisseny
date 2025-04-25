@@ -5,7 +5,7 @@ keywords:
 - dibon
 searchTerms:
 - dibon
-image: /img/productos/mockupProduct.web
+image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: dibon
@@ -26,7 +26,7 @@ schema:
   '@type': Product
   name: Dibon
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.web
+  image: https://reprodisseny.com/img/productos/mockupProduct.webp
   sku: 01-GRFO-0012
   brand:
     '@type': Organization
@@ -39,7 +39,3 @@ schema:
 nav: Dibon
 faqs: []
 ---
-
-## Dibon
-
-## Dibon

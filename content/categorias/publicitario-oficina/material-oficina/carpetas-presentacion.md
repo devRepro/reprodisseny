@@ -6,7 +6,7 @@ keywords:
 - carpetas de presentación
 searchTerms:
 - carpetas de presentación
-image: /img/productos/mockupProduct.web
+image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: carpetas-presentacion
@@ -27,7 +27,7 @@ schema:
   '@type': Product
   name: Carpetas de presentación
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.web
+  image: https://reprodisseny.com/img/productos/mockupProduct.webp
   sku: 01-OFICI-0020
   brand:
     '@type': Organization
@@ -40,7 +40,3 @@ schema:
 nav: Carpetas de presentación
 faqs: []
 ---
-
-## Carpetas de presentación
-
-## Carpetas de presentación

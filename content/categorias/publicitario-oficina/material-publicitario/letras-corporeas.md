@@ -5,7 +5,7 @@ keywords:
 - letras corporeas
 searchTerms:
 - letras corporeas
-image: /img/productos/mockupProduct.web
+image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: letras-corporeas
@@ -26,7 +26,7 @@ schema:
   '@type': Product
   name: Letras Corporeas
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.web
+  image: https://reprodisseny.com/img/productos/mockupProduct.webp
   sku: 01-OFICI-0029
   brand:
     '@type': Organization

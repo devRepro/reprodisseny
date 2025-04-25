@@ -5,7 +5,7 @@ keywords:
 - retoiluminados
 searchTerms:
 - retoiluminados
-image: /img/productos/mockupProduct.web
+image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: retoiluminados
@@ -26,7 +26,7 @@ schema:
   '@type': Product
   name: Retoiluminados
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.web
+  image: https://reprodisseny.com/img/productos/mockupProduct.webp
   sku: 01-GRFO-0006
   brand:
     '@type': Organization
@@ -39,7 +39,3 @@ schema:
 nav: Retoiluminados
 faqs: []
 ---
-
-## Retoiluminados
-
-## Retoiluminados

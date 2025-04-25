@@ -5,7 +5,7 @@ keywords:
 - tela poliester
 searchTerms:
 - tela poliester
-image: /img/productos/mockupProduct.web
+image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: tela-poliester
@@ -26,7 +26,7 @@ schema:
   '@type': Product
   name: Tela poliester
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.web
+  image: https://reprodisseny.com/img/productos/mockupProduct.webp
   sku: 01-GRFO-0005
   brand:
     '@type': Organization
@@ -39,7 +39,3 @@ schema:
 nav: Tela poliester
 faqs: []
 ---
-
-## Tela poliester
-
-## Tela poliester

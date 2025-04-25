@@ -40,7 +40,3 @@ schema:
 nav: Encuadernación  encolada tapa blanda
 faqs: []
 ---
-
-## Encuadernación  encolada tapa blanda
-
-## Encuadernación  encolada tapa blanda

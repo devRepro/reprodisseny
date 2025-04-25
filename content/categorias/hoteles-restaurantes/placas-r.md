@@ -5,7 +5,7 @@ keywords:
 - placas qr
 searchTerms:
 - placas qr
-image: /img/productos/mockupProduct.web
+image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: placas-r
@@ -26,7 +26,7 @@ schema:
   '@type': Product
   name: Placas QR
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.web
+  image: https://reprodisseny.com/img/productos/mockupProduct.webp
   sku: 01-HORE-0013
   brand:
     '@type': Organization
@@ -39,7 +39,3 @@ schema:
 nav: Placas QR
 faqs: []
 ---
-
-## Placas QR
-
-## Placas QR

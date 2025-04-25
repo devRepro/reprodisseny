@@ -39,7 +39,3 @@ schema:
 nav: Sobres
 faqs: []
 ---
-
-## Sobres
-
-## Sobres

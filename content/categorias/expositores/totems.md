@@ -5,7 +5,7 @@ keywords:
 - totems
 searchTerms:
 - totems
-image: /img/productos/mockupProduct.web
+image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: totems
@@ -26,7 +26,7 @@ schema:
   '@type': Product
   name: Totems
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.web
+  image: https://reprodisseny.com/img/productos/mockupProduct.webp
   sku: 01-EXPO-0003
   brand:
     '@type': Organization
@@ -39,7 +39,3 @@ schema:
 nav: Totems
 faqs: []
 ---
-
-## Totems
-
-## Totems

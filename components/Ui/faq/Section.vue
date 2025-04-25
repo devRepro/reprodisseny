@@ -30,6 +30,6 @@ const { faqs } = defineProps<{ // <-- Desestructura 'faqs' directamente
   faqs: Array<{ pregunta?: string; respuesta?: string; question?: string; answer?: string }>
 }>();
 onMounted(() => {
-  console.log('FAQs prop received in UiFaqSection:', props.faqs); // <-- AÑADE ESTA LÍNEA
+  console.log('FAQs prop received in UiFaqSection:', faqs); // <-- AÑADE ESTA LÍNEA
 });
 </script>

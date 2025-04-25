@@ -45,9 +45,3 @@ description: Hojas con pegatinas de vinilo personalizadas ideales para promocion
 nav: Hojas con pegatinas
 faqs: []
 ---
-
-## Hojas con pegatinas
-
-## Hojas con pegatinas
-
-Aquí va una descripción clara, atractiva y optimizada para SEO. Explica el uso, beneficios y opciones del producto.

@@ -5,7 +5,7 @@ keywords:
 - tazas
 searchTerms:
 - tazas
-image: /img/productos/mockupProduct.web
+image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: tazas
@@ -26,7 +26,7 @@ schema:
   '@type': Product
   name: Tazas
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.web
+  image: https://reprodisseny.com/img/productos/mockupProduct.webp
   sku: 01-OFICI-0027
   brand:
     '@type': Organization
@@ -39,7 +39,3 @@ schema:
 nav: Tazas
 faqs: []
 ---
-
-## Tazas
-
-## Tazas

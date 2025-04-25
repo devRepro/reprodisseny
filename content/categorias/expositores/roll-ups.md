@@ -5,7 +5,7 @@ keywords:
 - roll ups
 searchTerms:
 - roll ups
-image: /img/productos/mockupProduct.web
+image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: roll-ups
@@ -26,7 +26,7 @@ schema:
   '@type': Product
   name: Roll Ups
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.web
+  image: https://reprodisseny.com/img/productos/mockupProduct.webp
   sku: 01-EXPO-0001
   brand:
     '@type': Organization
@@ -39,7 +39,3 @@ schema:
 nav: Roll Ups
 faqs: []
 ---
-
-## Roll Ups
-
-## Roll Ups

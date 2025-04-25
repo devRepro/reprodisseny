@@ -40,7 +40,3 @@ schema:
 nav: Identificador de maleta
 faqs: []
 ---
-
-## Identificador de maleta
-
-## Identificador de maleta

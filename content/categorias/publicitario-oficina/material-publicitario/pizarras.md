@@ -5,7 +5,7 @@ keywords:
 - pizarras
 searchTerms:
 - pizarras
-image: /img/productos/mockupProduct.web
+image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: pizarras
@@ -26,7 +26,7 @@ schema:
   '@type': Product
   name: Pizarras
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.web
+  image: https://reprodisseny.com/img/productos/mockupProduct.webp
   sku: 01-OFICI-0017
   brand:
     '@type': Organization

@@ -39,7 +39,3 @@ schema:
 nav: Etiquetas en bobina
 faqs: []
 ---
-
-## Etiquetas en bobina
-
-## Etiquetas en bobina

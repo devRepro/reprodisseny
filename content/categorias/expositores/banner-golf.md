@@ -5,7 +5,7 @@ keywords:
 - banner golf
 searchTerms:
 - banner golf
-image: /img/productos/mockupProduct.web
+image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: banner-golf
@@ -26,7 +26,7 @@ schema:
   '@type': Product
   name: Banner Golf
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.web
+  image: https://reprodisseny.com/img/productos/mockupProduct.webp
   sku: 01-EXPO-0007
   brand:
     '@type': Organization
@@ -39,7 +39,3 @@ schema:
 nav: Banner Golf
 faqs: []
 ---
-
-## Banner Golf
-
-## Banner Golf

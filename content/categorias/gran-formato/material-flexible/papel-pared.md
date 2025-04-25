@@ -5,7 +5,7 @@ keywords:
 - papel de pared
 searchTerms:
 - papel de pared
-image: /img/productos/mockupProduct.web
+image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: papel-pared
@@ -26,7 +26,7 @@ schema:
   '@type': Product
   name: Papel de pared
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.web
+  image: https://reprodisseny.com/img/productos/mockupProduct.webp
   sku: 01-GRFO-0003
   brand:
     '@type': Organization
@@ -39,7 +39,3 @@ schema:
 nav: Papel de pared
 faqs: []
 ---
-
-## Papel de pared
-
-## Papel de pared

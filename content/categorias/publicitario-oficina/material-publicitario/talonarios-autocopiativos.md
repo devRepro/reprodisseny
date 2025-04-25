@@ -6,7 +6,7 @@ keywords:
 - talonarios autocopiativos
 searchTerms:
 - talonarios autocopiativos
-image: /img/productos/mockupProduct.web
+image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: talonarios-autocopiativos
@@ -27,7 +27,7 @@ schema:
   '@type': Product
   name: Talonarios autocopiativos
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.web
+  image: https://reprodisseny.com/img/productos/mockupProduct.webp
   sku: 01-OFICI-0023
   brand:
     '@type': Organization
@@ -40,7 +40,3 @@ schema:
 nav: Talonarios autocopiativos
 faqs: []
 ---
-
-## Talonarios autocopiativos
-
-## Talonarios autocopiativos

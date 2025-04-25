@@ -5,7 +5,7 @@ keywords:
 - cartón corrugado
 searchTerms:
 - cartón corrugado
-image: /img/productos/mockupProduct.web
+image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: carton-corrugado
@@ -26,7 +26,7 @@ schema:
   '@type': Product
   name: Cartón corrugado
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.web
+  image: https://reprodisseny.com/img/productos/mockupProduct.webp
   sku: 01-GRFO-0016
   brand:
     '@type': Organization
@@ -39,7 +39,3 @@ schema:
 nav: Cartón corrugado
 faqs: []
 ---
-
-## Cartón corrugado
-
-## Cartón corrugado

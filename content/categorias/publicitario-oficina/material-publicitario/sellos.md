@@ -39,7 +39,3 @@ schema:
 nav: 'Sellos '
 faqs: []
 ---
-
-## Sellos 
-
-## 'Sellos '

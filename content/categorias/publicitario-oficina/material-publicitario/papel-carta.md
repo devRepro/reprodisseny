@@ -5,7 +5,7 @@ keywords:
 - papel de carta
 searchTerms:
 - papel de carta
-image: /img/productos/mockupProduct.web
+image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: papel-carta
@@ -26,7 +26,7 @@ schema:
   '@type': Product
   name: Papel de carta
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.web
+  image: https://reprodisseny.com/img/productos/mockupProduct.webp
   sku: 01-OFICI-0018
   brand:
     '@type': Organization

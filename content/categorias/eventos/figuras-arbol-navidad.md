@@ -6,7 +6,7 @@ keywords:
 - figuras árbol de navidad
 searchTerms:
 - figuras árbol de navidad
-image: /img/productos/mockupProduct.web
+image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: figuras-arbol-navidad
@@ -27,7 +27,7 @@ schema:
   '@type': Product
   name: Figuras árbol de navidad
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.web
+  image: https://reprodisseny.com/img/productos/mockupProduct.webp
   sku: 01-EVEN-0018
   brand:
     '@type': Organization
@@ -40,7 +40,3 @@ schema:
 nav: Figuras árbol de navidad
 faqs: []
 ---
-
-## Figuras árbol de navidad
-
-## Figuras árbol de navidad

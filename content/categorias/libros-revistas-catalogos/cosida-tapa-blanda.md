@@ -40,7 +40,3 @@ schema:
 nav: Encuadernación  cosida tapa blanda
 faqs: []
 ---
-
-## Encuadernación  cosida tapa blanda
-
-## Encuadernación  cosida tapa blanda

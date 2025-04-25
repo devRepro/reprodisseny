@@ -5,7 +5,7 @@ keywords:
 - posavasos
 searchTerms:
 - posavasos
-image: /img/productos/mockupProduct.web
+image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: posavasos
@@ -26,7 +26,7 @@ schema:
   '@type': Product
   name: Posavasos
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.web
+  image: https://reprodisseny.com/img/productos/mockupProduct.webp
   sku: 01-HORE-0011
   brand:
     '@type': Organization
@@ -39,7 +39,3 @@ schema:
 nav: Posavasos
 faqs: []
 ---
-
-## Posavasos
-
-## Posavasos

@@ -6,7 +6,7 @@ keywords:
 - manteles individuales de mesa
 searchTerms:
 - manteles individuales de mesa
-image: /img/productos/mockupProduct.web
+image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: manteles--individuales-de-mesa
@@ -27,7 +27,7 @@ schema:
   '@type': Product
   name: Manteles individuales de mesa
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.web
+  image: https://reprodisseny.com/img/productos/mockupProduct.webp
   sku: 01-HORE-0003
   brand:
     '@type': Organization
@@ -40,7 +40,3 @@ schema:
 nav: Manteles individuales de mesa
 faqs: []
 ---
-
-## Manteles individuales de mesa
-
-## Manteles individuales de mesa

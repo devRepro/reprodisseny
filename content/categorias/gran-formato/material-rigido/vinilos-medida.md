@@ -5,7 +5,7 @@ keywords:
 - vinilos a medida
 searchTerms:
 - vinilos a medida
-image: /img/productos/mockupProduct.web
+image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: vinilos-medida
@@ -26,7 +26,7 @@ schema:
   '@type': Product
   name: Vinilos a medida
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.web
+  image: https://reprodisseny.com/img/productos/mockupProduct.webp
   sku: 01-GRFO-0001
   brand:
     '@type': Organization
@@ -39,7 +39,4 @@ schema:
 nav: Vinilos a medida
 faqs: []
 ---
-
-## Vinilos a medida
-
 ## Vinilos a medida

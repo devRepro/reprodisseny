@@ -40,7 +40,3 @@ schema:
 nav: Pegatinas individuales
 faqs: []
 ---
-
-## Pegatinas individuales
-
-## Pegatinas individuales

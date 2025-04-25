@@ -5,7 +5,7 @@ keywords:
 - packaging corrugado
 searchTerms:
 - packaging corrugado
-image: /img/productos/mockupProduct.web
+image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: packaging-g-corrugado
@@ -26,7 +26,7 @@ schema:
   '@type': Product
   name: Packaging Corrugado
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.web
+  image: https://reprodisseny.com/img/productos/mockupProduct.webp
   sku: 01-PACK-0002
   brand:
     '@type': Organization
@@ -39,7 +39,3 @@ schema:
 nav: Packaging Corrugado
 faqs: []
 ---
-
-## Packaging Corrugado
-
-## Packaging Corrugado

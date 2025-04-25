@@ -39,7 +39,3 @@ schema:
 nav: Vinilos a medida
 faqs: []
 ---
-
-## Vinilos a medida
-
-## Vinilos a medida

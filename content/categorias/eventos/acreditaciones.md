@@ -39,7 +39,3 @@ schema:
 nav: Acreditaciones
 faqs: []
 ---
-
-## Acreditaciones
-
-## Acreditaciones

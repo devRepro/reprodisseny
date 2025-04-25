@@ -39,7 +39,3 @@ schema:
 nav: Banderolas
 faqs: []
 ---
-
-## Banderolas
-
-## Banderolas

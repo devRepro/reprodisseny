@@ -5,7 +5,7 @@ keywords:
 - minutas de boda
 searchTerms:
 - minutas de boda
-image: /img/productos/mockupProduct.web
+image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: minutas-boda
@@ -26,7 +26,7 @@ schema:
   '@type': Product
   name: Minutas de boda
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.web
+  image: https://reprodisseny.com/img/productos/mockupProduct.webp
   sku: 01-EVEN-0013
   brand:
     '@type': Organization
@@ -39,7 +39,3 @@ schema:
 nav: Minutas de boda
 faqs: []
 ---
-
-## Minutas de boda
-
-## Minutas de boda

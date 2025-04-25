@@ -39,7 +39,3 @@ schema:
 nav: Diplomas
 faqs: []
 ---
-
-## Diplomas
-
-## Diplomas

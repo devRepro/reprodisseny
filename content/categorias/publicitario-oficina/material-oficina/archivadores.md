@@ -5,7 +5,7 @@ keywords:
 - archivadores
 searchTerms:
 - archivadores
-image: /img/productos/mockupProduct.web
+image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: archivadores
@@ -26,7 +26,7 @@ schema:
   '@type': Product
   name: Archivadores
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.web
+  image: https://reprodisseny.com/img/productos/mockupProduct.webp
   sku: 01-OFICI-0028
   brand:
     '@type': Organization
@@ -39,7 +39,3 @@ schema:
 nav: Archivadores
 faqs: []
 ---
-
-## Archivadores
-
-## Archivadores

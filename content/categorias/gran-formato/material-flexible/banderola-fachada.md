@@ -6,7 +6,7 @@ keywords:
 - banderola luminosa para fachada
 searchTerms:
 - banderola luminosa para fachada
-image: /img/productos/mockupProduct.web
+image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: banderola-fachada
@@ -27,7 +27,7 @@ schema:
   '@type': Product
   name: Banderola luminosa para fachada
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.web
+  image: https://reprodisseny.com/img/productos/mockupProduct.webp
   sku: 01-GRFO-0008
   brand:
     '@type': Organization
@@ -40,7 +40,3 @@ schema:
 nav: Banderola luminosa para fachada
 faqs: []
 ---
-
-## Banderola luminosa para fachada
-
-## Banderola luminosa para fachada

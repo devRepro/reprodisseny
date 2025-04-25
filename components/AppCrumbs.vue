@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { ref, watch, onMounted } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
-import { useAsyncData, useNuxtApp } from '#app'
-import type { ParsedContent } from '@nuxt/content/dist/runtime/types'
 
+import { ref, watch } from 'vue'
+import { useRoute } from 'vue-router'
+import { useCategoriasNav } from '@/composables/useCategoriasNav'
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -14,80 +13,64 @@ import {
 } from '@/components/ui/breadcrumb'
 
 interface BreadcrumbItemData {
-  title: string;
-  path: string;
+  title: string
+  path: string
 }
 
 const route = useRoute()
-const router = useRouter()
 const breadcrumbs = ref<BreadcrumbItemData[]>([])
 
-async function fetchCategorias() {
-  
-  const { data, error } = await useAsyncData('categorias', async () => {
-    if (!$content) {
-      console.error('[AppCrumbs] $content is not available.')
-      return []
-    }
-    try {
-      return await $content('categorias').fetch()
-    } catch (e) {
-      console.error('[AppCrumbs] Error fetching categorias:', e)
-      return []
-    }
-  })
+// 1️⃣ Cargamos el menú (useCategoriasNav ya usa useAsyncData)
+const { data: categoriasNav, error: categoriasError } = await useCategoriasNav()
+if (categoriasError.value) {
+  console.error('[AppCrumbs] Error cargando menú:', categoriasError.value)
+}// 2️⃣ Función que genera el array de migas a partir de `menuItems`
+function buildBreadcrumbs() {
+  const menuItems = categoriasNav.value?.menuItems || []
+  const segments = route.path
+    .replace(/\/$/, '')     // quita "/" final
+    .split('/')
+    .filter(Boolean)
 
-  if (error.value) {
-    console.error('[AppCrumbs] Error in useAsyncData:', error.value)
-    return []
-  }
+  const items: BreadcrumbItemData[] = [
+    { title: 'Inicio', path: '/' }
+  ]
 
-  return data.value || []
-}
+  let currentLevel = menuItems as any[]        // nivel jerárquico actual
+  let accumulated = ''                          // ruta acumulada
 
-async function generateBreadcrumbs(categorias: ParsedContent[]) {
-  const path = route.path
-  const cleanPath = path === '/' ? '/' : path.replace(/\/$/, '')
-  const segments = cleanPath.split('/').filter(Boolean)
-  const items: BreadcrumbItemData[] = [{ title: 'Inicio', path: '/' }]
-  let currentPath = ''
+  for (const seg of segments) {
+    accumulated += `/${seg}`
 
-  for (const segment of segments) {
-    currentPath = `${currentPath}/${segment}`
-    const content = categorias.find(c => c._path === currentPath)
+    // buscarmos un item cuyo slug coincida con el segmento
+    const found = currentLevel.find(i => i.slug === seg)
 
-    let title = ''
-    let finalPath = currentPath
-
-    if (content) {
-      title = content.nav || content.title || segment.replace(/-/g, ' ') || 'Segmento'
-      finalPath = content._path || finalPath
+    let title: string
+    if (found) {
+      title = found.nav || found.title || seg.replace(/-/g, ' ')
+      // descendemos un nivel para la siguiente iteración
+      currentLevel = Array.isArray(found.children) ? found.children : []
     } else {
-      if (segment && typeof segment === 'string') {
-        title = segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, ' ')
-        const titleMap: Record<string, string> = { 'categorias': 'Categorías' }
-        title = titleMap[segment] || title
-      } else {
-        console.warn('Segmento de breadcrumb inválido:', segment)
-        title = 'Desconocido'
-      }
+      // fallback si no existe en tu menú
+      title = seg
+        .charAt(0)
+        .toUpperCase() +
+        seg
+          .slice(1)
+          .replace(/-/g, ' ')
+      currentLevel = []
     }
 
-    if (!items.some(item => item.path === finalPath)) {
-      items.push({ title, path: finalPath })
-    } else if (items[items.length - 1].path !== finalPath) {
-      items.push({ title, path: finalPath })
-    }
+    items.push({ title, path: accumulated })
   }
+
   breadcrumbs.value = items
 }
 
+// 3️⃣ Recalculamos cada vez que cambie la ruta
 watch(
   () => route.path,
-  async () => {
-    const categorias = await fetchCategorias()
-    await generateBreadcrumbs(categorias)
-  },
+  () => buildBreadcrumbs(),
   { immediate: true }
 )
 </script>
@@ -95,20 +78,29 @@ watch(
 <template>
   <Breadcrumb v-if="breadcrumbs.length > 1" class="mb-4 px-4 md:px-0">
     <BreadcrumbList class="text-sm">
-      <template v-for="(item, index) in breadcrumbs" :key="`${item.path}-${index}`">
+      <template
+        v-for="(item, idx) in breadcrumbs"
+        :key="item.path + '-' + idx"
+      >
         <BreadcrumbItem>
           <BreadcrumbLink
-            v-if="index < breadcrumbs.length - 1"
+            v-if="idx < breadcrumbs.length - 1"
             as-child
             class="text-muted-foreground transition-colors hover:text-foreground focus-visible:text-foreground"
           >
             <NuxtLink :to="item.path">{{ item.title }}</NuxtLink>
           </BreadcrumbLink>
-          <BreadcrumbPage v-else class="font-semibold text-[hsl(var(--color-primary))]">
+          <BreadcrumbPage
+            v-else
+            class="font-semibold text-[hsl(var(--color-primary))]"
+          >
             {{ item.title }}
           </BreadcrumbPage>
         </BreadcrumbItem>
-        <BreadcrumbSeparator v-if="index < breadcrumbs.length - 1" class="text-muted-foreground" />
+        <BreadcrumbSeparator
+          v-if="idx < breadcrumbs.length - 1"
+          class="text-muted-foreground"
+        />
       </template>
     </BreadcrumbList>
   </Breadcrumb>

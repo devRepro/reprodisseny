@@ -39,7 +39,3 @@ schema:
 nav: Cajas de luz
 faqs: []
 ---
-
-## Cajas de luz
-
-## Cajas de luz

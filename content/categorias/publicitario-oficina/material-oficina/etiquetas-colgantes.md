@@ -5,7 +5,7 @@ keywords:
 - etiquetas colgantes
 searchTerms:
 - etiquetas colgantes
-image: /img/productos/mockupProduct.web
+image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: etiquetas-colgantes
@@ -26,7 +26,7 @@ schema:
   '@type': Product
   name: Etiquetas colgantes
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.web
+  image: https://reprodisseny.com/img/productos/mockupProduct.webp
   sku: 01-OFICI-0008
   brand:
     '@type': Organization
@@ -39,7 +39,3 @@ schema:
 nav: Etiquetas colgantes
 faqs: []
 ---
-
-## Etiquetas colgantes
-
-## Etiquetas colgantes

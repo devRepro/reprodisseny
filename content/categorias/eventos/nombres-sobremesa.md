@@ -39,7 +39,3 @@ schema:
 nav: Nombres de sobremesa
 faqs: []
 ---
-
-## Nombres de sobremesa
-
-## Nombres de sobremesa

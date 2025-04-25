@@ -40,7 +40,3 @@ schema:
 nav: Encuadernación  Wire O Oculto
 faqs: []
 ---
-
-## Encuadernación  Wire O Oculto
-
-## Encuadernación  Wire O Oculto

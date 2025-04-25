@@ -39,7 +39,3 @@ schema:
 nav: Lanyards
 faqs: []
 ---
-
-## Lanyards
-
-## Lanyards

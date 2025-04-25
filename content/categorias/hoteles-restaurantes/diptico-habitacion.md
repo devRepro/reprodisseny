@@ -6,7 +6,7 @@ keywords:
 - díptico tarjeta habitación
 searchTerms:
 - díptico tarjeta habitación
-image: /img/productos/mockupProduct.web
+image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: diptico-habitacion
@@ -27,7 +27,7 @@ schema:
   '@type': Product
   name: Díptico tarjeta habitación
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.web
+  image: https://reprodisseny.com/img/productos/mockupProduct.webp
   sku: 01-HORE-0001
   brand:
     '@type': Organization
@@ -40,7 +40,3 @@ schema:
 nav: Díptico tarjeta habitación
 faqs: []
 ---
-
-## Díptico tarjeta habitación
-
-## Díptico tarjeta habitación

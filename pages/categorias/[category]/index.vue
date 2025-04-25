@@ -9,7 +9,8 @@
     <ContentRenderer v-if="page" :value="page" class="mb-10" />
     <UiCallAction />
 
-    <div v-if="page?.faqs"> <UiFaqSection :faqs="page?.faqs" />
+    <div v-if="page?.meta?.faqs?.length">
+      <UiFaqSection :faqs="page.meta.faqs" />
     </div>
     <div v-else>
       <p>No hay preguntas frecuentes disponibles.</p> 

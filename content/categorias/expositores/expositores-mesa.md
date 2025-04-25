@@ -5,7 +5,7 @@ keywords:
 - expositores de mesa
 searchTerms:
 - expositores de mesa
-image: /img/productos/mockupProduct.web
+image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: expositores-mesa
@@ -26,7 +26,7 @@ schema:
   '@type': Product
   name: Expositores de mesa
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.web
+  image: https://reprodisseny.com/img/productos/mockupProduct.webp
   sku: 01-EXPO-0012
   brand:
     '@type': Organization
@@ -39,7 +39,3 @@ schema:
 nav: Expositores de mesa
 faqs: []
 ---
-
-## Expositores de mesa
-
-## Expositores de mesa

@@ -39,7 +39,3 @@ schema:
 nav: Folletos plegados
 faqs: []
 ---
-
-## Folletos plegados
-
-## Folletos plegados

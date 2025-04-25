@@ -39,7 +39,3 @@ schema:
 nav: Hule personalizado
 faqs: []
 ---
-
-## Hule personalizado
-
-## Hule personalizado

@@ -40,7 +40,3 @@ schema:
 nav: Agendas personalizadas
 faqs: []
 ---
-
-## Agendas personalizadas
-
-## Agendas personalizadas

@@ -41,6 +41,4 @@ nav: Doming ( gota resina )
 faqs: []
 ---
 
-## Doming ( gota resina )
 
-## Doming ( gota resina )

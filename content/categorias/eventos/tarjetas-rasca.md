@@ -1,16 +1,16 @@
 ---
-metaTitle: Marcos click system | Repro Disseny
-metaDescription: Marcos click system personalizadas con calidad profesional en Cataluña.
+metaTitle: Tarjetas rasca | Repro Disseny
+metaDescription: Tarjetas rasca personalizadas con calidad profesional en Cataluña.
 keywords:
-- marcos click system
+- tarjetas rasca
 searchTerms:
-- marcos click system
-image: /img/productos/mockupProduct.web
+- tarjetas rasca
+image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
-slug: marcos-systm
-category: expositores
-sku: 01-EXPO-0014
+slug: tarjetas--rasca
+category: eventos
+sku: 01-EVEN-0009
 price: 0
 brand: Reprodisseny
 inStock: true
@@ -19,15 +19,15 @@ ratingValue: 0
 reviewCount: 0
 schemaType: Product
 type: producto
-title: Marcos click system
+title: Tarjetas rasca
 description: descripción genérica de mi producto para probar
 priceCurrency: EUR
 schema:
   '@type': Product
-  name: Marcos click system
+  name: Tarjetas rasca
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.web
-  sku: 01-EXPO-0014
+  image: https://reprodisseny.com/img/productos/mockupProduct.webp
+  sku: 01-EVEN-0009
   brand:
     '@type': Organization
     name: Repro Disseny
@@ -36,10 +36,6 @@ schema:
     price: 0
     priceCurrency: EUR
     availability: https://schema.org/InStock
-nav: Marcos click system
+nav: Tarjetas rasca
 faqs: []
 ---
-
-## Marcos click system
-
-## Marcos click system

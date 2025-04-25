@@ -5,7 +5,7 @@ keywords:
 - tabletents
 searchTerms:
 - tabletents
-image: /img/productos/mockupProduct.web
+image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: tabletents
@@ -26,7 +26,7 @@ schema:
   '@type': Product
   name: Tabletents
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.web
+  image: https://reprodisseny.com/img/productos/mockupProduct.webp
   sku: 01-HORE-0009
   brand:
     '@type': Organization
@@ -39,7 +39,3 @@ schema:
 nav: Tabletents
 faqs: []
 ---
-
-## Tabletents
-
-## Tabletents

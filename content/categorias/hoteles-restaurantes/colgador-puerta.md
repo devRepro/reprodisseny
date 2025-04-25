@@ -5,7 +5,7 @@ keywords:
 - colgador de puerta
 searchTerms:
 - colgador de puerta
-image: /img/productos/mockupProduct.web
+image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: colgador-puerta
@@ -26,7 +26,7 @@ schema:
   '@type': Product
   name: Colgador de puerta
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.web
+  image: https://reprodisseny.com/img/productos/mockupProduct.webp
   sku: 01-HORE-0002
   brand:
     '@type': Organization
@@ -39,7 +39,3 @@ schema:
 nav: Colgador de puerta
 faqs: []
 ---
-
-## Colgador de puerta
-
-## Colgador de puerta

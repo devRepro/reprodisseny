@@ -39,7 +39,3 @@ schema:
 nav: Dorsales de carrera
 faqs: []
 ---
-
-## Dorsales de carrera
-
-## Dorsales de carrera

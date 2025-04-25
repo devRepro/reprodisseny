@@ -5,7 +5,7 @@ keywords:
 - displays
 searchTerms:
 - displays
-image: /img/productos/mockupProduct.web
+image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: displays
@@ -26,7 +26,7 @@ schema:
   '@type': Product
   name: Displays
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.web
+  image: https://reprodisseny.com/img/productos/mockupProduct.webp
   sku: 01-EXPO-0008
   brand:
     '@type': Organization
@@ -39,7 +39,3 @@ schema:
 nav: Displays
 faqs: []
 ---
-
-## Displays
-
-## Displays

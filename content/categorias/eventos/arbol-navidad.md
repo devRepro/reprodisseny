@@ -5,7 +5,7 @@ keywords:
 - árbol de navidad
 searchTerms:
 - árbol de navidad
-image: /img/productos/mockupProduct.web
+image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: arbol-navidad
@@ -26,7 +26,7 @@ schema:
   '@type': Product
   name: Árbol de navidad
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.web
+  image: https://reprodisseny.com/img/productos/mockupProduct.webp
   sku: 01-EVEN-0017
   brand:
     '@type': Organization
@@ -39,7 +39,3 @@ schema:
 nav: Árbol de navidad
 faqs: []
 ---
-
-## Árbol de navidad
-
-## Árbol de navidad

@@ -39,7 +39,3 @@ schema:
 nav: Delantales
 faqs: []
 ---
-
-## Delantales
-
-## Delantales

@@ -40,6 +40,5 @@ nav: Carteles
 faqs: []
 ---
 
-## Carteles
 
-## Carteles
+

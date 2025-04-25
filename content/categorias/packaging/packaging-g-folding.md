@@ -5,7 +5,7 @@ keywords:
 - packaging folding
 searchTerms:
 - packaging folding
-image: /img/productos/mockupProduct.web
+image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: packaging-g-folding
@@ -26,7 +26,7 @@ schema:
   '@type': Product
   name: Packaging Folding
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.web
+  image: https://reprodisseny.com/img/productos/mockupProduct.webp
   sku: 01-PACK-0001
   brand:
     '@type': Organization
@@ -39,7 +39,3 @@ schema:
 nav: Packaging Folding
 faqs: []
 ---
-
-## Packaging Folding
-
-## Packaging Folding

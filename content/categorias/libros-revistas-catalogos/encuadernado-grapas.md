@@ -47,7 +47,3 @@ schema:
 nav: Encuadernado grapas
 faqs: []
 ---
-
-## Encuadernado grapas
-
-## Encuadernado grapas

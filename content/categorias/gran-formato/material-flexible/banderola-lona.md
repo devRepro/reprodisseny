@@ -6,7 +6,7 @@ keywords:
 - banderola para fachada de lona
 searchTerms:
 - banderola para fachada de lona
-image: /img/productos/mockupProduct.web
+image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: banderola-lona
@@ -27,7 +27,7 @@ schema:
   '@type': Product
   name: Banderola para fachada de lona
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.web
+  image: https://reprodisseny.com/img/productos/mockupProduct.webp
   sku: 01-GRFO-0007
   brand:
     '@type': Organization
@@ -40,7 +40,3 @@ schema:
 nav: Banderola para fachada de lona
 faqs: []
 ---
-
-## Banderola para fachada de lona
-
-## Banderola para fachada de lona

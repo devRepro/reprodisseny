@@ -40,7 +40,3 @@ schema:
 nav: Holas sueltas para archivadores
 faqs: []
 ---
-
-## Holas sueltas para archivadores
-
-## Holas sueltas para archivadores

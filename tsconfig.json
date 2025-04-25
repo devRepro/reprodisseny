@@ -1,19 +1,18 @@
 {
   "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "ESNext",
-    "moduleResolution": "node",
-    "lib": ["ES2020", "DOM"],
+    // Activa todas las comprobaciones estrictas de TypeScript
     "strict": true,
+    // Si necesitas tipos adicionales (por ejemplo para @nuxt/content)
     "types": ["vue", "@nuxt/content"],
+    // Mantén un baseUrl genérico para tus imports con @/
     "baseUrl": ".",
+    // Sólo define aquí tus alias de proyecto, no los internos de Nuxt
     "paths": {
       "@/*": ["./*"],
-      "#content": ["node_modules/@nuxt/content/dist/runtime"],
-      "#imports": ["./.nuxt/imports"],
       "@/types": ["types/index.ts"]
     }
   }
 }
+
 

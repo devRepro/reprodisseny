@@ -39,7 +39,3 @@ schema:
 nav: Tarjetas de pvc
 faqs: []
 ---
-
-## Tarjetas de pvc
-
-## Tarjetas de pvc

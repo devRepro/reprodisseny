@@ -5,7 +5,7 @@ keywords:
 - dispa
 searchTerms:
 - dispa
-image: /img/productos/mockupProduct.web
+image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: dispa
@@ -26,7 +26,7 @@ schema:
   '@type': Product
   name: Dispa
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.web
+  image: https://reprodisseny.com/img/productos/mockupProduct.webp
   sku: 01-GRFO-0014
   brand:
     '@type': Organization
@@ -39,7 +39,3 @@ schema:
 nav: Dispa
 faqs: []
 ---
-
-## Dispa
-
-## Dispa

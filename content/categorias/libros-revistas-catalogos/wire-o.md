@@ -40,7 +40,3 @@ schema:
 nav: Encuadernación  Wire O
 faqs: []
 ---
-
-## Encuadernación  Wire O
-
-## Encuadernación  Wire O

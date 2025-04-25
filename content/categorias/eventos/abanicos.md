@@ -56,5 +56,3 @@ schema:
 nav: Abanicos
 faqs: []
 ---
-
-## Abanicos

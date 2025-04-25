@@ -6,7 +6,7 @@ keywords:
 - identificador de maleta
 searchTerms:
 - identificador de maleta
-image: /img/productos/mockupProduct.web
+image: /img/productos/mockupProduct.webp
 galleryImages: []
 alt: alt descripció de la foto
 slug: idenficador-maleta
@@ -27,7 +27,7 @@ schema:
   '@type': Product
   name: Identificador de maleta
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.web
+  image: https://reprodisseny.com/img/productos/mockupProduct.webp
   sku: 01-EVEN-0016
   brand:
     '@type': Organization
@@ -40,7 +40,3 @@ schema:
 nav: Identificador de maleta
 faqs: []
 ---
-
-## Identificador de maleta
-
-## Identificador de maleta

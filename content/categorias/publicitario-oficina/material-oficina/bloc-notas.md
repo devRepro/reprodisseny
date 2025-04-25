@@ -38,8 +38,4 @@ schema:
     availability: https://schema.org/InStock
 nav: Bloc de notas
 faqs: []
----
-
-## Bloc de notas
-
-## Bloc de notas
+---s

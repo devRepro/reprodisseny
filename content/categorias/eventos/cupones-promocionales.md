@@ -39,7 +39,3 @@ schema:
 nav: Cupones promocionales
 faqs: []
 ---
-
-## Cupones promocionales
-
-## Cupones promocionales

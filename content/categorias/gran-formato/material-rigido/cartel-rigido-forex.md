@@ -36,9 +36,3 @@ schema:
 nav: Cartel rígido forex
 faqs: []
 ---
-
-## Cartel rígido forex
-
-## Cartel rígido forex
-
-Descripción clara, atractiva y optimizada para buscadores.
