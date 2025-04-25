@@ -234,12 +234,18 @@
   }
 
   input, textarea {
-    @apply w-full px-4 py-2 border rounded-md text-secondary focus:outline-none;
-    border-color: hsl(var(--color-gray));
+    // Deja que el componente o Tailwind manejen el color del texto
+    @apply w-full px-4 py-2 border rounded-md focus:outline-none; 
+    border-color: hsl(var(--input)); // Es mejor usar la variable --input aquí si usas shadcn
   }
   input:focus, textarea:focus {
-    border-color: hsl(var(--color-primary));
-    box-shadow: 0 0 4px hsl(var(--color-primary));
+    // Usa --ring para el foco, consistente con shadcn
+    border-color: hsl(var(--ring)); 
+    // Opcional: puedes quitar el box-shadow si prefieres solo el borde de anillo
+    // box-shadow: 0 0 4px hsl(var(--color-primary)); 
+    outline: 2px solid transparent; // Quitar outline por defecto
+    outline-offset: 2px;
+    // El anillo de foco lo añadirá Tailwind/shadcn (ej. focus-visible:ring-2...)
   }
   
 

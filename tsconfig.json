@@ -3,12 +3,14 @@
   "compilerOptions": {
     // Activa todas las comprobaciones estrictas de TypeScript
     "strict": true,
+    "moduleResolution": "node",
     // Si necesitas tipos adicionales (por ejemplo para @nuxt/content)
-    "types": ["vue", "@nuxt/content"],
+    "types": ["vue", "@nuxt/content", "node"],
     // Mantén un baseUrl genérico para tus imports con @/
     "baseUrl": ".",
     // Sólo define aquí tus alias de proyecto, no los internos de Nuxt
     "paths": {
+      "~/*": ["./*"],
       "@/*": ["./*"],
       "@/types": ["types/index.ts"]
     }
