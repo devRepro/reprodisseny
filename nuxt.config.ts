@@ -16,35 +16,18 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/image'
   ],
-  image: {
-    // El proveedor IPX es ideal para imágenes locales (public/ y assets/)
-    provider: 'ipx',
-    dir: 'public', // para imágenes dentro de /public
-    domains: [],   // si en el futuro usas imágenes externas, puedes añadir dominios aquí
-    screens: {
-      sm: 640,
-      md: 768,
-      lg: 1024,
-      xl: 1280,
-      '2xl': 1536
-    },
-    // Estas opciones mejoran el rendimiento y calidad visual
-    format: ['webp', 'avif'], // intentará usar formatos modernos primero
-    quality: 75,              // calidad recomendada para equilibrio visual/peso
-    presets: {
-      category: {
-        modifiers: {
-          fit: 'cover',
-          width: 600,
-          height: 400,
-          format: 'webp'
-        }
-      }
-    }
-  },
+
   css: ['@/assets/styles/main.scss'],
 
-  components: true,
+  // Sólo autoimportar componentes .vue en ui, ignorando los index.ts
+  components: [
+    {
+      path: '~/components/ui',
+      extensions: ['vue'],
+      ignore: ['**/index.ts']
+    },
+    '~/components'
+  ],
 
   app: {
     head: {
@@ -69,16 +52,11 @@ export default defineNuxtConfig({
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
       ]
     },
-    pageTransition: {
-      name: 'fade',
-      mode: 'out-in'
-    },
-    layoutTransition: {
-      name: 'slide',
-      mode: 'out-in'
-    }
+    pageTransition: { name: 'fade', mode: 'out-in' },
+    layoutTransition: { name: 'slide', mode: 'out-in' }
   },
 
+  // Alias para rutas
   alias: {
     '@components': '/components',
     '@assets': '/assets',
@@ -86,10 +64,7 @@ export default defineNuxtConfig({
     '@types': '/types',
   },
 
-  compatibilityDate: '2024-11-01',
-
-  devtools: { enabled: true },
-
+  // Tailwind config
   tailwindcss: {
     configPath: 'tailwind.config.ts',
     exposeConfig: true
@@ -99,6 +74,26 @@ export default defineNuxtConfig({
     preference: 'light',
     fallback: 'light',
     classSuffix: ''
-  }
-  
+  },
+
+  // Build + Vite adjustments for unicorn-magic
+  build: {
+    transpile: ['unicorn-magic']
+  },
+
+  vite: {
+    optimizeDeps: {
+      include: ['unicorn-magic']
+    },
+    ssr: {
+      noExternal: ['unicorn-magic']
+    },
+    resolve: {
+      alias: {
+        'unicorn-magic$': 'unicorn-magic/dist/unicorn-magic.cjs.js'
+      }
+    }
+  },
+
+  compatibilityDate: '2025-04-27'
 })
