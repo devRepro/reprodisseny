@@ -1,22 +1,21 @@
 <script setup lang="ts">
-
+import { NuxtLink } from '#components'
 import { Button } from "@/components/ui/button";
 import { Search } from "lucide-vue-next";
 import { useSearch } from "@/composables/useSearch";
-
 </script>
 
 <template>
   <header class="text-gray-600">
     <div class="container mx-auto flex items-center justify-between p-2 gap-6">
       <!-- Logo -->
-      <a href="/" class="flex items-center shrink-0">
+      <NuxtLink to="/" class="flex items-center shrink-0" aria-label="Inicio">
         <UiLogo />
-      </a>
+      </NuxtLink>
 
       <!-- Buscador + Menú -->
       <div id="buscar" class="flex items-center gap-6 flex-1 justify-end">
-        <!-- Input con lupa simulado -->
+        <!-- Input con icono de lupa -->
         <div class="relative w-[280px]">
           <UiCommandSearch
             class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none"
@@ -37,9 +36,8 @@ import { useSearch } from "@/composables/useSearch";
           </Button>
         </div>
 
-        <!-- Menú de contacto y-->
+        <!-- Menú de contacto -->
         <UiMenuHeaderContacto />
-
       </div>
     </div>
   </header>

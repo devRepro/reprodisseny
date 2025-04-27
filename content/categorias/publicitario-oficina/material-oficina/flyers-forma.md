@@ -1,32 +1,30 @@
 ---
-metaTitle: Flyers con forma | Repro Disseny
-metaDescription: Flyers con forma personalizadas con calidad profesional en Cataluña.
-keywords:
-- flyers con forma
-searchTerms:
-- flyers con forma
-image: /img/productos/mockupProduct.webp
-galleryImages: []
 alt: alt descripció de la foto
-slug: flyers-forma
-category: material-oficina
-sku: 01-OFICI-0003
-price: 0
 brand: Reprodisseny
-inStock: true
+category: material-oficina
+description: descripción genérica de mi producto para probar
+faqs: []
 formFields: []
+galleryImages: []
+image: /img/productos/mockupProduct.webp
+inStock: true
+keywords:
+  - flyers con forma
+metaDescription: Flyers con forma personalizadas con calidad profesional en Cataluña.
+metaTitle: Flyers con forma | Repro Disseny
+metadescription: descripción genérica de mi producto para probar
+metatitle: Flyers con forma
+nav: Flyers con forma
+path: /categorias/publicitario-oficina/material-oficina/flyers-forma
+price: 0
+priceCurrency: EUR
 ratingValue: 0
 reviewCount: 0
-schemaType: Product
-type: producto
-title: Flyers con forma
-description: descripción genérica de mi producto para probar
-priceCurrency: EUR
 schema:
   '@type': Product
   name: Flyers con forma
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.webp
+  image: 'https://reprodisseny.com/img/productos/mockupProduct.webp'
   sku: 01-OFICI-0003
   brand:
     '@type': Organization
@@ -35,7 +33,14 @@ schema:
     '@type': Offer
     price: 0
     priceCurrency: EUR
-    availability: https://schema.org/InStock
-nav: Flyers con forma
-faqs: []
+    availability: 'https://schema.org/InStock'
+schemaType: Product
+searchTerms:
+  - flyers con forma
+sku: 01-OFICI-0003
+slug: flyers-forma
+tags: []
+title: Flyers con forma
+type: producto
 ---
+

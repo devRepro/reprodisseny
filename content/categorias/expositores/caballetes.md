@@ -1,32 +1,30 @@
 ---
-metaTitle: Caballetes | Repro Disseny
-metaDescription: Caballetes personalizadas con calidad profesional en Cataluña.
-keywords:
-- caballetes
-searchTerms:
-- caballetes
-image: /img/productos/mockupProduct.webp
-galleryImages: []
 alt: alt descripció de la foto
-slug: caballetes
-category: expositores
-sku: 01-EXPO-0015
-price: 0
 brand: Reprodisseny
-inStock: true
+category: expositores
+description: descripción genérica de mi producto para probar
+faqs: []
 formFields: []
+galleryImages: []
+image: /img/productos/mockupProduct.webp
+inStock: true
+keywords:
+  - caballetes
+metaDescription: Caballetes personalizadas con calidad profesional en Cataluña.
+metaTitle: Caballetes | Repro Disseny
+metadescription: descripción genérica de mi producto para probar
+metatitle: Caballetes
+nav: Caballetes
+path: /categorias/expositores/caballetes
+price: 0
+priceCurrency: EUR
 ratingValue: 0
 reviewCount: 0
-schemaType: Product
-type: producto
-title: Caballetes
-description: descripción genérica de mi producto para probar
-priceCurrency: EUR
 schema:
   '@type': Product
   name: Caballetes
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.webp
+  image: 'https://reprodisseny.com/img/productos/mockupProduct.webp'
   sku: 01-EXPO-0015
   brand:
     '@type': Organization
@@ -35,7 +33,14 @@ schema:
     '@type': Offer
     price: 0
     priceCurrency: EUR
-    availability: https://schema.org/InStock
-nav: Caballetes
-faqs: []
+    availability: 'https://schema.org/InStock'
+schemaType: Product
+searchTerms:
+  - caballetes
+sku: 01-EXPO-0015
+slug: caballetes
+tags: []
+title: Caballetes
+type: producto
 ---
+

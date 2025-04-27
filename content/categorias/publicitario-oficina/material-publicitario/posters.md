@@ -1,32 +1,30 @@
 ---
-metaTitle: Posters | Repro Disseny
-metaDescription: Posters personalizadas con calidad profesional en Cataluña.
-keywords:
-- posters
-searchTerms:
-- posters
-image: /img/productos/mockupProduct.webp
-galleryImages: []
 alt: alt descripció de la foto
-slug: posters
-category: material-publicidad
-sku: 01-OFICI-0004
-price: 0
 brand: Reprodisseny
-inStock: true
+category: material-publicitario
+description: descripción genérica de mi producto para probar
+faqs: []
 formFields: []
+galleryImages: []
+image: /img/productos/mockupProduct.webp
+inStock: true
+keywords:
+  - posters
+metaDescription: Posters personalizadas con calidad profesional en Cataluña.
+metaTitle: Posters | Repro Disseny
+metadescription: descripción genérica de mi producto para probar
+metatitle: Posters
+nav: Posters
+path: /categorias/publicitario-oficina/material-publicitario/posters
+price: 0
+priceCurrency: EUR
 ratingValue: 0
 reviewCount: 0
-schemaType: Product
-type: producto
-title: Posters
-description: descripción genérica de mi producto para probar
-priceCurrency: EUR
 schema:
   '@type': Product
   name: Posters
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.webp
+  image: 'https://reprodisseny.com/img/productos/mockupProduct.webp'
   sku: 01-OFICI-0004
   brand:
     '@type': Organization
@@ -35,9 +33,15 @@ schema:
     '@type': Offer
     price: 0
     priceCurrency: EUR
-    availability: https://schema.org/InStock
-nav: Posters
-faqs: []
+    availability: 'https://schema.org/InStock'
+schemaType: Product
+searchTerms:
+  - posters
+sku: 01-OFICI-0004
+slug: posters
+tags: []
+title: Posters
+type: producto
 ---
 
 ## Posters

@@ -1,33 +1,32 @@
 ---
-metaTitle: Banderola luminosa para fachada | Repro Disseny
-metaDescription: Banderola luminosa para fachada personalizadas con calidad profesional
-  en Cataluña.
-keywords:
-- banderola luminosa para fachada
-searchTerms:
-- banderola luminosa para fachada
-image: /img/productos/mockupProduct.webp
-galleryImages: []
 alt: alt descripció de la foto
-slug: banderola-fachada
-category: material-flexible
-sku: 01-GRFO-0008
-price: 0
 brand: Reprodisseny
-inStock: true
+category: material-flexible
+description: descripción genérica de mi producto para probar
+faqs: []
 formFields: []
+galleryImages: []
+image: /img/productos/mockupProduct.webp
+inStock: true
+keywords:
+  - banderola luminosa para fachada
+metaDescription: >-
+  Banderola luminosa para fachada personalizadas con calidad profesional en
+  Cataluña.
+metaTitle: Banderola luminosa para fachada | Repro Disseny
+metadescription: descripción genérica de mi producto para probar
+metatitle: Banderola luminosa para fachada
+nav: Banderola luminosa para fachada
+path: /categorias/gran-formato/material-flexible/banderola-fachada
+price: 0
+priceCurrency: EUR
 ratingValue: 0
 reviewCount: 0
-schemaType: Product
-type: producto
-title: Banderola luminosa para fachada
-description: descripción genérica de mi producto para probar
-priceCurrency: EUR
 schema:
   '@type': Product
   name: Banderola luminosa para fachada
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.webp
+  image: 'https://reprodisseny.com/img/productos/mockupProduct.webp'
   sku: 01-GRFO-0008
   brand:
     '@type': Organization
@@ -36,7 +35,14 @@ schema:
     '@type': Offer
     price: 0
     priceCurrency: EUR
-    availability: https://schema.org/InStock
-nav: Banderola luminosa para fachada
-faqs: []
+    availability: 'https://schema.org/InStock'
+schemaType: Product
+searchTerms:
+  - banderola luminosa para fachada
+sku: 01-GRFO-0008
+slug: banderola-fachada
+tags: []
+title: Banderola luminosa para fachada
+type: producto
 ---
+

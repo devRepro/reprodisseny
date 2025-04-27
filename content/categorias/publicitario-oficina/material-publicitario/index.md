@@ -1,39 +1,39 @@
 ---
-title: Material Publicitario y de Oficina Personalizado
-metaTitle: Material Publicitario y de Oficina Personalizado | Repro Disseny
-metaDescription: "Impresión de material publicitario y de oficina personalizado: carpetas, blocs, talonarios, flyers, trípticos y papelería corporativa. Soluciones para empresas en Barcelona."
+alt: 'Papelería corporativa impresa para empresas, agencias y oficinas en Barcelona'
+brand: Repro Disseny
+category: publicitario-oficina
+faqs: []
+featured: false
+formFields: []
+galleryImages: []
+image: mockup.webp
+inStock: true
 keywords:
   - Material promocional para ferias
   - Papelería corporativa personalizada
   - Impresión de folletos publicitarios
   - Merchandising para empresas
   - Material de oficina personalizado
-searchTerms:
-  - impresión material publicitario Barcelona
-  - papelería corporativa Cataluña
-  - merchandising personalizado empresas
-image: mockup.webp
-alt: Papelería corporativa impresa para empresas, agencias y oficinas en Barcelona
-slug: material-publicidad
-schemaType: CollectionPage
-featured: false
+metaDescription: >-
+  Impresión de material publicitario y de oficina personalizado: carpetas,
+  blocs, talonarios, flyers, trípticos y papelería corporativa. Soluciones para
+  empresas en Barcelona.
+metaTitle: Material Publicitario y de Oficina Personalizado | Repro Disseny
+nav: Material Publicitario
 order: 0
-type: subcategoria
-category: publicitario-oficina
+path: /categorias/publicitario-oficina/material-publicitario
+priceCurrency: EUR
 ratingValue: 4.7
 reviewCount: 89
-nav: Material Publicitario
-galleryImages: []
-priceCurrency: EUR
-brand: Repro Disseny
-inStock: true
-formFields: []
 schema:
   '@type': CollectionPage
   name: Material Publicitario y de Oficina Personalizado | Repro Disseny
-  description: "Impresión de material publicitario y de oficina personalizado: carpetas, blocs, talonarios, flyers, trípticos y papelería corporativa. Soluciones para empresas en Barcelona y Cataluña."
-  image: https://reprodisseny.com/img/categorias/material-publicidad.webp
-  url: https://reprodisseny.com/categorias/publicitario-oficina/material-publicidad
+  description: >-
+    Impresión de material publicitario y de oficina personalizado: carpetas,
+    blocs, talonarios, flyers, trípticos y papelería corporativa. Soluciones
+    para empresas en Barcelona y Cataluña.
+  image: 'https://reprodisseny.com/img/categorias/material-publicidad.webp'
+  url: 'https://reprodisseny.com/categorias/publicitario-oficina/material-publicidad'
   brand:
     '@type': Organization
     name: Repro Disseny
@@ -41,6 +41,14 @@ schema:
     '@type': Offer
     price: 0
     priceCurrency: EUR
-    availability: https://schema.org/InStock
-faqs: []
+    availability: 'https://schema.org/InStock'
+schemaType: null
+searchTerms:
+  - impresión material publicitario Barcelona
+  - papelería corporativa Cataluña
+  - merchandising personalizado empresas
+slug: material-publicitario
+title: Material Publicitario y de Oficina Personalizado
+type: subcategoria
 ---
+

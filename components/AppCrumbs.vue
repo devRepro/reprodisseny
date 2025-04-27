@@ -1,6 +1,5 @@
 <script setup lang="ts">
-
-import { ref, watch } from 'vue'
+import { computed } from 'vue'
 import { useRoute } from 'vue-router'
 import { useCategoriasNav } from '@/composables/useCategoriasNav'
 import {
@@ -12,79 +11,60 @@ import {
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb'
 
-interface BreadcrumbItemData {
-  title: string
-  path: string
-}
+interface Crumb { title: string; path: string }
 
 const route = useRoute()
-const breadcrumbs = ref<BreadcrumbItemData[]>([])
+const { data: categoriasNav, pending, error } = useCategoriasNav()
 
-// 1️⃣ Cargamos el menú (useCategoriasNav ya usa useAsyncData)
-const { data: categoriasNav, error: categoriasError } = await useCategoriasNav()
-if (categoriasError.value) {
-  console.error('[AppCrumbs] Error cargando menú:', categoriasError.value)
-}// 2️⃣ Función que genera el array de migas a partir de `menuItems`
-function buildBreadcrumbs() {
-  const menuItems = categoriasNav.value?.menuItems || []
+const crumbs = computed<Crumb[]>(() => {
+  // Base siempre presente
+  const base: Crumb[] = [{ title: 'Inicio', path: '/' }]
+
+  // Si sigue cargando o hubo error, devolvemos solo “Inicio”
+  if (pending.value || error.value || !categoriasNav.value) {
+    return base
+  }
+
+  // Construimos a partir de la ruta actual
+  const menu = categoriasNav.value.menuItems || []
   const segments = route.path
-    .replace(/\/$/, '')     // quita "/" final
+    .replace(/\/$/, '')
     .split('/')
     .filter(Boolean)
 
-  const items: BreadcrumbItemData[] = [
-    { title: 'Inicio', path: '/' }
-  ]
+  let accPath = ''
+  let level = menu as any[]
+  const extra: Crumb[] = segments.map(seg => {
+    accPath += `/${seg}`
+    const found = level.find((i: any) => i.slug === seg)
 
-  let currentLevel = menuItems as any[]        // nivel jerárquico actual
-  let accumulated = ''                          // ruta acumulada
+    // Título amigable
+    const title = found
+      ? (found.nav || found.title)
+      : seg.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
 
-  for (const seg of segments) {
-    accumulated += `/${seg}`
+    level = found?.children || []
+    return { title, path: accPath }
+  })
 
-    // buscarmos un item cuyo slug coincida con el segmento
-    const found = currentLevel.find(i => i.slug === seg)
+  return base.concat(extra)
+})
 
-    let title: string
-    if (found) {
-      title = found.nav || found.title || seg.replace(/-/g, ' ')
-      // descendemos un nivel para la siguiente iteración
-      currentLevel = Array.isArray(found.children) ? found.children : []
-    } else {
-      // fallback si no existe en tu menú
-      title = seg
-        .charAt(0)
-        .toUpperCase() +
-        seg
-          .slice(1)
-          .replace(/-/g, ' ')
-      currentLevel = []
-    }
-
-    items.push({ title, path: accumulated })
-  }
-
-  breadcrumbs.value = items
-}
-
-// 3️⃣ Recalculamos cada vez que cambie la ruta
-watch(
-  () => route.path,
-  () => buildBreadcrumbs(),
-  { immediate: true }
-)
+const showCrumbs = computed(() => crumbs.value.length > 1)
 </script>
-
 <template>
-  <Breadcrumb v-if="breadcrumbs.length > 1" class="mb-4 px-4 md:px-0">
+  <Breadcrumb
+    v-if="showCrumbs"
+    class="mb-4 px-4 md:px-0"
+  >
     <BreadcrumbList class="text-sm">
       <template
-        v-for="(item, idx) in breadcrumbs"
-        :key="item.path + '-' + idx"
+        v-for="(item, idx) in crumbs"
+        :key="item.path"
       >
         <BreadcrumbItem>
           <BreadcrumbLink
-            v-if="idx < breadcrumbs.length - 1"
+            v-if="idx < crumbs.length - 1"
             as-child
             class="text-muted-foreground transition-colors hover:text-foreground focus-visible:text-foreground"
           >
@@ -98,7 +78,7 @@ watch(
           </BreadcrumbPage>
         </BreadcrumbItem>
         <BreadcrumbSeparator
-          v-if="idx < breadcrumbs.length - 1"
+          v-if="idx < crumbs.length - 1"
           class="text-muted-foreground"
         />
       </template>

@@ -1,32 +1,30 @@
 ---
-metaTitle: Banderolas lineal | Repro Disseny
-metaDescription: Banderolas lineal personalizadas con calidad profesional en Cataluña.
-keywords:
-- banderolas lineal
-searchTerms:
-- banderolas lineal
-image: /img/productos/mockupProduct.webp
-galleryImages: []
 alt: alt descripció de la foto
-slug: banderolas-lineal
-category: material-oficina
-sku: 01-OFICI-0011
-price: 0
 brand: Reprodisseny
-inStock: true
+category: material-oficina
+description: descripción genérica de mi producto para probar
+faqs: []
 formFields: []
+galleryImages: []
+image: /img/productos/mockupProduct.webp
+inStock: true
+keywords:
+  - banderolas lineal
+metaDescription: Banderolas lineal personalizadas con calidad profesional en Cataluña.
+metaTitle: Banderolas lineal | Repro Disseny
+metadescription: descripción genérica de mi producto para probar
+metatitle: Banderolas lineal
+nav: Banderolas lineal
+path: /categorias/publicitario-oficina/material-oficina/banderolas-lineal
+price: 0
+priceCurrency: EUR
 ratingValue: 0
 reviewCount: 0
-schemaType: Product
-type: producto
-title: Banderolas lineal
-description: descripción genérica de mi producto para probar
-priceCurrency: EUR
 schema:
   '@type': Product
   name: Banderolas lineal
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.webp
+  image: 'https://reprodisseny.com/img/productos/mockupProduct.webp'
   sku: 01-OFICI-0011
   brand:
     '@type': Organization
@@ -35,7 +33,14 @@ schema:
     '@type': Offer
     price: 0
     priceCurrency: EUR
-    availability: https://schema.org/InStock
-nav: Banderolas lineal
-faqs: []
+    availability: 'https://schema.org/InStock'
+schemaType: Product
+searchTerms:
+  - banderolas lineal
+sku: 01-OFICI-0011
+slug: banderolas-lineal
+tags: []
+title: Banderolas lineal
+type: producto
 ---
+

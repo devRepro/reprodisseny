@@ -1,19 +1,19 @@
 <!-- layouts/categorias.vue -->
 <template>
   <NuxtLayout name="default">
+    <!-- SLOT de navegación -->
     <template #navigation>
-      <!-- MEGA MENU: alineado con el contenido -->
-    <div class="bg-white border-b">
-      <div class="container mx-auto px-4">
-        <UiNavigationMenuMegaMenu :categorias="categorias" />
+      <div class="bg-white border-b dark:bg-background dark:border-border">
+        <div class="container mx-auto px-4">
+          <UiNavigationMenuMegaMenu />
+        </div>
       </div>
-    </div>
     </template>
-    <AppCrumbs
-    class="ml-2"
-     />
+
+    <!-- Breadcrumbs -->
+    <AppCrumbs class="ml-2" />
+
+    <!-- Aquí va el contenido del Markdown o de la página -->
     <slot />
   </NuxtLayout>
 </template>
-<script lang="ts" setup> 
-</script>

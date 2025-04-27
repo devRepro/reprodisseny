@@ -1,32 +1,30 @@
 ---
-metaTitle: Sellos  | Repro Disseny
-metaDescription: Sellos  personalizadas con calidad profesional en Cataluña.
-keywords:
-- 'sellos '
-searchTerms:
-- 'sellos '
-image: /img/productos/sellos-goma.webp
-galleryImages: []
 alt: alt descripció de la foto
-slug: sellos
-category: material-publicidad
-sku: 01-OFICI-0026
-price: 0
 brand: Reprodisseny
-inStock: true
+category: material-publicitario
+description: descripción genérica de mi producto para probar
+faqs: []
 formFields: []
+galleryImages: []
+image: /img/productos/sellos-goma.webp
+inStock: true
+keywords:
+  - 'sellos '
+metaDescription: Sellos  personalizadas con calidad profesional en Cataluña.
+metaTitle: Sellos  | Repro Disseny
+metadescription: descripción genérica de mi producto para probar
+metatitle: 'Sellos '
+nav: 'Sellos '
+path: /categorias/publicitario-oficina/material-publicitario/sellos
+price: 0
+priceCurrency: EUR
 ratingValue: 0
 reviewCount: 0
-schemaType: Product
-type: producto
-title: 'Sellos '
-description: descripción genérica de mi producto para probar
-priceCurrency: EUR
 schema:
   '@type': Product
   name: 'Sellos '
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/sellos-goma.webp
+  image: 'https://reprodisseny.com/img/productos/sellos-goma.webp'
   sku: 01-OFICI-0026
   brand:
     '@type': Organization
@@ -35,7 +33,14 @@ schema:
     '@type': Offer
     price: 0
     priceCurrency: EUR
-    availability: https://schema.org/InStock
-nav: 'Sellos '
-faqs: []
+    availability: 'https://schema.org/InStock'
+schemaType: Product
+searchTerms:
+  - 'sellos '
+sku: 01-OFICI-0026
+slug: sellos
+tags: []
+title: 'Sellos '
+type: producto
 ---
+

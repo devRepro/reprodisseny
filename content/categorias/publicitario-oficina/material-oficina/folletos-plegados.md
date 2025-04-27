@@ -1,32 +1,30 @@
 ---
-metaTitle: Folletos plegados | Repro Disseny
-metaDescription: Folletos plegados personalizadas con calidad profesional en Cataluña.
-keywords:
-- folletos plegados
-searchTerms:
-- folletos plegados
-image: /img/productos/Folletos-plegados.webp
-galleryImages: []
 alt: alt descripció de la foto
-slug: folletos-plegados
-category: material-oficina
-sku: 01-OFICI-0006
-price: 0
 brand: Reprodisseny
-inStock: true
+category: material-oficina
+description: descripción genérica de mi producto para probar
+faqs: []
 formFields: []
+galleryImages: []
+image: /img/productos/Folletos-plegados.webp
+inStock: true
+keywords:
+  - folletos plegados
+metaDescription: Folletos plegados personalizadas con calidad profesional en Cataluña.
+metaTitle: Folletos plegados | Repro Disseny
+metadescription: descripción genérica de mi producto para probar
+metatitle: Folletos plegados
+nav: Folletos plegados
+path: /categorias/publicitario-oficina/material-oficina/folletos-plegados
+price: 0
+priceCurrency: EUR
 ratingValue: 0
 reviewCount: 0
-schemaType: Product
-type: producto
-title: Folletos plegados
-description: descripción genérica de mi producto para probar
-priceCurrency: EUR
 schema:
   '@type': Product
   name: Folletos plegados
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/Folletos-plegados.webp
+  image: 'https://reprodisseny.com/img/productos/Folletos-plegados.webp'
   sku: 01-OFICI-0006
   brand:
     '@type': Organization
@@ -35,7 +33,14 @@ schema:
     '@type': Offer
     price: 0
     priceCurrency: EUR
-    availability: https://schema.org/InStock
-nav: Folletos plegados
-faqs: []
+    availability: 'https://schema.org/InStock'
+schemaType: Product
+searchTerms:
+  - folletos plegados
+sku: 01-OFICI-0006
+slug: folletos-plegados
+tags: []
+title: Folletos plegados
+type: producto
 ---
+

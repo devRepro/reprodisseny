@@ -1,34 +1,57 @@
 ---
-title: Expositores impresos para punto de venta y eventos | Repro Disseny
-metaTitle: Expositores impresos para punto de venta y eventos
-metaDescription: Expositores impresos para punto de venta y eventos | Repro Disseny personalizadas con calidad profesional en Cataluña.
+alt: Expositores impresos personalizados para ferias y puntos de venta en Cataluña
+brand: Repro Disseny
+faqs:
+  - question: ¿Qué tipo de adhesivos son mejores para escaparates?
+    answer: >-
+      Los adhesivos vinílicos removibles son ideales para escaparates, ya que se
+      pueden aplicar fácilmente y retirar sin dejar residuos ni dañar el
+      cristal.
+  - question: ¿Se pueden fabricar adhesivos con formas personalizadas?
+    answer: >-
+      Sí, ofrecemos troquelado personalizado para crear adhesivos con cualquier
+      forma según tu diseño o logotipo.
+  - question: ¿Los adhesivos son resistentes al agua y al exterior?
+    answer: >-
+      Sí, contamos con materiales resistentes al agua, al sol y a la intemperie,
+      perfectos para uso exterior prolongado.
+  - question: ¿Qué opciones de acabado están disponibles para los adhesivos?
+    answer: >-
+      Disponemos de acabados mate, brillo y laminado protector, según el uso y
+      el diseño del adhesivo.
+  - question: >-
+      ¿Puedo pedir un adhesivo con impresión personalizada y en cantidades
+      pequeñas?
+    answer: >-
+      Claro, trabajamos desde pequeñas tiradas hasta grandes producciones,
+      adaptándonos a las necesidades de cada cliente.
+featured: false
+formFields: []
+image: Estructuras-exposicion.png
+inStock: true
 keywords:
   - Diseño de stands para ferias
   - Expositores personalizados para puntos de venta
   - Roll-ups publicitarios
   - Displays promocionales
   - Expositores portátiles para eventos
-searchTerms:
-  - expositores impresos para punto de venta y eventos | repro disseny
-image: Estructuras-exposicion.png
-alt: Expositores impresos personalizados para ferias y puntos de venta en Cataluña
-slug: expositores
-schemaType: CollectionPage
-featured: false
-order: 0
-type: categoria
+metaDescription: >-
+  Expositores impresos para punto de venta y eventos | Repro Disseny
+  personalizadas con calidad profesional en Cataluña.
+metaTitle: Expositores impresos para punto de venta y eventos
 nav: Expositores
+order: 0
+path: /categorias/expositores
+priceCurrency: EUR
 ratingValue: 4.5
 reviewCount: 63
-priceCurrency: EUR
-brand: Repro Disseny
-inStock: true
-formFields: []
 schema:
   '@type': CollectionPage
   name: Expositores impresos para punto de venta y eventos | Repro Disseny
-  description: Stoppers, PLV, displays y peanas de cartón. Expositores personalizados para destacar en retail, showrooms y ferias.
-  image: https://reprodisseny.com/img/categorias/Estructuras-exposicion.png
+  description: >-
+    Stoppers, PLV, displays y peanas de cartón. Expositores personalizados para
+    destacar en retail, showrooms y ferias.
+  image: 'https://reprodisseny.com/img/categorias/Estructuras-exposicion.png'
   sku: ''
   brand:
     '@type': Organization
@@ -37,23 +60,13 @@ schema:
     '@type': Offer
     price: 0
     priceCurrency: EUR
-    availability: https://schema.org/InStock
-faqs:
-- question: ¿Qué tipo de adhesivos son mejores para escaparates?
-  answer: Los adhesivos vinílicos removibles son ideales para escaparates, ya que
-    se pueden aplicar fácilmente y retirar sin dejar residuos ni dañar el cristal.
-- question: ¿Se pueden fabricar adhesivos con formas personalizadas?
-  answer: Sí, ofrecemos troquelado personalizado para crear adhesivos con cualquier
-    forma según tu diseño o logotipo.
-- question: ¿Los adhesivos son resistentes al agua y al exterior?
-  answer: Sí, contamos con materiales resistentes al agua, al sol y a la intemperie,
-    perfectos para uso exterior prolongado.
-- question: ¿Qué opciones de acabado están disponibles para los adhesivos?
-  answer: Disponemos de acabados mate, brillo y laminado protector, según el uso y
-    el diseño del adhesivo.
-- question: ¿Puedo pedir un adhesivo con impresión personalizada y en cantidades pequeñas?
-  answer: Claro, trabajamos desde pequeñas tiradas hasta grandes producciones, adaptándonos
-    a las necesidades de cada cliente.
+    availability: 'https://schema.org/InStock'
+schemaType: CollectionPage
+searchTerms:
+  - expositores impresos para punto de venta y eventos | repro disseny
+slug: expositores
+title: Expositores impresos para punto de venta y eventos | Repro Disseny
+type: categoria
 ---
 
 ## Expositores impresos para punto de venta y eventos | Repro Disseny

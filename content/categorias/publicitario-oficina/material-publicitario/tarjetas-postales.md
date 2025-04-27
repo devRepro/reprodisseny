@@ -1,32 +1,30 @@
 ---
-metaTitle: Tarjetas postales | Repro Disseny
-metaDescription: Tarjetas postales personalizadas con calidad profesional en Cataluña.
-keywords:
-- tarjetas postales
-searchTerms:
-- tarjetas postales
-image: /img/productos/mockupProduct.webp
-galleryImages: []
 alt: alt descripció de la foto
-slug: tarjetas-postales
-category: material-publicidad
-sku: 01-OFICI-0007
-price: 0
 brand: Reprodisseny
-inStock: true
+category: material-publicitario
+description: descripción genérica de mi producto para probar
+faqs: []
 formFields: []
+galleryImages: []
+image: /img/productos/mockupProduct.webp
+inStock: true
+keywords:
+  - tarjetas postales
+metaDescription: Tarjetas postales personalizadas con calidad profesional en Cataluña.
+metaTitle: Tarjetas postales | Repro Disseny
+metadescription: descripción genérica de mi producto para probar
+metatitle: Tarjetas postales
+nav: Tarjetas postales
+path: /categorias/publicitario-oficina/material-publicitario/tarjetas-postales
+price: 0
+priceCurrency: EUR
 ratingValue: 0
 reviewCount: 0
-schemaType: Product
-type: producto
-title: Tarjetas postales
-description: descripción genérica de mi producto para probar
-priceCurrency: EUR
 schema:
   '@type': Product
   name: Tarjetas postales
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.webp
+  image: 'https://reprodisseny.com/img/productos/mockupProduct.webp'
   sku: 01-OFICI-0007
   brand:
     '@type': Organization
@@ -35,7 +33,14 @@ schema:
     '@type': Offer
     price: 0
     priceCurrency: EUR
-    availability: https://schema.org/InStock
-nav: Tarjetas postales
-faqs: []
+    availability: 'https://schema.org/InStock'
+schemaType: Product
+searchTerms:
+  - tarjetas postales
+sku: 01-OFICI-0007
+slug: tarjetas-postales
+tags: []
+title: Tarjetas postales
+type: producto
 ---
+

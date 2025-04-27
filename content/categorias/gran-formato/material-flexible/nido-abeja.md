@@ -1,32 +1,30 @@
 ---
-metaTitle: Nido abeja | Repro Disseny
-metaDescription: Nido abeja personalizadas con calidad profesional en Cataluña.
-keywords:
-- nido abeja
-searchTerms:
-- nido abeja
-image: /img/productos/mockupProduct.webp
-galleryImages: []
 alt: alt descripció de la foto
-slug: nido-abeja
-category: material-flexible
-sku: 01-GRFO-0013
-price: 0
 brand: Reprodisseny
-inStock: true
+category: material-flexible
+description: descripción genérica de mi producto para probar
+faqs: []
 formFields: []
+galleryImages: []
+image: /img/productos/mockupProduct.webp
+inStock: true
+keywords:
+  - nido abeja
+metaDescription: Nido abeja personalizadas con calidad profesional en Cataluña.
+metaTitle: Nido abeja | Repro Disseny
+metadescription: descripción genérica de mi producto para probar
+metatitle: Nido abeja
+nav: Nido abeja
+path: /categorias/gran-formato/material-flexible/nido-abeja
+price: 0
+priceCurrency: EUR
 ratingValue: 0
 reviewCount: 0
-schemaType: Product
-type: producto
-title: Nido abeja
-description: descripción genérica de mi producto para probar
-priceCurrency: EUR
 schema:
   '@type': Product
   name: Nido abeja
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.webp
+  image: 'https://reprodisseny.com/img/productos/mockupProduct.webp'
   sku: 01-GRFO-0013
   brand:
     '@type': Organization
@@ -35,7 +33,14 @@ schema:
     '@type': Offer
     price: 0
     priceCurrency: EUR
-    availability: https://schema.org/InStock
-nav: Nido abeja
-faqs: []
+    availability: 'https://schema.org/InStock'
+schemaType: Product
+searchTerms:
+  - nido abeja
+sku: 01-GRFO-0013
+slug: nido-abeja
+tags: []
+title: Nido abeja
+type: producto
 ---
+

@@ -1,57 +1,76 @@
-<template>
-  <section class="container mx-auto px-4 py-10">
-    <h2 class="text-3xl font-bold text-gray-900 text-center mb-8">Conoce Nuestras Categorías</h2>
-
-    <div class="flex gap-6 overflow-x-auto pb-4 hide-scrollbar max-w-full">
-      <div
-        v-for="category in categories"
-        :key="category._path"
-        class="flex-shrink-0 w-64 rounded-2xl border border-gray-200 shadow hover:shadow-lg transition duration-300 bg-white group"
-      >
-        <NuxtLink :to="`/categorias/${category.slug}`" class="block">
-          <!-- Imagen -->
-          <div class="relative w-full h-40 overflow-hidden rounded-t-2xl">
-            <NuxtImg
-              :src="`/img/categorias/${category.image}`"
-              :alt="category.alt || category.title"
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-            />
-            <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-30 transition-opacity duration-300"></div>
-          </div>
-
-          <!-- Título -->
-          <div class="p-4 text-center">
-            <h3 class="text-base font-semibold text-gray-800 group-hover:text-primary">
-              {{ category.nav }}
-            </h3>
-          </div>
-        </NuxtLink>
-      </div>
-    </div>
-  </section>
-</template>
-
 <script setup lang="ts">
-defineProps<{
-  categories: {
+import { Card, CardHeader, CardContent, CardTitle } from '@/components/ui/card'
+import { NuxtLink, NuxtImg } from '#components'
+
+const props = defineProps<{
+  categories: Array<{
     title: string
     nav: string
     slug: string
-    _path: string
+    path: string
     description?: string
     image?: string
+    hoverImage?: string
     alt?: string
-  }[]
+    price?: string
+  }>
 }>()
+
+function resolveImageUrl(src?: string): string {
+  if (!src) return '/img/placeholder.webp'
+  return src.startsWith('/') || src.startsWith('http') ? src : `/img/categorias/${src}`
+}
 </script>
 
-<style scoped lang="scss">
-/* Oculta la barra de scroll horizontal visualmente pero permite el scroll */
-.hide-scrollbar {
-  -ms-overflow-style: none;  /* IE y Edge */
-  scrollbar-width: none;     /* Firefox */
-}
-.hide-scrollbar::-webkit-scrollbar {
-  display: none;             /* Chrome, Safari */
-}
-</style>
+<!-- components/category/Carrousel.vue -->
+<template>
+  <section class="container mx-auto px-4 py-10">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <!-- Iterar sobre las categorías -->
+      <template v-for="c in props.categories">
+        <!-- SÓLO renderizar si 'c' no es null/undefined -->
+        <div v-if="c" :key="c.path || c.slug">
+          <NuxtLink
+            :to="c.path || `/categorias/${c.slug}`"
+            class="group block rounded-xl overflow-hidden hover:shadow-lg transition"
+          >
+            <Card class="h-full flex flex-col">
+              <CardHeader class="p-0 border-b">
+                <div class="relative w-full h-48 overflow-hidden">
+                  <NuxtImg
+                    :src="resolveImageUrl(c.image)"
+                    :alt="c.alt || c.title"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform"
+                    loading="lazy" 
+                    format="webp" 
+                    quality="80" 
+                  />
+                  <NuxtImg
+                    v-if="c.hoverImage"
+                    :src="resolveImageUrl(c.hoverImage)"
+                    :alt="c.alt || c.title"
+                    class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity"
+                    loading="lazy"
+                    format="webp"
+                    quality="80"
+                  />
+                </div>
+              </CardHeader>
+              <CardContent class="p-4 flex flex-col flex-grow">
+                <CardTitle class="text-lg font-semibold text-center">
+                  {{ c.nav || c.title }}
+                </CardTitle>
+                <p v-if="c.description" class="mt-2 text-sm text-gray-600 text-center">
+                  {{ c.description }}
+                </p>
+                <div v-if="c.price" class="mt-3 text-center">
+                  <span class="font-semibold text-gray-900">{{ c.price }}</span>
+                </div>
+              </CardContent>
+            </Card>
+          </NuxtLink>
+        </div>
+      </template>
+    </div>
+  </section>
+</template>

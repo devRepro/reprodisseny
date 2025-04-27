@@ -1,32 +1,30 @@
 ---
-metaTitle: Marcos photocall | Repro Disseny
-metaDescription: Marcos photocall personalizadas con calidad profesional en Cataluña.
-keywords:
-- marcos photocall
-searchTerms:
-- marcos photocall
-image: /img/productos/mockupProduct.webp
-galleryImages: []
 alt: alt descripció de la foto
-slug: marcos-photocall
-category: expositores
-sku: 01-EXPO-0009
-price: 0
 brand: Reprodisseny
-inStock: true
+category: expositores
+description: descripción genérica de mi producto para probar
+faqs: []
 formFields: []
+galleryImages: []
+image: /img/productos/mockupProduct.webp
+inStock: true
+keywords:
+  - marcos photocall
+metaDescription: Marcos photocall personalizadas con calidad profesional en Cataluña.
+metaTitle: Marcos photocall | Repro Disseny
+metadescription: descripción genérica de mi producto para probar
+metatitle: Marcos photocall
+nav: Marcos photocall
+path: /categorias/expositores/marcos-photocall
+price: 0
+priceCurrency: EUR
 ratingValue: 0
 reviewCount: 0
-schemaType: Product
-type: producto
-title: Marcos photocall
-description: descripción genérica de mi producto para probar
-priceCurrency: EUR
 schema:
   '@type': Product
   name: Marcos photocall
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/mockupProduct.webp
+  image: 'https://reprodisseny.com/img/productos/mockupProduct.webp'
   sku: 01-EXPO-0009
   brand:
     '@type': Organization
@@ -35,7 +33,14 @@ schema:
     '@type': Offer
     price: 0
     priceCurrency: EUR
-    availability: https://schema.org/InStock
-nav: Marcos photocall
-faqs: []
+    availability: 'https://schema.org/InStock'
+schemaType: Product
+searchTerms:
+  - marcos photocall
+sku: 01-EXPO-0009
+slug: marcos-photocall
+tags: []
+title: Marcos photocall
+type: producto
 ---
+

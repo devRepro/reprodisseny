@@ -1,32 +1,30 @@
 ---
-metaTitle: Vinilos a medida | Repro Disseny
-metaDescription: Vinilos a medida personalizadas con calidad profesional en Cataluña.
-keywords:
-- vinilos a medida
-searchTerms:
-- vinilos a medida
-image: /img/productos/Carteles.webp
-galleryImages: []
 alt: alt descripció de la foto
-slug: vinilos-medida
-category: adhesivos
-sku: 01-ADHE-0004
-price: 0
 brand: Reprodisseny
-inStock: true
+category: adhesivos
+description: descripción genérica de mi producto para probar
+faqs: []
 formFields: []
+galleryImages: []
+image: /img/productos/Carteles.webp
+inStock: true
+keywords:
+  - vinilos a medida
+metaDescription: Vinilos a medida personalizadas con calidad profesional en Cataluña.
+metaTitle: Vinilos a medida | Repro Disseny
+metadescription: descripción genérica de mi producto para probar
+metatitle: Vinilos a medida
+nav: Vinilos a medida
+path: /categorias/adhesivos/vinilos-medida
+price: 0
+priceCurrency: EUR
 ratingValue: 0
 reviewCount: 0
-schemaType: Product
-type: producto
-title: Vinilos a medida
-description: descripción genérica de mi producto para probar
-priceCurrency: EUR
 schema:
   '@type': Product
   name: Vinilos a medida
   description: descripción genérica de mi producto para probar
-  image: https://reprodisseny.com/img/productos/Carteles.webp
+  image: 'https://reprodisseny.com/img/productos/Carteles.webp'
   sku: 01-ADHE-0004
   brand:
     '@type': Organization
@@ -35,7 +33,14 @@ schema:
     '@type': Offer
     price: 0
     priceCurrency: EUR
-    availability: https://schema.org/InStock
-nav: Vinilos a medida
-faqs: []
+    availability: 'https://schema.org/InStock'
+schemaType: Product
+searchTerms:
+  - vinilos a medida
+sku: 01-ADHE-0004
+slug: vinilos-medida
+tags: []
+title: Vinilos a medida
+type: producto
 ---
+
