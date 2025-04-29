@@ -1,76 +1,137 @@
 <script setup lang="ts">
-import { Card, CardHeader, CardContent, CardTitle } from '@/components/ui/card'
+import { ref, watch } from 'vue'
+import { useAsyncData } from '#imports'
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  type CarouselApi
+} from '@/components/ui/carousel'
 import { NuxtLink, NuxtImg } from '#components'
 
-const props = defineProps<{
-  categories: Array<{
-    title: string
-    nav: string
-    slug: string
-    path: string
-    description?: string
-    image?: string
-    hoverImage?: string
-    alt?: string
-    price?: string
-  }>
-}>()
+// --- Carga de categorías ---
+const { data: categories, pending, error } = await useAsyncData(
+  'categorias-home',
+  async () => {
+    return await queryCollection('categorias')
+      .where('type', '=', 'categoria')
+      .all()
+  }
+)
 
-function resolveImageUrl(src?: string): string {
+if (error.value) console.error('Error cargando categorías:', error.value)
+
+// --- Embla API & estado de indicadores ---
+const api = ref<CarouselApi | null>(null)
+const current = ref(0)
+const count = ref(0)
+
+function setApi(instance: CarouselApi) {
+  api.value = instance
+}
+
+watch(api, (embla) => {
+  if (!embla) return
+  // Número de slides
+  count.value = embla.scrollSnapList().length
+  // Slide actual
+  current.value = embla.selectedScrollSnap()
+  embla.on('select', () => {
+    current.value = embla.selectedScrollSnap()
+  })
+})
+
+// --- Helper imágenes ---
+function resolveImageUrl(src?: string) {
   if (!src) return '/img/placeholder.webp'
-  return src.startsWith('/') || src.startsWith('http') ? src : `/img/categorias/${src}`
+  return src.startsWith('/') || src.startsWith('http')
+    ? src
+    : `/img/categorias/${src}`
 }
 </script>
 
-<!-- components/category/Carrousel.vue -->
 <template>
-  <section class="container mx-auto px-4 py-10">
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-      <!-- Iterar sobre las categorías -->
-      <template v-for="c in props.categories">
-        <!-- SÓLO renderizar si 'c' no es null/undefined -->
-        <div v-if="c" :key="c.path || c.slug">
-          <NuxtLink
-            :to="c.path || `/categorias/${c.slug}`"
-            class="group block rounded-xl overflow-hidden hover:shadow-lg transition"
+  <section class="relative px-6 py-12">
+    <h1 class="text-2xl font-bold mb-8 text-center">Nuestras Categorías</h1>
+
+    <!-- Loading -->
+    <div v-if="pending" class="text-center text-gray-500">
+      Cargando categorías…
+    </div>
+
+    <!-- Carousel con controles -->
+    <div v-else-if="categories && categories.length" class="relative">
+      <Carousel
+        :setApi="setApi"
+        :opts="{ align: 'start' }"
+        class="w-full"
+      >
+        <CarouselContent
+          class="-ml-4 flex gap-6 snap-x snap-mandatory overflow-x-auto
+                 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100"
+        >
+          <CarouselItem
+            v-for="c in categories"
+            :key="c._path"
+            class="basis-[260px] md:basis-[280px] flex-shrink-0"
           >
-            <Card class="h-full flex flex-col">
-              <CardHeader class="p-0 border-b">
-                <div class="relative w-full h-48 overflow-hidden">
+            <div
+              class="flex flex-col items-center text-center group"
+            >
+              <!-- Imagen -->
+              <NuxtLink
+                :to="c.path || `/categorias/${c.slug}`"
+                class="block w-full rounded-lg overflow-hidden border border-gray-200"
+              >
+                <div class="relative w-full h-[180px] overflow-hidden">
                   <NuxtImg
                     :src="resolveImageUrl(c.image)"
                     :alt="c.alt || c.title"
-                    class="w-full h-full object-cover group-hover:scale-105 transition-transform"
-                    loading="lazy" 
-                    format="webp" 
-                    quality="80" 
-                  />
-                  <NuxtImg
-                    v-if="c.hoverImage"
-                    :src="resolveImageUrl(c.hoverImage)"
-                    :alt="c.alt || c.title"
-                    class="absolute inset-0 w-full h-full object-cover opacity-0 group-hover:opacity-100 transition-opacity"
+                    class="w-full h-full object-cover
+                           group-hover:scale-105 transition-transform duration-300 ease-in-out"
                     loading="lazy"
                     format="webp"
                     quality="80"
                   />
                 </div>
-              </CardHeader>
-              <CardContent class="p-4 flex flex-col flex-grow">
-                <CardTitle class="text-lg font-semibold text-center">
+              </NuxtLink>
+              <!-- Título -->
+              <div class="mt-4">
+                <NuxtLink
+                  :to="c.path || `/categorias/${c.slug}`"
+                  class="text-sm font-semibold text-gray-800 hover:underline transition"
+                >
                   {{ c.nav || c.title }}
-                </CardTitle>
-                <p v-if="c.description" class="mt-2 text-sm text-gray-600 text-center">
-                  {{ c.description }}
-                </p>
-                <div v-if="c.price" class="mt-3 text-center">
-                  <span class="font-semibold text-gray-900">{{ c.price }}</span>
-                </div>
-              </CardContent>
-            </Card>
-          </NuxtLink>
-        </div>
-      </template>
+                </NuxtLink>
+              </div>
+            </div>
+          </CarouselItem>
+        </CarouselContent>
+
+        <!-- Flechas Prev / Next sólo en desktop -->
+        <CarouselPrevious class="hidden md:flex absolute top-1/2 left-0 -translate-y-1/2 ml-2" />
+        <CarouselNext class="hidden md:flex absolute top-1/2 right-0 -translate-y-1/2 mr-2" />
+      </Carousel>
+
+      <!-- Indicadores (dots) -->
+      <div class="flex justify-center mt-4 space-x-2">
+        <button
+          v-for="i in count"
+          :key="i"
+          @click="api?.scrollTo(i - 1)"
+          :class="[
+            'w-3 h-3 rounded-full transition-colors duration-200',
+            current === (i - 1) ? 'bg-primary' : 'bg-gray-400'
+          ]"
+        />
+      </div>
     </div>
+
+    <!-- Fallback si no hay categorías -->
+    <p v-else class="text-center text-gray-500">
+      No hay categorías disponibles.
+    </p>
   </section>
 </template>

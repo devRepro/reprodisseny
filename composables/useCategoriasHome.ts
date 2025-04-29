@@ -5,6 +5,6 @@ export function useCategoriasHome() {
   return useAsyncData('categorias-home', () =>
     queryCollection('categorias')
       .where('type', '=', 'categoria')
-      .first()
+      .all()
   )
 }

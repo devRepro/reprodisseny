@@ -1,3 +1,5 @@
+
+
 export const useCategoriasNav = () => {
   return useAsyncData('categorias-menu', async () => {
     const allCategorias = await queryCollection('categorias')
@@ -12,29 +14,31 @@ export const useCategoriasNav = () => {
       .where('type', '=', 'producto')
       .all()
 
-    // 🧠 Mapear subcategorías con sus productos
-    const subcategoriasConProductos = allSubcategorias.map(sub => {
-      const subProductos = allProductos.filter(p => p.category === sub.slug)
-      return {
-        ...sub,
-        children: subProductos
-      }
-    })
+    // 🧠 Función recursiva para construir hijos
+    const buildChildren = (parentSlug: string) => {
+      // Subcategorías hijas
+      const subs = allSubcategorias
+        .filter(sub => sub.category === parentSlug)
+        .map(sub => ({
+          ...sub,
+          children: buildChildren(sub.slug) // recursivamente construir
+        }))
 
-    // 🧠 Mapear categorías raíz con subcategorías y productos directos
+      // Productos hijos
+      const productos = allProductos
+        .filter(prod => prod.category === parentSlug)
+
+      return [...subs, ...productos]
+    }
+
+    // 🧠 Categorías raíz
     const menuItems = allCategorias
       .filter(cat => !cat.category) // solo raíz
-      .map(cat => {
-        const subcategorias = subcategoriasConProductos.filter(sub => sub.category === cat.slug)
-        const productosDirectos = allProductos.filter(p => p.category === cat.slug)
-
-        return {
-          ...cat,
-          children: [...subcategorias, ...productosDirectos]
-        }
-      })
+      .map(cat => ({
+        ...cat,
+        children: buildChildren(cat.slug)
+      }))
 
     return { menuItems }
   })
 }
-
