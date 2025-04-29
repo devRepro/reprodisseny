@@ -19,14 +19,21 @@ export default defineNuxtConfig({
 
   css: ['@/assets/styles/main.scss'],
 
-  // Sólo autoimportar componentes .vue en ui, ignorando los index.ts
+  // Auto-import de componentes:
   components: [
+    // 1) Carpeta UI con prefijo Ui (ignora index.ts)
     {
       path: '~/components/ui',
       extensions: ['vue'],
-      ignore: ['**/index.ts']
+      ignore: ['**/index.ts'],
+      prefix: 'Ui'
     },
-    '~/components'
+    // 2) Resto de components sin prefijo, ignorando ya la carpeta ui
+    {
+      path: '~/components',
+      extensions: ['vue'],
+      ignore: ['ui/**']
+    }
   ],
 
   app: {
@@ -76,7 +83,6 @@ export default defineNuxtConfig({
     classSuffix: ''
   },
 
-  // Build + Vite adjustments for unicorn-magic
   build: {
     transpile: ['unicorn-magic']
   },
@@ -95,5 +101,6 @@ export default defineNuxtConfig({
     }
   },
 
-  compatibilityDate: '2025-04-27'
+  compatibilityDate: '2025-04-27',
+  devtools: { enabled: true }
 })
