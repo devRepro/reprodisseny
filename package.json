@@ -20,6 +20,7 @@
     "validate:products": "node scripts/validate-products.js"
   },
   "dependencies": {
+    "@motionone/vue": "^10.16.4",
     "@nuxt/content": "^3.3.0",
     "@nuxt/icon": "^1.11.0",
     "@nuxt/image": "1.9.0",
@@ -30,6 +31,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "embla-carousel": "^8.5.2",
+    "embla-carousel-vue": "^8.6.0",
     "exceljs": "^4.4.0",
     "fuse.js": "^7.1.0",
     "gray-matter": "^4.0.3",

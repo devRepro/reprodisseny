@@ -1,46 +1,50 @@
-<!-- components/NavMegaMenu.vue -->
 <template>
-  <nav class="w-full bg-white">
-    <ul class="flex space-x-8 px-6 py-4 justify-start">
+  <nav class="w-full bg-white border-b border-gray-200">
+    <ul class="flex space-x-8 px-6 py-4">
       <li
         v-for="categoria in categorias"
         :key="categoria.slug"
         class="relative group"
       >
-        <!-- Trigger -->
+        <!-- Botón del menú padre con ícono -->
         <button
-          class="text-sm font-medium text-gray-700 hover:text-gray-900 transition"
+          class="inline-flex items-center text-sm font-semibold text-gray-800 hover:text-black transition"
         >
-          {{ categoria.nav || categoria.title || categoria.slug }}
+          {{ categoria.nav || categoria.slug }}
+          <svg
+            class="ml-1 w-4 h-4 text-gray-500 group-hover:text-gray-800 transition"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+          </svg>
         </button>
 
-        <!-- Dropdown panel, sin margen -->
+        <!-- Panel desplegable -->
         <div
-          class="invisible opacity-0 group-hover:visible group-hover:opacity-100
-                 transition-opacity duration-200
-                 absolute top-full left-0 z-50
-                 bg-white rounded-lg shadow-lg p-6
-                 w-screen max-w-4xl mx-auto"
+          class="invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-200
+                 absolute top-full left-0 mt-2 z-50
+                 bg-white border border-gray-200 shadow-xl rounded-lg
+                 w-screen max-w-2xl px-6 py-6"
         >
           <!-- Cabecera -->
-          <div class="flex items-center justify-between mb-6">
-            <div class="flex items-center space-x-4">
+          <div class="flex items-center justify-between mb-4">
+            <div class="flex items-center gap-3">
               <NuxtImg
                 v-if="categoria.image"
-                :src="categoria.image.startsWith('http')
-                  ? categoria.image
-                  : `/img/categorias/${categoria.image}`"
+                :src="categoria.image.startsWith('http') ? categoria.image : `/img/categorias/${categoria.image}`"
                 alt=""
-                width="48" height="48"
-                class="h-12 w-12 rounded-md object-cover"
+                class="h-10 w-10 object-cover rounded-md"
               />
-              <span class="text-lg font-semibold text-gray-900">
-                {{ categoria.title || categoria.slug }}
+              <span class="text-base font-semibold text-gray-900 truncate max-w-[18ch]">
+                {{ categoria.nav || categoria.shortTitle || categoria.title || categoria.slug }}
               </span>
             </div>
             <NuxtLink
               :to="categoria.path || `/categorias/${categoria.slug}`"
-              class="text-sm font-semibold text-blue-600 hover:underline"
+              class="text-xs font-semibold text-primary hover:underline whitespace-nowrap"
             >
               Ver todo →
             </NuxtLink>
@@ -49,36 +53,27 @@
           <!-- Subcategorías -->
           <div
             v-if="hasSubcategorias(categoria)"
-            class="grid grid-cols-3 gap-6 mb-6"
+            class="grid grid-cols-2 gap-x-6 gap-y-4"
           >
             <div
               v-for="sub in categoria.children.filter(c => c.type === 'subcategoria')"
               :key="sub.slug"
-              class="space-y-2"
             >
               <NuxtLink
                 :to="sub.path || `/categorias/${sub.slug}`"
-                class="flex items-center space-x-2 hover:bg-gray-50 p-2 rounded-md transition"
+                class="flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-primary transition"
               >
                 <NuxtImg
                   v-if="sub.image"
-                  :src="sub.image.startsWith('http')
-                    ? sub.image
-                    : `/img/categorias/${sub.image}`"
+                  :src="sub.image.startsWith('http') ? sub.image : `/img/categorias/${sub.image}`"
                   alt=""
-                  width="32" height="32"
-                  class="h-8 w-8 rounded-sm object-cover"
+                  class="h-6 w-6 object-cover rounded"
                 />
-                <span class="text-sm font-medium text-gray-800">
-                  {{ sub.nav || sub.title || sub.slug }}
-                </span>
-                <span class="ml-auto text-xs text-gray-500">
-                  ({{ sub.children.filter(c => c.type === 'producto').length }})
-                </span>
+                {{ sub.nav || sub.title || sub.slug }}
               </NuxtLink>
 
-              <!-- Productos de la subcategoría -->
-              <ul class="mt-1 space-y-1 text-sm text-gray-600">
+              <!-- Productos dentro de subcategoría -->
+              <ul class="mt-1 pl-6 space-y-1 text-xs text-gray-600">
                 <li
                   v-for="prod in sub.children.filter(c => c.type === 'producto')"
                   :key="prod.slug"
@@ -94,10 +89,10 @@
             </div>
           </div>
 
-          <!-- Productos directos listados -->
+          <!-- Productos directos de la categoría -->
           <ul
-            v-if="hasProductos(categoria)"
-            class="space-y-2 text-sm text-gray-600"
+            v-else-if="hasProductos(categoria)"
+            class="grid grid-cols-2 gap-y-2 text-xs text-gray-700"
           >
             <li
               v-for="prod in categoria.children.filter(c => c.type === 'producto')"
@@ -105,7 +100,7 @@
             >
               <NuxtLink
                 :to="prod.path || `/categorias/${categoria.slug}/${prod.slug}`"
-                class="hover:underline block"
+                class="hover:underline"
               >
                 {{ prod.title || prod.slug }}
               </NuxtLink>

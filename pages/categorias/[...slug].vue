@@ -3,6 +3,8 @@ import { useRoute, useRouter } from 'vue-router'
 import { useAsyncData, useHead, showError, computed } from '#imports'
 import type { Categoria, Producto } from '@/types'
 
+
+
 // --- Setup básico de ruta / slug ---
 const route = useRoute()
 const router = useRouter()
@@ -34,9 +36,7 @@ const categorySlug = computed(() =>
   contentType.value === 'categoria' ? (contentData.value as Categoria).slug : null
 )
 
-const { data: associatedProducts, pending: pendingProducts } = await useAsyncData<
-  Producto[]
->(
+const { data: associatedProducts, pending: pendingProducts } = await useAsyncData<Producto[]>(
   `products-${fullPath}`,
   async () => {
     if (!categorySlug.value) return []
@@ -69,7 +69,7 @@ useHead(() => {
   }
 })
 
-// --- Helpers de ruta e imagen ---
+// --- Helpers ---
 function goToProduct(p: Producto) {
   router.push(`/categorias/${p.category}/${p.slug}`)
 }
@@ -79,7 +79,6 @@ function resolveImageUrl(path: string | undefined, type: string | undefined) {
   if (path.startsWith('/') || path.startsWith('http')) return path
   return (type === 'categoria' ? '/img/categorias/' : '') + path
 }
-
 </script>
 
 <template>
@@ -91,25 +90,21 @@ function resolveImageUrl(path: string | undefined, type: string | undefined) {
 
     <!-- Contenido -->
     <div v-else-if="contentData">
+
       <!-- Vista de Categoría -->
       <section v-if="contentType === 'categoria'">
-        <header class="mb-8">
-          <h1 class="text-3xl font-bold">{{ (contentData as Categoria).title }}</h1>
-          <p v-if="(contentData as Categoria).description" class="text-lg text-gray-600">
-            {{ (contentData as Categoria).description }}
-          </p>
-          <NuxtImg
-            v-if="(contentData as Categoria).image"
-            :src="resolveImageUrl((contentData as Categoria).image, contentData.type)"
-            :alt="(contentData as Categoria).alt || (contentData as Categoria).title"
-            class="w-full h-auto max-h-96 object-cover rounded-md my-6"
-            loading="lazy"
-            format="webp"
-            quality="80"
-          />
-        </header>
+        <!-- Header personalizado -->
+        <CategoryHeader
+          :image="resolveImageUrl((contentData as Categoria).image, contentData.type)"
+          :alt="(contentData as Categoria).alt || (contentData as Categoria).title"
+          :title="(contentData as Categoria).title"
+          :description="(contentData as Categoria).description"
+          cta-text="Ver productos"
+          :cta-link="`#productos`"
+        />
 
-        <section v-if="categorySlug">
+        <!-- Listado de productos -->
+        <section v-if="categorySlug" id="productos">
           <h2 class="text-2xl font-semibold mb-4 border-b pb-2">
             Productos en {{ (contentData as Categoria).nav || (contentData as Categoria).title }}
           </h2>
@@ -161,33 +156,21 @@ function resolveImageUrl(path: string | undefined, type: string | undefined) {
 
       <!-- Vista de Producto -->
       <section v-else-if="contentType === 'producto'">
-        <header class="mb-8">
-          <h1 class="text-3xl font-bold">{{ (contentData as Producto).title }}</h1>
-          <p v-if="(contentData as Producto).sku" class="text-sm text-gray-500 mb-3">
-            Referencia: {{ (contentData as Producto).sku }}
-          </p>
-          <NuxtImg
-            v-if="(contentData as Producto).image"
-            :src="resolveImageUrl((contentData as Producto).image, contentData.type)"
-            :alt="(contentData as Producto).alt || (contentData as Producto).title"
-            class="w-full h-auto max-h-[500px] object-contain rounded-md my-6"
-            loading="lazy"
-            format="webp"
-            quality="80"
-          />
-        </header>
+        <!-- Header de producto -->
+        <ProductHeader
+          :image="resolveImageUrl((contentData as Producto).image, contentData.type)"
+          :alt="(contentData as Producto).alt || (contentData as Producto).title"
+          :title="(contentData as Producto).title"
+        />
+        <!-- Descripción opcional debajo del formulario -->
+        <p v-if="(contentData as Producto).description" class="mt-6 text-lg text-gray-600">
+          {{ (contentData as Producto).description }}
+        </p>
+      </section>
 
-        <div class="mb-6">
-          <NuxtLink
-            to="/contacto"
-            class="inline-block px-4 py-2 bg-primary text-white rounded-md hover:bg-primary-dark transition"
-          >
-            Solicitar precio
-          </NuxtLink>
-          <p v-if="(contentData as Producto).description" class="mt-4 text-lg text-gray-600">
-            {{ (contentData as Producto).description }}
-          </p>
-        </div>
+      <!-- Vista de Subcategoría -->
+      <section v-else-if="contentType === 'subcategoria'">
+        <!-- similar a categoría -->
       </section>
 
       <!-- Tipo desconocido -->
