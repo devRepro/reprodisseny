@@ -4,7 +4,6 @@ import { useAsyncData, useHead, showError, computed } from '#imports'
 import type { Categoria, Producto } from '@/types'
 
 
-
 // --- Setup básico de ruta / slug ---
 const route = useRoute()
 const router = useRouter()
