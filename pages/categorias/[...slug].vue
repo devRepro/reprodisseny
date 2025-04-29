@@ -90,6 +90,10 @@ function resolveImageUrl(path: string | undefined, type: string | undefined) {
     <!-- Contenido -->
     <div v-else-if="contentData">
 
+     <!-- 🧭 Aquí insertamos Breadcrumb -->
+      <AppCrumbs />
+
+
       <!-- Vista de Categoría -->
       <section v-if="contentType === 'categoria'">
         <!-- Header personalizado -->

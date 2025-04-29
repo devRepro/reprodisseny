@@ -10,77 +10,77 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb'
+import { NuxtLink } from '#components'
 
-interface Crumb { title: string; path: string }
+interface Crumb {
+  title: string
+  path: string
+}
 
+// Accedemos a la ruta actual
 const route = useRoute()
+// Obtenemos las categorías de navegación
 const { data: categoriasNav, pending, error } = useCategoriasNav()
 
+// Computamos los breadcrumbs
 const crumbs = computed<Crumb[]>(() => {
-  // Base siempre presente
   const base: Crumb[] = [{ title: 'Inicio', path: '/' }]
 
-  // Si sigue cargando o hubo error, devolvemos solo “Inicio”
   if (pending.value || error.value || !categoriasNav.value) {
     return base
   }
 
-  // Construimos a partir de la ruta actual
-  const menu = categoriasNav.value.menuItems || []
-  const segments = route.path
-    .replace(/\/$/, '')
-    .split('/')
-    .filter(Boolean)
+  const segments = route.path.replace(/\/$/, '').split('/').filter(Boolean)
+  const menu = categoriasNav.value.menuItems ?? []
 
-  let accPath = ''
-  let level = menu as any[]
-  const extra: Crumb[] = segments.map(seg => {
-    accPath += `/${seg}`
-    const found = level.find((i: any) => i.slug === seg)
+  let currentLevel = menu
+  let accumulatedPath = ''
 
-    // Título amigable
-    const title = found
-      ? (found.nav || found.title)
-      : seg.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
+  const dynamicCrumbs = segments.map((segment) => {
+    accumulatedPath += `/${segment}`
+    const match = currentLevel.find((item) => item.slug === segment)
 
-    level = found?.children || []
-    return { title, path: accPath }
+    const title = match
+      ? match.nav || match.title
+      : segment.replace(/-/g, ' ').replace(/\b\w/g, (char) => char.toUpperCase())
+
+    currentLevel = match?.children ?? []
+
+    return {
+      title,
+      path: accumulatedPath,
+    }
   })
 
-  return base.concat(extra)
+  return [...base, ...dynamicCrumbs]
 })
 
+// Mostramos los crumbs solo si hay más de uno
 const showCrumbs = computed(() => crumbs.value.length > 1)
 </script>
+
 <template>
-  <Breadcrumb
-    v-if="showCrumbs"
-    class="mb-4 px-4 md:px-0"
-  >
+  <Breadcrumb v-if="showCrumbs" class="mb-4 px-4 md:px-0">
     <BreadcrumbList class="text-sm">
-      <template
-        v-for="(item, idx) in crumbs"
-        :key="item.path"
-      >
+      <template v-for="(item, idx) in crumbs" :key="item.path">
         <BreadcrumbItem>
-          <BreadcrumbLink
-            v-if="idx < crumbs.length - 1"
-            as-child
-            class="text-muted-foreground transition-colors hover:text-foreground focus-visible:text-foreground"
-          >
-            <NuxtLink :to="item.path">{{ item.title }}</NuxtLink>
-          </BreadcrumbLink>
-          <BreadcrumbPage
-            v-else
-            class="font-semibold text-[hsl(var(--color-primary))]"
-          >
-            {{ item.title }}
-          </BreadcrumbPage>
+          <template v-if="idx < crumbs.length - 1">
+            <BreadcrumbLink
+              as-child
+              class="text-muted-foreground transition-colors hover:text-foreground focus-visible:text-foreground"
+            >
+              <NuxtLink :to="item.path">
+                {{ item.title }}
+              </NuxtLink>
+            </BreadcrumbLink>
+          </template>
+          <template v-else>
+            <BreadcrumbPage class="font-semibold text-[hsl(var(--color-primary))]">
+              {{ item.title }}
+            </BreadcrumbPage>
+          </template>
         </BreadcrumbItem>
-        <BreadcrumbSeparator
-          v-if="idx < crumbs.length - 1"
-          class="text-muted-foreground"
-        />
+        <BreadcrumbSeparator v-if="idx < crumbs.length - 1" class="text-muted-foreground" />
       </template>
     </BreadcrumbList>
   </Breadcrumb>

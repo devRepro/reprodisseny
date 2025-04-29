@@ -16,6 +16,17 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/image'
   ],
+  image: {
+    provider: 'ipx',
+    screens: {
+      sm: 320,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+      '2xl': 1536
+    },
+    dir: 'public' // donde están tus imágenes locales
+  },
 
   css: ['@/assets/styles/main.scss'],
 
