@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { NuxtLink, NuxtImg } from '#components'
 import { Button } from '@/components/ui/button'
 import { Card, CardHeader, CardContent } from '@/components/ui/card'
 
