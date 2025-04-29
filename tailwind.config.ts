@@ -2,6 +2,15 @@
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
+  darkMode: ['class'],
+   safelist: [
+    // Simplemente lista las clases exactas que necesitas forzar
+    // Puedes añadir más clases o patrones más generales si es necesario
+    // Ejemplo de patrón más general (si usas otros porcentajes):
+    // {
+    //   pattern: /^data-\[state=(open|closed)\]:(slide-in-from-top|slide-out-to-top)-\[\d+%\]$/,
+    // },
+  ],
   content: [
     './components/**/*.{vue,js,ts}',
     './layouts/**/*.vue',
@@ -12,18 +21,124 @@ const config: Config = {
     './app.vue',
   ],
   theme: {
-    extend: {
-      colors: {
-        primary: 'hsl(var(--color-primary) / <alpha-value>)',
-        secondary: 'hsl(var(--color-secondary) / <alpha-value>)',
-        accent: 'hsl(var(--color-accent) / <alpha-value>)',
-        light: 'hsl(var(--color-light) / <alpha-value>)',
-        dark: 'hsl(var(--color-dark) / <alpha-value>)',
-        gray: 'hsl(var(--color-gray) / <alpha-value>)',
-      },
-    },
+  	extend: {
+  		keyframes: {
+  			fadeIn: {
+  				'0%': {
+  					opacity: '0'
+  				},
+  				'100%': {
+  					opacity: '1'
+  				}
+  			},
+  			slideUp: {
+  				'0%': {
+  					transform: 'translateY(1rem)',
+  					opacity: '0'
+  				},
+  				'100%': {
+  					transform: 'translateY(0)',
+  					opacity: '1'
+  				}
+  			},
+  			scaleIn: {
+  				'0%': {
+  					transform: 'scale(0.95)',
+  					opacity: '0'
+  				},
+  				'100%': {
+  					transform: 'scale(1)',
+  					opacity: '1'
+  				}
+  			},
+  			'accordion-down': {
+  				from: {
+  					height: '0'
+  				},
+  				to: {
+  					height: 'var(--reka-accordion-content-height)'
+  				}
+  			},
+  			'accordion-up': {
+  				from: {
+  					height: 'var(--reka-accordion-content-height)'
+  				},
+  				to: {
+  					height: '0'
+  				}
+  			}
+  		},
+  		animation: {
+  			fade: 'fadeIn 300ms ease-out forwards',
+  			'slide-up': 'slideUp 300ms ease-out forwards',
+  			'scale-in': 'scaleIn 200ms ease-out forwards',
+  			'accordion-down': 'accordion-down 0.2s ease-out',
+  			'accordion-up': 'accordion-up 0.2s ease-out'
+  		},
+  		colors: {
+  			primary: {
+  				DEFAULT: 'hsl(var(--primary))',
+  				foreground: 'hsl(var(--primary-foreground))'
+  			},
+  			secondary: {
+  				DEFAULT: 'hsl(var(--secondary))',
+  				foreground: 'hsl(var(--secondary-foreground))'
+  			},
+  			accent: {
+  				DEFAULT: 'hsl(var(--accent))',
+  				foreground: 'hsl(var(--accent-foreground))'
+  			},
+  			light: 'hsl(var(--color-light) / <alpha-value>)',
+  			dark: 'hsl(var(--color-dark) / <alpha-value>)',
+  			gray: 'hsl(var(--color-gray) / <alpha-value>)',
+  			background: 'hsl(var(--background))',
+  			foreground: 'hsl(var(--foreground))',
+  			card: {
+  				DEFAULT: 'hsl(var(--card))',
+  				foreground: 'hsl(var(--card-foreground))'
+  			},
+  			popover: {
+  				DEFAULT: 'hsl(var(--popover))',
+  				foreground: 'hsl(var(--popover-foreground))'
+  			},
+  			muted: {
+  				DEFAULT: 'hsl(var(--muted))',
+  				foreground: 'hsl(var(--muted-foreground))'
+  			},
+  			destructive: {
+  				DEFAULT: 'hsl(var(--destructive))',
+  				foreground: 'hsl(var(--destructive-foreground))'
+  			},
+  			border: 'hsl(var(--border))',
+  			input: 'hsl(var(--input))',
+  			ring: 'hsl(var(--ring))',
+  			chart: {
+  				'1': 'hsl(var(--chart-1))',
+  				'2': 'hsl(var(--chart-2))',
+  				'3': 'hsl(var(--chart-3))',
+  				'4': 'hsl(var(--chart-4))',
+  				'5': 'hsl(var(--chart-5))'
+  			},
+  			sidebar: {
+  				DEFAULT: 'hsl(var(--sidebar-background))',
+  				foreground: 'hsl(var(--sidebar-foreground))',
+  				primary: 'hsl(var(--sidebar-primary))',
+  				'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
+  				accent: 'hsl(var(--sidebar-accent))',
+  				'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
+  				border: 'hsl(var(--sidebar-border))',
+  				ring: 'hsl(var(--sidebar-ring))'
+  			}
+  		},
+  		borderRadius: {
+  			lg: 'var(--radius)',
+  			md: 'calc(var(--radius) - 2px)',
+  			sm: 'calc(var(--radius) - 4px)'
+  		}
+  	}
   },
-  plugins: [],
+  plugins: [require('tailwindcss-animate')],
+  
 }
 
 export default config

@@ -7,29 +7,58 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "clean": "rm -rf .nuxt node_modules dist .output && npm cache clean --force && npm install && npm run dev",
+    "validate-md": "node scripts/validate-md-structure.js",
+    "validate:categorias": "node scripts/validateCategorias.js",
+    "validate-md-seo": "node scripts/validate-md-seo.js",
+    "validate:all": "npm run validate-md && npm run validate-md-seo && npm run validate:categorias",
+    "fix:types": "rm -rf .nuxt node_modules package-lock.json && npm install && npx nuxi prepare",
+    "refresh:types": "npx nuxi prepare",
+    "reinstall:prepare": "rm -rf node_modules .nuxt && npm i && npx nuxi prepare",
+    "generate:products": "node scripts/create-product-files.js",
+    "validate:products": "node scripts/validate-products.js"
   },
   "dependencies": {
     "@nuxt/content": "^3.5.1",
     "@nuxt/image": "1.9.0",
-    "@nuxt/ui": "2.21.1",
+    "@nuxtjs/color-mode": "^3.5.2",
+    "@sendgrid/mail": "^8.1.5",
+    "@vee-validate/zod": "^4.15.0",
+    "@vueuse/core": "^13.1.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "embla-carousel": "^8.5.2",
+    "exceljs": "^4.4.0",
+    "fuse.js": "^7.1.0",
+    "gray-matter": "^4.0.3",
+    "lucide-vue-next": "^0.487.0",
     "nuxt": "3.16.0",
-    "vue": "3.5.13",
+    "reka-ui": "^2.2.0",
+    "tailwind-merge": "^3.2.0",
+    "tailwindcss-animate": "^1.0.7",
+    "vee-validate": "^4.15.0",
+    "vue": "^3.5.13",
     "vue-router": "4.5.0",
     "zod": "^3.24.2"
   },
   "devDependencies": {
+    "@iconify-json/lucide": "^1.2.35",
     "@iconify-json/tabler": "^1.2.17",
     "@nuxt/types": "^2.18.1",
-    "@nuxtjs/tailwindcss": "^6.13.2",
+    "@nuxtjs/tailwindcss": "^6.14.0",
     "@types/node": "^22.13.17",
     "autoprefixer": "^10.4.21",
     "postcss": "^8.5.3",
     "sass": "1.85.1",
-    "tailwindcss": "^3.4.1"
+    "tailwind-config-viewer": "^2.0.4",
+    "tailwindcss": "^3.4.17"
   },
   "resolutions": {
     "parse-git-config": "latest"
+  },
+  "overrides": {
+    "esbuild": "^0.25",
+    "unicorn-magic": "0.2.0"
   }
 }

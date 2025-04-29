@@ -1,22 +1,54 @@
 ---
-title: ' Impresión en gran formato para publicidad y eventos | Repro Disseny'
-description: Roll-ups, lonas, paneles rígidos, foam y más. Impresión en gran formato
-  ideal para ferias, campañas y retail. Calidad premium y producción local en Cataluña.
-keywords:
-- 'Impresión en gran formato en Barcelona​
-
-  Lonas publicitarias de gran tamaño​
-
-  Carteles y pancartas para eventos​
-
-  Vinilos decorativos para oficinas​
-
-  Soportes publicitarios de gran formato'
-image: Gran-formato.png
-alt: Soportes publicitarios de gran formato impresos para eventos y escaparates en
+alt: >-
+  Soportes publicitarios de gran formato impresos para eventos y escaparates en
   Cataluña
+brand: Repro Disseny
+faqs: []
+featured: true
+formFields: []
+galleryImages: []
+image: Gran-formato.png
+inStock: true
+keywords:
+  - impresión gran formato Barcelona
+  - lonas publicitarias gran formato
+  - carteles y pancartas eventos
+  - vinilos decorativos oficinas
+  - soportes publicitarios gran formato
+metaDescription: >-
+  Servicios de impresión en gran formato en Barcelona y Cataluña: lonas
+  publicitarias, carteles, vinilos decorativos y más. Calidad premium y
+  producción local.
+metaTitle: Impresión en Gran Formato en Barcelona y Cataluña | Repro Disseny
 nav: Gran Formato
+order: 1
+path: /categorias/gran-formato
+priceCurrency: EUR
+ratingValue: 4.8
+reviewCount: 124
+schema:
+  '@type': CollectionPage
+  name: Impresión en Gran Formato en Barcelona y Cataluña | Repro Disseny
+  description: >-
+    Servicios de impresión en gran formato en Barcelona y Cataluña: lonas
+    publicitarias, carteles, vinilos decorativos y más. Calidad premium y
+    producción local.
+  image: 'https://reprodisseny.com/img/categorias/gran-formato.png'
+  brand:
+    '@type': Organization
+    name: Repro Disseny
+  offers:
+    '@type': Offer
+    price: 0
+    priceCurrency: EUR
+    availability: 'https://schema.org/InStock'
+schemaType: CollectionPage
+searchTerms:
+  - impresión gran formato Cataluña
+  - impresión digital gran formato
+  - cartelería gran formato Barcelona
 slug: gran-formato
-navigation: true
+title: Impresión en Gran Formato en Barcelona y Cataluña | Repro Disseny
 type: categoria
 ---
+

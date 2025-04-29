@@ -33,6 +33,8 @@ export default defineContentConfig({
         priceCurrency: z.string().optional(),
         inStock: z.boolean().optional(),
         brand: z.string().optional(),
+        keywords: z.array(z.string()).optional(),
+        searchTerms: z.array(z.string()).optional(),
          // ✅ Campos del formulario dinámico
          formFields: z.array(
           z.object({
@@ -44,6 +46,25 @@ export default defineContentConfig({
           })
         ).optional()
       })
+    }),
+    // --- NUEVA Colección para Documentación ---
+    docs: defineCollection({
+      source: 'docs/**/*.md',
+      type: 'page',
+      schema: z.object({
+        title: z.string({
+          required_error: 'El título (title) es obligatorio en el frontmatter de los documentos.',
+          invalid_type_error: 'El título (title) debe ser texto.',
+        }),
+        description: z.string().optional(),
+    
+        // 🔧 Añade estos para navegación, búsqueda y .where() con _path
+        _path: z.string().optional(),
+        path: z.string().optional(),
+      })
     })
-  }
+    
+    // --- Puedes añadir más colecciones aquí si es necesario ---
+
+  } // Fin del objeto collections
 })

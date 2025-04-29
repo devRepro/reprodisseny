@@ -1,1 +1,5 @@
-<template><span>Blog</span></template>
+<<template>
+    <div>
+        
+    </div>
+</template>

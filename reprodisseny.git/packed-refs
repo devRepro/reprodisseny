@@ -1,0 +1,12 @@
+# pack-refs with: peeled fully-peeled sorted 
+f85a7d1b17798185c84194b1a6084991aabb4ded refs/heads/aliNav
+4ab80007dfc57a52f799e246bb9bae0704f0ca06 refs/heads/alistore
+378ba562cf7de0a9552315b975e6040ac54d586e refs/heads/breadcrumbs
+2e8c218d02ca460673c3393be6eacee8122fc1c9 refs/heads/content
+0dfa8336f5b740a8a17a58e1bac9e8b5b9a7e99a refs/heads/dev
+8e61298bc99daa64f67a93e82cc44e4e29e7e1c8 refs/heads/form
+f8ce57e225d7e00328b75635ff0f5d5fc805ad97 refs/heads/layout
+cdcfd8b26994610809d6cbe4b6124a93487ed59b refs/heads/main
+0953c6d69a985a70ce0d23663461f0fe0a8e5302 refs/heads/mainNav
+667007387f6c15e7f083f9e93f061078095a7b04 refs/heads/productosNav
+c7699e6d5c74a34085a7df17f1f0e3c6a5fa9855 refs/heads/sha

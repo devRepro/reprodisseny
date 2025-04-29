@@ -1,0 +1,27 @@
+@layer components {
+    .container {
+      @apply mx-auto w-full px-4 sm:px-6 lg:px-8;
+      max-width: 1280px;
+    }
+  
+    .section {
+      @apply py-12;
+    }
+  
+    .section-header {
+      @apply text-center mb-10;
+    }
+  
+    .grid-cols-responsive {
+      @apply grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4;
+    }
+  
+    .card {
+      @apply bg-white rounded-lg shadow-md p-6 transition hover:shadow-lg;
+    }
+  
+    .card:hover {
+      background-color: hsl(var(--color-light));
+    }
+  }
+  
