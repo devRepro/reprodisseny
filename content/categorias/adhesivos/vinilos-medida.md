@@ -12,8 +12,6 @@ keywords:
   - vinilos a medida
 metaDescription: Vinilos a medida personalizadas con calidad profesional en Cataluña.
 metaTitle: Vinilos a medida | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Vinilos a medida
 nav: Vinilos a medida
 path: /categorias/adhesivos/vinilos-medida
 price: 0

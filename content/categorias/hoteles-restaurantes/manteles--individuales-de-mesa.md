@@ -14,8 +14,6 @@ metaDescription: >-
   Manteles individuales de mesa personalizadas con calidad profesional en
   Cataluña.
 metaTitle: Manteles individuales de mesa | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Manteles individuales de mesa
 nav: Manteles individuales de mesa
 path: /categorias/hoteles-restaurantes/manteles--individuales-de-mesa
 price: 0

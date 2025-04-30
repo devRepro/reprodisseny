@@ -12,8 +12,6 @@ keywords:
   - 'sellos '
 metaDescription: Sellos  personalizadas con calidad profesional en Cataluña.
 metaTitle: Sellos  | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: 'Sellos '
 nav: 'Sellos '
 path: /categorias/publicitario-oficina/material-publicitario/sellos
 price: 0

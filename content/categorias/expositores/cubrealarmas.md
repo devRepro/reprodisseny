@@ -12,8 +12,6 @@ keywords:
   - cubrealarmas
 metaDescription: Cubrealarmas personalizadas con calidad profesional en Cataluña.
 metaTitle: Cubrealarmas | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Cubrealarmas
 nav: Cubrealarmas
 path: /categorias/expositores/cubrealarmas
 price: 0

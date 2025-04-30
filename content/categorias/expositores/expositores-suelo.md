@@ -12,8 +12,6 @@ keywords:
   - expositores de suelo
 metaDescription: Expositores de suelo personalizadas con calidad profesional en Cataluña.
 metaTitle: Expositores de suelo | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Expositores de suelo
 nav: Expositores de suelo
 path: /categorias/expositores/expositores-suelo
 price: 0

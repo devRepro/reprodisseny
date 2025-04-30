@@ -12,8 +12,6 @@ keywords:
   - placas qr
 metaDescription: Placas QR personalizadas con calidad profesional en Cataluña.
 metaTitle: Placas QR | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Placas QR
 nav: Placas QR
 path: /categorias/hoteles-restaurantes/placas-r
 price: 0

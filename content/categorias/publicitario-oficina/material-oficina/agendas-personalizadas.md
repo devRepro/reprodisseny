@@ -12,8 +12,6 @@ keywords:
   - agendas personalizadas
 metaDescription: Agendas personalizadas personalizadas con calidad profesional en Cataluña.
 metaTitle: Agendas personalizadas | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Agendas personalizadas
 nav: Agendas personalizadas
 path: /categorias/publicitario-oficina/material-oficina/agendas-personalizadas
 price: 0

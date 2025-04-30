@@ -12,8 +12,6 @@ keywords:
   - lanyards
 metaDescription: Lanyards personalizadas con calidad profesional en Cataluña.
 metaTitle: Lanyards | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Lanyards
 nav: Lanyards
 path: /categorias/eventos/lanyards
 price: 0

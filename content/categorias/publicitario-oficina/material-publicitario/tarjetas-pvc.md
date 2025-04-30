@@ -12,8 +12,6 @@ keywords:
   - tarjetas de pvc
 metaDescription: Tarjetas de pvc personalizadas con calidad profesional en Cataluña.
 metaTitle: Tarjetas de pvc | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Tarjetas de pvc
 nav: Tarjetas de pvc
 path: /categorias/publicitario-oficina/material-publicitario/tarjetas-pvc
 price: 0

@@ -12,8 +12,6 @@ keywords:
   - puntos de libro
 metaDescription: Puntos de libro personalizadas con calidad profesional en Cataluña.
 metaTitle: Puntos de libro | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Puntos de libro
 nav: Puntos de libro
 path: /categorias/publicitario-oficina/material-publicitario/puntos-libro
 price: 0

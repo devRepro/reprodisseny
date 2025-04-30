@@ -12,8 +12,6 @@ keywords:
   - árbol de navidad
 metaDescription: Árbol de navidad personalizadas con calidad profesional en Cataluña.
 metaTitle: Árbol de navidad | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Árbol de navidad
 nav: Árbol de navidad
 path: /categorias/expositores/arbol-navidad
 price: 0

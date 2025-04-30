@@ -12,8 +12,6 @@ keywords:
   - doming ( gota resina )
 metaDescription: Doming ( gota resina ) personalizadas con calidad profesional en Cataluña.
 metaTitle: Doming ( gota resina ) | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Doming ( gota resina )
 nav: Doming ( gota resina )
 path: /categorias/adhesivos/doming
 price: 0

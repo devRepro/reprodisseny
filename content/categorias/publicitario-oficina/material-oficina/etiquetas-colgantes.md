@@ -12,8 +12,6 @@ keywords:
   - etiquetas colgantes
 metaDescription: Etiquetas colgantes personalizadas con calidad profesional en Cataluña.
 metaTitle: Etiquetas colgantes | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Etiquetas colgantes
 nav: Etiquetas colgantes
 path: /categorias/publicitario-oficina/material-oficina/etiquetas-colgantes
 price: 0

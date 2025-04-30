@@ -12,8 +12,6 @@ keywords:
   - dorsales de carrera
 metaDescription: Dorsales de carrera personalizadas con calidad profesional en Cataluña.
 metaTitle: Dorsales de carrera | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Dorsales de carrera
 nav: Dorsales de carrera
 path: /categorias/eventos/dorsales-carrera
 price: 0

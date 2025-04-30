@@ -12,8 +12,6 @@ keywords:
   - textil reposacabezas
 metaDescription: Textil reposacabezas personalizadas con calidad profesional en Cataluña.
 metaTitle: Textil reposacabezas | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Textil reposacabezas
 nav: Textil reposacabezas
 path: /categorias/eventos/textil-cabezas
 price: 0

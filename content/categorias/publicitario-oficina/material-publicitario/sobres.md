@@ -12,8 +12,6 @@ keywords:
   - sobres
 metaDescription: Sobres personalizadas con calidad profesional en Cataluña.
 metaTitle: Sobres | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Sobres
 nav: Sobres
 path: /categorias/publicitario-oficina/material-publicitario/sobres
 price: 0

@@ -12,8 +12,6 @@ keywords:
   - banner
 metaDescription: Banner personalizadas con calidad profesional en Cataluña.
 metaTitle: Banner | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Banner
 nav: Banner
 path: /categorias/expositores/banner
 price: 0

@@ -12,8 +12,6 @@ keywords:
   - certificados
 metaDescription: Certificados personalizadas con calidad profesional en Cataluña.
 metaTitle: Certificados | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Certificados
 nav: Certificados
 path: /categorias/publicitario-oficina/material-oficina/certificados
 price: 0

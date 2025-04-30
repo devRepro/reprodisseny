@@ -12,8 +12,6 @@ keywords:
   - nombres de sobremesa
 metaDescription: Nombres de sobremesa personalizadas con calidad profesional en Cataluña.
 metaTitle: Nombres de sobremesa | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Nombres de sobremesa
 nav: Nombres de sobremesa
 path: /categorias/eventos/nombres-sobremesa
 price: 0

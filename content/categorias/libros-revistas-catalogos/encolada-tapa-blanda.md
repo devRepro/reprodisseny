@@ -14,8 +14,6 @@ metaDescription: >-
   Encuadernación  encolada tapa blanda personalizadas con calidad profesional en
   Cataluña.
 metaTitle: Encuadernación  encolada tapa blanda | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Encuadernación  encolada tapa blanda
 nav: Encuadernación  encolada tapa blanda
 path: /categorias/libros-revistas-catalogos/encolada-tapa-blanda
 price: 0

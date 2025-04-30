@@ -12,8 +12,6 @@ keywords:
   - flyers con forma
 metaDescription: Flyers con forma personalizadas con calidad profesional en Cataluña.
 metaTitle: Flyers con forma | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Flyers con forma
 nav: Flyers con forma
 path: /categorias/publicitario-oficina/material-oficina/flyers-forma
 price: 0

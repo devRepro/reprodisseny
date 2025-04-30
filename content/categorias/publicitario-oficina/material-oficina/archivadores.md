@@ -12,8 +12,6 @@ keywords:
   - archivadores
 metaDescription: Archivadores personalizadas con calidad profesional en Cataluña.
 metaTitle: Archivadores | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Archivadores
 nav: Archivadores
 path: /categorias/publicitario-oficina/material-oficina/archivadores
 price: 0

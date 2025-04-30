@@ -12,8 +12,6 @@ keywords:
   - entradas
 metaDescription: Entradas personalizadas con calidad profesional en Cataluña.
 metaTitle: Entradas | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Entradas
 nav: Entradas
 path: /categorias/eventos/entradas
 price: 0

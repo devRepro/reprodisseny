@@ -12,8 +12,6 @@ keywords:
   - tiras lineal
 metaDescription: Tiras lineal personalizadas con calidad profesional en Cataluña.
 metaTitle: Tiras lineal | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Tiras lineal
 nav: Tiras lineal
 path: /categorias/publicitario-oficina/material-publicitario/tiras-lineal
 price: 0

@@ -12,8 +12,6 @@ keywords:
   - figuras árbol de navidad
 metaDescription: Figuras árbol de navidad personalizadas con calidad profesional en Cataluña.
 metaTitle: Figuras árbol de navidad | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Figuras árbol de navidad
 nav: Figuras árbol de navidad
 path: /categorias/eventos/figuras-arbol-navidad
 price: 0

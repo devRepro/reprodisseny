@@ -12,8 +12,6 @@ keywords:
   - tarjetones e invitaciones
 metaDescription: Tarjetones e invitaciones personalizadas con calidad profesional en Cataluña.
 metaTitle: Tarjetones e invitaciones | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Tarjetones e invitaciones
 nav: Tarjetones e invitaciones
 path: /categorias/publicitario-oficina/material-publicitario/tarjetones-invitaciones
 price: 0

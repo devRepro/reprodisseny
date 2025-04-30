@@ -12,8 +12,6 @@ keywords:
   - premios personalizados
 metaDescription: Premios personalizados personalizadas con calidad profesional en Cataluña.
 metaTitle: Premios personalizados | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Premios personalizados
 nav: Premios personalizados
 path: /categorias/eventos/premios-personalizados
 price: 0

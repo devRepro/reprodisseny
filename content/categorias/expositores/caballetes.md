@@ -12,8 +12,6 @@ keywords:
   - caballetes
 metaDescription: Caballetes personalizadas con calidad profesional en Cataluña.
 metaTitle: Caballetes | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Caballetes
 nav: Caballetes
 path: /categorias/expositores/caballetes
 price: 0

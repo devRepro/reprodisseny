@@ -12,8 +12,6 @@ keywords:
   - banderolas lineal
 metaDescription: Banderolas lineal personalizadas con calidad profesional en Cataluña.
 metaTitle: Banderolas lineal | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Banderolas lineal
 nav: Banderolas lineal
 path: /categorias/publicitario-oficina/material-oficina/banderolas-lineal
 price: 0

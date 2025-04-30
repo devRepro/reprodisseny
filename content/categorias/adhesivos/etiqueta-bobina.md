@@ -12,8 +12,6 @@ keywords:
   - etiquetas en bobina
 metaDescription: Etiquetas en bobina personalizadas con calidad profesional en Cataluña.
 metaTitle: Etiquetas en bobina | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Etiquetas en bobina
 nav: Etiquetas en bobina
 path: /categorias/adhesivos/etiqueta-bobina
 price: 0

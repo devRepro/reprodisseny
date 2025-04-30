@@ -12,8 +12,6 @@ keywords:
   - colgador de puerta
 metaDescription: Colgador de puerta personalizadas con calidad profesional en Cataluña.
 metaTitle: Colgador de puerta | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Colgador de puerta
 nav: Colgador de puerta
 path: /categorias/hoteles-restaurantes/colgador-puerta
 price: 0

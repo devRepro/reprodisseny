@@ -12,8 +12,6 @@ keywords:
   - stoppers
 metaDescription: Stoppers personalizadas con calidad profesional en Cataluña.
 metaTitle: Stoppers | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Stoppers
 nav: Stoppers
 path: /categorias/publicitario-oficina/material-publicitario/stoppers
 price: 0

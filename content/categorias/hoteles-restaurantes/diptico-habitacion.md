@@ -12,8 +12,6 @@ keywords:
   - díptico tarjeta habitación
 metaDescription: Díptico tarjeta habitación personalizadas con calidad profesional en Cataluña.
 metaTitle: Díptico tarjeta habitación | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Díptico tarjeta habitación
 nav: Díptico tarjeta habitación
 path: /categorias/hoteles-restaurantes/diptico-habitacion
 price: 0

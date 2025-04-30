@@ -12,8 +12,6 @@ keywords:
   - tabletents
 metaDescription: Tabletents personalizadas con calidad profesional en Cataluña.
 metaTitle: Tabletents | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Tabletents
 nav: Tabletents
 path: /categorias/hoteles-restaurantes/tabletents
 price: 0

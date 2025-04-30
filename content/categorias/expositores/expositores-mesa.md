@@ -12,8 +12,6 @@ keywords:
   - expositores de mesa
 metaDescription: Expositores de mesa personalizadas con calidad profesional en Cataluña.
 metaTitle: Expositores de mesa | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Expositores de mesa
 nav: Expositores de mesa
 path: /categorias/expositores/expositores-mesa
 price: 0

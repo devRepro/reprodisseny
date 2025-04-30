@@ -12,8 +12,6 @@ keywords:
   - portacuentas
 metaDescription: Portacuentas personalizadas con calidad profesional en Cataluña.
 metaTitle: Portacuentas | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Portacuentas
 nav: Portacuentas
 path: /categorias/hoteles-restaurantes/portacuentas
 price: 0

@@ -29,8 +29,6 @@ keywords:
   - abanicos
 metaDescription: Abanicos personalizadas con calidad profesional en Cataluña.
 metaTitle: Abanicos | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Abanicos
 nav: Abanicos
 path: /categorias/eventos/abanicos
 price: 0

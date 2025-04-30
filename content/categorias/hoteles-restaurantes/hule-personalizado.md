@@ -12,8 +12,6 @@ keywords:
   - hule personalizado
 metaDescription: Hule personalizado personalizadas con calidad profesional en Cataluña.
 metaTitle: Hule personalizado | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Hule personalizado
 nav: Hule personalizado
 path: /categorias/hoteles-restaurantes/hule-personalizado
 price: 0

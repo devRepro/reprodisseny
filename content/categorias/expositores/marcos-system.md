@@ -12,8 +12,6 @@ keywords:
   - marcos click system
 metaDescription: Marcos click system personalizadas con calidad profesional en Cataluña.
 metaTitle: Marcos click system | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Marcos click system
 nav: Marcos click system
 path: /categorias/expositores/marcos-system
 price: 0

@@ -12,8 +12,6 @@ keywords:
   - cupones promocionales
 metaDescription: Cupones promocionales personalizadas con calidad profesional en Cataluña.
 metaTitle: Cupones promocionales | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Cupones promocionales
 nav: Cupones promocionales
 path: /categorias/eventos/cupones-promocionales
 price: 0

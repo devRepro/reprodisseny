@@ -12,8 +12,6 @@ keywords:
   - calendarios
 metaDescription: Calendarios personalizadas con calidad profesional en Cataluña.
 metaTitle: Calendarios | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Calendarios
 nav: Calendarios
 path: /categorias/publicitario-oficina/material-oficina/calendarios
 price: 0

@@ -12,8 +12,6 @@ keywords:
   - carpetas de presentación
 metaDescription: Carpetas de presentación personalizadas con calidad profesional en Cataluña.
 metaTitle: Carpetas de presentación | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Carpetas de presentación
 nav: Carpetas de presentación
 path: /categorias/publicitario-oficina/material-oficina/carpetas-presentacion
 price: 0

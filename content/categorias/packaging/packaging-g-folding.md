@@ -12,8 +12,6 @@ keywords:
   - packaging folding
 metaDescription: Packaging Folding personalizadas con calidad profesional en Cataluña.
 metaTitle: Packaging Folding | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Packaging Folding
 nav: Packaging Folding
 path: /categorias/packaging/packaging-g-folding
 price: 0

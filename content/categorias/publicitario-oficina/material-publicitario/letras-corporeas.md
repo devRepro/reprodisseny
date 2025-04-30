@@ -12,8 +12,6 @@ keywords:
   - letras corporeas
 metaDescription: Letras Corporeas personalizadas con calidad profesional en Cataluña.
 metaTitle: Letras Corporeas | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Letras Corporeas
 nav: Letras Corporeas
 path: /categorias/publicitario-oficina/material-publicitario/letras-corporeas
 price: 0

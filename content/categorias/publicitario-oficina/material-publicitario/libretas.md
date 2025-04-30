@@ -12,8 +12,6 @@ keywords:
   - libretas
 metaDescription: Libretas personalizadas con calidad profesional en Cataluña.
 metaTitle: Libretas | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Libretas
 nav: Libretas
 path: /categorias/publicitario-oficina/material-publicitario/libretas
 price: 0

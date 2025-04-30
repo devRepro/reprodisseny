@@ -12,8 +12,6 @@ keywords:
   - posters
 metaDescription: Posters personalizadas con calidad profesional en Cataluña.
 metaTitle: Posters | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Posters
 nav: Posters
 path: /categorias/publicitario-oficina/material-publicitario/posters
 price: 0

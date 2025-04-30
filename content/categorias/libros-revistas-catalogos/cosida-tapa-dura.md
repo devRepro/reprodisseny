@@ -14,8 +14,6 @@ metaDescription: >-
   Encuadernación  cosida tapa dura personalizadas con calidad profesional en
   Cataluña.
 metaTitle: Encuadernación  cosida tapa dura | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Encuadernación  cosida tapa dura
 nav: Encuadernación  cosida tapa dura
 path: /categorias/libros-revistas-catalogos/cosida-tapa-dura
 price: 0

@@ -12,8 +12,6 @@ keywords:
   - packaging corrugado
 metaDescription: Packaging Corrugado personalizadas con calidad profesional en Cataluña.
 metaTitle: Packaging Corrugado | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Packaging Corrugado
 nav: Packaging Corrugado
 path: /categorias/packaging/packaging-g-corrugado
 price: 0

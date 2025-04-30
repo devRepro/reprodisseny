@@ -14,8 +14,6 @@ metaDescription: >-
   Encuadernación  Wire O Oculto personalizadas con calidad profesional en
   Cataluña.
 metaTitle: Encuadernación  Wire O Oculto | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Encuadernación  Wire O Oculto
 nav: Encuadernación  Wire O Oculto
 path: /categorias/libros-revistas-catalogos/wire-o-oculto
 price: 0

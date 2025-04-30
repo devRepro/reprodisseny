@@ -12,8 +12,6 @@ keywords:
   - posavasos
 metaDescription: Posavasos personalizadas con calidad profesional en Cataluña.
 metaTitle: Posavasos | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Posavasos
 nav: Posavasos
 path: /categorias/hoteles-restaurantes/posavasos
 price: 0

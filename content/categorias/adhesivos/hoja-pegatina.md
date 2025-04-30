@@ -20,10 +20,6 @@ metaDescription: >-
   Hojas con pegatinas de vinilo personalizadas ideales para promociones y
   packaging. Impresión profesional y entrega en Cataluña.
 metaTitle: Hojas con pegatinas personalizadas | Repro Disseny
-metadescription: >-
-  Hojas con pegatinas de vinilo personalizadas ideales para promociones y
-  packaging. Impresión profesional y entrega en Cataluña.
-metatitle: Hojas con pegatinas
 nav: Hojas con pegatinas
 path: /categorias/adhesivos/hoja-pegatina
 price: 0

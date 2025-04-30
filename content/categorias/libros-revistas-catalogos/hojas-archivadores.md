@@ -14,8 +14,6 @@ metaDescription: >-
   Holas sueltas para archivadores personalizadas con calidad profesional en
   Cataluña.
 metaTitle: Holas sueltas para archivadores | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Holas sueltas para archivadores
 nav: Holas sueltas para archivadores
 path: /categorias/libros-revistas-catalogos/hojas-archivadores
 price: 0

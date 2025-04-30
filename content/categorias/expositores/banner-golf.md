@@ -12,8 +12,6 @@ keywords:
   - banner golf
 metaDescription: Banner Golf personalizadas con calidad profesional en Cataluña.
 metaTitle: Banner Golf | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Banner Golf
 nav: Banner Golf
 path: /categorias/expositores/banner-golf
 price: 0

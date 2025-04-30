@@ -12,8 +12,6 @@ keywords:
   - imanes
 metaDescription: Imanes personalizadas con calidad profesional en Cataluña.
 metaTitle: Imanes | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Imanes
 nav: Imanes
 path: /categorias/publicitario-oficina/material-publicitario/imanes
 price: 0

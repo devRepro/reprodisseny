@@ -12,8 +12,6 @@ keywords:
   - cubos
 metaDescription: Cubos personalizadas con calidad profesional en Cataluña.
 metaTitle: Cubos | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Cubos
 nav: Cubos
 path: /categorias/expositores/cubos
 price: 0

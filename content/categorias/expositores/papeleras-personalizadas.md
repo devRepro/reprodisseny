@@ -12,8 +12,6 @@ keywords:
   - papeleras personalizadas
 metaDescription: Papeleras personalizadas personalizadas con calidad profesional en Cataluña.
 metaTitle: Papeleras personalizadas | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Papeleras personalizadas
 nav: Papeleras personalizadas
 path: /categorias/expositores/papeleras-personalizadas
 price: 0

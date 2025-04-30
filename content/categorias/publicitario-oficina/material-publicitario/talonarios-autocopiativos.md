@@ -12,8 +12,6 @@ keywords:
   - talonarios autocopiativos
 metaDescription: Talonarios autocopiativos personalizadas con calidad profesional en Cataluña.
 metaTitle: Talonarios autocopiativos | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Talonarios autocopiativos
 nav: Talonarios autocopiativos
 path: >-
   /categorias/publicitario-oficina/material-publicitario/talonarios-autocopiativos

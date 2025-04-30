@@ -13,8 +13,6 @@ keywords:
 metaDescription: Papel de carta personalizadas con calidad profesional en Cataluña.
 metaTitle: Papel de carta | Repro Disseny
 metadescription: descripción genérica de mi producto para probar
-metatitle: Papel de carta
-nav: Papel de carta
 path: /categorias/publicitario-oficina/material-publicitario/papel-carta
 price: 0
 priceCurrency: EUR

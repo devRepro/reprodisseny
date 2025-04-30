@@ -14,8 +14,6 @@ metaDescription: >-
   Encuadernación  cosida tapa blanda personalizadas con calidad profesional en
   Cataluña.
 metaTitle: Encuadernación  cosida tapa blanda | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Encuadernación  cosida tapa blanda
 nav: Encuadernación  cosida tapa blanda
 path: /categorias/libros-revistas-catalogos/cosida-tapa-blanda
 price: 0

@@ -12,8 +12,6 @@ keywords:
   - encuadernación  wire o
 metaDescription: Encuadernación  Wire O personalizadas con calidad profesional en Cataluña.
 metaTitle: Encuadernación  Wire O | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Encuadernación  Wire O
 nav: Encuadernación  Wire O
 path: /categorias/libros-revistas-catalogos/wire-o
 price: 0

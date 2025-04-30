@@ -12,8 +12,6 @@ keywords:
   - displays
 metaDescription: Displays personalizadas con calidad profesional en Cataluña.
 metaTitle: Displays | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Displays
 nav: Displays
 path: /categorias/publicitario-oficina/material-oficina/displays
 price: 0

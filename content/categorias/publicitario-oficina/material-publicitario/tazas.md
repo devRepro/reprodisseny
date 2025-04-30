@@ -12,8 +12,6 @@ keywords:
   - tazas
 metaDescription: Tazas personalizadas con calidad profesional en Cataluña.
 metaTitle: Tazas | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Tazas
 nav: Tazas
 path: /categorias/publicitario-oficina/material-publicitario/tazas
 price: 0

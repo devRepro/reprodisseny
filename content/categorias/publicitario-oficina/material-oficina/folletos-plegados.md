@@ -12,8 +12,6 @@ keywords:
   - folletos plegados
 metaDescription: Folletos plegados personalizadas con calidad profesional en Cataluña.
 metaTitle: Folletos plegados | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Folletos plegados
 nav: Folletos plegados
 path: /categorias/publicitario-oficina/material-oficina/folletos-plegados
 price: 0

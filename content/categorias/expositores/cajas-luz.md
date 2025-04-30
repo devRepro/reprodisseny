@@ -12,8 +12,6 @@ keywords:
   - cajas de luz
 metaDescription: Cajas de luz personalizadas con calidad profesional en Cataluña.
 metaTitle: Cajas de luz | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Cajas de luz
 nav: Cajas de luz
 path: /categorias/expositores/cajas-luz
 price: 0

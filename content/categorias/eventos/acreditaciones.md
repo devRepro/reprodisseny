@@ -12,8 +12,6 @@ keywords:
   - acreditaciones
 metaDescription: Acreditaciones personalizadas con calidad profesional en Cataluña.
 metaTitle: Acreditaciones | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Acreditaciones
 nav: Acreditaciones
 path: /categorias/eventos/acreditaciones
 price: 0

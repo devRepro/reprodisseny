@@ -12,8 +12,6 @@ keywords:
   - marcos photocall
 metaDescription: Marcos photocall personalizadas con calidad profesional en Cataluña.
 metaTitle: Marcos photocall | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Marcos photocall
 nav: Marcos photocall
 path: /categorias/eventos/marcos-hotocall
 price: 0

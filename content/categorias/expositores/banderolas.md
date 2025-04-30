@@ -12,8 +12,6 @@ keywords:
   - banderolas
 metaDescription: Banderolas personalizadas con calidad profesional en Cataluña.
 metaTitle: Banderolas | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Banderolas
 nav: Banderolas
 path: /categorias/expositores/banderolas
 price: 0

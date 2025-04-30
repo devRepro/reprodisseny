@@ -20,8 +20,6 @@ keywords:
   - encuadernado grapas
 metaDescription: Encuadernado grapas personalizadas con calidad profesional en Cataluña.
 metaTitle: Encuadernado grapas | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Encuadernado grapas
 nav: Encuadernado grapas
 path: /categorias/libros-revistas-catalogos/encuadernado-grapas
 price: 0

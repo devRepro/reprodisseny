@@ -12,8 +12,6 @@ keywords:
   - cartas de restaurante
 metaDescription: Cartas de restaurante personalizadas con calidad profesional en Cataluña.
 metaTitle: Cartas de restaurante | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Cartas de restaurante
 nav: Cartas de restaurante
 path: /categorias/hoteles-restaurantes/carta-restaurane
 price: 0

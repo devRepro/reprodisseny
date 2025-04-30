@@ -35,8 +35,6 @@ keywords:
   - flyers
 metaDescription: Flyers personalizadas con calidad profesional en Cataluña.
 metaTitle: Flyers | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Flyers
 nav: Flyers
 path: /categorias/publicitario-oficina/material-oficina/flyers
 price: 0

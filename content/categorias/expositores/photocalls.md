@@ -12,8 +12,6 @@ keywords:
   - photocalls
 metaDescription: Photocalls personalizadas con calidad profesional en Cataluña.
 metaTitle: Photocalls | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Photocalls
 nav: Photocalls
 path: /categorias/expositores/photocalls
 price: 0

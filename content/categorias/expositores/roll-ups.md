@@ -12,8 +12,6 @@ keywords:
   - roll ups
 metaDescription: Roll Ups personalizadas con calidad profesional en Cataluña.
 metaTitle: Roll Ups | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Roll Ups
 nav: Roll Ups
 path: /categorias/expositores/roll-ups
 price: 0

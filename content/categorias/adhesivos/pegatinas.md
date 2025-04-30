@@ -12,8 +12,6 @@ keywords:
   - pegatinas individuales
 metaDescription: Pegatinas individuales personalizadas con calidad profesional en Cataluña.
 metaTitle: Pegatinas individuales | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Pegatinas individuales
 nav: Pegatinas individuales
 path: /categorias/adhesivos/pegatinas
 price: 0

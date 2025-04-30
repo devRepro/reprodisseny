@@ -12,8 +12,6 @@ keywords:
   - bloc de notas
 metaDescription: Bloc de notas personalizadas con calidad profesional en Cataluña.
 metaTitle: Bloc de notas | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Bloc de notas
 nav: Bloc de notas
 path: /categorias/publicitario-oficina/material-oficina/bloc-notas
 price: 0

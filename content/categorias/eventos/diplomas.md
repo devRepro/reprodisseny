@@ -12,8 +12,6 @@ keywords:
   - diplomas
 metaDescription: Diplomas personalizadas con calidad profesional en Cataluña.
 metaTitle: Diplomas | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Diplomas
 nav: Diplomas
 path: /categorias/eventos/diplomas
 price: 0

@@ -12,8 +12,6 @@ keywords:
   - placa dirección
 metaDescription: Placa dirección personalizadas con calidad profesional en Cataluña.
 metaTitle: Placa dirección | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Placa dirección
 nav: Placa dirección
 path: /categorias/publicitario-oficina/material-publicitario/placa-direccion
 price: 0

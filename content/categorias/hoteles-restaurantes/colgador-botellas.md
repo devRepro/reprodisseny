@@ -12,8 +12,6 @@ keywords:
   - colgador de botellas
 metaDescription: Colgador de botellas personalizadas con calidad profesional en Cataluña.
 metaTitle: Colgador de botellas | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Colgador de botellas
 nav: Colgador de botellas
 path: /categorias/hoteles-restaurantes/colgador-botellas
 price: 0

@@ -12,8 +12,6 @@ keywords:
   - pizarras
 metaDescription: Pizarras personalizadas con calidad profesional en Cataluña.
 metaTitle: Pizarras | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Pizarras
 nav: Pizarras
 path: /categorias/publicitario-oficina/material-publicitario/pizarras
 price: 0

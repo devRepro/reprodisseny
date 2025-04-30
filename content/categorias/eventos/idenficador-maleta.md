@@ -12,8 +12,6 @@ keywords:
   - identificador de maleta
 metaDescription: Identificador de maleta personalizadas con calidad profesional en Cataluña.
 metaTitle: Identificador de maleta | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Identificador de maleta
 nav: Identificador de maleta
 path: /categorias/eventos/idenficador-maleta
 price: 0

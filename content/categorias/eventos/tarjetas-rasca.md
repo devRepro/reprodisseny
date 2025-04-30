@@ -12,8 +12,6 @@ keywords:
   - tarjetas rasca
 metaDescription: Tarjetas rasca personalizadas con calidad profesional en Cataluña.
 metaTitle: Tarjetas rasca | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Tarjetas rasca
 nav: Tarjetas rasca
 path: /categorias/eventos/tarjetas-rasca
 price: 0

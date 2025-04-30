@@ -12,8 +12,6 @@ keywords:
   - totems
 metaDescription: Totems personalizadas con calidad profesional en Cataluña.
 metaTitle: Totems | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Totems
 nav: Totems
 path: /categorias/expositores/totems
 price: 0

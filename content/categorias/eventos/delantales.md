@@ -12,8 +12,6 @@ keywords:
   - delantales
 metaDescription: Delantales personalizadas con calidad profesional en Cataluña.
 metaTitle: Delantales | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Delantales
 nav: Delantales
 path: /categorias/eventos/delantales
 price: 0

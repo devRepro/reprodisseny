@@ -12,8 +12,6 @@ keywords:
   - minutas de boda
 metaDescription: Minutas de boda personalizadas con calidad profesional en Cataluña.
 metaTitle: Minutas de boda | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Minutas de boda
 nav: Minutas de boda
 path: /categorias/hoteles-restaurantes/minutas-boda
 price: 0

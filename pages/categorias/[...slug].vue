@@ -91,7 +91,7 @@ function resolveImageUrl(path: string | undefined, type: string | undefined) {
     <div v-else-if="contentData">
 
      <!-- 🧭 Aquí insertamos Breadcrumb -->
-      <AppCrumbs />
+ 
 
 
       <!-- Vista de Categoría -->

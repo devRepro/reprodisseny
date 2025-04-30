@@ -12,8 +12,6 @@ keywords:
   - tarjetas de visita
 metaDescription: Tarjetas de visita personalizadas con calidad profesional en Cataluña.
 metaTitle: Tarjetas de visita | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Tarjetas de visita
 nav: Tarjetas de visita
 path: /categorias/publicitario-oficina/material-publicitario/tarjetas-visita
 price: 0

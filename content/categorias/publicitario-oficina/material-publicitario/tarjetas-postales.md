@@ -12,8 +12,6 @@ keywords:
   - tarjetas postales
 metaDescription: Tarjetas postales personalizadas con calidad profesional en Cataluña.
 metaTitle: Tarjetas postales | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Tarjetas postales
 nav: Tarjetas postales
 path: /categorias/publicitario-oficina/material-publicitario/tarjetas-postales
 price: 0
