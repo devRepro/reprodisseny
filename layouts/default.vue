@@ -33,7 +33,7 @@ watch(error, (newError) => {
         <div v-if="pending" class="text-center py-4">Cargando menú...</div>
         <div v-else-if="error" class="text-center py-4 text-red-500">Error al cargar menú.</div>
         <!-- Renderiza solo si no hay error y tenemos categorías -->
-        <UiNavigationMenuMegaMenu v-else-if="categorias" :categorias="categorias" />
+   
       </div>
     </div>
 

@@ -37,7 +37,8 @@ const slots = useSlots()
       </header>
 
       <!-- Slot dinámico: descripción + cta o formulario -->
-      <slot />
+      <!-- Slot para contenido a la derecha -->
+      <slot name="right" />
     </div>
   </section>
 </template>

@@ -1,13 +1,16 @@
 <script setup lang="ts">
+definePageMeta({
+  layout: 'categorias'
+})
+
 import { useRoute, useRouter } from 'vue-router'
-import { useAsyncData, useHead, showError, computed } from '#imports'
+import { useAsyncData, useSeoMeta, showError, computed } from '#imports'
 import type { Categoria, Producto } from '@/types'
 
-
-// --- Setup básico de ruta / slug ---
 const route = useRoute()
 const router = useRouter()
 
+// --- Slug y path ---
 const slugParts = route.params.slug as string[]
 if (!Array.isArray(slugParts) || slugParts.length === 0) {
   throw showError({ statusCode: 404, statusMessage: 'Página no encontrada' })
@@ -15,27 +18,27 @@ if (!Array.isArray(slugParts) || slugParts.length === 0) {
 const targetSlug = slugParts[slugParts.length - 1]
 const fullPath = `/categorias/${slugParts.join('/')}`
 
-// --- Carga de contenido principal ---
-const { data: contentData, pending, error } = await useAsyncData<Categoria | Producto>(
+// --- Carga de contenido ---
+const { data: contentData, pending, error } = useAsyncData<Categoria | Producto>(
   `content-${fullPath}`,
   async () => {
     const item = await queryCollection('categorias')
       .where('slug', '=', targetSlug)
       .first()
     if (!item) throw showError({ statusCode: 404, statusMessage: 'No encontrado' })
-    if (!item.path) item.path = fullPath
+    item.path = item.path || fullPath
     return item
-  }
+  },
+  { server: true, lazy: false }
 )
 
 const contentType = computed(() => contentData.value?.type)
-
-// --- Carga de productos asociados si es categoría ---
 const categorySlug = computed(() =>
   contentType.value === 'categoria' ? (contentData.value as Categoria).slug : null
 )
 
-const { data: associatedProducts, pending: pendingProducts } = await useAsyncData<Producto[]>(
+// --- Carga de productos asociados ---
+const { data: associatedProducts, pending: pendingProducts } = useAsyncData<Producto[]>(
   `products-${fullPath}`,
   async () => {
     if (!categorySlug.value) return []
@@ -45,26 +48,55 @@ const { data: associatedProducts, pending: pendingProducts } = await useAsyncDat
       .all()
     return Array.isArray(prods) ? (prods as Producto[]) : []
   },
-  { watch: [categorySlug], default: () => [] }
+  {
+    server: true,
+    lazy: true,
+    watch: [categorySlug],
+    default: () => []
+  }
 )
 
-// --- SEO básico ---
-useHead(() => {
-  if (pending.value || !contentData.value) {
-    return { title: 'Cargando…' }
-  }
+// --- Formato para GridDisplay.vue ---
+const formattedProducts = computed(() =>
+  (associatedProducts.value || []).map((product) => ({
+    id: product.id || product.slug,
+    title: product.nav || product.title,
+    link: `/categorias/${product.category}/${product.slug}`,
+    image: resolveImageUrl(product.image, product.type),
+  }))
+)
+
+// --- Paginación de productos ---
+const itemsPerPage = 8
+const currentPage = ref(1)
+
+const paginatedProducts = computed(() => {
+  const start = (currentPage.value - 1) * itemsPerPage
+  return formattedProducts.value.slice(start, start + itemsPerPage)
+})
+
+const totalPages = computed(() =>
+  Math.ceil(formattedProducts.value.length / itemsPerPage)
+)
+
+function onPageChange(page: number) {
+  currentPage.value = page
+  // Opcional: scroll al inicio de productos
+  document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' })
+}
+
+// --- SEO dinámico ---
+useSeoMeta(() => {
   const item = contentData.value
-  const title = item.title
-  const description = item.description || ''
+  if (!item) return {}
   return {
-    title,
-    meta: [
-      { name: 'description', content: description },
-      { property: 'og:title', content: title },
-      { property: 'og:description', content: description },
-      { property: 'og:url', content: `https://tusitio.com${fullPath}` }
-    ],
-    link: [{ rel: 'canonical', href: `https://tusitio.com${fullPath}` }]
+    title: item.title,
+    description: item.description || '',
+    ogTitle: item.title,
+    ogDescription: item.description || '',
+    ogUrl: `https://tusitio.com${fullPath}`,
+    ogImage: item.image ? resolveImageUrl(item.image, item.type) : undefined,
+    twitterCard: 'summary_large_image'
   }
 })
 
@@ -81,113 +113,91 @@ function resolveImageUrl(path: string | undefined, type: string | undefined) {
 </script>
 
 <template>
-  <div class="category-product-page">
-    <!-- Loader -->
-    <div v-if="pending" class="text-center py-10">
-      <p>Cargando…</p>
-    </div>
+  <main class="category-product-page">
+    <!-- Loader inicial -->
+    <section v-if="pending" class="text-center py-10">
+      <p aria-busy="true" role="status" class="text-gray-600">Cargando contenido…</p>
+    </section>
 
-    <!-- Contenido -->
-    <div v-else-if="contentData">
-
-     <!-- 🧭 Aquí insertamos Breadcrumb -->
- 
-
-
-      <!-- Vista de Categoría -->
+    <!-- Contenido principal -->
+    <template v-else-if="contentData">
+      <!-- 🗂 Vista de Categoría -->
       <section v-if="contentType === 'categoria'">
-        <!-- Header personalizado -->
-        <CategoryHeader
-          :image="resolveImageUrl((contentData as Categoria).image, contentData.type)"
+        <AppCrumbs class="ml-2" />
+        <h1 class="sr-only">{{ (contentData as Categoria).title }}</h1>
+
+        <SharedHeaderSection :image="resolveImageUrl((contentData as Categoria).image, contentData.type)"
           :alt="(contentData as Categoria).alt || (contentData as Categoria).title"
-          :title="(contentData as Categoria).title"
-          :description="(contentData as Categoria).description"
-          cta-text="Ver productos"
-          :cta-link="`#productos`"
-        />
+          :title="(contentData as Categoria).title">
+          <template #right>
+            <p class="text-lg text-muted-foreground">
+              {{ (contentData as Categoria).description }}
+            </p>
+            <NuxtLink :to="'#productos'"
+              class="inline-block mt-4 px-6 py-3 bg-primary text-white rounded hover:bg-primary/90 transition">
+              Ver productos
+            </NuxtLink>
+          </template>
+        </SharedHeaderSection>
+
 
         <!-- Listado de productos -->
-        <section v-if="categorySlug" id="productos">
-          <h2 class="text-2xl font-semibold mb-4 border-b pb-2">
+        <section id="productos" aria-labelledby="productos-heading">
+          <h2 id="productos-heading" class="text-2xl font-semibold mb-4 border-b pb-2">
             Productos en {{ (contentData as Categoria).nav || (contentData as Categoria).title }}
           </h2>
 
-          <div v-if="pendingProducts" class="text-center py-6">Cargando productos…</div>
-          <div
-            v-else-if="associatedProducts && associatedProducts.length"
-            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
-          >
-            <div
-              v-for="product in associatedProducts"
-              :key="product.id || product.slug"
-              class="border rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col cursor-pointer"
-              @click="goToProduct(product)"
-            >
-              <NuxtImg
-                v-if="product.image"
-                :src="resolveImageUrl(product.image, product.type)"
-                :alt="product.alt || product.title"
-                class="w-full h-48 object-cover"
-                loading="lazy"
-                format="webp"
-                quality="80"
-              />
-              <div v-else class="w-full h-48 bg-gray-200 flex items-center justify-center text-gray-400">
-                Sin imagen
-              </div>
-
-              <div class="p-4 flex flex-col flex-grow">
-                <h3 class="font-semibold text-lg mb-1">{{ product.nav || product.title }}</h3>
-                <p class="text-sm text-gray-500 mb-2 line-clamp-3 flex-grow">
-                  {{ product.description }}
-                </p>
-                <NuxtLink
-                  to="/contacto"
-                  class="mt-auto text-right font-medium underline text-primary"
-                >
-                  Solicitar precio
-                </NuxtLink>
-              </div>
-            </div>
+          <div v-if="pendingProducts" class="text-center py-6" aria-busy="true">
+            <p class="text-gray-500">Cargando productos…</p>
           </div>
-
-          <p v-else class="text-gray-500 italic">
-            No hay productos listados en esta categoría.
-          </p>
+          <!-- grid productos categoria-->
+          <GridDisplay v-else-if="associatedProducts?.length" :items="paginatedProducts" />
+          <!-- Paginación si hay másd e 8 elementos -->
+          <!-- Pagination solo si hay más de 1 página -->
+          <div v-if="totalPages > 1" class="mt-8 flex justify-center">
+          <Pagination
+            :total="totalPages"
+            :current="currentPage"
+            @update:current="onPageChange"
+          />
+          </div>
         </section>
       </section>
 
-      <!-- Vista de Producto -->
+      <!-- 🛒 Vista de Producto -->
       <section v-else-if="contentType === 'producto'">
-        <!-- Header de producto -->
-        <ProductHeader
-          :image="resolveImageUrl((contentData as Producto).image, contentData.type)"
-          :alt="(contentData as Producto).alt || (contentData as Producto).title"
-          :title="(contentData as Producto).title"
-        />
-        <!-- Descripción opcional debajo del formulario -->
-        <p v-if="(contentData as Producto).description" class="mt-6 text-lg text-gray-600">
-          {{ (contentData as Producto).description }}
-        </p>
+        <AppCrumbs class="ml-2" />
+        <h1 class="sr-only">{{ (contentData as Producto).title }}</h1>
+
+        <SharedHeaderSection
+        :image="resolveImageUrl((contentData as Producto).image, contentData.type)"
+        :alt="(contentData as Producto).alt || (contentData as Producto).title"
+        :title="(contentData as Producto).title">
+          <template #right>
+            <UiFormsProduct :title="(contentData as Producto).title" />
+          </template>
+        </SharedHeaderSection>
+
       </section>
 
-      <!-- Vista de Subcategoría -->
+      <!-- 📂 Vista de Subcategoría -->
       <section v-else-if="contentType === 'subcategoria'">
-        <!-- similar a categoría -->
+        <AppCrumbs class="ml-2" />
+        <p class="text-center text-gray-500 py-10">Vista de subcategoría próximamente…</p>
       </section>
 
-      <!-- Tipo desconocido -->
+      <!-- ❌ Tipo no reconocido -->
       <div v-else class="text-center text-orange-500 py-10">
         Tipo de contenido '{{ contentData.type }}' no reconocido.
       </div>
-    </div>
+    </template>
 
-    <!-- Error genérico -->
-    <div v-else-if="error && !pending" class="text-center py-10 text-red-500">
+    <!-- 🧨 Error general -->
+    <section v-else-if="error && !pending" class="text-center py-10 text-red-500">
       <p>Error cargando datos. Inténtalo de nuevo más tarde.</p>
       <p class="mt-2 text-sm">{{ error.message }}</p>
-    </div>
-  </div>
+    </section>
+  </main>
 </template>
 
 <style scoped>
