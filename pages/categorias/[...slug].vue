@@ -4,13 +4,14 @@ definePageMeta({
 })
 
 import { useRoute, useRouter } from 'vue-router'
-import { useAsyncData, useSeoMeta, showError, computed } from '#imports'
+import { useAsyncData, useSeoMeta, showError, computed, ref } from '#imports'
 import type { Categoria, Producto } from '@/types'
 
+// --- Ruta y navegación ---
 const route = useRoute()
 const router = useRouter()
 
-// --- Slug y path ---
+// --- Slug y path dinámico ---
 const slugParts = route.params.slug as string[]
 if (!Array.isArray(slugParts) || slugParts.length === 0) {
   throw showError({ statusCode: 404, statusMessage: 'Página no encontrada' })
@@ -18,7 +19,7 @@ if (!Array.isArray(slugParts) || slugParts.length === 0) {
 const targetSlug = slugParts[slugParts.length - 1]
 const fullPath = `/categorias/${slugParts.join('/')}`
 
-// --- Carga de contenido ---
+// --- Datos de contenido ---
 const { data: contentData, pending, error } = useAsyncData<Categoria | Producto>(
   `content-${fullPath}`,
   async () => {
@@ -37,7 +38,7 @@ const categorySlug = computed(() =>
   contentType.value === 'categoria' ? (contentData.value as Categoria).slug : null
 )
 
-// --- Carga de productos asociados ---
+// --- Productos asociados ---
 const { data: associatedProducts, pending: pendingProducts } = useAsyncData<Producto[]>(
   `products-${fullPath}`,
   async () => {
@@ -46,7 +47,7 @@ const { data: associatedProducts, pending: pendingProducts } = useAsyncData<Prod
       .where('type', '=', 'producto')
       .where('category', '=', categorySlug.value)
       .all()
-    return Array.isArray(prods) ? (prods as Producto[]) : []
+    return Array.isArray(prods) ? prods : []
   },
   {
     server: true,
@@ -56,7 +57,7 @@ const { data: associatedProducts, pending: pendingProducts } = useAsyncData<Prod
   }
 )
 
-// --- Formato para GridDisplay.vue ---
+// --- Formato de productos para GridDisplay ---
 const formattedProducts = computed(() =>
   (associatedProducts.value || []).map((product) => ({
     id: product.id || product.slug,
@@ -66,7 +67,7 @@ const formattedProducts = computed(() =>
   }))
 )
 
-// --- Paginación de productos ---
+// --- Paginación ---
 const itemsPerPage = 8
 const currentPage = ref(1)
 
@@ -81,11 +82,10 @@ const totalPages = computed(() =>
 
 function onPageChange(page: number) {
   currentPage.value = page
-  // Opcional: scroll al inicio de productos
   document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' })
 }
 
-// --- SEO dinámico ---
+// --- SEO ---
 useSeoMeta(() => {
   const item = contentData.value
   if (!item) return {}
@@ -114,19 +114,18 @@ function resolveImageUrl(path: string | undefined, type: string | undefined) {
 
 <template>
   <main class="category-product-page">
-    <!-- Loader inicial -->
     <section v-if="pending" class="text-center py-10">
       <p aria-busy="true" role="status" class="text-gray-600">Cargando contenido…</p>
     </section>
 
-    <!-- Contenido principal -->
     <template v-else-if="contentData">
-      <!-- 🗂 Vista de Categoría -->
+      <!-- Vista de Categoría -->
       <section v-if="contentType === 'categoria'">
         <AppCrumbs class="ml-2" />
         <h1 class="sr-only">{{ (contentData as Categoria).title }}</h1>
 
-        <SharedHeaderSection :image="resolveImageUrl((contentData as Categoria).image, contentData.type)"
+        <SharedHeaderSection
+          :image="resolveImageUrl((contentData as Categoria).image, contentData.type)"
           :alt="(contentData as Categoria).alt || (contentData as Categoria).title"
           :title="(contentData as Categoria).title">
           <template #right>
@@ -140,8 +139,7 @@ function resolveImageUrl(path: string | undefined, type: string | undefined) {
           </template>
         </SharedHeaderSection>
 
-
-        <!-- Listado de productos -->
+        <!-- Productos -->
         <section id="productos" aria-labelledby="productos-heading">
           <h2 id="productos-heading" class="text-2xl font-semibold mb-4 border-b pb-2">
             Productos en {{ (contentData as Categoria).nav || (contentData as Categoria).title }}
@@ -150,49 +148,45 @@ function resolveImageUrl(path: string | undefined, type: string | undefined) {
           <div v-if="pendingProducts" class="text-center py-6" aria-busy="true">
             <p class="text-gray-500">Cargando productos…</p>
           </div>
-          <!-- grid productos categoria-->
-          <GridDisplay v-else-if="associatedProducts?.length" :items="paginatedProducts" />
-          <!-- Paginación si hay másd e 8 elementos -->
-          <!-- Pagination solo si hay más de 1 página -->
-          <div v-if="totalPages > 1" class="mt-8 flex justify-center">
-          <Pagination
-            :total="totalPages"
-            :current="currentPage"
-            @update:current="onPageChange"
+
+          <GridDisplay
+            v-else-if="associatedProducts?.length"
+            :items="formattedProducts"
+            :total-pages="totalPages"
+            :current-page="currentPage"
+            @page-change="onPageChange"
           />
-          </div>
         </section>
       </section>
 
-      <!-- 🛒 Vista de Producto -->
+      <!-- Vista de Producto -->
       <section v-else-if="contentType === 'producto'">
         <AppCrumbs class="ml-2" />
         <h1 class="sr-only">{{ (contentData as Producto).title }}</h1>
 
         <SharedHeaderSection
-        :image="resolveImageUrl((contentData as Producto).image, contentData.type)"
-        :alt="(contentData as Producto).alt || (contentData as Producto).title"
-        :title="(contentData as Producto).title">
+          :image="resolveImageUrl((contentData as Producto).image, contentData.type)"
+          :alt="(contentData as Producto).alt || (contentData as Producto).title"
+          :title="(contentData as Producto).title">
           <template #right>
             <UiFormsProduct :title="(contentData as Producto).title" />
           </template>
         </SharedHeaderSection>
-
       </section>
 
-      <!-- 📂 Vista de Subcategoría -->
+      <!-- Subcategoría -->
       <section v-else-if="contentType === 'subcategoria'">
         <AppCrumbs class="ml-2" />
         <p class="text-center text-gray-500 py-10">Vista de subcategoría próximamente…</p>
       </section>
 
-      <!-- ❌ Tipo no reconocido -->
+      <!-- Tipo no reconocido -->
       <div v-else class="text-center text-orange-500 py-10">
         Tipo de contenido '{{ contentData.type }}' no reconocido.
       </div>
     </template>
 
-    <!-- 🧨 Error general -->
+    <!-- Error -->
     <section v-else-if="error && !pending" class="text-center py-10 text-red-500">
       <p>Error cargando datos. Inténtalo de nuevo más tarde.</p>
       <p class="mt-2 text-sm">{{ error.message }}</p>
