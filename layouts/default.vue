@@ -1,47 +1,50 @@
-<!-- layouts/default.vue -->
 <script setup lang="ts">
 import { useSearch } from '@/composables/useSearch'
-import { useCategoriasNav } from '@/composables/useCategoriasNav'
+import { useCategoriasStore } from '~/stores/categorias'
 
-// NO usar await aquí directamente
-const { data: categorias, pending, error } = useCategoriasNav();
-const { searchOpen, closeSearch } = useSearch()
 
-// Proporcionar la ref reactiva completa
-provide('categoriasGlobalRef', { categorias, pending, error });
+const categoriasStore = useCategoriasStore()
 
-// Opcional: log para depuración
-watch(error, (newError) => {
-  if (newError) {
-    console.error("Error cargando categorías de navegación en layout:", newError);
+// Cargar categorías al inicio (solo si no están cargadas)
+onMounted(() => {
+  if (!categoriasStore.loaded) {
+    categoriasStore.fetchCategorias()
   }
-});
+})
+
+
+
+const { searchOpen, closeSearch } = useSearch()
 </script>
 
 <template>
   <div class="flex flex-col min-h-screen bg-white">
-    <header class="py-4 shadow-md bg-white">
-      <div class="container mx-auto px-4">
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+      <div class="container mx-auto px-4 py-4">
         <UiHeader />
         <UiCommandSearch v-if="searchOpen" @close="closeSearch" />
       </div>
     </header>
 
-    <!-- MEGA MENU: Manejar estado de carga/error -->
+    <!-- MegaMenu / Nav -->
     <div class="bg-white border-b">
       <div class="container mx-auto px-4">
-        <div v-if="pending" class="text-center py-4">Cargando menú...</div>
-        <div v-else-if="error" class="text-center py-4 text-red-500">Error al cargar menú.</div>
-        <!-- Renderiza solo si no hay error y tenemos categorías -->
-        <UiNavigationMenuMegaMenu v-else-if="categorias" :categorias="categorias" />
+        <template v-if="categoriasStore.loaded">
+          <SharedMenu :categorias="categoriasStore.menu" />
+        </template>
+        <template v-else>
+          <p class="text-center py-4">Cargando menú…</p>
+        </template>
       </div>
     </div>
 
+    <!-- Página actual -->
     <main class="flex-1 container mx-auto px-4 py-8">
-      <!-- El slot se renderizará independientemente de la carga de categorías -->
-      <slot />
+      <NuxtPage />
     </main>
 
+    <!-- Footer -->
     <UiFooter />
   </div>
 </template>

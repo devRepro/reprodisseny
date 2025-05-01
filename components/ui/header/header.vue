@@ -41,4 +41,5 @@ import { useSearch } from "@/composables/useSearch";
       </div>
     </div>
   </header>
+
 </template>

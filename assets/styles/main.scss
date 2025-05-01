@@ -5,6 +5,7 @@
 @tailwind utilities;
 
 @layer components {
+  /* --- Keep all your custom components --- */
   .menubar {
     @apply w-full flex justify-center gap-4;
     background-color: hsl(var(--menubar-bg));
@@ -40,6 +41,7 @@
     background-color: hsl(var(--menubar-hover));
   }
   .text-secondary {
+    /* Consider if this is needed or if using --secondary-foreground is better */
     @apply text-black;
   }
   .menu-link {
@@ -59,11 +61,11 @@
   .menu-link[aria-current="page"] {
     @apply font-semibold text-[hsl(var(--color-primary))] border-b-2 border-[hsl(var(--color-primary))];
   }
-  
+
   .dark .menu-link[aria-current="page"] {
     @apply text-[hsl(var(--color-primary))] border-b-2 border-[hsl(var(--color-primary))];
   }
-  // Botón primario (AWS-style)
+  /* --- Keep your custom buttons --- */
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors;
     background-color: hsl(var(--color-primary));
@@ -75,7 +77,6 @@
     filter: brightness(0.95);
   }
 
-  // Botón secundario con borde (ideal filtros)
   .btn-outline {
     @apply inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors;
     background-color: transparent;
@@ -88,7 +89,7 @@
     color: hsl(var(--color-primary));
     background-color: hsl(var(--color-light));
   }
-  // Botón ghost (sólo texto)
+
   .btn-ghost {
     @apply inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors;
     background-color: transparent;
@@ -99,7 +100,6 @@
     background-color: hsl(var(--muted));
   }
 
-  // Botón de filtro activo
   .btn-filter-active {
     background-color: hsl(var(--color-primary));
     color: hsl(var(--primary-foreground));
@@ -117,12 +117,13 @@
   }
 
   :root {
+    /* --- Keep ALL your CSS variables --- */
     --color-primary: 204 73% 41%;
     --color-secondary: 0 0% 27%;
     --color-accent: 28 89% 59%;
     --color-light: 0 0% 97%;
     --color-dark: 0 0% 20%;
-    --color-gray: 0 0% 38%; /* Ajustado: gris más subido para hover */
+    --color-gray: 0 0% 38%;
     --menubar-bg: var(--color-dark);
     --menubar-text: 0 0% 98%;
     --menubar-hover: 0 0% 30%;
@@ -146,25 +147,26 @@
 
     --color-primary-DEFAULT: var(--color-primary);
 
+    /* --- Keep Shadcn/Tailwind CSS variables --- */
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
     --card-foreground: 0 0% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
+    --primary: 0 0% 9%; /* Note: Shadcn's primary might differ from your --color-primary */
     --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
+    --secondary: 0 0% 96.1%; /* Note: Shadcn's secondary might differ from your --color-secondary */
     --secondary-foreground: 0 0% 9%;
     --muted: 0 0% 96.1%;
     --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
+    --accent: 0 0% 96.1%; /* Note: Shadcn's accent might differ from your --color-accent */
     --accent-foreground: 0 0% 9%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
+    --input: 0 0% 89.8%; /* Used by Shadcn Input background/border */
+    --ring: 0 0% 3.9%; /* Used by Shadcn Input focus ring */
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
@@ -181,16 +183,20 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
+  /* --- Keep base body styles --- */
   body {
+    /* These styles might be overridden by the second @layer base body rule below */
     @apply font-sans bg-white text-secondary;
     font-family: 'RobotoFlex', sans-serif;
     font-size: var(--font-body);
     line-height: var(--line-body);
   }
 
+  /* --- Keep base heading styles --- */
   h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
-    color: var(--color-secondary);
+    /* Be careful setting base heading colors if Shadcn components use headings internally */
+    color: hsl(var(--color-secondary)); /* Changed from var(--color-secondary) */
     margin-top: 0;
     margin-bottom: 0.5rem;
   }
@@ -202,16 +208,19 @@
   h5 { font-size: var(--font-h5); line-height: var(--line-h5); }
   h6 { font-size: var(--font-h6); line-height: var(--line-h6); }
 
+  /* --- Keep base paragraph styles --- */
   p {
     font-size: var(--font-body);
     line-height: var(--line-body);
     margin-bottom: 1rem;
   }
 
+  /* --- Keep base small styles --- */
   small {
     font-size: var(--font-small);
   }
 
+  /* --- Keep base anchor styles --- */
   a {
     color: hsl(var(--color-primary));
     text-decoration: none;
@@ -224,6 +233,8 @@
     text-decoration: none;
   }
 
+  /* --- REMOVE or COMMENT OUT generic .btn styles if using Shadcn Button exclusively --- */
+  /*
   .btn {
     @apply inline-block px-5 py-2 text-white font-semibold rounded-lg transition-all duration-300;
     background-color: hsl(var(--color-primary));
@@ -232,7 +243,12 @@
   .btn:hover {
     filter: brightness(90%);
   }
+  */
 
+  /* --- THIS IS THE MOST IMPORTANT CHANGE --- */
+  /* --- REMOVE or COMMENT OUT generic input/textarea styles --- */
+  /* --- Let Shadcn's <Input> component handle its own styling --- */
+  /*
   input, textarea {
     @apply w-full px-4 py-2 border rounded-md text-secondary focus:outline-none;
     border-color: hsl(var(--color-gray));
@@ -241,8 +257,10 @@
     border-color: hsl(var(--color-primary));
     box-shadow: 0 0 4px hsl(var(--color-primary));
   }
-  
+  */
+  /* --------------------------------------- */
 
+  /* --- Keep dark mode variables --- */
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -280,10 +298,13 @@
 }
 
 @layer base {
+  /* This second @layer base might override styles from the first one. */
+  /* Ensure this is intended. */
   * {
     @apply border-border;
   }
   body {
+    /* This WILL override the body styles in the first @layer base block */
     @apply bg-background text-foreground;
   }
 }
