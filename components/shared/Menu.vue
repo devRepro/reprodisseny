@@ -112,11 +112,14 @@
     </nav>
   </template>
   
-  <script setup lang="ts">
-  import { computed } from 'vue'
-  import { useCategoriasNav } from '@/composables/useCategoriasNav'
-  
-  const isSubcategoria = (c: any) => c.type === 'subcategoria'
+<script setup lang="ts">
+import { computed } from 'vue'
+import { useCategoriasNav } from '@/composables/useCategoriasNav'
+
+// ✅ Desestructuramos directamente en <script setup>
+const { categorias } = defineProps<{ categorias: any[] }>()
+
+const isSubcategoria = (c: any) => c.type === 'subcategoria'
 const isProducto = (c: any) => c.type === 'producto'
 
 const hasSubcategorias = (cat: any) =>
@@ -124,6 +127,6 @@ const hasSubcategorias = (cat: any) =>
 
 const hasProductos = (cat: any) =>
   Array.isArray(cat.children) && cat.children.some(isProducto)
+</script>
 
-  </script>
   

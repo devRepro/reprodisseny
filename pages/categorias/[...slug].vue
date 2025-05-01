@@ -1,204 +1,93 @@
+// pages/categorias/[...slug].vue (o el nombre que tenga tu archivo de página dinámica)
 <script setup lang="ts">
-definePageMeta({
-  layout: 'categorias'
-})
+// --- Imports ---
+import { computed, watchEffect } from '#imports';
+import { setPageLayout } from '#imports'; // Para cambiar el layout dinámicamente
+import { useCategoriaData } from '@/composables/useCategoriaData'; // Tu composable de datos
+import { useSeoContent } from '~/composables/useSeoContent';       // Tu composable de SEO
+import CategoryVistaCategoria from '@/components/category/vista/Categoria.vue';
+import CategoryVistaProducto from '@/components/category/vista/Producto.vue';
+import CategoryVistaSubcategoria from '@/components/category/vista/Subcategoria.vue';
+import SharedLoader from '@/components/shared/Loader.vue'; // Asumiendo que tienes un Loader
 
-import { useRoute, useRouter } from 'vue-router'
-import { useAsyncData, useSeoMeta, showError, computed, ref } from '#imports'
-import type { Categoria, Producto } from '@/types'
+// --- Fetch Page-Specific Data ---
+const { contentData, pending, error } = useCategoriaData();
 
-// --- Ruta y navegación ---
-const route = useRoute()
-const router = useRouter()
+// --- Determine Component to Render ---
+const contentType = computed(() => contentData.value?.type || null);
 
-// --- Slug y path dinámico ---
-const slugParts = route.params.slug as string[]
-if (!Array.isArray(slugParts) || slugParts.length === 0) {
-  throw showError({ statusCode: 404, statusMessage: 'Página no encontrada' })
-}
-const targetSlug = slugParts[slugParts.length - 1]
-const fullPath = `/categorias/${slugParts.join('/')}`
+const componentMap = {
+  categoria: CategoryVistaCategoria,
+  producto: CategoryVistaProducto,
+  subcategoria: CategoryVistaSubcategoria,
+} as const;
 
-// --- Datos de contenido ---
-const { data: contentData, pending, error } = useAsyncData<Categoria | Producto>(
-  `content-${fullPath}`,
-  async () => {
-    const item = await queryCollection('categorias')
-      .where('slug', '=', targetSlug)
-      .first()
-    if (!item) throw showError({ statusCode: 404, statusMessage: 'No encontrado' })
-    item.path = item.path || fullPath
-    return item
-  },
-  { server: true, lazy: false }
-)
+const resolvedComponent = computed(() => {
+  const type = contentType.value;
+  return type ? componentMap[type as keyof typeof componentMap] : null;
+});
 
-const contentType = computed(() => contentData.value?.type)
-const categorySlug = computed(() =>
-  contentType.value === 'categoria' ? (contentData.value as Categoria).slug : null
-)
+// --- Dynamically Set Page Layout ---
+watchEffect(() => {
+  // Determine the layout based on the fetched content type or state
+  const type = contentData.value?.type;
 
-// --- Productos asociados ---
-const { data: associatedProducts, pending: pendingProducts } = useAsyncData<Producto[]>(
-  `products-${fullPath}`,
-  async () => {
-    if (!categorySlug.value) return []
-    const prods = await queryCollection('categorias')
-      .where('type', '=', 'producto')
-      .where('category', '=', categorySlug.value)
-      .all()
-    return Array.isArray(prods) ? prods : []
-  },
-  {
-    server: true,
-    lazy: true,
-    watch: [categorySlug],
-    default: () => []
+  if (type === 'producto') {
+    setPageLayout('productos');
+    // console.log("Debug: Layout set to 'productos'");
+  } else if (type === 'categoria' || type === 'subcategoria') {
+    setPageLayout('categorias');
+    // console.log("Debug: Layout set to 'categorias'");
+  } else {
+    // Applies during loading, on error, or if type is unknown/null
+    setPageLayout('default');
+    // console.log("Debug: Layout set to 'default'");
   }
-)
+});
 
-// --- Formato de productos para GridDisplay ---
-const formattedProducts = computed(() =>
-  (associatedProducts.value || []).map((product) => ({
-    id: product.id || product.slug,
-    title: product.nav || product.title,
-    link: `/categorias/${product.category}/${product.slug}`,
-    image: resolveImageUrl(product.image, product.type),
-  }))
-)
-
-// --- Paginación ---
-const itemsPerPage = 8
-const currentPage = ref(1)
-
-const paginatedProducts = computed(() => {
-  const start = (currentPage.value - 1) * itemsPerPage
-  return formattedProducts.value.slice(start, start + itemsPerPage)
-})
-
-const totalPages = computed(() =>
-  Math.ceil(formattedProducts.value.length / itemsPerPage)
-)
-
-function onPageChange(page: number) {
-  currentPage.value = page
-  document.getElementById('productos')?.scrollIntoView({ behavior: 'smooth' })
-}
-
-// --- SEO ---
-useSeoMeta(() => {
-  const item = contentData.value
-  if (!item) return {}
-  return {
-    title: item.title,
-    description: item.description || '',
-    ogTitle: item.title,
-    ogDescription: item.description || '',
-    ogUrl: `https://tusitio.com${fullPath}`,
-    ogImage: item.image ? resolveImageUrl(item.image, item.type) : undefined,
-    twitterCard: 'summary_large_image'
+// --- Apply SEO using the composable ---
+watchEffect(() => {
+  // Only apply SEO if data is loaded successfully
+  if (contentData.value && !error.value) {
+    useSeoContent(contentData.value);
+    // console.log("Debug: SEO applied via useSeoContent");
   }
-})
+  // Optional: Handle SEO for error state if needed, maybe set a generic error title/desc
+  // else if (error.value) {
+  //   useServerSeoMeta({ title: 'Error', description: 'Página no encontrada' });
+  // }
+});
 
-// --- Helpers ---
-function goToProduct(p: Producto) {
-  router.push(`/categorias/${p.category}/${p.slug}`)
-}
+// --- No manual definePageMeta or useHead for SEO needed here ---
 
-function resolveImageUrl(path: string | undefined, type: string | undefined) {
-  if (!path) return '/img/placeholder.webp'
-  if (path.startsWith('/') || path.startsWith('http')) return path
-  return (type === 'categoria' ? '/img/categorias/' : '') + path
-}
 </script>
 
 <template>
-  <main class="category-product-page">
-    <section v-if="pending" class="text-center py-10">
-      <p aria-busy="true" role="status" class="text-gray-600">Cargando contenido…</p>
+  <div>
+    <!-- Loading State -->
+    <SharedLoader v-if="pending" />
+
+    <!-- Content Rendering (Dynamic Component) -->
+    <component
+      v-else-if="resolvedComponent && contentData"
+      :is="resolvedComponent"
+      :data="contentData"
+    />
+
+    <!-- Error State -->
+    <section v-else-if="error" class="text-red-500 text-center py-10 px-4">
+      <h2>Error al cargar el contenido</h2>
+      <p class="text-sm mt-2">{{ error?.message || 'Ha ocurrido un error inesperado.' }}</p>
+      <!-- Consider adding a link back home or to retry -->
+      <NuxtLink to="/" class="mt-4 inline-block text-primary hover:underline">Volver al inicio</NuxtLink>
     </section>
 
-    <template v-else-if="contentData">
-      <!-- Vista de Categoría -->
-      <section v-if="contentType === 'categoria'">
-        <AppCrumbs class="ml-2" />
-        <h1 class="sr-only">{{ (contentData as Categoria).title }}</h1>
-
-        <SharedHeaderSection
-          :image="resolveImageUrl((contentData as Categoria).image, contentData.type)"
-          :alt="(contentData as Categoria).alt || (contentData as Categoria).title"
-          :title="(contentData as Categoria).title">
-          <template #right>
-            <p class="text-lg text-muted-foreground">
-              {{ (contentData as Categoria).description }}
-            </p>
-            <NuxtLink :to="'#productos'"
-              class="inline-block mt-4 px-6 py-3 bg-primary text-white rounded hover:bg-primary/90 transition">
-              Ver productos
-            </NuxtLink>
-          </template>
-        </SharedHeaderSection>
-
-        <!-- Productos -->
-        <section id="productos" aria-labelledby="productos-heading">
-          <h2 id="productos-heading" class="text-2xl font-semibold mb-4 border-b pb-2">
-            Productos en {{ (contentData as Categoria).nav || (contentData as Categoria).title }}
-          </h2>
-
-          <div v-if="pendingProducts" class="text-center py-6" aria-busy="true">
-            <p class="text-gray-500">Cargando productos…</p>
-          </div>
-
-          <GridDisplay
-            v-else-if="associatedProducts?.length"
-            :items="formattedProducts"
-            :total-pages="totalPages"
-            :current-page="currentPage"
-            @page-change="onPageChange"
-          />
-        </section>
-      </section>
-
-      <!-- Vista de Producto -->
-      <section v-else-if="contentType === 'producto'">
-        <AppCrumbs class="ml-2" />
-        <h1 class="sr-only">{{ (contentData as Producto).title }}</h1>
-
-        <SharedHeaderSection
-          :image="resolveImageUrl((contentData as Producto).image, contentData.type)"
-          :alt="(contentData as Producto).alt || (contentData as Producto).title"
-          :title="(contentData as Producto).title">
-          <template #right>
-            <UiFormsProduct :title="(contentData as Producto).title" />
-          </template>
-        </SharedHeaderSection>
-      </section>
-
-      <!-- Subcategoría -->
-      <section v-else-if="contentType === 'subcategoria'">
-        <AppCrumbs class="ml-2" />
-        <p class="text-center text-gray-500 py-10">Vista de subcategoría próximamente…</p>
-      </section>
-
-      <!-- Tipo no reconocido -->
-      <div v-else class="text-center text-orange-500 py-10">
-        Tipo de contenido '{{ contentData.type }}' no reconocido.
-      </div>
-    </template>
-
-    <!-- Error -->
-    <section v-else-if="error && !pending" class="text-center py-10 text-red-500">
-      <p>Error cargando datos. Inténtalo de nuevo más tarde.</p>
-      <p class="mt-2 text-sm">{{ error.message }}</p>
+    <!-- Unknown/Unsupported Content Type State -->
+    <section v-else-if="!pending" class="text-center py-10 px-4 text-muted-foreground">
+      <!-- Checks !pending to avoid flashing this during initial load -->
+      <h2>Contenido no encontrado o no soportado</h2>
+      <p class="text-sm mt-2">El tipo de contenido solicitado no se pudo mostrar.</p>
+       <NuxtLink to="/" class="mt-4 inline-block text-primary hover:underline">Volver al inicio</NuxtLink>
     </section>
-  </main>
+  </div>
 </template>
-
-<style scoped>
-.line-clamp-3 {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-</style>
