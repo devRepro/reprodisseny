@@ -233,9 +233,13 @@
     filter: brightness(90%);
   }
 
-  input, textarea {
+  .plain-input, input.plain-input, textarea.plain-input {
     @apply w-full px-4 py-2 border rounded-md text-secondary focus:outline-none;
     border-color: hsl(var(--color-gray));
+  }
+  input.plain-input:focus, textarea.plain-input:focus {
+    border-color: hsl(var(--color-primary));
+    box-shadow: 0 0 4px hsl(var(--color-primary));
   }
   input:focus, textarea:focus {
     border-color: hsl(var(--color-primary));

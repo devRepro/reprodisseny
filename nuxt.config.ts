@@ -1,9 +1,13 @@
+// nuxt.config.ts
 import { defineNuxtConfig } from 'nuxt/config'
 
 export default defineNuxtConfig({
   runtimeConfig: {
-    SENDGRID_API_KEY: process.env.SENDGRID_API_KEY,
-    SENDGRID_FROM: process.env.SENDGRID_FROM,
+    // Claves privadas (sólo disponibles en servidor)
+    sendgridApiKey: process.env.SENDGRID_API_KEY,
+    sendgridFrom: process.env.SENDGRID_FROM,
+
+    // Claves públicas (disponibles en cliente bajo useRuntimeConfig().public)
     public: {
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000'
     }
@@ -19,7 +23,6 @@ export default defineNuxtConfig({
 
   css: ['@/assets/styles/main.scss'],
 
-  // Auto-import de componentes:
   components: [
     // 1) Carpeta UI con prefijo Ui (ignora index.ts)
     {
@@ -46,14 +49,14 @@ export default defineNuxtConfig({
         { name: 'author', content: 'Reprodisseny' },
         { name: 'robots', content: 'index, follow' },
         { property: 'og:title', content: 'Impresión profesional en Cataluña · Reprodisseny' },
-        { property: 'og:description', content: 'Catálogos, adhesivos, expositores, packaging... todo lo que tu empresa necesita con calidad y rapidez.' },
+        { property: 'og:description', content: 'Catálogos, adhesivos, expositores, packaging... todo que tu empresa necesita con calidad y rapidez.' },
         { property: 'og:type', content: 'website' },
-        { property: 'og:url', content: 'https://reprodisseny.com' },
-        { property: 'og:image', content: 'https://reprodisseny.com/og-image.jpg' },
+        { property: 'og:url', content: process.env.NUXT_PUBLIC_SITE_URL || 'https://reprodisseny.com' },
+        { property: 'og:image', content: `${process.env.NUXT_PUBLIC_SITE_URL || 'https://reprodisseny.com'}/og-image.jpg` },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:title', content: 'Reprodisseny · Impresión profesional' },
         { name: 'twitter:description', content: 'Tu imprenta en Cataluña para proyectos de calidad.' },
-        { name: 'twitter:image', content: 'https://reprodisseny.com/og-image.jpg' }
+        { name: 'twitter:image', content: `${process.env.NUXT_PUBLIC_SITE_URL || 'https://reprodisseny.com'}/og-image.jpg` }
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -63,37 +66,22 @@ export default defineNuxtConfig({
     layoutTransition: { name: 'slide', mode: 'out-in' }
   },
 
-  // Alias para rutas
   alias: {
     '@components': '/components',
     '@assets': '/assets',
     '@utils': '/utils',
-    '@types': '/types',
+    '@types': '/types'
   },
 
-  // Tailwind config
-  tailwindcss: {
-    configPath: 'tailwind.config.ts',
-    exposeConfig: true
-  },
+  tailwindcss: { configPath: 'tailwind.config.ts', exposeConfig: true },
 
-  colorMode: {
-    preference: 'light',
-    fallback: 'light',
-    classSuffix: ''
-  },
+  colorMode: { preference: 'light', fallback: 'light', classSuffix: '' },
 
-  build: {
-    transpile: ['unicorn-magic']
-  },
+  build: { transpile: ['unicorn-magic'] },
 
   vite: {
-    optimizeDeps: {
-      include: ['unicorn-magic']
-    },
-    ssr: {
-      noExternal: ['unicorn-magic']
-    },
+    optimizeDeps: { include: ['unicorn-magic'] },
+    ssr: { noExternal: ['unicorn-magic'] },
     resolve: {
       alias: {
         'unicorn-magic$': 'unicorn-magic/dist/unicorn-magic.cjs.js'

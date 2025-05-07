@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { defineProps, ref } from 'vue'
+const { data } = await useFetch('/api/data')
 
 const props = defineProps<{
   image: string
@@ -7,17 +8,30 @@ const props = defineProps<{
   title: string
 }>()
 
-const form = ref({
-  nombre: '',
-  email: '',
-  telefono: '',
+const formData = reactive({
+  nombre: 'jordi',
+  email: 'jordi@reprodisseny.com',
+  telefono: '937754885',
   cantidad: 1
 })
 
-function submitRequest() {
-  console.log('Solicitud enviada:', form.value)
-  alert('¡Gracias! Te contactaremos en breve con más información.')
+const submitRequest = async () => {
+  try {
+    const { data, error } = await useFetch('/api/sendLead', {
+      method: 'POST',
+      body: formData
+    })
+
+    if (error.value) {
+      console.error('Error enviando datos:', error.value)
+    } else {
+      console.log('Solicitud enviada:', data.value)
+    }
+  } catch (err) {
+    console.error('Excepción al enviar datos:', err)
+  }
 }
+
 </script>
 
 <template>
@@ -41,65 +55,8 @@ function submitRequest() {
         <p class="text-gray-600 mt-2 text-lg">Solicita tu presupuesto personalizado en segundos.</p>
       </header>
 
-      <form @submit.prevent="submitRequest" class="space-y-5" novalidate>
-        <div>
-          <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre completo</label>
-          <input
-            v-model="form.nombre"
-            name="nombre"
-            id="nombre"
-            type="text"
-            required
-            class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-primary focus:border-primary"
-            placeholder="Tu nombre"
-          />
-        </div>
+      <FormsProduct @submit="submitRequest"/>
 
-        <div>
-          <label for="email" class="block text-sm font-medium text-gray-700">Correo electrónico</label>
-          <input
-            v-model="form.email"
-            name="email"
-            id="email"
-            type="email"
-            required
-            class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-primary focus:border-primary"
-            placeholder="tucorreo@ejemplo.com"
-          />
-        </div>
-
-        <div>
-          <label for="telefono" class="block text-sm font-medium text-gray-700">Teléfono (opcional)</label>
-          <input
-            v-model="form.telefono"
-            name="telefono"
-            id="telefono"
-            type="tel"
-            class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-primary focus:border-primary"
-            placeholder="+34 600 000 000"
-          />
-        </div>
-
-        <div>
-          <label for="cantidad" class="block text-sm font-medium text-gray-700">Cantidad</label>
-          <input
-            v-model="form.cantidad"
-            name="cantidad"
-            id="cantidad"
-            type="number"
-            min="1"
-            required
-            class="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-primary focus:border-primary"
-          />
-        </div>
-
-        <button
-          type="submit"
-          class="w-full py-3 px-6 bg-primary hover:bg-primary-dark text-white font-semibold rounded-lg transition duration-200"
-        >
-          Solicitar presupuesto
-        </button>
-      </form>
     </div>
   </section>
 </template>

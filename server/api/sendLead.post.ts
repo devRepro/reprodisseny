@@ -1,57 +1,63 @@
 // server/api/sendLead.post.ts
+import { defineEventHandler, readBody, sendError, createError } from 'h3'
 import { z } from 'zod'
-import fs from 'fs/promises'
-import path from 'path'
 import sgMail from '@sendgrid/mail'
 
-sgMail.setApiKey(process.env.SENDGRID_API_KEY || '')
+console.log('[sendLead] handler cargado')
+console.log('[sendLead] KEY defined?', Boolean(process.env.SENDGRID_API_KEY))
+
+if (!process.env.SENDGRID_API_KEY) {
+  throw createError({ statusCode: 500, statusMessage: 'Falta SENDGRID_API_KEY' })
+}
+sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
 const schema = z.object({
-  nombre: z.string(),
+  nombre: z.string().min(1),
   email: z.string().email(),
   comentario: z.string().optional(),
-  producto: z.string()
+  producto: z.string().min(1)
 })
 
-export default defineEventHandler(async (event:any) => {
-  const body = await readBody(event)
-  const parsed = schema.safeParse(body)
+export default defineEventHandler(async (event) => {
+  console.log(`[sendLead] ${event.node.req.method} ${event.node.req.url}`)
 
-  if (!parsed.success) {
-    return sendError(event, createError({ statusCode: 400, statusMessage: 'Datos inválidos' }))
+  if (event.node.req.method !== 'POST') {
+    console.warn('[sendLead] método no permitido')
+    return sendError(event, createError({ statusCode: 405, statusMessage: 'Sólo POST permitido' }))
   }
 
+  const body = await readBody(event)
+  console.log('[sendLead] body:', body)
+
+  const parsed = schema.safeParse(body)
+  if (!parsed.success) {
+    console.error('[sendLead] validación fallida:', parsed.error.format())
+    return sendError(event, createError({
+      statusCode: 400,
+      statusMessage: 'Datos inválidos',
+      data: parsed.error.format()
+    }))
+  }
   const data = parsed.data
 
-  // 1. Enviar email
-  await sgMail.send({
-    to: 'jordi@reprodisseny.com',
-    from: 'jordi@reprodisseny.com',
-    subject: `Nueva solicitud de ${data.nombre}`,
-    html: `
-      <h3>Solicitud de información</h3>
-      <p><strong>Producto:</strong> ${data.producto}</p>
-      <p><strong>Nombre:</strong> ${data.nombre}</p>
-      <p><strong>Email:</strong> ${data.email}</p>
-      <p><strong>Mensaje:</strong> ${data.comentario || 'No especificado'}</p>
-    `
-  })
-
-  // 2. Guardar en archivo .json
-  const leadsPath = path.resolve('data', 'leads.json')
-  let leads = []
-
   try {
-    const file = await fs.readFile(leadsPath, 'utf8')
-    leads = JSON.parse(file)
-  } catch {
-    leads = []
+    console.log('[sendLead] enviando email a:', data.email)
+    const result = await sgMail.send({
+      to: 'jordi@reprodisseny.com',
+      from: process.env.SENDGRID_FROM || 'noreply@example.com',
+      subject: `Nueva solicitud de ${data.nombre}`,
+      html: `<h3>Solicitud de información</h3>
+             <p><strong>Producto:</strong> ${data.producto}</p>
+             <p><strong>Nombre:</strong> ${data.nombre}</p>
+             <p><strong>Email:</strong> ${data.email}</p>
+             <p><strong>Mensaje:</strong> ${data.comentario || 'No especificado'}</p>`
+    })
+    console.log('[sendLead] SendGrid OK:', result)
+  } catch (err: any) {
+    console.error('[sendLead] SendGrid ERROR:', err.response?.body || err)
+    return sendError(event, createError({ statusCode: 502, statusMessage: 'Error al enviar email' }))
   }
 
-  leads.push({ ...data, fecha: new Date().toISOString() })
-
-  await fs.mkdir(path.dirname(leadsPath), { recursive: true })
-  await fs.writeFile(leadsPath, JSON.stringify(leads, null, 2), 'utf8')
-
+  console.log('[sendLead] finalizado con éxito')
   return { success: true }
 })
