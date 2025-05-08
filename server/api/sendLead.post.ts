@@ -2,62 +2,72 @@
 import { defineEventHandler, readBody, sendError, createError } from 'h3'
 import { z } from 'zod'
 import sgMail from '@sendgrid/mail'
+import { Producto } from '~/types' // usa tu sistema de tipos actual
 
-console.log('[sendLead] handler cargado')
-console.log('[sendLead] KEY defined?', Boolean(process.env.SENDGRID_API_KEY))
+// Usamos runtimeConfig en vez de process.env directamente
+export default defineEventHandler(async (event:any) => {
+  const config = useRuntimeConfig()
 
-if (!process.env.SENDGRID_API_KEY) {
-  throw createError({ statusCode: 500, statusMessage: 'Falta SENDGRID_API_KEY' })
-}
-sgMail.setApiKey(process.env.SENDGRID_API_KEY)
-
-const schema = z.object({
-  nombre: z.string().min(1),
-  email: z.string().email(),
-  comentario: z.string().optional(),
-  producto: z.string().min(1)
-})
-
-export default defineEventHandler(async (event) => {
-  console.log(`[sendLead] ${event.node.req.method} ${event.node.req.url}`)
-
-  if (event.node.req.method !== 'POST') {
-    console.warn('[sendLead] método no permitido')
-    return sendError(event, createError({ statusCode: 405, statusMessage: 'Sólo POST permitido' }))
+  // Validación de clave SendGrid
+  if (!config.sendgridApiKey) {
+    return sendError(event, createError({ statusCode: 500, statusMessage: 'Falta SendGrid API Key' }))
   }
 
-  const body = await readBody(event)
-  console.log('[sendLead] body:', body)
+  sgMail.setApiKey(config.sendgridApiKey)
 
+  // Zod schema compatible con tus estructuras
+  const schema = z.object({
+    nombre: z.string().min(1),
+    email: z.string().email(),
+    telefono: z.string().optional(),
+    comentario: z.string().optional(),
+    producto: z.string().min(1),
+    formFields: z.array(z.object({
+      label: z.string(),
+      name: z.string(),
+      type: z.enum(['text', 'number', 'select']),
+      required: z.boolean(),
+      options: z.array(z.string()).optional()
+    })).optional()
+  })
+
+  const body = await readBody(event)
   const parsed = schema.safeParse(body)
+
   if (!parsed.success) {
-    console.error('[sendLead] validación fallida:', parsed.error.format())
     return sendError(event, createError({
       statusCode: 400,
       statusMessage: 'Datos inválidos',
       data: parsed.error.format()
     }))
   }
-  const data = parsed.data
+
+  const { nombre, email, telefono, comentario, producto, formFields } = parsed.data
+
+  // Email dinámico en HTML a partir de formFields si vienen
+  const extraFieldsHtml = formFields?.map((field:any) => {
+    return `<p><strong>${field.label}:</strong> ${body[field.name] || 'No especificado'}</p>`
+  }).join('\n') || ''
 
   try {
-    console.log('[sendLead] enviando email a:', data.email)
-    const result = await sgMail.send({
+    await sgMail.send({
       to: 'jordi@reprodisseny.com',
-      from: process.env.SENDGRID_FROM || 'noreply@example.com',
-      subject: `Nueva solicitud de ${data.nombre}`,
-      html: `<h3>Solicitud de información</h3>
-             <p><strong>Producto:</strong> ${data.producto}</p>
-             <p><strong>Nombre:</strong> ${data.nombre}</p>
-             <p><strong>Email:</strong> ${data.email}</p>
-             <p><strong>Mensaje:</strong> ${data.comentario || 'No especificado'}</p>`
+      from: config.sendgridFrom || 'noreply@reprodisseny.com',
+      subject: `📩 Nueva solicitud: ${producto} de ${nombre}`,
+      html: `
+        <h2>Solicitud de presupuesto</h2>
+        <p><strong>Producto:</strong> ${producto}</p>
+        <p><strong>Nombre:</strong> ${nombre}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        ${telefono ? `<p><strong>Teléfono:</strong> ${telefono}</p>` : ''}
+        ${comentario ? `<p><strong>Comentario:</strong> ${comentario}</p>` : ''}
+        ${extraFieldsHtml}
+      `
     })
-    console.log('[sendLead] SendGrid OK:', result)
+
+    return { success: true, message: 'Solicitud enviada correctamente' }
   } catch (err: any) {
-    console.error('[sendLead] SendGrid ERROR:', err.response?.body || err)
+    console.error('[sendLead] Error al enviar:', err.response?.body || err)
     return sendError(event, createError({ statusCode: 502, statusMessage: 'Error al enviar email' }))
   }
-
-  console.log('[sendLead] finalizado con éxito')
-  return { success: true }
 })

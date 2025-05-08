@@ -55,7 +55,7 @@ schema:
   description: >-
     Acreditaciones, invitaciones, soportes gráficos y detalles para eventos.
     Producción local y adaptada a las necesidades de agencias y organizadores.
-  image: 'https://reprodisseny.com/img/productos/Eventos.png'
+  image: '/img/productos/Eventos.png'
   sku: ''
   brand:
     '@type': Organization

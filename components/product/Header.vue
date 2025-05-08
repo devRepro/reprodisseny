@@ -1,25 +1,21 @@
 <script setup lang="ts">
-import { defineProps, ref } from 'vue'
-const { data } = await useFetch('/api/data')
 
 const props = defineProps<{
   image: string
   alt?: string
   title: string
+  formFields?: FormField[]
+
 }>()
 
-const formData = reactive({
-  nombre: 'jordi',
-  email: 'jordi@reprodisseny.com',
-  telefono: '937754885',
-  cantidad: 1
-})
+// Aquí le pasas el título como nombre del producto
+const producto = props.title
 
-const submitRequest = async () => {
+const submitRequest = async (data: any) => {
   try {
-    const { data, error } = await useFetch('/api/sendLead', {
+    const { data: response, error } = await useFetch('/api/sendLead', {
       method: 'POST',
-      body: formData
+      body: data
     })
 
     if (error.value) {
@@ -54,8 +50,8 @@ const submitRequest = async () => {
         <h1 class="text-3xl md:text-4xl font-bold leading-tight">{{ props.title }}</h1>
         <p class="text-gray-600 mt-2 text-lg">Solicita tu presupuesto personalizado en segundos.</p>
       </header>
-
-      <FormsProduct @submit="submitRequest"/>
+      <!--Cargamos formulario -->
+      <FormsProduct :producto="producto" :formFields="props.formFields" @submit="submitRequest" />
 
     </div>
   </section>

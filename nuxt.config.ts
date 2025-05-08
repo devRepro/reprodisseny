@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     // Claves privadas (sólo disponibles en servidor)
     sendgridApiKey: process.env.SENDGRID_API_KEY,
-    sendgridFrom: process.env.SENDGRID_FROM,
+    sendgridFrom: process.env.SENDGRID_FROM || 'noreply@reprodisseny.com',
 
     // Claves públicas (disponibles en cliente bajo useRuntimeConfig().public)
     public: {

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { defineProps, withDefaults } from 'vue'
 import { NuxtImg, NuxtLink } from '#components'
 
 // Props for image, title, description and CTA
