@@ -1,4 +1,6 @@
 // server/api/sendLead.post.ts
+
+/*
 import { defineEventHandler, readBody, sendError, createError } from 'h3'
 import { z } from 'zod'
 import sgMail from '@sendgrid/mail'
@@ -69,5 +71,54 @@ export default defineEventHandler(async (event:any) => {
   } catch (err: any) {
     console.error('[sendLead] Error al enviar:', err.response?.body || err)
     return sendError(event, createError({ statusCode: 502, statusMessage: 'Error al enviar email' }))
+  }
+})
+*/
+// server/api/send.ts
+export default defineEventHandler(async (event) => {
+  const body = await readBody(event)
+
+  // Valida que al menos llegan los campos necesarios
+  if (!body.email || !body.nombre) {
+    return { status: 'error', message: 'Faltan campos requeridos' }
+  }
+
+  const sendgridApiKey = process.env.SENDGRID_API_KEY
+  const toEmail = 'jordi@reprodisseny.com'
+
+  try {
+    const response = await $fetch('https://api.sendgrid.com/v3/mail/send', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${sendgridApiKey}`,
+        'Content-Type': 'application/json'
+      },
+      body: {
+        personalizations: [
+          {
+            to: [{ email: toEmail }],
+            subject: `Solicitud de presupuesto: ${body.producto || 'Producto'}`
+          }
+        ],
+        from: { email: 'no-reply@reprodisseny.com', name: 'Reprodisseny Web' },
+        content: [
+          {
+            type: 'text/plain',
+            value: `
+Nombre: ${body.nombre}
+Email: ${body.email}
+Teléfono: ${body.telefono || 'No proporcionado'}
+Cantidad: ${body.cantidad || '1'}
+Producto: ${body.producto || ''}
+            `
+          }
+        ]
+      }
+    })
+
+    return { status: 'ok' }
+  } catch (error) {
+    console.error('Error enviando correo:', error)
+    return { status: 'error', message: 'No se pudo enviar el correo' }
   }
 })

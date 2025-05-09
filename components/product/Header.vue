@@ -1,5 +1,6 @@
 <script setup lang="ts">
 
+
 const props = defineProps<{
   image: string
   alt?: string
@@ -51,7 +52,7 @@ const submitRequest = async (data: any) => {
         <p class="text-gray-600 mt-2 text-lg">Solicita tu presupuesto personalizado en segundos.</p>
       </header>
       <!--Cargamos formulario -->
-      <FormsProduct :producto="producto" :formFields="props.formFields" @submit="submitRequest" />
+      <FormsProductForms :producto="producto" :formFields="props.formFields" @submit="submitRequest" />
 
     </div>
   </section>
