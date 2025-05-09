@@ -1,7 +1,6 @@
 # 🛠 Documentación de Scripts del Proyecto
 
 Esta documentación cubre los scripts personalizados utilizados para automatizar tareas de contenido en el proyecto **ReproDisseny**.
-
 ---
 
 ## 📁 Ubicación: `scripts/`
