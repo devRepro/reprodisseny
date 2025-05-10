@@ -156,11 +156,12 @@ function resolveImageUrl(path: string | undefined, type: string | undefined) {
       <!-- Vista de Producto -->
       <section v-else-if="contentType === 'producto'">
         <!-- Header de producto -->
-        <ProductHeader
-          :image="resolveImageUrl((contentData as Producto).image, contentData.type)"
+        <ProductHeader :image="resolveImageUrl((contentData as Producto).image, contentData.type)"
           :alt="(contentData as Producto).alt || (contentData as Producto).title"
           :title="(contentData as Producto).title"
+          :formFields="(contentData as Producto).formFields"
         />
+
         <!-- Descripción opcional debajo del formulario -->
         <p v-if="(contentData as Producto).description" class="mt-6 text-lg text-gray-600">
           {{ (contentData as Producto).description }}

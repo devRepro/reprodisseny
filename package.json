@@ -20,6 +20,8 @@
     "validate:products": "node scripts/validate-products.js"
   },
   "dependencies": {
+    "@azure/identity": "^4.9.1",
+    "@microsoft/microsoft-graph-client": "^3.0.7",
     "@motionone/vue": "^10.16.4",
     "@nuxt/content": "^3.3.0",
     "@nuxt/icon": "^1.11.0",
@@ -35,6 +37,7 @@
     "exceljs": "^4.4.0",
     "fuse.js": "^7.1.0",
     "gray-matter": "^4.0.3",
+    "isomorphic-fetch": "^3.0.0",
     "lucide-vue-next": "^0.487.0",
     "nuxt": "3.16.0",
     "reka-ui": "^2.2.1",
