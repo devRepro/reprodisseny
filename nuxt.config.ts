@@ -5,8 +5,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     microsoftGraphClientSecret: process.env.GRAPH_SECRET,
     tenantId: process.env.AZURE_TENANT_ID,
-      clientId: process.env.AZURE_CLIENT_ID,
-      sharepointSiteId: process.env.SHAREPOINT_SITE_ID,
+    clientId: process.env.AZURE_CLIENT_ID,
+    sharepointSiteId: process.env.SHAREPOINT_SITE_ID,
     sendgridApiKey: process.env.SENDGRID_API_KEY,
     sendgridFrom: process.env.SENDGRID_FROM || 'noreply@reprodisseny.com',
   

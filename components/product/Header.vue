@@ -14,20 +14,34 @@ const producto = props.title
 
 const submitRequest = async (data: any) => {
   try {
-    const { data: response, error } = await useFetch('/api/sendLead', {
+    // Enviar a SendGrid
+    const { data: sendEmailResponse, error: sendEmailError } = await useFetch('/api/send-lead', {
       method: 'POST',
       body: data
     })
 
-    if (error.value) {
-      console.error('Error enviando datos:', error.value)
+    if (sendEmailError.value || sendEmailResponse?.status === 'error') {
+      console.error('❌ Error enviando correo:', sendEmailError.value || sendEmailResponse?.message)
     } else {
-      console.log('Solicitud enviada:', data.value)
+      console.log('✅ Correo enviado correctamente')
+    }
+
+    // Enviar a SharePoint
+    const { data: spResponse, error: spError } = await useFetch('/api/add-lead', {
+      method: 'POST',
+      body: data
+    })
+
+    if (spError.value || spResponse?.status === 'error') {
+      console.error('❌ Error guardando en SharePoint:', spError.value || spResponse?.message)
+    } else {
+      console.log('✅ Lead guardado en SharePoint. ID:', spResponse.itemId)
     }
   } catch (err) {
-    console.error('Excepción al enviar datos:', err)
+    console.error('❌ Error general al enviar solicitud:', err)
   }
 }
+
 
 </script>
 

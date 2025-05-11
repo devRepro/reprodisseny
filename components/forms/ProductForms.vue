@@ -1,80 +1,14 @@
-<script setup lang="ts">
-import { useRouter } from 'vue-router'
-import { ref, watchEffect } from 'vue'
-import { Input } from '@/components/ui/input'
-import { Button } from '@/components/ui/button'
-import { Mail, User, Phone, CheckCircle } from 'lucide-vue-next'
 
-const router = useRouter()
-
-const props = defineProps<{
-  producto: string
-  formFields?: {
-    label: string
-    name: string
-    type: 'text' | 'number' | 'select'
-    required?: boolean
-    options?: string[]
-  }[]
-}>()
-
-const emit = defineEmits<{
-  (e: 'submit', values: any): void
-}>()
-
-const form = ref<Record<string, any>>({
-  nombre: '',
-  email: '',
-  telefono: '',
-  producto: props.producto,
-  acepta: false,
-})
-
-watchEffect(() => {
-  props.formFields?.forEach((field) => {
-    if (!(field.name in form.value)) {
-      form.value[field.name] = field.type === 'number' ? 0 : ''
-    }
-  })
-})
-
-const modalGracias = ref(false)
-const modalAviso = ref(false)
-
-function onSubmit() {
-  if (!form.value.acepta) {
-    modalAviso.value = true
-    return
-  }
-
-  emit('submit', form.value)
-
-  form.value = {
-    nombre: '',
-    email: '',
-    telefono: '',
-    producto: props.producto,
-    acepta: false,
-  }
-
-  props.formFields?.forEach((field) => {
-    form.value[field.name] = field.type === 'number' ? 0 : ''
-  })
-
-  modalGracias.value = true
-}
-</script>
-
-<template>
-  <form @submit.prevent="onSubmit" class="space-y-6">
-    <!-- Nombre -->
-    <div class="relative">
-      <User class="absolute left-3 top-3.5 w-4 h-4 text-gray-400" />
-      <Input
-        v-model="form.nombre"
-        placeholder="Tu nombre"
-        class="pl-10"
         id="nombre"
+      />
+    </div>
+    <!-- Empresa -->
+    <div class="relative">
+      <Input
+        v-model="form.empresa"
+        placeholder="Empresa"
+        class="pl-4"
+        id="empresa"
       />
     </div>
 
@@ -157,4 +91,5 @@ function onSubmit() {
   <FormsUiModalGracias :open="modalGracias" @close="modalGracias = false; router.push('/categorias')" />
   <FormsUiModalAvisoTerminos :open="modalAviso" @close="modalAviso = false" />
 </template>
+
 
