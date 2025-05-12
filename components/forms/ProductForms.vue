@@ -1,41 +1,96 @@
+<!-- components/forms/FormsProduct.vue -->
+<script setup lang="ts">
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
 
-        id="nombre"
-      />
-    </div>
-    <!-- Empresa -->
-    <div class="relative">
-      <Input
-        v-model="form.empresa"
-        placeholder="Empresa"
-        class="pl-4"
-        id="empresa"
-      />
-    </div>
+const router = useRouter()
+
+const props = defineProps<{
+  producto: string
+  formFields?: {
+    label: string
+    name: string
+    type: 'text' | 'number' | 'select'
+    required?: boolean
+    options?: string[]
+  }[]
+}>()
+
+const emit = defineEmits<{
+  (e: 'submit', values: any): void
+}>()
+
+// Estado del formulario
+const form = ref({
+  nombre: '',
+  email: '',
+  telefono: '',
+  cantidad: 1,
+  producto: props.producto,
+  acepta: false
+})
+
+// Modales
+const modalGracias = ref(false)
+const modalAviso = ref(false)
+
+// Envío del formulario
+async function handleSubmit() {
+  if (!form.value.acepta) {
+    modalAviso.value = true
+    return
+  }
+
+  try {
+    const response = await fetch('/api/send-lead', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(form.value)
+    })
+
+    const result = await response.json()
+
+    if (result.status === 'ok') {
+      modalGracias.value = true
+
+      // Reset del formulario
+      form.value = {
+        nombre: '',
+        email: '',
+        telefono: '',
+        cantidad: 1,
+        producto: props.producto,
+        acepta: false
+      }
+
+      // Opcional: emitir los datos a nivel de app
+      emit('submit', result)
+    } else {
+      console.error('❌ Error en la respuesta:', result.message)
+      alert('No se pudo enviar el formulario. Inténtalo de nuevo.')
+    }
+  } catch (error) {
+    console.error('❌ Error al enviar los datos:', error)
+    alert('Hubo un error al enviar tu solicitud. Revisa la consola.')
+  }
+}
+
+</script>
+
+<template>
+  <form @submit.prevent="handleSubmit" class="space-y-4">
+    <!-- Nombre -->
+    <Input v-model="form.nombre" placeholder="Nombre" />
 
     <!-- Email -->
-    <div class="relative">
-      <Mail class="absolute left-3 top-3.5 w-4 h-4 text-gray-400" />
-      <Input
-        v-model="form.email"
-        type="email"
-        placeholder="Tu correo electrónico"
-        class="pl-10"
-        id="email"
-      />
-    </div>
+    <Input v-model="form.email" type="email" placeholder="Correo electrónico" />
 
     <!-- Teléfono -->
-    <div class="relative">
-      <Phone class="absolute left-3 top-3.5 w-4 h-4 text-gray-400" />
-      <Input
-        v-model="form.telefono"
-        placeholder="Teléfono (opcional)"
-        class="pl-10"
-        id="telefono"
-      />
-    </div>
+    <Input v-model="form.telefono" placeholder="Teléfono (opcional)" />
 
-    <!-- Campos dinámicos -->
+     <!-- Campos dinámicos -->
     <div v-if="props.formFields?.length" class="space-y-4">
       <div v-for="field in props.formFields" :key="field.name" class="relative">
         <Input
@@ -63,15 +118,18 @@
       Este producto no tiene campos personalizados configurados.
     </div>
 
-    <!-- Checkbox aceptación -->
-    <div class="flex items-start gap-2 pt-2">
+    <!-- Cantidad -->
+    <Input v-model="form.cantidad" type="number" min="1" />
+
+    <!-- Acepta términos -->
+    <div class="flex items-start gap-2">
       <input
         id="acepta"
         type="checkbox"
         v-model="form.acepta"
-        class="mt-1 accent-primary"
+        class="mt-1"
       />
-      <label for="acepta" class="text-sm text-gray-700 leading-tight">
+      <label for="acepta" class="text-sm text-gray-700">
         He leído y acepto los
         <NuxtLink to="/terms" target="_blank" class="underline text-primary hover:text-primary/80">
           Términos y condiciones
@@ -79,17 +137,19 @@
       </label>
     </div>
 
-    <!-- Botón CTA -->
+    <!-- Botón enviar -->
     <div class="pt-4">
-      <Button type="submit" class="w-full flex items-center justify-center gap-2">
-        <CheckCircle class="w-4 h-4" />
-        Solicitar presupuesto
-      </Button>
+      <Button type="submit" class="w-full">Solicitar presupuesto</Button>
     </div>
   </form>
 
-  <FormsUiModalGracias :open="modalGracias" @close="modalGracias = false; router.push('/categorias')" />
-  <FormsUiModalAvisoTerminos :open="modalAviso" @close="modalAviso = false" />
+  <!-- Modales -->
+  <FormsUiModalGracias
+    :open="modalGracias"
+    @close="modalGracias = false; router.push('/categorias')"
+  />
+  <FormsUiModalAvisoTerminos
+    :open="modalAviso"
+    @close="modalAviso = false"
+  />
 </template>
-
-
