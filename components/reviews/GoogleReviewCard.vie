@@ -1,0 +1,25 @@
+<template>
+  <Card class="w-full max-w-md p-4 shadow-xl">
+    <CardHeader class="flex items-center justify-between">
+      <div>
+        <p class="font-bold text-lg">{{ review.reviewer.displayName }}</p>
+        <p class="text-xs text-gray-500">{{ formattedDate }}</p>
+      </div>
+      <div class="flex gap-1">
+        <Icon v-for="n in 5" :key="n" :name="n <= review.starRating ? 'star' : 'star-outline'" class="text-yellow-500" />
+      </div>
+    </CardHeader>
+    <CardContent>
+      <p class="text-sm text-gray-700">{{ review.comment || 'Sin comentario.' }}</p>
+    </CardContent>
+  </Card>
+</template>
+
+<script setup lang="ts">
+import { Card, CardHeader, CardContent } from '@/components/ui/card'
+import { Icon } from 'lucide-vue-next'
+
+defineProps<{ review: any }>()
+
+const formattedDate = computed(() => new Date(review.createTime).toLocaleDateString())
+</script>
