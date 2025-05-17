@@ -1,26 +1,29 @@
 <script setup lang="ts">
+<<<<<<< HEAD
 import { ref, defineProps } from 'vue'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Button } from '@/components/ui/button'
+=======
+
+>>>>>>> bussines
 
 const props = defineProps<{
   image: string
   alt?: string
   title: string
+  formFields?: FormField[]
+
 }>()
 
-const form = ref({
-  nombre: '',
-  email: '',
-  telefono: '',
-  cantidad: 1
-})
+// Aquí le pasas el título como nombre del producto
+const producto = props.title
 
 function submitRequest() {
   console.log('🧾 Solicitud enviada:', form.value)
   alert('✅ Gracias por tu solicitud. Te contactaremos pronto.')
 }
+
 </script>
 
 <template>
