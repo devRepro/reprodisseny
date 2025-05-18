@@ -20,27 +20,18 @@
     "validate:products": "node scripts/validate-products.js"
   },
   "dependencies": {
-<<<<<<< HEAD
-    "@nuxt/content": "^3.5.1",
-    "@nuxt/icon": "^1.12.0",
-=======
     "@azure/identity": "^4.9.1",
     "@microsoft/microsoft-graph-client": "^3.0.7",
     "@motionone/vue": "^10.16.4",
     "@nuxt/content": "^3.3.0",
     "@nuxt/icon": "^1.11.0",
->>>>>>> formfields
     "@nuxt/image": "1.9.0",
     "@nuxtjs/color-mode": "^3.5.2",
     "@pinia/nuxt": "^0.11.0",
     "@sendgrid/mail": "^8.1.5",
     "@vee-validate/zod": "^4.15.0",
     "@vueuse/core": "^13.1.0",
-<<<<<<< HEAD
-    "@vueuse/schema-org": "^2.2.0",
-=======
     "axios": "^1.9.0",
->>>>>>> formfields
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "dotenv": "^16.5.0",
@@ -52,13 +43,8 @@
     "isomorphic-fetch": "^3.0.0",
     "lucide-vue-next": "^0.487.0",
     "nuxt": "3.16.0",
-<<<<<<< HEAD
-    "pinia": "^3.0.2",
-    "reka-ui": "^2.2.0",
-=======
     "qs": "^6.14.0",
     "reka-ui": "^2.2.1",
->>>>>>> formfields
     "tailwind-merge": "^3.2.0",
     "tailwindcss-animate": "^1.0.7",
     "vee-validate": "^4.15.0",
