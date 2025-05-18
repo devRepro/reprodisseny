@@ -1,27 +1,27 @@
 ---
-alt: alt descripció de la foto
-brand: Reprodisseny
-category: material-flexible
-description: descripción genérica de mi producto para probar
-faqs: []
-formFields: []
-galleryImages: []
-image: /img/productos/mockupProduct.webp
-inStock: true
-keywords:
-  - banderola para fachada de lona
+title: Banderola para fachada de lona
+metaTitle: Banderola para fachada de lona | Repro Disseny
 metaDescription: >-
   Banderola para fachada de lona personalizadas con calidad profesional en
   Cataluña.
-metaTitle: Banderola para fachada de lona | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Banderola para fachada de lona
-nav: Banderola para fachada de lona
-path: /categorias/gran-formato/material-flexible/banderola-lona
+keywords:
+  - banderola para fachada de lona
+searchTerms:
+  - banderola para fachada de lona
+image: /img/productos/mockupProduct.webp
+galleryImages: []
+alt: alt descripció de la foto
+slug: banderola-lona
+category: material-flexible
+sku: 01-GRFO-0007
 price: 0
 priceCurrency: EUR
+brand: Reprodisseny
+inStock: true
+formFields: []
 ratingValue: 0
 reviewCount: 0
+type: producto
 schema:
   '@type': Product
   name: Banderola para fachada de lona
@@ -30,19 +30,11 @@ schema:
   sku: 01-GRFO-0007
   brand:
     '@type': Organization
-    name: Repro Disseny
+    name: Reprodisseny
   offers:
     '@type': Offer
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: Product
-searchTerms:
-  - banderola para fachada de lona
-sku: 01-GRFO-0007
-slug: banderola-lona
-tags: []
-title: Banderola para fachada de lona
-type: producto
 ---
 

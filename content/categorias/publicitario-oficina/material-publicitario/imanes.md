@@ -1,25 +1,25 @@
 ---
-alt: alt descripció de la foto
-brand: Reprodisseny
-category: material-publicitario
-description: descripción genérica de mi producto para probar
-faqs: []
-formFields: []
-galleryImages: []
-image: /img/productos/mockupProduct.webp
-inStock: true
+title: Imanes
+metaTitle: Imanes | Repro Disseny
+metaDescription: Imanes personalizadas con calidad profesional en Cataluña.
 keywords:
   - imanes
-metaDescription: Imanes personalizadas con calidad profesional en Cataluña.
-metaTitle: Imanes | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Imanes
-nav: Imanes
-path: /categorias/publicitario-oficina/material-publicitario/imanes
+searchTerms:
+  - imanes
+image: /img/productos/mockupProduct.webp
+galleryImages: []
+alt: alt descripció de la foto
+slug: imanes
+category: material-publicitario
+sku: 01-OFICI-0012
 price: 0
 priceCurrency: EUR
+brand: Reprodisseny
+inStock: true
+formFields: []
 ratingValue: 0
 reviewCount: 0
+type: producto
 schema:
   '@type': Product
   name: Imanes
@@ -28,20 +28,12 @@ schema:
   sku: 01-OFICI-0012
   brand:
     '@type': Organization
-    name: Repro Disseny
+    name: Reprodisseny
   offers:
     '@type': Offer
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: Product
-searchTerms:
-  - imanes
-sku: 01-OFICI-0012
-slug: imanes
-tags: []
-title: Imanes
-type: producto
 ---
 
 ## Imanes

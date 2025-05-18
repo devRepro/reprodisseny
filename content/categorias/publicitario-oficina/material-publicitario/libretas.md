@@ -1,25 +1,25 @@
 ---
-alt: alt descripció de la foto
-brand: Reprodisseny
-category: material-publicitario
-description: descripción genérica de mi producto para probar
-faqs: []
-formFields: []
-galleryImages: []
-image: /img/productos/libretas.webp
-inStock: true
+title: Libretas
+metaTitle: Libretas | Repro Disseny
+metaDescription: Libretas personalizadas con calidad profesional en Cataluña.
 keywords:
   - libretas
-metaDescription: Libretas personalizadas con calidad profesional en Cataluña.
-metaTitle: Libretas | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Libretas
-nav: Libretas
-path: /categorias/publicitario-oficina/material-publicitario/libretas
+searchTerms:
+  - libretas
+image: /img/productos/libretas.webp
+galleryImages: []
+alt: alt descripció de la foto
+slug: libretas
+category: material-publicitario
+sku: 01-OFICI-0022
 price: 0
 priceCurrency: EUR
+brand: Reprodisseny
+inStock: true
+formFields: []
 ratingValue: 0
 reviewCount: 0
+type: producto
 schema:
   '@type': Product
   name: Libretas
@@ -28,20 +28,12 @@ schema:
   sku: 01-OFICI-0022
   brand:
     '@type': Organization
-    name: Repro Disseny
+    name: Reprodisseny
   offers:
     '@type': Offer
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: Product
-searchTerms:
-  - libretas
-sku: 01-OFICI-0022
-slug: libretas
-tags: []
-title: Libretas
-type: producto
 ---
 
 ## Libretas

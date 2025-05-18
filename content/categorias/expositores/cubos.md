@@ -1,25 +1,25 @@
 ---
-alt: alt descripció de la foto
-brand: Reprodisseny
-category: expositores
-description: descripción genérica de mi producto para probar
-faqs: []
-formFields: []
-galleryImages: []
-image: /img/productos/mockupProduct.webp
-inStock: true
+title: Cubos
+metaTitle: Cubos | Repro Disseny
+metaDescription: Cubos personalizadas con calidad profesional en Cataluña.
 keywords:
   - cubos
-metaDescription: Cubos personalizadas con calidad profesional en Cataluña.
-metaTitle: Cubos | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Cubos
-nav: Cubos
-path: /categorias/expositores/cubos
+searchTerms:
+  - cubos
+image: /img/productos/mockupProduct.webp
+galleryImages: []
+alt: alt descripció de la foto
+slug: cubos
+category: expositores
+sku: 01-EXPO-0005
 price: 0
 priceCurrency: EUR
+brand: Reprodisseny
+inStock: true
+formFields: []
 ratingValue: 0
 reviewCount: 0
+type: producto
 schema:
   '@type': Product
   name: Cubos
@@ -28,19 +28,11 @@ schema:
   sku: 01-EXPO-0005
   brand:
     '@type': Organization
-    name: Repro Disseny
+    name: Reprodisseny
   offers:
     '@type': Offer
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: Product
-searchTerms:
-  - cubos
-sku: 01-EXPO-0005
-slug: cubos
-tags: []
-title: Cubos
-type: producto
 ---
 

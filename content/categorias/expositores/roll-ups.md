@@ -1,25 +1,25 @@
 ---
-alt: alt descripció de la foto
-brand: Reprodisseny
-category: expositores
-description: descripción genérica de mi producto para probar
-faqs: []
-formFields: []
-galleryImages: []
-image: /img/productos/mockupProduct.webp
-inStock: true
+title: Roll Ups
+metaTitle: Roll Ups | Repro Disseny
+metaDescription: Roll Ups personalizadas con calidad profesional en Cataluña.
 keywords:
   - roll ups
-metaDescription: Roll Ups personalizadas con calidad profesional en Cataluña.
-metaTitle: Roll Ups | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Roll Ups
-nav: Roll Ups
-path: /categorias/expositores/roll-ups
+searchTerms:
+  - roll ups
+image: /img/productos/mockupProduct.webp
+galleryImages: []
+alt: alt descripció de la foto
+slug: roll-ups
+category: expositores
+sku: 01-EXPO-0001
 price: 0
 priceCurrency: EUR
+brand: Reprodisseny
+inStock: true
+formFields: []
 ratingValue: 0
 reviewCount: 0
+type: producto
 schema:
   '@type': Product
   name: Roll Ups
@@ -28,19 +28,11 @@ schema:
   sku: 01-EXPO-0001
   brand:
     '@type': Organization
-    name: Repro Disseny
+    name: Reprodisseny
   offers:
     '@type': Offer
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: Product
-searchTerms:
-  - roll ups
-sku: 01-EXPO-0001
-slug: roll-ups
-tags: []
-title: Roll Ups
-type: producto
 ---
 

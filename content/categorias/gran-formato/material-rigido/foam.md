@@ -1,25 +1,25 @@
 ---
-alt: alt descripció de la foto
-brand: Reprodisseny
-category: material-rigido
-description: descripción genérica de mi producto para probar
-faqs: []
-formFields: []
-galleryImages: []
-image: /img/productos/mockupProduct.webp
-inStock: true
+title: Foam
+metaTitle: Foam | Repro Disseny
+metaDescription: Foam personalizadas con calidad profesional en Cataluña.
 keywords:
   - foam
-metaDescription: Foam personalizadas con calidad profesional en Cataluña.
-metaTitle: Foam | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Foam
-nav: Foam
-path: /categorias/gran-formato/material-rigido/foam
+searchTerms:
+  - foam
+image: /img/productos/mockupProduct.webp
+galleryImages: []
+alt: alt descripció de la foto
+slug: foam
+category: material-rigido
+sku: 01-GRFO-0010
 price: 0
 priceCurrency: EUR
+brand: Reprodisseny
+inStock: true
+formFields: []
 ratingValue: 0
 reviewCount: 0
+type: producto
 schema:
   '@type': Product
   name: Foam
@@ -28,19 +28,11 @@ schema:
   sku: 01-GRFO-0010
   brand:
     '@type': Organization
-    name: Repro Disseny
+    name: Reprodisseny
   offers:
     '@type': Offer
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: Product
-searchTerms:
-  - foam
-sku: 01-GRFO-0010
-slug: foam
-tags: []
-title: Foam
-type: producto
 ---
 

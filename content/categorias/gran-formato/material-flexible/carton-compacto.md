@@ -1,25 +1,25 @@
 ---
-alt: alt descripció de la foto
-brand: Reprodisseny
-category: material-flexible
-description: descripción genérica de mi producto para probar
-faqs: []
-formFields: []
-galleryImages: []
-image: /img/productos/mockupProduct.webp
-inStock: true
+title: Cartón compacto
+metaTitle: Cartón compacto | Repro Disseny
+metaDescription: Cartón compacto personalizadas con calidad profesional en Cataluña.
 keywords:
   - cartón compacto
-metaDescription: Cartón compacto personalizadas con calidad profesional en Cataluña.
-metaTitle: Cartón compacto | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Cartón compacto
-nav: Cartón compacto
-path: /categorias/gran-formato/material-flexible/carton-compacto
+searchTerms:
+  - cartón compacto
+image: /img/productos/mockupProduct.webp
+galleryImages: []
+alt: alt descripció de la foto
+slug: carton-compacto
+category: material-flexible
+sku: 01-GRFO-0015
 price: 0
 priceCurrency: EUR
+brand: Reprodisseny
+inStock: true
+formFields: []
 ratingValue: 0
 reviewCount: 0
+type: producto
 schema:
   '@type': Product
   name: Cartón compacto
@@ -28,19 +28,11 @@ schema:
   sku: 01-GRFO-0015
   brand:
     '@type': Organization
-    name: Repro Disseny
+    name: Reprodisseny
   offers:
     '@type': Offer
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: Product
-searchTerms:
-  - cartón compacto
-sku: 01-GRFO-0015
-slug: carton-compacto
-tags: []
-title: Cartón compacto
-type: producto
 ---
 

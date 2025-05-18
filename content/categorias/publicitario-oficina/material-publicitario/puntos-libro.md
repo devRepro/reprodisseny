@@ -1,25 +1,25 @@
 ---
-alt: alt descripció de la foto
-brand: Reprodisseny
-category: material-publicitario
-description: descripción genérica de mi producto para probar
-faqs: []
-formFields: []
-galleryImages: []
-image: /img/productos/mockupProduct.webp
-inStock: true
+title: Puntos de libro
+metaTitle: Puntos de libro | Repro Disseny
+metaDescription: Puntos de libro personalizadas con calidad profesional en Cataluña.
 keywords:
   - puntos de libro
-metaDescription: Puntos de libro personalizadas con calidad profesional en Cataluña.
-metaTitle: Puntos de libro | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Puntos de libro
-nav: Puntos de libro
-path: /categorias/publicitario-oficina/material-publicitario/puntos-libro
+searchTerms:
+  - puntos de libro
+image: /img/productos/mockupProduct.webp
+galleryImages: []
+alt: alt descripció de la foto
+slug: puntos-libro
+category: material-publicitario
+sku: 01-OFICI-0009
 price: 0
 priceCurrency: EUR
+brand: Reprodisseny
+inStock: true
+formFields: []
 ratingValue: 0
 reviewCount: 0
+type: producto
 schema:
   '@type': Product
   name: Puntos de libro
@@ -28,20 +28,12 @@ schema:
   sku: 01-OFICI-0009
   brand:
     '@type': Organization
-    name: Repro Disseny
+    name: Reprodisseny
   offers:
     '@type': Offer
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: Product
-searchTerms:
-  - puntos de libro
-sku: 01-OFICI-0009
-slug: puntos-libro
-tags: []
-title: Puntos de libro
-type: producto
 ---
 
 ## Puntos de libro

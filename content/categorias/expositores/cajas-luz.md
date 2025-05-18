@@ -1,25 +1,25 @@
 ---
-alt: alt descripció de la foto
-brand: Reprodisseny
-category: expositores
-description: descripción genérica de mi producto para probar
-faqs: []
-formFields: []
-galleryImages: []
-image: /img/productos/Backlight.webp
-inStock: true
+title: Cajas de luz
+metaTitle: Cajas de luz | Repro Disseny
+metaDescription: Cajas de luz personalizadas con calidad profesional en Cataluña.
 keywords:
   - cajas de luz
-metaDescription: Cajas de luz personalizadas con calidad profesional en Cataluña.
-metaTitle: Cajas de luz | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Cajas de luz
-nav: Cajas de luz
-path: /categorias/expositores/cajas-luz
+searchTerms:
+  - cajas de luz
+image: /img/productos/Backlight.webp
+galleryImages: []
+alt: alt descripció de la foto
+slug: cajas-luz
+category: expositores
+sku: 01-EXPO-0010
 price: 0
 priceCurrency: EUR
+brand: Reprodisseny
+inStock: true
+formFields: []
 ratingValue: 0
 reviewCount: 0
+type: producto
 schema:
   '@type': Product
   name: Cajas de luz
@@ -28,19 +28,11 @@ schema:
   sku: 01-EXPO-0010
   brand:
     '@type': Organization
-    name: Repro Disseny
+    name: Reprodisseny
   offers:
     '@type': Offer
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: Product
-searchTerms:
-  - cajas de luz
-sku: 01-EXPO-0010
-slug: cajas-luz
-tags: []
-title: Cajas de luz
-type: producto
 ---
 

@@ -1,25 +1,25 @@
 ---
-alt: alt descripció de la foto
-brand: Reprodisseny
-category: material-oficina
-description: descripción genérica de mi producto para probar
-faqs: []
-formFields: []
-galleryImages: []
-image: /img/productos/agenda-personalizada.webp
-inStock: true
+title: Agendas personalizadas
+metaTitle: Agendas personalizadas | Repro Disseny
+metaDescription: Agendas personalizadas personalizadas con calidad profesional en Cataluña.
 keywords:
   - agendas personalizadas
-metaDescription: Agendas personalizadas personalizadas con calidad profesional en Cataluña.
-metaTitle: Agendas personalizadas | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Agendas personalizadas
-nav: Agendas personalizadas
-path: /categorias/publicitario-oficina/material-oficina/agendas-personalizadas
+searchTerms:
+  - agendas personalizadas
+image: /img/productos/agenda-personalizada.webp
+galleryImages: []
+alt: alt descripció de la foto
+slug: agendas-personalizadas
+category: material-oficina
+sku: 01-OFICI-0024
 price: 0
 priceCurrency: EUR
+brand: Reprodisseny
+inStock: true
+formFields: []
 ratingValue: 0
 reviewCount: 0
+type: producto
 schema:
   '@type': Product
   name: Agendas personalizadas
@@ -28,19 +28,11 @@ schema:
   sku: 01-OFICI-0024
   brand:
     '@type': Organization
-    name: Repro Disseny
+    name: Reprodisseny
   offers:
     '@type': Offer
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: Product
-searchTerms:
-  - agendas personalizadas
-sku: 01-OFICI-0024
-slug: agendas-personalizadas
-tags: []
-title: Agendas personalizadas
-type: producto
 ---
 

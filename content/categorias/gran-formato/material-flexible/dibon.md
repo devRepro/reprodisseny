@@ -1,25 +1,25 @@
 ---
-alt: alt descripció de la foto
-brand: Reprodisseny
-category: material-flexible
-description: descripción genérica de mi producto para probar
-faqs: []
-formFields: []
-galleryImages: []
-image: /img/productos/mockupProduct.webp
-inStock: true
+title: Dibon
+metaTitle: Dibon | Repro Disseny
+metaDescription: Dibon personalizadas con calidad profesional en Cataluña.
 keywords:
   - dibon
-metaDescription: Dibon personalizadas con calidad profesional en Cataluña.
-metaTitle: Dibon | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Dibon
-nav: Dibon
-path: /categorias/gran-formato/material-flexible/dibon
+searchTerms:
+  - dibon
+image: /img/productos/mockupProduct.webp
+galleryImages: []
+alt: alt descripció de la foto
+slug: dibon
+category: material-flexible
+sku: 01-GRFO-0012
 price: 0
 priceCurrency: EUR
+brand: Reprodisseny
+inStock: true
+formFields: []
 ratingValue: 0
 reviewCount: 0
+type: producto
 schema:
   '@type': Product
   name: Dibon
@@ -28,19 +28,11 @@ schema:
   sku: 01-GRFO-0012
   brand:
     '@type': Organization
-    name: Repro Disseny
+    name: Reprodisseny
   offers:
     '@type': Offer
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: Product
-searchTerms:
-  - dibon
-sku: 01-GRFO-0012
-slug: dibon
-tags: []
-title: Dibon
-type: producto
 ---
 

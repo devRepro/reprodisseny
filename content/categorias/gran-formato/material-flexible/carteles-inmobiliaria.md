@@ -1,25 +1,25 @@
 ---
-alt: alt descripció de la foto
-brand: Reprodisseny
-category: material-flexible
-description: descripción genérica de mi producto para probar
-faqs: []
-formFields: []
-galleryImages: []
-image: /img/productos/mockupProduct.webp
-inStock: true
+title: Carteles inmobiliaria
+metaTitle: Carteles inmobiliaria | Repro Disseny
+metaDescription: Carteles inmobiliaria personalizadas con calidad profesional en Cataluña.
 keywords:
   - carteles inmobiliaria
-metaDescription: Carteles inmobiliaria personalizadas con calidad profesional en Cataluña.
-metaTitle: Carteles inmobiliaria | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Carteles inmobiliaria
-nav: Carteles inmobiliaria
-path: /categorias/gran-formato/material-flexible/carteles-inmobiliaria
+searchTerms:
+  - carteles inmobiliaria
+image: /img/productos/mockupProduct.webp
+galleryImages: []
+alt: alt descripció de la foto
+slug: carteles-inmobiliaria
+category: material-flexible
+sku: 01-GRFO-0019
 price: 0
 priceCurrency: EUR
+brand: Reprodisseny
+inStock: true
+formFields: []
 ratingValue: 0
 reviewCount: 0
+type: producto
 schema:
   '@type': Product
   name: Carteles inmobiliaria
@@ -28,19 +28,11 @@ schema:
   sku: 01-GRFO-0019
   brand:
     '@type': Organization
-    name: Repro Disseny
+    name: Reprodisseny
   offers:
     '@type': Offer
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: Product
-searchTerms:
-  - carteles inmobiliaria
-sku: 01-GRFO-0019
-slug: carteles-inmobiliaria
-tags: []
-title: Carteles inmobiliaria
-type: producto
 ---
 

@@ -1,24 +1,23 @@
 ---
-alt: Cartel rígido forex
-brand: Reprodisseny
-category: material-rigido
-description: Cartel rígido forex personalizadas con calidad profesional en Cataluña.
-faqs: []
-formFields: []
-galleryImages: []
-image: /img/product/cartel-forex.webp
-inStock: true
-keywords: []
-metaDescription: Cartel rígido forex personalizadas con calidad profesional en Cataluña.
+title: Cartel rígido forex
 metaTitle: Cartel rígido forex
-metadescription: Cartel rígido forex personalizadas con calidad profesional en Cataluña.
-metatitle: Cartel rígido forex
-nav: Cartel rígido forex
-path: /categorias/gran-formato/material-rigido/cartel-rigido-forex
+metaDescription: Cartel rígido forex personalizadas con calidad profesional en Cataluña.
+keywords: []
+searchTerms: []
+image: /img/product/cartel-forex.webp
+galleryImages: []
+alt: Cartel rígido forex
+slug: cartel-rigido-forex
+category: material-rigido
+sku: GF-MR-001
 price: 19.99
 priceCurrency: EUR
+brand: Reprodisseny
+inStock: true
+formFields: []
 ratingValue: 0
 reviewCount: 0
+type: producto
 schema:
   '@type': Product
   name: Cartel rígido forex
@@ -27,17 +26,11 @@ schema:
   sku: GF-MR-001
   brand:
     '@type': Organization
-    name: Repro Disseny
+    name: Reprodisseny
   offers:
     '@type': Offer
     price: 19.99
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-searchTerms: []
-sku: GF-MR-001
-slug: cartel-rigido-forex
-tags: []
-title: Cartel rígido forex
-type: producto
 ---
 

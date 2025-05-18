@@ -1,25 +1,25 @@
 ---
-alt: alt descripció de la foto
-brand: Reprodisseny
-category: material-oficina
-description: descripción genérica de mi producto para probar
-faqs: []
-formFields: []
-galleryImages: []
-image: /img/productos/mockupProduct.webp
-inStock: true
+title: Displays
+metaTitle: Displays | Repro Disseny
+metaDescription: Displays personalizadas con calidad profesional en Cataluña.
 keywords:
   - displays
-metaDescription: Displays personalizadas con calidad profesional en Cataluña.
-metaTitle: Displays | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Displays
-nav: Displays
-path: /categorias/publicitario-oficina/material-oficina/displays
+searchTerms:
+  - displays
+image: /img/productos/mockupProduct.webp
+galleryImages: []
+alt: alt descripció de la foto
+slug: displays
+category: material-oficina
+sku: 01-OFICI-0005
 price: 0
 priceCurrency: EUR
+brand: Reprodisseny
+inStock: true
+formFields: []
 ratingValue: 0
 reviewCount: 0
+type: producto
 schema:
   '@type': Product
   name: Displays
@@ -28,19 +28,11 @@ schema:
   sku: 01-OFICI-0005
   brand:
     '@type': Organization
-    name: Repro Disseny
+    name: Reprodisseny
   offers:
     '@type': Offer
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: Product
-searchTerms:
-  - displays
-sku: 01-OFICI-0005
-slug: displays
-tags: []
-title: Displays
-type: producto
 ---
 

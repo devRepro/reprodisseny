@@ -1,25 +1,25 @@
 ---
-alt: alt descripció de la foto
-brand: Reprodisseny
-category: expositores
-description: descripción genérica de mi producto para probar
-faqs: []
-formFields: []
-galleryImages: []
-image: /img/productos/Banderolas.webp
-inStock: true
+title: Banderolas
+metaTitle: Banderolas | Repro Disseny
+metaDescription: Banderolas personalizadas con calidad profesional en Cataluña.
 keywords:
   - banderolas
-metaDescription: Banderolas personalizadas con calidad profesional en Cataluña.
-metaTitle: Banderolas | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Banderolas
-nav: Banderolas
-path: /categorias/expositores/banderolas
+searchTerms:
+  - banderolas
+image: /img/productos/Banderolas.webp
+galleryImages: []
+alt: alt descripció de la foto
+slug: banderolas
+category: expositores
+sku: 01-EXPO-0006
 price: 0
 priceCurrency: EUR
+brand: Reprodisseny
+inStock: true
+formFields: []
 ratingValue: 0
 reviewCount: 0
+type: producto
 schema:
   '@type': Product
   name: Banderolas
@@ -28,19 +28,11 @@ schema:
   sku: 01-EXPO-0006
   brand:
     '@type': Organization
-    name: Repro Disseny
+    name: Reprodisseny
   offers:
     '@type': Offer
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: Product
-searchTerms:
-  - banderolas
-sku: 01-EXPO-0006
-slug: banderolas
-tags: []
-title: Banderolas
-type: producto
 ---
 

@@ -1,25 +1,25 @@
 ---
-alt: alt descripció de la foto
-brand: Reprodisseny
-category: expositores
-description: descripción genérica de mi producto para probar
-faqs: []
-formFields: []
-galleryImages: []
-image: /img/productos/Banners.webp
-inStock: true
+title: Banner
+metaTitle: Banner | Repro Disseny
+metaDescription: Banner personalizadas con calidad profesional en Cataluña.
 keywords:
   - banner
-metaDescription: Banner personalizadas con calidad profesional en Cataluña.
-metaTitle: Banner | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Banner
-nav: Banner
-path: /categorias/expositores/banner
+searchTerms:
+  - banner
+image: /img/productos/Banners.webp
+galleryImages: []
+alt: alt descripció de la foto
+slug: banner
+category: expositores
+sku: 01-EXPO-0002
 price: 0
 priceCurrency: EUR
+brand: Reprodisseny
+inStock: true
+formFields: []
 ratingValue: 0
 reviewCount: 0
+type: producto
 schema:
   '@type': Product
   name: Banner
@@ -28,19 +28,11 @@ schema:
   sku: 01-EXPO-0002
   brand:
     '@type': Organization
-    name: Repro Disseny
+    name: Reprodisseny
   offers:
     '@type': Offer
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: Product
-searchTerms:
-  - banner
-sku: 01-EXPO-0002
-slug: banner
-tags: []
-title: Banner
-type: producto
 ---
 

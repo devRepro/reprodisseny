@@ -1,9 +1,21 @@
 ---
+title: Abanicos
+metaTitle: Abanicos | Repro Disseny
+metaDescription: Abanicos personalizadas con calidad profesional en Cataluña.
+keywords:
+  - abanicos
+searchTerms:
+  - abanicos
+image: /img/productos/abanico.webp
+galleryImages: []
 alt: alt descripció de la foto
-brand: Reprodisseny
+slug: abanicos
 category: eventos
-description: descripción genérica de mi producto para probar
-faqs: []
+sku: 01-EVEN-0010
+price: 0
+priceCurrency: EUR
+brand: Reprodisseny
+inStock: true
 formFields:
   - label: Cantidad
     name: cantidad
@@ -22,21 +34,9 @@ formFields:
     name: texto
     type: text
     required: false
-galleryImages: []
-image: /img/productos/abanico.webp
-inStock: true
-keywords:
-  - abanicos
-metaDescription: Abanicos personalizadas con calidad profesional en Cataluña.
-metaTitle: Abanicos | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Abanicos
-nav: Abanicos
-path: /categorias/eventos/abanicos
-price: 0
-priceCurrency: EUR
 ratingValue: 0
 reviewCount: 0
+type: producto
 schema:
   '@type': Product
   name: Abanicos
@@ -45,19 +45,11 @@ schema:
   sku: 01-EVEN-0010
   brand:
     '@type': Organization
-    name: Repro Disseny
+    name: Reprodisseny
   offers:
     '@type': Offer
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: Product
-searchTerms:
-  - abanicos
-sku: 01-EVEN-0010
-slug: abanicos
-tags: []
-title: Abanicos
-type: producto
 ---
 

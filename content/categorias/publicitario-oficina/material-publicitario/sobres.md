@@ -1,25 +1,25 @@
 ---
-alt: alt descripció de la foto
-brand: Reprodisseny
-category: material-publicitario
-description: descripción genérica de mi producto para probar
-faqs: []
-formFields: []
-galleryImages: []
-image: /img/productos/mockupProduct.webp
-inStock: true
+title: Sobres
+metaTitle: Sobres | Repro Disseny
+metaDescription: Sobres personalizadas con calidad profesional en Cataluña.
 keywords:
   - sobres
-metaDescription: Sobres personalizadas con calidad profesional en Cataluña.
-metaTitle: Sobres | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Sobres
-nav: Sobres
-path: /categorias/publicitario-oficina/material-publicitario/sobres
+searchTerms:
+  - sobres
+image: /img/productos/mockupProduct.webp
+galleryImages: []
+alt: alt descripció de la foto
+slug: sobres
+category: material-publicitario
+sku: 01-OFICI-0019
 price: 0
 priceCurrency: EUR
+brand: Reprodisseny
+inStock: true
+formFields: []
 ratingValue: 0
 reviewCount: 0
+type: producto
 schema:
   '@type': Product
   name: Sobres
@@ -28,19 +28,11 @@ schema:
   sku: 01-OFICI-0019
   brand:
     '@type': Organization
-    name: Repro Disseny
+    name: Reprodisseny
   offers:
     '@type': Offer
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: Product
-searchTerms:
-  - sobres
-sku: 01-OFICI-0019
-slug: sobres
-tags: []
-title: Sobres
-type: producto
 ---
 
