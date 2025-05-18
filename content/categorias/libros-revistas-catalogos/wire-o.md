@@ -4,12 +4,6 @@ metaTitle: Encuadernación  Wire O | Repro Disseny
 metaDescription: Encuadernación  Wire O personalizadas con calidad profesional en Cataluña.
 keywords:
   - encuadernación  wire o
-<<<<<<< HEAD
-metaDescription: Encuadernación  Wire O personalizadas con calidad profesional en Cataluña.
-metaTitle: Encuadernación  Wire O | Repro Disseny
-nav: Encuadernación  Wire O
-path: /categorias/libros-revistas-catalogos/wire-o
-=======
 searchTerms:
   - encuadernación  wire o
 image: /img/productos/Carteles.webp
@@ -18,7 +12,6 @@ alt: alt descripció de la foto
 slug: wire-o
 category: libros-revistas-catalogos
 sku: 01-PUBLI-0005
->>>>>>> formfields
 price: 0
 priceCurrency: EUR
 brand: Reprodisseny
@@ -30,9 +23,11 @@ type: producto
 schema:
   '@type': Product
   name: Encuadernación  Wire O
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/Carteles.webp'
+  url: 'https://reprodisseny.com/categorias/libros-revistas-catalogos/wire-o'
   sku: 01-PUBLI-0005
+  mpn: REF-01-PUBLI-0005
   brand:
     '@type': Organization
     name: Reprodisseny

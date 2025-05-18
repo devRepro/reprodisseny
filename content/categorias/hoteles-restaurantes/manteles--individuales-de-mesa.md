@@ -4,11 +4,6 @@ metaTitle: Manteles individuales de mesa | Repro Disseny
 metaDescription: >-
   Manteles individuales de mesa personalizadas con calidad profesional en
   Cataluña.
-<<<<<<< HEAD
-metaTitle: Manteles individuales de mesa | Repro Disseny
-nav: Manteles individuales de mesa
-path: /categorias/hoteles-restaurantes/manteles--individuales-de-mesa
-=======
 keywords:
   - manteles individuales de mesa
 searchTerms:
@@ -19,7 +14,6 @@ alt: alt descripció de la foto
 slug: manteles--individuales-de-mesa
 category: hoteles-restaurantes
 sku: 01-HORE-0003
->>>>>>> formfields
 price: 0
 priceCurrency: EUR
 brand: Reprodisseny
@@ -31,9 +25,12 @@ type: producto
 schema:
   '@type': Product
   name: Manteles individuales de mesa
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/mockupProduct.webp'
+  url: >-
+    https://reprodisseny.com/categorias/hoteles-restaurantes/manteles--individuales-de-mesa
   sku: 01-HORE-0003
+  mpn: REF-01-HORE-0003
   brand:
     '@type': Organization
     name: Reprodisseny

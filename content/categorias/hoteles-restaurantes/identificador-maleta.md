@@ -4,12 +4,6 @@ metaTitle: Identificador de maleta | Repro Disseny
 metaDescription: Identificador de maleta personalizadas con calidad profesional en Cataluña.
 keywords:
   - identificador de maleta
-<<<<<<< HEAD
-metaDescription: Identificador de maleta personalizadas con calidad profesional en Cataluña.
-metaTitle: Identificador de maleta | Repro Disseny
-nav: Identificador de maleta
-path: /categorias/hoteles-restaurantes/identificador-maleta
-=======
 searchTerms:
   - identificador de maleta
 image: /img/productos/Identificador-maleta.webp
@@ -18,7 +12,6 @@ alt: alt descripció de la foto
 slug: identificador-maleta
 category: hoteles-restaurantes
 sku: 01-HORE-0008
->>>>>>> formfields
 price: 0
 priceCurrency: EUR
 brand: Reprodisseny
@@ -30,9 +23,12 @@ type: producto
 schema:
   '@type': Product
   name: Identificador de maleta
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/Identificador-maleta.webp'
+  url: >-
+    https://reprodisseny.com/categorias/hoteles-restaurantes/identificador-maleta
   sku: 01-HORE-0008
+  mpn: REF-01-HORE-0008
   brand:
     '@type': Organization
     name: Reprodisseny

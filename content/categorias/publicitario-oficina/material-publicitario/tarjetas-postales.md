@@ -4,12 +4,6 @@ metaTitle: Tarjetas postales | Repro Disseny
 metaDescription: Tarjetas postales personalizadas con calidad profesional en Cataluña.
 keywords:
   - tarjetas postales
-<<<<<<< HEAD
-metaDescription: Tarjetas postales personalizadas con calidad profesional en Cataluña.
-metaTitle: Tarjetas postales | Repro Disseny
-nav: Tarjetas postales
-path: /categorias/publicitario-oficina/material-publicitario/tarjetas-postales
-=======
 searchTerms:
   - tarjetas postales
 image: /img/productos/mockupProduct.webp
@@ -18,7 +12,6 @@ alt: alt descripció de la foto
 slug: tarjetas-postales
 category: material-publicitario
 sku: 01-OFICI-0007
->>>>>>> formfields
 price: 0
 priceCurrency: EUR
 brand: Reprodisseny
@@ -30,9 +23,12 @@ type: producto
 schema:
   '@type': Product
   name: Tarjetas postales
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/mockupProduct.webp'
+  url: >-
+    https://reprodisseny.com/categorias/publicitario-oficina/material-publicitario/tarjetas-postales
   sku: 01-OFICI-0007
+  mpn: REF-01-OFICI-0007
   brand:
     '@type': Organization
     name: Reprodisseny

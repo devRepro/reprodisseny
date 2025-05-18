@@ -1,12 +1,4 @@
 <script setup lang="ts">
-<<<<<<< HEAD
-import { ref, defineProps } from 'vue'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { Button } from '@/components/ui/button'
-=======
-
->>>>>>> bussines
 
 const props = defineProps<{
   image: string
@@ -19,11 +11,6 @@ const props = defineProps<{
 // Aquí le pasas el título como nombre del producto
 const producto = props.title
 
-<<<<<<< HEAD
-function submitRequest() {
-  console.log('🧾 Solicitud enviada:', form.value)
-  alert('✅ Gracias por tu solicitud. Te contactaremos pronto.')
-=======
 const submitRequest = async (data: any) => {
   try {
     // Enviar a SendGrid
@@ -52,7 +39,6 @@ const submitRequest = async (data: any) => {
   } catch (err) {
     console.error('❌ Error general al enviar solicitud:', err)
   }
->>>>>>> formfields
 }
 
 

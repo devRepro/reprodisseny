@@ -4,12 +4,6 @@ metaTitle: Flyers con forma | Repro Disseny
 metaDescription: Flyers con forma personalizadas con calidad profesional en Cataluña.
 keywords:
   - flyers con forma
-<<<<<<< HEAD
-metaDescription: Flyers con forma personalizadas con calidad profesional en Cataluña.
-metaTitle: Flyers con forma | Repro Disseny
-nav: Flyers con forma
-path: /categorias/publicitario-oficina/material-oficina/flyers-forma
-=======
 searchTerms:
   - flyers con forma
 image: /img/productos/mockupProduct.webp
@@ -18,7 +12,6 @@ alt: alt descripció de la foto
 slug: flyers-forma
 category: material-oficina
 sku: 01-OFICI-0003
->>>>>>> formfields
 price: 0
 priceCurrency: EUR
 brand: Reprodisseny
@@ -30,9 +23,12 @@ type: producto
 schema:
   '@type': Product
   name: Flyers con forma
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/mockupProduct.webp'
+  url: >-
+    https://reprodisseny.com/categorias/publicitario-oficina/material-oficina/flyers-forma
   sku: 01-OFICI-0003
+  mpn: REF-01-OFICI-0003
   brand:
     '@type': Organization
     name: Reprodisseny

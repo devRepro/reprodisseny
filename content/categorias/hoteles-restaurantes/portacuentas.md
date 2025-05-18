@@ -4,12 +4,6 @@ metaTitle: Portacuentas | Repro Disseny
 metaDescription: Portacuentas personalizadas con calidad profesional en Cataluña.
 keywords:
   - portacuentas
-<<<<<<< HEAD
-metaDescription: Portacuentas personalizadas con calidad profesional en Cataluña.
-metaTitle: Portacuentas | Repro Disseny
-nav: Portacuentas
-path: /categorias/hoteles-restaurantes/portacuentas
-=======
 searchTerms:
   - portacuentas
 image: /img/productos/mockupProduct.webp
@@ -18,7 +12,6 @@ alt: alt descripció de la foto
 slug: portacuentas
 category: hoteles-restaurantes
 sku: 01-HORE-0010
->>>>>>> formfields
 price: 0
 priceCurrency: EUR
 brand: Reprodisseny
@@ -30,9 +23,11 @@ type: producto
 schema:
   '@type': Product
   name: Portacuentas
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/mockupProduct.webp'
+  url: 'https://reprodisseny.com/categorias/hoteles-restaurantes/portacuentas'
   sku: 01-HORE-0010
+  mpn: REF-01-HORE-0010
   brand:
     '@type': Organization
     name: Reprodisseny

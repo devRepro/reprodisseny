@@ -4,12 +4,6 @@ metaTitle: Fundas Rosas Sant Jordi | Repro Disseny
 metaDescription: Fundas Rosas Sant Jordi personalizadas con calidad profesional en Cataluña.
 keywords:
   - fundas rosas sant jordi
-<<<<<<< HEAD
-metaDescription: Fundas Rosas Sant Jordi personalizadas con calidad profesional en Cataluña.
-metaTitle: Fundas Rosas Sant Jordi | Repro Disseny
-nav: Fundas Rosas Sant Jordi
-path: /categorias/eventos/fundas-sant-jordi
-=======
 searchTerms:
   - fundas rosas sant jordi
 image: /img/productos/mockupProduct.webp
@@ -18,7 +12,6 @@ alt: alt descripció de la foto
 slug: fundas-sant-jordi
 category: eventos
 sku: 01-EVEN-0001
->>>>>>> formfields
 price: 0
 priceCurrency: EUR
 brand: Reprodisseny
@@ -30,9 +23,11 @@ type: producto
 schema:
   '@type': Product
   name: Fundas Rosas Sant Jordi
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/mockupProduct.webp'
+  url: 'https://reprodisseny.com/categorias/eventos/fundas-sant-jordi'
   sku: 01-EVEN-0001
+  mpn: REF-01-EVEN-0001
   brand:
     '@type': Organization
     name: Reprodisseny

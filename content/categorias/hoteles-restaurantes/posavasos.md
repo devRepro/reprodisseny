@@ -4,12 +4,6 @@ metaTitle: Posavasos | Repro Disseny
 metaDescription: Posavasos personalizadas con calidad profesional en Cataluña.
 keywords:
   - posavasos
-<<<<<<< HEAD
-metaDescription: Posavasos personalizadas con calidad profesional en Cataluña.
-metaTitle: Posavasos | Repro Disseny
-nav: Posavasos
-path: /categorias/hoteles-restaurantes/posavasos
-=======
 searchTerms:
   - posavasos
 image: /img/productos/mockupProduct.webp
@@ -18,7 +12,6 @@ alt: alt descripció de la foto
 slug: posavasos
 category: hoteles-restaurantes
 sku: 01-HORE-0011
->>>>>>> formfields
 price: 0
 priceCurrency: EUR
 brand: Reprodisseny
@@ -30,9 +23,11 @@ type: producto
 schema:
   '@type': Product
   name: Posavasos
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/mockupProduct.webp'
+  url: 'https://reprodisseny.com/categorias/hoteles-restaurantes/posavasos'
   sku: 01-HORE-0011
+  mpn: REF-01-HORE-0011
   brand:
     '@type': Organization
     name: Reprodisseny

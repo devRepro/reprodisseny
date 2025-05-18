@@ -33,8 +33,3 @@ schema:
     priceCurrency: "EUR"
     availability: "https://schema.org/InStock"
 ---
-
-## Nombre del producto (H2 SEO)
-
-Descripción clara y atractiva del producto. Explica el uso, beneficios y opciones disponibles.
-Incluye palabras clave y estilo de comunicación coherente con la marca.

@@ -4,12 +4,6 @@ metaTitle: Pegatinas individuales | Repro Disseny
 metaDescription: Pegatinas individuales personalizadas con calidad profesional en Cataluña.
 keywords:
   - pegatinas individuales
-<<<<<<< HEAD
-metaDescription: Pegatinas individuales personalizadas con calidad profesional en Cataluña.
-metaTitle: Pegatinas individuales | Repro Disseny
-nav: Pegatinas individuales
-path: /categorias/adhesivos/pegatinas
-=======
 searchTerms:
   - pegatinas individuales
 image: /img/productos/Etiqueta-adhesiva-papel.webp
@@ -18,7 +12,6 @@ alt: alt descripció de la foto
 slug: pegatinas
 category: adhesivos
 sku: 01-ADHE-0001
->>>>>>> formfields
 price: 0
 priceCurrency: EUR
 brand: Reprodisseny
@@ -30,9 +23,11 @@ type: producto
 schema:
   '@type': Product
   name: Pegatinas individuales
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/Etiqueta-adhesiva-papel.webp'
+  url: 'https://reprodisseny.com/categorias/adhesivos/pegatinas'
   sku: 01-ADHE-0001
+  mpn: REF-01-ADHE-0001
   brand:
     '@type': Organization
     name: Reprodisseny

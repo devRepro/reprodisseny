@@ -4,11 +4,6 @@ metaTitle: Holas sueltas para archivadores | Repro Disseny
 metaDescription: >-
   Holas sueltas para archivadores personalizadas con calidad profesional en
   Cataluña.
-<<<<<<< HEAD
-metaTitle: Holas sueltas para archivadores | Repro Disseny
-nav: Holas sueltas para archivadores
-path: /categorias/libros-revistas-catalogos/hojas-archivadores
-=======
 keywords:
   - holas sueltas para archivadores
 searchTerms:
@@ -19,7 +14,6 @@ alt: alt descripció de la foto
 slug: hojas-archivadores
 category: libros-revistas-catalogos
 sku: 01-PUBLI-0007
->>>>>>> formfields
 price: 0
 priceCurrency: EUR
 brand: Reprodisseny
@@ -31,9 +25,12 @@ type: producto
 schema:
   '@type': Product
   name: Holas sueltas para archivadores
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/Carteles.webp'
+  url: >-
+    https://reprodisseny.com/categorias/libros-revistas-catalogos/hojas-archivadores
   sku: 01-PUBLI-0007
+  mpn: REF-01-PUBLI-0007
   brand:
     '@type': Organization
     name: Reprodisseny

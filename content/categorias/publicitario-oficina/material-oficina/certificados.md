@@ -4,12 +4,6 @@ metaTitle: Certificados | Repro Disseny
 metaDescription: Certificados personalizadas con calidad profesional en Cataluña.
 keywords:
   - certificados
-<<<<<<< HEAD
-metaDescription: Certificados personalizadas con calidad profesional en Cataluña.
-metaTitle: Certificados | Repro Disseny
-nav: Certificados
-path: /categorias/publicitario-oficina/material-oficina/certificados
-=======
 searchTerms:
   - certificados
 image: /img/productos/mockupProduct.webp
@@ -18,7 +12,6 @@ alt: alt descripció de la foto
 slug: certificados
 category: material-oficina
 sku: 01-OFICI-0030
->>>>>>> formfields
 price: 0
 priceCurrency: EUR
 brand: Reprodisseny
@@ -30,9 +23,12 @@ type: producto
 schema:
   '@type': Product
   name: Certificados
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/mockupProduct.webp'
+  url: >-
+    https://reprodisseny.com/categorias/publicitario-oficina/material-oficina/certificados
   sku: 01-OFICI-0030
+  mpn: REF-01-OFICI-0030
   brand:
     '@type': Organization
     name: Reprodisseny

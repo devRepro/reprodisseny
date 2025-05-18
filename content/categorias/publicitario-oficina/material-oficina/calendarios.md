@@ -4,12 +4,6 @@ metaTitle: Calendarios | Repro Disseny
 metaDescription: Calendarios personalizadas con calidad profesional en Cataluña.
 keywords:
   - calendarios
-<<<<<<< HEAD
-metaDescription: Calendarios personalizadas con calidad profesional en Cataluña.
-metaTitle: Calendarios | Repro Disseny
-nav: Calendarios
-path: /categorias/publicitario-oficina/material-oficina/calendarios
-=======
 searchTerms:
   - calendarios
 image: /img/productos/mockupProduct.webp
@@ -18,7 +12,6 @@ alt: alt descripció de la foto
 slug: calendarios
 category: material-oficina
 sku: 01-OFICI-0025
->>>>>>> formfields
 price: 0
 priceCurrency: EUR
 brand: Reprodisseny
@@ -30,9 +23,12 @@ type: producto
 schema:
   '@type': Product
   name: Calendarios
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/mockupProduct.webp'
+  url: >-
+    https://reprodisseny.com/categorias/publicitario-oficina/material-oficina/calendarios
   sku: 01-OFICI-0025
+  mpn: REF-01-OFICI-0025
   brand:
     '@type': Organization
     name: Reprodisseny

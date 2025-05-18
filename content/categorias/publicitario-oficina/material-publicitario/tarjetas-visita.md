@@ -4,12 +4,6 @@ metaTitle: Tarjetas de visita | Repro Disseny
 metaDescription: Tarjetas de visita personalizadas con calidad profesional en Cataluña.
 keywords:
   - tarjetas de visita
-<<<<<<< HEAD
-metaDescription: Tarjetas de visita personalizadas con calidad profesional en Cataluña.
-metaTitle: Tarjetas de visita | Repro Disseny
-nav: Tarjetas de visita
-path: /categorias/publicitario-oficina/material-publicitario/tarjetas-visita
-=======
 searchTerms:
   - tarjetas de visita
 image: /img/productos/mockupProduct.webp
@@ -18,7 +12,6 @@ alt: alt descripció de la foto
 slug: tarjetas-visita
 category: material-publicitario
 sku: 01-OFICI-0016
->>>>>>> formfields
 price: 0
 priceCurrency: EUR
 brand: Reprodisseny
@@ -30,9 +23,12 @@ type: producto
 schema:
   '@type': Product
   name: Tarjetas de visita
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/mockupProduct.webp'
+  url: >-
+    https://reprodisseny.com/categorias/publicitario-oficina/material-publicitario/tarjetas-visita
   sku: 01-OFICI-0016
+  mpn: REF-01-OFICI-0016
   brand:
     '@type': Organization
     name: Reprodisseny

@@ -4,12 +4,6 @@ metaTitle: Cartas de restaurante | Repro Disseny
 metaDescription: Cartas de restaurante personalizadas con calidad profesional en Cataluña.
 keywords:
   - cartas de restaurante
-<<<<<<< HEAD
-metaDescription: Cartas de restaurante personalizadas con calidad profesional en Cataluña.
-metaTitle: Cartas de restaurante | Repro Disseny
-nav: Cartas de restaurante
-path: /categorias/hoteles-restaurantes/carta-restaurane
-=======
 searchTerms:
   - cartas de restaurante
 image: /img/productos/mockupProduct.webp
@@ -18,7 +12,6 @@ alt: alt descripció de la foto
 slug: carta-restaurane
 category: hoteles-restaurantes
 sku: 01-HORE-0005
->>>>>>> formfields
 price: 0
 priceCurrency: EUR
 brand: Reprodisseny
@@ -30,9 +23,11 @@ type: producto
 schema:
   '@type': Product
   name: Cartas de restaurante
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/mockupProduct.webp'
+  url: 'https://reprodisseny.com/categorias/hoteles-restaurantes/carta-restaurane'
   sku: 01-HORE-0005
+  mpn: REF-01-HORE-0005
   brand:
     '@type': Organization
     name: Reprodisseny

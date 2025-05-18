@@ -8,14 +8,6 @@ keywords:
   - pegatinas personalizadas
   - hojas de adhesivos
   - vinilo impreso
-<<<<<<< HEAD
-metaDescription: >-
-  Hojas con pegatinas de vinilo personalizadas ideales para promociones y
-  packaging. Impresión profesional y entrega en Cataluña.
-metaTitle: Hojas con pegatinas personalizadas | Repro Disseny
-nav: Hojas con pegatinas
-path: /categorias/adhesivos/hoja-pegatina
-=======
 searchTerms:
   - hojas con pegatinas personalizadas
   - imprimir pegatinas en Cataluña
@@ -28,7 +20,6 @@ alt: >-
 slug: hoja-pegatina
 category: adhesivos
 sku: 01-ADHE-0002
->>>>>>> formfields
 price: 0
 priceCurrency: EUR
 brand: Reprodisseny
@@ -40,11 +31,11 @@ type: producto
 schema:
   '@type': Product
   name: Hojas con pegatinas
-  description: >-
-    Hojas con pegatinas de vinilo personalizadas ideales para promociones y
-    packaging. Impresión profesional y entrega en Cataluña.
+  description: ''
   image: 'https://reprodisseny.com/img/productos/Etiquetas-vinilo.webp'
+  url: 'https://reprodisseny.com/categorias/adhesivos/hoja-pegatina'
   sku: 01-ADHE-0002
+  mpn: REF-01-ADHE-0002
   brand:
     '@type': Organization
     name: Reprodisseny

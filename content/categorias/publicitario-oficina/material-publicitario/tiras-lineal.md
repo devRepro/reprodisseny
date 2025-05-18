@@ -4,12 +4,6 @@ metaTitle: Tiras lineal | Repro Disseny
 metaDescription: Tiras lineal personalizadas con calidad profesional en Cataluña.
 keywords:
   - tiras lineal
-<<<<<<< HEAD
-metaDescription: Tiras lineal personalizadas con calidad profesional en Cataluña.
-metaTitle: Tiras lineal | Repro Disseny
-nav: Tiras lineal
-path: /categorias/publicitario-oficina/material-publicitario/tiras-lineal
-=======
 searchTerms:
   - tiras lineal
 image: /img/productos/mockupProduct.webp
@@ -18,7 +12,6 @@ alt: alt descripció de la foto
 slug: tiras-lineal
 category: material-publicitario
 sku: 01-OFICI-0014
->>>>>>> formfields
 price: 0
 priceCurrency: EUR
 brand: Reprodisseny
@@ -30,9 +23,12 @@ type: producto
 schema:
   '@type': Product
   name: Tiras lineal
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/mockupProduct.webp'
+  url: >-
+    https://reprodisseny.com/categorias/publicitario-oficina/material-publicitario/tiras-lineal
   sku: 01-OFICI-0014
+  mpn: REF-01-OFICI-0014
   brand:
     '@type': Organization
     name: Reprodisseny

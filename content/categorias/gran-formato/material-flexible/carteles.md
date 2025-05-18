@@ -23,9 +23,11 @@ type: producto
 schema:
   '@type': Product
   name: Carteles
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/Carteles.webp'
+  url: 'https://reprodisseny.com/categorias/gran-formato/material-flexible/carteles'
   sku: 01-GRFO-0002
+  mpn: REF-01-GRFO-0002
   brand:
     '@type': Organization
     name: Reprodisseny

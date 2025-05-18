@@ -4,12 +4,6 @@ metaTitle: Minutas de boda | Repro Disseny
 metaDescription: Minutas de boda personalizadas con calidad profesional en Cataluña.
 keywords:
   - minutas de boda
-<<<<<<< HEAD
-metaDescription: Minutas de boda personalizadas con calidad profesional en Cataluña.
-metaTitle: Minutas de boda | Repro Disseny
-nav: Minutas de boda
-path: /categorias/hoteles-restaurantes/minutas-boda
-=======
 searchTerms:
   - minutas de boda
 image: /img/productos/mockupProduct.webp
@@ -18,7 +12,6 @@ alt: alt descripció de la foto
 slug: minutas-boda
 category: hoteles-restaurantes
 sku: 01-HORE-0006
->>>>>>> formfields
 price: 0
 priceCurrency: EUR
 brand: Reprodisseny
@@ -30,9 +23,11 @@ type: producto
 schema:
   '@type': Product
   name: Minutas de boda
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/mockupProduct.webp'
+  url: 'https://reprodisseny.com/categorias/hoteles-restaurantes/minutas-boda'
   sku: 01-HORE-0006
+  mpn: REF-01-HORE-0006
   brand:
     '@type': Organization
     name: Reprodisseny

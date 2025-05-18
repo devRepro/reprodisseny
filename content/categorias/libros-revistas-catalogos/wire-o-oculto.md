@@ -4,11 +4,6 @@ metaTitle: Encuadernación  Wire O Oculto | Repro Disseny
 metaDescription: >-
   Encuadernación  Wire O Oculto personalizadas con calidad profesional en
   Cataluña.
-<<<<<<< HEAD
-metaTitle: Encuadernación  Wire O Oculto | Repro Disseny
-nav: Encuadernación  Wire O Oculto
-path: /categorias/libros-revistas-catalogos/wire-o-oculto
-=======
 keywords:
   - encuadernación  wire o oculto
 searchTerms:
@@ -19,7 +14,6 @@ alt: alt descripció de la foto
 slug: wire-o-oculto
 category: libros-revistas-catalogos
 sku: 01-PUBLI-0005
->>>>>>> formfields
 price: 0
 priceCurrency: EUR
 brand: Reprodisseny
@@ -31,9 +25,11 @@ type: producto
 schema:
   '@type': Product
   name: Encuadernación  Wire O Oculto
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/Carteles.webp'
+  url: 'https://reprodisseny.com/categorias/libros-revistas-catalogos/wire-o-oculto'
   sku: 01-PUBLI-0005
+  mpn: REF-01-PUBLI-0005
   brand:
     '@type': Organization
     name: Reprodisseny

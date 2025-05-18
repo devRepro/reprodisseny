@@ -4,12 +4,6 @@ metaTitle: Delantales | Repro Disseny
 metaDescription: Delantales personalizadas con calidad profesional en Cataluña.
 keywords:
   - delantales
-<<<<<<< HEAD
-metaDescription: Delantales personalizadas con calidad profesional en Cataluña.
-metaTitle: Delantales | Repro Disseny
-nav: Delantales
-path: /categorias/eventos/delantales
-=======
 searchTerms:
   - delantales
 image: /img/productos/mockupProduct.webp
@@ -18,7 +12,6 @@ alt: alt descripció de la foto
 slug: delantales
 category: eventos
 sku: 01-EVEN-0019
->>>>>>> formfields
 price: 0
 priceCurrency: EUR
 brand: Reprodisseny
@@ -30,9 +23,11 @@ type: producto
 schema:
   '@type': Product
   name: Delantales
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/mockupProduct.webp'
+  url: 'https://reprodisseny.com/categorias/eventos/delantales'
   sku: 01-EVEN-0019
+  mpn: REF-01-EVEN-0019
   brand:
     '@type': Organization
     name: Reprodisseny

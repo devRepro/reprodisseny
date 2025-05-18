@@ -1,6 +1,5 @@
 // composables/useSeoContent.ts
-import { useSchemaOrg } from '@vueuse/schema-org'
-
+import { useSeoMeta } from '@unhead/vue'
 import { useRoute } from 'vue-router'
 
 interface ContentData {
@@ -25,7 +24,6 @@ export function useSeoContent(content: ContentData) {
     ? content.image
     : `${siteUrl}${content.image?.startsWith('/') ? content.image : `/img/${content.type || 'otros'}/${content.image}`}`
 
-  // Inyectar metadatos SEO
   useSeoMeta({
     title: content.metaTitle || content.title,
     description: content.metaDescription || content.description || '',
@@ -40,7 +38,6 @@ export function useSeoContent(content: ContentData) {
     canonical: fullPath
   })
 
-  // Inyectar schema.org si está definido
   if (content.schema && content.schemaType) {
     useSchemaOrg([
       {

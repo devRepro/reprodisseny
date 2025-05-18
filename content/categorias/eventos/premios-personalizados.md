@@ -4,12 +4,6 @@ metaTitle: Premios personalizados | Repro Disseny
 metaDescription: Premios personalizados personalizadas con calidad profesional en Cataluña.
 keywords:
   - premios personalizados
-<<<<<<< HEAD
-metaDescription: Premios personalizados personalizadas con calidad profesional en Cataluña.
-metaTitle: Premios personalizados | Repro Disseny
-nav: Premios personalizados
-path: /categorias/eventos/premios-personalizados
-=======
 searchTerms:
   - premios personalizados
 image: /img/productos/mockupProduct.webp
@@ -18,7 +12,6 @@ alt: alt descripció de la foto
 slug: premios-personalizados
 category: eventos
 sku: 01-EVEN-0005
->>>>>>> formfields
 price: 0
 priceCurrency: EUR
 brand: Reprodisseny
@@ -30,9 +23,11 @@ type: producto
 schema:
   '@type': Product
   name: Premios personalizados
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/mockupProduct.webp'
+  url: 'https://reprodisseny.com/categorias/eventos/premios-personalizados'
   sku: 01-EVEN-0005
+  mpn: REF-01-EVEN-0005
   brand:
     '@type': Organization
     name: Reprodisseny

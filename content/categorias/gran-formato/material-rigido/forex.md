@@ -23,9 +23,11 @@ type: producto
 schema:
   '@type': Product
   name: Forex
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/mockupProduct.webp'
+  url: 'https://reprodisseny.com/categorias/gran-formato/material-rigido/forex'
   sku: 01-GRFO-0011
+  mpn: REF-01-GRFO-0011
   brand:
     '@type': Organization
     name: Reprodisseny
@@ -35,7 +37,5 @@ schema:
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
 ---
-
-## Forex
 
 ## Forex

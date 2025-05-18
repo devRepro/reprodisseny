@@ -25,29 +25,18 @@ formFields:
       - Blanco
       - Negro
       - Dourado
-<<<<<<< HEAD
-galleryImages: []
-image: /img/productos/Carteles.webp
-inStock: true
-keywords:
-  - encuadernado grapas
-metaDescription: Encuadernado grapas personalizadas con calidad profesional en Cataluña.
-metaTitle: Encuadernado grapas | Repro Disseny
-nav: Encuadernado grapas
-path: /categorias/libros-revistas-catalogos/encuadernado-grapas
-price: 0
-priceCurrency: EUR
-=======
->>>>>>> formfields
 ratingValue: 0
 reviewCount: 0
 type: producto
 schema:
   '@type': Product
   name: Encuadernado grapas
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/Carteles.webp'
+  url: >-
+    https://reprodisseny.com/categorias/libros-revistas-catalogos/encuadernado-grapas
   sku: 01-PUBLI-0001
+  mpn: REF-01-PUBLI-0001
   brand:
     '@type': Organization
     name: Reprodisseny

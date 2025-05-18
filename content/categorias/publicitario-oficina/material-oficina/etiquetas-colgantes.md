@@ -4,12 +4,6 @@ metaTitle: Etiquetas colgantes | Repro Disseny
 metaDescription: Etiquetas colgantes personalizadas con calidad profesional en Cataluña.
 keywords:
   - etiquetas colgantes
-<<<<<<< HEAD
-metaDescription: Etiquetas colgantes personalizadas con calidad profesional en Cataluña.
-metaTitle: Etiquetas colgantes | Repro Disseny
-nav: Etiquetas colgantes
-path: /categorias/publicitario-oficina/material-oficina/etiquetas-colgantes
-=======
 searchTerms:
   - etiquetas colgantes
 image: /img/productos/mockupProduct.webp
@@ -18,7 +12,6 @@ alt: alt descripció de la foto
 slug: etiquetas-colgantes
 category: material-oficina
 sku: 01-OFICI-0008
->>>>>>> formfields
 price: 0
 priceCurrency: EUR
 brand: Reprodisseny
@@ -30,9 +23,12 @@ type: producto
 schema:
   '@type': Product
   name: Etiquetas colgantes
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/mockupProduct.webp'
+  url: >-
+    https://reprodisseny.com/categorias/publicitario-oficina/material-oficina/etiquetas-colgantes
   sku: 01-OFICI-0008
+  mpn: REF-01-OFICI-0008
   brand:
     '@type': Organization
     name: Reprodisseny

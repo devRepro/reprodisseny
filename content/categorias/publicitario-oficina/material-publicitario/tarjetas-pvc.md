@@ -4,12 +4,6 @@ metaTitle: Tarjetas de pvc | Repro Disseny
 metaDescription: Tarjetas de pvc personalizadas con calidad profesional en Cataluña.
 keywords:
   - tarjetas de pvc
-<<<<<<< HEAD
-metaDescription: Tarjetas de pvc personalizadas con calidad profesional en Cataluña.
-metaTitle: Tarjetas de pvc | Repro Disseny
-nav: Tarjetas de pvc
-path: /categorias/publicitario-oficina/material-publicitario/tarjetas-pvc
-=======
 searchTerms:
   - tarjetas de pvc
 image: /img/productos/tarjetas-pvc.webp
@@ -18,7 +12,6 @@ alt: alt descripció de la foto
 slug: tarjetas-pvc
 category: material-publicitario
 sku: 01-OFICI-0013
->>>>>>> formfields
 price: 0
 priceCurrency: EUR
 brand: Reprodisseny
@@ -30,9 +23,12 @@ type: producto
 schema:
   '@type': Product
   name: Tarjetas de pvc
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/tarjetas-pvc.webp'
+  url: >-
+    https://reprodisseny.com/categorias/publicitario-oficina/material-publicitario/tarjetas-pvc
   sku: 01-OFICI-0013
+  mpn: REF-01-OFICI-0013
   brand:
     '@type': Organization
     name: Reprodisseny

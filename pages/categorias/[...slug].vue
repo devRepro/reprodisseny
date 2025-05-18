@@ -63,34 +63,6 @@ watchEffect(() => {
 </script>
 
 <template>
-<<<<<<< HEAD
-  <div>
-    <!-- Loading State -->
-    <SharedLoader v-if="pending" />
-
-    <!-- Content Rendering (Dynamic Component) -->
-    <component
-      v-else-if="resolvedComponent && contentData"
-      :is="resolvedComponent"
-      :data="contentData"
-    />
-
-    <!-- Error State -->
-    <section v-else-if="error" class="text-red-500 text-center py-10 px-4">
-      <h2>Error al cargar el contenido</h2>
-      <p class="text-sm mt-2">{{ error?.message || 'Ha ocurrido un error inesperado.' }}</p>
-      <!-- Consider adding a link back home or to retry -->
-      <NuxtLink to="/" class="mt-4 inline-block text-primary hover:underline">Volver al inicio</NuxtLink>
-    </section>
-
-    <!-- Unknown/Unsupported Content Type State -->
-    <section v-else-if="!pending" class="text-center py-10 px-4 text-muted-foreground">
-      <!-- Checks !pending to avoid flashing this during initial load -->
-      <h2>Contenido no encontrado o no soportado</h2>
-      <p class="text-sm mt-2">El tipo de contenido solicitado no se pudo mostrar.</p>
-       <NuxtLink to="/" class="mt-4 inline-block text-primary hover:underline">Volver al inicio</NuxtLink>
-    </section>
-=======
   <div class="category-product-page">
     <!-- Loader -->
     <div v-if="pending" class="text-center py-10">
@@ -194,6 +166,5 @@ watchEffect(() => {
       <p>Error cargando datos. Inténtalo de nuevo más tarde.</p>
       <p class="mt-2 text-sm">{{ error.message }}</p>
     </div>
->>>>>>> formfields
   </div>
 </template>

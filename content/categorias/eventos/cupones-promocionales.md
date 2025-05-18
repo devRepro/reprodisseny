@@ -4,12 +4,6 @@ metaTitle: Cupones promocionales | Repro Disseny
 metaDescription: Cupones promocionales personalizadas con calidad profesional en Cataluña.
 keywords:
   - cupones promocionales
-<<<<<<< HEAD
-metaDescription: Cupones promocionales personalizadas con calidad profesional en Cataluña.
-metaTitle: Cupones promocionales | Repro Disseny
-nav: Cupones promocionales
-path: /categorias/eventos/cupones-promocionales
-=======
 searchTerms:
   - cupones promocionales
 image: /img/productos/Cupones-promocionales.webp
@@ -18,7 +12,6 @@ alt: alt descripció de la foto
 slug: cupones-promocionales
 category: eventos
 sku: 01-EVEN-0011
->>>>>>> formfields
 price: 0
 priceCurrency: EUR
 brand: Reprodisseny
@@ -30,9 +23,11 @@ type: producto
 schema:
   '@type': Product
   name: Cupones promocionales
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/Cupones-promocionales.webp'
+  url: 'https://reprodisseny.com/categorias/eventos/cupones-promocionales'
   sku: 01-EVEN-0011
+  mpn: REF-01-EVEN-0011
   brand:
     '@type': Organization
     name: Reprodisseny

@@ -1,30 +1,43 @@
+// stores/categorias.ts
 import { defineStore } from 'pinia'
+
+import type { Categoria, Subcategoria, Producto } from '@/types'
 
 export const useCategoriasStore = defineStore('categorias', {
   state: () => ({
-    menu: [] as any[],
+    menu: [] as Categoria[],
     loaded: false
   }),
+
   actions: {
     async fetchCategorias() {
       if (this.loaded) return
 
-      const raw = await queryCollection('categorias')
-  .where('type', '=', 'categoria')
-  .all()
+      try {
+        const raw = await queryCollection('categorias')
+          .where('type', '=', 'categoria')
+          .all()
 
-      // Ordenar por nav, slug o cualquier campo
-      const sorted = raw.sort((a, b) => a.nav?.localeCompare(b.nav ?? '') ?? 0)
+        const sorted = raw.sort((a, b) =>
+          a.nav?.localeCompare(b.nav ?? '') ?? 0
+        )
 
-      this.menu = sorted.map((cat: any) => ({
-        ...cat,
-        children: cat.children?.map((c: any) => ({
-          ...c,
-          children: c.children || []
-        })) || []
-      }))
+        this.menu = sorted.map((cat: Categoria) => ({
+          ...cat,
+          children: (cat as Categoria)?.children?.map((sub: Subcategoria) => ({
+            ...sub,
+            children: (sub as Subcategoria)?.children?.map((p: Producto) => ({
+              ...p
+            })) || []
+          })) || []
+        }))
 
-      this.loaded = true
+        this.loaded = true
+      } catch (error) {
+        console.error('❌ Error al cargar categorías:', error)
+        this.menu = []
+        this.loaded = false
+      }
     }
   }
 })

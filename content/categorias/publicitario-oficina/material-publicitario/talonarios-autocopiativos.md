@@ -4,13 +4,6 @@ metaTitle: Talonarios autocopiativos | Repro Disseny
 metaDescription: Talonarios autocopiativos personalizadas con calidad profesional en Cataluña.
 keywords:
   - talonarios autocopiativos
-<<<<<<< HEAD
-metaDescription: Talonarios autocopiativos personalizadas con calidad profesional en Cataluña.
-metaTitle: Talonarios autocopiativos | Repro Disseny
-nav: Talonarios autocopiativos
-path: >-
-  /categorias/publicitario-oficina/material-publicitario/talonarios-autocopiativos
-=======
 searchTerms:
   - talonarios autocopiativos
 image: /img/productos/mockupProduct.webp
@@ -19,7 +12,6 @@ alt: alt descripció de la foto
 slug: talonarios-autocopiativos
 category: material-publicitario
 sku: 01-OFICI-0023
->>>>>>> formfields
 price: 0
 priceCurrency: EUR
 brand: Reprodisseny
@@ -31,9 +23,12 @@ type: producto
 schema:
   '@type': Product
   name: Talonarios autocopiativos
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/mockupProduct.webp'
+  url: >-
+    https://reprodisseny.com/categorias/publicitario-oficina/material-publicitario/talonarios-autocopiativos
   sku: 01-OFICI-0023
+  mpn: REF-01-OFICI-0023
   brand:
     '@type': Organization
     name: Reprodisseny

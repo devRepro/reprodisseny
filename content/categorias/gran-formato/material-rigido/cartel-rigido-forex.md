@@ -21,9 +21,12 @@ type: producto
 schema:
   '@type': Product
   name: Cartel rígido forex
-  description: Cartel rígido forex personalizadas con calidad profesional en Cataluña.
+  description: ''
   image: 'https://reprodisseny.com/img/product/cartel-forex.webp'
+  url: >-
+    https://reprodisseny.com/categorias/gran-formato/material-rigido/cartel-rigido-forex
   sku: GF-MR-001
+  mpn: REF-GF-MR-001
   brand:
     '@type': Organization
     name: Reprodisseny

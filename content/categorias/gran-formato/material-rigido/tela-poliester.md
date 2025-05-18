@@ -23,9 +23,12 @@ type: producto
 schema:
   '@type': Product
   name: Tela poliester
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/mockupProduct.webp'
+  url: >-
+    https://reprodisseny.com/categorias/gran-formato/material-rigido/tela-poliester
   sku: 01-GRFO-0005
+  mpn: REF-01-GRFO-0005
   brand:
     '@type': Organization
     name: Reprodisseny

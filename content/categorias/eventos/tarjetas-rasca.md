@@ -4,12 +4,6 @@ metaTitle: Tarjetas rasca | Repro Disseny
 metaDescription: Tarjetas rasca personalizadas con calidad profesional en Cataluña.
 keywords:
   - tarjetas rasca
-<<<<<<< HEAD
-metaDescription: Tarjetas rasca personalizadas con calidad profesional en Cataluña.
-metaTitle: Tarjetas rasca | Repro Disseny
-nav: Tarjetas rasca
-path: /categorias/eventos/tarjetas-rasca
-=======
 searchTerms:
   - tarjetas rasca
 image: /img/productos/mockupProduct.webp
@@ -18,7 +12,6 @@ alt: alt descripció de la foto
 slug: tarjetas-rasca
 category: eventos
 sku: 01-EVEN-0009
->>>>>>> formfields
 price: 0
 priceCurrency: EUR
 brand: Reprodisseny
@@ -30,9 +23,11 @@ type: producto
 schema:
   '@type': Product
   name: Tarjetas rasca
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/mockupProduct.webp'
+  url: 'https://reprodisseny.com/categorias/eventos/tarjetas-rasca'
   sku: 01-EVEN-0009
+  mpn: REF-01-EVEN-0009
   brand:
     '@type': Organization
     name: Reprodisseny

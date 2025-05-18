@@ -4,12 +4,6 @@ metaTitle: Figuras árbol de navidad | Repro Disseny
 metaDescription: Figuras árbol de navidad personalizadas con calidad profesional en Cataluña.
 keywords:
   - figuras árbol de navidad
-<<<<<<< HEAD
-metaDescription: Figuras árbol de navidad personalizadas con calidad profesional en Cataluña.
-metaTitle: Figuras árbol de navidad | Repro Disseny
-nav: Figuras árbol de navidad
-path: /categorias/eventos/figuras-arbol-navidad
-=======
 searchTerms:
   - figuras árbol de navidad
 image: /img/productos/mockupProduct.webp
@@ -18,7 +12,6 @@ alt: alt descripció de la foto
 slug: figuras-arbol-navidad
 category: eventos
 sku: 01-EVEN-0018
->>>>>>> formfields
 price: 0
 priceCurrency: EUR
 brand: Reprodisseny
@@ -30,9 +23,11 @@ type: producto
 schema:
   '@type': Product
   name: Figuras árbol de navidad
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/mockupProduct.webp'
+  url: 'https://reprodisseny.com/categorias/eventos/figuras-arbol-navidad'
   sku: 01-EVEN-0018
+  mpn: REF-01-EVEN-0018
   brand:
     '@type': Organization
     name: Reprodisseny

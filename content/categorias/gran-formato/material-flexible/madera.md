@@ -23,9 +23,11 @@ type: producto
 schema:
   '@type': Product
   name: Madera
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/mockupProduct.webp'
+  url: 'https://reprodisseny.com/categorias/gran-formato/material-flexible/madera'
   sku: 01-GRFO-0018
+  mpn: REF-01-GRFO-0018
   brand:
     '@type': Organization
     name: Reprodisseny

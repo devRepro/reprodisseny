@@ -4,12 +4,6 @@ metaTitle: Letras Corporeas | Repro Disseny
 metaDescription: Letras Corporeas personalizadas con calidad profesional en Cataluña.
 keywords:
   - letras corporeas
-<<<<<<< HEAD
-metaDescription: Letras Corporeas personalizadas con calidad profesional en Cataluña.
-metaTitle: Letras Corporeas | Repro Disseny
-nav: Letras Corporeas
-path: /categorias/publicitario-oficina/material-publicitario/letras-corporeas
-=======
 searchTerms:
   - letras corporeas
 image: /img/productos/mockupProduct.webp
@@ -18,7 +12,6 @@ alt: alt descripció de la foto
 slug: letras-corporeas
 category: material-publicitario
 sku: 01-OFICI-0029
->>>>>>> formfields
 price: 0
 priceCurrency: EUR
 brand: Reprodisseny
@@ -30,9 +23,12 @@ type: producto
 schema:
   '@type': Product
   name: Letras Corporeas
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/mockupProduct.webp'
+  url: >-
+    https://reprodisseny.com/categorias/publicitario-oficina/material-publicitario/letras-corporeas
   sku: 01-OFICI-0029
+  mpn: REF-01-OFICI-0029
   brand:
     '@type': Organization
     name: Reprodisseny

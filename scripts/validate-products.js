@@ -8,30 +8,22 @@ const baseDir = path.resolve('content/categorias')
 const defaultImage = '/img/productos/mockupProduct.webp'
 const defaultBrand = 'Reprodisseny'
 const defaultCurrency = 'EUR'
+const baseUrl = 'https://reprodisseny.com'
 const logPath = path.resolve('logs/changed-products.txt')
 
 const args = process.argv.slice(2)
 const dryRun = args.includes('--dry-run')
 const changedFiles = []
 
-/**
- * Convierte texto tipo 'arbol-navidad' a 'Arbol Navidad'
- */
 function toTitleCase(str) {
   return str.replace(/[-_]/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
 }
 
-/**
- * Extrae el primer # título del contenido Markdown
- */
 function extractTitle(content) {
   const match = content.match(/^#\s+(.+)/m)
   return match ? match[1].trim() : null
 }
 
-/**
- * Extrae la primera línea de texto útil del cuerpo
- */
 function extractDescription(content) {
   const lines = content.split('\n')
   let inCode = false, inFrontmatter = true
@@ -52,9 +44,6 @@ function extractDescription(content) {
   return ''
 }
 
-/**
- * Ordena las claves del frontmatter para mantener consistencia
- */
 function sortFrontmatter(data) {
   const preferredOrder = [
     'title', 'metaTitle', 'metaDescription', 'keywords', 'searchTerms',
@@ -87,6 +76,7 @@ function updateProduct(filePath) {
   const slug = path.basename(filePath, '.md')
   const relDir = path.relative(baseDir, path.dirname(filePath))
   const parentCat = relDir.split(path.sep).filter(Boolean).pop() || 'sin-categoria'
+  const url = `${baseUrl}/categorias/${relDir}/${slug}`.replace(/\\/g, '/')
 
   const newTitle = data.title || extractTitle(content) || toTitleCase(slug)
   const newDescription = data.description || extractDescription(content)
@@ -115,8 +105,10 @@ function updateProduct(filePath) {
       '@type': 'Product',
       name: newTitle,
       description: newDescription,
-      image: `https://reprodisseny.com${data.image || defaultImage}`,
+      image: `${baseUrl}${data.image || defaultImage}`,
+      url,
       sku: data.sku || '',
+      mpn: `REF-${data.sku || slug.toUpperCase()}`,
       brand: { '@type': 'Organization', name: data.brand || defaultBrand },
       offers: {
         '@type': 'Offer',

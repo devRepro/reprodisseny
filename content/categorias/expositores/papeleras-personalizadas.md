@@ -4,12 +4,6 @@ metaTitle: Papeleras personalizadas | Repro Disseny
 metaDescription: Papeleras personalizadas personalizadas con calidad profesional en Cataluña.
 keywords:
   - papeleras personalizadas
-<<<<<<< HEAD
-metaDescription: Papeleras personalizadas personalizadas con calidad profesional en Cataluña.
-metaTitle: Papeleras personalizadas | Repro Disseny
-nav: Papeleras personalizadas
-path: /categorias/expositores/papeleras-personalizadas
-=======
 searchTerms:
   - papeleras personalizadas
 image: /img/productos/mockupProduct.webp
@@ -18,7 +12,6 @@ alt: alt descripció de la foto
 slug: papeleras-personalizadas
 category: expositores
 sku: 01-EXPO-0017
->>>>>>> formfields
 price: 0
 priceCurrency: EUR
 brand: Reprodisseny
@@ -30,9 +23,11 @@ type: producto
 schema:
   '@type': Product
   name: Papeleras personalizadas
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/mockupProduct.webp'
+  url: 'https://reprodisseny.com/categorias/expositores/papeleras-personalizadas'
   sku: 01-EXPO-0017
+  mpn: REF-01-EXPO-0017
   brand:
     '@type': Organization
     name: Reprodisseny

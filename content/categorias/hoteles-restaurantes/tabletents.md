@@ -4,12 +4,6 @@ metaTitle: Tabletents | Repro Disseny
 metaDescription: Tabletents personalizadas con calidad profesional en Cataluña.
 keywords:
   - tabletents
-<<<<<<< HEAD
-metaDescription: Tabletents personalizadas con calidad profesional en Cataluña.
-metaTitle: Tabletents | Repro Disseny
-nav: Tabletents
-path: /categorias/hoteles-restaurantes/tabletents
-=======
 searchTerms:
   - tabletents
 image: /img/productos/mockupProduct.webp
@@ -18,7 +12,6 @@ alt: alt descripció de la foto
 slug: tabletents
 category: hoteles-restaurantes
 sku: 01-HORE-0009
->>>>>>> formfields
 price: 0
 priceCurrency: EUR
 brand: Reprodisseny
@@ -30,9 +23,11 @@ type: producto
 schema:
   '@type': Product
   name: Tabletents
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/mockupProduct.webp'
+  url: 'https://reprodisseny.com/categorias/hoteles-restaurantes/tabletents'
   sku: 01-HORE-0009
+  mpn: REF-01-HORE-0009
   brand:
     '@type': Organization
     name: Reprodisseny

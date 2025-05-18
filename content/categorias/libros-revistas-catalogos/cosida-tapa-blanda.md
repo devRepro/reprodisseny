@@ -4,11 +4,6 @@ metaTitle: Encuadernación  cosida tapa blanda | Repro Disseny
 metaDescription: >-
   Encuadernación  cosida tapa blanda personalizadas con calidad profesional en
   Cataluña.
-<<<<<<< HEAD
-metaTitle: Encuadernación  cosida tapa blanda | Repro Disseny
-nav: Encuadernación  cosida tapa blanda
-path: /categorias/libros-revistas-catalogos/cosida-tapa-blanda
-=======
 keywords:
   - encuadernación  cosida tapa blanda
 searchTerms:
@@ -19,7 +14,6 @@ alt: alt descripció de la foto
 slug: cosida-tapa-blanda
 category: libros-revistas-catalogos
 sku: 01-PUBLI-0003
->>>>>>> formfields
 price: 0
 priceCurrency: EUR
 brand: Reprodisseny
@@ -31,9 +25,12 @@ type: producto
 schema:
   '@type': Product
   name: Encuadernación  cosida tapa blanda
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/Carteles.webp'
+  url: >-
+    https://reprodisseny.com/categorias/libros-revistas-catalogos/cosida-tapa-blanda
   sku: 01-PUBLI-0003
+  mpn: REF-01-PUBLI-0003
   brand:
     '@type': Organization
     name: Reprodisseny

@@ -4,12 +4,6 @@ metaTitle: Stoppers | Repro Disseny
 metaDescription: Stoppers personalizadas con calidad profesional en Cataluña.
 keywords:
   - stoppers
-<<<<<<< HEAD
-metaDescription: Stoppers personalizadas con calidad profesional en Cataluña.
-metaTitle: Stoppers | Repro Disseny
-nav: Stoppers
-path: /categorias/publicitario-oficina/material-publicitario/stoppers
-=======
 searchTerms:
   - stoppers
 image: /img/productos/mockupProduct.webp
@@ -18,7 +12,6 @@ alt: alt descripció de la foto
 slug: stoppers
 category: material-publicitario
 sku: 01-OFICI-00010
->>>>>>> formfields
 price: 0
 priceCurrency: EUR
 brand: Reprodisseny
@@ -30,9 +23,12 @@ type: producto
 schema:
   '@type': Product
   name: Stoppers
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/mockupProduct.webp'
+  url: >-
+    https://reprodisseny.com/categorias/publicitario-oficina/material-publicitario/stoppers
   sku: 01-OFICI-00010
+  mpn: REF-01-OFICI-00010
   brand:
     '@type': Organization
     name: Reprodisseny

@@ -4,12 +4,6 @@ metaTitle: Tazas | Repro Disseny
 metaDescription: Tazas personalizadas con calidad profesional en Cataluña.
 keywords:
   - tazas
-<<<<<<< HEAD
-metaDescription: Tazas personalizadas con calidad profesional en Cataluña.
-metaTitle: Tazas | Repro Disseny
-nav: Tazas
-path: /categorias/publicitario-oficina/material-publicitario/tazas
-=======
 searchTerms:
   - tazas
 image: /img/productos/mockupProduct.webp
@@ -18,7 +12,6 @@ alt: alt descripció de la foto
 slug: tazas
 category: material-publicitario
 sku: 01-OFICI-0027
->>>>>>> formfields
 price: 0
 priceCurrency: EUR
 brand: Reprodisseny
@@ -30,9 +23,12 @@ type: producto
 schema:
   '@type': Product
   name: Tazas
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/mockupProduct.webp'
+  url: >-
+    https://reprodisseny.com/categorias/publicitario-oficina/material-publicitario/tazas
   sku: 01-OFICI-0027
+  mpn: REF-01-OFICI-0027
   brand:
     '@type': Organization
     name: Reprodisseny

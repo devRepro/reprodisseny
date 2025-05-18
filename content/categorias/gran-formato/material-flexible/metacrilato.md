@@ -23,9 +23,12 @@ type: producto
 schema:
   '@type': Product
   name: Metacrilato
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/mockupProduct.webp'
+  url: >-
+    https://reprodisseny.com/categorias/gran-formato/material-flexible/metacrilato
   sku: 01-GRFO-0017
+  mpn: REF-01-GRFO-0017
   brand:
     '@type': Organization
     name: Reprodisseny

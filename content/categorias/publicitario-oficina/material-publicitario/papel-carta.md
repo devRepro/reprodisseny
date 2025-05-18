@@ -4,12 +4,6 @@ metaTitle: Papel de carta | Repro Disseny
 metaDescription: Papel de carta personalizadas con calidad profesional en Cataluña.
 keywords:
   - papel de carta
-<<<<<<< HEAD
-metaDescription: Papel de carta personalizadas con calidad profesional en Cataluña.
-metaTitle: Papel de carta | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-path: /categorias/publicitario-oficina/material-publicitario/papel-carta
-=======
 searchTerms:
   - papel de carta
 image: /img/productos/mockupProduct.webp
@@ -18,7 +12,6 @@ alt: alt descripció de la foto
 slug: papel-carta
 category: material-publicitario
 sku: 01-OFICI-0018
->>>>>>> formfields
 price: 0
 priceCurrency: EUR
 brand: Reprodisseny
@@ -30,9 +23,12 @@ type: producto
 schema:
   '@type': Product
   name: Papel de carta
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/mockupProduct.webp'
+  url: >-
+    https://reprodisseny.com/categorias/publicitario-oficina/material-publicitario/papel-carta
   sku: 01-OFICI-0018
+  mpn: REF-01-OFICI-0018
   brand:
     '@type': Organization
     name: Reprodisseny

@@ -16,13 +16,7 @@ export default defineNuxtConfig({
   },
 
 
-  modules: [
-    '@nuxt/content',
-    '@nuxtjs/tailwindcss',
-    '@nuxtjs/color-mode',
-    '@nuxt/icon',
-    '@nuxt/image'
-  ],
+  modules: ['@nuxt/content', '@pinia/nuxt','@nuxtjs/tailwindcss', '@nuxtjs/color-mode', '@nuxt/icon', '@nuxt/image', '@nuxtjs/seo'],
 
   css: ['@/assets/styles/main.scss'],
 
@@ -93,13 +87,8 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: '2025-04-27',
-<<<<<<< HEAD
-  devtools: { enabled: true }
-})
-=======
   devtools: { enabled: true },
   
 }
 
 )
->>>>>>> formfields

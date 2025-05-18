@@ -4,12 +4,6 @@ metaTitle: Sellos  | Repro Disseny
 metaDescription: Sellos  personalizadas con calidad profesional en Cataluña.
 keywords:
   - 'sellos '
-<<<<<<< HEAD
-metaDescription: Sellos  personalizadas con calidad profesional en Cataluña.
-metaTitle: Sellos  | Repro Disseny
-nav: 'Sellos '
-path: /categorias/publicitario-oficina/material-publicitario/sellos
-=======
 searchTerms:
   - 'sellos '
 image: /img/productos/sellos-goma.webp
@@ -18,7 +12,6 @@ alt: alt descripció de la foto
 slug: sellos
 category: material-publicitario
 sku: 01-OFICI-0026
->>>>>>> formfields
 price: 0
 priceCurrency: EUR
 brand: Reprodisseny
@@ -30,9 +23,12 @@ type: producto
 schema:
   '@type': Product
   name: 'Sellos '
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/sellos-goma.webp'
+  url: >-
+    https://reprodisseny.com/categorias/publicitario-oficina/material-publicitario/sellos
   sku: 01-OFICI-0026
+  mpn: REF-01-OFICI-0026
   brand:
     '@type': Organization
     name: Reprodisseny

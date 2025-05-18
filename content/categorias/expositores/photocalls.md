@@ -4,12 +4,6 @@ metaTitle: Photocalls | Repro Disseny
 metaDescription: Photocalls personalizadas con calidad profesional en Cataluña.
 keywords:
   - photocalls
-<<<<<<< HEAD
-metaDescription: Photocalls personalizadas con calidad profesional en Cataluña.
-metaTitle: Photocalls | Repro Disseny
-nav: Photocalls
-path: /categorias/expositores/photocalls
-=======
 searchTerms:
   - photocalls
 image: /img/productos/mockupProduct.webp
@@ -18,7 +12,6 @@ alt: alt descripció de la foto
 slug: photocalls
 category: expositores
 sku: 01-EXPO-0004
->>>>>>> formfields
 price: 0
 priceCurrency: EUR
 brand: Reprodisseny
@@ -30,9 +23,11 @@ type: producto
 schema:
   '@type': Product
   name: Photocalls
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/mockupProduct.webp'
+  url: 'https://reprodisseny.com/categorias/expositores/photocalls'
   sku: 01-EXPO-0004
+  mpn: REF-01-EXPO-0004
   brand:
     '@type': Organization
     name: Reprodisseny

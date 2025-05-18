@@ -4,12 +4,6 @@ metaTitle: Lanyards | Repro Disseny
 metaDescription: Lanyards personalizadas con calidad profesional en Cataluña.
 keywords:
   - lanyards
-<<<<<<< HEAD
-metaDescription: Lanyards personalizadas con calidad profesional en Cataluña.
-metaTitle: Lanyards | Repro Disseny
-nav: Lanyards
-path: /categorias/eventos/lanyards
-=======
 searchTerms:
   - lanyards
 image: /img/productos/Lanyard.webp
@@ -18,7 +12,6 @@ alt: alt descripció de la foto
 slug: lanyards
 category: eventos
 sku: 01-EVEN-0004
->>>>>>> formfields
 price: 0
 priceCurrency: EUR
 brand: Reprodisseny
@@ -30,9 +23,11 @@ type: producto
 schema:
   '@type': Product
   name: Lanyards
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/Lanyard.webp'
+  url: 'https://reprodisseny.com/categorias/eventos/lanyards'
   sku: 01-EVEN-0004
+  mpn: REF-01-EVEN-0004
   brand:
     '@type': Organization
     name: Reprodisseny

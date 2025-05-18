@@ -4,12 +4,6 @@ metaTitle: Banner Golf | Repro Disseny
 metaDescription: Banner Golf personalizadas con calidad profesional en Cataluña.
 keywords:
   - banner golf
-<<<<<<< HEAD
-metaDescription: Banner Golf personalizadas con calidad profesional en Cataluña.
-metaTitle: Banner Golf | Repro Disseny
-nav: Banner Golf
-path: /categorias/expositores/banner-golf
-=======
 searchTerms:
   - banner golf
 image: /img/productos/mockupProduct.webp
@@ -18,7 +12,6 @@ alt: alt descripció de la foto
 slug: banner-golf
 category: expositores
 sku: 01-EXPO-0007
->>>>>>> formfields
 price: 0
 priceCurrency: EUR
 brand: Reprodisseny
@@ -30,9 +23,11 @@ type: producto
 schema:
   '@type': Product
   name: Banner Golf
-  description: descripción genérica de mi producto para probar
+  description: ''
   image: 'https://reprodisseny.com/img/productos/mockupProduct.webp'
+  url: 'https://reprodisseny.com/categorias/expositores/banner-golf'
   sku: 01-EXPO-0007
+  mpn: REF-01-EXPO-0007
   brand:
     '@type': Organization
     name: Reprodisseny
