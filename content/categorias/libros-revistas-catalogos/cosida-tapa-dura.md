@@ -1,25 +1,33 @@
 ---
-alt: alt descripció de la foto
-brand: Reprodisseny
-category: libros-revistas-catalogos
-description: descripción genérica de mi producto para probar
-faqs: []
-formFields: []
-galleryImages: []
-image: /img/productos/Carteles.webp
-inStock: true
-keywords:
-  - encuadernación  cosida tapa dura
+title: Encuadernación  cosida tapa dura
+metaTitle: Encuadernación  cosida tapa dura | Repro Disseny
 metaDescription: >-
   Encuadernación  cosida tapa dura personalizadas con calidad profesional en
   Cataluña.
+<<<<<<< HEAD
 metaTitle: Encuadernación  cosida tapa dura | Repro Disseny
 nav: Encuadernación  cosida tapa dura
 path: /categorias/libros-revistas-catalogos/cosida-tapa-dura
+=======
+keywords:
+  - encuadernación  cosida tapa dura
+searchTerms:
+  - encuadernación  cosida tapa dura
+image: /img/productos/Carteles.webp
+galleryImages: []
+alt: alt descripció de la foto
+slug: cosida-tapa-dura
+category: libros-revistas-catalogos
+sku: 01-PUBLI-0004
+>>>>>>> formfields
 price: 0
 priceCurrency: EUR
+brand: Reprodisseny
+inStock: true
+formFields: []
 ratingValue: 0
 reviewCount: 0
+type: producto
 schema:
   '@type': Product
   name: Encuadernación  cosida tapa dura
@@ -28,19 +36,11 @@ schema:
   sku: 01-PUBLI-0004
   brand:
     '@type': Organization
-    name: Repro Disseny
+    name: Reprodisseny
   offers:
     '@type': Offer
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: Product
-searchTerms:
-  - encuadernación  cosida tapa dura
-sku: 01-PUBLI-0004
-slug: cosida-tapa-dura
-tags: []
-title: Encuadernación  cosida tapa dura
-type: producto
 ---
 

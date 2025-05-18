@@ -1,23 +1,32 @@
 ---
-alt: alt descripció de la foto
-brand: Reprodisseny
-category: expositores
-description: descripción genérica de mi producto para probar
-faqs: []
-formFields: []
-galleryImages: []
-image: /img/productos/mockupProduct.webp
-inStock: true
+title: Expositores de mesa
+metaTitle: Expositores de mesa | Repro Disseny
+metaDescription: Expositores de mesa personalizadas con calidad profesional en Cataluña.
 keywords:
   - expositores de mesa
+<<<<<<< HEAD
 metaDescription: Expositores de mesa personalizadas con calidad profesional en Cataluña.
 metaTitle: Expositores de mesa | Repro Disseny
 nav: Expositores de mesa
 path: /categorias/expositores/expositores-mesa
+=======
+searchTerms:
+  - expositores de mesa
+image: /img/productos/mockupProduct.webp
+galleryImages: []
+alt: alt descripció de la foto
+slug: expositores-mesa
+category: expositores
+sku: 01-EXPO-0012
+>>>>>>> formfields
 price: 0
 priceCurrency: EUR
+brand: Reprodisseny
+inStock: true
+formFields: []
 ratingValue: 0
 reviewCount: 0
+type: producto
 schema:
   '@type': Product
   name: Expositores de mesa
@@ -26,19 +35,11 @@ schema:
   sku: 01-EXPO-0012
   brand:
     '@type': Organization
-    name: Repro Disseny
+    name: Reprodisseny
   offers:
     '@type': Offer
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: Product
-searchTerms:
-  - expositores de mesa
-sku: 01-EXPO-0012
-slug: expositores-mesa
-tags: []
-title: Expositores de mesa
-type: producto
 ---
 

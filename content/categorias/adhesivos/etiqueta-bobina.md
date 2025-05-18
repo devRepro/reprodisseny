@@ -1,23 +1,32 @@
 ---
-alt: alt descripció de la foto
-brand: Reprodisseny
-category: adhesivos
-description: descripción genérica de mi producto para probar
-faqs: []
-formFields: []
-galleryImages: []
-image: /img/productos/Etiqueta-adhesiva-bobina.webp
-inStock: true
+title: Etiquetas en bobina
+metaTitle: Etiquetas en bobina | Repro Disseny
+metaDescription: Etiquetas en bobina personalizadas con calidad profesional en Cataluña.
 keywords:
   - etiquetas en bobina
+<<<<<<< HEAD
 metaDescription: Etiquetas en bobina personalizadas con calidad profesional en Cataluña.
 metaTitle: Etiquetas en bobina | Repro Disseny
 nav: Etiquetas en bobina
 path: /categorias/adhesivos/etiqueta-bobina
+=======
+searchTerms:
+  - etiquetas en bobina
+image: /img/productos/Etiqueta-adhesiva-bobina.webp
+galleryImages: []
+alt: alt descripció de la foto
+slug: etiqueta-bobina
+category: adhesivos
+sku: 01-ADHE-0003
+>>>>>>> formfields
 price: 0
 priceCurrency: EUR
+brand: Reprodisseny
+inStock: true
+formFields: []
 ratingValue: 0
 reviewCount: 0
+type: producto
 schema:
   '@type': Product
   name: Etiquetas en bobina
@@ -26,19 +35,11 @@ schema:
   sku: 01-ADHE-0003
   brand:
     '@type': Organization
-    name: Repro Disseny
+    name: Reprodisseny
   offers:
     '@type': Offer
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: Product
-searchTerms:
-  - etiquetas en bobina
-sku: 01-ADHE-0003
-slug: etiqueta-bobina
-tags: []
-title: Etiquetas en bobina
-type: producto
 ---
 

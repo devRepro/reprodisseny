@@ -1,23 +1,32 @@
 ---
-alt: alt descripció de la foto
-brand: Reprodisseny
-category: hoteles-restaurantes
-description: descripción genérica de mi producto para probar
-faqs: []
-formFields: []
-galleryImages: []
-image: /img/productos/mockupProduct.webp
-inStock: true
+title: Minutas de boda
+metaTitle: Minutas de boda | Repro Disseny
+metaDescription: Minutas de boda personalizadas con calidad profesional en Cataluña.
 keywords:
   - minutas de boda
+<<<<<<< HEAD
 metaDescription: Minutas de boda personalizadas con calidad profesional en Cataluña.
 metaTitle: Minutas de boda | Repro Disseny
 nav: Minutas de boda
 path: /categorias/hoteles-restaurantes/minutas-boda
+=======
+searchTerms:
+  - minutas de boda
+image: /img/productos/mockupProduct.webp
+galleryImages: []
+alt: alt descripció de la foto
+slug: minutas-boda
+category: hoteles-restaurantes
+sku: 01-HORE-0006
+>>>>>>> formfields
 price: 0
 priceCurrency: EUR
+brand: Reprodisseny
+inStock: true
+formFields: []
 ratingValue: 0
 reviewCount: 0
+type: producto
 schema:
   '@type': Product
   name: Minutas de boda
@@ -26,19 +35,11 @@ schema:
   sku: 01-HORE-0006
   brand:
     '@type': Organization
-    name: Repro Disseny
+    name: Reprodisseny
   offers:
     '@type': Offer
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: Product
-searchTerms:
-  - minutas de boda
-sku: 01-HORE-0006
-slug: minutas-boda
-tags: []
-title: Minutas de boda
-type: producto
 ---
 

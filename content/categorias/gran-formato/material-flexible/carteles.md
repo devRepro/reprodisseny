@@ -1,25 +1,25 @@
 ---
-alt: alt descripció de la foto
-brand: Reprodisseny
-category: material-flexible
-description: descripción genérica de mi producto para probar
-faqs: []
-formFields: []
-galleryImages: []
-image: /img/productos/Carteles.webp
-inStock: true
+title: Carteles
+metaTitle: Carteles | Repro Disseny
+metaDescription: Carteles personalizadas con calidad profesional en Cataluña.
 keywords:
   - carteles
-metaDescription: Carteles personalizadas con calidad profesional en Cataluña.
-metaTitle: Carteles | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Carteles
-nav: Carteles
-path: /categorias/gran-formato/material-flexible/carteles
+searchTerms:
+  - carteles
+image: /img/productos/Carteles.webp
+galleryImages: []
+alt: alt descripció de la foto
+slug: carteles
+category: material-flexible
+sku: 01-GRFO-0002
 price: 0
 priceCurrency: EUR
+brand: Reprodisseny
+inStock: true
+formFields: []
 ratingValue: 0
 reviewCount: 0
+type: producto
 schema:
   '@type': Product
   name: Carteles
@@ -28,20 +28,12 @@ schema:
   sku: 01-GRFO-0002
   brand:
     '@type': Organization
-    name: Repro Disseny
+    name: Reprodisseny
   offers:
     '@type': Offer
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: Product
-searchTerms:
-  - carteles
-sku: 01-GRFO-0002
-slug: carteles
-tags: []
-title: Carteles
-type: producto
 ---
 
 

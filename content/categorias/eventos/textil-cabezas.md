@@ -1,23 +1,32 @@
 ---
-alt: alt descripció de la foto
-brand: Reprodisseny
-category: eventos
-description: descripción genérica de mi producto para probar
-faqs: []
-formFields: []
-galleryImages: []
-image: /img/productos/mockupProduct.webp
-inStock: true
+title: Textil reposacabezas
+metaTitle: Textil reposacabezas | Repro Disseny
+metaDescription: Textil reposacabezas personalizadas con calidad profesional en Cataluña.
 keywords:
   - textil reposacabezas
+<<<<<<< HEAD
 metaDescription: Textil reposacabezas personalizadas con calidad profesional en Cataluña.
 metaTitle: Textil reposacabezas | Repro Disseny
 nav: Textil reposacabezas
 path: /categorias/eventos/textil-cabezas
+=======
+searchTerms:
+  - textil reposacabezas
+image: /img/productos/mockupProduct.webp
+galleryImages: []
+alt: alt descripció de la foto
+slug: textil-cabezas
+category: eventos
+sku: 01-EVEN-0015
+>>>>>>> formfields
 price: 0
 priceCurrency: EUR
+brand: Reprodisseny
+inStock: true
+formFields: []
 ratingValue: 0
 reviewCount: 0
+type: producto
 schema:
   '@type': Product
   name: Textil reposacabezas
@@ -26,19 +35,11 @@ schema:
   sku: 01-EVEN-0015
   brand:
     '@type': Organization
-    name: Repro Disseny
+    name: Reprodisseny
   offers:
     '@type': Offer
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: Product
-searchTerms:
-  - textil reposacabezas
-sku: 01-EVEN-0015
-slug: textil-cabezas
-tags: []
-title: Textil reposacabezas
-type: producto
 ---
 

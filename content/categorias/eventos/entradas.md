@@ -1,23 +1,32 @@
 ---
-alt: alt descripció de la foto
-brand: Reprodisseny
-category: eventos
-description: descripción genérica de mi producto para probar
-faqs: []
-formFields: []
-galleryImages: []
-image: /img/productos/mockupProduct.webp
-inStock: true
+title: Entradas
+metaTitle: Entradas | Repro Disseny
+metaDescription: Entradas personalizadas con calidad profesional en Cataluña.
 keywords:
   - entradas
+<<<<<<< HEAD
 metaDescription: Entradas personalizadas con calidad profesional en Cataluña.
 metaTitle: Entradas | Repro Disseny
 nav: Entradas
 path: /categorias/eventos/entradas
+=======
+searchTerms:
+  - entradas
+image: /img/productos/mockupProduct.webp
+galleryImages: []
+alt: alt descripció de la foto
+slug: entradas
+category: eventos
+sku: 01-EVEN-0012
+>>>>>>> formfields
 price: 0
 priceCurrency: EUR
+brand: Reprodisseny
+inStock: true
+formFields: []
 ratingValue: 0
 reviewCount: 0
+type: producto
 schema:
   '@type': Product
   name: Entradas
@@ -26,19 +35,11 @@ schema:
   sku: 01-EVEN-0012
   brand:
     '@type': Organization
-    name: Repro Disseny
+    name: Reprodisseny
   offers:
     '@type': Offer
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: Product
-searchTerms:
-  - entradas
-sku: 01-EVEN-0012
-slug: entradas
-tags: []
-title: Entradas
-type: producto
 ---
 

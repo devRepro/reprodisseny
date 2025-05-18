@@ -1,25 +1,25 @@
 ---
-alt: alt descripció de la foto
-brand: Reprodisseny
-category: material-flexible
-description: descripción genérica de mi producto para probar
-faqs: []
-formFields: []
-galleryImages: []
-image: /img/productos/mockupProduct.webp
-inStock: true
+title: Madera
+metaTitle: Madera | Repro Disseny
+metaDescription: Madera personalizadas con calidad profesional en Cataluña.
 keywords:
   - madera
-metaDescription: Madera personalizadas con calidad profesional en Cataluña.
-metaTitle: Madera | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Madera
-nav: Madera
-path: /categorias/gran-formato/material-flexible/madera
+searchTerms:
+  - madera
+image: /img/productos/mockupProduct.webp
+galleryImages: []
+alt: alt descripció de la foto
+slug: madera
+category: material-flexible
+sku: 01-GRFO-0018
 price: 0
 priceCurrency: EUR
+brand: Reprodisseny
+inStock: true
+formFields: []
 ratingValue: 0
 reviewCount: 0
+type: producto
 schema:
   '@type': Product
   name: Madera
@@ -28,19 +28,11 @@ schema:
   sku: 01-GRFO-0018
   brand:
     '@type': Organization
-    name: Repro Disseny
+    name: Reprodisseny
   offers:
     '@type': Offer
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: Product
-searchTerms:
-  - madera
-sku: 01-GRFO-0018
-slug: madera
-tags: []
-title: Madera
-type: producto
 ---
 

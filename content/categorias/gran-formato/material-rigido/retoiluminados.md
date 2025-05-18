@@ -1,25 +1,25 @@
 ---
-alt: alt descripció de la foto
-brand: Reprodisseny
-category: material-rigido
-description: descripción genérica de mi producto para probar
-faqs: []
-formFields: []
-galleryImages: []
-image: /img/productos/mockupProduct.webp
-inStock: true
+title: Retoiluminados
+metaTitle: Retoiluminados | Repro Disseny
+metaDescription: Retoiluminados personalizadas con calidad profesional en Cataluña.
 keywords:
   - retoiluminados
-metaDescription: Retoiluminados personalizadas con calidad profesional en Cataluña.
-metaTitle: Retoiluminados | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Retoiluminados
-nav: Retoiluminados
-path: /categorias/gran-formato/material-rigido/retoiluminados
+searchTerms:
+  - retoiluminados
+image: /img/productos/mockupProduct.webp
+galleryImages: []
+alt: alt descripció de la foto
+slug: retoiluminados
+category: material-rigido
+sku: 01-GRFO-0006
 price: 0
 priceCurrency: EUR
+brand: Reprodisseny
+inStock: true
+formFields: []
 ratingValue: 0
 reviewCount: 0
+type: producto
 schema:
   '@type': Product
   name: Retoiluminados
@@ -28,19 +28,11 @@ schema:
   sku: 01-GRFO-0006
   brand:
     '@type': Organization
-    name: Repro Disseny
+    name: Reprodisseny
   offers:
     '@type': Offer
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: Product
-searchTerms:
-  - retoiluminados
-sku: 01-GRFO-0006
-slug: retoiluminados
-tags: []
-title: Retoiluminados
-type: producto
 ---
 

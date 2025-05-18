@@ -1,25 +1,25 @@
 ---
-alt: alt descripció de la foto
-brand: Reprodisseny
-category: material-flexible
-description: descripción genérica de mi producto para probar
-faqs: []
-formFields: []
-galleryImages: []
-image: /img/productos/mockupProduct.webp
-inStock: true
+title: Papel de pared
+metaTitle: Papel de pared | Repro Disseny
+metaDescription: Papel de pared personalizadas con calidad profesional en Cataluña.
 keywords:
   - papel de pared
-metaDescription: Papel de pared personalizadas con calidad profesional en Cataluña.
-metaTitle: Papel de pared | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Papel de pared
-nav: Papel de pared
-path: /categorias/gran-formato/material-flexible/papel-pared
+searchTerms:
+  - papel de pared
+image: /img/productos/mockupProduct.webp
+galleryImages: []
+alt: alt descripció de la foto
+slug: papel-pared
+category: material-flexible
+sku: 01-GRFO-0003
 price: 0
 priceCurrency: EUR
+brand: Reprodisseny
+inStock: true
+formFields: []
 ratingValue: 0
 reviewCount: 0
+type: producto
 schema:
   '@type': Product
   name: Papel de pared
@@ -28,19 +28,11 @@ schema:
   sku: 01-GRFO-0003
   brand:
     '@type': Organization
-    name: Repro Disseny
+    name: Reprodisseny
   offers:
     '@type': Offer
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: Product
-searchTerms:
-  - papel de pared
-sku: 01-GRFO-0003
-slug: papel-pared
-tags: []
-title: Papel de pared
-type: producto
 ---
 

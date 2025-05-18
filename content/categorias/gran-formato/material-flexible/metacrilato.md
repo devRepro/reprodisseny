@@ -1,25 +1,25 @@
 ---
-alt: alt descripció de la foto
-brand: Reprodisseny
-category: material-flexible
-description: descripción genérica de mi producto para probar
-faqs: []
-formFields: []
-galleryImages: []
-image: /img/productos/mockupProduct.webp
-inStock: true
+title: Metacrilato
+metaTitle: Metacrilato | Repro Disseny
+metaDescription: Metacrilato personalizadas con calidad profesional en Cataluña.
 keywords:
   - metacrilato
-metaDescription: Metacrilato personalizadas con calidad profesional en Cataluña.
-metaTitle: Metacrilato | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Metacrilato
-nav: Metacrilato
-path: /categorias/gran-formato/material-flexible/metacrilato
+searchTerms:
+  - metacrilato
+image: /img/productos/mockupProduct.webp
+galleryImages: []
+alt: alt descripció de la foto
+slug: metacrilato
+category: material-flexible
+sku: 01-GRFO-0017
 price: 0
 priceCurrency: EUR
+brand: Reprodisseny
+inStock: true
+formFields: []
 ratingValue: 0
 reviewCount: 0
+type: producto
 schema:
   '@type': Product
   name: Metacrilato
@@ -28,19 +28,11 @@ schema:
   sku: 01-GRFO-0017
   brand:
     '@type': Organization
-    name: Repro Disseny
+    name: Reprodisseny
   offers:
     '@type': Offer
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: Product
-searchTerms:
-  - metacrilato
-sku: 01-GRFO-0017
-slug: metacrilato
-tags: []
-title: Metacrilato
-type: producto
 ---
 

@@ -1,9 +1,21 @@
 ---
+title: Flyers
+metaTitle: Flyers | Repro Disseny
+metaDescription: Flyers personalizadas con calidad profesional en Cataluña.
+keywords:
+  - flyers
+searchTerms:
+  - flyers
+image: /img/productos/Flyer.webp
+galleryImages: []
 alt: alt descripció de la foto
-brand: Reprodisseny
+slug: flyers
 category: material-oficina
-description: descripción genérica de mi producto para probar
-faqs: []
+sku: 01-OFICI-0002
+price: 0
+priceCurrency: EUR
+brand: Reprodisseny
+inStock: true
 formFields:
   - label: Tamaño
     name: tamano
@@ -28,6 +40,7 @@ formFields:
     options:
       - Brillo
       - Mate
+<<<<<<< HEAD
 galleryImages: []
 image: /img/productos/Flyer.webp
 inStock: true
@@ -39,8 +52,11 @@ nav: Flyers
 path: /categorias/publicitario-oficina/material-oficina/flyers
 price: 0
 priceCurrency: EUR
+=======
+>>>>>>> formfields
 ratingValue: 0
 reviewCount: 0
+type: producto
 schema:
   '@type': Product
   name: Flyers
@@ -49,19 +65,11 @@ schema:
   sku: 01-OFICI-0002
   brand:
     '@type': Organization
-    name: Repro Disseny
+    name: Reprodisseny
   offers:
     '@type': Offer
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: Product
-searchTerms:
-  - flyers
-sku: 01-OFICI-0002
-slug: flyers
-tags: []
-title: Flyers
-type: producto
 ---
 

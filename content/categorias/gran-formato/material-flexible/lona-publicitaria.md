@@ -1,25 +1,25 @@
 ---
-alt: alt descripció de la foto
-brand: Reprodisseny
-category: material-flexible
-description: descripción genérica de mi producto para probar
-faqs: []
-formFields: []
-galleryImages: []
-image: /img/productos/mockupProduct.webp
-inStock: true
+title: Lona publicitaria
+metaTitle: Lona publicitaria | Repro Disseny
+metaDescription: Lona publicitaria personalizadas con calidad profesional en Cataluña.
 keywords:
   - lona publicitaria
-metaDescription: Lona publicitaria personalizadas con calidad profesional en Cataluña.
-metaTitle: Lona publicitaria | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Lona publicitaria
-nav: Lona publicitaria
-path: /categorias/gran-formato/material-flexible/lona-publicitaria
+searchTerms:
+  - lona publicitaria
+image: /img/productos/mockupProduct.webp
+galleryImages: []
+alt: alt descripció de la foto
+slug: lona-publicitaria
+category: material-flexible
+sku: 01-GRFO-0004
 price: 0
 priceCurrency: EUR
+brand: Reprodisseny
+inStock: true
+formFields: []
 ratingValue: 0
 reviewCount: 0
+type: producto
 schema:
   '@type': Product
   name: Lona publicitaria
@@ -28,19 +28,11 @@ schema:
   sku: 01-GRFO-0004
   brand:
     '@type': Organization
-    name: Repro Disseny
+    name: Reprodisseny
   offers:
     '@type': Offer
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: Product
-searchTerms:
-  - lona publicitaria
-sku: 01-GRFO-0004
-slug: lona-publicitaria
-tags: []
-title: Lona publicitaria
-type: producto
 ---
 

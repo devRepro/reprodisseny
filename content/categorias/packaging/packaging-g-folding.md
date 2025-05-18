@@ -1,23 +1,32 @@
 ---
-alt: alt descripció de la foto
-brand: Reprodisseny
-category: packaging
-description: descripción genérica de mi producto para probar
-faqs: []
-formFields: []
-galleryImages: []
-image: /img/productos/mockupProduct.webp
-inStock: true
+title: Packaging Folding
+metaTitle: Packaging Folding | Repro Disseny
+metaDescription: Packaging Folding personalizadas con calidad profesional en Cataluña.
 keywords:
   - packaging folding
+<<<<<<< HEAD
 metaDescription: Packaging Folding personalizadas con calidad profesional en Cataluña.
 metaTitle: Packaging Folding | Repro Disseny
 nav: Packaging Folding
 path: /categorias/packaging/packaging-g-folding
+=======
+searchTerms:
+  - packaging folding
+image: /img/productos/mockupProduct.webp
+galleryImages: []
+alt: alt descripció de la foto
+slug: packaging-g-folding
+category: packaging
+sku: 01-PACK-0001
+>>>>>>> formfields
 price: 0
 priceCurrency: EUR
+brand: Reprodisseny
+inStock: true
+formFields: []
 ratingValue: 0
 reviewCount: 0
+type: producto
 schema:
   '@type': Product
   name: Packaging Folding
@@ -26,19 +35,11 @@ schema:
   sku: 01-PACK-0001
   brand:
     '@type': Organization
-    name: Repro Disseny
+    name: Reprodisseny
   offers:
     '@type': Offer
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: Product
-searchTerms:
-  - packaging folding
-sku: 01-PACK-0001
-slug: packaging-g-folding
-tags: []
-title: Packaging Folding
-type: producto
 ---
 

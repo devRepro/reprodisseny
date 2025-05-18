@@ -1,23 +1,32 @@
 ---
-alt: alt descripció de la foto
-brand: Reprodisseny
-category: hoteles-restaurantes
-description: descripción genérica de mi producto para probar
-faqs: []
-formFields: []
-galleryImages: []
-image: /img/productos/Hules.webp
-inStock: true
+title: Hule personalizado
+metaTitle: Hule personalizado | Repro Disseny
+metaDescription: Hule personalizado personalizadas con calidad profesional en Cataluña.
 keywords:
   - hule personalizado
+<<<<<<< HEAD
 metaDescription: Hule personalizado personalizadas con calidad profesional en Cataluña.
 metaTitle: Hule personalizado | Repro Disseny
 nav: Hule personalizado
 path: /categorias/hoteles-restaurantes/hule-personalizado
+=======
+searchTerms:
+  - hule personalizado
+image: /img/productos/Hules.webp
+galleryImages: []
+alt: alt descripció de la foto
+slug: hule-personalizado
+category: hoteles-restaurantes
+sku: 01-HORE-0004
+>>>>>>> formfields
 price: 0
 priceCurrency: EUR
+brand: Reprodisseny
+inStock: true
+formFields: []
 ratingValue: 0
 reviewCount: 0
+type: producto
 schema:
   '@type': Product
   name: Hule personalizado
@@ -26,19 +35,11 @@ schema:
   sku: 01-HORE-0004
   brand:
     '@type': Organization
-    name: Repro Disseny
+    name: Reprodisseny
   offers:
     '@type': Offer
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: Product
-searchTerms:
-  - hule personalizado
-sku: 01-HORE-0004
-slug: hule-personalizado
-tags: []
-title: Hule personalizado
-type: producto
 ---
 

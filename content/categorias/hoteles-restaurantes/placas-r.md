@@ -1,23 +1,32 @@
 ---
-alt: alt descripció de la foto
-brand: Reprodisseny
-category: hoteles-restaurantes
-description: descripción genérica de mi producto para probar
-faqs: []
-formFields: []
-galleryImages: []
-image: /img/productos/mockupProduct.webp
-inStock: true
+title: Placas QR
+metaTitle: Placas QR | Repro Disseny
+metaDescription: Placas QR personalizadas con calidad profesional en Cataluña.
 keywords:
   - placas qr
+<<<<<<< HEAD
 metaDescription: Placas QR personalizadas con calidad profesional en Cataluña.
 metaTitle: Placas QR | Repro Disseny
 nav: Placas QR
 path: /categorias/hoteles-restaurantes/placas-r
+=======
+searchTerms:
+  - placas qr
+image: /img/productos/mockupProduct.webp
+galleryImages: []
+alt: alt descripció de la foto
+slug: placas-r
+category: hoteles-restaurantes
+sku: 01-HORE-0013
+>>>>>>> formfields
 price: 0
 priceCurrency: EUR
+brand: Reprodisseny
+inStock: true
+formFields: []
 ratingValue: 0
 reviewCount: 0
+type: producto
 schema:
   '@type': Product
   name: Placas QR
@@ -26,19 +35,11 @@ schema:
   sku: 01-HORE-0013
   brand:
     '@type': Organization
-    name: Repro Disseny
+    name: Reprodisseny
   offers:
     '@type': Offer
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: Product
-searchTerms:
-  - placas qr
-sku: 01-HORE-0013
-slug: placas-r
-tags: []
-title: Placas QR
-type: producto
 ---
 

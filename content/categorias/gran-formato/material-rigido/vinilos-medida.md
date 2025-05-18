@@ -1,25 +1,25 @@
 ---
-alt: alt descripció de la foto
-brand: Reprodisseny
-category: material-rigido
-description: descripción genérica de mi producto para probar
-faqs: []
-formFields: []
-galleryImages: []
-image: /img/productos/mockupProduct.webp
-inStock: true
+title: Vinilos a medida
+metaTitle: Vinilos a medida | Repro Disseny
+metaDescription: Vinilos a medida personalizadas con calidad profesional en Cataluña.
 keywords:
   - vinilos a medida
-metaDescription: Vinilos a medida personalizadas con calidad profesional en Cataluña.
-metaTitle: Vinilos a medida | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Vinilos a medida
-nav: Vinilos a medida
-path: /categorias/gran-formato/material-rigido/vinilos-medida
+searchTerms:
+  - vinilos a medida
+image: /img/productos/mockupProduct.webp
+galleryImages: []
+alt: alt descripció de la foto
+slug: vinilos-medida
+category: material-rigido
+sku: 01-GRFO-0001
 price: 0
 priceCurrency: EUR
+brand: Reprodisseny
+inStock: true
+formFields: []
 ratingValue: 0
 reviewCount: 0
+type: producto
 schema:
   '@type': Product
   name: Vinilos a medida
@@ -28,19 +28,11 @@ schema:
   sku: 01-GRFO-0001
   brand:
     '@type': Organization
-    name: Repro Disseny
+    name: Reprodisseny
   offers:
     '@type': Offer
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: Product
-searchTerms:
-  - vinilos a medida
-sku: 01-GRFO-0001
-slug: vinilos-medida
-tags: []
-title: Vinilos a medida
-type: producto
 ---
 ## Vinilos a medida

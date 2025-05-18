@@ -3,15 +3,18 @@ import { defineNuxtConfig } from 'nuxt/config'
 
 export default defineNuxtConfig({
   runtimeConfig: {
-    // Claves privadas (sólo disponibles en servidor)
+    microsoftGraphClientSecret: process.env.GRAPH_SECRET,
+    tenantId: process.env.AZURE_TENANT_ID,
+    clientId: process.env.AZURE_CLIENT_ID,
+    sharepointSiteId: process.env.SHAREPOINT_SITE_ID,
     sendgridApiKey: process.env.SENDGRID_API_KEY,
     sendgridFrom: process.env.SENDGRID_FROM || 'noreply@reprodisseny.com',
-
-    // Claves públicas (disponibles en cliente bajo useRuntimeConfig().public)
+  
     public: {
-      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000',
     }
   },
+
 
   modules: [
     '@nuxt/content',
@@ -90,5 +93,13 @@ export default defineNuxtConfig({
   },
 
   compatibilityDate: '2025-04-27',
+<<<<<<< HEAD
   devtools: { enabled: true }
 })
+=======
+  devtools: { enabled: true },
+  
+}
+
+)
+>>>>>>> formfields

@@ -1,25 +1,25 @@
 ---
-alt: alt descripció de la foto
-brand: Reprodisseny
-category: material-rigido
-description: descripción genérica de mi producto para probar
-faqs: []
-formFields: []
-galleryImages: []
-image: /img/productos/mockupProduct.webp
-inStock: true
+title: Tela poliester
+metaTitle: Tela poliester | Repro Disseny
+metaDescription: Tela poliester personalizadas con calidad profesional en Cataluña.
 keywords:
   - tela poliester
-metaDescription: Tela poliester personalizadas con calidad profesional en Cataluña.
-metaTitle: Tela poliester | Repro Disseny
-metadescription: descripción genérica de mi producto para probar
-metatitle: Tela poliester
-nav: Tela poliester
-path: /categorias/gran-formato/material-rigido/tela-poliester
+searchTerms:
+  - tela poliester
+image: /img/productos/mockupProduct.webp
+galleryImages: []
+alt: alt descripció de la foto
+slug: tela-poliester
+category: material-rigido
+sku: 01-GRFO-0005
 price: 0
 priceCurrency: EUR
+brand: Reprodisseny
+inStock: true
+formFields: []
 ratingValue: 0
 reviewCount: 0
+type: producto
 schema:
   '@type': Product
   name: Tela poliester
@@ -28,19 +28,11 @@ schema:
   sku: 01-GRFO-0005
   brand:
     '@type': Organization
-    name: Repro Disseny
+    name: Reprodisseny
   offers:
     '@type': Offer
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: Product
-searchTerms:
-  - tela poliester
-sku: 01-GRFO-0005
-slug: tela-poliester
-tags: []
-title: Tela poliester
-type: producto
 ---
 
