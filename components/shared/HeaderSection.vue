@@ -1,7 +1,4 @@
 <script setup lang="ts">
-// Imports
-import { NuxtImg } from '#components'
-import { withDefaults, defineProps, useSlots } from 'vue'
 
 /**
  * Props del componente HeaderSection

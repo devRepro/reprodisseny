@@ -33,7 +33,13 @@ export default defineNuxtConfig({
       path: '~/components',
       extensions: ['vue'],
       ignore: ['ui/**']
-    }
+    },
+      // <-- añade esta línea:
+      {
+        path: '~/components/views',
+        extensions: ['vue'],
+        prefix: 'View'
+      }
   ],
 
   app: {
@@ -70,7 +76,7 @@ export default defineNuxtConfig({
     '@types': '/types'
   },
 
-  tailwindcss: { configPath: 'tailwind.config.ts', exposeConfig: true },
+  tailwindcss: { configPath: 'tailwind.config.js', exposeConfig: true },
 
   colorMode: { preference: 'light', fallback: 'light', classSuffix: '' },
 

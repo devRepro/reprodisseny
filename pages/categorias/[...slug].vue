@@ -1,85 +1,82 @@
+<template>
+  <SharedAppCrumbs />
+
+  <ViewCategoria
+    v-if="contentType === 'categoria'"
+    :data="contentData"
+  />
+  <ViewSubcategoria
+    v-else-if="contentType === 'subcategoria'"
+    :data="contentData"
+  />
+  <ViewProducto
+    v-else-if="contentType === 'producto'"
+    :data="contentData"
+  />
+
+  <div v-if="pending" class="text-center py-10">Cargando…</div>
+  <div v-else-if="error" class="text-center py-10 text-red-500">
+    Error: {{ error.message }}
+  </div>
+</template>
+
 <script setup lang="ts">
-// --- Imports ---
+// --- Datos y estado ---
 import { computed, watchEffect, useRuntimeConfig } from '#imports'
+import { useRoute } from 'vue-router'
 import { setPageLayout } from '#imports'
 import { useCategoriaData } from '@/composables/useCategoriaData'
-import CategoryVistaCategoria from '@/components/category/vista/Categoria.vue'
-import CategoryVistaProducto from '@/components/category/vista/Producto.vue'
-import CategoryVistaSubcategoria from '@/components/category/vista/Subcategoria.vue'
 
-// --- Fetch Data ---
 const { contentData, pending, error } = useCategoriaData()
+const contentType = computed(() => contentData.value?.type)
 
-// --- Tipo de contenido ---
-const contentType = computed(() => contentData.value?.type || null)
-
-const componentMap = {
-  categoria: CategoryVistaCategoria,
-  producto: CategoryVistaProducto,
-  subcategoria: CategoryVistaSubcategoria
-} as const
-
-const resolvedComponent = computed(() => {
-  const type = contentType.value
-  return type ? componentMap[type as keyof typeof componentMap] : null
-})
-
-// --- Layout dinámico (solo en cliente para evitar hydration errors) ---
+// --- Layout dinámico ---
 if (process.client) {
   watchEffect(() => {
-    const type = contentData.value?.type
-    if (type === 'producto') setPageLayout('productos')
-    else if (type === 'categoria' || type === 'subcategoria') setPageLayout('categorias')
-    else setPageLayout('default')
+    setPageLayout(
+      contentData.value?.type === 'producto'
+        ? 'productos'
+        : 'categorias'
+    )
   })
 }
 
 // --- SEO dinámico ---
+const route = useRoute()
+const config = useRuntimeConfig().public
 defineSeoMeta(() => {
-  const data = contentData.value
-  const config = useRuntimeConfig().public
-
-  if (!data || pending.value || error.value) return {}
-
+  if (!contentData.value) return {}
+  const url = `${config.siteUrl}${route.fullPath}`
   return {
-    title: data.metaTitle || data.title,
-    description: data.metaDescription || data.description,
-    ogTitle: data.metaTitle || data.title,
-    ogDescription: data.metaDescription || data.description,
-    ogImage: data.image?.startsWith('http')
-      ? data.image
-      : data.image
-      ? `${config.siteUrl}/img/${data.type === 'producto' ? 'productos' : 'categorias'}/${data.image}`
+    title: contentData.value.metaTitle || contentData.value.title,
+    description: contentData.value.metaDescription || contentData.value.description,
+    link: [{ rel: 'canonical', href: url }],
+    ogTitle: contentData.value.metaTitle || contentData.value.title,
+    ogDescription: contentData.value.metaDescription || contentData.value.description,
+    ogImage: contentData.value.image
+      ? `${config.siteUrl}/${contentData.value.image}`
       : undefined,
     twitterCard: 'summary_large_image'
   }
 })
 
-// --- Schema.org (solo si hay schema definido en el .md) ---
+// --- Schema.org + BreadcrumbList (JSON-LD) ---
 defineSchemaOrg(() => {
-  const data = contentData.value
-  if (!data || error.value || !data.schema) return []
-  return [data.schema]
+  if (!contentData.value) return []
+  const base = config.siteUrl
+  const crumbs = [
+    { '@type':'ListItem','position':1,'name':'Inicio','item':base },
+    { '@type':'ListItem','position':2,'name':'Categorías','item':`${base}/categorias` },
+    { '@type':'ListItem','position':3,'name':contentData.value.title,'item':`${base}${route.fullPath}` }
+  ]
+  const list = {
+    '@context':'https://schema.org',
+    '@type':'BreadcrumbList',
+    itemListElement: crumbs
+  }
+  // Si es producto, añadimos también su schema específico
+  return contentData.value.type === 'producto'
+    ? [contentData.value.schema, list]
+    : [list]
 })
 </script>
-
-<template>
-  <div class="category-product-page">
-    <!-- Loader -->
-    <div v-if="pending" class="text-center py-10">Cargando…</div>
-
-    <!-- Contenido -->
-    <component :is="resolvedComponent" v-else-if="contentData" :data="contentData" />
-
-    <!-- Tipo desconocido -->
-    <div v-else-if="!pending && contentData" class="text-center text-orange-500 py-10">
-      Tipo de contenido '{{ contentData.type }}' no reconocido.
-    </div>
-
-    <!-- Error -->
-    <div v-else-if="error && !pending" class="text-center py-10 text-red-500">
-      <p>Error cargando datos. Inténtalo de nuevo más tarde.</p>
-      <p class="mt-2 text-sm">{{ error.message }}</p>
-    </div>
-  </div>
-</template>

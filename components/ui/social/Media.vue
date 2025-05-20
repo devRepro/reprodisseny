@@ -3,7 +3,6 @@ import { Icon } from '#components'
 
 // Define las redes sociales y sus respectivas URLs e iconos
 const socialLinks = [
- 
   {
     name: 'instagram',
     icon: 'lucide:instagram',
@@ -27,17 +26,10 @@ const socialLinks = [
       :href="link.url"
       target="_blank"
       rel="noopener noreferrer"
-      class="text-white hover:underline hover:text-[hsl(var(--color-accent))]"
+      class="text-white hover:text-primary transition-colors"
       :aria-label="link.label"
     >
       <Icon :name="link.icon" class="h-5 w-5" />
     </a>
   </div>
 </template>
-
-<style scoped>
-/* Ajustes opcionales: cambio de color al hover */
-.icon:hover {
-  color: theme('colors.primary.DEFAULT');
-}
-</style>
