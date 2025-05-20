@@ -23,7 +23,7 @@
     "@azure/identity": "^4.9.1",
     "@microsoft/microsoft-graph-client": "^3.0.7",
     "@motionone/vue": "^10.16.4",
-    "@nuxt/content": "^3.3.0",
+    "@nuxt/content": "^3.5.1",
     "@nuxt/icon": "^1.11.0",
     "@nuxt/image": "1.9.0",
     "@nuxtjs/color-mode": "^3.5.2",

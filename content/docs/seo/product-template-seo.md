@@ -33,7 +33,7 @@ import {
     useSeoMeta, // ¡Importante!
     useHead,    // Para canonical y JSON-LD
     createError, 
-    queryContent 
+    queryCollection
 } from '#imports'; 
 
 // --- Obtención de Datos (Asumiendo que funciona) ---
@@ -41,7 +41,7 @@ const route = useRoute();
 const path = route.path; 
 const { data: page, error } = await useAsyncData(
     `content-${path}`, 
-    () => queryContent().where({ _path: path }).findOne()
+    () => queryCollection().where({ _path: path }).findOne()
 );
 
 // --- Manejo de Errores (Como se discutió) ---

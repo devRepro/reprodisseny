@@ -1,7 +1,5 @@
-// stores/categorias.ts
 import { defineStore } from 'pinia'
-
-import type { Categoria, Subcategoria, Producto } from '@/types'
+import type { Categoria } from '@/types'
 
 export const useCategoriasStore = defineStore('categorias', {
   state: () => ({
@@ -14,27 +12,14 @@ export const useCategoriasStore = defineStore('categorias', {
       if (this.loaded) return
 
       try {
-        const raw = await queryCollection('categorias')
-          .where('type', '=', 'categoria')
-          .all()
+        // ✅ Importación dinámica para evitar romper el cliente
+        const { useFetchCategorias } = await import('~/composables/useFetchCategorias.server')
+        const menu = await useFetchCategorias()
 
-        const sorted = raw.sort((a, b) =>
-          a.nav?.localeCompare(b.nav ?? '') ?? 0
-        )
-
-        this.menu = sorted.map((cat: Categoria) => ({
-          ...cat,
-          children: (cat as Categoria)?.children?.map((sub: Subcategoria) => ({
-            ...sub,
-            children: (sub as Subcategoria)?.children?.map((p: Producto) => ({
-              ...p
-            })) || []
-          })) || []
-        }))
-
+        this.menu = menu
         this.loaded = true
-      } catch (error) {
-        console.error('❌ Error al cargar categorías:', error)
+      } catch (err) {
+        console.error('❌ Error al cargar categorías:', err)
         this.menu = []
         this.loaded = false
       }

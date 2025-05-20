@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { defineProps, withDefaults } from 'vue'
-import { NuxtLink } from '#components'
 
 const props = withDefaults(defineProps<{
   image: string

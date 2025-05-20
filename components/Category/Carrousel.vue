@@ -1,54 +1,26 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue'
-import { useAsyncData } from '#imports'
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-  type CarouselApi
-} from '@/components/ui/carousel'
-import { NuxtLink, NuxtImg } from '#components'
+import type { Categoria } from '@/types'
 
-// --- Carga de categorías ---
-const { data: categories, pending, error } = await useAsyncData(
-  'categorias-home',
-  async () => {
-    return await queryCollection('categorias')
-      .where('type', '=', 'categoria')
-      .all()
-  }
-)
+// 1) Recibimos **solo** el prop `categories`
+const props = defineProps<{ categories: Categoria[] }>()
 
-if (error.value) console.error('Error cargando categorías:', error.value)
+// 2) Si necesitas formatear la URL de la imagen, podrías recibir 
+//    también un helper por prop o importarlo aquí:
+import { resolveImageUrl } from '@/utils/images' // o donde lo tengas
 
-// --- Embla API & estado de indicadores ---
-const api = ref<CarouselApi | null>(null)
+// 3) Datos para los indicadores / carousel:
+//    Lo ideal es que el padre te pase también un `count` y 
+//    los handlers prev/next, o uses un composable interno.
+//    Aquí por simplicidad asumiremos que el padre sólo te pasa `categories`
+//    y que tú montas tu propio state local:
+
+import { ref, computed } from 'vue'
+const api = ref<any>(null)
 const current = ref(0)
-const count = ref(0)
+const count = computed(() => props.categories.length)
 
-function setApi(instance: CarouselApi) {
-  api.value = instance
-}
-
-watch(api, (embla) => {
-  if (!embla) return
-  // Número de slides
-  count.value = embla.scrollSnapList().length
-  // Slide actual
-  current.value = embla.selectedScrollSnap()
-  embla.on('select', () => {
-    current.value = embla.selectedScrollSnap()
-  })
-})
-
-// --- Helper imágenes ---
-function resolveImageUrl(src?: string) {
-  if (!src) return '/img/placeholder.webp'
-  return src.startsWith('/') || src.startsWith('http')
-    ? src
-    : `/img/categorias/${src}`
+function onSelect(index: number) {
+  current.value = index
 }
 </script>
 
@@ -56,66 +28,43 @@ function resolveImageUrl(src?: string) {
   <section class="relative px-6 py-12">
     <h1 class="text-2xl font-bold mb-8 text-center">Nuestras Categorías</h1>
 
-    <!-- Loading -->
-    <div v-if="pending" class="text-center text-gray-500">
-      Cargando categorías…
-    </div>
-
     <!-- Carousel con controles -->
-    <div v-else-if="categories && categories.length" class="relative">
+    <div v-if="props.categories.length" class="relative">
       <Carousel
-        :setApi="setApi"
+        :setApi="api"
         :opts="{ align: 'start' }"
         class="w-full"
+        @select="onSelect"
       >
-        <CarouselContent
-          class="-ml-4 flex gap-6 snap-x snap-mandatory overflow-x-auto
-                 scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-100"
-        >
+        <CarouselContent class="-ml-4 flex gap-6 snap-x snap-mandatory overflow-x-auto">
           <CarouselItem
-            v-for="c in categories"
+            v-for="c in props.categories"
             :key="c._path"
             class="basis-[260px] md:basis-[280px] flex-shrink-0"
           >
-            <div
-              class="flex flex-col items-center text-center group"
-            >
-              <!-- Imagen -->
-              <NuxtLink
-                :to="c.path || `/categorias/${c.slug}`"
-                class="block w-full rounded-lg overflow-hidden border border-gray-200"
-              >
-                <div class="relative w-full h-[180px] overflow-hidden">
-                  <NuxtImg
-                    :src="resolveImageUrl(c.image)"
-                    :alt="c.alt || c.title"
-                    class="w-full h-full object-cover
-                           group-hover:scale-105 transition-transform duration-300 ease-in-out"
-                    loading="lazy"
-                    format="webp"
-                    quality="80"
-                  />
-                </div>
-              </NuxtLink>
-              <!-- Título -->
-              <div class="mt-4">
-                <NuxtLink
-                  :to="c.path || `/categorias/${c.slug}`"
-                  class="text-sm font-semibold text-gray-800 hover:underline transition"
-                >
-                  {{ c.nav || c.title }}
-                </NuxtLink>
+            <NuxtLink :to="c.path" class="block w-full rounded-lg overflow-hidden border">
+              <div class="relative w-full h-[180px] overflow-hidden">
+                <NuxtImg
+                  :src="resolveImageUrl(c.image)"
+                  :alt="c.alt || c.title"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300 ease-in-out"
+                  loading="lazy"
+                />
               </div>
+            </NuxtLink>
+            <div class="mt-4 text-center">
+              <NuxtLink :to="c.path" class="text-sm font-semibold hover:underline">
+                {{ c.nav || c.title }}
+              </NuxtLink>
             </div>
           </CarouselItem>
         </CarouselContent>
 
-        <!-- Flechas Prev / Next sólo en desktop -->
         <CarouselPrevious class="hidden md:flex absolute top-1/2 left-0 -translate-y-1/2 ml-2" />
-        <CarouselNext class="hidden md:flex absolute top-1/2 right-0 -translate-y-1/2 mr-2" />
+        <CarouselNext     class="hidden md:flex absolute top-1/2 right-0 -translate-y-1/2 mr-2" />
       </Carousel>
 
-      <!-- Indicadores (dots) -->
+      <!-- Indicadores -->
       <div class="flex justify-center mt-4 space-x-2">
         <button
           v-for="i in count"

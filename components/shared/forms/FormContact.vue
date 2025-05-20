@@ -39,6 +39,9 @@ import { useForm } from 'vee-validate'
 import { toTypedSchema } from '@vee-validate/zod'
 import { z } from 'zod'
 
+import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/button'
+
 
 // Estado
 const success = ref(false)

@@ -113,8 +113,6 @@
   </template>
   
 <script setup lang="ts">
-import { computed } from 'vue'
-import { useCategoriasNav } from '@/composables/useCategoriasNav'
 
 // ✅ Desestructuramos directamente en <script setup>
 const { categorias } = defineProps<{ categorias: any[] }>()

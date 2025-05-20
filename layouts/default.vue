@@ -2,18 +2,33 @@
 import { useSearch } from '@/composables/useSearch'
 import { useCategoriasStore } from '~/stores/categorias'
 
-
+// Instanciar store
 const categoriasStore = useCategoriasStore()
 
-// Cargar categorías al inicio (solo si no están cargadas)
-onMounted(() => {
-  if (!categoriasStore.loaded) {
-    categoriasStore.fetchCategorias()
+// Preload SSR/cliente con fallback y datos cacheados
+const { data: categorias } = await useAsyncData(
+  'categorias',
+  async () => {
+    if (!categoriasStore.loaded) {
+      await categoriasStore.fetchCategorias()
+    }
+    return categoriasStore.menu
+  },
+  {
+    // Previene errores si no hay datos
+    default: () => [],
+    // Opcional: puedes transformar los datos aquí si quisieras
+    transform: (menu) => menu.sort((a, b) => a.nav?.localeCompare(b.nav ?? '') ?? 0)
   }
-})
+)
 
+// Sync store con data (por si viene del SSR y no del store directo)
+if (!categoriasStore.loaded && categorias.value?.length) {
+  categoriasStore.menu = categorias.value
+  categoriasStore.loaded = true
+}
 
-
+// Composable de búsqueda
 const { searchOpen, closeSearch } = useSearch()
 </script>
 

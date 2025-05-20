@@ -9,3 +9,4 @@ const { data: categorias } = useCategoriasHome()
 <CategoryGrid v-if="categorias" :categories="categorias || []" />
   
 </template>
+~/composables/useCategoriasHome.server

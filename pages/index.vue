@@ -1,6 +1,6 @@
   <script setup lang="ts">
   import { computed } from 'vue'
-  import { useCategoriasHome } from '@/composables/useCategoriasHome'
+  import { useCategoriasHome } from '@/composables/useCategoriasHome.server'
 
   const { data: categories, pending, error } = useCategoriasHome()
 
@@ -14,7 +14,7 @@
       <UiSliderHome />
 
       <!-- Mostrar el Carrousel cuando las categorías estén listas -->
-      <CategoryCarrousel :categories="categories"/>
+      <CategoryCarrousel :categories="categories || []" />
 
       <!-- Resto del contenido siempre renderizado -->
       <div class="space-y-4">
@@ -57,3 +57,4 @@
       <UiFeatures />
     </div>
   </template>
+~/composables/useCategoriasHome.server

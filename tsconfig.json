@@ -11,6 +11,8 @@
       "~/*": ["./*"],
       "@/*": ["./*"],
       "@/types": ["types/index.ts"]
-    }
+    },
+    "target": "es2020",
+    "module": "esnext"
   }
 }

@@ -16,7 +16,7 @@ export default defineNuxtConfig({
   },
 
 
-  modules: ['@nuxt/content', '@pinia/nuxt','@nuxtjs/tailwindcss', '@nuxtjs/color-mode', '@nuxt/icon', '@nuxt/image', '@nuxtjs/seo'],
+  modules: ['@nuxtjs/seo', '@nuxt/content', '@pinia/nuxt','@nuxtjs/tailwindcss', '@nuxtjs/color-mode', '@nuxt/icon', '@nuxt/image'],
 
   css: ['@/assets/styles/main.scss'],
 

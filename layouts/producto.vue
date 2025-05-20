@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
-import { useHead } from '#imports'
 
 const route = useRoute()
 
