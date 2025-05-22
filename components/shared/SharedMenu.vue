@@ -1,5 +1,5 @@
 <template>
-  <nav class="w-full bg-white border-b">
+  <nav class="w-full bg-white">
     <ul class="flex space-x-6 px-4 py-3">
       <li
         v-for="cat in categorias"

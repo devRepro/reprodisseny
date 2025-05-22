@@ -1,15 +1,18 @@
 // composables/useCategoriasMenu.ts
 import { useCategoriasStore } from '@/stores/categorias'
+import { useFetchCategorias } from './useFetchCategorias.server'
 
-export const useCategoriasMenu = async () => {
+export function useCategoriasMenu() {
   const store = useCategoriasStore()
+  // Solo carga una vez
+  const { data: categorias } = useAsyncData('categorias-menu', () => useFetchCategorias())
 
-  if (!store.loaded) {
-    const { useFetchCategorias } = await import('~/composables/useFetchCategorias.server')
-    const categorias = await useFetchCategorias()
-    store.menu = categorias
-    store.loaded = true
-  }
+  watchEffect(() => {
+    if (!store.loaded && categorias.value) {
+      store.menu = categorias.value
+      store.loaded = true
+    }
+  })
 
   return {
     categorias: computed(() => store.menu)

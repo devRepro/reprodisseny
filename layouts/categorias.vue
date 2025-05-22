@@ -1,21 +1,3 @@
-<script setup lang="ts">
-import { useRoute } from 'vue-router'
-
-const route = useRoute()
-
-// SEO básico desde el slug
-const pageTitle = route.params.slug?.[route.params.slug.length - 1] || 'Categoría'
-useHead({
-  title: `Impresión de ${pageTitle} | TuEmpresa`,
-  meta: [
-    {
-      name: 'description',
-      content: `Servicios de impresión de ${pageTitle} profesional. Calidad, rapidez y buen precio.`,
-    },
-  ],
-})
-</script>
-
 <template>
   <NuxtLayout name="default">
     <template #navigation>

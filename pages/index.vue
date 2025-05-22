@@ -1,6 +1,6 @@
   <script setup lang="ts">
   import { computed } from 'vue'
-  import { useCategoriasHome } from '@/composables/useCategoriasHome.server'
+  import { useCategoriasHome } from '~/composables/useCategoriasHome'
 
   const { data: categories, pending, error } = useCategoriasHome()
 
@@ -57,4 +57,3 @@
       <UiFeatures />
     </div>
   </template>
-~/composables/useCategoriasHome.server

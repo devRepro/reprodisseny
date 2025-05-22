@@ -1,5 +1,4 @@
 // composables/useCategoria.ts
-import { useAsyncData, showError } from '#imports'
 import type { Categoria } from '@/types'
 
 export function useCategoria(slug: Ref<string> | string) {

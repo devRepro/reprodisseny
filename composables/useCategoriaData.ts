@@ -1,22 +1,37 @@
-import { useRoute, showError } from '#imports'
+// composables/useCategoriaData.ts
+import { ref, computed, watchEffect } from 'vue'
+import { useRoute } from '#imports'        // ← usa el auto-import de Nuxt
+
 
 export function useCategoriaData() {
   const route = useRoute()
+  const slug = computed(() => route.params.slug)
+  const fullSlug = computed(() =>
+    Array.isArray(slug.value) ? slug.value.join('/') : slug.value || ''
+  )
 
-  const slugParts = computed(() => route.params.slug as string[])
-  const slug = computed(() => slugParts.value?.[slugParts.value.length - 1] || '')
+  const contentData = ref<any>(null)
+  const pending     = ref(true)
+  const error       = ref<Error|null>(null)
 
-  const { data: contentData, pending, error } = useAsyncData(`categoria-${slug.value}`, async () => {
-    const result = await queryCollection('categorias')
-      .where('slug', '=', slug.value)
-      .first()
-
-    if (!result) {
-      throw showError({ statusCode: 404, statusMessage: 'Categoría no encontrada' })
+  watchEffect(async () => {
+    if (!fullSlug.value) return
+    pending.value = true
+    try {
+      const path = `/categorias/${fullSlug.value}`
+      const [res] = await queryCollection('categorias')
+        .where({ _path: path })
+        .find()
+      contentData.value = res
+      error.value = null
+    } catch (err: any) {
+      error.value = err
+      contentData.value = null
+    } finally {
+      pending.value = false
     }
-
-    return result
   })
 
   return { contentData, pending, error }
 }
+
