@@ -58,15 +58,6 @@ import { useForm } from 'vee-validate'
 import { z } from 'zod'
 import { toTypedSchema } from '@vee-validate/zod'
 
-import { Input } from '@/components/ui/input'
-import { Button } from '@/components/ui/button'
-import {
-  FormField,
-  FormItem,
-  FormLabel,
-  FormControl,
-  FormMessage,
-} from '@/components/ui/form'
 
 import { useSendLead } from '@/composables/useSendLead'
 

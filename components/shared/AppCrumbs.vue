@@ -11,7 +11,7 @@ import {
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb'
 import { NuxtLink } from '#components'
-import { useHead } from '#imports'
+import { useHead, useRuntimeConfig } from '#imports'
 
 interface Crumb {
   title: string
@@ -22,6 +22,7 @@ interface Crumb {
 const route = useRoute()
 const router = useRouter()
 const { data: categoriasNav, pending, error } = useCategoriasNav()
+const baseUrl = useRuntimeConfig().public.siteUrl || 'https://reprodisseny.com'
 
 // Construcción de breadcrumbs
 const crumbs = computed<Crumb[]>(() => {
@@ -53,13 +54,14 @@ const showCrumbs = computed(() => crumbs.value.length > 1)
 // JSON-LD para BreadcrumbList
 useHead(() => {
   if (!showCrumbs.value) return {}
-  const baseUrl = useRuntimeConfig().public.siteUrl
+
   const itemList = crumbs.value.map((crumb, idx) => ({
     '@type': 'ListItem',
     position: idx + 1,
     name: crumb.title,
     item: `${baseUrl}${crumb.path}`
   }))
+
   return {
     script: [
       {
@@ -74,6 +76,7 @@ useHead(() => {
   }
 })
 </script>
+
 
 <template>
   <Breadcrumb v-if="showCrumbs" class="mb-4 px-4 md:px-0">

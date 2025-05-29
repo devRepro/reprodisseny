@@ -60,6 +60,6 @@ const { searchOpen, closeSearch } = useSearch()
     </main>
 
     <!-- Footer -->
-    <UiFooter />
+    <SharedFooter />
   </div>
 </template>

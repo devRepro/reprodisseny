@@ -11,7 +11,7 @@
 
   <template>
     <div>
-      <UiSliderHome />
+      <SharedSliderHome />
       <!-- Resto del contenido siempre renderizado -->
       <div class="space-y-4">
         <FeatureSection
