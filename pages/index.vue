@@ -13,9 +13,9 @@
     <div>
       <UiSliderHome />
 
-      <!-- Mostrar el Carrousel cuando las categorías estén listas -->
+      <!-- Mostrar el Carrousel cuando las categorías estén listas
       <CategoryCarrousel :categories="categories || []" />
-
+ -->
       <!-- Resto del contenido siempre renderizado -->
       <div class="space-y-4">
         <FeatureSection
