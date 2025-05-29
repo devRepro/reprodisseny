@@ -1,11 +1,4 @@
 <script setup lang="ts">
-import {
-  Menubar,
-  MenubarMenu,
-  MenubarTrigger,
-  MenubarContent,
-  MenubarItem,
-} from '@/components/ui/menubar'
 
 import { Icon } from '#components'
 import { useRouter } from 'vue-router'
