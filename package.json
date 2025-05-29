@@ -7,6 +7,7 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
+    "vercel-build": "rm -rf .nuxt dist && nuxi generate",
     "postinstall": "nuxt prepare",
     "clean": "rm -rf .nuxt node_modules dist .output && npm cache clean --force && npm install && npm run dev",
     "validate-md": "node scripts/validate-md-structure.js",
