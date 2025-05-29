@@ -1,6 +1,6 @@
 // components/category/Grid.vue
 <script setup lang="ts">
-import { Card, CardHeader, CardContent, CardTitle } from '@/components/ui/card'
+import { Card, CardHeader, CardContent, CardTitle } from '@/components/ui/Card'
 import type { Categoria } from '@/types'
 
 defineProps<{ categories: Categoria[] }>()
