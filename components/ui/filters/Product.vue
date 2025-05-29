@@ -1,13 +1,5 @@
 <script setup lang="ts">
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
+
 
 // Define los props que el componente recibe
 // Usamos 'modelValue' para poder usar v-model desde el padre

@@ -86,7 +86,6 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { Popover, PopoverTrigger, PopoverContent } from '@/components/ui/popover'
 import { ChevronDownIcon } from 'lucide-vue-next'
 
 const { categorias } = defineProps<{ categorias: any[] }>()

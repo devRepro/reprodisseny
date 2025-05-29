@@ -30,16 +30,10 @@ export default defineNuxtConfig({
 
   // Auto-import de componentes
   components: [
-    {
-      path:      '~/components/ui',
-      extensions:['vue'],
-      ignore:    ['**/index.ts'],
-      prefix:    'Ui'
-    },
+  
     {
       path:      '~/components',
       extensions:['vue'],
-      ignore:    ['ui/**']
     },
     {
       path:      '~/components/views',

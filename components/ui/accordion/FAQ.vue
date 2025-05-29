@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion'
+
 
 interface FAQ { question: string; answer: string }
 

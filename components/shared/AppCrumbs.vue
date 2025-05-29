@@ -2,15 +2,7 @@
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useCategoriasNav } from '@/composables/useCategoriasNav'
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from '@/components/ui/breadcrumb'
-import { NuxtLink } from '#components'
+
 import { useHead, useRuntimeConfig } from '#imports'
 
 interface Crumb {

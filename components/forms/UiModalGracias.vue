@@ -18,14 +18,7 @@
   </template>
   
   <script setup lang="ts">
-  import {
-    Dialog,
-    DialogContent,
-    DialogHeader,
-    DialogTitle,
-    DialogDescription,
-  } from '@/components/ui/dialog'
-  import { Button } from '@/components/ui/button'
+
   
   const props = defineProps<{ open: boolean }>()
   const emit = defineEmits(['close'])

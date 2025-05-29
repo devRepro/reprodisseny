@@ -3,14 +3,7 @@
 import { ref, nextTick } from 'vue'
 import { useMagicKeys } from '@vueuse/core'
 import { useSearch } from '@/composables/useSearch'
-import {
-  CommandDialog,
-  CommandInput,
-  CommandList,
-  CommandGroup,
-  CommandItem,
-  CommandEmpty
-} from '@/components/ui/command'
+
 import { useContentSearch } from '@/composables/useContentSearch'
 
 const search = ref('')

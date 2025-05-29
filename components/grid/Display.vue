@@ -69,25 +69,7 @@
 
 <script setup lang="ts">
 import { ref, computed, watch } from 'vue'
-import {
-  Pagination,
-  PaginationList,
-  PaginationListItem,
-  PaginationFirst,
-  PaginationLast,
-  PaginationNext,
-  PaginationPrev,
-  PaginationEllipsis
-} from '@/components/ui/pagination'
-import { Button } from '@/components/ui/button'
-import {
-  Select,
-  SelectTrigger,
-  SelectValue,
-  SelectContent,
-  SelectItem
-} from '@/components/ui/select'
-import { Label } from '@/components/ui/label'
+
 
 const props = defineProps<{
   items: Array<any>

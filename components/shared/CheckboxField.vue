@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { Checkbox } from '@/components/ui/checkbox'
 
 const props = defineProps<{
   modelValue: boolean

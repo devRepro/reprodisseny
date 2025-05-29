@@ -16,7 +16,7 @@
 </template>
 
 <script setup lang="ts">
-import { Card, CardHeader, CardContent } from '@/components/ui/card'
+
 import { Icon } from 'lucide-vue-next'
 
 defineProps<{ review: any }>()

@@ -1,11 +1,5 @@
 <script setup lang="ts">
-import { Separator } from '@/components/ui/separator'
-import {
-  Accordion,
-  AccordionItem,
-  AccordionTrigger,
-  AccordionContent,
-} from '@/components/ui/accordion'
+
 import { useCategoriasNav } from '@/composables/useCategoriasNav'
 import { useRouter } from 'vue-router'
 import { computed } from 'vue'
