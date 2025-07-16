@@ -1,36 +1,37 @@
 // composables/useCategoriaData.ts
-import { ref, computed, watchEffect } from 'vue'
-import { useRoute } from '#imports'        // ← usa el auto-import de Nuxt
+import { ref, watch, type Ref } from 'vue'
+import { queryCollection } from '@/api' // ajusta al helper real que uses
 
-
-export function useCategoriaData() {
-  const route = useRoute()
-  const slug = computed(() => route.params.slug)
-  const fullSlug = computed(() =>
-    Array.isArray(slug.value) ? slug.value.join('/') : slug.value || ''
-  )
-
+export function useCategoriaData(fullSlug: Ref<string>) {
   const contentData = ref<any>(null)
   const pending     = ref(true)
   const error       = ref<Error|null>(null)
 
-  watchEffect(async () => {
-    if (!fullSlug.value) return
-    pending.value = true
-    try {
-      const path = `/categorias/${fullSlug.value}`
-      const [res] = await queryCollection('categorias')
-        .where({ _path: path })
-        .find()
-      contentData.value = res
-      error.value = null
-    } catch (err: any) {
-      error.value = err
-      contentData.value = null
-    } finally {
-      pending.value = false
-    }
-  })
+  watch(
+    fullSlug,
+    async (slug) => {
+      if (!slug) {
+        contentData.value = null
+        pending.value     = false
+        return
+      }
+      pending.value = true
+      error.value   = null
+      try {
+        const path = `/categorias/${slug}`
+        const [res] = await queryCollection('categorias')
+          .where({ _path: path })
+          .find()
+        contentData.value = res
+      } catch (err: any) {
+        error.value       = err
+        contentData.value = null
+      } finally {
+        pending.value = false
+      }
+    },
+    { immediate: true }
+  )
 
   return { contentData, pending, error }
 }

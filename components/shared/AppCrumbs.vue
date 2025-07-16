@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import { useRoute } from 'vue-router'
 import { useCategoriasNav } from '@/composables/useCategoriasNav'
+import { useHead, useRuntimeConfig } from '#imports'
+import { NuxtLink } from '#components'
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -10,56 +12,49 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from '@/components/ui/breadcrumb'
-import { NuxtLink } from '#components'
-import { useHead } from '#imports'
 
-interface Crumb {
-  title: string
-  path: string
-}
+interface Crumb { title: string; path: string }
 
-// Datos de navegación y ruta actual
+const config = useRuntimeConfig()
+const baseUrl = config.public.siteUrl
+
 const route = useRoute()
-const router = useRouter()
 const { data: categoriasNav, pending, error } = useCategoriasNav()
 
-// Construcción de breadcrumbs
 const crumbs = computed<Crumb[]>(() => {
-  const base: Crumb[] = [{ title: 'Inicio', path: router.options.history.base || '/' }]
-
+  const base: Crumb[] = [{ title: 'Inicio', path: '/' }]
   if (pending.value || error.value || !categoriasNav.value) {
     return base
   }
 
-  const segments = route.path.split('/').filter(Boolean)
-  let currentLevel = categoriasNav.value.menuItems ?? []
-  let accumulatedPath = ''
+  let currentLevel = categoriasNav.value.menuItems || []
+  let acc = ''
 
-  const dynamicCrumbs = segments.map(segment => {
-    accumulatedPath += `/${segment}`
-    const match = currentLevel.find(item => item.slug === segment)
-    const title = match
-      ? match.nav || match.title
-      : segment.replace(/-/g, ' ').replace(/\b\w/g, c => c.toUpperCase())
-    currentLevel = match?.children ?? []
-    return { title, path: accumulatedPath }
-  })
+  const dynamic = route.path
+    .split('/')
+    // ① sólo strings no vacías
+    .filter(s => typeof s === 'string' && s.length > 0)
+    .map(raw => {
+      // ② garantizamos que `segment` es string
+      const segment = raw ?? ''
+      acc += `/${segment}`
+      const match = currentLevel.find(i => i.slug === segment)
+      const title = match
+        ? (match.nav || match.title)
+        : segment
+            .replace(/-/g, ' ')
+            .replace(/\b\w/g, c => c.toUpperCase())
+      currentLevel = match?.children || []
+      return { title, path: acc }
+    })
 
-  return [...base, ...dynamicCrumbs]
+  return [...base, ...dynamic]
 })
 
 const showCrumbs = computed(() => crumbs.value.length > 1)
 
-// JSON-LD para BreadcrumbList
 useHead(() => {
   if (!showCrumbs.value) return {}
-  const baseUrl = useRuntimeConfig().public.siteUrl
-  const itemList = crumbs.value.map((crumb, idx) => ({
-    '@type': 'ListItem',
-    position: idx + 1,
-    name: crumb.title,
-    item: `${baseUrl}${crumb.path}`
-  }))
   return {
     script: [
       {
@@ -67,7 +62,12 @@ useHead(() => {
         children: JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'BreadcrumbList',
-          itemListElement: itemList
+          itemListElement: crumbs.value.map((c, i) => ({
+            '@type': 'ListItem',
+            position: i + 1,
+            name: c.title,
+            item: `${baseUrl}${c.path}`
+          }))
         })
       }
     ]
@@ -82,9 +82,9 @@ useHead(() => {
         <template v-if="idx < crumbs.length - 1">
           <BreadcrumbLink
             as-child
-            class="text-muted-foreground hover:text-foreground focus-visible:text-foreground transition-colors"
+            class="text-muted-foreground hover:text-foreground transition-colors"
           >
-            <NuxtLink :to="item.path" aria-label="`Ir a ${item.title}`">
+            <NuxtLink :to="item.path" :aria-label="`Ir a ${item.title}`">
               {{ item.title }}
             </NuxtLink>
           </BreadcrumbLink>
