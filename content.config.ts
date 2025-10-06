@@ -1,70 +1,58 @@
-import { defineContentConfig, defineCollection, z } from '@nuxt/content'
+// content.config.ts — Nuxt Content v3
+import { defineContentConfig, defineCollection } from '@nuxt/content'
+import { z } from 'zod'
 
 export default defineContentConfig({
   collections: {
+    // --- Colección de CATEGORÍAS ---
     categorias: defineCollection({
-      source: 'categorias/**/*.{md,yml,json}',
       type: 'page',
+      source: {
+        include: 'categorias/**/*.{md,yml,yaml,json}',
+        // Prefijo URL automático: /categorias/...
+        prefix: '/categorias',
+        // Opcional: ignora dotfiles (.DS_Store, .gitkeep, etc.)
+        exclude: ['**/.*']
+      },
       schema: z.object({
-        // SEO y estructura básica
+        // Básicos
         title: z.string(),
         slug: z.string().optional(),
-        category: z.string().optional(),
-        description: z.string(),
+        description: z.string().optional(),
         image: z.string().optional(),
         alt: z.string().optional(),
-        type: z.string().optional(),
 
-        // Navegación y organización
-        navigation: z.boolean().optional(),
-        nav: z.any().optional(),
-        categoria: z.string().optional(),
+        // Navegación / menú
+        nav: z.string().optional(),
+        order: z.number().optional(),
+        parent: z.string().optional(),
+        hidden: z.boolean().optional(),
+        featured: z.boolean().optional(),
 
-        // SEO opcional avanzado
+        // SEO opcional
         metatitle: z.string().optional(),
         metadescription: z.string().optional(),
 
-        // Schema.org estructurado
-        schema: z.record(z.any()).optional(),
-
-        // 🔜 Campos para ecommerce (opcional por ahora)
-        sku: z.string().optional(),
-        price: z.number().optional(),
-        priceCurrency: z.string().optional(),
-        inStock: z.boolean().optional(),
-        brand: z.string().optional(),
-        keywords: z.array(z.string()).optional(),
-        searchTerms: z.array(z.string()).optional(),
-         // ✅ Campos del formulario dinámico
-         formFields: z.array(
-          z.object({
-            label: z.string(),
-            name: z.string(),
-            type: z.enum(['text', 'number', 'select']),
-            required: z.boolean(),
-            options: z.array(z.string()).optional()
-          })
-        ).optional()
+        // Schema.org opcional
+        schema: z.record(z.any()).optional()
       })
     }),
-    // --- NUEVA Colección para Documentación ---
+
+    // --- Colección de DOCS (ejemplo) ---
     docs: defineCollection({
-      source: 'docs/**/*.md',
       type: 'page',
+      source: {
+        include: 'docs/**/*.md',
+        exclude: ['**/.*']
+      },
       schema: z.object({
-        title: z.string({
-          required_error: 'El título (title) es obligatorio en el frontmatter de los documentos.',
-          invalid_type_error: 'El título (title) debe ser texto.',
-        }),
+        title: z.string(),
         description: z.string().optional(),
-    
-        // 🔧 Añade estos para navegación, búsqueda y .where() con _path
+        // Campos útiles en consultas
         _path: z.string().optional(),
-        path: z.string().optional(),
+        path: z.string().optional()
       })
     })
-    
-    // --- Puedes añadir más colecciones aquí si es necesario ---
-
-  } // Fin del objeto collections
+  }
 })
+

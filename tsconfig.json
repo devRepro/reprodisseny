@@ -3,9 +3,44 @@
   "compilerOptions": {
     "strict": true,
     "skipLibCheck": true,
-    "types": ["vue", "@nuxt/content", "node"],
-    "target": "es2020",
-    "module": "esnext"
-  }
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "baseUrl": ".",
+    "paths": {
+      "~/*": [
+        "./*"
+      ],
+      "@/*": [
+        "./*"
+      ]
+    },
+    "jsx": "preserve",
+    "verbatimModuleSyntax": true,
+    // IMPORTANTE:
+    // No metas "vue" ni "@nuxt/content" aquí: ya los aporta .nuxt/tsconfig.json.
+    // Si necesitas Node, añade solo "node".
+    "types": [
+      "node"
+    ]
+  },
+  "include": [
+    ".nuxt/nuxt.d.ts",
+    "nuxt.config.ts",
+    "app.vue",
+    "types/**/*.d.ts",
+    "types/**/*.ts",
+    "server/**/*",
+    "composables/**/*",
+    "components/**/*",
+    "pages/**/*",
+    "plugins/**/*",
+    "utils/**/*",
+    "content/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    ".output",
+    "dist"
+  ]
 }
-

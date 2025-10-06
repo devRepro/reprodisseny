@@ -1,23 +1,36 @@
 ---
+type: producto
+
+# Básicos
 title: ''
-metaTitle: ''
-metaDescription: ''
-keywords: []
-searchTerms: []
-image: ''
-galleryImages: []
+description: ''         # (si no usas body como descripción corta)
+image: ''               # ruta pública (mejor en /public)
 alt: ''
-slug: ''
-category: ''
+
+# Enriquecimiento / SEO
+metatitle: ''
+metadescription: ''
+keywords: []            # ['pegatinas', 'vinilo']
+searchTerms: []         # ['etiquetas adhesivas', 'stickers personalizados']
+
+# Comercio
 sku: ''
 price: 0
-priceCurrency: 'EUR'
-brand: 'Reprodisseny'
+priceCurrency: EUR      # ISO 4217
+brand: 'Repro Disseny'  # o "Reprodisseny", pero sé consistente
 inStock: true
-formFields: []
-ratingValue: 0
-reviewCount: 0
-type: producto
+
+# Media
+galleryImages: []       # ['/img/productos/p1.webp', '/img/productos/p2.webp']
+
+# Opiniones
+ratingValue: 0          # 0..5
+reviewCount: 0          # entero
+
+# (Opcional) campos de formulario para personalización del producto
+formFields: []          # [{ name: 'ancho', label: 'Ancho (cm)', type: 'number', required: true }]
+
+# (Opcional) schema.org (puedes omitirlo y generarlo en runtime)
 schema:
   "@type": "Product"
   name: ''
@@ -33,3 +46,4 @@ schema:
     priceCurrency: "EUR"
     availability: "https://schema.org/InStock"
 ---
+

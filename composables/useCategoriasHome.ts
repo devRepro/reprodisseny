@@ -1,18 +1,19 @@
-// composables/useCategoriasHome.server.ts
-import { useAsyncData } from '#imports'
+// composables/useCategoriasHome.ts
+import type { CategoriasHomePayload } from '@/types/categorias'
 
-import type { Categoria } from '@/types'
+export function useCategoriasHome(limit = 8) {
+  const key = `categorias-home-${limit}`
 
-export function useCategoriasHome() {
-  return useAsyncData<Categoria[]>(
-    'categorias-home',
-    () =>
-      queryCollection('categorias')
-        .where('type', '=', 'categoria')      // filtrar sólo “categoria”
-        .order('title', 'ASC')               // ordenar alfabéticamente
-        .limit(10)                           // traer como máximo 10
-        .select('title','slug','image') // sólo los campos que usas
-        .all(),
-    { default: () => [] }                   // evita undefined en SSR/hidratación
+  return useAsyncData<CategoriasHomePayload>(
+    key,                                  // ✅ clave string estable
+    () => $fetch<CategoriasHomePayload>('/api/categorias/home', {
+      params: { limit }                   // ✅ filtramos en servidor
+    }),
+    {
+      server: true,
+      dedupe: 'defer',
+      default: () => ({ items: [] })
+    }
   )
 }
+

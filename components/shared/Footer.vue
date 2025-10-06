@@ -1,27 +1,38 @@
 <script setup lang="ts">
+import { useRouter } from "vue-router";
+import { computed } from "vue";
+import { PhoneCall, Mail } from "lucide-vue-next";
 
-import { useCategoriasNav } from '@/composables/useCategoriasNav'
-import { useRouter } from 'vue-router'
-import { computed } from 'vue'
-import { PhoneCall, Mail } from 'lucide-vue-next'
+// ⬇️ importa explícitamente los componentes de shadcn
+import { Separator } from "@/components/ui/separator";
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
 
-const router = useRouter()
-const { data } = await useCategoriasNav()
-const categorias = computed(() => data.value?.menuItems || [])
-const navigateTo = (path: string) => router.push(path)
+// datos categorías (raíces del árbol)
+const { categorias, pending, error } = useCategoriasMenu();
+
+// en Home/Footer sólo necesitamos las raíces
+const cats = computed(() => categorias.value || []);
+
+const router = useRouter();
+const navigateTo = (path: string) => router.push(path);
 </script>
 
 <template>
-  <footer class="bg-gradient-to-b from-[hsl(240,5%,20%)] to-[hsl(240,5%,15%)] text-[hsl(var(--primary-foreground))]">
+  <footer
+    class="bg-gradient-to-b from-[hsl(240,5%,20%)] to-[hsl(240,5%,15%)] text-[hsl(var(--primary-foreground))]"
+  >
     <div class="max-w-7xl mx-auto px-6 py-8">
       <!-- Logo + RRSS -->
       <div class="flex flex-col md:flex-row items-center justify-between mb-8">
-        <UiLogoImgFooter class="h-32 w-auto mb-4 md:mb-0" />
-        <UiSocialMedia />
+        <!-- Si tienes este componente, se auto-importa; si no existe, elimínalo -->
       </div>
 
-      <!-- Separador -->
-      <Separator class="mb-8 bg-[hsl(var(--primary-foreground)/20%)]"  />
+      <Separator class="mb-8 bg-[hsl(var(--primary-foreground)/20%)]" />
 
       <!-- Accordion móvil -->
       <div class="md:hidden mb-8">
@@ -33,19 +44,23 @@ const navigateTo = (path: string) => router.push(path)
               <ul class="space-y-2 text-sm">
                 <li class="flex items-center">
                   <PhoneCall class="w-4 h-4 mr-2 flex-shrink-0" />
-                  <a href="tel:+34932749890" class="hover:underline hover:text-[hsl(var(--color-accent))]">
-                    93 274 9890
+                  <a
+                    href="tel:+34932749890"
+                    class="hover:underline hover:text-[hsl(var(--color-accent))]"
+                  >
+                    93 274 9890
                   </a>
                 </li>
                 <li class="flex items-center">
                   <Mail class="w-4 h-4 mr-2 flex-shrink-0" />
-                  <a href="mailto:repro@reprodisseny.com" class="hover:underline hover:text-[hsl(var(--color-accent))]">
+                  <a
+                    href="mailto:repro@reprodisseny.com"
+                    class="hover:underline hover:text-[hsl(var(--color-accent))]"
+                  >
                     repro@reprodisseny.com
                   </a>
                 </li>
-                <li>
-                  <p class="text-sm">C/ Juan de Mena, 19, Barcelona</p>
-                </li>
+                <li><p class="text-sm">C/ Juan de Mena, 19, Barcelona</p></li>
               </ul>
             </AccordionContent>
           </AccordionItem>
@@ -55,10 +70,11 @@ const navigateTo = (path: string) => router.push(path)
             <AccordionTrigger>Categorías</AccordionTrigger>
             <AccordionContent>
               <ul class="space-y-2 text-sm">
-                <li v-for="cat in categorias" :key="cat.slug">
+                <!-- ⬇️ usa cat.id (es tu slug) -->
+                <li v-for="cat in cats" :key="cat.id">
                   <button
                     class="block w-full text-left hover:underline hover:text-foreground/80 focus-visible:underline focus-visible:text-foreground/80 transition-colors duration-200"
-                    @click="navigateTo(`/categorias/${cat.slug}`)"
+                    @click="navigateTo(cat.path)"
                   >
                     {{ cat.nav || cat.title }}
                   </button>
@@ -74,7 +90,7 @@ const navigateTo = (path: string) => router.push(path)
               <ul class="space-y-2 text-sm">
                 <li>
                   <button
-                    class="block hover:underline hover:text-foreground/80 focus-visible:underline focus-visible:text-foreground/80 transition-colors duration-200"
+                    class="block hover:underline hover:text-foreground/80"
                     @click="navigateTo('/nosotros')"
                   >
                     Sobre Nosotros
@@ -105,9 +121,27 @@ const navigateTo = (path: string) => router.push(path)
             <AccordionTrigger>Recursos</AccordionTrigger>
             <AccordionContent>
               <ul class="space-y-2 text-sm">
-                <li><a href="/blog" class="hover:underline hover:text-[hsl(var(--color-accent))]">Blog</a></li>
-                <li><a href="/faq" class="hover:underline hover:text-[hsl(var(--color-accent))]">FAQ</a></li>
-                <li><a href="/mapa-web" class="hover:underline hover:text-[hsl(var(--color-accent))]">Mapa web</a></li>
+                <li>
+                  <a
+                    href="/blog"
+                    class="hover:underline hover:text-[hsl(var(--color-accent))]"
+                    >Blog</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="/faq"
+                    class="hover:underline hover:text-[hsl(var(--color-accent))]"
+                    >FAQ</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="/mapa-web"
+                    class="hover:underline hover:text-[hsl(var(--color-accent))]"
+                    >Mapa web</a
+                  >
+                </li>
               </ul>
             </AccordionContent>
           </AccordionItem>
@@ -122,13 +156,19 @@ const navigateTo = (path: string) => router.push(path)
           <ul class="space-y-2 text-sm">
             <li class="flex items-center">
               <PhoneCall class="w-4 h-4 mr-2 flex-shrink-0" />
-              <a href="tel:+34932749890" class="hover:underline hover:text-[hsl(var(--color-accent))]">
-                93 274 9890
+              <a
+                href="tel:+34932749890"
+                class="hover:underline hover:text-[hsl(var(--color-accent))]"
+              >
+                93 274 9890
               </a>
             </li>
             <li class="flex items-center">
               <Mail class="w-4 h-4 mr-2 flex-shrink-0" />
-              <a href="mailto:repro@reprodisseny.com" class="hover:underline hover:text-[hsl(var(--color-accent))]">
+              <a
+                href="mailto:repro@reprodisseny.com"
+                class="hover:underline hover:text-[hsl(var(--color-accent))]"
+              >
                 repro@reprodisseny.com
               </a>
             </li>
@@ -140,10 +180,10 @@ const navigateTo = (path: string) => router.push(path)
         <div>
           <h4 class="font-semibold mb-4">Categorías</h4>
           <ul class="space-y-2 text-sm">
-            <li v-for="cat in categorias" :key="cat.slug">
+            <li v-for="cat in cats" :key="cat.id">
               <button
                 class="hover:underline hover:text-[hsl(var(--color-accent))]"
-                @click="navigateTo(`/categorias/${cat.slug}`)"
+                @click="navigateTo(cat.path)"
               >
                 {{ cat.nav || cat.title }}
               </button>
@@ -186,9 +226,25 @@ const navigateTo = (path: string) => router.push(path)
         <div>
           <h4 class="font-semibold mb-4">Recursos</h4>
           <ul class="space-y-2 text-sm">
-            <li><a href="/blog" class="hover:underline hover:text-[hsl(var(--color-accent))]">Blog</a></li>
-            <li><a href="/faq" class="hover:underline hover:text-[hsl(var(--color-accent))]">FAQ</a></li>
-            <li><a href="/mapa-web" class="hover:underline hover:text-[hsl(var(--color-accent))]">Mapa web</a></li>
+            <li>
+              <a
+                href="/blog"
+                class="hover:underline hover:text-[hsl(var(--color-accent))]"
+                >Blog</a
+              >
+            </li>
+            <li>
+              <a href="/faq" class="hover:underline hover:text-[hsl(var(--color-accent))]"
+                >FAQ</a
+              >
+            </li>
+            <li>
+              <a
+                href="/mapa-web"
+                class="hover:underline hover:text-[hsl(var(--color-accent))]"
+                >Mapa web</a
+              >
+            </li>
           </ul>
         </div>
       </div>
@@ -196,11 +252,25 @@ const navigateTo = (path: string) => router.push(path)
 
     <!-- Barra inferior -->
     <div class="border-t border-[hsl(var(--primary-foreground))]">
-      <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center text-xs">
+      <div
+        class="max-w-7xl mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center text-xs"
+      >
         <div class="flex space-x-4">
-          <a href="/mapa-web" class="hover:underline hover:text-[hsl(var(--color-accent))]">Mapa web</a>
-          <a href="/politica-privacidad" class="hover:underline hover:text-[hsl(var(--color-accent))]">Política de privacidad</a>
-          <a href="/terminos" class="hover:underline hover:text-[hsl(var(--color-accent))]">Términos y condiciones</a>
+          <a
+            href="/mapa-web"
+            class="hover:underline hover:text-[hsl(var(--color-accent))]"
+            >Mapa web</a
+          >
+          <a
+            href="/politica-privacidad"
+            class="hover:underline hover:text-[hsl(var(--color-accent))]"
+            >Política de privacidad</a
+          >
+          <a
+            href="/terminos"
+            class="hover:underline hover:text-[hsl(var(--color-accent))]"
+            >Términos y condiciones</a
+          >
         </div>
         <p class="mt-4 md:mt-0">© {{ new Date().getFullYear() }} Repro Disseny.</p>
       </div>

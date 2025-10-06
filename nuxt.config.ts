@@ -1,8 +1,11 @@
-// nuxt.config.ts
 import { defineNuxtConfig } from 'nuxt/config'
+// nuxt.config.ts
+import { fileURLToPath } from 'node:url'
+import { dirname, resolve as resolvePath } from 'node:path'
+
+const dir = dirname(fileURLToPath(import.meta.url))
 
 export default defineNuxtConfig({
-  // Configuración de variables de entorno
   runtimeConfig: {
     microsoftGraphClientSecret: process.env.GRAPH_SECRET,
     tenantId:                  process.env.AZURE_TENANT_ID,
@@ -10,88 +13,79 @@ export default defineNuxtConfig({
     sharepointSiteId:          process.env.SHAREPOINT_SITE_ID,
     sendgridApiKey:            process.env.SENDGRID_API_KEY,
     sendgridFrom:              process.env.SENDGRID_FROM || 'noreply@reprodisseny.com',
+    // Instagram
+    igToken:  process.env.NUXT_IG_TOKEN,
+    igUserId: process.env.NUXT_IG_IG_USER_ID,
+    igApiVer: process.env.NUXT_IG_API_VER || 'v20.0',
+    // Google
+    gmapsApiKey: process.env.NUXT_GMAPS_API_KEY,
     public: {
-      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+      siteUrl:      process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000',
+      gmapsPlaceId: process.env.NUXT_PUBLIC_GMAPS_PLACE_ID || ''
     }
   },
 
-  // Módulos sin nada de SEO
   modules: [
     '@nuxt/content',
     '@pinia/nuxt',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/color-mode',
     '@nuxt/icon',
-    '@nuxt/image'
+    '@nuxt/image',
+    'shadcn-nuxt',
   ],
 
-  // Estilos globales
   css: ['@/assets/styles/main.scss'],
 
-  // Auto-import de componentes
+  shadcn: {
+    prefix: '',
+    componentDir: 'components/ui',
+  },
+
   components: [
-  
-    {
-      path:      '~/components',
-      extensions:['vue'],
-    },
-    {
-      path:      '~/components/views',
-      extensions:['vue'],
-      prefix:    'View'
-    }
+    { path: '~/components', pathPrefix: true }
   ],
 
-  // Head global mínimo
   app: {
     head: {
       titleTemplate: '%s · Reprodisseny',
-      title:         'Impresión profesional en Cataluña',
-      meta: [
-        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      ],
-      link: [
-        { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-      ]
+      title: 'Impresión profesional en Cataluña',
+      meta: [{ name: 'viewport', content: 'width=device-width, initial-scale=1' }],
+      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
     },
     pageTransition:   { name: 'fade', mode: 'out-in' },
     layoutTransition: { name: 'slide', mode: 'out-in' }
   },
 
-  // Alias de carpetas
   alias: {
-    '@components': '/components',
-    '@assets':     '/assets',
-    '@utils':      '/utils',
-    '@types':      '/types'
+    '@components': resolvePath(dir, './components'),
+    '@assets':     resolvePath(dir, './assets'),
+    '@utils':      resolvePath(dir, './utils'),
+    '@types':      resolvePath(dir, './types'),
   },
 
-  // TailwindCSS
   tailwindcss: { configPath: 'tailwind.config.js', exposeConfig: true },
+  colorMode:   { preference: 'light', fallback: 'light', classSuffix: '' },
 
-  // Color mode
-  colorMode: { preference: 'light', fallback: 'light', classSuffix: '' },
+  build: {
+    transpile: ['unicorn-magic'],
+  },
 
-  // Build / Vite
-  build: { transpile: ['unicorn-magic'] },
   vite: {
     optimizeDeps: { include: ['unicorn-magic'] },
-    ssr: { noExternal: ['unicorn-magic'] },
+    ssr:          { noExternal: ['unicorn-magic'] },
     resolve: {
-      alias: {
-        'unicorn-magic$': 'unicorn-magic/dist/unicorn-magic.cjs.js'
-      }
-    }
+      alias: { 'unicorn-magic$': 'unicorn-magic/dist/unicorn-magic.cjs.js' }
+    }  
   },
-
-  // Nitro (SSG + SWR para categorías)
+  
   nitro: {
-    preset: 'static',
     routeRules: {
-      '/categorias/**': { swr: true }
+      '/categorias/**':      { swr: true },
+      '/api/categorias/**':  { swr: true, cache: { maxAge: 3600 } },
     }
   },
 
-  compatibilityDate: '2025-04-27',
-  devtools:          { enabled: true },
+  compatibilityDate: '2025-06-01',
+  devtools: { enabled: true },
 })

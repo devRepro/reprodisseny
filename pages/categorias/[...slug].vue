@@ -1,40 +1,25 @@
+<!-- pages/categorias/[...slug].vue -->
 <script setup lang="ts">
-// 1) Imports mínimos
-import { computed, watchEffect } from 'vue'
-import { useRoute, setPageLayout } from '#imports'
-import { useCategoriaData } from '@/composables/useCategoriaData'
+const { data: doc, pending, error } = await useCategoriaData();
 
-// 2) Datos y rutas
-const route = useRoute()
-const { contentData, pending, error } = useCategoriaData()
-const contentType = computed(() => contentData.value?.type)
+// slug actual desde path (/categorias/foo[/bar])
+const slug = computed(
+  () => doc.value?.slug ?? (useRoute().params.slug as string[] | string)
+);
+const flatSlug = computed(() =>
+  Array.isArray(slug.value) ? slug.value.join("/") : slug.value
+);
 
-// 3) Layout dinámico
-watchEffect(() => {
-  setPageLayout(
-    contentType.value === 'producto' ? 'productos' : 'categorias'
-  )
-})
+const { data: productos } = await useCategoriaProductos(flatSlug.value);
 </script>
 
 <template>
-  <SharedAppCrumbs />
+  <main>
+    <article v-if="doc">
+      <h1>{{ doc.title }}</h1>
+      <ContentRenderer :value="doc" />
+    </article>
 
-  <ViewCategoria
-    v-if="contentType === 'categoria'"
-    :data="contentData"
-  />
-  <ViewSubcategoria
-    v-else-if="contentType === 'subcategoria'"
-    :data="contentData"
-  />
-  <ViewProducto
-    v-else-if="contentType === 'producto'"
-    :data="contentData"
-  />
-
-  <div v-if="pending" class="text-center py-10">Cargando…</div>
-  <div v-else-if="error" class="text-center py-10 text-red-500">
-    Error: {{ error.message }}
-  </div>
+    <ProductList v-if="productos?.length" :products="productos" class="mt-12" />
+  </main>
 </template>
