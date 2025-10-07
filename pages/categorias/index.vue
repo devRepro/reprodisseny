@@ -9,8 +9,6 @@ const categories = computed(() => data.value?.items ?? []);
 
 <template>
   <main class="container mx-auto px-4 py-8 space-y-6">
-    <h1 class="text-white text-2xl font-semibold">Hola mundo!</h1>
-
     <div v-if="pending">Cargando categorías…</div>
     <div v-else-if="error">Error: {{ error?.message || String(error) }}</div>
     <template v-else>
