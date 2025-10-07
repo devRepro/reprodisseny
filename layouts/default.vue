@@ -16,7 +16,7 @@
     </header>
 
     <!-- Contenido -->
-    <main class="container mx-auto w-full flex-1 px-4 py-8">
+    <main class="container mx-auto w-full flex-1 px-4 py-0">
       <NuxtPage />
     </main>
 

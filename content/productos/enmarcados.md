@@ -34,6 +34,7 @@ schema:
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
 categorySlug: material-rigido
+subcategorySlug: material-rigido
 metatitle: Enmarcados | Repro Disseny
 metadescription: Enmarcados personalizadas con calidad profesional en Cataluña.
 order: 0

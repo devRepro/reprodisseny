@@ -28,6 +28,8 @@ export default defineContentConfig({
         parent: z.string().optional(),
         hidden: z.boolean().optional(),
         featured: z.boolean().optional(),
+        type: z.enum(['categoria', 'subcategoria']).optional(),
+
 
         // SEO opcional
         metatitle: z.string().optional(),

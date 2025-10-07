@@ -33,6 +33,7 @@ schema:
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
 categorySlug: material-rigido
+subcategorySlug: material-rigido
 metatitle: Cartel rígido forex
 metadescription: Cartel rígido forex personalizadas con calidad profesional en Cataluña.
 order: 0
