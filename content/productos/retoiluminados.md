@@ -38,5 +38,6 @@ categorySlug: material-rigido
 metatitle: Retoiluminados | Repro Disseny
 metadescription: Retoiluminados personalizadas con calidad profesional en Cataluña.
 order: 0
+subcategorySlug: material-rigido
 ---
 

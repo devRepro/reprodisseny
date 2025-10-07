@@ -38,6 +38,7 @@ categorySlug: material-publicitario
 metatitle: Libretas | Repro Disseny
 metadescription: Libretas personalizadas con calidad profesional en Cataluña.
 order: 0
+subcategorySlug: material-publicitario
 ---
 
 ## Libretas

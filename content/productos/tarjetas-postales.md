@@ -38,5 +38,6 @@ categorySlug: material-publicitario
 metatitle: Tarjetas postales | Repro Disseny
 metadescription: Tarjetas postales personalizadas con calidad profesional en Cataluña.
 order: 0
+subcategorySlug: material-publicitario
 ---
 

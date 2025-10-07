@@ -38,6 +38,7 @@ categorySlug: material-publicitario
 metatitle: Posters | Repro Disseny
 metadescription: Posters personalizadas con calidad profesional en Cataluña.
 order: 0
+subcategorySlug: material-publicitario
 ---
 
 ## Posters

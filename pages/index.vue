@@ -1,20 +1,37 @@
 <script setup lang="ts">
+import { computed } from "vue";
 import { useCategoriasGrid } from "@/composables/useCategoriasGrid";
 
-const { data, pending, error } = useCategoriasGrid();
-const categories = computed(() => data.value?.items ?? []);
+const { data, pending, error } = await useCategoriasGrid();
+
+// Soporta ambas formas por si tu payload trae items o tree
+const categories = computed(() => data.value?.items ?? data.value?.tree ?? []);
 </script>
+
 <template>
   <div>
     <SharedMenuCategories />
-
     <SharedSliderHome />
+
+    <!-- estados -->
+    <div v-if="pending" class="py-10 text-center text-muted-foreground">
+      Cargando categorías…
+    </div>
+    <div v-else-if="error" class="py-10 text-center text-destructive">
+      Error al cargar categorías
+    </div>
+
+    <!-- grid -->
     <SharedGridDisplay
+      v-else
       :items="categories"
-      :keyFn="(c) => c.slug"
-      :titleFn="(c) => c.nav ?? c.title"
-      :linkFn="(c) => c.path"
+      :keyFn="(c) => c.slug || c.id"
+      :titleFn="(c) => c.nav ?? c.title ?? ''"
+      :linkFn="(c) => c.path ?? c.link ?? '/'"
       :imageFn="(c) => c.image ?? ''"
+      :excerptFn="(c) => c.excerpt ?? c.description ?? ''"
+      :countFn="(c) => c.productsCount ?? c.count ?? undefined"
+      :badgesFn="(c) => [c.isNew && 'Nuevo', c.featured && 'Destacado'].filter(Boolean)"
     />
 
     <div class="space-y-4">
@@ -53,4 +70,3 @@ const categories = computed(() => data.value?.items ?? []);
     </div>
   </div>
 </template>
-~/composables/useCategoriasGrid

@@ -38,5 +38,6 @@ categorySlug: material-oficina
 metatitle: Banderolas lineal | Repro Disseny
 metadescription: Banderolas lineal personalizadas con calidad profesional en Cataluña.
 order: 0
+subcategorySlug: material-oficina
 ---
 

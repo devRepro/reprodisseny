@@ -38,6 +38,7 @@ categorySlug: material-publicitario
 metatitle: Papel de carta | Repro Disseny
 metadescription: Papel de carta personalizadas con calidad profesional en Cataluña.
 order: 0
+subcategorySlug: material-publicitario
 ---
 
 ## Papel de carta

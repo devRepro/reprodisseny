@@ -38,5 +38,6 @@ categorySlug: material-flexible
 metatitle: Metacrilato | Repro Disseny
 metadescription: Metacrilato personalizadas con calidad profesional en Cataluña.
 order: 0
+subcategorySlug: material-flexible
 ---
 

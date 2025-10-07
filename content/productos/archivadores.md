@@ -38,5 +38,6 @@ categorySlug: material-oficina
 metatitle: Archivadores | Repro Disseny
 metadescription: Archivadores personalizadas con calidad profesional en Cataluña.
 order: 0
+subcategorySlug: material-oficina
 ---
 

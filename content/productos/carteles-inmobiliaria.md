@@ -38,5 +38,6 @@ categorySlug: material-flexible
 metatitle: Carteles inmobiliaria | Repro Disseny
 metadescription: Carteles inmobiliaria personalizadas con calidad profesional en Cataluña.
 order: 0
+subcategorySlug: material-flexible
 ---
 

@@ -38,5 +38,6 @@ categorySlug: material-oficina
 metatitle: Agendas personalizadas | Repro Disseny
 metadescription: Agendas personalizadas personalizadas con calidad profesional en Cataluña.
 order: 0
+subcategorySlug: material-oficina
 ---
 

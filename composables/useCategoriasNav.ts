@@ -19,18 +19,14 @@ export type ProductoNode = {
   title: string
   description?: string
   image?: string
-  categorySlug: string
+  category?: string
+  categorySlug?: string
+  subcategorySlug?: string
   path?: string | null
   order?: number
 }
 
-type Options = {
-  includeProducts?: boolean
-  productLimit?: number
-  leafOnly?: boolean
-  debug?: boolean
-}
-
+type Options = { productLimit?: number; debug?: boolean }
 type ReturnShape = {
   tree: CategoriaNode[]
   indexBySlug: Record<string, CategoriaNode>
@@ -38,23 +34,27 @@ type ReturnShape = {
 }
 
 export function useCategoriasNav (opts: Options = {}) {
-  const {
-    includeProducts = true,
-    productLimit = 6,
-    leafOnly = true,
-    debug = false
-  } = opts
+  const { productLimit = 6, debug = false } = opts
 
   return useAsyncData<ReturnShape>('categorias:nav', async () => {
-    // 1) árbol de categorías (no pedir 'children' ni 'type' aquí)
-    // @ts-expect-error auto-import (@nuxt/content)
-    const rawTree = await queryCollectionNavigation(
-      'categorias',
-      ['id','slug','title','nav','order','image','path']
-    ).order('order', 'ASC')
+    // --- 1) categorías ---
+    // @ts-expect-error auto-import
+    const raw = await queryCollectionNavigation('categorias', ['id','slug','title','nav','order','image','path'])
+      .order('order','ASC')
 
-    const sanitizePath = (p?: string | null, slug?: string | null, base = '/categorias') =>
+    const norm = (s?: string | null) => (s || '').toString().trim().toLowerCase()
+    const lastSeg = (s?: string | null) => {
+      const t = norm(s).split('/').filter(Boolean); return t[t.length - 1] || ''
+    }
+    const depthFromPath = (p?: string | null) => {
+      const z = (p || '').replace(/^\/+|\/+$/g,'')
+      const rest = z.startsWith('categorias/') ? z.slice('categorias/'.length) : z
+      return rest.split('/').filter(Boolean).length
+    }
+    const sanitizePath = (p?: string | null, slug?: string | null, base='/categorias') =>
       !p ? (slug ? `${base}/${slug}` : null) : (p.startsWith('/api/') ? null : p)
+    const sanitizeProdPath = (p?: string | null, slug?: string | null) =>
+      sanitizePath(p, slug, '/productos')
 
     const normalize = (nodes: CategoriaNode[] = []): CategoriaNode[] =>
       nodes.map(n => ({
@@ -63,132 +63,132 @@ export function useCategoriasNav (opts: Options = {}) {
         children: n.children?.length ? normalize(n.children) : []
       }))
 
-    const tree0 = normalize(rawTree)
-    const top =
-      Array.isArray(tree0) && tree0.length === 1 && Array.isArray(tree0[0]?.children)
-        ? (tree0[0].children as CategoriaNode[])
-        : tree0
-
-    // 2) si no quieres productos, devolvemos índices básicos y listo
-    if (!includeProducts) {
-      const { indexBySlug, menuItems } = buildIndexes(top)
-      if (debug) console.debug('[useCategoriasNav] sin productos', { count: menuItems.length })
-      return { tree: top, indexBySlug, menuItems }
-    }
-
-    // 3) slugs para traer productos
-    const slugs: string[] = []
-    walk(top, n => { if (n.slug) slugs.push(n.slug) })
-
-    // 4) traer productos: preferimos IN, con fallback por lotes si no está soportado
-    let products: ProductoNode[] = []
-    if (slugs.length) {
-      try {
-        // @ts-expect-error auto-import
-        products = await queryCollection('productos')
-          .where('categorySlug', 'IN', slugs)
-          .order('order', 'ASC')
-          .all()
-      } catch (e) {
-        // Fallback por lotes de 20 (evita N+1 grande)
-        const chunks: string[][] = chunk(slugs, 20)
-        const results: ProductoNode[][] = []
-        // @ts-expect-error auto-import
-        for (const subset of chunks) {
-          // Algunos builds soportan múltiples ORs con .where encadenado:
-          let q = queryCollection('productos').order('order', 'ASC')
-          subset.forEach((s, i) => {
-            q = i === 0 ? q.where('categorySlug', '=', s) : q.orWhere('categorySlug', '=', s)
-          })
-          // @ts-expect-error
-          results.push(await q.all())
+    const collapseMirrors = (nodes: CategoriaNode[]): CategoriaNode[] => {
+      return nodes.map(n => {
+        let kids = (n.children || []).map(k => ({ ...k }))
+        // 1) elimina hijos cuyo slug o lastSeg coincida con el del padre
+        const ps = norm(n.slug); const pp = lastSeg(n.path)
+        kids = kids.filter(k => !(norm(k.slug) === ps || lastSeg(k.path) === pp))
+        // 2) colapsa cadenas espejo (un solo hijo y coincide igualmente)
+        if (kids.length === 1) {
+          const k = kids[0]
+          const same = norm(k.slug) === ps || lastSeg(k.path) === pp
+          if (same) {
+            // sube nietos y (si tuviera) products
+            const merged: CategoriaNode = {
+              ...n,
+              products: n.products?.length ? n.products : k.products,
+              children: k.children?.length ? collapseMirrors(k.children) : []
+            }
+            return merged
+          }
         }
-        products = results.flat()
-      }
+        return { ...n, children: kids.length ? collapseMirrors(kids) : [] }
+      })
     }
 
-    const sanitizeProdPath = (p?: string | null, slug?: string | null) =>
-      sanitizePath(p, slug, '/productos')
+    const t0 = normalize(raw)
+    const root = Array.isArray(t0) && t0.length === 1 && t0[0].children ? t0[0].children! : t0
+    const tree = collapseMirrors(root)
 
-    products = (products || []).map(p => ({
-      ...p,
-      path: sanitizeProdPath(p.path, p.slug)
-    }))
+    // --- 2) productos (TODO en memoria; sin SQL complejo) ---
+    // @ts-expect-error auto-import
+    const all: ProductoNode[] = await queryCollection('productos').order('order','ASC').all()
+    const prods = (all || []).map(p => {
+      const kCat = norm(p.categorySlug) || norm(p.category)
+      const kSub = norm(p.subcategorySlug)
+      return {
+        ...p,
+        categorySlug: kCat || p.categorySlug,
+        subcategorySlug: kSub || p.subcategorySlug,
+        path: sanitizeProdPath(p.path, p.slug),
+        __kCat: kCat,
+        __kSub: kSub
+      } as ProductoNode & { __kCat: string; __kSub: string }
+    })
 
-    const bySlug = groupBy(products, p => p.categorySlug)
+    const groupBy = <T,>(arr: T[], key: (t:T)=>string) => {
+      const out: Record<string, T[]> = {}
+      for (const it of arr) {
+        const k = key(it); if (!k) continue
+        ;(out[k] ||= []).push(it)
+      }
+      return out
+    }
 
+    const byCat = groupBy(prods, p => p.__kCat)  // categorías simples (depth=1)
+    const bySub = groupBy(prods, p => p.__kSub)  // subcategorías (depth=2)
+
+    // --- 3) adjuntar SOLO a hojas (tras colapsar espejos) ---
     const attach = (nodes: CategoriaNode[]) => {
       for (const n of nodes) {
         const isLeaf = !(n.children && n.children.length)
-        if (!leafOnly || isLeaf) {
-          const list = n.slug ? (bySlug[n.slug] || []) : []
+        if (isLeaf) {
+          const d = depthFromPath(n.path)
+          const s1 = norm(n.slug); const s2 = lastSeg(n.path)
+          let list: ProductoNode[] = []
+          if (d === 2) {
+            list = [
+              ...(s1 ? (bySub[s1] || []) : []),
+              ...(s2 && s2 !== s1 ? (bySub[s2] || []) : [])
+            ]
+          } else {
+            list = [
+              ...(s1 ? (byCat[s1] || []) : []),
+              ...(s2 && s2 !== s1 ? (byCat[s2] || []) : [])
+            ]
+          }
           n.products = productLimit > 0 ? list.slice(0, productLimit) : list
         }
         if (n.children?.length) attach(n.children)
       }
     }
-    attach(top)
+    attach(tree)
 
-    const { indexBySlug, menuItems } = buildIndexes(top)
+    // --- 4) índices auxiliares ---
+    const indexBySlug: Record<string, CategoriaNode> = {}
+    const menuItems: Array<{ title: string; slug?: string; path?: string | null; hasChildren: boolean }> = []
+    const walk = (ns: CategoriaNode[]) => {
+      for (const n of ns) {
+        if (n.slug) indexBySlug[n.slug] = n
+        menuItems.push({
+          title: n.nav || n.title || n.slug || '(sin título)',
+          slug: n.slug,
+          path: n.path,
+          hasChildren: !!(n.children && n.children.length)
+        })
+        if (n.children?.length) walk(n.children)
+      }
+    }
+    walk(tree)
 
     if (debug) {
       console.groupCollapsed('[useCategoriasNav] resumen')
-      console.table(top.map(n => ({
-        title: n.nav || n.title,
-        slug: n.slug,
-        children: n.children?.length ?? 0,
-        products: n.products?.length ?? 0
-      })))
+      const rows: any[] = []
+      const walk2 = (ns: CategoriaNode[]) => {
+        for (const n of ns) {
+          rows.push({
+            depth: depthFromPath(n.path),
+            title: n.nav || n.title,
+            slug: n.slug,
+            lastSeg: lastSeg(n.path),
+            children: n.children?.length ?? 0,
+            products: n.products?.length ?? 0
+          })
+          if (n.children?.length) walk2(n.children)
+        }
+      }
+      walk2(tree)
+      console.table(rows)
+      console.log('bySub keys:', Object.keys(bySub))
+      console.log('byCat  keys:', Object.keys(byCat))
       console.groupEnd()
     }
 
-    return { tree: top, indexBySlug, menuItems }
+    return { tree, indexBySlug, menuItems }
   }, {
     server: true,
     default: () => ({ tree: [], indexBySlug: {}, menuItems: [] }),
     dedupe: 'defer'
   })
-}
-
-/* ---------------- utils ---------------- */
-
-function walk(nodes: CategoriaNode[], fn: (n: CategoriaNode) => void) {
-  for (const n of nodes) {
-    fn(n)
-    if (n.children?.length) walk(n.children, fn)
-  }
-}
-
-function groupBy<T>(arr: T[], keyFn: (t: T) => string | undefined) {
-  const out: Record<string, T[]> = {}
-  for (const it of arr) {
-    const k = keyFn(it)
-    if (!k) continue
-    if (!out[k]) out[k] = []
-    out[k].push(it)
-  }
-  return out
-}
-
-function chunk<T>(arr: T[], size: number) {
-  const out: T[][] = []
-  for (let i = 0; i < arr.length; i += size) out.push(arr.slice(i, i + size))
-  return out
-}
-
-function buildIndexes(tree: CategoriaNode[]) {
-  const indexBySlug: Record<string, CategoriaNode> = {}
-  const menuItems: Array<{ title: string; slug?: string; path?: string | null; hasChildren: boolean }> = []
-
-  walk(tree, (n) => {
-    if (n.slug) indexBySlug[n.slug] = n
-    menuItems.push({
-      title: n.nav || n.title || n.slug || '(sin título)',
-      slug: n.slug,
-      path: n.path,
-      hasChildren: !!(n.children && n.children.length)
-    })
-  })
-
-  return { indexBySlug, menuItems }
 }

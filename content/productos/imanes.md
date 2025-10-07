@@ -38,6 +38,7 @@ categorySlug: material-publicitario
 metatitle: Imanes | Repro Disseny
 metadescription: Imanes personalizadas con calidad profesional en Cataluña.
 order: 0
+subcategorySlug: material-publicitario
 ---
 
 ## Imanes

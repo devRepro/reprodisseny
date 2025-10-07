@@ -37,5 +37,6 @@ categorySlug: material-flexible
 metatitle: Madera | Repro Disseny
 metadescription: Madera personalizadas con calidad profesional en Cataluña.
 order: 0
+subcategorySlug: material-flexible
 ---
 

@@ -38,5 +38,6 @@ categorySlug: material-publicitario
 metatitle: Stoppers | Repro Disseny
 metadescription: Stoppers personalizadas con calidad profesional en Cataluña.
 order: 0
+subcategorySlug: material-publicitario
 ---
 

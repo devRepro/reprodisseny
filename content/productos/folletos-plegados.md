@@ -38,5 +38,6 @@ categorySlug: material-oficina
 metatitle: Folletos plegados | Repro Disseny
 metadescription: Folletos plegados personalizadas con calidad profesional en Cataluña.
 order: 0
+subcategorySlug: material-oficina
 ---
 

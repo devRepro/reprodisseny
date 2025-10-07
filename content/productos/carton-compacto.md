@@ -38,5 +38,6 @@ categorySlug: material-flexible
 metatitle: Cartón compacto | Repro Disseny
 metadescription: Cartón compacto personalizadas con calidad profesional en Cataluña.
 order: 0
+subcategorySlug: material-flexible
 ---
 

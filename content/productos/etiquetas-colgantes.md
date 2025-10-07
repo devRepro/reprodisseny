@@ -38,5 +38,6 @@ categorySlug: material-oficina
 metatitle: Etiquetas colgantes | Repro Disseny
 metadescription: Etiquetas colgantes personalizadas con calidad profesional en Cataluña.
 order: 0
+subcategorySlug: material-oficina
 ---
 

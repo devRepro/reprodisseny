@@ -54,7 +54,7 @@ export default defineContentConfig({
         type: z.literal('producto'),
         slug: z.string().optional(),            // si no se define, se infiere del filename
         categorySlug: z.string(),               // ← relación con la categoría (obligatorio)
-
+        subcategorySlug: z.string().optional(),   
         // Básicos
         title: z.string(),
         description: z.string().optional(),

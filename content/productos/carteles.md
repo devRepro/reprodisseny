@@ -37,6 +37,7 @@ categorySlug: material-flexible
 metatitle: Carteles | Repro Disseny
 metadescription: Carteles personalizadas con calidad profesional en Cataluña.
 order: 0
+subcategorySlug: material-flexible
 ---
 
 

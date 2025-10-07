@@ -38,6 +38,7 @@ categorySlug: material-publicitario
 metatitle: Pizarras | Repro Disseny
 metadescription: Pizarras personalizadas con calidad profesional en Cataluña.
 order: 0
+subcategorySlug: material-publicitario
 ---
 
 ## Pizarras

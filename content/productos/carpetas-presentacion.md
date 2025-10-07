@@ -38,5 +38,6 @@ categorySlug: material-oficina
 metatitle: Carpetas de presentación | Repro Disseny
 metadescription: Carpetas de presentación personalizadas con calidad profesional en Cataluña.
 order: 0
+subcategorySlug: material-oficina
 ---
 

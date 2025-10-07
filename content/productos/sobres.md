@@ -38,5 +38,6 @@ categorySlug: material-publicitario
 metatitle: Sobres | Repro Disseny
 metadescription: Sobres personalizadas con calidad profesional en Cataluña.
 order: 0
+subcategorySlug: material-publicitario
 ---
 

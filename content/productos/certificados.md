@@ -38,5 +38,6 @@ categorySlug: material-oficina
 metatitle: Certificados | Repro Disseny
 metadescription: Certificados personalizadas con calidad profesional en Cataluña.
 order: 0
+subcategorySlug: material-oficina
 ---
 

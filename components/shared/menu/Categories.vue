@@ -1,9 +1,8 @@
+<!-- components/shared/menu/Categorias.vue -->
 <script setup lang="ts">
 import { computed } from "vue";
-import { useRouter } from "vue-router";
 import { useCategoriasNav } from "@/composables/useCategoriasNav";
 
-// shadcn/ui
 import {
   Menubar,
   MenubarMenu,
@@ -13,23 +12,15 @@ import {
   MenubarSeparator,
 } from "@/components/ui/menubar";
 
-const router = useRouter();
-
-// Incluye productos; por defecto leafOnly: true → productos solo en subcategorías (hojas)
+// Traemos árbol + productos en hojas
 const { data, pending, error } = await useCategoriasNav({
-  includeProducts: true,
-  productLimit: 6, // ajusta a gusto (0 = sin límite)
-  leafOnly: true,
+  productLimit: 6,
   debug: false,
 });
-
-const categories = computed(() =>
-  Array.isArray(data.value?.tree) ? data.value!.tree : []
-);
+const categories = computed(() => data.value?.tree ?? []);
 </script>
 
 <template>
-  <!-- OJO: oculto en móvil -->
   <nav class="hidden md:block border-t border-b">
     <div class="max-w-7xl mx-auto px-6 py-3">
       <div v-if="pending" class="text-sm text-gray-500">Cargando…</div>
@@ -38,39 +29,36 @@ const categories = computed(() =>
         (Sin categorías)
       </div>
 
-      <Menubar v-else class="gap-6 !border-none !shadow-none !bg-transparent">
+      <!-- ✅ Abrimos Menubar (faltaba) -->
+      <Menubar class="gap-6 !border-none !shadow-none !bg-transparent">
         <MenubarMenu
           v-for="cat in categories"
           :key="cat.id || cat.slug || cat.path || cat.title"
         >
-          <MenubarTrigger
-            @click="
-              !cat.children?.length && router.push(cat.path || `/categorias/${cat.slug}`)
-            "
-          >
-            {{ cat.nav || cat.title || cat.slug }}
+          <!-- ✅ Trigger solo abre dropdown, no navega -->
+          <MenubarTrigger as-child>
+            <button type="button" class="cursor-pointer">
+              {{ cat.nav || cat.title || cat.slug }}
+            </button>
           </MenubarTrigger>
 
-          <!-- Mostrar contenido si hay subcategorías o productos -->
+          <!-- Mostrar subcategorías (2 columnas) o productos de categoría simple -->
           <MenubarContent
             v-if="cat.children?.length || cat.products?.length"
             class="min-w-[420px] p-2 z-50"
           >
-            <!-- Caso A: con subcategorías → grid 2 columnas; cada sub muestra sus productos -->
+            <!-- Con subcategorías -->
             <template v-if="cat.children?.length">
-              <!-- Enlace destacado a la categoría -->
+              <!-- (Opcional) pequeño enlace a la categoría, aquí no molesta al trigger -->
+              <!--
               <MenubarItem v-if="cat.path" asChild class="font-semibold text-primary">
                 <NuxtLink :to="cat.path">Ver {{ cat.nav || cat.title }}</NuxtLink>
               </MenubarItem>
               <MenubarSeparator v-if="cat.path" />
+              -->
 
               <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                <div
-                  v-for="sub in cat.children"
-                  :key="sub.id || sub.slug || sub.path || sub.title"
-                  class="min-w-[200px]"
-                >
-                  <!-- Cabecera subcategoría -->
+                <div v-for="sub in cat.children" :key="sub.slug" class="min-w-[200px]">
                   <div
                     class="px-2 py-1 text-xs uppercase tracking-wide text-muted-foreground"
                   >
@@ -79,18 +67,16 @@ const categories = computed(() =>
                     </NuxtLink>
                   </div>
 
-                  <!-- Productos de la subcategoría -->
                   <div class="flex flex-col">
                     <MenubarItem
                       v-for="prod in sub.products || []"
-                      :key="prod.slug || prod.id"
+                      :key="prod.slug"
                       asChild
                     >
                       <NuxtLink :to="prod.path || `/productos/${prod.slug}`">
                         {{ prod.title }}
                       </NuxtLink>
                     </MenubarItem>
-
                     <MenubarItem v-if="(sub.products?.length ?? 0) === 0" disabled>
                       (Sin productos)
                     </MenubarItem>
@@ -99,25 +85,13 @@ const categories = computed(() =>
               </div>
             </template>
 
-            <!-- Caso B: sin subcategorías → productos de la categoría -->
+            <!-- Sin subcategorías: SOLO productos (❌ sin enlace de categoría para evitar clicks accidentales) -->
             <template v-else>
-              <MenubarItem v-if="cat.path" asChild class="font-semibold text-primary">
-                <NuxtLink :to="cat.path">Ver {{ cat.nav || cat.title }}</NuxtLink>
-              </MenubarItem>
-              <MenubarSeparator v-if="cat.path" />
-
-              <MenubarItem
-                v-for="prod in cat.products || []"
-                :key="prod.slug || prod.id"
-                asChild
-              >
+              <!-- ❌ eliminado el MenubarItem con NuxtLink a cat.path -->
+              <MenubarItem v-for="prod in cat.products || []" :key="prod.slug" asChild>
                 <NuxtLink :to="prod.path || `/productos/${prod.slug}`">
                   {{ prod.title }}
                 </NuxtLink>
-              </MenubarItem>
-
-              <MenubarItem v-if="(cat.products?.length ?? 0) === 0" disabled>
-                (Sin productos)
               </MenubarItem>
             </template>
           </MenubarContent>

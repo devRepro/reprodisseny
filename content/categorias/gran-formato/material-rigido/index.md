@@ -70,10 +70,12 @@ searchTerms:
   - impresión rígidos gran formato
   - carteles materiales rígidos
   - señalización rígida personalizada
-  slug: material-rigido
+
+slug: material-rigido
 title: Impresión en Materiales Rígidos - Gran Formato
 type: subcategoria
 ---
+
 
 ## Impresión en Materiales Rígidos - Gran Formato
 

@@ -38,5 +38,6 @@ categorySlug: material-flexible
 metatitle: Nido abeja | Repro Disseny
 metadescription: Nido abeja personalizadas con calidad profesional en Cataluña.
 order: 0
+subcategorySlug: material-flexible
 ---
 

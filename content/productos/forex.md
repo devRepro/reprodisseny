@@ -37,6 +37,7 @@ categorySlug: material-rigido
 metatitle: Forex | Repro Disseny
 metadescription: Forex personalizadas con calidad profesional en Cataluña.
 order: 0
+subcategorySlug: material-rigido
 ---
 
 ## Forex

@@ -38,5 +38,6 @@ categorySlug: material-rigido
 metatitle: Vinilos a medida | Repro Disseny
 metadescription: Vinilos a medida personalizadas con calidad profesional en Cataluña.
 order: 0
+subcategorySlug: material-rigido
 ---
 ## Vinilos a medida

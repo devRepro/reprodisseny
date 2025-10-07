@@ -38,5 +38,6 @@ categorySlug: material-flexible
 metatitle: Papel de pared | Repro Disseny
 metadescription: Papel de pared personalizadas con calidad profesional en Cataluña.
 order: 0
+subcategorySlug: material-flexible
 ---
 

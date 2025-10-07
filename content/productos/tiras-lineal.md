@@ -38,5 +38,6 @@ categorySlug: material-publicitario
 metatitle: Tiras lineal | Repro Disseny
 metadescription: Tiras lineal personalizadas con calidad profesional en Cataluña.
 order: 0
+subcategorySlug: material-publicitario
 ---
 

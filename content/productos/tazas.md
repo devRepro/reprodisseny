@@ -38,5 +38,6 @@ categorySlug: material-publicitario
 metatitle: Tazas | Repro Disseny
 metadescription: Tazas personalizadas con calidad profesional en Cataluña.
 order: 0
+subcategorySlug: material-publicitario
 ---
 

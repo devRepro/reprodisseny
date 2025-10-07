@@ -38,5 +38,6 @@ categorySlug: material-oficina
 metatitle: Flyers con forma | Repro Disseny
 metadescription: Flyers con forma personalizadas con calidad profesional en Cataluña.
 order: 0
+subcategorySlug: material-oficina
 ---
 

@@ -38,6 +38,7 @@ categorySlug: material-publicitario
 metatitle: Letras Corporeas | Repro Disseny
 metadescription: Letras Corporeas personalizadas con calidad profesional en Cataluña.
 order: 0
+subcategorySlug: material-publicitario
 ---
 
 ## Letras Corporeas

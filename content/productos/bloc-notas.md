@@ -38,5 +38,6 @@ categorySlug: material-oficina
 metatitle: Bloc de notas | Repro Disseny
 metadescription: Bloc de notas personalizadas con calidad profesional en Cataluña.
 order: 0
+subcategorySlug: material-oficina
 ---
 s

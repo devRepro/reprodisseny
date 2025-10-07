@@ -38,5 +38,6 @@ categorySlug: material-publicitario
 metatitle: Tarjetones e invitaciones | Repro Disseny
 metadescription: Tarjetones e invitaciones personalizadas con calidad profesional en Cataluña.
 order: 0
+subcategorySlug: material-publicitario
 ---
 

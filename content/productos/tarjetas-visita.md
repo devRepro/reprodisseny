@@ -38,5 +38,6 @@ categorySlug: material-publicitario
 metatitle: Tarjetas de visita | Repro Disseny
 metadescription: Tarjetas de visita personalizadas con calidad profesional en Cataluña.
 order: 0
+subcategorySlug: material-publicitario
 ---
 

@@ -38,6 +38,7 @@ categorySlug: material-publicitario
 metatitle: Puntos de libro | Repro Disseny
 metadescription: Puntos de libro personalizadas con calidad profesional en Cataluña.
 order: 0
+subcategorySlug: material-publicitario
 ---
 
 ## Puntos de libro

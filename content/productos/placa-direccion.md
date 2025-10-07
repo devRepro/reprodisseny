@@ -38,6 +38,7 @@ categorySlug: material-publicitario
 metatitle: Placa dirección | Repro Disseny
 metadescription: Placa dirección personalizadas con calidad profesional en Cataluña.
 order: 0
+subcategorySlug: material-publicitario
 ---
 
 ## Placa dirección

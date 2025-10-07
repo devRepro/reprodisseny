@@ -38,5 +38,6 @@ categorySlug: material-oficina
 metatitle: Displays | Repro Disseny
 metadescription: Displays personalizadas con calidad profesional en Cataluña.
 order: 0
+subcategorySlug: material-oficina
 ---
 

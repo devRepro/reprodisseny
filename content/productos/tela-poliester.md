@@ -38,5 +38,6 @@ categorySlug: material-rigido
 metatitle: Tela poliester | Repro Disseny
 metadescription: Tela poliester personalizadas con calidad profesional en Cataluña.
 order: 0
+subcategorySlug: material-rigido
 ---
 

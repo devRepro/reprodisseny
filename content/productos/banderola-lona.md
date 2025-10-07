@@ -40,5 +40,6 @@ metadescription: >-
   Banderola para fachada de lona personalizadas con calidad profesional en
   Cataluña.
 order: 0
+subcategorySlug: material-flexible
 ---
 

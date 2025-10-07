@@ -38,5 +38,6 @@ categorySlug: material-publicitario
 metatitle: Tarjetas rasca | Repro Disseny
 metadescription: Tarjetas rasca personalizadas con calidad profesional en Cataluña.
 order: 0
+subcategorySlug: material-publicitario
 ---
 

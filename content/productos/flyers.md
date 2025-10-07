@@ -61,5 +61,6 @@ categorySlug: material-oficina
 metatitle: Flyers | Repro Disseny
 metadescription: Flyers personalizadas con calidad profesional en Cataluña.
 order: 0
+subcategorySlug: material-oficina
 ---
 

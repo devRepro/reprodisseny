@@ -38,5 +38,6 @@ categorySlug: material-oficina
 metatitle: Calendarios | Repro Disseny
 metadescription: Calendarios personalizadas con calidad profesional en Cataluña.
 order: 0
+subcategorySlug: material-oficina
 ---
 
