@@ -33,6 +33,7 @@ export default defineNuxtConfig({
     '@nuxt/icon',
     '@nuxt/image',
     'shadcn-nuxt',
+    '@nuxt/ui',
   ],
 
   css: ['@/assets/styles/main.scss'],

@@ -1,7 +1,7 @@
 <!-- components/shared/menu/Categorias.vue -->
 <script setup lang="ts">
 import { Icon } from "#components";
-import { useRouter } from "vue-router";
+import { computed } from "vue";
 import { useCategoriasNav } from "@/composables/useCategoriasNav";
 
 import {
@@ -11,63 +11,56 @@ import {
   MenubarContent,
   MenubarItem,
   MenubarSeparator,
-  // MenubarShortcut, MenubarSub, MenubarSubTrigger, MenubarSubContent... (si los usas)
 } from "@/components/ui/menubar";
-// Datos del endpoint cacheado { tree, indexById }
-const { data } = await useCategoriasNav();
 
-// Si hay nodos ocultos, ya vendrán podados desde el endpoint.
-// Aun así, puedes filtrar aquí si quieres.
+const { data, pending, error } = await useCategoriasNav();
 const categories = computed(() => data.value?.tree ?? []);
-
-// Si quieres mantener navegación programática en algunos items:
-const router = useRouter();
-const navigateTo = (path: string) => router.push(path);
+console.debug("useCategoriasNav data:", data.value);
 </script>
-
 <template>
-  <div
-    class="hidden md:flex justify-center border-t border-b border-gray-200 dark:border-gray-700 bg-white shadow-sm"
-  >
-    <div class="w-full max-w-7xl px-6">
-      <Menubar
-        class="gap-6 justify-start py-3 !border-none !shadow-none !bg-transparent !p-0"
-      >
-        <!-- Evitamos v-if + v-for en el mismo nodo -->
-        <template v-if="categories.length">
-          <MenubarMenu v-for="category in categories" :key="category.slug">
-            <MenubarTrigger class="text-gray-800 hover:text-primary font-medium">
-              {{ category.nav || category.title || category.slug }}
+  <nav class="hidden md:block border-t border-b">
+    <div class="max-w-7xl mx-auto px-6">
+      <Menubar class="gap-6 py-3 !border-none !shadow-none !bg-transparent">
+        <template v-if="pending"
+          ><span class="text-sm text-gray-500">Cargando…</span></template
+        >
+        <template v-else-if="error"
+          ><span class="text-sm text-red-600">No se pudo cargar el menú.</span></template
+        >
+
+        <template v-else>
+          <MenubarMenu
+            v-for="cat in categories"
+            :key="cat.id || cat.slug || cat.path || cat.title"
+          >
+            <MenubarTrigger
+              @click="
+                !cat.children?.length &&
+                  $router.push(cat.path || `/categorias/${cat.slug}`)
+              "
+            >
+              {{ cat.nav || cat.title || cat.slug }}
             </MenubarTrigger>
 
-            <MenubarContent class="z-50">
-              <!-- Preferimos NuxtLink para SEO/SSR -->
+            <MenubarContent v-if="cat.children?.length">
+              <NuxtLink v-if="cat.path" :to="cat.path" class="block">
+                <MenubarItem class="font-semibold text-primary"
+                  >Ver {{ cat.nav || cat.title }}</MenubarItem
+                >
+              </NuxtLink>
+              <MenubarSeparator v-if="cat.path" />
               <NuxtLink
-                :to="category.path || `/categorias/${category.slug}`"
+                v-for="sub in cat.children"
+                :key="sub.id || sub.slug || sub.path || sub.title"
+                :to="sub.path || `/categorias/${sub.slug}`"
                 class="block"
               >
-                <MenubarItem class="font-semibold text-primary">
-                  <Icon name="lucide:arrow-right" class="mr-2 h-4 w-4" />
-                  Ver categoría
-                </MenubarItem>
+                <MenubarItem>{{ sub.nav || sub.title || sub.slug }}</MenubarItem>
               </NuxtLink>
-
-              <div class="border-t my-1" />
-
-              <template v-for="product in category.children || []" :key="product.slug">
-                <NuxtLink
-                  :to="product.path || `/categorias/${product.slug}`"
-                  class="block"
-                >
-                  <MenubarItem>
-                    {{ product.nav || product.title || product.slug }}
-                  </MenubarItem>
-                </NuxtLink>
-              </template>
             </MenubarContent>
           </MenubarMenu>
         </template>
       </Menubar>
     </div>
-  </div>
+  </nav>
 </template>

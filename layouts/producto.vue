@@ -1,19 +1,19 @@
 <script setup lang="ts">
-import { useRoute } from 'vue-router'
+import { useRoute } from "vue-router";
 
-const route = useRoute()
+const route = useRoute();
 
-const productSlug = route.params.slug?.[route.params.slug.length - 1] || 'Producto'
+const productSlug = route.params.slug?.[route.params.slug.length - 1] || "Producto";
 
 useHead({
   title: `Producto de impresión: ${productSlug} | TuEmpresa`,
   meta: [
     {
-      name: 'description',
+      name: "description",
       content: `Descubre nuestro producto "${productSlug}" de alta calidad para impresión personalizada.`,
     },
   ],
-})
+});
 </script>
 
 <template>
@@ -28,8 +28,6 @@ useHead({
     </template>
 
     <div class="layout-producto bg-white">
-      <AppCrumbs class="mb-2" />
-
       <!-- CONTENIDO PRINCIPAL -->
       <main class="max-w-5xl mx-auto px-4 py-8 space-y-10">
         <slot />
@@ -59,4 +57,3 @@ useHead({
     </div>
   </NuxtLayout>
 </template>
-

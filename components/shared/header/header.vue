@@ -2,7 +2,6 @@
 import { NuxtLink } from "#components";
 import { Button } from "@/components/ui/button";
 import { Search } from "lucide-vue-next";
-import { useSearch } from "@/composables/useSearch";
 </script>
 
 <template>
@@ -24,7 +23,6 @@ import { useSearch } from "@/composables/useSearch";
             variant="outline"
             class="w-full justify-start pl-10"
             style="color: hsl(var(--color-secondary))"
-            @click="useSearch().openSearch()"
           >
             <Search
               class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 pointer-events-none"

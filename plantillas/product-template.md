@@ -1,9 +1,13 @@
 ---
 type: producto
 
+# Identificación
+slug: ''                # opcional (si lo omites, se infiere del nombre del archivo)
+categorySlug: ''        # <— REQUERIDO: slug de la categoría (sin '/categorias/')
+
 # Básicos
 title: ''
-description: ''         # (si no usas body como descripción corta)
+description: ''         # si no usas el body como descripción corta
 image: ''               # ruta pública (mejor en /public)
 alt: ''
 
@@ -17,7 +21,7 @@ searchTerms: []         # ['etiquetas adhesivas', 'stickers personalizados']
 sku: ''
 price: 0
 priceCurrency: EUR      # ISO 4217
-brand: 'Repro Disseny'  # o "Reprodisseny", pero sé consistente
+brand: 'Repro Disseny'  # sé consistente
 inStock: true
 
 # Media
@@ -46,4 +50,3 @@ schema:
     priceCurrency: "EUR"
     availability: "https://schema.org/InStock"
 ---
-

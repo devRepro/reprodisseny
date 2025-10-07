@@ -1,63 +1,90 @@
 // composables/useCategoriaProductos.ts
-import { computed } from 'vue'
+import { computed, unref, type MaybeRef } from 'vue'
 import { useRoute } from 'vue-router'
-import type { ProductsPayload, ProductListItem } from '@/types'
+import { useAsyncData } from '#app'
+// `queryCollection` está auto-importado por Nuxt Content (no hace falta import explícito)
 
 type Options = {
   limit?: number
   page?: number
-  sort?: 'order' | 'title'
+  sort?: 'order' | 'title' | 'price'
   direction?: 'ASC' | 'DESC'
+  categorySlug?: MaybeRef<string>
+}
+
+type ProductListItem = {
+  id?: string
+  slug?: string
+  title?: string
+  order?: number
+  price?: number
+  image?: string
+  excerpt?: string
+  path?: string | null
+  categorySlug: string
+  hidden?: boolean
+}
+
+type ProductsPayload = {
+  items: ProductListItem[]
+  total: number
 }
 
 export function useCategoriaProductos(opts: Options = {}) {
   const route = useRoute()
-  const limit = opts.limit ?? 24
-  const page = opts.page ?? 1
-  const sort = opts.sort ?? 'order'
-  const direction = (opts.direction ?? 'ASC').toUpperCase() as 'ASC' | 'DESC'
 
-  const slug = computed(() => {
-    const raw = Array.isArray(route.params.slug)
-      ? route.params.slug.join('/')
-      : String(route.params.slug || '')
-    return raw.replace(/^\/+|\/+$/g, '')
+  const limit = Math.max(1, Math.min(100, opts.limit ?? 24))
+  const page = Math.max(1, opts.page ?? 1)
+  const sort = (opts.sort ?? 'order')
+  const direction: 'ASC' | 'DESC' = (opts.direction ?? 'ASC').toUpperCase() as any
+
+  const routeSlug = computed(() => {
+    const p = route.params.slug
+    const s = Array.isArray(p) ? p.join('/') : String(p || '')
+    return s.replace(/^\/+|\/+$/g, '')
   })
+  const categorySlug = computed(() => (opts.categorySlug ? unref(opts.categorySlug) : routeSlug.value))
 
-  const key = computed(
-    () => `cat:products:${slug.value}:${limit}:${page}:${sort}:${direction}`
-  )
+  const key = () => `cat:products:qcol:${categorySlug.value}:${limit}:${page}:${sort}:${direction}`
 
   return useAsyncData<ProductsPayload>(
-    key.value,
+    key,
     async () => {
-      const base = `/categorias/${slug.value}`
+      const slug = categorySlug.value
+      if (!slug) return { items: [], total: 0 }
 
-      // ✅ Usamos la colección 'categorias' y filtramos por carpeta
-      let q = queryCollection('categorias')
-        .where('path', 'LIKE', `${base}/%`)     // documentos dentro de la carpeta
-        .where('file', '!=', 'index.md')        // excluye el index.md de la categoría
-        .select('title', 'description', 'image', 'alt', 'path', 'order', 'slug')
-        .order(sort, direction)
+      // Builder base según docs (where/order/skip/limit/all)
+      const base = () =>
+        // @ts-expect-error auto-import de Nuxt Content
+        queryCollection('productos')
+          .where('hidden', '!=', true)
+          .where('categorySlug', '=', slug)
+          .order(sort, direction)
 
-      const total = await q.count()
-      q = q.limit(limit).offset((page - 1) * limit)
+      // total oficial (count existe en la API de queryCollection)
+      // si tu versión no lo tuviera, se puede hacer un .select('id').all().length
+      let total = 0
+      try {
+        // @ts-expect-error: count forma parte del builder oficial
+        total = await base().count()
+      } catch {
+        const ids = await base().select('id').all()
+        total = Array.isArray(ids) ? ids.length : 0
+      }
 
-      const raw = await q.all()
+      const offset = (page - 1) * limit
+      const fields = ['id','slug','title','order','price','image','excerpt','hidden','categorySlug','path'] as const
 
-      const items: ProductListItem[] = raw.map((d: any) => ({
-        title: d.title,
-        description: d.description,
-        image: d.image,
-        alt: d.alt,
-        path: d.path,
-        order: d.order,
-        slug: d.slug,
+      const raw = await base().select(...fields).skip(offset).limit(limit).all()
+      const items = (raw || []).map((p: any) => ({
+        ...p,
+        path: p.path?.startsWith?.('/api/')
+          ? (p.slug ? `/productos/${p.slug}` : null)
+          : (p.path || (p.slug ? `/productos/${p.slug}` : null))
       }))
 
       return { items, total }
     },
-    { server: true, default: () => ({ items: [], total: 0 }), watch: [slug], dedupe: 'defer' }
+    { server: true, default: () => ({ items: [], total: 0 }), watch: [categorySlug] }
   )
 }
-

@@ -1,37 +1,35 @@
-
 <script setup lang="ts">
-import { ref, nextTick } from 'vue'
-import { useMagicKeys } from '@vueuse/core'
-import { useSearch } from '@/composables/useSearch'
+import { ref } from "vue";
+import { useMagicKeys } from "@vueuse/core";
+import { useRouter } from "vue-router";
 
-import { useContentSearch } from '@/composables/useContentSearch'
+const search = ref("");
+const searchOpen = ref(false);
 
-const search = ref('')
-const { results, loading } = useContentSearch(search)
-const { searchOpen, closeSearch } = useSearch()
+const keys = useMagicKeys();
+const CmdJ = keys["Meta+J"];
+if (CmdJ?.value) {
+  searchOpen.value = true;
+}
 
-// Cmd+J para abrir
-const keys = useMagicKeys()
-const CmdJ = keys['Meta+J']
-CmdJ?.value && (searchOpen.value = true)
+const router = useRouter();
 
-// Navegar y cerrar
+function closeSearch() {
+  searchOpen.value = false;
+}
+
 function goTo(path: string) {
-  closeSearch()
-  return navigateTo(path)
+  closeSearch();
+  return router.push(path);
 }
 
 function handleOpenChange(open: boolean) {
-  if (!open) closeSearch()
+  if (!open) closeSearch();
 }
 </script>
 
 <template>
-  <CommandDialog
-    :open="searchOpen"
-    @update:open="handleOpenChange"
-    class="z-50"
-  >
+  <CommandDialog :open="searchOpen" @update:open="handleOpenChange" class="z-50">
     <h2 class="sr-only">Buscar</h2>
 
     <CommandInput
@@ -44,27 +42,19 @@ function handleOpenChange(open: boolean) {
     <CommandList>
       <CommandEmpty>No se encontraron resultados</CommandEmpty>
 
-      <CommandGroup heading="Categorías" v-if="results.categorias.length">
-        <CommandItem
-          v-for="cat in results.categorias"
-          :key="cat.slug"
-          @select="goTo(`/categorias/${cat.slug}`)"
-        >
+      <CommandGroup heading="Categorías" v-if="results?.categorias?.length">
+        <CommandItem v-for="cat in results.categorias" :key="cat.id">
           <div class="w-full px-3 py-2 flex items-center gap-2 text-sm">
-            <img :src="cat.image" :alt="cat.alt" class="w-6 h-6 object-cover rounded" />
-            <span>{{ cat.title }}</span>
+            <img :src="cat.image" class="w-6 h-6 object-cover rounded" alt="" />
+            <span>{{ cat.nav || cat.title }}</span>
           </div>
         </CommandItem>
       </CommandGroup>
 
-      <CommandGroup heading="Productos" v-if="results.productos.length">
-        <CommandItem
-          v-for="prod in results.productos"
-          :key="prod.slug"
-          @select="goTo(`/categorias/${prod.category}/${prod.slug}`)"
-        >
+      <CommandGroup heading="Productos" v-if="results?.productos?.length">
+        <CommandItem v-for="prod in results.productos" :key="prod.id">
           <div class="w-full px-3 py-2 flex items-center gap-2 text-sm">
-            <img :src="prod.image" :alt="prod.alt" class="w-6 h-6 object-cover rounded" />
+            <img :src="prod.image" class="w-6 h-6 object-cover rounded" alt="" />
             <span>{{ prod.title }}</span>
           </div>
         </CommandItem>
@@ -72,4 +62,3 @@ function handleOpenChange(open: boolean) {
     </CommandList>
   </CommandDialog>
 </template>
-

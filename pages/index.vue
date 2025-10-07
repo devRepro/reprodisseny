@@ -1,17 +1,21 @@
 <script setup lang="ts">
-import { useCategoriasHome } from "~/composables/useCategoriasHome";
+import { useCategoriasGrid } from "@/composables/useCategoriasGrid";
 
-const { error } = useCategoriasHome();
-if (error.value) {
-  console.error("Fallo cargando categorías:", error.value);
-}
+const { data, pending, error } = useCategoriasGrid();
+const categories = computed(() => data.value?.items ?? []);
 </script>
-
 <template>
   <div>
     <SharedMenuCategories />
 
     <SharedSliderHome />
+    <SharedGridDisplay
+      :items="categories"
+      :keyFn="(c) => c.slug"
+      :titleFn="(c) => c.nav ?? c.title"
+      :linkFn="(c) => c.path"
+      :imageFn="(c) => c.image ?? ''"
+    />
 
     <div class="space-y-4">
       <FeatureSection
@@ -49,3 +53,4 @@ if (error.value) {
     </div>
   </div>
 </template>
+~/composables/useCategoriasGrid
