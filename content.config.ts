@@ -67,6 +67,7 @@ export default defineContentConfig({
         priceCurrency: z.string().default('EUR'),
         brand: z.string().default('Repro Disseny'),
         inStock: z.boolean().default(true),
+        hidden: z.boolean().optional().default(false),
 
         // Media
         galleryImages: z.array(z.string()).optional(),

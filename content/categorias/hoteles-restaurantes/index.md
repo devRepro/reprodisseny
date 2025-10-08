@@ -1,9 +1,27 @@
 ---
-alt: Cartas y menús impresos para restaurantes y hoteles en Cataluña
-brand: Repro Disseny
-description: >-
+# --- SEO y Metadatos ---
+metaTitle: 'Impresión para hoteles, restaurantes y hostelería | Repro Disseny'
+metaDescription: >-
+  Cartas, menús, posavasos, tarjetas y packaging personalizado para hoteles,
+  restaurantes y negocios de hostelería en Cataluña. Calidad profesional y
+  producción local.
+
+# --- Contenido de la Página ---
+title: 'Impresión para Hoteles y Restaurantes' # Este será el <h1>
+path: /categorias/hoteles-restaurantes
+slug: hoteles-restaurantes
+description: >- # Descripción corta para la cabecera
   Cartas, menús, posavasos, tarjetas y packaging para restauración. Soluciones
   gráficas para negocios de hostelería en Cataluña.
+image: Hosteleria.png
+alt: Cartas y menús impresos para restaurantes y hoteles en Cataluña
+brand: Repro Disseny
+
+# --- Contenido Enriquecido para SEO y UX ---
+longDescription: | # Párrafos largos usando '|' para mantener el formato
+  En **Repro Disseny**, colaboramos con hoteles, restaurantes y empresas del sector hostelero para ofrecer productos impresos de alta calidad: desde cartas y menús hasta tarjetas, señalética, packaging o mantelería personalizada. Ofrecemos impresión adaptada al entorno y al uso intensivo de estos negocios.
+
+  **Confía en nuestra experiencia local para destacar tu marca desde la primera impresión.**
 faqs:
   - question: ¿Qué tipo de menús personalizados ofrecéis para restaurantes?
     answer: >-
@@ -25,52 +43,13 @@ faqs:
     answer: >-
       Podemos trabajar con tus archivos o ayudarte desde cero. Nuestro equipo de
       diseño gráfico te asesora para obtener el mejor resultado.
-featured: false
-formFields: []
-galleryImages: []
-image: Hosteleria.png
-inStock: true
-keywords:
-  - Cartas de menú personalizadas
-  - Posavasos y manteles impresos
-  - Señalética interior para hoteles
-  - Material promocional para hostelería
-  - Packaging personalizado para alimentos
-metaDescription: >-
-  Cartas, menús, posavasos, tarjetas y packaging personalizado para hoteles,
-  restaurantes y negocios de hostelería en Cataluña. Calidad profesional y
-  producción local.
-metaTitle: 'Impresión para hoteles, restaurantes y hostelería | Repro Disseny'
+
+# --- Datos de Organización Interna ---
+type: categoria
 nav: Restauración
 order: 0
-path: /categorias/hoteles-restaurantes
-priceCurrency: EUR
-ratingValue: 4.8
-reviewCount: 102
-schema:
-  '@type': CollectionPage
-  name: 'Impresión para hoteles, restaurantes y hostelería | Repro Disseny'
-  description: >-
-    Cartas, menús, posavasos, tarjetas y packaging para restauración. Soluciones
-    gráficas para negocios de hostelería en Cataluña.
-  image: 'https://reprodisseny.com/img/categorias/Hosteleria.png'
-  url: 'https://reprodisseny.com/categorias/hoteles-restaurantes'
-  brand:
-    '@type': Organization
-    name: Repro Disseny
-  offers:
-    '@type': Offer
-    price: 0
-    priceCurrency: EUR
-    availability: 'https://schema.org/InStock'
-schemaType: CollectionPage
-searchTerms:
-  - 'impresión para hoteles, restaurantes y hostelería | repro disseny'
-slug: hoteles-restaurantes
-title: 'Impresión para hoteles, restaurantes y hostelería | Repro Disseny'
-type: categoria
+featured: false
 ---
-
 ## Impresión para hoteles, restaurantes y hostelería | Repro Disseny
 
 # Impresión para hoteles, restaurantes y hostelería

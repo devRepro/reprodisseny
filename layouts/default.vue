@@ -1,8 +1,4 @@
-<!-- layouts/default.vue -->
-<script setup lang="ts">
-// ❌ Nada de useAsyncData aquí
-// ✅ Solo wiring de layout y slots
-</script>
+
 
 <template>
   <div class="flex min-h-dvh flex-col">
@@ -21,6 +17,6 @@
     </main>
 
     <!-- Footer -->
-    <footer class="border-t"></footer>
+    <SharedFooter />
   </div>
 </template>

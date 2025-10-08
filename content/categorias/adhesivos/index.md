@@ -83,3 +83,28 @@ type: categoria
 # Adhesivos personalizados para branding e interiorismo | Repro Disseny
 
 Adhesivos vinílicos, troquelados y removibles para campañas, productos y decoración. Soluciones creativas y personalizadas para agencias y negocios en Cataluña.
+
+## Aplicaciones
+- **Escaparates y retail** – Promos temporales con retirada limpia.
+- **Packaging y producto** – Etiquetas troqueladas por SKU.
+- **Señalética y branding** – Polimérico + laminado para exteriores.
+
+## Materiales y acabados
+- **Monomérico vs Polimérico**: elige según duración y estabilidad.
+- **Microperforado / Ácido** para cristales; **Removible** para campañas.
+- **Laminados** mate o brillo para proteger y alargar vida útil.
+
+## Guía de artes finales
+- Sangrado **3 mm**, zona segura **3–5 mm**.
+- Resolución **150–300 ppp** según tamaño y distancia de visión.
+- Formatos: **PDF/X-1a**, **AI** (vector), **EPS**.
+- Descarga plantillas: [50×70 cm](#) · [A4 troquel](#)
+
+## Casos y confianza
+- Clientes: _(logos o nombres)_  
+- Métricas: “Entrega 24–48 h”, “ISO 9001”, “Pago seguro”.
+
+## Te puede interesar
+- [Vinilos para escaparatismo](#)
+- [Etiquetas para packaging](#)
+- [Guía: monomérico vs polimérico](#)

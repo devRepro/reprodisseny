@@ -175,7 +175,7 @@ const props = withDefaults(
   }
 );
 
-const fallback = "/images/placeholders/category-fallback.jpg";
+const fallback = "/img/placeholders/mockup.webp";
 
 function onImgError(e: Event) {
   const el = e.target as HTMLImageElement;
