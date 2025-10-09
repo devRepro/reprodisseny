@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
-import SharedGridDisplay from "@/components/shared/grid/Display.vue"; // import explícito evita dudas de auto-import
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 
+import { useCategoriaProductos } from '@/composables/useCategoriaProductos';
+import SharedGridDisplay from "@/components/shared/grid/Display.vue"; // import explícito evita dudas de auto-import
 // ===== Parámetros =====
 const route = useRoute();
 const router = useRouter();
@@ -66,26 +67,7 @@ const productos   = computed(() => payload.value?.items || []);
 const totalPages  = computed(() => payload.value?.pages || 0);
 const currentPage = computed(() => payload.value?.page || 1);
 
-// ===== FAQ + Breadcrumb JSON-LD (runtime; no modifica front-matter) =====
-const faqs = computed(() => Array.isArray(cat.value?.faqs) ? cat.value!.faqs : []);
-const faqJsonLd = computed(() => ({
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": faqs.value.map((i:any) => ({
-    "@type": "Question",
-    "name": i.question,
-    "acceptedAnswer": { "@type": "Answer", "text": i.answer }
-  }))
-}));
-const breadcrumbJsonLd = computed(() => ({
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://www.reprodisseny.com/" },
-    { "@type": "ListItem", "position": 2, "name": "Categorías", "item": "https://www.reprodisseny.com/categorias" },
-    { "@type": "ListItem", "position": 3, "name": heroTitle.value, "item": `https://www.reprodisseny.com${pagePath.value}` }
-  ]
-}));
+
 </script>
 
 <template>
@@ -110,7 +92,7 @@ const breadcrumbJsonLd = computed(() => ({
       </div>
     </section>
 
-    <!-- ===== CONTROLES ===== -->
+    <!-- ===== CONTROLES ===== 
     <section class="max-w-7xl mx-auto px-6 py-6 md:py-8">
       <div class="flex flex-col md:flex-row md:items-center gap-4">
         <div class="flex-1 flex items-center gap-3">
@@ -122,7 +104,60 @@ const breadcrumbJsonLd = computed(() => ({
           </select>
         </div>
       </div>
-    </section>
+    </section>-->
+
+    <Separator class="bg-border/60" />
+
+    
+    <section class="max-w-7xl mx-auto px-6 py-8 md:py-10">
+  <div v-if="loading" class="text-muted-foreground">Cargando productos…</div>
+
+  <div v-else-if="error" class="text-red-500">
+    Error: {{ error.message || 'No se pudieron cargar los productos.' }}
+  </div>
+
+  <div v-else-if="!productos?.length" class="text-sm text-muted-foreground">
+    No hay productos en esta categoría.
+  </div>
+
+  <div v-else class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
+    <article
+      v-for="p in productos"
+      :key="p.id || p.slug"
+      class="group overflow-hidden rounded-2xl border bg-card shadow-sm transition hover:shadow-md"
+    >
+      <a :href="p.path || `/productos/${p.slug}`" class="block">
+        <div class="aspect-[4/3] w-full overflow-hidden bg-muted">
+          <img
+            :src="p.image"
+            :alt="p.alt || p.title"
+            class="h-full w-full object-cover object-center transition-transform group-hover:scale-[1.03]"
+            loading="lazy"
+          />
+        </div>
+        <div class="p-4">
+          <h3 class="line-clamp-2 text-base font-medium">{{ p.title }}</h3>
+          <p v-if="p.excerpt || p.description" class="mt-1 line-clamp-2 text-sm text-muted-foreground">
+            {{ p.excerpt || p.description }}
+          </p>
+          <div class="mt-3 text-sm font-medium text-primary">Ver producto →</div>
+        </div>
+      </a>
+    </article>
+  </div>
+
+  <div v-if="totalPages > 1" class="mt-8 flex items-center gap-2 justify-center">
+    <button class="px-3 py-2 rounded border" :disabled="currentPage === 1" @click="page = currentPage - 1">
+      ← Anterior
+    </button>
+    <span class="text-sm">Página {{ currentPage }} / {{ totalPages }}</span>
+    <button class="px-3 py-2 rounded border" :disabled="currentPage === totalPages" @click="page = currentPage + 1">
+      Siguiente →
+    </button>
+  </div>
+</section>
+
+
 
     <Separator class="bg-border/60" />
 
@@ -137,26 +172,7 @@ const breadcrumbJsonLd = computed(() => ({
           :link-fn="(p:any) => p.path || `/productos/${p.slug}`"
           :image-fn="(p:any) => p.image"
           :excerpt-fn="(p:any) => p.excerpt || p.description"
-        >
-          <template #item="{ item: p }">
-            <article class="group rounded-xl border bg-card overflow-hidden hover:shadow-lg transition">
-              <a :href="p.path || `/productos/${p.slug}`" class="block">
-                <div class="aspect-[4/3] overflow-hidden bg-muted">
-                  <img :src="p.image" :alt="p.title" class="h-full w-full object-cover transition group-hover:scale-[1.03]" loading="lazy" />
-                </div>
-                <div class="p-4">
-                  <h3 class="font-medium line-clamp-2">{{ p.title }}</h3>
-                  <p v-if="p.excerpt || p.description" class="mt-1 text-sm text-muted-foreground line-clamp-2">
-                    {{ p.excerpt || p.description }}
-                  </p>
-                  <div class="mt-3 flex items-center justify-between">
-                    <span v-if="p.priceFrom" class="text-sm text-muted-foreground">Desde {{ p.priceFrom }}€</span>
-                    <Button size="sm" class="ml-auto">Ver más</Button>
-                  </div>
-                </div>
-              </a>
-            </article>
-          </template>
+        > 
         </SharedGridDisplay>
 
         <!-- Paginación -->
