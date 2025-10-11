@@ -1,42 +1,64 @@
+<!-- pages/productos/[...slug].vue -->
 <script setup lang="ts">
 const route = useRoute();
 
-// reconstruye el path del doc bajo /productos/… (soporta subcarpetas)
-const productPath = computed(() => {
-  const segs = Array.isArray(route.params.slug) ? route.params.slug : [route.params.slug];
-  return "/productos/" + segs.filter(Boolean).join("/");
+// 🔎 patrón Content v3: resolver por route.path (y fallback por slug)
+const { data: product, pending, error } = await useAsyncData(
+  () => `product:${route.path}`,
+  async () => {
+    let doc = await queryCollection("productos").path(route.path).first();
+    if (doc) return doc;
+    const slug =
+      route.params.slug &&
+      (Array.isArray(route.params.slug)
+        ? route.params.slug.at(-1)
+        : String(route.params.slug));
+    if (!slug) return null;
+    return await queryCollection("productos").where("slug", "=", slug).first();
+  },
+  { watch: [() => route.path] }
+);
+
+// JSON-LD Product si viene en front-matter
+const jsonLd = computed(() => {
+  const d = product.value;
+  if (!d?.schema) return null;
+  return JSON.stringify({ "@context": "https://schema.org", ...d.schema });
 });
 
-// Carga el doc de Content por path (lado Vue)
-const {
-  data: product,
-  pending,
-  error,
-} = await useAsyncData(
-  `product:${productPath.value}`,
-  () => queryCollection("productos").path(productPath.value).first(),
-  { default: () => null }
-);
+useHead(() => ({
+  title: product.value?.metatitle || product.value?.title,
+  meta: [
+    {
+      name: "description",
+      content: product.value?.metadescription || product.value?.description || "",
+    },
+    ...(product.value?.canonical
+      ? [{ rel: "canonical", href: product.value.canonical }]
+      : []),
+  ],
+  script: jsonLd.value ? [{ type: "application/ld+json", innerHTML: jsonLd.value }] : [],
+}));
 </script>
 
 <template>
   <main class="max-w-7xl mx-auto px-6 py-10">
     <div v-if="pending">Cargando…</div>
     <div v-else-if="error || !product">Producto no encontrado.</div>
+
     <div v-else class="grid md:grid-cols-2 gap-10">
       <section>
-        <h1 class="text-3xl font-semibold">{{ product.title }}</h1>
-        <img
-          v-if="product.image"
-          :src="product.image"
-          :alt="product.alt || product.title"
-          class="mt-4 rounded-xl"
+        <ProductHero
+          :title="product.title"
+          :description="product.description"
+          :image="product.image"
+          :alt="product.alt"
+          :labels="product.badges"
         />
-        <ContentRenderer v-if="product.body" :value="product" class="prose mt-6" />
+        <ContentRenderer v-if="product.body" :value="product" class="prose mt-8" />
       </section>
-      <aside>
-        <ProductForm :product="product" />
-      </aside>
+
+      <ProductForm :product="product" />
     </div>
   </main>
 </template>

@@ -84,7 +84,7 @@ UX 2025-ready category card: responsive, accessible, fast.
             sizes="64px"
             :width="64"
             :height="64"
-            :placeholder="'blur'"
+            :placeholder="'/img/placeholders/mockup.webp'"
             loading="lazy"
             decoding="async"
           />
