@@ -1,45 +1,45 @@
 <script setup lang="ts">
-import { useForm } from 'vee-validate'
-import { z } from 'zod'
-import { toFormValidator } from '@vee-validate/zod'
-import { ref } from 'vue'
-import { Input } from '@shadcn/ui'
-import { Checkbox } from '@shadcn/ui'
-import { Button } from '@shadcn/ui'
+import { useForm } from "vee-validate";
+import { z } from "zod";
+import { toFormValidator } from "@vee-validate/zod";
+import { ref } from "vue";
+import { Input } from "@shadcn/ui";
+import { Checkbox } from "@shadcn/ui";
+import { Button } from "@shadcn/ui";
 
 // 1) Definimos el esquema Zod
 const newsletterSchema = z.object({
-  email: z.string().email({ message: 'Email inválido' }),
+  email: z.string().email({ message: "Email inválido" }),
   consent: z.boolean().optional(),
-})
+});
 
 // 2) Configuramos vee-validate con Zod
 const { handleSubmit, errors, resetForm, isSubmitting } = useForm({
   validationSchema: toFormValidator(newsletterSchema),
-})
+});
 
 const formValues = ref({
-  email: '',
+  email: "",
   consent: false,
-})
+});
 
 // 3) Función de envío
 const onSubmit = handleSubmit(async (values) => {
   try {
     // Llamada a tu endpoint (Netlify Function / SendGrid)
-    await fetch('/api/subscribe', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+    await $fetch("/api/subscribe", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values),
-    })
+    });
     // feedback al usuario
-    alert('¡Gracias por suscribirte!')
-    resetForm()
+    alert("¡Gracias por suscribirte!");
+    resetForm();
   } catch (e) {
-    console.error(e)
-    alert('Error al suscribirse. Intenta de nuevo.')
+    console.error(e);
+    alert("Error al suscribirse. Intenta de nuevo.");
   }
-})
+});
 </script>
 
 <template>

@@ -6,8 +6,9 @@
 <template>
   <div class="overflow-hidden" v-bind="$attrs">
     <img
-      src="@/assets/img/logos/ReproDisseny_negative.svg"
+      src="/img/logos/ReproDisseny_negative.svg"
       alt="Logo Repro Disseny, imprenta digital, impresión óffset y gran formato"
-      class="block h-full w-auto" />
+      class="block h-full w-auto"
+    />
   </div>
 </template>

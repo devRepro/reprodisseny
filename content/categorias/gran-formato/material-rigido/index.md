@@ -1,10 +1,49 @@
 ---
-alt: Ejemplo de impresión en material rígido para cartelería
-brand: Repro Disseny
-category: gran-formato
+type: categoria
+title: Impresión en Materiales Rígidos - Gran Formato
+nav: Material Rígido
+order: 0
+parent: material-rigido
+featured: false
+hidden: false
 description: >-
   Descubre nuestras soluciones de impresión en materiales rígidos para
   cartelería, señalética y decoración. Calidad y durabilidad garantizadas.
+image:
+  src: /img/categorias/mockup.webp
+  width: 1200
+  height: 800
+alt: Ejemplo de impresión en material rígido para cartelería
+galleryImages: []
+breadcrumbs:
+  - name: Inicio
+    url: /
+  - name: Material Rigido
+    url: /categorias/material-rigido
+  - name: Impresión en Materiales Rígidos - Gran Formato
+    url: /categorias/material-rigido
+cta:
+  text: Ver Productos
+  link: '#productos'
+metaTitle: Impresión en Materiales Rígidos | Cartelería y Señalética de Alta Calidad
+metaDescription: >-
+  Ofrecemos impresión digital en materiales rígidos como Forex, Dibond y
+  metacrilato, ideales para cartelería, señalética y decoración en gran formato.
+canonical: 'https://reprodisseny.com/categorias/material-rigido'
+hreflang:
+  - lang: es-ES
+    url: 'https://reprodisseny.com/categorias/material-rigido'
+keywords:
+  - impresión en materiales rígidos
+  - cartelería rígida
+  - señalética gran formato
+  - impresión Forex
+  - impresión Dibond
+  - impresión metacrilato
+searchTerms:
+  - impresión rígidos gran formato
+  - carteles materiales rígidos
+  - señalización rígida personalizada
 faqs:
   - question: ¿Qué materiales rígidos ofrecéis para impresión?
     answer: >-
@@ -27,28 +66,6 @@ faqs:
     answer: >-
       Sí, ofrecemos servicio de instalación en Barcelona y alrededores para que
       no tengas que preocuparte de nada.
-featured: false
-formFields: []
-galleryImages: []
-image: mockup.webp
-inStock: true
-keywords:
-  - impresión en materiales rígidos
-  - cartelería rígida
-  - señalética gran formato
-  - impresión Forex
-  - impresión Dibond
-  - impresión metacrilato
-metaDescription: >-
-  Ofrecemos impresión digital en materiales rígidos como Forex, Dibond y
-  metacrilato, ideales para cartelería, señalética y decoración en gran formato.
-metaTitle: Impresión en Materiales Rígidos | Cartelería y Señalética de Alta Calidad
-nav: Material Rígido
-order: 0
-path: /categorias/gran-formato/material-rigido
-priceCurrency: EUR
-ratingValue: 4.8
-reviewCount: 64
 schema:
   '@type': CollectionPage
   name: Impresión en Materiales Rígidos - Gran Formato
@@ -65,18 +82,7 @@ schema:
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: null
-searchTerms:
-  - impresión rígidos gran formato
-  - carteles materiales rígidos
-  - señalización rígida personalizada
-
-slug: material-rigido
-title: Impresión en Materiales Rígidos - Gran Formato
-type: subcategoria
 ---
-
-
 ## Impresión en Materiales Rígidos - Gran Formato
 
 # Impresión en Materiales Rígidos

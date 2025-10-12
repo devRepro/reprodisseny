@@ -1,28 +1,43 @@
 ---
-alt: Material de oficina personalizado para empresas en Barcelona
-brand: Repro Disseny
-category: publicitario-oficina
+type: categoria
+title: Material de Oficina Personalizado para Empresas
+nav: Material Oficina
+order: 1
+parent: material-oficina
+featured: false
+hidden: false
 description: >-
   Impresión de material de oficina personalizado: blocs, talonarios, carpetas y
   más. Soluciones profesionales para empresas en Barcelona y Cataluña.
-faqs: []
-featured: false
-formFields: []
+image:
+  src: /img/categorias/mockup.webp
+  width: 1200
+  height: 800
+alt: Material de oficina personalizado para empresas en Barcelona
 galleryImages: []
-image: mockup.webp
-inStock: true
-keywords:
-  - Material de oficina personalizado
+breadcrumbs:
+  - name: Inicio
+    url: /
+  - name: Material Oficina
+    url: /categorias/material-oficina
+  - name: Material de Oficina Personalizado para Empresas
+    url: /categorias/material-oficina
+cta:
+  text: Ver Productos
+  link: '#productos'
+metaTitle: Material de Oficina Personalizado para Empresas | Repro Disseny
 metaDescription: >-
   Impresión de material de oficina personalizado: blocs, talonarios, carpetas y
   más. Soluciones profesionales para empresas en Barcelona y Cataluña.
-metaTitle: Material de Oficina Personalizado para Empresas | Repro Disseny
-nav: Material Oficina
-order: 1
-path: /categorias/publicitario-oficina/material-oficina
-priceCurrency: EUR
-ratingValue: 4.6
-reviewCount: 75
+canonical: 'https://reprodisseny.com/categorias/material-oficina'
+hreflang:
+  - lang: es-ES
+    url: 'https://reprodisseny.com/categorias/material-oficina'
+keywords:
+  - Material de oficina personalizado
+searchTerms:
+  - impresión material oficina Barcelona
+faqs: []
 schema:
   '@type': CollectionPage
   name: Material de Oficina Personalizado para Empresas | Repro Disseny
@@ -41,13 +56,6 @@ schema:
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: null
-searchTerms:
-  - impresión material oficina Barcelona
-slug: material-oficina
-title: Material de Oficina Personalizado para Empresas
-type: subcategoria
 ---
-
 ## Material de Oficina Personalizado para Empresas
 Contenido específico de la subcategoría...

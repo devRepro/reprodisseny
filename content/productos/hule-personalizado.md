@@ -4,69 +4,36 @@ slug: hule-personalizado
 categorySlug: hoteles-restaurantes
 title: Hule personalizado
 description: 'title: Hule personalizado'
-image: /img/productos/Hules.webp
-images:
-  - /img/productos/Hules.webp
+image:
+  src: /img/productos/Hules.webp
+  width: 1200
+  height: 800
 alt: alt descripció de la foto
-metatitle: Hule personalizado | Repro Disseny
-metadescription: Hule personalizado personalizadas con calidad profesional en Cataluña.
+galleryImages: []
+sku: 01-HORE-0004
+mpn: ''
+gtin13: ''
+brand: Reprodisseny
+price: 0
+priceCurrency: EUR
+inStock: true
+ratingValue: 0
+reviewCount: 0
+attributes: []
+variants: []
+formFields: []
+metaTitle: Hule personalizado | Repro Disseny
+metaDescription: Hule personalizado personalizadas con calidad profesional en Cataluña.
 canonical: 'https://reprodisseny.com/productos/hule-personalizado'
 hreflang:
   - lang: es-ES
     url: 'https://reprodisseny.com/productos/hule-personalizado'
   - lang: ca-ES
     url: 'https://reprodisseny.com/productos/hule-personalizado'
-breadcrumbs:
-  - name: Inicio
-    url: /
-  - name: Hoteles Restaurantes
-    url: /categorias/hoteles-restaurantes
-  - name: Hule personalizado
-    url: /productos/hule-personalizado
 keywords:
   - hule personalizado
 searchTerms:
   - hule personalizado
-sku: 01-HORE-0004
-gtin: ''
-mpn: ''
-brand: Reprodisseny
-price: 0
-priceCurrency: EUR
-priceValidUntil: '2026-12-30'
-availability: 'https://schema.org/InStock'
-itemCondition: 'https://schema.org/NewCondition'
-inStock: true
-productionTime: 24–72 h
-minOrderQty: 1
-shippingDetails:
-  regions:
-    - ES
-    - PT
-  handlingTime: 24 h
-  transitTime: 24–72 h
-returnPolicy:
-  days: 14
-  method: devolución en tienda y recogida
-galleryImages: []
-ratingValue: 0
-reviewCount: 0
-specs: []
-templates: []
-useCases: []
-badges: []
-relatedSlugs: []
-formFields: []
-faqs: []
-ad:
-  finalUrl: ''
-  path1: hoteles-restaurantes
-  path2: hule-personalizado
-  headlines: []
-  descriptions: []
-  callouts: []
-  structuredSnippets: []
-  sitelinks: []
 schema:
   '@type': Product
   name: Hule personalizado

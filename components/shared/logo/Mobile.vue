@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import logoMobile from '@/assets/img/logos/LogoMobile.png'
+const src = "/img/logo/logo-mobile.png"; // en /publicgos/LogoMobile.png";
 </script>
 <template>
   <div class="w-36">

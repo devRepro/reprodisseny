@@ -1,41 +1,28 @@
 // utils/images.ts
+export const PLACEHOLDERS = {
+  product: '/img/placeholders/productos.webp',
+  category: '/img/placeholders/categoria.webp',
+}
 
-/**
- * Devuelve la URL completa para una imagen según su tipo.
- * Fallback incluido si no se especifica.
- */
-export function resolveImageUrl(path?: string, type?: string): string {
-    if (!path) return '/img/placeholder.webp'
-  
-    if (path.startsWith('/') || path.startsWith('http')) return path
-  
-    const base =
-      type === 'categoria'
-        ? '/img/categorias/'
-        : type === 'producto'
-        ? '/img/productos/'
-        : '/img/otros/'
-  
-    return `${base}${path}`
+// Puede llegar string u objeto { src }, o nada.
+// Devuelve SIEMPRE un string listo para <NuxtImg>.
+type RawImage = string | { src?: string; width?: number; height?: number } | null | undefined;
+
+export function toSrc(raw: RawImage, type: 'product' | 'category', base?: string) {
+  let src = '';
+  if (typeof raw === 'string') src = raw;
+  else if (raw && typeof raw === 'object' && raw.src) src = raw.src;
+
+  // si viene vacía → placeholder según tipo
+  if (!src) src = PLACEHOLDERS[type];
+
+  // si es relativo y hay base, prefija base
+  if (base && !src.startsWith('/') && !src.startsWith('http')) {
+    src = `${base.replace(/\/+$/, '')}/${src.replace(/^\/+/, '')}`;
   }
-  
-  /**
-   * Devuelve el texto alternativo por defecto si no se proporciona uno explícito.
-   */
-  export function defaultAlt(title?: string): string {
-    return title || 'Imagen del contenido'
-  }
-  
-  /**
-   * Verifica si una imagen existe o no (por si usas SSR con recursos remotos).
-   * ⚠️ Nota: Solo funciona en cliente o con SSR + HEAD request.
-   */
-  export async function imageExists(url: string): Promise<boolean> {
-    try {
-      const res = await fetch(url, { method: 'HEAD' })
-      return res.ok
-    } catch {
-      return false
-    }
-  }
-  
+  return src;
+}
+
+// Preset típico para <NuxtImg sizes>
+export const SIZES_PRESET =
+  '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw';

@@ -4,58 +4,23 @@ slug: abanicos
 categorySlug: eventos
 title: Abanicos
 description: 'title: Abanicos'
-image: /img/productos/abanico.webp
-images:
-  - /img/productos/abanico.webp
+image:
+  src: /img/productos/abanico.webp
+  width: 1200
+  height: 800
 alt: alt descripció de la foto
-metatitle: Abanicos | Repro Disseny
-metadescription: Abanicos personalizadas con calidad profesional en Cataluña.
-canonical: 'https://reprodisseny.com/productos/abanicos'
-hreflang:
-  - lang: es-ES
-    url: 'https://reprodisseny.com/productos/abanicos'
-  - lang: ca-ES
-    url: 'https://reprodisseny.com/productos/abanicos'
-breadcrumbs:
-  - name: Inicio
-    url: /
-  - name: Eventos
-    url: /categorias/eventos
-  - name: Abanicos
-    url: /productos/abanicos
-keywords:
-  - abanicos
-searchTerms:
-  - abanicos
+galleryImages: []
 sku: 01-EVEN-0010
-gtin: ''
 mpn: ''
+gtin13: ''
 brand: Reprodisseny
 price: 0
 priceCurrency: EUR
-priceValidUntil: '2026-12-30'
-availability: 'https://schema.org/InStock'
-itemCondition: 'https://schema.org/NewCondition'
 inStock: true
-productionTime: 24–72 h
-minOrderQty: 1
-shippingDetails:
-  regions:
-    - ES
-    - PT
-  handlingTime: 24 h
-  transitTime: 24–72 h
-returnPolicy:
-  days: 14
-  method: devolución en tienda y recogida
-galleryImages: []
 ratingValue: 0
 reviewCount: 0
-specs: []
-templates: []
-useCases: []
-badges: []
-relatedSlugs: []
+attributes: []
+variants: []
 formFields:
   - label: Cantidad
     name: cantidad
@@ -74,16 +39,18 @@ formFields:
     name: texto
     type: text
     required: false
-faqs: []
-ad:
-  finalUrl: ''
-  path1: eventos
-  path2: abanicos
-  headlines: []
-  descriptions: []
-  callouts: []
-  structuredSnippets: []
-  sitelinks: []
+metaTitle: Abanicos | Repro Disseny
+metaDescription: Abanicos personalizadas con calidad profesional en Cataluña.
+canonical: 'https://reprodisseny.com/productos/abanicos'
+hreflang:
+  - lang: es-ES
+    url: 'https://reprodisseny.com/productos/abanicos'
+  - lang: ca-ES
+    url: 'https://reprodisseny.com/productos/abanicos'
+keywords:
+  - abanicos
+searchTerms:
+  - abanicos
 schema:
   '@type': Product
   name: Abanicos
@@ -104,5 +71,4 @@ schema:
     itemCondition: 'https://schema.org/NewCondition'
     url: 'https://reprodisseny.com/productos/abanicos'
 ---
-
 lañsknfaslknfasñlfnañlsfsañfnlfsafn

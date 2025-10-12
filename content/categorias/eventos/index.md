@@ -1,10 +1,47 @@
 ---
-alt: Material gráfico personalizado para eventos corporativos en Cataluña
-brand: Repro Disseny
-category: ''
+type: categoria
+title: Impresión personalizada para eventos corporativos
+nav: Eventos
+order: 0
+parent: eventos
+featured: false
+hidden: false
 description: >-
   Acreditaciones, invitaciones, soportes gráficos y detalles para eventos.
   Producción local y adaptada a las necesidades de agencias y organizadores.
+image:
+  src: /img/categorias/Eventos.png
+  width: 1200
+  height: 800
+alt: Material gráfico personalizado para eventos corporativos en Cataluña
+galleryImages: []
+breadcrumbs:
+  - name: Inicio
+    url: /
+  - name: Eventos
+    url: /categorias/eventos
+  - name: Impresión personalizada para eventos corporativos
+    url: /categorias/eventos
+cta:
+  text: Ver Productos
+  link: '#productos'
+metaTitle: Impresión personalizada para eventos corporativos | Repro Disseny
+metaDescription: >-
+  Impresión personalizada para eventos corporativos con calidad profesional en
+  Cataluña. Acreditaciones, invitaciones, señalética y detalles gráficos
+  adaptados a todo tipo de actos.
+canonical: 'https://reprodisseny.com/categorias/eventos'
+hreflang:
+  - lang: es-ES
+    url: 'https://reprodisseny.com/categorias/eventos'
+keywords:
+  - Material gráfico para eventos corporativos
+  - Impresión de acreditaciones y lanyards
+  - Señalética personalizada para eventos
+  - Invitaciones y programas impresos
+  - Soluciones gráficas para congresos
+searchTerms:
+  - impresión personalizada para eventos corporativos | repro disseny
 faqs:
   - question: ¿Qué tipos de materiales imprimís para eventos?
     answer: >-
@@ -26,36 +63,13 @@ faqs:
     answer: >-
       Sí, ofrecemos servicio completo de instalación de vinilos, señalética y
       estructuras gráficas para eventos en Cataluña.
-featured: false
-formFields: []
-galleryImages: []
-image: Eventos.png
-inStock: true
-keywords:
-  - Material gráfico para eventos corporativos
-  - Impresión de acreditaciones y lanyards
-  - Señalética personalizada para eventos
-  - Invitaciones y programas impresos
-  - Soluciones gráficas para congresos
-metaDescription: >-
-  Impresión personalizada para eventos corporativos con calidad profesional en
-  Cataluña. Acreditaciones, invitaciones, señalética y detalles gráficos
-  adaptados a todo tipo de actos.
-metaTitle: Impresión personalizada para eventos corporativos | Repro Disseny
-nav: Eventos
-order: 0
-path: /categorias/eventos
-price: 0
-priceCurrency: EUR
-ratingValue: 0
-reviewCount: 0
 schema:
   '@type': CollectionPage
   name: Impresión personalizada para eventos corporativos | Repro Disseny
   description: >-
     Acreditaciones, invitaciones, soportes gráficos y detalles para eventos.
     Producción local y adaptada a las necesidades de agencias y organizadores.
-  image: '/img/productos/Eventos.png'
+  image: /img/categorias/eventos/eventos.png
   sku: ''
   brand:
     '@type': Organization
@@ -65,15 +79,7 @@ schema:
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: CollectionPage
-searchTerms:
-  - impresión personalizada para eventos corporativos | repro disseny
-sku: ''
-slug: eventos
-title: Impresión personalizada para eventos corporativos
-type: categoria
 ---
-
 ## Impresión personalizada para eventos corporativos | Repro Disseny
 
 Acreditaciones, invitaciones, soportes gráficos y detalles para eventos. Producción local y adaptada a las necesidades de agencias y organizadores.

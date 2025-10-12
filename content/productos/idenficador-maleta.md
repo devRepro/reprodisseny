@@ -4,69 +4,36 @@ slug: idenficador-maleta
 categorySlug: eventos
 title: Identificador de maleta
 description: 'title: Identificador de maleta'
-image: /img/productos/mockupProduct.webp
-images:
-  - /img/productos/mockupProduct.webp
+image:
+  src: /img/productos/mockupProduct.webp
+  width: 1200
+  height: 800
 alt: alt descripció de la foto
-metatitle: Identificador de maleta | Repro Disseny
-metadescription: Identificador de maleta personalizadas con calidad profesional en Cataluña.
+galleryImages: []
+sku: 01-EVEN-0016
+mpn: ''
+gtin13: ''
+brand: Reprodisseny
+price: 0
+priceCurrency: EUR
+inStock: true
+ratingValue: 0
+reviewCount: 0
+attributes: []
+variants: []
+formFields: []
+metaTitle: Identificador de maleta | Repro Disseny
+metaDescription: Identificador de maleta personalizadas con calidad profesional en Cataluña.
 canonical: 'https://reprodisseny.com/productos/idenficador-maleta'
 hreflang:
   - lang: es-ES
     url: 'https://reprodisseny.com/productos/idenficador-maleta'
   - lang: ca-ES
     url: 'https://reprodisseny.com/productos/idenficador-maleta'
-breadcrumbs:
-  - name: Inicio
-    url: /
-  - name: Eventos
-    url: /categorias/eventos
-  - name: Identificador de maleta
-    url: /productos/idenficador-maleta
 keywords:
   - identificador de maleta
 searchTerms:
   - identificador de maleta
-sku: 01-EVEN-0016
-gtin: ''
-mpn: ''
-brand: Reprodisseny
-price: 0
-priceCurrency: EUR
-priceValidUntil: '2026-12-30'
-availability: 'https://schema.org/InStock'
-itemCondition: 'https://schema.org/NewCondition'
-inStock: true
-productionTime: 24–72 h
-minOrderQty: 1
-shippingDetails:
-  regions:
-    - ES
-    - PT
-  handlingTime: 24 h
-  transitTime: 24–72 h
-returnPolicy:
-  days: 14
-  method: devolución en tienda y recogida
-galleryImages: []
-ratingValue: 0
-reviewCount: 0
-specs: []
-templates: []
-useCases: []
-badges: []
-relatedSlugs: []
-formFields: []
-faqs: []
-ad:
-  finalUrl: ''
-  path1: eventos
-  path2: idenficador-maleta
-  headlines: []
-  descriptions: []
-  callouts: []
-  structuredSnippets: []
-  sitelinks: []
 schema:
   '@type': Product
   name: Identificador de maleta

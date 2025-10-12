@@ -1,96 +1,75 @@
-import { defineNuxtConfig } from 'nuxt/config'
 // nuxt.config.ts
-import { fileURLToPath } from 'node:url'
-import { dirname, resolve as resolvePath } from 'node:path'
+import { defineNuxtConfig } from 'nuxt/config'
 
-const dir = dirname(fileURLToPath(import.meta.url))
+const siteUrl = process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000'
 
 export default defineNuxtConfig({
   runtimeConfig: {
-    microsoftGraphClientSecret: process.env.GRAPH_SECRET,
-    tenantId:                  process.env.AZURE_TENANT_ID,
-    clientId:                  process.env.AZURE_CLIENT_ID,
-    sharepointSiteId:          process.env.SHAREPOINT_SITE_ID,
-    sendgridApiKey:            process.env.SENDGRID_API_KEY,
-    sendgridFrom:              process.env.SENDGRID_FROM || 'noreply@reprodisseny.com',
-    // Instagram
-    igToken:  process.env.NUXT_IG_TOKEN,
-    igUserId: process.env.NUXT_IG_IG_USER_ID,
-    igApiVer: process.env.NUXT_IG_API_VER || 'v20.0',
-    // Google
-    gmapsApiKey: process.env.NUXT_GMAPS_API_KEY,
     public: {
-      siteUrl:      process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000',
-      gmapsPlaceId: process.env.NUXT_PUBLIC_GMAPS_PLACE_ID || ''
+      siteUrl
     }
+  },
+
+  appConfig: {
+    brand: { logoUrl: '/img/logo/logo.svg' }
   },
 
   modules: [
     '@nuxt/content',
-    '@pinia/nuxt',
+    '@nuxt/image',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/color-mode',
     '@nuxt/icon',
-    '@nuxt/image',
-    'shadcn-nuxt',
-    '@nuxt/ui',
+    'shadcn-nuxt'
   ],
 
   css: ['@/assets/styles/main.scss'],
 
-  image: {
-    domains: ['reprodisseny.com'],
-  },
-
   shadcn: {
     prefix: '',
-    componentDir: 'components/ui',
+    componentDir: 'components/ui'
   },
-
-  components: [
-    { path: '~/components', pathPrefix: true }
-  ],
 
   app: {
     head: {
+      htmlAttrs: { lang: 'es' },
       titleTemplate: '%s · Reprodisseny',
       title: 'Impresión profesional en Cataluña',
-      meta: [{ name: 'viewport', content: 'width=device-width, initial-scale=1' }],
-      link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+      meta: [
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { name: 'description', content: 'Impresión profesional en Cataluña: gran formato, PLV, vinilos, calendarios y más, con asesoramiento experto.' },
+        { property: 'og:site_name', content: 'Reprodisseny' },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:image', content: `${siteUrl}/img/logo/logo.svg` },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:image', content: `${siteUrl}/img/logo/logo.svg` },
+        { name: 'theme-color', content: '#111827' },
+        { name: 'format-detection', content: 'telephone=no' }
+      ],
+      link: [
+        { rel: 'icon', type: 'image/svg+xml', href: '/img/logo/logo.svg' },
+        { rel: 'icon', type: 'image/png', sizes: '32x32', href: '/img/logo/favicon-32x32.png' },
+        { rel: 'apple-touch-icon', sizes: '180x180', href: '/img/logo/apple-touch-icon.png' }
+      ]
     },
     pageTransition:   { name: 'fade', mode: 'out-in' },
     layoutTransition: { name: 'slide', mode: 'out-in' }
   },
 
-  alias: {
-    '@components': resolvePath(dir, './components'),
-    '@assets':     resolvePath(dir, './assets'),
-    '@utils':      resolvePath(dir, './utils'),
-    '@types':      resolvePath(dir, './types'),
-  },
-
   tailwindcss: { configPath: 'tailwind.config.js', exposeConfig: true },
   colorMode:   { preference: 'light', fallback: 'light', classSuffix: '' },
 
-  build: {
-    transpile: ['unicorn-magic'],
-  },
+  routeRules: {
+    // Páginas de categorías: prerender + revalidación cada hora (SEO + TTFB)
+    '/categorias/**': { isr: 3600 },
 
-  vite: {
-    optimizeDeps: { include: ['unicorn-magic'] },
-    ssr:          { noExternal: ['unicorn-magic'] },
-    resolve: {
-      alias: { 'unicorn-magic$': 'unicorn-magic/dist/unicorn-magic.cjs.js' }
-    }  
-  },
-  
-  nitro: {
-    routeRules: {
-      '/categorias/**':      { swr: true },
-      '/api/categorias/**':  { swr: true, cache: { maxAge: 3600 } },
-    }
+    // API de categorías: cache SWR 1h (sirve stale y revalida en background)
+    '/api/categorias/**': { swr: 3600 },
+
+    // Compatibilidad con rutas antiguas del logo
+    '/img/logo.svg': { redirect: { to: '/img/logo/logo.svg', statusCode: 301 } }
   },
 
   compatibilityDate: '2025-06-01',
-  devtools: { enabled: true },
+  devtools: { enabled: true }
 })

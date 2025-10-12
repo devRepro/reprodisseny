@@ -5,7 +5,7 @@ import { useCategoriasGrid } from "@/composables/useCategoriasGrid";
 const { data, pending, error } = await useCategoriasGrid();
 
 // Soporta ambas formas por si tu payload trae items o tree
-const categories = computed(() => data.value?.items ?? data.value?.tree ?? []);
+const categories = computed(() => data.value?.items ?? []);
 </script>
 
 <template>
@@ -22,16 +22,17 @@ const categories = computed(() => data.value?.items ?? data.value?.tree ?? []);
     </div>
 
     <!-- grid -->
-    <SharedGridDisplay
+    <CategoryCarousel
       v-else
       :items="categories"
       :keyFn="(c) => c.slug || c.id"
       :titleFn="(c) => c.nav ?? c.title ?? ''"
-      :linkFn="(c) => c.path ?? c.link ?? '/'"
-      :imageFn="(c) => c.image ?? ''"
-      :excerptFn="(c) => c.excerpt ?? c.description ?? ''"
-      :countFn="(c) => c.productsCount ?? c.count ?? undefined"
-      :badgesFn="(c) => [c.isNew && 'Nuevo', c.featured && 'Destacado'].filter(Boolean)"
+      :linkFn="(c) => c.path || `/categorias/${c.slug}`"
+      :imageFn="(c) => c.image"
+      :excerptFn="(c) => c.description ?? ''"
+      :countFn="(c) => c.productsCount"
+      :badgesFn="(c) => [c.featured && 'Destacado'].filter(Boolean)"
+      baseImage="/img/categorias"
     />
 
     <div class="space-y-4">

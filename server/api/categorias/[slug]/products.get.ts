@@ -1,41 +1,39 @@
-import { defineEventHandler, getQuery, getRouterParams } from 'h3'
+import { defineEventHandler, getRouterParams, getQuery } from 'h3'
+
 
 function sanitizeProduct(p: any) {
   return {
-    _id: p.id,
+    _id:  p.id,
     path: p.path,
     title: p.title,
-    description: p.description,
-    image: p.image || '/img/placeholder.jpg',
-    slug: p.slug || String(p.path || '').split('/').pop(),
+    description: p.description ?? '',
+    image: p.image || '/img/placeholder.webp',
+    slug:  p.slug || (p.path?.split('/').pop() || ''),
   }
 }
 
 export default defineEventHandler(async (event) => {
-  const { slug } = getRouterParams(event) as { slug?: string }
-  if (!slug) throw createError({ statusCode: 400, statusMessage: 'Falta el slug de la categoría' })
-
+  const { slug } = getRouterParams(event) as { slug: string }
   const q = getQuery(event)
+
   const page = Math.max(1, Number(q.page) || 1)
   const limit = Math.min(100, Number(q.limit) || 24)
   const sortField = (q.sort === 'title' ? 'title' : 'order') as 'title' | 'order'
   const sortDirection = (q.direction === 'DESC' ? 'DESC' : 'ASC') as 'ASC' | 'DESC'
 
-  // Solo filtramos por categorySlug (pocos items → paginamos en memoria)
-  const docs = await queryCollection(event, 'productos')
+  const all = await queryCollection(event, 'productos')
     .where('categorySlug', '=', slug)
+    .where('hidden', '=', false)
     .order(sortField, sortDirection)
-    .all() // ~20 → OK
+    .select('id','path','title','description','image','slug','order','hidden','categorySlug')
+    .all()
 
-  const total = docs.length
+  const total = all.length
   const start = (page - 1) * limit
-  const paged = docs.slice(start, start + limit)
+  const items = all.slice(start, start + limit).map(sanitizeProduct)
 
-  return {
-    items: paged.map(sanitizeProduct),
-    page,
-    pages: Math.ceil(total / limit),
-    total,
-    limit,
-  }
+  return { items, page, pages: Math.ceil(total / limit), total, limit }
 })
+
+
+

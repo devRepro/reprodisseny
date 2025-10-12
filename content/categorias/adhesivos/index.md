@@ -1,13 +1,49 @@
 ---
-alt: >-
-  Adhesivos personalizados en vinilo para escaparates y productos de empresas en
-  Cataluña
-brand: Repro Disseny
-category: ''
+type: categoria
+title: Adhesivos personalizados para branding e interiorismo
+nav: Adhesivos
+order: 0
+parent: adhesivos
+featured: false
+hidden: false
 description: >-
   Adhesivos vinílicos, troquelados y removibles para campañas, productos y
   decoración. Soluciones creativas y personalizadas para agencias y negocios en
   Cataluña.
+image:
+  src: /img/categorias/etiquetas-adhesivas.png
+  width: 1200
+  height: 800
+alt: >-
+  Adhesivos personalizados en vinilo para escaparates y productos de empresas en
+  Cataluña
+galleryImages: []
+breadcrumbs:
+  - name: Inicio
+    url: /
+  - name: Adhesivos
+    url: /categorias/adhesivos
+  - name: Adhesivos personalizados para branding e interiorismo
+    url: /categorias/adhesivos
+cta:
+  text: Ver Productos
+  link: '#productos'
+metaTitle: Adhesivos personalizados para branding e interiorismo | Repro Disseny
+metaDescription: >-
+  Adhesivos personalizados para branding e interiorismo con calidad profesional
+  en Cataluña. Impresión de vinilos y etiquetas adhesivas de alta calidad para
+  escaparates, packaging y productos promocionales.
+canonical: 'https://reprodisseny.com/categorias/adhesivos'
+hreflang:
+  - lang: es-ES
+    url: 'https://reprodisseny.com/categorias/adhesivos'
+keywords:
+  - Adhesivos personalizados para empresas
+  - Etiquetas adhesivas en Cataluña
+  - Impresión de pegatinas promocionales
+  - Adhesivos para packaging
+  - Etiquetas autoadhesivas de calidad
+searchTerms: []
 faqs:
   - question: ¿Qué tipo de adhesivos son mejores para escaparates?
     answer: >-
@@ -32,29 +68,6 @@ faqs:
     answer: >-
       Claro, trabajamos desde pequeñas tiradas hasta grandes producciones,
       adaptándonos a las necesidades de cada cliente.
-featured: false
-formFields: []
-galleryImages: []
-image: Etiquetas-adhesivas.png
-inStock: true
-keywords:
-  - Adhesivos personalizados para empresas
-  - Etiquetas adhesivas en Cataluña
-  - Impresión de pegatinas promocionales
-  - Adhesivos para packaging
-  - Etiquetas autoadhesivas de calidad
-metaDescription: >-
-  Adhesivos personalizados para branding e interiorismo con calidad profesional
-  en Cataluña. Impresión de vinilos y etiquetas adhesivas de alta calidad para
-  escaparates, packaging y productos promocionales.
-metaTitle: Adhesivos personalizados para branding e interiorismo | Repro Disseny
-nav: Adhesivos
-order: 0
-path: /categorias/adhesivos
-price: 0
-priceCurrency: EUR
-ratingValue: 0
-reviewCount: 0
 schema:
   '@type': CollectionPage
   name: Adhesivos personalizados para branding e interiorismo | Repro Disseny
@@ -62,7 +75,7 @@ schema:
     Adhesivos vinílicos, troquelados y removibles para campañas, productos y
     decoración. Soluciones creativas y personalizadas para agencias y negocios
     en Cataluña.
-  image: 'https://reprodisseny.com/img/productos/Etiquetas-adhesivas.png'
+  image: 'https://reprodisseny.com/img/categorias/adhesivos/etiquetas-adhesivas.png'
   sku: ''
   brand:
     '@type': Organization
@@ -72,14 +85,7 @@ schema:
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: CollectionPage
-searchTerms: []
-sku: ''
-slug: adhesivos
-title: Adhesivos personalizados para branding e interiorismo
-type: categoria
 ---
-
 # Adhesivos personalizados para branding e interiorismo | Repro Disseny
 
 Adhesivos vinílicos, troquelados y removibles para campañas, productos y decoración. Soluciones creativas y personalizadas para agencias y negocios en Cataluña.

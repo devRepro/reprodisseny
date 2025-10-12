@@ -10,11 +10,11 @@ import { Search } from "lucide-vue-next";
       <!-- Logo -->
       <NuxtLink to="/" class="flex items-center shrink-0" aria-label="Inicio">
         <SharedLogo />
+        <span class="sr-only">Repro Disseny</span>
       </NuxtLink>
 
-      <!-- Buscador + Menú -->
+      <!-- quita comentarios para evitar hydration mismatch -->
       <div id="buscar" class="flex items-center gap-6 flex-1 justify-end">
-        <!-- Input con icono de lupa -->
         <div class="relative w-[280px]">
           <SharedSearch
             class="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500 pointer-events-none"

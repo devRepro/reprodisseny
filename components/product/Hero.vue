@@ -1,18 +1,43 @@
 <!-- components/product/ProductHero.vue -->
 <script setup lang="ts">
+import { computed } from "vue";
+
 const props = withDefaults(
   defineProps<{
     title: string;
+    product?: string; // opcional (carpeta del producto)
+    src?: string; // opcional (ruta absoluta, ej: /img/categorias/x/header.webp)
+    file?: string; // archivo dentro de la carpeta del producto
     description?: string;
-    image?: string;
     alt?: string;
     labels?: string[];
   }>(),
-  { description: "", image: "/img/placeholders/mockup.webp", alt: "", labels: () => [] }
+  {
+    file: "header.webp",
+    description: "",
+    alt: "",
+    labels: () => [],
+  }
 );
 
-// Detecta si el módulo @nuxt/image está inyectado
-const hasNuxtImage = Boolean(useNuxtApp().$img); // ← sin acceder en el template
+const FALLBACK = "/img/placeholders/product.webp";
+
+// Decide la imagen final: src absoluto > carpeta de producto > fallback
+const imgSrc = computed(() => {
+  if (props.src) return props.src;
+  if (props.product) return `/img/productos/${props.product}/${props.file}`;
+  return FALLBACK;
+});
+
+const imgAlt = computed(() => props.alt || props.title);
+
+function onErr(e: Event) {
+  const el = e.target as HTMLImageElement;
+  if (el && el.src !== location.origin + FALLBACK) {
+    el.src = FALLBACK;
+    el.srcset = "";
+  }
+}
 </script>
 
 <template>
@@ -22,36 +47,27 @@ const hasNuxtImage = Boolean(useNuxtApp().$img); // ← sin acceder en el templa
       <p v-if="description" class="mt-4 text-muted-foreground text-lg">
         {{ description }}
       </p>
+
       <div v-if="labels?.length" class="mt-5 flex flex-wrap gap-2">
         <span
           v-for="(chip, i) in labels"
           :key="i"
           class="px-3 py-1 text-sm rounded-full bg-muted text-foreground/80"
-          >{{ chip }}</span
         >
+          {{ chip }}
+        </span>
       </div>
     </div>
 
     <div class="w-full">
-      <!-- Renderiza NuxtImg solo si el módulo está disponible -->
-      <ClientOnly>
-        <NuxtImg
-          v-if="hasNuxtImage && image"
-          :src="image"
-          :alt="alt || title"
-          sizes="(max-width: 768px) 100vw, 50vw"
-          densities="x1 x2"
-          format="webp"
-          class="w-full h-auto rounded-xl object-cover shadow"
-        />
-      </ClientOnly>
-
-      <img
-        v-if="!hasNuxtImage && image"
-        :src="image"
-        :alt="alt || title"
-        loading="eager"
+      <NuxtImg
+        :src="imgSrc"
+        :alt="imgAlt"
+        sizes="(max-width: 768px) 100vw, 50vw"
+        densities="x1 x2"
         class="w-full h-auto rounded-xl object-cover shadow"
+        fetchpriority="high"
+        @error="onErr"
       />
     </div>
   </header>

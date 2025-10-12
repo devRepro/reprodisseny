@@ -1,6 +1,44 @@
 ---
+type: categoria
+title: Expositores impresos para punto de venta y eventos | Repro Disseny
+nav: Expositores
+order: 0
+parent: expositores
+featured: false
+hidden: false
+description: ''
+image:
+  src: /img/categorias/Estructuras-exposicion.png
+  width: 1200
+  height: 800
 alt: Expositores impresos personalizados para ferias y puntos de venta en Cataluña
-brand: Repro Disseny
+galleryImages: []
+breadcrumbs:
+  - name: Inicio
+    url: /
+  - name: Expositores
+    url: /categorias/expositores
+  - name: Expositores impresos para punto de venta y eventos | Repro Disseny
+    url: /categorias/expositores
+cta:
+  text: Ver Productos
+  link: '#productos'
+metaTitle: Expositores impresos para punto de venta y eventos
+metaDescription: >-
+  Expositores impresos para punto de venta y eventos | Repro Disseny
+  personalizadas con calidad profesional en Cataluña.
+canonical: 'https://reprodisseny.com/categorias/expositores'
+hreflang:
+  - lang: es-ES
+    url: 'https://reprodisseny.com/categorias/expositores'
+keywords:
+  - Diseño de stands para ferias
+  - Expositores personalizados para puntos de venta
+  - Roll-ups publicitarios
+  - Displays promocionales
+  - Expositores portátiles para eventos
+searchTerms:
+  - expositores impresos para punto de venta y eventos | repro disseny
 faqs:
   - question: ¿Qué tipo de adhesivos son mejores para escaparates?
     answer: >-
@@ -25,33 +63,13 @@ faqs:
     answer: >-
       Claro, trabajamos desde pequeñas tiradas hasta grandes producciones,
       adaptándonos a las necesidades de cada cliente.
-featured: false
-formFields: []
-image: Estructuras-exposicion.png
-inStock: true
-keywords:
-  - Diseño de stands para ferias
-  - Expositores personalizados para puntos de venta
-  - Roll-ups publicitarios
-  - Displays promocionales
-  - Expositores portátiles para eventos
-metaDescription: >-
-  Expositores impresos para punto de venta y eventos | Repro Disseny
-  personalizadas con calidad profesional en Cataluña.
-metaTitle: Expositores impresos para punto de venta y eventos
-nav: Expositores
-order: 0
-path: /categorias/expositores
-priceCurrency: EUR
-ratingValue: 4.5
-reviewCount: 63
 schema:
   '@type': CollectionPage
   name: Expositores impresos para punto de venta y eventos | Repro Disseny
   description: >-
     Stoppers, PLV, displays y peanas de cartón. Expositores personalizados para
     destacar en retail, showrooms y ferias.
-  image: 'https://reprodisseny.com/img/categorias/Estructuras-exposicion.png'
+  image: 'https://reprodisseny.com/img/categorias/expositores/estructuras-exposicion.png'
   sku: ''
   brand:
     '@type': Organization
@@ -61,14 +79,7 @@ schema:
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: CollectionPage
-searchTerms:
-  - expositores impresos para punto de venta y eventos | repro disseny
-slug: expositores
-title: Expositores impresos para punto de venta y eventos | Repro Disseny
-type: categoria
 ---
-
 ## Expositores impresos para punto de venta y eventos | Repro Disseny
 
 # Expositores impresos para punto de venta y eventos

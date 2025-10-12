@@ -1,10 +1,48 @@
 ---
-alt: Ejemplo de impresión en material flexible para publicidad
-brand: Repro Disseny
-category: gran-formato
+type: categoria
+title: Impresión en Materiales Flexibles - Gran Formato
+nav: Material Flexible
+order: 0
+parent: material-flexible
+featured: false
+hidden: false
 description: >-
   Ofrecemos soluciones de impresión en materiales flexibles como lonas y
   vinilos, ideales para publicidad y decoración en gran formato.
+image:
+  src: /img/categorias/mockup.webp
+  width: 1200
+  height: 800
+alt: Ejemplo de impresión en material flexible para publicidad
+galleryImages: []
+breadcrumbs:
+  - name: Inicio
+    url: /
+  - name: Material Flexible
+    url: /categorias/material-flexible
+  - name: Impresión en Materiales Flexibles - Gran Formato
+    url: /categorias/material-flexible
+cta:
+  text: Ver Productos
+  link: '#productos'
+metaTitle: Impresión en Materiales Flexibles | Lonas y Vinilos de Alta Calidad
+metaDescription: >-
+  Especialistas en impresión digital en materiales flexibles como lonas
+  publicitarias y vinilos adhesivos para interior y exterior.
+canonical: 'https://reprodisseny.com/categorias/material-flexible'
+hreflang:
+  - lang: es-ES
+    url: 'https://reprodisseny.com/categorias/material-flexible'
+keywords:
+  - impresión en materiales flexibles
+  - lonas publicitarias
+  - vinilos adhesivos
+  - impresión gran formato flexible
+  - decoración con vinilos
+searchTerms:
+  - impresión lonas gran formato
+  - vinilos personalizados
+  - publicidad en materiales flexibles
 faqs:
   - question: ¿Qué tipo de lonas y vinilos utilizáis?
     answer: >-
@@ -27,27 +65,6 @@ faqs:
     answer: >-
       Ofrecemos impresión, acabado y también instalación en la zona de Barcelona
       y alrededores.
-featured: false
-formFields: []
-galleryImages: []
-image: mockup.webp
-inStock: true
-keywords:
-  - impresión en materiales flexibles
-  - lonas publicitarias
-  - vinilos adhesivos
-  - impresión gran formato flexible
-  - decoración con vinilos
-metaDescription: >-
-  Especialistas en impresión digital en materiales flexibles como lonas
-  publicitarias y vinilos adhesivos para interior y exterior.
-metaTitle: Impresión en Materiales Flexibles | Lonas y Vinilos de Alta Calidad
-nav: Material Flexible
-order: 0
-path: /categorias/gran-formato/material-flexible
-priceCurrency: EUR
-ratingValue: 4.7
-reviewCount: 68
 schema:
   '@type': CollectionPage
   name: Impresión en Materiales Flexibles - Gran Formato
@@ -64,16 +81,7 @@ schema:
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: null
-searchTerms:
-  - impresión lonas gran formato
-  - vinilos personalizados
-  - publicidad en materiales flexibles
-slug: material-flexible
-title: Impresión en Materiales Flexibles - Gran Formato
-type: subcategoria
 ---
-
 ## Impresión en Materiales Flexibles - Gran Formato
 
 # Impresión en Materiales Flexibles

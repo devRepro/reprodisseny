@@ -1,11 +1,48 @@
 ---
-alt: >-
-  Cajas y envases impresos para packaging de productos personalizados en
-  Cataluña
-brand: Repro Disseny
+type: categoria
+title: Packaging personalizado para productos y marcas
+nav: Packaging
+order: 0
+parent: packaging
+featured: false
+hidden: false
 description: >-
   Cajas, estuches, sobres y soluciones a medida. Diseñado para destacar tu
   marca. Impresión de packaging para agencias, negocios y ecommerce.
+image:
+  src: /img/categorias/mockup.webp
+  width: 1200
+  height: 800
+alt: >-
+  Cajas y envases impresos para packaging de productos personalizados en
+  Cataluña
+galleryImages: []
+breadcrumbs:
+  - name: Inicio
+    url: /
+  - name: Packaging
+    url: /categorias/packaging
+  - name: Packaging personalizado para productos y marcas
+    url: /categorias/packaging
+cta:
+  text: Ver Productos
+  link: '#productos'
+metaTitle: Packaging personalizado para productos y marcas | Repro Disseny
+metaDescription: >-
+  Packaging personalizado para productos y marcas con calidad profesional en
+  Cataluña. Soluciones creativas para ecommerce, agencias y negocios.
+canonical: 'https://reprodisseny.com/categorias/packaging'
+hreflang:
+  - lang: es-ES
+    url: 'https://reprodisseny.com/categorias/packaging'
+keywords:
+  - Diseño de envases personalizados
+  - Cajas impresas para productos
+  - Etiquetas y sleeves para packaging
+  - Soluciones de embalaje sostenible
+  - Packaging creativo para marcas
+searchTerms:
+  - packaging personalizado para productos y marcas | repro disseny
 faqs:
   - question: ¿Qué tipo de packaging puedo personalizar?
     answer: >-
@@ -27,34 +64,13 @@ faqs:
     answer: >-
       Sí. Podemos aplicar acabados como stamping, barniz selectivo, relieves,
       troquelados y otros efectos de alto impacto visual.
-featured: false
-formFields: []
-galleryImages: []
-image: mockup.webp
-inStock: true
-keywords:
-  - Diseño de envases personalizados
-  - Cajas impresas para productos
-  - Etiquetas y sleeves para packaging
-  - Soluciones de embalaje sostenible
-  - Packaging creativo para marcas
-metaDescription: >-
-  Packaging personalizado para productos y marcas con calidad profesional en
-  Cataluña. Soluciones creativas para ecommerce, agencias y negocios.
-metaTitle: Packaging personalizado para productos y marcas | Repro Disseny
-nav: Packaging
-order: 0
-path: /categorias/packaging
-priceCurrency: EUR
-ratingValue: 4.8
-reviewCount: 92
 schema:
   '@type': CollectionPage
   name: Packaging personalizado para productos y marcas | Repro Disseny
   description: >-
     Cajas, estuches, sobres y soluciones a medida. Diseñado para destacar tu
     marca. Impresión de packaging para agencias, negocios y ecommerce.
-  image: 'https://reprodisseny.com/img/categorias/packaging.webp'
+  image: 'https://reprodisseny.com/img/categorias/packging/mockup.webp'
   url: 'https://reprodisseny.com/categorias/packaging'
   brand:
     '@type': Organization
@@ -64,14 +80,7 @@ schema:
     price: 0
     priceCurrency: EUR
     availability: 'https://schema.org/InStock'
-schemaType: CollectionPage
-searchTerms:
-  - packaging personalizado para productos y marcas | repro disseny
-slug: packaging
-title: Packaging personalizado para productos y marcas
-type: categoria
 ---
-
 ## Packaging personalizado para productos y marcas | Repro Disseny
 
 # Packaging personalizado para productos y marcas

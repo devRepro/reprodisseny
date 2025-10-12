@@ -146,7 +146,7 @@ const props = withDefaults(
     // Media tuning
     width?: number;
     height?: number;
-    placeholder?: "blur" | "empty" | "dominant";
+    placeholder?: "empty" | "dominant";
     loading?: "lazy" | "eager";
     decoding?: "async" | "auto" | "sync";
     format?: "webp" | "avif" | "jpeg" | "png";
@@ -163,7 +163,7 @@ const props = withDefaults(
     badges: () => [],
     width: 600,
     height: 450,
-    placeholder: "blur",
+    placeholder: "/img/placeholders/mockup.webp",
     loading: "lazy",
     decoding: "async",
     format: "webp",

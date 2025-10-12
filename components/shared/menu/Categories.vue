@@ -9,8 +9,8 @@ import {
   MenubarTrigger,
   MenubarContent,
   MenubarItem,
-  MenubarSeparator,
 } from "@/components/ui/menubar";
+import { ChevronDownIcon } from "lucide-vue-next";
 
 // Traemos árbol + productos en hojas
 const { data, pending, error } = await useCategoriasNav({
@@ -35,12 +35,24 @@ const categories = computed(() => data.value?.tree ?? []);
           v-for="cat in categories"
           :key="cat.id || cat.slug || cat.path || cat.title"
         >
-          <!-- ✅ Trigger solo abre dropdown, no navega -->
-          <MenubarTrigger as-child>
-            <button type="button" class="cursor-pointer">
+          <div class="flex items-center gap-1">
+            <NuxtLink
+              :to="cat.path || `/categorias/${cat.slug}`"
+              class="text-sm font-medium text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-v isible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            >
               {{ cat.nav || cat.title || cat.slug }}
-            </button>
-          </MenubarTrigger>
+            </NuxtLink>
+
+            <MenubarTrigger v-if="cat.children?.length || cat.products?.length" as-child>
+              <button
+                type="button"
+                class="inline-flex items-center justify-center rounded-md p-1 text-muted-foreground hover:text-foreground focus- visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-backg round"
+                :aria-label="`Abrir submenú de ${cat.nav || cat.title || cat.slug}`"
+              >
+                <ChevronDownIcon class="h-4 w-4" aria-hidden="true" />
+              </button>
+            </MenubarTrigger>
+          </div>
 
           <!-- Mostrar subcategorías (2 columnas) o productos de categoría simple -->
           <MenubarContent
