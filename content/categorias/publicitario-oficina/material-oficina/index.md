@@ -10,7 +10,7 @@ description: >-
   Impresión de material de oficina personalizado: blocs, talonarios, carpetas y
   más. Soluciones profesionales para empresas en Barcelona y Cataluña.
 image:
-  src: /img/categorias/mockup.webp
+  src: /img/categorias/material-oficina/material-oficina.png
   width: 1200
   height: 800
 alt: Material de oficina personalizado para empresas en Barcelona
@@ -42,7 +42,7 @@ schema:
   '@type': CollectionPage
   name: Material de Oficina Personalizado para Empresas | Repro Disseny
   description: 'Impresión de material de oficina personalizado: blocs, talonarios...'
-  image: 'https://reprodisseny.com/img/categorias/material-oficina.webp'
+  image: 'https://reprodisseny.com//img/categorias/material-oficina/material-oficina.png'
   url: 'https://reprodisseny.com/categorias/publicitario-oficina/material-oficina'
   isPartOf:
     '@type': CollectionPage

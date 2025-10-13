@@ -10,7 +10,7 @@ description: >-
   Cajas, estuches, sobres y soluciones a medida. Diseñado para destacar tu
   marca. Impresión de packaging para agencias, negocios y ecommerce.
 image:
-  src: /img/categorias/mockup.webp
+  src: /img/categorias/packaging/packaging.png
   width: 1200
   height: 800
 alt: >-
@@ -70,7 +70,7 @@ schema:
   description: >-
     Cajas, estuches, sobres y soluciones a medida. Diseñado para destacar tu
     marca. Impresión de packaging para agencias, negocios y ecommerce.
-  image: 'https://reprodisseny.com/img/categorias/packging/mockup.webp'
+  image: 'https://reprodisseny.com/img/categorias/packging/packaging.png'
   url: 'https://reprodisseny.com/categorias/packaging'
   brand:
     '@type': Organization

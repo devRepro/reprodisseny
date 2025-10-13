@@ -50,6 +50,29 @@ const { data: payload, pending, error } = await useAsyncData(
   { server: true }
 );
 
+
+const sortOption = computed({
+  get() {
+    return `${pageQuery.value.sort}:${pageQuery.value.direction}`;
+  },
+  set(value: string) {
+    const [sort, direction] = value.split(':');
+    router.push({ 
+      query: { 
+        ...route.query,
+        page: 1, // Resetea a la página 1 al cambiar el orden
+        sort, 
+        direction 
+      } 
+    });
+  }
+});
+
+const sortOptions = [
+  { label: 'Recomendados', value: 'order:ASC' },
+  { label: 'Nombre: A-Z', value: 'title:ASC' },
+  { label: 'Nombre: Z-A', value: 'title:DESC' },
+];
 const productos = computed(() => payload.value?.items ?? []);
 const totalPages = computed(() => payload.value?.pages ?? 0);
 const currentPage = computed(() => payload.value?.page ?? 1);
@@ -114,135 +137,162 @@ onMounted(() => {
 </script>
 
 <template>
-  <main class="min-h-screen bg-background text-foreground">
-    <!-- HERO SIEMPRE (usa fallbacks si doc aún no está) -->
+  <main class="bg-background text-foreground">
     <SharedMenuCategories />
-    <section class="max-w-7xl mx-auto px-6 py-8 md:py-10">
-      <CategoryHero
-        :title="heroTitle"
-        :description="heroDesc"
-        :image="heroImg"
-        image-base="categorias"
-        cta-text="Pedir presupuesto"
-        cta-link="/contacto"
-      />
+
+    <section class="border-b border-border">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-8 md:gap-12 items-center py-12 md:py-16">
+        <div class="text-center lg:text-left">
+          <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-foreground">
+            {{ heroTitle }}
+          </h1>
+          <p v-if="heroDesc" class="mt-4 text-lg text-muted-foreground max-w-xl mx-auto lg:mx-0">
+            {{ heroDesc }}
+          </p>
+          <div class="mt-8 flex gap-4 justify-center lg:justify-start">
+            <Button size="lg" as-child>
+              <NuxtLink to="/contacto">Pedir Presupuesto</NuxtLink>
+            </Button>
+            <Button size="lg" variant="outline" as-child>
+              <NuxtLink to="#productos">Ver Productos</NuxtLink>
+            </Button>
+          </div>
+        </div>
+
+        <div class="w-full h-64 lg:h-auto lg:aspect-[4/3] rounded-2xl overflow-hidden bg-muted">
+          <NuxtImg
+            :src="heroImg"
+            :alt="`Imagen representativa de ${heroTitle}`"
+            class="w-full h-full object-cover"
+            width="800"
+            height="600"
+            format="webp"
+            fetchpriority="high"
+          />
+        </div>
+      </div>
     </section>
-
-    <div class="h-px bg-border/60" />
-
-    <!-- USPs para campañas -->
-    <section class="max-w-7xl mx-auto px-6 py-6">
-      <ul class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 text-sm">
-        <li class="p-4 rounded-xl border bg-card">🚚 Entrega 24-48h</li>
-        <li class="p-4 rounded-xl border bg-card">🎯 Asesoramiento experto</li>
-        <li class="p-4 rounded-xl border bg-card">💳 Pago seguro</li>
-        <li class="p-4 rounded-xl border bg-card">🌱 Materiales sostenibles</li>
+    
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 text-sm font-medium">
+        <li class="flex items-center gap-3 p-4 rounded-lg border bg-card/50">
+          <span class="text-xl">🚚</span> <span>Entrega rápida 24-48h</span>
+        </li>
+        <li class="flex items-center gap-3 p-4 rounded-lg border bg-card/50">
+          <span class="text-xl">🎯</span> <span>Asesoramiento experto</span>
+        </li>
+        <li class="flex items-center gap-3 p-4 rounded-lg border bg-card/50">
+          <span class="text-xl">💳</span> <span>Pago 100% seguro</span>
+        </li>
+        <li class="flex items-center gap-3 p-4 rounded-lg border bg-card/50">
+          <span class="text-xl">🌱</span> <span>Materiales sostenibles</span>
+        </li>
       </ul>
     </section>
 
-    <!-- GRID PRODUCTOS -->
-    <section class="max-w-7xl mx-auto px-6 py-8 md:py-10">
-      <h2 class="sr-only">Productos de {{ heroTitle }}</h2>
-
-      <div v-if="pending" class="text-muted-foreground">Cargando productos…</div>
-
-      <div v-else-if="error" class="text-red-500 bg-red-500/10 p-4 rounded-lg">
-        <strong>Error:</strong>
-        {{ error?.message || "No se pudieron cargar los productos." }}
+    <section id="productos" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+        <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+  <h2 class="text-3xl font-bold tracking-tight">
+    Productos de {{ heroTitle }}
+  </h2>
+  
+  <div v-if="productos.length > 0" class="flex items-center gap-2">
+    <label for="sort-select" class="text-sm font-medium text-muted-foreground">Ordenar por:</label>
+    <Select v-model="sortOption">
+      <SelectTrigger id="sort-select" class="w-[180px]">
+        <SelectValue placeholder="Seleccionar" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectItem v-for="opt in sortOptions" :key="opt.value" :value="opt.value">
+          {{ opt.label }}
+        </SelectItem>
+      </SelectContent>
+    </Select>
+  </div>
+  </div>
+        </div>
+      
+      <div v-if="pending" class="text-center py-12 text-muted-foreground">Cargando productos…</div>
+      <div v-else-if="error" class="bg-destructive/10 text-destructive p-4 rounded-lg">
+        <strong>Error:</strong> {{ error?.message || "No se pudieron cargar los productos." }}
+      </div>
+      <div v-else-if="productos.length === 0" class="text-center py-12 text-muted-foreground">
+        No se encontraron productos en esta categoría.
       </div>
 
-      <div v-else-if="productos.length === 0" class="text-sm text-muted-foreground">
-        No hay productos en esta categoría.
-      </div>
-
-      <div
-        v-else
-        class="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4"
-      >
+      <div v-else class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         <article
           v-for="p in productos"
-          :key="p._id || p.path || p.slug"
-          class="group overflow-hidden rounded-2xl border bg-card shadow-sm transition hover:shadow-md"
+          :key="p._id || p.path"
+          class="group relative overflow-hidden rounded-2xl border bg-card shadow-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
         >
           <NuxtLink :to="p.path || `/productos/${p.slug || p._id}`" class="block">
             <div class="aspect-[4/3] w-full overflow-hidden bg-muted">
               <NuxtImg
                 :src="productImgSrc(p)"
                 :alt="p.alt || p.title || 'Producto'"
-                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
+                sizes="100vw sm:50vw md:33vw lg:25vw"
                 width="600"
                 height="450"
                 format="webp"
                 loading="lazy"
-                class="h-full w-full object-cover object-center transition-transform group-hover:scale-[1.03]"
+                class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
               />
             </div>
             <div class="p-4">
-              <h3 class="line-clamp-2 text-base font-medium">{{ p.title }}</h3>
-              <p
-                v-if="p.description"
-                class="mt-1 line-clamp-2 text-sm text-muted-foreground"
-              >
-                {{ p.description }}
-              </p>
-              <div class="mt-3 text-sm font-medium text-primary">Ver producto →</div>
+              <h3 class="font-semibold text-base leading-snug truncate">{{ p.title }}</h3>
+              <p v-if="p.description" class="mt-1 text-sm text-muted-foreground line-clamp-2">{{ p.description }}</p>
+              <div class="mt-4">
+                <span class="text-sm font-semibold text-primary">Ver producto &rarr;</span>
+              </div>
             </div>
           </NuxtLink>
         </article>
       </div>
 
-      <!-- Paginación -->
-      <nav
-        v-if="totalPages > 1"
-        class="mt-8 flex items-center gap-2 justify-center"
-        aria-label="Paginación"
-      >
-        <button
-          class="px-3 py-2 border rounded-md"
-          :disabled="currentPage === 1"
-          @click="setPage(currentPage - 1)"
-        >
-          ← Anterior
-        </button>
-        <span class="text-sm text-muted-foreground"
-          >Página {{ currentPage }} / {{ totalPages }}</span
-        >
-        <button
-          class="px-3 py-2 border rounded-md"
-          :disabled="currentPage === totalPages"
-          @click="setPage(currentPage + 1)"
-        >
-          Siguiente →
-        </button>
+      <nav v-if="totalPages > 1" class="mt-12 flex justify-center" aria-label="Paginación">
+        <ul class="flex items-center -space-x-px h-10 text-base">
+          <li>
+            <button @click="setPage(currentPage - 1)" :disabled="currentPage === 1" class="flex items-center justify-center px-4 h-10 ms-0 leading-tight text-muted-foreground bg-card border border-border rounded-s-lg hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed">
+              &larr; Anterior
+            </button>
+          </li>
+          <li>
+            <span class="flex items-center justify-center px-4 h-10 leading-tight text-muted-foreground bg-card border-y border-border">
+              Página {{ currentPage }} de {{ totalPages }}
+            </span>
+          </li>
+          <li>
+            <button @click="setPage(currentPage + 1)" :disabled="currentPage === totalPages" class="flex items-center justify-center px-4 h-10 leading-tight text-muted-foreground bg-card border border-border rounded-e-lg hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed">
+              Siguiente &rarr;
+            </button>
+          </li>
+        </ul>
       </nav>
     </section>
-
-    <!-- CTA final -->
-    <section class="bg-primary/5 border-t border-b">
-      <div
-        class="max-w-7xl mx-auto px-6 py-10 md:flex md:items-center md:justify-between gap-6"
-      >
-        <div>
-          <h2 class="text-2xl font-semibold">¿Necesitas ayuda con tu proyecto?</h2>
-          <p class="text-muted-foreground mt-1">
-            Te asesoramos sin compromiso en minutos.
-          </p>
+    
+    <section class="bg-muted/50 border-t">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+        <h2 class="text-3xl font-bold tracking-tight">¿No encuentras lo que buscas?</h2>
+        <p class="mt-3 text-lg text-muted-foreground max-w-2xl mx-auto">
+          Nuestro equipo de expertos está listo para asesorarte y encontrar la solución de impresión perfecta para tu proyecto.
+        </p>
+        <div class="mt-8">
+          <Button size="lg" as-child>
+            <NuxtLink to="/contacto">Contactar Ahora</NuxtLink>
+          </Button>
         </div>
-        <NuxtLink
-          to="/contacto"
-          class="mt-4 md:mt-0 inline-block px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90"
-        >
-          Pedir presupuesto
-        </NuxtLink>
       </div>
     </section>
 
-    <section v-if="hasFaqs" class="max-w-4xl mx-auto px-6 pb-12">
-      <h2 class="text-3xl font-bold text-center mb-8">Preguntas Frecuentes</h2>
-      <!-- Si te da guerra SSR/Hydration por el UI accordion, envuélvelo en <ClientOnly> -->
-      <!-- <ClientOnly> -->
-      <SharedFaqAccordion :items="doc?.faqs || []" />
-      <!-- </ClientOnly> -->
+    <section v-if="hasFaqs" class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-bold tracking-tight">Preguntas Frecuentes</h2>
+      </div>
+      <ClientOnly>
+        <SharedFaqAccordion :items="doc?.faqs || []" />
+      </ClientOnly>
     </section>
   </main>
 </template>

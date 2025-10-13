@@ -8,7 +8,7 @@ featured: false
 hidden: false
 description: ''
 image:
-  src: /img/categorias/mockup.webp
+  src: /img/categorias/material-publicitario/material-publicitario.png
   width: 1200
   height: 800
 alt: 'Papelería corporativa impresa para empresas, agencias y oficinas en Barcelona'
@@ -50,7 +50,7 @@ schema:
     Impresión de material publicitario y de oficina personalizado: carpetas,
     blocs, talonarios, flyers, trípticos y papelería corporativa. Soluciones
     para empresas en Barcelona y Cataluña.
-  image: 'https://reprodisseny.com/img/categorias/material-publicidad.webp'
+  image: 'https://reprodisseny.com/img/categorias/material-publicitario/material-publicitario.png'
   url: 'https://reprodisseny.com/categorias/publicitario-oficina/material-publicidad'
   brand:
     '@type': Organization

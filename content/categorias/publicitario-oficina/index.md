@@ -46,7 +46,7 @@ schema:
   '@type': CollectionPage
   name: Publicidad y Material de Oficina Personalizado | Repro Disseny
   description: Soluciones integrales de impresión para publicidad y oficina...
-  image: 'https://reprodisseny.com/img/categorias/publicidad.webp'
+  image: 'https://reprodisseny.com/img/categorias/libros-revistas-catalogos/Catalogos-revistas.png'
   url: 'https://reprodisseny.com/categorias/publicitario-oficina/mockup.webp'
   brand:
     '@type': Organization

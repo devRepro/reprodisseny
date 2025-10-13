@@ -11,7 +11,7 @@ description: >-
   decoración. Soluciones creativas y personalizadas para agencias y negocios en
   Cataluña.
 image:
-  src: /img/categorias/etiquetas-adhesivas.png
+  src: /img/categorias/adhesivos/etiquetas-adhesivas.png
   width: 1200
   height: 800
 alt: >-

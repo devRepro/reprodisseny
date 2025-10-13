@@ -10,7 +10,7 @@ description: >-
   Ofrecemos soluciones de impresión en materiales flexibles como lonas y
   vinilos, ideales para publicidad y decoración en gran formato.
 image:
-  src: /img/categorias/mockup.webp
+  src: /img/categorias/material-flexible/mockup.webp
   width: 1200
   height: 800
 alt: Ejemplo de impresión en material flexible para publicidad

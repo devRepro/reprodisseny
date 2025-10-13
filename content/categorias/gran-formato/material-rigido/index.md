@@ -10,7 +10,7 @@ description: >-
   Descubre nuestras soluciones de impresión en materiales rígidos para
   cartelería, señalética y decoración. Calidad y durabilidad garantizadas.
 image:
-  src: /img/categorias/mockup.webp
+  src: /img/categorias/material-rigido/mockup.webp
   width: 1200
   height: 800
 alt: Ejemplo de impresión en material rígido para cartelería
