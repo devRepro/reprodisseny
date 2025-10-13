@@ -20,7 +20,7 @@ const props = withDefaults(
   }
 );
 
-const FALLBACK = "/img/placeholders/product.webp";
+const FALLBACK = "/img/placeholders/producto.webp";
 
 // Decide la imagen final: src absoluto > carpeta de producto > fallback
 const imgSrc = computed(() => {
