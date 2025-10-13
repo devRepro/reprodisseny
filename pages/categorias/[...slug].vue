@@ -1,9 +1,8 @@
 <!-- pages/categorias/[...slug].vue -->
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
 import CategoryHero from "@/components/category/Hero.vue";
 
-/* -------- Router -------- */
 const route = useRoute();
 const router = useRouter();
 
@@ -16,14 +15,16 @@ const categoryPath = computed(() =>
   ["/categorias", ...slugParts.value].join("/").replace(/\/+$/, "")
 );
 
-/* -------- 1) Doc categoría (Nuxt Content) -------- */
+// ✅ Usa SOLO una. Recomiendo queryCollection (respeta schema).
 const { data: doc } = await useAsyncData(
   () => `cat:doc:${categoryPath.value}`,
-  () => queryContent("categorias").path(categoryPath.value).findOne(),
+  () => queryCollection("categorias").path(categoryPath.value).first(),
   { server: true }
 );
 
-/* -------- 2) Productos (endpoint propio) -------- */
+// ❗️NO declares "doc" otra vez más abajo. Quita cualquier duplicado.
+
+// -------- Productos --------
 const pageQuery = computed(() => ({
   page: Number(route.query.page ?? 1),
   limit: Number(route.query.limit ?? 24),
@@ -57,7 +58,13 @@ function setPage(n: number) {
   router.push({ query: { ...route.query, page: target } });
 }
 
-/* -------- Hero (fallbacks seguros) -------- */
+// -------- Imagen producto (debe estar a nivel de módulo) --------
+function productImgSrc(p: any): string {
+  const img = p?.image;
+  return typeof img === "string" ? img : img?.src ?? "/img/placeholders/productos.webp";
+}
+
+// -------- Hero / SEO / FAQs (como ya lo tenías) --------
 const heroTitle = computed(
   () =>
     doc.value?.title ??
@@ -69,13 +76,6 @@ const heroImg = computed(() => {
   return typeof img === "string" ? img : img?.src ?? "/img/placeholders/categoria.webp";
 });
 
-/* -------- Imágenes de producto (fallback) -------- */
-const productImgSrc = (p: any) => {
-  const img = p?.image;
-  return typeof img === "string" ? img : img?.src ?? "/img/placeholders/productos.webp";
-};
-
-/* -------- SEO mínimo y estable -------- */
 const reqUrl = useRequestURL();
 const canonical = computed(() => new URL(route.fullPath, `${reqUrl.origin}`).toString());
 const seoTitle = computed(() => doc.value?.metaTitle ?? heroTitle.value);
@@ -102,11 +102,21 @@ useSeoMeta({
   robots,
 });
 useHead({ link: [{ rel: "canonical", href: canonical.value }] });
+
+const hasFaqs = computed(
+  () => Array.isArray(doc.value?.faqs) && doc.value!.faqs.length > 0
+);
+
+onMounted(() => {
+  console.log("FAQS EN DOC =>", doc.value?.faqs);
+  console.log("productImgSrc exists?", typeof productImgSrc); // debería ser "function"
+});
 </script>
 
 <template>
   <main class="min-h-screen bg-background text-foreground">
     <!-- HERO SIEMPRE (usa fallbacks si doc aún no está) -->
+    <SharedMenuCategories />
     <section class="max-w-7xl mx-auto px-6 py-8 md:py-10">
       <CategoryHero
         :title="heroTitle"
@@ -207,12 +217,6 @@ useHead({ link: [{ rel: "canonical", href: canonical.value }] });
       </nav>
     </section>
 
-    <!-- FAQ -->
-    <section v-if="doc?.faqs?.length" class="max-w-4xl mx-auto px-6 pb-12">
-      <h2 class="text-3xl font-bold text-center mb-8">Preguntas Frecuentes</h2>
-      <SharedFaqAccordion :items="doc.faqs" />
-    </section>
-
     <!-- CTA final -->
     <section class="bg-primary/5 border-t border-b">
       <div
@@ -231,6 +235,14 @@ useHead({ link: [{ rel: "canonical", href: canonical.value }] });
           Pedir presupuesto
         </NuxtLink>
       </div>
+    </section>
+
+    <section v-if="hasFaqs" class="max-w-4xl mx-auto px-6 pb-12">
+      <h2 class="text-3xl font-bold text-center mb-8">Preguntas Frecuentes</h2>
+      <!-- Si te da guerra SSR/Hydration por el UI accordion, envuélvelo en <ClientOnly> -->
+      <!-- <ClientOnly> -->
+      <SharedFaqAccordion :items="doc?.faqs || []" />
+      <!-- </ClientOnly> -->
     </section>
   </main>
 </template>

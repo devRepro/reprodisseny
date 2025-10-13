@@ -43,6 +43,7 @@ useHead(() => ({
 
 <template>
   <main class="max-w-7xl mx-auto px-6 py-10">
+    <SharedMenuCategories />
     <div v-if="pending">Cargando…</div>
     <div v-else-if="error || !product">Producto no encontrado.</div>
 
