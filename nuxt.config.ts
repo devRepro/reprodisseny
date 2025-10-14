@@ -5,8 +5,13 @@ const siteUrl = process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000'
 
 export default defineNuxtConfig({
   runtimeConfig: {
-      googlePlacesApiKey: process.env.NUXT_GOOGLE_PLACES_API_KEY,
-      googlePlaceId: process.env.NUXT_GOOGLE_PLACE_ID,
+    gbp: {
+      clientId: process.env.NUXT_GBP_CLIENT_ID,
+      clientSecret: process.env.NUXT_GBP_CLIENT_SECRET,
+      redirectUri: process.env.NUXT_GBP_REDIRECT_URI,
+      account: process.env.NUXT_GBP_ACCOUNT,
+      location: process.env.NUXT_GBP_LOCATION
+    },
 
     public: {
       siteUrl,

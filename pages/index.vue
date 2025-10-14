@@ -20,7 +20,7 @@ const categories = computed(() => data.value?.items ?? []);
     <div v-else-if="error" class="py-10 text-center text-destructive">
       Error al cargar categorías
     </div>
-    
+
     <!-- grid -->
     <CategoryCarousel
       v-else
@@ -69,7 +69,7 @@ const categories = computed(() => data.value?.items ?? []);
       </FeatureSection>
     </div>
     <div class="space-y-2">
-      <LazyReviewsGoogle />
+      <ReviewsGoogle />
     </div>
   </div>
 </template>
