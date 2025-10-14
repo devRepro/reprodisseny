@@ -68,5 +68,8 @@ const categories = computed(() => data.value?.items ?? []);
         </template>
       </FeatureSection>
     </div>
+    <div class="space-y-2">
+      <LazyReviewsGoogle />
+    </div>
   </div>
 </template>
