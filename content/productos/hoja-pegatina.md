@@ -23,7 +23,32 @@ ratingValue: 0
 reviewCount: 0
 attributes: []
 variants: []
-formFields: []
+formFields:
+  - label: "Forma"
+    name: "forma"
+    type: "select"
+    required: true
+    options:
+      - Redonda
+      - Cuadrada
+      - Rectangular
+      - Ovalada
+  - label: "Tamaño"
+    name: "tamaño"
+    type: "text"
+    required: true
+  - label: "Aspecto"
+    name: "aspecto"
+    type: "select"
+    required: true
+    options:
+      - Plástico blanco
+      - Transparente
+      - Papel
+  - label: "Cantidad"
+    name: "cantidad"
+    type: "number"
+    required: true
 metaTitle: Hojas con pegatinas personalizadas | Repro Disseny
 metaDescription: >-
   Hojas con pegatinas de vinilo personalizadas ideales para promociones y
@@ -62,4 +87,3 @@ schema:
     itemCondition: 'https://schema.org/NewCondition'
     url: 'https://reprodisseny.com/productos/hoja-pegatina'
 ---
-
