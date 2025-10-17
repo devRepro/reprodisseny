@@ -1,57 +1,57 @@
-// /server/api/gbp/locations.get.ts
-import { getCookie, getHeader } from "h3";
+// server/api/gbp/locations.get.ts
+import { getCookie, createError } from 'h3'
+import { fetchWithBackoff } from '~/server/utils/googleFetch'
 
-export default cachedEventHandler(async (event) => {
-  console.log("Fetching locations from Google API (not from cache)...");
-  // (opcional de debug) ver si llega cookie
-  // console.log("cookie header ->", getHeader(event, "cookie") || "(sin cookie)");
+type UiLocation = { id: string; title: string; placeId?: string }
 
-  const accessToken = getCookie(event, "gbp_access_token");
+export default defineCachedEventHandler(async (event) => {
+  const accessToken = getCookie(event, 'gbp_access_token')
   if (!accessToken) {
-    throw createError({ statusCode: 401, statusMessage: "No autenticado" });
+    throw createError({ statusCode: 401, statusMessage: 'No autenticado' })
   }
+  const headers = { Authorization: `Bearer ${accessToken}` }
+  const config = useRuntimeConfig()
 
-  try {
-    // 1) Cuentas
-    const accountsResponse: { accounts?: { name: string }[] } = await $fetch(
-      "https://mybusinessaccountmanagement.googleapis.com/v1/accounts",
-      { headers: { Authorization: `Bearer ${accessToken}` } }
-    );
-
-    const account = accountsResponse.accounts?.[0];
-    if (!account?.name) return []; // <- siempre array
-
-    // 2) Ubicaciones
-    const locationsResponse: { locations?: { name: string; title?: string }[] } = await $fetch(
-      `https://mybusinessbusinessinformation.googleapis.com/v1/${account.name}/locations?readMask=name,title`,
-      { headers: { Authorization: `Bearer ${accessToken}` } }
-    );
-
-    const list = locationsResponse.locations ?? [];
-    return list.map((loc) => ({
-      id: loc.name,          // p.ej. "locations/1234567890"
-      title: loc.title ?? "",
-    }));
-  } catch (err: any) {
-    // Si Google limita, propaga 429
-    if (err?.statusCode === 429) {
-      throw createError({ statusCode: 429, statusMessage: "Too Many Requests" });
+  // 0) Atajo total: forzar una ubicación desde .env (recomendado en producción)
+  // .env -> NUXT_GBP_LOCATION="accounts/XXX/locations/YYY"
+  // opcional: NUXT_PUBLIC_GBP_PLACE_ID="ChIJA_sYIVi9pBIRfR_wJhifP-o"
+  const envLocation = (config.public?.gbpLocation || config.gbpLocation) as string | undefined
+  const envPlaceId  = (config.public?.gbpPlaceId  || config.gbpPlaceId)  as string | undefined
+  if (envLocation) {
+    return {
+      locations: [{ id: envLocation, title: 'Mi negocio', placeId: envPlaceId }] as UiLocation[]
     }
-    // Propaga el mensaje REAL de Google para depurar
-    const status = err?.statusCode || 500;
-    const message =
-      err?.data?.error?.message ||
-      err?.statusMessage ||
-      "Error al contactar con la API de Google";
-    console.error("Google API error (locations):", status, err?.data || err);
-    throw createError({ statusCode: status, statusMessage: message });
   }
+
+  // 1) SIN accounts.list: usamos el comodín "-" para listar todas las ubicaciones del usuario
+  // Doc: GET https://mybusinessbusinessinformation.googleapis.com/v1/accounts/-/locations
+  //      con readMask requerido (por ejemplo: name,displayName,placeId)
+  const url = 'https://mybusinessbusinessinformation.googleapis.com/v1/accounts/-/locations' +
+              '?readMask=name,displayName,placeId&pageSize=100'
+
+  const res = await fetchWithBackoff<{ locations?: { name: string; displayName?: string; placeId?: string }[] }>(
+    url,
+    { headers }
+  )
+
+  let locations: UiLocation[] = (res.locations ?? []).map(l => ({
+    id: l.name,
+    title: l.displayName ?? '',
+    placeId: l.placeId
+  }))
+
+  // 2) (Opcional) si definiste un placeId en .env pública, filtramos aquí
+  if (!locations.length) return { locations }
+  if (envPlaceId) {
+    const match = locations.find(l => l.placeId === envPlaceId)
+    if (match) locations = [match]
+  }
+
+  return { locations }
 }, {
-  name: "gbp_locations_cache",
-  maxAge: 60 * 15,
-  getKey: (event) => {
-    const t = getCookie(event, "gbp_access_token");
-    // No cachees si no hay token; si hay, usa un slice (no el token entero)
-    return t ? `user_locations_${t.slice(0, 16)}` : undefined;
-  },
-});
+  // cachea el endpoint para evitar picos por HMR / navegación
+  maxAge: 60 * 15, // 15 min
+  swr: true,
+  varies: ['cookie']
+})
+

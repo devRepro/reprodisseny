@@ -1,59 +1,48 @@
 // composables/useGoogleReviews.ts
-type RawReview = {
-  author_name: string
-  profile_photo_url?: string
-  author_url?: string
-  rating: number
-  relative_time_description?: string
-  text?: string
-  time?: number | string
-}
+import type { UiLocation, UiReview } from '~/types/gbp'
 
-type ServerResponse = {
-  rating: number | null
-  total: number
-  reviews: RawReview[]
-}
+export function useGoogleReviews() {
+  const locationsRes = useFetch<{ locations: UiLocation[] }>('/api/gbp/locations', {
+    server: false,           // solo cliente (usas cookie)
+    credentials: 'include',
+    key: 'gbp-locations-client'
+  })
 
-type UiReview = {
-  author: string
-  authorUrl?: string
-  profilePhotoUri?: string
-  rating: number
-  relativeTime?: string
-  text?: string
-}
+  const firstLocation = computed(() => locationsRes.data.value?.locations?.[0])
 
-type UiPayload = {
-  rating: number | null
-  total: number
-  reviews: UiReview[]
-}
+  const reviews = ref<UiReview[]>([])
+  const pendingReviews = ref(false)
+  const errorReviews = ref<unknown>(null)
 
-export function useGoogleReviews(opts?: { lang?: string }) {
-  const lang = opts?.lang ?? 'es'
-
-  // Ojo: NO caches servidor a largo plazo (Places limita el caché).
-  // Esto solo cachea por página/navegación en el cliente.
-  const { data, pending, error, refresh } = useFetch<ServerResponse, UiPayload>(
-    '/api/google/reviews',
-    {
-      key: `google-reviews:${lang}`,
-      query: { lang },
-      transform: (r) => ({
-        rating: r.rating,
-        total: r.total,
-        reviews: (r.reviews ?? []).map((it) => ({
-          author: it.author_name,
-          authorUrl: it.author_url,
-          profilePhotoUri: it.profile_photo_url,
-          rating: Number(it.rating ?? 0),
-          relativeTime: it.relative_time_description,
-          text: it.text ?? ''
-        }))
-      })
+  watchEffect(async () => {
+    const loc = firstLocation.value
+    if (!loc?.id) return
+    pendingReviews.value = true
+    errorReviews.value = null
+    try {
+      const res = await $fetch<{ reviews: UiReview[]; averageRating?: number; totalReviewCount?: number }>(
+        '/api/gbp/reviews',
+        {
+          query: { locationName: loc.id }, // "accounts/.../locations/..."
+          credentials: 'include'
+        }
+      )
+      reviews.value = res.reviews
+    } catch (e) {
+      errorReviews.value = e
+      reviews.value = []
+    } finally {
+      pendingReviews.value = false
     }
-  )
+  })
 
-  return { data, pending, error, refresh }
+  return {
+    // ubicaciones
+    locationsRes,
+    firstLocation,
+    // reseñas
+    reviews,
+    pendingReviews,
+    errorReviews
+  }
 }

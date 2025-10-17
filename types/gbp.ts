@@ -22,16 +22,31 @@ export interface GbpReview {
   updateTime?: string
   reviewReply?: GbpReviewReply
 }
-
 export interface GbpReviewsResponse {
   reviews?: GbpReview[]
   nextPageToken?: string
+  averageRating?: number
+  totalReviewCount?: number
 }
 
+// ✅ UI-friendly
 export interface UiReview {
   author: string
   avatar?: string
   rating: number
   text: string
   time?: string
+  reply?: string
+}
+
+// ✅ Locations (BI v1)
+export interface GbpLocation {
+  name: string           // "accounts/.../locations/..."
+  displayName?: string
+  placeId?: string
+}
+export interface UiLocation {
+  id: string             // = name
+  title: string          // = displayName
+  placeId?: string
 }

@@ -15,7 +15,7 @@ export default defineNuxtConfig({
 
     public: {
       siteUrl,
-       googlePlaceId: process.env.NUXT_PUBLIC_GOOGLE_PLACE_ID || process.env.NUXT_GOOGLE_PLACE_ID
+       googlePlaceId: process.env.NUXT_PUBLIC_GBP_PLACE_ID|| process.env.NUXT_PUBLIC_GBP_PLACE_ID
     }
   },
 
