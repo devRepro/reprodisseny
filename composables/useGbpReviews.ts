@@ -1,15 +1,21 @@
 // composables/useGbpReviews.ts
-import type { UiReview } from '~/types/gbp'
-
 export function useGbpReviews() {
-  return useFetch<{
-    count: number
-    averageRating: number
-    reviews: UiReview[]
-    fetchedAt: number
-  }>('/api/gbp/reviews', {
-    key: 'gbp-reviews',
-    default: () => ({ count: 0, averageRating: 0, reviews: [], fetchedAt: 0 }),
-    server: true
-  })
+  const data = ref<{ averageRating?: number; total?: number; items: any[] } | null>(null)
+  const pending = ref(false)
+  const error = ref<Error | null>(null)
+
+  const load = async () => {
+    pending.value = true
+    try {
+      data.value = await $fetch('/api/gbp/reviews')
+    } catch (e: any) {
+      error.value = e
+    } finally {
+      pending.value = false
+    }
+  }
+
+  onMounted(load)
+  return { data, pending, error, refresh: load }
 }
+

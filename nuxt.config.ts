@@ -6,16 +6,19 @@ const siteUrl = process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000'
 export default defineNuxtConfig({
   runtimeConfig: {
     gbp: {
-      clientId: process.env.NUXT_GBP_CLIENT_ID,
-      clientSecret: process.env.NUXT_GBP_CLIENT_SECRET,
-      redirectUri: process.env.NUXT_GBP_REDIRECT_URI,
-      account: process.env.NUXT_GBP_ACCOUNT,
-      location: process.env.NUXT_GBP_LOCATION
+      gbpAccount:  process.env.NUXT_GBP_ACCOUNT,
+    gbpLocation: process.env.NUXT_GBP_LOCATION,
+    gbpClientId: process.env.NUXT_GBP_CLIENT_ID,
+    gbpClientSecret: process.env.NUXT_GBP_CLIENT_SECRET,
+    gbpRedirectUri: process.env.NUXT_GBP_REDIRECT_URI,
+    // “kill-switch” para dev, ver punto 3:
+    gbpDisableList: process.env.NUXT_GBP_DISABLE_LIST === '1',
+
     },
 
     public: {
       siteUrl,
-       googlePlaceId: process.env.NUXT_PUBLIC_GBP_PLACE_ID|| process.env.NUXT_PUBLIC_GBP_PLACE_ID
+      gbpPlaceId: process.env.NUXT_PUBLIC_GBP_PLACE_ID,
     }
   },
 

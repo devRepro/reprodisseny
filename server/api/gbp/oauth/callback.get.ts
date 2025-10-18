@@ -1,45 +1,35 @@
+import { getQuery, getCookie, setCookie, sendRedirect, createError } from 'h3'
+import { $fetch } from 'ofetch'
+
 export default defineEventHandler(async (event) => {
-  const { code } = getQuery(event);
-  const { gbp } = useRuntimeConfig();
-
-  if (!code) {
-    return sendRedirect(event, '/error?message=AuthorizationFailed', 302);
+  const { code, state } = getQuery(event)
+  const expect = getCookie(event, 'gbp_oauth_state')
+  if (!code || !state || state !== expect) {
+    throw createError({ statusCode: 400, statusMessage: 'OAuth state mismatch' })
   }
 
-  try {
-    const tokenData: { access_token: string, refresh_token: string, expires_in: number } = await $fetch(
-      'https://oauth2.googleapis.com/token',
-      {
-        method: 'POST',
-        body: {
-          client_id: gbp.clientId,
-          client_secret: gbp.clientSecret,
-          code: code.toString(),
-          grant_type: 'authorization_code',
-          redirect_uri: gbp.redirectUri
-        }
-      }
-    );
+  const config = useRuntimeConfig()
+  const token = await $fetch<any>('https://oauth2.googleapis.com/token', {
+    method: 'POST',
+    body: {
+      code,
+      client_id: config.gbpClientId,
+      client_secret: config.gbpClientSecret,
+      redirect_uri: config.gbpRedirectUri,
+      grant_type: 'authorization_code'
+    }
+  })
 
-    // --- 👇 AQUÍ ESTÁ LA SOLUCIÓN ---
-    // Guardamos el access_token en una cookie segura.
-    // httpOnly: El JavaScript del cliente no puede leerla (más seguro).
-    // maxAge: El tiempo de vida de la cookie en segundos (Google suele dar 3599s).
-    setCookie(event, 'gbp_access_token', tokenData.access_token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV === 'production', // Usar 'secure' solo en producción (HTTPS)
-      sameSite: 'lax',
-      maxAge: tokenData.expires_in
-    });
+  // Access token para tus llamadas de servidor
+  setCookie(event, 'gbp_access_token', token.access_token, {
+    httpOnly: true, sameSite: 'lax', path: '/',
+    maxAge: Math.max(0, (token.expires_in || 3600) - 60)
+  })
 
-    // Opcional pero recomendado: Guarda el refresh_token en tu base de datos,
-    // ya que es de larga duración y muy sensible. No lo guardes en una cookie.
-    // await saveRefreshTokenToDatabase(userId, tokenData.refresh_token);
-
-    return sendRedirect(event, '/', 302);
-
-  } catch (error) {
-    console.error('Error intercambiando el código por token:', error);
-    return sendRedirect(event, '/error?message=TokenExchangeFailed', 302);
+  // (opcional) guarda refresh_token en almacenamiento del servidor
+  if (token.refresh_token) {
+    await useStorage().setItem('gbp:refresh_token', token.refresh_token)
   }
-});
+
+  return sendRedirect(event, '/panel?gbp=ok')
+})

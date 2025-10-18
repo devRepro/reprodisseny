@@ -118,46 +118,6 @@ const getStarRating = (ratingText: Review["rating"] | string) => {
         </template>
       </FeatureSection>
     </div>
-    <div>
-      <h1>Mis Reseñas de Google</h1>
-
-      <div v-if="pendingLocations">Cargando ubicaciones...</div>
-      <div v-if="errorLocations">
-        Error al cargar ubicaciones: {{ errorLocations.message }}
-      </div>
-      <div v-if="locations && locations.length > 0">
-        <h2>
-          Mostrando reseñas para: <strong>{{ locations[0].title }}</strong>
-        </h2>
-      </div>
-
-      <hr />
-
-      <div v-if="pendingReviews">Cargando reseñas...</div>
-      <div v-if="errorReviews">Error al cargar reseñas: {{ errorReviews.message }}</div>
-
-      <div v-if="reviews.length > 0" class="reviews-container">
-        <div v-for="(review, index) in reviews" :key="index" class="review-card">
-          <div class="reviewer-info">
-            <img :src="review.photoUrl" alt="Foto de perfil" class="reviewer-photo" />
-            <div>
-              <strong>{{ review.name }}</strong>
-              <div class="stars">
-                <span v-for="n in getStarRating(review.rating)" :key="n">⭐</span>
-              </div>
-            </div>
-          </div>
-          <p class="comment">"{{ review.comment }}"</p>
-          <div v-if="review.reply" class="reply">
-            <strong>Nuestra respuesta:</strong>
-            <p>"{{ review.reply }}"</p>
-          </div>
-        </div>
-      </div>
-      <div v-else-if="!pendingReviews">
-        <p>No se encontraron reseñas para esta ubicación.</p>
-      </div>
-    </div>
   </div>
 </template>
 

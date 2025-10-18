@@ -1,13 +1,21 @@
-// server/api/gbp/oauth/login.get.ts
+import { sendRedirect, setCookie } from 'h3'
+
 export default defineEventHandler((event) => {
-  const { gbp } = useRuntimeConfig()
-  const p = new URLSearchParams({
-    client_id: gbp.clientId,
-    redirect_uri: gbp.redirectUri,
-    response_type: 'code',
-    access_type: 'offline',     // ← Crucial para el refresh_token
-    prompt: 'consent',          // ← Asegura que siempre se pida consentimiento y se emita un refresh_token
-    scope: 'https://www.googleapis.com/auth/business.manage'
-  })
-  return sendRedirect(event, `https://accounts.google.com/o/oauth2/v2/auth?${p}`, 302)
+  const config = useRuntimeConfig()
+
+  // Anti-CSRF
+  const state = Math.random().toString(36).slice(2)
+  setCookie(event, 'gbp_oauth_state', state, { httpOnly: true, path: '/', maxAge: 300, sameSite: 'lax' })
+
+  const url = new URL('https://accounts.google.com/o/oauth2/v2/auth')
+  url.searchParams.set('client_id', config.gbpClientId)
+  url.searchParams.set('redirect_uri', config.gbpRedirectUri)
+  url.searchParams.set('response_type', 'code')
+  url.searchParams.set('scope', 'https://www.googleapis.com/auth/business.manage')
+  url.searchParams.set('access_type', 'offline')        // para refresh_token
+  url.searchParams.set('include_granted_scopes', 'true')
+  url.searchParams.set('prompt', 'consent')             // fuerza refresh_token en dev
+  url.searchParams.set('state', state)
+
+  return sendRedirect(event, url.toString())
 })
