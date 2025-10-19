@@ -1,3 +1,4 @@
+// composables/useSendLead.ts
 import { ref } from 'vue'
 
 export interface LeadPayload {
@@ -10,7 +11,7 @@ export interface LeadPayload {
   mensaje?: string
   origen?: string
   utm?: Record<string, string>
-  archivos?: File[]
+  archivos?: File[]        // ignorado por ahora
   extra?: Record<string, any>
 }
 
@@ -23,42 +24,24 @@ export function useSendLead() {
     isLoading.value = true
     success.value = false
     error.value = null
-
     try {
-      const hasFiles = Array.isArray(payload.archivos) && payload.archivos.length > 0
-      const body: any = hasFiles ? new FormData() : { ...payload }
-
-      if (hasFiles) {
-        body.set('producto', payload.producto)
-        body.set('nombre', payload.nombre)
-        body.set('email', payload.email)
-        if (payload.telefono) body.set('telefono', payload.telefono)
-        if (payload.empresa) body.set('empresa', payload.empresa)
-        if (payload.cantidad != null) body.set('cantidad', String(payload.cantidad))
-        if (payload.mensaje) body.set('mensaje', payload.mensaje)
-        if (payload.origen) body.set('origen', payload.origen)
-        if (payload.utm) body.set('utm', JSON.stringify(payload.utm))
-        if (payload.extra) body.set('extra', JSON.stringify(payload.extra))
-        payload.archivos!.forEach((f, i) => body.append('archivos', f, f.name || `file-${i}`))
+      // Enviamos JSON (sin email, sin archivos)
+      const { data, error: spErr } = await useFetch('/api/crm/leads', {
+        method: 'POST',
+        body: {
+          ...payload,
+          sourceUrl: process.client ? window.location.href : undefined
+        }
+      })
+      if (spErr.value) {
+        // Muestra errores de validación o de Graph
+        const msg = (spErr.value.data?.statusMessage) || spErr.value.message || 'Error guardando en SharePoint'
+        throw new Error(msg)
       }
-
-      // 1) Email
-      const { data: emailRes, error: emailErr } = await useFetch('/api/send-lead', { method: 'POST', body })
-      if (emailErr.value || (emailRes.value as any)?.status === 'error') {
-        throw new Error((emailErr.value as any)?.message || (emailRes.value as any)?.message || 'Error enviando el correo')
-      }
-
-      // 2) SharePoint
-      const { data: spRes, error: spErr } = await useFetch('/api/add-lead', { method: 'POST', body })
-      if (spErr.value || (spRes.value as any)?.status === 'error') {
-        throw new Error((spErr.value as any)?.message || (spRes.value as any)?.message || 'Error guardando en SharePoint')
-      }
-
       success.value = true
-      return { email: emailRes.value, sharepoint: spRes.value }
+      return data.value
     } catch (e: any) {
-      error.value = e instanceof Error ? e.message : String(e)
-      throw e
+      error.value = e?.message || 'Error guardando en SharePoint'
     } finally {
       isLoading.value = false
     }

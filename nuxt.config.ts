@@ -5,21 +5,61 @@ const siteUrl = process.env.NUXT_PUBLIC_SITE_URL || 'http://localhost:3000'
 
 export default defineNuxtConfig({
   runtimeConfig: {
-    gbp: {
-      gbpAccount:  process.env.NUXT_GBP_ACCOUNT,
-    gbpLocation: process.env.NUXT_GBP_LOCATION,
-    gbpClientId: process.env.NUXT_GBP_CLIENT_ID,
-    gbpClientSecret: process.env.NUXT_GBP_CLIENT_SECRET,
-    gbpRedirectUri: process.env.NUXT_GBP_REDIRECT_URI,
-    // “kill-switch” para dev, ver punto 3:
-    gbpDisableList: process.env.NUXT_GBP_DISABLE_LIST === '1',
 
+    mail: {
+      // 'graph' (recomendado) o 'smtp'
+      provider: process.env.MAIL_PROVIDER, // 'graph' | 'smtp'
+      // Graph
+      senderUpn: process.env.MAIL_SENDER_UPN, // p.ej. 'ventas@tu-dominio.com'
+      to: process.env.MAIL_TO,               // destinatario
+      // SMTP (si lo usas)
+      host: process.env.SMTP_HOST,
+      port: process.env.SMTP_PORT,
+      secure: process.env.SMTP_SECURE === '1',
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS,
+      from: process.env.SMTP_FROM,
+    },
+    // 🔒 Server-only (no expuesto al cliente)
+    ms: {
+      tenantId: process.env.AZURE_TENANT_ID,
+      clientId: process.env.AZURE_CLIENT_ID,
+      clientSecret: process.env.AZURE_CLIENT_SECRET,
+
+      // Sitio
+      siteHostname: process.env.SHAREPOINT_HOSTNAME || 'reprodisseny.sharepoint.com',
+      sitePath: process.env.SHAREPOINT_SITE_PATH || '/sites/portal',
+
+      // IDs de Graph
+      siteId: process.env.GRAPH_SITE_ID, // triple: host,siteGuid,webGuid
+
+      // Listas
+      priceRequestsListId: process.env.PRICE_REQUESTS_LIST_ID,
+      commentsListId: process.env.GRAPH_PRICE_REQUESTS_COMMENTS_LIST_ID,
+      ordersListId: process.env.ORDERS_LIST_ID,
+      productionListId: process.env.PRODUCTION_LIST_ID,
+      shipmentsListId: process.env.SHIPMENTS_LIST_ID,
+      usuariosPortalListId: process.env.USUARIOS_PORTAL_LIST_ID,
     },
 
+    // Puedes mantener este bloque si lo usas (Google Business Profile)
+    gbp: {
+      gbpAccount: process.env.NUXT_GBP_ACCOUNT,
+      gbpLocation: process.env.NUXT_GBP_LOCATION,
+      gbpClientId: process.env.NUXT_GBP_CLIENT_ID,
+      gbpClientSecret: process.env.NUXT_GBP_CLIENT_SECRET,
+      gbpRedirectUri: process.env.NUXT_GBP_REDIRECT_URI,
+      gbpDisableList: process.env.NUXT_GBP_DISABLE_LIST === '1',
+    },
+
+    // 🌐 Public (lo que el cliente puede leer)
     public: {
-      siteUrl,
-      gbpPlaceId: process.env.NUXT_PUBLIC_GBP_PLACE_ID,
-    }
+      baseURL: process.env.NUXT_PUBLIC_BASE_URL || 'http://localhost:3000',
+      // Sólo expón lo mínimo. Si el cliente necesita leerlos, OK:
+      graphSiteId: process.env.GRAPH_SITE_ID,
+      priceRequestsListId: process.env.PRICE_REQUESTS_LIST_ID,
+      priceRequestsCommentsListId: process.env.GRAPH_PRICE_REQUESTS_COMMENTS_LIST_ID,
+    },
   },
 
   appConfig: {
