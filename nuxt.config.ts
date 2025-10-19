@@ -46,12 +46,19 @@ export default defineNuxtConfig({
       phoneField: process.env.PR_PHONE_FIELD || '',        // opcional
       companyField: process.env.PR_COMPANY_FIELD || '',    // opcional
 
+    
+
       // Lista de comentarios (PriceRequestComments)
       commentsListId: process.env.GRAPH_PRICE_REQUESTS_COMMENTS_LIST_ID || '',
       commentsParentIdField: process.env.PRC_PARENT_ID_FIELD || 'ParentId',
       commentsBodyField: process.env.PRC_BODY_FIELD || 'Body',
       commentsKindField: process.env.PRC_KIND_FIELD || 'Kind',
       commentsMetaField: process.env.PRC_META_FIELD || 'Meta',
+
+      originField:    process.env.PR_ORIGIN_FIELD || '',
+      utmField:       process.env.PR_UTM_FIELD || '',
+      quantityField:  process.env.PR_QUANTITY_FIELD || '',
+      attributesField:process.env.PR_ATTRIBUTES_FIELD || ''
     },
 
     // Puedes mantener este bloque si lo usas (Google Business Profile)

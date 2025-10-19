@@ -1,9 +1,10 @@
+// server/api/crm/leads.post.ts
 import { z } from 'zod'
 import { defineEventHandler, readBody, getHeader, createError, setResponseStatus } from 'h3'
 import { ofetch } from 'ofetch'
-import { getGraphToken, resolveSiteId, resolveListId, getListColumnsMap } from '~/server/utils/graph'
+import { getGraphToken, resolveSiteId, resolveListId } from '~/server/utils/graph'
 
-// Esquema de tu payload
+// Esquema base + extras
 const LeadPayloadSchema = z.object({
   producto: z.string().min(1),
   nombre: z.string().min(2),
@@ -13,11 +14,16 @@ const LeadPayloadSchema = z.object({
   mensaje: z.string().max(4000).optional().nullable(),
   origen: z.string().optional().nullable(),
   cantidad: z.coerce.number().optional().nullable(),
-  utm: z.record(z.string()).optional().nullable()
+  utm: z.record(z.string()).optional().nullable(),
+  productData: z.any().optional()
 }).passthrough()
 
+const BASE_KEYS = new Set([
+  'producto','productData','nombre','email','telefono','empresa','mensaje','origen','cantidad','utm'
+])
+
 export default defineEventHandler(async (event) => {
-  // 1) Validación
+  // 1) valida
   const body = await readBody(event)
   let p: z.infer<typeof LeadPayloadSchema>
   try { p = LeadPayloadSchema.parse(body) }
@@ -25,50 +31,76 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 400, statusMessage: 'Datos de formulario inválidos', data: e?.issues ?? e?.message })
   }
 
-  // 2) Graph + IDs
-  const token = await getGraphToken(event)
-  const siteId = await resolveSiteId(event) // GET /sites/{hostname}:/{path} :contentReference[oaicite:2]{index=2}
-  const listId = await resolveListId(event)
-  if (!siteId || !listId) throw createError({ statusCode: 500, statusMessage: 'No se pudo resolver siteId o listId' })
-
-  // 3) Mapa displayName -> internal
-  const col = await getListColumnsMap(event)
-  const nameOf = (display: string, fallback?: string) => col.get(display) ?? fallback
-
-  // 4) Construye 'fields' con nombres INTERNOS, solo si existe la columna
-  //   - 'Client' en SharePoint suele ser el Title renombrado -> internal 'Title'
-  const fields: Record<string, any> = {}
-
-  const put = (display: string, value: any, fallback?: string) => {
-    const k = nameOf(display, fallback)
-    if (!k || value === undefined) return
-    fields[k] = value
+  // 2) config CRM (nombres internos)
+  const { crm } = useRuntimeConfig(event) as {
+    crm: {
+      emailField?: string
+      productField: string
+      commentsField?: string
+      phoneField?: string
+      companyField?: string
+      dateField?: string
+      // opcional: donde guardar extras si quieres (texto multilínea)
+      attributesField?: string
+      // opcional: cantidad si tienes columna dedicada
+      quantityField?: string
+      originField?: string
+      utmField?: string
+    }
+  }
+  if (!crm?.productField) {
+    throw createError({ statusCode: 500, statusMessage: 'Falta crm.productField en runtimeConfig (internal name de "Producte sol·licitat")' })
   }
 
-  // Mapeo a tus columnas (display names del pantallazo)
-  put('Client', p.nombre, 'Title')
-  put('Correu electrònic', p.email)
-  put('Telèfon', p.telefono ?? '')
-  put('Empresa', p.empresa ?? '')
-  put('Producte sol·licitat', p.producto ?? '')
-  put('Comentari', p.mensaje ?? '')
+  // 3) token + ids
+  const token = await getGraphToken(event)
+  const siteId = await resolveSiteId(event)
+  const listId = await resolveListId(event)
 
-  // Requeridos en tu lista:
-  // - Data sol·licitud: tu lista ya muestra "Hoy" como valor por defecto, así que lo omitimos.
-  // - Estat: si no lo envías, pon "Nou" (choice)
-  put('Estat', 'Nou')
+  // 4) compón JSON de producto + elecciones
+  const extras: Record<string, any> = {}
+  for (const [k,v] of Object.entries(p)) {
+    if (!BASE_KEYS.has(k) && v !== undefined && v !== null && v !== '') extras[k] = v
+  }
+  const productJson = {
+    name: p.producto,
+    meta: p.productData ?? null,
+    selection: { cantidad: p.cantidad ?? null, ...extras },
+    context: {
+      origen: p.origen ?? getHeader(event, 'referer') ?? '',
+      utm: p.utm ?? null
+    }
+  }
 
-  // Extras útiles si creaste las columnas:
-  put('Origen', p.origen ?? getHeader(event, 'referer') ?? '')
-  put('Quantitat', p.cantidad ?? null)              // si la columna es "Quantitat" (número)
-  put('UTM', p.utm ? JSON.stringify(p.utm) : '')    // si guardas UTM como texto
+  // 5) mapea a columnas internas (config)
+  const fields: Record<string, any> = {}
+  fields['Title'] = p.nombre
+  if (crm.emailField)    fields[crm.emailField]    = p.email
+  if (crm.commentsField) fields[crm.commentsField] = p.mensaje ?? ''
+  if (crm.phoneField)    fields[crm.phoneField]    = p.telefono ?? ''
+  if (crm.companyField)  fields[crm.companyField]  = p.empresa ?? ''
+  if (crm.dateField)     fields[crm.dateField]     = new Date().toISOString()
+  if (crm.quantityField && p.cantidad != null) fields[crm.quantityField] = p.cantidad
+  if (crm.originField)   fields[crm.originField]   = productJson.context.origen
+  if (crm.utmField && p.utm) fields[crm.utmField]  = JSON.stringify(p.utm)
 
-  // 5) Crear el ítem (POST /lists/{list-id}/items con { fields })
-  // https://learn.microsoft.com/graph/api/listitem-create
+  // Producto (texto multilínea) -> JSON compacto
+  fields[crm.productField] = JSON.stringify(productJson)
+
+  // opcional: además guarda solo los extras en otra columna si la configuras
+  if (crm.attributesField && Object.keys(extras).length > 0) {
+    fields[crm.attributesField] = JSON.stringify(extras)
+  }
+
+  // 6) crea el ítem
   try {
     const created = await ofetch(
       `https://graph.microsoft.com/v1.0/sites/${encodeURIComponent(siteId)}/lists/${encodeURIComponent(listId)}/items`,
-      { method: 'POST', headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' }, body: { fields } }
+      {
+        method: 'POST',
+        headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
+        body: { fields }
+      }
     )
     setResponseStatus(event, 201)
     return { ok: true, item: { id: created?.id ?? '', fields: created?.fields ?? fields } }
