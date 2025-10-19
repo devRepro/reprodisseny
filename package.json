@@ -53,6 +53,7 @@
     "tailwindcss-animate": "^1.0.7",
     "vee-validate": "^4.15.1",
     "vue-router": "4.5.0",
+    "vue-sonner": "^2.0.9",
     "zod": "^3.25.76"
   },
   "devDependencies": {
@@ -84,6 +85,7 @@
   },
   "overrides": {
     "esbuild": "^0.25",
-    "unicorn-magic": "0.2.0"
+    "unicorn-magic": "0.2.0",
+    "node-fetch-native": "1.6.4"
   }
 }

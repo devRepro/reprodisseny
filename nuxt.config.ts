@@ -22,24 +22,36 @@ export default defineNuxtConfig({
     },
     // 🔒 Server-only (no expuesto al cliente)
     ms: {
+      // Azure Entra ID (app de Graph - client credentials)
       tenantId: process.env.AZURE_TENANT_ID,
       clientId: process.env.AZURE_CLIENT_ID,
       clientSecret: process.env.AZURE_CLIENT_SECRET,
 
-      // Sitio
+      // SharePoint site (usa siteId si lo tienes; si no, host+path)
+      siteId: process.env.GRAPH_SITE_ID || '',
       siteHostname: process.env.SHAREPOINT_HOSTNAME || 'reprodisseny.sharepoint.com',
       sitePath: process.env.SHAREPOINT_SITE_PATH || '/sites/portal',
 
-      // IDs de Graph
-      siteId: process.env.GRAPH_SITE_ID, // triple: host,siteGuid,webGuid
+      // Lista principal (Price Requests)
+      listId: process.env.PRICE_REQUESTS_LIST_ID, // GUID
+      // listDisplayName: '' // (no lo usamos si tenemos listId)
+    },
+    // Campos fijos para escribir en las listas (nombres internos de SP)
+    crm: {
+      // Lista principal
+      emailField: process.env.PR_EMAIL_FIELD || 'Email',
+      productField: process.env.PR_PRODUCT_FIELD || 'Producto',
+      commentsField: process.env.PR_COMMENTS_FIELD || 'Comentarios',
+      dateField: process.env.PR_DATE_FIELD || '',          // opcional
+      phoneField: process.env.PR_PHONE_FIELD || '',        // opcional
+      companyField: process.env.PR_COMPANY_FIELD || '',    // opcional
 
-      // Listas
-      priceRequestsListId: process.env.PRICE_REQUESTS_LIST_ID,
-      commentsListId: process.env.GRAPH_PRICE_REQUESTS_COMMENTS_LIST_ID,
-      ordersListId: process.env.ORDERS_LIST_ID,
-      productionListId: process.env.PRODUCTION_LIST_ID,
-      shipmentsListId: process.env.SHIPMENTS_LIST_ID,
-      usuariosPortalListId: process.env.USUARIOS_PORTAL_LIST_ID,
+      // Lista de comentarios (PriceRequestComments)
+      commentsListId: process.env.GRAPH_PRICE_REQUESTS_COMMENTS_LIST_ID || '',
+      commentsParentIdField: process.env.PRC_PARENT_ID_FIELD || 'ParentId',
+      commentsBodyField: process.env.PRC_BODY_FIELD || 'Body',
+      commentsKindField: process.env.PRC_KIND_FIELD || 'Kind',
+      commentsMetaField: process.env.PRC_META_FIELD || 'Meta',
     },
 
     // Puedes mantener este bloque si lo usas (Google Business Profile)
@@ -56,9 +68,6 @@ export default defineNuxtConfig({
     public: {
       baseURL: process.env.NUXT_PUBLIC_BASE_URL || 'http://localhost:3000',
       // Sólo expón lo mínimo. Si el cliente necesita leerlos, OK:
-      graphSiteId: process.env.GRAPH_SITE_ID,
-      priceRequestsListId: process.env.PRICE_REQUESTS_LIST_ID,
-      priceRequestsCommentsListId: process.env.GRAPH_PRICE_REQUESTS_COMMENTS_LIST_ID,
     },
   },
 
@@ -72,6 +81,7 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxtjs/color-mode',
     '@nuxt/icon',
+    'vue-sonner/nuxt',
     'shadcn-nuxt'
   ],
 
