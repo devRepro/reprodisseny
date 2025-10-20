@@ -66,8 +66,8 @@ export default defineNuxtConfig({
       gbpAccount: process.env.NUXT_GBP_ACCOUNT,
       gbpLocation: process.env.NUXT_GBP_LOCATION,
       gbpClientId: process.env.NUXT_GBP_CLIENT_ID,
-      gbpClientSecret: process.env.NUXT_GBP_CLIENT_SECRET,
-      gbpRedirectUri: process.env.NUXT_GBP_REDIRECT_URI,
+    gbpClientSecret: process.env.NUXT_GBP_CLIENT_SECRET,
+    gbpRedirectUri: process.env.NUXT_GBP_REDIRECT_URI,
       gbpDisableList: process.env.NUXT_GBP_DISABLE_LIST === '1',
     },
 

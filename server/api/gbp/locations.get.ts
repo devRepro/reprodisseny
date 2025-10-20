@@ -1,56 +1,46 @@
-// server/api/gbp/locations.get.ts
-import { getCookie, getHeader, createError } from 'h3'
+// /server/api/gbp/locations.get.ts
+import { $fetch } from 'ofetch'
+import { getCookie, setCookie, createError } from 'h3'
 
-type UiLocation = { id: string; title: string; placeId?: string }
+async function getAccessTokenOrRefresh(event) {
+  let access = getCookie(event, 'gbp_access_token')
+  if (access) return access
+  const { gbp } = useRuntimeConfig(event)
+  const refresh = await useStorage().getItem<string>('gbp:refresh_token')
+  if (!refresh) throw createError({ statusCode: 401, statusMessage: 'No autenticado' })
+  const token = await $fetch<any>('https://oauth2.googleapis.com/token', {
+    method: 'POST',
+    body: { client_id: gbp.gbpClientId, client_secret: gbp.gbpClientSecret, refresh_token: refresh, grant_type: 'refresh_token' }
+  })
+  access = token.access_token
+  setCookie(event, 'gbp_access_token', access, { httpOnly: true, sameSite: 'lax', path: '/', maxAge: (token.expires_in || 3600) - 60 })
+  return access
+}
 
-export default defineCachedEventHandler(async (event) => {
-  const accessToken = getCookie(event, 'gbp_access_token')
-  if (!accessToken) throw createError({ statusCode: 401, statusMessage: 'No autenticado' })
+export default defineEventHandler(async (event) => {
+  const token = await getAccessTokenOrRefresh(event)
+  const acc = await $fetch<{ accounts: { name: string }[] }>(
+    'https://mybusinessaccountmanagement.googleapis.com/v1/accounts',
+    { headers: { Authorization: `Bearer ${token}` } }
+  ) // lista cuentas
+  const account = acc.accounts?.[0]?.name
+  if (!account) return { locations: [] }
 
-  const config = useRuntimeConfig()
-  const headers = { Authorization: `Bearer ${accessToken}` }
+  const all: any[] = []
+  let pageToken: string | undefined
+  do {
+    const url = new URL(`https://mybusinessbusinessinformation.googleapis.com/v1/${account}/locations`)
+    url.searchParams.set('readMask', 'name,title')
+    if (pageToken) url.searchParams.set('pageToken', pageToken)
+    const res = await $fetch<any>(url.toString(), { headers: { Authorization: `Bearer ${token}` } })
+    all.push(...(res.locations || []))
+    pageToken = res.nextPageToken
+  } while (pageToken)
 
-  // 0) Bypass total si tienes la sede fija en .env
-  const envLocation = (config.public?.gbpPlaceId && config.gbpLocation) ? config.gbpLocation : config.gbpLocation
-  const envPlaceId  = (config.public?.gbpPlaceId || config.gbpPlaceId) as string | undefined
-  if (envLocation) {
-    return { locations: [{ id: envLocation, title: 'Mi negocio', placeId: envPlaceId }] as UiLocation[] }
-  }
-
-  // 0.b) Kill-switch para dev: desactiva el listado mientras resuelves IDs
-  if (config.gbpDisableList) {
-    return { locations: [] as UiLocation[] }
-  }
-
-  // 1) Construye URL con quotaUser y pageSize pequeño
-  const ip = getHeader(event, 'x-forwarded-for') || ''
-  const quotaUser = encodeURIComponent(ip || getCookie(event, 'gbp_session') || 'anon')
-  const url = 'https://mybusinessbusinessinformation.googleapis.com/v1/accounts/-/locations'
-    + `?readMask=name,displayName,placeId&pageSize=25&quotaUser=${quotaUser}`
-
-  // 2) Llama con backoff y captura 429 para degradar
-  try {
-    const res = await $fetch<{ locations?: { name: string; displayName?: string; placeId?: string }[] }>(url, { headers })
-    let locations: UiLocation[] = (res.locations ?? []).map(l => ({
-      id: l.name, title: l.displayName ?? '', placeId: l.placeId
-    }))
-    // (Opcional) filtra si definiste placeId público
-    if (envPlaceId && locations.length) {
-      const m = locations.find(l => l.placeId === envPlaceId)
-      if (m) locations = [m]
-    }
-    return { locations }
-  } catch (err: any) {
-    const status = err?.status || err?.statusCode
-    if (status === 429) {
-      // Degrada sin romper la app (mejor mensaje en UI)
-      return { locations: [] as UiLocation[] }
-    }
-    throw err
-  }
-}, {
-  maxAge: 60 * 15,
-  swr: true,
-  varies: ['cookie']
+  const locations = all.map((l: any) => {
+    const raw = String(l.name) // "locations/XXXX"
+    return { id: raw.split('/')[1] || raw, title: l.title }
+  })
+  return { account, locations }
 })
 
