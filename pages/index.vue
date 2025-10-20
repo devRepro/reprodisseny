@@ -117,6 +117,10 @@ const getStarRating = (ratingText: Review["rating"] | string) => {
           </button>
         </template>
       </FeatureSection>
+
+      <div>
+        <GoogleLogin />
+      </div>
     </div>
   </div>
 </template>
