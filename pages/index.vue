@@ -1,61 +1,36 @@
 <script setup lang="ts">
-import { computed, ref, watchEffect } from "vue";
+import { computed } from "vue";
 import { useCategoriasGrid } from "@/composables/useCategoriasGrid";
+import { useReviews } from "@/composables/useReviews";
 
-// 1) Grid categorías (igual)
+// 1) Categorías (SSR)
 const { data: catData, pending, error } = await useCategoriasGrid();
 const categories = computed(() => catData.value?.items ?? []);
 
-// 2) Ubicaciones: SOLO CLIENTE
-type GbpLocation = { id: string; title: string };
+// 2) Reseñas
+// En prod: 'places' (SSR e indexable). En dev, si sigues con GBP: 'gbp'.
+const source = import.meta.env.DEV ? "gbp" : "places";
+
+// Places: pon tu placeId (no es secreto). Si usas GBP en dev, no es necesario.
+const placeId = "TU_PLACE_ID";
+
+// Enlace a Maps. Si en tu endpoint de Places devuelves googleMapsUri, cámbialo aquí.
+const mapsUrl = computed(() => "https://maps.google.com/?cid=TU_CID");
 
 const {
-  data: locations,
-  pending: pendingLocations,
-  error: errorLocations,
-} = await useFetch<GbpLocation[]>("/api/gbp/locations", {
-  server: false, // <— clave: nada de SSR
-  credentials: "include", // <— asegura envío de cookies
-  key: "gbp-locations-client",
+  items,
+  average,
+  total,
+  pending: pendingReviews,
+  error: errorReviews,
+} = useReviews({
+  source, // 'places' | 'gbp'
+  placeId, // requerido si source='places'
+  lang: "es",
 });
 
-// 3) Reseñas: SOLO CLIENTE (cuando haya location)
-type Review = {
-  name: string;
-  photoUrl?: string;
-  rating: "FIVE" | "FOUR" | "THREE" | "TWO" | "ONE";
-  comment?: string;
-  reply?: string;
-  createTime?: string;
-};
-
-const reviews = ref<Review[]>([]);
-const pendingReviews = ref(false);
-const errorReviews = ref<unknown>(null);
-
-watchEffect(async () => {
-  if (!locations.value?.length) return;
-  pendingReviews.value = true;
-  errorReviews.value = null;
-  try {
-    const locationId = locations.value[0].id; // p.ej. "locations/1234567890"
-    reviews.value = await $fetch<Review[]>("/api/gbp/reviews", {
-      query: { locationId },
-      credentials: "include",
-    });
-  } catch (e) {
-    errorReviews.value = e;
-    reviews.value = [];
-  } finally {
-    pendingReviews.value = false;
-  }
-});
-
-// Utilidad rating
-const getStarRating = (ratingText: Review["rating"] | string) => {
-  const map: Record<string, number> = { FIVE: 5, FOUR: 4, THREE: 3, TWO: 2, ONE: 1 };
-  return map[ratingText] ?? 0;
-};
+// Navegación EXTERNA para iniciar OAuth (solo si usas GBP)
+const connect = () => navigateTo("/api/gbp/oauth/start", { external: true });
 </script>
 
 <template>
@@ -63,7 +38,7 @@ const getStarRating = (ratingText: Review["rating"] | string) => {
     <SharedMenuCategories />
     <SharedSliderHome />
 
-    <!-- estados -->
+    <!-- estados categorías -->
     <div v-if="pending" class="py-10 text-center text-muted-foreground">
       Cargando categorías…
     </div>
@@ -71,7 +46,7 @@ const getStarRating = (ratingText: Review["rating"] | string) => {
       Error al cargar categorías
     </div>
 
-    <!-- grid -->
+    <!-- grid categorías -->
     <CategoryCarousel
       v-else
       :items="categories"
@@ -83,7 +58,10 @@ const getStarRating = (ratingText: Review["rating"] | string) => {
       :countFn="(c) => c.productsCount"
       :badgesFn="(c) => [c.featured && 'Destacado'].filter(Boolean)"
       baseImage="/img/categorias"
+      class="mb-10"
     />
+
+    <!-- features -->
     <div class="space-y-4">
       <FeatureSection
         title="Impresión digital personalizada"
@@ -117,47 +95,33 @@ const getStarRating = (ratingText: Review["rating"] | string) => {
           </button>
         </template>
       </FeatureSection>
+    </div>
 
-      <div>
-        <GoogleLogin />
+    <!-- Carrusel de reseñas -->
+    <section class="mt-12">
+      <div v-if="pendingReviews" class="py-6 text-center text-muted-foreground">
+        Cargando reseñas…
       </div>
+      <p v-else-if="errorReviews" class="text-sm text-destructive">
+        No se han podido cargar las reseñas.
+      </p>
+      <GoogleReviewsCarousel
+        v-else
+        title="Opiniones de clientes"
+        :reviews="items"
+        :rating="average ?? 0"
+        :count="total ?? items.length"
+        :maps-url="mapsUrl"
+        business-name="Repro Disseny"
+        business-url="https://reprodisseny.com"
+      />
+    </section>
+
+    <!-- Botón de conexión SOLO si trabajas con GBP (dev). En prod con Places, no hace falta -->
+    <div v-if="source === 'gbp'" class="mt-12 flex items-center gap-3">
+      <a href="/api/gbp/oauth/start">Conectar</a>
     </div>
   </div>
 </template>
 
-<style scoped>
-.reviews-container {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-.review-card {
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 1rem;
-  background-color: #f9f9f9;
-}
-.reviewer-info {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 0.5rem;
-}
-.reviewer-photo {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-}
-.comment {
-  font-style: italic;
-  color: #333;
-}
-.reply {
-  margin-top: 1rem;
-  padding-left: 1rem;
-  border-left: 3px solid #007bff;
-  background-color: #eef;
-  padding: 0.5rem;
-  border-radius: 4px;
-}
-</style>
+<style scoped></style>

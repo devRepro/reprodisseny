@@ -1,3 +1,4 @@
+<!--
 <script setup lang="ts">
 // 1. Usar tu composable para obtener las ubicaciones
 const {
@@ -91,4 +92,9 @@ function loadMore() {
       {{ reviewsPending ? "Cargando..." : "Cargar más reseñas" }}
     </button>
   </div>
+</template>
+-->
+<script></script>
+<template>
+  <div>Hola mundo</div>
 </template>

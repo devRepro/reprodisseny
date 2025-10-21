@@ -1,47 +1,68 @@
 // composables/useGoogleReviews.ts
-import type { UiLocation, UiReview } from '~/types/gbp'
+import type { UiLocation } from '~/types/gbp'
+
+type GbpReviewItem = {
+  id: string
+  name: string         // <- autor (displayName)
+  rating: number       // 1..5
+  comment?: string
+  reply?: string | null
+  updateTime?: string
+}
 
 export function useGoogleReviews() {
+  // Si tu endpoint de ubicaciones funciona en SSR, NO pongas server:false
   const locationsRes = useFetch<{ locations: UiLocation[] }>('/api/gbp/locations', {
-    server: false,           // solo cliente (usas cookie)
-    credentials: 'include',
-    key: 'gbp-locations-client'
+    key: 'gbp-locations',
+    credentials: 'include'
   })
 
   const firstLocation = computed(() => locationsRes.data.value?.locations?.[0])
 
-  const reviews = ref<UiReview[]>([])
+  const reviews = ref<GbpReviewItem[]>([])
+  const average = ref<number | null>(null)    // si luego añades agregados
+  const total = ref<number | null>(null)
   const pendingReviews = ref(false)
   const errorReviews = ref<unknown>(null)
 
-  watchEffect(async () => {
-    const loc = firstLocation.value
-    if (!loc?.id) return
-    pendingReviews.value = true
-    errorReviews.value = null
-    try {
-      const res = await $fetch<{ reviews: UiReview[]; averageRating?: number; totalReviewCount?: number }>(
-        '/api/gbp/reviews',
-        {
-          query: { locationName: loc.id }, // "accounts/.../locations/..."
-          credentials: 'include'
-        }
-      )
-      reviews.value = res.reviews
-    } catch (e) {
-      errorReviews.value = e
-      reviews.value = []
-    } finally {
-      pendingReviews.value = false
-    }
-  })
+  watch(
+    () => firstLocation.value?.id,
+    async (id) => {
+      if (!id) return
+      pendingReviews.value = true
+      errorReviews.value = null
+      try {
+        // ⬇️ AHORA LEEMOS items (no reviews)
+        const res = await $fetch<{ items: GbpReviewItem[]; nextPageToken?: string }>(
+          '/api/gbp/reviews',
+          {
+            // acepta locationId, locationName o id (tu handler ya es tolerante)
+            query: { locationId: id },
+            credentials: 'include'
+          }
+        )
+        reviews.value = res.items ?? []
+        // average/total si en el futuro añades agregados en el handler
+        average.value = null
+        total.value = reviews.value.length
+      } catch (e) {
+        errorReviews.value = e
+        reviews.value = []
+        average.value = null
+        total.value = null
+      } finally {
+        pendingReviews.value = false
+      }
+    },
+    { immediate: true }
+  )
 
   return {
-    // ubicaciones
     locationsRes,
     firstLocation,
-    // reseñas
     reviews,
+    average,
+    total,
     pendingReviews,
     errorReviews
   }
