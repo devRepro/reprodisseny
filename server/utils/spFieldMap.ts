@@ -1,7 +1,7 @@
 // server/utils/spFieldMap.ts
 import { ofetch } from 'ofetch'
 import type { H3Event } from 'h3'
-import { getGraphToken, resolveSiteId, resolveListId } from '~/server/utils/graph'
+import { getGraphToken, resolveSiteId, resolveListId } from '~/server/utils/graphClient.server'
 
 const columnsCache = new Map<string, Array<{ name: string; displayName: string }>>()
 

@@ -23,19 +23,26 @@ function getMs(event?: any): MsCfg {
     // o bien siteId, o bien hostname+path
     ['site', ms.siteId || (ms.siteHostname && ms.sitePath) ? 'ok' : ''],
     // o bien listId, o bien displayName
-    ['list', ms.listId || ms.listDisplayName ? 'ok' : '']
-  ].filter(([,v]) => !v).map(([k]) => k)
+    ['list', ms.listId || ms.listDisplayName ? 'ok' : ''],
+  ]
+    .filter(([, v]) => !v)
+    .map(([k]) => k)
+
   if (missing.length) {
-    throw createError({ statusCode: 500, statusMessage: `Faltan credenciales MS: ${missing.join(', ')}` })
+    throw createError({
+      statusCode: 500,
+      statusMessage: `Faltan credenciales MS: ${missing.join(', ')}`,
+    })
   }
   return ms
 }
 
-const cache: { token?: string; exp?: number; siteId?: string; listId?: string } = {}
+const cache: { token?: string; exp?: number; siteId?: string; listId?: string } =
+  {}
 
 export async function getGraphToken(event?: any): Promise<string> {
   const { tenantId, clientId, clientSecret } = getMs(event)
-  const now = Math.floor(Date.now()/1000)
+  const now = Math.floor(Date.now() / 1000)
   if (cache.token && cache.exp && cache.exp - 60 > now) return cache.token
   const res = await ofetch<{ access_token: string; expires_in: number }>(
     `https://login.microsoftonline.com/${tenantId}/oauth2/v2.0/token`,
@@ -45,8 +52,8 @@ export async function getGraphToken(event?: any): Promise<string> {
         client_id: clientId,
         client_secret: clientSecret,
         grant_type: 'client_credentials',
-        scope: 'https://graph.microsoft.com/.default'
-      })
+        scope: 'https://graph.microsoft.com/.default',
+      }),
     }
   )
   cache.token = res.access_token
@@ -75,13 +82,59 @@ export async function resolveListId(event?: any): Promise<string> {
   const siteId = await resolveSiteId(event)
   const displayName = ms.listDisplayName!.replace(/'/g, "''")
   const data = await ofetch<any>(
-    `https://graph.microsoft.com/v1.0/sites/${encodeURIComponent(siteId)}/lists?$filter=displayName eq '${displayName}'`,
+    `https://graph.microsoft.com/v1.0/sites/${encodeURIComponent(
+      siteId
+    )}/lists?$filter=displayName eq '${displayName}'`,
     { headers: { Authorization: `Bearer ${token}` } }
   )
   const list = data?.value?.[0]
-  if (!list?.id) throw createError({ statusCode: 500, statusMessage: `Lista no encontrada: ${ms.listDisplayName}` })
+  if (!list?.id) {
+    throw createError({
+      statusCode: 500,
+      statusMessage: `Lista no encontrada: ${ms.listDisplayName}`,
+    })
+  }
   cache.listId = list.id
   return cache.listId!
 }
 
+/**
+ * Wrapper tipo "Graph client" para poder usar:
+ *   const client = await getGraphClient(event)
+ *   await client.api('/sites/...').post({ fields })
+ */
+export async function getGraphClient(event?: any) {
+  const token = await getGraphToken(event)
+  const baseUrl = 'https://graph.microsoft.com/v1.0'
+  const baseHeaders = { Authorization: `Bearer ${token}` }
 
+  return {
+    api: (path: string) => ({
+      get: (init?: any) =>
+        ofetch(baseUrl + path, {
+          ...init,
+          headers: { ...baseHeaders, ...(init?.headers || {}) },
+        }),
+      post: (body: any, init?: any) =>
+        ofetch(baseUrl + path, {
+          method: 'POST',
+          body,
+          ...init,
+          headers: { ...baseHeaders, ...(init?.headers || {}) },
+        }),
+      patch: (body: any, init?: any) =>
+        ofetch(baseUrl + path, {
+          method: 'PATCH',
+          body,
+          ...init,
+          headers: { ...baseHeaders, ...(init?.headers || {}) },
+        }),
+      delete: (init?: any) =>
+        ofetch(baseUrl + path, {
+          method: 'DELETE',
+          ...init,
+          headers: { ...baseHeaders, ...(init?.headers || {}) },
+        }),
+    }),
+  }
+}

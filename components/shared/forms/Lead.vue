@@ -119,31 +119,53 @@ const onSubmit = handleSubmit(async (values) => {
   error.value = null;
   success.value = false;
 
-  // Normaliza numéricos de extras
+  // 1) Normaliza numéricos (extras + cantidad)
   const cleaned: Record<string, any> = { ...values };
+
   for (const f of extraFields.value) {
     if (f.type === "number" && cleaned[f.name] !== "" && cleaned[f.name] != null) {
       const n = Number(cleaned[f.name]);
       if (!Number.isNaN(n)) cleaned[f.name] = n;
     }
   }
-  // Normaliza cantidad
+
   if (cleaned.cantidad !== "" && cleaned.cantidad != null) {
     const n = Number(cleaned.cantidad);
     if (!Number.isNaN(n)) cleaned.cantidad = n;
   }
 
+  // 2) Slug de la ruta
   const slug = Array.isArray(route.params.slug)
     ? route.params.slug.at(-1)
     : String(route.params.slug || "");
 
-  await sendLead({
-    ...cleaned, // nombre, email, telefono, empresa, cantidad, comentario + dinámicos
-    producto: props.producto,
-    productData: props.productData,
-    origen: "product-page",
+  // 3) Extras = SOLO campos dinámicos
+  const extras: Record<string, any> = {};
+  for (const f of extraFields.value) {
+    extras[f.name] = cleaned[f.name];
+  }
+
+  // 4) Objeto producto “ligero”
+  const productoPayload = {
+    name: props.producto,
     slug,
-    productUrl: route.fullPath,
+    sku: props.productData?.sku ?? props.productData?.meta?.sku ?? null,
+    url: route.fullPath,
+  };
+
+  // 5) Payload al endpoint
+  await sendLead({
+    nombre: cleaned.nombre,
+    email: cleaned.email,
+    telefono: cleaned.telefono,
+    empresa: cleaned.empresa,
+    cantidad: cleaned.cantidad,
+    comentario: cleaned.comentario,
+
+    extras,
+    producto: productoPayload,
+
+    origen: "product-page",
     utm: route.query as any,
   });
 

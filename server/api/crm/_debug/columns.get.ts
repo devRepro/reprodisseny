@@ -1,5 +1,5 @@
 import { ofetch } from 'ofetch'
-import { getGraphToken, resolveSiteId, resolveListId } from '~/server/utils/graph'
+import { getGraphToken, resolveSiteId, resolveListId } from '~/server/utils/graphClient.server'
 
 export default defineEventHandler(async (event) => {
   const token = await getGraphToken(event)
