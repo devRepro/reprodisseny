@@ -13,10 +13,10 @@ const altText = data.alt || data.title;
     <SharedHeaderSection :title="data.title" :alt="altText" :image="imageUrl">
       <template #right>
         <ClientOnly>
-          <SharedFormsLeadForms
+          <SharedFormsLead
             :producto="data.title"
             :extra-fields="data.formFields"
-            :product-data="product"
+            :product-data="data"
           />
         </ClientOnly>
       </template>

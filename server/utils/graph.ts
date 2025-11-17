@@ -1,6 +1,7 @@
 // server/utils/graph.ts
 import { ofetch } from 'ofetch'
 import { createError } from 'h3'
+import { useRuntimeConfig } from '#imports'
 
 type MsCfg = {
   tenantId: string
@@ -72,8 +73,9 @@ export async function resolveListId(event?: any): Promise<string> {
   if (cache.listId) return cache.listId
   const token = await getGraphToken(event)
   const siteId = await resolveSiteId(event)
+  const displayName = ms.listDisplayName!.replace(/'/g, "''")
   const data = await ofetch<any>(
-    `https://graph.microsoft.com/v1.0/sites/${encodeURIComponent(siteId)}/lists?$filter=displayName eq '${encodeURIComponent(ms.listDisplayName!)}'`,
+    `https://graph.microsoft.com/v1.0/sites/${encodeURIComponent(siteId)}/lists?$filter=displayName eq '${displayName}'`,
     { headers: { Authorization: `Bearer ${token}` } }
   )
   const list = data?.value?.[0]

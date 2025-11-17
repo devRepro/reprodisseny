@@ -125,11 +125,11 @@ useHead(() => ({
               <p class="text-muted-foreground mb-6 text-sm">
                 Rellena los datos y te contactaremos en minutos.
               </p>
-
               <ClientOnly>
                 <SharedFormsLead
                   :producto="product.title"
                   :extra-fields="product.formFields ?? []"
+                  :product-data="product"
                 />
 
                 <template #fallback>
