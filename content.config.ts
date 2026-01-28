@@ -7,14 +7,13 @@ const ImgObj = z.object({
   src: z.string(),
   width: z.number().default(1200),
   height: z.number().default(800),
+  alt: z.string().optional(),
 })
 
-// String u objeto; transforma string → objeto con tamaños por defecto (NO añade base path)
 const Img = z.union([z.string(), ImgObj]).transform(v =>
   typeof v === 'string' ? ({ src: v, width: 1200, height: 800 }) : v
 )
 
-// Para gallery permitimos string u objeto (sin transformar; lo normalizas en runtime si quieres)
 const GalleryItem = z.union([z.string(), ImgObj])
 
 const Hreflang = z.object({ lang: z.string(), url: z.string() })
@@ -67,6 +66,13 @@ export default defineContentConfig({
         // Schema.org libre
         schema: z.record(z.any()).optional(),
       }),
+      indexes: [
+        { columns: ['hidden'] },
+        { columns: ['order'] },
+        { columns: ['parent'] },
+        { columns: ['featured'] },
+        { columns: ['hidden', 'order'] },
+      ],
     }),
 
     // === PRODUCTOS ===
@@ -133,6 +139,13 @@ export default defineContentConfig({
         // Schema.org
         schema: z.record(z.any()).optional(),
       }),
+      indexes: [
+        { columns: ['categorySlug'] },
+        { columns: ['hidden'] },
+        { columns: ['inStock'] },
+        { columns: ['order'] },
+        { columns: ['categorySlug', 'order'] },
+      ],
     }),
   },
 })

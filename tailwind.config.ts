@@ -59,6 +59,11 @@ const config: Config = {
   				ring: 'hsl(var(--sidebar-ring))'
   			}
   		},
+		  brand: {
+			DEFAULT: 'hsl(var(--brand))',
+			foreground: 'hsl(var(--brand-foreground))',
+		  },
+		  
   		keyframes: {
   			fadeIn: {
   				'0%': {
@@ -116,7 +121,7 @@ const config: Config = {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
   			sm: 'calc(var(--radius) - 4px)'
-  		}
+  		},
   	}
   },
   plugins: [
