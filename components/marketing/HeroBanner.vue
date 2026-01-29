@@ -1,51 +1,62 @@
-<!-- ~/components/Home/HeroBanner.vue -->
 <template>
-  <section class="relative">
-    <div
-      class="relative overflow-hidden rounded-3xl border bg-white/80 backdrop-blur shadow-sm"
-      :class="panelClass"
-    >
-      <!-- Background layer -->
-      <div class="pointer-events-none absolute inset-0">
-        <!-- Variants -->
-        <div v-if="variant === 'wood'" class="absolute inset-0 wood-slats" :style="woodStyle" />
-        <div v-else-if="variant === 'gradient'" class="absolute inset-0 gradient-bg" />
-        <div v-else class="absolute inset-0 bg-slate-50" />
+  <section class="relative isolate">
+    <!-- Background image -->
+    <div class="absolute inset-0 -z-10">
+      <img
+        v-if="imageSrc"
+        :src="imageSrc"
+        :alt="imageAlt"
+        class="h-full w-full object-cover"
+      />
+      <div v-else class="h-full w-full bg-slate-200" />
 
-        <!-- Soft highlight -->
-        <div class="absolute inset-0 bg-gradient-to-b from-white/55 via-transparent to-transparent" />
-        <!-- Subtle vignette -->
-        <div class="absolute inset-0 bg-gradient-to-r from-slate-900/[0.03] via-transparent to-slate-900/[0.03]" />
-      </div>
+      <!-- Overlay (tipo el diseño: legible con texto oscuro) -->
+      <div
+        class="absolute inset-0 bg-gradient-to-r from-white/85 via-white/55 to-transparent"
+      />
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-white/40 via-transparent to-black/10"
+      />
+    </div>
 
-      <!-- Content -->
-      <div class="relative z-10 p-6 md:p-10">
-        <div class="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
-          <div class="max-w-2xl">
-            <p v-if="kicker" class="text-sm font-medium text-slate-600">
-              {{ kicker }}
-            </p>
+    <div class="mx-auto max-w-6xl px-4">
+      <div class="flex min-h-[360px] items-center py-14 md:min-h-[440px] md:py-20">
+        <div class="max-w-2xl">
+          <p v-if="eyebrow" class="text-sm font-semibold tracking-wide text-slate-700">
+            {{ eyebrow }}
+          </p>
 
-            <h1 class="mt-1 text-2xl font-semibold tracking-tight text-slate-900 md:text-4xl">
-              {{ title }}
-            </h1>
+          <h1
+            class="mt-3 text-3xl font-extrabold tracking-tight text-slate-900 sm:text-5xl"
+          >
+            {{ title }}
+          </h1>
 
-            <p v-if="subtitle" class="mt-3 text-base text-slate-700 md:text-lg">
-              {{ subtitle }}
-            </p>
+          <p class="mt-4 text-base leading-7 text-slate-700 sm:text-lg">
+            {{ subtitle }}
+          </p>
 
-            <div v-if="$slots.meta" class="mt-5">
-              <slot name="meta" />
-            </div>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <NuxtLink
+              v-if="cta"
+              :to="cta.to"
+              class="inline-flex items-center justify-center rounded-lg bg-sky-600 px-5 py-3 text-sm font-semibold text-white shadow-sm hover:bg-sky-700"
+            >
+              {{ cta.label }}
+            </NuxtLink>
+
+            <NuxtLink
+              v-if="secondaryCta"
+              :to="secondaryCta.to"
+              class="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white/60 px-5 py-3 text-sm font-semibold text-slate-900 hover:bg-white"
+            >
+              {{ secondaryCta.label }}
+            </NuxtLink>
           </div>
 
-          <div v-if="$slots.actions" class="flex flex-wrap gap-3">
-            <slot name="actions" />
+          <div v-if="$slots.default" class="mt-8">
+            <slot />
           </div>
-        </div>
-
-        <div v-if="$slots.default" class="mt-6">
-          <slot />
         </div>
       </div>
     </div>
@@ -53,42 +64,21 @@
 </template>
 
 <script setup lang="ts">
-type HeroVariant = "wood" | "gradient" | "plain"
+type Cta = { label: string; to: string };
 
-const props = withDefaults(
+withDefaults(
   defineProps<{
-    title: string
-    subtitle?: string
-    kicker?: string
-
-    /**
-     * wood: listones (sin imagen)
-     * gradient: fondo suave
-     * plain: neutro
-     */
-    variant?: HeroVariant
-
-    /**
-     * Tailwind classes extra para el panel.
-     * Ej: "shadow-md md:rounded-[32px]"
-     */
-    panelClass?: string
-
-    /**
-     * Ajustes finos del fondo wood (para pixel-perfect con Figma)
-     */
-    slatWidth?: number // px
-    slatGap?: number // px
-    woodContrast?: number // 0..1 (sube/baja opacidad)
+    title: string;
+    subtitle: string;
+    imageSrc?: string;
+    imageAlt?: string;
+    eyebrow?: string;
+    cta?: Cta;
+    secondaryCta?: Cta;
   }>(),
   {
-    variant: "wood",
-    panelClass: "",
-    slatWidth: 18,
-    slatGap: 4,
-    woodContrast: 0.22,
+    imageAlt: "",
+    eyebrow: "",
   }
-)
-
-const woodStyle = computed(() => {
-  // Usamos CSS vars para poder a
+);
+</script>
