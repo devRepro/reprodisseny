@@ -7,13 +7,13 @@
       :cta="{ label: 'Contacta con un experto', to: '/contacto' }"
     />
 
-    <ProductCategoryGrid :categories="categoryCards" />
-
-    <!-- aquí puedes seguir con el resto de secciones de Home -->
+    <!-- Esto son categorías (familias), aunque el título diga productos -->
+    <ProductCategoryGrid title="Nuestros productos" :categories="categoryCards" />
   </div>
 </template>
 
 <script setup lang="ts">
+import { computed } from "vue";
 import HeroBanner from "@/components/marketing/HeroBanner.vue";
 import ProductCategoryGrid from "@/components/marketing/ProductCategoryGrid.vue";
 import { getCategories, mapCategoriesToCards } from "~/server/utils/catalogContent";
@@ -21,5 +21,6 @@ import { getCategories, mapCategoriesToCards } from "~/server/utils/catalogConte
 const { data: categories } = await useAsyncData("homeCategories", () => getCategories(), {
   default: () => [],
 });
+
 const categoryCards = computed(() => mapCategoriesToCards(categories.value));
 </script>
