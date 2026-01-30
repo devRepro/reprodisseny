@@ -1,26 +1,44 @@
 <template>
   <div>
-    <HeroBanner
-      title="Somos tu socio de producción gráfica"
-      subtitle="Convertimos tus necesidades en materiales de comunicación corporativa, comercial y marketing. Producimos tus proyectos profesionalmente, acompañándote con calidad y rapidez."
-      image-src="/img/hero/barcelona.jpg"
-      :cta="{ label: 'Contacta con un experto', to: '/contacto' }"
+    <HomeHero>
+      <HomeImageStrip :images="stripImages" />
+    </HomeHero>
+    <MarketingProductCategoryGrid
+      title="Nuestros productos"
+      :categories="homeCategories"
+      :total-slots="8"
     />
 
-    <!-- Esto son categorías (familias), aunque el título diga productos -->
-    <ProductCategoryGrid title="Nuestros productos" :categories="categoryCards" />
+  
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
-import HeroBanner from "@/components/marketing/HeroBanner.vue";
-import ProductCategoryGrid from "@/components/marketing/ProductCategoryGrid.vue";
-import { getCategories, mapCategoriesToCards } from "~/server/utils/catalogContent";
+import { computed } from "vue"
+import HomeHero from "@/components/marketing/HomeHero.vue"
+import HomeImageStrip from "@/components/marketing/HomeImageStrip.vue"
 
-const { data: categories } = await useAsyncData("homeCategories", () => getCategories(), {
+type CategoryItem = {
+  slug: string
+  title: string
+  image?: string | null
+  href?: string
+  path?: string
+}
+
+// ✅ Cargar categorías (SSR)
+const { data: categoriesData } = await useFetch<CategoryItem[]>("/api/cms/home-categories", {
+  server: true,
   default: () => [],
-});
+})
 
-const categoryCards = computed(() => mapCategoriesToCards(categories.value));
+const homeCategories = computed(() => categoriesData.value ?? [])
+
+// ✅ Imágenes strip (ya en Blob)
+const stripImages = [
+  { src: "https://webcms.blob.core.windows.net/media/home/preimpresion.webp", alt: "Diseño y producción" },
+  { src: "https://webcms.blob.core.windows.net/media/home/impresion.webp", alt: "Impresión profesional" },
+  { src: "https://webcms.blob.core.windows.net/media/home/instalacion-vinilo.webp", alt: "Instalación" },
+  { src: "https://webcms.blob.core.windows.net/media/home/logistica.webp", alt: "Logística" },
+]
 </script>

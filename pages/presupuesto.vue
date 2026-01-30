@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import QuoteFormSection from "@/components/marketing/QuoteFormSection.vue";
+
 import ContactInfoBand from "@/components/marketing/ContactInfoBand.vue";
 import ProductCategoryGrid from "@/components/marketing/ProductCategoryGrid.vue";
 import GuideBanner from "@/components/marketing/GuideBanner.vue";

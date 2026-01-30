@@ -1,9 +1,4 @@
 <script setup lang="ts">
-import HeroBanner from "@/components/marketing/HeroBanner.vue";
-import CircleActionGrid from "@/components/marketing/CircleActionGrid.vue";
-import FaqAccordion from "@/components/marketing/FaqAccordion.vue";
-import GuideBanner from "@/components/marketing/GuideBanner.vue";
-
 const route = useRoute();
 const slug = String(route.params.slug); // eventos, gran-formato, etc.
 
@@ -42,12 +37,7 @@ const faqs = computed(() =>
 
 <template>
   <div>
-    <HeroBanner
-      :title="category.title"
-      :subtitle="category.description || ''"
-      :image-src="category.image?.src || ''"
-      :cta="category.cta ? { label: category.cta.text, to: category.cta.link } : null"
-    />
+   
 
     <CircleActionGrid v-if="actions.length" title="Productos" :actions="actions" />
 
