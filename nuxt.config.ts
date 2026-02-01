@@ -174,7 +174,7 @@ export default defineNuxtConfig({
     layoutTransition: { name: "slide", mode: "out-in" },
   },
 
-  tailwindcss: { configPath: "tailwind.config.js", exposeConfig: true },
+  tailwindcss: { configPath: "tailwind.config.ts", exposeConfig: true },
   colorMode: { preference: "light", fallback: "light", classSuffix: "" },
 
   routeRules: {
