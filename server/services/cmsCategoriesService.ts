@@ -1,16 +1,16 @@
 // server/services/cmsCategoriesService.ts
 import { useRuntimeConfig } from "#imports"
-import { getGraphClient } from "~/server/utils/graph" // tu utils multi-ctx
+import { getGraphClient } from "~/server/utils/graphClient.server" // <- adjust if you have a wrapper file
 
 type CategoryItem = {
   id: string
   title: string
   slug: string
   order: number
-  parent?: string | null
+  parentSlug?: string | null
   featured: boolean
   hidden: boolean
-  // añade lo que necesites
+  isPublished: boolean
 }
 
 export async function fetchCmsCategories(event: any): Promise<CategoryItem[]> {
@@ -21,27 +21,39 @@ export async function fetchCmsCategories(event: any): Promise<CategoryItem[]> {
   const graph = await getGraphClient(event, "cms")
   const siteId = await graph.resolveSiteId()
 
-  // ⚠️ Ajusta nombres internos de campos SP (Slug, Order, Featured...) según tu lista real
+  // NOTE: Select only what you need (faster + cheaper)
+  const select = [
+    "Title",
+    "Slug",
+    "Order",
+    "ParentSlug",     // <- recommended: store parent slug as text
+    "Featured",
+    "Hidden",
+    "IsPublished",
+  ].join(",")
+
   const url =
     `/sites/${encodeURIComponent(siteId)}` +
     `/lists/${listId}/items` +
-    `?$top=500&$expand=fields`
+    `?$top=500&$expand=fields($select=${encodeURIComponent(select)})`
 
   const data = await graph.api(url).get()
   const items = (data?.value ?? []) as any[]
 
   return items
-    .map((it) => it.fields || {})
-    // si tienes un boolean tipo IsPublished, filtra aquí:
-    .filter((f) => f.IsPublished !== false) // adapta
-    .map((f) => ({
-      id: String(f.id ?? f.ID ?? ""), // adapta
-      title: String(f.Title ?? ""),
-      slug: String(f.Slug ?? ""),
-      order: Number(f.Order ?? 0),
-      parent: f.Parent ? String(f.Parent) : null,
-      featured: Boolean(f.Featured),
-      hidden: Boolean(f.Hidden),
-    }))
+    .map((it) => {
+      const f = it.fields || {}
+      return {
+        id: String(it.id), // <- FIX: id is item.id, not fields
+        title: String(f.Title ?? ""),
+        slug: String(f.Slug ?? ""),
+        order: Number(f.Order ?? 0),
+        parentSlug: f.ParentSlug ? String(f.ParentSlug) : null,
+        featured: Boolean(f.Featured),
+        hidden: Boolean(f.Hidden),
+        isPublished: f.IsPublished !== false,
+      }
+    })
+    .filter((c) => c.isPublished && !c.hidden && c.slug)
     .sort((a, b) => a.order - b.order)
 }
