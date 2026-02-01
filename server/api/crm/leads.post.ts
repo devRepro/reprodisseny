@@ -21,6 +21,8 @@ const ProductSchema = z.object({
 
 // 2) Schema del payload completo
 const LeadPayloadSchema = z.object({
+  website: z.string().optional().nullable(), // honeypot
+
   nombre: z.string().min(2),
   email: z.string().email(),
   telefono: z.string().optional().nullable(),
@@ -29,10 +31,18 @@ const LeadPayloadSchema = z.object({
 
   cantidad: z.coerce.number().optional().nullable(),
   producto: ProductSchema,
-  extras: z.record(z.any()).optional().default({}),
+
+  // restringe extras (evita JSON gigante)
+  extras: z.record(z.union([z.string().max(200), z.number(), z.boolean(), z.null()]))
+    .optional()
+    .default({}),
 
   origen: z.string().optional().nullable(),
   utm: z.record(z.any()).optional().nullable(),
+
+  // nuevos
+  consent: z.boolean(),
+  sourceUrl: z.string().min(1).max(300),
 })
 
 export default defineEventHandler(async (event) => {
