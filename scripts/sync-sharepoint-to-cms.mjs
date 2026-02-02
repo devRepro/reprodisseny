@@ -77,10 +77,79 @@ function urlValue(v) {
   return toStr(v.Url) || toStr(v.url);
 }
 
+function normalizeSlug(v) {
+  let s = toStr(v) || "";
+  if (!s) return undefined;
+  s = s.replace(/^\/+/, "");                 // quita "/" inicial
+  s = s.replace(/^categorias\//, "");        // por si viene "categorias/xxx"
+  s = s.replace(/^\/?categorias\//, "");     // por si viene "/categorias/xxx"
+  s = s.replace(/^\/?categorias\/+/i, "");   // robusto
+  s = s.replace(/^\/?categorias\//i, "");
+  s = s.replace(/^\/categorias\//i, "");
+  s = s.replace(/^categorias\//i, "");
+  s = s.replace(/^\/?categorias\//i, "");
+  s = s.replace(/^\/?categorias\//i, "");
+  // caso típico que has visto: "/categorias/gran-formato"
+  s = s.replace(/^categorias\//i, "");
+  s = s.replace(/^\/?categorias\//i, "");
+  s = s.replace(/^\/?categorias\//i, "");
+  s = s.replace(/^\/?categorias\//i, "");
+  s = s.replace(/^\/?categorias\//i, "");
+  // finalmente limpia slashes
+  s = s.replace(/^\/+|\/+$/g, "");
+  return s || undefined;
+}
+
+function normalizeParentSlug(parent, slug) {
+  const p = normalizeSlug(parent);
+  if (!p) return undefined;
+  // evita padres “placeholder” o errores de datos
+  if (p === "categorias") return undefined;
+  if (slug && p === slug) return undefined;
+  return p;
+}
+
+function normalizeCategoryPath(pathValue, slug, parent) {
+  let p = toStr(pathValue) || "";
+  if (p) {
+    // asegurar formato "/categorias/..."
+    p = p.replace(/\/{2,}/g, "/").trim();
+    if (!p.startsWith("/")) p = "/" + p;
+    if (!p.startsWith("/categorias/")) {
+      // si viene solo "adhesivos" o "gran-formato"
+      p = "/categorias/" + p.replace(/^\/+/, "");
+    }
+    return p.replace(/\/+$/, "");
+  }
+
+  // fallback si no hay Path en SP
+  if (parent) return `/categorias/${parent}/${slug}`;
+  return `/categorias/${slug}`;
+}
+
+function parseStringList(v) {
+  // acepta JSON array string o "a,b,c"
+  const s = toStr(v);
+  if (!s) return [];
+  const j = parseJson(s, null);
+  if (Array.isArray(j)) return j.map(toStr).filter(Boolean);
+  return s.split(",").map(x => String(x).trim()).filter(Boolean);
+}
+
+function uniq(arr) {
+  return [...new Set((arr || []).filter(Boolean))];
+}
+
 async function fetchAllItems(listId, selectFields) {
+  const hasSelect = Array.isArray(selectFields) && selectFields.length > 0;
+
+  const expand = hasSelect
+    ? `fields($select=${selectFields.join(",")})`
+    : "fields";
+
   const base =
     `/sites/${SHAREPOINT_SITE_ID}/lists/${listId}/items` +
-    `?$top=999&$expand=fields($select=${selectFields.join(",")})`;
+    `?$top=999&$expand=${expand}`;
 
   const items = [];
   let next = base;
@@ -95,13 +164,21 @@ async function fetchAllItems(listId, selectFields) {
   return items;
 }
 
+
 function buildCategory(item) {
   const f = item.fields || {};
-  const slug = toStr(f.CategorySlug);
+
+  const slug = normalizeSlug(f.CategorySlug);
   if (!slug) return null;
 
   const title = toStr(f.Title) || slug;
-  const parent = toStr(f.ParentSlug);
+
+  const parent = normalizeParentSlug(f.ParentSlug, slug);
+  const pathValue = normalizeCategoryPath(f.Path, slug, parent);
+
+  const legacySlugs = uniq(parseStringList(f.LegacySlugs).map(normalizeSlug));
+  const extraCategorySlugs = uniq(parseJson(f.ExtraCategorySlugsJson, []).map(normalizeSlug));
+  const allSlugs = uniq([slug, ...legacySlugs, ...extraCategorySlugs]);
 
   const seo = {
     metaTitle: toStr(f.MetaTitle),
@@ -111,20 +188,26 @@ function buildCategory(item) {
     keywords: parseJson(f.KeywordsJson, []),
     searchTerms: parseJson(f.SearchTermsJson, []),
     schema: parseJson(f.SchemaJson, {}),
-    // futuros:
-    // noindex: f.NoIndex === true,
-    // robotsOverride: toStr(f.RobotsOverride),
-    // ogImage: { src: urlValue(f.OgImageSrc) }
+    robotsOverride: toStr(f.RobotsOverride) || "INHERIT",
+    robotsAdvanced: toStr(f.RobotsAdvanced),
+    ogImageSrc: urlValue(f.OgImageSrc),
   };
 
   return {
     id: String(item.id),
+    updatedAt: item?.lastModifiedDateTime || item?.lastModifiedDateTime?.toString?.() || undefined,
+
     type: parent ? "subcategoria" : "categoria",
     slug,
+    slugs: allSlugs,                // ✅ útil para matching + redirects
+    legacySlugs,
+    extraCategorySlugs,
+
     title,
     nav: toStr(f.NavLabel) || title,
     order: Number(f.SortOrder ?? 0) || 0,
     parent: parent || undefined,
+
     hidden: Boolean(f.IsHidden),
     featured: Boolean(f.IsFeatured),
     isPublished: Boolean(f.IsPublished),
@@ -142,14 +225,19 @@ function buildCategory(item) {
 
     galleryImages: parseJson(f.GalleryImagesJson, []),
     breadcrumbs: parseJson(f.BreadcrumbsJson, []),
+
     cta: {
       text: toStr(f.CtaText),
       link: urlValue(f.CtaLink),
     },
+
     faqs: parseJson(f.FaqsJson, []),
 
-    // Patrón que has elegido:
-    path: `/categorias/${slug}`,
+    // ✅ raw JSON blocks (lo parsearemos/normalizaremos en el endpoint)
+    TabsJson: toStr(f.TabsJson),
+
+    // ✅ usa Path real si existe (mejor para subcategorías y SEO)
+    path: pathValue,
 
     seo,
   };
@@ -219,16 +307,24 @@ function buildProduct(item) {
 
 async function run() {
   const categoryFields = [
-    "Title","CategorySlug","NavLabel","SortOrder","ParentSlug",
-    "IsFeatured","IsHidden","IsPublished","PublishedAt",
-    "Description","BodyMd",
-    "ImageSrc","ImageWidth","ImageHeight","ImageAlt",
-    "GalleryImagesJson","BreadcrumbsJson",
-    "CtaText","CtaLink",
-    "MetaTitle","MetaDescription","Canonical",
-    "HrefLangJson","KeywordsJson","SearchTermsJson",
-    "FaqsJson","SchemaJson"
-  ];
+  "Title","CategorySlug","NavLabel","SortOrder","ParentSlug",
+  "IsFeatured","IsHidden","IsPublished","PublishedAt",
+  "Description","BodyMd",
+  "ImageSrc","ImageWidth","ImageHeight","ImageAlt",
+  "GalleryImagesJson","BreadcrumbsJson",
+  "CtaText","CtaLink",
++ "Path",
++ "TabsJson",
++ "OgImageSrc",
++ "LegacySlugs",
++ "ExtraCategorySlugsJson",
++ "RobotsOverride",
++ "RobotsAdvanced",
+  "MetaTitle","MetaDescription","Canonical",
+  "HrefLangJson","KeywordsJson","SearchTermsJson",
+  "FaqsJson","SchemaJson"
+];
+
 
   const productFields = [
     "Title","ProductSlug","CategorySlug",
@@ -245,8 +341,8 @@ async function run() {
   ];
 
   const [catItems, prodItems] = await Promise.all([
-    fetchAllItems(SP_LIST_CATEGORIES_ID, categoryFields),
-    fetchAllItems(SP_LIST_PRODUCTS_ID, productFields),
+    fetchAllItems(SP_LIST_CATEGORIES_ID, []),
+    fetchAllItems(SP_LIST_PRODUCTS_ID, []),
   ]);
 
   const categories = catItems.map(buildCategory).filter(Boolean).filter(c => c.isPublished);

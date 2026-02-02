@@ -1,14 +1,19 @@
 {
-  "generatedAt": "2026-02-02T09:10:37.126Z",
+  "generatedAt": "2026-02-02T13:16:58.398Z",
   "categories": [
     {
       "id": "2",
-      "type": "subcategoria",
+      "updatedAt": "2026-02-02T12:20:19Z",
+      "type": "categoria",
       "slug": "adhesivos",
+      "slugs": [
+        "adhesivos"
+      ],
+      "legacySlugs": [],
+      "extraCategorySlugs": [],
       "title": "Adhesivos personalizados para branding e interiorismo",
       "nav": "Adhesivos",
       "order": 0,
-      "parent": "adhesivos",
       "hidden": false,
       "featured": false,
       "isPublished": true,
@@ -61,6 +66,7 @@
           "answer": "Claro, trabajamos desde pequeñas tiradas hasta grandes producciones, adaptándonos a las necesidades de cada cliente."
         }
       ],
+      "TabsJson": "[\n  {\n    \"title\": \"Formatos\",\n    \"blocks\": [\n      { \"type\": \"bullets\", \"items\": [\"Vinil polimèric\", \"Laminat opcional\", \"Acabat mate/brillant\"] }\n    ]\n  },\n  {\n    \"title\": \"El contenido\",\n    \"blocks\": [\n      {\n        \"type\": \"text\",\n        \"format\": \"plain\",\n        \"text\": \"Aquí puedes explicar el contenido con más detalle.\\nCon saltos de línea si quieres.\"\n      },\n      {\n        \"type\": \"image\",\n        \"src\": \"https://webcms.blob.core.windows.net/media/category/llibres-revistes-catalegs.png\",\n        \"alt\": \"Ejemplo de aplicación\",\n        \"caption\": \"Acabado mate en pared\"\n      }\n    ]\n  }\n]",
       "path": "/categorias/adhesivos",
       "seo": {
         "metaTitle": "Adhesivos personalizados para branding e interiorismo | Repro Disseny",
@@ -96,17 +102,23 @@
             "priceCurrency": "EUR",
             "availability": "https://schema.org/InStock"
           }
-        }
+        },
+        "robotsOverride": "INHERIT"
       }
     },
     {
       "id": "3",
-      "type": "subcategoria",
+      "updatedAt": "2026-02-02T12:20:39Z",
+      "type": "categoria",
       "slug": "eventos",
+      "slugs": [
+        "eventos"
+      ],
+      "legacySlugs": [],
+      "extraCategorySlugs": [],
       "title": "Impresión personalizada para eventos corporativos",
       "nav": "Eventos",
       "order": 0,
-      "parent": "categorias",
       "hidden": false,
       "featured": false,
       "isPublished": true,
@@ -155,6 +167,7 @@
           "answer": "Sí, instalamos vinilos, señalética y estructuras en Cataluña.\n"
         }
       ],
+      "TabsJson": "[\n  {\n    \"title\": \"Formatos\",\n    \"blocks\": [\n      { \"type\": \"bullets\", \"items\": [\"Vinil polimèric\", \"Laminat opcional\", \"Acabat mate/brillant\"] }\n    ]\n  },\n  {\n    \"title\": \"El contenido\",\n    \"blocks\": [\n      {\n        \"type\": \"text\",\n        \"format\": \"plain\",\n        \"text\": \"Aquí puedes explicar el contenido con más detalle.\\nCon saltos de línea si quieres.\"\n      },\n      {\n        \"type\": \"image\",\n        \"src\": \"https://webcms.blob.core.windows.net/media/category/llibres-revistes-catalegs.png\",\n        \"alt\": \"Ejemplo de aplicación\",\n        \"caption\": \"Acabado mate en pared\"\n      }\n    ]\n  }\n]",
       "path": "/categorias/eventos",
       "seo": {
         "metaTitle": "Impresión personalizada para eventos corporativos | Repro Disseny",
@@ -185,17 +198,23 @@
           "name": "Impresión personalizada para eventos corporativos | Repro Disseny",
           "description": "Acreditaciones, invitaciones, soportes gráficos y detalles para eventos. Producción local y adaptada a agencias y organizadores.\n",
           "image": "/img/categorias/eventos/eventos.png"
-        }
+        },
+        "robotsOverride": "INHERIT"
       }
     },
     {
       "id": "4",
-      "type": "subcategoria",
+      "updatedAt": "2026-02-02T12:20:56Z",
+      "type": "categoria",
       "slug": "expositores",
+      "slugs": [
+        "expositores"
+      ],
+      "legacySlugs": [],
+      "extraCategorySlugs": [],
       "title": "Expositores impresos para punto de venta y eventos | Repro Disseny",
       "nav": "Expositores",
       "order": 0,
-      "parent": "categorias",
       "hidden": false,
       "featured": false,
       "isPublished": true,
@@ -247,6 +266,7 @@
           "answer": "Claro, trabajamos desde pequeñas tiradas hasta grandes producciones, adaptándonos a las necesidades de cada cliente."
         }
       ],
+      "TabsJson": "[\n  {\n    \"title\": \"Formatos\",\n    \"blocks\": [\n      { \"type\": \"bullets\", \"items\": [\"Vinil polimèric\", \"Laminat opcional\", \"Acabat mate/brillant\"] }\n    ]\n  },\n  {\n    \"title\": \"El contenido\",\n    \"blocks\": [\n      {\n        \"type\": \"text\",\n        \"format\": \"plain\",\n        \"text\": \"Aquí puedes explicar el contenido con más detalle.\\nCon saltos de línea si quieres.\"\n      },\n      {\n        \"type\": \"image\",\n        \"src\": \"https://webcms.blob.core.windows.net/media/category/llibres-revistes-catalegs.png\",\n        \"alt\": \"Ejemplo de aplicación\",\n        \"caption\": \"Acabado mate en pared\"\n      }\n    ]\n  }\n]",
       "path": "/categorias/expositores",
       "seo": {
         "metaTitle": "Expositores impresos para punto de venta y eventos",
@@ -284,17 +304,23 @@
             "priceCurrency": "EUR",
             "availability": "https://schema.org/InStock"
           }
-        }
+        },
+        "robotsOverride": "INHERIT"
       }
     },
     {
       "id": "5",
-      "type": "subcategoria",
-      "slug": "/categorias/gran-formato",
+      "updatedAt": "2026-02-02T12:21:12Z",
+      "type": "categoria",
+      "slug": "gran-formato",
+      "slugs": [
+        "gran-formato"
+      ],
+      "legacySlugs": [],
+      "extraCategorySlugs": [],
       "title": "Impresión en Gran Formato en Barcelona y Cataluña | Repro Disseny",
       "nav": "Gran Formato",
       "order": 1,
-      "parent": "categorias",
       "hidden": false,
       "featured": true,
       "isPublished": true,
@@ -324,7 +350,8 @@
         "link": "https://www.reprodisseny.com#productos, Ver Productos"
       },
       "faqs": [],
-      "path": "/categorias//categorias/gran-formato",
+      "TabsJson": "[\n  {\n    \"title\": \"Formatos\",\n    \"blocks\": [\n      { \"type\": \"bullets\", \"items\": [\"Vinil polimèric\", \"Laminat opcional\", \"Acabat mate/brillant\"] }\n    ]\n  },\n  {\n    \"title\": \"El contenido\",\n    \"blocks\": [\n      {\n        \"type\": \"text\",\n        \"format\": \"plain\",\n        \"text\": \"Aquí puedes explicar el contenido con más detalle.\\nCon saltos de línea si quieres.\"\n      },\n      {\n        \"type\": \"image\",\n        \"src\": \"https://webcms.blob.core.windows.net/media/category/llibres-revistes-catalegs.png\",\n        \"alt\": \"Ejemplo de aplicación\",\n        \"caption\": \"Acabado mate en pared\"\n      }\n    ]\n  }\n]",
+      "path": "/categorias/gran-formato",
       "seo": {
         "metaTitle": "Impresión en Gran Formato en Barcelona y Cataluña | Repro Disseny",
         "metaDescription": "Servicios de impresión en gran formato en Barcelona y Cataluña: lonas publicitarias, carteles, vinilos decorativos y más. Calidad premium y producción local.",
@@ -362,17 +389,23 @@
             "priceCurrency": "EUR",
             "availability": "https://schema.org/InStock"
           }
-        }
+        },
+        "robotsOverride": "INHERIT"
       }
     },
     {
       "id": "6",
-      "type": "subcategoria",
+      "updatedAt": "2026-02-02T12:18:11Z",
+      "type": "categoria",
       "slug": "hoteles-restaurantes",
+      "slugs": [
+        "hoteles-restaurantes"
+      ],
+      "legacySlugs": [],
+      "extraCategorySlugs": [],
       "title": "Impresión para Hoteles y Restaurantes",
       "nav": "Restauración",
       "order": 0,
-      "parent": "categorias",
       "hidden": false,
       "featured": false,
       "isPublished": true,
@@ -425,6 +458,7 @@
           "answer": "Podemos trabajar con tus archivos o ayudarte desde cero. Nuestro equipo de diseño gráfico te asesora para obtener el mejor resultado."
         }
       ],
+      "TabsJson": "[\n  {\n    \"title\": \"Formatos\",\n    \"blocks\": [\n      { \"type\": \"bullets\", \"items\": [\"Vinil polimèric\", \"Laminat opcional\", \"Acabat mate/brillant\"] }\n    ]\n  },\n  {\n    \"title\": \"El contenido\",\n    \"blocks\": [\n      {\n        \"type\": \"text\",\n        \"format\": \"plain\",\n        \"text\": \"Aquí puedes explicar el contenido con más detalle.\\nCon saltos de línea si quieres.\"\n      },\n      {\n        \"type\": \"image\",\n        \"src\": \"https://reprodisseny.com/category/hosteleria-restauracion\",\n        \"alt\": \"Ejemplo de aplicación\",\n        \"caption\": \"Acabado mate en pared\"\n      }\n    ]\n  }\n]",
       "path": "/categorias/hoteles-restaurantes",
       "seo": {
         "metaTitle": "Impresión para hoteles, restaurantes y hostelería | Repro Disseny",
@@ -442,17 +476,23 @@
           "@type": "CollectionPage",
           "name": "Impresión para hoteles, restaurantes y hostelería | Repro Disseny",
           "description": "Cartas, menús, posavasos, tarjetas y packaging personalizado para hoteles, restaurantes y negocios de hostelería en Cataluña. Calidad profesional y producción local."
-        }
+        },
+        "robotsOverride": "INHERIT"
       }
     },
     {
       "id": "7",
-      "type": "subcategoria",
+      "updatedAt": "2026-02-02T12:19:01Z",
+      "type": "categoria",
       "slug": "libros-revistas-catalogos",
+      "slugs": [
+        "libros-revistas-catalogos"
+      ],
+      "legacySlugs": [],
+      "extraCategorySlugs": [],
       "title": "Impresión de libros, revistas y catálogos en Barcelona",
       "nav": "Publicaciones",
       "order": 0,
-      "parent": "categorias",
       "hidden": false,
       "featured": false,
       "isPublished": true,
@@ -505,6 +545,7 @@
           "answer": "Por supuesto. Ofrecemos stamping, barniz UVI, plastificado mate o brillo, y otras opciones para portadas impactantes."
         }
       ],
+      "TabsJson": "[\n  {\n    \"title\": \"Formatos\",\n    \"blocks\": [\n      { \"type\": \"bullets\", \"items\": [\"Vinil polimèric\", \"Laminat opcional\", \"Acabat mate/brillant\"] }\n    ]\n  },\n  {\n    \"title\": \"El contenido\",\n    \"blocks\": [\n      {\n        \"type\": \"text\",\n        \"format\": \"plain\",\n        \"text\": \"Aquí puedes explicar el contenido con más detalle.\\nCon saltos de línea si quieres.\"\n      },\n      {\n        \"type\": \"image\",\n        \"src\": \"https://webcms.blob.core.windows.net/media/category/llibres-revistes-catalegs.png\",\n        \"alt\": \"Ejemplo de aplicación\",\n        \"caption\": \"Acabado mate en pared\"\n      }\n    ]\n  }\n]",
       "path": "/categorias/libros-revistas-catalogos",
       "seo": {
         "metaTitle": "Impresión de libros, revistas y catálogos en Barcelona | Repro Disseny",
@@ -547,17 +588,23 @@
             "priceCurrency": "EUR",
             "availability": "https://schema.org/InStock"
           }
-        }
+        },
+        "robotsOverride": "INHERIT"
       }
     },
     {
       "id": "8",
-      "type": "subcategoria",
+      "updatedAt": "2026-02-02T12:19:47Z",
+      "type": "categoria",
       "slug": "packaging",
+      "slugs": [
+        "packaging"
+      ],
+      "legacySlugs": [],
+      "extraCategorySlugs": [],
       "title": "Packaging personalizado para productos y marcas",
       "nav": "Packaging",
       "order": 0,
-      "parent": "categorias",
       "hidden": false,
       "featured": false,
       "isPublished": true,
@@ -610,6 +657,7 @@
           "answer": "Sí. Podemos aplicar acabados como stamping, barniz selectivo, relieves, troquelados y otros efectos de alto impacto visual."
         }
       ],
+      "TabsJson": "[\n  {\n    \"title\": \"Formatos\",\n    \"blocks\": [\n      { \"type\": \"bullets\", \"items\": [\"Vinil polimèric\", \"Laminat opcional\", \"Acabat mate/brillant\"] }\n    ]\n  },\n  {\n    \"title\": \"El contenido\",\n    \"blocks\": [\n      {\n        \"type\": \"text\",\n        \"format\": \"plain\",\n        \"text\": \"Aquí puedes explicar el contenido con más detalle.\\nCon saltos de línea si quieres.\"\n      },\n      {\n        \"type\": \"image\",\n        \"src\": \"https://webcms.blob.core.windows.net/media/category/llibres-revistes-catalegs.png\",\n        \"alt\": \"Ejemplo de aplicación\",\n        \"caption\": \"Acabado mate en pared\"\n      }\n    ]\n  }\n]",
       "path": "/categorias/packaging",
       "seo": {
         "metaTitle": "Packaging personalizado para productos y marcas | Repro Disseny",
@@ -647,17 +695,23 @@
             "priceCurrency": "EUR",
             "availability": "https://schema.org/InStock"
           }
-        }
+        },
+        "robotsOverride": "INHERIT"
       }
     },
     {
       "id": "9",
-      "type": "subcategoria",
+      "updatedAt": "2026-02-02T12:20:02Z",
+      "type": "categoria",
       "slug": "publicitario-oficina",
+      "slugs": [
+        "publicitario-oficina"
+      ],
+      "legacySlugs": [],
+      "extraCategorySlugs": [],
       "title": "Publicidad y Material de Oficina Personalizado",
       "nav": "Publicidad y Oficina",
       "order": 2,
-      "parent": "categorias",
       "hidden": false,
       "featured": false,
       "isPublished": true,
@@ -689,6 +743,7 @@
         "link": "https://www.reprodisseny.com#productos, Ver Productos"
       },
       "faqs": [],
+      "TabsJson": "[\n  {\n    \"title\": \"Formatos\",\n    \"blocks\": [\n      { \"type\": \"bullets\", \"items\": [\"Vinil polimèric\", \"Laminat opcional\", \"Acabat mate/brillant\"] }\n    ]\n  },\n  {\n    \"title\": \"El contenido\",\n    \"blocks\": [\n      {\n        \"type\": \"text\",\n        \"format\": \"plain\",\n        \"text\": \"Aquí puedes explicar el contenido con más detalle.\\nCon saltos de línea si quieres.\"\n      },\n      {\n        \"type\": \"image\",\n        \"src\": \"https://webcms.blob.core.windows.net/media/category/llibres-revistes-catalegs.png\",\n        \"alt\": \"Ejemplo de aplicación\",\n        \"caption\": \"Acabado mate en pared\"\n      }\n    ]\n  }\n]",
       "path": "/categorias/publicitario-oficina",
       "seo": {
         "metaTitle": "Publicidad y Material de Oficina Personalizado | Repro Disseny",
@@ -720,7 +775,8 @@
             "@type": "Organization",
             "name": "Repro Disseny"
           }
-        }
+        },
+        "robotsOverride": "INHERIT"
       }
     }
   ],
