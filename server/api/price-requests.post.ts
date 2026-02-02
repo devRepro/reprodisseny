@@ -1,14 +1,14 @@
+// server/api/price-requests.post.ts
 import { z } from "zod"
 import {
   defineEventHandler,
   readBody,
   createError,
   setResponseStatus,
-  getRequestHeader,
 } from "h3"
 
 import { createPriceRequest } from "~/server/services/priceRequests/priceRequestService.server"
-import { rateLimit, ipHash } from "~/server/utils/rateLimit.server"
+import { rateLimit, ipHash, getClientIp } from "~/server/utils/rateLimit.server"
 
 const ProductSchema = z.object({
   name: z.string().min(1).max(200),
@@ -45,10 +45,14 @@ export default defineEventHandler(async (event) => {
   }
 
   // Rate limit: 10 req / 10 min / IP
-  const ip =
-    (getRequestHeader(event, "x-forwarded-for") || "").split(",")[0].trim() || "unknown"
+  const ip = getClientIp(event) || "unknown"
   const rl = await rateLimit(`price-req:${ipHash(ip)}`, 10, 600)
-  if (!rl.ok) throw createError({ statusCode: 429, statusMessage: "Massa sol·licituds. Torna-ho a provar més tard." })
+  if (!rl.ok) {
+    throw createError({
+      statusCode: 429,
+      statusMessage: "Massa sol·licituds. Torna-ho a provar més tard.",
+    })
+  }
 
   let p: z.infer<typeof PayloadSchema>
   try {
