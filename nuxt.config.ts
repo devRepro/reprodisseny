@@ -111,7 +111,8 @@ export default defineNuxtConfig({
 
     public: {
       baseURL: process.env.NUXT_PUBLIC_BASE_URL || "http://localhost:3000",
-    },
+      mediaBaseUrl: process.env.NUXT_PUBLIC_MEDIA_BASE_URL || "https://webcms.blob.core.windows.net/media"
+    }
   },
 
   appConfig: {

@@ -18,8 +18,6 @@ const config: Config = {
     'border-border',
     'bg-background',
     'text-foreground',
-    'data-[state=open]:slide-in-from-top-[48%]',
-    'data-[state=closed]:slide-out-to-top-[48%]',
   ],
   theme: {
   	extend: {
