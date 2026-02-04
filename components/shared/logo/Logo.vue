@@ -1,6 +1,6 @@
 <template>
   <img
-    src="/img/logo/logo.svg"
+    src="https://webcms.blob.core.windows.net/media/ui/logo.svg"
     alt="Reprodisseny"
     class="h-8 w-auto block"
     decoding="async"

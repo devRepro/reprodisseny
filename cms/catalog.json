@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-04T11:19:37.660Z",
+  "generatedAt": "2026-02-04T12:53:10.589Z",
   "categories": [
     {
       "id": "2",
@@ -1463,9 +1463,9 @@
       "isPublished": true,
       "shortDescription": "title: Totems",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/expositores/totem.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -5030,9 +5030,9 @@
       "isPublished": true,
       "shortDescription": "title: Hule personalizado",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/Hules.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/restauracion/hule-personalizado.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -5097,9 +5097,9 @@
       "isPublished": true,
       "shortDescription": "title: Identificador de maleta",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/restauracion/identificador-maleta.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -5636,9 +5636,9 @@
       "isPublished": true,
       "shortDescription": "title: Manteles individuales de mesa",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/restauracion/mantel-individual.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
