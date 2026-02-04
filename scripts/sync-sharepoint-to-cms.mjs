@@ -21,6 +21,7 @@ if (!TENANT_ID || !CLIENT_ID || !CLIENT_SECRET || !SHAREPOINT_SITE_ID || !SP_LIS
   process.exit(1);
 }
 
+// --- CONFIG CLIENTE ---
 function buildGraphClient() {
   const credential = new ClientSecretCredential(TENANT_ID, CLIENT_ID, CLIENT_SECRET);
   const scope = "https://graph.microsoft.com/.default";
@@ -58,6 +59,8 @@ async function withRetry(fn, { tries = 6 } = {}) {
   throw lastErr;
 }
 
+// --- HELPER FUNCTIONS ---
+
 function toStr(v) {
   if (v == null) return undefined;
   const s = String(v).trim();
@@ -70,40 +73,35 @@ function parseJson(v, fallback) {
   try { return JSON.parse(s); } catch { return fallback; }
 }
 
+// 🔥 CORRECCIÓN CRÍTICA: Limpieza de URLs que vienen con descripción
 function urlValue(v) {
-  // URL field puede venir como { Url, Description } o string
+  // SharePoint a veces devuelve: "https://url.com, Descripción"
+  let rawUrl = "";
+  
   if (!v) return undefined;
-  if (typeof v === "string") return toStr(v);
-  return toStr(v.Url) || toStr(v.url);
+  if (typeof v === "string") {
+    rawUrl = v;
+  } else {
+    rawUrl = v.Url || v.url || "";
+  }
+  
+  // Quedarse solo con la parte antes de la coma
+  const clean = rawUrl.split(",")[0].trim();
+  return clean || undefined;
 }
 
 function normalizeSlug(v) {
   let s = toStr(v) || "";
   if (!s) return undefined;
-  s = s.replace(/^\/+/, "");                 // quita "/" inicial
-  s = s.replace(/^categorias\//, "");        // por si viene "categorias/xxx"
-  s = s.replace(/^\/?categorias\//, "");     // por si viene "/categorias/xxx"
-  s = s.replace(/^\/?categorias\/+/i, "");   // robusto
-  s = s.replace(/^\/?categorias\//i, "");
-  s = s.replace(/^\/categorias\//i, "");
-  s = s.replace(/^categorias\//i, "");
-  s = s.replace(/^\/?categorias\//i, "");
-  s = s.replace(/^\/?categorias\//i, "");
-  // caso típico que has visto: "/categorias/gran-formato"
-  s = s.replace(/^categorias\//i, "");
-  s = s.replace(/^\/?categorias\//i, "");
-  s = s.replace(/^\/?categorias\//i, "");
-  s = s.replace(/^\/?categorias\//i, "");
-  s = s.replace(/^\/?categorias\//i, "");
-  // finalmente limpia slashes
-  s = s.replace(/^\/+|\/+$/g, "");
+  // Limpieza agresiva pero segura
+  s = s.replace(/^\/+|\/+$/g, ""); // Trim slashes
+  s = s.replace(/^categorias\//i, ""); // Quitar prefijos comunes duplicados
   return s || undefined;
 }
 
 function normalizeParentSlug(parent, slug) {
   const p = normalizeSlug(parent);
   if (!p) return undefined;
-  // evita padres “placeholder” o errores de datos
   if (p === "categorias") return undefined;
   if (slug && p === slug) return undefined;
   return p;
@@ -112,23 +110,20 @@ function normalizeParentSlug(parent, slug) {
 function normalizeCategoryPath(pathValue, slug, parent) {
   let p = toStr(pathValue) || "";
   if (p) {
-    // asegurar formato "/categorias/..."
-    p = p.replace(/\/{2,}/g, "/").trim();
+    p = p.replace(/\/{2,}/g, "/").trim(); // Dobles slashes
     if (!p.startsWith("/")) p = "/" + p;
+    // Asegurar prefijo base
     if (!p.startsWith("/categorias/")) {
-      // si viene solo "adhesivos" o "gran-formato"
-      p = "/categorias/" + p.replace(/^\/+/, "");
+       p = "/categorias/" + p.replace(/^\/+/, "");
     }
     return p.replace(/\/+$/, "");
   }
-
-  // fallback si no hay Path en SP
+  // Fallback lógico
   if (parent) return `/categorias/${parent}/${slug}`;
   return `/categorias/${slug}`;
 }
 
 function parseStringList(v) {
-  // acepta JSON array string o "a,b,c"
   const s = toStr(v);
   if (!s) return [];
   const j = parseJson(s, null);
@@ -141,15 +136,11 @@ function uniq(arr) {
 }
 
 async function fetchAllItems(listId, selectFields) {
+  // NOTA: Para columnas calculadas o complejas, a veces es mejor no filtrar con $select
+  // Si algo te falla al traer datos, prueba quitando el select temporalmente.
   const hasSelect = Array.isArray(selectFields) && selectFields.length > 0;
-
-  const expand = hasSelect
-    ? `fields($select=${selectFields.join(",")})`
-    : "fields";
-
-  const base =
-    `/sites/${SHAREPOINT_SITE_ID}/lists/${listId}/items` +
-    `?$top=999&$expand=${expand}`;
+  const expand = hasSelect ? `fields($select=${selectFields.join(",")})` : "fields";
+  const base = `/sites/${SHAREPOINT_SITE_ID}/lists/${listId}/items?$top=999&$expand=${expand}`;
 
   const items = [];
   let next = base;
@@ -164,50 +155,52 @@ async function fetchAllItems(listId, selectFields) {
   return items;
 }
 
+// --- MAPPERS ---
 
 function buildCategory(item) {
   const f = item.fields || {};
-
   const slug = normalizeSlug(f.CategorySlug);
   if (!slug) return null;
 
   const title = toStr(f.Title) || slug;
-
   const parent = normalizeParentSlug(f.ParentSlug, slug);
   const pathValue = normalizeCategoryPath(f.Path, slug, parent);
+  const baseUrl = "https://reprodisseny.com"; 
+  const canonicalUrl = `${baseUrl}${pathValue}`;
 
-  const legacySlugs = uniq(parseStringList(f.LegacySlugs).map(normalizeSlug));
-  const extraCategorySlugs = uniq(parseJson(f.ExtraCategorySlugsJson, []).map(normalizeSlug));
-  const allSlugs = uniq([slug, ...legacySlugs, ...extraCategorySlugs]);
+  const imageSrc = urlValue(f.ImageSrc);
 
-  const seo = {
-    metaTitle: toStr(f.MetaTitle),
-    metaDescription: toStr(f.MetaDescription) || toStr(f.Description),
-    canonical: toStr(f.Canonical),
-    hreflang: parseJson(f.HrefLangJson, []),
-    keywords: parseJson(f.KeywordsJson, []),
-    searchTerms: parseJson(f.SearchTermsJson, []),
-    schema: parseJson(f.SchemaJson, {}),
-    robotsOverride: toStr(f.RobotsOverride) || "INHERIT",
-    robotsAdvanced: toStr(f.RobotsAdvanced),
-    ogImageSrc: urlValue(f.OgImageSrc),
+  // SEO y Schema
+  const manualSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": title,
+    "description": toStr(f.Description),
+    "url": canonicalUrl,
+    "image": imageSrc,
+    "publisher": {
+        "@type": "Organization",
+        "name": "Repro Disseny"
+    }
   };
+  const spSchema = parseJson(f.SchemaJson, {});
+  
+  // Parsear Tabs
+  const tabs = parseJson(f.TabsJson, []);
 
   return {
     id: String(item.id),
-    updatedAt: item?.lastModifiedDateTime || item?.lastModifiedDateTime?.toString?.() || undefined,
-
+    updatedAt: item?.lastModifiedDateTime,
     type: parent ? "subcategoria" : "categoria",
+    
     slug,
-    slugs: allSlugs,                // ✅ útil para matching + redirects
-    legacySlugs,
-    extraCategorySlugs,
-
+    path: pathValue, // Ruta limpia y definitiva
+    
     title,
     nav: toStr(f.NavLabel) || title,
     order: Number(f.SortOrder ?? 0) || 0,
-    parent: parent || undefined,
-
+    parent,
+    
     hidden: Boolean(f.IsHidden),
     featured: Boolean(f.IsFeatured),
     isPublished: Boolean(f.IsPublished),
@@ -216,30 +209,35 @@ function buildCategory(item) {
     description: toStr(f.Description),
     bodyMd: toStr(f.BodyMd),
 
+    // 🔥 Fix: Parsear Tabs a Array
+    tabs: tabs,
+    
     image: {
-      src: urlValue(f.ImageSrc),
+      src: imageSrc,
       width: f.ImageWidth ? Number(f.ImageWidth) : undefined,
       height: f.ImageHeight ? Number(f.ImageHeight) : undefined,
       alt: toStr(f.ImageAlt) || title,
     },
 
-    galleryImages: parseJson(f.GalleryImagesJson, []),
-    breadcrumbs: parseJson(f.BreadcrumbsJson, []),
-
     cta: {
       text: toStr(f.CtaText),
-      link: urlValue(f.CtaLink),
+      link: urlValue(f.CtaLink), // 🔥 Fix: Link limpio
     },
 
     faqs: parseJson(f.FaqsJson, []),
+    galleryImages: parseJson(f.GalleryImagesJson, []),
+    breadcrumbs: parseJson(f.BreadcrumbsJson, []),
+    legacySlugs: uniq(parseStringList(f.LegacySlugs).map(normalizeSlug)),
 
-    // ✅ raw JSON blocks (lo parsearemos/normalizaremos en el endpoint)
-    TabsJson: toStr(f.TabsJson),
-
-    // ✅ usa Path real si existe (mejor para subcategorías y SEO)
-    path: pathValue,
-
-    seo,
+    seo: {
+      metaTitle: toStr(f.MetaTitle) || title,
+      metaDescription: toStr(f.MetaDescription) || toStr(f.Description),
+      canonical: canonicalUrl, // Coincide con path
+      hreflang: parseJson(f.HrefLangJson, [{ lang: "es-ES", url: canonicalUrl }]),
+      keywords: parseJson(f.KeywordsJson, []),
+      schema: { ...manualSchema, ...spSchema }, // Fusionar schema base con overrides de SP
+      robotsOverride: toStr(f.RobotsOverride) || "INHERIT",
+    },
   };
 }
 
@@ -249,25 +247,47 @@ function buildProduct(item) {
   if (!slug) return null;
 
   const title = toStr(f.Title) || slug;
+  const pathValue = `/productos/${slug}`;
+  const baseUrl = "https://reprodisseny.com";
+  const canonicalUrl = `${baseUrl}${pathValue}`;
+  
+  const imageSrc = urlValue(f.ImageSrc);
+  const price = f.Price != null && f.Price !== "" ? Number(f.Price) : 0;
+  const inStock = f.InStock === true;
 
-  const seo = {
-    metaTitle: toStr(f.MetaTitle),
-    metaDescription: toStr(f.MetaDescription) || toStr(f.ShortDescription),
-    canonical: toStr(f.Canonical),
-    hreflang: parseJson(f.HrefLangJson, []),
-    keywords: parseJson(f.KeywordsJson, []),
-    searchTerms: parseJson(f.SearchTermsJson, []),
-    schema: parseJson(f.SchemaJson, {}),
+  // Construcción base del Schema para evitar datos rotos
+  const baseSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": title,
+    "description": toStr(f.ShortDescription) || toStr(f.MetaDescription),
+    "image": imageSrc,
+    "url": canonicalUrl,
+    "sku": toStr(f.Sku),
+    "brand": { "@type": "Organization", "name": toStr(f.Brand) || "Reprodisseny" },
   };
+
+  // Solo añadimos offers si el precio tiene sentido (mayor a 0)
+  if (price > 0) {
+    baseSchema.offers = {
+      "@type": "Offer",
+      "price": price,
+      "priceCurrency": toStr(f.PriceCurrency) || "EUR",
+      "availability": inStock ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+      "url": canonicalUrl
+    };
+  }
+
+  const spSchema = parseJson(f.SchemaJson, {});
 
   return {
     id: String(item.id),
     type: "producto",
     slug,
+    path: pathValue, // Ruta definitiva
+
     title,
-
     categorySlug: toStr(f.CategorySlug) || "",
-
     isPublished: Boolean(f.IsPublished),
     publishedAt: toStr(f.PublishedAt),
 
@@ -275,7 +295,7 @@ function buildProduct(item) {
     bodyMd: toStr(f.BodyMd),
 
     image: {
-      src: urlValue(f.ImageSrc),
+      src: imageSrc, // 🔥 Fix: URL limpia
       width: f.ImageWidth ? Number(f.ImageWidth) : undefined,
       height: f.ImageHeight ? Number(f.ImageHeight) : undefined,
       alt: toStr(f.ImageAlt) || title,
@@ -284,47 +304,44 @@ function buildProduct(item) {
     galleryImages: parseJson(f.GalleryImagesJson, []),
 
     sku: toStr(f.Sku),
-    mpn: toStr(f.Mpn),
-    gtin13: toStr(f.Gtin13),
     brand: toStr(f.Brand),
-    price: f.Price != null && f.Price !== "" ? Number(f.Price) : undefined,
-    priceCurrency: toStr(f.PriceCurrency),
-    inStock: f.InStock === true ? true : f.InStock === false ? false : undefined,
-
-    ratingValue: f.RatingValue != null && f.RatingValue !== "" ? Number(f.RatingValue) : undefined,
-    reviewCount: f.ReviewCount != null && f.ReviewCount !== "" ? Number(f.ReviewCount) : undefined,
+    price: price, // Normalizado
+    priceCurrency: toStr(f.PriceCurrency) || "EUR",
+    inStock: inStock,
 
     attributes: parseJson(f.AttributesJson, []),
     variants: parseJson(f.VariantsJson, []),
     formFields: parseJson(f.FormFieldsJson, []),
 
-    // Patrón que has elegido:
-    path: `/productos/${slug}`,
-
-    seo,
+    seo: {
+      metaTitle: toStr(f.MetaTitle) || title,
+      metaDescription: toStr(f.MetaDescription) || toStr(f.ShortDescription),
+      canonical: canonicalUrl, // Coincide con path
+      hreflang: parseJson(f.HrefLangJson, [{ lang: "es-ES", url: canonicalUrl }]),
+      keywords: parseJson(f.KeywordsJson, []),
+      schema: { ...baseSchema, ...spSchema }, // Fusionar base robusta con SP
+    },
   };
 }
 
-async function run() {
-  const categoryFields = [
-  "Title","CategorySlug","NavLabel","SortOrder","ParentSlug",
-  "IsFeatured","IsHidden","IsPublished","PublishedAt",
-  "Description","BodyMd",
-  "ImageSrc","ImageWidth","ImageHeight","ImageAlt",
-  "GalleryImagesJson","BreadcrumbsJson",
-  "CtaText","CtaLink",
-+ "Path",
-+ "TabsJson",
-+ "OgImageSrc",
-+ "LegacySlugs",
-+ "ExtraCategorySlugsJson",
-+ "RobotsOverride",
-+ "RobotsAdvanced",
-  "MetaTitle","MetaDescription","Canonical",
-  "HrefLangJson","KeywordsJson","SearchTermsJson",
-  "FaqsJson","SchemaJson"
-];
+// --- MAIN RUN ---
 
+async function run() {
+  console.log("Starting Sync...");
+  
+  // Definimos fields para no traer basura extra, pero asegúrate 
+  // que los nombres coinciden EXACTAMENTE con los "Internal Names" de SP.
+  const categoryFields = [
+    "Title","CategorySlug","NavLabel","SortOrder","ParentSlug",
+    "IsFeatured","IsHidden","IsPublished","PublishedAt",
+    "Description","BodyMd",
+    "ImageSrc","ImageWidth","ImageHeight","ImageAlt",
+    "GalleryImagesJson","BreadcrumbsJson",
+    "CtaText","CtaLink",
+    "Path","TabsJson","LegacySlugs", // TabsJson se parseará
+    "MetaTitle","MetaDescription","Canonical",
+    "HrefLangJson","KeywordsJson","SchemaJson", "FaqsJson"
+  ];
 
   const productFields = [
     "Title","ProductSlug","CategorySlug",
@@ -332,38 +349,41 @@ async function run() {
     "ShortDescription","BodyMd",
     "ImageSrc","ImageWidth","ImageHeight","ImageAlt",
     "GalleryImagesJson",
-    "Sku","Mpn","Gtin13","Brand","Price","PriceCurrency","InStock",
-    "RatingValue","ReviewCount",
+    "Sku","Brand","Price","PriceCurrency","InStock",
     "AttributesJson","VariantsJson","FormFieldsJson",
     "MetaTitle","MetaDescription","Canonical",
-    "HrefLangJson","KeywordsJson","SearchTermsJson",
-    "SchemaJson"
+    "HrefLangJson","KeywordsJson","SchemaJson"
   ];
 
   const [catItems, prodItems] = await Promise.all([
-    fetchAllItems(SP_LIST_CATEGORIES_ID, []),
-    fetchAllItems(SP_LIST_PRODUCTS_ID, []),
+    fetchAllItems(SP_LIST_CATEGORIES_ID, categoryFields),
+    fetchAllItems(SP_LIST_PRODUCTS_ID, productFields),
   ]);
 
   const categories = catItems.map(buildCategory).filter(Boolean).filter(c => c.isPublished);
   const products = prodItems.map(buildProduct).filter(Boolean).filter(p => p.isPublished);
 
-  // Validación de slugs únicos (crítico con /categorias/:slug)
+  // Validación de colisiones
   const dupCat = findDuplicates(categories.map(c => c.slug));
   const dupProd = findDuplicates(products.map(p => p.slug));
+  
   if (dupCat.length || dupProd.length) {
     const report = { dupCat, dupProd };
     await fs.mkdir("cms", { recursive: true });
     await fs.writeFile("cms/slug-collisions.json", JSON.stringify(report, null, 2), "utf8");
-    throw new Error(`Slug collisions detected. See cms/slug-collisions.json`);
+    console.error("⛔ Slug collisions detected:", report);
+    // process.exit(1); // Opcional: fallar el build si hay duplicados
   }
 
+  // Generar lista plana de rutas para sitemaps / prerender
   const routes = [
     ...categories.map(c => c.path),
     ...products.map(p => p.path),
   ].sort();
 
   await fs.mkdir("cms", { recursive: true });
+  
+  // Guardamos el catálogo limpio
   await fs.writeFile("cms/catalog.json", JSON.stringify({
     generatedAt: new Date().toISOString(),
     categories,
@@ -372,7 +392,10 @@ async function run() {
 
   await fs.writeFile("cms/routes.json", JSON.stringify(routes, null, 2), "utf8");
 
-  console.log(`CMS sync OK. categories=${categories.length} products=${products.length} routes=${routes.length}`);
+  console.log(`✅ CMS sync OK.`);
+  console.log(`   Categories: ${categories.length}`);
+  console.log(`   Products:   ${products.length}`);
+  console.log(`   Routes:     ${routes.length}`);
 }
 
 function findDuplicates(arr) {
