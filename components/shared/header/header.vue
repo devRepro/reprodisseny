@@ -46,13 +46,17 @@ import { Search, Menu, Phone } from "lucide-vue-next"
       <!-- Right: phone + hamburger -->
       <div class="justify-self-end flex items-center gap-4 h-9">
 
-        <a
+        <a  
           href="tel:+34932749890"
           class="inline-flex items-center gap-2 text-sm leading-[140%] font-normal text-[#959595]"
         >
           <Phone class="h-4 w-4" />
           <span>+34 932 749 890</span>
         </a>
+
+        <Button class="primary">
+          Pide tu presupuesto
+        </Button>        
 
         <DropdownMenu>
     <DropdownMenuTrigger as-child>

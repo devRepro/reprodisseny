@@ -1,9 +1,123 @@
 {
-  "generatedAt": "2026-02-04T12:53:10.589Z",
+  "generatedAt": "2026-02-05T09:59:48.937Z",
   "categories": [
     {
+      "id": "10",
+      "updatedAt": "2026-02-05T09:48:43Z",
+      "type": "subcategoria",
+      "slug": "material-oficina",
+      "path": "/categorias/publicitario-oficina/material-oficina",
+      "title": "Material de Oficina Personalizado para Empresas",
+      "nav": "Material Oficina",
+      "order": 0,
+      "parent": "publicitario-oficina",
+      "hidden": false,
+      "featured": true,
+      "isPublished": true,
+      "publishedAt": "2026-02-04T23:00:00Z",
+      "description": "Mi desripción de la categoria de Material de Oficina por hacer",
+      "bodyMd": "test BodyMd",
+      "tabs": [],
+      "image": {
+        "src": "https://webcms.blob.core.windows.net/media/category/material-oficina-publicitario.webp",
+        "width": 2400,
+        "height": 1200,
+        "alt": "Material de Oficina Personalizado para Empresas"
+      },
+      "cta": {
+        "text": "Ver productos",
+        "link": "http://localhost:3000/categorias/publicitario-oficina"
+      },
+      "faqs": [],
+      "galleryImages": [],
+      "breadcrumbs": [],
+      "legacySlugs": [],
+      "seo": {
+        "metaTitle": "Material de Oficina Personalizado para Empresas | Repro Disseny",
+        "metaDescription": "Impresión de material de oficina personalizado: blocs, talonarios, carpetas y\n  más. Soluciones profesionales para empresas en Barcelona y Cataluña.",
+        "canonical": "https://reprodisseny.com/categorias/publicitario-oficina/material-oficina",
+        "hreflang": [
+          {
+            "lang": "es-ES",
+            "url": "https://reprodisseny.com/categorias/publicitario-oficina/material-oficina"
+          }
+        ],
+        "keywords": [],
+        "schema": {
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": "Material de Oficina Personalizado para Empresas",
+          "description": "Mi desripción de la categoria de Material de Oficina por hacer",
+          "url": "https://reprodisseny.com/categorias/publicitario-oficina/material-oficina",
+          "image": "https://webcms.blob.core.windows.net/media/category/material-oficina-publicitario.webp",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Repro Disseny"
+          }
+        },
+        "robotsOverride": "INHERIT"
+      }
+    },
+    {
+      "id": "11",
+      "updatedAt": "2026-02-05T09:25:46Z",
+      "type": "subcategoria",
+      "slug": "material-publicitario",
+      "path": "/categorias/publicitario-oficina/material-publicitario",
+      "title": "Material Publicitario Personalizado",
+      "nav": "Material Publicitario",
+      "order": 0,
+      "parent": "publicitario-oficina",
+      "hidden": false,
+      "featured": true,
+      "isPublished": true,
+      "publishedAt": "2026-02-04T23:00:00Z",
+      "description": "Mi descripicón TODO",
+      "bodyMd": "Mi body TODO",
+      "tabs": [],
+      "image": {
+        "src": "https://webcms.blob.core.windows.net/media/category/material-oficina-publicitario.webp",
+        "width": 2400,
+        "height": 1200,
+        "alt": "Alt imatege"
+      },
+      "cta": {
+        "text": "Ver productos",
+        "link": "http://localhost:3000/categorias/publicitario-oficina"
+      },
+      "faqs": [],
+      "galleryImages": [],
+      "breadcrumbs": [],
+      "legacySlugs": [],
+      "seo": {
+        "metaTitle": "Material Publicitario y de Oficina Personalizado | Repro Disseny",
+        "metaDescription": "Impresión de material publicitario y de oficina personalizado: carpetas,\n  blocs, talonarios, flyers, trípticos y papelería corporativa. Soluciones para\n  empresas en Barcelona.",
+        "canonical": "https://reprodisseny.com/categorias/publicitario-oficina/material-publicitario",
+        "hreflang": [
+          {
+            "lang": "es-ES",
+            "url": "https://reprodisseny.com/categorias/publicitario-oficina/material-publicitario"
+          }
+        ],
+        "keywords": [],
+        "schema": {
+          "@context": "https://schema.org",
+          "@type": "CollectionPage",
+          "name": "Material Publicitario Personalizado",
+          "description": "Mi descripicón TODO",
+          "url": "https://reprodisseny.com/categorias/publicitario-oficina/material-publicitario",
+          "image": "https://webcms.blob.core.windows.net/media/category/material-oficina-publicitario.webp",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Repro Disseny"
+          }
+        },
+        "robotsOverride": "INHERIT"
+      }
+    },
+    {
       "id": "2",
-      "updatedAt": "2026-02-04T10:02:12Z",
+      "updatedAt": "2026-02-05T09:49:50Z",
       "type": "categoria",
       "slug": "adhesivos",
       "path": "/categorias/adhesivos",
