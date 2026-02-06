@@ -1,7 +1,7 @@
 <!-- components/shared/menu/Categorias.vue -->
 <script setup lang="ts">
-import { computed } from "vue";
-import { useCategoriasNav } from "@/composables/useCategoriasNav";
+import { computed } from "vue"
+import { useCategoriasNav } from "@/composables/useCategoriasNav"
 
 import {
   Menubar,
@@ -9,97 +9,103 @@ import {
   MenubarTrigger,
   MenubarContent,
   MenubarItem,
-} from "@/components/ui/menubar";
-import { ChevronDownIcon } from "lucide-vue-next";
+} from "@/components/ui/menubar"
+import { ChevronDownIcon } from "lucide-vue-next"
 
-// Traemos árbol + productos en hojas
+// Tree + products in leaves
 const { data, pending, error } = await useCategoriasNav({
   productLimit: 6,
   debug: false,
-});
-const categories = computed(() => data.value?.tree ?? []);
+})
+
+const categories = computed(() => data.value?.tree ?? [])
+const labelOf = (c: any) => c?.nav || c?.title || c?.slug || ""
+const toOf = (c: any) => c?.path || (c?.slug ? `/categorias/${c.slug}` : "/categorias")
 </script>
 
 <template>
-  <nav class="hidden md:block border-t border-b">
-    <div class="max-w-7xl mx-auto px-6 py-3">
-      <div v-if="pending" class="text-sm text-gray-500">Cargando…</div>
-      <div v-else-if="error" class="text-sm text-red-600">No se pudo cargar el menú.</div>
-      <div v-else-if="!categories.length" class="text-sm text-gray-500">
-        (Sin categorías)
+  <!-- Figma: width 1440, height 36, padding 8px 80px, gap 47px, bg #004F78 -->
+  <nav
+    class="hidden md:block w-full bg-[#004F78]"
+    role="navigation"
+    aria-label="Categories"
+  >
+    <div
+      class="mx-auto w-full max-w-[1440px] h-[36px] px-[80px] py-[8px] flex items-center"
+    >
+      <!-- States (UI text visible -> catalán) -->
+      <div v-if="pending" class="text-[14px] leading-[20px] text-white/80">
+        Carregant…
+      </div>
+      <div v-else-if="error" class="text-[14px] leading-[20px] text-white">
+        No s’ha pogut carregar el menú.
+      </div>
+      <div v-else-if="!categories.length" class="text-[14px] leading-[20px] text-white/80">
+        (Sense categories)
       </div>
 
-      <!-- ✅ Abrimos Menubar (faltaba) -->
-      <Menubar class="gap-6 !border-none !shadow-none !bg-transparent">
+      <!-- Menu -->
+      <Menubar
+        v-else
+        class="w-full !h-[20px] !p-0 !bg-transparent !border-0 !shadow-none flex items-center justify-between gap-[47px]"
+      >
         <MenubarMenu
           v-for="cat in categories"
           :key="cat.id || cat.slug || cat.path || cat.title"
+          class="shrink-0"
         >
+          <!-- Figma text style: 14px / 140% (≈ 20px), white -->
           <div class="flex items-center gap-1">
             <NuxtLink
-              :to="cat.path || `/categorias/${cat.slug}`"
-              class="text-sm font-medium text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-v isible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              :to="toOf(cat)"
+              class="whitespace-nowrap text-[14px] leading-[20px] font-normal text-white hover:text-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#004F78]"
             >
-              {{ cat.nav || cat.title || cat.slug }}
+              {{ labelOf(cat) }}
             </NuxtLink>
 
+            <!-- Dropdown trigger only if has children/products -->
             <MenubarTrigger v-if="cat.children?.length || cat.products?.length" as-child>
               <button
                 type="button"
-                class="inline-flex items-center justify-center rounded-md p-1 text-muted-foreground hover:text-foreground focus- visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-backg round"
-                :aria-label="`Abrir submenú de ${cat.nav || cat.title || cat.slug}`"
+                class="inline-flex items-center justify-center p-0 text-white hover:text-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#004F78]"
+                :aria-label="`Obrir submenú de ${labelOf(cat)}`"
               >
                 <ChevronDownIcon class="h-4 w-4" aria-hidden="true" />
               </button>
             </MenubarTrigger>
           </div>
 
-          <!-- Mostrar subcategorías (2 columnas) o productos de categoría simple -->
+          <!-- Dropdown content (tu mega-menu actual) -->
           <MenubarContent
             v-if="cat.children?.length || cat.products?.length"
             class="min-w-[420px] p-2 z-50"
           >
-            <!-- Con subcategorías -->
+            <!-- With subcategories -->
             <template v-if="cat.children?.length">
-              <!-- (Opcional) pequeño enlace a la categoría, aquí no molesta al trigger -->
-              <!--
-              <MenubarItem v-if="cat.path" asChild class="font-semibold text-primary">
-                <NuxtLink :to="cat.path">Ver {{ cat.nav || cat.title }}</NuxtLink>
-              </MenubarItem>
-              <MenubarSeparator v-if="cat.path" />
-              -->
-
               <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
                 <div v-for="sub in cat.children" :key="sub.slug" class="min-w-[200px]">
-                  <div
-                    class="px-2 py-1 text-xs uppercase tracking-wide text-muted-foreground"
-                  >
+                  <div class="px-2 py-1 text-xs uppercase tracking-wide text-muted-foreground">
                     <NuxtLink :to="sub.path || `/categorias/${sub.slug}`">
                       {{ sub.nav || sub.title || sub.slug }}
                     </NuxtLink>
                   </div>
 
                   <div class="flex flex-col">
-                    <MenubarItem
-                      v-for="prod in sub.products || []"
-                      :key="prod.slug"
-                      asChild
-                    >
+                    <MenubarItem v-for="prod in sub.products || []" :key="prod.slug" asChild>
                       <NuxtLink :to="prod.path || `/productos/${prod.slug}`">
                         {{ prod.title }}
                       </NuxtLink>
                     </MenubarItem>
                     <MenubarItem v-if="(sub.products?.length ?? 0) === 0" disabled>
-                      (Sin productos)
+                      (Sense productes)
                     </MenubarItem>
                   </div>
                 </div>
               </div>
             </template>
 
-            <!-- Sin subcategorías: SOLO productos (❌ sin enlace de categoría para evitar clicks accidentales) -->
+            <!-- No subcategories: products only -->
             <template v-else>
-              <!-- ❌ eliminado el MenubarItem con NuxtLink a cat.path -->
               <MenubarItem v-for="prod in cat.products || []" :key="prod.slug" asChild>
                 <NuxtLink :to="prod.path || `/productos/${prod.slug}`">
                   {{ prod.title }}
