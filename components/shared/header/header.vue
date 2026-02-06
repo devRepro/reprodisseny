@@ -8,6 +8,7 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu"
+import SharedMenuCategorias from "@/components/shared/menu/Categorias.vue"
 import { Search, Menu, Phone } from "lucide-vue-next"
 </script>
 
@@ -91,5 +92,7 @@ import { Search, Menu, Phone } from "lucide-vue-next"
         </DropdownMenu>
       </div>
     </div>
+    <SharedMenuCategorias/>
   </header>
+    
 </template>

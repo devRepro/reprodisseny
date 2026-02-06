@@ -2,10 +2,12 @@
 import { computed } from "vue"
 import MarketingCategoryCard from "@/components/marketing/MarketingCategoryCard.vue"
 
+type ImageDto = { src: string; alt?: string; width?: number; height?: number } | null
+
 type CategoryItem = {
   slug: string
   title: string
-  image?: string | null
+  image?: ImageDto
   path?: string
   href?: string
 }
@@ -18,7 +20,7 @@ const props = withDefaults(
     totalSlots?: number
   }>(),
   {
-    title: "Nuestros productos",
+    title: "Ofrecemos una amplia gama de productos",
     categories: () => [],
     totalSlots: 8,
   }
@@ -43,35 +45,37 @@ const filled = computed<FilledItem[]>(() => {
 })
 
 function categoryHref(c: CategoryItem) {
-  return c.href || c.path || `/categoria/${c.slug}`
+  return c.href || c.path || `/categorias/${c.slug}`
 }
 </script>
 
 <template>
   <section class="bg-white">
-    <div class="mx-auto max-w-6xl px-4 py-16">
-      <h2 class="text-[22px] leading-[28px] font-semibold text-slate-900">
+    <div class="mx-auto max-w-[1200px] px-4 md:px-0 py-16">
+      <h2 class="text-[30px] leading-[36px] font-semibold text-[#212121]">
         {{ title }}
       </h2>
 
-      <div class="mt-6 grid grid-cols-2 gap-x-6 gap-y-8 md:grid-cols-4">
-        <template v-for="(c, idx) in filled" :key="c.slug + ':' + idx">
-          <div v-if="c.__placeholder" class="block pointer-events-none" aria-hidden="true">
-            <div class="rounded-[14px] bg-[#F6E7C9] overflow-hidden">
-              <div class="px-5 pt-5 pb-4">
-                <div class="w-full aspect-[4/3] rounded-[12px] bg-[#8E8E8E] ring-1 ring-black/5" />
+      <div class="mt-12">
+        <div class="grid grid-cols-2 gap-x-6 gap-y-8 md:flex md:flex-wrap md:justify-between md:gap-y-10">
+          <template v-for="(c, idx) in filled" :key="c.slug + ':' + idx">
+            <div class="w-full md:w-[252px]">
+              <div v-if="c.__placeholder" class="pointer-events-none" aria-hidden="true">
+                <div class="flex flex-col items-center gap-2 pb-2">
+                  <div class="h-[231px] w-full rounded-[12px] bg-black/10 ring-1 ring-black/5" />
+                  <div class="h-6 w-40 rounded bg-transparent" />
+                </div>
               </div>
-            </div>
-            <div class="mt-2 h-4 w-24 rounded bg-transparent" />
-          </div>
 
-          <MarketingCategoryCard
-            v-else
-            :title="c.title"
-            :href="categoryHref(c)"
-            :image="c.image"
-          />
-        </template>
+              <MarketingCategoryCard
+                v-else
+                :title="c.title"
+                :href="categoryHref(c)"
+                :image="c.image ?? null"
+              />
+            </div>
+          </template>
+        </div>
       </div>
     </div>
   </section>

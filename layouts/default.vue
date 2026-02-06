@@ -1,6 +1,5 @@
 <template>
   <div>
-    <SiteHeader :nav-items="menuTree" />
     <slot />
     <SiteFooter />
   </div>

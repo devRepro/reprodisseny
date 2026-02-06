@@ -102,7 +102,7 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
-import { useCategoriasNav } from "@/composables/useCategoriasNav";
+import {useCategoriasNav } from "~/composables/useCategoriasNav";
 
 const { data } = await useCategoriasNav({ productLimit: 6 });
 const categorias = computed(() => data.value?.menuItems || []);

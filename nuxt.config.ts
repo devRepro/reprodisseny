@@ -130,7 +130,12 @@ export default defineNuxtConfig({
   ],
 
   css: ["@/assets/styles/main.scss"],
-
+  
+  //permitimos dominio Bob de Azure
+    image: {
+    // permite URLs remotas (Azure Blob)
+    domains: ["webcms.blob.core.windows.net"],
+  },
   shadcn: {
     prefix: "",
     componentDir: "components/ui",

@@ -2,7 +2,7 @@
 import { computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useHead, useRuntimeConfig } from '#imports'
-import { useCategoriasNav } from '@/composables/useCategoriasNav'
+import { useHomeCategoriesGrid } from '~/composables/useHomeCategoriesGrid'
 
 // ⬇️ Importa los componentes shadcn (o quítalo si confías en el auto-import)
 import {
@@ -24,7 +24,7 @@ function titleFromSlug(slug: string) {
 
 const route = useRoute()
 const router = useRouter()
-const { data: categoriasNav, pending, error } = useCategoriasNav()
+const { data: categoriasNav, pending, error } = useHomeCategoriesGrid()
 
 // Base para "Inicio"
 const basePath = computed(() => router.options.history.base || '/')
