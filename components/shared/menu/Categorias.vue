@@ -12,13 +12,15 @@ import {
 } from "@/components/ui/menubar"
 import { ChevronDownIcon } from "lucide-vue-next"
 
-// Tree + products in leaves
-const { data, pending, error } = await ({
+// ✅ Llama al composable (no hagas await a un objeto)
+const { data, pending, error } = await useCategoriasNav({
   productLimit: 6,
+  includeProducts: true,
   debug: false,
 })
 
 const categories = computed(() => data.value?.tree ?? [])
+
 const labelOf = (c: any) => c?.nav || c?.title || c?.slug || ""
 const toOf = (c: any) => c?.path || (c?.slug ? `/categorias/${c.slug}` : "/categorias")
 </script>
