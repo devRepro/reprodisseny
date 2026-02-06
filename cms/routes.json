@@ -3,6 +3,8 @@
   "/categorias/eventos",
   "/categorias/expositores",
   "/categorias/gran-formato",
+  "/categorias/gran-formato/material-flexible",
+  "/categorias/gran-formato/material-rigido",
   "/categorias/hoteles-restaurantes",
   "/categorias/libros-revistas-catalogos",
   "/categorias/packaging",

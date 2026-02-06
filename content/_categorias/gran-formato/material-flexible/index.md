@@ -19,9 +19,9 @@ breadcrumbs:
   - name: Inicio
     url: /
   - name: Material Flexible
-    url: /categorias/material-flexible
+    url: /categorias/Gran Formato/material-flexible
   - name: Impresión en Materiales Flexibles - Gran Formato
-    url: /categorias/material-flexible
+    url: /categorias/Gran Formato/material-flexible
 cta:
   text: Ver Productos
   link: '#productos'
