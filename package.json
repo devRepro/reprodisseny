@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@azure/identity": "^4.9.1",
+    "@fontsource/figtree": "^5.2.10",
     "@microsoft/microsoft-graph-client": "^3.0.7",
     "@motionone/vue": "^10.16.4",
     "@nuxt/content": "^3.7.1",

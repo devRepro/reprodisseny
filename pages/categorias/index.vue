@@ -16,10 +16,10 @@ const categories = computed(() => data.value?.items ?? []);
       <SharedGridDisplay
         v-if="categories.length"
         :items="categories"
-        :keyFn="(c) => c.slug"
+        :keyFn="(c) => c.path"
         :titleFn="(c) => c.nav || c.title"
-        :linkFn="(c) => c.path || `/categorias/${c.slug}`"
-        :imageFn="(c) => c.image || ''"
+        :linkFn="(c) => c.path"
+        :imageFn="(c) => c.image?.src || ''"
       />
       <p v-else class="text-sm text-muted-foreground">No hay categorías para mostrar.</p>
     </template>

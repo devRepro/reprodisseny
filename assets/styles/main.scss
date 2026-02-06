@@ -1,11 +1,19 @@
-@use 'sass:color';
+@use "sass:color";
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Figtree (auto-hosted) */
+@import "@fontsource/figtree/400.css";
+@import "@fontsource/figtree/500.css";
+@import "@fontsource/figtree/600.css";
+@import "@fontsource/figtree/700.css";
+
+/* =========================================================
+   COMPONENTS (tus clases custom)
+   ========================================================= */
 @layer components {
-  /* --- Keep all your custom components --- */
   .menubar {
     @apply w-full flex justify-center gap-4;
     background-color: hsl(var(--menubar-bg));
@@ -40,13 +48,11 @@
   .menubar-item:hover {
     background-color: hsl(var(--menubar-hover));
   }
-  .text-secondary {
-    /* Consider if this is needed or if using --secondary-foreground is better */
-    @apply text-black;
-  }
+
   .menu-link {
     @apply text-[hsl(var(--color-secondary))] font-medium transition-colors duration-200;
   }
+
   .menu-link:hover {
     @apply text-[hsl(var(--color-primary))] font-semibold;
   }
@@ -58,6 +64,7 @@
   .dark .menu-link:hover {
     @apply text-[hsl(var(--color-primary))] font-semibold;
   }
+
   .menu-link[aria-current="page"] {
     @apply font-semibold text-[hsl(var(--color-primary))] border-b-2 border-[hsl(var(--color-primary))];
   }
@@ -65,7 +72,8 @@
   .dark .menu-link[aria-current="page"] {
     @apply text-[hsl(var(--color-primary))] border-b-2 border-[hsl(var(--color-primary))];
   }
-  /* --- Keep your custom buttons --- */
+
+  /* Botones custom (si no usas Shadcn <Button> en estos casos) */
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors;
     background-color: hsl(var(--color-primary));
@@ -105,74 +113,122 @@
     color: hsl(var(--primary-foreground));
     border-color: hsl(var(--color-primary));
   }
-
 }
 
+/* =========================================================
+   BASE (tokens + tipografía + estilos base)
+   ========================================================= */
 @layer base {
-  @font-face {
-    font-family: 'RobotoFlex';
-    src: url('@/assets/fonts/RobotoFlex-Variable.ttf') format('truetype');
-    font-weight: 100 900;
-    font-style: normal;
-  }
-
   :root {
-    /* --- Keep ALL your CSS variables --- */
-    --color-primary: 204 73% 41%;
-    --color-secondary: 0 0% 27%;
-    --color-accent: 28 89% 59%;
-    --color-light: 0 0% 97%;
-    --color-dark: 0 0% 20%;
-    --color-gray: 0 0% 38%;
-    --menubar-bg: var(--color-dark);
-    --menubar-text: 0 0% 98%;
-    --menubar-hover: 0 0% 30%;
+    /* =========================
+       TYPO (medidas reales de hoy)
+       ========================= */
+    --font-sans: "Figtree", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+      "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
 
-    --font-body: 0.8125rem;
-    --font-h1: calc(3.5rem * 0.8125);
-    --font-h2: calc(2.5rem * 0.8125);
-    --font-h3: calc(1.75rem * 0.8125);
-    --font-h4: calc(1.5rem * 0.8125);
-    --font-h5: calc(1.25rem * 0.8125);
-    --font-h6: calc(1rem * 0.8125);
-    --font-small: calc(0.875rem * 0.8125);
+    /* Headings */
+    --font-h1: 36px;
+    --line-h1: 1.2; /* 120% */
+    --weight-h1: 700;
 
-    --line-h1: 1.1;
+    --font-h2: 30px;
     --line-h2: 1.2;
-    --line-h3: 1.3;
+    --weight-h2: 700;
+
+    --font-h3: 24px;
+    --line-h3: 1.3; /* 130% */
+    --weight-h3: 600;
+
+    --font-h4: 20px;
     --line-h4: 1.3;
-    --line-h5: 1.4;
-    --line-h6: 1.4;
-    --line-body: 1.6;
+    --weight-h4: 600;
 
-    --color-primary-DEFAULT: var(--color-primary);
+    /* Body */
+    --font-body: 16px;
+    --line-body: 1.5; /* 150% */
+    --weight-body: 400;
+    --weight-body-bold: 700;
 
-    /* --- Keep Shadcn/Tailwind CSS variables --- */
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%; /* Note: Shadcn's primary might differ from your --color-primary */
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%; /* Note: Shadcn's secondary might differ from your --color-secondary */
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%; /* Note: Shadcn's accent might differ from your --color-accent */
-    --accent-foreground: 0 0% 9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%; /* Used by Shadcn Input background/border */
-    --ring: 0 0% 3.9%; /* Used by Shadcn Input focus ring */
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
+    /* Body small */
+    --font-body-s: 14px;
+    --line-body-s: 1.4; /* 140% */
+    --weight-body-s: 400;
+    --weight-body-s-bold: 700;
+
+    /* Labels */
+    --font-label: 13px;
+    --line-label: 1.4; /* 140% */
+    --weight-label: 500; /* Medium */
+
+    --font-label-s: 12px;
+    --line-label-s: 1.35; /* 135% */
+    --weight-label-s: 400;
+
+    /* =========================
+       BRAND COLORS (paleta diseñador) - HSL
+       ========================= */
+    --brand-base: 201 100% 35%;        /* #0076B3 */
+    --brand-base-dark: 201 100% 24%;   /* #004F78 */
+    --brand-base-light: 201 100% 93%;  /* #DEF4FF */
+    --brand-bg-2: 42 74% 92%;          /* #FAF0DA */
+
+    --brand-white: 0 0% 100%;          /* #FFFFFF */
+    --brand-ink-light: 0 0% 94%;       /* #EFEFEF */
+    --brand-ink-medium: 0 0% 58%;      /* #959595 */
+    --brand-ink-dark: 0 0% 13%;        /* #212121 */
+
+    --brand-success: 101 100% 42%;     /* #44D400 */
+    --brand-error: 7 100% 60%;         /* #FF4D35 */
+
+    /* =========================
+       LEGACY ALIASES (para tu CSS actual)
+       ========================= */
+    --color-primary: var(--brand-base);
+    --color-secondary: var(--brand-ink-dark);
+    --color-accent: var(--brand-base-light);
+    --color-light: var(--brand-ink-light);
+    --color-dark: var(--brand-ink-dark);
+    --color-gray: var(--brand-ink-medium);
+
+    /* Menubar */
+    --menubar-bg: var(--brand-ink-dark);
+    --menubar-text: var(--brand-white);
+    --menubar-hover: 0 0% 20%;
+
+    /* =========================
+       SHADCN / TAILWIND TOKENS (mapeados a marca)
+       ========================= */
+    --background: var(--brand-white);
+    --foreground: var(--brand-ink-dark);
+
+    --card: var(--brand-white);
+    --card-foreground: var(--brand-ink-dark);
+
+    --popover: var(--brand-white);
+    --popover-foreground: var(--brand-ink-dark);
+
+    --primary: var(--brand-base);
+    --primary-foreground: var(--brand-white);
+
+    --secondary: var(--brand-ink-light);
+    --secondary-foreground: var(--brand-ink-dark);
+
+    --muted: var(--brand-ink-light);
+    --muted-foreground: var(--brand-ink-medium);
+
+    --accent: var(--brand-base-light);
+    --accent-foreground: var(--brand-ink-dark);
+
+    --destructive: var(--brand-error);
+    --destructive-foreground: var(--brand-white);
+
+    --border: var(--brand-ink-light);
+    --input: var(--brand-ink-light);
+    --ring: var(--brand-base);
+
     --radius: 0.5rem;
+
+    /* Sidebar (lo dejamos como estaba por ahora) */
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
@@ -183,113 +239,36 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
-  /* --- Keep base body styles --- */
-  body {
-    /* These styles might be overridden by the second @layer base body rule below */
-    @apply font-sans bg-white text-secondary;
-    font-family: 'RobotoFlex', sans-serif;
-    font-size: var(--font-body);
-    line-height: var(--line-body);
-  }
-
-  /* --- Keep base heading styles --- */
-  h1, h2, h3, h4, h5, h6 {
-    font-weight: 700;
-    /* Be careful setting base heading colors if Shadcn components use headings internally */
-    color: hsl(var(--color-secondary)); /* Changed from var(--color-secondary) */
-    margin-top: 0;
-    margin-bottom: 0.5rem;
-  }
-
-  h1 { font-size: var(--font-h1); line-height: var(--line-h1); }
-  h2 { font-size: var(--font-h2); line-height: var(--line-h2); }
-  h3 { font-size: var(--font-h3); line-height: var(--line-h3); }
-  h4 { font-size: var(--font-h4); line-height: var(--line-h4); }
-  h5 { font-size: var(--font-h5); line-height: var(--line-h5); }
-  h6 { font-size: var(--font-h6); line-height: var(--line-h6); }
-
-  /* --- Keep base paragraph styles --- */
-  p {
-    font-size: var(--font-body);
-    line-height: var(--line-body);
-    margin-bottom: 1rem;
-  }
-
-  /* --- Keep base small styles --- */
-  small {
-    font-size: var(--font-small);
-  }
-
-  /* --- Keep base anchor styles --- */
-  a {
-    color: hsl(var(--color-primary));
-    text-decoration: none;
-    font-weight: 600;
-    transition: color 0.2s ease;
-  }
-
-  a:hover {
-    color: hsl(var(--color-gray));
-    text-decoration: none;
-  }
-
-  /* --- REMOVE or COMMENT OUT generic .btn styles if using Shadcn Button exclusively --- */
-  /*
-  .btn {
-    @apply inline-block px-5 py-2 text-white font-semibold rounded-lg transition-all duration-300;
-    background-color: hsl(var(--color-primary));
-  }
-
-  .btn:hover {
-    filter: brightness(90%);
-  }
-  */
-
-  /* --- THIS IS THE MOST IMPORTANT CHANGE --- */
-  /* --- REMOVE or COMMENT OUT generic input/textarea styles --- */
-  /* --- Let Shadcn's <Input> component handle its own styling --- */
-  /*
-  input, textarea {
-    @apply w-full px-4 py-2 border rounded-md text-secondary focus:outline-none;
-    border-color: hsl(var(--color-gray));
-  }
-  input.plain-input:focus, textarea.plain-input:focus {
-    border-color: hsl(var(--color-primary));
-    box-shadow: 0 0 4px hsl(var(--color-primary));
-  }
-  input:focus, textarea:focus {
-    border-color: hsl(var(--color-primary));
-    box-shadow: 0 0 4px hsl(var(--color-primary));
-  }
-  */
-  /* --------------------------------------- */
-
-  /* --- Keep dark mode variables --- */
+  /* Dark mode: mantenemos la marca y ajustamos superficies/texto */
   .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+    --background: var(--brand-ink-dark);
+    --foreground: var(--brand-white);
+
+    --card: 0 0% 9%;
+    --card-foreground: var(--brand-white);
+
+    --popover: 0 0% 9%;
+    --popover-foreground: var(--brand-white);
+
+    --primary: var(--brand-base); /* la marca NO cambia */
+    --primary-foreground: var(--brand-white);
+
+    --secondary: 0 0% 18%;
+    --secondary-foreground: var(--brand-white);
+
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 70%;
+
+    --accent: 0 0% 18%;
+    --accent-foreground: var(--brand-white);
+
+    --destructive: var(--brand-error);
+    --destructive-foreground: var(--brand-white);
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: var(--brand-base);
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -299,16 +278,89 @@
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
-}
 
-@layer base {
-  /* This second @layer base might override styles from the first one. */
-  /* Ensure this is intended. */
   * {
     @apply border-border;
   }
+
   body {
-    /* This WILL override the body styles in the first @layer base block */
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans;
+    font-family: var(--font-sans);
+    font-size: var(--font-body);
+    line-height: var(--line-body);
   }
+
+  h1 {
+    font-size: var(--font-h1);
+    line-height: var(--line-h1);
+    font-weight: var(--weight-h1);
+  }
+
+  h2 {
+    font-size: var(--font-h2);
+    line-height: var(--line-h2);
+    font-weight: var(--weight-h2);
+  }
+
+  h3 {
+    font-size: var(--font-h3);
+    line-height: var(--line-h3);
+    font-weight: var(--weight-h3);
+  }
+
+  h4 {
+    font-size: var(--font-h4);
+    line-height: var(--line-h4);
+    font-weight: var(--weight-h4);
+  }
+
+  h5,
+  h6 {
+    font-weight: 600;
+  }
+
+  p {
+    font-size: var(--font-body);
+    line-height: var(--line-body);
+    margin-bottom: 1rem;
+  }
+
+  small {
+    font-size: var(--font-body-s);
+    line-height: var(--line-body-s);
+  }
+
+  /* Helpers opcionales */
+  .text-body {
+    font-size: var(--font-body);
+    line-height: var(--line-body);
+    font-weight: var(--weight-body);
+  }
+  .text-body-bold {
+    font-size: var(--font-body);
+    line-height: var(--line-body);
+    font-weight: var(--weight-body-bold);
+  }
+  .text-body-s {
+    font-size: var(--font-body-s);
+    line-height: var(--line-body-s);
+    font-weight: var(--weight-body-s);
+  }
+  .text-body-s-bold {
+    font-size: var(--font-body-s);
+    line-height: var(--line-body-s);
+    font-weight: var(--weight-body-s-bold);
+  }
+  .text-label {
+    font-size: var(--font-label);
+    line-height: var(--line-label);
+    font-weight: var(--weight-label);
+  }
+  .text-label-s {
+    font-size: var(--font-label-s);
+    line-height: var(--line-label-s);
+    font-weight: var(--weight-label-s);
+  }
+
+  /* Nota: mantenemos comentados estilos genéricos de inputs si usas Shadcn <Input> */
 }

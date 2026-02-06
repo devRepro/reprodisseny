@@ -8,10 +8,12 @@ const ImgObj = z.object({
   src: z.string(),
   width: z.number().default(1200),
   height: z.number().default(800),
+  alt: z.string().optional(),
 })
 
-const Img = z.union([z.string(), ImgObj]).transform((v) =>
-  typeof v === "string" ? { src: v, width: 1200, height: 800 } : v
+// String u objeto; transforma string → objeto con tamaños por defecto (NO añade base path)
+const Img = z.union([z.string(), ImgObj]).transform(v =>
+  typeof v === 'string' ? ({ src: v, width: 1200, height: 800 }) : v
 )
 
 const GalleryItem = z.union([z.string(), ImgObj])
@@ -59,6 +61,13 @@ export default defineContentConfig({
 
         schema: z.record(z.any()).optional(),
       }),
+      indexes: [
+        { columns: ['hidden'] },
+        { columns: ['order'] },
+        { columns: ['parent'] },
+        { columns: ['featured'] },
+        { columns: ['hidden', 'order'] },
+      ],
     }),
 
     productos: defineCollection({
@@ -120,6 +129,13 @@ export default defineContentConfig({
 
         schema: z.record(z.any()).optional(),
       }),
+      indexes: [
+        { columns: ['categorySlug'] },
+        { columns: ['hidden'] },
+        { columns: ['inStock'] },
+        { columns: ['order'] },
+        { columns: ['categorySlug', 'order'] },
+      ],
     }),
   },
 })
