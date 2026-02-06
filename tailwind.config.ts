@@ -16,17 +16,9 @@ const config: Config = {
     "./node_modules/reka-ui/**/*.{js,ts,vue}",
   ],
   safelist: [
-<<<<<<< HEAD
     'border-border',
     'bg-background',
     'text-foreground',
-=======
-    "border-border",
-    "bg-background",
-    "text-foreground",
-    "data-[state=open]:slide-in-from-top-[48%]",
-    "data-[state=closed]:slide-out-to-top-[48%]",
->>>>>>> work/layout
   ],
   theme: {
     extend: {
