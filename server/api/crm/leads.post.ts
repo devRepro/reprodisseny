@@ -1,15 +1,24 @@
 // server/api/crm/leads.post.ts
-import { z } from 'zod'
+import { z } from "zod"
 import {
   defineEventHandler,
   readBody,
   getHeader,
   createError,
   setResponseStatus,
-} from 'h3'
-import { ofetch } from 'ofetch'
-import { useRuntimeConfig } from '#imports'
-import { getGraphToken, resolveSiteId, resolveListId } from '~/server/utils/graphClient.server.ts'
+} from "h3"
+import { ofetch } from "ofetch"
+import { useRuntimeConfig } from "#imports"
+import {
+  getGraphToken,
+  resolveSiteId,
+  resolveListId,
+} from "~/server/utils/graphClient.server"
+
+const clip = (v: unknown, max: number) => {
+  const s = String(v ?? "")
+  return s.length > max ? s.slice(0, max) : s
+}
 
 // 1) Schema del producto que envía el formulario
 const ProductSchema = z.object({
@@ -19,12 +28,13 @@ const ProductSchema = z.object({
   url: z.string().optional().nullable(),
 })
 
-// 2) Schema del payload completo
+// 2) Schema del payload (lead de producto)
 const LeadPayloadSchema = z.object({
-  website: z.string().optional().nullable(), // honeypot
+  // honeypot
+  website: z.string().optional().nullable(),
 
-  nombre: z.string().min(2),
-  email: z.string().email(),
+  nombre: z.string().min(2).max(120),
+  email: z.string().email().max(180),
   telefono: z.string().optional().nullable(),
   empresa: z.string().optional().nullable(),
   comentario: z.string().max(4000).optional().nullable(),
@@ -32,41 +42,50 @@ const LeadPayloadSchema = z.object({
   cantidad: z.coerce.number().optional().nullable(),
   producto: ProductSchema,
 
-  // restringe extras (evita JSON gigante)
-  extras: z.record(z.union([z.string().max(200), z.number(), z.boolean(), z.null()]))
+  // extras (evita JSON gigante)
+  extras: z
+    .record(
+      z.union([
+        z.string().max(200),
+        z.number(),
+        z.boolean(),
+        z.null(),
+      ])
+    )
     .optional()
     .default({}),
 
   origen: z.string().optional().nullable(),
   utm: z.record(z.any()).optional().nullable(),
 
-  // nuevos
   consent: z.boolean(),
-  sourceUrl: z.string().min(1).max(300),
+  sourceUrl: z.string().max(300).optional().nullable(),
 })
 
 export default defineEventHandler(async (event) => {
-  // 1) lee y valida el body
   const body = await readBody(event)
-
-  // Log de ayuda mientras depuras (puedes quitarlo luego)
-  console.log('[crm/leads] body =', JSON.stringify(body, null, 2))
 
   let p: z.infer<typeof LeadPayloadSchema>
   try {
     p = LeadPayloadSchema.parse(body)
   } catch (e: any) {
-    console.error('[crm/leads] Zod error:', e?.issues || e?.message)
     throw createError({
       statusCode: 400,
-      statusMessage: 'Datos de formulario inválidos',
+      statusMessage: "Datos de formulario inválidos",
       data: e?.issues ?? e?.message,
     })
   }
 
-  // 2) config CRM (mapeo a columnas internas de SharePoint)
+  // Honeypot: si viene relleno, lo tratamos como bot (silencioso)
+  if (p.website && p.website.trim()) {
+    setResponseStatus(event, 204)
+    return { ok: true }
+  }
+
+  // Config CRM (mapeo a columnas internas de SharePoint)
   const { crm } = useRuntimeConfig(event) as {
     crm: {
+      // mapeo columnas
       emailField?: string
       productField: string
       commentsField?: string
@@ -77,6 +96,11 @@ export default defineEventHandler(async (event) => {
       quantityField?: string
       originField?: string
       utmField?: string
+      consentField?: string
+      sourceUrlField?: string
+
+      // opcional: si quieres fijar la lista de LEADS aquí
+      leadsListId?: string
     }
   }
 
@@ -84,74 +108,81 @@ export default defineEventHandler(async (event) => {
     throw createError({
       statusCode: 500,
       statusMessage:
-        'Falta crm.productField en runtimeConfig (internal name de "Producte sol·licitat")',
+        'Falta crm.productField en runtimeConfig (internal name de "Producto solicitado")',
     })
   }
 
-  // 3) token + ids SharePoint
+  // Token + IDs SharePoint
   const token = await getGraphToken(event)
   const siteId = await resolveSiteId(event)
-  const listId = await resolveListId(event)
 
-  // 4) extras vienen ya agrupados
+  // Si has creado otra lista para contacto y has cambiado resolveListId,
+  // define crm.leadsListId para que ESTE endpoint apunte a la lista de leads.
+  const listId = crm?.leadsListId || (await resolveListId(event))
+
+  const referer = getHeader(event, "referer") ?? ""
+  const origin = (p.origen ?? referer ?? "product-page").toString()
+
+  const sourceUrl = (p.sourceUrl ?? referer ?? "").toString()
+
   const extras = p.extras ?? {}
 
   // JSON compacto de producto + selección
   const productJson = {
     name: p.producto.name,
-    slug: p.producto.slug,
-    sku: p.producto.sku,
-    url: p.producto.url,
+    slug: p.producto.slug ?? null,
+    sku: p.producto.sku ?? null,
+    url: p.producto.url ?? null,
     selection: {
       cantidad: p.cantidad ?? null,
       ...extras,
     },
     context: {
-      origen: p.origen ?? getHeader(event, 'referer') ?? '',
+      origen: origin,
       utm: p.utm ?? null,
+      sourceUrl: sourceUrl || null,
     },
   }
 
-  // 5) mapeo a columnas internas
+  // Mapeo a columnas
   const fields: Record<string, any> = {}
 
-  // Título del item
-  fields['Title'] = p.nombre
+  // Title del item
+  fields["Title"] = clip(`${p.nombre} — ${p.producto?.name || "Solicitud"}`, 250)
 
   if (crm.emailField) fields[crm.emailField] = p.email
-  if (crm.commentsField) fields[crm.commentsField] = p.comentario ?? ''
-  if (crm.phoneField) fields[crm.phoneField] = p.telefono ?? ''
-  if (crm.companyField) fields[crm.companyField] = p.empresa ?? ''
+  if (crm.commentsField) fields[crm.commentsField] = p.comentario ?? ""
+  if (crm.phoneField) fields[crm.phoneField] = p.telefono ?? ""
+  if (crm.companyField) fields[crm.companyField] = p.empresa ?? ""
   if (crm.dateField) fields[crm.dateField] = new Date().toISOString()
-  if (crm.quantityField && p.cantidad != null) {
-    fields[crm.quantityField] = p.cantidad
-  }
-  if (crm.originField) {
-    fields[crm.originField] = productJson.context.origen
-  }
-  if (crm.utmField && p.utm) {
-    fields[crm.utmField] = JSON.stringify(p.utm)
-  }
 
-  // Columna de producto (texto multilínea) -> JSON compacto
-  fields[crm.productField] = JSON.stringify(productJson)
+  if (crm.consentField) fields[crm.consentField] = !!p.consent
+  if (crm.sourceUrlField && sourceUrl) fields[crm.sourceUrlField] = clip(sourceUrl, 300)
 
-  // opcional: columna separada solo para extras
+  if (crm.quantityField && p.cantidad != null) fields[crm.quantityField] = p.cantidad
+  if (crm.originField) fields[crm.originField] = clip(origin, 255)
+
+  if (crm.utmField && p.utm) fields[crm.utmField] = clip(JSON.stringify(p.utm), 8000)
+
+  // Columna producto -> JSON compacto
+  fields[crm.productField] = clip(JSON.stringify(productJson), 12000)
+
+  // Opcional: columna separada solo para extras
   if (crm.attributesField && Object.keys(extras).length > 0) {
-    fields[crm.attributesField] = JSON.stringify(extras)
+    fields[crm.attributesField] = clip(JSON.stringify(extras), 8000)
   }
 
-  // 6) crear ítem en SharePoint
+  // Crear ítem en SharePoint
   try {
     const created = await ofetch(
       `https://graph.microsoft.com/v1.0/sites/${encodeURIComponent(
         siteId
       )}/lists/${encodeURIComponent(listId)}/items`,
       {
-        method: 'POST',
+        method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: { fields },
       }
@@ -160,14 +191,14 @@ export default defineEventHandler(async (event) => {
     setResponseStatus(event, 201)
     return {
       ok: true,
-      item: { id: created?.id ?? '', fields: created?.fields ?? fields },
+      item: { id: created?.id ?? "", fields: created?.fields ?? fields },
     }
   } catch (err: any) {
-    console.error('[crm/leads] Graph error:', err?.data || err)
+    console.error("[crm/leads] Graph error:", err?.data || err)
     const msg =
       err?.data?.error?.message ||
       err?.message ||
-      'Fallo al crear el ítem en SharePoint'
+      "Fallo al crear el ítem en SharePoint"
     throw createError({ statusCode: err?.status || 500, statusMessage: msg })
   }
 })

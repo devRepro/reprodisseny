@@ -17,6 +17,9 @@ export default defineNuxtConfig({
       pass: process.env.SMTP_PASS,
       from: process.env.SMTP_FROM,
     },
+    contact: {
+      listId: process.env.SP_LIST_CONTACT_ID, // <- ID de la lista "Contactos web"
+    },
 
     // ✅ SOLO credenciales (compartidas CRM + CMS)
     ms: {

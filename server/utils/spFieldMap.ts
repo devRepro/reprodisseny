@@ -1,36 +1,50 @@
 // server/utils/spFieldMap.ts
-import { ofetch } from 'ofetch'
-import type { H3Event } from 'h3'
-import { getGraphToken, resolveSiteId, resolveListId } from '~/server/utils/graphClient.server'
+import { ofetch } from "ofetch"
+import type { H3Event } from "h3"
+import { getGraphToken, resolveSiteId, resolveListId } from "~/server/utils/graphClient.server"
 
-const columnsCache = new Map<string, Array<{ name: string; displayName: string }>>()
+type Column = { name: string; displayName: string }
+type GetColumnsOpts = {
+  /** si quieres forzar otra lista (p.ej. lista de contacto distinta a leads) */
+  listId?: string
+  /** normalmente no hace falta, pero por si quieres forzar otro site */
+  siteId?: string
+}
+
+const columnsCache = new Map<string, Column[]>()
 
 const norm = (s: string) =>
-  s.toLowerCase()
-   .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // sin acentos
-   .replace(/\s+/g, '')                              // sin espacios
-   .replace(/[^a-z0-9_]/g, '')                       // limpio
+  s
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "") // sin acentos
+    .replace(/\s+/g, "")            // sin espacios
+    .replace(/[^a-z0-9_]/g, "")     // limpio
 
 /** Descarga y cachea columnas de la lista => [{ name, displayName }] */
-export async function getListColumns(event?: H3Event) {
+export async function getListColumns(event?: H3Event, opts: GetColumnsOpts = {}) {
   const token = await getGraphToken(event)
-  const siteId = await resolveSiteId(event)
-  const listId = await resolveListId(event)
+  const siteId = opts.siteId ?? (await resolveSiteId(event))
+  const listId = opts.listId ?? (await resolveListId(event))
   const cacheKey = `${siteId}:${listId}`
 
   if (!columnsCache.has(cacheKey)) {
-    const url = `https://graph.microsoft.com/v1.0/sites/${encodeURIComponent(siteId)}` +
-                `/lists/${encodeURIComponent(listId)}/columns?$select=name,displayName`
-    const { value } = await ofetch<{ value: Array<{ name: string; displayName: string }> }>(url, {
-      headers: { Authorization: `Bearer ${token}` }
+    const url =
+      `https://graph.microsoft.com/v1.0/sites/${encodeURIComponent(siteId)}` +
+      `/lists/${encodeURIComponent(listId)}/columns?$select=name,displayName`
+
+    const { value } = await ofetch<{ value: Column[] }>(url, {
+      headers: { Authorization: `Bearer ${token}` },
     })
+
     columnsCache.set(cacheKey, value || [])
   }
+
   return { siteId, listId, columns: columnsCache.get(cacheKey)! }
 }
 
 /** Construye diccionario normalizado -> internalName */
-export function buildDict(columns: Array<{ name: string; displayName: string }>) {
+export function buildDict(columns: Column[]) {
   const dict = new Map<string, string>()
   for (const c of columns) {
     dict.set(norm(c.name), c.name)
@@ -49,10 +63,16 @@ export function pick(dict: Map<string, string>, ...labels: string[]) {
 }
 
 export const FIELD_ALIASES = {
-    title: ['Title', 'Título', 'Títol', 'Nombre'],
-    email: ['Email', 'E-mail', 'Correo electrónico', 'Correu electrònic'],
-    product: ['Producto', 'Product', 'Servei', 'Servicio'],
-    fecha: ['FechaSolicitud', 'Fecha', 'Data', 'RequestedAt'],
-    json: ['CondicionesJSON', 'Payload', 'Especificaciones', 'SpecsJSON', 'Datos JSON'],
-    resumen: ['CondicionesResumen', 'Resumen', 'Notes', 'Observaciones']
-  }
+  title: ["Title", "Título", "Títol", "Nombre"],
+  email: ["Email", "E-mail", "Correo electrónico", "Correu electrònic"],
+  phone: ["Teléfono", "Telefon", "Phone", "Móvil", "Movil"],
+  company: ["Empresa", "Company", "Compañía", "Companya"],
+  message: ["Mensaje", "Missatge", "Consulta", "Message", "Comentarios", "Comentaris"],
+  product: ["Producto", "Product", "Servei", "Servicio"],
+  fecha: ["FechaSolicitud", "Fecha", "Data", "RequestedAt"],
+  origin: ["Origen", "Origin", "OrigenLead", "Source", "Referer"],
+  sourceUrl: ["SourceUrl", "URL", "Url", "Página", "Pagina"],
+  utm: ["UTM", "Utm", "UtmJson", "Tracking", "Campaña", "Campanya"],
+  json: ["CondicionesJSON", "Payload", "Especificaciones", "SpecsJSON", "Datos JSON"],
+  resumen: ["CondicionesResumen", "Resumen", "Notes", "Observaciones"],
+} as const
