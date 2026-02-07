@@ -52,9 +52,15 @@ function categoryHref(c: CategoryItem) {
 <template>
   <section class="bg-white">
     <div class="mx-auto max-w-[1200px] px-4 md:px-0 py-16">
-      <h2 class="text-[30px] leading-[36px] font-semibold text-[#212121]">
-        {{ title }}
-      </h2>
+      <h2
+  class="relative block w-full text-[#212121] font-semibold
+         text-[30px] leading-[36px]
+         after:content-[''] after:block after:mt-[8px]
+         after:h-[2px] after:w-full after:bg-[#212121]"
+>
+  {{ title }}
+</h2>
+
 
       <div class="mt-12">
         <div class="grid grid-cols-2 gap-x-6 gap-y-8 md:flex md:flex-wrap md:justify-between md:gap-y-10">

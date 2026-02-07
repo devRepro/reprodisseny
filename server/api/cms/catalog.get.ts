@@ -39,7 +39,7 @@ export default defineEventHandler(async (event) => {
       title: c.title,
       nav: (c.navTitle ?? c.nav ?? c.title) || c.title,
       order: n(c.navOrder ?? c.order ?? c.sortOrder ?? c.SortOrder),
-      path: c.path || `/categoria/${c.slug}`, // ✅ unifica ruta
+      path: c.path || `/categorias/${c.slug}`, // ✅ unifica ruta
       image: (typeof c.image === "string" ? c.image : c.image?.src) || undefined,
       parent: norm(c.parent || c.parentSlug || c.ParentSlug) || undefined,
       children: [],
@@ -68,7 +68,7 @@ export default defineEventHandler(async (event) => {
         description: p.shortDescription ?? p.description ?? "",
         image: (typeof p.image === "string" ? p.image : p.image?.src) || undefined,
         categorySlug: p.categorySlug ?? p.CategorySlug,
-        path: p.path || `/producto/${p.slug}`, // ✅ unifica (elige tu ruta real)
+        path: p.path || `/productos∫/${p.slug}`, // ✅ unifica (elige tu ruta real)
         order: n(p.order ?? p.sortOrder ?? p.SortOrder),
         price: n(p.price ?? p.Price),
       })

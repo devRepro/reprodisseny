@@ -107,6 +107,7 @@ export default defineNuxtConfig({
 
     googleMaps: {
       apiKey: process.env.GOOGLE_MAPS_API_KEY,
+  placeId: process.env.GOOGLE_MAPS_PLACE_ID,
     },
 
     public: {

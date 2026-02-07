@@ -22,7 +22,7 @@ export type ProductoNode = {
   order?: number
 }
 
-type Options = { productLimit?: number; includeProducts?: boolean; debug?: boolean }
+type Options = { productLimit?: number; includeProducts?: boolean }
 
 type ReturnShape = {
   tree: CategoriaNode[]
@@ -32,14 +32,16 @@ type ReturnShape = {
 
 export function useCategoriasNav(opts: Options = {}) {
   const productLimit = opts.productLimit ?? 6
-  const includeProducts = opts.includeProducts ?? true
-  const debug = !!opts.debug
+  const includeProducts = opts.includeProducts ?? false
 
   return useAsyncData<ReturnShape>(
-    `categorias:nav:${productLimit}:${includeProducts ? 1 : 0}:${debug ? 1 : 0}`,
+    `cms:catalog:${includeProducts ? "catalog" : "nav"}:${productLimit}`,
     () =>
-      $fetch("/api/cms/nav", {
-        params: { productLimit, includeProducts, debug },
+      $fetch("/api/cms/catalog", {
+        query: {
+          mode: includeProducts ? "catalog" : "nav",
+          productLimit,
+        },
       }),
     {
       server: true,

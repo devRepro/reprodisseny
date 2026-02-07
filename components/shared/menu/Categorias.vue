@@ -57,54 +57,76 @@ const toOf = (c: any) => c?.path || (c?.slug ? `/categorias/${c.slug}` : "/categ
               </button>
             </MenubarTrigger>
 
-            <MenubarContent
-              class="z-50 w-[920px] p-4"
-              align="start"
+            <MenubarContent class="z-50 w-[920px] p-4" align="start">
+  <!-- Subcategorías -->
+  <template v-if="cat.children?.length">
+    <div class="grid grid-cols-4 gap-6">
+      <div v-for="sub in cat.children" :key="sub.slug" class="min-w-0">
+        <!-- ✅ Link de subcategoría + mini imagen -->
+        <NuxtLink
+          :to="sub.path || `/categorias/${sub.slug}`"
+          class="flex items-center gap-2 rounded-md px-2 py-2
+                 text-[12px] uppercase tracking-wide text-muted-foreground
+                 hover:bg-muted hover:underline"
+        >
+          <NuxtImg
+            v-if="sub.image"
+            :src="sub.image"
+            :alt="sub.title || ''"
+            width="24"
+            height="24"
+            class="h-6 w-6 shrink-0 rounded object-cover border border-border"
+            loading="lazy"
+          />
+          <span class="truncate">
+            {{ sub.nav || sub.title || sub.slug }}
+          </span>
+        </NuxtLink>
+
+        <!-- ✅ Productos de esa subcategoría -->
+        <div class="mt-2 flex flex-col">
+          <MenubarItem
+            v-for="prod in sub.products || []"
+            :key="prod.slug"
+            as-child
+          >
+            <NuxtLink
+              :to="prod.path || `/productos/${prod.slug}`"
+              class="flex w-full items-center gap-2 rounded-md px-2 py-2 hover:bg-muted"
             >
-              <!-- Subcategorías -->
-              <template v-if="cat.children?.length">
-                <div class="grid grid-cols-4 gap-6">
-                  <div v-for="sub in cat.children" :key="sub.slug" class="min-w-0">
-                    <NuxtLink
-                      :to="sub.path || `/categorias/${sub.slug}`"
-                      class="block text-[12px] uppercase tracking-wide text-muted-foreground hover:underline"
-                    >
-                      {{ sub.nav || sub.title || sub.slug }}
-                    </NuxtLink>
+              <NuxtImg
+                v-if="prod.image"
+                :src="prod.image"
+                :alt="prod.title || ''"
+                width="24"
+                height="24"
+                class="h-6 w-6 shrink-0 rounded object-cover border border-border"
+                loading="lazy"
+              />
+              <span class="text-sm truncate">{{ prod.title }}</span>
+            </NuxtLink>
+          </MenubarItem>
 
-                    <div class="mt-2 flex flex-col">
-                      <MenubarItem
-                        v-for="prod in sub.products || []"
-                        :key="prod.slug"
-                        asChild
-                      >
-                        <NuxtLink
-                          :to="prod.path || `/productos/${prod.slug}`"
-                          class="w-full"
-                        >
-                          {{ prod.title }}
-                        </NuxtLink>
-                      </MenubarItem>
+          <MenubarItem v-if="(sub.products?.length ?? 0) === 0" disabled>
+            (Sense productes)
+          </MenubarItem>
+        </div>
+      </div>
+    </div>
+  </template>
 
-                      <MenubarItem v-if="(sub.products?.length ?? 0) === 0" disabled>
-                        (Sense productes)
-                      </MenubarItem>
-                    </div>
-                  </div>
-                </div>
-              </template>
+  <!-- Solo products -->
+  <template v-else>
+    <div class="grid grid-cols-2 gap-2">
+      <MenubarItem v-for="prod in cat.products || []" :key="prod.slug" as-child>
+        <NuxtLink :to="prod.path || `/productos/${prod.slug}`" class="w-full">
+          {{ prod.title }}
+        </NuxtLink>
+      </MenubarItem>
+    </div>
+  </template>
+</MenubarContent>
 
-              <!-- Solo products -->
-              <template v-else>
-                <div class="grid grid-cols-2 gap-2">
-                  <MenubarItem v-for="prod in cat.products || []" :key="prod.slug" asChild>
-                    <NuxtLink :to="prod.path || `/productos/${prod.slug}`" class="w-full">
-                      {{ prod.title }}
-                    </NuxtLink>
-                  </MenubarItem>
-                </div>
-              </template>
-            </MenubarContent>
           </template>
 
           <!-- Si NO hay dropdown => link simple -->

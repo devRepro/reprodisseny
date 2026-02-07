@@ -11,6 +11,10 @@
       :categories="homeCategories"
       :total-slots="8"
     />
+
+    <MarketingServicesGrid />
+
+    <MarketingProcessSection />
   </div>
 </template>
 
@@ -19,13 +23,13 @@ import { computed } from "vue"
 import HomeHero from "@/components/marketing/HomeHero.vue"
 import HomeImageStrip from "@/components/marketing/HomeImageStrip.vue"
 import MarketingProductCategoryGrid from "@/components/marketing/ProductCategoryGrid.vue"
+import MarketingProcessSection from "@/components/marketing/ProcessSection.vue"
 import { useHomeCategoriesGrid } from "@/composables/useHomeCategoriesGrid"
+import { MarketingServicesGrid } from "#components"
 
-// ✅ Categorías primer nivel (SSR), ya normalizadas por el endpoint/composable
 const { data: homeCategoriesData } = await useHomeCategoriesGrid(8)
 const homeCategories = computed(() => homeCategoriesData.value ?? [])
 
-// ✅ Imágenes strip (Azure Blob)
 const stripImages = [
   { src: "https://webcms.blob.core.windows.net/media/home/preimpresion.webp", alt: "Diseño y producción" },
   { src: "https://webcms.blob.core.windows.net/media/home/impresion.webp", alt: "Impresión profesional" },

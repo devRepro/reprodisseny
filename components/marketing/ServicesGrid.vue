@@ -1,67 +1,90 @@
-<template>
-  <section id="servicios" class="bg-slate-50">
-    <div class="mx-auto max-w-6xl px-4 py-16">
-      <div class="max-w-2xl">
-        <h2 class="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">{{ title }}</h2>
-        <p v-if="subtitle" class="mt-3 text-slate-600">{{ subtitle }}</p>
-      </div>
-
-      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <article
-          v-for="(s, i) in services"
-          :key="i"
-          class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
-        >
-          <div class="flex items-start gap-3">
-            <div class="mt-0.5 inline-flex h-10 w-10 items-center justify-center rounded-xl bg-slate-900 text-white">
-              <Icon v-if="s.icon" :name="s.icon" class="h-5 w-5" />
-              <span v-else class="text-sm font-bold">RD</span>
-            </div>
-
-            <div>
-              <h3 class="text-base font-semibold text-slate-900">{{ s.title }}</h3>
-              <p class="mt-1 text-sm leading-6 text-slate-600">{{ s.description }}</p>
-            </div>
-          </div>
-
-          <NuxtLink
-            v-if="s.to"
-            :to="s.to"
-            class="mt-4 inline-flex text-sm font-semibold text-slate-900 hover:underline"
-          >
-            Ver más →
-          </NuxtLink>
-        </article>
-      </div>
-    </div>
-  </section>
-</template>
-
 <script setup lang="ts">
-type Service = {
-  title: string
-  description: string
-  icon?: string
-  to?: string
-}
-
-withDefaults(
-  defineProps<{
-    title?: string
-    subtitle?: string
-    services?: Service[]
-  }>(),
-  {
-    title: "Servicios principales",
-    subtitle: "Soluciones de impresión y comunicación visual para tu negocio.",
-    services: () => [
-      { title: "Gran formato", description: "Lonas, cartelería, paneles, foam, dibond y más.", icon: "lucide:scan", to: "/categorias/gran-formato" },
-      { title: "Vinilos y rotulación", description: "Vinilo de corte, impreso, escaparates, vehículos y señalética.", icon: "lucide:sticker", to: "/categorias/vinilos" },
-      { title: "PLV y stands", description: "Displays, mostradores, roll-ups, photocalls y ferias.", icon: "lucide:layout-template", to: "/categorias/plv" },
-      { title: "Impresión digital", description: "Flyers, tarjetas, dípticos, catálogos, papelería corporativa.", icon: "lucide:printer", to: "/categorias/impresion-digital" },
-      { title: "Merchandising", description: "Regalos corporativos y productos personalizados.", icon: "lucide:gift", to: "/categorias/merchandising" },
-      { title: "Montaje e instalación", description: "Servicio completo: producción + instalación in situ.", icon: "lucide:truck", to: "/contacto" },
-    ],
+  type Service = {
+    title: string
+    description: string
+    iconSrc: string
   }
-)
-</script>
+  
+  const services: Service[] = [
+    {
+      title: "Diseño gráfico",
+      description:
+        "Si tienes una idea, pero no sabes por dónde empezar, ya sea una simple maquetación, una adaptación de un material existente o tan sólo revisar la preimpresión, nuestros diseñadores te ayudarán encantados.",
+      iconSrc: "/img/icons/disseny.svg",
+    },
+    {
+      title: "Impresión en pequeño y gran formato",
+      description:
+        "Utilizamos distintas técnicas, desde la impresión digital que permite la personalización de documentos a partir de BBDD hasta la impresión offset indicada para grandes tiradas y la impresión látex para soportes de grandes dimensiones.",
+      iconSrc: "/img/icons/impressio.svg",
+    },
+    {
+      title: "Acabados premium",
+      description:
+        "Producimos materiales de alta calidad gracias a acabados especiales como laminado soft touch, barniz selectivo, stamping, troquelados, relieves en seco, encuadernación con tapa dura, contracolados y muchos más.",
+      iconSrc: "/img/icons/premium.svg",
+    },
+    {
+      title: "Corte digital a la forma",
+      description:
+        "Disponemos de una mesa de corte digital Kongsberg con la que cortamos o fresamos a la forma con gran precisión, desde sólo una unidad, infinidad de materiales, vinilos, forex, nido de abeja, cartón pluma, etc.",
+      iconSrc: "/img/icons/tall.svg",
+    },
+    {
+      title: "Rotulación y montaje de vinilos",
+      description:
+        "Instalamos de forma profesional todo tipo de trabajos de rotulación y comunicación visual para oficinas, hoteles, ferias, fábricas, colegios, comercios, etc. Disponemos de montadores propios con gran experiencia.",
+      iconSrc: "/img/icons/vinils.svg",
+    },
+    {
+      title: "Logística - Distribución de tu pedido",
+      description:
+        "Nos encargamos de forma integral de las recogidas, manipulados, picking, embalajes, almacenaje y de la gestión de stocks. Realizamos entregas en menos de 24h. Distribución nacional e internacional.",
+      iconSrc: "/img/icons/logistica.svg",
+    },
+  ]
+  </script>
+  
+  <template>
+    <section class="w-full bg-white">
+      <div class="mx-auto w-full max-w-[1440px] px-5 py-10 md:px-[60px] xl:px-[120px]">
+        <header class="w-full max-w-[1200px]">
+          <h2
+            class="w-full text-[#212121] font-semibold text-[30px] leading-[36px]
+                   after:content-[''] after:block after:mt-6
+                   after:h-px after:w-full after:bg-[#212121]"
+          >
+            Inspiramos confianza en las empresas a través de nuestros servicios
+          </h2>
+        </header>
+  
+        <div class="mt-[50px] grid grid-cols-1 gap-10 md:grid-cols-2 xl:grid-cols-3 xl:gap-x-10 xl:gap-y-[50px]">
+          <article v-for="(service, index) in services" :key="index" class="flex items-start gap-6">
+            <div
+              class="h-[100px] w-[100px] shrink-0 rounded-[12px] bg-[#DEF4FF]
+                     flex items-center justify-center"
+              aria-hidden="true"
+            >
+              <img
+                :src="service.iconSrc"
+                :alt="`Icono: ${service.title}`"
+                class="h-25 w-25"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+  
+            <div class="flex flex-col gap-2 min-w-0">
+              <h3 class="m-0 text-[#212121] font-bold text-[20px] leading-[26px]">
+                {{ service.title }}
+              </h3>
+              <p class="m-0 text-[#212121] font-normal text-[18px] leading-[25px]">
+                {{ service.description }}
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </template>
+  
