@@ -73,7 +73,7 @@ withDefaults(
     bottomText?: string;
   }>(),
   {
-    logoSrc: "/img/logo/logo.svg",
+    logoSrc: "/img/logo/reprodisseny_blanco.svg",
     aboutText:
       "Lorem ipsum dolor sit amet consectetur. Nunc ultrices ut tellus pellentesque viverra faucibus cras in. Quisque turpis in et ipsum volutpat eu adipiscing habitasse massa.",
     col1Title: "Productos",

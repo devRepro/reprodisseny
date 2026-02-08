@@ -120,7 +120,7 @@ export default defineNuxtConfig({
   },
 
   appConfig: {
-    brand: { logoUrl: "/img/logo/logo.svg" },
+    brand: { logoUrl: "/img/logo/reprodisseny.svg" },
   },
 
   modules: [
@@ -159,14 +159,14 @@ export default defineNuxtConfig({
         },
         { property: "og:site_name", content: "Reprodisseny" },
         { property: "og:type", content: "website" },
-        { property: "og:image", content: `${siteUrl}/img/logo/logo.svg` },
+        { property: "og:image", content: `${siteUrl}/img/logo/reprodisseny.svg` },
         { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:image", content: `${siteUrl}/img/logo/logo.svg` },
+        { name: "twitter:image", content: `${siteUrl}/img/logo/reprodisseny.svg` },
         { name: "theme-color", content: "#111827" },
         { name: "format-detection", content: "telephone=no" },
       ],
       link: [
-        { rel: "icon", type: "image/svg+xml", href: "/img/logo/logo.svg" },
+        { rel: "icon", type: "image/svg+xml", href: "/img/logo/reprodisseny.svg" },
         {
           rel: "icon",
           type: "image/png",
@@ -196,7 +196,7 @@ export default defineNuxtConfig({
     "/productos/**": { isr: 600 },
     "/api/productos/**": { swr: 300 },
 
-    "/img/logo.svg": { redirect: { to: "/img/logo/logo.svg", statusCode: 301 } },
+    "/img/logo.svg": { redirect: { to: "/img/logo/reprodisseny.svg", statusCode: 301 } },
   },
 
   compatibilityDate: "2025-06-01",
