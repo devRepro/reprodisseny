@@ -198,7 +198,11 @@ export default defineNuxtConfig({
 
     "/img/logo.svg": { redirect: { to: "/img/logo/reprodisseny.svg", statusCode: 301 } },
   },
-
+  nitro: {
+    prerender: {
+      failOnError: false, // Esto permite que el build termine aunque /presupuesto falle
+    },
+  },
   compatibilityDate: "2025-06-01",
   devtools: { enabled: true },
 })

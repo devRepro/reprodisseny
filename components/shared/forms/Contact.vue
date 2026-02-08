@@ -4,7 +4,8 @@ import { useForm } from "vee-validate";
 import { z } from "zod";
 import { toTypedSchema } from "@vee-validate/zod";
 import { useRoute } from "#imports";
-import { useSendLead } from "@/composables/useSendLead";
+import { usePriceRequests } from "@/composables/usePriceRequests";
+
 import {
   FormField,
   FormItem,
@@ -104,7 +105,7 @@ watch(extraFields, () => {
   });
 });
 
-const { sendLead, isLoading, error, success } = useSendLead();
+const { sendPriceRequest, isLoading, error, success } = usePriceRequests();
 
 /** Envío */
 const onSubmit = handleSubmit(async (values) => {
@@ -293,3 +294,4 @@ const onSubmit = handleSubmit(async (values) => {
     </p>
   </form>
 </template>
+~/composables/usePriceRequests

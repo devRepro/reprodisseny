@@ -1,3 +1,4 @@
+// composables/useCategoriasNav.ts
 import { useAsyncData } from "#app"
 
 export type CategoriaNode = {
@@ -22,7 +23,11 @@ export type ProductoNode = {
   order?: number
 }
 
-type Options = { productLimit?: number; includeProducts?: boolean }
+type Options = {
+  productLimit?: number
+  includeProducts?: boolean
+  mode?: "nav" | "catalog"
+}
 
 type ReturnShape = {
   tree: CategoriaNode[]
@@ -33,13 +38,15 @@ type ReturnShape = {
 export function useCategoriasNav(opts: Options = {}) {
   const productLimit = opts.productLimit ?? 6
   const includeProducts = opts.includeProducts ?? false
+  const mode = opts.mode ?? "nav"
 
   return useAsyncData<ReturnShape>(
-    `cms:catalog:${includeProducts ? "catalog" : "nav"}:${productLimit}`,
+    `cms:catalog:${mode}:ip${includeProducts ? 1 : 0}:pl${productLimit}`,
     () =>
       $fetch("/api/cms/catalog", {
         query: {
-          mode: includeProducts ? "catalog" : "nav",
+          mode,
+          includeProducts: includeProducts ? 1 : 0,
           productLimit,
         },
       }),

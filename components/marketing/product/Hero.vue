@@ -1,74 +1,68 @@
-<!-- components/product/ProductHero.vue -->
+<!-- components/marketing/product/Hero.vue -->
 <script setup lang="ts">
 import { computed } from "vue";
+import LeadForm from "@/components/marketing/product/LeadForm.vue";
 
-const props = withDefaults(
-  defineProps<{
-    title: string;
-    product?: string; // opcional (carpeta del producto)
-    src?: string; // opcional (ruta absoluta, ej: /img/categorias/x/header.webp)
-    file?: string; // archivo dentro de la carpeta del producto
-    description?: string;
-    alt?: string;
-    labels?: string[];
-  }>(),
-  {
-    file: "header.webp",
-    description: "",
-    alt: "",
-    labels: () => [],
-  }
-);
+const props = defineProps<{ product: any }>();
 
 const FALLBACK = "/img/placeholders/producto.webp";
 
-// Decide la imagen final: src absoluto > carpeta de producto > fallback
 const imgSrc = computed(() => {
-  if (props.src) return props.src;
-  if (props.product) return `/img/productos/${props.product}/${props.file}`;
-  return FALLBACK;
+  const x = props.product?.image;
+  const src = typeof x === "string" ? x : x?.src;
+  return src || FALLBACK;
 });
 
-const imgAlt = computed(() => props.alt || props.title);
+const imgAlt = computed(
+  () => props.product?.image?.alt || props.product?.title || "Producto"
+);
 
-function onErr(e: Event) {
-  const el = e.target as HTMLImageElement;
-  if (el && el.src !== location.origin + FALLBACK) {
-    el.src = FALLBACK;
-    el.srcset = "";
-  }
-}
+const extraFields = computed(
+  () => props.product?.formFields || props.product?.extraFields || []
+);
 </script>
 
 <template>
-  <header class="grid gap-6 md:grid-cols-2 items-start">
-    <div>
-      <h1 class="text-3xl md:text-4xl font-bold leading-tight">{{ title }}</h1>
-      <p v-if="description" class="mt-4 text-muted-foreground text-lg">
-        {{ description }}
-      </p>
+  <!-- Figma: producte 1200 dentro de px-[120px] -->
+  <section class="w-[1200px]">
+    <!-- Figma: 575 + 555.95, gap 69 -->
+    <div class="grid grid-cols-[575px_555.95px] gap-[69px] items-start">
+      <!-- IZQUIERDA -->
+      <div class="w-[575px]">
+        <!-- Figma Frame 125: w 571.14, gap 24 -->
+        <div class="w-[571.14px] min-h-[104px] flex flex-col gap-6">
+          <h1 class="text-[30px] leading-[36px] font-semibold text-[#1E1E1E]">
+            {{ product?.title }}
+          </h1>
 
-      <div v-if="labels?.length" class="mt-5 flex flex-wrap gap-2">
-        <span
-          v-for="(chip, i) in labels"
-          :key="i"
-          class="px-3 py-1 text-sm rounded-full bg-muted text-foreground/80"
-        >
-          {{ chip }}
-        </span>
+          <p class="text-[16px] leading-[22.4px] text-[#1E1E1E]">
+            {{ product?.shortDescription }}
+          </p>
+        </div>
+
+        <!-- Figma: 24px entre texto e imagen -->
+        <div class="mt-6">
+          <NuxtImg
+            :src="imgSrc"
+            :alt="imgAlt"
+            class="w-[575px] h-[575px] rounded-[12px] object-cover"
+            sizes="575px"
+            densities="x1 x2"
+            fetchpriority="high"
+          />
+        </div>
+      </div>
+
+      <!-- DERECHA -->
+      <!-- Figma: right block empieza 60px más abajo (top 295 vs 235) -->
+      <div class="pt-[60px] w-[555.95px]">
+        <LeadForm
+          :producto="product.title"
+          :product-data="product"
+          :extra-fields="product.formFields || []"
+          :category-slug="category?.slug || product.categorySlug"
+        />
       </div>
     </div>
-
-    <div class="w-full">
-      <NuxtImg
-        :src="imgSrc"
-        :alt="imgAlt"
-        sizes="(max-width: 768px) 100vw, 50vw"
-        densities="x1 x2"
-        class="w-full h-auto rounded-xl object-cover shadow"
-        fetchpriority="high"
-        @error="onErr"
-      />
-    </div>
-  </header>
+  </section>
 </template>
