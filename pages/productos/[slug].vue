@@ -54,7 +54,7 @@ useSeoMeta({
       <template v-else>
         <!-- HERO: dentro de 1200 (margen 120) -->
         <div class="px-[120px] mt-[50px]">
-          <ProductHero :product="product" />
+          <ProductHero :product="product" :category="category" />
         </div>
 
         <!-- CTA full width 1440x225 -->

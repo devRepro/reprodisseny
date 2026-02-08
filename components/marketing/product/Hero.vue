@@ -1,9 +1,11 @@
-<!-- components/marketing/product/Hero.vue -->
 <script setup lang="ts">
 import { computed } from "vue";
 import LeadForm from "@/components/marketing/product/LeadForm.vue";
 
-const props = defineProps<{ product: any }>();
+const props = defineProps<{
+  product: any;
+  category?: any;
+}>();
 
 const FALLBACK = "/img/placeholders/producto.webp";
 
@@ -13,23 +15,28 @@ const imgSrc = computed(() => {
   return src || FALLBACK;
 });
 
-const imgAlt = computed(
-  () => props.product?.image?.alt || props.product?.title || "Producto"
-);
+const imgAlt = computed(() => {
+  const x = props.product?.image;
+  return (
+    (typeof x === "object" ? x?.alt : undefined) || props.product?.title || "Producto"
+  );
+});
 
 const extraFields = computed(
   () => props.product?.formFields || props.product?.extraFields || []
 );
+
+const categorySlug = computed(
+  () => props.category?.slug || props.product?.categorySlug || ""
+);
+const productTitle = computed(() => props.product?.title || "");
 </script>
 
 <template>
-  <!-- Figma: producte 1200 dentro de px-[120px] -->
   <section class="w-[1200px]">
-    <!-- Figma: 575 + 555.95, gap 69 -->
     <div class="grid grid-cols-[575px_555.95px] gap-[69px] items-start">
       <!-- IZQUIERDA -->
       <div class="w-[575px]">
-        <!-- Figma Frame 125: w 571.14, gap 24 -->
         <div class="w-[571.14px] min-h-[104px] flex flex-col gap-6">
           <h1 class="text-[30px] leading-[36px] font-semibold text-[#1E1E1E]">
             {{ product?.title }}
@@ -40,7 +47,6 @@ const extraFields = computed(
           </p>
         </div>
 
-        <!-- Figma: 24px entre texto e imagen -->
         <div class="mt-6">
           <NuxtImg
             :src="imgSrc"
@@ -54,14 +60,19 @@ const extraFields = computed(
       </div>
 
       <!-- DERECHA -->
-      <!-- Figma: right block empieza 60px más abajo (top 295 vs 235) -->
       <div class="pt-[60px] w-[555.95px]">
-        <LeadForm
-          :producto="product.title"
-          :product-data="product"
-          :extra-fields="product.formFields || []"
-          :category-slug="category?.slug || product.categorySlug"
-        />
+        <!-- Si LeadForm usa window/grecaptcha/etc, esto evita fallos en SSR -->
+        <ClientOnly>
+          <LeadForm
+            :producto="productTitle"
+            :product-data="product"
+            :extra-fields="extraFields"
+            :category-slug="categorySlug"
+          />
+          <template #fallback>
+            <div class="text-sm text-[#959595]">Carregant formulari…</div>
+          </template>
+        </ClientOnly>
       </div>
     </div>
   </section>

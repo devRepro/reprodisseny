@@ -1,6 +1,6 @@
-<!-- layouts/default.vue -->
+<!-- layouts/home.vue -->
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, provide } from "vue";
 import SiteHeader from "@/components/layout/SiteHeader.vue";
 import SiteFooter from "@/components/marketing/SiteFooter.vue";
 import { useCategoriasNav } from "~/composables/useCategoriasNav";
@@ -12,12 +12,28 @@ const { data, pending, error } = await useCategoriasNav({
 });
 
 const menuTree = computed(() => data.value?.tree ?? []);
+
+// ✅ Proveemos refs (y el árbol computed) en un solo objeto
+provide("navMenu", {
+  tree: menuTree, // ComputedRef<CategoriaNode[]>
+  pending, // Ref<boolean>
+  error, // Ref<unknown>
+});
 </script>
 
 <template>
   <div class="min-h-screen flex flex-col bg-white">
-    <SiteHeader :menu-tree="menuTree" :menu-pending="pending" :menu-error="error" />
-    <div class="flex-1"><slot /></div>
+    <SiteHeader
+      :menu-tree="menuTree"
+      :menu-pending="pending"
+      :menu-error="error"
+      :show-menu="false"
+    />
+
+    <div class="flex-1">
+      <slot />
+    </div>
+
     <SiteFooter />
   </div>
 </template>
