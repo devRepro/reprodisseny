@@ -5,7 +5,6 @@ import ContactForm from "@/components/marketing/contact/ContactForm.vue";
 
 <template>
   <main>
-    <SharedHeader />
 
     <ContactHero />
 
