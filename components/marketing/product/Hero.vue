@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import LeadForm from "@/components/marketing/product/LeadForm.vue";
+import { shallowRef, onMounted, computed, ref } from "vue";
 
 const props = defineProps<{
   product: any;
@@ -17,19 +16,24 @@ const imgSrc = computed(() => {
 
 const imgAlt = computed(() => {
   const x = props.product?.image;
-  return (
-    (typeof x === "object" ? x?.alt : undefined) || props.product?.title || "Producto"
-  );
+  return (typeof x === "object" ? x?.alt : undefined) || props.product?.title || "Producto";
 });
 
-const extraFields = computed(
-  () => props.product?.formFields || props.product?.extraFields || []
-);
-
-const categorySlug = computed(
-  () => props.category?.slug || props.product?.categorySlug || ""
-);
+const extraFields = computed(() => props.product?.formFields || props.product?.extraFields || []);
+const categorySlug = computed(() => props.category?.slug || props.product?.categorySlug || "");
 const productTitle = computed(() => props.product?.title || "");
+
+const LeadFormCmp = shallowRef<any>(null);
+const leadFormLoadError = ref<unknown>(null);
+
+onMounted(async () => {
+  try {
+    LeadFormCmp.value = (await import("@/components/marketing/product/LeadForm.vue")).default;
+  } catch (e) {
+    leadFormLoadError.value = e;
+    console.error("LeadForm import failed:", e);
+  }
+});
 </script>
 
 <template>
@@ -41,10 +45,6 @@ const productTitle = computed(() => props.product?.title || "");
           <h1 class="text-[30px] leading-[36px] font-semibold text-[#1E1E1E]">
             {{ product?.title }}
           </h1>
-
-          <p class="text-[16px] leading-[22.4px] text-[#1E1E1E]">
-            {{ product?.shortDescription }}
-          </p>
         </div>
 
         <div class="mt-6">
@@ -61,14 +61,21 @@ const productTitle = computed(() => props.product?.title || "");
 
       <!-- DERECHA -->
       <div class="pt-[60px] w-[555.95px]">
-        <!-- Si LeadForm usa window/grecaptcha/etc, esto evita fallos en SSR -->
         <ClientOnly>
-          <LeadForm
+          <div v-if="leadFormLoadError" class="text-sm text-red-600">
+            Error cargando el formulario.
+          </div>
+
+          <component
+            v-else
+            :is="LeadFormCmp"
+            v-if="LeadFormCmp"
             :producto="productTitle"
             :product-data="product"
             :extra-fields="extraFields"
             :category-slug="categorySlug"
           />
+
           <template #fallback>
             <div class="text-sm text-[#959595]">Carregant formulari…</div>
           </template>

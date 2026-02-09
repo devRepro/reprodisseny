@@ -37,6 +37,8 @@ useSeoMeta({
     product.value?.seo?.metaDescription || product.value?.shortDescription,
   ogImage: () => product.value?.seo?.ogImageSrc || product.value?.image?.src,
 });
+
+
 </script>
 
 <template>

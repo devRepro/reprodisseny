@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-06T07:08:12.062Z",
+  "generatedAt": "2026-02-09T10:12:14.492Z",
   "categories": [
     {
       "id": "10",
@@ -745,12 +745,12 @@
     },
     {
       "id": "6",
-      "updatedAt": "2026-02-04T10:09:30Z",
+      "updatedAt": "2026-02-09T10:11:41Z",
       "type": "categoria",
-      "slug": "hoteles-restaurantes",
-      "path": "/categorias/hoteles-restaurantes",
+      "slug": "hosteleria-restauracion",
+      "path": "/categorias/hoteleria-restauracion",
       "title": "Impresión para Hoteles y Restaurantes",
-      "nav": "Restauración",
+      "nav": "Hostelería y restauración",
       "order": 0,
       "hidden": false,
       "featured": false,
@@ -839,11 +839,11 @@
       "seo": {
         "metaTitle": "Impresión para hoteles, restaurantes y hostelería | Repro Disseny",
         "metaDescription": "Cartas, menús, posavasos, tarjetas y packaging personalizado para hoteles, restaurantes y negocios de hostelería en Cataluña. Calidad profesional y producción local.",
-        "canonical": "https://reprodisseny.com/categorias/hoteles-restaurantes",
+        "canonical": "https://reprodisseny.com/categorias/hoteleria-restauracion",
         "hreflang": [
           {
             "lang": "es-ES",
-            "url": "https://reprodisseny.com/categorias/hoteles-restaurantes"
+            "url": "https://reprodisseny.com/categorias/hoteleria-restauracion"
           }
         ],
         "keywords": [],
@@ -852,7 +852,7 @@
           "@type": "CollectionPage",
           "name": "Impresión para hoteles, restaurantes y hostelería | Repro Disseny",
           "description": "Cartas, menús, posavasos, tarjetas y packaging personalizado para hoteles, restaurantes y negocios de hostelería en Cataluña. Calidad profesional y producción local.",
-          "url": "https://reprodisseny.com/categorias/hoteles-restaurantes",
+          "url": "https://reprodisseny.com/categorias/hoteleria-restauracion",
           "image": "https://webcms.blob.core.windows.net/media/category/hoteles-restaurantes.webp",
           "publisher": {
             "@type": "Organization",
@@ -1272,26 +1272,50 @@
       "variants": [],
       "formFields": [
         {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "30 x 15 cm"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 2 caras"
+          ]
+        },
+        {
+          "label": "Papel",
+          "name": "papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cartulina gráfica de 350 gr."
+          ]
+        },
+        {
+          "label": "Troquelado",
+          "name": "troquelado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "A la forma"
+          ]
+        },
+        {
           "label": "Cantidad",
           "name": "cantidad",
           "type": "number",
           "required": true
         },
         {
-          "label": "Color del abanico",
-          "name": "color",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Blanco",
-            "Negro",
-            "Rojo",
-            "Azul"
-          ]
-        },
-        {
-          "label": "Texto personalizado",
-          "name": "texto",
+          "label": "Observaciones",
+          "name": "observaciones",
           "type": "text",
           "required": false
         }
@@ -1362,7 +1386,59 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Ancho",
+          "name": "ancho",
+          "type": "select",
+          "required": true,
+          "options": [
+            "130 cm",
+            "200 cm",
+            "230 cm",
+            "270 cm"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Sublimación 1 cara"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Poliéster textil"
+          ]
+        },
+        {
+          "label": "Bolsa de transporte",
+          "name": "bolsa transporte",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Bolsa de transporte y piquetas fijación incluído"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Banner Golf | Repro Disseny",
         "metaDescription": "Banner Golf personalizadas con calidad profesional en Cataluña.",
@@ -1429,7 +1505,35 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "Impresión sublimación",
+          "name": "impresión sublimación",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Tazas | Repro Disseny",
         "metaDescription": "Tazas personalizadas con calidad profesional en Cataluña.",
@@ -1496,7 +1600,67 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Personalizado a demanda"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Tela poliéster 225 gr"
+          ]
+        },
+        {
+          "label": "Acabados",
+          "name": "acabados",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Con ojales",
+            "sin ojales"
+          ]
+        },
+        {
+          "label": "Refuerzo perimetral",
+          "name": "refuerzo perimetral",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Si",
+            "No"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Tela poliester | Repro Disseny",
         "metaDescription": "Tela poliester personalizadas con calidad profesional en Cataluña.",
@@ -1563,7 +1727,41 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Textil reposacabezas | Repro Disseny",
         "metaDescription": "Textil reposacabezas personalizadas con calidad profesional en Cataluña.",
@@ -1630,7 +1828,57 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "60 x 4 cm"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ]
+        },
+        {
+          "label": "Papel",
+          "name": "papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado mate 250 gr."
+          ]
+        },
+        {
+          "label": "Acabado",
+          "name": "acabado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Sin plastificar",
+            "Plastificado mate"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Tiras lineal | Repro Disseny",
         "metaDescription": "Tiras lineal personalizadas con calidad profesional en Cataluña.",
@@ -1697,7 +1945,59 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "70x200 cm",
+            "100x200 cm",
+            "150x200 cm"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cartón pluma 10 mm",
+            "Nido de abeja 10 mm"
+          ]
+        },
+        {
+          "label": "Acabados",
+          "name": "acabados",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Corte recto o a la forma"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Totems | Repro Disseny",
         "metaDescription": "Totems personalizadas con calidad profesional en Cataluña.",
@@ -1764,7 +2064,71 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Personalizado a demanda"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ]
+        },
+        {
+          "label": "Aplicación",
+          "name": "aplicación",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Pared",
+            "Cristal",
+            "Suelo"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Fácil aplicación",
+            "Clásico",
+            "Transparente",
+            "Alta adherencia"
+          ]
+        },
+        {
+          "label": "Corte",
+          "name": "corte",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Recto",
+            "A la forma"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Vinilos a medida | Repro Disseny",
         "metaDescription": "Vinilos a medida personalizadas con calidad profesional en Cataluña.",
@@ -1831,7 +2195,85 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Din A-5",
+            "Din A-4",
+            "personalizado"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 2 caras"
+          ]
+        },
+        {
+          "label": "Páginas",
+          "name": "paginas",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Papel cubierta",
+          "name": "papel cubierta",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado mate",
+            "Estucado brillo",
+            "Offset",
+            "Especial"
+          ]
+        },
+        {
+          "label": "Papel interior",
+          "name": "papel interior",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado mate",
+            "Estucado brillo",
+            "Offset",
+            "Reciclado"
+          ]
+        },
+        {
+          "label": "Acabados cubierta",
+          "name": "acabados cubierta",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Plastificado brillo",
+            "Plastificado mate"
+          ]
+        },
+        {
+          "label": "Wire-O",
+          "name": "encuadernación",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Blanco",
+            "Negro",
+            "Color"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        }
+      ],
       "seo": {
         "metaTitle": "Encuadernación  Wire O Oculto | Repro Disseny",
         "metaDescription": "Encuadernación  Wire O Oculto personalizadas con calidad profesional en Cataluña.",
@@ -1898,7 +2340,91 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Din A-5",
+            "Din A-4",
+            "personalizado"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 2 caras"
+          ]
+        },
+        {
+          "label": "Páginas",
+          "name": "paginas",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Papel cubierta",
+          "name": "papel cubierta",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado mate",
+            "Estucado brillo",
+            "Offset",
+            "Especial"
+          ]
+        },
+        {
+          "label": "Papel interior",
+          "name": "papel interior",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado mate",
+            "Estucado brillo",
+            "Offset",
+            "Reciclado"
+          ]
+        },
+        {
+          "label": "Acabados cubierta",
+          "name": "acabados cubierta",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Plastificado brillo",
+            "Plastificado mate"
+          ]
+        },
+        {
+          "label": "Wire-O",
+          "name": "encuadernación",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Blanco",
+            "Negro",
+            "Color"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Encuadernación  Wire O | Repro Disseny",
         "metaDescription": "Encuadernación  Wire O personalizadas con calidad profesional en Cataluña.",
@@ -2033,7 +2559,62 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Din A-6",
+            "Din A-5",
+            "Din A-4"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara",
+            "Cuatricromía 2 caras"
+          ]
+        },
+        {
+          "label": "Papel",
+          "name": "papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Offset 80 gr.",
+            "Offset 90 gr.",
+            "Reciclado 80 gr."
+          ]
+        },
+        {
+          "label": "Encuadernación",
+          "name": "encuadernación",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Encolado",
+            "Wire-O"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Bloc de notas | Repro Disseny",
         "metaDescription": "Bloc de notas personalizadas con calidad profesional en Cataluña.",
@@ -2100,7 +2681,60 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "50x70 cm",
+            "59",
+            "4x84 cm",
+            "70x100 cm"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Sin impresión",
+            "con impresión"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado mate 170 gr"
+          ]
+        },
+        {
+          "label": "Estructura",
+          "name": "estructura",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Aluminio plata+pantalla protectora"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Caballetes | Repro Disseny",
         "metaDescription": "Caballetes personalizadas con calidad profesional en Cataluña.",
@@ -2167,7 +2801,76 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "85x200 cm",
+            "100x200 cm",
+            "120x200 cm"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "2 gráficas en cuatricromía"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Tela poliéster 200g libre de PVC retroiluminada."
+          ]
+        },
+        {
+          "label": "Estructura",
+          "name": "estructura",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Aluminio plata ancho marco 8 cm"
+          ]
+        },
+        {
+          "label": "Pies",
+          "name": "pies",
+          "type": "select",
+          "required": true,
+          "options": [
+            "2 pies retráctiles"
+          ]
+        },
+        {
+          "label": "Conexión eléctrica",
+          "name": "conexión eléctrica",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Enchufe 220 V"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Cajas de luz | Repro Disseny",
         "metaDescription": "Cajas de luz personalizadas con calidad profesional en Cataluña.",
@@ -2234,7 +2937,72 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Din A-5",
+            "Din A-4",
+            "15x15 cm",
+            "21x10 cm",
+            "34 x 48 cm"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 2 caras"
+          ]
+        },
+        {
+          "label": "Papel",
+          "name": "papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado mate o brillo 350 gr."
+          ]
+        },
+        {
+          "label": "Tipo",
+          "name": "tipo",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Triangular de mesa",
+            "De pared grapado",
+            "De mesa Wire-O"
+          ]
+        },
+        {
+          "label": "Encuadernación",
+          "name": "encuadernación",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Wire-O",
+            "Grapado"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Calendarios | Repro Disseny",
         "metaDescription": "Calendarios personalizadas con calidad profesional en Cataluña.",
@@ -2567,7 +3335,81 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "5",
+            "5x 8",
+            "5 cm",
+            "9x12 cm"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "1 cara",
+            "2 caras"
+          ]
+        },
+        {
+          "label": "Tintas",
+          "name": "tintas",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía"
+          ]
+        },
+        {
+          "label": "Papel",
+          "name": "papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado mate 300 gr",
+            "Cartulina extra 300 gr",
+            "Conqueror 300 gr."
+          ]
+        },
+        {
+          "label": "Corte",
+          "name": "corte",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Corte recto y orificio superior"
+          ]
+        },
+        {
+          "label": "Esquinas redondeadas",
+          "name": "esquinas",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Si",
+            "No"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Acreditaciones | Repro Disseny",
         "metaDescription": "Acreditaciones personalizadas con calidad profesional en Cataluña.",
@@ -2634,7 +3476,54 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Din A-3",
+            "Din A-2",
+            "Din A-1",
+            "Din A-0",
+            "70x100 cm",
+            "100x140 cm",
+            "Personalizado"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado 150 gr",
+            "Estucado 200 gr"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Carteles | Repro Disseny",
         "metaDescription": "Carteles personalizadas con calidad profesional en Cataluña.",
@@ -2701,7 +3590,67 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Personalizado a demanda"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara",
+            "Cuatricromía 2 caras"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Serimatt 2 mm"
+          ]
+        },
+        {
+          "label": "Color",
+          "name": "color",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Blanco"
+          ]
+        },
+        {
+          "label": "Corte",
+          "name": "corte",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Recto",
+            "A la forma"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Cartón compacto | Repro Disseny",
         "metaDescription": "Cartón compacto personalizadas con calidad profesional en Cataluña.",
@@ -2768,7 +3717,68 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Personalizado a demanda"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara",
+            "Cuatricromía 2 caras"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Microcanal E 1700 µ"
+          ]
+        },
+        {
+          "label": "Color",
+          "name": "color",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Blanco",
+            "Kraft"
+          ]
+        },
+        {
+          "label": "Corte",
+          "name": "corte",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Recto",
+            "A la forma"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Cartón corrugado | Repro Disseny",
         "metaDescription": "Cartón corrugado personalizadas con calidad profesional en Cataluña.",
@@ -2835,7 +3845,51 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Din A-4",
+            "Din A-3"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara",
+            "Cuatricromía 2 caras"
+          ]
+        },
+        {
+          "label": "Papel",
+          "name": "papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado mate 250 gr",
+            "Estucado mate 300 gr",
+            "Estucado mate 350 gr"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Certificados | Repro Disseny",
         "metaDescription": "Certificados personalizadas con calidad profesional en Cataluña.",
@@ -2902,7 +3956,72 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "6",
+            "5x11",
+            "7 cm",
+            "6",
+            "5x14",
+            "7 cm"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara",
+            "Cuatricromía 2 caras"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Folding 255 gr"
+          ]
+        },
+        {
+          "label": "Forma",
+          "name": "forma",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuadrado",
+            "Rectangular"
+          ]
+        },
+        {
+          "label": "Troquelado",
+          "name": "troquelado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "A la forma"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Colgador de botellas | Repro Disseny",
         "metaDescription": "Colgador de botellas personalizadas con calidad profesional en Cataluña.",
@@ -2969,7 +4088,66 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "10x20 cm"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "2 caras"
+          ]
+        },
+        {
+          "label": "Tintas",
+          "name": "tintas",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía"
+          ]
+        },
+        {
+          "label": "Papel",
+          "name": "papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado mate 300 gr",
+            "Cartulina gráfica de 350 gr."
+          ]
+        },
+        {
+          "label": "Troquelado",
+          "name": "troquelado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "A la forma"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Colgador de puerta | Repro Disseny",
         "metaDescription": "Colgador de puerta personalizadas con calidad profesional en Cataluña.",
@@ -3036,7 +4214,91 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "16x23",
+            "17x24",
+            "Din A-5",
+            "Din A-4",
+            "personalizado"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 2 caras"
+          ]
+        },
+        {
+          "label": "Páginas",
+          "name": "paginas",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Papel cubierta",
+          "name": "papel cubierta",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado mate",
+            "Estucado brillo",
+            "Offset",
+            "Especial"
+          ]
+        },
+        {
+          "label": "Papel interior",
+          "name": "papel interior",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado mate",
+            "Estucado brillo",
+            "Offset",
+            "Reciclado"
+          ]
+        },
+        {
+          "label": "Acabados cubierta",
+          "name": "acabados cubierta",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Plastificado brillo",
+            "Plastificado mate"
+          ]
+        },
+        {
+          "label": "Encuadernación",
+          "name": "encuadernación",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Rústica cosida"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Encuadernación  cosida tapa blanda | Repro Disseny",
         "metaDescription": "Encuadernación  cosida tapa blanda personalizadas con calidad profesional en Cataluña.",
@@ -3103,7 +4365,91 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "16x23",
+            "17x24",
+            "Din A-5",
+            "Din A-4",
+            "personalizado"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 2 caras"
+          ]
+        },
+        {
+          "label": "Páginas",
+          "name": "paginas",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Papel cubierta",
+          "name": "papel cubierta",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado mate",
+            "Estucado brillo",
+            "Offset",
+            "Especial"
+          ]
+        },
+        {
+          "label": "Papel interior",
+          "name": "papel interior",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado mate",
+            "Estucado brillo",
+            "Offset",
+            "Reciclado"
+          ]
+        },
+        {
+          "label": "Acabados cubierta",
+          "name": "acabados cubierta",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Plastificado brillo",
+            "Plastificado mate"
+          ]
+        },
+        {
+          "label": "Encuadernación",
+          "name": "encuadernación",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Tapa dura cosida"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Encuadernación  cosida tapa dura | Repro Disseny",
         "metaDescription": "Encuadernación  cosida tapa dura personalizadas con calidad profesional en Cataluña.",
@@ -3170,7 +4516,49 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "32x32x32 cm",
+            "40x40x40 cm"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cartón microcanal estucado mate - 1",
+            "6 mm."
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Cubos | Repro Disseny",
         "metaDescription": "Cubos personalizadas con calidad profesional en Cataluña.",
@@ -3237,7 +4625,61 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "45x153",
+            "5x11",
+            "5 cm",
+            "60x153",
+            "5x15 cm"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cartón corrugado 2",
+            "3 mm"
+          ]
+        },
+        {
+          "label": "Acabados",
+          "name": "acabados",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Hendido y fijación por tiras autoadhesivas"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Cubrealarmas | Repro Disseny",
         "metaDescription": "Cubrealarmas personalizadas con calidad profesional en Cataluña.",
@@ -3304,7 +4746,82 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Din A-5",
+            "Din A-4"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 2 caras"
+          ]
+        },
+        {
+          "label": "Papel cubiertas",
+          "name": "papel cubiertas",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado mate 350 gr.",
+            "Cartulina gráfica 350 gr."
+          ]
+        },
+        {
+          "label": "Acabados cubierta",
+          "name": "acabados cubierta",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Sin plastificar",
+            "Plastificado mate 2 caras",
+            "Plastificado brillo 2 caras"
+          ]
+        },
+        {
+          "label": "Papel interior",
+          "name": "papel interior",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Offset 80 gr.",
+            "Offset 90 gr.",
+            "Reciclado 80 gr."
+          ]
+        },
+        {
+          "label": "Encuadernación",
+          "name": "encuadernación",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Wire-O",
+            "Rústica cosida",
+            "Tapa dura cosida"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Agendas personalizadas | Repro Disseny",
         "metaDescription": "Agendas personalizadas personalizadas con calidad profesional en Cataluña.",
@@ -3371,7 +4888,52 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "10",
+            "5 x 14",
+            "8 cm",
+            "9",
+            "9 x 21 cm"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara",
+            "Cuatricromía 2 caras"
+          ]
+        },
+        {
+          "label": "Papel",
+          "name": "papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado mate de 300 gr."
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Cupones promocionales | Repro Disseny",
         "metaDescription": "Cupones promocionales personalizadas con calidad profesional en Cataluña.",
@@ -3438,7 +5000,44 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Textil"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Delantales | Repro Disseny",
         "metaDescription": "Delantales personalizadas con calidad profesional en Cataluña.",
@@ -3505,7 +5104,67 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Personalizado a demanda"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Dibond 3 mm"
+          ]
+        },
+        {
+          "label": "Color",
+          "name": "color",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Blanco trasera blanca",
+            "gris cepillado trasera blanca"
+          ]
+        },
+        {
+          "label": "Fresado",
+          "name": "fresado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Recto",
+            "A la forma"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Dibon | Repro Disseny",
         "metaDescription": "Dibon personalizadas con calidad profesional en Cataluña.",
@@ -3572,7 +5231,60 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Din A4",
+            "Din A3"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "1 cara",
+            "2 caras"
+          ]
+        },
+        {
+          "label": "Tintas",
+          "name": "tintas",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía"
+          ]
+        },
+        {
+          "label": "Papel",
+          "name": "papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado mate 300 gr",
+            "Cartulina extra 300 gr",
+            "Conqueror 300 gr."
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Diplomas | Repro Disseny",
         "metaDescription": "Diplomas personalizadas con calidad profesional en Cataluña.",
@@ -3639,7 +5351,66 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "7",
+            "5x12 cm"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "2 caras"
+          ]
+        },
+        {
+          "label": "Tintas",
+          "name": "tintas",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía"
+          ]
+        },
+        {
+          "label": "Papel",
+          "name": "papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cartulina gráfica de 240 gr."
+          ]
+        },
+        {
+          "label": "Troquelado",
+          "name": "troquelado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Corte + ranuras"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Díptico tarjeta habitación | Repro Disseny",
         "metaDescription": "Díptico tarjeta habitación personalizadas con calidad profesional en Cataluña.",
@@ -3706,7 +5477,68 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Personalizado a demanda"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara",
+            "Cuatricromía 2 caras"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Dispa 3",
+            "8 mm"
+          ]
+        },
+        {
+          "label": "Color",
+          "name": "color",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Blanco"
+          ]
+        },
+        {
+          "label": "Corte",
+          "name": "corte",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Recto",
+            "A la forma"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Dispa | Repro Disseny",
         "metaDescription": "Dispa personalizadas con calidad profesional en Cataluña.",
@@ -3773,7 +5605,121 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "21x29",
+            "7 cm",
+            "personalizado a demanda"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado mate 170 gr sobre cartón compacto"
+          ]
+        },
+        {
+          "label": "Forma",
+          "name": "forma",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Envolvente",
+            "troquelado",
+            "con bolsillo"
+          ]
+        },
+        {
+          "label": "Acabados",
+          "name": "acabados",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Plastificado brillo",
+            "Plastificado mate"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        },
+        {
+          "label": "Forma",
+          "name": "forma",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Prisma",
+            "Triangulares",
+            "Tetraedro",
+            "Hexaedro"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ]
+        },
+        {
+          "label": "Papel",
+          "name": "papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cartulina gráfica 350 gr."
+          ]
+        },
+        {
+          "label": "Troquelado",
+          "name": "troquelado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "A la forma"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Displays | Repro Disseny",
         "metaDescription": "Displays personalizadas con calidad profesional en Cataluña.",
@@ -3840,7 +5786,54 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "Soporte",
+          "name": "soporte",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Fondo blanco",
+            "Espejo",
+            "Sin fondo blanco",
+            "Imán"
+          ]
+        },
+        {
+          "label": "Resina",
+          "name": "resina",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Mate",
+            "Brillante"
+          ]
+        },
+        {
+          "label": "Adhesivo",
+          "name": "adhesivo",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Doming ( gota resina ) | Repro Disseny",
         "metaDescription": "Doming ( gota resina ) personalizadas con calidad profesional en Cataluña.",
@@ -3907,7 +5900,56 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "21 x 15 cm"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "1 cara"
+          ]
+        },
+        {
+          "label": "Tintas",
+          "name": "tintas",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Pretex 90-120 gr."
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Dorsales de carrera | Repro Disseny",
         "metaDescription": "Dorsales de carrera personalizadas con calidad profesional en Cataluña.",
@@ -3974,7 +6016,91 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "16x23",
+            "17x24",
+            "Din A-5",
+            "Din A-4",
+            "personalizado"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 2 caras"
+          ]
+        },
+        {
+          "label": "Páginas",
+          "name": "paginas",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Papel cubierta",
+          "name": "papel cubierta",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado mate",
+            "Estucado brillo",
+            "Offset",
+            "Especial"
+          ]
+        },
+        {
+          "label": "Papel interior",
+          "name": "papel interior",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado mate",
+            "Estucado brillo",
+            "Offset",
+            "Reciclado"
+          ]
+        },
+        {
+          "label": "Acabados cubierta",
+          "name": "acabados cubierta",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Plastificado brillo",
+            "Plastificado mate"
+          ]
+        },
+        {
+          "label": "Encuadernación",
+          "name": "encuadernación",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Rústica encolada"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Encuadernación  encolada tapa blanda | Repro Disseny",
         "metaDescription": "Encuadernación  encolada tapa blanda personalizadas con calidad profesional en Cataluña.",
@@ -4041,7 +6167,106 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "39x53 cm",
+            "81x149 cm"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "2 caras"
+          ]
+        },
+        {
+          "label": "Tintas",
+          "name": "tintas",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cartón nido de abeja 10 mm"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        },
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "39x53 cm",
+            "81x149 cm"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "2 caras"
+          ]
+        },
+        {
+          "label": "Tintas",
+          "name": "tintas",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cartón nido de abeja 10 mm"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Árbol de navidad | Repro Disseny",
         "metaDescription": "Árbol de navidad personalizadas con calidad profesional en Cataluña.",
@@ -4110,15 +6335,86 @@
       "variants": [],
       "formFields": [
         {
-          "label": "Tipo Wire-o",
-          "name": "color",
+          "label": "Tamaño",
+          "name": "tamaño",
           "type": "select",
-          "required": false,
+          "required": true,
           "options": [
-            "Blanco",
-            "Negro",
-            "Dourado"
+            "Din A-5",
+            "Din A-4",
+            "personalizado"
           ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 2 caras"
+          ]
+        },
+        {
+          "label": "Páginas (múltiplos de 4)",
+          "name": "paginas",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Papel cubierta",
+          "name": "papel cubierta",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado mate",
+            "Estucado brillo",
+            "Offset",
+            "Especial"
+          ]
+        },
+        {
+          "label": "Papel interior",
+          "name": "papel interior",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado mate",
+            "Estucado brillo",
+            "Offset",
+            "Reciclado"
+          ]
+        },
+        {
+          "label": "Acabados cubierta",
+          "name": "acabados cubierta",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Plastificado brillo",
+            "Plastificado mate"
+          ]
+        },
+        {
+          "label": "Encuadernación",
+          "name": "encuadernación",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Normal",
+            "Grapa Omega"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
         }
       ],
       "seo": {
@@ -4187,7 +6483,80 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Personalizado a demanda"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cartón pluma 5 mm"
+          ]
+        },
+        {
+          "label": "Forma",
+          "name": "forma",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuadrado",
+            "Vertical",
+            "Horizontal"
+          ]
+        },
+        {
+          "label": "Marco",
+          "name": "marco",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Aluminio",
+            "Madera"
+          ]
+        },
+        {
+          "label": "Color",
+          "name": "color",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Blanco",
+            "Negro",
+            "Gris",
+            "Dorado"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Enmarcados | Repro Disseny",
         "metaDescription": "Enmarcados personalizadas con calidad profesional en Cataluña.",
@@ -4254,7 +6623,74 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "21 x 10 cm",
+            "21 x 7 cm",
+            "14 x 5 cm",
+            "14 x 7 cm"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara",
+            "Cuatricromía 2 caras"
+          ]
+        },
+        {
+          "label": "Papel",
+          "name": "papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Ofset 90 gr",
+            "Estucado brillo de 135 gr."
+          ]
+        },
+        {
+          "label": "Talonarios",
+          "name": "talonarios",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Hoja sueltas",
+            "25 hojas",
+            "50 hojas"
+          ]
+        },
+        {
+          "label": "Acabados",
+          "name": "acabados",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Sin microcorte + 1 numerador",
+            "1 microcorte + 2 numeradores",
+            "2 microcorte + 3 numeradores"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Entradas | Repro Disseny",
         "metaDescription": "Entradas personalizadas con calidad profesional en Cataluña.",
@@ -4321,7 +6757,59 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Forma",
+          "name": "forma",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Redonda",
+            "Cuadrada",
+            "Rectangular",
+            "Ovalada"
+          ]
+        },
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "Aspecto",
+          "name": "aspecto",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Plástico blanco",
+            "Transparente",
+            "Papel"
+          ]
+        },
+        {
+          "label": "Dispensador",
+          "name": "dispensador",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Sin dispensador",
+            "Dispensador en rollo"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Etiquetas en bobina | Repro Disseny",
         "metaDescription": "Etiquetas en bobina personalizadas con calidad profesional en Cataluña.",
@@ -4388,7 +6876,70 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "5",
+            "5x8",
+            "5 cm",
+            "Personalizado"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 2 caras"
+          ]
+        },
+        {
+          "label": "Papel",
+          "name": "papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cartulina gráfica 350 gr."
+          ]
+        },
+        {
+          "label": "Acabado",
+          "name": "acabado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Sin plastificar",
+            "Plastificado mate 2 caras",
+            "Plastificado brillo 2 caras"
+          ]
+        },
+        {
+          "label": "Perforación",
+          "name": "perforación",
+          "type": "select",
+          "required": true,
+          "options": [
+            "1 agujero"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Etiquetas colgantes | Repro Disseny",
         "metaDescription": "Etiquetas colgantes personalizadas con calidad profesional en Cataluña.",
@@ -4455,7 +7006,56 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Personalizado a demanda"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Microcanal E Blanco 1700 µ"
+          ]
+        },
+        {
+          "label": "Acabados",
+          "name": "acabados",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Troquelado y hendidos automontables"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Expositores de mesa | Repro Disseny",
         "metaDescription": "Expositores de mesa personalizadas con calidad profesional en Cataluña.",
@@ -4522,7 +7122,56 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Personalizado a demanda"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Microcanal E Blanco 1700 µ"
+          ]
+        },
+        {
+          "label": "Acabados",
+          "name": "acabados",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Troquelado y hendidos automontables"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Expositores de suelo | Repro Disseny",
         "metaDescription": "Expositores de suelo personalizadas con calidad profesional en Cataluña.",
@@ -4589,7 +7238,50 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 2 caras"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true
+        },
+        {
+          "label": "Troquelado",
+          "name": "troquelado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "A la forma"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Figuras árbol de navidad | Repro Disseny",
         "metaDescription": "Figuras árbol de navidad personalizadas con calidad profesional en Cataluña.",
@@ -4656,7 +7348,75 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Din A-7",
+            "Din A-6",
+            "Din A-5",
+            "Din A-4",
+            "Personalizado"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 2 caras"
+          ]
+        },
+        {
+          "label": "Papel",
+          "name": "papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado mate",
+            "Offset",
+            "Reciclado"
+          ]
+        },
+        {
+          "label": "Gramaje",
+          "name": "gramaje",
+          "type": "select",
+          "required": true,
+          "options": [
+            "90 gr.",
+            "135 gr.",
+            "170 gr.",
+            "250 gr.",
+            "300 gr."
+          ]
+        },
+        {
+          "label": "Troquelado",
+          "name": "troquelado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "A la forma"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Flyers con forma | Repro Disseny",
         "metaDescription": "Flyers con forma personalizadas con calidad profesional en Cataluña.",
@@ -4726,35 +7486,70 @@
       "formFields": [
         {
           "label": "Tamaño",
-          "name": "tamano",
+          "name": "tamaño",
           "type": "select",
           "required": true,
           "options": [
-            "A5",
-            "A4",
-            "A3"
+            "Din A-7",
+            "Din A-6",
+            "Din A-5",
+            "Din A-4",
+            "Personalizado"
           ]
         },
         {
-          "label": "Tipo de papel",
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 2 caras"
+          ]
+        },
+        {
+          "label": "Papel",
           "name": "papel",
           "type": "select",
           "required": true,
           "options": [
-            "Couché",
-            "Reciclado",
-            "Estucado"
+            "Estucado mate",
+            "Offset",
+            "Reciclado"
           ]
         },
         {
-          "label": "Acabado",
-          "name": "acabado",
+          "label": "Gramaje",
+          "name": "gramaje",
           "type": "select",
-          "required": false,
+          "required": true,
           "options": [
-            "Brillo",
-            "Mate"
+            "90 gr.",
+            "135 gr.",
+            "170 gr.",
+            "250 gr.",
+            "300 gr."
           ]
+        },
+        {
+          "label": "Corte",
+          "name": "corte",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Recto"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
         }
       ],
       "seo": {
@@ -4890,7 +7685,85 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Forma",
+          "name": "forma",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Dípticos",
+            "Trípticos",
+            "Cuadrípticos"
+          ]
+        },
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Din A-5",
+            "Din A-4",
+            "Din A-3",
+            "Personalizado"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 2 caras"
+          ]
+        },
+        {
+          "label": "Papel",
+          "name": "papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado mate",
+            "Estucado brillo"
+          ]
+        },
+        {
+          "label": "Gramaje",
+          "name": "gramaje",
+          "type": "select",
+          "required": true,
+          "options": [
+            "135 gr.",
+            "150 gr.",
+            "170 gr."
+          ]
+        },
+        {
+          "label": "Plegado",
+          "name": "plegado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Simple",
+            "Envolvente",
+            "Zig-Zag",
+            "Ventana"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Folletos plegados | Repro Disseny",
         "metaDescription": "Folletos plegados personalizadas con calidad profesional en Cataluña.",
@@ -4958,7 +7831,69 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Personalizado a demanda"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "PVC espumado 3 mm",
+            "PVC espumado 5 mm",
+            "PVC espumado 10 mm"
+          ]
+        },
+        {
+          "label": "Color",
+          "name": "color",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Blanco",
+            "negro"
+          ]
+        },
+        {
+          "label": "Corte",
+          "name": "corte",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Recto",
+            "A la forma"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Forex | Repro Disseny",
         "metaDescription": "Forex personalizadas con calidad profesional en Cataluña.",
@@ -5025,7 +7960,36 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Forma",
+          "name": "forma",
+          "type": "select",
+          "required": true
+        },
+        {
+          "label": "Papel",
+          "name": "papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Kraft 300 gr",
+            "Cartoncillo blanco 275 gr."
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Fundas Rosas Sant Jordi | Repro Disseny",
         "metaDescription": "Fundas Rosas Sant Jordi personalizadas con calidad profesional en Cataluña.",
@@ -5127,6 +8091,12 @@
           "name": "cantidad",
           "type": "number",
           "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
         }
       ],
       "seo": {
@@ -5197,7 +8167,88 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Din A-5",
+            "Din A-4"
+          ]
+        },
+        {
+          "label": "Tintas",
+          "name": "tintas",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía",
+            "Escala de Grises"
+          ]
+        },
+        {
+          "label": "Tipo Impresión",
+          "name": "tipo impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "1 cara",
+            "2 caras"
+          ]
+        },
+        {
+          "label": "Páginas",
+          "name": "paginas",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Papel",
+          "name": "papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado mate",
+            "Estucado brillo",
+            "Offset",
+            "Reciclado"
+          ]
+        },
+        {
+          "label": "Gramaje",
+          "name": "gramaje",
+          "type": "select",
+          "required": true,
+          "options": [
+            "90 gr.",
+            "135 gr.",
+            "170 gr."
+          ]
+        },
+        {
+          "label": "Perforación",
+          "name": "perforación",
+          "type": "select",
+          "required": true,
+          "options": [
+            "2 agujeros"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Holas sueltas para archivadores | Repro Disseny",
         "metaDescription": "Holas sueltas para archivadores personalizadas con calidad profesional en Cataluña.",
@@ -5264,7 +8315,61 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "110x110 cm",
+            "100x150 cm",
+            "150x150 cm",
+            "150x200 cm",
+            "150x250 cm",
+            "150x300 cm"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Lona hule afelpada 140 gr"
+          ]
+        },
+        {
+          "label": "Corte",
+          "name": "corte",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Recto"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Hule personalizado | Repro Disseny",
         "metaDescription": "Hule personalizado personalizadas con calidad profesional en Cataluña.",
@@ -5331,7 +8436,42 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara",
+            "Cuatricromía 2 caras"
+          ]
+        },
+        {
+          "label": "Papel",
+          "name": "papel",
+          "type": "select",
+          "required": true
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Identificador de maleta | Repro Disseny",
         "metaDescription": "Identificador de maleta personalizadas con calidad profesional en Cataluña.",
@@ -5398,7 +8538,63 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "6",
+            "5x11",
+            "7 cm",
+            "6",
+            "5x14",
+            "7 cm"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara",
+            "Cuatricromía 2 caras"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Polipropileno",
+            "Cartulina gráfica"
+          ]
+        },
+        {
+          "label": "Troquelado",
+          "name": "troquelado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "A la forma"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Identificador de maleta | Repro Disseny",
         "metaDescription": "Identificador de maleta personalizadas con calidad profesional en Cataluña.",
@@ -5466,7 +8662,128 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Personalizado a demanda"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado 200 gr + Imán 1 mm"
+          ]
+        },
+        {
+          "label": "Acabados",
+          "name": "acabados",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Plastificado brillo",
+            "Plastificado mate",
+            "Plastificado velleda"
+          ]
+        },
+        {
+          "label": "Corte",
+          "name": "corte",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Recto",
+            "A la forma"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        },
+        {
+          "label": "Forma",
+          "name": "forma",
+          "type": "select",
+          "required": true,
+          "options": [
+            "De nevera",
+            "Pizarras magnéticas",
+            "Para coches",
+            "Calendarios"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ]
+        },
+        {
+          "label": "Papel",
+          "name": "papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cartulina de 200 gr. + Plastificado brillo"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Imán 1mm"
+          ]
+        },
+        {
+          "label": "Troquelado",
+          "name": "troquelado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "A la forma"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Imanes | Repro Disseny",
         "metaDescription": "Imanes personalizadas con calidad profesional en Cataluña.",
@@ -5533,7 +8850,53 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tipo de impresion",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Sublimación",
+            "Serigrafía"
+          ]
+        },
+        {
+          "label": "Tintas",
+          "name": "tintas",
+          "type": "select",
+          "required": true,
+          "options": [
+            "1",
+            "2",
+            "Cuatricromía"
+          ]
+        },
+        {
+          "label": "Ancho cinta",
+          "name": "ancho",
+          "type": "select",
+          "required": true,
+          "options": [
+            "10 mm",
+            "15 mm",
+            "20 mm",
+            "25 mm"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Lanyards | Repro Disseny",
         "metaDescription": "Lanyards personalizadas con calidad profesional en Cataluña.",
@@ -5601,7 +8964,56 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Con impresión",
+            "Sin impresión"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Nido de abeja 16 mm",
+            "Nido de abeja 32 mm",
+            "PVC 10 mm"
+          ]
+        },
+        {
+          "label": "Acabados",
+          "name": "acabados",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cortado a la forma"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Letras Corporeas | Repro Disseny",
         "metaDescription": "Letras Corporeas personalizadas con calidad profesional en Cataluña.",
@@ -5669,7 +9081,81 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Din A-5",
+            "Din A-4"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara",
+            "Cuatricromía 2 caras"
+          ]
+        },
+        {
+          "label": "Papel cubiertas",
+          "name": "papel cubiertas",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado mate 350 gr.",
+            "Cartulina gráfica 350 gr."
+          ]
+        },
+        {
+          "label": "Acabados cubierta",
+          "name": "acabados cubierta",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Sin plastificar",
+            "Plastificado mate 2 caras",
+            "Plastificado brillo 2 caras"
+          ]
+        },
+        {
+          "label": "Papel interior",
+          "name": "papel interior",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Offset 80 gr.",
+            "Offset 90 gr.",
+            "Reciclado 80 gr."
+          ]
+        },
+        {
+          "label": "Encuadernación",
+          "name": "encuadernación",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Wire-O"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Libretas | Repro Disseny",
         "metaDescription": "Libretas personalizadas con calidad profesional en Cataluña.",
@@ -5736,7 +9222,67 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Personalizado a demanda"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Lona PVC 400 g"
+          ]
+        },
+        {
+          "label": "Acabados",
+          "name": "acabados",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Con ojales",
+            "sin ojales"
+          ]
+        },
+        {
+          "label": "Refuerzo perimetral",
+          "name": "refuerzo perimetral",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Si",
+            "No"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Lona publicitaria | Repro Disseny",
         "metaDescription": "Lona publicitaria personalizadas con calidad profesional en Cataluña.",
@@ -5803,7 +9349,69 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Personalizado a demanda"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara",
+            "Cuatricromía 2 caras"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "MDF 10 mm",
+            "MDF 19 mm",
+            "Contrachapado 10 mm"
+          ]
+        },
+        {
+          "label": "Color",
+          "name": "color",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Natural"
+          ]
+        },
+        {
+          "label": "Fresado",
+          "name": "fresado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Recto",
+            "A la forma"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Madera | Repro Disseny",
         "metaDescription": "Madera personalizadas con calidad profesional en Cataluña.",
@@ -5850,8 +9458,8 @@
     {
       "id": "65",
       "type": "producto",
-      "slug": "manteles-individuales-de-mesa",
-      "path": "/productos/manteles-individuales-de-mesa",
+      "slug": "manteles-individuales",
+      "path": "/productos/manteles-individuales",
       "title": "Manteles individuales de mesa",
       "categorySlug": "hoteles-restaurantes",
       "isPublished": true,
@@ -5874,7 +9482,7 @@
       "seo": {
         "metaTitle": "Manteles individuales de mesa | Repro Disseny",
         "metaDescription": "Manteles individuales de mesa personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/manteles-individuales-de-mesa",
+        "canonical": "https://reprodisseny.com/productos/manteles-individuales",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -6004,7 +9612,110 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "70 x 100 cm",
+            "100 x 100 cm",
+            "100 x 140 cm"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "1 cara"
+          ]
+        },
+        {
+          "label": "Tintas",
+          "name": "tintas",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cartón pluma 10 mm"
+          ]
+        },
+        {
+          "label": "Corte ventana",
+          "name": "Corte",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Recto",
+            "A la forma"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        },
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "70x100 cm",
+            "100x100 cm",
+            "100x140 cm"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cartón pluma 5 mm",
+            "Cartón pluma 10 mm"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Marcos photocall | Repro Disseny",
         "metaDescription": "Marcos photocall personalizadas con calidad profesional en Cataluña.",
@@ -6071,7 +9782,64 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "21x29",
+            "7 cm",
+            "29",
+            "7x42 cm",
+            "42x59",
+            "4 cm",
+            "50x70 cm",
+            "70x100 cm"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Sin impresión",
+            "con impresión"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado mate 170 gr"
+          ]
+        },
+        {
+          "label": "Estructura",
+          "name": "estructura",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Aluminio plata facil clic"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Marcos click system | Repro Disseny",
         "metaDescription": "Marcos click system personalizadas con calidad profesional en Cataluña.",
@@ -6138,7 +9906,68 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Personalizado a demanda"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Metacrilato colada 3 mm",
+            "Metacrilato colada 5 mm"
+          ]
+        },
+        {
+          "label": "Color",
+          "name": "color",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Transparente",
+            "blanco"
+          ]
+        },
+        {
+          "label": "Fresado",
+          "name": "fresado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Recto",
+            "A la forma"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Metacrilato | Repro Disseny",
         "metaDescription": "Metacrilato personalizadas con calidad profesional en Cataluña.",
@@ -6205,7 +10034,75 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Ancho",
+          "name": "ancho",
+          "type": "select",
+          "required": true,
+          "options": [
+            "50",
+            "60 cm"
+          ]
+        },
+        {
+          "label": "Alto",
+          "name": "alto",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Personalizado a demanda"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 2 caras"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Lona PVC 400 g"
+          ]
+        },
+        {
+          "label": "Mástiles metálicos",
+          "name": "mástiles metálicos",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Si"
+          ]
+        },
+        {
+          "label": "Kit sujección",
+          "name": "kit sujección",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Si"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Banderola para fachada de lona | Repro Disseny",
         "metaDescription": "Banderola para fachada de lona personalizadas con calidad profesional en Cataluña.",
@@ -6272,7 +10169,103 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "10 x 21 cm",
+            "15 x 21 cm",
+            "21 x 29",
+            "7 cm"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ]
+        },
+        {
+          "label": "Papel",
+          "name": "papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado mate 300 gr",
+            "Cartulina gràfica 300 gr"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        },
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "10x21 cm",
+            "15x21 cm",
+            "21x29",
+            "7 cm"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cartulina gráfica 300 gr",
+            "Estucado mate 300 gr"
+          ]
+        },
+        {
+          "label": "Corte",
+          "name": "corte",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Recto"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Minutas de boda | Repro Disseny",
         "metaDescription": "Minutas de boda personalizadas con calidad profesional en Cataluña.",
@@ -6339,7 +10332,68 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Personalizado a demanda"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara",
+            "Cuatricromía 2 caras"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cartón nido de abeja 10 mm"
+          ]
+        },
+        {
+          "label": "Color",
+          "name": "color",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Blanco",
+            "kraft"
+          ]
+        },
+        {
+          "label": "Corte",
+          "name": "corte",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Recto",
+            "A la forma"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Nido abeja | Repro Disseny",
         "metaDescription": "Nido abeja personalizadas con calidad profesional en Cataluña.",
@@ -6406,7 +10460,60 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "10 x 10 cm",
+            "14 x 10 cm",
+            "10 x 15 cm",
+            "15 x 21 cm"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "1 cara"
+          ]
+        },
+        {
+          "label": "Tintas",
+          "name": "tintas",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía"
+          ]
+        },
+        {
+          "label": "Papel",
+          "name": "papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado mate 300 gr",
+            "Cartulina gràfica 300 gr"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Nombres de sobremesa | Repro Disseny",
         "metaDescription": "Nombres de sobremesa personalizadas con calidad profesional en Cataluña.",
@@ -6520,8 +10627,8 @@
     {
       "id": "74",
       "type": "producto",
-      "slug": "packaging-g-folding",
-      "path": "/productos/packaging-g-folding",
+      "slug": "packaging-folding",
+      "path": "/productos/packaging-folding",
       "title": "Packaging Folding",
       "categorySlug": "packaging",
       "isPublished": true,
@@ -6544,7 +10651,7 @@
       "seo": {
         "metaTitle": "Packaging Folding | Repro Disseny",
         "metaDescription": "Packaging Folding personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/packaging-g-folding",
+        "canonical": "https://reprodisseny.com/productos/packaging-folding",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -6608,7 +10715,51 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Din A-5",
+            "Din A-4"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara",
+            "Cuatricromía 2 caras"
+          ]
+        },
+        {
+          "label": "Papel",
+          "name": "papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Offset 90 gr.",
+            "Offset 120 gr.",
+            "Reciclado 80 gr."
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Papel de carta | Repro Disseny",
         "metaDescription": "Papel de carta personalizadas con calidad profesional en Cataluña.",
@@ -6675,7 +10826,66 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Personalizado a demanda"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ]
+        },
+        {
+          "label": "Aplicación",
+          "name": "aplicación",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Pared lisa"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Papel de pared autoadhesivo libre PVC"
+          ]
+        },
+        {
+          "label": "Corte",
+          "name": "corte",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Recto",
+            "A la forma"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Papel de pared | Repro Disseny",
         "metaDescription": "Papel de pared personalizadas con calidad profesional en Cataluña.",
@@ -6809,7 +11019,48 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Forma",
+          "name": "forma",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Redonda",
+            "Cuadrada",
+            "Rectangular"
+          ]
+        },
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "Aspecto",
+          "name": "aspecto",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Plástico blanco",
+            "Transparente",
+            "Papel"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Pegatinas individuales | Repro Disseny",
         "metaDescription": "Pegatinas individuales personalizadas con calidad profesional en Cataluña.",
@@ -6876,7 +11127,60 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "100x200 cm",
+            "150x200 cm",
+            "200x200 cm",
+            "200x250 cm"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cartón pluma 10 mm",
+            "Nido de abeja 10 mm"
+          ]
+        },
+        {
+          "label": "Acabados",
+          "name": "acabados",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Corte recto o a la forma"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Photocalls | Repro Disseny",
         "metaDescription": "Photocalls personalizadas con calidad profesional en Cataluña.",
@@ -6943,7 +11247,44 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true
+        },
+        {
+          "label": "Papel",
+          "name": "papel",
+          "type": "select",
+          "required": true
+        },
+        {
+          "label": "Troquelado",
+          "name": "troquelado",
+          "type": "select",
+          "required": true
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Banderolas lineal | Repro Disseny",
         "metaDescription": "Banderolas lineal personalizadas con calidad profesional en Cataluña.",
@@ -7011,7 +11352,57 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "Text",
+          "required": true
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Sin impresión",
+            "Cuatricromía 1 cara"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Forex 5 mm",
+            "Dibon",
+            "Plancha metálica"
+          ]
+        },
+        {
+          "label": "Acabado",
+          "name": "acabado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Laminado Velleda blanco",
+            "Laminado transparente Velleda"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Pizarras | Repro Disseny",
         "metaDescription": "Pizarras personalizadas con calidad profesional en Cataluña.",
@@ -7079,7 +11470,60 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Personalizado"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Forex",
+            "Dibond",
+            "Metacrilato"
+          ]
+        },
+        {
+          "label": "Acabados",
+          "name": "acabados",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Con agujeros",
+            "Sin agujeros",
+            "Cinta adhesiva doble cara"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Placa dirección | Repro Disseny",
         "metaDescription": "Placa dirección personalizadas con calidad profesional en Cataluña.",
@@ -7213,7 +11657,67 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "21x10 cm"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara",
+            "Cuatricromía 2 caras"
+          ]
+        },
+        {
+          "label": "Papel",
+          "name": "papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Folding 250 gr"
+          ]
+        },
+        {
+          "label": "Acabados",
+          "name": "acabados",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Plastificado brillo",
+            "Plastificado mate"
+          ]
+        },
+        {
+          "label": "Troquelado",
+          "name": "troquelado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Corte+hendido"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Portacuentas | Repro Disseny",
         "metaDescription": "Portacuentas personalizadas con calidad profesional en Cataluña.",
@@ -7280,7 +11784,62 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "9",
+            "3x9",
+            "3 cm",
+            "10",
+            "7 cm diámetro"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara",
+            "Cuatricromía 2 caras"
+          ]
+        },
+        {
+          "label": "Papel",
+          "name": "papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cartulina absorbente"
+          ]
+        },
+        {
+          "label": "Troquelado",
+          "name": "troquelado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Recto",
+            "a la forma"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Posavasos | Repro Disseny",
         "metaDescription": "Posavasos personalizadas con calidad profesional en Cataluña.",
@@ -7348,7 +11907,71 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Din A-4",
+            "Din A-3",
+            "Personalizado"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ]
+        },
+        {
+          "label": "Papel",
+          "name": "papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado mate",
+            "Offset",
+            "Reciclado"
+          ]
+        },
+        {
+          "label": "Gramaje",
+          "name": "gramaje",
+          "type": "select",
+          "required": true,
+          "options": [
+            "135 gr.",
+            "170 gr.",
+            "250 gr."
+          ]
+        },
+        {
+          "label": "Corte",
+          "name": "corte",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Recto"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Posters | Repro Disseny",
         "metaDescription": "Posters personalizadas con calidad profesional en Cataluña.",
@@ -7415,7 +12038,68 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Forma",
+          "name": "forma",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuadrado",
+            "Rectangular",
+            "Fresado a la forma"
+          ]
+        },
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "PVC",
+            "Madera",
+            "Metacrilato",
+            "Nido de Abeja"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "1 cara",
+            "2 caras"
+          ]
+        },
+        {
+          "label": "Tintas",
+          "name": "tintas",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Premios personalizados | Repro Disseny",
         "metaDescription": "Premios personalizados personalizadas con calidad profesional en Cataluña.",
@@ -7483,7 +12167,70 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "5x21 cm",
+            "5x17 cm",
+            "5x14 cm"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 2 caras"
+          ]
+        },
+        {
+          "label": "Papel",
+          "name": "papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cartulina gráfica 350 gr."
+          ]
+        },
+        {
+          "label": "Acabado",
+          "name": "acabado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Sin plastificar",
+            "Plastificado mate 2 caras",
+            "Plastificado brillo 2 caras"
+          ]
+        },
+        {
+          "label": "Troquelado",
+          "name": "troquelado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Corte recto",
+            "A la forma"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Puntos de libro | Repro Disseny",
         "metaDescription": "Puntos de libro personalizadas con calidad profesional en Cataluña.",
@@ -7617,7 +12364,58 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "85x200 cm",
+            "100x200 cm",
+            "150x200 cm"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Polipropileno 240 micras"
+          ]
+        },
+        {
+          "label": "Bolsa de transporte",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Incluída"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Roll Ups | Repro Disseny",
         "metaDescription": "Roll Ups personalizadas con calidad profesional en Cataluña.",
@@ -7684,7 +12482,68 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "2540 x 2225 x 960 mm",
+            "3070 x 2225 x 960 mm"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Sublimación 1 cara"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Poliéster textil"
+          ]
+        },
+        {
+          "label": "Forma",
+          "name": "forma",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Pluma",
+            "gota",
+            "rectangular"
+          ]
+        },
+        {
+          "label": "Bolsa de transporte",
+          "name": "bolsa transporte",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Bolsa de transporte con asas incluída"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Banderolas | Repro Disseny",
         "metaDescription": "Banderolas personalizadas con calidad profesional en Cataluña.",
@@ -7751,7 +12610,38 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "text",
+          "required": true
+        },
+        {
+          "label": "Color impresión",
+          "name": "color impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Negro",
+            "Rojo",
+            "Verde",
+            "Azul"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Sellos  | Repro Disseny",
         "metaDescription": "Sellos  personalizadas con calidad profesional en Cataluña.",
@@ -7818,7 +12708,75 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "11x22",
+            "5 cm",
+            "C5 (16",
+            "2x22",
+            "9 cm)",
+            "C4 (22",
+            "9x32",
+            "4 cm)",
+            "B4 (25x35 cm)"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ]
+        },
+        {
+          "label": "Papel",
+          "name": "papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Offset 90 gr."
+          ]
+        },
+        {
+          "label": "Ventana",
+          "name": "ventana",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Si",
+            "No"
+          ]
+        },
+        {
+          "label": "Posición ventana",
+          "name": "posición ventana",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Derecha",
+            "Izquierda"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Sobres | Repro Disseny",
         "metaDescription": "Sobres personalizadas con calidad profesional en Cataluña.",
@@ -7885,7 +12843,60 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Redondo 10 Ø",
+            "Redondo 13 Ø",
+            "Cuadrado 10x10 cm",
+            "Cuadrado 13x13 cm"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara",
+            "Cuatricromía 2 caras"
+          ]
+        },
+        {
+          "label": "Papel",
+          "name": "papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado mate 350 gr."
+          ]
+        },
+        {
+          "label": "Troquelado",
+          "name": "troquelado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "A la forma"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Stoppers | Repro Disseny",
         "metaDescription": "Stoppers personalizadas con calidad profesional en Cataluña.",
@@ -7952,7 +12963,112 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "10 x 10 cm",
+            "14 x 10 cm",
+            "10 x 15 cm",
+            "15x21 cm"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ]
+        },
+        {
+          "label": "Papel",
+          "name": "papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cartulina gràfica 350 gr"
+          ]
+        },
+        {
+          "label": "Acabados",
+          "name": "acabados",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Plastificado brillo",
+            "Plastificado mate"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        },
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "10 x 10 cm",
+            "14 x 10 cm",
+            "10 x 15 cm",
+            "15x21 cm"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ]
+        },
+        {
+          "label": "Papel",
+          "name": "papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cartulina gràfica 350 gr"
+          ]
+        },
+        {
+          "label": "Acabados",
+          "name": "acabados",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Plastificado brillo",
+            "Plastificado mate"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Tabletents | Repro Disseny",
         "metaDescription": "Tabletents personalizadas con calidad profesional en Cataluña.",
@@ -8019,7 +13135,70 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Din A-5",
+            "Din A-4"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara",
+            "Cuatricromía 2 caras"
+          ]
+        },
+        {
+          "label": "Papel",
+          "name": "papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Autocopiativo 60 gr."
+          ]
+        },
+        {
+          "label": "Número de copias",
+          "name": "número de copias",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Original+1",
+            "Original+2",
+            "Original+3"
+          ]
+        },
+        {
+          "label": "Encuadernación",
+          "name": "encuadernación",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Talonarios",
+            "Juegos sueltos"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Talonarios autocopiativos | Repro Disseny",
         "metaDescription": "Talonarios autocopiativos personalizadas con calidad profesional en Cataluña.",
@@ -8086,7 +13265,62 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Din A-6",
+            "Din A-5",
+            "10x21 cm"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara",
+            "Cuatricromía 2 caras"
+          ]
+        },
+        {
+          "label": "Papel",
+          "name": "papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado mate 350 gr",
+            "Cartulina gráfica 350 gr"
+          ]
+        },
+        {
+          "label": "Acabado",
+          "name": "acabado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Sin plastificar",
+            "Plastificado mate 1 cara",
+            "Plastificado brillo 1 cara"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Tarjetas postales | Repro Disseny",
         "metaDescription": "Tarjetas postales personalizadas con calidad profesional en Cataluña.",
@@ -8153,7 +13387,68 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "8",
+            "6x5",
+            "4 cm"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara",
+            "Cuatricromía 2 caras"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "PVC 660 micras"
+          ]
+        },
+        {
+          "label": "Acabado",
+          "name": "acabado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Plastificado brillo 75 micras"
+          ]
+        },
+        {
+          "label": "Troquelado",
+          "name": "troquelado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cantos romos"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Tarjetas de pvc | Repro Disseny",
         "metaDescription": "Tarjetas de pvc personalizadas con calidad profesional en Cataluña.",
@@ -8220,7 +13515,68 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Personalizado"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara",
+            "Cuatricromía 2 caras"
+          ]
+        },
+        {
+          "label": "Papel",
+          "name": "papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado mate 350 gr.",
+            "Cartulina gráfica 350 gr."
+          ]
+        },
+        {
+          "label": "Acabado",
+          "name": "acabado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Serigrafia plata 1 cara"
+          ]
+        },
+        {
+          "label": "Datos variables",
+          "name": "datos variables",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Si",
+            "No"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Tarjetas rasca | Repro Disseny",
         "metaDescription": "Tarjetas rasca personalizadas con calidad profesional en Cataluña.",
@@ -8287,7 +13643,62 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "8",
+            "5x5",
+            "5 cm",
+            "9x5 cm"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara",
+            "Cuatricromía 2 caras"
+          ]
+        },
+        {
+          "label": "Papel",
+          "name": "papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado mate 350 gr."
+          ]
+        },
+        {
+          "label": "Acabado",
+          "name": "acabado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Sin plastificar",
+            "Plastificado mate 2 caras",
+            "Plastificado brillo 2 caras"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Tarjetas de visita | Repro Disseny",
         "metaDescription": "Tarjetas de visita personalizadas con calidad profesional en Cataluña.",
@@ -8354,7 +13765,83 @@
       "inStock": true,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Din A-7",
+            "Din A-6",
+            "Din A-5",
+            "Din A-4"
+          ]
+        },
+        {
+          "label": "Tintas",
+          "name": "tintas",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía"
+          ]
+        },
+        {
+          "label": "Tipo Impresión",
+          "name": "tipo impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "1 cara",
+            "2 caras"
+          ]
+        },
+        {
+          "label": "Papel",
+          "name": "papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado mate",
+            "Estucado brillo",
+            "Offset",
+            "Reciclado"
+          ]
+        },
+        {
+          "label": "Gramaje",
+          "name": "gramaje",
+          "type": "select",
+          "required": true,
+          "options": [
+            "300 gr.",
+            "350 gr."
+          ]
+        },
+        {
+          "label": "Acabado",
+          "name": "acabado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Sin plegar",
+            "Plegado"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
       "seo": {
         "metaTitle": "Tarjetones e invitaciones | Repro Disseny",
         "metaDescription": "Tarjetones e invitaciones personalizadas con calidad profesional en Cataluña.",

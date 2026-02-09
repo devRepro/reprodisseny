@@ -56,8 +56,9 @@
     "sharp": "^0.34.5",
     "tailwindcss-animate": "^1.0.7",
     "vee-validate": "^4.15.1",
-    "vue-router": "4.5.0",
+    "vue-router": "^4.6.4",
     "vue-sonner": "^2.0.9",
+    "xlsx": "^0.18.5",
     "zod": "^3.25.76"
   },
   "devDependencies": {

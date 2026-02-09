@@ -1,11 +1,12 @@
 <template>
   <div>
+    <CategoriasMenu :tree="menuTree" :pending="menuPending" :error="menuError" />
     <HomeHero>
       <HomeImageStrip :images="stripImages" />
     </HomeHero>
 
     <!-- ✅ Menú debajo del slider -->
-    <CategoriasMenu :tree="menuTree" :pending="menuPending" :error="menuError" />
+    
 
     <MarketingProductCategoryGrid
       title="Ofrecemos una amplia gama de productos"

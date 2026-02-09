@@ -32,17 +32,6 @@ const cta = computed(() => props.category?.cta || { text: "Veure productes", lin
     </div>
 
     <div class="relative mx-auto max-w-7xl px-6 py-12 lg:py-16">
-      <!-- Breadcrumbs -->
-      <nav v-if="breadcrumbs.length" class="text-sm text-white/80">
-        <ol class="flex flex-wrap items-center gap-2">
-          <li v-for="(b, i) in breadcrumbs" :key="b.url" class="flex items-center gap-2">
-            <NuxtLink :to="b.url" class="hover:underline">
-              {{ b.name }}
-            </NuxtLink>
-            <span v-if="i < breadcrumbs.length - 1">/</span>
-          </li>
-        </ol>
-      </nav>
 
       <!-- Badges -->
       <div class="mt-6 flex flex-wrap gap-2">
@@ -83,14 +72,6 @@ const cta = computed(() => props.category?.cta || { text: "Veure productes", lin
         >
           {{ cta.text }}
         </a>
-
-        <!-- CTA guía (sin background, como enlace secundario) -->
-        <NuxtLink
-          to="/guia-impresion"
-          class="inline-flex items-center justify-center rounded-xl border border-white/30 bg-white/10 px-4 py-2 text-sm font-medium text-white hover:bg-white/15"
-        >
-          Com preparar arxius
-        </NuxtLink>
       </div>
     </div>
   </header>
