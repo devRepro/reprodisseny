@@ -1,15 +1,13 @@
 <script setup lang="ts">
-import { computed } from "vue"
-import GoogleReviewsCarousel from "./Carousel.vue"
-import { useReviews } from "@/composables/useReviews"
+import GoogleReviewsCarousel from "./Carousel.vue";
+import { usePlaceReviews } from "@/composables/usePlaceReviews";
 
-// ✅ en script sí
-const isDev = import.meta.dev
+const isDev = import.meta.dev;
 
-const { items, average, total, mapsUrl, pending, error } = useReviews({
+const { items, average, total, mapsUrl, pending, error } = usePlaceReviews({
   lang: "es",
   limit: 6,
-})
+});
 </script>
 
 <template>
@@ -22,6 +20,10 @@ const { items, average, total, mapsUrl, pending, error } = useReviews({
         {{ (error as any)?.statusMessage || (error as any)?.message || String(error) }}
       </span>
     </p>
+
+    <div v-else-if="items.length === 0" class="text-sm text-muted-foreground">
+      No hay reseñas para mostrar.
+    </div>
 
     <GoogleReviewsCarousel
       v-else

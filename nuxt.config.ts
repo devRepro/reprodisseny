@@ -99,15 +99,6 @@ export default defineNuxtConfig({
       attributesField: process.env.CRM_PR_ATTRIBUTES_FIELD || process.env.PR_ATTRIBUTES_FIELD || "",
     },
 
-    gbp: {
-      gbpAccount: process.env.NUXT_GBP_ACCOUNT,
-      gbpLocation: process.env.NUXT_GBP_LOCATION,
-      gbpClientId: process.env.NUXT_GBP_CLIENT_ID,
-      gbpClientSecret: process.env.NUXT_GBP_CLIENT_SECRET,
-      gbpRedirectUri: process.env.NUXT_GBP_REDIRECT_URI,
-      gbpDisableList: process.env.NUXT_GBP_DISABLE_LIST === "1",
-    },
-
     googleMaps: {
       apiKey: process.env.GOOGLE_MAPS_API_KEY, // ✅ solo server
     },
