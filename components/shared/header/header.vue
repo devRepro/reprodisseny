@@ -1,67 +1,82 @@
-
 <script setup lang="ts">
-import { NuxtLink } from "#components"
-import { Button } from "@/components/ui/button"
+import { computed, ref } from "vue";
+import { useRouter, useRoute } from "vue-router";
+import { NuxtLink } from "#components";
+
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItem,
-} from "@/components/ui/dropdown-menu"
-import SharedMenuCategorias from "@/components/shared/menu/Categorias.vue"
-import { Search, Menu, Phone } from "lucide-vue-next"
+} from "@/components/ui/dropdown-menu";
+
+import SharedMenuCategorias from "@/components/shared/menu/Categorias.vue";
+import { Search, Menu, Phone } from "lucide-vue-next";
+
+type Props = {
+  phone?: string;
+  phoneLabel?: string;
+  quoteHref?: string;
+};
+
+const props = withDefaults(defineProps<Props>(), {
+  phone: "+34932749890",
+  phoneLabel: "+34 932 749 890",
+  quoteHref: "/presupuesto",
+});
+
+const router = useRouter();
+const route = useRoute();
+
+// Si ya estás en /buscar, mantenemos el query en el input (buena UX)
+const initialQ = computed(() => {
+  const q = route.query.q;
+  return typeof q === "string" ? q : "";
+});
+
+const q = ref(initialQ.value);
+
+function onSubmit() {
+  const term = q.value.trim();
+  if (!term) return;
+
+  router.push({
+    path: "/buscar",
+    query: { q: term },
+  });
+}
 </script>
 
 <template>
   <header class="w-full">
-    <!-- Frame 144 -->
-    <div class="mx-auto max-w-[1440px] h-12 px-20 pb-2 flex items-end justify-between gap-20">
-      <!-- Logo (218x40) -->
-      <NuxtLink
-        to="/"
-        class="flex items-end h-10 w-[218px] shrink-0"
-        aria-label="Inicio"
-      >
+    <!-- Top bar -->
+    <div
+      class="mx-auto max-w-[1440px] h-12 px-20 pb-2 flex items-end justify-between gap-20"
+    >
+      <!-- Logo -->
+      <NuxtLink to="/" class="flex items-end h-10 w-[218px] shrink-0" aria-label="Inicio">
         <SharedLogo class="h-10 w-[218px]" />
         <span class="sr-only">Repro Disseny</span>
       </NuxtLink>
 
-      <!-- Buscador (centrado, 556x32) -->
-      <div class="flex-1 min-w-0 flex justify-center">
-        <Button
-          type="button"
-          variant="outline"
-          aria-label="Buscar"
-          class="w-full max-w-[556px] h-8 rounded-lg border border-[#959595] bg-white
-                 px-3 py-[5px] gap-2 justify-start shadow-none
-                 hover:bg-white hover:border-[#959595]"
-        >
-          <Search class="h-5 w-5 shrink-0 text-[#959595]" />
-          <span class="text-base leading-[22px] font-normal text-[#959595]">
-            Buscar
-          </span>
-        </Button>
-      </div>
-
-      <!-- Right: phone + CTA + hamburger -->
+      <!-- Right -->
       <div class="flex items-center gap-4 h-9 shrink-0">
         <a
-          href="tel:+34932749890"
-          class="inline-flex items-center gap-2 whitespace-nowrap
-                 text-[14px] leading-[20px] font-normal text-[#959595]"
+          :href="`tel:${props.phone}`"
+          class="inline-flex items-center gap-2 whitespace-nowrap text-[14px] leading-[20px] font-normal text-[#959595]"
           aria-label="Llamar por teléfono"
         >
           <Phone class="h-4 w-4 shrink-0 text-[#959595]" />
-          <span>+34 932 749 890</span>
+          <span>{{ props.phoneLabel }}</span>
         </a>
 
         <Button
-          type="button"
-          class="h-9 rounded-lg bg-[#0076B3] px-4
-                 text-[14px] leading-[20px] font-normal text-white
-                 hover:bg-[#006aa1]"
+          as-child
+          class="h-9 rounded-lg bg-[#0076B3] px-4 text-[14px] leading-[20px] font-normal text-white hover:bg-[#006aa1]"
         >
-          Pide tu presupuesto
+          <NuxtLink :to="props.quoteHref">Pide tu presupuesto</NuxtLink>
         </Button>
 
         <DropdownMenu>
@@ -80,19 +95,20 @@ import { Search, Menu, Phone } from "lucide-vue-next"
             <DropdownMenuItem as-child>
               <NuxtLink to="/sobre-nosotros" class="w-full">Sobre nosotros</NuxtLink>
             </DropdownMenuItem>
-
             <DropdownMenuItem as-child>
               <NuxtLink to="/contacto" class="w-full">Contacto</NuxtLink>
             </DropdownMenuItem>
-
             <DropdownMenuItem as-child>
-              <NuxtLink to="/como-preparar-archivo" class="w-full">Cómo preparar archivo</NuxtLink>
+              <NuxtLink to="/como-preparar-archivo" class="w-full"
+                >Cómo preparar archivo</NuxtLink
+              >
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
     </div>
-    <SharedMenuCategorias/>
+
+    <!-- Categories menu -->
+    <SharedMenuCategorias />
   </header>
-    
 </template>

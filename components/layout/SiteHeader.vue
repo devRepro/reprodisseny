@@ -11,6 +11,7 @@ import {
   DropdownMenuItem,
 } from "@/components/ui/dropdown-menu"
 
+import HeaderSearch from "@/components/layout/HeaderSearch.vue"
 import CategoriasMenu from "@/components/shared/menu/Categorias.vue"
 import type { CategoriaNode } from "~/composables/useCategoriasNav"
 
@@ -55,15 +56,7 @@ const errorValue = computed(() => {
 
       <!-- Buscador (centrado, 556x32) -->
       <div class="flex-1 min-w-0 flex justify-center">
-        <Button
-          type="button"
-          variant="outline"
-          aria-label="Buscar"
-          class="w-full max-w-[556px] h-8 rounded-lg border border-[#959595] bg-white px-3 py-[5px] gap-2 justify-start shadow-none hover:bg-white hover:border-[#959595]"
-        >
-          <Search class="h-5 w-5 shrink-0 text-[#959595]" />
-          <span class="text-base leading-[22px] font-normal text-[#959595]">Buscar</span>
-        </Button>
+        <HeaderSearch />
       </div>
 
       <!-- Right: phone + CTA + hamburger -->
