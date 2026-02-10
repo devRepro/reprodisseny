@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import ContactHero from "@/components/marketing/contact/ContactHero.vue";
 import ContactForm from "@/components/marketing/contact/ContactForm.vue";
+import ContactInfoBand from "@/components/marketing/ContactInfoBand.vue";
+import LocationMapSection from "@/components/marketing/LocationMapSection.vue";
 </script>
 
 <template>
@@ -15,5 +17,8 @@ import ContactForm from "@/components/marketing/contact/ContactForm.vue";
         <ContactForm />
       </div>
     </section>
+    
+    <ContactInfoBand />
+    <LocationMapSection />
   </main>
 </template>
