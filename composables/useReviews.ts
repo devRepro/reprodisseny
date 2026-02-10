@@ -1,31 +1,37 @@
-// composables/useReviews.ts (solo el bloque 'gbp')
-import { computed } from 'vue'
-import { useGoogleReviews } from '@/composables/useGoogleReviews'
+import { computed } from "vue"
+import { usePlaceReviews } from "@/composables/usePlaceReviews"
 
-export function useReviews(opts: { source?: 'gbp' | 'places'; placeId?: string; lang?: string }) {
-  const source = opts.source ?? (process.dev ? 'gbp' : 'places')
+export function useReviews(opts?: { placeId?: string; lang?: string; limit?: number }) {
+  const config = useRuntimeConfig()
 
+  const placeId =
+    opts?.placeId ||
+    (config.public?.googleMaps?.placeId as string | undefined) ||
+    ""
 
-  if (source === 'places') {
-    const { items, average, total, pending, error, refresh } =
-      usePlaceReviews({ placeId: opts.placeId!, lang: opts.lang || 'es' })
-    return { items, average, total, pending, error, refresh, source }
+  const lang = opts?.lang || "es"
+  const limit = opts?.limit ?? 6
+
+  if (!placeId) {
+    // Error claro para dev
+    const error = computed(() => new Error("Missing Google Place ID (runtimeConfig.public.googleMaps.placeId)"))
+    return {
+      source: "places" as const,
+      items: computed(() => []),
+      average: computed(() => 0),
+      total: computed(() => 0),
+      mapsUrl: computed(() => undefined),
+      pending: computed(() => false),
+      error,
+      refresh: async () => {},
+    }
   }
 
-  const { reviews, average, total, pendingReviews, errorReviews } = useGoogleReviews()
+  const { items, average, total, mapsUrl, pending, error, refresh } = usePlaceReviews({
+    placeId,
+    lang,
+    limit,
+  })
 
-  const items = computed<ReviewCardItem[]>(() =>
-    (reviews.value ?? []).map((r: any, i: number) => ({
-      id: r.reviewId ?? `gbp:${i}`,
-      author: r.author ?? r.reviewer?.displayName ?? 'Usuario de Google',
-      rating: r.rating ?? r.starRating ?? 0,
-      text: r.text ?? r.comment ?? '',
-      time: r.time ?? r.updateTime ?? '',
-      avatar: r.avatar ?? r.reviewer?.profilePhotoUrl ?? null,
-      url: r.url
-    }))
-  )
-  const pending = computed(() => pendingReviews.value)
-  const error = computed(() => errorReviews.value)
-  return { items, average, total, pending, error, source }
+  return { source: "places" as const, items, average, total, mapsUrl, pending, error, refresh }
 }

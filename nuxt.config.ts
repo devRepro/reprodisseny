@@ -109,13 +109,16 @@ export default defineNuxtConfig({
     },
 
     googleMaps: {
-      apiKey: process.env.GOOGLE_MAPS_API_KEY,
-  placeId: process.env.GOOGLE_MAPS_PLACE_ID,
+      apiKey: process.env.GOOGLE_MAPS_API_KEY, // ✅ solo server
     },
 
     public: {
       baseURL: process.env.NUXT_PUBLIC_BASE_URL || "http://localhost:3000",
-      mediaBaseUrl: process.env.NUXT_PUBLIC_MEDIA_BASE_URL || "https://webcms.blob.core.windows.net/media"
+      mediaBaseUrl: process.env.NUXT_PUBLIC_MEDIA_BASE_URL || "https://webcms.blob.core.windows.net/media",
+      googleMaps: {
+        placeId: process.env.GOOGLE_MAPS_PLACE_ID, // ✅ público
+      },
+
     }
   },
 
