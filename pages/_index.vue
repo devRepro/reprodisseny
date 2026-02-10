@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { useCategoriasGrid } from "@/composables/useCategoriasGrid";
-import { useReviews } from "@/composables/useReviews";
+const { data } = await usePlaceReviews({ placeId });
 
 // 1) Categorías (SSR)
 const { data: catData, pending, error } = await useCategoriasGrid();
