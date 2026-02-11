@@ -27,7 +27,7 @@ const props = withDefaults(
     menuRight: () => [
       { label: "Expositores", to: "/categorias/expositores" },
       { label: "Eventos", to: "/categorias/eventos" },
-      { label: "Hoteles y restaurantes", to: "/categorias/hoteles-restaurantes" },
+      { label: "Hoteles y restaurantes", to: "/categorias/hosteleria-restauracion" },
       { label: "Packaging", to: "/categorias/packaging" },
     ],
     linkedinUrl: "#",
