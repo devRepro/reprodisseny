@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-11T07:20:29.329Z",
+  "generatedAt": "2026-02-11T07:38:47.119Z",
   "categories": [
     {
       "id": "10",
@@ -1139,10 +1139,10 @@
     },
     {
       "id": "9",
-      "updatedAt": "2026-02-11T07:05:58Z",
+      "updatedAt": "2026-02-11T07:36:32Z",
       "type": "categoria",
-      "slug": "publicitario-oficina",
-      "path": "/categorias/oficina-publicidad",
+      "slug": "publicidad-oficina",
+      "path": "/categorias/publicidad-oficina",
       "title": "Publicidad y Material de Oficina Personalizado",
       "nav": "Publicidad y Oficina",
       "order": 2,
@@ -1201,22 +1201,22 @@
         },
         {
           "name": "Publicitario Oficina",
-          "url": "/categorias/oficina-publicidad"
+          "url": "/categorias/publicidad-oficina"
         },
         {
           "name": "Publicidad y Material de Oficina Personalizado",
-          "url": "/categorias/oficina-publicidad"
+          "url": "/categorias/publicidad-oficina"
         }
       ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Publicidad y Material de Oficina Personalizado | Repro Disseny",
         "metaDescription": "Impresión de material publicitario y de oficina: flyers, trípticos, carpetas, blocs, papelería corporativa y más en Barcelona.",
-        "canonical": "https://reprodisseny.com/categorias/oficina-publicidad",
+        "canonical": "https://reprodisseny.com/categorias/publicidad-oficina",
         "hreflang": [
           {
             "lang": "es-ES",
-            "url": "https://reprodisseny.com/categorias/oficina-publicidad"
+            "url": "https://reprodisseny.com/categorias/publicidad-oficina"
           }
         ],
         "keywords": [

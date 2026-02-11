@@ -90,7 +90,7 @@ withDefaults(
     col2: () => [
       { label: "Expositores", to: "/categorias/expositores" },
       { label: "Eventos", to: "/categorias/eventos" },
-      { label: "Hoteles y restaurantes", to: "/categorias/restauracion" },
+      { label: "Hoteles y restaurantes", to: "/categorias/hosteleria-restauracion" },
       { label: "Packaging", to: "/categorias/packaging" },
     ],
     addressTitle: "Repro Disseny",
