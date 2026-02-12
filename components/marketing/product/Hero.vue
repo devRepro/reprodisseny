@@ -22,6 +22,7 @@ const imgAlt = computed(() => {
 const extraFields = computed(() => props.product?.formFields || props.product?.extraFields || []);
 const categorySlug = computed(() => props.category?.slug || props.product?.categorySlug || "");
 const productTitle = computed(() => props.product?.title || "");
+const productDesc = computed(() => props.product?.shortDescription || props.product?.description || "");
 
 const LeadFormCmp = shallowRef<any>(null);
 const leadFormLoadError = ref<unknown>(null);
@@ -37,17 +38,29 @@ onMounted(async () => {
 </script>
 
 <template>
+  <!-- Contenedor "producte" -->
   <section class="w-[1200px]">
     <div class="grid grid-cols-[575px_555.95px] gap-[69px] items-start">
       <!-- IZQUIERDA -->
       <div class="w-[575px]">
-        <div class="w-[571.14px] min-h-[104px] flex flex-col gap-6">
-          <h1 class="text-[30px] leading-[36px] font-semibold text-[#1E1E1E]">
+        <!-- Frame 125 -->
+        <div class="w-[571.14px] flex flex-col gap-[24px]">
+          <!-- H2 -->
+          <h1 class="font-figtree text-[30px] leading-[36px] font-semibold text-[#1E1E1E]">
             {{ product?.title }}
           </h1>
+
+          <!-- Body (descripción) -->
+          <p
+            v-if="productDesc"
+            class="font-figtree text-[16px] leading-[22.4px] font-normal text-[#1E1E1E]"
+          >
+            {{ productDesc }}
+          </p>
         </div>
 
-        <div class="mt-6">
+        <!-- imatges -->
+        <div class="mt-[24px]">
           <NuxtImg
             :src="imgSrc"
             :alt="imgAlt"
@@ -60,7 +73,8 @@ onMounted(async () => {
       </div>
 
       <!-- DERECHA -->
-      <div class="pt-[60px] w-[555.95px]">
+      <!-- Frame 102: gap 12 -->
+      <div class="w-[555.95px] flex flex-col gap-[12px] pt-[60px]">
         <ClientOnly>
           <div v-if="leadFormLoadError" class="text-sm text-red-600">
             Error cargando el formulario.
@@ -74,10 +88,11 @@ onMounted(async () => {
             :product-data="product"
             :extra-fields="extraFields"
             :category-slug="categorySlug"
+            class="w-full"
           />
 
           <template #fallback>
-            <div class="text-sm text-[#959595]">Carregant formulari…</div>
+            <div class="text-sm text-[#A2A2A2]">Carregant formulari…</div>
           </template>
         </ClientOnly>
       </div>

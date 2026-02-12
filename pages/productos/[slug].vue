@@ -2,7 +2,7 @@
 <script setup lang="ts">
 import SiteBreadcrumbs from "@/components/shared/SiteBreadcrumbs.vue";
 import ProductHero from "@/components/marketing/product/Hero.vue";
-import ProductGuideCTA from "@/components/marketing/product/GuideCTA.vue";
+import GuideBanner from "~/components/marketing/GuideBanner.vue";
 import ProductDetails from "@/components/marketing/product/Details.vue";
 import ProductFaq from "@/components/marketing/product/Faq.vue";
 import ProductRelated from "@/components/marketing/product/Related.vue";
@@ -59,15 +59,16 @@ useSeoMeta({
           <ProductHero :product="product" :category="category" />
         </div>
 
-        <!-- CTA full width 1440x225 -->
-        <div class="mt-[100px]">
-          <ProductGuideCTA
-            title="Cómo preparar tus archivos"
-            cta-label="Contacta con un experto"
-            cta-to="/contacto"
-            background-src="/img/placeholder.webp"
-          />
-        </div>
+      
+       <div class="mt-[60px] mb-[100px]">
+    <GuideBanner
+      bg-image-src="/img/ui/archivos.png"
+      :height="225"
+      title="Cómo preparar tus archivos"
+      cta-text="Ver la guía rápida"
+      to="/guia-impresion"
+    />
+  </div>
 
         <!-- Detalles: 1000 centrado -->
         <div class="mt-[100px] flex justify-center">

@@ -1,47 +1,95 @@
+<script setup lang="ts">
+import { computed } from "vue"
+import { Button } from "@/components/ui/button"
+
+type Props = {
+  title?: string
+  ctaText?: string
+  to?: string
+  bgImageSrc?: string
+  /** Altura del banner (en px) */
+  height?: number
+  /** Si el CTA debe abrir en nueva pestaña */
+  external?: boolean
+  /** Quita bordes redondeados si quieres banner 100% edge-to-edge */
+  rounded?: boolean
+  /**
+   * Si quieres forzar NuxtImg (ipx). Por defecto usamos background-image (más fiable).
+   */
+  useNuxtImg?: boolean
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  title: "Cómo preparar tus archivos",
+  ctaText: "Ver la guía rápida",
+  to: "/guia-impresion",
+  bgImageSrc: "/img/ui/archivos.png",
+  height: 200,
+  external: false,
+  rounded: false,
+  useNuxtImg: false,
+})
+
+const bgSrc = computed(() => {
+  const s = String(props.bgImageSrc || "").trim()
+  if (!s) return ""
+  return s.startsWith("/") ? s : `/${s}`
+})
+
+const wrapStyle = computed(() => ({
+  height: `${props.height}px`,
+  ...(props.useNuxtImg ? {} : { backgroundImage: `url('${bgSrc.value}')` }),
+}))
+</script>
+
 <template>
-  <section class="relative overflow-hidden bg-sky-50 py-14">
-    <div class="absolute inset-0">
+  <!-- Full width (edge-to-edge) -->
+  <section class="w-screen relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw]">
+    <div
+      class="relative w-full overflow-hidden bg-white"
+      :class="[
+        props.rounded ? 'rounded-[12px]' : '',
+        props.useNuxtImg ? '' : 'bg-cover bg-right',
+      ]"
+      :style="wrapStyle"
+    >
+      <!-- Fondo con NuxtImg (opcional) -->
       <NuxtImg
-        v-if="bgImageSrc"
-        :src="bgImageSrc"
+        v-if="props.useNuxtImg"
+        :src="bgSrc"
         alt=""
-        class="h-full w-full object-cover opacity-35"
+        class="absolute inset-0 h-full w-full object-cover"
         sizes="100vw"
+        densities="x1 x2"
+        loading="lazy"
       />
-    </div>
 
-    <div class="relative mx-auto max-w-7xl px-6">
-      <div
-        class="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between"
-      >
-        <h3 class="text-2xl font-bold tracking-tight text-slate-900 md:text-3xl">
-          {{ title }}
-        </h3>
+      <!-- Overlay: blanco izquierda -> transparente derecha -->
+      <div class="pointer-events-none absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/0" />
 
-        <NuxtLink
-          :to="cta.to"
-          class="inline-flex items-center rounded-full bg-brand px-5 py-2.5 text-sm font-semibold text-white hover:bg-brand-dark"
-        >
-          {{ cta.label }}
-        </NuxtLink>
+      <!-- Contenido centrado -->
+      <div class="relative h-full">
+        <div class="mx-auto h-full max-w-7xl px-6">
+          <div class="flex h-full items-center justify-between gap-6">
+            <h2 class="text-[32px] leading-[40px] font-semibold text-[#1E1E1E]">
+              {{ title }}
+            </h2>
+
+            <Button
+              as-child
+              class="h-[44px] rounded-full bg-[#0076B3] px-6 text-[16px] font-normal text-white hover:bg-[#005a8d]"
+            >
+              <NuxtLink
+                :to="to"
+                :target="external ? '_blank' : undefined"
+                :rel="external ? 'noopener noreferrer' : undefined"
+              >
+                {{ ctaText }}
+              </NuxtLink>
+            </Button>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 </template>
-
-<script setup lang="ts">
-type Cta = { label: string; to: string };
-
-withDefaults(
-  defineProps<{
-    title?: string;
-    bgImageSrc?: string;
-    cta?: Cta;
-  }>(),
-  {
-    title: "Cómo preparar tus archivos",
-    bgImageSrc: "",
-    cta: () => ({ label: "Ver la guía rápida", to: "/guia-archivos" }),
-  }
-);
-</script>

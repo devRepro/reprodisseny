@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-12T08:59:32.196Z",
+  "generatedAt": "2026-02-12T12:17:00.351Z",
   "categories": [
     {
       "id": "10",
@@ -221,9 +221,9 @@
     },
     {
       "id": "2",
-      "updatedAt": "2026-02-05T09:49:50Z",
+      "updatedAt": "2026-02-12T12:07:52Z",
       "type": "categoria",
-      "slug": "adhesivos",
+      "slug": "adhesivos-personalizados",
       "path": "/categorias/adhesivos",
       "title": "Adhesivos personalizados para branding e interiorismo",
       "nav": "Adhesivos",
@@ -235,20 +235,21 @@
       "bodyMd": "# Adhesivos personalizados para branding e interiorismo | Repro Disseny\n\nAdhesivos vinílicos, troquelados y removibles para campañas, productos y decoración. Soluciones creativas y personalizadas para agencias y negocios en Cataluña.\n\n## Aplicaciones\n- **Escaparates y retail** – Promos temporales con retirada limpia.\n- **Packaging y producto** – Etiquetas troqueladas por SKU.\n- **Señalética y branding** – Polimérico + laminado para exteriores.\n\n## Materiales y acabados\n- **Monomérico vs Polimérico**: elige según duración y estabilidad.\n- **Microperforado / Ácido** para cristales; **Removible** para campañas.\n- **Laminados** mate o brillo para proteger y alargar vida útil.\n\n## Guía de artes finales\n- Sangrado **3 mm**, zona segura **3–5 mm**.\n- Resolución **150–300 ppp** según tamaño y distancia de visión.\n- Formatos: **PDF/X-1a**, **AI** (vector), **EPS**.\n- Descarga plantillas: [50×70 cm](#) · [A4 troquel](#)\n\n## Casos y confianza\n- Clientes: _(logos o nombres)_  \n- Métricas: “Entrega 24–48 h”, “ISO 9001”, “Pago seguro”.\n\n## Te puede interesar\n- [Vinilos para escaparatismo](#)\n- [Etiquetas para packaging](#)\n- [Guía: monomérico vs polimérico](#)",
       "tabs": [
         {
-          "title": "Formatos",
+          "title": "Tipos",
           "blocks": [
             {
               "type": "bullets",
               "items": [
-                "Vinil polimèric",
-                "Laminat opcional",
-                "Acabat mate/brillant"
+                "Pegatinas en papel: perfectas para uso interior, promociones y packaging.",
+                "Vinilo (PVC): ideal para superficies lisas y mayor durabilidad.",
+                "Vinilo resistente exterior: pensado para intemperie y uso intensivo.",
+                "Adhesivo permanente: máxima fijación para etiquetado estable."
               ]
             }
           ]
         },
         {
-          "title": "El contenido",
+          "title": "Formatos y cortes",
           "blocks": [
             {
               "type": "text",
@@ -314,7 +315,7 @@
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Adhesivos personalizados para branding e interiorismo | Repro Disseny",
-        "metaDescription": "Adhesivos personalizados para branding e interiorismo con calidad profesional en Cataluña. Impresión de vinilos y etiquetas adhesivas de alta calidad para escaparates, packaging y productos promocionales.",
+        "metaDescription": "Adhesivos y pegatinas personalizadas en papel o vinilo, con troquelado a medida y acabados premium. Para etiquetas, packaging y escaparates.",
         "canonical": "https://reprodisseny.com/categorias/adhesivos",
         "hreflang": [
           {

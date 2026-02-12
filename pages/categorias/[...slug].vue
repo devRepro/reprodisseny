@@ -3,7 +3,7 @@
 import CategoryHero from "@/components/marketing/category/CategoryHero.vue"
 import CategoryActionsGrid from "@/components/marketing/category/CategoryActionsGrid.vue"
 import CategoryIntro from "@/components/marketing/category/CategoryIntro.vue"
-import CategoryTabs from "@/components/marketing/category/CategoryTabs.vue"
+import TabsBlocks from "@/components/shared/content/TabsBlocks.vue"
 import CategoryFaq from "@/components/marketing/category/CategoryFaq.vue"
 import CategoryGuideCTA from "@/components/marketing/category/CategoryGuideCTA.vue"
 import CategoryRelatedWorks from "@/components/marketing/category/CategoryRelatedWorks.vue"
@@ -309,7 +309,13 @@ useHead(() => {
 
       <CategoryIntro :category="safeCategory" />
 
-      <CategoryTabs v-if="safeCategory.tabs?.length" :tabs="safeCategory.tabs" />
+      
+    <TabsBlocks
+  :tabs="safeCategory.tabs || []"
+  wrapper-class="mx-auto max-w-7xl px-6 pb-24"
+/>
+
+
 
       <CategoryFaq v-if="safeCategory.faqs?.length" :items="safeCategory.faqs" />
 
