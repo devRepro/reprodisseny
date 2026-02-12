@@ -6,10 +6,10 @@
 
     <ProductCategoryGrid
       title="Si buscas algo específico puedes explorar nuestras categorías de producto"
-      :categories="categoryCards"
+      :categorias="categoryCards"
     />
 
-    <GuideBanner bg-image-src="/img/banners/archivos.jpg" />
+    <GuideBanner bg-image-src="/img/ui/archivos.jpg" />
   </div>
 </template>
 

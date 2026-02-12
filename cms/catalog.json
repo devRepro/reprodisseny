@@ -1,16 +1,15 @@
 {
-  "generatedAt": "2026-02-11T07:38:47.119Z",
+  "generatedAt": "2026-02-12T08:59:32.196Z",
   "categories": [
     {
       "id": "10",
-      "updatedAt": "2026-02-05T09:48:43Z",
-      "type": "subcategoria",
+      "updatedAt": "2026-02-12T08:58:22Z",
+      "type": "categoria",
       "slug": "material-oficina",
-      "path": "/categorias/publicitario-oficina/material-oficina",
+      "path": "/categorias/material-oficina",
       "title": "Material de Oficina Personalizado para Empresas",
       "nav": "Material Oficina",
       "order": 0,
-      "parent": "publicitario-oficina",
       "hidden": false,
       "featured": true,
       "isPublished": true,
@@ -35,11 +34,11 @@
       "seo": {
         "metaTitle": "Material de Oficina Personalizado para Empresas | Repro Disseny",
         "metaDescription": "Impresión de material de oficina personalizado: blocs, talonarios, carpetas y\n  más. Soluciones profesionales para empresas en Barcelona y Cataluña.",
-        "canonical": "https://reprodisseny.com/categorias/publicitario-oficina/material-oficina",
+        "canonical": "https://reprodisseny.com/categorias/material-oficina",
         "hreflang": [
           {
             "lang": "es-ES",
-            "url": "https://reprodisseny.com/categorias/publicitario-oficina/material-oficina"
+            "url": "https://reprodisseny.com/categorias/material-oficina"
           }
         ],
         "keywords": [],
@@ -48,7 +47,7 @@
           "@type": "CollectionPage",
           "name": "Material de Oficina Personalizado para Empresas",
           "description": "Mi desripción de la categoria de Material de Oficina por hacer",
-          "url": "https://reprodisseny.com/categorias/publicitario-oficina/material-oficina",
+          "url": "https://reprodisseny.com/categorias/material-oficina",
           "image": "https://webcms.blob.core.windows.net/media/category/material-oficina-publicitario.webp",
           "publisher": {
             "@type": "Organization",
@@ -60,14 +59,13 @@
     },
     {
       "id": "11",
-      "updatedAt": "2026-02-05T09:25:46Z",
-      "type": "subcategoria",
+      "updatedAt": "2026-02-12T08:58:44Z",
+      "type": "categoria",
       "slug": "material-publicitario",
-      "path": "/categorias/publicitario-oficina/material-publicitario",
+      "path": "/categorias/material-publicitario",
       "title": "Material Publicitario Personalizado",
       "nav": "Material Publicitario",
       "order": 0,
-      "parent": "publicitario-oficina",
       "hidden": false,
       "featured": true,
       "isPublished": true,
@@ -92,11 +90,11 @@
       "seo": {
         "metaTitle": "Material Publicitario y de Oficina Personalizado | Repro Disseny",
         "metaDescription": "Impresión de material publicitario y de oficina personalizado: carpetas,\n  blocs, talonarios, flyers, trípticos y papelería corporativa. Soluciones para\n  empresas en Barcelona.",
-        "canonical": "https://reprodisseny.com/categorias/publicitario-oficina/material-publicitario",
+        "canonical": "https://reprodisseny.com/categorias/material-publicitario",
         "hreflang": [
           {
             "lang": "es-ES",
-            "url": "https://reprodisseny.com/categorias/publicitario-oficina/material-publicitario"
+            "url": "https://reprodisseny.com/categorias/material-publicitario"
           }
         ],
         "keywords": [],
@@ -105,7 +103,7 @@
           "@type": "CollectionPage",
           "name": "Material Publicitario Personalizado",
           "description": "Mi descripicón TODO",
-          "url": "https://reprodisseny.com/categorias/publicitario-oficina/material-publicitario",
+          "url": "https://reprodisseny.com/categorias/material-publicitario",
           "image": "https://webcms.blob.core.windows.net/media/category/material-oficina-publicitario.webp",
           "publisher": {
             "@type": "Organization",
@@ -171,13 +169,12 @@
     {
       "id": "13",
       "updatedAt": "2026-02-06T07:05:24Z",
-      "type": "subcategoria",
+      "type": "categoria",
       "slug": "material-rigido",
-      "path": "/categorias/gran-formato/material-rigido",
+      "path": "/categorias/material-rigido",
       "title": "Impresión en Materiales Rígidos - Gran Formato",
       "nav": "Materiales Rígidos",
       "order": 0,
-      "parent": "gran-formato",
       "hidden": false,
       "featured": true,
       "isPublished": true,
@@ -199,11 +196,11 @@
       "seo": {
         "metaTitle": "Impresión en Materiales Rígidos | Cartelería y Señalética de Alta Calidad",
         "metaDescription": "Ofrecemos impresión digital en materiales rígidos como Forex, Dibond y metacrilato, ideales para cartelería, señalética y decoración en gran formato.",
-        "canonical": "https://reprodisseny.com/categorias/gran-formato/material-rigido",
+        "canonical": "https://reprodisseny.com/categorias/material-rigido",
         "hreflang": [
           {
             "lang": "es-ES",
-            "url": "https://reprodisseny.com/categorias/gran-formato/material-rigido"
+            "url": "https://reprodisseny.com/categorias/material-rigido"
           }
         ],
         "keywords": [],
@@ -212,7 +209,7 @@
           "@type": "CollectionPage",
           "name": "Impresión en Materiales Rígidos - Gran Formato",
           "description": "Descubre nuestras soluciones de impresión en materiales rígidos para cartelería, señalética y decoración. Calidad y durabilidad garantizadas.",
-          "url": "https://reprodisseny.com/categorias/gran-formato/material-rigido",
+          "url": "https://reprodisseny.com/categorias/material-rigido",
           "image": "https://webcms.blob.core.windows.net/media/category/gran-formato.webp",
           "publisher": {
             "@type": "Organization",
@@ -1139,7 +1136,7 @@
     },
     {
       "id": "9",
-      "updatedAt": "2026-02-11T07:36:32Z",
+      "updatedAt": "2026-02-12T08:26:49Z",
       "type": "categoria",
       "slug": "publicidad-oficina",
       "path": "/categorias/publicidad-oficina",

@@ -4,7 +4,7 @@
     <HomeHero>
       <HomeImageStrip :images="stripImages" />
     </HomeHero>
-    <GuideBanner title="Sant Jordi" bgImageSrc="/img/marketing/bgfiles.png"
+    <GuideBanner title="Sant Jordi" bgImageSrc="/img/ui/book.jpg"
       :cta="{ label: 'Ver la guía rápida', to: '/contacto' }" />
 
     <MarketingProductCategoryGrid title="Ofrecemos una amplia gama de productos" :categories="homeCategories"
