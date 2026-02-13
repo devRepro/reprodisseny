@@ -1,74 +1,107 @@
 <!-- components/marketing/category/CategoryHero.vue -->
 <script setup lang="ts">
-const props = defineProps<{
-  category: any
-}>()
+import { computed } from "vue"
+
+type BreadcrumbItem = { label: string; to: string }
+type HeroCta = { text: string; link: string }
+
+type CategoryLike = {
+  title?: string
+  nav?: string
+  description?: string
+  heroDescription?: string
+
+  imageSrc?: string
+  image?: { src?: string; alt?: string }
+  alt?: string
+
+  breadcrumbs?: BreadcrumbItem[]
+  cta?: Partial<HeroCta>
+}
+
+const props = withDefaults(
+  defineProps<{
+    category: CategoryLike
+    showBreadcrumbs?: boolean
+    showCta?: boolean
+  }>(),
+  {
+    showBreadcrumbs: false,
+    showCta: false,
+  }
+)
+
+const title = computed(() => props.category?.title || props.category?.nav || "Categoría")
+const description = computed(() => props.category?.heroDescription || props.category?.description || "")
 
 const bgSrc = computed(() => {
   const c = props.category || {}
-  // prioridad: imageSrc plano, luego image.src
   return c.imageSrc || c.image?.src || null
 })
 
-const title = computed(() => props.category?.title || props.category?.nav || "Categoria")
-const description = computed(() => props.category?.description || "")
+const alt = computed(() => props.category?.alt || props.category?.image?.alt || title.value)
+
 const breadcrumbs = computed(() => props.category?.breadcrumbs || [])
-const cta = computed(() => props.category?.cta || { text: "Veure productes", link: "#productos" })
+
+const cta = computed<HeroCta>(() => ({
+  text: "Ver productos",
+  link: "#productos",
+  ...(props.category?.cta || {}),
+}))
 </script>
 
 <template>
-  <header class="relative overflow-hidden border-b">
+  <header class="relative overflow-hidden bg-sky-50">
     <!-- Background -->
-    <div v-if="bgSrc" class="absolute inset-0">
-      <img
+    <div class="absolute inset-0">
+      <!-- Imagen suave (como en el diseño) -->
+      <NuxtImg
+        v-if="bgSrc"
         :src="bgSrc"
-        :alt="category?.alt || title"
-        class="h-full w-full object-cover"
+        :alt="alt"
+        class="h-full w-full object-cover object-right opacity-25 grayscale"
         loading="eager"
         decoding="async"
       />
-      <!-- Overlay para legibilidad -->
-      <div class="absolute inset-0 bg-black/40"></div>
+
+      <!-- Velo claro + gradiente para legibilidad -->
+      <div class="absolute inset-0 bg-sky-50/70" />
+      <div class="absolute inset-0 bg-gradient-to-r from-sky-50 via-sky-50/90 to-sky-50/30" />
     </div>
 
-    <div class="relative mx-auto max-w-7xl px-6 py-12 lg:py-16">
+    <!-- Content -->
+    <div
+      class="relative mx-auto flex min-h-[210px] max-w-7xl flex-col justify-center px-6 py-10 md:min-h-[230px]"
+    >
+      <!-- Breadcrumbs (no visibles por defecto, por diseño) -->
+      <nav
+        v-if="showBreadcrumbs && breadcrumbs.length"
+        aria-label="Breadcrumb"
+        class="mb-4 text-xs text-slate-600"
+      >
+        <ol class="flex flex-wrap items-center gap-2">
+          <li v-for="(b, i) in breadcrumbs" :key="i" class="flex items-center gap-2">
+            <NuxtLink :to="b.to" class="hover:text-slate-900">
+              {{ b.label }}
+            </NuxtLink>
+            <span v-if="i < breadcrumbs.length - 1" class="text-slate-400">/</span>
+          </li>
+        </ol>
+      </nav>
 
-      <!-- Badges -->
-      <div class="mt-6 flex flex-wrap gap-2">
-        <span
-          v-if="category?.featured"
-          class="inline-flex items-center rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs font-medium text-white"
-        >
-          Destacada
-        </span>
-        <span
-          v-if="category?.hidden"
-          class="inline-flex items-center rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs font-medium text-white"
-        >
-          No indexada
-        </span>
-        <span
-          v-if="category?.nav"
-          class="inline-flex items-center rounded-full border border-white/30 bg-white/10 px-3 py-1 text-xs font-medium text-white"
-        >
-          {{ category.nav }}
-        </span>
-      </div>
-
-      <!-- Title / description -->
-      <h1 class="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-5xl">
+      <h1 class="text-[28px] font-semibold leading-[1.15] text-slate-900 md:text-[32px]">
         {{ title }}
       </h1>
 
-      <p v-if="description" class="mt-4 max-w-2xl text-base leading-7 text-white/85">
+      <p v-if="description" class="mt-3 max-w-xl text-sm leading-5 text-slate-600">
         {{ description }}
       </p>
 
-      <!-- CTAs -->
-      <div class="mt-8 flex flex-wrap gap-3">
+      <!-- CTA (desactivado por defecto para clavar el diseño) -->
+      <div v-if="showCta" class="mt-6">
         <a
           :href="cta.link"
-          class="inline-flex items-center justify-center rounded-xl bg-white px-4 py-2 text-sm font-medium text-black hover:bg-white/90"
+          class="inline-flex items-center rounded-md bg-sky-600 px-4 py-2 text-sm font-medium text-white hover:bg-sky-700"
         >
           {{ cta.text }}
         </a>
