@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-12T12:17:00.351Z",
+  "generatedAt": "2026-02-13T12:15:37.169Z",
   "categories": [
     {
       "id": "10",
@@ -862,7 +862,7 @@
     },
     {
       "id": "7",
-      "updatedAt": "2026-02-04T10:10:31Z",
+      "updatedAt": "2026-02-13T09:15:27Z",
       "type": "categoria",
       "slug": "libros-revistas-catalogos",
       "path": "/categorias/libros-revistas-catalogos",
@@ -876,6 +876,7 @@
       "bodyMd": "## Impresión de libros, revistas y catálogos en Barcelona | Repro Disseny\n\n# Impresión de libros, revistas y catálogos en Barcelona\n\nEn **Repro Disseny**, somos especialistas en la impresión profesional de publicaciones como libros, revistas y catálogos. Trabajamos para agencias, editoriales y empresas que necesitan materiales de alta calidad, con entregas rápidas y asesoramiento técnico.\n\n**Impresión de confianza en Cataluña con acabados editoriales de primera.**",
       "tabs": [
         {
+          "id": "formatos",
           "title": "Formatos",
           "blocks": [
             {
@@ -889,18 +890,34 @@
           ]
         },
         {
-          "title": "El contenido",
+          "id": "ubicacion",
+          "title": "Ubicación",
+          "blocks": [
+            {
+              "type": "bullets",
+              "items": [
+                "Exterior",
+                "Interior",
+                "Por determinar"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "contenido",
+          "title": "Contenido",
           "blocks": [
             {
               "type": "text",
-              "format": "plain",
-              "text": "Aquí puedes explicar el contenido con más detalle.\nCon saltos de línea si quieres."
+              "text": "Aquí puedes explicar el contenido...\nCon saltos de línea."
             },
             {
               "type": "image",
               "src": "https://webcms.blob.core.windows.net/media/category/llibres-revistes-catalegs.png",
               "alt": "Ejemplo de aplicación",
-              "caption": "Acabado mate en pared"
+              "caption": "Acabado mate en pared",
+              "width": 1200,
+              "height": 675
             }
           ]
         }
@@ -1373,7 +1390,7 @@
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/expositores/banner-golf.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -1490,9 +1507,9 @@
       "isPublished": true,
       "shortDescription": "title: Tazas",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/tazas.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -1587,7 +1604,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -1714,7 +1731,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -1813,9 +1830,9 @@
       "isPublished": true,
       "shortDescription": "title: Tiras lineal",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/tira-lineal.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -2051,7 +2068,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/Carteles.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -3190,7 +3207,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/product/cartel-forex.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "Cartel rígido forex"
       },
       "galleryImages": [],
@@ -3255,7 +3272,7 @@
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/carteles-inmobiliaria.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -4731,7 +4748,7 @@
       "isPublished": true,
       "shortDescription": "Agendas personalizadas",
       "image": {
-        "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/agendas-personalizadas.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/agendas-personalizadas.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -7470,7 +7487,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/Flyer.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -7605,7 +7622,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -7672,7 +7689,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/Folletos-plegados.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -7818,7 +7835,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -7947,7 +7964,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -8525,7 +8542,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/Identificador-maleta.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -8649,7 +8666,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -8837,7 +8854,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/Lanyard.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -8951,7 +8968,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -9066,9 +9083,9 @@
       "shortDescription": "title: Libretas",
       "bodyMd": "## Libretas\r\n\r\n## Libretas",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/libretas.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/libretas.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -9209,7 +9226,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -9336,7 +9353,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -9532,7 +9549,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -9599,7 +9616,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -9769,7 +9786,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -9893,7 +9910,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -10156,7 +10173,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -10319,7 +10336,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -10447,7 +10464,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/Nombre-sobremesa.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -10567,7 +10584,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -10634,7 +10651,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -10702,7 +10719,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -10813,7 +10830,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -10939,7 +10956,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -11114,7 +11131,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -11232,7 +11249,7 @@
       "isPublished": true,
       "shortDescription": "Banderolas lineal",
       "image": {
-        "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/banderolas-lineal.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/banderolas-lineal.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -11339,7 +11356,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -11457,7 +11474,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -11577,7 +11594,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -11644,7 +11661,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -11771,7 +11788,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -11894,7 +11911,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -12025,7 +12042,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -12154,7 +12171,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -12284,7 +12301,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -12351,7 +12368,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -12597,7 +12614,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/sellos-goma.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -12695,7 +12712,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -12830,7 +12847,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -12950,7 +12967,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -13120,9 +13137,9 @@
       "isPublished": true,
       "shortDescription": "title: Talonarios autocopiativos",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/talonarios-autocopiativos.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -13250,9 +13267,9 @@
       "isPublished": true,
       "shortDescription": "title: Tarjetas postales",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/tarjetas-postales.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -13372,9 +13389,9 @@
       "isPublished": true,
       "shortDescription": "title: Tarjetas de pvc",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/tarjetas-pvc.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/tarjetas-de-pvc.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -13502,7 +13519,7 @@
       "image": {
         "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -13628,9 +13645,9 @@
       "isPublished": true,
       "shortDescription": "title: Tarjetas de visita",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/tarjetas-de-visita.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
@@ -13750,9 +13767,9 @@
       "isPublished": true,
       "shortDescription": "title: Tarjetones e invitaciones",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/tarjetones-e-invitaciones.webp",
         "width": 1200,
-        "height": 800,
+        "height": 1200,
         "alt": "alt descripció de la foto"
       },
       "galleryImages": [],
