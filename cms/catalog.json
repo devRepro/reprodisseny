@@ -1,15 +1,16 @@
 {
-  "generatedAt": "2026-02-13T12:15:37.169Z",
+  "generatedAt": "2026-02-16T13:21:06.914Z",
   "categories": [
     {
       "id": "10",
-      "updatedAt": "2026-02-12T08:58:22Z",
-      "type": "categoria",
+      "updatedAt": "2026-02-16T10:51:26Z",
+      "type": "subcategoria",
       "slug": "material-oficina",
-      "path": "/categorias/material-oficina",
+      "path": "/categorias/publicidad-oficina/material-oficina",
       "title": "Material de Oficina Personalizado para Empresas",
       "nav": "Material Oficina",
       "order": 0,
+      "parent": "publicidad-oficina",
       "hidden": false,
       "featured": true,
       "isPublished": true,
@@ -18,7 +19,7 @@
       "bodyMd": "test BodyMd",
       "tabs": [],
       "image": {
-        "src": "https://webcms.blob.core.windows.net/media/category/material-oficina-publicitario.webp",
+        "src": "https://webcms.blob.core.windows.net/media/category/oficina.webp",
         "width": 2400,
         "height": 1200,
         "alt": "Material de Oficina Personalizado para Empresas"
@@ -34,11 +35,11 @@
       "seo": {
         "metaTitle": "Material de Oficina Personalizado para Empresas | Repro Disseny",
         "metaDescription": "Impresión de material de oficina personalizado: blocs, talonarios, carpetas y\n  más. Soluciones profesionales para empresas en Barcelona y Cataluña.",
-        "canonical": "https://reprodisseny.com/categorias/material-oficina",
+        "canonical": "https://reprodisseny.com/categorias/publicidad-oficina/material-oficina",
         "hreflang": [
           {
             "lang": "es-ES",
-            "url": "https://reprodisseny.com/categorias/material-oficina"
+            "url": "https://reprodisseny.com/categorias/publicidad-oficina/material-oficina"
           }
         ],
         "keywords": [],
@@ -47,8 +48,8 @@
           "@type": "CollectionPage",
           "name": "Material de Oficina Personalizado para Empresas",
           "description": "Mi desripción de la categoria de Material de Oficina por hacer",
-          "url": "https://reprodisseny.com/categorias/material-oficina",
-          "image": "https://webcms.blob.core.windows.net/media/category/material-oficina-publicitario.webp",
+          "url": "https://reprodisseny.com/categorias/publicidad-oficina/material-oficina",
+          "image": "https://webcms.blob.core.windows.net/media/category/oficina.webp",
           "publisher": {
             "@type": "Organization",
             "name": "Repro Disseny"
@@ -59,13 +60,14 @@
     },
     {
       "id": "11",
-      "updatedAt": "2026-02-12T08:58:44Z",
-      "type": "categoria",
+      "updatedAt": "2026-02-16T10:52:09Z",
+      "type": "subcategoria",
       "slug": "material-publicitario",
-      "path": "/categorias/material-publicitario",
+      "path": "/categorias/publicidad-oficina/material-publicitario",
       "title": "Material Publicitario Personalizado",
       "nav": "Material Publicitario",
       "order": 0,
+      "parent": "publicidad-oficina",
       "hidden": false,
       "featured": true,
       "isPublished": true,
@@ -74,7 +76,7 @@
       "bodyMd": "Mi body TODO",
       "tabs": [],
       "image": {
-        "src": "https://webcms.blob.core.windows.net/media/category/material-oficina-publicitario.webp",
+        "src": "https://webcms.blob.core.windows.net/media/category/publicidad.webp",
         "width": 2400,
         "height": 1200,
         "alt": "Alt imatege"
@@ -90,11 +92,11 @@
       "seo": {
         "metaTitle": "Material Publicitario y de Oficina Personalizado | Repro Disseny",
         "metaDescription": "Impresión de material publicitario y de oficina personalizado: carpetas,\n  blocs, talonarios, flyers, trípticos y papelería corporativa. Soluciones para\n  empresas en Barcelona.",
-        "canonical": "https://reprodisseny.com/categorias/material-publicitario",
+        "canonical": "https://reprodisseny.com/categorias/publicidad-oficina/material-publicitario",
         "hreflang": [
           {
             "lang": "es-ES",
-            "url": "https://reprodisseny.com/categorias/material-publicitario"
+            "url": "https://reprodisseny.com/categorias/publicidad-oficina/material-publicitario"
           }
         ],
         "keywords": [],
@@ -103,8 +105,8 @@
           "@type": "CollectionPage",
           "name": "Material Publicitario Personalizado",
           "description": "Mi descripicón TODO",
-          "url": "https://reprodisseny.com/categorias/material-publicitario",
-          "image": "https://webcms.blob.core.windows.net/media/category/material-oficina-publicitario.webp",
+          "url": "https://reprodisseny.com/categorias/publicidad-oficina/material-publicitario",
+          "image": "https://webcms.blob.core.windows.net/media/category/publicidad.webp",
           "publisher": {
             "@type": "Organization",
             "name": "Repro Disseny"
@@ -115,7 +117,7 @@
     },
     {
       "id": "12",
-      "updatedAt": "2026-02-06T06:51:59Z",
+      "updatedAt": "2026-02-16T10:52:54Z",
       "type": "subcategoria",
       "slug": "material-flexible",
       "path": "/categorias/gran-formato/material-flexible",
@@ -129,7 +131,7 @@
       "bodyMd": "## Materiales Disponibles\n\n- **Lonas Publicitarias:** Perfectas para banners y anuncios de gran tamaño, resistentes al clima.\n- **Vinilos Adhesivos:** Ideales para decoración de escaparates, vehículos y paredes.\n- **Textiles:** Ofrecen una apariencia elegante para stands y eventos.\n\n## Aplicaciones Comunes\n\n- **Publicidad Exterior**\n- **Decoración Comercial**\n- **Eventos y Ferias**\n\n## Ventajas de Nuestros Servicios\n\n- **Flexibilidad**\n- **Instalación Sencilla**\n- **Calidad de Impresión**",
       "tabs": [],
       "image": {
-        "src": "https://webcms.blob.core.windows.net/media/category/gran-formato.webp",
+        "src": "https://webcms.blob.core.windows.net/media/category/gran-formato-flexible.webp",
         "width": 2400,
         "height": 1200,
         "alt": "Imatge subcategoria material flexible"
@@ -157,7 +159,7 @@
           "@type": "CollectionPage",
           "name": "Impresión en Materiales Flexibles - Gran Formato",
           "url": "https://reprodisseny.com/categorias/gran-formato/material-flexible",
-          "image": "https://webcms.blob.core.windows.net/media/category/gran-formato.webp",
+          "image": "https://webcms.blob.core.windows.net/media/category/gran-formato-flexible.webp",
           "publisher": {
             "@type": "Organization",
             "name": "Repro Disseny"
@@ -168,20 +170,21 @@
     },
     {
       "id": "13",
-      "updatedAt": "2026-02-06T07:05:24Z",
-      "type": "categoria",
+      "updatedAt": "2026-02-16T10:53:32Z",
+      "type": "subcategoria",
       "slug": "material-rigido",
-      "path": "/categorias/material-rigido",
+      "path": "/categorias/gran-formato/material-rigido",
       "title": "Impresión en Materiales Rígidos - Gran Formato",
       "nav": "Materiales Rígidos",
       "order": 0,
+      "parent": "gran-formato",
       "hidden": false,
       "featured": true,
       "isPublished": true,
       "description": "Descubre nuestras soluciones de impresión en materiales rígidos para cartelería, señalética y decoración. Calidad y durabilidad garantizadas.",
       "tabs": [],
       "image": {
-        "src": "https://webcms.blob.core.windows.net/media/category/gran-formato.webp",
+        "src": "https://webcms.blob.core.windows.net/media/category/gran-formato-rigidos.webp",
         "width": 2400,
         "height": 1200,
         "alt": "Material rígido para impresión en gran formato"
@@ -196,11 +199,11 @@
       "seo": {
         "metaTitle": "Impresión en Materiales Rígidos | Cartelería y Señalética de Alta Calidad",
         "metaDescription": "Ofrecemos impresión digital en materiales rígidos como Forex, Dibond y metacrilato, ideales para cartelería, señalética y decoración en gran formato.",
-        "canonical": "https://reprodisseny.com/categorias/material-rigido",
+        "canonical": "https://reprodisseny.com/categorias/gran-formato/material-rigido",
         "hreflang": [
           {
             "lang": "es-ES",
-            "url": "https://reprodisseny.com/categorias/material-rigido"
+            "url": "https://reprodisseny.com/categorias/gran-formato/material-rigido"
           }
         ],
         "keywords": [],
@@ -209,8 +212,8 @@
           "@type": "CollectionPage",
           "name": "Impresión en Materiales Rígidos - Gran Formato",
           "description": "Descubre nuestras soluciones de impresión en materiales rígidos para cartelería, señalética y decoración. Calidad y durabilidad garantizadas.",
-          "url": "https://reprodisseny.com/categorias/material-rigido",
-          "image": "https://webcms.blob.core.windows.net/media/category/gran-formato.webp",
+          "url": "https://reprodisseny.com/categorias/gran-formato/material-rigido",
+          "image": "https://webcms.blob.core.windows.net/media/category/gran-formato-rigidos.webp",
           "publisher": {
             "@type": "Organization",
             "name": "Repro Disseny"
@@ -221,13 +224,13 @@
     },
     {
       "id": "2",
-      "updatedAt": "2026-02-12T12:07:52Z",
+      "updatedAt": "2026-02-16T13:20:40Z",
       "type": "categoria",
       "slug": "adhesivos-personalizados",
       "path": "/categorias/adhesivos",
       "title": "Adhesivos personalizados para branding e interiorismo",
       "nav": "Adhesivos",
-      "order": 0,
+      "order": 1,
       "hidden": false,
       "featured": false,
       "isPublished": true,
@@ -235,32 +238,37 @@
       "bodyMd": "# Adhesivos personalizados para branding e interiorismo | Repro Disseny\n\nAdhesivos vinílicos, troquelados y removibles para campañas, productos y decoración. Soluciones creativas y personalizadas para agencias y negocios en Cataluña.\n\n## Aplicaciones\n- **Escaparates y retail** – Promos temporales con retirada limpia.\n- **Packaging y producto** – Etiquetas troqueladas por SKU.\n- **Señalética y branding** – Polimérico + laminado para exteriores.\n\n## Materiales y acabados\n- **Monomérico vs Polimérico**: elige según duración y estabilidad.\n- **Microperforado / Ácido** para cristales; **Removible** para campañas.\n- **Laminados** mate o brillo para proteger y alargar vida útil.\n\n## Guía de artes finales\n- Sangrado **3 mm**, zona segura **3–5 mm**.\n- Resolución **150–300 ppp** según tamaño y distancia de visión.\n- Formatos: **PDF/X-1a**, **AI** (vector), **EPS**.\n- Descarga plantillas: [50×70 cm](#) · [A4 troquel](#)\n\n## Casos y confianza\n- Clientes: _(logos o nombres)_  \n- Métricas: “Entrega 24–48 h”, “ISO 9001”, “Pago seguro”.\n\n## Te puede interesar\n- [Vinilos para escaparatismo](#)\n- [Etiquetas para packaging](#)\n- [Guía: monomérico vs polimérico](#)",
       "tabs": [
         {
-          "title": "Tipos",
+          "id": "tipos",
+          "title": "Tipos de expositores",
           "blocks": [
             {
               "type": "bullets",
               "items": [
-                "Pegatinas en papel: perfectas para uso interior, promociones y packaging.",
-                "Vinilo (PVC): ideal para superficies lisas y mayor durabilidad.",
-                "Vinilo resistente exterior: pensado para intemperie y uso intensivo.",
-                "Adhesivo permanente: máxima fijación para etiquetado estable."
+                "Roll-ups",
+                "Photocalls",
+                "PLV / Peanas",
+                "Mostradores"
               ]
             }
           ]
         },
         {
-          "title": "Formatos y cortes",
+          "id": "materiales",
+          "title": "Materiales",
           "blocks": [
             {
               "type": "text",
-              "format": "plain",
-              "text": "Aquí puedes explicar el contenido con más detalle.\nCon saltos de línea si quieres."
-            },
+              "text": "PVC espumado, cartón pluma, cartón nido de abeja y dibond según uso."
+            }
+          ]
+        },
+        {
+          "id": "acabados",
+          "title": "Acabados",
+          "blocks": [
             {
-              "type": "image",
-              "src": "https://webcms.blob.core.windows.net/media/category/llibres-revistes-catalegs.png",
-              "alt": "Ejemplo de aplicación",
-              "caption": "Acabado mate en pared"
+              "type": "text",
+              "text": "Mate, brillo, laminado y troquel."
             }
           ]
         }
@@ -358,13 +366,13 @@
     },
     {
       "id": "3",
-      "updatedAt": "2026-02-04T10:03:05Z",
+      "updatedAt": "2026-02-16T10:56:24Z",
       "type": "categoria",
       "slug": "eventos",
       "path": "/categorias/eventos",
       "title": "Impresión personalizada para eventos corporativos",
       "nav": "Eventos",
-      "order": 0,
+      "order": 4,
       "hidden": false,
       "featured": false,
       "isPublished": true,
@@ -496,44 +504,64 @@
     },
     {
       "id": "4",
-      "updatedAt": "2026-02-04T10:02:52Z",
+      "updatedAt": "2026-02-16T12:14:54Z",
       "type": "categoria",
       "slug": "expositores",
       "path": "/categorias/expositores",
       "title": "Expositores impresos para punto de venta y eventos | Repro Disseny",
       "nav": "Expositores",
-      "order": 0,
+      "order": 3,
       "hidden": false,
       "featured": false,
       "isPublished": true,
       "bodyMd": "## Expositores impresos para punto de venta y eventos | Repro Disseny\n\n# Expositores impresos para punto de venta y eventos\n\nLos expositores impresos son herramientas clave para captar la atención en puntos de venta, ferias y espacios comerciales. En **Repro Disseny**, diseñamos y producimos expositores personalizados con acabados profesionales.\n\n## Tipos de Expositores\n\n- **Roll-Ups y Banners**: Fácilmente transportables y perfectos para eventos y presentaciones.\n- **Displays Promocionales**: Ideales para promociones estacionales o lanzamientos de productos.\n- **Peanas de Cartón y PLV**: Diseñadas a medida para retail y promociones",
       "tabs": [
         {
-          "title": "Formatos",
+          "id": "tipos",
+          "title": "Tipos de expositores",
           "blocks": [
             {
               "type": "bullets",
               "items": [
-                "Vinil polimèric",
-                "Laminat opcional",
-                "Acabat mate/brillant"
+                "Roll-ups",
+                "Photocalls",
+                "PLV / Peanas",
+                "Mostradores"
               ]
             }
           ]
         },
         {
-          "title": "El contenido",
+          "id": "materiales",
+          "title": "Materiales",
           "blocks": [
             {
               "type": "text",
-              "format": "plain",
-              "text": "Aquí puedes explicar el contenido con más detalle.\nCon saltos de línea si quieres."
-            },
+              "text": "PVC espumado, cartón pluma, cartón nido de abeja y dibond según uso.",
+              "html": false
+            }
+          ]
+        },
+        {
+          "id": "acabados",
+          "title": "Acabados",
+          "blocks": [
+            {
+              "type": "text",
+              "text": "<strong>Mate</strong>, <strong>brillo</strong>, laminado y troquel.",
+              "html": true
+            }
+          ]
+        },
+        {
+          "id": "galeria",
+          "title": "Galería",
+          "blocks": [
             {
               "type": "image",
-              "src": "https://webcms.blob.core.windows.net/media/category/llibres-revistes-catalegs.png",
-              "alt": "Ejemplo de aplicación",
-              "caption": "Acabado mate en pared"
+              "src": "https://webcms.blob.core.windows.net/media/category/expositores.webp",
+              "alt": "Expositores",
+              "caption": "Ejemplo de expositor"
             }
           ]
         }
@@ -631,13 +659,13 @@
     },
     {
       "id": "5",
-      "updatedAt": "2026-02-04T10:03:48Z",
+      "updatedAt": "2026-02-16T10:56:36Z",
       "type": "categoria",
       "slug": "gran-formato",
       "path": "/categorias/gran-formato",
       "title": "Impresión en Gran Formato en Barcelona y Cataluña | Repro Disseny",
       "nav": "Gran Formato",
-      "order": 1,
+      "order": 2,
       "hidden": false,
       "featured": true,
       "isPublished": true,
@@ -743,13 +771,13 @@
     },
     {
       "id": "6",
-      "updatedAt": "2026-02-11T07:03:10Z",
+      "updatedAt": "2026-02-16T10:56:43Z",
       "type": "categoria",
       "slug": "hosteleria-restauracion",
       "path": "/categorias/hoteleria-restauracion",
       "title": "Impresión para Hoteles y Restaurantes",
       "nav": "Hostelería y restauración",
-      "order": 0,
+      "order": 6,
       "hidden": false,
       "featured": false,
       "isPublished": true,
@@ -862,13 +890,13 @@
     },
     {
       "id": "7",
-      "updatedAt": "2026-02-13T09:15:27Z",
+      "updatedAt": "2026-02-16T10:56:50Z",
       "type": "categoria",
       "slug": "libros-revistas-catalogos",
       "path": "/categorias/libros-revistas-catalogos",
       "title": "Impresión de libros, revistas y catálogos en Barcelona",
       "nav": "Publicaciones",
-      "order": 0,
+      "order": 3,
       "hidden": false,
       "featured": false,
       "isPublished": true,
@@ -1019,13 +1047,13 @@
     },
     {
       "id": "8",
-      "updatedAt": "2026-02-04T10:10:53Z",
+      "updatedAt": "2026-02-16T10:57:07Z",
       "type": "categoria",
       "slug": "packaging",
       "path": "/categorias/packaging",
       "title": "Packaging personalizado para productos y marcas",
       "nav": "Packaging",
-      "order": 0,
+      "order": 8,
       "hidden": false,
       "featured": false,
       "isPublished": true,
@@ -1154,13 +1182,13 @@
     },
     {
       "id": "9",
-      "updatedAt": "2026-02-12T08:26:49Z",
+      "updatedAt": "2026-02-16T10:57:15Z",
       "type": "categoria",
       "slug": "publicidad-oficina",
       "path": "/categorias/publicidad-oficina",
       "title": "Publicidad y Material de Oficina Personalizado",
       "nav": "Publicidad y Oficina",
-      "order": 2,
+      "order": 5,
       "hidden": false,
       "featured": false,
       "isPublished": true,
@@ -1503,7 +1531,7 @@
       "slug": "tazas",
       "path": "/productos/tazas",
       "title": "Tazas",
-      "categorySlug": "material-publicitario",
+      "categorySlug": "material-oficina",
       "isPublished": true,
       "shortDescription": "title: Tazas",
       "image": {
@@ -1593,133 +1621,6 @@
       }
     },
     {
-      "id": "101",
-      "type": "producto",
-      "slug": "tela-poliester",
-      "path": "/productos/tela-poliester",
-      "title": "Tela poliester",
-      "categorySlug": "material-rigido",
-      "isPublished": true,
-      "shortDescription": "title: Tela poliester",
-      "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
-        "width": 1200,
-        "height": 1200,
-        "alt": "alt descripció de la foto"
-      },
-      "galleryImages": [],
-      "sku": "01-GRFO-0005",
-      "brand": "Reprodisseny",
-      "price": 0,
-      "priceCurrency": "EUR",
-      "inStock": true,
-      "attributes": [],
-      "variants": [],
-      "formFields": [
-        {
-          "label": "Tamaño",
-          "name": "tamaño",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Personalizado a demanda"
-          ]
-        },
-        {
-          "label": "Impresión",
-          "name": "impresión",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Cuatricromía 1 cara"
-          ]
-        },
-        {
-          "label": "Material",
-          "name": "material",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Tela poliéster 225 gr"
-          ]
-        },
-        {
-          "label": "Acabados",
-          "name": "acabados",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Con ojales",
-            "sin ojales"
-          ]
-        },
-        {
-          "label": "Refuerzo perimetral",
-          "name": "refuerzo perimetral",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Si",
-            "No"
-          ]
-        },
-        {
-          "label": "Cantidad",
-          "name": "cantidad",
-          "type": "number",
-          "required": true
-        },
-        {
-          "label": "Observaciones",
-          "name": "observaciones",
-          "type": "text",
-          "required": false
-        }
-      ],
-      "seo": {
-        "metaTitle": "Tela poliester | Repro Disseny",
-        "metaDescription": "Tela poliester personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/tela-poliester",
-        "hreflang": [
-          {
-            "lang": "es-ES",
-            "url": "https://reprodisseny.com/productos/tela-poliester"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/tela-poliester"
-          }
-        ],
-        "keywords": [
-          "tela poliester"
-        ],
-        "schema": {
-          "@context": "https://schema.org",
-          "@type": "Product",
-          "name": "Tela poliester",
-          "description": "",
-          "image": [
-            "https://reprodisseny.com/img/productos/mockupProduct.webp"
-          ],
-          "url": "https://reprodisseny.com/categorias/gran-formato/material-rigido/tela-poliester",
-          "sku": "01-GRFO-0005",
-          "brand": {
-            "@type": "Organization",
-            "name": "Reprodisseny"
-          },
-          "mpn": "REF-01-GRFO-0005",
-          "offers": {
-            "@type": "Offer",
-            "price": 0,
-            "priceCurrency": "EUR",
-            "availability": "https://schema.org/InStock",
-            "itemCondition": "https://schema.org/NewCondition",
-            "url": "https://reprodisseny.com/productos/tela-poliester"
-          }
-        }
-      }
-    },
-    {
       "id": "102",
       "type": "producto",
       "slug": "textil-cabezas",
@@ -1729,7 +1630,7 @@
       "isPublished": true,
       "shortDescription": "title: Textil reposacabezas",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/eventos/textil-reposacabezas.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -2057,137 +1958,6 @@
       }
     },
     {
-      "id": "105",
-      "type": "producto",
-      "slug": "vinilos-medida",
-      "path": "/productos/vinilos-medida",
-      "title": "Vinilos a medida",
-      "categorySlug": "adhesivos",
-      "isPublished": true,
-      "shortDescription": "title: Vinilos a medida",
-      "image": {
-        "src": "https://www.reprodisseny.com/img/productos/Carteles.webp",
-        "width": 1200,
-        "height": 1200,
-        "alt": "alt descripció de la foto"
-      },
-      "galleryImages": [],
-      "sku": "01-ADHE-0004",
-      "brand": "Reprodisseny",
-      "price": 0,
-      "priceCurrency": "EUR",
-      "inStock": true,
-      "attributes": [],
-      "variants": [],
-      "formFields": [
-        {
-          "label": "Tamaño",
-          "name": "tamaño",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Personalizado a demanda"
-          ]
-        },
-        {
-          "label": "Impresión",
-          "name": "impresión",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Cuatricromía 1 cara"
-          ]
-        },
-        {
-          "label": "Aplicación",
-          "name": "aplicación",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Pared",
-            "Cristal",
-            "Suelo"
-          ]
-        },
-        {
-          "label": "Material",
-          "name": "material",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Fácil aplicación",
-            "Clásico",
-            "Transparente",
-            "Alta adherencia"
-          ]
-        },
-        {
-          "label": "Corte",
-          "name": "corte",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Recto",
-            "A la forma"
-          ]
-        },
-        {
-          "label": "Cantidad",
-          "name": "cantidad",
-          "type": "number",
-          "required": true
-        },
-        {
-          "label": "Observaciones",
-          "name": "observaciones",
-          "type": "text",
-          "required": false
-        }
-      ],
-      "seo": {
-        "metaTitle": "Vinilos a medida | Repro Disseny",
-        "metaDescription": "Vinilos a medida personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/vinilos-medida",
-        "hreflang": [
-          {
-            "lang": "es-ES",
-            "url": "https://reprodisseny.com/productos/vinilos-medida"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/vinilos-medida"
-          }
-        ],
-        "keywords": [
-          "vinilos a medida"
-        ],
-        "schema": {
-          "@context": "https://schema.org",
-          "@type": "Product",
-          "name": "Vinilos a medida",
-          "description": "",
-          "image": [
-            "https://reprodisseny.com/img/productos/Carteles.webp"
-          ],
-          "url": "https://reprodisseny.com/categorias/adhesivos/vinilos-medida",
-          "sku": "01-ADHE-0004",
-          "brand": {
-            "@type": "Organization",
-            "name": "Reprodisseny"
-          },
-          "mpn": "REF-01-ADHE-0004",
-          "offers": {
-            "@type": "Offer",
-            "price": 0,
-            "priceCurrency": "EUR",
-            "availability": "https://schema.org/InStock",
-            "itemCondition": "https://schema.org/NewCondition",
-            "url": "https://reprodisseny.com/productos/vinilos-medida"
-          }
-        }
-      }
-    },
-    {
       "id": "106",
       "type": "producto",
       "slug": "wire-o-oculto",
@@ -2484,6 +2254,102 @@
       }
     },
     {
+      "id": "108",
+      "type": "producto",
+      "slug": "stand-de-feria",
+      "path": "/productos/stand-de-feria",
+      "title": "Stand de feria",
+      "categorySlug": "expositores",
+      "isPublished": true,
+      "shortDescription": "Stands para ferias",
+      "image": {
+        "src": "https://webcms.blob.core.windows.net/media/product/expositores/stand-feria.webp",
+        "width": 1200,
+        "height": 1200,
+        "alt": "Stand de feria"
+      },
+      "galleryImages": [],
+      "brand": "Repro Disseny",
+      "price": 0,
+      "priceCurrency": "EUR",
+      "inStock": false,
+      "attributes": [],
+      "variants": [],
+      "formFields": [],
+      "seo": {
+        "metaTitle": "Stand de feria",
+        "metaDescription": "Stands para ferias",
+        "canonical": "https://reprodisseny.com/productos/stand-de-feria",
+        "hreflang": [
+          {
+            "lang": "es-ES",
+            "url": "https://reprodisseny.com/productos/stand-de-feria"
+          }
+        ],
+        "keywords": [],
+        "schema": {
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": "Stand de feria",
+          "description": "Stands para ferias",
+          "image": "https://webcms.blob.core.windows.net/media/product/expositores/stand-feria.webp",
+          "url": "https://reprodisseny.com/productos/stand-de-feria",
+          "brand": {
+            "@type": "Organization",
+            "name": "Repro Disseny"
+          }
+        }
+      }
+    },
+    {
+      "id": "109",
+      "type": "producto",
+      "slug": "tabletent",
+      "path": "/productos/tabletent",
+      "title": "Tabletent",
+      "categorySlug": "hoteles-restaurantes",
+      "isPublished": true,
+      "shortDescription": "Tabletents para hoteles y restaurantes",
+      "image": {
+        "src": "https://webcms.blob.core.windows.net/media/product/restauracion/tabletent.webp",
+        "width": 1200,
+        "height": 1200,
+        "alt": "Tabletent"
+      },
+      "galleryImages": [],
+      "brand": "Repro Disseny",
+      "price": 0,
+      "priceCurrency": "EUR",
+      "inStock": false,
+      "attributes": [],
+      "variants": [],
+      "formFields": [],
+      "seo": {
+        "metaTitle": "Tabletent",
+        "metaDescription": "Tabletents para hoteles y restaurantes",
+        "canonical": "https://reprodisseny.com/productos/tabletent",
+        "hreflang": [
+          {
+            "lang": "es-ES",
+            "url": "https://reprodisseny.com/productos/tabletent"
+          }
+        ],
+        "keywords": [],
+        "schema": {
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": "Tabletent",
+          "description": "Tabletents para hoteles y restaurantes",
+          "image": "https://webcms.blob.core.windows.net/media/product/restauracion/tabletent.webp",
+          "url": "https://reprodisseny.com/productos/tabletent",
+          "brand": {
+            "@type": "Organization",
+            "name": "Repro Disseny"
+          }
+        }
+      }
+    },
+    {
       "id": "11",
       "type": "producto",
       "slug": "banner",
@@ -2546,6 +2412,378 @@
             "availability": "https://schema.org/InStock",
             "itemCondition": "https://schema.org/NewCondition",
             "url": "https://reprodisseny.com/productos/banner"
+          }
+        }
+      }
+    },
+    {
+      "id": "110",
+      "type": "producto",
+      "slug": "minutas-de-boda",
+      "path": "/productos/minutas-de-boda",
+      "title": "Minutas de boda",
+      "categorySlug": "hoteles-restaurantes",
+      "isPublished": true,
+      "shortDescription": "Minutas de boda",
+      "image": {
+        "src": "https://webcms.blob.core.windows.net/media/product/restauracion/minutas-boda.webp",
+        "width": 1200,
+        "height": 1200,
+        "alt": "Minutas de boda"
+      },
+      "galleryImages": [],
+      "brand": "Repro Disseny",
+      "price": 0,
+      "priceCurrency": "EUR",
+      "inStock": false,
+      "attributes": [],
+      "variants": [],
+      "formFields": [],
+      "seo": {
+        "metaTitle": "Minutas de boda",
+        "metaDescription": "Minutas de boda",
+        "canonical": "https://reprodisseny.com/productos/minutas-de-boda",
+        "hreflang": [
+          {
+            "lang": "es-ES",
+            "url": "https://reprodisseny.com/productos/minutas-de-boda"
+          }
+        ],
+        "keywords": [],
+        "schema": {
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": "Minutas de boda",
+          "description": "Minutas de boda",
+          "image": "https://webcms.blob.core.windows.net/media/product/restauracion/minutas-boda.webp",
+          "url": "https://reprodisseny.com/productos/minutas-de-boda",
+          "brand": {
+            "@type": "Organization",
+            "name": "Repro Disseny"
+          }
+        }
+      }
+    },
+    {
+      "id": "113",
+      "type": "producto",
+      "slug": "imanes",
+      "path": "/productos/imanes",
+      "title": "Imanes",
+      "categorySlug": "material-flexible",
+      "isPublished": true,
+      "shortDescription": "Imanes",
+      "image": {
+        "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/imanes.webp",
+        "width": 1200,
+        "height": 1200,
+        "alt": "Imanes"
+      },
+      "galleryImages": [],
+      "brand": "Repro Disseny",
+      "price": 0,
+      "priceCurrency": "EUR",
+      "inStock": false,
+      "attributes": [],
+      "variants": [],
+      "formFields": [],
+      "seo": {
+        "metaTitle": "Imanes",
+        "metaDescription": "Imanes",
+        "canonical": "https://reprodisseny.com/productos/imanes",
+        "hreflang": [
+          {
+            "lang": "es-ES",
+            "url": "https://reprodisseny.com/productos/imanes"
+          }
+        ],
+        "keywords": [],
+        "schema": {
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": "Imanes",
+          "description": "Imanes",
+          "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/imanes.webp",
+          "url": "https://reprodisseny.com/productos/imanes",
+          "brand": {
+            "@type": "Organization",
+            "name": "Repro Disseny"
+          }
+        }
+      }
+    },
+    {
+      "id": "114",
+      "type": "producto",
+      "slug": "vinilos-para-superficies-planas",
+      "path": "/productos/vinilos-para-superficies-planas",
+      "title": "Vinilos para superficies planas",
+      "categorySlug": "material-flexible",
+      "isPublished": true,
+      "shortDescription": "Vinilos para superficies planas",
+      "image": {
+        "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-para-superficies-planas.webp",
+        "width": 1200,
+        "height": 1200,
+        "alt": "Vinilos para superficies planas"
+      },
+      "galleryImages": [],
+      "brand": "Repro Disseny",
+      "price": 0,
+      "priceCurrency": "EUR",
+      "inStock": false,
+      "attributes": [],
+      "variants": [],
+      "formFields": [],
+      "seo": {
+        "metaTitle": "Vinilos para superficies planas",
+        "metaDescription": "Vinilos para superficies planas",
+        "canonical": "https://reprodisseny.com/productos/vinilos-para-superficies-planas",
+        "hreflang": [
+          {
+            "lang": "es-ES",
+            "url": "https://reprodisseny.com/productos/vinilos-para-superficies-planas"
+          }
+        ],
+        "keywords": [],
+        "schema": {
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": "Vinilos para superficies planas",
+          "description": "Vinilos para superficies planas",
+          "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-para-superficies-planas.webp",
+          "url": "https://reprodisseny.com/productos/vinilos-para-superficies-planas",
+          "brand": {
+            "@type": "Organization",
+            "name": "Repro Disseny"
+          }
+        }
+      }
+    },
+    {
+      "id": "115",
+      "type": "producto",
+      "slug": "vinilo-para-cristal",
+      "path": "/productos/vinilo-para-cristal",
+      "title": "Vinilo para cristal",
+      "categorySlug": "material-flexible",
+      "isPublished": true,
+      "shortDescription": "Vinilo para cristal",
+      "image": {
+        "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-cristal.webp",
+        "width": 1200,
+        "height": 1200,
+        "alt": "Vinilo para cristal"
+      },
+      "galleryImages": [],
+      "brand": "Repro Disseny",
+      "price": 0,
+      "priceCurrency": "EUR",
+      "inStock": false,
+      "attributes": [],
+      "variants": [],
+      "formFields": [],
+      "seo": {
+        "metaTitle": "Vinilo para cristal",
+        "metaDescription": "Vinilo para cristal",
+        "canonical": "https://reprodisseny.com/productos/vinilo-para-cristal",
+        "hreflang": [
+          {
+            "lang": "es-ES",
+            "url": "https://reprodisseny.com/productos/vinilo-para-cristal"
+          }
+        ],
+        "keywords": [],
+        "schema": {
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": "Vinilo para cristal",
+          "description": "Vinilo para cristal",
+          "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-cristal.webp",
+          "url": "https://reprodisseny.com/productos/vinilo-para-cristal",
+          "brand": {
+            "@type": "Organization",
+            "name": "Repro Disseny"
+          }
+        }
+      }
+    },
+    {
+      "id": "116",
+      "type": "producto",
+      "slug": "vinilo-de-corte",
+      "path": "/productos/vinilo-de-corte",
+      "title": "Vinilo de corte",
+      "categorySlug": "material-flexible",
+      "isPublished": true,
+      "image": {
+        "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-de-corte.webp",
+        "width": 1200,
+        "height": 1200,
+        "alt": "Vinilo de corte"
+      },
+      "galleryImages": [],
+      "brand": "Repro Disseny",
+      "price": 0,
+      "priceCurrency": "EUR",
+      "inStock": false,
+      "attributes": [],
+      "variants": [],
+      "formFields": [],
+      "seo": {
+        "metaTitle": "Vinilo de corte",
+        "canonical": "https://reprodisseny.com/productos/vinilo-de-corte",
+        "hreflang": [
+          {
+            "lang": "es-ES",
+            "url": "https://reprodisseny.com/productos/vinilo-de-corte"
+          }
+        ],
+        "keywords": [],
+        "schema": {
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": "Vinilo de corte",
+          "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-de-corte.webp",
+          "url": "https://reprodisseny.com/productos/vinilo-de-corte",
+          "brand": {
+            "@type": "Organization",
+            "name": "Repro Disseny"
+          }
+        }
+      }
+    },
+    {
+      "id": "117",
+      "type": "producto",
+      "slug": "vinilo-para-suelo",
+      "path": "/productos/vinilo-para-suelo",
+      "title": "Vinilo para suelo",
+      "categorySlug": "material-flexible",
+      "isPublished": true,
+      "image": {
+        "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-para-suelo.webp",
+        "width": 1200,
+        "height": 1200,
+        "alt": "Vinilo para suelo"
+      },
+      "galleryImages": [],
+      "brand": "Repro Disseny",
+      "price": 0,
+      "priceCurrency": "EUR",
+      "inStock": false,
+      "attributes": [],
+      "variants": [],
+      "formFields": [],
+      "seo": {
+        "metaTitle": "Vinilo para suelo",
+        "canonical": "https://reprodisseny.com/productos/vinilo-para-suelo",
+        "hreflang": [
+          {
+            "lang": "es-ES",
+            "url": "https://reprodisseny.com/productos/vinilo-para-suelo"
+          }
+        ],
+        "keywords": [],
+        "schema": {
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": "Vinilo para suelo",
+          "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-para-suelo.webp",
+          "url": "https://reprodisseny.com/productos/vinilo-para-suelo",
+          "brand": {
+            "@type": "Organization",
+            "name": "Repro Disseny"
+          }
+        }
+      }
+    },
+    {
+      "id": "118",
+      "type": "producto",
+      "slug": "vinilo-para-vehiculos",
+      "path": "/productos/vinilo-para-vehiculos",
+      "title": "Vinilo para vehículos",
+      "categorySlug": "material-flexible",
+      "isPublished": true,
+      "image": {
+        "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-para-vehiculos.webp",
+        "width": 1200,
+        "height": 1200,
+        "alt": "Vinilo para vehículos"
+      },
+      "galleryImages": [],
+      "brand": "Repro Disseny",
+      "price": 0,
+      "priceCurrency": "EUR",
+      "inStock": false,
+      "attributes": [],
+      "variants": [],
+      "formFields": [],
+      "seo": {
+        "metaTitle": "Vinilo para vehículos",
+        "canonical": "https://reprodisseny.com/productos/vinilo-para-vehiculos",
+        "hreflang": [
+          {
+            "lang": "es-ES",
+            "url": "https://reprodisseny.com/productos/vinilo-para-vehiculos"
+          }
+        ],
+        "keywords": [],
+        "schema": {
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": "Vinilo para vehículos",
+          "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-para-vehiculos.webp",
+          "url": "https://reprodisseny.com/productos/vinilo-para-vehiculos",
+          "brand": {
+            "@type": "Organization",
+            "name": "Repro Disseny"
+          }
+        }
+      }
+    },
+    {
+      "id": "119",
+      "type": "producto",
+      "slug": "vinilo-pizarra",
+      "path": "/productos/vinilo-pizarra",
+      "title": "Vinilo pizarra",
+      "categorySlug": "material-flexible",
+      "isPublished": true,
+      "image": {
+        "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-pizarra.webp",
+        "width": 1200,
+        "height": 1200,
+        "alt": "Vinilo pizarra"
+      },
+      "galleryImages": [],
+      "brand": "Repro Disseny",
+      "price": 0,
+      "priceCurrency": "EUR",
+      "inStock": false,
+      "attributes": [],
+      "variants": [],
+      "formFields": [],
+      "seo": {
+        "metaTitle": "Vinilo pizarra",
+        "canonical": "https://reprodisseny.com/productos/vinilo-pizarra",
+        "hreflang": [
+          {
+            "lang": "es-ES",
+            "url": "https://reprodisseny.com/productos/vinilo-pizarra"
+          }
+        ],
+        "keywords": [],
+        "schema": {
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": "Vinilo pizarra",
+          "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-pizarra.webp",
+          "url": "https://reprodisseny.com/productos/vinilo-pizarra",
+          "brand": {
+            "@type": "Organization",
+            "name": "Repro Disseny"
           }
         }
       }
@@ -2669,6 +2907,102 @@
             "availability": "https://schema.org/InStock",
             "itemCondition": "https://schema.org/NewCondition",
             "url": "https://reprodisseny.com/productos/bloc-notas"
+          }
+        }
+      }
+    },
+    {
+      "id": "120",
+      "type": "producto",
+      "slug": "panel-ligero",
+      "path": "/productos/panel-ligero",
+      "title": "Panel ligero",
+      "categorySlug": "material-rigido",
+      "isPublished": true,
+      "shortDescription": "Panel ligero",
+      "image": {
+        "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/panel-ligero.webp",
+        "width": 1200,
+        "height": 1200,
+        "alt": "Panel ligero"
+      },
+      "galleryImages": [],
+      "brand": "Repro Disseny",
+      "price": 0,
+      "priceCurrency": "EUR",
+      "inStock": false,
+      "attributes": [],
+      "variants": [],
+      "formFields": [],
+      "seo": {
+        "metaTitle": "Panel ligero",
+        "metaDescription": "Panel ligero",
+        "canonical": "https://reprodisseny.com/productos/panel-ligero",
+        "hreflang": [
+          {
+            "lang": "es-ES",
+            "url": "https://reprodisseny.com/productos/panel-ligero"
+          }
+        ],
+        "keywords": [],
+        "schema": {
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": "Panel ligero",
+          "description": "Panel ligero",
+          "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/panel-ligero.webp",
+          "url": "https://reprodisseny.com/productos/panel-ligero",
+          "brand": {
+            "@type": "Organization",
+            "name": "Repro Disseny"
+          }
+        }
+      }
+    },
+    {
+      "id": "122",
+      "type": "producto",
+      "slug": "tarjetas-rasca-publicitario",
+      "path": "/productos/tarjetas-rasca-publicitario",
+      "title": "Tarjetas rasca publicitario",
+      "categorySlug": "material-publicitario",
+      "isPublished": true,
+      "shortDescription": "Tarjetas rasca",
+      "image": {
+        "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/tarjeta-rasca.webp",
+        "width": 1200,
+        "height": 1200,
+        "alt": "Tarjetas rasca publicitario"
+      },
+      "galleryImages": [],
+      "brand": "Repro Disseny",
+      "price": 0,
+      "priceCurrency": "EUR",
+      "inStock": false,
+      "attributes": [],
+      "variants": [],
+      "formFields": [],
+      "seo": {
+        "metaTitle": "Tarjetas rasca publicitario",
+        "metaDescription": "Tarjetas rasca",
+        "canonical": "https://reprodisseny.com/productos/tarjetas-rasca-publicitario",
+        "hreflang": [
+          {
+            "lang": "es-ES",
+            "url": "https://reprodisseny.com/productos/tarjetas-rasca-publicitario"
+          }
+        ],
+        "keywords": [],
+        "schema": {
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": "Tarjetas rasca publicitario",
+          "description": "Tarjetas rasca",
+          "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/tarjeta-rasca.webp",
+          "url": "https://reprodisseny.com/productos/tarjetas-rasca-publicitario",
+          "brand": {
+            "@type": "Organization",
+            "name": "Repro Disseny"
           }
         }
       }
@@ -3196,138 +3530,6 @@
       }
     },
     {
-      "id": "18",
-      "type": "producto",
-      "slug": "cartel-rigido-forex",
-      "path": "/productos/cartel-rigido-forex",
-      "title": "Cartel rígido forex",
-      "categorySlug": "material-rigido",
-      "isPublished": true,
-      "shortDescription": "Cartel rígido forex",
-      "image": {
-        "src": "https://www.reprodisseny.com/img/product/cartel-forex.webp",
-        "width": 1200,
-        "height": 1200,
-        "alt": "Cartel rígido forex"
-      },
-      "galleryImages": [],
-      "sku": "GF-MR-001",
-      "brand": "Reprodisseny",
-      "price": 1999,
-      "priceCurrency": "EUR",
-      "inStock": true,
-      "attributes": [],
-      "variants": [],
-      "formFields": [],
-      "seo": {
-        "metaTitle": "Cartel rígido forex",
-        "metaDescription": "Cartel rígido forex personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/cartel-rigido-forex",
-        "hreflang": [
-          {
-            "lang": "es-ES",
-            "url": "https://reprodisseny.com/productos/cartel-rigido-forex"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/cartel-rigido-forex"
-          }
-        ],
-        "keywords": [],
-        "schema": {
-          "@context": "https://schema.org",
-          "@type": "Product",
-          "name": "Cartel rígido forex",
-          "description": "",
-          "image": [
-            "https://reprodisseny.com/img/product/cartel-forex.webp"
-          ],
-          "url": "https://reprodisseny.com/categorias/gran-formato/material-rigido/cartel-rigido-forex",
-          "sku": "GF-MR-001",
-          "brand": {
-            "@type": "Organization",
-            "name": "Reprodisseny"
-          },
-          "offers": {
-            "@type": "Offer",
-            "price": 19.99,
-            "priceCurrency": "EUR",
-            "availability": "https://schema.org/InStock",
-            "itemCondition": "https://schema.org/NewCondition",
-            "url": "https://reprodisseny.com/productos/cartel-rigido-forex"
-          },
-          "mpn": "REF-GF-MR-001"
-        }
-      }
-    },
-    {
-      "id": "19",
-      "type": "producto",
-      "slug": "carteles-inmobiliaria",
-      "path": "/productos/carteles-inmobiliaria",
-      "title": "Carteles inmobiliaria",
-      "categorySlug": "material-flexible",
-      "isPublished": true,
-      "shortDescription": "Carteles inmobiliaria",
-      "image": {
-        "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/carteles-inmobiliaria.webp",
-        "width": 1200,
-        "height": 1200,
-        "alt": "alt descripció de la foto"
-      },
-      "galleryImages": [],
-      "sku": "01-GRFO-0019",
-      "brand": "Reprodisseny",
-      "price": 0,
-      "priceCurrency": "EUR",
-      "inStock": true,
-      "attributes": [],
-      "variants": [],
-      "formFields": [],
-      "seo": {
-        "metaTitle": "Carteles inmobiliaria | Repro Disseny",
-        "metaDescription": "Carteles inmobiliaria personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/carteles-inmobiliaria",
-        "hreflang": [
-          {
-            "lang": "es-ES",
-            "url": "https://reprodisseny.com/productos/carteles-inmobiliaria"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/carteles-inmobiliaria"
-          }
-        ],
-        "keywords": [
-          "carteles inmobiliaria"
-        ],
-        "schema": {
-          "@context": "https://schema.org",
-          "@type": "Product",
-          "name": "Carteles inmobiliaria",
-          "description": "",
-          "image": [
-            "https://reprodisseny.com/img/productos/mockupProduct.webp"
-          ],
-          "url": "https://reprodisseny.com/categorias/gran-formato/material-flexible/carteles-inmobiliaria",
-          "sku": "01-GRFO-0019",
-          "brand": {
-            "@type": "Organization",
-            "name": "Reprodisseny"
-          },
-          "mpn": "REF-01-GRFO-0019",
-          "offers": {
-            "@type": "Offer",
-            "price": 0,
-            "priceCurrency": "EUR",
-            "availability": "https://schema.org/InStock",
-            "itemCondition": "https://schema.org/NewCondition",
-            "url": "https://reprodisseny.com/productos/carteles-inmobiliaria"
-          }
-        }
-      }
-    },
-    {
       "id": "2",
       "type": "producto",
       "slug": "acreditaciones",
@@ -3588,7 +3790,7 @@
       "slug": "carton-compacto",
       "path": "/productos/carton-compacto",
       "title": "Cartón compacto",
-      "categorySlug": "material-flexible",
+      "categorySlug": "material-rigido",
       "isPublished": true,
       "shortDescription": "Cartón compacto",
       "image": {
@@ -3715,7 +3917,7 @@
       "slug": "carton-corrugado",
       "path": "/productos/carton-corrugado",
       "title": "Cartón corrugado",
-      "categorySlug": "material-flexible",
+      "categorySlug": "material-rigido",
       "isPublished": true,
       "shortDescription": "Cartón corrugado",
       "image": {
@@ -5475,7 +5677,7 @@
       "slug": "dispa",
       "path": "/productos/dispa",
       "title": "Dispa",
-      "categorySlug": "material-flexible",
+      "categorySlug": "material-rigido",
       "isPublished": true,
       "shortDescription": "Dispa",
       "image": {
@@ -5607,7 +5809,7 @@
       "isPublished": true,
       "shortDescription": "Displays",
       "image": {
-        "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/dispa.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/expositores/display.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -7620,7 +7822,7 @@
       "isPublished": true,
       "shortDescription": "title: Foam",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/foam.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -7833,7 +8035,7 @@
       "shortDescription": "title: Forex",
       "bodyMd": "## Forex",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/forex.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -7962,7 +8164,7 @@
       "isPublished": true,
       "shortDescription": "title: Fundas Rosas Sant Jordi",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/eventos/fundas-sant-jordi.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -8540,7 +8742,7 @@
       "isPublished": true,
       "shortDescription": "title: Identificador de maleta",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/Identificador-maleta.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/restauracion/identificador-maleta.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -8656,15 +8858,15 @@
     {
       "id": "59",
       "type": "producto",
-      "slug": "imanes",
-      "path": "/productos/imanes",
-      "title": "Imanes",
+      "slug": "imanes-publicitarios",
+      "path": "/productos/imanes-publicitarios",
+      "title": "Imanes publicitarios",
       "categorySlug": "material-publicitario",
       "isPublished": true,
-      "shortDescription": "title: Imanes",
-      "bodyMd": "## Imanes\r\n\r\n## Imanes",
+      "shortDescription": "title: Imanes publicitarios",
+      "bodyMd": "## Imanes\n\n## Imanes",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/imanes-publicitarios.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -8802,7 +9004,7 @@
       "seo": {
         "metaTitle": "Imanes | Repro Disseny",
         "metaDescription": "Imanes personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/imanes",
+        "canonical": "https://reprodisseny.com/productos/imanes-publicitarios",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -8852,7 +9054,7 @@
       "isPublished": true,
       "shortDescription": "title: Lanyards",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/Lanyard.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/eventos/lanyard.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -8956,265 +9158,6 @@
       }
     },
     {
-      "id": "61",
-      "type": "producto",
-      "slug": "letras-corporeas",
-      "path": "/productos/letras-corporeas",
-      "title": "Letras Corporeas",
-      "categorySlug": "material-publicitario",
-      "isPublished": true,
-      "shortDescription": "title: Letras Corporeas",
-      "bodyMd": "## Letras Corporeas\r\n\r\n## Letras Corporeas",
-      "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
-        "width": 1200,
-        "height": 1200,
-        "alt": "alt descripció de la foto"
-      },
-      "galleryImages": [],
-      "sku": "01-OFICI-0029",
-      "brand": "Reprodisseny",
-      "price": 0,
-      "priceCurrency": "EUR",
-      "inStock": true,
-      "attributes": [],
-      "variants": [],
-      "formFields": [
-        {
-          "label": "Tamaño",
-          "name": "tamaño",
-          "type": "text",
-          "required": true
-        },
-        {
-          "label": "Impresión",
-          "name": "impresión",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Con impresión",
-            "Sin impresión"
-          ]
-        },
-        {
-          "label": "Material",
-          "name": "material",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Nido de abeja 16 mm",
-            "Nido de abeja 32 mm",
-            "PVC 10 mm"
-          ]
-        },
-        {
-          "label": "Acabados",
-          "name": "acabados",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Cortado a la forma"
-          ]
-        },
-        {
-          "label": "Cantidad",
-          "name": "cantidad",
-          "type": "number",
-          "required": true
-        },
-        {
-          "label": "Observaciones",
-          "name": "observaciones",
-          "type": "text",
-          "required": false
-        }
-      ],
-      "seo": {
-        "metaTitle": "Letras Corporeas | Repro Disseny",
-        "metaDescription": "Letras Corporeas personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/letras-corporeas",
-        "hreflang": [
-          {
-            "lang": "es-ES",
-            "url": "https://reprodisseny.com/productos/letras-corporeas"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/letras-corporeas"
-          }
-        ],
-        "keywords": [
-          "letras corporeas"
-        ],
-        "schema": {
-          "@context": "https://schema.org",
-          "@type": "Product",
-          "name": "Letras Corporeas",
-          "description": "",
-          "image": [
-            "https://reprodisseny.com/img/productos/mockupProduct.webp"
-          ],
-          "url": "https://reprodisseny.com/categorias/publicitario-oficina/material-publicitario/letras-corporeas",
-          "sku": "01-OFICI-0029",
-          "brand": {
-            "@type": "Organization",
-            "name": "Reprodisseny"
-          },
-          "mpn": "REF-01-OFICI-0029",
-          "offers": {
-            "@type": "Offer",
-            "price": 0,
-            "priceCurrency": "EUR",
-            "availability": "https://schema.org/InStock",
-            "itemCondition": "https://schema.org/NewCondition",
-            "url": "https://reprodisseny.com/productos/letras-corporeas"
-          }
-        }
-      }
-    },
-    {
-      "id": "62",
-      "type": "producto",
-      "slug": "libretas",
-      "path": "/productos/libretas",
-      "title": "Libretas",
-      "categorySlug": "material-publicitario",
-      "isPublished": true,
-      "shortDescription": "title: Libretas",
-      "bodyMd": "## Libretas\r\n\r\n## Libretas",
-      "image": {
-        "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/libretas.webp",
-        "width": 1200,
-        "height": 1200,
-        "alt": "alt descripció de la foto"
-      },
-      "galleryImages": [],
-      "sku": "01-OFICI-0022",
-      "brand": "Reprodisseny",
-      "price": 0,
-      "priceCurrency": "EUR",
-      "inStock": true,
-      "attributes": [],
-      "variants": [],
-      "formFields": [
-        {
-          "label": "Tamaño",
-          "name": "tamaño",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Din A-5",
-            "Din A-4"
-          ]
-        },
-        {
-          "label": "Impresión",
-          "name": "impresión",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Cuatricromía 1 cara",
-            "Cuatricromía 2 caras"
-          ]
-        },
-        {
-          "label": "Papel cubiertas",
-          "name": "papel cubiertas",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Estucado mate 350 gr.",
-            "Cartulina gráfica 350 gr."
-          ]
-        },
-        {
-          "label": "Acabados cubierta",
-          "name": "acabados cubierta",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Sin plastificar",
-            "Plastificado mate 2 caras",
-            "Plastificado brillo 2 caras"
-          ]
-        },
-        {
-          "label": "Papel interior",
-          "name": "papel interior",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Offset 80 gr.",
-            "Offset 90 gr.",
-            "Reciclado 80 gr."
-          ]
-        },
-        {
-          "label": "Encuadernación",
-          "name": "encuadernación",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Wire-O"
-          ]
-        },
-        {
-          "label": "Cantidad",
-          "name": "cantidad",
-          "type": "number",
-          "required": true
-        },
-        {
-          "label": "Observaciones",
-          "name": "observaciones",
-          "type": "text",
-          "required": false
-        }
-      ],
-      "seo": {
-        "metaTitle": "Libretas | Repro Disseny",
-        "metaDescription": "Libretas personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/libretas",
-        "hreflang": [
-          {
-            "lang": "es-ES",
-            "url": "https://reprodisseny.com/productos/libretas"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/libretas"
-          }
-        ],
-        "keywords": [
-          "libretas"
-        ],
-        "schema": {
-          "@context": "https://schema.org",
-          "@type": "Product",
-          "name": "Libretas",
-          "description": "",
-          "image": [
-            "https://reprodisseny.com/img/productos/libretas.webp"
-          ],
-          "url": "https://reprodisseny.com/categorias/publicitario-oficina/material-publicitario/libretas",
-          "sku": "01-OFICI-0022",
-          "brand": {
-            "@type": "Organization",
-            "name": "Reprodisseny"
-          },
-          "mpn": "REF-01-OFICI-0022",
-          "offers": {
-            "@type": "Offer",
-            "price": 0,
-            "priceCurrency": "EUR",
-            "availability": "https://schema.org/InStock",
-            "itemCondition": "https://schema.org/NewCondition",
-            "url": "https://reprodisseny.com/productos/libretas"
-          }
-        }
-      }
-    },
-    {
       "id": "63",
       "type": "producto",
       "slug": "lona-publicitaria",
@@ -9224,7 +9167,7 @@
       "isPublished": true,
       "shortDescription": "title: Lona publicitaria",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/lona-publicitaria.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -9347,11 +9290,11 @@
       "slug": "madera",
       "path": "/productos/madera",
       "title": "Madera",
-      "categorySlug": "material-flexible",
+      "categorySlug": "material-rigido",
       "isPublished": true,
       "shortDescription": "title: Madera",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/madera.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -9547,7 +9490,7 @@
       "isPublished": true,
       "shortDescription": "title: Marcos photocall",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/eventos/marcos-photocall.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -9614,7 +9557,7 @@
       "isPublished": true,
       "shortDescription": "title: Marcos photocall",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/expositores/marcos_photocall.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -9784,7 +9727,7 @@
       "isPublished": true,
       "shortDescription": "title: Marcos click system",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/expositores/marco-click-system.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -9904,11 +9847,11 @@
       "slug": "metacrilato",
       "path": "/productos/metacrilato",
       "title": "Metacrilato",
-      "categorySlug": "material-flexible",
+      "categorySlug": "material-rigido",
       "isPublished": true,
       "shortDescription": "title: Metacrilato",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/metacrilato.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -10171,7 +10114,7 @@
       "isPublished": true,
       "shortDescription": "title: Minutas de boda",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/eventos/minutas-boda.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -10330,11 +10273,11 @@
       "slug": "nido-abeja",
       "path": "/productos/nido-abeja",
       "title": "Nido abeja",
-      "categorySlug": "material-flexible",
+      "categorySlug": "material-rigido",
       "isPublished": true,
       "shortDescription": "title: Nido abeja",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/nido-de-abeja.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -10462,7 +10405,7 @@
       "isPublished": true,
       "shortDescription": "title: Nombres de sobremesa",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/Nombre-sobremesa.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/eventos/nombres-sobremesa.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -10707,118 +10650,6 @@
       }
     },
     {
-      "id": "75",
-      "type": "producto",
-      "slug": "papel-carta",
-      "path": "/productos/papel-carta",
-      "title": "Papel de carta",
-      "categorySlug": "material-publicitario",
-      "isPublished": true,
-      "shortDescription": "title: Papel de carta",
-      "bodyMd": "## Papel de carta\r\n\r\n## Papel de carta",
-      "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
-        "width": 1200,
-        "height": 1200,
-        "alt": "alt descripció de la foto"
-      },
-      "galleryImages": [],
-      "sku": "01-OFICI-0018",
-      "brand": "Reprodisseny",
-      "price": 0,
-      "priceCurrency": "EUR",
-      "inStock": true,
-      "attributes": [],
-      "variants": [],
-      "formFields": [
-        {
-          "label": "Tamaño",
-          "name": "tamaño",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Din A-5",
-            "Din A-4"
-          ]
-        },
-        {
-          "label": "Impresión",
-          "name": "impresión",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Cuatricromía 1 cara",
-            "Cuatricromía 2 caras"
-          ]
-        },
-        {
-          "label": "Papel",
-          "name": "papel",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Offset 90 gr.",
-            "Offset 120 gr.",
-            "Reciclado 80 gr."
-          ]
-        },
-        {
-          "label": "Cantidad",
-          "name": "cantidad",
-          "type": "number",
-          "required": true
-        },
-        {
-          "label": "Observaciones",
-          "name": "observaciones",
-          "type": "text",
-          "required": false
-        }
-      ],
-      "seo": {
-        "metaTitle": "Papel de carta | Repro Disseny",
-        "metaDescription": "Papel de carta personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/papel-carta",
-        "hreflang": [
-          {
-            "lang": "es-ES",
-            "url": "https://reprodisseny.com/productos/papel-carta"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/papel-carta"
-          }
-        ],
-        "keywords": [
-          "papel de carta"
-        ],
-        "schema": {
-          "@context": "https://schema.org",
-          "@type": "Product",
-          "name": "Papel de carta",
-          "description": "",
-          "image": [
-            "https://reprodisseny.com/img/productos/mockupProduct.webp"
-          ],
-          "url": "https://reprodisseny.com/categorias/publicitario-oficina/material-publicitario/papel-carta",
-          "sku": "01-OFICI-0018",
-          "brand": {
-            "@type": "Organization",
-            "name": "Reprodisseny"
-          },
-          "mpn": "REF-01-OFICI-0018",
-          "offers": {
-            "@type": "Offer",
-            "price": 0,
-            "priceCurrency": "EUR",
-            "availability": "https://schema.org/InStock",
-            "itemCondition": "https://schema.org/NewCondition",
-            "url": "https://reprodisseny.com/productos/papel-carta"
-          }
-        }
-      }
-    },
-    {
       "id": "76",
       "type": "producto",
       "slug": "papel-pared",
@@ -10828,7 +10659,7 @@
       "isPublished": true,
       "shortDescription": "title: Papel de pared",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/papel-pared.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -10947,14 +10778,14 @@
     {
       "id": "77",
       "type": "producto",
-      "slug": "papeleras-personalizadas",
-      "path": "/productos/papeleras-personalizadas",
-      "title": "Papeleras personalizadas",
+      "slug": "contenedor-reciclaje",
+      "path": "/productos/contenedor-reciclaje",
+      "title": "Contenedor reciclaje",
       "categorySlug": "expositores",
       "isPublished": true,
-      "shortDescription": "title: Papeleras personalizadas",
+      "shortDescription": "title: Contenedores de reciclaje personalizados",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/expositores/contenedor-reciclaje.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -10971,7 +10802,7 @@
       "seo": {
         "metaTitle": "Papeleras personalizadas | Repro Disseny",
         "metaDescription": "Papeleras personalizadas personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/papeleras-personalizadas",
+        "canonical": "https://reprodisseny.com/productos/contenedor-reciclaje",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -11129,7 +10960,7 @@
       "isPublished": true,
       "shortDescription": "title: Photocalls",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/expositores/photocall.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -11344,312 +11175,6 @@
       }
     },
     {
-      "id": "80",
-      "type": "producto",
-      "slug": "pizarras",
-      "path": "/productos/pizarras",
-      "title": "Pizarras",
-      "categorySlug": "material-publicitario",
-      "isPublished": true,
-      "shortDescription": "title: Pizarras",
-      "bodyMd": "## Pizarras\r\n\r\n## Pizarras",
-      "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
-        "width": 1200,
-        "height": 1200,
-        "alt": "alt descripció de la foto"
-      },
-      "galleryImages": [],
-      "sku": "01-OFICI-0017",
-      "brand": "Reprodisseny",
-      "price": 0,
-      "priceCurrency": "EUR",
-      "inStock": true,
-      "attributes": [],
-      "variants": [],
-      "formFields": [
-        {
-          "label": "Tamaño",
-          "name": "tamaño",
-          "type": "Text",
-          "required": true
-        },
-        {
-          "label": "Impresión",
-          "name": "impresión",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Sin impresión",
-            "Cuatricromía 1 cara"
-          ]
-        },
-        {
-          "label": "Material",
-          "name": "material",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Forex 5 mm",
-            "Dibon",
-            "Plancha metálica"
-          ]
-        },
-        {
-          "label": "Acabado",
-          "name": "acabado",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Laminado Velleda blanco",
-            "Laminado transparente Velleda"
-          ]
-        },
-        {
-          "label": "Cantidad",
-          "name": "cantidad",
-          "type": "number",
-          "required": true
-        },
-        {
-          "label": "Observaciones",
-          "name": "observaciones",
-          "type": "text",
-          "required": false
-        }
-      ],
-      "seo": {
-        "metaTitle": "Pizarras | Repro Disseny",
-        "metaDescription": "Pizarras personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/pizarras",
-        "hreflang": [
-          {
-            "lang": "es-ES",
-            "url": "https://reprodisseny.com/productos/pizarras"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/pizarras"
-          }
-        ],
-        "keywords": [
-          "pizarras"
-        ],
-        "schema": {
-          "@context": "https://schema.org",
-          "@type": "Product",
-          "name": "Pizarras",
-          "description": "",
-          "image": [
-            "https://reprodisseny.com/img/productos/mockupProduct.webp"
-          ],
-          "url": "https://reprodisseny.com/categorias/publicitario-oficina/material-publicitario/pizarras",
-          "sku": "01-OFICI-0017",
-          "brand": {
-            "@type": "Organization",
-            "name": "Reprodisseny"
-          },
-          "mpn": "REF-01-OFICI-0017",
-          "offers": {
-            "@type": "Offer",
-            "price": 0,
-            "priceCurrency": "EUR",
-            "availability": "https://schema.org/InStock",
-            "itemCondition": "https://schema.org/NewCondition",
-            "url": "https://reprodisseny.com/productos/pizarras"
-          }
-        }
-      }
-    },
-    {
-      "id": "81",
-      "type": "producto",
-      "slug": "placa-direccion",
-      "path": "/productos/placa-direccion",
-      "title": "Placa dirección",
-      "categorySlug": "material-publicitario",
-      "isPublished": true,
-      "shortDescription": "title: Placa dirección",
-      "bodyMd": "## Placa dirección\r\n\r\n## Placa dirección",
-      "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
-        "width": 1200,
-        "height": 1200,
-        "alt": "alt descripció de la foto"
-      },
-      "galleryImages": [],
-      "sku": "01-OFICI-0031",
-      "brand": "Reprodisseny",
-      "price": 0,
-      "priceCurrency": "EUR",
-      "inStock": true,
-      "attributes": [],
-      "variants": [],
-      "formFields": [
-        {
-          "label": "Tamaño",
-          "name": "tamaño",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Personalizado"
-          ]
-        },
-        {
-          "label": "Impresión",
-          "name": "impresión",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Cuatricromía 1 cara"
-          ]
-        },
-        {
-          "label": "Material",
-          "name": "material",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Forex",
-            "Dibond",
-            "Metacrilato"
-          ]
-        },
-        {
-          "label": "Acabados",
-          "name": "acabados",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Con agujeros",
-            "Sin agujeros",
-            "Cinta adhesiva doble cara"
-          ]
-        },
-        {
-          "label": "Cantidad",
-          "name": "cantidad",
-          "type": "number",
-          "required": true
-        },
-        {
-          "label": "Observaciones",
-          "name": "observaciones",
-          "type": "text",
-          "required": false
-        }
-      ],
-      "seo": {
-        "metaTitle": "Placa dirección | Repro Disseny",
-        "metaDescription": "Placa dirección personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/placa-direccion",
-        "hreflang": [
-          {
-            "lang": "es-ES",
-            "url": "https://reprodisseny.com/productos/placa-direccion"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/placa-direccion"
-          }
-        ],
-        "keywords": [
-          "placa dirección"
-        ],
-        "schema": {
-          "@context": "https://schema.org",
-          "@type": "Product",
-          "name": "Placa dirección",
-          "description": "",
-          "image": [
-            "https://reprodisseny.com/img/productos/mockupProduct.webp"
-          ],
-          "url": "https://reprodisseny.com/categorias/publicitario-oficina/material-publicitario/placa-direccion",
-          "sku": "01-OFICI-0031",
-          "brand": {
-            "@type": "Organization",
-            "name": "Reprodisseny"
-          },
-          "mpn": "REF-01-OFICI-0031",
-          "offers": {
-            "@type": "Offer",
-            "price": 0,
-            "priceCurrency": "EUR",
-            "availability": "https://schema.org/InStock",
-            "itemCondition": "https://schema.org/NewCondition",
-            "url": "https://reprodisseny.com/productos/placa-direccion"
-          }
-        }
-      }
-    },
-    {
-      "id": "82",
-      "type": "producto",
-      "slug": "placas-r",
-      "path": "/productos/placas-r",
-      "title": "Placas QR",
-      "categorySlug": "hoteles-restaurantes",
-      "isPublished": true,
-      "shortDescription": "title: Placas QR",
-      "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
-        "width": 1200,
-        "height": 1200,
-        "alt": "alt descripció de la foto"
-      },
-      "galleryImages": [],
-      "sku": "01-HORE-0013",
-      "brand": "Reprodisseny",
-      "price": 0,
-      "priceCurrency": "EUR",
-      "inStock": true,
-      "attributes": [],
-      "variants": [],
-      "formFields": [],
-      "seo": {
-        "metaTitle": "Placas QR | Repro Disseny",
-        "metaDescription": "Placas QR personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/placas-r",
-        "hreflang": [
-          {
-            "lang": "es-ES",
-            "url": "https://reprodisseny.com/productos/placas-r"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/placas-r"
-          }
-        ],
-        "keywords": [
-          "placas qr"
-        ],
-        "schema": {
-          "@context": "https://schema.org",
-          "@type": "Product",
-          "name": "Placas QR",
-          "description": "",
-          "image": [
-            "https://reprodisseny.com/img/productos/mockupProduct.webp"
-          ],
-          "url": "https://reprodisseny.com/categorias/hoteles-restaurantes/placas-r",
-          "sku": "01-HORE-0013",
-          "brand": {
-            "@type": "Organization",
-            "name": "Reprodisseny"
-          },
-          "mpn": "REF-01-HORE-0013",
-          "offers": {
-            "@type": "Offer",
-            "price": 0,
-            "priceCurrency": "EUR",
-            "availability": "https://schema.org/InStock",
-            "itemCondition": "https://schema.org/NewCondition",
-            "url": "https://reprodisseny.com/productos/placas-r"
-          }
-        }
-      }
-    },
-    {
       "id": "83",
       "type": "producto",
       "slug": "portacuentas",
@@ -11659,7 +11184,7 @@
       "isPublished": true,
       "shortDescription": "title: Portacuentas",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/restauracion/portacuentas.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -11786,7 +11311,7 @@
       "isPublished": true,
       "shortDescription": "title: Posavasos",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/restauracion/posavasos.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -11907,9 +11432,9 @@
       "categorySlug": "material-publicitario",
       "isPublished": true,
       "shortDescription": "title: Posters",
-      "bodyMd": "## Posters\r\n\r\n## Posters",
+      "bodyMd": "## Posters\n\n## Posters",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/posters.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -12040,7 +11565,7 @@
       "isPublished": true,
       "shortDescription": "title: Premios personalizados",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/eventos/premios-personalizados.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -12167,9 +11692,9 @@
       "categorySlug": "material-publicitario",
       "isPublished": true,
       "shortDescription": "title: Puntos de libro",
-      "bodyMd": "## Puntos de libro\r\n\r\n## Puntos de libro",
+      "bodyMd": "## Puntos de libro\n\n## Puntos de libro",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/puntos-libro.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -12299,7 +11824,7 @@
       "isPublished": true,
       "shortDescription": "title: Retoiluminados",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/retroiluminados.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -12366,7 +11891,7 @@
       "isPublished": true,
       "shortDescription": "title: Roll Ups",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/expositores/roll-up.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -12603,239 +12128,6 @@
       }
     },
     {
-      "id": "90",
-      "type": "producto",
-      "slug": "sellos",
-      "path": "/productos/sellos",
-      "title": "Sellos",
-      "categorySlug": "material-publicitario",
-      "isPublished": true,
-      "shortDescription": "title: 'Sellos '",
-      "image": {
-        "src": "https://www.reprodisseny.com/img/productos/sellos-goma.webp",
-        "width": 1200,
-        "height": 1200,
-        "alt": "alt descripció de la foto"
-      },
-      "galleryImages": [],
-      "sku": "01-OFICI-0026",
-      "brand": "Reprodisseny",
-      "price": 0,
-      "priceCurrency": "EUR",
-      "inStock": true,
-      "attributes": [],
-      "variants": [],
-      "formFields": [
-        {
-          "label": "Tamaño",
-          "name": "tamaño",
-          "type": "text",
-          "required": true
-        },
-        {
-          "label": "Color impresión",
-          "name": "color impresión",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Negro",
-            "Rojo",
-            "Verde",
-            "Azul"
-          ]
-        },
-        {
-          "label": "Cantidad",
-          "name": "cantidad",
-          "type": "number",
-          "required": true
-        },
-        {
-          "label": "Observaciones",
-          "name": "observaciones",
-          "type": "text",
-          "required": false
-        }
-      ],
-      "seo": {
-        "metaTitle": "Sellos  | Repro Disseny",
-        "metaDescription": "Sellos  personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/sellos",
-        "hreflang": [
-          {
-            "lang": "es-ES",
-            "url": "https://reprodisseny.com/productos/sellos"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/sellos"
-          }
-        ],
-        "keywords": [
-          "sellos "
-        ],
-        "schema": {
-          "@context": "https://schema.org",
-          "@type": "Product",
-          "name": "Sellos ",
-          "description": "",
-          "image": [
-            "https://reprodisseny.com/img/productos/sellos-goma.webp"
-          ],
-          "url": "https://reprodisseny.com/categorias/publicitario-oficina/material-publicitario/sellos",
-          "sku": "01-OFICI-0026",
-          "brand": {
-            "@type": "Organization",
-            "name": "Reprodisseny"
-          },
-          "mpn": "REF-01-OFICI-0026",
-          "offers": {
-            "@type": "Offer",
-            "price": 0,
-            "priceCurrency": "EUR",
-            "availability": "https://schema.org/InStock",
-            "itemCondition": "https://schema.org/NewCondition",
-            "url": "https://reprodisseny.com/productos/sellos"
-          }
-        }
-      }
-    },
-    {
-      "id": "91",
-      "type": "producto",
-      "slug": "sobres",
-      "path": "/productos/sobres",
-      "title": "Sobres",
-      "categorySlug": "material-publicitario",
-      "isPublished": true,
-      "shortDescription": "title: Sobres",
-      "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
-        "width": 1200,
-        "height": 1200,
-        "alt": "alt descripció de la foto"
-      },
-      "galleryImages": [],
-      "sku": "01-OFICI-0019",
-      "brand": "Reprodisseny",
-      "price": 0,
-      "priceCurrency": "EUR",
-      "inStock": true,
-      "attributes": [],
-      "variants": [],
-      "formFields": [
-        {
-          "label": "Tamaño",
-          "name": "tamaño",
-          "type": "select",
-          "required": true,
-          "options": [
-            "11x22",
-            "5 cm",
-            "C5 (16",
-            "2x22",
-            "9 cm)",
-            "C4 (22",
-            "9x32",
-            "4 cm)",
-            "B4 (25x35 cm)"
-          ]
-        },
-        {
-          "label": "Impresión",
-          "name": "impresión",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Cuatricromía 1 cara"
-          ]
-        },
-        {
-          "label": "Papel",
-          "name": "papel",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Offset 90 gr."
-          ]
-        },
-        {
-          "label": "Ventana",
-          "name": "ventana",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Si",
-            "No"
-          ]
-        },
-        {
-          "label": "Posición ventana",
-          "name": "posición ventana",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Derecha",
-            "Izquierda"
-          ]
-        },
-        {
-          "label": "Cantidad",
-          "name": "cantidad",
-          "type": "number",
-          "required": true
-        },
-        {
-          "label": "Observaciones",
-          "name": "observaciones",
-          "type": "text",
-          "required": false
-        }
-      ],
-      "seo": {
-        "metaTitle": "Sobres | Repro Disseny",
-        "metaDescription": "Sobres personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/sobres",
-        "hreflang": [
-          {
-            "lang": "es-ES",
-            "url": "https://reprodisseny.com/productos/sobres"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/sobres"
-          }
-        ],
-        "keywords": [
-          "sobres"
-        ],
-        "schema": {
-          "@context": "https://schema.org",
-          "@type": "Product",
-          "name": "Sobres",
-          "description": "",
-          "image": [
-            "https://reprodisseny.com/img/productos/mockupProduct.webp"
-          ],
-          "url": "https://reprodisseny.com/categorias/publicitario-oficina/material-publicitario/sobres",
-          "sku": "01-OFICI-0019",
-          "brand": {
-            "@type": "Organization",
-            "name": "Reprodisseny"
-          },
-          "mpn": "REF-01-OFICI-0019",
-          "offers": {
-            "@type": "Offer",
-            "price": 0,
-            "priceCurrency": "EUR",
-            "availability": "https://schema.org/InStock",
-            "itemCondition": "https://schema.org/NewCondition",
-            "url": "https://reprodisseny.com/productos/sobres"
-          }
-        }
-      }
-    },
-    {
       "id": "92",
       "type": "producto",
       "slug": "stoppers",
@@ -12845,7 +12137,7 @@
       "isPublished": true,
       "shortDescription": "title: Stoppers",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/stoppers.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -12965,7 +12257,7 @@
       "isPublished": true,
       "shortDescription": "title: Tabletents",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/eventos/tabletents.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -13123,136 +12415,6 @@
             "availability": "https://schema.org/InStock",
             "itemCondition": "https://schema.org/NewCondition",
             "url": "https://reprodisseny.com/productos/tabletents"
-          }
-        }
-      }
-    },
-    {
-      "id": "94",
-      "type": "producto",
-      "slug": "talonarios-autocopiativos",
-      "path": "/productos/talonarios-autocopiativos",
-      "title": "Talonarios autocopiativos",
-      "categorySlug": "material-publicitario",
-      "isPublished": true,
-      "shortDescription": "title: Talonarios autocopiativos",
-      "image": {
-        "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/talonarios-autocopiativos.webp",
-        "width": 1200,
-        "height": 1200,
-        "alt": "alt descripció de la foto"
-      },
-      "galleryImages": [],
-      "sku": "01-OFICI-0023",
-      "brand": "Reprodisseny",
-      "price": 0,
-      "priceCurrency": "EUR",
-      "inStock": true,
-      "attributes": [],
-      "variants": [],
-      "formFields": [
-        {
-          "label": "Tamaño",
-          "name": "tamaño",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Din A-5",
-            "Din A-4"
-          ]
-        },
-        {
-          "label": "Impresión",
-          "name": "impresión",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Cuatricromía 1 cara",
-            "Cuatricromía 2 caras"
-          ]
-        },
-        {
-          "label": "Papel",
-          "name": "papel",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Autocopiativo 60 gr."
-          ]
-        },
-        {
-          "label": "Número de copias",
-          "name": "número de copias",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Original+1",
-            "Original+2",
-            "Original+3"
-          ]
-        },
-        {
-          "label": "Encuadernación",
-          "name": "encuadernación",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Talonarios",
-            "Juegos sueltos"
-          ]
-        },
-        {
-          "label": "Cantidad",
-          "name": "cantidad",
-          "type": "number",
-          "required": true
-        },
-        {
-          "label": "Observaciones",
-          "name": "observaciones",
-          "type": "text",
-          "required": false
-        }
-      ],
-      "seo": {
-        "metaTitle": "Talonarios autocopiativos | Repro Disseny",
-        "metaDescription": "Talonarios autocopiativos personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/talonarios-autocopiativos",
-        "hreflang": [
-          {
-            "lang": "es-ES",
-            "url": "https://reprodisseny.com/productos/talonarios-autocopiativos"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/talonarios-autocopiativos"
-          }
-        ],
-        "keywords": [
-          "talonarios autocopiativos"
-        ],
-        "schema": {
-          "@context": "https://schema.org",
-          "@type": "Product",
-          "name": "Talonarios autocopiativos",
-          "description": "",
-          "image": [
-            "https://reprodisseny.com/img/productos/mockupProduct.webp"
-          ],
-          "url": "https://reprodisseny.com/categorias/publicitario-oficina/material-publicitario/talonarios-autocopiativos",
-          "sku": "01-OFICI-0023",
-          "brand": {
-            "@type": "Organization",
-            "name": "Reprodisseny"
-          },
-          "mpn": "REF-01-OFICI-0023",
-          "offers": {
-            "@type": "Offer",
-            "price": 0,
-            "priceCurrency": "EUR",
-            "availability": "https://schema.org/InStock",
-            "itemCondition": "https://schema.org/NewCondition",
-            "url": "https://reprodisseny.com/productos/talonarios-autocopiativos"
           }
         }
       }
@@ -13517,7 +12679,7 @@
       "isPublished": true,
       "shortDescription": "title: Tarjetas rasca",
       "image": {
-        "src": "https://www.reprodisseny.com/img/productos/mockupProduct.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/eventos/tarjeta-rasca.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -13631,128 +12793,6 @@
             "availability": "https://schema.org/InStock",
             "itemCondition": "https://schema.org/NewCondition",
             "url": "https://reprodisseny.com/productos/tarjetas-rasca"
-          }
-        }
-      }
-    },
-    {
-      "id": "98",
-      "type": "producto",
-      "slug": "tarjetas-visita",
-      "path": "/productos/tarjetas-visita",
-      "title": "Tarjetas de visita",
-      "categorySlug": "material-publicitario",
-      "isPublished": true,
-      "shortDescription": "title: Tarjetas de visita",
-      "image": {
-        "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/tarjetas-de-visita.webp",
-        "width": 1200,
-        "height": 1200,
-        "alt": "alt descripció de la foto"
-      },
-      "galleryImages": [],
-      "sku": "01-OFICI-0016",
-      "brand": "Reprodisseny",
-      "price": 0,
-      "priceCurrency": "EUR",
-      "inStock": true,
-      "attributes": [],
-      "variants": [],
-      "formFields": [
-        {
-          "label": "Tamaño",
-          "name": "tamaño",
-          "type": "select",
-          "required": true,
-          "options": [
-            "8",
-            "5x5",
-            "5 cm",
-            "9x5 cm"
-          ]
-        },
-        {
-          "label": "Impresión",
-          "name": "impresión",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Cuatricromía 1 cara",
-            "Cuatricromía 2 caras"
-          ]
-        },
-        {
-          "label": "Papel",
-          "name": "papel",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Estucado mate 350 gr."
-          ]
-        },
-        {
-          "label": "Acabado",
-          "name": "acabado",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Sin plastificar",
-            "Plastificado mate 2 caras",
-            "Plastificado brillo 2 caras"
-          ]
-        },
-        {
-          "label": "Cantidad",
-          "name": "cantidad",
-          "type": "number",
-          "required": true
-        },
-        {
-          "label": "Observaciones",
-          "name": "observaciones",
-          "type": "text",
-          "required": false
-        }
-      ],
-      "seo": {
-        "metaTitle": "Tarjetas de visita | Repro Disseny",
-        "metaDescription": "Tarjetas de visita personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/tarjetas-visita",
-        "hreflang": [
-          {
-            "lang": "es-ES",
-            "url": "https://reprodisseny.com/productos/tarjetas-visita"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/tarjetas-visita"
-          }
-        ],
-        "keywords": [
-          "tarjetas de visita"
-        ],
-        "schema": {
-          "@context": "https://schema.org",
-          "@type": "Product",
-          "name": "Tarjetas de visita",
-          "description": "",
-          "image": [
-            "https://reprodisseny.com/img/productos/mockupProduct.webp"
-          ],
-          "url": "https://reprodisseny.com/categorias/publicitario-oficina/material-publicitario/tarjetas-visita",
-          "sku": "01-OFICI-0016",
-          "brand": {
-            "@type": "Organization",
-            "name": "Reprodisseny"
-          },
-          "mpn": "REF-01-OFICI-0016",
-          "offers": {
-            "@type": "Offer",
-            "price": 0,
-            "priceCurrency": "EUR",
-            "availability": "https://schema.org/InStock",
-            "itemCondition": "https://schema.org/NewCondition",
-            "url": "https://reprodisseny.com/productos/tarjetas-visita"
           }
         }
       }

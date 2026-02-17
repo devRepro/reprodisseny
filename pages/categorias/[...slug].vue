@@ -1,6 +1,8 @@
 <!-- pages/categorias/[...slug].vue -->
 <script setup lang="ts">
-import { computed } from "vue"
+import { computed, watch } from "vue"
+import { createError } from "h3"
+
 import CategoryHero from "@/components/marketing/category/CategoryHero.vue"
 import CategoryActionsGrid from "@/components/marketing/category/CategoryActionsGrid.vue"
 import CategoryIntro from "@/components/marketing/category/CategoryIntro.vue"
@@ -16,20 +18,20 @@ import { parseTabsJson, normalizeTabs } from "~/utils/tabsJson"
 const route = useRoute()
 const cfg = useRuntimeConfig()
 
+/** slugParts SIEMPRE array (1 o N niveles) */
 const slugParts = computed<string[]>(() => {
   const s = route.params.slug
   const arr = Array.isArray(s) ? s : s ? [s] : []
   return arr.map((v) => String(v).trim()).filter(Boolean)
 })
 
-const categoryPath = computed(() => {
-  const base = "/categorias"
-  return slugParts.value.length ? `${base}/${slugParts.value.join("/")}` : base
-})
+/** Si llegase aquí sin slug (caso raro), redirige a /categorias */
+if (process.server && !slugParts.value.length) {
+  await navigateTo("/categorias", { redirectCode: 302 })
+}
 
-const slugForApi = computed(() =>
-  slugParts.value.map((seg) => encodeURIComponent(seg)).join("/")
-)
+const categoryPath = computed(() => `/categorias/${slugParts.value.join("/")}`)
+const slugForApi = computed(() => slugParts.value.map((seg) => encodeURIComponent(seg)).join("/"))
 
 const siteUrl = computed(() => {
   const raw = (cfg.public as any)?.siteUrl || "https://reprodisseny.com"
@@ -53,47 +55,75 @@ function absUrl(p?: string) {
 }
 
 type ApiCategoryResponse =
-  | { category: any; redirectTo?: string }
-  | { data?: { category?: any }; redirectTo?: string }
-  | { redirectTo: string }
+  | { category?: any; redirectTo?: string }
+  | { data?: any; redirectTo?: string }
+  | any // tolerante: a veces la categoría viene directa
 
 const { data: apiRes, pending, error } = await useAsyncData<ApiCategoryResponse>(
   () => `cat:${slugForApi.value}`,
   () =>
     $fetch(`/api/cms/category/${slugForApi.value}`, {
-      // si tu API soporta incluir productos, esto evita “products: []”
       params: { includeProducts: 1, productLimit: 24 },
     }),
   { server: true }
 )
 
-// ✅ Redirect si el API te pide canonicalizar
+/** Canonical redirect (evita bucles) */
 const redirectTo = computed(() => {
   const v: any = apiRes.value
   return v?.redirectTo || v?.data?.redirectTo || ""
 })
 
-if (redirectTo.value) {
-  await navigateTo(redirectTo.value, { redirectCode: 301 })
-}
+watch(
+  () => redirectTo.value,
+  async (to) => {
+    if (!to) return
+    // compara contra la ruta actual para evitar bucles
+    const current = normalizeRelPath(route.fullPath)
+    const target = normalizeRelPath(to)
+    if (current !== target) {
+      await navigateTo(target, { redirectCode: 301 })
+    }
+  },
+  { immediate: true }
+)
 
-// ✅ Coger SOLO la categoría, nunca el objeto raíz
+/** Extrae categoría en cualquier shape razonable */
 const rawCategory = computed(() => {
   const v: any = apiRes.value
-  return v?.category ?? v?.data?.category ?? null
+  if (!v) return null
+
+  if (v.category) return v.category
+  if (v.data?.category) return v.data.category
+
+  // tu caso: categoría directa
+  if (v.slug || v.id || v.path) return v
+
+  // data directa
+  if (v.data && (v.data.slug || v.data.id || v.data.path)) return v.data
+
+  return null
 })
 
-// ✅ Tabs: array directo o TabsJson
+const notFound = computed(() => !pending.value && !error.value && !rawCategory.value)
+
+// ✅ 404 real en SSR
+if (process.server && notFound.value) {
+  throw createError({ statusCode: 404, statusMessage: "Categoría no encontrada" })
+}
+
+/** Tabs */
 const categoryTabs = computed(() => {
   const c: any = rawCategory.value
   if (!c) return []
 
-  // 1) si ya viene array (como en tu JSON: "tabs":[...]) => úsalo tal cual
+  // 1) si ya viene tabs array
   if (Array.isArray(c.tabs) && c.tabs.length) return c.tabs
 
-  // 2) si viene de SharePoint como string TabsJson
+  // 2) si viene TabsJson / tabsJson
   const source = c?.TabsJson ?? c?.tabsJson ?? ""
-  return normalizeTabs(parseTabsJson(source))
+  const parsed = normalizeTabs(parseTabsJson(source))
+  return parsed
 })
 
 const humanize = (s: string) =>
@@ -115,9 +145,6 @@ const buildBreadcrumbs = (c: any) => {
     crumbs.push({ name: label, url: `/categorias${acc}` })
   })
 
-  if (!slugParts.value.length) {
-    crumbs.push({ name: c?.nav || c?.title || "Categoría", url: categoryPath.value })
-  }
   return crumbs
 }
 
@@ -129,15 +156,33 @@ const parseImage = (c: any) => {
     const parts = raw.split(",")
     const src = (parts.shift() || "").trim() || fromImageSrc || null
     const legacyAlt = parts.join(",").trim()
-    return { src, width: undefined, height: undefined, alt: (c?.alt || legacyAlt || c?.title || c?.nav || "Categoría").trim() }
+    return {
+      src,
+      width: undefined,
+      height: undefined,
+      alt: (c?.alt || legacyAlt || c?.title || c?.nav || "Categoría").trim(),
+    }
   }
 
   if (raw && typeof raw === "object") {
     const src = (raw?.src ? String(raw.src).split(",")[0].trim() : "") || fromImageSrc || null
-    return { src, width: Number(raw?.width) || undefined, height: Number(raw?.height) || undefined, alt: (c?.alt || c?.title || c?.nav || "Categoría").trim() }
+    return {
+      src,
+      width: Number(raw?.width) || undefined,
+      height: Number(raw?.height) || undefined,
+      alt: (c?.alt || c?.title || c?.nav || "Categoría").trim(),
+    }
   }
 
-  if (fromImageSrc) return { src: fromImageSrc, width: undefined, height: undefined, alt: (c?.alt || c?.title || c?.nav || "Categoría").trim() }
+  if (fromImageSrc) {
+    return {
+      src: fromImageSrc,
+      width: undefined,
+      height: undefined,
+      alt: (c?.alt || c?.title || c?.nav || "Categoría").trim(),
+    }
+  }
+
   return { src: null, width: undefined, height: undefined, alt: (c?.alt || c?.title || c?.nav || "Categoría").trim() }
 }
 
@@ -186,9 +231,7 @@ const safeCategory = computed<any | null>(() => {
     relatedWorks: c.relatedWorks ?? [],
     products: Array.isArray(c.products) ? c.products : [],
 
-    // ✅ tabs definitivas
     tabs: categoryTabs.value,
-
     imageSrc: img.src,
     seo,
   }
@@ -282,6 +325,10 @@ useHead(() => {
 
     <div v-else-if="error" class="mx-auto max-w-7xl px-6 py-16">
       No se ha podido cargar la categoría.
+    </div>
+
+    <div v-else-if="notFound" class="mx-auto max-w-7xl px-6 py-16">
+      Categoría no encontrada.
     </div>
 
     <template v-else-if="safeCategory">

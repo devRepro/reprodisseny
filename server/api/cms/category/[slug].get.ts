@@ -1,7 +1,7 @@
 // server/api/cms/category/[...slug].get.ts
-import { defineEventHandler, getRouterParam, createError } from "h3"
+import { defineEventHandler, getRouterParam, getQuery, createError } from "h3"
 import { getCmsCatalog } from "~/server/utils/cmsCatalog.server"
-import { parseTabsJson, normalizeTabs } from "~/utils/tabsJson" // <- el helper que ya te pasé antes
+import { parseTabsJson, normalizeTabs } from "~/utils/tabsJson"
 
 function normalizeSlug(v: unknown) {
   let s = String(v ?? "").trim()
@@ -38,48 +38,74 @@ function computeRobots(c: any) {
   return adv ? `${base},${adv}` : base
 }
 
+function clampInt(v: unknown, fallback: number, min: number, max: number) {
+  const n = parseInt(String(v ?? ""), 10)
+  if (!Number.isFinite(n)) return fallback
+  return Math.max(min, Math.min(max, n))
+}
+
 export default defineEventHandler(async (event) => {
   const raw = getRouterParam(event, "slug") || ""
   const slugParts = String(raw).split("/").filter(Boolean)
+
+  // ✅ path completo del request: /categorias/a/b/c
   const wantedPath = normalizePath("/categorias/" + slugParts.join("/"))
+
+  // ✅ último segmento, por si hay legacy slugs
   const wantedSlug = normalizeSlug(slugParts[slugParts.length - 1] || "")
+
+  const q = getQuery(event) as any
+  const includeProducts = String(q.includeProducts ?? "0") === "1"
+  const productLimit = clampInt(q.productLimit, 24, 1, 200)
 
   const { categories, products } = await getCmsCatalog()
 
-  const category = (categories || []).find((c: any) => {
-    const cPath = normalizePath(c?.path)
-    const cSlug = normalizeSlug(c?.slug)
-    const slugs = Array.isArray(c?.slugs) ? c.slugs.map(normalizeSlug) : []
-    return cPath === wantedPath || cSlug === wantedSlug || slugs.includes(wantedSlug)
-  })
+  // ✅ Encuentra primero por PATH EXACTO (evita colisiones en subcategorías)
+  let category =
+    (categories || []).find((c: any) => normalizePath(c?.path) === wantedPath) ||
+    (categories || []).find((c: any) => {
+      const cSlug = normalizeSlug(c?.slug)
+      const legacySlugs = Array.isArray(c?.legacySlugs) ? c.legacySlugs.map(normalizeSlug) : []
+      const slugs = Array.isArray(c?.slugs) ? c.slugs.map(normalizeSlug) : []
+      return cSlug === wantedSlug || legacySlugs.includes(wantedSlug) || slugs.includes(wantedSlug)
+    })
 
   if (!category) {
     throw createError({ statusCode: 404, statusMessage: "Categoría no encontrada" })
   }
 
-  // ✅ redirect canónico si entraste por alias (SEO)
+  // ✅ redirect canónico si entraste por alias o path no canónico
   const canonicalPath = normalizePath(category?.path)
-  const redirectTo = wantedPath !== canonicalPath ? canonicalPath : null
+  const redirectTo = wantedPath !== canonicalPath ? canonicalPath : undefined
 
-  // ✅ TabsJson -> tabs (blocks)
-  const tabs = normalizeTabs(parseTabsJson(category?.TabsJson))
+  // ✅ Tabs: si ya viene array => úsalo; si no => parsea TabsJson/tabsJson
+  const tabs =
+    Array.isArray(category?.tabs) && category.tabs.length
+      ? category.tabs
+      : normalizeTabs(parseTabsJson(category?.TabsJson ?? category?.tabsJson ?? ""))
 
   // ✅ og image (override si existe)
   const ogImageSrc = category?.seo?.ogImageSrc || category?.image?.src || null
 
-  // Productos de la categoría
-  const slugKey = normalizeSlug(category?.slug)
-  const categoryProducts = (products || []).filter((p: any) => normalizeSlug(p?.categorySlug) === slugKey)
+  // ✅ Productos (solo si se pide)
+  let categoryProducts: any[] = []
+  if (includeProducts) {
+    const slugKey = normalizeSlug(category?.slug)
+
+    categoryProducts = (products || [])
+      .filter((p: any) => normalizeSlug(p?.categorySlug) === slugKey)
+      .slice(0, productLimit)
+  }
 
   return {
     ...category,
     tabs,
-    products: categoryProducts,
+    ...(includeProducts ? { products: categoryProducts } : {}),
     seo: {
       ...(category?.seo || {}),
       robots: computeRobots(category),
       ogImageSrc,
     },
-    redirectTo,
+    ...(redirectTo ? { redirectTo } : {}),
   }
 })
