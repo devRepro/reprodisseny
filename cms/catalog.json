@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-16T13:21:06.914Z",
+  "generatedAt": "2026-02-17T08:52:27.300Z",
   "categories": [
     {
       "id": "10",
@@ -1731,7 +1731,7 @@
       "isPublished": true,
       "shortDescription": "title: Tiras lineal",
       "image": {
-        "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/tira-lineal.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/tira-lineal.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -11076,11 +11076,11 @@
       "slug": "banderolas-lineal",
       "path": "/productos/banderolas-lineal",
       "title": "Banderolas lineal",
-      "categorySlug": "material-oficina",
+      "categorySlug": "material-publicitario",
       "isPublished": true,
       "shortDescription": "Banderolas lineal",
       "image": {
-        "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/banderolas-lineal.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/banderolas-lineal.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -12429,7 +12429,7 @@
       "isPublished": true,
       "shortDescription": "title: Tarjetas postales",
       "image": {
-        "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/tarjetas-postales.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/tarjetas-postales.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -12807,7 +12807,7 @@
       "isPublished": true,
       "shortDescription": "title: Tarjetones e invitaciones",
       "image": {
-        "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/tarjetones-e-invitaciones.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/tarjetones-e-invitaciones.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
