@@ -22,6 +22,13 @@ function normalizePath(v: unknown) {
   return s.replace(/\/+$/, "")
 }
 
+function stripCategoriasPrefix(path: string) {
+  return String(path || "")
+    .replace(/^\/+/, "/")
+    .replace(/^\/categorias\//i, "")
+    .replace(/\/+$/, "")
+}
+
 function computeRobots(c: any) {
   if (c?.hidden) return "noindex,follow"
 
@@ -48,19 +55,19 @@ export default defineEventHandler(async (event) => {
   const raw = getRouterParam(event, "slug") || ""
   const slugParts = String(raw).split("/").filter(Boolean)
 
-  // ✅ path completo del request: /categorias/a/b/c
   const wantedPath = normalizePath("/categorias/" + slugParts.join("/"))
-
-  // ✅ último segmento, por si hay legacy slugs
   const wantedSlug = normalizeSlug(slugParts[slugParts.length - 1] || "")
 
   const q = getQuery(event) as any
   const includeProducts = String(q.includeProducts ?? "0") === "1"
   const productLimit = clampInt(q.productLimit, 24, 1, 200)
 
+  // ✅ NUEVO
+  const includeChildren = String(q.includeChildren ?? "0") === "1"
+  const childLimit = clampInt(q.childLimit, 24, 1, 200)
+
   const { categories, products } = await getCmsCatalog()
 
-  // ✅ Encuentra primero por PATH EXACTO (evita colisiones en subcategorías)
   let category =
     (categories || []).find((c: any) => normalizePath(c?.path) === wantedPath) ||
     (categories || []).find((c: any) => {
@@ -74,33 +81,68 @@ export default defineEventHandler(async (event) => {
     throw createError({ statusCode: 404, statusMessage: "Categoría no encontrada" })
   }
 
-  // ✅ redirect canónico si entraste por alias o path no canónico
   const canonicalPath = normalizePath(category?.path)
   const redirectTo = wantedPath !== canonicalPath ? canonicalPath : undefined
 
-  // ✅ Tabs: si ya viene array => úsalo; si no => parsea TabsJson/tabsJson
   const tabs =
     Array.isArray(category?.tabs) && category.tabs.length
       ? category.tabs
       : normalizeTabs(parseTabsJson(category?.TabsJson ?? category?.tabsJson ?? ""))
 
-  // ✅ og image (override si existe)
   const ogImageSrc = category?.seo?.ogImageSrc || category?.image?.src || null
 
   // ✅ Productos (solo si se pide)
   let categoryProducts: any[] = []
   if (includeProducts) {
     const slugKey = normalizeSlug(category?.slug)
-
     categoryProducts = (products || [])
       .filter((p: any) => normalizeSlug(p?.categorySlug) === slugKey)
       .slice(0, productLimit)
+  }
+
+  // ✅ NUEVO: children (subcategorías directas)
+  let children: any[] = []
+  if (includeChildren) {
+    const parentSlugKey = normalizeSlug(category?.slug)
+    const parentPath = canonicalPath
+    const parentDepth = stripCategoriasPrefix(parentPath).split("/").filter(Boolean).length
+
+    children = (categories || [])
+      .filter((c: any) => {
+        if (!c) return false
+        const cPath = normalizePath(c?.path)
+        if (!cPath.startsWith(parentPath + "/")) return false
+
+        // direct child = profundidad + 1
+        const cDepth = stripCategoriasPrefix(cPath).split("/").filter(Boolean).length
+        if (cDepth !== parentDepth + 1) return false
+
+        // si la columna parent existe, la validamos
+        const cParent = normalizeSlug(c?.parent)
+        if (cParent && cParent !== parentSlugKey) return false
+
+        return true
+      })
+      .sort((a: any, b: any) => (Number(a?.order || 0) - Number(b?.order || 0)))
+      .slice(0, childLimit)
+      .map((c: any) => ({
+        // devuelve solo lo necesario para pintar cards
+        slug: c.slug,
+        path: normalizePath(c.path),
+        title: c.title ?? "",
+        nav: c.nav ?? "",
+        description: c.description ?? "",
+        imageSrc: c.imageSrc || c.image?.src || null,
+        alt: c.alt || c.title || c.nav || "Subcategoría",
+        order: Number(c.order ?? 0) || 0,
+      }))
   }
 
   return {
     ...category,
     tabs,
     ...(includeProducts ? { products: categoryProducts } : {}),
+    ...(includeChildren ? { children } : {}), // ✅
     seo: {
       ...(category?.seo || {}),
       robots: computeRobots(category),

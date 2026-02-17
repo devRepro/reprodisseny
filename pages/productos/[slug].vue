@@ -1,105 +1,104 @@
-<!-- pages/productos/[slug].vue -->
-<script setup lang="ts">
-import SiteBreadcrumbs from "@/components/shared/SiteBreadcrumbs.vue";
-import ProductHero from "@/components/marketing/product/Hero.vue";
-import GuideBanner from "~/components/marketing/GuideBanner.vue";
-import ProductDetails from "@/components/marketing/product/Details.vue";
-import ProductFaq from "@/components/marketing/product/Faq.vue";
-import ProductRelated from "@/components/marketing/product/Related.vue";
-
-const route = useRoute();
-const slug = String(route.params.slug || "").trim();
-
-const { data, pending, error } = await useAsyncData(
-  () => `cms:product:${slug}`,
-  () =>
-    $fetch(`/api/cms/product/${slug}`, {
-      params: { includeRelated: 1, relatedLimit: 4 },
-    }),
-  { server: true }
-);
-
-const product = computed(() => data.value?.product);
-const category = computed(() => data.value?.category);
-const related = computed(() => data.value?.related || []);
-const detailsTabs = computed(() => data.value?.detailsTabs || []);
-const faqs = computed(() => data.value?.faqs || []);
-const breadcrumbItems = computed(() =>
-  (data.value?.breadcrumbs || []).map((b: any) => ({ label: b.name, to: b.url }))
-);
-
-useSeoMeta({
-  title: () => product.value?.seo?.metaTitle || product.value?.title,
-  description: () =>
-    product.value?.seo?.metaDescription || product.value?.shortDescription,
-  ogTitle: () => product.value?.seo?.metaTitle || product.value?.title,
-  ogDescription: () =>
-    product.value?.seo?.metaDescription || product.value?.shortDescription,
-  ogImage: () => product.value?.seo?.ogImageSrc || product.value?.image?.src,
-});
-
-
-</script>
-
 <template>
-  <main class="bg-white">
-    <!-- 1440 fijo como Figma -->
-    <div class="mx-auto max-w-[1440px]">
-      <!-- Breadcrumb (controlas padding desde aquí para pixel-perfect) -->
-      <SiteBreadcrumbs class="px-[120px] pt-6" :items="breadcrumbItems" />
-
-      <div v-if="pending" class="px-[120px] py-10 text-sm text-[#959595]">Cargando…</div>
-      <div v-else-if="error || !product" class="px-[120px] py-10 text-sm text-red-600">
-        Producto no disponible.
+  <main class="bg-white min-h-screen">
+    <nav class="border-b border-slate-100 bg-slate-50/50">
+      <div :class="containerClass" class="py-4">
+        <SiteBreadcrumbs :items="breadcrumbItems" :auto="false" />
       </div>
+    </nav>
 
-      <template v-else>
-        <!-- HERO: dentro de 1200 (margen 120) -->
-        <div class="px-[120px] mt-[50px]">
-          <ProductHero :product="product" :category="category" />
-        </div>
-
-      
-       <div class="mt-[60px] mb-[100px]">
-    <GuideBanner
-      bg-image-src="/img/ui/archivos.png"
-      :height="225"
-      title="Cómo preparar tus archivos"
-      cta-text="Ver la guía rápida"
-      to="/guia-impresion"
-    />
-  </div>
-
-        <!-- Detalles: 1000 centrado -->
-        <div class="mt-[100px] flex justify-center">
-          <div class="w-[1000px]">
-            <h2 class="text-[30px] leading-[36px] font-semibold text-[#212121]">
-              Detalles del producto
-            </h2>
-            <ProductDetails class="mt-8" :tabs="detailsTabs" />
-          </div>
-        </div>
-
-        <!-- FAQs -->
-        <div class="mt-[100px] flex justify-center">
-          <div class="w-[1000px]">
-            <h2 class="text-[30px] leading-[36px] font-semibold text-[#212121]">
-              Preguntas frecuentes sobre {{ product.title }}
-            </h2>
-            <ProductFaq class="mt-10" :faqs="faqs" />
-          </div>
-        </div>
-
-        <!-- Relacionados -->
-        <div class="mt-[100px] mb-[120px] flex justify-center">
-          <div class="w-[1000px]">
-            <h2 class="text-[30px] leading-[36px] font-semibold text-[#212121]">
-              Productos relacionados
-            </h2>
-            <ProductRelated class="mt-10" :items="related" />
-          </div>
-        </div>
-      </template>
+    <div v-if="pending" class="flex items-center justify-center min-h-[40vh]">
+      <div class="animate-pulse text-slate-400 font-medium">
+        Cargando detalles del producto...
+      </div>
     </div>
+
+    <template v-else-if="product">
+      <section :class="containerClass" class="pt-8 md:pt-16">
+        <div class="grid lg:grid-cols-2 gap-12 items-start">
+          <ProductHero :product="product" :category="category" />
+
+          <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200 shadow-sm">
+            <h3 class="text-xl font-bold text-slate-900 mb-2">
+              Solicitar presupuesto personalizado
+            </h3>
+            <p class="text-sm text-slate-600 mb-6">
+              Cuéntanos qué necesitas y nuestros expertos te responderán en menos de 24h.
+            </p>
+
+            <div class="space-y-4">
+              <div class="flex items-center gap-3 text-sm text-slate-700">
+                <div
+                  class="h-5 w-5 rounded-full bg-green-100 text-green-700 flex items-center justify-center"
+                >
+                  <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                    <path
+                      d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                    />
+                  </svg>
+                </div>
+                Revisión de archivos incluida
+              </div>
+              <button
+                class="w-full bg-sky-700 hover:bg-sky-800 text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-sky-200"
+              >
+                Configurar mi {{ product.title }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mt-16 md:mt-24">
+        <div :class="containerClass">
+          <GuideBanner
+            bg-image-src="/img/ui/archivos.png"
+            title="¿No estás seguro de las medidas?"
+            subtitle="Nuestro equipo técnico revisa cada solicitud para asegurar que el resultado sea perfecto."
+            cta-text="Consultar Guía"
+            to="/guia-impresion"
+          />
+        </div>
+      </section>
+
+      <section
+        id="detalles"
+        class="mt-20 md:mt-32 bg-slate-50/50 py-20 border-y border-slate-100"
+      >
+        <div :class="containerClass">
+          <div :class="contentNarrowClass">
+            <h2 class="text-3xl font-bold text-slate-900 mb-10 text-center">
+              Especificaciones Técnicas
+            </h2>
+            <ProductDetails :tabs="detailsTabs" />
+          </div>
+        </div>
+      </section>
+
+      <section class="py-20">
+        <div :class="containerClass">
+          <div :class="contentNarrowClass">
+            <h2 class="text-2xl font-bold text-slate-900 mb-8 text-center">
+              Dudas frecuentes
+            </h2>
+            <ProductFaq :faqs="faqs" />
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-sky-900 py-16 text-center text-white">
+        <div class="px-6">
+          <h2 class="text-3xl font-bold">¿Tienes un proyecto especial?</h2>
+          <p class="mt-4 text-sky-100 opacity-80 max-w-xl mx-auto">
+            Si no encuentras lo que buscas en los detalles, contáctanos directamente y lo
+            fabricaremos a medida.
+          </p>
+          <button
+            class="mt-8 bg-white text-sky-900 px-10 py-4 rounded-full font-bold hover:bg-sky-50 transition-colors"
+          >
+            Contactar con un asesor
+          </button>
+        </div>
+      </section>
+    </template>
   </main>
 </template>
