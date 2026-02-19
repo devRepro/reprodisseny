@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, computed, unref, type PropType, type Ref } from "vue"
-import { NuxtLink } from "#components"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -74,13 +73,13 @@ const errorValue = computed(() => {
           >
         </a>
 
-        <Button
-          type="button"
-          class="h-9 md:h-11 rounded-lg bg-[#0076B3] px-3 md:px-6 text-[13px] md:text-[14px] font-semibold text-white hover:bg-[#006aa1] shadow-sm transition-all"
+        <NuxtLink
+          to="/pedir-presupuesto"
+          class="inline-flex items-center justify-center gap-2 whitespace-nowrap h-9 md:h-11 rounded-lg bg-[#0076B3] px-3 md:px-6 text-[13px] md:text-[14px] font-semibold text-white hover:bg-[#006aa1] shadow-sm transition-all"
         >
           <span class="hidden sm:inline text-sm">Pide presupuesto</span>
           <span class="sm:hidden text-xs">Presupuesto</span>
-        </Button>
+        </NuxtLink>
 
         <DropdownMenu>
           <DropdownMenuTrigger as-child>
@@ -119,7 +118,7 @@ const errorValue = computed(() => {
               as-child
               class="cursor-pointer py-2 px-3 focus:bg-sky-50 rounded-md"
             >
-              <NuxtLink to="/como-preparar-archivo" class="w-full font-medium"
+              <NuxtLink to="/como-preparar-archivos" class="w-full font-medium"
                 >Cómo preparar archivo</NuxtLink
               >
             </DropdownMenuItem>

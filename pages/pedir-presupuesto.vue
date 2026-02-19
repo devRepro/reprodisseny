@@ -1,6 +1,35 @@
+<script setup lang="ts">
+import { computed } from "vue";
+
+import QuoteHero from "@/components/marketing/quote/QuoteHero.vue";
+import QuoteFormSection from "@/components/marketing/quote/FormSection.vue";
+
+import ContactInfoBand from "@/components/marketing/ContactInfoBand.vue";
+import ProductCategoryGrid from "@/components/marketing/ProductCategoryGrid.vue";
+import GuideBanner from "@/components/marketing/GuideBanner.vue";
+
+const { data: categories } = await useAsyncData(
+  "quoteCategories",
+  () => $fetch("/api/cms/catalog", { params: { mode: "nav" } }),
+  { default: () => [] }
+);
+
+const categoryCards = computed(() => {
+  const list = Array.isArray(categories.value)
+    ? categories.value
+    : categories.value?.categories ?? categories.value?.tree ?? [];
+  return list.map((c: any) => ({
+    title: c.nav || c.title || "",
+    to: c.path || (c.slug ? `/categorias/${c.slug}` : "/categorias"),
+    imageSrc: c.image || c.imageSrc || "",
+  }));
+});
+</script>
+
 <template>
   <div>
-    <QuoteFormSection submit-endpoint="/api/public/quote" />
+    <QuoteHero />
+    <QuoteFormSection submit-endpoint="/api/price-requests" />
 
     <ContactInfoBand />
 
@@ -12,19 +41,3 @@
     <GuideBanner bg-image-src="/img/ui/archivos.jpg" />
   </div>
 </template>
-
-<script setup lang="ts">
-
-import ContactInfoBand from "@/components/marketing/ContactInfoBand.vue";
-import ProductCategoryGrid from "@/components/marketing/ProductCategoryGrid.vue";
-import GuideBanner from "@/components/marketing/GuideBanner.vue";
-
-import { getCategories, mapCategoriesToCards } from "~/server/utils/catalogContent";
-
-const { data: categories } = await useAsyncData(
-  "quoteCategories",
-  () => getCategories(),
-  { default: () => [] }
-);
-const categoryCards = computed(() => mapCategoriesToCards(categories.value));
-</script>

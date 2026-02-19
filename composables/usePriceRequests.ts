@@ -1,27 +1,41 @@
 import { ref } from "vue"
+import { useNotify } from "@/composables/useNotify"
 
-type CreatePriceRequestInput = Record<string, any>
+export type CreatePriceRequestInput = Record<string, any>
 
 export function usePriceRequests() {
-  const pending = ref(false)
-  const error = ref<unknown>(null)
+  const isLoading = ref(false)
+  const success = ref(false)
+  const error = ref<string | null>(null)
+  const notify = useNotify()
 
-  async function create(payload: CreatePriceRequestInput) {
-    pending.value = true
+  const createPriceRequest = async (
+    payload: CreatePriceRequestInput,
+    endpoint = "/api/price-requests"
+  ) => {
+    isLoading.value = true
+    success.value = false
     error.value = null
+
     try {
-      // Ajusta el endpoint si tu API se llama distinto
-      return await $fetch("/api/price-requests", {
-        method: "POST",
-        body: payload,
+      const p = $fetch(endpoint, { method: "POST", body: payload })
+
+      const res = await notify.promise(p, {
+        loading: "Enviando solicitud…",
+        success: (r: any) => r?.message || "Solicitud enviada",
+        error: (e: any) => e?.data?.statusMessage || e?.message || "Error al enviar",
       })
-    } catch (e) {
-      error.value = e
+
+      success.value = true
+      return res
+    } catch (e: any) {
+      error.value = e?.data?.statusMessage || e?.message || "Error"
+      notify.error("No se pudo enviar", error.value)
       throw e
     } finally {
-      pending.value = false
+      isLoading.value = false
     }
   }
 
-  return { create, pending, error }
+  return { createPriceRequest, isLoading, error, success }
 }
