@@ -22,9 +22,7 @@
     "validate:products": "node scripts/validate-products.js"
   },
   "dependencies": {
-    "@azure/identity": "^4.9.1",
     "@fontsource/figtree": "^5.2.10",
-    "@microsoft/microsoft-graph-client": "^3.0.7",
     "@motionone/vue": "^10.16.4",
     "@nuxt/content": "^3.7.1",
     "@nuxt/icon": "^1.11.0",
@@ -40,13 +38,10 @@
     "axios": "^1.9.0",
     "better-sqlite3": "^12.4.1",
     "clsx": "^2.1.1",
-    "dotenv": "^16.5.0",
     "embla-carousel": "^8.5.2",
     "embla-carousel-vue": "^8.6.0",
-    "exceljs": "^4.4.0",
     "fast-glob": "^3.3.3",
     "fuse.js": "^7.1.0",
-    "isomorphic-fetch": "^3.0.0",
     "js-yaml": "^4.1.0",
     "lucide-vue-next": "^0.487.0",
     "markdown-it": "^14.1.0",
@@ -58,12 +53,14 @@
     "vee-validate": "^4.15.1",
     "vue-router": "^4.6.4",
     "vue-sonner": "^2.0.9",
-    "xlsx": "^0.18.5",
+    "xlsx": "https://cdn.sheetjs.com/xlsx-0.20.3/xlsx-0.20.3.tgz",
     "zod": "^3.25.76"
   },
   "devDependencies": {
+    "@azure/identity": "^4.13.0",
     "@iconify-json/lucide": "^1.2.35",
     "@iconify-json/tabler": "^1.2.17",
+    "@microsoft/microsoft-graph-client": "^3.0.7",
     "@nuxt/ui": "^4.0.1",
     "@nuxtjs/tailwindcss": "^6.14.0",
     "@types/node": "^20.19.23",
@@ -72,7 +69,10 @@
     "autoprefixer": "^10.4.21",
     "baseline-browser-mapping": "^2.9.19",
     "class-variance-authority": "^0.7.1",
+    "dotenv": "^17.3.1",
+    "exceljs": "^4.4.0",
     "gray-matter": "^2.0.1",
+    "isomorphic-fetch": "^3.0.0",
     "nuxi": "^3.28.0",
     "nuxt": "^4.3.1",
     "postcss": "^8.5.3",
@@ -91,6 +91,7 @@
   },
   "overrides": {
     "esbuild": "^0.25",
-    "node-fetch-native": "1.6.4"
+    "node-fetch-native": "1.6.4",
+    "minimatch": "10.2.1"
   }
 }
