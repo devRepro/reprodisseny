@@ -2,7 +2,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import SiteHeader from "@/components/layout/SiteHeader.vue";
-import SiteFooter from "@/components/marketing/SiteFooter.vue";
+import SiteFooter from "@/components/shared/footer/SiteFooter.vue";
 import { useCategoriasNav } from "~/composables/useCategoriasNav";
 
 const { data, pending, error } = await useCategoriasNav({

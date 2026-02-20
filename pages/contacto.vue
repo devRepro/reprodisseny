@@ -7,7 +7,6 @@ import LocationMapSection from "@/components/marketing/LocationMapSection.vue";
 
 <template>
   <main>
-
     <ContactHero />
 
     <!-- Sección formulario -->
@@ -17,8 +16,8 @@ import LocationMapSection from "@/components/marketing/LocationMapSection.vue";
         <ContactForm />
       </div>
     </section>
-    
+
     <ContactInfoBand />
-    <LocationMapSection />
+    <LocationMapSection :show-meta="false" :show-floating-cta="false" />
   </main>
 </template>

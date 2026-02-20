@@ -3,39 +3,38 @@ import { computed } from "vue";
 
 import QuoteHero from "@/components/marketing/quote/QuoteHero.vue";
 import QuoteFormSection from "@/components/marketing/quote/FormSection.vue";
-
 import ContactInfoBand from "@/components/marketing/ContactInfoBand.vue";
-import ProductCategoryGrid from "@/components/marketing/ProductCategoryGrid.vue";
+import MarketingProductCategoryGrid from "@/components/marketing/ProductCategoryGrid.vue";
 import GuideBanner from "@/components/marketing/GuideBanner.vue";
 
-const { data: categories } = await useAsyncData(
-  "quoteCategories",
-  () => $fetch("/api/cms/catalog", { params: { mode: "nav" } }),
-  { default: () => [] }
-);
+// si NO lo tienes auto-importado por Nuxt, importa el composable:
+// import { useHomeCategoriesGrid } from "@/composables/useHomeCategoriesGrid"
 
-const categoryCards = computed(() => {
-  const list = Array.isArray(categories.value)
-    ? categories.value
-    : categories.value?.categories ?? categories.value?.tree ?? [];
-  return list.map((c: any) => ({
-    title: c.nav || c.title || "",
-    to: c.path || (c.slug ? `/categorias/${c.slug}` : "/categorias"),
-    imageSrc: c.image || c.imageSrc || "",
-  }));
-});
+const { data: homeCategoriesData } = await useHomeCategoriesGrid(8);
+const homeCategories = computed(() => homeCategoriesData.value ?? []);
 </script>
 
 <template>
   <div>
     <QuoteHero />
-    <QuoteFormSection submit-endpoint="/api/price-requests" />
+    <!-- ✅ padding 48px arriba/abajo -->
+    <section class="bg-background py-12">
+      <div class="container">
+        <!-- si quieres que el formulario quede centrado y con ancho controlado -->
+        <div class="mx-auto max-w-[520px]">
+          <QuoteFormSection submit-endpoint="/api/price-requests" />
+        </div>
+      </div>
+    </section>
+    <ContactInfoBand
+      section-class="bg-brand-dark text-brand-ink-light py-20"
+      container-class="container"
+    />
 
-    <ContactInfoBand />
-
-    <ProductCategoryGrid
+    <MarketingProductCategoryGrid
       title="Si buscas algo específico puedes explorar nuestras categorías de producto"
-      :categorias="categoryCards"
+      :categories="homeCategories"
+      :total-slots="8"
     />
 
     <GuideBanner bg-image-src="/img/ui/archivos.jpg" />

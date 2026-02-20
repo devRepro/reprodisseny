@@ -1,32 +1,11 @@
-<template>
-  <section class="bg-[#005A78] text-white">
-    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 sm:py-16 lg:py-20">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16 lg:gap-24">
-        <div v-for="b in blocks" :key="b.title" class="text-center">
-          <!-- Icono (como la captura: sin círculo) -->
-          <Icon :name="b.icon" class="mx-auto h-8 w-8 sm:h-9 sm:w-9 text-white/95" />
-
-          <!-- Título -->
-          <div class="mt-6 text-[20px] sm:text-[22px] font-semibold leading-tight">
-            {{ b.title }}
-          </div>
-
-          <!-- Texto -->
-          <div class="mt-4 whitespace-pre-line text-[16px] leading-7 text-white/90">
-            {{ b.body }}
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</template>
-
 <script setup lang="ts">
-type Block = { icon: string; title: string; body: string }
+type Block = { icon: string; title: string; body: string };
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
-    blocks?: Block[]
+    blocks?: Block[];
+    sectionClass?: string;
+    containerClass?: string;
   }>(),
   {
     blocks: () => [
@@ -48,6 +27,37 @@ withDefaults(
         body: "Repro Disseny, SL\nC/ Juan de Mena, 19\n08035, Barcelona",
       },
     ],
+    // móvil: 48px arriba/abajo | desktop: alto fijo 316 con padding 80 dentro (Figma)
+    sectionClass: "py-12 md:h-[316px] md:py-20",
+    containerClass: "container",
   }
-)
+);
 </script>
+
+<template>
+  <section :class="['bg-brand-dark text-brand-ink-light box-border', props.sectionClass]">
+    <div :class="props.containerClass">
+      <div
+        class="flex flex-col items-center justify-center gap-12 md:flex-row md:gap-[86px]"
+      >
+        <div
+          v-for="b in props.blocks"
+          :key="b.title"
+          class="w-full max-w-sm text-center md:w-[343px] md:max-w-none"
+        >
+          <Icon :name="b.icon" class="mx-auto h-6 w-6 opacity-95" />
+
+          <!-- evita h4 (te fuerza 20px). Usa tu body + semibold -->
+          <div class="mt-6 text-body font-semibold">
+            {{ b.title }}
+          </div>
+
+          <!-- body pequeño como en el diseño -->
+          <p class="mt-4 mb-0 whitespace-pre-line text-body-s opacity-90">
+            {{ b.body }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>

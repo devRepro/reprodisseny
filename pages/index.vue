@@ -4,36 +4,41 @@
     <HomeHero>
       <HomeImageStrip :images="stripImages" />
     </HomeHero>
-    <GuideBanner title="Sant Jordi" bgImageSrc="/img/ui/book.jpg"
-      :cta="{ label: 'Ver la guía rápida', to: '/contacto' }" />
+    <GuideBanner
+      title="Sant Jordi"
+      bgImageSrc="/img/ui/book.jpg"
+      :cta="{ label: 'Ver la guía rápida', to: '/contacto' }"
+    />
 
-    <MarketingProductCategoryGrid title="Ofrecemos una amplia gama de productos" :categories="homeCategories"
-      :total-slots="8" />
+    <MarketingProductCategoryGrid
+      title="Ofrecemos una amplia gama de productos"
+      :categories="homeCategories"
+      :total-slots="8"
+    />
 
     <MarketingServicesGrid />
     <MarketingProcessSection />
-    <ClientLogosBand :logos="[
-      { src: '/img/customers/vallhebron.svg', alt: `Vall d'Hebron` },
-      { src: '/img/customers/fcf.svg', alt: 'Federació Catalana' },
-      { src: '/img/customers/adevinta.svg', alt: 'Adevinta' },
-      { src: '/img/customers/hitachi.svg', alt: 'Hitachi' },
-      { src: '/img/customers/tuv.svg', alt: 'TÜV Rheinland' },
-      { src: '/img/customers/vueling.svg', alt: 'Vueling' },
-      { src: '/img/customers/cromology.svg', alt: 'Cromology' },
-      { src: '/img/customers/who.svg', alt: 'World Health Organization' },
-      { src: '/img/customers/uab.svg', alt: 'UAB' },
-      { src: '/img/customers/alcon.svg', alt: 'Alcon' },
-      { src: '/img/customers/renault.svg', alt: 'Renault' },
-      { src: '/img/customers/green-vita.svg', alt: 'Green Vita' },
-    ]" />
+    <ClientLogosBand
+      :logos="[
+        { src: '/img/customers/vallhebron.svg', alt: `Vall d'Hebron` },
+        { src: '/img/customers/fcf.svg', alt: 'Federació Catalana' },
+        { src: '/img/customers/adevinta.svg', alt: 'Adevinta' },
+        { src: '/img/customers/hitachi.svg', alt: 'Hitachi' },
+        { src: '/img/customers/tuv.svg', alt: 'TÜV Rheinland' },
+        { src: '/img/customers/vueling.svg', alt: 'Vueling' },
+        { src: '/img/customers/cromology.svg', alt: 'Cromology' },
+        { src: '/img/customers/who.svg', alt: 'World Health Organization' },
+        { src: '/img/customers/uab.svg', alt: 'UAB' },
+        { src: '/img/customers/alcon.svg', alt: 'Alcon' },
+        { src: '/img/customers/renault.svg', alt: 'Renault' },
+        { src: '/img/customers/green-vita.svg', alt: 'Green Vita' },
+      ]"
+    />
 
-<GoogleReviewsSection />
-<GetFiles />
+    <GoogleReviewsSection />
 
-
+    <GetFiles submit-endpoint="/api/price-requests" />
   </div>
-
-
 </template>
 
 <script setup lang="ts">
@@ -77,5 +82,4 @@ const stripImages = [
   { src: "https://webcms.blob.core.windows.net/media/home/instalacion-vinilo.webp", alt: "Instalación" },
   { src: "https://webcms.blob.core.windows.net/media/home/logistica.webp", alt: "Logística" },
 ]
-
 </script>
