@@ -19,17 +19,16 @@ const homeCategories = computed(() => homeCategoriesData.value ?? []);
     <QuoteHero />
     <!-- ✅ padding 48px arriba/abajo -->
     <section class="bg-background py-12">
-      <div class="container">
-        <!-- si quieres que el formulario quede centrado y con ancho controlado -->
-        <div class="mx-auto max-w-[520px]">
-          <QuoteFormSection submit-endpoint="/api/price-requests" />
-        </div>
-      </div>
-    </section>
-    <ContactInfoBand
-      section-class="bg-brand-dark text-brand-ink-light py-20"
-      container-class="container"
-    />
+  <div class="page-shell">
+    <div class="mx-auto w-full max-w-[549px]">
+      <QuoteFormSection submit-endpoint="/api/price-requests" />
+    </div>
+  </div>
+</section>
+<ContactInfoBand
+  section-class="bg-brand-dark text-brand-ink-light py-20"
+  container-class="page-shell"
+/>
 
     <MarketingProductCategoryGrid
       title="Si buscas algo específico puedes explorar nuestras categorías de producto"

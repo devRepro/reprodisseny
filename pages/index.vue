@@ -6,7 +6,7 @@
     </HomeHero>
     <GuideBanner
       title="Sant Jordi"
-      bgImageSrc="/img/ui/book.jpg"
+      bgImageSrc="/img/ui/archivos-book-4k.webp"
       :cta="{ label: 'Ver la guía rápida', to: '/contacto' }"
     />
 

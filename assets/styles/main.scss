@@ -14,6 +14,9 @@
    COMPONENTS (tus clases custom)
    ========================================================= */
 @layer components {
+    .page-shell {
+      @apply mx-auto w-full max-w-[1440px] px-6 lg:px-10 2xl:px-[120px];
+    }
   .menubar {
     @apply w-full flex justify-center gap-4;
     background-color: hsl(var(--menubar-bg));
