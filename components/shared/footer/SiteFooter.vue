@@ -117,7 +117,9 @@ const props = withDefaults(
       </div>
 
       <!-- Divider line at y = 350px from top of footer, width 1200 starting at x=120 -->
-      <div class="absolute left-[120px] top-[350px] w-[1200px] border-t border-white" />
+      <div
+        class="absolute top-[350px] left-1/2 -translate-x-1/2 w-[calc(100%-32px)] max-w-[1200px] border-t border-white"
+      />
 
       <!-- Bottom links group centered at y = 372px -->
       <div
