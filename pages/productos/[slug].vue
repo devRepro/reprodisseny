@@ -85,7 +85,7 @@ const breadcrumbItems = computed(() => {
         <!-- Importante: NO lo metas dentro de container si el banner es fullBleed -->
         <GuideBanner
           title="¿No estás seguro de las medidas?"
-          :cta="{ label: 'Consultar Guía', to: '/guia-impresion' }"
+          :cta="{ label: 'Consultar Guía', to: '/como-preparar-archivos' }"
           base-path="/img/ui/banners/como-preparar-archivos"
           :height="240"
           :full-bleed="true"

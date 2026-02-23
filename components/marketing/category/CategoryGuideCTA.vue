@@ -18,7 +18,7 @@ const props = withDefaults(
     title: "Cómo preparar tus archivos para imprimir",
     description:
       "Guía rápida con tamaños, sangrados, perfiles de color y exportación a PDF para evitar errores y acelerar la producción.",
-    to: "/guia-impresion",
+    to: "/como-preparar-archivos",
     ctaLabel: "Ver la guía de impresión",
   }
 )

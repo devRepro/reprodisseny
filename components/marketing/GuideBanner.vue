@@ -23,7 +23,7 @@
   const props = withDefaults(defineProps<Props>(), {
     title: "Cómo preparar tus archivos",
     ctaText: "Ver la guía rápida",
-    to: "/guia-impresion",
+    to: "/como-preparar-archivos",
     basePath: "/img/ui/banners/como-preparar-archivos",
     height: 240,
     external: false,

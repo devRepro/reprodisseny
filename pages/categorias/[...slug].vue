@@ -413,14 +413,9 @@ useHead(() => {
         />
       </section>
 
-      <CategoryActionsGrid
-        v-if="safeCategory.actions?.length"
-        :items="safeCategory.actions"
-      />
-
       <div class="bg-slate-50/50 py-16 border-y border-slate-100">
         <div class="mx-auto max-w-[1440px] px-6">
-          <CategoryIntro :category="safeCategory" />
+          
           <div class="mt-12">
             <CategoryTabs v-if="safeCategory.tabs?.length" :tabs="safeCategory.tabs" />
           </div>
@@ -430,10 +425,15 @@ useHead(() => {
       <section class="py-16">
         <div class="mx-auto max-w-[1440px] px-6">
           <div class="grid lg:grid-cols-2 gap-12 items-start">
-            <CategoryFaq v-if="safeCategory.faqs?.length" :items="safeCategory.faqs" />
+            <CategoryTabs
+  v-if="safeCategory.tabs?.length"
+  :tabs="safeCategory.tabs"
+  :sticky-top="80"
+  :scroll-offset="140"
+/>
 
             <div class="space-y-8">
-              <CategoryGuideCTA :image-src="guideCtaBg" to="/guia-impresion" />
+              <CategoryGuideCTA :image-src="guideCtaBg" to="/como-preparar-archivos" />
               <CategoryRelatedWorks
                 v-if="safeCategory.relatedWorks?.length"
                 :items="safeCategory.relatedWorks"
