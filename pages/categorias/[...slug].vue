@@ -399,7 +399,7 @@ useHead(() => {
           " :items="isHub ? childItems : productItems" />
       </section>
 
-      <div class="border-y border-slate-100 bg-slate-50/50 py-16">
+      <div class="border-y py-8 border-slate-100 bg-slate-50/50">
         <CategoryTabs v-if="safeCategory.tabs?.length" :tabs="safeCategory.tabs" :sticky-top="112" :scroll-offset="140"
             bar-container-class="mx-auto w-full max-w-[1440px] px-6"
   content-container-class="mx-auto w-full max-w-[1440px] px-6 lg:px-16 xl:px-24"

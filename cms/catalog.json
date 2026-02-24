@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-23T09:19:46.292Z",
+  "generatedAt": "2026-02-24T15:11:28.076Z",
   "categories": [
     {
       "id": "10",
@@ -17,7 +17,19 @@
       "publishedAt": "2026-02-04T23:00:00Z",
       "description": "Mi desripción de la categoria de Material de Oficina por hacer",
       "bodyMd": "test BodyMd",
-      "tabs": [],
+      "tabs": [
+        {
+          "id": "descripcion",
+          "title": "Descripción",
+          "blocks": [
+            {
+              "type": "text",
+              "text": "test BodyMd",
+              "html": false
+            }
+          ]
+        }
+      ],
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/category/oficina.webp",
         "width": 2400,
@@ -69,7 +81,19 @@
       "publishedAt": "2026-02-04T23:00:00Z",
       "description": "Mi descripicón TODO",
       "bodyMd": "Mi body TODO",
-      "tabs": [],
+      "tabs": [
+        {
+          "id": "descripcion",
+          "title": "Descripción",
+          "blocks": [
+            {
+              "type": "text",
+              "text": "Mi body TODO",
+              "html": false
+            }
+          ]
+        }
+      ],
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/category/publicidad.webp",
         "width": 2400,
@@ -119,7 +143,50 @@
       "featured": true,
       "isPublished": true,
       "bodyMd": "## Materiales Disponibles\n\n- **Lonas Publicitarias:** Perfectas para banners y anuncios de gran tamaño, resistentes al clima.\n- **Vinilos Adhesivos:** Ideales para decoración de escaparates, vehículos y paredes.\n- **Textiles:** Ofrecen una apariencia elegante para stands y eventos.\n\n## Aplicaciones Comunes\n\n- **Publicidad Exterior**\n- **Decoración Comercial**\n- **Eventos y Ferias**\n\n## Ventajas de Nuestros Servicios\n\n- **Flexibilidad**\n- **Instalación Sencilla**\n- **Calidad de Impresión**",
-      "tabs": [],
+      "tabs": [
+        {
+          "id": "materiales-disponibles",
+          "title": "Materiales Disponibles",
+          "blocks": [
+            {
+              "type": "bullets",
+              "items": [
+                "**Lonas Publicitarias:** Perfectas para banners y anuncios de gran tamaño, resistentes al clima.",
+                "**Vinilos Adhesivos:** Ideales para decoración de escaparates, vehículos y paredes.",
+                "**Textiles:** Ofrecen una apariencia elegante para stands y eventos."
+              ]
+            }
+          ]
+        },
+        {
+          "id": "aplicaciones-comunes",
+          "title": "Aplicaciones Comunes",
+          "blocks": [
+            {
+              "type": "bullets",
+              "items": [
+                "**Publicidad Exterior**",
+                "**Decoración Comercial**",
+                "**Eventos y Ferias**"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ventajas-de-nuestros-servicios",
+          "title": "Ventajas de Nuestros Servicios",
+          "blocks": [
+            {
+              "type": "bullets",
+              "items": [
+                "**Flexibilidad**",
+                "**Instalación Sencilla**",
+                "**Calidad de Impresión**"
+              ]
+            }
+          ]
+        }
+      ],
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/category/gran-formato-flexible.webp",
         "width": 2400,

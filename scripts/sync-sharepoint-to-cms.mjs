@@ -1,3 +1,14 @@
+/* sync-cms.mjs (definitivo)
+   - Lee categorías y productos desde SharePoint (Graph)
+   - Genera cms/catalog.json + cms/routes.json
+   - Tabs:
+     1) Si TabsJson existe y tiene tabs válidas => se usa
+     2) Si NO, se generan desde BodyMd:
+        - Texto antes del primer "##" => tab "Descripción" (si hay contenido)
+        - Cada "## Título" => 1 TAB (Formatos / Ubicación / Contenido / etc.)
+        - Dentro de cada tab, soporta ### / #### como subtítulos y bullets
+*/
+
 import fs from "node:fs/promises";
 import dotenv from "dotenv";
 import { Client } from "@microsoft/microsoft-graph-client";
@@ -65,8 +76,7 @@ async function withRetry(fn, { tries = 6 } = {}) {
   throw lastErr;
 }
 
-// --- HELPER FUNCTIONS ---
-
+// --- HELPERS BÁSICOS ---
 function toStr(v) {
   if (v == null) return undefined;
   const s = String(v).trim();
@@ -85,7 +95,7 @@ function toBool(v) {
 
 function parseJson(v, fallback) {
   if (v == null) return fallback;
-  if (typeof v === "object") return v; // por si Graph ya devuelve objeto
+  if (typeof v === "object") return v; // Graph a veces ya devuelve objeto
   const s = toStr(v);
   if (!s) return fallback;
   try {
@@ -95,19 +105,15 @@ function parseJson(v, fallback) {
   }
 }
 
-// 🔥 Limpieza de URLs que vienen con descripción o formato LinkField
+// --- URLs / SLUGS ---
 function urlValue(v) {
   // SharePoint a veces devuelve: "https://url.com, Descripción"
   let rawUrl = "";
-
   if (!v) return undefined;
-  if (typeof v === "string") {
-    rawUrl = v;
-  } else {
-    rawUrl = v.Url || v.url || "";
-  }
 
-  // Quedarse solo con la parte antes de la coma
+  if (typeof v === "string") rawUrl = v;
+  else rawUrl = v.Url || v.url || "";
+
   const clean = rawUrl.split(",")[0].trim();
   return clean || undefined;
 }
@@ -127,20 +133,14 @@ function normalizeSlug(v) {
   let s = toStr(v) || "";
   if (!s) return undefined;
 
-  // Si viene como URL completa, usa pathname
   if (s.includes("://")) {
     try {
       s = new URL(s).pathname || s;
     } catch {}
   }
 
-  // Quitar query/hash
   s = s.split("?")[0].split("#")[0];
-
-  // Trim slashes
   s = s.replace(/^\/+|\/+$/g, "");
-
-  // Quitar prefijos comunes
   s = s.replace(/^\/?categorias\//i, "");
   s = s.replace(/^categorias\//i, "");
 
@@ -162,40 +162,37 @@ function normalizeParentSlug(parent, slug) {
   return p;
 }
 
-// Si no viene ParentCategory/ParentSlug, intenta inferirlo desde Path/Canonical (cuando exista)
 function inferParentFromPath(pathValue, slug) {
   const p = urlPathValue(pathValue) || toStr(pathValue);
   if (!p || !slug) return undefined;
-  // esperamos algo tipo /categorias/<parent>/<slug>  o /categorias/<slug>
+
   const clean = p.split("?")[0].split("#")[0].replace(/\/{2,}/g, "/");
   const segs = clean.split("/").filter(Boolean);
   const idx = segs.findIndex((x) => x.toLowerCase() === "categorias");
   if (idx < 0) return undefined;
-  const after = segs.slice(idx + 1); // lo que hay tras "categorias"
+
+  const after = segs.slice(idx + 1);
   if (after.length < 2) return undefined;
+
   const last = after[after.length - 1];
   if (normalizeSlug(last) !== normalizeSlug(slug)) return undefined;
+
   return after[after.length - 2];
 }
 
 function normalizeCategoryPath(pathValue, slug, parent) {
   let p = toStr(pathValue) || "";
   if (p) {
-    // Si viene como URL completa, convertir a pathname
     if (p.includes("://")) {
       try {
         p = new URL(p).pathname || p;
       } catch {}
     }
-    p = p.replace(/\/{2,}/g, "/").trim(); // Dobles slashes
+    p = p.replace(/\/{2,}/g, "/").trim();
     if (!p.startsWith("/")) p = "/" + p;
-    // Asegurar prefijo base
-    if (!p.startsWith("/categorias/")) {
-      p = "/categorias/" + p.replace(/^\/+/, "");
-    }
+    if (!p.startsWith("/categorias/")) p = "/categorias/" + p.replace(/^\/+/, "");
     return p.replace(/\/+$/, "");
   }
-  // Fallback lógico
   if (parent) return `/categorias/${parent}/${slug}`;
   return `/categorias/${slug}`;
 }
@@ -217,6 +214,7 @@ function uniq(arr) {
   return [...new Set((arr || []).filter(Boolean))];
 }
 
+// --- FETCH ALL ITEMS (Graph paging) ---
 async function fetchAllItems(listId, selectFields) {
   const hasSelect = Array.isArray(selectFields) && selectFields.length > 0;
   const expand = hasSelect ? `fields($select=${selectFields.join(",")})` : "fields";
@@ -226,15 +224,238 @@ async function fetchAllItems(listId, selectFields) {
   let next = base;
 
   while (next) {
-    const res = await withRetry(() => graph.api(next).header("Prefer", "apiversion=2.1").get());
+    const res = await withRetry(() =>
+      graph.api(next).header("Prefer", "apiversion=2.1").get()
+    );
     for (const it of res.value || []) items.push(it);
     next = res["@odata.nextLink"] || null;
   }
   return items;
 }
 
-// --- MAPPERS ---
+// --- HTML / MARKDOWN -> BLOCKS (para CategoryTabs) ---
+function escapeHtml(s) {
+  return String(s ?? "").replace(/[&<>"']/g, (ch) => {
+    const map = {
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;",
+    };
+    return map[ch] || ch;
+  });
+}
 
+function normalizeMdText(v) {
+  return String(v ?? "")
+    .replace(/\r\n/g, "\n")
+    .replace(/\u00A0/g, " ")
+    .trim();
+}
+
+function stripMdInline(s) {
+  return String(s ?? "")
+    .replace(/\*\*(.+?)\*\*/g, "$1")
+    .replace(/\*(.+?)\*/g, "$1")
+    .replace(/`(.+?)`/g, "$1")
+    .trim();
+}
+
+function slugifyId(v) {
+  return String(v ?? "")
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+/**
+ * Markdown simple -> blocks
+ * - párrafos -> { type:"text" }
+ * - bullets -> { type:"bullets" }
+ * - ### / #### -> { type:"text", html:true, text:"<h3>..." }
+ * - imágenes ![alt](url "caption") -> { type:"image" }
+ */
+function mdChunkToBlocks(md) {
+  const text = normalizeMdText(md);
+  if (!text) return [];
+
+  const lines = text.split("\n");
+  const blocks = [];
+
+  let paragraph = [];
+  let bullets = [];
+
+  const flushParagraph = () => {
+    if (!paragraph.length) return;
+    const t = paragraph.join("\n").trim();
+    if (t) blocks.push({ type: "text", text: t, html: false });
+    paragraph = [];
+  };
+
+  const flushBullets = () => {
+    if (!bullets.length) return;
+    blocks.push({
+      type: "bullets",
+      items: bullets.map((x) => String(x).trim()).filter(Boolean),
+    });
+    bullets = [];
+  };
+
+  const pushHeading = (level, title) => {
+    const safe = escapeHtml(stripMdInline(title));
+    const tag = level === 4 ? "h4" : "h3";
+    blocks.push({
+      type: "text",
+      html: true,
+      format: "html",
+      text: `<${tag}>${safe}</${tag}>`,
+    });
+  };
+
+  for (const rawLine of lines) {
+    const line = String(rawLine ?? "");
+    const t = line.trim();
+
+    if (!t) {
+      flushParagraph();
+      flushBullets();
+      continue;
+    }
+
+    const mH3 = t.match(/^###\s*(.+?)\s*$/);
+    if (mH3) {
+      flushParagraph();
+      flushBullets();
+      pushHeading(3, mH3[1]);
+      continue;
+    }
+    const mH4 = t.match(/^####\s*(.+?)\s*$/);
+    if (mH4) {
+      flushParagraph();
+      flushBullets();
+      pushHeading(4, mH4[1]);
+      continue;
+    }
+
+    const mImg = t.match(/^!\[(.*?)\]\((\S+?)(?:\s+"(.*?)")?\)$/);
+    if (mImg) {
+      flushParagraph();
+      flushBullets();
+      blocks.push({
+        type: "image",
+        src: mImg[2],
+        alt: mImg[1] || "",
+        caption: mImg[3] || undefined,
+      });
+      continue;
+    }
+
+    const mBullet = t.match(/^(?:[-*•·]\s*|\d+[.)]\s+)(.+)$/);
+    if (mBullet) {
+      flushParagraph();
+      bullets.push(mBullet[1].trim());
+      continue;
+    }
+
+    flushBullets();
+    paragraph.push(t);
+  }
+
+  flushParagraph();
+  flushBullets();
+
+  return blocks;
+}
+
+/**
+ * Separa BodyMd en:
+ * - intro (antes del primer ##)
+ * - sections (cada ##Titulo + contenido)
+ */
+function splitBodyMdSections(bodyMd) {
+  const md = normalizeMdText(bodyMd);
+  if (!md) return { introMd: "", sections: [] };
+
+  const lines = md.split("\n");
+  const introLines = [];
+  const sections = [];
+  let current = null;
+
+  for (const rawLine of lines) {
+    const line = String(rawLine ?? "");
+    const t = line.trim();
+
+    // H2: "## Título" o "##Título"
+    const mH2 = t.match(/^##\s*(.+?)\s*$/);
+    if (mH2) {
+      const title = stripMdInline(mH2[1]);
+      current = { title, lines: [] };
+      sections.push(current);
+      continue;
+    }
+
+    if (current) current.lines.push(line);
+    else introLines.push(line);
+  }
+
+  return {
+    introMd: introLines.join("\n").trim(),
+    sections: sections.map((s) => ({
+      title: s.title,
+      md: (s.lines || []).join("\n").trim(),
+    })),
+  };
+}
+
+/**
+ * Genera tabs desde BodyMd:
+ * - Intro (antes del primer ##) => tab "Descripción" (si hay)
+ * - Cada ## => 1 TAB (esto es lo que necesitas para Formatos/Ubicación/Contenido)
+ */
+function buildTabsFromBodyMd(bodyMd) {
+  const md = normalizeMdText(bodyMd);
+  if (!md) return [];
+
+  const { introMd, sections } = splitBodyMdSections(md);
+
+  const tabs = [];
+  const usedIds = new Set();
+
+  const pushTab = (title, blocks, preferredId) => {
+    const base = slugifyId(preferredId || title) || "tab";
+    let id = base;
+    let n = 2;
+    while (usedIds.has(id)) id = `${base}-${n++}`;
+    usedIds.add(id);
+
+    if (blocks && blocks.length) tabs.push({ id, title: String(title).trim(), blocks });
+  };
+
+  const introBlocks = mdChunkToBlocks(introMd);
+  if (introBlocks.length) pushTab("Descripción", introBlocks, "descripcion");
+
+  for (const sec of sections) {
+    const title = String(sec.title || "").trim();
+    const blocks = mdChunkToBlocks(sec.md);
+    if (!title || !blocks.length) continue;
+    pushTab(title, blocks);
+  }
+
+  if (!tabs.length) {
+    const allBlocks = mdChunkToBlocks(md);
+    if (allBlocks.length) pushTab("Descripción", allBlocks, "descripcion");
+  }
+
+  return tabs;
+}
+
+// --- MAPPERS ---
 function buildCategory(item) {
   const f = item.fields || {};
 
@@ -250,17 +471,17 @@ function buildCategory(item) {
 
   const title = toStr(f.Title) || slug;
 
-  // 2) parent: ParentCategory (CSV/SP) + fallback a ParentSlug (compat)
+  // 2) parent
   const parentRaw = f.ParentCategory ?? f.ParentSlug;
   let parent = normalizeParentSlug(parentRaw, slug);
 
-  // 3) inferencia desde path/canonical si no vino parent
+  // 3) inferencia de parent desde path/canonical
   if (!parent) {
     const inferred = inferParentFromPath(pathHint || f.Canonical, slug);
     parent = normalizeParentSlug(inferred, slug);
   }
 
-  // 4) path: usa Path si viene, si no Canonical, si no fallback
+  // 4) path
   const pathValue = normalizeCategoryPath(pathHint, slug, parent);
 
   const baseUrl = "https://reprodisseny.com";
@@ -268,7 +489,7 @@ function buildCategory(item) {
 
   const imageSrc = urlValue(f.ImageSrc) || urlValue(f.OgImageSrc);
 
-  // SEO y Schema
+  // Schema manual base
   const manualSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -276,14 +497,25 @@ function buildCategory(item) {
     description: toStr(f.Description),
     url: canonicalUrl,
     image: imageSrc,
-    publisher: {
-      "@type": "Organization",
-      name: "Repro Disseny",
-    },
+    publisher: { "@type": "Organization", name: "Repro Disseny" },
   };
 
   const spSchema = parseJson(f.SchemaJson, {});
-  const tabs = parseJson(f.TabsJson, []);
+  const bodyMd = toStr(f.BodyMd);
+
+  // TabsJson puede venir como array o como { tabs: [...] }
+  const tabsJsonRaw = parseJson(f.TabsJson, null);
+  const tabsJson =
+    Array.isArray(tabsJsonRaw) ? tabsJsonRaw :
+    Array.isArray(tabsJsonRaw?.tabs) ? tabsJsonRaw.tabs :
+    [];
+
+  const tabsFromBodyMd = buildTabsFromBodyMd(bodyMd);
+
+  // Prioridad:
+  // 1) TabsJson manual si existe
+  // 2) fallback desde BodyMd (H2 => tabs)
+  const tabs = tabsJson.length ? tabsJson : tabsFromBodyMd;
 
   return {
     id: String(item.id),
@@ -324,7 +556,6 @@ function buildCategory(item) {
     galleryImages: parseJson(f.GalleryImagesJson, []),
     breadcrumbs: parseJson(f.BreadcrumbsJson, []),
 
-    // compat: algunos exports lo llaman LegacySlugsJson
     legacySlugs: uniq(parseStringList(f.LegacySlugs ?? f.LegacySlugsJson).map(normalizeSlug)),
 
     seo: {
@@ -354,7 +585,6 @@ function buildProduct(item) {
   const price = f.Price != null && f.Price !== "" ? Number(f.Price) : 0;
   const inStock = toBool(f.InStock);
 
-  // Schema base robusto
   const baseSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -386,7 +616,6 @@ function buildProduct(item) {
 
     title,
 
-    // Normaliza CategorySlug por si viene como /categorias/... o con path
     categorySlug: slugLeaf(f.CategorySlug) || normalizeSlug(f.CategorySlug) || "",
 
     isPublished: toBool(f.IsPublished),
@@ -426,19 +655,15 @@ function buildProduct(item) {
 }
 
 // --- MAIN RUN ---
-
 async function run() {
   console.log("Starting Sync...");
 
-  // OJO: estos nombres deben coincidir con los Internal Names en SP
   const categoryFields = [
     "Title",
     "CategorySlug",
     "NavLabel",
     "SortOrder",
-    "ParentCategory", // <- CLAVE para jerarquía (menu)
-    // (fallback legacy si existiera en tu lista)
-    // "ParentSlug",
+    "ParentCategory",
     "IsFeatured",
     "IsHidden",
     "IsPublished",
@@ -508,7 +733,7 @@ async function run() {
   const productsAll = prodItems.map(buildProduct).filter(Boolean);
   const products = productsAll.filter((p) => p.isPublished);
 
-  // --- Validaciones útiles para el menú ---
+  // --- Validaciones útiles ---
   const bySlug = new Map(categories.map((c) => [c.slug, c]));
   const orphans = categories.filter((c) => c.parent && !bySlug.has(c.parent));
 
@@ -517,13 +742,19 @@ async function run() {
   if (orphans.length) {
     await fs.writeFile(
       "cms/orphan-categories.json",
-      JSON.stringify(orphans.map((o) => ({ slug: o.slug, parent: o.parent, title: o.title })), null, 2),
+      JSON.stringify(
+        orphans.map((o) => ({ slug: o.slug, parent: o.parent, title: o.title })),
+        null,
+        2
+      ),
       "utf8"
     );
-    console.warn("⚠️ Orphan categories (parent not found):", orphans.map((o) => `${o.slug} -> ${o.parent}`));
+    console.warn(
+      "⚠️ Orphan categories (parent not found):",
+      orphans.map((o) => `${o.slug} -> ${o.parent}`)
+    );
   }
 
-  // --- Validación de colisiones ---
   const dupCat = findDuplicates(categories.map((c) => c.slug));
   const dupProd = findDuplicates(products.map((p) => p.slug));
 
@@ -531,21 +762,15 @@ async function run() {
     const report = { dupCat, dupProd };
     await fs.writeFile("cms/slug-collisions.json", JSON.stringify(report, null, 2), "utf8");
     console.error("⛔ Slug collisions detected:", report);
-    // process.exit(1); // Opcional: fallar el build si hay duplicados
+    // process.exit(1); // opcional
   }
 
-  // Rutas para sitemaps / prerender
   const routes = [...categories.map((c) => c.path), ...products.map((p) => p.path)].sort();
 
-  // Guardar catálogo
   await fs.writeFile(
     "cms/catalog.json",
     JSON.stringify(
-      {
-        generatedAt: new Date().toISOString(),
-        categories,
-        products,
-      },
+      { generatedAt: new Date().toISOString(), categories, products },
       null,
       2
     ),
