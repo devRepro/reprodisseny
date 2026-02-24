@@ -1,22 +1,13 @@
-<!-- components/marketing/category/CategoryTabs.vue -->
 <script setup lang="ts">
 import { computed, ref, onMounted, nextTick, onBeforeUnmount, watch } from "vue"
 import { useRoute } from "#imports"
 import { cn } from "@/lib/utils"
 
-// --- TIPOS ---
-type TextBlock = { type: "text"; text: string; html?: boolean; format?: "plain" | "html" }
-type BulletsBlock = { type: "bullets"; items: string[] }
-type ImageBlock = {
-  type: "image"
-  src: string
-  alt?: string
-  caption?: string
-  width?: number
-  height?: number
-}
-type UnknownBlock = { type: string; [k: string]: any }
-type Block = TextBlock | BulletsBlock | ImageBlock | UnknownBlock
+type Block =
+  | { type: "text"; text: string; html?: boolean; format?: "plain" | "html" }
+  | { type: "bullets"; items: string[] }
+  | { type: "image"; src: string; alt?: string; caption?: string; width?: number; height?: number }
+  | { type: string; [k: string]: any }
 
 type Tab = { id?: string; title: string; blocks?: Block[]; content?: Block[] }
 type SafeTab = { id: string; title: string; _blocks: Block[] }
@@ -24,75 +15,100 @@ type SafeTab = { id: string; title: string; _blocks: Block[] }
 const props = withDefaults(
   defineProps<{
     tabs: Tab[]
-
-    /** Container global (reutiliza tus tokens/clases) */
-    containerClass?: string
-
-    /** Densidad del contenido */
-    density?: "comfortable" | "compact"
-
-    /** Offset para scroll a sección (header sticky + barra tabs) */
-    scrollOffset?: number
-
-    /** Top donde debe fijarse la barra (altura header fijo) */
+    contentContainerClass?: string
+    barContainerClass?: string
     stickyTop?: number
+    scrollOffset?: number
   }>(),
   {
-    containerClass: "mx-auto w-full max-w-[1440px] px-6 lg:px-16 xl:px-24",
-    density: "comfortable",
-    scrollOffset: 140,
+    contentContainerClass: "mx-auto w-full max-w-[1440px] px-6 lg:px-10 2xl:px-[120px]",
+    barContainerClass: "w-full px-4 md:px-6 lg:px-10",
     stickyTop: 80,
+    scrollOffset: 140,
   }
 )
 
 const route = useRoute()
 
+const rootRef = ref<HTMLElement | null>(null)
+const startSentinelRef = ref<HTMLElement | null>(null)
+const endSentinelRef = ref<HTMLElement | null>(null)
+const barRef = ref<HTMLElement | null>(null)
+
 const activeId = ref("")
 const isClicking = ref(false)
-
-// “Sticky robusto” (fixed cuando toca)
-const sentinelRef = ref<HTMLElement | null>(null)
-const barRef = ref<HTMLElement | null>(null)
 const isPinned = ref(false)
 const barHeight = ref(0)
 
-let pinIO: IntersectionObserver | null = null
 let sectionIO: IntersectionObserver | null = null
+let rafId = 0
+let resizeHandler: (() => void) | null = null
+let scrollHandler: (() => void) | null = null
 
-function slugify(v: string) {
-  return String(v ?? "")
+const slugify = (v: string) =>
+  String(v ?? "")
     .trim()
     .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/ñ/g, "n")
     .replace(/\s+/g, "-")
-    .replace(/[^\w-]/g, "")
-}
+    .replace(/[^a-z0-9-]/g, "")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "")
 
-const safeTabs = computed<SafeTab[]>(() =>
-  (props.tabs || [])
-    .filter((t) => String(t?.title ?? "").trim())
+const safeTabs = computed<SafeTab[]>(() => {
+  const seen = new Map<string, number>()
+  return (props.tabs || [])
+    .filter((t) => String(t?.title || "").trim())
     .map((t, i) => {
       const blocks = ((t.blocks ?? t.content ?? []) as Block[]).filter(Boolean)
-      const id = slugify(t.id || t.title) || `tab-${i}`
-      return { id, title: String(t.title).trim(), _blocks: blocks }
+      const baseId = slugify(t.id || t.title) || `tab-${i}`
+      const count = (seen.get(baseId) || 0) + 1
+      seen.set(baseId, count)
+      return {
+        id: count > 1 ? `${baseId}-${count}` : baseId,
+        title: String(t.title),
+        _blocks: blocks,
+      }
     })
-)
-
-function isHtmlTextBlock(b: Block): b is TextBlock {
-  return b.type === "text" && ((b as any).html === true || (b as any).format === "html")
-}
-
-function setHash(id: string) {
-  if (typeof history !== "undefined") history.replaceState(null, "", `#${id}`)
-}
-
-const effectiveScrollOffset = computed(() => {
-  // Asegura que el H2 no quede tapado por header + barra tabs
-  const min = (props.stickyTop || 0) + (barHeight.value || 0) + 16
-  return Math.max(props.scrollOffset || 0, min)
 })
+
+const effectiveScrollOffset = computed(() =>
+  Math.max(props.scrollOffset, props.stickyTop + barHeight.value + 20)
+)
 
 function measureBar() {
   barHeight.value = barRef.value?.offsetHeight || 0
+}
+
+function updatePinnedState() {
+  const startEl = startSentinelRef.value
+  const endEl = endSentinelRef.value
+  if (!startEl || !endEl) {
+    isPinned.value = false
+    return
+  }
+
+  const thresholdTop = props.stickyTop
+  const thresholdBottom = props.stickyTop + (barHeight.value || 0) + 8
+
+  const startRect = startEl.getBoundingClientRect()
+  const endRect = endEl.getBoundingClientRect()
+
+  const passedStart = startRect.top <= thresholdTop
+  const hasRoomBeforeEnd = endRect.top > thresholdBottom
+
+  isPinned.value = passedStart && hasRoomBeforeEnd
+}
+
+function requestLayoutSync() {
+  if (rafId) return
+  rafId = window.requestAnimationFrame(() => {
+    rafId = 0
+    measureBar()
+    updatePinnedState()
+  })
 }
 
 function scrollToId(id: string, smooth = true) {
@@ -105,29 +121,13 @@ function scrollToId(id: string, smooth = true) {
 function onClickTab(id: string) {
   isClicking.value = true
   activeId.value = id
-  setHash(id)
+
+  if (typeof history !== "undefined") {
+    history.replaceState(null, "", `#${id}`)
+  }
+
   scrollToId(id, true)
-  window.setTimeout(() => (isClicking.value = false), 650)
-}
-
-function setupPinnedObserver() {
-  pinIO?.disconnect()
-  pinIO = null
-  if (!sentinelRef.value) return
-
-  // Cuando el sentinel “sube” por encima de (stickyTop), fijamos
-  pinIO = new IntersectionObserver(
-    ([entry]) => {
-      isPinned.value = !entry.isIntersecting
-    },
-    {
-      root: null,
-      threshold: 0,
-      rootMargin: `-${props.stickyTop}px 0px 0px 0px`,
-    }
-  )
-
-  pinIO.observe(sentinelRef.value)
+  window.setTimeout(() => (isClicking.value = false), 700)
 }
 
 function setupSectionObserver() {
@@ -138,15 +138,15 @@ function setupSectionObserver() {
     (entries) => {
       if (isClicking.value) return
 
-      const visible = entries.filter((e) => e.isIntersecting)
-      if (!visible.length) return
+      const visibles = entries.filter((e) => e.isIntersecting)
+      if (!visibles.length) return
 
-      const best = visible.sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
+      const best = visibles.sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0]
       if (best?.target?.id) activeId.value = best.target.id
     },
     {
       root: null,
-      rootMargin: `-${effectiveScrollOffset.value}px 0px -55% 0px`,
+      rootMargin: `-${effectiveScrollOffset.value}px 0px -60% 0px`,
       threshold: [0.1, 0.25, 0.5],
     }
   )
@@ -157,178 +157,186 @@ function setupSectionObserver() {
   })
 }
 
-const contentPaddingClass = computed(() =>
-  props.density === "compact" ? "py-8 md:py-10" : "py-10 md:py-12"
-)
-
 onMounted(async () => {
   if (!safeTabs.value.length) return
 
-  // Activo inicial por hash o primero
   const hash = String(route.hash || "").replace(/^#/, "")
   activeId.value = safeTabs.value.some((t) => t.id === hash) ? hash : safeTabs.value[0].id
 
   await nextTick()
   measureBar()
-  setupPinnedObserver()
+  updatePinnedState()
+  setupSectionObserver()
 
-  // Si vienes con hash, navega sin pelear con observer
+  // Si viene con hash, baja a la sección sin animación
   if (hash && safeTabs.value.some((t) => t.id === hash)) {
     isClicking.value = true
     scrollToId(hash, false)
     window.setTimeout(() => (isClicking.value = false), 250)
   }
 
-  setupSectionObserver()
-
-  // Re-medimos si cambia viewport (evita offsets mal)
-  const onResize = () => {
-    measureBar()
+  scrollHandler = () => requestLayoutSync()
+  resizeHandler = () => {
+    requestLayoutSync()
     setupSectionObserver()
-    setupPinnedObserver()
   }
-  window.addEventListener("resize", onResize, { passive: true })
 
-  onBeforeUnmount(() => {
-    window.removeEventListener("resize", onResize)
-  })
+  window.addEventListener("scroll", scrollHandler, { passive: true })
+  window.addEventListener("resize", resizeHandler, { passive: true })
+
+  // primera sincronización por si el layout cambia tras imágenes/fuentes
+  window.setTimeout(() => requestLayoutSync(), 0)
+  window.setTimeout(() => requestLayoutSync(), 200)
 })
 
 watch(
   () => safeTabs.value.map((t) => t.id).join("|"),
   async () => {
     await nextTick()
-    measureBar()
+    requestLayoutSync()
     setupSectionObserver()
-    setupPinnedObserver()
   }
 )
 
 watch(
   () => effectiveScrollOffset.value,
   () => {
-    // si cambia el offset (por altura de barra), recalcula observer
     setupSectionObserver()
-    setupPinnedObserver()
+    requestLayoutSync()
   }
 )
 
 onBeforeUnmount(() => {
-  pinIO?.disconnect()
   sectionIO?.disconnect()
+  sectionIO = null
+
+  if (scrollHandler) window.removeEventListener("scroll", scrollHandler)
+  if (resizeHandler) window.removeEventListener("resize", resizeHandler)
+
+  if (rafId) {
+    window.cancelAnimationFrame(rafId)
+    rafId = 0
+  }
 })
 </script>
 
 <template>
-  <section v-if="safeTabs.length" class="bg-background">
-    <!-- Sentinel: cuando pasa por arriba, fijamos la barra -->
-    <div ref="sentinelRef" aria-hidden="true" class="h-px w-full" />
+  <section ref="rootRef" v-if="safeTabs.length" class="w-full bg-background">
+    <!-- Inicio de rango sticky -->
+    <div ref="startSentinelRef" class="h-px w-full" aria-hidden="true" />
 
-    <!-- Placeholder para evitar salto cuando la barra pasa a fixed -->
+    <!-- Placeholder para evitar salto al pasar a fixed -->
     <div aria-hidden="true" :style="{ height: isPinned ? `${barHeight}px` : '0px' }" />
 
-    <!-- TOP BAR (fina, estilo breadcrumbs, y fijada robustamente) -->
+    <!-- Barra tabs -->
     <div
-      ref="barRef"
-      :class="
-        cn(
-          'z-30 border-b border-border/60 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/70',
-          isPinned ? 'fixed left-0 right-0 shadow-sm' : 'relative'
-        )
-      "
-      :style="isPinned ? { top: `${stickyTop}px` } : undefined"
-    >
-      <div :class="cn(containerClass, 'py-2')">
-        <nav class="relative" aria-label="Secciones">
-          <!-- fades laterales (tipo Microsoft) -->
-          <div
-            class="pointer-events-none absolute inset-y-0 left-0 w-8 bg-gradient-to-r from-background to-transparent"
-          />
-          <div
-            class="pointer-events-none absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-background to-transparent"
-          />
+  ref="barRef"
+  :class="cn(
+    'z-40 border-b border-slate-200 bg-slate-50/95 backdrop-blur supports-[backdrop-filter]:bg-slate-50/90 transition-shadow',
+    isPinned ? 'fixed left-0 right-0 shadow-sm' : 'relative'
+  )"
+  :style="isPinned ? { top: `calc(${props.stickyTop}px + env(safe-area-inset-top, 0px))` } : undefined"
+>
+  <div :class="cn(barContainerClass, 'py-3')">
+    <nav class="flex items-center gap-3" aria-label="Navegación de secciones">
+      <!-- Label contextual: mejora comprensión (desktop) -->
+      <span
+        class="hidden lg:inline-flex shrink-0 items-center rounded-full border border-slate-200 bg-white px-3 py-1 text-[12px] font-medium text-slate-600"
+      >
+        En esta sección
+      </span>
 
-          <div class="no-scrollbar flex items-center gap-6 overflow-x-auto">
-            <button
-              v-for="t in safeTabs"
-              :key="t.id"
-              type="button"
-              :aria-current="activeId === t.id ? 'page' : undefined"
-              class="relative h-9 shrink-0 px-0 text-xs font-medium text-muted-foreground transition-colors hover:text-foreground focus:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 rounded"
-              :class="activeId === t.id ? 'text-foreground' : ''"
-              @click="onClickTab(t.id)"
-            >
-              {{ t.title }}
-              <span
-                class="absolute -bottom-[1px] left-0 h-[2px] w-full origin-center scale-x-0 bg-primary transition-transform duration-200"
-                :class="{ 'scale-x-100': activeId === t.id }"
-              />
-            </button>
-          </div>
-        </nav>
+      <div class="relative min-w-0 flex-1">
+        <!-- Fades SOLO en móvil para no tapar texto en desktop -->
+        <div
+          class="pointer-events-none absolute inset-y-0 left-0 z-10 w-5 bg-gradient-to-r from-slate-50 to-transparent md:hidden"
+        />
+        <div
+          class="pointer-events-none absolute inset-y-0 right-0 z-10 w-5 bg-gradient-to-l from-slate-50 to-transparent md:hidden"
+        />
+
+        <!-- Rail -->
+        <div
+          class="no-scrollbar flex w-full items-center gap-2 overflow-x-auto rounded-full border border-slate-200 bg-white p-1"
+        >
+          <a
+            v-for="t in safeTabs"
+            :key="t.id"
+            :href="`#${t.id}`"
+            @click.prevent="onClickTab(t.id)"
+            class="relative flex h-9 shrink-0 items-center rounded-full px-4 text-[14px] leading-[20px] font-medium transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+            :class="
+              activeId === t.id
+                ? 'bg-slate-900 text-white shadow-sm'
+                : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
+            "
+            :aria-current="activeId === t.id ? 'location' : undefined"
+          >
+            <span class="truncate">{{ t.title }}</span>
+          </a>
+        </div>
       </div>
-    </div>
+    </nav>
+  </div>
+</div>
 
-    <!-- CONTENIDO -->
-    <div :class="cn(containerClass, contentPaddingClass)">
-      <div class="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+    <!-- Contenido -->
+    <div :class="cn(contentContainerClass, 'py-12')">
+      <div class="overflow-hidden rounded-3xl border border-brand-ink-light bg-card shadow-sm">
         <article
           v-for="t in safeTabs"
           :key="t.id"
           :id="t.id"
-          class="border-b border-border/60 px-6 py-10 last:border-b-0 md:px-10 md:py-12"
-          :style="{ scrollMarginTop: `${effectiveScrollOffset + 10}px` }"
+          class="border-b border-brand-ink-light px-6 py-12 last:border-b-0 md:px-12 md:py-16"
+          :style="{ scrollMarginTop: `${effectiveScrollOffset + 20}px` }"
         >
-          <h2 class="mb-6 text-2xl font-semibold text-foreground">
+          <h2 class="mb-8 text-brand-ink-dark">
             {{ t.title }}
           </h2>
 
-          <div class="space-y-6 text-muted-foreground leading-relaxed">
+          <div class="space-y-8 text-brand-ink-dark/80">
             <template v-for="(b, bi) in t._blocks" :key="bi">
-              <div v-if="isHtmlTextBlock(b)" class="prose max-w-none" v-html="b.text" />
-
-              <p v-else-if="b.type === 'text'" class="whitespace-pre-line">
-                {{ (b as any).text }}
+              <div
+                v-if="b.type === 'text' && b.html"
+                class="prose prose-slate max-w-none"
+                v-html="b.text"
+              />
+              <p v-else-if="b.type === 'text'" class="text-body whitespace-pre-line">
+                {{ b.text }}
               </p>
 
-              <ul v-else-if="b.type === 'bullets'" class="grid gap-3 sm:grid-cols-2">
+              <ul v-else-if="b.type === 'bullets'" class="grid gap-4 sm:grid-cols-2">
                 <li
-                  v-for="(it, j) in (b as any).items || []"
+                  v-for="(it, j) in b.items"
                   :key="j"
-                  class="flex items-start gap-3 rounded-lg border border-border/60 bg-muted/30 p-3"
+                  class="flex items-start gap-4 rounded-xl border border-brand-ink-light bg-brand-ink-light/20 p-5"
                 >
-                  <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-primary" />
-                  <span class="text-sm font-medium text-foreground/90">{{ it }}</span>
+                  <span class="mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full bg-brand" />
+                  <span class="text-label text-brand-ink-dark">{{ it }}</span>
                 </li>
               </ul>
 
-              <figure v-else-if="b.type === 'image'" class="my-6">
+              <figure v-else-if="b.type === 'image'" class="my-10">
                 <NuxtImg
-                  :src="(b as any).src"
-                  :alt="(b as any).alt || ''"
-                  :width="(b as any).width"
-                  :height="(b as any).height"
-                  class="w-full max-h-[520px] rounded-xl border border-border/60 object-cover"
-                  loading="lazy"
-                  format="webp"
-                  quality="80"
+                  :src="b.src"
+                  :alt="b.alt || t.title"
+                  class="w-full max-h-[600px] rounded-2xl border border-brand-ink-light object-cover"
                 />
                 <figcaption
-                  v-if="(b as any).caption"
-                  class="mt-2 text-center text-sm text-muted-foreground"
+                  v-if="b.caption"
+                  class="mt-4 text-center text-label-s italic text-brand-ink-medium"
                 >
-                  {{ (b as any).caption }}
+                  {{ b.caption }}
                 </figcaption>
               </figure>
             </template>
-
-            <div v-if="!t._blocks.length" class="rounded-lg bg-muted/30 p-4 text-center italic">
-              Información no disponible.
-            </div>
           </div>
         </article>
       </div>
     </div>
+
+    <!-- Final de rango sticky -->
+    <div ref="endSentinelRef" class="h-px w-full" aria-hidden="true" />
   </section>
 </template>
 

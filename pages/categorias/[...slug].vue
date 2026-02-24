@@ -342,14 +342,14 @@ useHead(() => {
   const faqs = (c.faqs || []).filter((f: any) => f?.question && f?.answer);
   const faqSchema = faqs.length
     ? {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        mainEntity: faqs.map((f: any) => ({
-          "@type": "Question",
-          name: f.question,
-          acceptedAnswer: { "@type": "Answer", text: f.answer },
-        })),
-      }
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqs.map((f: any) => ({
+        "@type": "Question",
+        name: f.question,
+        acceptedAnswer: { "@type": "Answer", text: f.answer },
+      })),
+    }
     : null;
 
   const baseSchema = s.schema ? (Array.isArray(s.schema) ? s.schema : [s.schema]) : [];
@@ -372,18 +372,12 @@ useHead(() => {
       </div>
     </div>
 
-    <div
-      v-else-if="error || notFound"
-      class="mx-auto max-w-[1440px] px-6 py-24 text-center"
-    >
+    <div v-else-if="error || notFound" class="mx-auto max-w-[1440px] px-6 py-24 text-center">
       <h1 class="text-3xl font-bold text-slate-900">¡Ups! Categoría no encontrada</h1>
       <p class="mt-4 text-slate-600">
         Parece que la página que buscas no existe o ha cambiado de lugar.
       </p>
-      <NuxtLink
-        to="/categorias"
-        class="mt-8 inline-block bg-sky-700 text-white px-8 py-3 rounded-full font-semibold"
-      >
+      <NuxtLink to="/categorias" class="mt-8 inline-block bg-sky-700 text-white px-8 py-3 rounded-full font-semibold">
         Ver todas las categorías
       </NuxtLink>
     </div>
@@ -393,51 +387,31 @@ useHead(() => {
 
       <nav class="bg-slate-50 border-b border-slate-200">
         <div class="mx-auto max-w-[1440px] px-6 py-4">
-          <SiteBreadcrumbs
-            :items="safeCategory.breadcrumbs.map((b: any) => ({ label: b.name, to: b.url }))"
-            :auto="false"
-            :json-ld="false"
-          />
+          <SiteBreadcrumbs :items="safeCategory.breadcrumbs.map((b: any) => ({ label: b.name, to: b.url }))"
+            :auto="false" :json-ld="false" />
         </div>
       </nav>
 
       <section class="py-12 md:py-16">
-        <CategoryProductsGrid
-          :title="isHub ? 'Elige una subcategoría' : 'Selecciona el tipo de producto'"
-          :subtitle="
-            isHub
-              ? 'Explora las opciones dentro de esta categoría'
-              : 'Configura tu impresión a medida'
-          "
-          :items="isHub ? childItems : productItems"
-        />
+        <CategoryProductsGrid :title="isHub ? 'Elige una subcategoría' : 'Selecciona el tipo de producto'" :subtitle="isHub
+            ? 'Explora las opciones dentro de esta categoría'
+            : 'Configura tu impresión a medida'
+          " :items="isHub ? childItems : productItems" />
       </section>
 
-      <div class="bg-slate-50/50 py-16 border-y border-slate-100">
-        <div class="mx-auto max-w-[1440px] px-6">
-          
-          <div class="mt-12">
-            <CategoryTabs v-if="safeCategory.tabs?.length" :tabs="safeCategory.tabs" />
-          </div>
-        </div>
+      <div class="border-y border-slate-100 bg-slate-50/50 py-16">
+        <CategoryTabs v-if="safeCategory.tabs?.length" :tabs="safeCategory.tabs" :sticky-top="112" :scroll-offset="140"
+            bar-container-class="mx-auto w-full max-w-[1440px] px-6"
+  content-container-class="mx-auto w-full max-w-[1440px] px-6 lg:px-16 xl:px-24"
+/>
       </div>
 
-      <section class="py-16">
+      <section>
         <div class="mx-auto max-w-[1440px] px-6">
           <div class="grid lg:grid-cols-2 gap-12 items-start">
-            <CategoryTabs
-  v-if="safeCategory.tabs?.length"
-  :tabs="safeCategory.tabs"
-  :sticky-top="80"
-  :scroll-offset="140"
-/>
-
             <div class="space-y-8">
               <CategoryGuideCTA :image-src="guideCtaBg" to="/como-preparar-archivos" />
-              <CategoryRelatedWorks
-                v-if="safeCategory.relatedWorks?.length"
-                :items="safeCategory.relatedWorks"
-              />
+              <CategoryRelatedWorks v-if="safeCategory.relatedWorks?.length" :items="safeCategory.relatedWorks" />
             </div>
           </div>
         </div>
