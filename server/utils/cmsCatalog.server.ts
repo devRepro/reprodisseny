@@ -1,42 +1,163 @@
 // server/utils/cmsCatalog.server.ts
-import { readFile } from "node:fs/promises"
+import { readFile, stat } from "node:fs/promises"
 import { join } from "node:path"
+import { transformCategoryToTabs } from "~/shared/utils/cms/transformCategoryTabs"
 
 type CmsCatalog = {
-  categories?: any[]
-  products?: any[]
-  // si tienes más keys, añádelas
+  categories: any[]
+  products: any[]
+  __index?: {
+    byPath: Map<string, any>
+    bySlug: Map<string, any>
+  }
 }
 
 let cache: CmsCatalog | null = null
 let cacheAt = 0
+let cacheMtimeMs = 0
 
-const DEV_TTL_MS = 5_000 // 5s en dev (ajusta)
-const PROD_TTL_MS = 60_000 // 60s en prod (o infinito si lo prefieres)
+const DEV_TTL_MS = 5_000
+const PROD_TTL_MS = 60_000
+
+function normSlug(v: unknown) {
+  let s = String(v ?? "").trim()
+  if (!s) return ""
+  s = s.replace(/^\/+/, "")
+  s = s.replace(/^\/?categorias\//i, "")
+  s = s.replace(/^categorias\//i, "")
+  s = s.replace(/^\/+|\/+$/g, "")
+  return s
+}
+
+function normPath(v: unknown) {
+  let s = String(v ?? "").trim()
+  if (!s) return ""
+  if (!s.startsWith("/")) s = "/" + s
+  s = s.replace(/\/{2,}/g, "/")
+  if (!s.startsWith("/categorias/")) s = "/categorias/" + s.replace(/^\/+/, "")
+  return s.replace(/\/+$/, "")
+}
+
+function firstNonEmpty(obj: any, keys: string[], fallback: any = undefined) {
+  for (const k of keys) {
+    const v = obj?.[k]
+    if (v !== undefined && v !== null && String(v).trim() !== "") return v
+  }
+  return fallback
+}
+
+function toNum(v: any): number | undefined {
+  const n = typeof v === "number" ? v : Number(String(v ?? "").trim())
+  return Number.isFinite(n) && n > 0 ? n : undefined
+}
+
+function mapCategoryToFields(c: any) {
+  return {
+    Title: firstNonEmpty(c, ["Title", "title", "name", "NavLabel", "nav"], ""),
+    Description: firstNonEmpty(c, ["Description", "description"], ""),
+    BodyMd: firstNonEmpty(c, ["BodyMd", "bodyMd", "body", "markdown"], ""),
+    ImageSrc: firstNonEmpty(c, ["ImageSrc", "imageSrc"], "") || c?.image?.src || "",
+    ImageAlt: firstNonEmpty(c, ["ImageAlt", "imageAlt", "alt"], "") || c?.image?.alt || "",
+    ImageWidth: toNum(firstNonEmpty(c, ["ImageWidth", "imageWidth"], undefined)) || toNum(c?.image?.width),
+    ImageHeight: toNum(firstNonEmpty(c, ["ImageHeight", "imageHeight"], undefined)) || toNum(c?.image?.height),
+    GalleryImagesJson: firstNonEmpty(c, ["GalleryImagesJson", "galleryImagesJson", "gallery"], null),
+
+    // 🔴 TabsJson se ignora totalmente
+    TabsJson: "",
+  }
+}
+
+function hydrateCategory(c: any) {
+  const fallbackPath = c?.slug ? `/categorias/${normSlug(c.slug)}` : (c?.path || "")
+  c.path = normPath(c?.path || fallbackPath)
+
+  // ✅ tabs SOLO desde BodyMd (ignora TabsJson)
+  const fields = mapCategoryToFields(c)
+  c.tabs = transformCategoryToTabs(fields, {
+    bodyMdOnly: true,
+    ignoreTabsJson: true,
+    includeIntroTab: false,     // evita duplicar Description si ya la enseñas arriba
+    includeGalleryTab: true,
+    singleTabTitle: "Contenido",
+  })
+
+  return c
+}
+
+function buildIndex(categories: any[]) {
+  const byPath = new Map<string, any>()
+  const bySlug = new Map<string, any>()
+
+  for (const c of categories) {
+    if (!c) continue
+    const pathKey = normPath(c?.path)
+    if (pathKey && !byPath.has(pathKey)) byPath.set(pathKey, c)
+
+    const mainSlug = normSlug(c?.slug)
+    if (mainSlug && !bySlug.has(mainSlug)) bySlug.set(mainSlug, c)
+
+    const legacy = Array.isArray(c?.legacySlugs) ? c.legacySlugs.map(normSlug) : []
+    for (const ls of legacy) if (ls && !bySlug.has(ls)) bySlug.set(ls, c)
+
+    const extra = Array.isArray(c?.slugs) ? c.slugs.map(normSlug) : []
+    for (const es of extra) if (es && !bySlug.has(es)) bySlug.set(es, c)
+  }
+
+  return { byPath, bySlug }
+}
+
+function prepareCatalog(raw: any): CmsCatalog {
+  const categories = Array.isArray(raw?.categories) ? raw.categories : []
+  const products = Array.isArray(raw?.products) ? raw.products : []
+
+  for (const c of categories) hydrateCategory(c)
+
+  const out: CmsCatalog = { categories, products }
+  Object.defineProperty(out, "__index", {
+    value: buildIndex(categories),
+    enumerable: false,
+    writable: false,
+    configurable: false,
+  })
+  return out
+}
 
 export async function getCmsCatalog(): Promise<CmsCatalog> {
   const isDev = process.env.NODE_ENV !== "production"
   const ttl = isDev ? DEV_TTL_MS : PROD_TTL_MS
+  const filePath = join(process.cwd(), "cms", "catalog.json")
 
-  if (cache && Date.now() - cacheAt < ttl) return cache
+  // ✅ si hay cache y aún está dentro del TTL, pero el archivo cambió → recarga
+  if (cache && Date.now() - cacheAt < ttl) {
+    try {
+      const st = await stat(filePath)
+      if (st.mtimeMs <= cacheMtimeMs) return cache
+      // si cambió, caemos y recargamos
+    } catch {
+      // si stat falla, mejor recargar para dar error claro
+    }
+  }
 
   try {
-    const raw = await readFile(join(process.cwd(), "cms", "catalog.json"), "utf8")
-    cache = JSON.parse(raw)
+    const st = await stat(filePath)
+    const raw = await readFile(filePath, "utf8")
+    const parsed = JSON.parse(raw)
+
+    cache = prepareCatalog(parsed)
     cacheAt = Date.now()
+    cacheMtimeMs = st.mtimeMs
     return cache
   } catch (e: any) {
-    // Mensaje claro si el archivo no existe o está mal formado
-    const msg = e?.code === "ENOENT"
-      ? "No existe cms/catalog.json. ¿Has ejecutado el script de sync?"
-      : `Error leyendo cms/catalog.json: ${e?.message || String(e)}`
+    const msg =
+      e?.code === "ENOENT"
+        ? "No existe cms/catalog.json. ¿Has ejecutado el script de sync?"
+        : `Error leyendo cms/catalog.json: ${e?.message || String(e)}`
     throw new Error(msg)
   }
 }
 
-// útil en dev si quieres recargar al vuelo
 export function clearCmsCatalogCache() {
   cache = null
   cacheAt = 0
+  cacheMtimeMs = 0
 }
-

@@ -275,18 +275,17 @@ const childItems = computed(() => {
 
 /** SEO */
 const seo = computed(() => safeCategory.value?.seo);
-const robots = computed(() =>
-  safeCategory.value?.hidden ? "noindex,follow" : "index,follow"
-);
+const robots = computed(() => {
+  const c = safeCategory.value
+  return c?.seo?.robots || (c?.hidden ? "noindex,follow" : "index,follow")
+})
 
 useSeoMeta(() => {
   const c = safeCategory.value;
   const s = seo.value;
   if (!c || !s) return {};
 
-  const canonicalAbs = s.canonical
-    ? absUrl(s.canonical)
-    : absUrl(c.path || categoryPath.value);
+const canonicalAbs = absUrl((s.canonical || c.path || categoryPath.value).split("#")[0])
 
   return {
     title: s.metaTitle || c.title,
@@ -295,13 +294,13 @@ useSeoMeta(() => {
 
     ogTitle: s.metaTitle || c.title,
     ogDescription: s.metaDescription || c.description,
-    ogImage: c.imageSrc || undefined,
+    ogImage: c.imageSrc ? absUrl(c.imageSrc) : undefined,
     ogUrl: canonicalAbs,
 
     twitterCard: c.imageSrc ? "summary_large_image" : "summary",
     twitterTitle: s.metaTitle || c.title,
     twitterDescription: s.metaDescription || c.description,
-    twitterImage: c.imageSrc || undefined,
+    twitterImage: c.imageSrc ? absUrl(c.imageSrc) : undefined,
   };
 });
 
@@ -368,8 +367,7 @@ useHead(() => {
   <main class="bg-white min-h-screen">
     <div v-if="pending" class="flex items-center justify-center min-h-[60vh]">
       <div class="animate-pulse text-slate-400 font-medium text-lg">
-        Cargando categoría...
-      </div>
+        Cargando categoría...      </div>
     </div>
 
     <div v-else-if="error || notFound" class="mx-auto max-w-[1440px] px-6 py-24 text-center">
@@ -401,9 +399,7 @@ useHead(() => {
 
       <div class="border-y py-8 border-slate-100 bg-slate-50/50">
         <CategoryTabs v-if="safeCategory.tabs?.length" :tabs="safeCategory.tabs" :sticky-top="112" :scroll-offset="140"
-            bar-container-class="mx-auto w-full max-w-[1440px] px-6"
-  content-container-class="mx-auto w-full max-w-[1440px] px-6 lg:px-16 xl:px-24"
-/>
+          container-class="mx-auto w-full max-w-[1440px] px-6 lg:px-16 xl:px-24"/>
       </div>
 
       <section>

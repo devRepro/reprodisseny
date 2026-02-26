@@ -1,9 +1,14 @@
 // server/api/cms/category/[...slug].get.ts
-import { defineEventHandler, getRouterParam, getQuery, createError } from "h3"
+import { defineEventHandler, getQuery, getRouterParam, createError } from "h3"
 import { getCmsCatalog } from "~/server/utils/cmsCatalog.server"
-import { parseTabsJson, normalizeTabs } from "~/utils/tabsJson"
 
-function normalizeSlug(v: unknown) {
+type AnyObj = Record<string, any>
+
+/* -----------------------------
+   Normalización
+------------------------------ */
+
+function normSlug(v: unknown) {
   let s = String(v ?? "").trim()
   if (!s) return ""
   s = s.replace(/^\/+/, "")
@@ -13,7 +18,7 @@ function normalizeSlug(v: unknown) {
   return s
 }
 
-function normalizePath(v: unknown) {
+function normPath(v: unknown) {
   let s = String(v ?? "").trim()
   if (!s) return ""
   if (!s.startsWith("/")) s = "/" + s
@@ -22,127 +27,147 @@ function normalizePath(v: unknown) {
   return s.replace(/\/+$/, "")
 }
 
-function stripCategoriasPrefix(path: string) {
+function stripCategorias(path: string) {
   return String(path || "")
     .replace(/^\/+/, "/")
     .replace(/^\/categorias\//i, "")
     .replace(/\/+$/, "")
 }
 
-function computeRobots(c: any) {
+/* -----------------------------
+   Query helpers
+------------------------------ */
+
+function qBool(q: AnyObj, key: string, def = false) {
+  const v = q?.[key]
+  if (v === undefined || v === null) return def
+  return String(v) === "1" || String(v).toLowerCase() === "true"
+}
+
+function qInt(q: AnyObj, key: string, def: number, min: number, max: number) {
+  const n = parseInt(String(q?.[key] ?? ""), 10)
+  if (!Number.isFinite(n)) return def
+  return Math.max(min, Math.min(max, n))
+}
+
+/* -----------------------------
+   SEO helpers
+------------------------------ */
+
+function computeRobots(c: AnyObj) {
   if (c?.hidden) return "noindex,follow"
 
-  const override = String(c?.seo?.robotsOverride ?? c?.RobotsOverride ?? "INHERIT").toUpperCase().trim()
-  let base = "index,follow"
+  const override = String(c?.seo?.robotsOverride ?? c?.RobotsOverride ?? "INHERIT")
+    .toUpperCase()
+    .trim()
 
-  if (override === "NOINDEX_FOLLOW") base = "noindex,follow"
-  else if (override === "NOINDEX_NOFOLLOW") base = "noindex,nofollow"
-  else if (override === "INDEX_NOFOLLOW") base = "index,nofollow"
-  else if (override === "INDEX_FOLLOW") base = "index,follow"
-  else if (override === "INHERIT") base = "index,follow"
+  const base =
+    override === "NOINDEX_FOLLOW"
+      ? "noindex,follow"
+      : override === "NOINDEX_NOFOLLOW"
+        ? "noindex,nofollow"
+        : override === "INDEX_NOFOLLOW"
+          ? "index,nofollow"
+          : "index,follow"
 
   const adv = String(c?.seo?.robotsAdvanced ?? c?.RobotsAdvanced ?? "").trim()
   return adv ? `${base},${adv}` : base
 }
 
-function clampInt(v: unknown, fallback: number, min: number, max: number) {
-  const n = parseInt(String(v ?? ""), 10)
-  if (!Number.isFinite(n)) return fallback
-  return Math.max(min, Math.min(max, n))
+/* -----------------------------
+   Resolvers
+------------------------------ */
+
+function resolveProducts(products: AnyObj[], categorySlug: string, limit: number) {
+  const slugKey = normSlug(categorySlug)
+  if (!slugKey) return []
+  return (products || [])
+    .filter((p) => normSlug(p?.categorySlug) === slugKey)
+    .slice(0, limit)
 }
+
+function resolveChildren(categories: AnyObj[], parent: AnyObj, canonicalParentPath: string, limit: number) {
+  const parentSlugKey = normSlug(parent?.slug)
+  const parentDepth = stripCategorias(canonicalParentPath).split("/").filter(Boolean).length
+
+  return (categories || [])
+    .filter((c) => {
+      if (!c) return false
+      const cPath = normPath(c?.path)
+      if (!cPath.startsWith(canonicalParentPath + "/")) return false
+
+      const cDepth = stripCategorias(cPath).split("/").filter(Boolean).length
+      if (cDepth !== parentDepth + 1) return false
+
+      const cParent = normSlug(c?.parent)
+      if (cParent && parentSlugKey && cParent !== parentSlugKey) return false
+
+      return true
+    })
+    .sort((a, b) => Number(a?.order || 0) - Number(b?.order || 0))
+    .slice(0, limit)
+    .map((c) => ({
+      slug: c.slug,
+      path: normPath(c.path),
+      title: c.title ?? c.Title ?? "",
+      nav: c.nav ?? c.NavLabel ?? "",
+      description: c.description ?? c.Description ?? "",
+      imageSrc: c.imageSrc || c.ImageSrc || c.image?.src || null,
+      alt: c.alt || c.ImageAlt || c.title || c.nav || "Subcategoría",
+      order: Number(c.order ?? c.SortOrder ?? 0) || 0,
+    }))
+}
+
+/* -----------------------------
+   Handler
+------------------------------ */
 
 export default defineEventHandler(async (event) => {
   const raw = getRouterParam(event, "slug") || ""
   const slugParts = String(raw).split("/").filter(Boolean)
 
-  const wantedPath = normalizePath("/categorias/" + slugParts.join("/"))
-  const wantedSlug = normalizeSlug(slugParts[slugParts.length - 1] || "")
+  const wantedPath = normPath("/categorias/" + slugParts.join("/"))
+  const wantedSlug = normSlug(slugParts.at(-1) || "")
 
-  const q = getQuery(event) as any
-  const includeProducts = String(q.includeProducts ?? "0") === "1"
-  const productLimit = clampInt(q.productLimit, 24, 1, 200)
+  const q = getQuery(event) as AnyObj
+  const includeProducts = qBool(q, "includeProducts", false)
+  const productLimit = qInt(q, "productLimit", 24, 1, 200)
 
-  // ✅ NUEVO
-  const includeChildren = String(q.includeChildren ?? "0") === "1"
-  const childLimit = clampInt(q.childLimit, 24, 1, 200)
+  const includeChildren = qBool(q, "includeChildren", false)
+  const childLimit = qInt(q, "childLimit", 24, 1, 200)
 
-  const { categories, products } = await getCmsCatalog()
+  const catalog = await getCmsCatalog()
+  const categories = catalog.categories || []
+  const products = catalog.products || []
 
-  let category =
-    (categories || []).find((c: any) => normalizePath(c?.path) === wantedPath) ||
-    (categories || []).find((c: any) => {
-      const cSlug = normalizeSlug(c?.slug)
-      const legacySlugs = Array.isArray(c?.legacySlugs) ? c.legacySlugs.map(normalizeSlug) : []
-      const slugs = Array.isArray(c?.slugs) ? c.slugs.map(normalizeSlug) : []
-      return cSlug === wantedSlug || legacySlugs.includes(wantedSlug) || slugs.includes(wantedSlug)
-    })
+  // lookup rápido (por índice) + fallback por si un día no existe
+  const idx = (catalog as any).__index
+  const byPath = idx?.byPath as Map<string, any> | undefined
+  const bySlug = idx?.bySlug as Map<string, any> | undefined
 
-  if (!category) {
-    throw createError({ statusCode: 404, statusMessage: "Categoría no encontrada" })
-  }
+  const category =
+    byPath?.get(wantedPath) ||
+    bySlug?.get(wantedSlug) ||
+    categories.find((c) => normPath(c?.path) === wantedPath) ||
+    categories.find((c) => normSlug(c?.slug) === wantedSlug)
 
-  const canonicalPath = normalizePath(category?.path)
+  if (!category) throw createError({ statusCode: 404, statusMessage: "Categoría no encontrada" })
+
+  const canonicalPath = normPath(category?.path)
   const redirectTo = wantedPath !== canonicalPath ? canonicalPath : undefined
 
-  const tabs =
-    Array.isArray(category?.tabs) && category.tabs.length
-      ? category.tabs
-      : normalizeTabs(parseTabsJson(category?.TabsJson ?? category?.tabsJson ?? ""))
+  const ogImageSrc =
+    category?.seo?.ogImageSrc || category?.OgImageSrc || category?.image?.src || category?.ImageSrc || null
 
-  const ogImageSrc = category?.seo?.ogImageSrc || category?.image?.src || null
-
-  // ✅ Productos (solo si se pide)
-  let categoryProducts: any[] = []
-  if (includeProducts) {
-    const slugKey = normalizeSlug(category?.slug)
-    categoryProducts = (products || [])
-      .filter((p: any) => normalizeSlug(p?.categorySlug) === slugKey)
-      .slice(0, productLimit)
-  }
-
-  // ✅ NUEVO: children (subcategorías directas)
-  let children: any[] = []
-  if (includeChildren) {
-    const parentSlugKey = normalizeSlug(category?.slug)
-    const parentPath = canonicalPath
-    const parentDepth = stripCategoriasPrefix(parentPath).split("/").filter(Boolean).length
-
-    children = (categories || [])
-      .filter((c: any) => {
-        if (!c) return false
-        const cPath = normalizePath(c?.path)
-        if (!cPath.startsWith(parentPath + "/")) return false
-
-        // direct child = profundidad + 1
-        const cDepth = stripCategoriasPrefix(cPath).split("/").filter(Boolean).length
-        if (cDepth !== parentDepth + 1) return false
-
-        // si la columna parent existe, la validamos
-        const cParent = normalizeSlug(c?.parent)
-        if (cParent && cParent !== parentSlugKey) return false
-
-        return true
-      })
-      .sort((a: any, b: any) => (Number(a?.order || 0) - Number(b?.order || 0)))
-      .slice(0, childLimit)
-      .map((c: any) => ({
-        // devuelve solo lo necesario para pintar cards
-        slug: c.slug,
-        path: normalizePath(c.path),
-        title: c.title ?? "",
-        nav: c.nav ?? "",
-        description: c.description ?? "",
-        imageSrc: c.imageSrc || c.image?.src || null,
-        alt: c.alt || c.title || c.nav || "Subcategoría",
-        order: Number(c.order ?? 0) || 0,
-      }))
-  }
+  const outProducts = includeProducts ? resolveProducts(products, category?.slug, productLimit) : undefined
+  const outChildren = includeChildren ? resolveChildren(categories, category, canonicalPath, childLimit) : undefined
 
   return {
     ...category,
-    tabs,
-    ...(includeProducts ? { products: categoryProducts } : {}),
-    ...(includeChildren ? { children } : {}), // ✅
+    // tabs ya hidratados en getCmsCatalog()
+    tabs: Array.isArray(category?.tabs) ? category.tabs : [],
+    ...(outProducts ? { products: outProducts } : {}),
+    ...(outChildren ? { children: outChildren } : {}),
     seo: {
       ...(category?.seo || {}),
       robots: computeRobots(category),
