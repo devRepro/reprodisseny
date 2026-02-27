@@ -11,6 +11,8 @@ import CategoryGuideCTA from "@/components/marketing/category/CategoryGuideCTA.v
 import CategoryRelatedWorks from "@/components/marketing/category/CategoryRelatedWorks.vue";
 import CategoryProductsGrid from "@/components/marketing/category/CategoryProductsGrid.vue";
 import SiteBreadcrumbs from "@/components/shared/SiteBreadcrumbs.vue";
+import CategoryRail from "@/components/marketing/category/CategoryRail.vue";
+import CategoryLead from "@/components/marketing/category/CategoryLead.vue";
 
 import { parseTabsJson, normalizeTabs } from "~/utils/tabsJson";
 
@@ -397,10 +399,26 @@ useHead(() => {
           " :items="isHub ? childItems : productItems" />
       </section>
 
-      <div class="border-y py-8 border-slate-100 bg-slate-50/50">
-        <CategoryTabs v-if="safeCategory.tabs?.length" :tabs="safeCategory.tabs" :sticky-top="112" :scroll-offset="140"
-          container-class="mx-auto w-full max-w-[1440px] px-6 lg:px-16 xl:px-24"/>
-      </div>
+      <div class="border-y py-10 border-slate-100 bg-slate-50/50">
+         <div class="mx-auto w-full max-w-[1440px] px-6 lg:px-16 xl:px-24">
+    <CategoryLead
+      v-if="safeCategory.description"
+      :title="safeCategory.nav || safeCategory.title"
+      :description="safeCategory.description"
+      :image-src="safeCategory.imageSrc"
+      :chips="['Asesoramiento', 'Acabados premium', 'Producción rápida']"
+    />
+    </div>        
+  
+  <CategoryRail
+    v-if="safeCategory.tabs?.length"
+    :tabs="safeCategory.tabs"
+    :sticky-top="112"
+    :scroll-offset="140"
+    container-class="mx-auto w-full max-w-[1440px] px-6 lg:px-16 xl:px-24"
+  />
+</div>
+
 
       <section>
         <div class="mx-auto max-w-[1440px] px-6">
