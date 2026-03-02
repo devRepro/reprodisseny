@@ -424,7 +424,11 @@ useHead(() => {
         <div class="mx-auto max-w-[1440px] px-6">
           <div class="grid lg:grid-cols-2 gap-12 items-start">
             <div class="space-y-8">
-              <CategoryGuideCTA :image-src="guideCtaBg" to="/como-preparar-archivos" />
+              <GuideBanner
+      title="Solicitud de presupuesto personalizada"
+      bgImageSrc="/img/ui/archivos-book-4k.webp"
+      :cta="{ label: 'Presupuesto personalizado', to: '/contacto' }"
+    />
               <CategoryRelatedWorks v-if="safeCategory.relatedWorks?.length" :items="safeCategory.relatedWorks" />
             </div>
           </div>

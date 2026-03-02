@@ -469,21 +469,11 @@ onBeforeUnmount(() => {
             >
               <header class="mb-5 flex items-end justify-between gap-4">
                 <div class="min-w-0">
-                  <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-                    Capítulo {{ i + 1 }}
-                  </p>
                   <h2 class="mt-2 text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
                     {{ t.title }}
                   </h2>
                 </div>
 
-                <a
-                  href="#"
-                  class="hidden shrink-0 rounded-full border border-border/60 bg-background/60 px-3 py-1.5 text-xs font-semibold text-muted-foreground transition hover:bg-muted/40 hover:text-foreground md:inline-flex"
-                  @click.prevent="window.scrollTo({ top: 0, behavior: 'smooth' })"
-                >
-                  Volver arriba
-                </a>
               </header>
 
               <div
