@@ -4,4 +4,9 @@ export const joinPath = (...parts: (string|undefined|null)[]) => {
     return p.startsWith('/') ? p.replace(/\/$/, '') || '/' : `/${p.replace(/\/$/, '')}`
   }
   export const buildCategoryPath = (slug?: string) => joinPath('/categorias', slug)
-  
+  export const slug = (input: string) =>
+  input
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase().trim()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '')

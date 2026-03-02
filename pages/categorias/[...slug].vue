@@ -8,6 +8,7 @@ import CategoryIntro from "@/components/marketing/category/CategoryIntro.vue";
 import CategoryTabs from "@/components/marketing/category/CategoryTabs.vue";
 import CategoryFaq from "@/components/marketing/category/CategoryFaq.vue";
 import CategoryGuideCTA from "@/components/marketing/category/CategoryGuideCTA.vue";
+import GuideBanner from "@/components/marketing/GuideBanner.vue"
 import CategoryRelatedWorks from "@/components/marketing/category/CategoryRelatedWorks.vue";
 import CategoryProductsGrid from "@/components/marketing/category/CategoryProductsGrid.vue";
 import SiteBreadcrumbs from "@/components/shared/SiteBreadcrumbs.vue";
@@ -287,7 +288,7 @@ useSeoMeta(() => {
   const s = seo.value;
   if (!c || !s) return {};
 
-const canonicalAbs = absUrl((s.canonical || c.path || categoryPath.value).split("#")[0])
+  const canonicalAbs = absUrl((s.canonical || c.path || categoryPath.value).split("#")[0])
 
   return {
     title: s.metaTitle || c.title,
@@ -369,7 +370,7 @@ useHead(() => {
   <main class="bg-white min-h-screen">
     <div v-if="pending" class="flex items-center justify-center min-h-[60vh]">
       <div class="animate-pulse text-slate-400 font-medium text-lg">
-        Cargando categoría...      </div>
+        Cargando categoría... </div>
     </div>
 
     <div v-else-if="error || notFound" class="mx-auto max-w-[1440px] px-6 py-24 text-center">
@@ -394,46 +395,36 @@ useHead(() => {
 
       <section class="py-12 md:py-16">
         <CategoryProductsGrid :title="isHub ? 'Elige una subcategoría' : 'Selecciona el tipo de producto'" :subtitle="isHub
-            ? 'Explora las opciones dentro de esta categoría'
-            : 'Configura tu impresión a medida'
+          ? 'Explora las opciones dentro de esta categoría'
+          : 'Configura tu impresión a medida'
           " :items="isHub ? childItems : productItems" />
       </section>
 
       <div class="border-y py-10 border-slate-100 bg-slate-50/50">
-         <div class="mx-auto w-full max-w-[1440px] px-6 lg:px-16 xl:px-24">
-    <CategoryLead
-      v-if="safeCategory.description"
-      :title="safeCategory.nav || safeCategory.title"
-      :description="safeCategory.description"
-      :image-src="safeCategory.imageSrc"
-      :chips="['Asesoramiento', 'Acabados premium', 'Producción rápida']"
-    />
-    </div>        
-  
-  <CategoryRail
-    v-if="safeCategory.tabs?.length"
-    :tabs="safeCategory.tabs"
-    :sticky-top="112"
-    :scroll-offset="140"
-    container-class="mx-auto w-full max-w-[1440px] px-6 lg:px-16 xl:px-24"
-  />
-</div>
+        <div class="mx-auto w-full max-w-[1440px] px-6 lg:px-16 xl:px-24">
+          <CategoryLead v-if="safeCategory.description" :title="safeCategory.nav || safeCategory.title"
+            :description="safeCategory.description" :image-src="safeCategory.imageSrc"
+            :chips="['Asesoramiento', 'Acabados premium', 'Producción rápida']" />
+        </div>
+
+        <CategoryRail v-if="safeCategory.tabs?.length" :tabs="safeCategory.tabs" :sticky-top="112" :scroll-offset="140"
+          container-class="mx-auto w-full max-w-[1440px] px-6 lg:px-16 xl:px-24" />
+      </div>
 
 
       <section>
         <div class="mx-auto max-w-[1440px] px-6">
-          <div class="grid lg:grid-cols-2 gap-12 items-start">
-            <div class="space-y-8">
-              <GuideBanner
-      title="Solicitud de presupuesto personalizada"
-      bgImageSrc="/img/ui/archivos-book-4k.webp"
-      :cta="{ label: 'Presupuesto personalizado', to: '/contacto' }"
-    />
-              <CategoryRelatedWorks v-if="safeCategory.relatedWorks?.length" :items="safeCategory.relatedWorks" />
-            </div>
-          </div>
+
+
+          <GuideBanner title="Solicitud de presupuesto personalizada" bgImageSrc="/img/ui/archivos-book-4k.webp"
+            :cta="{ label: 'Presupuesto personalizado', to: '/contacto' }" />
+          <CategoryRelatedWorks v-if="safeCategory.relatedWorks?.length" :items="safeCategory.relatedWorks" />
+
         </div>
       </section>
     </template>
+    <section>
+      <CategoryRelatedWorks
+    </section>
   </main>
 </template>

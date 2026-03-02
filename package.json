@@ -90,8 +90,10 @@
     "parse-git-config": "latest"
   },
   "overrides": {
-    "esbuild": "^0.25",
-    "node-fetch-native": "1.6.4",
-    "minimatch": "10.2.1"
-  }
+  "esbuild": "^0.25",
+  "node-fetch-native": "1.6.4",
+  "minimatch": "^10.2.3",
+  "serialize-javascript": "7.0.3"
+
+}
 }
