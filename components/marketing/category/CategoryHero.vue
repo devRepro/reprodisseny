@@ -52,7 +52,7 @@ const cta = computed<HeroCta>(() => ({
 }))
 
 const contentWrapClass = computed(() =>
-  cn("mx-auto w-full max-w-[1440px] px-6 lg:px-16 xl:px-24", props.containerClass)
+  cn("mx-auto w-full max-w-[1440px] px-6 md:px-10 lg:px-16 2xl:px-[120px]", props.containerClass)
 )
 
 const paddingYClass = computed(() =>

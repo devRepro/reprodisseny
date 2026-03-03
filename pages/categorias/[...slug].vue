@@ -3,18 +3,13 @@ import { computed, watch } from "vue";
 import { createError } from "h3";
 
 import CategoryHero from "@/components/marketing/category/CategoryHero.vue";
-import CategoryActionsGrid from "@/components/marketing/category/CategoryActionsGrid.vue";
-import CategoryIntro from "@/components/marketing/category/CategoryIntro.vue";
+import CategoryProductsGrid from "@/components/marketing/category/CategoryProductsGrid.vue";
+import CategoryRelatedWorks from "@/components/marketing/category/CategoryRelatedWorks.vue";
+import SiteBreadcrumbs from "@/components/shared/SiteBreadcrumbs.vue";
+import CategoryLead from "@/components/marketing/category/CategoryLead.vue";
+import GuideBanner from "@/components/marketing/GuideBanner.vue";
 import CategoryTabs from "@/components/marketing/category/CategoryTabs.vue";
 import CategoryFaq from "@/components/marketing/category/CategoryFaq.vue";
-import CategoryGuideCTA from "@/components/marketing/category/CategoryGuideCTA.vue";
-import GuideBanner from "@/components/marketing/GuideBanner.vue"
-import CategoryRelatedWorks from "@/components/marketing/category/CategoryRelatedWorks.vue";
-import CategoryProductsGrid from "@/components/marketing/category/CategoryProductsGrid.vue";
-import SiteBreadcrumbs from "@/components/shared/SiteBreadcrumbs.vue";
-import CategoryRail from "@/components/marketing/category/CategoryRail.vue";
-import CategoryLead from "@/components/marketing/category/CategoryLead.vue";
-
 import { parseTabsJson, normalizeTabs } from "~/utils/tabsJson";
 
 type ApiCategoryResponse =
@@ -25,7 +20,6 @@ type ApiCategoryResponse =
 const route = useRoute();
 const cfg = useRuntimeConfig();
 
-/** slugParts SIEMPRE array (1..N) */
 const slugParts = computed<string[]>(() => {
   const s = route.params.slug;
   const arr = Array.isArray(s) ? s : s ? [s] : [];
@@ -39,7 +33,6 @@ if (import.meta.server && !slugParts.value.length) {
 const categoryPath = computed(() => `/categorias/${slugParts.value.join("/")}`);
 const slugForApi = computed(() => slugParts.value.map(encodeURIComponent).join("/"));
 
-/** URL helpers */
 const siteUrl = computed(() => {
   const raw = (cfg.public as any)?.siteUrl || "https://reprodisseny.com";
   return String(raw).trim().replace(/\/+$/, "");
@@ -61,7 +54,6 @@ function absUrl(p?: string) {
   return `${siteUrl.value}${rel}`.replace(/\/{2,}/g, "/").replace(":/", "://");
 }
 
-/** Fetch (SSR + refresca al cambiar ruta) */
 const { data: apiRes, pending, error } = await useAsyncData<ApiCategoryResponse>(
   () =>
     $fetch(`/api/cms/category/${slugForApi.value}`, {
@@ -75,39 +67,27 @@ const { data: apiRes, pending, error } = await useAsyncData<ApiCategoryResponse>
   { server: true, watch: [slugForApi] }
 );
 
-/** redirect canónico */
-const redirectTo = computed(() => {
-  const v: any = apiRes.value;
-  return v?.redirectTo || v?.data?.redirectTo || "";
-});
+const redirectTo = computed(() => apiRes.value?.redirectTo || apiRes.value?.data?.redirectTo || "");
 
-// SSR redirect (sin loops)
 if (import.meta.server && redirectTo.value) {
   const current = normalizeRelPath(route.fullPath);
   const target = normalizeRelPath(redirectTo.value);
   if (current !== target) await navigateTo(target, { redirectCode: 301 });
 }
 
-// Client redirect (sin loops)
 watch(
   () => redirectTo.value,
   async (to) => {
     if (!to) return;
     const current = normalizeRelPath(route.fullPath);
     const target = normalizeRelPath(to);
-    if (current === target) return;
-    await navigateTo(target, { replace: true });
+    if (current !== target) await navigateTo(target, { replace: true });
   }
 );
 
-/** category extraction tolerante */
 function extractCategory(v: any) {
   if (!v) return null;
-  if (v.category) return v.category;
-  if (v.data?.category) return v.data.category;
-  if (v.slug || v.id || v.path) return v;
-  if (v.data && (v.data.slug || v.data.id || v.data.path)) return v.data;
-  return null;
+  return v.category ?? v.data?.category ?? (v.slug || v.id || v.path ? v : null) ?? null;
 }
 
 const rawCategory = computed(() => extractCategory(apiRes.value));
@@ -117,7 +97,12 @@ if (import.meta.server && notFound.value) {
   throw createError({ statusCode: 404, statusMessage: "Categoría no encontrada" });
 }
 
-/** Tabs */
+const children = computed<any[]>(() => {
+  const v: any = apiRes.value;
+  const c: any = rawCategory.value;
+  return Array.isArray(c?.children) ? c.children : Array.isArray(v?.children) ? v.children : Array.isArray(v?.data?.children) ? v.data.children : [];
+});
+
 const categoryTabs = computed(() => {
   const c: any = rawCategory.value;
   if (!c) return [];
@@ -125,9 +110,7 @@ const categoryTabs = computed(() => {
   return normalizeTabs(parseTabsJson(c?.TabsJson ?? c?.tabsJson ?? ""));
 });
 
-/** Breadcrumbs */
-const humanize = (s: string) =>
-  s.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+const humanize = (s: string) => s.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 
 function buildBreadcrumbs(c: any) {
   if (Array.isArray(c?.breadcrumbs) && c.breadcrumbs.length) return c.breadcrumbs;
@@ -148,19 +131,26 @@ function buildBreadcrumbs(c: any) {
   return crumbs;
 }
 
-/** Image + SEO */
+function toCategoryPath(p: any) {
+  let s = String(p || "").trim();
+  if (!s) return "";
+  s = s.replace(/^\/api\/cms\/category\//, "/categorias/");
+  if (!s.startsWith("/")) s = "/" + s;
+  if (!s.startsWith("/categorias/")) s = "/categorias/" + s.replace(/^\/+/, "");
+  return s.replace(/\/+$/, "");
+}
+
 function parseImage(c: any) {
-  const raw = c?.image;
   const fromImageSrc = c?.imageSrc ? String(c.imageSrc).trim() : "";
+  const raw = c?.image;
 
   if (raw && typeof raw === "object") {
-    const src =
-      (raw?.src ? String(raw.src).split(",")[0].trim() : "") || fromImageSrc || null;
+    const src = (raw?.src ? String(raw.src).split(",")[0].trim() : "") || fromImageSrc || null;
     return {
       src,
       width: Number(raw?.width) || undefined,
       height: Number(raw?.height) || undefined,
-      alt: (c?.alt || c?.title || c?.nav || "Categoría").trim(),
+      alt: String(c?.alt || c?.title || c?.nav || "Categoría").trim(),
     };
   }
 
@@ -168,20 +158,10 @@ function parseImage(c: any) {
     const parts = raw.split(",");
     const src = (parts.shift() || "").trim() || fromImageSrc || null;
     const legacyAlt = parts.join(",").trim();
-    return {
-      src,
-      width: undefined,
-      height: undefined,
-      alt: (c?.alt || legacyAlt || c?.title || c?.nav || "Categoría").trim(),
-    };
+    return { src, width: undefined, height: undefined, alt: String(c?.alt || legacyAlt || c?.title || c?.nav || "Categoría").trim() };
   }
 
-  return {
-    src: fromImageSrc || null,
-    width: undefined,
-    height: undefined,
-    alt: (c?.alt || c?.title || c?.nav || "Categoría").trim(),
-  };
+  return { src: fromImageSrc || null, width: undefined, height: undefined, alt: String(c?.alt || c?.title || c?.nav || "Categoría").trim() };
 }
 
 function buildSeo(c: any) {
@@ -192,27 +172,8 @@ function buildSeo(c: any) {
     canonical: seo.canonical || c?.canonical || "",
     hreflang: seo.hreflang || c?.hreflang || [],
     schema: seo.schema || c?.schema || null,
+    robots: seo.robots || (c?.hidden ? "noindex,follow" : "index,follow"),
   };
-}
-
-/** children robusto: dentro o arriba */
-const children = computed<any[]>(() => {
-  const v: any = apiRes.value;
-  const c: any = rawCategory.value;
-  const inside = c?.children;
-  const top = v?.children || v?.data?.children;
-  return Array.isArray(inside) ? inside : Array.isArray(top) ? top : [];
-});
-
-/** Normaliza SIEMPRE links a /categorias/... (evita que alguien cuele /api/...) */
-function toCategoryPath(p: any) {
-  let s = String(p || "").trim();
-  if (!s) return "";
-  // si por error viene un /api/cms/category/...
-  s = s.replace(/^\/api\/cms\/category\//, "/categorias/");
-  if (!s.startsWith("/")) s = "/" + s;
-  if (!s.startsWith("/categorias/")) s = "/categorias/" + s.replace(/^\/+/, "");
-  return s.replace(/\/+$/, "");
 }
 
 const safeCategory = computed<any | null>(() => {
@@ -227,22 +188,14 @@ const safeCategory = computed<any | null>(() => {
     title: c.title ?? "",
     nav: c.nav ?? "",
     description: c.description ?? "",
-    image:
-      c.image && typeof c.image === "object"
-        ? c.image
-        : { src: img.src, width: img.width, height: img.height },
     imageSrc: img.src,
     alt: c.alt ?? img.alt,
-
+    image: c.image && typeof c.image === "object" ? c.image : { src: img.src, width: img.width, height: img.height },
     breadcrumbs: buildBreadcrumbs(c),
-
     faqs: c.faqs ?? c.faq ?? [],
-    actions: c.actions ?? [],
     relatedWorks: c.relatedWorks ?? [],
     products: Array.isArray(c.products) ? c.products : [],
-
     children: children.value,
-
     tabs: categoryTabs.value,
     seo,
     hidden: !!c.hidden,
@@ -250,7 +203,11 @@ const safeCategory = computed<any | null>(() => {
   };
 });
 
-const isHub = computed(() => children.value.length > 0);
+const isHub = computed(() => (safeCategory.value?.children?.length || 0) > 0);
+
+const breadcrumbItems = computed(() =>
+  (safeCategory.value?.breadcrumbs || []).map((b: any) => ({ label: b.name, to: b.url }))
+);
 
 const productItems = computed(() =>
   (safeCategory.value?.products || []).map((p: any) => ({
@@ -263,10 +220,8 @@ const productItems = computed(() =>
 
 const childItems = computed(() => {
   const parentPath = toCategoryPath(safeCategory.value?.path || categoryPath.value);
-  return (children.value || []).map((k: any) => {
-    const childPath =
-      toCategoryPath(k.path) ||
-      toCategoryPath(`${parentPath}/${String(k.slug || "").trim()}`);
+  return (safeCategory.value?.children || []).map((k: any) => {
+    const childPath = toCategoryPath(k.path) || toCategoryPath(`${parentPath}/${String(k.slug || "").trim()}`);
     return {
       title: k.nav || k.title,
       to: childPath,
@@ -276,30 +231,21 @@ const childItems = computed(() => {
   });
 });
 
-/** SEO */
-const seo = computed(() => safeCategory.value?.seo);
-const robots = computed(() => {
-  const c = safeCategory.value
-  return c?.seo?.robots || (c?.hidden ? "noindex,follow" : "index,follow")
-})
-
 useSeoMeta(() => {
   const c = safeCategory.value;
-  const s = seo.value;
+  const s = c?.seo;
   if (!c || !s) return {};
 
-  const canonicalAbs = absUrl((s.canonical || c.path || categoryPath.value).split("#")[0])
+  const canonicalAbs = absUrl((s.canonical || c.path || categoryPath.value).split("#")[0]);
 
   return {
     title: s.metaTitle || c.title,
     description: s.metaDescription || c.description,
-    robots: robots.value,
-
+    robots: s.robots,
     ogTitle: s.metaTitle || c.title,
     ogDescription: s.metaDescription || c.description,
     ogImage: c.imageSrc ? absUrl(c.imageSrc) : undefined,
     ogUrl: canonicalAbs,
-
     twitterCard: c.imageSrc ? "summary_large_image" : "summary",
     twitterTitle: s.metaTitle || c.title,
     twitterDescription: s.metaDescription || c.description,
@@ -307,27 +253,17 @@ useSeoMeta(() => {
   };
 });
 
-const {
-  public: { mediaBaseUrl },
-} = useRuntimeConfig();
-const guideCtaBg = computed(
-  () => `${String(mediaBaseUrl || "").replace(/\/$/, "")}/ui/guia-preparar-archivos.webp`
-);
-
 useHead(() => {
   const c = safeCategory.value;
-  const s = seo.value;
+  const s = c?.seo;
   if (!c || !s) return {};
 
   const links: any[] = [];
-  const canonicalAbs = s.canonical
-    ? absUrl(s.canonical)
-    : absUrl(c.path || categoryPath.value);
+  const canonicalAbs = s.canonical ? absUrl(s.canonical) : absUrl(c.path || categoryPath.value);
   links.push({ rel: "canonical", href: canonicalAbs });
 
   for (const h of s.hreflang || []) {
-    if (h?.lang && h?.url)
-      links.push({ rel: "alternate", hreflang: h.lang, href: absUrl(h.url) });
+    if (h?.lang && h?.url) links.push({ rel: "alternate", hreflang: h.lang, href: absUrl(h.url) });
   }
 
   const breadcrumbSchema = {
@@ -344,14 +280,14 @@ useHead(() => {
   const faqs = (c.faqs || []).filter((f: any) => f?.question && f?.answer);
   const faqSchema = faqs.length
     ? {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: faqs.map((f: any) => ({
-        "@type": "Question",
-        name: f.question,
-        acceptedAnswer: { "@type": "Answer", text: f.answer },
-      })),
-    }
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: faqs.map((f: any) => ({
+          "@type": "Question",
+          name: f.question,
+          acceptedAnswer: { "@type": "Answer", text: f.answer },
+        })),
+      }
     : null;
 
   const baseSchema = s.schema ? (Array.isArray(s.schema) ? s.schema : [s.schema]) : [];
@@ -359,9 +295,7 @@ useHead(() => {
 
   return {
     link: links,
-    script: fullSchema.length
-      ? [{ type: "application/ld+json", children: JSON.stringify(fullSchema) }]
-      : [],
+    script: fullSchema.length ? [{ type: "application/ld+json", children: JSON.stringify(fullSchema) }] : [],
   };
 });
 </script>
@@ -369,62 +303,73 @@ useHead(() => {
 <template>
   <main class="bg-white min-h-screen">
     <div v-if="pending" class="flex items-center justify-center min-h-[60vh]">
-      <div class="animate-pulse text-slate-400 font-medium text-lg">
-        Cargando categoría... </div>
+      <div class="animate-pulse text-slate-400 font-medium text-lg">Cargando categoría...</div>
     </div>
 
     <div v-else-if="error || notFound" class="mx-auto max-w-[1440px] px-6 py-24 text-center">
       <h1 class="text-3xl font-bold text-slate-900">¡Ups! Categoría no encontrada</h1>
-      <p class="mt-4 text-slate-600">
-        Parece que la página que buscas no existe o ha cambiado de lugar.
-      </p>
+      <p class="mt-4 text-slate-600">Parece que la página que buscas no existe o ha cambiado de lugar.</p>
       <NuxtLink to="/categorias" class="mt-8 inline-block bg-sky-700 text-white px-8 py-3 rounded-full font-semibold">
         Ver todas las categorías
       </NuxtLink>
     </div>
 
     <template v-else-if="safeCategory">
-      <CategoryHero :category="safeCategory" />
+      <CategoryHero :category="safeCategory"/>
 
       <nav class="bg-slate-50 border-b border-slate-200">
-        <div class="mx-auto max-w-[1440px] px-6 py-4">
-          <SiteBreadcrumbs :items="safeCategory.breadcrumbs.map((b: any) => ({ label: b.name, to: b.url }))"
-            :auto="false" :json-ld="false" />
+        <div class="mx-auto w-full max-w-[1440px] px-6 md:px-10 lg:px-16 2xl:px-[120px] py-4">
+          <SiteBreadcrumbs :items="breadcrumbItems" :auto="false" :json-ld="false" />
         </div>
       </nav>
 
       <section class="py-12 md:py-16">
-        <CategoryProductsGrid :title="isHub ? 'Elige una subcategoría' : 'Selecciona el tipo de producto'" :subtitle="isHub
-          ? 'Explora las opciones dentro de esta categoría'
-          : 'Configura tu impresión a medida'
-          " :items="isHub ? childItems : productItems" />
+        <CategoryProductsGrid
+          :title="isHub ? 'Elige una subcategoría' : 'Selecciona el tipo de producto'"
+          :subtitle="isHub ? 'Explora las opciones dentro de esta categoría' : 'Configura tu impresión a medida'"
+          :items="isHub ? childItems : productItems"
+        />
       </section>
 
       <div class="border-y py-10 border-slate-100 bg-slate-50/50">
-        <div class="mx-auto w-full max-w-[1440px] px-6 lg:px-16 xl:px-24">
-          <CategoryLead v-if="safeCategory.description" :title="safeCategory.nav || safeCategory.title"
-            :description="safeCategory.description" :image-src="safeCategory.imageSrc"
-            :chips="['Asesoramiento', 'Acabados premium', 'Producción rápida']" />
+        <div class="mx-auto w-full max-w-[1440px] px-6 md:px-10 lg:px-16 2xl:px-[120px]">
+          <CategoryLead
+            v-if="safeCategory.description"
+            :title="safeCategory.nav || safeCategory.title"
+            :description="safeCategory.description"
+            :image-src="safeCategory.imageSrc"
+            :chips="['Asesoramiento', 'Acabados premium', 'Producción rápida']"
+          />
         </div>
-
-        <CategoryRail v-if="safeCategory.tabs?.length" :tabs="safeCategory.tabs" :sticky-top="112" :scroll-offset="140"
-          container-class="mx-auto w-full max-w-[1440px] px-6 lg:px-16 xl:px-24" />
       </div>
+          <!-- ✅ Tabs SEO-friendly -->
+        <CategoryTabs
+          v-if="safeCategory.tabs?.length"
+          :tabs="safeCategory.tabs"
+          :sticky-top="112"
+          :scroll-margin-top="190"
+          container-class="mx-auto w-full max-w-[1440px] px-6 md:px-10 lg:px-16 2xl:px-[120px]"
+        />
 
 
-      <section>
-        <div class="mx-auto max-w-[1440px] px-6">
+      <section class="py-10">
+        <div class="mx-auto w-full max-w-[1440px] px-6 md:px-10 lg:px-16 2xl:px-[120px]">
+          <GuideBanner
+            title="Solicitud de presupuesto personalizada"
+            bgImageSrc="/img/ui/archivos-book-4k.webp"
+            :cta="{ label: 'Presupuesto personalizado', to: '/contacto' }"
+          />
+        </div>
+      </section>
 
-
-          <GuideBanner title="Solicitud de presupuesto personalizada" bgImageSrc="/img/ui/archivos-book-4k.webp"
-            :cta="{ label: 'Presupuesto personalizado', to: '/contacto' }" />
-          <CategoryRelatedWorks v-if="safeCategory.relatedWorks?.length" :items="safeCategory.relatedWorks" />
-
+      <section class="py-10">
+        <div class="mx-auto w-full max-w-[1440px] px-6 md:px-10 lg:px-16 2xl:px-[120px]">
+          <CategoryFaq
+            v-if="safeCategory.faqs?.length"
+            :items="safeCategory.faqs"            
+          />
         </div>
       </section>
     </template>
-    <section>
-      <CategoryRelatedWorks
-    </section>
   </main>
 </template>

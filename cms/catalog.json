@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-02T12:13:12.141Z",
+  "generatedAt": "2026-03-03T09:48:48.940Z",
   "categories": [
     {
       "id": "10",
@@ -2536,12 +2536,13 @@
     {
       "id": "104",
       "type": "producto",
-      "slug": "totems",
-      "path": "/productos/totems",
-      "title": "Totems",
+      "slug": "totems-publicitarios-personalizados",
+      "path": "/productos/totems-publicitarios-personalizados",
+      "title": "Tótems publicitarios personalizados (expositores de suelo)",
       "categorySlug": "expositores",
       "isPublished": true,
-      "shortDescription": "Totems",
+      "shortDescription": "Los tótems son expositores de suelo pensados para comunicar con impacto en espacios de paso: entradas, pasillos, stands, tiendas o recepciones. En Repro Disseny producimos tótems personalizados en distintos materiales rígidos, con opciones a una o dos caras, corte a medida y soluciones de base para que queden estables y con una imagen profesional.",
+      "bodyMd": "##Detalles \n\n¿Qué es un tótem y para qué se usa? \n\nUn tótem publicitario es una pieza vertical autoportante (o con base) que se coloca en el suelo para mostrar información de forma visible: promociones, señalización, lanzamientos, direcciones, marcas o mensajes corporativos. Se utiliza cuando necesitas más presencia que un cartel, pero manteniendo una instalación sencilla y sin obras. \n\n##Beneficios \n\nAlta visibilidad a distancia: formato vertical ideal para captar atención en zonas de paso. \n\nEstabilidad y presencia: solución “de suelo” con opciones de base para evitar vuelcos. \n\nPersonalización total: medidas, diseño, forma, una o dos caras, mensajes por zonas. \n\nVersátil para campañas: útil para promociones temporales o señalización recurrente. \n\nImagen profesional: mejora la experiencia del visitante y refuerza la marca en puntos clave. \n\n##Aplicaciones \n\nFerias y congresos: entradas, registro, señalización de salas, stands y recorridos. \n\nPunto de venta y retail: promociones, lanzamientos, precios, campañas estacionales. \n\nEmpresas y oficinas: recepciones, indicaciones, comunicación interna, eventos corporativos. \n\nHostelería y hoteles: eventos, menús, señalización de espacios, horarios. \n\nCentros y entidades: orientación al público, campañas institucionales, información de acceso. \n\n##Características técnicas \n\nFormatos y medidas \n\nTótems en tamaños estándar o a medida, según espacio y distancia de lectura. \n\nPosibilidad de diseño estrecho y alto para pasillos, o más ancho si necesitas más información. \n\nMateriales habituales \n\nCartón pluma/foam: ligero y muy práctico para interior y campañas temporales. \n\nPVC/Forex u otros rígidos: más resistente, recomendable para uso más intensivo o reutilización. \n\nNido de abeja: ideal para grandes formatos con buena rigidez y poco peso (muy útil si se mueve). \n\nUna cara o doble cara \n\nUna cara si va apoyado a pared o en un punto fijo orientado. \n\nDoble cara si estará en zonas de paso donde se ve desde ambos sentidos. \n\nCorte y personalización \n\nRecto (formato clásico) o corte a medida para siluetas, coronas superiores, flechas, etc. \n\nPosibilidad de integrar QR para ampliar información (mapa, agenda, registro, catálogo). \n\nBases y estabilidad \n\nOpciones de peana/base según tamaño y ubicación. \n\nSoluciones pensadas para que el tótem quede firme sin complicar el montaje. \n\nAcabados recomendados \n\nMate si habrá focos o se fotografiará (reduce reflejos). \n\nLaminado/protección si se va a manipular mucho o a mover de ubicación.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/expositores/totem.webp",
         "width": 1200,
@@ -2610,9 +2611,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Totems | Repro Disseny",
-        "metaDescription": "Totems personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/totems",
+        "metaTitle": "Tótems Publicitarios Personalizados | Expositores de Suelo a Medida",
+        "metaDescription": "Tótems personalizados para ferias, eventos y punto de venta. Expositores de suelo en rígidos, a una o dos caras, con corte a medida y opciones de base. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/totems-publicitarios-personalizados",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -2629,10 +2630,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Totems",
-          "description": "Totems",
+          "name": "Tótems publicitarios personalizados (expositores de suelo)",
+          "description": "Los tótems son expositores de suelo pensados para comunicar con impacto en espacios de paso: entradas, pasillos, stands, tiendas o recepciones. En Repro Disseny producimos tótems personalizados en distintos materiales rígidos, con opciones a una o dos caras, corte a medida y soluciones de base para que queden estables y con una imagen profesional.",
           "image": "https://webcms.blob.core.windows.net/media/product/expositores/totem.webp",
-          "url": "https://reprodisseny.com/productos/totems",
+          "url": "https://reprodisseny.com/productos/totems-publicitarios-personalizados",
           "sku": "01-EXPO-0003",
           "brand": {
             "@type": "Organization",
@@ -3004,12 +3005,13 @@
     {
       "id": "11",
       "type": "producto",
-      "slug": "banner",
-      "path": "/productos/banner",
-      "title": "Banner",
+      "slug": "xbanner-personalizado",
+      "path": "/productos/xbanner-personalizado",
+      "title": "X-Banner personalizado (expositor tipo X)",
       "categorySlug": "expositores",
       "isPublished": true,
-      "shortDescription": "Banner",
+      "shortDescription": "El X-Banner es una solución ligera y muy práctica para comunicar en espacios temporales: promociones, ferias, puntos de información o campañas itinerantes. En Repro Disseny imprimimos X-Banners personalizados con gráficas nítidas y materiales pensados para que el montaje sea rápido y el resultado se vea profesional.",
+      "bodyMd": "##Detalles \n\n¿Qué es un X-Banner y para qué se usa? \n\nUn X-Banner es un expositor portátil formado por una estructura en forma de “X” (varillas tensadas) que sujeta una lona o gráfica impresa mediante ojales o enganches en las esquinas. Se utiliza para mostrar promociones, señalización o mensajes corporativos de forma visible, con un sistema muy fácil de montar y transportar. \n\n##Beneficios \n\nLigero y fácil de mover: perfecto para campañas itinerantes o cambios de ubicación frecuentes. \n\nMontaje rápido: se instala en minutos sin herramientas complejas. \n\nBuena relación impacto/precio: ideal si necesitas varios expositores para diferentes puntos. \n\nGráfica visible en vertical: destaca en entradas, pasillos, mostradores y stands. \n\nFácil de guardar: ocupa poco espacio cuando no se usa. \n\n##Aplicaciones \n\nFerias y congresos: dentro del stand, zonas de paso, acceso o puntos de registro. \n\nPunto de venta: ofertas, campañas, lanzamientos y promociones temporales. \n\nEventos corporativos: señalización de salas, formaciones, presentaciones, recepciones. \n\nHostelería: menús, eventos especiales, horarios, promociones en sala o terraza. \n\nCentros y entidades: puntos de información, campañas institucionales, orientación al público. \n\n##Características técnicas \n\nFormatos habituales \n\nMedidas estándar (según modelo): por ejemplo 60×160, 80×180 y otros tamaños disponibles. \n\nOrientación vertical para máxima visibilidad en espacios reducidos. \n\nEstructura \n\nSistema tipo “X” con varillas tensadas que mantiene la gráfica extendida. \n\nOpción de estructura ligera (ideal para movilidad) o versiones más robustas si va a usarse con frecuencia. \n\nMaterial de impresión \n\nLona o material flexible preparado para exposición, con buena reproducción de color y buena lectura de texto. \n\nPreparación con ojales/enganche en esquinas para tensado correcto. \n\nImpresión \n\nA todo color con definición para logos, textos y fotografías. \n\nRecomendación de diseño: titulares grandes y mensaje claro para lectura a distancia. \n\nAcabados recomendados \n\nAcabado mate si estará bajo focos o se fotografiará (reduce reflejos). \n\nRefuerzo de esquinas/ojales si prevés montaje y desmontaje repetido. \n\nTransporte \n\nPosibilidad de incluir bolsa de transporte (según configuración) para facilitar movilidad y almacenaje.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/expositores/xbanner.webp",
         "width": 1200,
@@ -3026,9 +3028,9 @@
       "variants": [],
       "formFields": [],
       "seo": {
-        "metaTitle": "Banner | Repro Disseny",
-        "metaDescription": "Banner personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/banner",
+        "metaTitle": "X-Banner Personalizado | Expositor Ligero para Ferias y Promociones",
+        "metaDescription": "X-Banner personalizado para eventos, ferias y punto de venta. Estructura ligera tipo “X”, montaje rápido e impresión a color. Solicita presupuesto a Repro Disseny.",
+        "canonical": "https://reprodisseny.com/productos/xbanner-personalizado",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -3045,10 +3047,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Banner",
-          "description": "Banner",
+          "name": "X-Banner personalizado (expositor tipo X)",
+          "description": "El X-Banner es una solución ligera y muy práctica para comunicar en espacios temporales: promociones, ferias, puntos de información o campañas itinerantes. En Repro Disseny imprimimos X-Banners personalizados con gráficas nítidas y materiales pensados para que el montaje sea rápido y el resultado se vea profesional.",
           "image": "https://webcms.blob.core.windows.net/media/product/expositores/xbanner.webp",
-          "url": "https://reprodisseny.com/productos/banner",
+          "url": "https://reprodisseny.com/productos/xbanner-personalizado",
           "sku": "01-EXPO-0002",
           "brand": {
             "@type": "Organization",
@@ -4930,12 +4932,13 @@
     {
       "id": "17",
       "type": "producto",
-      "slug": "carta-restaurane",
-      "path": "/productos/carta-restaurane",
-      "title": "Cartas de restaurante",
+      "slug": "cartas-restaurante-personalizadas",
+      "path": "/productos/cartas-restaurante-personalizadas",
+      "title": "Cartas de restaurante personalizadas",
       "categorySlug": "hoteles-restaurantes",
       "isPublished": true,
-      "shortDescription": "Cartas de restaurante",
+      "shortDescription": "Una buena carta de restaurante no solo informa: vende, ordena la experiencia y refuerza la imagen del local. En Repro Disseny imprimimos cartas personalizadas con materiales y acabados pensados para el ritmo real de sala: resistencia a la manipulación, fácil limpieza (si se requiere) y una presentación profesional acorde con tu marca.",
+      "bodyMd": "##Detalles \n\n¿Qué es una carta de restaurante y para qué se usa? \n\nLa carta es el documento principal donde presentas tu oferta: platos, bebidas, vinos, menús, alérgenos y propuestas especiales. Puede ser una carta fija o una base con insertos cambiables. Su objetivo es que el cliente entienda rápido lo que ofreces y que el equipo pueda trabajar con un soporte cómodo y duradero. \n\n##Beneficios \n\nMejor imagen de marca: una carta cuidada eleva la calidad percibida del restaurante. \n\nMás ventas por orden y claridad: una estructura bien presentada facilita la decisión (y el upselling). \n\nResistencia al uso diario: opciones de acabados para aguantar manos, roces y servicio intensivo. \n\nFácil de actualizar: formatos que permiten renovar por temporada o cambiar precios con agilidad. \n\nExperiencia más completa: posibilidad de integrar QR (carta digital, idiomas, reservas, reseñas). \n\n##Aplicaciones \n\nRestaurantes y bares: carta general, postres, bebidas, menús especiales. \n\nCafeterías: desayunos, meriendas, carta rápida, combos. \n\nTerrazas: cartas más resistentes para exterior. \n\nHoteles: carta de restaurante, room service, bufé y eventos. \n\nEventos y caterings: cartas temporales, menús cerrados y propuestas por servicio. \n\n##Características técnicas \n\nFormatos habituales \n\nA4 / A5, cuadradas o a medida según estilo y cantidad de contenido. \n\nCarta simple, díptico, tríptico o multipágina (tipo libreto). \n\nOpción de portacarta con hojas intercambiables si cambias precios/temporada con frecuencia. \n\nPapeles y soportes (según imagen y uso) \n\nPapeles con buen cuerpo para una sensación más “premium”. \n\nOpciones mate recomendadas para lectura cómoda (menos reflejos). \n\nAlternativas más resistentes cuando se prevé mucha manipulación. \n\nAcabados recomendados \n\nPlastificado/laminado mate o brillo: protege frente a roces y facilita limpieza (muy recomendable en hostelería). \n\nSoft touch (opcional): tacto premium para restaurantes de gama media/alta. \n\nEsquinas redondeadas: mejor durabilidad en uso diario. \n\nBarniz selectivo (opcional): resalta logo o detalles de portada. \n\nImpresión \n\nImpresión a todo color con buena reproducción para fotografía y marca. \n\nPosibilidad de varias versiones: idiomas, carta de vinos, carta de postres, menú del día, etc. \n\nExtras útiles \n\nQR a carta digital, reservas, alérgenos ampliados o encuestas. \n\nIconos de alérgenos y símbolos (picante, vegano, sin gluten…) para lectura rápida.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/restauracion/cartas-restaurante.webp",
         "width": 1200,
@@ -4952,9 +4955,9 @@
       "variants": [],
       "formFields": [],
       "seo": {
-        "metaTitle": "Cartas de restaurante | Repro Disseny",
-        "metaDescription": "Cartas de restaurante personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/carta-restaurane",
+        "metaTitle": "Cartas de restaurante personalizadas | Menús impresos resistentes y profesionales",
+        "metaDescription": "Cartas de restaurante personalizadas: impresión profesional, acabados resistentes (plastificado/laminado), formatos a medida y opción QR. Ideales para sala y terraza. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/cartas-restaurante-personalizadas",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -4971,10 +4974,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Cartas de restaurante",
-          "description": "Cartas de restaurante",
+          "name": "Cartas de restaurante personalizadas",
+          "description": "Una buena carta de restaurante no solo informa: vende, ordena la experiencia y refuerza la imagen del local. En Repro Disseny imprimimos cartas personalizadas con materiales y acabados pensados para el ritmo real de sala: resistencia a la manipulación, fácil limpieza (si se requiere) y una presentación profesional acorde con tu marca.",
           "image": "https://webcms.blob.core.windows.net/media/product/restauracion/cartas-restaurante.webp",
-          "url": "https://reprodisseny.com/productos/carta-restaurane",
+          "url": "https://reprodisseny.com/productos/cartas-restaurante-personalizadas",
           "sku": "01-HORE-0005",
           "brand": {
             "@type": "Organization",
@@ -5553,12 +5556,13 @@
     {
       "id": "25",
       "type": "producto",
-      "slug": "colgador-puerta",
-      "path": "/productos/colgador-puerta",
-      "title": "Colgador de puerta",
+      "slug": "colgador-de-botellas-personalizado",
+      "path": "/productos/colgador-de-botellas-personalizado",
+      "title": "Colgador de botellas personalizado",
       "categorySlug": "hoteles-restaurantes",
       "isPublished": true,
-      "shortDescription": "Colgador de puerta",
+      "shortDescription": "El colgador de botellas es una pieza pequeña con un efecto enorme en ventas: se coloca directamente en el cuello de la botella y convierte el producto en un soporte promocional visible en lineal, barra o mesa. En Repro Disseny imprimimos colgadores personalizados con troquel a medida, buen gramaje y acabados opcionales para que aguanten manipulación y se vean profesionales.",
+      "bodyMd": "##Detalles \n\n¿Qué es un colgador de botellas y para qué se usa? \n\nUn colgador de botellas es una tarjeta troquelada diseñada para colgarse del cuello de una botella (vino, cava, destilados, aceite gourmet, etc.). Se utiliza para destacar promociones, comunicar premios, proponer maridajes, incluir QR a ficha de producto o impulsar acciones como catas, packs regalo y lanzamientos. \n\nForma \n\n##Beneficios \n\nImpacto directo en el punto de decisión: el mensaje está literalmente encima del producto. \n\nMejora la conversión en lineal: perfecto para promos, novedades y campañas estacionales. \n\nBranding y storytelling: comunica origen, notas de cata, maridaje o valores de marca. \n\nPersonalización total: por campaña, referencia, lote, tienda o distribuidor. \n\nFácil de colocar: pieza ligera, rápida de instalar y de gran visibilidad. \n\n##Aplicaciones \n\nRetail y supermercados: promociones, descuentos, 2ª unidad, packs, regalo seguro. \n\nBodegas y marcas: lanzamientos, ediciones limitadas, premios/medallas, storytelling. \n\nHostelería: recomendación de vino/cóctel, QR a carta, sugerencias en barra. \n\nFerias y catas: identificación de referencias, notas de cata, acceso a ficha técnica. \n\nCampañas estacionales: Navidad, San Valentín, verano, lotes regalo. \n\n##Características técnicas \n\nFormato y troquel \n\nTroquel específico para cuello de botella, con orificio/ranura adaptado para que quede bien colgado. \n\nFormatos habituales: rectangulares, con esquinas redondeadas o formas personalizadas (siluetas, medallas, etiquetas grandes). \n\nOpción de doble cara para aprovechar mejor el mensaje (promo delante + ficha/QR detrás). \n\nMaterial \n\nCartulinas de buen gramaje para que el colgador tenga cuerpo y no se deforme. \n\nOpciones más resistentes si va a manipularse mucho o se usa en campaña larga. \n\nImpresión \n\nImpresión a todo color para destacar marca y mensajes de promo. \n\nVersiones por referencia (vino tinto/blanco/rosado, añadas, formatos) sin perder coherencia visual. \n\nAcabados recomendados \n\nLaminado mate o brillo: mejora resistencia al roce y la presencia (mate suele reducir reflejos en tienda). \n\nEsquinas redondeadas: mayor durabilidad y mejor tacto. \n\nOpciones premium (si aplica): barniz selectivo para resaltar logo o claim. \n\nExtras útiles \n\nQR a ficha de producto, video, notas de cata, maridajes, promociones o registro. \n\nDatos variables (si necesitas series por lote o campañas con códigos).",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/restauracion/colgador-puerta.webp",
         "width": 1200,
@@ -5634,9 +5638,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Colgador de puerta | Repro Disseny",
-        "metaDescription": "Colgador de puerta personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/colgador-puerta",
+        "metaTitle": "Colgador de botellas personalizado | Promoción y branding en punto de venta",
+        "metaDescription": "Colgadores de botellas personalizados para promociones en tienda y hostelería. Troquelados, resistentes y con impresión a color. Ideales para ofertas, catas y lanzamientos. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/colgador-de-botellas-personalizado",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -5653,10 +5657,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Colgador de puerta",
-          "description": "Colgador de puerta",
+          "name": "Colgador de botellas personalizado",
+          "description": "El colgador de botellas es una pieza pequeña con un efecto enorme en ventas: se coloca directamente en el cuello de la botella y convierte el producto en un soporte promocional visible en lineal, barra o mesa. En Repro Disseny imprimimos colgadores personalizados con troquel a medida, buen gramaje y acabados opcionales para que aguanten manipulación y se vean profesionales.",
           "image": "https://webcms.blob.core.windows.net/media/product/restauracion/colgador-puerta.webp",
-          "url": "https://reprodisseny.com/productos/colgador-puerta",
+          "url": "https://reprodisseny.com/productos/colgador-de-botellas-personalizado",
           "sku": "01-HORE-0002",
           "brand": {
             "@type": "Organization",
@@ -6047,12 +6051,13 @@
     {
       "id": "29",
       "type": "producto",
-      "slug": "cubrealarmas",
-      "path": "/productos/cubrealarmas",
-      "title": "Cubrealarmas",
+      "slug": "cubrealarmas-personalizados-para-tiendas-y-retail",
+      "path": "/productos/cubrealarmas-personalizados-para-tiendas-y-retail",
+      "title": "Cubrealarmas personalizados para tiendas y retail",
       "categorySlug": "expositores",
       "isPublished": true,
-      "shortDescription": "Cubrealarmas",
+      "shortDescription": "Los cubrealarmas convierten un elemento técnico (los arcos de seguridad de la entrada) en un soporte de comunicación de alto impacto. En Repro Disseny fabricamos cubrealarmas personalizados para campañas en punto de venta, con corte a medida, materiales rígidos y opciones de montaje pensadas para que queden limpios, estables y bien alineados con tu marca.",
+      "bodyMd": "##Detalles \n\n¿Qué es un cubrealarmas y para qué se usa? \n\nUn cubrealarmas es una pieza gráfica que cubre o envuelve los arcos/antenas antihurto (EAS) situados en la entrada de muchas tiendas. Su función es aprovechar una zona de máxima visibilidad (acceso, caja, flujo de clientes) para comunicar promociones, lanzamientos, señalización o branding, sin interferir en la operativa del comercio. \n\n##Beneficios \n\nVisibilidad en el punto más caliente: entrada/salida, donde pasan todos los clientes. \n\nMás coherencia de campaña: integra la gráfica de escaparate, lineal y señalética. \n\nAprovecha espacio “muerto”: transforma un soporte técnico en un elemento de marca. \n\nPersonalización total: forma, tamaño, mensajes por tienda, por campaña o por temporada. \n\nInstalación rápida: soluciones pensadas para montaje/desmontaje en campañas temporales. \n\n##Aplicaciones \n\nRetail y franquicias: rebajas, campañas estacionales, lanzamientos, promociones flash. \n\nGrandes superficies: señalización de secciones, mensajes de bienvenida, campañas corporativas. \n\nFarmacia y parafarmacia: promociones, novedades, lanzamientos de producto. \n\nTiendas especializadas: comunicación de marca, descuentos, eventos en tienda. \n\nAcciones con patrocinadores: campañas co-branded y activaciones en el acceso. \n\n##Características técnicas \n\nMedidas y adaptación al arco \n\nFabricación a medida según el modelo de arco/antena (altura, ancho, curvatura y zona de paso). \n\nDiseño con zonas seguras para que textos y logos queden visibles y no se “pierdan” en pliegues o cantos. \n\nMateriales habituales \n\nMateriales rígidos o semirrígidos según duración y nivel de uso (campaña corta vs. instalación recurrente). \n\nOpciones ligeras para facilitar montaje y transporte, y opciones más robustas para uso intensivo. \n\nCorte y forma \n\nCorte recto (formato limpio y corporativo) o corte a medida para remates superiores, siluetas o formas creativas. \n\nPosibilidad de incorporar elementos gráficos por caras (promoción / branding / patrocinadores). \n\nImpresión \n\nImpresión a todo color con buena reproducción para que el mensaje se lea rápido en entrada. \n\nPosibilidad de hacer variantes por tienda/zona (mismo diseño base, mensajes diferentes). \n\nSistema de montaje \n\nSoluciones de fijación pensadas para campañas: velcros, bridas, sistemas ocultos o montaje por encaje (según el tipo de cubrealarmas y el arco). \n\nRecomendación práctica: si nos indicas el modelo de arco o nos envías una foto, ajustamos el sistema para que quede perfecto. \n\nAcabados recomendados \n\nMate para reducir reflejos en entradas con iluminación intensa. \n\nProtección extra si va a estar en zona de roce o se va a reutilizar campaña tras campaña.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/expositores/cubre-alarmas.webp",
         "width": 1200,
@@ -6123,9 +6128,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Cubrealarmas | Repro Disseny",
-        "metaDescription": "Cubrealarmas personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/cubrealarmas",
+        "metaTitle": "Cubrealarmas Personalizados | Branding en Entradas de Tienda",
+        "metaDescription": "Cubrealarmas personalizados para arcos de seguridad en retail. Impresión a color, corte a medida y montaje fácil. Ideal para campañas y promociones en punto de venta. Pide presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/cubrealarmas-personalizados-para-tiendas-y-retail",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -6142,10 +6147,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Cubrealarmas",
-          "description": "Cubrealarmas",
+          "name": "Cubrealarmas personalizados para tiendas y retail",
+          "description": "Los cubrealarmas convierten un elemento técnico (los arcos de seguridad de la entrada) en un soporte de comunicación de alto impacto. En Repro Disseny fabricamos cubrealarmas personalizados para campañas en punto de venta, con corte a medida, materiales rígidos y opciones de montaje pensadas para que queden limpios, estables y bien alineados con tu marca.",
           "image": "https://webcms.blob.core.windows.net/media/product/expositores/cubre-alarmas.webp",
-          "url": "https://reprodisseny.com/productos/cubrealarmas",
+          "url": "https://reprodisseny.com/productos/cubrealarmas-personalizados-para-tiendas-y-retail",
           "sku": "01-EXPO-0011",
           "brand": {
             "@type": "Organization",
@@ -8237,12 +8242,13 @@
     {
       "id": "45",
       "type": "producto",
-      "slug": "expositores-mesa",
-      "path": "/productos/expositores-mesa",
-      "title": "Expositores de mesa",
+      "slug": "expositores-de-mesa-personalizados",
+      "path": "/productos/expositores-de-mesa-personalizados",
+      "title": "Expositores de mesa personalizados (displays de sobremesa)",
       "categorySlug": "expositores",
       "isPublished": true,
-      "shortDescription": "Expositores de mesa",
+      "shortDescription": "Los expositores de mesa son una solución directa para comunicar justo donde se toma la decisión: en mesas, barras, mostradores y recepciones. En Repro Disseny fabricamos displays de sobremesa personalizados para promociones, información y señalización, con formatos estables, impresión nítida y opciones de acabado pensadas para el uso diario.",
+      "bodyMd": "##Detalles \n\n¿Qué es un expositor de mesa y para qué se usa? \n\nUn expositor de mesa es un soporte impreso autoportante que se coloca sobre una superficie para mostrar mensajes de forma visible: ofertas, menús, packs, QR a carta/catálogo, información de servicio, horarios o campañas estacionales. \nAporta más presencia que una hoja suelta y ayuda a que la comunicación sea clara, ordenada y coherente con tu marca. \n\n##Beneficios \n\nVisibilidad inmediata a corta distancia: perfecto para mostrador, mesa o recepción. \n\nImpulsa ventas y upselling: destaca menús, promociones, postres, combos o servicios. \n\nFormato estable y profesional: diseñado para mantenerse en pie y aguantar manipulación. \n\nFácil de renovar: ideal para campañas temporales, cambios de precios o temporadas. \n\nMejora la experiencia: puede incluir QR para carta digital, reservas, catálogo o redes. \n\n##Aplicaciones \n\nHostelería y restauración: menú del día, bebidas, postres, eventos especiales, QR a carta. \n\nRetail: ofertas, lanzamientos, información de producto, campañas de temporada. \n\nFerias y stands: precios, packs, QR a formulario o catálogo, información rápida. \n\nEmpresas y oficinas: recepción, señalización de salas, protocolos, comunicación interna. \n\nHoteles y servicios: indicaciones, promociones internas, eventos del día. \n\n##Características técnicas \n\nFormatos habituales \n\nTriangular / tipo “tienda” (doble cara): el más común para mesas. \n\nEn “L” con base: muy usado en mostradores y recepciones. \n\nPlaca con peana: opción más rígida y reutilizable. \n\nTamaños estándar (A6, DL, A5, A4…) o a medida. \n\nMateriales \n\nCartulina de alto gramaje: equilibrio ideal para campañas y uso normal. \n\nMontado sobre cartón compacto: más rigidez y presencia (muy recomendado en mostrador). \n\nSoportes rígidos (PVC/Forex, etc.): para reutilización o uso intensivo. \n\nImpresión \n\nImpresión a todo color o diseño más sobrio según tu identidad de marca. \n\nUna o dos caras según dónde se colocará y desde dónde se leerá. \n\nIntegración de QR (opcional) para carta digital, reservas, promociones o contacto. \n\nAcabados recomendados \n\nMate para lectura cómoda y menos reflejos con iluminación interior. \n\nLaminado mate o brillo si habrá mucha manipulación o posibilidad de manchas. \n\nHendido profesional en plegados para que el expositor quede firme y no se abra. \n\nSeries y versiones \n\nPosibilidad de producir varias versiones (por producto, por idioma, por mesa/zona o por campaña) manteniendo el mismo diseño base.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/expositores/expositor-mesa.webp",
         "width": 1200,
@@ -8308,9 +8314,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Expositores de mesa | Repro Disseny",
-        "metaDescription": "Expositores de mesa personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/expositores-mesa",
+        "metaTitle": "Expositores de Mesa Personalizados | Displays de Sobremesa para Promociones",
+        "metaDescription": "Expositores de mesa personalizados para promociones, menús y señalización. Formatos autoportantes, impresión a color y acabados resistentes. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/expositores-de-mesa-personalizados",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -8327,10 +8333,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Expositores de mesa",
-          "description": "Expositores de mesa",
+          "name": "Expositores de mesa personalizados (displays de sobremesa)",
+          "description": "Los expositores de mesa son una solución directa para comunicar justo donde se toma la decisión: en mesas, barras, mostradores y recepciones. En Repro Disseny fabricamos displays de sobremesa personalizados para promociones, información y señalización, con formatos estables, impresión nítida y opciones de acabado pensadas para el uso diario.",
           "image": "https://webcms.blob.core.windows.net/media/product/expositores/expositor-mesa.webp",
-          "url": "https://reprodisseny.com/productos/expositores-mesa",
+          "url": "https://reprodisseny.com/productos/expositores-de-mesa-personalizados",
           "sku": "01-EXPO-0012",
           "brand": {
             "@type": "Organization",
@@ -8342,12 +8348,13 @@
     {
       "id": "46",
       "type": "producto",
-      "slug": "expositores-suelo",
-      "path": "/productos/expositores-suelo",
-      "title": "Expositores de suelo",
+      "slug": "expositores-de-suelo-personalizados",
+      "path": "/productos/expositores-de-suelo-personalizados",
+      "title": "Expositores de suelo personalizados (displays de pie)",
       "categorySlug": "expositores",
       "isPublished": true,
-      "shortDescription": "Expositores de suelo",
+      "shortDescription": "Los expositores de suelo son la solución ideal cuando necesitas visibilidad a distancia en tienda, ferias o eventos: ocupan poco, se ven mucho y ayudan a guiar al cliente hacia una promoción, un producto o un punto concreto. En Repro Disseny producimos displays de pie personalizados con materiales rígidos, opciones autoportantes y acabados pensados para que queden estables, limpios y con presencia profesional.",
+      "bodyMd": "##Detalles \n\n¿Qué es un expositor de suelo y para qué se usa? \n\nUn expositor de suelo es un soporte publicitario o informativo que se coloca directamente en el suelo para comunicar de forma clara en zonas de paso: promociones, lanzamientos, señalización, campañas estacionales, instrucciones o mensajes de marca. A diferencia de un cartel, su principal ventaja es la altura y la autonomía (no necesita pared). \n\n##Beneficios \n\nMás visibilidad a distancia: al ir de pie, destaca en pasillos y zonas de tránsito. \n\nCapta atención en el momento clave: perfecto para promociones y lanzamientos en punto de venta. \n\nAutoportante y práctico: no requiere instalación en pared ni obras. \n\nPersonalizable y adaptable: tamaño, forma, una o dos caras y versiones por campaña o tienda. \n\nRefuerza la coherencia visual: se integra con vinilos, lineal, escaparate y resto de materiales de campaña. \n\n##Aplicaciones \n\nRetail y tiendas: rebajas, promociones, lanzamientos, campañas por temporada, información de producto. \n\nCentros comerciales: señalización temporal, campañas corporativas, orientación en pasillos. \n\nFerias y congresos: entradas, registro, señalización de salas, stands y recorridos. \n\nHostelería y hoteles: eventos, menús especiales, señalización de accesos y espacios. \n\nCentros y entidades: información al público, campañas institucionales, normas o avisos. \n\n##Características técnicas \n\nFormatos habituales \n\nTótem / panel vertical: el más común para máxima visibilidad. \n\nSilueta troquelada: con forma de producto, icono o creatividad (muy llamativo). \n\nCon base o peana: para asegurar estabilidad en zonas de paso. \n\nPosibilidad de doble cara para lectura desde ambos sentidos. \n\nMateriales (según duración y uso) \n\nCartón / microcanal: opción ligera para campañas temporales. \n\nNido de abeja: gran rigidez con poco peso, ideal para formatos grandes. \n\nPVC/Forex u otros rígidos: más resistente, recomendado si se va a reutilizar o habrá mucha manipulación. \n\nImpresión \n\nImpresión a todo color con buena definición para logos, textos y fotografía. \n\nRecomendación de diseño: titulares claros, poco texto y jerarquía visual para lectura rápida. \n\nCorte y personalización \n\nRecto (formato clásico) o corte a medida / troquelado para siluetas y remates superiores. \n\nIntegración de QR (opcional) para catálogo, promo, reservas, formulario o información ampliada. \n\nVersiones por tienda/zona/idioma si lo necesitas. \n\nBases y estabilidad \n\nPeanas y sistemas de apoyo adaptados al tamaño, ubicación y tránsito. \n\nOpción de refuerzo si el expositor va a estar en entornos con mucho paso o uso intensivo. \n\nAcabados recomendados \n\nMate para reducir reflejos (especialmente con iluminación intensa). \n\nProtección extra si se va a mover o manipular a menudo.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/expositores/expositor-suelo.webp",
         "width": 1200,
@@ -8413,9 +8420,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Expositores de suelo | Repro Disseny",
-        "metaDescription": "Expositores de suelo personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/expositores-suelo",
+        "metaTitle": "Expositores de Suelo Personalizados | Displays de Pie para Retail y Eventos",
+        "metaDescription": "Expositores de suelo personalizados para promociones, ferias y punto de venta. Autoportantes, a una o dos caras, en rígidos y con corte a medida. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/expositores-de-suelo-personalizados",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -8432,10 +8439,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Expositores de suelo",
-          "description": "Expositores de suelo",
+          "name": "Expositores de suelo personalizados (displays de pie)",
+          "description": "Los expositores de suelo son la solución ideal cuando necesitas visibilidad a distancia en tienda, ferias o eventos: ocupan poco, se ven mucho y ayudan a guiar al cliente hacia una promoción, un producto o un punto concreto. En Repro Disseny producimos displays de pie personalizados con materiales rígidos, opciones autoportantes y acabados pensados para que queden estables, limpios y con presencia profesional.",
           "image": "https://webcms.blob.core.windows.net/media/product/expositores/expositor-suelo.webp",
-          "url": "https://reprodisseny.com/productos/expositores-suelo",
+          "url": "https://reprodisseny.com/productos/expositores-de-suelo-personalizados",
           "sku": "01-EXPO-0013",
           "brand": {
             "@type": "Organization",
@@ -10529,12 +10536,13 @@
     {
       "id": "68",
       "type": "producto",
-      "slug": "marcos-system",
-      "path": "/productos/marcos-system",
-      "title": "Marcos click system",
+      "slug": "marcos-click-system-personalizados",
+      "path": "/productos/marcos-click-system-personalizados",
+      "title": "Marcos Click System (porta pósters de cambio rápido)",
       "categorySlug": "expositores",
       "isPublished": true,
-      "shortDescription": "Marcos click system",
+      "shortDescription": "Los marcos Click System son la solución más práctica para cartelería que cambia a menudo: promociones, precios, señalización o campañas temporales. Permiten abrir, cambiar el póster y cerrar en segundos, manteniendo un acabado limpio y profesional en tienda, oficina o eventos.",
+      "bodyMd": "##Detalles \n\n¿Qué es un marco Click System y para qué se usa? \n\nUn Click System (o marco de apertura “clic”) es un marco de aluminio con perfiles abatibles que se abren por presión. Así puedes sustituir el póster sin desmontar el marco de la pared. Se usa para cartelería promocional, información corporativa, señalización y comunicación en puntos de paso donde necesitas renovar el mensaje de forma ágil. \n\n##Beneficios \n\nCambio de póster ultrarrápido: abre-cambia-cierra sin desmontar el marco. \n\nImagen limpia y profesional: ideal para promociones y comunicación continua. \n\nAhorra tiempo al equipo: perfecto para retail y campañas con rotación frecuente. \n\nProtege la gráfica: opciones con lámina frontal para evitar suciedad y roces. \n\nVersátil: válido para tiendas, oficinas, ferias, centros y hostelería. \n\n##Aplicaciones \n\nRetail y franquicias: rebajas, promociones semanales, lanzamientos, precios y campañas estacionales. \n\nCentros comerciales: señalización temporal, campañas internas, información al público. \n\nOficinas y corporativo: comunicados, identidad visual, señalización de salas y eventos internos. \n\nHostelería: menús, eventos, horarios, promociones, carta del día. \n\nFerias y eventos: información de stand, horarios, mapas, señalética rápida. \n\n##Características técnicas \n\nFormatos \n\nMarcos en tamaños estándar (habituales): A4, A3, A2, A1, A0 (y otros según necesidad). \n\nOrientación vertical u horizontal. \n\nSistema de apertura \n\nPerfiles abatibles con cierre “clic” para reemplazar el póster sin desmontar el marco. \n\nMaterial \n\nMarco de aluminio (ligero y resistente) con acabado profesional. \n\nProtección frontal \n\nOpción de lámina protectora para proteger el póster frente a polvo, huellas y salpicaduras (muy útil en hostelería o zonas de paso). \n\nInstalación \n\nPreparado para instalación en pared y, según uso, en soportes o estructuras (por ejemplo, en ferias o expositores). \n\nGráficas \n\nPodemos imprimir los pósters a medida del marco, con acabado mate recomendado para reducir reflejos bajo iluminación interior.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/expositores/marco-click-system.webp",
         "width": 1200,
@@ -10608,9 +10616,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Marcos click system | Repro Disseny",
-        "metaDescription": "Marcos click system personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/marcos-system",
+        "metaTitle": "Marcos Click System | Porta Pósters para Tiendas, Oficinas y Eventos",
+        "metaDescription": "Marcos Click System para pósters y cartelería: apertura clic, cambio rápido de gráfica y acabado profesional. Formatos estándar A4–A0. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/marcos-click-system-personalizados",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -10627,10 +10635,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Marcos click system",
-          "description": "Marcos click system",
+          "name": "Marcos Click System (porta pósters de cambio rápido)",
+          "description": "Los marcos Click System son la solución más práctica para cartelería que cambia a menudo: promociones, precios, señalización o campañas temporales. Permiten abrir, cambiar el póster y cerrar en segundos, manteniendo un acabado limpio y profesional en tienda, oficina o eventos.",
           "image": "https://webcms.blob.core.windows.net/media/product/expositores/marco-click-system.webp",
-          "url": "https://reprodisseny.com/productos/marcos-system",
+          "url": "https://reprodisseny.com/productos/marcos-click-system-personalizados",
           "sku": "01-EXPO-0014",
           "brand": {
             "@type": "Organization",
@@ -11378,12 +11386,13 @@
     {
       "id": "77",
       "type": "producto",
-      "slug": "contenedor-reciclaje",
-      "path": "/productos/contenedor-reciclaje",
-      "title": "Contenedor reciclaje",
+      "slug": "contenedores-de-reciclaje-personalizados",
+      "path": "/productos/contenedores-de-reciclaje-personalizados",
+      "title": "Contenedores de reciclaje personalizados",
       "categorySlug": "expositores",
       "isPublished": true,
-      "shortDescription": "Contenedores de reciclaje personalizados",
+      "shortDescription": "Los contenedores de reciclaje personalizados convierten un punto funcional en un elemento de comunicación: ayudan a separar residuos de forma clara y refuerzan la imagen de marca en oficinas, eventos y espacios públicos. En Repro Disseny producimos contenedores con gráfica corporativa, señalización por fracciones y formatos pensados para que sean fáciles de colocar, usar y mantener.",
+      "bodyMd": "##Detalles \n\n¿Qué es un contenedor de reciclaje personalizado y para qué se usa? \n\nEs un expositor/estructura diseñada para recoger y separar residuos (papel, envases, orgánico, vidrio, etc.) con una identificación visual clara. Además de mejorar la recogida selectiva, permite integrar branding, mensajes de sostenibilidad, instrucciones y pictogramas para reducir errores y mantener el espacio más ordenado.Forma \n\n##Beneficios \n\nSeparación más clara y efectiva: colores, iconos y textos por fracción para reducir confusiones. \n\nImagen corporativa alineada: integra marca y mensajes ESG/sostenibilidad sin “carteles improvisados”. \n\nMejora la experiencia en espacios con público: oficinas, ferias o zonas comunes con indicaciones visibles. \n\nSoluciones a medida: desde un contenedor único hasta sets por fracciones o estaciones completas. \n\nPráctico para el día a día: diseños pensados para vaciado fácil y uso continuo. \n\n##Aplicaciones \n\nOficinas y empresas: zonas comunes, cafeterías, salas de descanso y pasillos. \n\nFerias y eventos: puntos de recogida en stands, accesos, zonas de catering y backstage. \n\nRetail y centros comerciales: espacios de paso, áreas de descanso o puntos informativos. \n\nHostelería y hoteles: cocinas, zonas de personal, eventos y salones. \n\nCampañas de concienciación: acciones internas o institucionales con mensajes educativos. \n\n##Características técnicas \n\nFormato y configuración \n\nContenedor individual (una fracción) o módulos combinables (2–4 fracciones o más). \n\nSeñalización superior y frontal para lectura rápida (a corta y media distancia). \n\nOpciones con boca/ranura específica (papel, envases, orgánico) para guiar el gesto correcto. \n\nMedidas \n\nTamaños estándar o a medida según espacio disponible y volumen de uso. \n\nVersiones compactas para interior o formatos más grandes para zonas con mayor tránsito. \n\nMateriales (según uso) \n\nOpciones en cartón rígido / nido de abeja para soluciones ligeras y de montaje rápido (muy habitual en campañas y eventos). \n\nOpciones en material rígido (por ejemplo PVC/Forex u otros) si necesitas mayor resistencia o reutilización. \n\nImpresión y señalética \n\nImpresión a color con pictogramas, colores por fracción y mensajes de marca. \n\nPosibilidad de incluir QR (guía de reciclaje, política de sostenibilidad, campaña, etc.). \n\nVariantes por sede, idioma o tipo de residuo si lo necesitas. \n\nMontaje y mantenimiento \n\nOpciones automontables (según diseño) para facilitar transporte y colocación. \n\nDiseño pensado para colocar bolsa interior y vaciado sencillo. \n\nPosibilidad de entregar por sets (etiquetado por fracción) para instalación rápida. \n\nAcabados recomendados \n\nAcabado mate para mejorar lectura y evitar reflejos en interior con iluminación. \n\nRefuerzos/laminado si se prevé mucha manipulación o uso intensivo.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/expositores/contenedor-reciclaje.webp",
         "width": 1200,
@@ -11400,9 +11409,9 @@
       "variants": [],
       "formFields": [],
       "seo": {
-        "metaTitle": "Papeleras personalizadas | Repro Disseny",
-        "metaDescription": "Papeleras personalizadas personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/contenedor-reciclaje",
+        "metaTitle": "Contenedores de Reciclaje Personalizados | Puntos de Recogida con Branding",
+        "metaDescription": "Contenedores de reciclaje personalizados para oficinas, eventos y retail. Diseño a medida por fracciones, impresión profesional y opciones automontables. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/contenedores-de-reciclaje-personalizados",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -11419,10 +11428,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Contenedor reciclaje",
-          "description": "Contenedores de reciclaje personalizados",
+          "name": "Contenedores de reciclaje personalizados",
+          "description": "Los contenedores de reciclaje personalizados convierten un punto funcional en un elemento de comunicación: ayudan a separar residuos de forma clara y refuerzan la imagen de marca en oficinas, eventos y espacios públicos. En Repro Disseny producimos contenedores con gráfica corporativa, señalización por fracciones y formatos pensados para que sean fáciles de colocar, usar y mantener.",
           "image": "https://webcms.blob.core.windows.net/media/product/expositores/contenedor-reciclaje.webp",
-          "url": "https://reprodisseny.com/productos/contenedor-reciclaje",
+          "url": "https://reprodisseny.com/productos/contenedores-de-reciclaje-personalizados",
           "sku": "01-EXPO-0017",
           "brand": {
             "@type": "Organization",
@@ -11532,12 +11541,13 @@
     {
       "id": "79",
       "type": "producto",
-      "slug": "photocalls",
-      "path": "/productos/photocalls",
-      "title": "Photocalls",
+      "slug": "photocall-personalizado",
+      "path": "/productos/photocall-personalizado",
+      "title": "Photocall personalizado (fondo para eventos)",
       "categorySlug": "expositores",
       "isPublished": true,
-      "shortDescription": "Photocalls",
+      "shortDescription": "Un photocall es la forma más directa de convertir tu evento en contenido: crea un punto de foto, refuerza la marca y da una imagen profesional en redes, prensa y vídeos. En Repro Disseny producimos photocalls personalizados con materiales y sistemas pensados para que el fondo quede tenso, sin arrugas y listo para montar.",
+      "bodyMd": "##Detalles \n\n¿Qué es un photocall y para qué se usa? \n\nUn photocall es un fondo impreso de gran formato (normalmente con logos, patrocinadores, claims o una creatividad de campaña) que se coloca en una zona del evento para hacer fotos. Se usa en presentaciones, ferias, congresos, galas, entregas de premios, inauguraciones y cualquier acción donde quieras que la marca aparezca de forma constante en imágenes. \n\n##Beneficios \n\nVisibilidad de marca en cada foto: logos y mensajes aparecen en fotos, vídeos y stories de forma natural. \n\nImagen más profesional: eleva la percepción del evento y de patrocinadores. \n\nFondo limpio y sin distracciones: ideal para prensa, invitados, ponentes y entregas. \n\nPersonalización total: desde muro de logos hasta creatividades completas por campaña. \n\nMontaje rápido: sistemas pensados para instalar y desmontar sin complicaciones (perfecto para eventos itinerantes). \n\n##Aplicaciones \n\nFerias y congresos: fondo de stand, zona de networking o photocall de patrocinadores. \n\nEventos corporativos: presentaciones, convenciones, aniversarios, inauguraciones. \n\nGala y alfombra: entrada, paso de invitados, entrega de premios. \n\nEventos deportivos y culturales: zona de meta, prensa, entrevistas y podio. \n\nActivaciones de marca: campañas con hashtag, QR a sorteo, contenido social. \n\n##Características técnicas \n\nFormatos y medidas \n\nMedidas habituales (orientativas): 2×2 m, 3×2 m, 3×2,3 m o a medida según espacio y encuadre. \n\nOrientación pensada para foto: margen y composición para que logos no queden tapados. \n\nMateriales de impresión (según uso) \n\nLona: opción versátil y resistente para interior (y según ubicación, también para exterior). \n\nTextil: acabado más “premium” y fotogénico, suele quedar muy bien por su caída y aspecto. \n\nOtras soluciones según proyecto (por ejemplo, panel rígido si necesitas un fondo muy sólido o modular). \n\nSistemas de montaje \n\nCon estructura (recomendado): para asegurar estabilidad y tensado del fondo. \n\nOpciones de tensado según material: ojales, vaina, velcro o sistemas tipo marco/estructura tubular. \n\nPreparación para transporte: piezas pensadas para montar/desmontar y guardar fácilmente. \n\nImpresión y acabados \n\nImpresión a color con buena definición para logos repetidos y textos. \n\nAcabado mate recomendado si habrá focos o flash (reduce reflejos). \n\nRefuerzos en perímetro/fijaciones si va a montarse muchas veces. \n\nOpciones extra \n\nVersiones por patrocinadores o ediciones (mismo formato, cambio de logos). \n\nIntegración de QR (landing, registro, sorteo, redes) si quieres medir interacción.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/expositores/photocall.webp",
         "width": 1200,
@@ -11607,9 +11617,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Photocalls | Repro Disseny",
-        "metaDescription": "Photocalls personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/photocalls",
+        "metaTitle": "Photocall Personalizado | Fondo para Eventos, Ferias y Empresas",
+        "metaDescription": "Photocall personalizado para eventos y ferias: fondo de marca con lona o textil, con estructura, tensado y acabados profesionales. Montaje rápido. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/photocall-personalizado",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -11626,10 +11636,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Photocalls",
-          "description": "Photocalls",
+          "name": "Photocall personalizado (fondo para eventos)",
+          "description": "Un photocall es la forma más directa de convertir tu evento en contenido: crea un punto de foto, refuerza la marca y da una imagen profesional en redes, prensa y vídeos. En Repro Disseny producimos photocalls personalizados con materiales y sistemas pensados para que el fondo quede tenso, sin arrugas y listo para montar.",
           "image": "https://webcms.blob.core.windows.net/media/product/expositores/photocall.webp",
-          "url": "https://reprodisseny.com/productos/photocalls",
+          "url": "https://reprodisseny.com/productos/photocall-personalizado",
           "sku": "01-EXPO-0004",
           "brand": {
             "@type": "Organization",
@@ -12376,12 +12386,13 @@
     {
       "id": "89",
       "type": "producto",
-      "slug": "roll-ups",
-      "path": "/productos/roll-ups",
-      "title": "Roll Ups",
+      "slug": "roll-up-personalizado",
+      "path": "/productos/roll-up-personalizado",
+      "title": "Roll Up personalizado (expositor enrollable)",
       "categorySlug": "expositores",
       "isPublished": true,
-      "shortDescription": "Roll Ups",
+      "shortDescription": "El Roll Up es el expositor más práctico cuando necesitas visibilidad inmediata: se monta en segundos, se transporta fácil y funciona perfecto en ferias, eventos, recepciones y puntos de venta. En Repro Disseny imprimimos roll ups personalizados con materiales y acabados pensados para que el resultado se vea profesional y aguante montaje/desmontaje.",
+      "bodyMd": "##Detalles \n\n¿Qué es un Roll Up y para qué se usa? \n\nUn Roll Up es un expositor enrollable compuesto por una estructura con base (cassette), una gráfica impresa que se enrolla dentro y un mástil que la mantiene tensada. Se utiliza para comunicar mensajes comerciales, branding, promociones o señalización, tanto en espacios corporativos como en eventos. \n\n##Beneficios \n\nMontaje y recogida en segundos: ideal para ferias, eventos itinerantes y acciones puntuales. \n\nFácil de transportar: se entrega con bolsa para moverlo y guardarlo cómodamente. \n\nAlta visibilidad: formato vertical que destaca en entradas, pasillos y stands. \n\nImagen profesional: impresión nítida y soporte estable para reforzar tu marca. \n\nVersátil: sirve como promoción, señalética, photocall auxiliar o soporte informativo. \n\n##Aplicaciones \n\nFerias y congresos: dentro del stand, entradas, zonas de registro o ponencias. \n\nEventos corporativos: presentaciones, formaciones, convenciones, showrooms. \n\nPunto de venta: promociones, lanzamientos, precios, campañas temporales. \n\nRecepciones y oficinas: señalización, servicios, marca y comunicación interna. \n\nHostelería: menús, eventos, horarios, ofertas y comunicación en sala. \n\n##Características técnicas \n\nFormatos habituales \n\nMedidas estándar (según necesidad): 85x200, 100x200 y otros formatos disponibles. \n\nOpción doble cara si necesitas visibilidad por ambos lados (según tipo de estructura). \n\nEstructuras \n\nEstructuras estándar (la opción más habitual) o soluciones más premium para uso intensivo y mejor estabilidad. \n\nComponentes: cassette + mástil + perfil superior para un tensado correcto. \n\nMaterial de impresión \n\nMateriales pensados para que la gráfica quede plana y sin curvaturas y mantenga buena calidad visual. \n\nOpción de elegir soportes con mejor comportamiento para eventos con focos o iluminación. \n\nImpresión \n\nImpresión a todo color con alta definición para textos, logos y fotografía. \n\nRecomendación de diseño: mensajes principales grandes y legibles a distancia. \n\nAcabados recomendados \n\nAcabado mate si el roll up estará bajo focos o se fotografiará (reduce reflejos). \n\nAcabados de protección si va a usarse repetidamente en montajes/desmontajes. \n\nTransporte \n\nIncluye bolsa de transporte para facilitar movilidad y almacenaje.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/expositores/roll-up.webp",
         "width": 1200,
@@ -12449,9 +12460,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Roll Ups | Repro Disseny",
-        "metaDescription": "Roll Ups personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/roll-ups",
+        "metaTitle": "Roll Up Personalizado | Expositor Enrollable para Ferias y Empresas",
+        "metaDescription": "Roll up personalizado para ferias, eventos y punto de venta. Impresión a color, estructuras estables y montaje en segundos. Solicita presupuesto a Repro Disseny.",
+        "canonical": "https://reprodisseny.com/productos/roll-up-personalizado",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -12468,10 +12479,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Roll Ups",
-          "description": "Roll Ups",
+          "name": "Roll Up personalizado (expositor enrollable)",
+          "description": "El Roll Up es el expositor más práctico cuando necesitas visibilidad inmediata: se monta en segundos, se transporta fácil y funciona perfecto en ferias, eventos, recepciones y puntos de venta. En Repro Disseny imprimimos roll ups personalizados con materiales y acabados pensados para que el resultado se vea profesional y aguante montaje/desmontaje.",
           "image": "https://webcms.blob.core.windows.net/media/product/expositores/roll-up.webp",
-          "url": "https://reprodisseny.com/productos/roll-ups",
+          "url": "https://reprodisseny.com/productos/roll-up-personalizado",
           "sku": "01-EXPO-0001",
           "brand": {
             "@type": "Organization",

@@ -63,34 +63,35 @@
           <div class="h-px w-full bg-brand-ink-medium/30 sm:flex-1" />
         </div>
   
-        <!-- Grid -->
         <div class="mt-12">
-          <div
-            class="grid grid-cols-2 place-items-center gap-x-6 gap-y-10 md:grid-cols-4 md:gap-x-12 md:gap-y-14"
-          >
-            <template v-for="(c, idx) in filled" :key="c.slug + ':' + idx">
-              <!-- ✅ card centrada y consistente -->
-              <div class="w-full max-w-[252px]">
-                <div v-if="c.__placeholder" class="pointer-events-none" aria-hidden="true">
-                  <div class="flex flex-col items-center text-center">
-                    <div class="w-full overflow-hidden rounded-2xl bg-brand-bg-2 shadow-sm">
-                      <div class="h-[260px] w-full" />
-                    </div>
-                    <div class="mt-6 h-4 w-40 rounded bg-muted/40" />
-                    <div class="mt-4 h-10 w-32 rounded-full bg-muted/40" />
-                  </div>
-                </div>
-  
-                <MarketingCategoryCard
-                  v-else
-                  :title="c.title"
-                  :href="categoryHref(c)"
-                  :image="c.image ?? null"
-                />
-              </div>
-            </template>
+  <div
+    class="
+      grid grid-cols-2 justify-items-center gap-x-6 gap-y-10
+      md:[grid-template-columns:repeat(4,252px)] md:justify-between md:gap-x-0 md:gap-y-14
+    "
+  >
+    <template v-for="(c, idx) in filled" :key="c.slug + ':' + idx">
+      <div class="w-[252px]">
+        <div v-if="c.__placeholder" class="pointer-events-none" aria-hidden="true">
+          <div class="flex flex-col items-center text-center">
+            <div class="overflow-hidden rounded-2xl bg-brand-bg-2">
+              <div class="h-[231px] w-[252px]" />
+            </div>
+            <div class="mt-3 h-4 w-40 rounded bg-muted/40" />
+            <div class="mt-2 h-8 w-28 rounded-full bg-muted/40" />
           </div>
         </div>
+
+        <MarketingCategoryCard
+          v-else
+          :title="c.title"
+          :href="categoryHref(c)"
+          :image="c.image ?? null"
+        />
+      </div>
+    </template>
+  </div>
+</div>
       </div>
     </section>
   </template>

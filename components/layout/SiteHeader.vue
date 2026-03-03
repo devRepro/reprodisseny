@@ -68,17 +68,17 @@ const staticLinks = [
 
 <template>
   <header class="w-full bg-white border-b border-slate-100 sticky top-0 z-[50]">
-    <div
-      class="mx-auto max-w-[1440px] h-16 md:h-20 px-4 md:px-6 lg:px-[80px] flex items-center justify-between gap-4 md:gap-8"
-    >
+    <div class="mx-auto w-full max-w-[1440px] h-16 md:h-20 px-6 md:px-10 lg:px-16 2xl:px-[120px] flex items-center justify-between gap-4 md:gap-8">
       <NuxtLink to="/" class="flex items-center shrink-0" aria-label="Inicio">
         <SharedLogo class="h-7 w-auto md:h-9 lg:h-10 lg:w-[218px]" />
         <span class="sr-only">Repro Disseny</span>
       </NuxtLink>
 
-      <div class="hidden lg:flex flex-1 max-w-[500px] justify-center">
-        <HeaderSearch class="w-full" />
-      </div>
+      <div class="hidden lg:flex flex-1 justify-center">
+  <div class="w-full max-w-[560px]">
+    <HeaderSearch class="w-full" />
+  </div>
+</div>
 
       <div class="flex items-center gap-1 md:gap-3 shrink-0">
         <!-- Mobile search toggle -->
