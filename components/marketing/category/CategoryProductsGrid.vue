@@ -21,7 +21,7 @@ const safeItems = computed(() => (props.items || []).filter((i) => i?.title && i
 </script>
 
 <template>
-  <section class="mx-auto max-w-[1440px] px-6">
+  <section class="container p-0">
     <div class="flex flex-col items-start gap-3">
       <h2 class="text-[30px] leading-[36px] font-semibold text-foreground">
         {{ title || "¿Qué quieres hacer?" }}

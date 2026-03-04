@@ -319,13 +319,12 @@ useHead(() => {
         </div>
       </nav>
 
-      <section class="py-12 md:py-16">
+      
         <CategoryProductsGrid
           :title="isHub ? 'Elige una subcategoría' : 'Selecciona el tipo de producto'"
           :subtitle="isHub ? 'Explora las opciones dentro de esta categoría' : 'Configura tu impresión a medida'"
           :items="isHub ? childItems : productItems"
         />
-      </section>
 
       <div class="border-y py-10 border-slate-100 bg-slate-50/50">
         <div class="mx-auto w-full max-w-[1440px] px-6 md:px-10 lg:px-16 2xl:px-[120px]">

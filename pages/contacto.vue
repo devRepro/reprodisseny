@@ -10,7 +10,7 @@ import LocationMapSection from "@/components/marketing/LocationMapSection.vue";
     <ContactHero />
 
     <!-- Sección formulario -->
-    <section class="mx-auto max-w-[1440px] px-6">
+    <section class="container">
       <!-- Ajusta este margen para clavar Figma según tu layout -->
       <div class="py-12 flex justify-center">
         <ContactForm />

@@ -26,6 +26,13 @@ const config: Config = {
       fontFamily: {
         sans: ["Figtree", ...defaultTheme.fontFamily.sans],
       },
+       container: {
+    center: true,
+    padding: "1.5rem", // equivale a px-6
+    screens: {
+      xl: "1200px",
+    },
+  },
 
       colors: {
         /* Shadcn tokens */
