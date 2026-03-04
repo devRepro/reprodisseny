@@ -224,7 +224,7 @@ const onSubmit = handleSubmit(async (values) => {
               >
                 He leído y acepto la
                 <a
-                  href="/aviso-legal"
+                  href="/politica-privacidad"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="text-[#0076B3] hover:underline focus:outline-none focus:ring-2 focus:ring-[#0076B3]/50 rounded px-0.5"

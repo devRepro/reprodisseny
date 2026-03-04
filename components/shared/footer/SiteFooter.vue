@@ -126,13 +126,7 @@ const props = withDefaults(
         class="absolute left-1/2 top-[372px] -translate-x-1/2 flex items-center w-[142px] h-[20px]"
       >
         <NuxtLink
-          to="/copyright"
-          class="text-[14px] leading-[20px] font-normal hover:underline underline-offset-4"
-        >
-          Copyright /
-        </NuxtLink>
-        <NuxtLink
-          to="/aviso-legal"
+          to="/politica-privacidad"
           class="ml-[2px] text-[14px] leading-[20px] font-normal hover:underline underline-offset-4"
         >
           Aviso legal

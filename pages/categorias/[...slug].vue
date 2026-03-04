@@ -299,23 +299,19 @@ useHead(() => {
   };
 });
 </script>
-
 <template>
   <main class="bg-white min-h-screen">
     <div v-if="pending" class="flex items-center justify-center min-h-[60vh]">
       <div class="animate-pulse text-slate-400 font-medium text-lg">Cargando categoría...</div>
     </div>
 
-    <div v-else-if="error || notFound" class="mx-auto max-w-[1440px] px-6 py-24 text-center">
-      <h1 class="text-3xl font-bold text-slate-900">¡Ups! Categoría no encontrada</h1>
-      <p class="mt-4 text-slate-600">Parece que la página que buscas no existe o ha cambiado de lugar.</p>
-      <NuxtLink to="/categorias" class="mt-8 inline-block bg-sky-700 text-white px-8 py-3 rounded-full font-semibold">
-        Ver todas las categorías
-      </NuxtLink>
+    <div v-else-if="error || notFound" class="mx-auto w-full max-w-[1440px] px-6 md:px-10 lg:px-16 2xl:px-[120px] py-24 text-center">
+      ...
     </div>
 
     <template v-else-if="safeCategory">
-      <CategoryHero :category="safeCategory"/>
+      <!-- ✅ NO pases container-class duplicando container -->
+      <CategoryHero :category="safeCategory" />
 
       <nav class="bg-slate-50 border-b border-slate-200">
         <div class="mx-auto w-full max-w-[1440px] px-6 md:px-10 lg:px-16 2xl:px-[120px] py-4">
@@ -341,8 +337,7 @@ useHead(() => {
             :chips="['Asesoramiento', 'Acabados premium', 'Producción rápida']"
           />
         </div>
-      </div>
-          <!-- ✅ Tabs SEO-friendly -->
+
         <CategoryTabs
           v-if="safeCategory.tabs?.length"
           :tabs="safeCategory.tabs"
@@ -350,7 +345,7 @@ useHead(() => {
           :scroll-margin-top="190"
           container-class="mx-auto w-full max-w-[1440px] px-6 md:px-10 lg:px-16 2xl:px-[120px]"
         />
-
+      </div>
 
       <section class="py-10">
         <div class="mx-auto w-full max-w-[1440px] px-6 md:px-10 lg:px-16 2xl:px-[120px]">
@@ -359,15 +354,8 @@ useHead(() => {
             bgImageSrc="/img/ui/archivos-book-4k.webp"
             :cta="{ label: 'Presupuesto personalizado', to: '/contacto' }"
           />
-        </div>
-      </section>
 
-      <section class="py-10">
-        <div class="mx-auto w-full max-w-[1440px] px-6 md:px-10 lg:px-16 2xl:px-[120px]">
-          <CategoryFaq
-            v-if="safeCategory.faqs?.length"
-            :items="safeCategory.faqs"            
-          />
+          <CategoryRelatedWorks v-if="safeCategory.relatedWorks?.length" :items="safeCategory.relatedWorks" />
         </div>
       </section>
     </template>

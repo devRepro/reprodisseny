@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-03T09:48:48.940Z",
+  "generatedAt": "2026-03-03T15:25:43.091Z",
   "categories": [
     {
       "id": "10",
@@ -1345,10 +1345,10 @@
     },
     {
       "id": "6",
-      "updatedAt": "2026-02-25T09:13:00Z",
+      "updatedAt": "2026-03-03T15:02:31Z",
       "type": "categoria",
       "slug": "hosteleria-restauracion",
-      "path": "/categorias/hoteleria-restauracion",
+      "path": "/categorias/hosteleria-restauracion",
       "title": "Impresión para hostelería y restauración: hoteles, restaurantes y eventos",
       "nav": "Hostelería y restauración",
       "order": 6,
@@ -1467,23 +1467,23 @@
           "url": "/"
         },
         {
-          "name": "Hotelería y restauración",
-          "url": "/categorias/hoteleria-restauracion"
+          "name": "Hostelería y restauración",
+          "url": "/categorias/hosteleria-restauracion"
         },
         {
           "name": "Impresión para Hoteles y Restaurantes",
-          "url": "/categorias/hoteleria-restauracion"
+          "url": "/categorias/hosteleria-restauracion"
         }
       ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Impresión para hostelería y restauración | Cartas y más",
         "metaDescription": "Impresión para hoteles y restaurantes en Barcelona: tarjetas, colgadores de puerta, cartas, tabletents, manteles y hules personalizados. Acabados resistentes",
-        "canonical": "https://reprodisseny.com/categorias/hoteleria-restauracion",
+        "canonical": "https://reprodisseny.com/categorias/hosteleria-restauracion",
         "hreflang": [
           {
             "lang": "es-ES",
-            "url": "https://reprodisseny.com/categorias/hoteleria-restauracion"
+            "url": "https://reprodisseny.com/categorias/hosteleria-restauracion"
           }
         ],
         "keywords": [],
@@ -1492,7 +1492,7 @@
           "@type": "CollectionPage",
           "name": "Impresión para hoteles, restaurantes y hostelería | Repro Disseny",
           "description": "Cartas, menús, posavasos, tarjetas y packaging personalizado para hoteles, restaurantes y negocios de hostelería en Cataluña. Calidad profesional y producción local.",
-          "url": "https://reprodisseny.com/categorias/hoteleria-restauracion",
+          "url": "https://reprodisseny.com/categorias/hosteleria-restauracion",
           "image": "https://webcms.blob.core.windows.net/media/category/hoteles-restaurantes.webp",
           "publisher": {
             "@type": "Organization",
@@ -2255,12 +2255,13 @@
     {
       "id": "100",
       "type": "producto",
-      "slug": "tazas",
-      "path": "/productos/tazas",
-      "title": "Tazas",
+      "slug": "tazas-personalizadas-empresa",
+      "path": "/productos/tazas-personalizadas-empresa",
+      "title": "Tazas personalizadas (corporativas)",
       "categorySlug": "material-oficina",
       "isPublished": true,
-      "shortDescription": "Tazas",
+      "shortDescription": "Las tazas personalizadas son un detalle corporativo que se usa a diario: en la oficina, en reuniones, en la cocina del equipo o como regalo para clientes. En Repro Disseny producimos tazas corporativas con tu marca (y si lo necesitas, con nombres), cuidando el acabado y la impresión para que el resultado sea profesional y duradero.",
+      "bodyMd": "##Detalles \n\n¿Qué es una taza personalizada y para qué se usa? \n\nUna taza personalizada es una taza (habitualmente de cerámica) impresa con un diseño: logo, claim, campaña, ilustración o datos variables como nombre y departamento. Se utiliza como merchandising útil, regalo corporativo y elemento de identidad interna, porque combina visibilidad de marca + uso real durante mucho tiempo. \n\n##Beneficios \n\nAlta permanencia: la taza se usa y se ve cada día en la oficina o en casa. \n\nRegalo práctico: funciona muy bien para clientes, partners y empleados. \n\nRefuerza cultura de empresa: ideal para onboarding, equipos y eventos internos. \n\nPersonalizable por persona: nombres, departamentos, sedes o roles. \n\nBuena relación impacto/precio: un detalle sencillo con mucha visibilidad. \n\n##Aplicaciones \n\nOficinas: cocina, salas de descanso, equipos y salas de reunión. \n\nWelcome packs: incorporación de empleados, kits de formación, eventos internos. \n\nRegalo a clientes: campañas de fidelización, Navidad, cierres de proyecto. \n\nFerias y eventos: merchandising útil para el stand o para obsequio. \n\nCampañas de marca: lanzamientos, promociones, acciones con QR a landing. \n\n##Características técnicas \n\nTipos de taza \n\nTaza clásica de cerámica (la más habitual en corporativo). \n\nPosibilidad de proponer variantes según necesidad (capacidad, color interior/asa, etc.). \n\nImpresión y diseño \n\nImpresión a color con buena reproducción de logotipo, tipografías e imagen. \n\nPosibilidad de: \n\nimpresión frontal o “envolvente” (según diseño), \n\ndiseños diferentes por unidad (datos variables), \n\nincluir QR (catálogo, reservas, contacto, landing de campaña). \n\nPersonalización \n\nNombres individuales (muy usado para equipos). \n\nVariantes por departamento/sede, o por campaña/temporada. \n\nResistencia y uso \n\nConfiguración pensada para uso diario. Si necesitas una resistencia específica (lavavajillas/microondas), lo definimos según técnica y diseño para asegurar el mejor resultado. \n\nPackaging \n\nOpción de entrega con caja individual (recomendable para regalos y envíos). \n\nPosibilidad de preparar packs corporativos combinados (taza + libreta + bolígrafo, etc.).",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/tazas.webp",
         "width": 1200,
@@ -2305,9 +2306,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Tazas | Repro Disseny",
-        "metaDescription": "Tazas personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/tazas",
+        "metaTitle": "Tazas personalizadas | Tazas corporativas para oficina y regalos de empresa",
+        "metaDescription": "Tazas personalizadas para empresas: cerámica con impresión a color, logos y nombres. Ideales para oficina, eventos y regalos corporativos. Opciones de packaging. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/tazas-personalizadas-empresa",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -2324,10 +2325,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Tazas",
-          "description": "Tazas",
+          "name": "Tazas personalizadas (corporativas)",
+          "description": "Las tazas personalizadas son un detalle corporativo que se usa a diario: en la oficina, en reuniones, en la cocina del equipo o como regalo para clientes. En Repro Disseny producimos tazas corporativas con tu marca (y si lo necesitas, con nombres), cuidando el acabado y la impresión para que el resultado sea profesional y duradero.",
           "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/tazas.webp",
-          "url": "https://reprodisseny.com/productos/tazas",
+          "url": "https://reprodisseny.com/productos/tazas-personalizadas-empresa",
           "sku": "01-OFICI-0027",
           "brand": {
             "@type": "Organization",
@@ -2965,7 +2966,7 @@
       "slug": "tabletent",
       "path": "/productos/tabletent",
       "title": "Tabletent",
-      "categorySlug": "hoteles-restaurantes",
+      "categorySlug": "hoteleria-restauracion",
       "isPublished": true,
       "shortDescription": "Tabletents para hoteles y restaurantes",
       "image": {
@@ -3065,7 +3066,7 @@
       "slug": "minutas-de-boda",
       "path": "/productos/minutas-de-boda",
       "title": "Minutas de boda",
-      "categorySlug": "hoteles-restaurantes",
+      "categorySlug": "hoteleria-restauracion",
       "isPublished": true,
       "shortDescription": "Minutas de boda",
       "image": {
@@ -3394,13 +3395,13 @@
     {
       "id": "12",
       "type": "producto",
-      "slug": "bloc-notas",
-      "path": "/productos/bloc-notas",
-      "title": "Bloc de notas",
+      "slug": "blocs-de-notas-personalizados",
+      "path": "/productos/blocs-de-notas-personalizados",
+      "title": "Blocs de notas personalizados",
       "categorySlug": "material-oficina",
       "isPublished": true,
-      "shortDescription": "Bloc de notas",
-      "bodyMd": "s",
+      "shortDescription": "Los blocs de notas son un clásico que funciona en oficina y en eventos: útiles, prácticos y con alta permanencia. En Repro Disseny imprimimos blocs personalizados con tu marca para reuniones, formación, recepción o packs corporativos, con formatos y acabados pensados para un uso cómodo y profesional.",
+      "bodyMd": "##Detalles \n\n¿Qué es un bloc de notas y para qué se usa? \n\nUn bloc de notas es un conjunto de hojas unidas (normalmente encoladas) para escribir, tomar apuntes o entregar documentación de forma ordenada. Se utiliza tanto como papelería interna (reuniones, visitas, recepción) como en acciones de marketing (ferias, formación, welcome packs), porque mantiene la marca visible durante mucho tiempo. \n\n##Beneficios \n\nAlta utilidad y permanencia: se usa durante semanas, con tu marca siempre presente. \n\nImagen corporativa coherente: refuerza identidad en oficina, formaciones y eventos. \n\nMuy práctico para equipos: reuniones, llamadas, listas, checklists y briefing. \n\nPersonalizable por uso: plantillas (to-do, reuniones, planning, KPI) o hojas lisas. \n\nIdeal para packs: combinado con carpetas, bolígrafos, dosieres y tarjetas. \n\n##Aplicaciones \n\nOficina y reuniones: notas internas, briefings, llamadas, seguimiento. \n\nFormación: cursos, onboarding, manuales y sesiones internas. \n\nEventos y ferias: welcome pack para asistentes, ponentes o expositores. \n\nRecepción y atención al cliente: notas rápidas y material corporativo visible. \n\nPromoción de marca: merchandising útil para clientes y partners. \n\n##Características técnicas \n\nFormatos habituales \n\nA4 (máximo espacio), A5 (el más equilibrado), A6 (compacto) y formatos a medida. \n\nInterior (hojas) \n\nHojas lisas, rayadas, cuadriculadas o con plantilla personalizada (reuniones, checklist, planning, etc.). \n\nImpresión interior a 1 tinta (muy habitual) o a color si el diseño lo requiere. \n\nPosibilidad de numeración, secciones o cabeceras por departamento/sede. \n\nEncabezado y portada \n\nPortada personalizada a color (opcional) para dar más presencia. \n\nOpciones con tapa más rígida si se necesita mayor durabilidad. \n\nEncuadernación \n\nEncolado (clásico) para arrancar hojas fácilmente. \n\nOtras opciones según el uso (si necesitas un bloc más “de consulta”, se puede valorar otro tipo de encuadernación). \n\nPapeles \n\nPapel interior pensado para escritura cómoda. \n\nOpción de elegir gramaje según si se escribe con bolígrafo, rotulador, etc. \n\nExtras útiles \n\nPerforado (si quieres arrancado más limpio). \n\nVariantes por departamentos, eventos o idiomas.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/bloc-notas.webp",
         "width": 1200,
@@ -3472,9 +3473,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Bloc de notas | Repro Disseny",
-        "metaDescription": "Bloc de notas personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/bloc-notas",
+        "metaTitle": "Blocs de notas personalizados | Papelería corporativa para oficina y eventos",
+        "metaDescription": "Blocs de notas personalizados para empresas: A4/A5/A6, encolados o con tapa, impresión a 1 tinta o color y opción de hojas interiores personalizadas. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/blocs-de-notas-personalizados",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -3491,10 +3492,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Bloc de notas",
-          "description": "Bloc de notas",
+          "name": "Blocs de notas personalizados",
+          "description": "Los blocs de notas son un clásico que funciona en oficina y en eventos: útiles, prácticos y con alta permanencia. En Repro Disseny imprimimos blocs personalizados con tu marca para reuniones, formación, recepción o packs corporativos, con formatos y acabados pensados para un uso cómodo y profesional.",
           "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/bloc-notas.webp",
-          "url": "https://reprodisseny.com/productos/bloc-notas",
+          "url": "https://reprodisseny.com/productos/blocs-de-notas-personalizados",
           "sku": "01-OFICI-0021",
           "brand": {
             "@type": "Organization",
@@ -3592,12 +3593,13 @@
     {
       "id": "125",
       "type": "producto",
-      "slug": "tarjetas-de-visita",
-      "path": "/productos/tarjetas-de-visita",
-      "title": "Tarjetas de visita",
+      "slug": "tarjetas-de-visita-personalizadas",
+      "path": "/productos/tarjetas-de-visita-personalizadas",
+      "title": "Tarjetas de visita personalizadas",
       "categorySlug": "material-oficina",
       "isPublished": true,
-      "shortDescription": "Tarjetas de visita",
+      "shortDescription": "Una tarjeta de visita bien hecha sigue siendo una herramienta clave en entornos profesionales: facilita el contacto, refuerza la marca y deja una primera impresión sólida. En Repro Disseny imprimimos tarjetas de visita personalizadas con diferentes papeles y acabados, desde opciones corporativas sencillas hasta acabados premium, para que el resultado esté a la altura de tu empresa.",
+      "bodyMd": "##Detalles \n\n¿Qué es una tarjeta de visita y para qué se usa? \n\nLa tarjeta de visita es una pieza de papelería corporativa que concentra los datos esenciales de contacto: nombre, cargo, empresa, teléfono, email, web y redes (si aplica). Se utiliza en reuniones, ferias, visitas comerciales y eventos, y funciona como recordatorio físico que ayuda a convertir una conversación en una oportunidad. \n\n##Beneficios \n\nPrimera impresión profesional: transmite seriedad y coherencia de marca. \n\nContacto inmediato: datos claros y accesibles en un formato práctico. \n\nDiferenciación: papeles y acabados que elevan la calidad percibida. \n\nPersonalización por equipo: nombres y cargos distintos manteniendo el mismo diseño corporativo. \n\nMedible: opción de QR a contacto vCard, LinkedIn, web o formulario. \n\n##Aplicaciones \n\nEmpresas y pymes: comerciales, dirección, atención al cliente, retail. \n\nProfesionales: arquitectura, consultoría, salud, formación, legal, etc. \n\nFerias y networking: captación de contactos y visitas a stand. \n\nFranquicias y grupos: tarjetas homogéneas por marca, con variantes por sede. \n\nEventos corporativos: acreditación “ligera” y entrega en packs de bienvenida. \n\n##Características técnicas \n\nFormato \n\nFormato estándar tipo tarjeta (horizontal o vertical) y opciones a medida. \n\nImpresión a una o dos caras. \n\nPapeles recomendados \n\nCartulinas de alto gramaje para una tarjeta con cuerpo. \n\nMate: look corporativo y lectura cómoda. \n\nBrillo: colores más vivos y acabado más llamativo. \n\nPapeles con textura para un acabado más premium. \n\nOpciones recicladas si buscas un enfoque más sostenible (cuando encaja con la marca). \n\nImpresión y personalización \n\nImpresión a todo color con buena definición para logotipo y tipografías. \n\nDatos variables: nombre, cargo, teléfono, sede, etc. (ideal para equipos). \n\nQR opcional: vCard, LinkedIn, Google Maps, portfolio o agenda. \n\nAcabados premium (opcionales) \n\nLaminado mate o brillo: más resistencia y mejor presencia. \n\nSoft touch: tacto premium, muy usado en corporativo. \n\nBarniz selectivo: resalta logo o elementos concretos. \n\nStamping (dorado/plata/metalizados): acabado elegante para marcas premium. \n\nEsquinas redondeadas: mejor durabilidad y tacto.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/tarjetas-de-visita.webp",
         "width": 1200,
@@ -3613,18 +3615,18 @@
       "variants": [],
       "formFields": [],
       "seo": {
-        "metaTitle": "Tarjetas de visita",
-        "metaDescription": "Tarjetas de visita",
-        "canonical": "https://reprodisseny.com/productos/tarjetas-de-visita",
+        "metaTitle": "Tarjetas de visita personalizadas | Impresión profesional para empresas",
+        "metaDescription": "Tarjetas de visita personalizadas para empresas y profesionales. Papeles premium, acabados (laminado, soft touch, barniz, stamping) y opción de datos variables o QR. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/tarjetas-de-visita-personalizadas",
         "hreflang": [],
         "keywords": [],
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Tarjetas de visita",
-          "description": "Tarjetas de visita",
+          "name": "Tarjetas de visita personalizadas",
+          "description": "Una tarjeta de visita bien hecha sigue siendo una herramienta clave en entornos profesionales: facilita el contacto, refuerza la marca y deja una primera impresión sólida. En Repro Disseny imprimimos tarjetas de visita personalizadas con diferentes papeles y acabados, desde opciones corporativas sencillas hasta acabados premium, para que el resultado esté a la altura de tu empresa.",
           "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/tarjetas-de-visita.webp",
-          "url": "https://reprodisseny.com/productos/tarjetas-de-visita",
+          "url": "https://reprodisseny.com/productos/tarjetas-de-visita-personalizadas",
           "brand": {
             "@type": "Organization",
             "name": "Repro Disseny"
@@ -3635,12 +3637,13 @@
     {
       "id": "126",
       "type": "producto",
-      "slug": "pizarra",
-      "path": "/productos/pizarra",
-      "title": "Pizarra",
+      "slug": "pizarras-personalizadas-a-medida",
+      "path": "/productos/pizarras-personalizadas-a-medida",
+      "title": "Pizarras personalizadas a medida (tipo Velleda)",
       "categorySlug": "material-oficina",
       "isPublished": true,
-      "shortDescription": "Pizarra",
+      "shortDescription": "Una pizarra no tiene por qué ser “la típica blanca”. En Repro Disseny fabricamos pizarras corporativas a medida con soportes de gran formato (Forex 5 mm, Dibond o plancha metálica) y acabado tipo Velleda, pensadas para uso real en oficina: reuniones, formación, planificación, lluvia de ideas y seguimiento de proyectos, con una superficie escribible y fácil de borrar.",
+      "bodyMd": "##Detalles \n\n¿Qué es una pizarra a medida y para qué se usa? \n\nEs un panel rígido fabricado a la medida que necesites y acabado con una superficie escritura/borrado en seco (tipo Velleda). La gran ventaja es que puedes elegir entre una pizarra totalmente blanca o una pizarra personalizada con tu diseño (por ejemplo, calendarios, kanban, objetivos, procesos, mapas o plantillas de reunión), manteniendo un uso cómodo y profesional en el día a día. \n\nBeneficios \n\nA medida y adaptada a tu sala: encaja en paredes, zonas de trabajo o salas de reunión sin limitarte a tamaños estándar. \n\nFuncional y corporativa: puedes trabajar con una pizarra blanca o con plantillas impresas (reuniones, KPIs, scrum, turnos, formación). \n\nFácil de borrar: superficie preparada para rotulador de borrado en seco. \n\nAcabado profesional y duradero: soportes rígidos pensados para uso intensivo en entornos corporativos. \n\nOpción magnética (si se fabrica sobre plancha metálica): ideal para imanes, notas y fichas de trabajo. \n\n##Aplicaciones \n\nSalas de reuniones: actas rápidas, brainstorming, planificación semanal/mensual. \n\nFormación y aulas internas: explicaciones, ejercicios, esquemas y dinámicas. \n\nGestión de proyectos: kanban, scrum, roadmaps, OKRs, control de tareas. \n\nOperaciones y producción: turnos, incidencias, checklist, calidad, mantenimiento. \n\nRecepción y comunicación interna: avisos, recordatorios, procedimientos rápidos. \n\n##Características técnicas \n\nSoportes disponibles \n\nForex 5 mm: ligero y práctico para interior. \n\nDibond: mayor estabilidad y acabado muy “fino” (ideal para una pizarra de presencia premium). \n\nPlancha metálica: opción ideal si necesitas uso con imanes (pizarra magnética). \n\nOpciones de acabado tipo Velleda \n\nVinilo convencional impreso + laminado Velleda transparente \n\nPermite imprimir una plantilla a cuatricromía a 1 cara (calendario, tabla, procesos, branding) y luego laminar con un acabado Velleda para escribir y borrar encima. \n\nVinilo Velleda blanco \n\nSuperficie blanca tipo pizarra, perfecta para escritura libre (y si lo necesitas, se pueden añadir elementos de diseño/rotulación puntual según el proyecto). \n\nFormato y corte \n\nFabricación a medida (alto x ancho). \n\nCorte recto o corte a la forma si necesitas una pieza especial. \n\nInstalación \n\nOpciones de colocación según el espacio: fijación a pared, montaje con separadores, adhesivos técnicos o soluciones específicas (en función de tamaño y soporte). \n\nRecomendación de uso \n\nUso con rotuladores de borrado en seco. \n\nPara mantener la superficie impecable, limpieza periódica con paño y producto adecuado (según intensidad de uso).",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/pizarra.webp",
         "width": 1200,
@@ -3656,18 +3659,18 @@
       "variants": [],
       "formFields": [],
       "seo": {
-        "metaTitle": "Pizarra",
-        "metaDescription": "Pizarra",
-        "canonical": "https://reprodisseny.com/productos/pizarra",
+        "metaTitle": "Pizarras personalizadas a medida | Superficie tipo Velleda para oficina",
+        "metaDescription": "Pizarras a medida para oficinas: Forex 5 mm, Dibond o plancha metálica. Vinilo impreso + laminado Velleda o vinilo Velleda blanco. Ideales para reuniones y formación. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/pizarras-personalizadas-a-medida",
         "hreflang": [],
         "keywords": [],
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Pizarra",
-          "description": "Pizarra",
+          "name": "Pizarras personalizadas a medida (tipo Velleda)",
+          "description": "Una pizarra no tiene por qué ser “la típica blanca”. En Repro Disseny fabricamos pizarras corporativas a medida con soportes de gran formato (Forex 5 mm, Dibond o plancha metálica) y acabado tipo Velleda, pensadas para uso real en oficina: reuniones, formación, planificación, lluvia de ideas y seguimiento de proyectos, con una superficie escribible y fácil de borrar.",
           "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/pizarra.webp",
-          "url": "https://reprodisseny.com/productos/pizarra",
+          "url": "https://reprodisseny.com/productos/pizarras-personalizadas-a-medida",
           "brand": {
             "@type": "Organization",
             "name": "Repro Disseny"
@@ -3678,12 +3681,13 @@
     {
       "id": "127",
       "type": "producto",
-      "slug": "papel-de-carta",
-      "path": "/productos/papel-de-carta",
-      "title": "Papel de carta",
+      "slug": "papel-de-carta-personalizado",
+      "path": "/productos/papel-de-carta-personalizado",
+      "title": "Papel de carta personalizado (hojas membretadas)",
       "categorySlug": "material-oficina",
       "isPublished": true,
-      "shortDescription": "Papel de carta",
+      "shortDescription": "El papel de carta sigue siendo un básico en empresa: presupuestos, cartas, contratos, comunicaciones internas o documentación oficial. En Repro Disseny imprimimos papel de carta personalizado con tu identidad corporativa, cuidando el papel y la impresión para que el resultado sea profesional, legible y coherente con tu marca.",
+      "bodyMd": "##Detalles \n\n¿Qué es el papel de carta y para qué se usa? \n\nEl papel de carta (o hoja membretada) es una hoja impresa con los datos e identidad de la empresa: logotipo, dirección, datos fiscales, web, teléfono y/o elementos gráficos corporativos. Se utiliza para documentación que debe transmitir formalidad y consistencia: comunicaciones a clientes, proveedores, administraciones o uso interno. \n\n##Beneficios \n\nImagen corporativa sólida: todo lo que envías queda alineado con tu marca. \n\nProfesionalidad y confianza: ideal para documentación formal (presupuestos, contratos, cartas). \n\nLegible y práctico: elección de papel adecuada para impresión y escritura. \n\nCoherencia con el resto de papelería: fácil de combinar con sobres, carpetas y tarjetas. \n\nVersiones por sede/departamento: si lo necesitas, podemos diferenciar datos sin perder el diseño base. \n\n##Aplicaciones \n\nPresupuestos y propuestas comerciales \n\nContratos y documentación legal \n\nComunicaciones a clientes/proveedores \n\nDocumentación administrativa (altas, certificados, notificaciones) \n\nUso interno (procedimientos, circulares, documentación de RRHH) \n\n##Características técnicas \n\nFormatos habituales \n\nA4 (el estándar) y A5 (notas, comunicaciones breves), además de formatos a medida si lo requieres. \n\nPapeles recomendados \n\nPapel de oficina de calidad para un uso diario eficiente. \n\nOpciones con más cuerpo si buscas una sensación más premium o documentos de presentación. \n\nOpciones recicladas si tu marca prioriza un enfoque más sostenible. \n\nImpresión \n\n1 tinta (corporativo sobrio y eficiente) o a todo color (si tu identidad lo requiere). \n\nImpresión a una cara (lo más habitual) o a doble cara si necesitas información adicional. \n\nDiseño y preparación \n\nMárgenes y “zona de escritura” pensados para que el documento sea cómodo de usar. \n\nPosibilidad de incluir elementos como pie legal, datos bancarios, referencias o QR (si aporta valor). \n\nSeries \n\nProducción de series por departamento, sede, marca o idioma, manteniendo coherencia visual.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/papel-carta.webp",
         "width": 1200,
@@ -3699,18 +3703,18 @@
       "variants": [],
       "formFields": [],
       "seo": {
-        "metaTitle": "Papel de carta",
-        "metaDescription": "Papel de carta",
-        "canonical": "https://reprodisseny.com/productos/papel-de-carta",
+        "metaTitle": "Papel de carta personalizado | Papelería corporativa profesional",
+        "metaDescription": "Papel de carta personalizado para empresas: hojas membretadas con tu identidad visual. Impresión a color o 1 tinta, en A4/A5, papeles de calidad y opciones por departamentos. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/papel-de-carta-personalizado",
         "hreflang": [],
         "keywords": [],
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Papel de carta",
-          "description": "Papel de carta",
+          "name": "Papel de carta personalizado (hojas membretadas)",
+          "description": "El papel de carta sigue siendo un básico en empresa: presupuestos, cartas, contratos, comunicaciones internas o documentación oficial. En Repro Disseny imprimimos papel de carta personalizado con tu identidad corporativa, cuidando el papel y la impresión para que el resultado sea profesional, legible y coherente con tu marca.",
           "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/papel-carta.webp",
-          "url": "https://reprodisseny.com/productos/papel-de-carta",
+          "url": "https://reprodisseny.com/productos/papel-de-carta-personalizado",
           "brand": {
             "@type": "Organization",
             "name": "Repro Disseny"
@@ -3721,12 +3725,13 @@
     {
       "id": "128",
       "type": "producto",
-      "slug": "sobres",
-      "path": "/productos/sobres",
-      "title": "Sobres",
+      "slug": "sobres-personalizados",
+      "path": "/productos/sobres-personalizados",
+      "title": "Sobres personalizados (papelería corporativa)",
       "categorySlug": "material-oficina",
       "isPublished": true,
-      "shortDescription": "Sobres",
+      "shortDescription": "Los sobres corporativos son una parte clave de la imagen de empresa: acompañan presupuestos, contratos y comunicaciones y transmiten profesionalidad desde el primer contacto. En Repro Disseny imprimimos sobres personalizados con tu identidad visual, en distintos formatos y opciones (con ventana, sin ventana, cierre adhesivo), para que todo lo que envíes vaya alineado con tu marca.",
+      "bodyMd": "##Detalles \n\n¿Qué son los sobres personalizados y para qué se usan? \n\nUn sobre personalizado es un sobre impreso con el diseño corporativo de la empresa (logo, dirección, datos de contacto, web, etc.). Se utiliza para enviar documentación comercial o administrativa y para reforzar la coherencia de marca en comunicaciones con clientes, proveedores y organismos. \n\n##Beneficios \n\nImagen profesional y coherente: refuerza tu marca incluso antes de abrir el sobre. \n\nMejor percepción de calidad: transmite orden y confianza en comunicaciones formales. \n\nAhorra tiempo: con datos impresos evitas sellos y etiquetas en envíos frecuentes. \n\nOpciones por uso real: con/sin ventana, distintos formatos y tipos de cierre. \n\nVersiones por sede o departamento: misma estética, datos adaptados si lo necesitas. \n\n##Aplicaciones \n\nEnvío de presupuestos y propuestas \n\nContratos y documentación legal \n\nFacturas y comunicaciones administrativas \n\nMailings corporativos (invitaciones, campañas, postales) \n\nDocumentación interna (mensajería entre sedes, RRHH, etc.) \n\n##Características técnicas \n\nFormatos habituales \n\nDL (americano): ideal para hojas A4 dobladas en tres (cartas y comunicaciones). \n\nC5: para A4 doblado a la mitad (documentación más cómoda). \n\nC4: para enviar A4 sin doblar (contratos, dossiers, presentaciones). \n\nOtros formatos disponibles según necesidad. \n\nCon o sin ventana \n\nCon ventana: agiliza envíos con documentos que ya incluyen dirección. \n\nSin ventana: más versátil para distintos tipos de envío y estética más limpia. \n\nImpresión \n\n1 tinta (corporativo sobrio y eficiente) o a todo color (si tu marca lo requiere). \n\nNormalmente a una cara, con posibilidad de impresión adicional según proyecto. \n\nPapel y cierre \n\nSobres con papeles estándar o de mayor calidad según imagen buscada. \n\nTipos de cierre: autoadhesivo, engomado u otras opciones según uso. \n\nSeries y versiones \n\nProducción por lotes con variantes por sede, departamento, marca o idioma manteniendo coherencia visual.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/sobres.webp",
         "width": 1200,
@@ -3742,18 +3747,18 @@
       "variants": [],
       "formFields": [],
       "seo": {
-        "metaTitle": "Sobres",
-        "metaDescription": "Sobres",
-        "canonical": "https://reprodisseny.com/productos/sobres",
+        "metaTitle": "Sobres personalizados | Sobres corporativos para empresas",
+        "metaDescription": "Sobres personalizados para empresas: formatos DL, C5, C4 y americano. Impresión a 1 tinta o color, con o sin ventana y opción de versiones por sede. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/sobres-personalizados",
         "hreflang": [],
         "keywords": [],
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Sobres",
-          "description": "Sobres",
+          "name": "Sobres personalizados (papelería corporativa)",
+          "description": "Los sobres corporativos son una parte clave de la imagen de empresa: acompañan presupuestos, contratos y comunicaciones y transmiten profesionalidad desde el primer contacto. En Repro Disseny imprimimos sobres personalizados con tu identidad visual, en distintos formatos y opciones (con ventana, sin ventana, cierre adhesivo), para que todo lo que envíes vaya alineado con tu marca.",
           "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/sobres.webp",
-          "url": "https://reprodisseny.com/productos/sobres",
+          "url": "https://reprodisseny.com/productos/sobres-personalizados",
           "brand": {
             "@type": "Organization",
             "name": "Repro Disseny"
@@ -3764,12 +3769,13 @@
     {
       "id": "129",
       "type": "producto",
-      "slug": "libretas",
-      "path": "/productos/libretas",
-      "title": "Libretas",
+      "slug": "libretas-personalizadas",
+      "path": "/productos/libretas-personalizadas",
+      "title": "Libretas personalizadas",
       "categorySlug": "material-oficina",
       "isPublished": true,
-      "shortDescription": "Libretas",
+      "shortDescription": "Las libretas corporativas son un clásico que funciona porque se usan de verdad: reuniones, formación, visitas comerciales y eventos. En Repro Disseny producimos libretas personalizadas con tu marca, cuidando el formato, el papel y la encuadernación para que el resultado sea cómodo, resistente y acorde a tu imagen.",
+      "bodyMd": "##Detalles \n\n¿Qué es una libreta personalizada y para qué se usa? \n\nUna libreta personalizada es un cuaderno con tapas y hojas interiores diseñado para escritura y toma de notas, con personalización exterior (y si se desea, interior) con identidad corporativa. Se utiliza como papelería interna, material de formación o detalle de marca en ferias y welcome packs, porque ofrece alta permanencia y refuerza imagen durante semanas o meses. \n\n##Beneficios \n\nAlta permanencia de marca: la libreta acompaña al usuario durante mucho tiempo. \n\nProfesional y útil: perfecta para reuniones, visitas y formación. \n\nPersonalización completa: portada, contraportada e interior (plantillas, cabeceras, etc.). \n\nAcabados premium: puedes elevar calidad percibida con laminados, soft touch o detalles especiales. \n\nVersátil por encuadernación: se adapta a uso intensivo, apertura en plano o look más “editorial”. \n\n##Aplicaciones \n\nOficina y equipos comerciales: reuniones, listas, seguimiento, briefings. \n\nFormación y onboarding: material para cursos internos, sesiones y workshops. \n\nEventos y ferias: welcome pack para asistentes, ponentes y clientes. \n\nMarcas y campañas: merchandising útil con retorno alto por uso real. \n\nFranquicias y sedes: libretas homogéneas con variantes por centro/departamento. \n\n##Características técnicas \n\nFormatos habituales \n\nA4 (máximo espacio), A5 (el más equilibrado), A6 (compacto) y formatos a medida. \n\nTapas \n\nTapa blanda: ligera y práctica para volumen. \n\nTapa dura: más resistente y con mayor calidad percibida (ideal para regalo corporativo). \n\nEncuadernación (según uso) \n\nWire-O / espiral: apertura 360º y en plano (muy cómoda para reuniones y formación). \n\nEncolada (tipo rústica): acabado más editorial. \n\nOtras opciones según proyecto (si buscas un efecto específico, lo planteamos). \n\nInterior \n\nHojas lisas, rayadas, cuadriculadas o con plantilla personalizada (reuniones, to-do, planning, checklist). \n\nImpresión interior a 1 tinta (muy habitual) o a color. \n\nOpcional: numeración, separadores o secciones. \n\nPapeles \n\nPapel interior pensado para escritura cómoda. \n\nElección de gramaje según el tipo de uso (bolígrafo, rotulador, etc.). \n\nAcabados recomendados \n\nLaminado mate o brillo en tapa (protección y durabilidad). \n\nSoft touch para un tacto premium. \n\nBarniz selectivo o stamping si quieres un detalle de marca más diferencial. \n\nEsquinas redondeadas (opcional) para mejor durabilidad y tacto. \n\nExtras útiles \n\nGoma elástica, marcapáginas o bolsillo (según modelo/proyecto). \n\nSeries por departamentos, sedes o eventos.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/libretas.webp",
         "width": 1200,
@@ -3785,18 +3791,18 @@
       "variants": [],
       "formFields": [],
       "seo": {
-        "metaTitle": "Libretas",
-        "metaDescription": "Libretas",
-        "canonical": "https://reprodisseny.com/productos/libretas",
+        "metaTitle": "Libretas personalizadas | Libretas corporativas para oficina, eventos y marca",
+        "metaDescription": "Libretas personalizadas para empresas: A4/A5/A6, tapa blanda o dura, encuadernación Wire-O/espiral o cosida/encolada. Opciones de papel, acabados premium y personalización. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/libretas-personalizadas",
         "hreflang": [],
         "keywords": [],
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Libretas",
-          "description": "Libretas",
+          "name": "Libretas personalizadas",
+          "description": "Las libretas corporativas son un clásico que funciona porque se usan de verdad: reuniones, formación, visitas comerciales y eventos. En Repro Disseny producimos libretas personalizadas con tu marca, cuidando el formato, el papel y la encuadernación para que el resultado sea cómodo, resistente y acorde a tu imagen.",
           "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/libretas.webp",
-          "url": "https://reprodisseny.com/productos/libretas",
+          "url": "https://reprodisseny.com/productos/libretas-personalizadas",
           "brand": {
             "@type": "Organization",
             "name": "Repro Disseny"
@@ -3917,12 +3923,13 @@
     {
       "id": "130",
       "type": "producto",
-      "slug": "talonarios-autocopiativos",
-      "path": "/productos/talonarios-autocopiativos",
-      "title": "Talonarios autocopiativos",
+      "slug": "talonarios-autocopiativos-personalizados",
+      "path": "/productos/talonarios-autocopiativos-personalizados",
+      "title": "Talonarios autocopiativos personalizados",
       "categorySlug": "material-oficina",
       "isPublished": true,
-      "shortDescription": "Talonarios autocopiativos",
+      "shortDescription": "Los talonarios autocopiativos siguen siendo imprescindibles en muchos negocios: permiten generar copias al instante sin impresora, con un formato ordenado y profesional. En Repro Disseny imprimimos autocopiativos personalizados para albaranes, pedidos, presupuestos, partes de trabajo o facturas, con opciones de numeración, perforado y configuraciones de copias según tu operativa.",
+      "bodyMd": "##Detalles \n\n¿Qué es un talonario autocopiativo y para qué se usa? \n\nUn talonario autocopiativo es un bloc de formularios que genera una o varias copias al escribir (normalmente con papel autocopiativo NCR). Se utiliza para entregar una copia al cliente y conservar otra para administración, almacén o técnico, agilizando procesos en campo, repartos, talleres, hostelería o empresas de servicios. \n\n##Beneficios \n\nCopias instantáneas: 2 o 3 copias (o más, según necesidad) sin impresora ni fotocopias. \n\nOperativa más rápida y ordenada: ideal para trabajos en ruta, almacén o mostrador. \n\nImagen profesional: documentos con tu marca y datos, listos para entregar. \n\nControl y trazabilidad: numeración y series para seguimiento interno. \n\nPersonalización completa: campos, tablas, condiciones, firmas y checklists adaptados a tu negocio. \n\n##Aplicaciones \n\nAlbaranes de entrega y recepción \n\nPedidos y órdenes de compra \n\nPartes de trabajo (SAT, mantenimiento, instalaciones) \n\nPresupuestos y autorizaciones de servicio \n\nFacturas simplificadas y tickets (según uso) \n\nHojas de caja y control interno \n\n##Características técnicas \n\nNúmero de copias \n\nDuplicado (2 copias): original + copia. \n\nTriplicado (3 copias): original + 2 copias (muy útil cuando intervienen cliente + administración + almacén/técnico). \n\nPosibilidad de organizar las copias por colores (según configuración) para identificar cada destino. \n\nFormato \n\nFormatos habituales: A4, A5, o a medida según tu operativa. \n\nOrientación vertical u horizontal según el tipo de tabla o campos. \n\nDiseño del formulario \n\nPersonalización de campos: datos de cliente, referencia, cantidades, IVA, condiciones, firma, observaciones, checklist, etc. \n\nPosibilidad de incluir pie legal, condiciones o instrucciones. \n\nNumeración y control \n\nNumeración correlativa por talonario o por juego (muy recomendable). \n\nSeries por sede, departamento o tipo de documento (si lo necesitas). \n\nPerforado \n\nPerforado para arrancado limpio. \n\nOpción de talón/resguardo si necesitas dividir copia para control interno. \n\nEncuadernación \n\nEncolado en bloc y opción de grapado según formato y uso. \n\nPosibilidad de incluir tapa (cartulina) para mayor resistencia en uso diario.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/talonarios-autocopiativos.webp",
         "width": 1200,
@@ -3938,18 +3945,18 @@
       "variants": [],
       "formFields": [],
       "seo": {
-        "metaTitle": "Talonarios autocopiativos",
-        "metaDescription": "Talonarios autocopiativos",
-        "canonical": "https://reprodisseny.com/productos/talonarios-autocopiativos",
+        "metaTitle": "Talonarios autocopiativos personalizados | Albaranes, pedidos y partes de trabajo",
+        "metaDescription": "Talonarios autocopiativos personalizados para empresa: 2 o 3 copias, numeración, perforado y formatos a medida. Ideales para albaranes, presupuestos y partes. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/talonarios-autocopiativos-personalizados",
         "hreflang": [],
         "keywords": [],
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Talonarios autocopiativos",
-          "description": "Talonarios autocopiativos",
+          "name": "Talonarios autocopiativos personalizados",
+          "description": "Los talonarios autocopiativos siguen siendo imprescindibles en muchos negocios: permiten generar copias al instante sin impresora, con un formato ordenado y profesional. En Repro Disseny imprimimos autocopiativos personalizados para albaranes, pedidos, presupuestos, partes de trabajo o facturas, con opciones de numeración, perforado y configuraciones de copias según tu operativa.",
           "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/talonarios-autocopiativos.webp",
-          "url": "https://reprodisseny.com/productos/talonarios-autocopiativos",
+          "url": "https://reprodisseny.com/productos/talonarios-autocopiativos-personalizados",
           "brand": {
             "@type": "Organization",
             "name": "Repro Disseny"
@@ -3960,12 +3967,13 @@
     {
       "id": "131",
       "type": "producto",
-      "slug": "sellos",
-      "path": "/productos/sellos",
-      "title": "Sellos",
+      "slug": "sellos-de-goma-personalizados",
+      "path": "/productos/sellos-de-goma-personalizados",
+      "title": "Sellos de goma personalizados",
       "categorySlug": "material-oficina",
       "isPublished": true,
-      "shortDescription": "Sellos",
+      "shortDescription": "Los sellos de goma siguen siendo imprescindibles en oficina: agilizan trámites, unifican documentación y aportan orden en el día a día. En Repro Disseny fabricamos sellos personalizados para empresas y profesionales, en formatos automáticos o manuales, con textos nítidos y resistentes para un uso frecuente.",
+      "bodyMd": "##Detalles \n\n¿Qué es un sello de goma y para qué se usa? \n\nUn sello de goma es una herramienta de marcado que permite estampar información repetitiva de forma rápida: razón social, CIF, dirección, fecha, firma, “pagado”, “recibido”, “copia”, etc. Se utiliza para gestión administrativa, control interno, logística y documentación comercial, evitando escribir a mano y manteniendo consistencia en todos los documentos. \n\n##Beneficios \n\nAhorra tiempo: marca documentos en segundos sin repetir datos a mano. \n\nImagen ordenada y profesional: documentación homogénea y clara. \n\nControl interno: ideal para estados (“pagado”, “revisado”, “urgente”) y trazabilidad. \n\nPersonalizable al 100%: textos, logos, fechas, firmas y formatos. \n\nDuradero: pensado para uso diario en oficina, recepción, almacén o administración. \n\n##Aplicaciones \n\nAdministración y contabilidad: datos fiscales, “pagado”, “contabilizado”, fechas. \n\nRecepción: “recibido”, entrada de documentación, sellos de registro. \n\nLogística y almacén: control de pedidos, entregas, revisiones. \n\nDepartamentos internos: aprobaciones, validaciones, incidencias. \n\nProfesionales: firmas, colegiados, clínicas, asesorías, arquitectos, etc. \n\n##Características técnicas \n\nTipos de sello \n\nSello automático: cómodo, rápido y limpio (tinta integrada). \n\nSello manual: requiere tampón, pero es una opción versátil y económica para usos puntuales. \n\nFormatos \n\nDiferentes tamaños según cantidad de texto y uso. \n\nFormatos habituales: rectangular (datos empresa), redondo (colegios/logos), cuadrado o a medida. \n\nPersonalización \n\nTexto (empresa, CIF, dirección, web, email). \n\nLogo (si lo necesitas integrado en el diseño). \n\nFechador (opcional) para marcar fecha automáticamente. \n\nSellos de estado: “pagado”, “copia”, “urgente”, “aprobado”, etc. \n\nTinta \n\nColores habituales (según disponibilidad): negro, azul, rojo… \n\nRecomendación práctica: negro o azul para documentación estándar; rojo para estados y avisos. \n\nCalidad de marcado \n\nDiseño ajustado para que tipografías y líneas se lean bien (especialmente en tamaños pequeños). \n\nPreparación del archivo para un grabado limpio y una estampación nítida.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/sellos.webp",
         "width": 1200,
@@ -3981,18 +3989,18 @@
       "variants": [],
       "formFields": [],
       "seo": {
-        "metaTitle": "Sellos",
-        "metaDescription": "Sellos",
-        "canonical": "https://reprodisseny.com/productos/sellos",
+        "metaTitle": "Sellos de goma personalizados | Sellos automáticos para empresa y oficina",
+        "metaDescription": "Sellos de goma personalizados para empresas: automáticos o manuales. Para datos fiscales, firmas, “pagado”, “recibido” y control interno. Entrega rápida. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/sellos-de-goma-personalizados",
         "hreflang": [],
         "keywords": [],
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Sellos",
-          "description": "Sellos",
+          "name": "Sellos de goma personalizados",
+          "description": "Los sellos de goma siguen siendo imprescindibles en oficina: agilizan trámites, unifican documentación y aportan orden en el día a día. En Repro Disseny fabricamos sellos personalizados para empresas y profesionales, en formatos automáticos o manuales, con textos nítidos y resistentes para un uso frecuente.",
           "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/sellos.webp",
-          "url": "https://reprodisseny.com/productos/sellos",
+          "url": "https://reprodisseny.com/productos/sellos-de-goma-personalizados",
           "brand": {
             "@type": "Organization",
             "name": "Repro Disseny"
@@ -4003,12 +4011,13 @@
     {
       "id": "132",
       "type": "producto",
-      "slug": "letras corporeas",
-      "path": "/productos/letras corporeas",
-      "title": "Letras corporeas",
+      "slug": "letras-corporeas-personalizadas",
+      "path": "/productos/letras-corporeas-personalizadas",
+      "title": "Letras corpóreas personalizadas",
       "categorySlug": "material-oficina",
       "isPublished": true,
-      "shortDescription": "Letras corporeas",
+      "shortDescription": "Las letras corpóreas aportan volumen, presencia y una imagen muy profesional en recepciones, fachadas, stands y espacios comerciales. En Repro Disseny fabricamos letras 3D a medida con distintos materiales y acabados, para que tu marca destaque con un rótulo elegante, duradero y alineado con tu identidad.",
+      "bodyMd": "##Detalles \n\n¿Qué son las letras corpóreas y para qué se usan? \n\nLas letras corpóreas son letras o logotipos en relieve (3D) fabricados mediante corte y fresado en materiales rígidos. Se utilizan para rotulación y branding en interior y exterior: recepción de empresa, pared de marca, escaparate, fachada, señalética o decoración de eventos. Aportan un efecto “premium” porque generan volumen y sombras, y mejoran la visibilidad desde distintos ángulos. \n\n##Beneficios \n\nImpacto visual y calidad percibida: la marca gana presencia gracias al volumen. \n\nAcabado profesional: ideal para recepciones, espacios corporativos y retail. \n\nPersonalización total: tipografía, tamaño, grosor, color y acabado. \n\nMateriales para cada entorno: opciones para interior y soluciones resistentes para exterior. \n\nInstalación limpia: posibilidad de montaje directo o con separadores (efecto flotante). \n\n##Aplicaciones \n\nRecepciones y oficinas: logotipo en pared, salas, señalética premium. \n\nRetail y showrooms: rótulos interiores, corners de marca, escaparates. \n\nFachadas: identificación de negocio y rotulación exterior (según material). \n\nFerias y eventos: stands, photocalls, fondos y escenografía. \n\nHostelería: rótulos interiores, zonas, barras y decoración con identidad. \n\n##Características técnicas \n\nMateriales habituales (según acabado y uso) \n\nPVC / Forex: muy versátil, buen volumen y acabado limpio (muy usado en interior). \n\nMetacrilato: efecto premium (brillo/transparente/opal) para un resultado más elegante. \n\nMadera (MDF / contrachapado): estética cálida y natural, ideal para interior y decoración. \n\nDibond: gran estabilidad y presencia, recomendable para piezas que deben mantener planitud. \n\nOtras combinaciones posibles según el proyecto (por ejemplo, base + frontal para efecto de color o contraste). \n\nGrosor y relieve \n\nDiferentes grosores según el tamaño y el nivel de presencia que buscas. \n\nPosibilidad de combinar capas para crear más volumen o efecto “doble material”. \n\nCorte y fresado \n\nCorte y mecanizado a medida para letras, logotipos y formas especiales. \n\nOpciones de cantos rectos o remates según el estilo del diseño. \n\nAcabados \n\nAcabado directo del material o con aplicación de color (según look deseado). \n\nOpciones premium (según proyecto): brillo, mate, texturas, etc. \n\nInstalación \n\nMontaje directo a pared o con separadores para efecto flotante. \n\nPreparación para instalación: plantillas de colocación, marcaje y sistemas de fijación (según superficie). \n\nRecomendación práctica: para elegir material y fijación conviene definir si irá en interior/exterior, la distancia de lectura y el tipo de pared/fachada.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/letras corporeas ok.webp",
         "width": 1200,
@@ -4024,18 +4033,18 @@
       "variants": [],
       "formFields": [],
       "seo": {
-        "metaTitle": "Letras corporeas",
-        "metaDescription": "Letras corporeas",
-        "canonical": "https://reprodisseny.com/productos/letras corporeas",
+        "metaTitle": "Letras corpóreas personalizadas | Rótulos 3D para interior y exterior",
+        "metaDescription": "Letras corpóreas personalizadas para rótulos y decoración: PVC, metacrilato, madera, Dibond y más. Corte y fresado a medida, opciones con separadores y montaje. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/letras-corporeas-personalizadas",
         "hreflang": [],
         "keywords": [],
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Letras corporeas",
-          "description": "Letras corporeas",
+          "name": "Letras corpóreas personalizadas",
+          "description": "Las letras corpóreas aportan volumen, presencia y una imagen muy profesional en recepciones, fachadas, stands y espacios comerciales. En Repro Disseny fabricamos letras 3D a medida con distintos materiales y acabados, para que tu marca destaque con un rótulo elegante, duradero y alineado con tu identidad.",
           "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/letras corporeas ok.webp",
-          "url": "https://reprodisseny.com/productos/letras corporeas",
+          "url": "https://reprodisseny.com/productos/letras-corporeas-personalizadas",
           "brand": {
             "@type": "Organization",
             "name": "Repro Disseny"
@@ -4046,12 +4055,13 @@
     {
       "id": "133",
       "type": "producto",
-      "slug": "placa-de-direccion",
-      "path": "/productos/placa-de-direccion",
-      "title": "Placa de dirección",
+      "slug": "placa-direccion-personalizada",
+      "path": "/productos/placa-direccion-personalizada",
+      "title": "Placa dirección personalizada",
       "categorySlug": "material-oficina",
       "isPublished": true,
-      "shortDescription": "Placa de dirección",
+      "shortDescription": "La placa de dirección es un elemento clave de señalética: ayuda a orientarse, mejora la experiencia de visita y aporta una imagen más profesional a la entrada, pasillos y despachos. En Repro Disseny fabricamos placas de dirección a medida con materiales resistentes y acabados cuidados, para que tu espacio sea más claro y coherente con tu marca.",
+      "bodyMd": "##Detalles \n\n¿Qué es una placa de dirección y para qué se usa? \n\nUna placa de dirección es una placa rígida con información de ubicación y orientación: nombres de salas, departamentos, plantas, flechas, horarios o normas. Se utiliza en oficinas, centros médicos, hoteles, centros educativos, naves y edificios públicos o privados para guiar a visitantes y empleados de forma rápida y ordenada. \n\n##Beneficios \n\nMejora la orientación: reduce dudas y facilita recorridos dentro del edificio. \n\nImagen profesional: señalética uniforme y alineada con tu marca. \n\nClaridad y accesibilidad: textos legibles, iconos y flechas para lectura rápida. \n\nDurabilidad: materiales pensados para uso continuo en zonas de paso. \n\nPersonalización por espacios: placas por salas, plantas, departamentos o sedes. \n\n##Aplicaciones \n\nOficinas: salas de reunión, departamentos, recepción, zonas comunes. \n\nCentros médicos y clínicas: consultas, especialidades, normas e indicaciones. \n\nHoteles y alojamientos: salas, accesos, servicios, zonas de eventos. \n\nCentros educativos: aulas, despachos, laboratorios, rutas. \n\nNaves y edificios: accesos, zonas de seguridad, rutas internas y señalización de áreas. \n\n##Características técnicas \n\nMateriales habituales (según estética y uso) \n\nMetacrilato: acabado premium, ideal para recepción y espacios corporativos. \n\nDibond: gran estabilidad y durabilidad, apto para interior y exterior. \n\nPVC/Forex: versátil y resistente para señalética interior. \n\nPlancha metálica (si necesitas opción magnética o un look industrial, según proyecto). \n\nFormatos y corte \n\nFormatos estándar o a medida. \n\nCorte recto o corte a medida (esquinas redondeadas, formas especiales). \n\nImpresión y rotulación \n\nImpresión directa o aplicación de vinilo (según material y acabado). \n\nPosibilidad de incluir pictogramas, flechas, colores por planta/departamento y QR (si aporta valor). \n\nSistemas de fijación \n\nMontaje con separadores (efecto flotante, muy profesional). \n\nFijación directa a pared (según material y superficie). \n\nAdhesivos técnicos para instalación limpia (según caso). \n\nDiseño orientado a lectura \n\nTipografía clara, buen contraste y jerarquía (nombre de sala/departamento primero). \n\nCodificación por colores o iconos para señalética por plantas o recorridos.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/placa-dirección.webp",
         "width": 1200,
@@ -4067,18 +4077,18 @@
       "variants": [],
       "formFields": [],
       "seo": {
-        "metaTitle": "Placa de dirección",
-        "metaDescription": "Placa de dirección",
-        "canonical": "https://reprodisseny.com/productos/placa-de-direccion",
+        "metaTitle": "Placa dirección personalizada | Señalética de oficinas y edificios",
+        "metaDescription": "Placa de dirección personalizada para oficinas, centros y edificios. Materiales premium (metacrilato, Dibond, PVC), corte a medida y opciones de fijación. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/placa-direccion-personalizada",
         "hreflang": [],
         "keywords": [],
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Placa de dirección",
-          "description": "Placa de dirección",
+          "name": "Placa dirección personalizada",
+          "description": "La placa de dirección es un elemento clave de señalética: ayuda a orientarse, mejora la experiencia de visita y aporta una imagen más profesional a la entrada, pasillos y despachos. En Repro Disseny fabricamos placas de dirección a medida con materiales resistentes y acabados cuidados, para que tu espacio sea más claro y coherente con tu marca.",
           "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/placa-dirección.webp",
-          "url": "https://reprodisseny.com/productos/placa-de-direccion",
+          "url": "https://reprodisseny.com/productos/placa-direccion-personalizada",
           "brand": {
             "@type": "Organization",
             "name": "Repro Disseny"
@@ -4755,12 +4765,13 @@
     {
       "id": "15",
       "type": "producto",
-      "slug": "calendarios",
-      "path": "/productos/calendarios",
-      "title": "Calendarios",
+      "slug": "calendarios-personalizados",
+      "path": "/productos/calendarios-personalizados",
+      "title": "Calendarios personalizados",
       "categorySlug": "material-oficina",
       "isPublished": true,
-      "shortDescription": "Calendarios",
+      "shortDescription": "Los calendarios personalizados son uno de los soportes con mayor permanencia: están visibles todo el año y refuerzan tu marca cada día. En Repro Disseny producimos calendarios corporativos para pared y sobremesa, con distintos formatos, papeles y acabados, pensados para regalo a clientes o uso interno, con una presentación profesional.",
+      "bodyMd": "##Detalles \n\n¿Qué es un calendario personalizado y para qué se usa? \n\nUn calendario personalizado es un calendario impreso con identidad corporativa (logo, colores, datos de contacto y/o imágenes de marca). Se utiliza como regalo corporativo y como herramienta de organización en oficina, recepción o punto de venta. Además, puede incluir información útil como festivos, campañas, eventos internos, horarios o QR a contacto/web. \n\n##Beneficios \n\nVisibilidad diaria de marca: presencia constante durante 12 meses. \n\nRegalo útil y apreciado: perfecto para clientes, partners y equipos. \n\nPersonalización total: diseño, fotos, mensajes, datos de contacto y QR. \n\nCoherencia corporativa: mantiene identidad visual en oficina y en clientes. \n\nOpciones para cada espacio: pared, sobremesa, bolsillo o formatos especiales. \n\n##Aplicaciones \n\nRegalo corporativo (Navidad / cierre de año). \n\nOficinas y recepción: organización interna y recordatorio de marca. \n\nPunto de venta: mostrador y atención al cliente. \n\nFranquicias y sedes: versiones por centro con el mismo diseño base. \n\nEmpresas con campañas: calendarios con hitos, lanzamientos o acciones planificadas. \n\n##Características técnicas \n\nTipos de calendario \n\nCalendario de pared: muy visible, ideal para clientes y oficinas. \n\nCalendario de sobremesa: práctico para escritorios y recepciones. \n\nCalendario de bolsillo: formato compacto tipo tarjeta (alta distribución). \n\nCalendarios a medida: formatos especiales según proyecto. \n\nFormatos y estructura \n\nTamaños estándar (A4/A3 y similares) o a medida. \n\nOpciones mensuales o anuales según el tipo. \n\nPosibilidad de incluir espacio para notas, recordatorios o planificación. \n\nPapeles y acabados \n\nPapeles con buena reproducción de color para imágenes y marca. \n\nOpciones mate (menos reflejos) o brillo (colores más vivos), según estilo. \n\nAcabados resistentes si va a manipularse mucho (por ejemplo, sobremesa). \n\nEncuadernación y montaje (según modelo) \n\nGrapado o wire/espiral para calendarios de pared (según diseño). \n\nBase rígida para sobremesa (estabilidad). \n\nOpciones de perforación para colgar (pared). \n\nPersonalización \n\nInclusión de datos de contacto, QR a web/WhatsApp/reservas, redes. \n\nVersiones por sede/departamento o por campañas. \n\nPosibilidad de integrar festivos regionales/municipales (si lo necesitas).",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/calendarios.webp",
         "width": 1200,
@@ -4842,9 +4853,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Calendarios | Repro Disseny",
-        "metaDescription": "Calendarios personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/calendarios",
+        "metaTitle": "Calendarios personalizados | Calendarios corporativos para empresas",
+        "metaDescription": "Calendarios personalizados para empresa: pared, sobremesa y bolsillo. Impresión a color, formatos a medida y acabados resistentes. Ideales como regalo corporativo. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/calendarios-personalizados",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -4861,10 +4872,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Calendarios",
-          "description": "Calendarios",
+          "name": "Calendarios personalizados",
+          "description": "Los calendarios personalizados son uno de los soportes con mayor permanencia: están visibles todo el año y refuerzan tu marca cada día. En Repro Disseny producimos calendarios corporativos para pared y sobremesa, con distintos formatos, papeles y acabados, pensados para regalo a clientes o uso interno, con una presentación profesional.",
           "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/calendarios.webp",
-          "url": "https://reprodisseny.com/productos/calendarios",
+          "url": "https://reprodisseny.com/productos/calendarios-personalizados",
           "sku": "01-OFICI-0025",
           "brand": {
             "@type": "Organization",
@@ -4876,12 +4887,13 @@
     {
       "id": "16",
       "type": "producto",
-      "slug": "carpetas-presentacion",
-      "path": "/productos/carpetas-presentacion",
-      "title": "Carpetas de presentación",
+      "slug": "carpetas-de-presentacion-personalizadas",
+      "path": "/productos/carpetas-de-presentacion-personalizadas",
+      "title": "Carpetas de presentación personalizadas",
       "categorySlug": "material-oficina",
       "isPublished": true,
-      "shortDescription": "Carpetas de presentación",
+      "shortDescription": "Las carpetas de presentación son un básico cuando quieres entregar presupuestos, propuestas o documentación con una imagen cuidada y profesional. En Repro Disseny imprimimos carpetas corporativas personalizadas con diferentes formatos, solapas y acabados, para que tu marca destaque desde el primer momento y la documentación llegue ordenada.",
+      "bodyMd": "##Detalles \n\n¿Qué es una carpeta de presentación y para qué se usa? \n\nUna carpeta de presentación es una carpeta impresa (normalmente con solapas) diseñada para contener documentos A4, catálogos, contratos o dossieres. Se utiliza en visitas comerciales, ferias, entregas a clientes y presentaciones internas para reforzar la imagen de marca y mejorar la organización de la documentación. \n\n##Beneficios \n\nMejora la calidad percibida: transmite profesionalidad y confianza en propuestas y entregas. \n\nDocumentación ordenada: evita hojas sueltas y mejora la experiencia del cliente. \n\nBranding coherente: alineada con tarjetas, papel de carta y sobres. \n\nOpciones funcionales: solapas, lomo, ranura para tarjeta, cierres… según uso. \n\nIdeal para ventas y ferias: perfecta para entregar catálogos, tarifas o presentaciones. \n\n##Aplicaciones \n\nPropuestas comerciales y presupuestos \n\nContratos y documentación legal \n\nFerias y visitas comerciales (carpeta + dossier + tarjeta) \n\nPresentaciones corporativas (memorias, catálogos, tarifas) \n\nFormación y documentación interna (manuales, onboarding, procedimientos) \n\n##Características técnicas \n\nFormatos habituales \n\nCarpeta para A4 (la más común), con opciones a medida según contenido. \n\nCon o sin lomo (recomendable si llevarás mucho papel o catálogos). \n\nEstructura \n\nSolapas interiores para sujetar documentación. \n\nHendido profesional para un plegado limpio y resistente. \n\nOpcional: ranura para tarjeta (muy útil en visitas comerciales). \n\nPosibilidad de cierres o sistemas especiales si lo requiere el proyecto. \n\nPapeles y soportes \n\nCartulinas de alto gramaje para aportar rigidez y presencia. \n\nOpciones mate o con textura si buscas un acabado más premium. \n\nImpresión \n\nImpresión a todo color a una o dos caras (según diseño). \n\nSeries por sede/departamento manteniendo coherencia visual. \n\nAcabados recomendados \n\nLaminado mate o brillo: protege de roces y mejora la durabilidad (mate suele ser más elegante). \n\nSoft touch: tacto premium. \n\nBarniz selectivo: resalta logo o detalles. \n\nStamping (metalizados): ideal para un acabado corporativo premium.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/carpetas-de-presentacion.webp",
         "width": 1200,
@@ -4898,9 +4910,9 @@
       "variants": [],
       "formFields": [],
       "seo": {
-        "metaTitle": "Carpetas de presentación | Repro Disseny",
-        "metaDescription": "Carpetas de presentación personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/carpetas-presentacion",
+        "metaTitle": "Carpetas de presentación personalizadas | Carpetas corporativas para empresas",
+        "metaDescription": "Carpetas de presentación personalizadas para propuestas y documentación. Con solapas, hendido, opción lomo y acabados premium (laminado, barniz, stamping). Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/carpetas-de-presentacion-personalizadas",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -4917,10 +4929,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Carpetas de presentación",
-          "description": "Carpetas de presentación",
+          "name": "Carpetas de presentación personalizadas",
+          "description": "Las carpetas de presentación son un básico cuando quieres entregar presupuestos, propuestas o documentación con una imagen cuidada y profesional. En Repro Disseny imprimimos carpetas corporativas personalizadas con diferentes formatos, solapas y acabados, para que tu marca destaque desde el primer momento y la documentación llegue ordenada.",
           "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/carpetas-de-presentacion.webp",
-          "url": "https://reprodisseny.com/productos/carpetas-presentacion",
+          "url": "https://reprodisseny.com/productos/carpetas-de-presentacion-personalizadas",
           "sku": "01-OFICI-0020",
           "brand": {
             "@type": "Organization",
@@ -4935,7 +4947,7 @@
       "slug": "cartas-restaurante-personalizadas",
       "path": "/productos/cartas-restaurante-personalizadas",
       "title": "Cartas de restaurante personalizadas",
-      "categorySlug": "hoteles-restaurantes",
+      "categorySlug": "hoteleria-restauracion",
       "isPublished": true,
       "shortDescription": "Una buena carta de restaurante no solo informa: vende, ordena la experiencia y refuerza la imagen del local. En Repro Disseny imprimimos cartas personalizadas con materiales y acabados pensados para el ritmo real de sala: resistencia a la manipulación, fácil limpieza (si se requiere) y una presentación profesional acorde con tu marca.",
       "bodyMd": "##Detalles \n\n¿Qué es una carta de restaurante y para qué se usa? \n\nLa carta es el documento principal donde presentas tu oferta: platos, bebidas, vinos, menús, alérgenos y propuestas especiales. Puede ser una carta fija o una base con insertos cambiables. Su objetivo es que el cliente entienda rápido lo que ofreces y que el equipo pueda trabajar con un soporte cómodo y duradero. \n\n##Beneficios \n\nMejor imagen de marca: una carta cuidada eleva la calidad percibida del restaurante. \n\nMás ventas por orden y claridad: una estructura bien presentada facilita la decisión (y el upselling). \n\nResistencia al uso diario: opciones de acabados para aguantar manos, roces y servicio intensivo. \n\nFácil de actualizar: formatos que permiten renovar por temporada o cambiar precios con agilidad. \n\nExperiencia más completa: posibilidad de integrar QR (carta digital, idiomas, reservas, reseñas). \n\n##Aplicaciones \n\nRestaurantes y bares: carta general, postres, bebidas, menús especiales. \n\nCafeterías: desayunos, meriendas, carta rápida, combos. \n\nTerrazas: cartas más resistentes para exterior. \n\nHoteles: carta de restaurante, room service, bufé y eventos. \n\nEventos y caterings: cartas temporales, menús cerrados y propuestas por servicio. \n\n##Características técnicas \n\nFormatos habituales \n\nA4 / A5, cuadradas o a medida según estilo y cantidad de contenido. \n\nCarta simple, díptico, tríptico o multipágina (tipo libreto). \n\nOpción de portacarta con hojas intercambiables si cambias precios/temporada con frecuencia. \n\nPapeles y soportes (según imagen y uso) \n\nPapeles con buen cuerpo para una sensación más “premium”. \n\nOpciones mate recomendadas para lectura cómoda (menos reflejos). \n\nAlternativas más resistentes cuando se prevé mucha manipulación. \n\nAcabados recomendados \n\nPlastificado/laminado mate o brillo: protege frente a roces y facilita limpieza (muy recomendable en hostelería). \n\nSoft touch (opcional): tacto premium para restaurantes de gama media/alta. \n\nEsquinas redondeadas: mejor durabilidad en uso diario. \n\nBarniz selectivo (opcional): resalta logo o detalles de portada. \n\nImpresión \n\nImpresión a todo color con buena reproducción para fotografía y marca. \n\nPosibilidad de varias versiones: idiomas, carta de vinos, carta de postres, menú del día, etc. \n\nExtras útiles \n\nQR a carta digital, reservas, alérgenos ampliados o encuestas. \n\nIconos de alérgenos y símbolos (picante, vegano, sin gluten…) para lectura rápida.",
@@ -5456,12 +5468,13 @@
     {
       "id": "23",
       "type": "producto",
-      "slug": "certificados",
-      "path": "/productos/certificados",
-      "title": "Certificados",
+      "slug": "certificados-personalizados",
+      "path": "/productos/certificados-personalizados",
+      "title": "Certificados personalizados",
       "categorySlug": "material-oficina",
       "isPublished": true,
-      "shortDescription": "Certificados",
+      "shortDescription": "Un certificado es más que un papel: valida un logro, una formación o una participación y refuerza la reputación de tu empresa o institución. En Repro Disseny imprimimos certificados personalizados con papeles de calidad y acabados profesionales, para que la entrega tenga presencia y transmita confianza.",
+      "bodyMd": "##Detalles \n\n¿Qué es un certificado y para qué se usa? \n\nUn certificado es un documento que acredita oficialmente algo: la asistencia a un curso, la superación de una formación, una participación en evento, una acreditación interna o un reconocimiento. Suele incluir nombre y apellidos, entidad emisora, fecha, firma/sello y, si se requiere, un identificador (numeración o QR) para control y validación. \n\n##Beneficios \n\nImagen profesional y fiable: transmite seriedad en formación, RRHH y eventos. \n\nMejora la experiencia de entrega: un buen papel y diseño elevan el valor percibido. \n\nPersonalización por destinatario: nombres, cursos, fechas, niveles, etc. con datos variables. \n\nControl y trazabilidad: numeración, series y QR para verificación. \n\nAcabados premium: opciones para certificados con mayor valor (reconocimientos, programas oficiales). \n\n##Aplicaciones \n\nFormación y academias: diplomas y certificados de asistencia/aprovechamiento. \n\nEmpresas (RRHH): certificaciones internas, onboarding, compliance, PRL. \n\nEventos: participación, ponencias, jurados, voluntariado, acreditaciones. \n\nInstituciones y entidades: reconocimientos, premios, jornadas y programas. \n\nCalidad y procesos: auditorías internas, validación de procedimientos, acreditaciones. \n\n##Características técnicas \n\nFormatos habituales \n\nA4 (el estándar) y opciones a medida según diseño. \n\nOrientación vertical u horizontal. \n\nPapeles recomendados \n\nPapeles de mayor gramaje para un acabado más serio y “de diploma”. \n\nOpciones con textura para un look premium e institucional. \n\nOpciones recicladas si buscas un enfoque más sostenible (cuando encaja con el uso). \n\nImpresión \n\nImpresión a color o 1–2 tintas según estilo (corporativo o institucional). \n\nPosibilidad de fondo con marca de agua/elementos gráficos para reforzar seguridad visual. \n\nPersonalización y control \n\nDatos variables: nombre, DNI/ID (si aplica), curso, horas, edición, etc. \n\nNumeración correlativa por series. \n\nQR opcional: verificación online, descarga de certificado, ficha del curso o registro. \n\nAcabados (opcionales) \n\nRelieve en seco (gofrado) para un acabado institucional sin tinta. \n\nStamping (dorado/plata) para títulos o logotipo. \n\nBarniz selectivo para resaltar detalles. \n\nPreparación para firma y sello (zona reservada y legible).",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/certificados.webp",
         "width": 1200,
@@ -5522,9 +5535,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Certificados | Repro Disseny",
-        "metaDescription": "Certificados personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/certificados",
+        "metaTitle": "Certificados personalizados | Impresión profesional para empresas y formación",
+        "metaDescription": "Certificados personalizados para cursos, eventos y empresas. Papeles premium, impresión a color, numeración, datos variables y acabados (sellos, stamping, relieve). Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/certificados-personalizados",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -5541,10 +5554,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Certificados",
-          "description": "Certificados",
+          "name": "Certificados personalizados",
+          "description": "Un certificado es más que un papel: valida un logro, una formación o una participación y refuerza la reputación de tu empresa o institución. En Repro Disseny imprimimos certificados personalizados con papeles de calidad y acabados profesionales, para que la entrega tenga presencia y transmita confianza.",
           "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/certificados.webp",
-          "url": "https://reprodisseny.com/productos/certificados",
+          "url": "https://reprodisseny.com/productos/certificados-personalizados",
           "sku": "01-OFICI-0030",
           "brand": {
             "@type": "Organization",
@@ -5559,7 +5572,7 @@
       "slug": "colgador-de-botellas-personalizado",
       "path": "/productos/colgador-de-botellas-personalizado",
       "title": "Colgador de botellas personalizado",
-      "categorySlug": "hoteles-restaurantes",
+      "categorySlug": "hoteleria-restauracion",
       "isPublished": true,
       "shortDescription": "El colgador de botellas es una pieza pequeña con un efecto enorme en ventas: se coloca directamente en el cuello de la botella y convierte el producto en un soporte promocional visible en lineal, barra o mesa. En Repro Disseny imprimimos colgadores personalizados con troquel a medida, buen gramaje y acabados opcionales para que aguanten manipulación y se vean profesionales.",
       "bodyMd": "##Detalles \n\n¿Qué es un colgador de botellas y para qué se usa? \n\nUn colgador de botellas es una tarjeta troquelada diseñada para colgarse del cuello de una botella (vino, cava, destilados, aceite gourmet, etc.). Se utiliza para destacar promociones, comunicar premios, proponer maridajes, incluir QR a ficha de producto o impulsar acciones como catas, packs regalo y lanzamientos. \n\nForma \n\n##Beneficios \n\nImpacto directo en el punto de decisión: el mensaje está literalmente encima del producto. \n\nMejora la conversión en lineal: perfecto para promos, novedades y campañas estacionales. \n\nBranding y storytelling: comunica origen, notas de cata, maridaje o valores de marca. \n\nPersonalización total: por campaña, referencia, lote, tienda o distribuidor. \n\nFácil de colocar: pieza ligera, rápida de instalar y de gran visibilidad. \n\n##Aplicaciones \n\nRetail y supermercados: promociones, descuentos, 2ª unidad, packs, regalo seguro. \n\nBodegas y marcas: lanzamientos, ediciones limitadas, premios/medallas, storytelling. \n\nHostelería: recomendación de vino/cóctel, QR a carta, sugerencias en barra. \n\nFerias y catas: identificación de referencias, notas de cata, acceso a ficha técnica. \n\nCampañas estacionales: Navidad, San Valentín, verano, lotes regalo. \n\n##Características técnicas \n\nFormato y troquel \n\nTroquel específico para cuello de botella, con orificio/ranura adaptado para que quede bien colgado. \n\nFormatos habituales: rectangulares, con esquinas redondeadas o formas personalizadas (siluetas, medallas, etiquetas grandes). \n\nOpción de doble cara para aprovechar mejor el mensaje (promo delante + ficha/QR detrás). \n\nMaterial \n\nCartulinas de buen gramaje para que el colgador tenga cuerpo y no se deforme. \n\nOpciones más resistentes si va a manipularse mucho o se usa en campaña larga. \n\nImpresión \n\nImpresión a todo color para destacar marca y mensajes de promo. \n\nVersiones por referencia (vino tinto/blanco/rosado, añadas, formatos) sin perder coherencia visual. \n\nAcabados recomendados \n\nLaminado mate o brillo: mejora resistencia al roce y la presencia (mate suele reducir reflejos en tienda). \n\nEsquinas redondeadas: mayor durabilidad y mejor tacto. \n\nOpciones premium (si aplica): barniz selectivo para resaltar logo o claim. \n\nExtras útiles \n\nQR a ficha de producto, video, notas de cata, maridajes, promociones o registro. \n\nDatos variables (si necesitas series por lote o campañas con códigos).",
@@ -5819,7 +5832,7 @@
       "isPublished": true,
       "shortDescription": "Encuadernación  cosida tapa dura",
       "image": {
-        "src": "https://webcms.blob.core.windows.net/media/product/publicaciones/encuadernacion cosida-tapa-dura.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/publicaciones/encuadernacion-cosida-tapa-dura.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -5939,7 +5952,7 @@
           "@type": "Product",
           "name": "Encuadernación  cosida tapa dura",
           "description": "Encuadernación  cosida tapa dura",
-          "image": "https://webcms.blob.core.windows.net/media/product/publicaciones/encuadernacion cosida-tapa-dura.webp",
+          "image": "https://webcms.blob.core.windows.net/media/product/publicaciones/encuadernacion-cosida-tapa-dura.webp",
           "url": "https://reprodisseny.com/productos/cosida-tapa-dura",
           "sku": "01-PUBLI-0004",
           "brand": {
@@ -6167,7 +6180,8 @@
       "title": "Agendas personalizadas",
       "categorySlug": "material-oficina",
       "isPublished": true,
-      "shortDescription": "Agendas personalizadas",
+      "shortDescription": "Las agendas personalizadas son un regalo corporativo útil y con alta permanencia: se usan a diario y mantienen tu marca presente durante todo el año. En Repro Disseny producimos agendas corporativas con diferentes formatos, tapas y encuadernaciones, y con opción de interior estándar o personalizado para adaptarlas a tu forma de trabajar (reuniones, planificación, objetivos, etc.).",
+      "bodyMd": "##Detalles \n\n¿Qué es una agenda personalizada y para qué se usa? \n\nUna agenda personalizada es una libreta/planificador con estructura de calendario (diaria, semanal o mensual) que incluye la identidad visual de la empresa en portada (y si se desea, también en el interior). Se utiliza para organización interna, planificación de equipos, packs de bienvenida, acciones comerciales y regalos a clientes o partners, porque combina utilidad real + imagen de marca. \n\n##Beneficios \n\nMarca presente todo el año: alta permanencia y uso diario. \n\nÚtil de verdad: mejora la organización de equipo, reuniones y planificación. \n\nCalidad percibida: transmite profesionalidad en regalos corporativos. \n\nPersonalización completa: portada, contraportada e interior (plantillas, secciones, KPI, reuniones). \n\nPerfecta para acciones comerciales: ideal para fidelización, packs y campañas de fin de año. \n\n##Aplicaciones \n\nAgendas corporativas para empleados (uso interno y planificación). \n\nRegalo a clientes y partners (Navidad, cierre de año, acciones comerciales). \n\nWelcome packs (incorporaciones, formación, eventos). \n\nEquipos comerciales: seguimiento de leads, visitas, rutas, objetivos. \n\nCentros y entidades: organización de cursos, academias, asociaciones. \n\n##Características técnicas \n\nFormatos habituales \n\nA5 (el más cómodo para diario), A4 (más espacio) y formatos a medida. \n\nTipos de agenda \n\nSemanal (muy habitual): visión clara de la semana. \n\nDiaria: más espacio para anotaciones y tareas. \n\nMensual: visión rápida para planificación general. \n\nOpción de combinar secciones (mensual + semanal + notas). \n\nTapas \n\nTapa blanda: ligera y práctica. \n\nTapa dura: más resistente y premium (ideal para regalo corporativo). \n\nEncuadernación \n\nWire-O: apertura 360º y en plano (muy práctica). \n\nEncolada/cosida: acabado más “editorial”, según el estilo de agenda. \n\nInterior personalizado (opcional) \n\nSecciones a medida: reuniones, to-do, planning, objetivos, proyectos, contactos, KPI. \n\nPersonalización por departamentos o sedes si lo necesitas. \n\nAcabados recomendados \n\nLaminado mate o brillo en tapa para proteger (mate suele ser más elegante). \n\nSoft touch para un tacto premium. \n\nBarniz selectivo o stamping para detalles de marca (logo/título). \n\nExtras opcionales según modelo: goma elástica, marcapáginas, bolsillo interior.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/agendas-personalizadas.webp",
         "width": 1200,
@@ -6259,8 +6273,8 @@
         }
       ],
       "seo": {
-        "metaTitle": "Agendas personalizadas | Repro Disseny",
-        "metaDescription": "Agendas personalizadas personalizadas con calidad profesional en Cataluña.",
+        "metaTitle": "Agendas personalizadas | Agendas corporativas para equipos, clientes y eventos",
+        "metaDescription": "Agendas personalizadas para empresa: formatos A5/A4, tapa blanda o dura, encuadernación Wire-O o cosida/encolada y opción de interior personalizado. Ideal para regalos corporativos. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/agendas-personalizadas",
         "hreflang": [
           {
@@ -6279,7 +6293,7 @@
           "@context": "https://schema.org",
           "@type": "Product",
           "name": "Agendas personalizadas",
-          "description": "Agendas personalizadas",
+          "description": "Las agendas personalizadas son un regalo corporativo útil y con alta permanencia: se usan a diario y mantienen tu marca presente durante todo el año. En Repro Disseny producimos agendas corporativas con diferentes formatos, tapas y encuadernaciones, y con opción de interior estándar o personalizado para adaptarlas a tu forma de trabajar (reuniones, planificación, objetivos, etc.).",
           "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/agendas-personalizadas.webp",
           "url": "https://reprodisseny.com/productos/agendas-personalizadas",
           "sku": "01-OFICI-0024",
@@ -6717,7 +6731,7 @@
       "slug": "diptico-habitacion",
       "path": "/productos/diptico-habitacion",
       "title": "Díptico tarjeta habitación",
-      "categorySlug": "hoteles-restaurantes",
+      "categorySlug": "hoteleria-restauracion",
       "isPublished": true,
       "shortDescription": "Díptico tarjeta habitación",
       "image": {
@@ -6946,12 +6960,13 @@
     {
       "id": "36",
       "type": "producto",
-      "slug": "displays",
-      "path": "/productos/displays",
-      "title": "Displays",
+      "slug": "displays-de-mesa-personalizados",
+      "path": "/productos/displays-de-mesa-personalizados",
+      "title": "Displays de mesa personalizados",
       "categorySlug": "material-publicitario",
       "isPublished": true,
-      "shortDescription": "Displays",
+      "shortDescription": "Los displays de mesa colocan tu mensaje justo donde se decide: en el mostrador, la mesa o la recepción. Son ideales para promociones, precios, lanzamientos, QR a catálogo o reservas. En Repro Disseny fabricamos displays sobremesa con formatos estables, impresión nítida y acabados pensados para el uso diario en punto de venta.",
+      "bodyMd": "##Detalles \n\n¿Qué es un display de mesa y para qué se usa? \n\nUn display de mesa es un expositor pequeño y autoportante que se coloca sobre una superficie (mostrador, mesa, barra) para comunicar de forma directa: ofertas, menús, información, instrucciones o campañas. A diferencia de una hoja suelta, el display se mantiene en pie, se ve mejor y da una imagen más profesional. \n\n##Beneficios \n\nVisibilidad en el punto de decisión: perfecto para caja, barra o recepción. \n\nImpulsa ventas: ideal para destacar promos, upselling, combos o lanzamientos. \n\nFormato estable y profesional: pensado para mantenerse en pie y durar. \n\nActualizable por campañas: fácil de renovar por temporadas o cambios de precio. \n\nMedible: con QR a landing, catálogo, reseñas, reserva o contacto. \n\n##Aplicaciones \n\nRetail: ofertas, precios, lanzamientos, campañas estacionales, info de producto. \n\nHostelería: promos, postres, bebidas, menú del día, QR a carta digital. \n\nServicios: clínicas, gimnasios, academias (promos, avisos, horarios). \n\nFerias y stands: precios, packs, QR a formulario o catálogo. \n\nOficinas/recepciones: información, instrucciones, protocolos o bienvenida. \n\n##Características técnicas \n\nFormatos habituales \n\nTamaños estándar: A4 (mostrador), A5/A6 (mesa), DL o a medida. \n\nOrientación vertical u horizontal. \n\nTipos de display \n\nTipo “tienda” (triangular): muy estable y visible por ambos lados. \n\nEn “L” con base: ideal para mostrador y recepción. \n\nPlaca con peana: opción más rígida y reutilizable (según necesidad). \n\nMateriales \n\nCartulina de alto gramaje para campañas y uso normal. \n\nOpción montado sobre cartón compacto para más rigidez y presencia (muy recomendado en mostrador). \n\nOpciones más resistentes si se va a manipular mucho o se reutiliza. \n\nImpresión y personalización \n\nImpresión a todo color a una o dos caras. \n\nDatos variables si necesitas versiones por tienda, idioma, zona o producto. \n\nQR opcional para canje, reservas, catálogo, WhatsApp o reseñas. \n\nAcabados recomendados \n\nLaminado mate o brillo para proteger y facilitar limpieza (mate suele reducir reflejos). \n\nHendido profesional en plegados para un montaje limpio y estable. \n\nEsquinas redondeadas (opcional) para mejorar durabilidad.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/expositores/display.webp",
         "width": 1200,
@@ -7082,9 +7097,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Displays | Repro Disseny",
-        "metaDescription": "Displays personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/displays",
+        "metaTitle": "Displays de mesa personalizados | Publicidad en mostrador y punto de venta",
+        "metaDescription": "Displays de mesa personalizados para promociones y comunicación en mostrador. Formatos A4/A5/A6, autoportantes, a una o dos caras y con acabados resistentes. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/displays-de-mesa-personalizados",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -7101,10 +7116,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Displays",
-          "description": "Displays",
+          "name": "Displays de mesa personalizados",
+          "description": "Los displays de mesa colocan tu mensaje justo donde se decide: en el mostrador, la mesa o la recepción. Son ideales para promociones, precios, lanzamientos, QR a catálogo o reservas. En Repro Disseny fabricamos displays sobremesa con formatos estables, impresión nítida y acabados pensados para el uso diario en punto de venta.",
           "image": "https://webcms.blob.core.windows.net/media/product/expositores/display.webp",
-          "url": "https://reprodisseny.com/productos/displays",
+          "url": "https://reprodisseny.com/productos/displays-de-mesa-personalizados",
           "sku": "01-EXPO-0008",
           "brand": {
             "@type": "Organization",
@@ -9438,7 +9453,7 @@
       "slug": "hule-personalizado",
       "path": "/productos/hule-personalizado",
       "title": "Hule personalizado",
-      "categorySlug": "hoteles-restaurantes",
+      "categorySlug": "hoteleria-restauracion",
       "isPublished": true,
       "shortDescription": "Hule personalizado",
       "image": {
@@ -9640,7 +9655,7 @@
       "slug": "identificador-maleta",
       "path": "/productos/identificador-maleta",
       "title": "Identificador de maleta",
-      "categorySlug": "hoteles-restaurantes",
+      "categorySlug": "hoteleria-restauracion",
       "isPublished": true,
       "shortDescription": "Identificador de maleta",
       "image": {
@@ -10267,7 +10282,7 @@
       "slug": "manteles-individuales",
       "path": "/productos/manteles-individuales",
       "title": "Manteles individuales de mesa",
-      "categorySlug": "hoteles-restaurantes",
+      "categorySlug": "hoteleria-restauracion",
       "isPublished": true,
       "shortDescription": "Manteles individuales de mesa",
       "image": {
@@ -11651,12 +11666,13 @@
     {
       "id": "8",
       "type": "producto",
-      "slug": "banderolas-lineal",
-      "path": "/productos/banderolas-lineal",
-      "title": "Banderolas lineal",
+      "slug": "banderolas-lineal-personalizadas",
+      "path": "/productos/banderolas-lineal-personalizadas",
+      "title": "Banderolas de lineal personalizadas",
       "categorySlug": "material-publicitario",
       "isPublished": true,
-      "shortDescription": "Banderolas lineal",
+      "shortDescription": "Las banderolas de lineal son una pieza de PLV muy efectiva para aumentar la visibilidad de un producto en estantería: sobresalen del lineal y ayudan a captar la atención justo en el momento de compra. En Repro Disseny fabricamos banderolas personalizadas con impresión de calidad, soportes adecuados y sistemas de fijación pensados para montaje rápido en tienda.",
+      "bodyMd": "##Detalles \n\n¿Qué es una banderola de lineal y para qué se usa? \n\nUna banderola de lineal es un elemento publicitario que se coloca en estanterías o góndolas (normalmente en el borde o en un rail) y queda visible por encima o delante del producto. Se utiliza para destacar ofertas, novedades, packs, promociones temporales o mensajes como “Nuevo”, “Top ventas”, “Edición limitada”, etc. \n\n##Beneficios \n\nMás visibilidad en el lineal: destaca por encima del ruido visual de la estantería. \n\nMejora la conversión: ideal para empujar una referencia concreta (promo, lanzamiento, producto estrella). \n\nMensaje rápido: perfecto para claims cortos y directos (2x1, -20%, nuevo, recomendado). \n\nPersonalización por campaña y tienda: versiones por zona, idioma, categoría o tipo de punto de venta. \n\nFácil de instalar y cambiar: pensadas para rotación de campañas sin complicar la operativa. \n\n##Aplicaciones \n\nSupermercados y retail: campañas estacionales, promociones, lanzamientos y señalización por categoría. \n\nFarmacia/parafarmacia: novedades, recomendados, campañas por laboratorio. \n\nTiendas especializadas: producto destacado, packs, descuentos por tiempo limitado. \n\nShowrooms y corners: refuerzo visual en exposición de producto. \n\nFerias o pop-ups: señalización rápida en estanterías o muebles temporales. \n\n##Características técnicas \n\nFormatos \n\nMedidas estándar o a medida según la estantería y el espacio disponible. \n\nFormatos habituales: vertical tipo “banderín”, rectangular o con formas especiales (flecha, bocadillo, silueta). \n\nImpresión a una o dos caras si se verá desde ambos sentidos del pasillo. \n\nMateriales \n\nSoportes ligeros pero estables para mantener forma y buena lectura. \n\nOpciones más resistentes si la campaña dura más o habrá mucha manipulación. \n\nImpresión \n\nImpresión a todo color con buena definición para textos grandes, iconos y logos. \n\nSeries por campaña con variantes (precio, claim, color de familia, etc.). \n\nCorte y acabados \n\nCorte recto o corte a medida/troquelado para formas llamativas. \n\nLaminado opcional si necesitas más resistencia al roce o limpieza. \n\nEsquinas redondeadas (opcional) para mejorar durabilidad. \n\nSistema de fijación \n\nPreparación según el lineal: rail, pinza, adhesivo, pestaña/encaje u otros sistemas habituales en PLV. \n\nSi nos dices el tipo de estantería o el sistema que usáis, lo adaptamos para que encaje perfecto.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/banderolas-lineal.webp",
         "width": 1200,
@@ -11710,9 +11726,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Banderolas lineal | Repro Disseny",
-        "metaDescription": "Banderolas lineal personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/banderolas-lineal",
+        "metaTitle": "Banderolas de lineal personalizadas | Visibilidad en estantería y punto de venta",
+        "metaDescription": "Banderolas de lineal personalizadas para destacar promociones y lanzamientos en estanterías. Impresión a color, corte a medida y sistemas de fijación. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/banderolas-lineal-personalizadas",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -11729,10 +11745,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Banderolas lineal",
-          "description": "Banderolas lineal",
+          "name": "Banderolas de lineal personalizadas",
+          "description": "Las banderolas de lineal son una pieza de PLV muy efectiva para aumentar la visibilidad de un producto en estantería: sobresalen del lineal y ayudan a captar la atención justo en el momento de compra. En Repro Disseny fabricamos banderolas personalizadas con impresión de calidad, soportes adecuados y sistemas de fijación pensados para montaje rápido en tienda.",
           "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/banderolas-lineal.webp",
-          "url": "https://reprodisseny.com/productos/banderolas-lineal",
+          "url": "https://reprodisseny.com/productos/banderolas-lineal-personalizadas",
           "sku": "01-OFICI-0011",
           "brand": {
             "@type": "Organization",
@@ -11747,7 +11763,7 @@
       "slug": "portacuentas",
       "path": "/productos/portacuentas",
       "title": "Portacuentas",
-      "categorySlug": "hoteles-restaurantes",
+      "categorySlug": "hoteleria-restauracion",
       "isPublished": true,
       "shortDescription": "Portacuentas",
       "image": {
@@ -11863,7 +11879,7 @@
       "slug": "posavasos",
       "path": "/productos/posavasos",
       "title": "Posavasos",
-      "categorySlug": "hoteles-restaurantes",
+      "categorySlug": "hoteleria-restauracion",
       "isPublished": true,
       "shortDescription": "Posavasos",
       "image": {
