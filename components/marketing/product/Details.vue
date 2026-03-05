@@ -1,103 +1,143 @@
 <script setup lang="ts">
-import { ref, computed, watchEffect } from "vue"
+import { computed, ref, watchEffect } from "vue"
+import { cn } from "@/lib/utils"
+
+import CategoryBlocks from "@/components/marketing/category/CategoryBlocks.vue"
+import { TabsRoot, TabsList, TabsTrigger, TabsContent } from "reka-ui"
 
 type Block = { type: string; [k: string]: any }
 type Tab = { id?: string; title: string; blocks?: Block[] }
 
-const props = defineProps<{ tabs: Tab[] }>()
-const safeTabs = computed(() =>
-  (props.tabs || [])
-    .filter((t) => t?.title)
-    .map((t, i) => ({ ...t, id: t.id || `tab-${i}` }))
+const props = withDefaults(
+  defineProps<{
+    tabs: Tab[]
+    /** id por defecto (sin #) */
+    defaultId?: string
+    /** sincroniza hash (#acabados) para compartir enlace */
+    syncHash?: boolean
+    /** barra sticky opcional */
+    stickyTop?: number | null
+    class?: string
+    panelClass?: string
+  }>(),
+  {
+    defaultId: "",
+    syncHash: true,
+    stickyTop: null,
+    class: "",
+    panelClass: "",
+  }
 )
 
-const active = ref<string>("")
+function slugify(v: string) {
+  return String(v ?? "")
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/[^\w-]/g, "")
+}
+
+const safeTabs = computed(() =>
+  (props.tabs || [])
+    .filter((t) => String(t?.title ?? "").trim())
+    .map((t, i) => ({
+      ...t,
+      id: slugify(t.id || t.title) || `tab-${i}`,
+      blocks: (t.blocks || []).filter(Boolean),
+    }))
+)
+
+const active = ref("")
 
 watchEffect(() => {
-  if (!active.value && safeTabs.value.length) active.value = safeTabs.value[0].id!
-})
+  const list = safeTabs.value
+  if (!list.length) return
 
-const activeTab = computed(() => safeTabs.value.find((t) => t.id === active.value))
-
-function onKeydown(e: KeyboardEvent) {
-  const tabs = safeTabs.value
-  if (!tabs.length) return
-
-  const idx = tabs.findIndex((t) => t.id === active.value)
-  if (idx < 0) return
-
-  const move = (nextIdx: number) => {
-    active.value = tabs[nextIdx].id!
-    requestAnimationFrame(() => {
-      document.getElementById(`tab-${tabs[nextIdx].id}`)?.focus()
-    })
+  const wanted = (props.defaultId || "").replace(/^#/, "")
+  if (!active.value) {
+    // 1) defaultId prop
+    if (wanted && list.some((t) => t.id === wanted)) {
+      active.value = wanted
+      return
+    }
+    // 2) hash de URL
+    if (props.syncHash && process.client) {
+      const hash = window.location.hash.replace(/^#/, "")
+      if (hash && list.some((t) => t.id === hash)) {
+        active.value = hash
+        return
+      }
+    }
+    // 3) primera tab
+    active.value = list[0].id
+    return
   }
 
-  if (e.key === "ArrowRight") { e.preventDefault(); move((idx + 1) % tabs.length) }
-  if (e.key === "ArrowLeft") { e.preventDefault(); move((idx - 1 + tabs.length) % tabs.length) }
-  if (e.key === "Home") { e.preventDefault(); move(0) }
-  if (e.key === "End") { e.preventDefault(); move(tabs.length - 1) }
+  // Si el activo desaparece, repara
+  if (!list.some((t) => t.id === active.value)) active.value = list[0].id
+})
+
+function onValueChange(id: string) {
+  if (!props.syncHash || !process.client) return
+  if (!id) return
+  const target = `#${id}`
+  if (window.location.hash === target) return
+  history.replaceState(null, "", target)
 }
 </script>
 
 <template>
-  <div class="w-full max-w-[1000px]">
-    <!-- Tablist -->
-    <div
-      role="tablist"
-      aria-label="Información"
-      class="flex flex-wrap gap-2"
-      @keydown="onKeydown"
-    >
-      <button
-        v-for="t in safeTabs"
-        :key="t.id"
-        :id="`tab-${t.id}`"
-        role="tab"
-        type="button"
-        :aria-selected="active === t.id"
-        :tabindex="active === t.id ? 0 : -1"
-        :aria-controls="`panel-${t.id}`"
-        @click="active = t.id!"
-        class="h-[38px] px-4 rounded-[6px] text-[16px] leading-[22px] text-[#212121] transition-colors"
-        :class="active === t.id ? 'bg-[#EFEFEF]' : 'bg-white'"
+  <section v-if="safeTabs.length" :class="cn('w-full', props.class)">
+    <TabsRoot v-model="active" class="w-full" @update:value="onValueChange">
+      <!-- Tabs bar (underline, igual que categorías) -->
+      <div
+        :class="cn(
+          'rounded-xl border border-slate-200 bg-white',
+          stickyTop != null ? 'sticky z-40 backdrop-blur supports-[backdrop-filter]:bg-white/80' : ''
+        )"
+        :style="stickyTop != null ? { top: `${stickyTop}px` } : undefined"
       >
-        {{ t.title }}
-      </button>
-    </div>
+        <TabsList class="no-scrollbar flex w-full items-center gap-6 overflow-x-auto px-5">
+          <TabsTrigger
+            v-for="t in safeTabs"
+            :key="t.id"
+            :value="t.id"
+            class="relative -mb-px whitespace-nowrap py-4 text-sm font-medium text-slate-600
+                   outline-none transition-colors
+                   data-[state=active]:text-slate-900
+                   data-[state=active]:after:absolute data-[state=active]:after:left-0 data-[state=active]:after:right-0
+                   data-[state=active]:after:bottom-0 data-[state=active]:after:h-[2px] data-[state=active]:after:bg-primary
+                   focus-visible:ring-2 focus-visible:ring-ring/40"
+          >
+            {{ t.title }}
+          </TabsTrigger>
+        </TabsList>
+      </div>
 
-    <!-- Panel -->
-    <div
-      :id="`panel-${activeTab?.id}`"
-      role="tabpanel"
-      :aria-labelledby="activeTab?.id ? `tab-${activeTab.id}` : undefined"
-      class="mt-4 w-full p-6 bg-white border border-[#959595] rounded-[6px] shadow-[0px_4px_6px_rgba(0,0,0,0.09)]"
-    >
-      <template v-if="activeTab?.blocks?.length">
-        <template v-for="(b, idx) in activeTab.blocks" :key="idx">
-          <p v-if="b.type === 'text'" class="text-[16px] leading-[22.4px] text-[#212121]">
-            {{ b.text }}
-          </p>
+      <!-- Panel (card) -->
+      <div :class="cn('mt-6 rounded-2xl border border-slate-200 bg-white shadow-sm', props.panelClass)">
+        <TabsContent
+          v-for="t in safeTabs"
+          :key="t.id"
+          :value="t.id"
+          class="px-6 py-10 md:px-10 md:py-12"
+        >
+          <!-- Puedes ocultar el H2 si no lo quieres visualmente: class="sr-only" -->
+          <h2 class="mb-6 text-2xl font-semibold text-foreground">
+            {{ t.title }}
+          </h2>
 
-          <ul v-else-if="b.type === 'bullets'" class="list-disc pl-5 space-y-2">
-            <li
-              v-for="(it, j) in b.items || []"
-              :key="j"
-              class="text-[16px] leading-[22.4px] text-[#212121]"
-            >
-              {{ it }}
-            </li>
-          </ul>
-
-          <!-- Si quieres imágenes -->
-          <figure v-else-if="b.type === 'image'" class="mt-4">
-            <img :src="b.src" :alt="b.alt || activeTab.title" class="w-full rounded-md" loading="lazy" />
-            <figcaption v-if="b.caption" class="mt-2 text-sm text-gray-600">{{ b.caption }}</figcaption>
-          </figure>
-        </template>
-      </template>
-
-      <p v-else class="text-sm text-gray-600">Contenido no disponible.</p>
-    </div>
-  </div>
+          <!-- Reutiliza tu renderer de bloques -->
+          <CategoryBlocks :blocks="(t.blocks as any)" />
+        </TabsContent>
+      </div>
+    </TabsRoot>
+  </section>
 </template>
+
+<style scoped>
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+</style>

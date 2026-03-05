@@ -10,6 +10,8 @@ import CategoryLead from "@/components/marketing/category/CategoryLead.vue";
 import GuideBanner from "@/components/marketing/GuideBanner.vue";
 import CategoryTabs from "@/components/marketing/category/CategoryTabs.vue";
 import CategoryFaq from "@/components/marketing/category/CategoryFaq.vue";
+import PageContainer from "~/components/layout/PageContainer.vue";
+import SectionStack from "~/components/layout/SectionStack.vue";
 import { parseTabsJson, normalizeTabs } from "~/utils/tabsJson";
 
 type ApiCategoryResponse =
@@ -231,6 +233,15 @@ const childItems = computed(() => {
   });
 });
 
+const faqItems = computed(() =>
+  (safeCategory.value?.faqs || [])
+    .filter((f: any) => f?.question && f?.answer)
+    .map((f: any) => ({
+      question: String(f.question).trim(),
+      answer: String(f.answer).trim(),
+    }))
+);
+
 useSeoMeta(() => {
   const c = safeCategory.value;
   const s = c?.seo;
@@ -305,58 +316,84 @@ useHead(() => {
       <div class="animate-pulse text-slate-400 font-medium text-lg">Cargando categoría...</div>
     </div>
 
-    <div v-else-if="error || notFound" class="mx-auto w-full max-w-[1440px] px-6 md:px-10 lg:px-16 2xl:px-[120px] py-24 text-center">
+    <PageContainer
+      v-else-if="error || notFound"
+      size="content"
+      class="py-24 text-center"
+    >
       ...
-    </div>
+    </PageContainer>
 
     <template v-else-if="safeCategory">
-      <!-- ✅ NO pases container-class duplicando container -->
+      <!-- Full-bleed -->
       <CategoryHero :category="safeCategory" />
 
-      <nav class="bg-slate-50 border-b border-slate-200">
-        <div class="mx-auto w-full max-w-[1440px] px-6 md:px-10 lg:px-16 2xl:px-[120px] py-4">
-          <SiteBreadcrumbs :items="breadcrumbItems" :auto="false" :json-ld="false" />
-        </div>
-      </nav>
+      <!-- Stack controla el ritmo vertical entre secciones -->
+      <SectionStack gap="normal">
+        <!-- Breadcrumb: banda full-bleed, contenido 1200 -->
+        <nav class="bg-slate-50 border-b border-slate-200">
+          <PageContainer size="content" class="py-4">
+            <SiteBreadcrumbs :items="breadcrumbItems" :auto="false" :json-ld="false" />
+          </PageContainer>
+        </nav>
 
-      
-        <CategoryProductsGrid
-          :title="isHub ? 'Elige una subcategoría' : 'Selecciona el tipo de producto'"
-          :subtitle="isHub ? 'Explora las opciones dentro de esta categoría' : 'Configura tu impresión a medida'"
-          :items="isHub ? childItems : productItems"
-        />
-
-      <div class="border-y py-10 border-slate-100 bg-slate-50/50">
-        <div class="mx-auto w-full max-w-[1440px] px-6 md:px-10 lg:px-16 2xl:px-[120px]">
-          <CategoryLead
-            v-if="safeCategory.description"
-            :title="safeCategory.nav || safeCategory.title"
-            :description="safeCategory.description"
-            :image-src="safeCategory.imageSrc"
-            :chips="['Asesoramiento', 'Acabados premium', 'Producción rápida']"
+        <!-- Grid productos / subcategorías: contenido 1200 -->
+        <PageContainer as="section" size="content" class="mt-8 md:mt-10 lg:mt-14">
+          <CategoryProductsGrid
+            :title="isHub ? 'Elige una subcategoría' : 'Selecciona el tipo de producto'"
+            
+            :items="isHub ? childItems : productItems"
           />
-        </div>
+        </PageContainer>
 
-        <CategoryTabs
-          v-if="safeCategory.tabs?.length"
-          :tabs="safeCategory.tabs"
-          :sticky-top="112"
-          :scroll-margin-top="190"
-          container-class="mx-auto w-full max-w-[1440px] px-6 md:px-10 lg:px-16 2xl:px-[120px]"
-        />
-      </div>
+        <!-- Bloque gris full-bleed con contenido 1200 -->
+        <section>
 
-      <section class="py-10">
-        <div class="mx-auto w-full max-w-[1440px] px-6 md:px-10 lg:px-16 2xl:px-[120px]">
+          <!-- Tabs (sin container-class: el container lo pone PageContainer) -->
+          <PageContainer size="content" class="py-10">
+            <CategoryTabs v-if="safeCategory.tabs?.length" :tabs="safeCategory.tabs" />
+          </PageContainer>
+        </section>
+
+        <!-- Guía + related works -->
+        <PageContainer as="section" size="content" class="py-10">
           <GuideBanner
             title="Solicitud de presupuesto personalizada"
             bgImageSrc="/img/ui/archivos-book-4k.webp"
             :cta="{ label: 'Presupuesto personalizado', to: '/contacto' }"
           />
 
-          <CategoryRelatedWorks v-if="safeCategory.relatedWorks?.length" :items="safeCategory.relatedWorks" />
-        </div>
-      </section>
+          <CategoryRelatedWorks
+            v-if="safeCategory.relatedWorks?.length"
+            :items="safeCategory.relatedWorks"
+            class="mt-10"
+          />
+        </PageContainer>
+        <!-- ✅ FAQ -->
+<PageContainer
+  v-if="faqItems.length"
+  as="section"
+  size="content"
+  class="py-10"
+>
+  <div id="faq" class="scroll-mt-[140px]">
+    <h2 class="text-[22px] leading-[28px] font-semibold text-foreground">
+      Preguntas frecuentes
+    </h2>
+
+    <p class="mt-2 text-[15px] leading-[22px] text-slate-600 max-w-3xl">
+      Resolvemos las dudas más habituales sobre {{ safeCategory.nav || safeCategory.title }}.
+    </p>
+
+    <!-- 👇 PRUEBA 1 (más común) -->
+    <CategoryFaq class="mt-8" :items="faqItems" />
+
+    <!-- 👇 Si tu componente espera otra prop, usa esta en su lugar:
+    <CategoryFaq class="mt-8" :faqs="faqItems" />
+    -->
+  </div>
+</PageContainer>
+      </SectionStack>
     </template>
   </main>
 </template>

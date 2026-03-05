@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-04T07:24:05.063Z",
+  "generatedAt": "2026-03-04T11:12:52.142Z",
   "categories": [
     {
       "id": "10",
@@ -2431,12 +2431,13 @@
     {
       "id": "103",
       "type": "producto",
-      "slug": "tiras-lineal",
-      "path": "/productos/tiras-lineal",
-      "title": "Tiras lineal",
+      "slug": "tiras-de-lineal-personalizadas",
+      "path": "/productos/tiras-de-lineal-personalizadas",
+      "title": "Tiras de lineal personalizadas",
       "categorySlug": "material-publicitario",
       "isPublished": true,
-      "shortDescription": "Tiras lineal",
+      "shortDescription": "Las tiras de lineal (o cenefas de estantería) son una pieza de PLV imprescindible para ordenar el lineal y mejorar la visibilidad de una promoción o categoría. En Repro Disseny fabricamos tiras personalizadas a medida para estanterías, con impresión nítida y opciones de material y fijación para que queden bien colocadas y aguanten el uso en tienda.",
+      "bodyMd": "##Detalles \n\n¿Qué es una tira de lineal y para qué se usa? \n\nUna tira de lineal es una banda gráfica que se coloca en el frontal del estante (en el borde o rail portaprecios) para comunicar de forma continua: promociones, familias de producto, mensajes de marca, novedades o señalización de secciones. \nA diferencia de un stopper o una banderola, la tira acompaña el recorrido del cliente por el lineal, reforzando la lectura y la orientación. \n\n##Beneficios \n\nOrdena y guía en el lineal: facilita encontrar categorías y productos. \n\nRefuerza promociones: ideal para campañas (“-20%”, “2x1”, “nuevo”, “recomendado”). \n\nAumenta visibilidad sin ocupar espacio: se integra en el frontal del estante. \n\nCohesiona la campaña: mismo mensaje repetido en varios metros de lineal. \n\nFácil de instalar y renovar: perfecta para rotación por temporadas o promociones. \n\n##Aplicaciones \n\nSupermercados y retail: campañas estacionales, rebajas, lanzamientos y categorías. \n\nFarmacia/parafarmacia: campañas por laboratorio, recomendados, novedades. \n\nTiendas especializadas: señalización por familias y ofertas destacadas. \n\nShowrooms: identificación de gamas o secciones en exposición. \n\nCorners temporales: promociones por tiempo limitado con cambio rápido. \n\n##Características técnicas \n\nMedidas y formato \n\nTiras en medidas estándar o a medida según estantería/rail. \n\nPosibilidad de fabricar por tramos para cubrir distintos módulos del lineal. \n\nMateriales \n\nSoportes flexibles o semirrígidos según sistema de instalación y duración de campaña. \n\nOpciones más resistentes si habrá limpieza frecuente o manipulación. \n\nImpresión \n\nImpresión a todo color con buena legibilidad (titular grande + beneficio claro). \n\nSeries por campaña, categoría o tienda manteniendo coherencia visual. \n\nFijación e instalación \n\nPreparadas para rail portaprecios, inserción, adhesivo o sistema de la tienda (según modelo). \n\nSi nos indicas el tipo de estantería o nos envías una foto del rail, lo adaptamos para que encaje perfecto. \n\nAcabados opcionales \n\nLaminado si necesitas más resistencia al roce o a la limpieza. \n\nCorte recto y acabado limpio para montaje rápido.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/tira-lineal.webp",
         "width": 1200,
@@ -2503,9 +2504,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Tiras lineal | Repro Disseny",
-        "metaDescription": "Tiras lineal personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/tiras-lineal",
+        "metaTitle": "Tiras de lineal personalizadas | PLV para estanterías y punto de venta",
+        "metaDescription": "Tiras de lineal personalizadas para destacar categorías y promociones en estantería. Impresión a color, medidas a medida y fijación para rail/adhesivo. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/tiras-de-lineal-personalizadas",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -2522,10 +2523,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Tiras lineal",
-          "description": "Tiras lineal",
+          "name": "Tiras de lineal personalizadas",
+          "description": "Las tiras de lineal (o cenefas de estantería) son una pieza de PLV imprescindible para ordenar el lineal y mejorar la visibilidad de una promoción o categoría. En Repro Disseny fabricamos tiras personalizadas a medida para estanterías, con impresión nítida y opciones de material y fijación para que queden bien colocadas y aguanten el uso en tienda.",
           "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/tira-lineal.webp",
-          "url": "https://reprodisseny.com/productos/tiras-lineal",
+          "url": "https://reprodisseny.com/productos/tiras-de-lineal-personalizadas",
           "sku": "01-OFICI-0014",
           "brand": {
             "@type": "Organization",
@@ -2966,7 +2967,7 @@
       "slug": "tabletent",
       "path": "/productos/tabletent",
       "title": "Tabletent",
-      "categorySlug": "hoteleria-restauracion",
+      "categorySlug": "hosteleria-restauracion",
       "isPublished": true,
       "shortDescription": "Tabletents para hoteles y restaurantes",
       "image": {
@@ -3066,7 +3067,7 @@
       "slug": "minutas-de-boda",
       "path": "/productos/minutas-de-boda",
       "title": "Minutas de boda",
-      "categorySlug": "hoteleria-restauracion",
+      "categorySlug": "hosteleria-restauracion",
       "isPublished": true,
       "shortDescription": "Minutas de boda",
       "image": {
@@ -6728,12 +6729,13 @@
     {
       "id": "34",
       "type": "producto",
-      "slug": "diptico-habitacion",
-      "path": "/productos/diptico-habitacion",
-      "title": "Díptico tarjeta habitación",
+      "slug": "diptico-tarjeta-habitacion-hotel",
+      "path": "/productos/diptico-tarjeta-habitacion-hotel",
+      "title": "Díptico tarjeta de habitación para hoteles",
       "categorySlug": "hosteleria-restauracion",
       "isPublished": true,
-      "shortDescription": "Díptico tarjeta habitación",
+      "shortDescription": "El díptico tarjeta de habitación es un básico en hostelería: acompaña al huésped desde el check-in y concentra la información que más se consulta durante la estancia (WiFi, horarios, servicios, contacto). En Repro Disseny imprimimos tarjetas de habitación plegadas con un acabado cuidado y opciones de resistencia para que se vean profesionales y aguanten el uso diario.",
+      "bodyMd": "##Detalles \n\n¿Qué es un díptico tarjeta de habitación y para qué se usa? \n\nEs una tarjeta plegada (en formato díptico) que se deja en la habitación o se entrega en recepción con información práctica del alojamiento. Suele incluir datos de WiFi, horarios (desayuno, recepción, check-out), servicios (room service, spa, parking), normas básicas, contacto y, si se desea, QR a carta digital, reservas o guía del hotel. \n\n##Beneficios \n\nMejora la experiencia del huésped: todo lo importante en una pieza clara y fácil de consultar. \n\nReduce preguntas repetidas en recepción: WiFi, horarios, teléfonos y procedimientos quedan “a mano”. \n\nRefuerza la imagen de marca: diseño alineado con el estilo del hotel (corporativo, boutique, vacacional…). \n\nInformación siempre actualizada: permite renovar por temporadas, cambios de servicios o campañas internas. \n\nImpulsa servicios adicionales: con QR o llamadas a la acción (spa, late check-out, restaurante, excursiones). \n\n##Aplicaciones \n\nHoteles, hostales y apartamentos turísticos: información básica de estancia y contacto. \n\nCadenas y franquicias: piezas homogéneas por centro, con variantes por idioma. \n\nResorts y alojamientos con múltiples servicios: guía rápida de horarios, ubicaciones y reservas. \n\nAlojamientos con enfoque digital: QR a welcome page, guía de habitación, incidencias o check-out. \n\n##Características técnicas \n\nFormatos habituales \n\nDíptico en tamaños tipo DL, A6 o A5 (según cantidad de información). \n\nOrientación vertical u horizontal según el diseño y el soporte en habitación. \n\nPapel y resistencia \n\nCartulinas de buen gramaje para una sensación más “premium” y mayor durabilidad. \n\nOpción de plastificado/laminado (mate o brillo) si va a manipularse mucho o quieres facilitar limpieza. \n\nRecomendación práctica: el mate suele funcionar muy bien en interior (menos reflejos y lectura más cómoda). \n\nImpresión \n\nA todo color para mantener identidad visual y fotografías/íconos. \n\nA una o dos caras (en díptico suele aprovecharse todo el espacio disponible). \n\nPlegado \n\nHendido profesional para un plegado limpio (evita marcas y mejora la durabilidad). \n\nIdiomas y versiones \n\nPosibilidad de producir versiones por idioma o por tipo de habitación/edificio. \n\nSeries por temporada (verano/invierno) o por campañas (packs, upgrades, eventos). \n\nExtras útiles \n\nQR a carta digital, reservas, guía del hotel, WhatsApp de atención, encuestas o reseñas. \n\nEspacio para datos variables si necesitas añadir información específica (p. ej., códigos internos o referencias).",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/restauracion/diptico-tarjeta%20habitacion.webp",
         "width": 1200,
@@ -6809,9 +6811,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Díptico tarjeta habitación | Repro Disseny",
-        "metaDescription": "Díptico tarjeta habitación personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/diptico-habitacion",
+        "metaTitle": "Díptico Tarjeta de Habitación | Hoteles y Apartamentos | Impresión Profesional",
+        "metaDescription": "Díptico tarjeta de habitación para hoteles: info WiFi, horarios y servicios con diseño corporativo. Papel resistente, plastificado opcional y QR. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/diptico-tarjeta-habitacion-hotel",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -6828,10 +6830,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Díptico tarjeta habitación",
-          "description": "Díptico tarjeta habitación",
+          "name": "Díptico tarjeta de habitación para hoteles",
+          "description": "El díptico tarjeta de habitación es un básico en hostelería: acompaña al huésped desde el check-in y concentra la información que más se consulta durante la estancia (WiFi, horarios, servicios, contacto). En Repro Disseny imprimimos tarjetas de habitación plegadas con un acabado cuidado y opciones de resistencia para que se vean profesionales y aguanten el uso diario.",
           "image": "https://webcms.blob.core.windows.net/media/product/restauracion/diptico-tarjeta%20habitacion.webp",
-          "url": "https://reprodisseny.com/productos/diptico-habitacion",
+          "url": "https://reprodisseny.com/productos/diptico-tarjeta-habitacion-hotel",
           "sku": "01-HORE-0001",
           "brand": {
             "@type": "Organization",
@@ -8138,12 +8140,13 @@
     {
       "id": "44",
       "type": "producto",
-      "slug": "etiquetas-colgantes",
-      "path": "/productos/etiquetas-colgantes",
-      "title": "Etiquetas colgantes",
+      "slug": "etiquetas-colgantes-personalizadas",
+      "path": "/productos/etiquetas-colgantes-personalizadas",
+      "title": "Etiquetas colgantes personalizadas",
       "categorySlug": "material-publicitario",
       "isPublished": true,
-      "shortDescription": "Etiquetas colgantes",
+      "shortDescription": "Las etiquetas colgantes (hang tags) son un detalle clave en la presentación de producto: aportan información, refuerzan marca y mejoran la calidad percibida en el punto de venta. En Repro Disseny imprimimos etiquetas colgantes personalizadas con troquel, perforación para cordón y acabados a medida para que el resultado sea coherente con tu packaging y tu identidad.",
+      "bodyMd": "##Detalles \n\n¿Qué es una etiqueta colgante y para qué se usa? \n\nUna etiqueta colgante es una tarjeta de cartulina (o soporte similar) que se fija al producto mediante cordón, hilo o brida. Se utiliza para incluir precio, talla, composición, código de barras, instrucciones, QR a ficha de producto y, sobre todo, para comunicar marca: logo, colección, valores o mensajes promocionales.Forma \n\n##Beneficios \n\nMejora la imagen del producto: transmite calidad y coherencia de marca. \n\nInformación clara: talla, precio, composición, cuidados, referencias o códigos. \n\nDiferenciación en punto de venta: un buen acabado destaca frente a etiquetas genéricas. \n\nPersonalización por producto/colección: variaciones por tallas, colores, gamas o temporadas. \n\nMás conversión: QR a ficha de producto, redes, lookbook o registro. \n\n##Aplicaciones \n\nModa y complementos: prendas, calzado, bolsos, accesorios y colecciones. \n\nRetail y marcas de producto: cosmética, gourmet, regalos, artesanía. \n\nPackaging: etiquetas para packs, ediciones especiales y lotes regalo. \n\nFerias y eventos: etiquetas para merchandising y producto promocional. \n\nEcommerce: etiquetas que refuerzan experiencia de unboxing y marca. \n\n##Características técnicas \n\nFormatos y troquel \n\nFormatos estándar (rectangulares, redondos) o troquel a medida (silueta, forma de producto, etiqueta tipo “ticket”, etc.). \n\nAgujero/perforación para cordón, hilo o brida (posición y diámetro según uso). \n\nOpción de esquinas redondeadas para mayor durabilidad y mejor tacto. \n\nPapeles y soportes \n\nCartulinas de alto gramaje para una etiqueta con cuerpo y presencia. \n\nPapeles mate, brillo o con textura para un acabado más premium. \n\nOpciones recicladas si buscas un enfoque más sostenible (cuando encaja con la marca). \n\nImpresión \n\nImpresión a todo color o diseños sobrios (1–2 tintas) según estilo. \n\nUna o dos caras: reverso útil para composición, cuidados, historia de marca o QR. \n\nPersonalización y control \n\nDatos variables: tallas, colores, referencias, precios, numeración. \n\nCódigo de barras (EAN/UPC) y/o QR, preparados para lectura fiable. \n\nSeries por colección, temporada, tienda o idioma. \n\nAcabados recomendados \n\nLaminado mate o brillo: más resistencia y mejor presencia (mate suele ser más elegante). \n\nBarniz selectivo: resalta logo o detalles. \n\nSoft touch: tacto premium para marcas de gama alta. \n\nStamping (dorado/plata/metalizados): ideal para un plus en colecciones premium.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/etiquetas-colgantes.webp",
         "width": 1200,
@@ -8223,9 +8226,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Etiquetas colgantes | Repro Disseny",
-        "metaDescription": "Etiquetas colgantes personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/etiquetas-colgantes",
+        "metaTitle": "Etiquetas colgantes personalizadas | Hang tags para producto y marca",
+        "metaDescription": "Etiquetas colgantes personalizadas para ropa, complementos y packaging. Cartulinas premium, troquel, agujero para cordón y acabados (laminado, stamping, barniz). Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/etiquetas-colgantes-personalizadas",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -8242,10 +8245,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Etiquetas colgantes",
-          "description": "Etiquetas colgantes",
+          "name": "Etiquetas colgantes personalizadas",
+          "description": "Las etiquetas colgantes (hang tags) son un detalle clave en la presentación de producto: aportan información, refuerzan marca y mejoran la calidad percibida en el punto de venta. En Repro Disseny imprimimos etiquetas colgantes personalizadas con troquel, perforación para cordón y acabados a medida para que el resultado sea coherente con tu packaging y tu identidad.",
           "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/etiquetas-colgantes.webp",
-          "url": "https://reprodisseny.com/productos/etiquetas-colgantes",
+          "url": "https://reprodisseny.com/productos/etiquetas-colgantes-personalizadas",
           "sku": "01-OFICI-0008",
           "brand": {
             "@type": "Organization",
@@ -8569,12 +8572,13 @@
     {
       "id": "48",
       "type": "producto",
-      "slug": "flyers-forma",
-      "path": "/productos/flyers-forma",
-      "title": "Flyers con forma",
+      "slug": "flyers-con-forma-personalizados",
+      "path": "/productos/flyers-con-forma-personalizados",
+      "title": "Flyers con forma (troquelados) personalizados",
       "categorySlug": "material-publicitario",
       "isPublished": true,
-      "shortDescription": "Flyers con forma",
+      "shortDescription": "Los flyers con forma son la versión más llamativa del folleto clásico: mantienen la practicidad del reparto, pero añaden un extra de impacto gracias al troquelado. En Repro Disseny producimos flyers troquelados a medida para campañas que necesitan destacar en mano, en mostrador o en packaging, con impresión de calidad y un corte limpio que refuerza el mensaje.",
+      "bodyMd": "##Detalles \n\n¿Qué es un flyer con forma y para qué se usa? \n\nUn flyer con forma es un folleto impreso que, en lugar de ser rectangular, se fabrica con corte/troquel a medida siguiendo un contorno: silueta de producto, icono, logotipo, etiqueta grande, “bocadillo” de oferta, etc. \nSe usa para aumentar la atención y mejorar el recuerdo en campañas promocionales, especialmente cuando compites con muchos estímulos (calle, ferias, punto de venta).Forma \n\n##Beneficios \n\nMás impacto que un flyer estándar: la forma llama la atención al instante. \n\nMayor recuerdo de marca: el diseño se asocia al producto o al mensaje de campaña. \n\nPerfecto para promociones: ideal para ofertas, lanzamientos y acciones estacionales. \n\nDiferenciación en reparto y mostrador: destaca entre folletos convencionales. \n\nA medida: forma, tamaño, una o dos caras, QR y variantes por campaña. \n\n##Aplicaciones \n\nReparto y street marketing: campañas donde necesitas que te miren en 2 segundos. \n\nPunto de venta: mostradores, promociones, packs y corners de producto. \n\nEventos y ferias: comunicación rápida en stand, invitación o activación. \n\nInserto en packaging: “gracias”, códigos, descuentos, recomendaciones. \n\nHostelería: promos de temporada, eventos, ofertas especiales y QR a reservas. \n\n##Características técnicas \n\nFormato y troquel \n\nTroquel a medida: siluetas, formas orgánicas, esquinas redondeadas, “etiqueta”, etc. \n\nRecomendación práctica: evitar detalles demasiado finos (mejora el corte y la resistencia en reparto). \n\nTamaños \n\nDesde tamaños tipo tarjeta hasta formatos más grandes, siempre a medida según la campaña. \n\nPapeles y soportes \n\nCartulinas con buen cuerpo para que el troquelado mantenga forma y no se doble fácilmente. \n\nOpciones en papel offset si necesitas que el cliente pueda escribir (cupón, sello, nota). \n\nImpresión \n\nImpresión a todo color a una o dos caras. \n\nReverso útil para condiciones, mapa, QR, redes o código promocional. \n\nAcabados opcionales \n\nLaminado mate o brillo para más resistencia y mejor presencia (mate reduce reflejos). \n\nBarniz selectivo para resaltar logo o llamada a la acción (según diseño). \n\nPerforado si quieres un talón desprendible (cupón / control / sorteo). \n\nDatos variables si necesitas series por zona, códigos o versiones. \n\nElementos que mejor funcionan \n\nTitular grande + beneficio claro. \n\nQR a landing/Google Maps/reservas, con buen tamaño y contraste. \n\nCódigo promo para medir campaña.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/flyers-con-forma.webp",
         "width": 1200,
@@ -8659,9 +8663,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Flyers con forma | Repro Disseny",
-        "metaDescription": "Flyers con forma personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/flyers-forma",
+        "metaTitle": "Flyers con forma personalizados | Flyers troquelados para campañas con impacto",
+        "metaDescription": "Flyers con forma (troquelados) para publicidad y eventos. Corte a medida, impresión a color y acabados profesionales para destacar en reparto y punto de venta. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/flyers-con-forma-personalizados",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -8678,10 +8682,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Flyers con forma",
-          "description": "Flyers con forma",
+          "name": "Flyers con forma (troquelados) personalizados",
+          "description": "Los flyers con forma son la versión más llamativa del folleto clásico: mantienen la practicidad del reparto, pero añaden un extra de impacto gracias al troquelado. En Repro Disseny producimos flyers troquelados a medida para campañas que necesitan destacar en mano, en mostrador o en packaging, con impresión de calidad y un corte limpio que refuerza el mensaje.",
           "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/flyers-con-forma.webp",
-          "url": "https://reprodisseny.com/productos/flyers-forma",
+          "url": "https://reprodisseny.com/productos/flyers-con-forma-personalizados",
           "sku": "01-OFICI-0003",
           "brand": {
             "@type": "Organization",
@@ -8693,12 +8697,13 @@
     {
       "id": "49",
       "type": "producto",
-      "slug": "flyers",
-      "path": "/productos/flyers",
-      "title": "Flyers",
+      "slug": "flyers-personalizados",
+      "path": "/productos/flyers-personalizados",
+      "title": "Flyers personalizados",
       "categorySlug": "material-publicitario",
       "isPublished": true,
-      "shortDescription": "Flyers",
+      "shortDescription": "Los flyers son una de las herramientas más directas para captar atención y generar respuesta: reparto en calle, buzoneo, inserción en paquetes, ferias o promociones en punto de venta. En Repro Disseny imprimimos flyers publicitarios con la combinación adecuada de formato, papel y acabado para que se vean profesionales, se lean rápido y cumplan su objetivo: atraer y convertir.",
+      "bodyMd": "##Detalles \n\n¿Qué es un flyer y para qué se usa? \n\nUn flyer es un folleto de una sola hoja (normalmente a una o dos caras) diseñado para comunicar un mensaje breve: promoción, evento, apertura, descuento, lanzamiento o información de servicio. Se utiliza cuando necesitas difusión rápida y masiva, con un mensaje claro y una llamada a la acción (visitar, reservar, escanear un QR, llamar, etc.). \n\n##Beneficios \n\nAlcance rápido y económico: ideal para campañas de difusión masiva. \n\nMensaje directo: perfecto para ofertas, eventos, aperturas y promociones. \n\nFácil de distribuir: buzoneo, reparto en calle, inserto en bolsas o packaging. \n\nMedible: con QR, código promo o URL específica para rastrear resultados. \n\nVersátil: distintos formatos, papeles y acabados según presupuesto y objetivo. \n\n##Aplicaciones \n\nBuzoneo y reparto: campañas locales para comercios, servicios, hostelería, academias. \n\nEventos: invitación, programa breve, información de acceso, promociones en feria. \n\nPunto de venta: ofertas, lanzamiento de producto, descuentos por tiempo limitado. \n\nAcciones de marca: street marketing, sampling, inauguraciones y openings. \n\nInserto en packaging: cupones, recomendaciones, fidelización, “gracias por tu compra”. \n\n##Características técnicas \n\nFormatos habituales \n\nA6 (muy usado para reparto), A5 (más espacio de información), DL (tipo “tarjeta alargada”) y a medida. \n\nImpresión a una o dos caras (reverso útil para condiciones, mapa, QR, redes). \n\nPapeles recomendados \n\nEstucado brillo: colores más vivos, muy habitual en promoción. \n\nEstucado mate: lectura más cómoda y menos reflejos (ideal en interior y diseño corporativo). \n\nOffset: opción práctica si necesitas escribir encima (sellos, notas, cupones). \n\nOpciones recicladas si buscas un enfoque más sostenible (cuando encaja con la campaña). \n\nImpresión \n\nImpresión a todo color con buena definición para texto e imagen. \n\nPosibilidad de series por zona/idioma o variantes por campaña. \n\nAcabados opcionales \n\nLaminado (si buscas más resistencia o un aspecto más premium). \n\nBarniz selectivo para destacar logo o llamada a la acción (según diseño). \n\nCorte a medida si quieres una forma especial (impacto extra en campañas). \n\nElementos que mejor funcionan \n\nTitular grande + beneficio claro (descuento, fecha, ventaja). \n\nCTA visible (WhatsApp, web, reserva). \n\nQR a landing/Google Maps/formulario, con buen tamaño y contraste.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/flyers.webp",
         "width": 1200,
@@ -8783,9 +8788,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Flyers | Repro Disseny",
-        "metaDescription": "Flyers personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/flyers",
+        "metaTitle": "Flyers personalizados | Impresión de folletos publicitarios para campañas",
+        "metaDescription": "Flyers personalizados para publicidad, eventos y punto de venta. Formatos A6/A5/DL y a medida, impresión a color, papeles mate o brillo y acabados opcionales. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/flyers-personalizados",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -8802,10 +8807,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Flyers",
-          "description": "Flyers",
+          "name": "Flyers personalizados",
+          "description": "Los flyers son una de las herramientas más directas para captar atención y generar respuesta: reparto en calle, buzoneo, inserción en paquetes, ferias o promociones en punto de venta. En Repro Disseny imprimimos flyers publicitarios con la combinación adecuada de formato, papel y acabado para que se vean profesionales, se lean rápido y cumplan su objetivo: atraer y convertir.",
           "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/flyers.webp",
-          "url": "https://reprodisseny.com/productos/flyers",
+          "url": "https://reprodisseny.com/productos/flyers-personalizados",
           "sku": "01-OFICI-0002",
           "brand": {
             "@type": "Organization",
@@ -8873,12 +8878,13 @@
     {
       "id": "51",
       "type": "producto",
-      "slug": "folletos-plegados",
-      "path": "/productos/folletos-plegados",
-      "title": "Folletos plegados",
+      "slug": "folletos-plegados-personalizados",
+      "path": "/productos/folletos-plegados-personalizados",
+      "title": "Folletos plegados personalizados",
       "categorySlug": "material-publicitario",
       "isPublished": true,
-      "shortDescription": "Folletos plegados",
+      "shortDescription": "Los folletos plegados son perfectos cuando necesitas explicar más que en un flyer: permiten ordenar la información por bloques, guiar la lectura y presentar servicios o promociones con un acabado profesional. En Repro Disseny imprimimos dípticos, trípticos y folletos plegables con papeles y pliegues adecuados para que el resultado se vea bien, se lea fácil y convierta.",
+      "bodyMd": "##Detalles \n\n¿Qué es un folleto plegado y para qué se usa? \n\nUn folleto plegado es una hoja impresa que se dobla (con uno o varios pliegues) para crear secciones. Se utiliza para presentar servicios, catálogos breves, menús, programas de eventos, promociones o información corporativa, porque permite contar más sin perder claridad: cada cara funciona como un “capítulo” con su propio mensaje. \n\n##Beneficios \n\nMás espacio sin saturar: ideal para explicar servicios, precios, ventajas y pasos. \n\nLectura guiada: estructura clara por secciones (portada, contenido, CTA). \n\nImagen profesional: perfecto para entregar en mano, ferias o recepciones. \n\nVersátil: distintos tipos de pliegue según el contenido. \n\nMedible: con QR, URL o código promocional para medir la campaña. \n\n##Aplicaciones \n\nPublicidad local: comercios, servicios, clínicas, academias, inmobiliarias. \n\nHostelería: cartas plegadas, menús del día, promociones, eventos. \n\nFerias y eventos: programa, agenda, mapa, información de stand. \n\nCorporativo: dossier breve de servicios, presentación comercial, onboarding. \n\nCampañas: lanzamientos, promociones estacionales, acciones con varios mensajes. \n\n##Características técnicas \n\nTipos de plegado \n\nDíptico: 1 pliegue (4 caras). \n\nTríptico: 2 pliegues (6 caras), muy usado en publicidad y servicios. \n\nCuadríptico y otros (8+ caras): cuando necesitas más información en un formato compacto. \n\nPliegues especiales (en acordeón, ventana, etc.) si el diseño lo pide. \n\nFormatos habituales \n\nA4 plegado (muy común en díptico/tríptico), A5, DL y formatos a medida. \n\nPapeles recomendados \n\nEstucado mate: lectura cómoda y menos reflejos (muy usado en corporativo). \n\nEstucado brillo: colores más vivos para campañas promocionales. \n\nOffset: útil si se necesita escribir o sellar (cupones, notas, formularios). \n\nOpciones recicladas si buscas un enfoque más sostenible. \n\nHendido y plegado profesional \n\nHendido para que el pliegue quede limpio y no “rompa” el papel (especialmente en gramajes altos). \n\nDoblado preciso para que caras y márgenes queden alineados. \n\nImpresión \n\nImpresión a todo color a una o dos caras (lo habitual es doble cara). \n\nPosibilidad de series por zona/idioma o versiones por campaña. \n\nAcabados opcionales \n\nLaminado mate o brillo si quieres más resistencia (muy útil en folletos de uso frecuente). \n\nCorte a medida si buscas un formato especial. \n\nDatos variables (si necesitas personalización o códigos por lote).",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/folletos-plegados.webp",
         "width": 1200,
@@ -8973,9 +8979,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Folletos plegados | Repro Disseny",
-        "metaDescription": "Folletos plegados personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/folletos-plegados",
+        "metaTitle": "Folletos plegados personalizados | Dípticos, trípticos y más para publicidad",
+        "metaDescription": "Folletos plegados personalizados (dípticos, trípticos, cuadrípticos). Formatos A4/A5/DL, impresión a color, hendidos profesionales y acabados opcionales. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/folletos-plegados-personalizados",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -8992,10 +8998,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Folletos plegados",
-          "description": "Folletos plegados",
+          "name": "Folletos plegados personalizados",
+          "description": "Los folletos plegados son perfectos cuando necesitas explicar más que en un flyer: permiten ordenar la información por bloques, guiar la lectura y presentar servicios o promociones con un acabado profesional. En Repro Disseny imprimimos dípticos, trípticos y folletos plegables con papeles y pliegues adecuados para que el resultado se vea bien, se lea fácil y convierta.",
           "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/folletos-plegados.webp",
-          "url": "https://reprodisseny.com/productos/folletos-plegados",
+          "url": "https://reprodisseny.com/productos/folletos-plegados-personalizados",
           "sku": "01-OFICI-0006",
           "brand": {
             "@type": "Organization",
@@ -9452,10 +9458,11 @@
       "type": "producto",
       "slug": "hule-personalizado",
       "path": "/productos/hule-personalizado",
-      "title": "Hule personalizado",
+      "title": "Hule personalizado (mantel lavable a medida)",
       "categorySlug": "hosteleria-restauracion",
       "isPublished": true,
-      "shortDescription": "Hule personalizado",
+      "shortDescription": "El hule personalizado es la opción perfecta cuando necesitas un mantel lavable, impermeable y resistente para el uso diario. En Repro Disseny producimos hules a medida para hostelería, terrazas y eventos, con impresión cuidada para que tu mesa tenga un acabado profesional y sea fácil de mantener.",
+      "bodyMd": "##Detalles \n\n¿Qué es un hule personalizado y para qué se usa? \n\nUn hule es un material flexible con acabado impermeable que se utiliza como mantel para proteger mesas y facilitar la limpieza. Personalizado, además, se convierte en un soporte de marca: puedes incluir logo, colores corporativos, patrones, mensajes o incluso propuestas de carta y promociones, manteniendo una superficie práctica para el servicio. \n\n##Beneficios \n\nLavable e impermeable: ideal para limpieza frecuente en sala y terraza. \n\nResistente al uso diario: pensado para roce, manchas y manipulación constante. \n\nAhorra tiempo en el servicio: se limpia rápido entre mesas y turnos. \n\nMejora la imagen del local: mantiene las mesas uniformes y cuidadas. \n\nPersonalizable: diseños corporativos, patrones, mensajes o versiones por zona/temporada. \n\n##Aplicaciones \n\nRestaurantes y bares: mesas de interior y exterior con alta rotación. \n\nTerrazas: protección y limpieza rápida en exterior. \n\nHoteles y bufés: mesas de apoyo, zonas de servicio o eventos internos. \n\nEventos y caterings: mesas de servicio, zonas de barra, espacios infantiles. \n\nCentros y colectividades: comedores, actividades y espacios con uso intensivo. \n\n##Características técnicas \n\nMedidas y formato \n\nFabricación a medida según mesa (rectangular, cuadrada o redonda). \n\nPosibilidad de producir series para diferentes tamaños de mesa o zonas del local. \n\nImpresión y diseño \n\nImpresión a color para integrar identidad visual: logo, colores, patrones o mensajes. \n\nDiseños sobrios (look premium) o más llamativos (terrazas, eventos, infantil). \n\nResistencia y mantenimiento \n\nSuperficie pensada para limpieza frecuente (paño húmedo y productos adecuados). \n\nRecomendación práctica: definir el tipo de uso (interior/terraza) ayuda a elegir el acabado más conveniente y a alargar la vida útil. \n\nAcabados \n\nOpciones de acabado orientadas a durabilidad y aspecto (según necesidad del proyecto). \n\nPosibilidad de remates/cortes adaptados para que el hule asiente bien en mesa.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/restauracion/hule-personalizado.webp",
         "width": 1200,
@@ -9526,8 +9533,8 @@
         }
       ],
       "seo": {
-        "metaTitle": "Hule personalizado | Repro Disseny",
-        "metaDescription": "Hule personalizado personalizadas con calidad profesional en Cataluña.",
+        "metaTitle": "Hule personalizado | Manteles lavables para hostelería y eventos",
+        "metaDescription": "Hule personalizado para mesas: mantel impermeable, lavable y resistente. Ideal para restaurantes, terrazas y eventos. Impresión a color y medidas a medida. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/hule-personalizado",
         "hreflang": [
           {
@@ -9545,8 +9552,8 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Hule personalizado",
-          "description": "Hule personalizado",
+          "name": "Hule personalizado (mantel lavable a medida)",
+          "description": "El hule personalizado es la opción perfecta cuando necesitas un mantel lavable, impermeable y resistente para el uso diario. En Repro Disseny producimos hules a medida para hostelería, terrazas y eventos, con impresión cuidada para que tu mesa tenga un acabado profesional y sea fácil de mantener.",
           "image": "https://webcms.blob.core.windows.net/media/product/restauracion/hule-personalizado.webp",
           "url": "https://reprodisseny.com/productos/hule-personalizado",
           "sku": "01-HORE-0004",
@@ -9652,12 +9659,13 @@
     {
       "id": "58",
       "type": "producto",
-      "slug": "identificador-maleta",
-      "path": "/productos/identificador-maleta",
-      "title": "Identificador de maleta",
+      "slug": "identificadores-de-maleta-personalizados",
+      "path": "/productos/identificadores-de-maleta-personalizados",
+      "title": "Identificador de maleta personalizado",
       "categorySlug": "hosteleria-restauracion",
       "isPublished": true,
-      "shortDescription": "Identificador de maleta",
+      "shortDescription": "El identificador de maleta es un detalle práctico que evita pérdidas y, a la vez, refuerza tu marca en viajes de empresa, eventos y grupos. En Repro Disseny fabricamos tags de equipaje personalizados con materiales resistentes, troquel a medida y opciones de laminado para que aguanten manipulación y transporte.",
+      "bodyMd": "##Detalles \n\n¿Qué es un identificador de maleta y para qué se usa? \n\nUn identificador de maleta es una tarjeta (o pieza rígida) que se fija al equipaje para mostrar datos básicos de identificación: nombre, empresa/grupo, teléfono o referencia. Se utiliza en viajes corporativos, congresos, eventos deportivos, excursiones y desplazamientos en grupo para reconocer maletas rápidamente y minimizar confusiones o extravíos. \n\n##Beneficios \n\nIdentificación inmediata del equipaje: reduce pérdidas y confusiones en grupos. \n\nMás orden en logística: útil para eventos con traslados, check-in de hotel o autocares. \n\nBranding visible: tu marca viaja con el grupo (ideal para empresas y organizadores). \n\nPersonalización por persona: nombres, departamentos, equipos, numeración o colores por categoría. \n\nResistencia: materiales y acabados pensados para roce, golpes y manipulación. \n\n##Aplicaciones \n\nViajes corporativos: convenciones, incentivos, roadshows y desplazamientos de equipo. \n\nCongresos y ferias: grupos, expositores y staff con logística de equipaje. \n\nEventos deportivos: clubs, torneos, competiciones y viajes de equipo. \n\nAgencias y grupos turísticos: excursiones, viajes organizados, grupos escolares. \n\nHoteles: grupos y MICE (identificación rápida en entradas/lobby). \n\n##Características técnicas \n\nFormato y troquel \n\nFormatos estándar o a medida (rectangular, redondo, con forma). \n\nTroquel con ranura/orificio preparado para sujeción con cinta, brida o cordón. \n\nPosibilidad de incluir zona para escribir datos si se requiere (según diseño). \n\nMaterial \n\nCartulinas de alto gramaje para una opción económica y práctica. \n\nMateriales más resistentes (según necesidad) para mayor durabilidad en viajes y manipulación intensiva. \n\nImpresión \n\nImpresión a todo color para branding, códigos por equipo o diseño corporativo. \n\nUna o dos caras: por ejemplo, marca por un lado y datos/QR por el otro. \n\nPersonalización y control \n\nDatos variables: nombre, empresa, número de participante, equipo, departamento, etc. \n\nNumeración por series para logística de grupo. \n\nQR opcional: información del grupo, contacto, incidencias o ficha de identificación. \n\nAcabados recomendados \n\nLaminado mate o brillo: mejora resistencia al roce y a la humedad superficial. \n\nEsquinas redondeadas: aumentan durabilidad y evitan que se doblen/dañen en los cantos.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/restauracion/identificador-maleta.webp",
         "width": 1200,
@@ -9730,9 +9738,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Identificador de maleta | Repro Disseny",
-        "metaDescription": "Identificador de maleta personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/identificador-maleta",
+        "metaTitle": "Identificador de maleta personalizado | Viajes, eventos y branding corporativo",
+        "metaDescription": "Identificadores de maleta personalizados para viajes, congresos y eventos. Resistentes, con troquel y opciones de laminado, datos variables y QR. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/identificadores-de-maleta-personalizados",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -9749,10 +9757,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Identificador de maleta",
-          "description": "Identificador de maleta",
+          "name": "Identificador de maleta personalizado",
+          "description": "El identificador de maleta es un detalle práctico que evita pérdidas y, a la vez, refuerza tu marca en viajes de empresa, eventos y grupos. En Repro Disseny fabricamos tags de equipaje personalizados con materiales resistentes, troquel a medida y opciones de laminado para que aguanten manipulación y transporte.",
           "image": "https://webcms.blob.core.windows.net/media/product/restauracion/identificador-maleta.webp",
-          "url": "https://reprodisseny.com/productos/identificador-maleta",
+          "url": "https://reprodisseny.com/productos/identificadores-de-maleta-personalizados",
           "sku": "01-HORE-0008",
           "brand": {
             "@type": "Organization",
@@ -10279,12 +10287,13 @@
     {
       "id": "65",
       "type": "producto",
-      "slug": "manteles-individuales",
-      "path": "/productos/manteles-individuales",
-      "title": "Manteles individuales de mesa",
+      "slug": "manteles-individuales-personalizados",
+      "path": "/productos/manteles-individuales-personalizados",
+      "title": "Manteles individuales de mesa personalizados",
       "categorySlug": "hosteleria-restauracion",
       "isPublished": true,
-      "shortDescription": "Manteles individuales de mesa",
+      "shortDescription": "Los manteles individuales son una pieza muy rentable en hostelería: protegen la mesa y, al mismo tiempo, son un soporte perfecto para comunicar (menú, promociones, QR, juegos infantiles o mensajes de marca). En Repro Disseny imprimimos manteles individuales personalizados con formatos a medida y soportes pensados para el ritmo real de un restaurante.",
+      "bodyMd": "##Detalles \n\n¿Qué es un mantel individual y para qué se usa? \n\nUn mantel individual es una lámina (normalmente de papel) que se coloca en cada puesto de mesa. Se utiliza para higiene y protección, pero también como soporte informativo y comercial: menú del día, carta rápida, sugerencias, bebidas, alérgenos, promociones, QR a carta digital o encuestas. \n\n##Beneficios \n\nMejora la experiencia en mesa: ordena la información y acompaña el servicio. \n\nHerramienta de venta directa: ideal para destacar sugerencias, postres, bebidas o combos. \n\nRefuerza la marca: puedes integrar identidad visual, mensajes y redes sociales. \n\nActualizable por temporadas: cambia fácil según carta, eventos o campañas. \n\nFuncional y rentable: una pieza sencilla que aporta higiene, comunicación y imagen. \n\n##Aplicaciones \n\nRestaurantes y bares: menú del día, sugerencias, carta rápida, bebidas, alérgenos. \n\nCafeterías: desayunos, promos, QR a carta, campañas estacionales. \n\nHoteles: servicio de restaurante, eventos, bufé y room service (información en mesa). \n\nEventos y banquetes: manteles individuales para menús cerrados o información del evento. \n\nFamilias/infantil: juegos, coloreables y dinámicas para mejorar la espera. \n\n##Características técnicas \n\nFormatos habituales \n\nTamaños estándar o a medida según el tamaño de mesa y el estilo del local. \n\nOrientación horizontal o vertical según el diseño (menú/carta/juegos). \n\nSoportes recomendados (según uso) \n\nPapel para uso diario y alta rotación (muy práctico y económico). \n\nOpciones de papel con mejor cuerpo si quieres una sensación más “premium” o mejor resistencia en mesa. \n\nSi necesitas una opción más resistente o reutilizable, se puede valorar un soporte específico (según tu operativa y tipo de limpieza). \n\nImpresión \n\nImpresión a todo color para integrar marca y fotografía, o diseños sobrios según el estilo del restaurante. \n\nPosibilidad de series por zonas/idiomas o por tipo de menú (adulto/infantil/vegano, etc.). \n\nContenido útil \n\nQR a carta digital, reservas, reseñas o redes. \n\nIconos de alérgenos y mensajes de servicio (horarios, wifi, normas). \n\nEspacios para promociones: “menú del día”, “postre recomendado”, “cóctel”, “2x1”, etc. \n\nAcabados \n\nEn papel, el acabado se elige pensando en legibilidad y presencia. \n\nRecomendación práctica: si hay mucha luz o focos, un acabado menos reflectante ayuda a la lectura.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/restauracion/mantel-individual.webp",
         "width": 1200,
@@ -10301,9 +10310,9 @@
       "variants": [],
       "formFields": [],
       "seo": {
-        "metaTitle": "Manteles individuales de mesa | Repro Disseny",
-        "metaDescription": "Manteles individuales de mesa personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/manteles-individuales",
+        "metaTitle": "Manteles individuales personalizados | Hostelería y restauración",
+        "metaDescription": "Manteles individuales personalizados para restaurantes y eventos: papel, opciones resistentes, impresión a color y diseños a medida. Ideales para carta rápida, promociones y marca. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/manteles-individuales-personalizados",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -10320,10 +10329,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Manteles individuales de mesa",
-          "description": "Manteles individuales de mesa",
+          "name": "Manteles individuales de mesa personalizados",
+          "description": "Los manteles individuales son una pieza muy rentable en hostelería: protegen la mesa y, al mismo tiempo, son un soporte perfecto para comunicar (menú, promociones, QR, juegos infantiles o mensajes de marca). En Repro Disseny imprimimos manteles individuales personalizados con formatos a medida y soportes pensados para el ritmo real de un restaurante.",
           "image": "https://webcms.blob.core.windows.net/media/product/restauracion/mantel-individual.webp",
-          "url": "https://reprodisseny.com/productos/manteles-individuales",
+          "url": "https://reprodisseny.com/productos/manteles-individuales-personalizados",
           "sku": "01-HORE-0003",
           "brand": {
             "@type": "Organization",
@@ -11760,12 +11769,13 @@
     {
       "id": "83",
       "type": "producto",
-      "slug": "portacuentas",
-      "path": "/productos/portacuentas",
-      "title": "Portacuentas",
+      "slug": "portacuentas-personalizados",
+      "path": "/productos/portacuentas-personalizados",
+      "title": "Portacuentas personalizados",
       "categorySlug": "hosteleria-restauracion",
       "isPublished": true,
-      "shortDescription": "Portacuentas",
+      "shortDescription": "El portacuentas es el último punto de contacto antes de cerrar el servicio, y también uno de los más importantes para reforzar la imagen del local. En Repro Disseny fabricamos portacuentas personalizados para restaurantes, bares y hoteles, con materiales resistentes y acabados pensados para uso diario y fácil mantenimiento.",
+      "bodyMd": "##Detalles \n\n¿Qué es un portacuentas y para qué se usa? \n\nUn portacuentas es una carpeta o soporte (normalmente rígido) que se entrega con la cuenta para presentarla de forma ordenada y profesional. Además de mejorar la experiencia del cliente, permite integrar marca, QR (reseñas, propinas, pago, carta digital), información de contacto o promociones. \n\n##Beneficios \n\nImagen más profesional: un detalle pequeño que eleva la percepción del servicio. \n\nMejor experiencia al cierre: entrega de cuenta ordenada y cómoda. \n\nResistencia para uso diario: opciones pensadas para manipulación constante. \n\nRefuerza marca y coherencia: alineado con carta, manteles, tabletens y señalética. \n\nMás conversiones post-servicio: QR a reseñas, reservas, newsletter o redes. \n\n##Aplicaciones \n\nRestaurantes y bares: entrega de cuenta, sugerencias finales, fidelización. \n\nHoteles: restaurante, bar, room service y eventos. \n\nCafeterías: ticket/recibo con imagen cuidada. \n\nCaterings y eventos: cierres de servicio con acabado más premium. \n\nFranquicias: portacuentas homogéneos por local con versiones por zona/idioma. \n\n##Características técnicas \n\nFormatos habituales \n\nPortacuentas tipo carpeta (con solapa o bolsillo). \n\nFormatos compactos para ticket o más amplios para recibo + tarjeta. \n\nOpciones con espacio para tarjeta, propina o nota (según necesidad). \n\nMateriales \n\nSoportes rígidos con buen cuerpo para durabilidad y presencia. \n\nOpciones con acabado lavable o más resistente si el uso es intensivo. \n\nAlternativas con enfoque más sostenible (base papel) cuando el entorno lo permite. \n\nImpresión y personalización \n\nImpresión a color con logo, patrones, claim o información del local. \n\nPosibilidad de series por sala/terraza o por idioma. \n\nQR opcional: reseñas, pago, carta digital, reservas o WiFi. \n\nAcabados recomendados \n\nPlastificado/laminado mate o brillo para proteger y facilitar limpieza (mate suele evitar reflejos). \n\nEsquinas redondeadas para que duren más. \n\nAcabados premium opcionales (si aplica): barniz selectivo, soft touch, etc.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/restauracion/portacuentas.webp",
         "width": 1200,
@@ -11842,9 +11852,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Portacuentas | Repro Disseny",
-        "metaDescription": "Portacuentas personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/portacuentas",
+        "metaTitle": "Portacuentas personalizados | Restaurantes, bares y hoteles | Impresión profesional",
+        "metaDescription": "Portacuentas personalizados para hostelería: imagen premium, materiales resistentes y acabados lavables. Con bolsillo, inserto, QR o personalización. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/portacuentas-personalizados",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -11861,10 +11871,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Portacuentas",
-          "description": "Portacuentas",
+          "name": "Portacuentas personalizados",
+          "description": "El portacuentas es el último punto de contacto antes de cerrar el servicio, y también uno de los más importantes para reforzar la imagen del local. En Repro Disseny fabricamos portacuentas personalizados para restaurantes, bares y hoteles, con materiales resistentes y acabados pensados para uso diario y fácil mantenimiento.",
           "image": "https://webcms.blob.core.windows.net/media/product/restauracion/portacuentas.webp",
-          "url": "https://reprodisseny.com/productos/portacuentas",
+          "url": "https://reprodisseny.com/productos/portacuentas-personalizados",
           "sku": "01-HORE-0010",
           "brand": {
             "@type": "Organization",
@@ -11879,7 +11889,7 @@
       "slug": "posavasos",
       "path": "/productos/posavasos",
       "title": "Posavasos",
-      "categorySlug": "hoteleria-restauracion",
+      "categorySlug": "hosteleria-restauracion",
       "isPublished": true,
       "shortDescription": "Posavasos",
       "image": {
@@ -11987,13 +11997,13 @@
     {
       "id": "85",
       "type": "producto",
-      "slug": "posters",
-      "path": "/productos/posters",
-      "title": "Posters",
+      "slug": "posters-personalizados",
+      "path": "/productos/posters-personalizados",
+      "title": "Pósters personalizados",
       "categorySlug": "material-publicitario",
       "isPublished": true,
-      "shortDescription": "Posters",
-      "bodyMd": "## Posters\n\n## Posters",
+      "shortDescription": "Los pósters son una de las formas más efectivas de comunicar a distancia: promocionan, informan y refuerzan marca en escaparates, paredes, eventos y puntos de venta. En Repro Disseny imprimimos pósters publicitarios con alta calidad de color y definición, en distintos formatos y papeles, para que el resultado se vea profesional y cumpla su objetivo.",
+      "bodyMd": "##Detalles \n\n¿Qué es un póster y para qué se usa? \n\nUn póster es una pieza impresa de gran tamaño diseñada para captar atención y comunicar un mensaje en pocos segundos: promoción, evento, lanzamiento, cartelera, información o señalización. Puede colocarse en pared, escaparate, marcos, caballetes o expositores y se utiliza tanto en campañas temporales como en comunicación recurrente. \n\n##Beneficios \n\nAlta visibilidad: ideal para atraer miradas en zonas de paso. \n\nMensaje claro y directo: perfecto para promociones, eventos y lanzamientos. \n\nVersátil en colocación: pared, escaparate, marco Click System, caballete o expositor. \n\nCalidad de impresión: colores vivos, textos nítidos e imagen cuidada. \n\nAdaptable a tu campaña: diferentes formatos, papeles y acabados según uso y presupuesto. \n\n##Aplicaciones \n\nRetail y escaparates: rebajas, promos, lanzamientos, horarios, campañas estacionales. \n\nEventos: información, horarios, salas, señalización temporal. \n\nHostelería: eventos especiales, menús temporales, promociones y comunicación en sala. \n\nCentros y entidades: campañas informativas, normativa, orientación al público. \n\nCorporativo: comunicación interna, señalización de salas, convocatorias. \n\n##Características técnicas \n\nFormatos habituales \n\nA3, A2, A1, A0 y medidas a medida. \n\nOrientación vertical u horizontal según diseño y ubicación. \n\nPapeles recomendados \n\nEstucado mate: lectura cómoda y menos reflejos (muy recomendable en interior). \n\nEstucado brillo: colores más vivos e impacto visual más llamativo. \n\nOffset: opción práctica si se necesita escribir o sellar (según campaña). \n\nOpciones recicladas si buscas un enfoque más sostenible (cuando encaja con el objetivo). \n\nImpresión \n\nImpresión a todo color con buena definición para tipografías, logos y fotografía. \n\nRecomendación práctica: jerarquía clara (titular grande + beneficio + CTA), porque el póster se lee “en movimiento”. \n\nAcabados opcionales \n\nLaminado mate o brillo si habrá manipulación, roces o necesidad de mayor durabilidad. \n\nPreparación para marcos o expositores (ajuste exacto, sangrado y márgenes).",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/posters.webp",
         "width": 1200,
@@ -12074,9 +12084,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Posters | Repro Disseny",
-        "metaDescription": "Posters personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/posters",
+        "metaTitle": "Pósters personalizados | Impresión profesional para publicidad y eventos",
+        "metaDescription": "Pósters personalizados para campañas, escaparates y eventos. Formatos A3–A0 y a medida, impresión a color, papel mate o brillo y acabados opcionales. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/posters-personalizados",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -12093,10 +12103,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Posters",
-          "description": "Posters",
+          "name": "Pósters personalizados",
+          "description": "Los pósters son una de las formas más efectivas de comunicar a distancia: promocionan, informan y refuerzan marca en escaparates, paredes, eventos y puntos de venta. En Repro Disseny imprimimos pósters publicitarios con alta calidad de color y definición, en distintos formatos y papeles, para que el resultado se vea profesional y cumpla su objetivo.",
           "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/posters.webp",
-          "url": "https://reprodisseny.com/productos/posters",
+          "url": "https://reprodisseny.com/productos/posters-personalizados",
           "sku": "01-OFICI-0004",
           "brand": {
             "@type": "Organization",
@@ -12226,13 +12236,13 @@
     {
       "id": "87",
       "type": "producto",
-      "slug": "puntos-libro",
-      "path": "/productos/puntos-libro",
-      "title": "Puntos de libro",
+      "slug": "puntos-de-libro-personalizados",
+      "path": "/productos/puntos-de-libro-personalizados",
+      "title": "Puntos de libro personalizados (marcapáginas)",
       "categorySlug": "material-publicitario",
       "isPublished": true,
-      "shortDescription": "Puntos de libro",
-      "bodyMd": "## Puntos de libro\n\n## Puntos de libro",
+      "shortDescription": "Los puntos de libro son un soporte publicitario muy efectivo porque se conserva y se usa durante tiempo: perfectos para campañas, ferias, librerías, centros culturales o marcas que quieren un detalle útil y con buena presencia. En Repro Disseny imprimimos marcapáginas personalizados con formato a medida, papeles de calidad y acabados profesionales para que refuercen tu marca y generen recuerdo.",
+      "bodyMd": "##Detalles \n\n¿Qué es un punto de libro y para qué se usa? \n\nUn punto de libro (marcapáginas) es una pieza impresa en formato alargado que se utiliza para marcar páginas, pero también funciona como detalle promocional: puedes incluir mensaje, servicios, QR, redes, agenda de eventos o una promoción. Es ideal cuando buscas un regalo útil, fácil de repartir y con alta permanencia. \n\n##Beneficios \n\nAlta permanencia: no se tira fácilmente; se guarda y se usa semanas o meses. \n\nDetalle útil y económico: perfecto para campañas con buen retorno por unidad. \n\nRefuerza marca: diseño, colores y mensajes siempre visibles. \n\nMuy fácil de repartir: ligero, práctico para ferias, tiendas y envíos. \n\nMedible: con QR, código promocional o URL para llevar tráfico a tu web. \n\n##Aplicaciones \n\nLibrerías y editoriales: promociones, novedades, firmas, ferias del libro. \n\nCentros culturales y museos: agenda, exposiciones, actividades. \n\nEmpresas y marcas: regalos corporativos, campañas de branding y fidelización. \n\nEventos: acreditación “ligera” con agenda/QR, regalo en welcome pack. \n\nEcommerce: inserto en paquetes con descuento o mensaje post-compra. \n\n##Características técnicas \n\nFormatos habituales \n\nFormato alargado tipo marcapáginas, con medidas estándar o a medida. \n\nImpresión a una o dos caras (reverso útil para QR, promo, redes o calendario). \n\nPapeles y soportes \n\nCartulinas de buen gramaje para un punto de libro con cuerpo y durabilidad. \n\nMate: lectura cómoda y look corporativo. \n\nBrillo: colores más vivos y llamativos. \n\nPapeles con textura o reciclados si buscas un acabado más premium o sostenible. \n\nAcabados opcionales \n\nLaminado mate o brillo: mejora resistencia al roce y al uso continuado. \n\nBarniz selectivo: resalta logo o detalle (acabado premium). \n\nEsquinas redondeadas: mejor tacto y mayor durabilidad en los cantos. \n\nTroquel/corte a medida si quieres una forma diferente o un extremo especial. \n\nExtras útiles \n\nQR a web, catálogo, reserva, redes, agenda o promoción. \n\nDatos variables para series (códigos únicos, nombres, eventos por fecha, etc.). \n\nOpción de incluir un pequeño taladro si quieres colgarlo o añadir cinta (según diseño).",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/puntos-libro.webp",
         "width": 1200,
@@ -12312,9 +12322,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Puntos de libro | Repro Disseny",
-        "metaDescription": "Puntos de libro personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/puntos-libro",
+        "metaTitle": "Puntos de libro personalizados | Marcapáginas publicitarios y corporativos",
+        "metaDescription": "Puntos de libro personalizados para campañas, ferias y branding. Impresión a color, papeles premium, acabados (laminado, barniz) y opción de datos variables o QR. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/puntos-de-libro-personalizados",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -12331,10 +12341,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Puntos de libro",
-          "description": "Puntos de libro",
+          "name": "Puntos de libro personalizados (marcapáginas)",
+          "description": "Los puntos de libro son un soporte publicitario muy efectivo porque se conserva y se usa durante tiempo: perfectos para campañas, ferias, librerías, centros culturales o marcas que quieren un detalle útil y con buena presencia. En Repro Disseny imprimimos marcapáginas personalizados con formato a medida, papeles de calidad y acabados profesionales para que refuercen tu marca y generen recuerdo.",
           "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/puntos-libro.webp",
-          "url": "https://reprodisseny.com/productos/puntos-libro",
+          "url": "https://reprodisseny.com/productos/puntos-de-libro-personalizados",
           "sku": "01-OFICI-0009",
           "brand": {
             "@type": "Organization",
@@ -12628,12 +12638,13 @@
     {
       "id": "92",
       "type": "producto",
-      "slug": "stoppers",
-      "path": "/productos/stoppers",
-      "title": "Stoppers",
+      "slug": "stoppers-lineal-personalizados",
+      "path": "/productos/stoppers-lineal-personalizados",
+      "title": "Stoppers personalizados (punto de venta)",
       "categorySlug": "material-publicitario",
       "isPublished": true,
-      "shortDescription": "Stoppers",
+      "shortDescription": "Los stoppers son una de las piezas de PLV más efectivas para aumentar la visibilidad en tienda: sobresalen del lineal y hacen que una oferta o producto destaque en el momento de decisión. En Repro Disseny fabricamos stoppers personalizados con impresión de alta calidad, soportes rígidos y opciones de corte a medida para que el mensaje sea claro y el montaje sea rápido.",
+      "bodyMd": "##Detalles \n\n¿Qué es un stopper y para qué se usa? \n\nUn stopper es un elemento publicitario que se coloca en estanterías o lineales y sobresale hacia el pasillo, “parando” la mirada del cliente. Se utiliza para destacar promociones, novedades, precio, packs, lanzamientos o información clave (producto recomendado, “nuevo”, “top ventas”, etc.). \n\n##Beneficios \n\nAumenta visibilidad en lineal: sobresale y se ve antes que una etiqueta o un cartel plano. \n\nImpulsa ventas: ideal para promociones y productos prioritarios. \n\nMensaje rápido y claro: perfecto para “2x1”, “nuevo”, “oferta”, “destacado”. \n\nPersonalización por campaña: variantes por categorías, tiendas, secciones o temporadas. \n\nFácil de instalar: soluciones pensadas para montaje rápido en tienda. \n\n##Aplicaciones \n\nRetail y supermercados: promociones, lanzamientos, precios especiales, campañas estacionales. \n\nFarmacia y parafarmacia: novedades, recomendados, campañas por laboratorio. \n\nElectrónica y grandes superficies: highlights por gama, novedades y packs. \n\nTiendas especializadas: producto estrella, “últimas unidades”, lanzamiento. \n\nFerias y showrooms: señalización de producto y puntos destacados en exposición. \n\n##Características técnicas \n\nFormatos y diseño \n\nFormatos estándar o a medida según lineal y distancia de lectura. \n\nDiseños con jerarquía clara: titular corto + beneficio + precio/CTA. \n\nPosibilidad de formas especiales (flecha, bocadillo, silueta de producto). \n\nMateriales \n\nSoportes rígidos ligeros para mantener estabilidad y buen acabado (según uso y duración). \n\nOpciones más resistentes si la campaña es larga o hay mucha manipulación. \n\nImpresión \n\nImpresión a todo color con buena definición (textos grandes, logos, iconos). \n\nSeries por campañas, secciones o tiendas manteniendo coherencia visual. \n\nCorte y acabados \n\nCorte recto o corte a medida/troquelado para formas llamativas. \n\nOpción de laminado si necesitas más resistencia al roce o mayor durabilidad en tienda. \n\nEsquinas redondeadas (opcional) para mayor resistencia. \n\nSistema de fijación \n\nPreparación según el lineal: pinza, adhesivo, pestaña, encaje o sistema específico (según el soporte del cliente/tienda). \n\nSi nos indicas el tipo de estantería, te proponemos la opción más práctica.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/stoppers.webp",
         "width": 1200,
@@ -12703,9 +12714,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Stoppers | Repro Disseny",
-        "metaDescription": "Stoppers personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/stoppers",
+        "metaTitle": "Stoppers personalizados | Promoción en lineal y punto de venta",
+        "metaDescription": "Stoppers personalizados para estanterías y lineales: destaca ofertas y lanzamientos en el punto de decisión. Impresión a color, soportes rígidos, corte a medida y sistemas de fijación. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/stoppers-lineal-personalizados",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -12722,10 +12733,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Stoppers",
-          "description": "Stoppers",
+          "name": "Stoppers personalizados (punto de venta)",
+          "description": "Los stoppers son una de las piezas de PLV más efectivas para aumentar la visibilidad en tienda: sobresalen del lineal y hacen que una oferta o producto destaque en el momento de decisión. En Repro Disseny fabricamos stoppers personalizados con impresión de alta calidad, soportes rígidos y opciones de corte a medida para que el mensaje sea claro y el montaje sea rápido.",
           "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/stoppers.webp",
-          "url": "https://reprodisseny.com/productos/stoppers",
+          "url": "https://reprodisseny.com/productos/stoppers-lineal-personalizados",
           "sku": "01-OFICI-00010",
           "brand": {
             "@type": "Organization",
@@ -12899,12 +12910,13 @@
     {
       "id": "95",
       "type": "producto",
-      "slug": "tarjetas-postales",
-      "path": "/productos/tarjetas-postales",
-      "title": "Tarjetas postales",
+      "slug": "tarjetas-postales-personalizadas",
+      "path": "/productos/tarjetas-postales-personalizadas",
+      "title": "Tarjetas postales personalizadas",
       "categorySlug": "material-publicitario",
       "isPublished": true,
-      "shortDescription": "Tarjetas postales",
+      "shortDescription": "Las tarjetas postales son un formato publicitario muy efectivo: tienen presencia, se leen rápido y funcionan genial tanto para reparto como para mailing. En Repro Disseny imprimimos postales personalizadas con papeles de calidad y acabados profesionales para campañas, invitaciones comerciales, promociones y comunicación corporativa.",
+      "bodyMd": "##Detalles \n\n¿Qué es una tarjeta postal y para qué se usa? \n\nUna tarjeta postal es una pieza rígida (normalmente en cartulina) impresa a una o dos caras, pensada para comunicar un mensaje breve con impacto: oferta, invitación, lanzamiento, evento o recordatorio. A diferencia del flyer, la postal suele tener más cuerpo, lo que mejora la calidad percibida y la hace ideal para acciones donde quieres destacar y que el mensaje se conserve. \n\nForma##Beneficios \n\nMás presencia que un flyer: se percibe más “premium” y se guarda más tiempo. \n\nPerfecta para mailing: formato directo, fácil de leer y con alto impacto en campañas. \n\nMensaje claro en segundos: ideal para ofertas, recordatorios y convocatorias. \n\nPersonalizable y medible: QR, códigos promocionales y datos variables por destinatario. \n\nVersátil: funciona igual de bien para reparto, mostrador o inserto en packaging. \n\n##Aplicaciones \n\nMailing y marketing directo: campañas por zonas, bases de datos o invitaciones a evento. \n\nRetail y promociones: lanzamientos, rebajas, “vuelve y gana”, cupones de descuento. \n\nHostelería: menús especiales, eventos, reservas, campañas estacionales. \n\nServicios: clínicas, academias, gimnasios (promos, recordatorios, jornadas). \n\nInserto en paquetes: ecommerce y packaging (cross-selling, reseñas, fidelización). \n\n##Características técnicas \n\nFormatos habituales \n\nTamaños tipo A6, DL o a medida según diseño y canal. \n\nImpresión a una o dos caras (reverso útil para condiciones, mapa, QR o formulario breve). \n\nPapeles y soportes \n\nCartulinas de buen gramaje para una postal con cuerpo y durabilidad. \n\nMate: lectura cómoda y look corporativo. \n\nBrillo: colores más vivos y acabado más llamativo. \n\nOpciones recicladas si buscas un enfoque más sostenible. \n\nImpresión y personalización \n\nImpresión a todo color con buena definición. \n\nDatos variables: nombre, código, tienda, zona, campaña o segmento. \n\nQR a landing, reserva, WhatsApp, Google Maps, catálogo o reseñas. \n\nAcabados opcionales \n\nLaminado mate o brillo si quieres más resistencia o un acabado más premium. \n\nBarniz selectivo para destacar logo o llamada a la acción (según diseño). \n\nEsquinas redondeadas (opcional) para un tacto más agradable y mayor durabilidad.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/tarjetas-postales.webp",
         "width": 1200,
@@ -12976,9 +12988,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Tarjetas postales | Repro Disseny",
-        "metaDescription": "Tarjetas postales personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/tarjetas-postales",
+        "metaTitle": "Tarjetas postales personalizadas | Publicidad directa y campañas",
+        "metaDescription": "Tarjetas postales personalizadas para campañas, mailings y promociones. Impresión a color, papeles de calidad, acabados mate o brillo y opción de datos variables/QR. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/tarjetas-postales-personalizadas",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -12995,10 +13007,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Tarjetas postales",
-          "description": "Tarjetas postales",
+          "name": "Tarjetas postales personalizadas",
+          "description": "Las tarjetas postales son un formato publicitario muy efectivo: tienen presencia, se leen rápido y funcionan genial tanto para reparto como para mailing. En Repro Disseny imprimimos postales personalizadas con papeles de calidad y acabados profesionales para campañas, invitaciones comerciales, promociones y comunicación corporativa.",
           "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/tarjetas-postales.webp",
-          "url": "https://reprodisseny.com/productos/tarjetas-postales",
+          "url": "https://reprodisseny.com/productos/tarjetas-postales-personalizadas",
           "sku": "01-OFICI-0007",
           "brand": {
             "@type": "Organization",
@@ -13010,12 +13022,13 @@
     {
       "id": "96",
       "type": "producto",
-      "slug": "tarjetas-pvc",
-      "path": "/productos/tarjetas-pvc",
-      "title": "Tarjetas de pvc",
+      "slug": "tarjetas-pvc-personalizadas",
+      "path": "/productos/tarjetas-pvc-personalizadas",
+      "title": "Tarjetas de PVC personalizadas",
       "categorySlug": "material-publicitario",
       "isPublished": true,
-      "shortDescription": "Tarjetas de pvc",
+      "shortDescription": "Tarjetas de PVC personalizadas para fidelización, acceso y membresías. Resistentes, a todo color, con opciones de datos variables, QR/código de barras y acabados premium. Solicita presupuesto.",
+      "bodyMd": "##Detalles \n\n¿Qué es una tarjeta de PVC y para qué se usa? \n\nUna tarjeta de PVC es una tarjeta de plástico rígido, pensada para uso repetido y manipulación frecuente. Se utiliza como soporte de marca y herramienta operativa: tarjetas de socio, fidelización, acceso, identificación, tarjetas regalo o tarjetas promocionales que deben durar más que una tarjeta de cartulina. \n\n##Beneficios \n\nMuy resistente y duradera: aguanta uso diario, roces y manipulación continua. \n\nImagen premium: transmite calidad y profesionalidad en mano. \n\nIdeal para operativa: acceso, control, membresías o programas de fidelización. \n\nPersonalización avanzada: numeración, datos variables, QR y códigos para lectura/validación. \n\nApta para campañas y largo recorrido: no se dobla ni se deteriora como el papel. \n\n##Aplicaciones \n\nFidelización: tarjetas de puntos, club, descuentos y programas “cliente frecuente”. \n\nAcceso e identificación: staff, socios, invitados VIP, tarjetas internas. \n\nTarjetas regalo: retail, estética, hostelería y servicios. \n\nMembresías: gimnasios, centros, asociaciones, academias. \n\nPromociones: tarjetas con código/QR para canje y campañas medibles. \n\n##Características técnicas \n\nFormato \n\nFormato estándar tipo tarjeta (similar a tarjeta bancaria) y opciones a medida según proyecto. \n\nImpresión \n\nImpresión a todo color a una o dos caras. \n\nDiseño con buena legibilidad para datos, iconos y marca. \n\nPersonalización y control \n\nNumeración correlativa (por series o unidades). \n\nDatos variables: nombre, ID, sede, nivel de socio, etc. \n\nQR / código de barras para validación, canje, accesos o lectura con app/TPV. \n\nOpciones de diferenciación por colores (categorías, niveles, roles). \n\nAcabados (según necesidad) \n\nOpciones de acabado para mejorar la presencia (mate o brillo) según estilo y uso. \n\nPosibilidad de incorporar elementos funcionales (por ejemplo, perforación para colgar si se usa como tarjeta/credencial en eventos, según formato).",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/tarjetas-de-pvc.webp",
         "width": 1200,
@@ -13093,9 +13106,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Tarjetas de pvc | Repro Disseny",
-        "metaDescription": "Tarjetas de pvc personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/tarjetas-pvc",
+        "metaTitle": "Tarjetas de PVC personalizadas | Tarjetas resistentes para empresa y promociones",
+        "metaDescription": "Tarjetas de PVC personalizadas para fidelización, acceso y membresías. Resistentes, a todo color, con opciones de datos variables, QR/código de barras y acabados premium. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/tarjetas-pvc-personalizadas",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -13112,10 +13125,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Tarjetas de pvc",
-          "description": "Tarjetas de pvc",
+          "name": "Tarjetas de PVC personalizadas",
+          "description": "Tarjetas de PVC personalizadas para fidelización, acceso y membresías. Resistentes, a todo color, con opciones de datos variables, QR/código de barras y acabados premium. Solicita presupuesto.",
           "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/tarjetas-de-pvc.webp",
-          "url": "https://reprodisseny.com/productos/tarjetas-pvc",
+          "url": "https://reprodisseny.com/productos/tarjetas-pvc-personalizadas",
           "sku": "01-OFICI-0013",
           "brand": {
             "@type": "Organization",
@@ -13245,12 +13258,13 @@
     {
       "id": "99",
       "type": "producto",
-      "slug": "tarjetones-invitaciones",
-      "path": "/productos/tarjetones-invitaciones",
-      "title": "Tarjetones e invitaciones",
+      "slug": "invitaciones-y-tarjetones-personalizados",
+      "path": "/productos/invitaciones-y-tarjetones-personalizados",
+      "title": "Invitaciones y tarjetones personalizados",
       "categorySlug": "material-publicitario",
       "isPublished": true,
-      "shortDescription": "Tarjetones e invitaciones",
+      "shortDescription": "Las invitaciones y tarjetones son una pieza clave cuando quieres que tu convocatoria se perciba profesional desde el primer momento. Funcionan muy bien para eventos corporativos, inauguraciones, presentaciones, promociones o acciones de marca. En Repro Disseny imprimimos tarjetones personalizados con papeles de calidad y acabados a medida para que el resultado tenga presencia y refuerce tu imagen.",
+      "bodyMd": "##Detalles \n\n¿Qué son las invitaciones y tarjetones y para qué se usan? \n\nSon piezas impresas de formato tarjeta (más o menos rígidas según papel) que se entregan o envían para invitar a un evento o comunicar una acción: fecha, lugar, horario, dress code, RSVP, mapa, QR a registro o cualquier información relevante. \nEl tarjetón suele tener más cuerpo y presencia que una invitación estándar, por eso se utiliza mucho cuando se busca un efecto “premium” o institucional. \n\n##Beneficios \n\nMejor calidad percibida: un tarjetón bien impreso eleva el nivel del evento o la campaña. \n\nConvocatoria más efectiva: formato claro y directo, con CTA (confirmación, registro, QR). \n\nCoherencia con tu marca: colores, tipografías y estilo alineados con el resto de materiales. \n\nPersonalización por destinatario: nombres, cargos, numeración, accesos VIP o sesiones. \n\nAcabados que diferencian: detalles premium para eventos con mayor valor (presentaciones, galas, inauguraciones). \n\n##Aplicaciones \n\nEventos corporativos: presentaciones de producto, aniversarios, convenciones, openings. \n\nInauguraciones y aperturas de tienda/local. \n\nInvitaciones VIP y pases especiales (prensa, partners, patrocinadores). \n\nAcciones promocionales: invitación a prueba, degustación, showroom o campaña privada. \n\nInstitucional: convocatorias, actos oficiales y eventos de entidades. \n\n##Características técnicas \n\nFormatos habituales \n\nTarjeta A6, DL, A5 o a medida (según contenido y presencia). \n\nOpciones plegadas (díptico) si necesitas más información sin recargar. \n\nPapeles y soportes \n\nCartulinas de alto gramaje para tarjetón con cuerpo. \n\nPapeles estucados mate/brillo (acabado limpio) o papeles con textura para un look más premium. \n\nOpciones recicladas si buscas un enfoque más sostenible (cuando encaja con el estilo del evento). \n\nImpresión \n\nA todo color o combinaciones sobrias (por ejemplo, 1–2 tintas) para eventos más corporativos. \n\nUna o dos caras (reverso útil para mapa, agenda, condiciones o QR). \n\nPersonalización \n\nDatos variables: nombre del invitado, empresa, cargo, número de invitación, sesión, etc. \n\nQR a registro/RSVP, agenda, ubicación o entrada digital. \n\nPosibilidad de series por tipo de acceso (General/VIP/Prensa). \n\nAcabados recomendados \n\nLaminado mate o brillo: mejora presencia y protege. \n\nSoft touch: tacto premium para invitaciones de alto nivel. \n\nBarniz selectivo: resalta logo o titular. \n\nStamping (dorado/plata/metalizados): ideal para un plus elegante. \n\nEsquinas redondeadas: detalle que mejora durabilidad y tacto.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/tarjetones-e-invitaciones.webp",
         "width": 1200,
@@ -13343,9 +13357,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Tarjetones e invitaciones | Repro Disseny",
-        "metaDescription": "Tarjetones e invitaciones personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/tarjetones-invitaciones",
+        "metaTitle": "Invitaciones y tarjetones personalizados | Publicidad y eventos",
+        "metaDescription": "Invitaciones y tarjetones personalizados para eventos, aperturas y campañas. Papeles premium, impresión a color, acabados (laminado, barniz, stamping) y datos variables. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/invitaciones-y-tarjetones-personalizados",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -13362,10 +13376,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Tarjetones e invitaciones",
-          "description": "Tarjetones e invitaciones",
+          "name": "Invitaciones y tarjetones personalizados",
+          "description": "Las invitaciones y tarjetones son una pieza clave cuando quieres que tu convocatoria se perciba profesional desde el primer momento. Funcionan muy bien para eventos corporativos, inauguraciones, presentaciones, promociones o acciones de marca. En Repro Disseny imprimimos tarjetones personalizados con papeles de calidad y acabados a medida para que el resultado tenga presencia y refuerce tu imagen.",
           "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/tarjetones-e-invitaciones.webp",
-          "url": "https://reprodisseny.com/productos/tarjetones-invitaciones",
+          "url": "https://reprodisseny.com/productos/invitaciones-y-tarjetones-personalizados",
           "sku": "01-OFICI-0001",
           "brand": {
             "@type": "Organization",

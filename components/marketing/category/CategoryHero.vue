@@ -24,25 +24,14 @@ const props = withDefaults(
     showBreadcrumbs?: boolean
     showCta?: boolean
     containerClass?: string
-    density?: "comfortable" | "compact"
   }>(),
-  {
-    showBreadcrumbs: false,
-    showCta: false,
-    containerClass: "",
-    density: "comfortable",
-  }
+  { showBreadcrumbs: false, showCta: false, containerClass: "" }
 )
 
 const title = computed(() => props.category?.title || props.category?.nav || "Categoría")
 const description = computed(() => props.category?.heroDescription || props.category?.description || "")
-
-const imgSrc = computed(() => {
-  const c = props.category || {}
-  return c.imageSrc || c.image?.src || null
-})
-
-const imgAlt = computed(() => props.category?.alt || props.category?.image?.alt || "")
+const imgSrc = computed(() => props.category?.imageSrc || props.category?.image?.src || null)
+const imgAlt = computed(() => props.category?.alt || props.category?.image?.alt || title.value)
 const breadcrumbs = computed(() => props.category?.breadcrumbs || [])
 
 const cta = computed<HeroCta>(() => ({
@@ -51,45 +40,53 @@ const cta = computed<HeroCta>(() => ({
   ...(props.category?.cta || {}),
 }))
 
-const contentWrapClass = computed(() =>
-  cn("mx-auto w-full max-w-[1440px] px-6 md:px-10 lg:px-16 2xl:px-[120px]", props.containerClass)
-)
-
-const paddingYClass = computed(() =>
-  props.density === "compact" ? "py-10 md:py-12" : "py-14 md:py-16 lg:py-20"
+const container = computed(() =>
+  cn("mx-auto w-full max-w-[1200px] px-6 md:px-10", props.containerClass)
 )
 </script>
 
 <template>
-  <header class="bg-background">
-    <div :class="cn(contentWrapClass, paddingYClass)">
-      <div class="grid items-center gap-10 md:grid-cols-12">
-        <!-- Texto -->
-        <div class="md:col-span-7">
+  <!-- alturas exactas -->
+  <header class="relative overflow-hidden h-[252px] md:h-[360px]">
+    <!-- background -->
+    <img
+      v-if="imgSrc"
+      :src="imgSrc"
+      :alt="imgAlt"
+      class="absolute inset-0 h-full w-full object-cover object-[70%_50%]"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+    />
+
+    <!-- overlay exacto: #DEF4FFBF -->
+    <div class="absolute inset-0 bg-[#DEF4FFBF]" />
+
+    <!-- contenido -->
+    <div :class="cn('relative z-10 h-full', container)">
+      <div class="flex h-full items-center">
+        <div class="max-w-[760px]">
           <nav
             v-if="showBreadcrumbs && breadcrumbs.length"
             aria-label="Breadcrumb"
-            class="mb-4 text-xs text-muted-foreground"
+            class="mb-4 text-xs text-slate-600"
           >
             <ol class="flex flex-wrap items-center gap-2">
               <li v-for="(b, i) in breadcrumbs" :key="i" class="flex items-center gap-2">
-                <NuxtLink :to="b.to" class="hover:text-foreground">
-                  {{ b.label }}
-                </NuxtLink>
-                <span v-if="i < breadcrumbs.length - 1" class="text-muted-foreground/60">/</span>
+                <NuxtLink :to="b.to" class="hover:text-foreground">{{ b.label }}</NuxtLink>
+                <span v-if="i < breadcrumbs.length - 1" class="text-slate-600/60">/</span>
               </li>
             </ol>
           </nav>
 
-          <h1
-            class="max-w-3xl text-3xl font-semibold leading-tight tracking-tight text-foreground sm:text-4xl lg:text-5xl"
-          >
+          <!-- Ajusta aquí si quieres que en móvil sea más grande como en tu captura -->
+          <h1 class="font-semibold text-foreground text-[30px] leading-[36px]">
             {{ title }}
           </h1>
 
           <p
             v-if="description"
-            class="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base lg:text-lg"
+            class="mt-4 text-[15px] leading-[22px] text-slate-600 max-w-[680px]"
           >
             {{ description }}
           </p>
@@ -101,24 +98,6 @@ const paddingYClass = computed(() =>
             >
               {{ cta.text }}
             </a>
-          </div>
-        </div>
-
-        <!-- Imagen (CLARA y entendible) -->
-        <div v-if="imgSrc" class="md:col-span-5">
-          <div class="pointer-events-none select-none">
-            <NuxtImg
-              :src="imgSrc"
-              :alt="imgAlt"
-              loading="eager"
-              decoding="async"
-              class="
-                w-full
-                max-h-[220px] sm:max-h-[260px] md:max-h-[320px] lg:max-h-[360px]
-                object-contain object-right
-                opacity-90
-              "
-            />
           </div>
         </div>
       </div>

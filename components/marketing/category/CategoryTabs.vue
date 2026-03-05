@@ -1,33 +1,52 @@
 <!-- components/marketing/category/CategoryTabs.vue -->
 <script setup lang="ts">
-import { computed, ref, onMounted, onBeforeUnmount } from "vue"
-import { useRoute } from "#imports"
+import { computed, ref, watch, watchEffect } from "vue"
+import { useRoute, useRouter } from "#imports"
 import { cn } from "@/lib/utils"
 
-type TextBlock = { type: "text"; text: string; html?: boolean; format?: "plain" | "html" }
-type BulletsBlock = { type: "bullets"; items: string[] }
-type ImageBlock = { type: "image"; src: string; alt?: string; caption?: string; width?: number; height?: number }
-type Block = TextBlock | BulletsBlock | ImageBlock | { type: string; [k: string]: any }
+import CategoryBlocks from "@/components/marketing/category/CategoryBlocks.vue"
+import type { Block } from "@/utils/categoryRail"
 
-type Tab = { id?: string; title: string; blocks?: Block[]; content?: Block[] }
-type SafeTab = { id: string; title: string; blocks: Block[] }
+// Reka UI Tabs (accesible, “shadcn-like”)
+import { TabsRoot, TabsList, TabsTrigger, TabsContent } from "reka-ui"
+
+type TabCta = { label: string; to: string }
+type Tab = {
+  id?: string
+  title: string
+  blocks?: Block[]
+  content?: Block[]
+  cta?: Partial<TabCta>
+}
+
+type SafeTab = {
+  id: string
+  title: string
+  blocks: Block[]
+  cta?: TabCta
+}
 
 const props = withDefaults(
   defineProps<{
     tabs: Tab[]
-    containerClass?: string
-    stickyTop?: number
-    /** Ajusta a tu layout (header + barra). Evita que el anchor quede oculto por el sticky. */
-    scrollMarginTop?: number
+    /** Si lo pasas, la barra queda sticky. Ej: 112 */
+    stickyTop?: number | null
+    /** Mantiene el hash (#acabados) sincronizado con la tab activa */
+    syncHash?: boolean
+    class?: string
+    /** Extra clases para el panel (card) */
+    panelClass?: string
   }>(),
   {
-    containerClass: "mx-auto w-full max-w-[1440px] px-6 lg:px-16 xl:px-24",
-    stickyTop: 80,
-    scrollMarginTop: 170,
+    stickyTop: null,
+    syncHash: true,
+    class: "",
+    panelClass: "",
   }
 )
 
 const route = useRoute()
+const router = useRouter()
 const activeId = ref("")
 
 function slugify(v: string) {
@@ -35,7 +54,7 @@ function slugify(v: string) {
     .trim()
     .toLowerCase()
     .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "") // quita tildes
+    .replace(/[\u0300-\u036f]/g, "")
     .replace(/\s+/g, "-")
     .replace(/[^\w-]/g, "")
 }
@@ -46,128 +65,123 @@ const safeTabs = computed<SafeTab[]>(() =>
     .map((t, i) => {
       const blocks = ((t.blocks ?? t.content ?? []) as Block[]).filter(Boolean)
       const id = slugify(t.id || t.title) || `tab-${i}`
-      return { id, title: String(t.title).trim(), blocks }
+      const cta =
+        (t.cta?.label && t.cta?.to) ? ({ label: t.cta.label, to: t.cta.to } as TabCta) : undefined
+      return { id, title: String(t.title).trim(), blocks, cta }
     })
 )
 
-function isHtmlTextBlock(b: Block): b is TextBlock {
-  return b.type === "text" && ((b as any).html === true || (b as any).format === "html")
-}
+/**
+ * Inicializa / repara activeId cuando:
+ * - llegan tabs
+ * - cambia el hash
+ * - el id activo ya no existe
+ */
+watchEffect(() => {
+  const list = safeTabs.value
+  if (!list.length) return
 
-function syncActiveFromHash() {
   const hash = String(route.hash || "").replace(/^#/, "")
-  if (hash && safeTabs.value.some((t) => t.id === hash)) activeId.value = hash
-  else activeId.value = safeTabs.value[0]?.id || ""
-}
+  const hashIsValid = hash && list.some((t) => t.id === hash)
 
-function onHashChange() {
-  syncActiveFromHash()
-}
+  // Si no hay activo, prioriza hash válido, si no el primero
+  if (!activeId.value) {
+    activeId.value = hashIsValid ? hash : list[0].id
+    return
+  }
 
-onMounted(() => {
-  syncActiveFromHash()
-  window.addEventListener("hashchange", onHashChange, { passive: true })
+  // Si el activo ya no existe, repara
+  if (!list.some((t) => t.id === activeId.value)) {
+    activeId.value = hashIsValid ? hash : list[0].id
+  }
 })
 
-onBeforeUnmount(() => {
-  window.removeEventListener("hashchange", onHashChange)
-})
+/** Si cambia el hash manualmente (o por navegación), sincroniza tab activa */
+watch(
+  () => route.hash,
+  (h) => {
+    if (!props.syncHash) return
+    const id = String(h || "").replace(/^#/, "")
+    if (id && safeTabs.value.some((t) => t.id === id)) activeId.value = id
+  }
+)
+
+/** Si cambia tab activa, actualiza el hash (shareable / UX) */
+watch(
+  () => activeId.value,
+  async (id) => {
+    if (!props.syncHash || !process.client) return
+    if (!id) return
+    const target = `#${id}`
+    if (route.hash === target) return
+    try {
+      await router.replace({ hash: target })
+    } catch {
+      // noop
+    }
+  }
+)
 </script>
 
 <template>
-  <section v-if="safeTabs.length" class="bg-background">
-    <!-- Barra sticky (shadcn-look) -->
-    <div
-      class="sticky z-40 border-b border-border/60 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/70"
-      :style="{ top: `${stickyTop}px` }"
-    >
-      <div :class="cn(containerClass, 'py-2')">
-        <nav aria-label="Contenido de la categoría">
-          <ul class="no-scrollbar flex items-center gap-2 overflow-x-auto">
-            <li v-for="t in safeTabs" :key="t.id" class="shrink-0">
-              <!-- anchor real: SEO + accesibilidad -->
-              <a
-  :href="`#${t.id}`"
-  :aria-current="activeId === t.id ? 'true' : undefined"
-  class="inline-flex h-9 items-center rounded-full px-3 text-xs font-medium transition-colors
-         focus:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
-  :class="
-    activeId === t.id
-      ? 'bg-muted text-foreground shadow-sm'
-      : 'text-muted-foreground hover:text-foreground hover:bg-muted/40'
-  "
-  @click="activeId = t.id"
->
-  {{ t.title }}
-</a>            
-</li>
-          </ul>
-        </nav>
+  <section v-if="safeTabs.length" :class="cn('w-full', props.class)">
+    <TabsRoot v-model="activeId" class="w-full">
+      <!-- Barra Tabs (underline como Tailwind Plus) -->
+      <div
+        :class="cn(
+          'border border-slate-200 bg-white',
+          'rounded-xl',
+          stickyTop != null
+            ? 'sticky z-40 backdrop-blur supports-[backdrop-filter]:bg-white/80'
+            : ''
+        )"
+        :style="stickyTop != null ? { top: `${stickyTop}px` } : undefined"
+      >
+        <TabsList class="no-scrollbar flex w-full items-center gap-6 overflow-x-auto px-5">
+          <TabsTrigger
+            v-for="t in safeTabs"
+            :key="t.id"
+            :value="t.id"
+            class="relative -mb-px whitespace-nowrap py-4 text-sm font-medium text-slate-600
+                   outline-none transition-colors
+                   data-[state=active]:text-slate-900
+                   data-[state=active]:after:absolute data-[state=active]:after:left-0 data-[state=active]:after:right-0
+                   data-[state=active]:after:bottom-0 data-[state=active]:after:h-[2px] data-[state=active]:after:bg-primary
+                   focus-visible:ring-2 focus-visible:ring-ring/40"
+          >
+            {{ t.title }}
+          </TabsTrigger>
+        </TabsList>
       </div>
-    </div>
 
-    <!-- Contenido SIEMPRE visible (SSR) -->
-    <div :class="cn(containerClass, 'py-10 md:py-12')">
-      <div class="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
-        <section
+      <!-- Panel -->
+      <div :class="cn('mt-6 rounded-2xl border border-slate-200 bg-white shadow-sm', props.panelClass)">
+        <TabsContent
           v-for="t in safeTabs"
           :key="t.id"
-          :id="t.id"
-          class="border-b border-border/60 px-6 py-10 last:border-b-0 md:px-10 md:py-12"
-          :style="{ scrollMarginTop: `${scrollMarginTop}px` }"
+          :value="t.id"
+          class="px-6 py-10 md:px-10 md:py-12"
         >
+          <!-- Heading visible (bueno para escaneo + SEO). Si no lo quieres, lo cambias a sr-only -->
           <h2 class="mb-6 text-2xl font-semibold text-foreground">
             {{ t.title }}
           </h2>
 
-          <div class="space-y-6 leading-relaxed text-muted-foreground md:text-[15px]">
-            <template v-for="(b, bi) in t.blocks" :key="bi">
-              <!-- Nota: si viene de CMS, ideal sanitizar HTML en origen -->
-              <div
-                v-if="isHtmlTextBlock(b)"
-                class="prose prose-slate max-w-none dark:prose-invert"
-                v-html="b.text"
-              />
+          <!-- ✅ Render CMS blocks reutilizable -->
+          <CategoryBlocks :blocks="t.blocks" />
 
-              <p v-else-if="b.type === 'text'" class="whitespace-pre-line">
-                {{ (b as any).text }}
-              </p>
-
-              <ul v-else-if="b.type === 'bullets'" class="grid gap-3 sm:grid-cols-2">
-                <li
-                  v-for="(it, j) in (b as any).items || []"
-                  :key="j"
-                  class="flex items-start gap-3 rounded-lg border border-border/60 bg-muted/30 p-3"
-                >
-                  <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-primary" />
-                  <span class="text-sm font-medium text-foreground/90">{{ it }}</span>
-                </li>
-              </ul>
-
-              <figure v-else-if="b.type === 'image'" class="my-6">
-                <NuxtImg
-                  :src="(b as any).src"
-                  :alt="(b as any).alt || ''"
-                  :width="(b as any).width"
-                  :height="(b as any).height"
-                  class="w-full max-h-[520px] rounded-xl border border-border/60 object-cover"
-                  loading="lazy"
-                  format="webp"
-                  quality="80"
-                />
-                <figcaption v-if="(b as any).caption" class="mt-2 text-center text-sm text-muted-foreground">
-                  {{ (b as any).caption }}
-                </figcaption>
-              </figure>
-            </template>
-
-            <p v-if="!t.blocks.length" class="rounded-lg bg-muted/30 p-4 text-center italic">
-              Información no disponible.
-            </p>
+          <!-- CTA opcional por tab -->
+          <div v-if="t.cta" class="mt-8">
+            <NuxtLink
+              :to="t.cta.to"
+              class="inline-flex items-center rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground hover:opacity-90"
+            >
+              {{ t.cta.label }}
+            </NuxtLink>
           </div>
-        </section>
+        </TabsContent>
       </div>
-    </div>
+    </TabsRoot>
   </section>
 </template>
 
