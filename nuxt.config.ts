@@ -132,6 +132,7 @@ export default defineNuxtConfig({
   //permitimos dominio Bob de Azure
     image: {
     // permite URLs remotas (Azure Blob)
+    provider: "ipx",
     domains: ["webcms.blob.core.windows.net"],
   },
   shadcn: {
@@ -160,7 +161,6 @@ export default defineNuxtConfig({
         { name: "format-detection", content: "telephone=no" },
       ],
       link: [
-        { rel: "icon", type: "image/svg+xml", href: "/img/logo/reprodisseny.svg" },
         {
           rel: "icon",
           type: "image/png",

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-04T11:12:52.142Z",
+  "generatedAt": "2026-03-05T09:12:37.740Z",
   "categories": [
     {
       "id": "10",
@@ -2647,12 +2647,13 @@
     {
       "id": "106",
       "type": "producto",
-      "slug": "wire-o-oculto",
-      "path": "/productos/wire-o-oculto",
+      "slug": "encuadernacion-wire-o-oculto",
+      "path": "/productos/encuadernacion-wire-o-oculto",
       "title": "Encuadernación  Wire O Oculto",
       "categorySlug": "libros-revistas-catalogos",
       "isPublished": true,
-      "shortDescription": "Encuadernación  Wire O Oculto",
+      "shortDescription": "La encuadernación Wire-O oculto combina lo mejor de dos mundos: la comodidad del Wire-O (abre en plano y gira 360º) con un acabado más elegante, ya que la espiral queda oculta por la tapa. Es una opción ideal para catálogos, dossiers y presentaciones donde importa tanto la funcionalidad como la calidad percibida.",
+      "bodyMd": "##Detalles \n\n¿Qué es la encuadernación Wire-O oculto y para qué se usa? \n\nEs una variante del Wire-O en la que la doble espiral metálica no queda visible por fuera: se integra mediante una tapa diseñada para cubrir el lomo, ofreciendo un aspecto más limpio y “editorial”. Se utiliza cuando necesitas un documento práctico para consulta, pero con una presentación más premium: catálogos de marca, portfolios, propuestas comerciales, documentación corporativa o material formativo de alta calidad. \n\n##Beneficios \n\nApertura 360º y en plano: igual de funcional que el Wire-O tradicional. \n\nEspiral oculta: aspecto más elegante y profesional en mano y sobre mesa. \n\nMejor calidad percibida: ideal para entregas comerciales y documentación de marca. \n\nMás protección del lomo: la tapa ayuda a proteger la encuadernación frente a roces. \n\nPerfecto para presentaciones: se mantiene abierto sin cerrarse, con estética cuidada. \n\n##Aplicaciones \n\nCatálogos de producto y tarifas de consulta (con acabado de marca). \n\nDossiers comerciales y propuestas para clientes. \n\nPortfolios y presentaciones creativas (arquitectura, diseño, fotografía). \n\nManual corporativo o formativo con uso recurrente pero imagen premium. \n\nDocumentación interna de alta calidad (procedimientos, guías, onboarding). \n\n##Características técnicas \n\nFormato \n\nHabituales: A4, A5, apaisado o a medida según el contenido. \n\nWire-O y perforado \n\nPerforado alineado + doble espiral metálica, con diámetro ajustado al grosor del documento. \n\nTapa para ocultar la espiral \n\nCubierta diseñada para cubrir el lomo y dejar el Wire-O “escondido” en la parte trasera. \n\nAporta una estética más limpia y una sensación más “libro” sin perder apertura 360º. \n\nPapeles \n\nInterior: offset (lectura) o estucado mate/brillo (imagen) según objetivo. \n\nCubierta: cartulina de mayor gramaje para rigidez y presencia. \n\nAcabados recomendados \n\nLaminado mate o brillo en cubierta para proteger y mejorar calidad percibida. \n\nSoft touch (opcional) para un tacto más premium. \n\nEsquinas redondeadas (opcional) si el uso será intensivo.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/publicaciones/encuadernacion-wire-oculto.webp",
         "width": 1200,
@@ -2747,9 +2748,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Encuadernación  Wire O Oculto | Repro Disseny",
-        "metaDescription": "Encuadernación  Wire O Oculto personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/wire-o-oculto",
+        "metaTitle": "Encuadernación Wire-O oculto | Apertura 360º con acabado más premium",
+        "metaDescription": "Encuadernación Wire-O oculto para catálogos, dossiers y presentaciones: apertura 360º, páginas en plano y espiral oculta en la tapa. Más estética y profesional. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/encuadernacion-wire-o-oculto",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -2767,9 +2768,9 @@
           "@context": "https://schema.org",
           "@type": "Product",
           "name": "Encuadernación  Wire O Oculto",
-          "description": "Encuadernación  Wire O Oculto",
+          "description": "La encuadernación Wire-O oculto combina lo mejor de dos mundos: la comodidad del Wire-O (abre en plano y gira 360º) con un acabado más elegante, ya que la espiral queda oculta por la tapa. Es una opción ideal para catálogos, dossiers y presentaciones donde importa tanto la funcionalidad como la calidad percibida.",
           "image": "https://webcms.blob.core.windows.net/media/product/publicaciones/encuadernacion-wire-oculto.webp",
-          "url": "https://reprodisseny.com/productos/wire-o-oculto",
+          "url": "https://reprodisseny.com/productos/encuadernacion-wire-o-oculto",
           "sku": "01-PUBLI-0005",
           "brand": {
             "@type": "Organization",
@@ -2781,12 +2782,13 @@
     {
       "id": "107",
       "type": "producto",
-      "slug": "wire-o",
-      "path": "/productos/wire-o",
-      "title": "Encuadernación  Wire O",
+      "slug": "encuadernacion-wire-o",
+      "path": "/productos/encuadernacion-wire-o",
+      "title": "Encuadernación Wire-O (doble espiral)",
       "categorySlug": "libros-revistas-catalogos",
       "isPublished": true,
-      "shortDescription": "Encuadernación  Wire O",
+      "shortDescription": "La encuadernación Wire-O es la opción perfecta cuando necesitas una publicación cómoda de usar: abre totalmente en plano y permite girar las páginas 360º, ideal para manuales, documentos de consulta y presentaciones que se usan a diario. En Repro Disseny encuadernamos con Wire-O cuidando el papel, el acabado de la cubierta y los detalles para un resultado profesional y duradero.",
+      "bodyMd": "##Detalles \n\n¿Qué es la encuadernación Wire-O y para qué se usa? \n\nLa Wire-O es una encuadernación con doble espiral metálica (anillas) que se coloca tras perforar las páginas. Su gran ventaja es la funcionalidad: el documento se mantiene abierto sin cerrarse, se puede apoyar en mesa y pasar páginas con facilidad. Se usa mucho en manuales, dosieres, recetarios, catálogos de consulta, agendas y materiales formativos. \n\n##Beneficios \n\nApertura 360º: se pliega sobre sí misma sin dañar el lomo. \n\nQueda en plano: ideal para lectura y consulta continua (no se cierra solo). \n\nMuy práctica para uso diario: perfecta en formación, oficinas y cocina. \n\nAcabado ordenado y profesional: especialmente en dossiers y presentaciones. \n\nFácil de actualizar por versiones: útil en documentación que cambia por ediciones. \n\n##Aplicaciones \n\nManuales y guías: procedimientos, formación, instrucciones técnicas. \n\nCatálogos de consulta: tarifas, fichas de producto, muestrarios. \n\nRecetarios y cartas internas (cocina/bar): uso intensivo y lectura en mesa. \n\nDossiers y presentaciones: propuestas comerciales, documentación corporativa. \n\nAgendas, planners y cuadernos: material interno o de marca. \n\n##Características técnicas \n\nFormato \n\nFormatos habituales: A4, A5, apaisado o a medida según el contenido. \n\nMuy recomendable para documentos que se usan sobre mesa o atril. \n\nPerforado y Wire-O \n\nPerforado alineado y doble espiral metálica para un acabado limpio. \n\nDiferentes diámetros de anilla según el grosor total (número de páginas y papel). \n\nPapeles \n\nInterior: offset o estucado (mate/brillo) según si priorizas lectura o imagen. \n\nCubiertas: opción de cartulina de mayor gramaje para mejorar rigidez y durabilidad. \n\nCubierta y protección \n\nOpción de laminado mate o brillo en cubierta para proteger de roces y huellas. \n\nPosibilidad de añadir cubierta transparente/protectora (según necesidad de uso). \n\nAcabados opcionales \n\nEsquinas redondeadas (muy útil en uso intensivo). \n\nSeparadores o pestañas (si necesitas organizar por secciones, según proyecto).",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/publicaciones/encuadernacion-wire-o.webp",
         "width": 1200,
@@ -2887,9 +2889,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Encuadernación  Wire O | Repro Disseny",
-        "metaDescription": "Encuadernación  Wire O personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/wire-o",
+        "metaTitle": "Encuadernación Wire-O | Manuales, catálogos y presentaciones que abren en plano",
+        "metaDescription": "Encuadernación Wire-O (doble espiral metálica) para manuales, dossiers y catálogos. Apertura 360º, páginas en plano y acabados profesionales. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/encuadernacion-wire-o",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -2906,10 +2908,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Encuadernación  Wire O",
-          "description": "Encuadernación  Wire O",
+          "name": "Encuadernación Wire-O (doble espiral)",
+          "description": "La encuadernación Wire-O es la opción perfecta cuando necesitas una publicación cómoda de usar: abre totalmente en plano y permite girar las páginas 360º, ideal para manuales, documentos de consulta y presentaciones que se usan a diario. En Repro Disseny encuadernamos con Wire-O cuidando el papel, el acabado de la cubierta y los detalles para un resultado profesional y duradero.",
           "image": "https://webcms.blob.core.windows.net/media/product/publicaciones/encuadernacion-wire-o.webp",
-          "url": "https://reprodisseny.com/productos/wire-o",
+          "url": "https://reprodisseny.com/productos/encuadernacion-wire-o",
           "sku": "01-PUBLI-0005",
           "brand": {
             "@type": "Organization",
@@ -3107,12 +3109,13 @@
     {
       "id": "113",
       "type": "producto",
-      "slug": "imanes",
-      "path": "/productos/imanes",
-      "title": "Imanes",
+      "slug": "imanes-personalizados",
+      "path": "/productos/imanes-personalizados",
+      "title": "Imanes personalizados",
       "categorySlug": "material-flexible",
       "isPublished": true,
-      "shortDescription": "Imanes",
+      "shortDescription": "Los imanes personalizados son un soporte publicitario muy efectivo porque se quedan en un sitio visible durante mucho tiempo: neveras, archivadores metálicos, taquillas o paneles. En Repro Disseny producimos imanes a medida con impresión a color y corte a la forma, ideales para campañas, recordatorios, fidelización o branding en punto de venta.",
+      "bodyMd": "##Detalles \n\n¿Qué es un imán personalizado y para qué se usa? \n\nUn imán personalizado es una pieza impresa con base magnética que se adhiere a superficies metálicas sin adhesivos. Se utiliza como soporte de marca y recordatorio (teléfono, web, servicios), como elemento promocional (calendarios, cupones, campañas) o como material funcional para organización interna (etiquetas magnéticas, señalización temporal). \n\n##Beneficios \n\nAlta permanencia: no se tira fácilmente; se mantiene visible semanas o meses. \n\nPublicidad útil: funciona como recordatorio práctico (teléfono, cita, horario, QR). \n\nFácil de repartir: ligero y económico para campañas masivas. \n\nSin pegamentos: se pone y se quita sin dejar residuo en superficies metálicas. \n\nPersonalización total: tamaños, formas, mensajes por campaña o por zona. \n\n##Aplicaciones \n\nImanes de nevera: talleres, clínicas, seguros, restauración (teléfono a mano). \n\nPromociones y fidelización: campañas con QR, códigos, descuentos o sorteos. \n\nCalendarios magnéticos: marca presente todo el año en casa u oficina. \n\nOrganización interna: etiquetas magnéticas para almacén, paneles o planificación. \n\nSeñalización temporal en retail: mensajes que cambian sin adhesivos (en mobiliario metálico). \n\n##Características técnicas \n\nFormatos y corte \n\nFormatos estándar (rectangular/cuadrado/redondo) o corte a medida con la forma que necesites (logo, icono, silueta de producto). \n\nPosibilidad de series con distintas formas/tamaños en una misma campaña. \n\nImpresión \n\nImpresión a color con buena definición para logos, tipografías e imágenes. \n\nRecomendación práctica: mensajes cortos y claros (un imán se consulta “de un vistazo”). \n\nGrosor y uso \n\nDiferentes opciones de grosor según tamaño, rigidez y uso (promocional vs. más funcional). \n\nElección en función de dónde se colocará y cuánto quieres que dure. \n\nAcabados \n\nAcabado mate (menos reflejos) o brillo (más vivo) según el estilo. \n\nProtección extra si el imán va a manipularse mucho (por ejemplo, uso diario). \n\nPersonalización por campañas \n\nVariantes por zona, idioma, franquicia o promoción (misma base de diseño con cambios de datos). \n\nIntegración de QR para reservas, contacto, catálogo, reseñas o landing de campaña.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/imanes.webp",
         "width": 1200,
@@ -3128,18 +3131,18 @@
       "variants": [],
       "formFields": [],
       "seo": {
-        "metaTitle": "Imanes",
-        "metaDescription": "Imanes",
-        "canonical": "https://reprodisseny.com/productos/imanes",
+        "metaTitle": "Imanes personalizados | Publicidad práctica para empresas y campañas",
+        "metaDescription": "Imanes personalizados para publicidad y organización: imanes de nevera, imanes con forma, calendarios e imanes para vehículos. Impresión a color y corte a medida. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/imanes-personalizados",
         "hreflang": [],
         "keywords": [],
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Imanes",
-          "description": "Imanes",
+          "name": "Imanes personalizados",
+          "description": "Los imanes personalizados son un soporte publicitario muy efectivo porque se quedan en un sitio visible durante mucho tiempo: neveras, archivadores metálicos, taquillas o paneles. En Repro Disseny producimos imanes a medida con impresión a color y corte a la forma, ideales para campañas, recordatorios, fidelización o branding en punto de venta.",
           "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/imanes.webp",
-          "url": "https://reprodisseny.com/productos/imanes",
+          "url": "https://reprodisseny.com/productos/imanes-personalizados",
           "brand": {
             "@type": "Organization",
             "name": "Repro Disseny"
@@ -3150,12 +3153,13 @@
     {
       "id": "114",
       "type": "producto",
-      "slug": "vinilos-para-superficies-planas",
-      "path": "/productos/vinilos-para-superficies-planas",
-      "title": "Vinilos para superficies planas",
+      "slug": "vinilos-pared-superficies-planas",
+      "path": "/productos/vinilos-pared-superficies-planas",
+      "title": "Vinilos para pared y superficies planas",
       "categorySlug": "material-flexible",
       "isPublished": true,
-      "shortDescription": "Vinilos para superficies planas",
+      "shortDescription": "Los vinilos para pared son una solución rápida y limpia para transformar espacios: desde branding corporativo y señalización interior hasta decoración comercial o campañas temporales. En Repro Disseny imprimimos vinilos adhesivos de gran formato para paredes y superficies planas, con opciones de adhesivo removible o permanente, distintos acabados y corte a medida.",
+      "bodyMd": "##Detalles \n\n¿Qué es un vinilo para pared y para qué se usa? \n\nUn vinilo adhesivo para pared es una gráfica impresa sobre material vinílico con adhesivo, diseñada para aplicarse sobre superficies lisas y planas (paredes pintadas lisas, pladur, cristal, metal, melamina, mobiliario, etc.). \nSe usa para decoración, rotulación interior, señalética (direcciones, normas, zonas) y ambientación de marca en oficinas, tiendas, stands o centros. \n\nForma##Beneficios \n\nImpacto visual inmediato: cambia el espacio sin obras ni reformas. \n\nBranding coherente: logos, claims, colores corporativos y campañas integradas en el entorno. \n\nFlexible por duración: opciones removibles para campañas temporales o permanentes para instalaciones estables. \n\nA medida: impresión por paños, corte al contorno, elementos sueltos, textos, iconos o composiciones completas. \n\nMantenimiento sencillo: con el acabado adecuado, es fácil de limpiar y aguanta el uso diario en interior. \n\n##Aplicaciones \n\nOficinas y корпоративativo: paredes de marca, valores, señalización interna, salas y recepciones. \n\nRetail y puntos de venta: decoración, campañas, escaparatismo interior, promociones por temporada. \n\nCentros y espacios públicos: orientación, normativa, horarios, mensajes informativos. \n\nEventos y ferias: vinilos para stands, fondos de marca, zonas de foto, señalización temporal. \n\nHostelería: decoración de sala, zonas, indicaciones y mensajes promocionales. \n\n##Características técnicas \n\nSuperficies recomendadas \n\nParedes lisas y bien pintadas, pladur, metal, melamina y otras superficies planas. \n\nNota práctica: en paredes con gotele, pintura muy porosa o superficies con textura marcada, conviene valorar alternativas o pruebas (la adherencia y el acabado pueden variar). \n\nTipos de vinilo (según uso) \n\nVinilos para campañas de corta/media duración (más económicos). \n\nVinilos de mayor estabilidad para instalaciones más duraderas. \n\nOpciones específicas si la superficie o el proyecto lo exige (por ejemplo, necesidad de máxima conformidad o resistencia). \n\nAdhesivo \n\nRemovible: pensado para retiradas limpias (campañas temporales). \n\nPermanente: para máxima fijación en aplicaciones estables. \n\nSelección en función de: tipo de pared, tiempo de uso y condiciones del espacio. \n\nImpresión y acabado \n\nImpresión a color en gran formato con buena definición para logotipos, tipografías e imágenes. \n\nAcabado mate (muy recomendado en interior por reflejos) o brillo (más “vivo”). \n\nLaminado protector opcional: útil si habrá roce, limpieza frecuente o zonas de mucho paso. \n\nFormato, corte y montaje \n\nProducción por paños para cubrir grandes superficies, con solapes/encajes planificados. \n\nCorte recto o corte a medida (formas, letras, iconos). \n\nPreparación del archivo pensando en instalación: sangrados, zonas de seguridad y orden de montaje.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-para-superficies-planas.webp",
         "width": 1200,
@@ -3171,18 +3175,18 @@
       "variants": [],
       "formFields": [],
       "seo": {
-        "metaTitle": "Vinilos para superficies planas",
-        "metaDescription": "Vinilos para superficies planas",
-        "canonical": "https://reprodisseny.com/productos/vinilos-para-superficies-planas",
+        "metaTitle": "Vinilos para Pared y Superficies Planas | Gran Formato Personalizado",
+        "metaDescription": "Vinilos adhesivos para pared y superficies planas: decoración, señalización y branding. Acabados mate o brillo, removible o permanente y corte a medida. Pide presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/vinilos-pared-superficies-planas",
         "hreflang": [],
         "keywords": [],
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Vinilos para superficies planas",
-          "description": "Vinilos para superficies planas",
+          "name": "Vinilos para pared y superficies planas",
+          "description": "Los vinilos para pared son una solución rápida y limpia para transformar espacios: desde branding corporativo y señalización interior hasta decoración comercial o campañas temporales. En Repro Disseny imprimimos vinilos adhesivos de gran formato para paredes y superficies planas, con opciones de adhesivo removible o permanente, distintos acabados y corte a medida.",
           "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-para-superficies-planas.webp",
-          "url": "https://reprodisseny.com/productos/vinilos-para-superficies-planas",
+          "url": "https://reprodisseny.com/productos/vinilos-pared-superficies-planas",
           "brand": {
             "@type": "Organization",
             "name": "Repro Disseny"
@@ -3198,7 +3202,8 @@
       "title": "Vinilo para cristal",
       "categorySlug": "material-flexible",
       "isPublished": true,
-      "shortDescription": "Vinilo para cristal",
+      "shortDescription": "El vinilo para cristal es una de las formas más efectivas de comunicar y decorar sin ocupar espacio: escaparates, puertas, ventanas o mamparas. En Repro Disseny imprimimos vinilos para cristal a medida con distintas opciones (transparente, al ácido, microperforado, corte de textos/logos) para lograr el efecto que necesitas: branding, privacidad o promoción.",
+      "bodyMd": "##Detalles \n\n¿Qué es un vinilo para cristal y para qué se usa? \n\nUn vinilo para cristal es un material adhesivo diseñado para aplicarse sobre superficies de vidrio (escaparates, puertas, ventanales, mamparas). Puede ser impreso o de corte, y se utiliza para rotulación, campañas promocionales, señalética y privacidad (por ejemplo, en oficinas o salas). \nLa ventaja principal es que transforma el cristal en un soporte de comunicación visible y limpio, tanto desde fuera como desde dentro (según configuración). \n\nForma \n\n##Beneficios \n\nVisibilidad en escaparate: comunica ofertas, horarios y campañas donde la gente mira primero. \n\nBranding profesional: logos, mensajes y creatividades integradas en el espacio. \n\nPrivacidad sin perder luz: ideal para oficinas y salas (vinilo al ácido). \n\nOpciones para cada objetivo: transparente, microperforado, al ácido, corte de textos, etc. \n\nA medida: por paños, corte al contorno, letras sueltas o composición completa. \n\nForma \n\n##Aplicaciones \n\nEscaparates y retail: promociones, rebajas, lanzamientos, horarios y decoración estacional. \n\nOficinas: mamparas, salas de reunión, despachos (privacidad + imagen corporativa). \n\nHostelería: puertas y ventanales con horarios, menús, señalética y marca. \n\nCentros y servicios: clínicas, gimnasios, academias (información, normas, branding). \n\nEventos: señalización temporal en accesos, zonas VIP, stands y recintos. \n\nForma \n\n##Características técnicas \n\nTipos de vinilo para cristal (según efecto) \n\nVinilo transparente impreso: perfecto cuando quieres mantener visión y “flotar” el diseño sobre el cristal. \n\nVinilo al ácido (efecto arenado): aporta privacidad y un acabado elegante, muy usado en oficinas. \n\nVinilo microperforado: ideal para escaparates cuando quieres ver desde dentro y comunicar desde fuera. \n\nVinilo de corte: letras, logos o formas en color (acabado limpio y corporativo). \n\nOpciones combinables para campañas (por ejemplo, microperforado + corte/elementos opacos). \n\nAdhesivo \n\nRemovible: recomendado para campañas temporales en escaparate. \n\nPermanente: para rotulación estable (marca, horarios fijos, señalética duradera). \n\nImpresión y acabado \n\nImpresión a color con buena definición para logos y tipografías. \n\nAcabado mate (muy útil para evitar reflejos) o brillo según el efecto buscado. \n\nLaminado protector opcional si habrá limpieza frecuente o exposición al roce. \n\nColocación y visibilidad \n\nAplicación por la cara interior o exterior según protección y lectura. \n\nPosibilidad de preparar el vinilo para lectura desde fuera (espejado si aplica) cuando se instala en interior. \n\nProducción por paños para grandes ventanales, planificando uniones y encajes.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-cristal.webp",
         "width": 1200,
@@ -3214,8 +3219,8 @@
       "variants": [],
       "formFields": [],
       "seo": {
-        "metaTitle": "Vinilo para cristal",
-        "metaDescription": "Vinilo para cristal",
+        "metaTitle": "Vinilo para Cristal Personalizado | Escaparates, Oficinas y Señalización",
+        "metaDescription": "Vinilo para cristal a medida: escaparates, mamparas y ventanas. Opciones transparente, al ácido, microperforado y corte a medida. Instalación fácil. Pide presupuesto.",
         "canonical": "https://reprodisseny.com/productos/vinilo-para-cristal",
         "hreflang": [],
         "keywords": [],
@@ -3223,7 +3228,7 @@
           "@context": "https://schema.org",
           "@type": "Product",
           "name": "Vinilo para cristal",
-          "description": "Vinilo para cristal",
+          "description": "El vinilo para cristal es una de las formas más efectivas de comunicar y decorar sin ocupar espacio: escaparates, puertas, ventanas o mamparas. En Repro Disseny imprimimos vinilos para cristal a medida con distintas opciones (transparente, al ácido, microperforado, corte de textos/logos) para lograr el efecto que necesitas: branding, privacidad o promoción.",
           "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-cristal.webp",
           "url": "https://reprodisseny.com/productos/vinilo-para-cristal",
           "brand": {
@@ -3236,11 +3241,13 @@
     {
       "id": "116",
       "type": "producto",
-      "slug": "vinilo-de-corte",
-      "path": "/productos/vinilo-de-corte",
+      "slug": "vinilo-de-corte-personalizado",
+      "path": "/productos/vinilo-de-corte-personalizado",
       "title": "Vinilo de corte",
       "categorySlug": "material-flexible",
       "isPublished": true,
+      "shortDescription": "El vinilo de corte es la opción más limpia y profesional cuando quieres rotular con textos, logos o formas sin fondo: el resultado queda “integrado” en la superficie. En Repro Disseny fabricamos vinilo de corte a medida para escaparates, oficinas, señalización interior y exterior, con diferentes colores y tipos de adhesivo según el uso.",
+      "bodyMd": "##Detalles \n\n¿Qué es un vinilo de corte y para qué se usa? \n\nUn vinilo de corte es un vinilo de color (normalmente sin imprimir) que se corta con plotter siguiendo la forma del diseño: letras, logotipos, iconos o siluetas. Al aplicarlo, solo queda el propio vinilo recortado (sin fondo), por eso se usa mucho en rotulación corporativa, escaparates, horarios, señalética y decoración minimalista. \n\n##Beneficios \n\nAcabado “sin fondo”: letras y logos limpios, integrados en el cristal o pared. \n\nImagen muy profesional: ideal para rotulación corporativa y señalética elegante. \n\nAlta durabilidad: buena resistencia para interior y exterior (según vinilo). \n\nAplicación versátil: cristal, paredes lisas, puertas, metal, mobiliario, etc. \n\nPersonalización total: tamaños, tipografías, formas, colores y composiciones por zonas. \n\n \n\n##Aplicaciones \n\nEscaparates: horarios, logo, redes, promociones “limpias” sin tapar el interior. \n\nOficinas: nombres de salas, señalización, vinilo al ácido combinado con corte, branding. \n\nRetail: rotulación de marca, rebajas, campañas estacionales con textos y formas. \n\nSeñalética interior: flechas, pictogramas, normas y zonas (recepción, baños, salidas). \n\nExterior: rótulos en cristal/puertas y elementos de identificación (según material). \n\n \n##Características técnicas \n\nColores y acabados \n\nAmplia gama de colores (según carta disponible). \n\nAcabados habituales: mate (muy elegante y con menos reflejos) o brillo (más llamativo). \n\nOpciones especiales según necesidad (por ejemplo, metalizados o colores corporativos aproximados). \n\nTipos de adhesivo \n\nPermanente: para rotulación estable y larga duración. \n\nRemovible: recomendado para campañas temporales o cuando prevés retirar el vinilo. \n\nCorte y detalle \n\nCorte preciso para letras, logos y formas. \n\nRecomendación práctica: en tipografías muy finas o tamaños muy pequeños, conviene ajustar el diseño para asegurar un corte limpio y una aplicación cómoda. \n\nAplicación \n\nSe entrega con transportador (cinta) para colocar el diseño alineado y sin deformaciones. \n\nPosibilidad de preparar piezas por zonas (por ejemplo, logo + horarios + iconos) para facilitar el montaje. \n\nSuperficies recomendadas \n\nCristal, metal, melamina, paredes lisas y otras superficies planas. \n\nEn paredes con textura o pintura porosa, el agarre puede variar (mejor valorar alternativa o prueba).",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-de-corte.webp",
         "width": 1200,
@@ -3256,16 +3263,18 @@
       "variants": [],
       "formFields": [],
       "seo": {
-        "metaTitle": "Vinilo de corte",
-        "canonical": "https://reprodisseny.com/productos/vinilo-de-corte",
+        "metaTitle": "Vinilo de Corte Personalizado | Rotulación para Cristal, Pared y Vehículos",
+        "metaDescription": "Vinilo de corte a medida para rotulación y señalética: logos, textos y formas sin fondo. Acabado limpio y profesional, colores variados y opción removible o permanente. Pide presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/vinilo-de-corte-personalizado",
         "hreflang": [],
         "keywords": [],
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
           "name": "Vinilo de corte",
+          "description": "El vinilo de corte es la opción más limpia y profesional cuando quieres rotular con textos, logos o formas sin fondo: el resultado queda “integrado” en la superficie. En Repro Disseny fabricamos vinilo de corte a medida para escaparates, oficinas, señalización interior y exterior, con diferentes colores y tipos de adhesivo según el uso.",
           "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-de-corte.webp",
-          "url": "https://reprodisseny.com/productos/vinilo-de-corte",
+          "url": "https://reprodisseny.com/productos/vinilo-de-corte-personalizado",
           "brand": {
             "@type": "Organization",
             "name": "Repro Disseny"
@@ -3276,11 +3285,13 @@
     {
       "id": "117",
       "type": "producto",
-      "slug": "vinilo-para-suelo",
-      "path": "/productos/vinilo-para-suelo",
-      "title": "Vinilo para suelo",
+      "slug": "vinilo-para-suelo-personalizado",
+      "path": "/productos/vinilo-para-suelo-personalizado",
+      "title": "Vinilo para suelo personalizado (señalización y campañas)",
       "categorySlug": "material-flexible",
       "isPublished": true,
+      "shortDescription": "El vinilo para suelo te permite comunicar justo donde hay más tránsito: pasillos, entradas, lineales y zonas de espera. En Repro Disseny producimos vinilos de suelo personalizados para señalización, campañas y recorridos, con materiales pensados para resistir el paso de personas y acabados con protección y opción antideslizante para un uso seguro y duradero.",
+      "bodyMd": "##Detalles \n\n¿Qué es un vinilo para suelo y para qué se usa? \n\nUn vinilo para suelo es un material adhesivo diseñado específicamente para aplicarse en pavimentos (interior o, según caso, exterior) y resistir pisadas, roce y limpieza. Se utiliza para señalización direccional (flechas, rutas, entradas/salidas), comunicación promocional (rebajas, lanzamientos), zonificación (colas, cajas, puntos de recogida) y campañas temporales en retail y eventos. \n\n##Beneficios \n\nSeñalización muy visible: el mensaje va en el punto de paso, imposible de ignorar. \n\nMejora la organización: guía recorridos, colas y zonas (muy útil en eventos y tiendas). \n\nIdeal para campañas temporales: opción removible para promos y acciones estacionales. \n\nResistencia al tránsito: materiales y laminados pensados para aguantar pisadas y limpieza. \n\nPersonalización total: desde flechas y pictogramas hasta creatividades completas a gran formato. \n\n##Aplicaciones \n\nRetail y centros comerciales: promociones, señalización de secciones, recorridos a producto, rebajas. \n\nEventos y ferias: rutas, accesos, registro, zonas VIP, señalización temporal en pabellones. \n\nOficinas y centros: seguridad, flujos de personas, señalización de espacios y normas. \n\nHostelería: orientación en entradas, zonas de espera, indicaciones de servicio. \n\nCampañas informativas: mensajes de prevención, normativa y comunicación institucional. \n\n \n\n##Características técnicas \n\nTipos de vinilo para suelo \n\nVinilo específico para pavimento, preparado para alto tránsito. \n\nOpciones para campañas temporales o para uso más prolongado, según necesidades. \n\nAdhesivo \n\nRemovible: recomendado para promociones y señalización temporal (retirada más sencilla). \n\nPermanente: para señalización estable o campañas largas. \n\nProtección y seguridad \n\nLaminado protector recomendado para mejorar resistencia al desgaste y facilitar limpieza. \n\nOpción de acabado antideslizante (según uso y ubicación) para mayor seguridad en zonas de paso. \n\nFormatos y corte \n\nCorte recto (placa/rectángulo) o corte a medida (flechas, huellas, iconos, formas). \n\nProducción por piezas o por módulos si cubre grandes superficies. \n\nSuperficies recomendadas \n\nSuelos lisos y limpios (gres, terrazo, laminados, pavimentos continuos, etc.). \n\nNota práctica: en superficies muy rugosas, con juntas profundas o porosas, la adherencia y durabilidad pueden variar; en esos casos conviene valorar alternativa o hacer prueba. \n\nDiseño orientado a lectura \n\nMensajes cortos, alto contraste, tipografías grandes y pictogramas claros (en suelo se lee “en movimiento”).",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-para-suelo.webp",
         "width": 1200,
@@ -3296,16 +3307,18 @@
       "variants": [],
       "formFields": [],
       "seo": {
-        "metaTitle": "Vinilo para suelo",
-        "canonical": "https://reprodisseny.com/productos/vinilo-para-suelo",
+        "metaTitle": "Vinilo para Suelo Personalizado | Señalización y Publicidad en Gran Formato",
+        "metaDescription": "Vinilo para suelo a medida para señalización y campañas: opciones antideslizantes, laminado protector y adhesivo removible o permanente. Ideal para retail, eventos y oficinas. Pide presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/vinilo-para-suelo-personalizado",
         "hreflang": [],
         "keywords": [],
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Vinilo para suelo",
+          "name": "Vinilo para suelo personalizado (señalización y campañas)",
+          "description": "El vinilo para suelo te permite comunicar justo donde hay más tránsito: pasillos, entradas, lineales y zonas de espera. En Repro Disseny producimos vinilos de suelo personalizados para señalización, campañas y recorridos, con materiales pensados para resistir el paso de personas y acabados con protección y opción antideslizante para un uso seguro y duradero.",
           "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-para-suelo.webp",
-          "url": "https://reprodisseny.com/productos/vinilo-para-suelo",
+          "url": "https://reprodisseny.com/productos/vinilo-para-suelo-personalizado",
           "brand": {
             "@type": "Organization",
             "name": "Repro Disseny"
@@ -3318,9 +3331,11 @@
       "type": "producto",
       "slug": "vinilo-para-vehiculos",
       "path": "/productos/vinilo-para-vehiculos",
-      "title": "Vinilo para vehículos",
+      "title": "Vinilo para vehículos personalizado (rotulación y branding)",
       "categorySlug": "material-flexible",
       "isPublished": true,
+      "shortDescription": "El vinilo para vehículo convierte tu flota en publicidad en movimiento: refuerza la marca, mejora la visibilidad y transmite profesionalidad. En Repro Disseny producimos vinilos para rotulación de vehículos con materiales específicos para carrocería, opciones de corte o impresión, y acabados con laminado protector para que la gráfica aguante sol, lluvia, lavado y uso diario.",
+      "bodyMd": "##Detalles \n\n¿Qué es un vinilo para vehículo y para qué se usa? \n\nUn vinilo para vehículo es un material adhesivo diseñado para aplicarse sobre superficies de carrocería (metal pintado, plásticos, cristales en algunos casos) y adaptarse a la forma del vehículo. Se usa para rotulación corporativa (logo, datos, servicios), campañas promocionales temporales y señalización de flotas, tanto en turismos como en furgonetas, camiones o vehículos comerciales. \n\nForma \n\n##Beneficios \n\nPublicidad 24/7: tu marca se ve mientras el vehículo circula o está aparcado. \n\nImagen profesional: uniformidad en la flota y mejor percepción de empresa. \n\nSolución flexible: desde textos y logos hasta rotulación parcial o integral. \n\nResistencia exterior: materiales y acabados pensados para intemperie y lavados. \n\nPersonalización total: medidas, diseño, zonas, variantes por vehículo o delegación. \n\n \n\n##Aplicaciones \n\nRotulación corporativa: logo, web, teléfono, servicios y claim. \n\nFlotas comerciales: furgonetas, turismos, camiones y vehículos de reparto. \n\nCampañas temporales: promociones estacionales, lanzamientos, eventos. \n\nServicios técnicos: identificación rápida (zonas, equipos, numeración, horarios). \n\nVehículos de eventos: apoyo a campañas, roadshows y activaciones de marca. \n\n \n\n##Características técnicas \n\nTipos de vinilo (según objetivo) \n\nVinilo de corte: textos y logos sin fondo (acabado muy limpio). \n\nVinilo impreso: permite fotos, degradados y creatividades completas. \n\nRotulación parcial o integral (según cobertura): desde puertas y laterales hasta grandes superficies. \n\nAdaptación a la carrocería \n\nMateriales con buena conformidad para ajustarse a curvas y zonas complejas (según el tipo de rotulación). \n\nPlanificación por piezas para encajar bien en puertas, laterales, capó o trasera. \n\nAdhesivo \n\nOpciones permanentes para rotulación estable. \n\nOpciones removibles para campañas temporales (según material y tiempo de uso). \n\nProtección y durabilidad \n\nLaminado protector recomendado para exterior: protege frente a UV, arañazos, lluvia y lavados. \n\nAcabado mate o brillo según estética y visibilidad (mate reduce reflejos; brillo realza color). \n\nCorte y acabados \n\nCorte recto por piezas o corte a medida al contorno. \n\nPosibilidad de preparar packs por vehículo (izquierda/derecha/trasera) para instalación más rápida. \n\nDiseño orientado a lectura \n\nTextos claros, alto contraste y jerarquía (en movimiento, se lee en segundos). \n\nUbicación estratégica de datos: teléfono/web en zonas visibles (laterales/trasera).",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-para-vehiculos.webp",
         "width": 1200,
@@ -3336,14 +3351,16 @@
       "variants": [],
       "formFields": [],
       "seo": {
-        "metaTitle": "Vinilo para vehículos",
+        "metaTitle": "Vinilo para Vehículo Personalizado | Rotulación Profesional para Empresa",
+        "metaDescription": "Vinilo para vehículo a medida: rotulación comercial, logos y campañas. Opciones removible o permanente, impresión a color, laminado protector y corte a la forma. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/vinilo-para-vehiculos",
         "hreflang": [],
         "keywords": [],
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Vinilo para vehículos",
+          "name": "Vinilo para vehículos personalizado (rotulación y branding)",
+          "description": "El vinilo para vehículo convierte tu flota en publicidad en movimiento: refuerza la marca, mejora la visibilidad y transmite profesionalidad. En Repro Disseny producimos vinilos para rotulación de vehículos con materiales específicos para carrocería, opciones de corte o impresión, y acabados con laminado protector para que la gráfica aguante sol, lluvia, lavado y uso diario.",
           "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-para-vehiculos.webp",
           "url": "https://reprodisseny.com/productos/vinilo-para-vehiculos",
           "brand": {
@@ -3358,9 +3375,11 @@
       "type": "producto",
       "slug": "vinilo-pizarra",
       "path": "/productos/vinilo-pizarra",
-      "title": "Vinilo pizarra",
+      "title": "Vinilo para pizarra (escribible)",
       "categorySlug": "material-flexible",
       "isPublished": true,
+      "shortDescription": "El vinilo pizarra es un vinilo adhesivo con acabado tipo pizarra sobre el que se puede escribir con tiza o rotuladores específicos (según modelo). Se aplica sobre paredes lisas, puertas, muebles o paneles para crear una superficie reutilizable: comunicar ofertas, menús del día, horarios, recordatorios, planning semanal o mensajes de marca. Podemos aplacarlo sobre un panel sólido como forex, Dibon, plancha metálica y construirla a medida para fijarla a cualquier pared",
+      "bodyMd": "##Detalles \n\n¿Qué es un vinilo para pizarra y para qué se usa? \n\nEl vinilo pizarra es un vinilo adhesivo con acabado tipo pizarra sobre el que se puede escribir con tiza o rotuladores específicos (según modelo). Se aplica sobre paredes lisas, puertas, muebles o paneles para crear una superficie reutilizable: comunicar ofertas, menús del día, horarios, recordatorios, planning semanal o mensajes de marca. \n\nForma \n\n## Beneficios \n\nConvierte cualquier superficie en pizarra: sin obras ni instalaciones complejas. \n\nReutilizable: escribe, borra y actualiza tantas veces como necesites. \n\nIdeal para mensajes que cambian a menudo: menús, ofertas, planificación, eventos. \n\nA medida: desde formatos pequeños hasta pared completa, con corte recto o a la forma. \n\nImagen cuidada y funcional: más limpio y profesional que carteles improvisados. \n\n##Aplicaciones \n\nHostelería: menús del día, especiales, eventos, vinos, reservas o mensajes en barra. \n\nRetail: promociones, “novedades”, precios, mensajes de campaña o escaparate interior. \n\nOficinas: planificación, brainstorming, salas de reuniones, organización de equipos. \n\nCentros educativos: aulas, talleres, zonas creativas y señalización interna. \n\nHogar y espacios creativos: cocina, zona de estudio, habitación infantil (si aplica). \n\n##Características técnicas \n\nSuperficies recomendadas \n\nParedes lisas (pintura en buen estado), pladur, melamina y superficies planas. \n\nNota práctica: en paredes con gotele o textura marcada, el acabado y la adherencia pueden variar. \n\nFormato y corte \n\nCorte recto (rectángulo/cuadrado) o corte a medida (formas, bocadillos, iconos, etc.). \n\nPosibilidad de cubrir zonas grandes por paños si se necesita una superficie amplia. \n\nUso y borrado \n\nDiseñado para escribir y borrar de forma cómoda. \n\nRecomendación: usar el tipo de escritura adecuado (tiza o rotulador específico) y evitar productos abrasivos para alargar la vida útil. \n\nAdhesivo \n\nAdhesivo pensado para instalación en interior sobre superficies planas. \n\nOpción de plantear soluciones removibles si la aplicación es temporal (según proyecto). \n\nAcabado \n\nSuperficie tipo pizarra con tacto mate, que evita reflejos y favorece la lectura.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-pizarra.webp",
         "width": 1200,
@@ -3376,14 +3395,16 @@
       "variants": [],
       "formFields": [],
       "seo": {
-        "metaTitle": "Vinilo pizarra",
+        "metaTitle": "Vinilo para Pizarra | Vinilo Adhesivo Escribible para Pared y Muebles",
+        "metaDescription": "Vinilo para pizarra adhesivo y escribible: ideal para oficinas, tiendas y hostelería. Corte a medida, instalación en superficies planas y opción de pared completa. Pide presupuesto.",
         "canonical": "https://reprodisseny.com/productos/vinilo-pizarra",
         "hreflang": [],
         "keywords": [],
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Vinilo pizarra",
+          "name": "Vinilo para pizarra (escribible)",
+          "description": "El vinilo pizarra es un vinilo adhesivo con acabado tipo pizarra sobre el que se puede escribir con tiza o rotuladores específicos (según modelo). Se aplica sobre paredes lisas, puertas, muebles o paneles para crear una superficie reutilizable: comunicar ofertas, menús del día, horarios, recordatorios, planning semanal o mensajes de marca. Podemos aplacarlo sobre un panel sólido como forex, Dibon, plancha metálica y construirla a medida para fijarla a cualquier pared",
           "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-pizarra.webp",
           "url": "https://reprodisseny.com/productos/vinilo-pizarra",
           "brand": {
@@ -4764,6 +4785,55 @@
       }
     },
     {
+      "id": "147",
+      "type": "producto",
+      "slug": "carteles-inmobiliaria-personalizados",
+      "path": "/productos/carteles-inmobiliaria-personalizados",
+      "title": "Carteles inmobiliaria personalizados",
+      "categorySlug": "material-rigido",
+      "isPublished": true,
+      "shortDescription": "Los carteles inmobiliarios son una herramienta directa para captar llamadas y visitas: comunican el inmueble, refuerzan tu marca y hacen visible el anuncio en el punto clave (escaparate, balcón, valla o comunidad). En Repro Disseny imprimimos carteles de “Se vende / Se alquila” y cartelería para promociones con distintos materiales y formatos, para que se vean bien y aguanten el uso real.",
+      "bodyMd": "##Detalles \n\n¿Qué es un cartel inmobiliario y para qué se usa? \n\nUn cartel de inmobiliaria es una pieza impresa destinada a anunciar un inmueble o una promoción: incluye mensajes como “Se vende”, “Se alquila”, “Reservado”, datos de contacto, marca y, cada vez más, QR para ver el anuncio online. Se utiliza en escaparates, balcones, vallas y zonas de paso para generar contactos de forma inmediata. \n\n##Beneficios \n\nCaptación inmediata: teléfono, web y QR visibles para convertir miradas en contactos. \n\nMarca profesional y coherente: carteles homogéneos para todo tu parque de inmuebles. \n\nAdaptable a interior y exterior: materiales distintos según ubicación y duración. \n\nA una o dos caras: ideal para balcón/ventana (visibilidad desde ambos lados). \n\nPersonalización por inmueble: referencias, zonas, agentes, precios (si aplica) o variantes por oficina. \n\nMejor control y medición: QR y URLs específicas para saber qué ubicaciones funcionan mejor. \n\n##Aplicaciones \n\nEscaparate de inmobiliaria: carteles de inmuebles, promociones, obra nueva, captación de propietarios. \n\nBalcones y ventanas: “Se vende / Se alquila” con doble cara y fijación segura. \n\nVallas y solares: grandes formatos para promociones, parcelas u obra nueva. \n\nComunidades y portales: carteles informativos o de captación en zonas comunes (según normativa del lugar). \n\nFerias y eventos: stands de promoción inmobiliaria y señalética informativa. \n\n##Características técnicas \n\nFormatos habituales \n\nTamaños estándar (según uso): desde formatos de escaparate hasta carteles más grandes para balcón/valla. \n\nOrientación vertical u horizontal. \n\nUna o dos caras (muy recomendado en ventana/balcón). \n\nMateriales (según ubicación) \n\nInterior (escaparate): opciones en papel o soportes ligeros para renovación frecuente. \n\nExterior: materiales más resistentes para intemperie y manipulación (según duración y exposición). \n\nSi lo necesitas, preparamos la opción adecuada para viento/sol/lluvia y para montajes repetidos. \n\nImpresión \n\nImpresión a todo color con buena legibilidad (titular grande + contacto claro). \n\nRecomendación práctica: alto contraste y datos “a golpe de vista” (teléfono y QR). \n\nCorte y preparación \n\nCorte recto o corte a medida si quieres formas especiales. \n\nPreparación para instalación: taladros, ojales, refuerzos o zonas de fijación (según dónde vaya). \n\nOpciones de entrega en series (por oficina, por zona, por agente) para facilitar gestión. \n\nElementos que suelen funcionar muy bien \n\nQR al anuncio o ficha del inmueble. \n\nMensaje claro: “Se vende / Se alquila / Obra nueva / Reservado”. \n\nTeléfono grande + web/redes (si aplica).",
+      "image": {
+        "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/carteles-inmobiliaria.webp",
+        "width": 1200,
+        "height": 1200,
+        "alt": "alt descripció de la foto"
+      },
+      "galleryImages": [],
+      "brand": "Repro Disseny",
+      "price": 0,
+      "priceCurrency": "EUR",
+      "inStock": true,
+      "attributes": [],
+      "variants": [],
+      "formFields": [],
+      "seo": {
+        "metaTitle": "Carteles de Inmobiliaria Personalizados | Se Vende / Se Alquila / Promociones",
+        "metaDescription": "Carteles inmobiliarios personalizados para escaparate y exterior: “Se vende”, “Se alquila”, promociones y obra nueva. A una o dos caras, con QR y fijación. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/carteles-inmobiliaria-personalizados",
+        "hreflang": [
+          {
+            "lang": "es-ES",
+            "url": "https://reprodisseny.com/productos/carteles-inmobiliaria-personalizados"
+          }
+        ],
+        "keywords": [],
+        "schema": {
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": "Carteles inmobiliaria personalizados",
+          "description": "Los carteles inmobiliarios son una herramienta directa para captar llamadas y visitas: comunican el inmueble, refuerzan tu marca y hacen visible el anuncio en el punto clave (escaparate, balcón, valla o comunidad). En Repro Disseny imprimimos carteles de “Se vende / Se alquila” y cartelería para promociones con distintos materiales y formatos, para que se vean bien y aguanten el uso real.",
+          "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/carteles-inmobiliaria.webp",
+          "url": "https://reprodisseny.com/productos/carteles-inmobiliaria-personalizados",
+          "brand": {
+            "@type": "Organization",
+            "name": "Repro Disseny"
+          }
+        }
+      }
+    },
+    {
       "id": "15",
       "type": "producto",
       "slug": "calendarios-personalizados",
@@ -5133,12 +5203,13 @@
     {
       "id": "20",
       "type": "producto",
-      "slug": "carteles",
-      "path": "/productos/carteles",
-      "title": "Carteles",
+      "slug": "carteles-personalizados-gran-formato",
+      "path": "/productos/carteles-personalizados-gran-formato",
+      "title": "Carteles personalizados (cartelería publicitaria)",
       "categorySlug": "material-flexible",
       "isPublished": true,
-      "shortDescription": "Carteles",
+      "shortDescription": "Los carteles siguen siendo una de las formas más rápidas y efectivas de comunicar: informan, atraen y refuerzan tu marca en escaparates, paredes, ferias y espacios públicos. En Repro Disseny imprimimos cartelería personalizada en gran formato, con diferentes papeles y acabados para que el resultado se vea profesional y se adapte al uso (interior/exterior, campaña temporal o comunicación estable).",
+      "bodyMd": "##Detalles \n\n¿Qué es un cartel y para qué se usa? \n\nUn cartel es una pieza impresa diseñada para comunicar un mensaje a distancia: promoción, evento, lanzamiento, señalización o información. Puede colocarse en pared, escaparate, paneles, marcos o expositores y se utiliza tanto en retail como en eventos, hostelería, centros y entornos corporativos. \n\nForma##Beneficios \n\nVisibilidad inmediata: mensaje claro y legible para captar atención en segundos. \n\nVersátil y económico: ideal para campañas temporales, eventos o comunicación recurrente. \n\nImagen de marca consistente: mismo diseño para diferentes puntos y tamaños. \n\nFácil de colocar: en pared, cristal, panel, marco click o expositor. \n\nOpciones de acabado: mate/brillo y papeles según el entorno y la iluminación. \n\nForma##Aplicaciones \n\nRetail y escaparates: rebajas, lanzamientos, horarios, promociones estacionales. \n\nEventos: cartelería informativa, horarios, salas, señalización temporal. \n\nHostelería: menús especiales, eventos, promociones y comunicación en sala. \n\nCentros y entidades: campañas informativas, normativa, orientación al público. \n\nCorporativo: comunicación interna, señalización de salas, presentaciones. \n\nForma##Características técnicas \n\nFormatos y medidas \n\nFormatos habituales: A4, A3, A2, A1, A0 y tamaños a medida. \n\nOrientación vertical u horizontal según el diseño y el punto de colocación. \n\nPapeles y soportes (según uso) \n\nPapeles para interior con buena reproducción de color y lectura. \n\nOpciones mate recomendadas cuando hay focos o reflejos (tiendas, escaparates interiores). \n\nOpciones brillo cuando buscas colores más vivos y un acabado más llamativo. \n\nSi el cartel es para exterior o alta durabilidad, suele interesar valorar alternativas (laminado, soportes específicos o soluciones de gran formato). \n\nImpresión \n\nImpresión a todo color con buena definición para tipografías, logos e imágenes. \n\nRecomendación de diseño: titular grande, contraste y jerarquía clara (un cartel se lee “en movimiento”). \n\nAcabados opcionales \n\nLaminado (mate o brillo) si habrá mucha manipulación o necesitas más resistencia. \n\nPreparación para marcos/expositores (ajuste exacto a formato, márgenes y sangrado).",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/carteles.webp",
         "width": 1200,
@@ -5202,9 +5273,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Carteles | Repro Disseny",
-        "metaDescription": "Carteles personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/carteles",
+        "metaTitle": "Carteles Personalizados | Impresión de Cartelería en Gran Formato",
+        "metaDescription": "Carteles personalizados para publicidad, eventos y punto de venta. Impresión a color en distintos papeles, tamaños A3–A0 y a medida, con acabados mate o brillo. Pide presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/carteles-personalizados-gran-formato",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -5221,10 +5292,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Carteles",
-          "description": "Carteles",
+          "name": "Carteles personalizados (cartelería publicitaria)",
+          "description": "Los carteles siguen siendo una de las formas más rápidas y efectivas de comunicar: informan, atraen y refuerzan tu marca en escaparates, paredes, ferias y espacios públicos. En Repro Disseny imprimimos cartelería personalizada en gran formato, con diferentes papeles y acabados para que el resultado se vea profesional y se adapte al uso (interior/exterior, campaña temporal o comunicación estable).",
           "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/carteles.webp",
-          "url": "https://reprodisseny.com/productos/carteles",
+          "url": "https://reprodisseny.com/productos/carteles-personalizados-gran-formato",
           "sku": "01-GRFO-0002",
           "brand": {
             "@type": "Organization",
@@ -5826,12 +5897,13 @@
     {
       "id": "27",
       "type": "producto",
-      "slug": "cosida-tapa-dura",
-      "path": "/productos/cosida-tapa-dura",
-      "title": "Encuadernación  cosida tapa dura",
+      "slug": "encuadernacion-cosida-tapa-dura",
+      "path": "/productos/encuadernacion-cosida-tapa-dura",
+      "title": "Encuadernación cosida tapa dura",
       "categorySlug": "libros-revistas-catalogos",
       "isPublished": true,
-      "shortDescription": "Encuadernación  cosida tapa dura",
+      "shortDescription": "La encuadernación cosida con tapa dura es la opción más “editorial” y duradera para publicaciones que deben transmitir calidad desde el primer contacto. Ideal para libros premium, memorias corporativas y ediciones especiales, porque ofrece máxima resistencia, una mejor apertura y un acabado de portada que eleva la percepción de marca.",
+      "bodyMd": "##Detalles \n\n¿Qué es la encuadernación cosida tapa dura y para qué se usa? \n\nEn este tipo de encuadernación, los pliegos se cosen (costura) para formar el bloque del libro y luego se montan con una cubierta rígida (tapa dura). El resultado es un libro sólido, pensado para durar y para un uso repetido, con una presencia excelente en mano y en estantería. Se utiliza en proyectos donde importa tanto el contenido como el objeto: ediciones conmemorativas, libros corporativos, catálogos premium y publicaciones institucionales. \n\n##Beneficios \n\nMáxima durabilidad: la costura aporta resistencia superior frente al uso y el paso del tiempo. \n\nMejor apertura: lectura más cómoda y páginas más estables (ideal para consulta). \n\nAcabado premium: tapa rígida con posibilidades de acabado de alta calidad. \n\nImagen corporativa potente: perfecto para memorias, libros de marca y regalos institucionales. \n\nGran presencia: se percibe como un producto “de valor” desde el primer momento. \n\n##Aplicaciones \n\nLibros corporativos y memorias anuales de alta gama. \n\nEdiciones conmemorativas (aniversarios, historia de empresa, publicaciones institucionales). \n\nCatálogos premium (colecciones, producto de alto valor, lookbooks). \n\nLibros de fotografía y proyectos creativos. \n\nTesis, publicaciones académicas y documentos de referencia (cuando se busca durabilidad). \n\n##Características técnicas \n\nFormato y lomo \n\nFormatos habituales: A4, A5, cuadrado o a medida. \n\nLomo sólido y rotulable (título, logo, edición). \n\nInterior \n\nPapeles interiores según objetivo: más orientados a lectura (offset) o a imagen/foto (estucados mate/brillo). \n\nPosibilidad de imprimir a color o combinaciones más sobrias. \n\nTapa dura \n\nCartón rígido forrado con material de cubierta (papel, tela u opciones similares según el look buscado). \n\nPosibilidad de sobrecubierta (funda) si quieres un acabado aún más editorial. \n\nAcabados premium (muy recomendables en tapa dura) \n\nLaminado mate o brillo (si la cubierta lo requiere). \n\nSoft touch para un tacto premium. \n\nStamping (dorado/plata/metalizados) para títulos y logos. \n\nRelieve en seco (gofrado) para destacar marca sin tinta. \n\nBarniz selectivo para resaltar detalles en portada (según diseño). \n\nExtras \n\nGuardas (hojas interiores de unión) con opción de personalización. \n\nCinta marcapáginas (opcional) para un acabado más premium.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/publicaciones/encuadernacion-cosida-tapa-dura.webp",
         "width": 1200,
@@ -5932,9 +6004,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Encuadernación  cosida tapa dura | Repro Disseny",
-        "metaDescription": "Encuadernación  cosida tapa dura personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/cosida-tapa-dura",
+        "metaTitle": "Encuadernación cosida tapa dura | Libros premium y ediciones especiales",
+        "metaDescription": "Encuadernación cosida con tapa dura para libros, memorias y ediciones premium. Máxima durabilidad, mejor apertura y acabados de portada (laminado, stamping, relieve). Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/encuadernacion-cosida-tapa-dura",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -5951,10 +6023,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Encuadernación  cosida tapa dura",
-          "description": "Encuadernación  cosida tapa dura",
+          "name": "Encuadernación cosida tapa dura",
+          "description": "La encuadernación cosida con tapa dura es la opción más “editorial” y duradera para publicaciones que deben transmitir calidad desde el primer contacto. Ideal para libros premium, memorias corporativas y ediciones especiales, porque ofrece máxima resistencia, una mejor apertura y un acabado de portada que eleva la percepción de marca.",
           "image": "https://webcms.blob.core.windows.net/media/product/publicaciones/encuadernacion-cosida-tapa-dura.webp",
-          "url": "https://reprodisseny.com/productos/cosida-tapa-dura",
+          "url": "https://reprodisseny.com/productos/encuadernacion-cosida-tapa-dura",
           "sku": "01-PUBLI-0004",
           "brand": {
             "@type": "Organization",
@@ -7343,12 +7415,13 @@
     {
       "id": "39",
       "type": "producto",
-      "slug": "encolada-tapa-blanda",
-      "path": "/productos/encolada-tapa-blanda",
-      "title": "Encuadernación  encolada tapa blanda",
+      "slug": "encuadernacion-encolada-tapa-blanda",
+      "path": "/productos/encuadernacion-encolada-tapa-blanda",
+      "title": "Encuadernación encolada tapa blanda (rústica fresada)",
       "categorySlug": "libros-revistas-catalogos",
       "isPublished": true,
-      "shortDescription": "Encuadernación  encolada tapa blanda",
+      "shortDescription": "La encuadernación encolada de tapa blanda (también conocida como rústica fresada) es la opción ideal cuando necesitas un acabado tipo libro: lomo, buena presencia y durabilidad para uso comercial o corporativo. En Repro Disseny imprimimos y encuadernamos catálogos, libros y revistas con tapa blanda, cuidando el papel, el color y los acabados para que el resultado sea sólido y profesional.",
+      "bodyMd": "##Detalles \n\n¿Qué es la encuadernación encolada tapa blanda y para qué se usa? \n\nEn este tipo de encuadernación, las páginas se agrupan en un bloque, se fresa el lomo y se unen a la cubierta mediante cola. El resultado es una publicación con lomo cuadrado, que se puede rotular (título, marca, edición) y que ofrece un aspecto “editorial”. Se utiliza en catálogos de producto, libros corporativos, memorias, manuales y revistas con un número de páginas medio/alto. \n\n##Beneficios \n\nAcabado tipo libro: presencia premium y formato profesional para presentar marca y contenido. \n\nLomo imprimible: ideal para identificar en estantería (título, logo, edición). \n\nMás durabilidad que el grapado en publicaciones con muchas páginas. \n\nVersátil: funciona muy bien en catálogos comerciales, dossiers y libros corporativos. \n\nOpciones de acabado: laminados, barnices y detalles para elevar la calidad percibida. \n\n##Aplicaciones \n\nCatálogos de producto (colecciones, tarifas, campañas, showrooms). \n\nLibros corporativos y memorias anuales. \n\nRevistas con más páginas (ediciones especiales, publicaciones de marca). \n\nManuales y guías (formación, procedimientos, documentación). \n\nLookbooks y portfolios (moda, diseño, fotografía). \n\n##Características técnicas \n\nFormato y lomo \n\nFormatos habituales: A4, A5, cuadrado o a medida. \n\nEl ancho del lomo depende del número de páginas y del papel (lo calculamos para que el diseño encaje perfecto). \n\nPapeles \n\nInterior: offset (mejor lectura) o estucado mate/brillo (mejor fotografía). \n\nCubierta: cartulina de mayor gramaje para aportar rigidez y presencia. \n\nImpresión \n\nA todo color o combinaciones más sobrias según tu identidad. \n\nPosibilidad de impresión a una o dos caras según el diseño. \n\nAcabados recomendados \n\nLaminado mate o brillo en cubierta: protege frente a roces y huellas. \n\nSoft touch (opcional): tacto premium para catálogos de marca. \n\nBarniz selectivo (opcional): resalta título o logo en portada. \n\nSolapas (opcional): aportan un acabado más editorial y funcional. \n\nUso y durabilidad \n\nAdecuada para publicaciones de uso comercial repetido (visitas, ferias, showroom). \n\nSi el documento debe abrir completamente en plano (por ejemplo, recetas o manual de consulta constante), puede interesar valorar Wire-O/espiral.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/publicaciones/encuadernacion-encolado-tapa-blanda.webp",
         "width": 1200,
@@ -7449,9 +7522,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Encuadernación  encolada tapa blanda | Repro Disseny",
-        "metaDescription": "Encuadernación  encolada tapa blanda personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/encolada-tapa-blanda",
+        "metaTitle": "Encuadernación encolada tapa blanda | Rústica fresada para catálogos y libros",
+        "metaDescription": "Encuadernación encolada tapa blanda (rústica fresada) para libros, catálogos y revistas. Acabado profesional, lomo impreso y opciones de papel y laminado. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/encuadernacion-encolada-tapa-blanda",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -7468,10 +7541,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Encuadernación  encolada tapa blanda",
-          "description": "Encuadernación  encolada tapa blanda",
+          "name": "Encuadernación encolada tapa blanda (rústica fresada)",
+          "description": "La encuadernación encolada de tapa blanda (también conocida como rústica fresada) es la opción ideal cuando necesitas un acabado tipo libro: lomo, buena presencia y durabilidad para uso comercial o corporativo. En Repro Disseny imprimimos y encuadernamos catálogos, libros y revistas con tapa blanda, cuidando el papel, el color y los acabados para que el resultado sea sólido y profesional.",
           "image": "https://webcms.blob.core.windows.net/media/product/publicaciones/encuadernacion-encolado-tapa-blanda.webp",
-          "url": "https://reprodisseny.com/productos/encolada-tapa-blanda",
+          "url": "https://reprodisseny.com/productos/encuadernacion-encolada-tapa-blanda",
           "sku": "01-PUBLI-0002",
           "brand": {
             "@type": "Organization",
@@ -7639,12 +7712,13 @@
     {
       "id": "40",
       "type": "producto",
-      "slug": "encuadernado-grapas",
-      "path": "/productos/encuadernado-grapas",
-      "title": "Encuadernado grapas",
+      "slug": "encuadernado-con-grapas",
+      "path": "/productos/encuadernado-con-grapas",
+      "title": "Encuadernado con grapas (caballito)",
       "categorySlug": "libros-revistas-catalogos",
       "isPublished": true,
-      "shortDescription": "Encuadernado grapas",
+      "shortDescription": "El encuadernado con grapas (también llamado caballito) es una de las opciones más utilizadas para revistas, catálogos finos y folletos: es práctico, económico y ofrece un acabado limpio y profesional. En Repro Disseny producimos publicaciones grapadas con buena calidad de impresión, selección de papeles y opciones de cubierta para que el resultado se adapte a tu marca y al uso real.",
+      "bodyMd": "##Detalles \n\n¿Qué es el encuadernado con grapas y para qué se usa? \n\nEl caballito consiste en doblar los pliegos por el centro y fijarlos con grapas en el lomo. Es ideal para publicaciones de pocas o medias páginas, porque queda ligero, se abre bien y es perfecto para distribución en mano, ferias, puntos de venta o envíos. \n\n##Beneficios \n\nAcabado profesional y económico: muy eficiente para revistas y catálogos de pocas páginas. \n\nLigero y cómodo de leer: se abre bien y se maneja fácilmente. \n\nIdeal para distribución: perfecto para repartir, enviar o incluir en packs. \n\nVersátil en diseño: admite cubiertas diferenciadas y papeles interiores según el objetivo. \n\nRápido para campañas: encaja muy bien en acciones promocionales y publicaciones periódicas. \n\n##Aplicaciones \n\nRevistas corporativas o internas (comunicación, cultura de empresa). \n\nCatálogos de producto de pocas páginas (colecciones, tarifas, campañas). \n\nProgramas de eventos y dosieres informativos. \n\nFolletos tipo revista, lookbooks y portfolios ligeros. \n\nMemorias o presentaciones breves para ferias y visitas comerciales. \n\n##Características técnicas \n\nPáginas y formato \n\nEl grapado funciona mejor en publicaciones de pocas a medias páginas (según papel y grosor total). \n\nImportante: el número de páginas suele ir en múltiplos de 4 (por la imposición de pliegos). \n\nFormatos habituales \n\nA4, A5, cuadrado o a medida, según el diseño y el canal de uso. \n\nPapeles \n\nInterior: offset o estucado (mate/brillo) según si priorizas lectura o fotografía. \n\nCubierta: cartulina de mayor gramaje para aportar más presencia y resistencia. \n\nImpresión \n\nA todo color o combinaciones más sobrias, según tu identidad. \n\nOpciones de impresión a una o dos caras, según el diseño del proyecto. \n\nAcabados opcionales \n\nLaminado mate o brillo en cubierta: protege y mejora la calidad percibida. \n\nBarniz selectivo (opcional) para resaltar logotipo o título en portada. \n\nHendidos cuando hay pliegues o cubiertas con gramajes altos (si aplica).",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/publicaciones/encuadernado-grapas.webp",
         "width": 1200,
@@ -7744,9 +7818,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Encuadernado grapas | Repro Disseny",
-        "metaDescription": "Encuadernado grapas personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/encuadernado-grapas",
+        "metaTitle": "Encuadernado con grapas | Revistas y catálogos grapados (caballito)",
+        "metaDescription": "Encuadernado con grapas (caballito) para revistas, catálogos y folletos. Acabado profesional, opción de papeles y cubiertas, y tiradas cortas o medias. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/encuadernado-con-grapas",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -7763,10 +7837,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Encuadernado grapas",
-          "description": "Encuadernado grapas",
+          "name": "Encuadernado con grapas (caballito)",
+          "description": "El encuadernado con grapas (también llamado caballito) es una de las opciones más utilizadas para revistas, catálogos finos y folletos: es práctico, económico y ofrece un acabado limpio y profesional. En Repro Disseny producimos publicaciones grapadas con buena calidad de impresión, selección de papeles y opciones de cubierta para que el resultado se adapte a tu marca y al uso real.",
           "image": "https://webcms.blob.core.windows.net/media/product/publicaciones/encuadernado-grapas.webp",
-          "url": "https://reprodisseny.com/productos/encuadernado-grapas",
+          "url": "https://reprodisseny.com/productos/encuadernado-con-grapas",
           "sku": "01-PUBLI-0001",
           "brand": {
             "@type": "Organization",
@@ -9319,12 +9393,13 @@
     {
       "id": "55",
       "type": "producto",
-      "slug": "hojas-archivadores",
-      "path": "/productos/hojas-archivadores",
-      "title": "Holas sueltas para archivadores",
+      "slug": "hojas-sueltas-archivadores",
+      "path": "/productos/hojas-sueltas-archivadores",
+      "title": "Hojas sueltas para archivadores",
       "categorySlug": "libros-revistas-catalogos",
       "isPublished": true,
-      "shortDescription": "Holas sueltas para archivadores",
+      "shortDescription": "Las hojas sueltas para archivadores son la solución más flexible cuando necesitas documentación que se actualiza: manuales, procedimientos, tarifas, formación o catálogos por fichas. En Repro Disseny imprimimos hojas sueltas con perforado para archivador, distintos papeles y opciones de acabado, para que el material sea práctico, ordenado y fácil de mantener al día.",
+      "bodyMd": "##Detalles \n\n¿Qué son las hojas sueltas para archivadores y para qué se usan? \n\nSon páginas impresas diseñadas para guardarse en carpetas y archivadores (anillas o palanca), normalmente con taladros (2 o 4, según el sistema). Se utilizan cuando el contenido cambia o se amplía con frecuencia, porque permiten añadir, sustituir o reordenar hojas sin reimprimir todo el documento. \n\n##Beneficios \n\nActualización fácil: cambia solo las páginas necesarias (precios, fichas, normativa, versiones). \n\nOrden y organización: ideal para documentación por secciones, módulos o departamentos. \n\nAhorro en reimpresiones: perfecto para contenidos vivos (procedimientos, catálogos técnicos). \n\nCompatible con archivadores estándar: 2 o 4 taladros, según tu carpeta. \n\nOpciones de presentación: separadores, portadas y papel más resistente para un uso profesional. \n\n##Aplicaciones \n\nManuales y procedimientos (ISO, PRL, calidad, onboarding). \n\nDocumentación técnica: fichas de producto, instrucciones, mantenimiento. \n\nTarifas y catálogos actualizables: fichas por familia, temporada o gama. \n\nFormación y cursos: temarios por módulos y materiales de aula. \n\nDossieres comerciales: propuestas por cliente con hojas personalizadas. \n\n##Características técnicas \n\nFormato \n\nFormatos habituales: A4 (el más común) y A5, o a medida según tu archivador. \n\nImpresión \n\nBlanco y negro o a todo color, a una o dos caras. \n\nPosibilidad de imprimir por lotes (por secciones o versiones) para facilitar reposiciones. \n\nPapel \n\nPapeles orientados a lectura (offset) o con más presencia si el documento es comercial. \n\nOpciones de mayor gramaje para hojas que se manipulan mucho (portadas internas, índices, fichas de uso intensivo). \n\nPerforado \n\nPerforación 2 taladros o 4 taladros (según el archivador). \n\nPosibilidad de margen de encuadernación para que el contenido no “caiga” en la zona de anillas. \n\nExtras útiles \n\nSeparadores (con pestañas) para organizar por secciones. \n\nPortadas y contraportadas para una presentación más sólida. \n\nOpción de preparar juegos completos (pack por archivador) o reposiciones por secciones.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/publicaciones/hojas-sueltas-para-archivadores.webp",
         "width": 1200,
@@ -9422,9 +9497,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Holas sueltas para archivadores | Repro Disseny",
-        "metaDescription": "Holas sueltas para archivadores personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/hojas-archivadores",
+        "metaTitle": "Hojas sueltas para archivadores | Impresión y perforado para carpetas y dosieres",
+        "metaDescription": "Hojas sueltas impresas para archivadores: taladros 2/4, papel a medida, impresión a color o B/N y opción de separadores. Ideal para manuales, documentación y catálogos actualizables. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/hojas-sueltas-archivadores",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -9441,10 +9516,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Holas sueltas para archivadores",
-          "description": "Holas sueltas para archivadores",
+          "name": "Hojas sueltas para archivadores",
+          "description": "Las hojas sueltas para archivadores son la solución más flexible cuando necesitas documentación que se actualiza: manuales, procedimientos, tarifas, formación o catálogos por fichas. En Repro Disseny imprimimos hojas sueltas con perforado para archivador, distintos papeles y opciones de acabado, para que el material sea práctico, ordenado y fácil de mantener al día.",
           "image": "https://webcms.blob.core.windows.net/media/product/publicaciones/hojas-sueltas-para-archivadores.webp",
-          "url": "https://reprodisseny.com/productos/hojas-archivadores",
+          "url": "https://reprodisseny.com/productos/hojas-sueltas-archivadores",
           "sku": "01-PUBLI-0007",
           "brand": {
             "@type": "Organization",
@@ -9948,6 +10023,136 @@
       }
     },
     {
+      "id": "6",
+      "type": "producto",
+      "slug": "banderola-luminosa-fachada-personalizada",
+      "path": "/productos/banderola-luminosa-fachada-personalizada",
+      "title": "Banderola luminosa para fachada",
+      "categorySlug": "material-rigido",
+      "isPublished": true,
+      "shortDescription": "La banderola luminosa para fachada es una de las soluciones más eficaces para señalizar y dar visibilidad a un negocio: destaca de día y, sobre todo, de noche, cuando la iluminación marca la diferencia. En Repro Disseny preparamos banderolas luminosas personalizadas con gráfica retroiluminada (backlit) y acabados listos para instalación, para que tu marca se vea clara desde la calle.",
+      "bodyMd": "##Detalles \n\n¿Qué es una banderola luminosa para fachada y para qué se usa? \n\nUna banderola luminosa es un elemento de comunicación exterior que incorpora iluminación (habitualmente LED) y una gráfica preparada para que, al iluminarse, el diseño se vea uniforme y con alto impacto. Se instala en fachada mediante soporte/brazo y se utiliza para identificar el negocio, reforzar marca y mejorar la localización desde distintos ángulos, especialmente en calles con competencia visual o zonas con poco contraste nocturno. \n\n##Beneficios \n\nVisibilidad 24/7: tu marca se ve con claridad también por la noche. \n\nMás impacto en calle: destaca frente a rótulos no iluminados y entornos cargados. \n\nMejor localización del negocio: ayuda a encontrar la entrada desde lejos y desde distintos sentidos. \n\nImagen más profesional: transmite presencia de marca y refuerza confianza. \n\nGráfica renovable (según sistema): opción práctica para campañas o cambios de imagen. \n\n##Aplicaciones \n\nComercios y franquicias: identificación exterior, campañas estacionales, rebajas. \n\nHostelería: restaurantes, cafeterías, hoteles y locales con actividad nocturna. \n\nServicios: clínicas, academias, gimnasios, centros de estética, oficinas a pie de calle. \n\nNaves y accesos: señalización de entrada y orientación en polígonos. \n\nEventos temporales: señalización exterior de acceso (según necesidades del proyecto). \n\n##Características técnicas \n\nFormato y medidas \n\nMedidas estándar o a medida según fachada, distancia de lectura y normativa del municipio/comunidad (si aplica). \n\nConfiguración para visibilidad frontal o perpendicular a la fachada (según brazo/soporte). \n\nGráfica retroiluminada \n\nImpresión en material backlit para que la luz se distribuya de forma uniforme y los colores mantengan presencia. \n\nPreparación del diseño para iluminación (contrastes y densidades adaptadas al encendido). \n\nIluminación \n\nSistemas con LED por eficiencia y buena uniformidad. \n\nRecomendación práctica: definir horarios de encendido y ubicación ayuda a elegir la configuración adecuada. \n\nUna o dos caras \n\nHabitualmente se plantea doble cara si la banderola se ve desde ambos sentidos de la calle. \n\nOpción de una cara en configuraciones específicas, según ubicación. \n\nEstructura y montaje \n\nPreparación para instalación en fachada mediante soporte/brazo (según el sistema del cliente o proveedor de rótulos). \n\nPosibilidad de preparar la gráfica para diferentes sistemas de sujeción y cambio. \n\nAcabados recomendados \n\nAcabado pensado para exterior y uso continuado. \n\nSi el entorno tiene mucha luz directa, se ajusta el diseño para mantener legibilidad también durante el día.",
+      "image": {
+        "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/lona-publicitaria.webp",
+        "width": 1200,
+        "height": 1200,
+        "alt": "alt descripció de la foto"
+      },
+      "galleryImages": [],
+      "sku": "01-GRFO-0008",
+      "brand": "Reprodisseny",
+      "price": 0,
+      "priceCurrency": "EUR",
+      "inStock": true,
+      "attributes": [],
+      "variants": [],
+      "formFields": [
+        {
+          "label": "Tamaño",
+          "name": "tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "50x50 cm",
+            "50x60 cm",
+            "70x40 cm",
+            "70x50 cm",
+            "80x50 cm",
+            "80x60 cm"
+          ]
+        },
+        {
+          "label": "Impresión",
+          "name": "impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Vinilo especial retroiluminación"
+          ]
+        },
+        {
+          "label": "Material",
+          "name": "material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "2 pantallas metacrilato opal 3 mm"
+          ]
+        },
+        {
+          "label": "Estructura",
+          "name": "estructura",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Aluminio blanco",
+            "aluminio negro"
+          ]
+        },
+        {
+          "label": "Kit sujección",
+          "name": "kit sujección",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Si"
+          ]
+        },
+        {
+          "label": "Cableado conexión",
+          "name": "cableado conexión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Si"
+          ]
+        },
+        {
+          "label": "Cantidad",
+          "name": "cantidad",
+          "type": "number",
+          "required": true
+        },
+        {
+          "label": "Observaciones",
+          "name": "observaciones",
+          "type": "text",
+          "required": false
+        }
+      ],
+      "seo": {
+        "metaTitle": "Banderola luminosa para fachada | Visibilidad exterior día y noche",
+        "metaDescription": "Banderola luminosa para fachada con impresión retroiluminada (backlit) y luz LED. Ideal para identificar tu negocio y campañas exteriores. Medidas a medida. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/banderola-luminosa-fachada-personalizada",
+        "hreflang": [
+          {
+            "lang": "es-ES",
+            "url": "https://reprodisseny.com/productos/banderola-fachada"
+          },
+          {
+            "lang": "ca-ES",
+            "url": "https://reprodisseny.com/productos/banderola-fachada"
+          }
+        ],
+        "keywords": [
+          "banderola luminosa para fachada"
+        ],
+        "schema": {
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": "Banderola luminosa para fachada",
+          "description": "La banderola luminosa para fachada es una de las soluciones más eficaces para señalizar y dar visibilidad a un negocio: destaca de día y, sobre todo, de noche, cuando la iluminación marca la diferencia. En Repro Disseny preparamos banderolas luminosas personalizadas con gráfica retroiluminada (backlit) y acabados listos para instalación, para que tu marca se vea clara desde la calle.",
+          "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/lona-publicitaria.webp",
+          "url": "https://reprodisseny.com/productos/banderola-luminosa-fachada-personalizada",
+          "sku": "01-GRFO-0008",
+          "brand": {
+            "@type": "Organization",
+            "name": "Reprodisseny"
+          }
+        }
+      }
+    },
+    {
       "id": "60",
       "type": "producto",
       "slug": "lanyards-eventos-barcelona",
@@ -10053,12 +10258,13 @@
     {
       "id": "63",
       "type": "producto",
-      "slug": "lona-publicitaria",
-      "path": "/productos/lona-publicitaria",
+      "slug": "lona-publicitaria-personalizada",
+      "path": "/productos/lona-publicitaria-personalizada",
       "title": "Lona publicitaria",
       "categorySlug": "material-flexible",
       "isPublished": true,
-      "shortDescription": "Lona publicitaria",
+      "shortDescription": "La lona publicitaria es una de las soluciones más efectivas en gran formato: máxima visibilidad, instalación versátil y excelente relación impacto/precio. En Repro Disseny imprimimos lonas personalizadas para exterior e interior, con medidas a medida y acabados de confección (ojales, vaina, refuerzo) para que quede tensa, resistente y lista para colocar.",
+      "bodyMd": "##Detalles \n\n¿Qué es una lona publicitaria y para qué se usa? \n\nUna lona publicitaria es un soporte flexible impreso en gran formato, pensado para comunicar a distancia en fachadas, vallas, estructuras, stands o recintos. Se utiliza para promoción, branding, señalización y campañas temporales, tanto en entornos comerciales como en eventos. \n\n##Beneficios \n\nAlta visibilidad a distancia: ideal para fachada, valla, recinto o zonas de paso. \n\nVersátil en instalación: se adapta a múltiples sistemas (tensado, estructura, barandilla, andamio). \n\nResistente para exterior: materiales y acabados pensados para intemperie. \n\nMedidas a medida: desde piezas pequeñas hasta lonas de gran tamaño por paños. \n\nRentable: gran impacto visual con un coste muy eficiente. \n\n##Aplicaciones \n\nFachadas y edificios: campañas, rótulos temporales, obras y aperturas. \n\nEventos y festivales: perímetros, accesos, patrocinadores, meta/salida, escenarios. \n\nRetail y centros comerciales: promociones estacionales, rebajas, inauguraciones. \n\nVallas y cerramientos: comunicación exterior y señalización de espacios. \n\nStands y ferias: fondos de marca, paredes de stand y zonas de foto. \n\n##Características técnicas \n\nFormatos y medidas \n\nTamaños estándar o a medida según ubicación y distancia de lectura. \n\nPosibilidad de producir por paños para grandes superficies, planificando uniones y montaje. \n\nTipos de lona (según uso) \n\nLona para exterior con buena resistencia. \n\nOpciones microperforadas cuando hay viento o necesitas reducir efecto “vela” (según ubicación). \n\nLonas específicas para estructuras/luminosos (según proyecto). \n\nImpresión \n\nImpresión a todo color con buena reproducción para logos, tipografías e imágenes. \n\nRecomendación: mensajes directos, alto contraste y tipografías grandes (se lee en movimiento). \n\nAcabados de confección e instalación \n\nOjales: para fijación con bridas/cables y tensado. \n\nVaina: para colocar en barras o sistemas de soporte. \n\nDobladillo y refuerzo perimetral: mejora resistencia en bordes y puntos de anclaje. \n\nConfiguración adaptada al sistema real de instalación (fachada, estructura, barandilla, etc.). \n\nAcabados recomendados \n\nAcabado mate si habrá focos o se fotografiará (reduce reflejos). \n\nRefuerzos adicionales si se prevé mucho viento o una instalación prolongada (según ubicación).",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/lona-publicitaria.webp",
         "width": 1200,
@@ -10135,9 +10341,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Lona publicitaria | Repro Disseny",
-        "metaDescription": "Lona publicitaria personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/lona-publicitaria",
+        "metaTitle": "Lona publicitaria personalizada | Impresión en gran formato para exterior e interior",
+        "metaDescription": "Lona publicitaria personalizada para fachadas, vallas y eventos. Impresión a color, medidas a medida y acabados con ojales, vaina o refuerzo perimetral. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/lona-publicitaria-personalizada",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -10155,9 +10361,9 @@
           "@context": "https://schema.org",
           "@type": "Product",
           "name": "Lona publicitaria",
-          "description": "Lona publicitaria",
+          "description": "La lona publicitaria es una de las soluciones más efectivas en gran formato: máxima visibilidad, instalación versátil y excelente relación impacto/precio. En Repro Disseny imprimimos lonas personalizadas para exterior e interior, con medidas a medida y acabados de confección (ojales, vaina, refuerzo) para que quede tensa, resistente y lista para colocar.",
           "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/lona-publicitaria.webp",
-          "url": "https://reprodisseny.com/productos/lona-publicitaria",
+          "url": "https://reprodisseny.com/productos/lona-publicitaria-personalizada",
           "sku": "01-GRFO-0004",
           "brand": {
             "@type": "Organization",
@@ -10791,12 +10997,13 @@
     {
       "id": "7",
       "type": "producto",
-      "slug": "banderola-lona",
-      "path": "/productos/banderola-lona",
-      "title": "Banderola para fachada de lona",
+      "slug": "banderola-lona-fachada-personalizada",
+      "path": "/productos/banderola-lona-fachada-personalizada",
+      "title": "Banderola de lona para fachada",
       "categorySlug": "material-flexible",
       "isPublished": true,
-      "shortDescription": "Banderola para fachada de lona",
+      "shortDescription": "La banderola de lona para fachada es una solución muy efectiva para ganar visibilidad en exterior: destaca desde lejos, refuerza la marca y señala tu ubicación de forma clara. En Repro Disseny imprimimos banderolas de lona a medida y las preparamos con los acabados de confección necesarios para que queden bien tensadas, resistentes y listas para instalar en fachada.",
+      "bodyMd": "##Detalles \n\n¿Qué es una banderola de lona para fachada y para qué se usa? \n\nUna banderola de lona de fachada es un soporte flexible impreso (en lona) pensado para colocarse en el exterior de un edificio, normalmente mediante brazos, barras o estructuras. Se utiliza para identificación de negocio, campañas de temporada, señalización de acceso o comunicación de marca en calles comerciales, polígonos y fachadas con paso de peatones o tráfico. \n\n##Beneficios \n\nVisibilidad a distancia: capta atención desde la calle y ayuda a localizar tu negocio. \n\nRefuerza branding: logo y mensajes siempre presentes en el exterior. \n\nResistente para intemperie: material y confección pensados para sol, lluvia y viento (según ubicación). \n\nA medida: tamaño y formato adaptados a tu fachada y al punto de instalación. \n\nInstalación versátil: se puede preparar con distintos acabados según estructura (vaina/ojales/refuerzo). \n\n##Aplicaciones \n\nFachadas de comercios y franquicias: identificación y campañas (rebajas, aperturas, temporada). \n\nOficinas y naves: señalización exterior, marca y orientación de acceso. \n\nCentros y servicios: academias, clínicas, gimnasios, centros educativos. \n\nEventos: banderolas temporales en recintos, accesos y perímetros de fachada. \n\nHostelería: hoteles, restaurantes y locales con paso de calle. \n\n##Características técnicas \n\nFormato y medidas \n\nMedidas estándar o totalmente a medida según fachada y distancia de lectura. \n\nFormato vertical u horizontal según ubicación y el sistema de brazos/soporte. \n\nTipo de lona (según exposición) \n\nLona para exterior con buena resistencia. \n\nOpción microperforada cuando hay viento o se requiere reducir el efecto “vela” (según punto de instalación). \n\nImpresión \n\nImpresión a todo color con buena definición para logos, tipografías e imágenes. \n\nRecomendación de diseño: mensajes cortos, alto contraste y lectura rápida (se ve en movimiento). \n\nConfección y acabados para fachada \n\nVaina (superior/inferior o lateral) para barra/brazo y mejor tensado. \n\nOjales para fijación adicional con bridas/cables si la estructura lo requiere. \n\nDobladillo y refuerzo perimetral para mejorar resistencia en bordes y puntos de tensión. \n\nPreparación adaptada al sistema real de instalación (brazos, bastidor, anclajes). \n\nDurabilidad \n\nDepende de ubicación y condiciones (orientación, sol, viento, lluvia). Si nos indicas el punto exacto, te proponemos la configuración más segura.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/banderola-para-fachada-de-lona.webp",
         "width": 1200,
@@ -10881,9 +11088,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Banderola para fachada de lona | Repro Disseny",
-        "metaDescription": "Banderola para fachada de lona personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/banderola-lona",
+        "metaTitle": "Banderola de lona para fachada | Publicidad exterior a medida",
+        "metaDescription": "Banderola de lona para fachada personalizada: impresión a color, medidas a medida y acabados de confección (vaina, ojales, refuerzo). Ideal para exterior. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/banderola-lona-fachada-personalizada",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -10900,10 +11107,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Banderola para fachada de lona",
-          "description": "Banderola para fachada de lona",
+          "name": "Banderola de lona para fachada",
+          "description": "La banderola de lona para fachada es una solución muy efectiva para ganar visibilidad en exterior: destaca desde lejos, refuerza la marca y señala tu ubicación de forma clara. En Repro Disseny imprimimos banderolas de lona a medida y las preparamos con los acabados de confección necesarios para que queden bien tensadas, resistentes y listas para instalar en fachada.",
           "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/banderola-para-fachada-de-lona.webp",
-          "url": "https://reprodisseny.com/productos/banderola-lona",
+          "url": "https://reprodisseny.com/productos/banderola-lona-fachada-personalizada",
           "sku": "01-GRFO-0007",
           "brand": {
             "@type": "Organization",
@@ -11295,12 +11502,13 @@
     {
       "id": "76",
       "type": "producto",
-      "slug": "papel-pared",
-      "path": "/productos/papel-pared",
-      "title": "Papel de pared",
+      "slug": "papel-de-pared-personalizado",
+      "path": "/productos/papel-de-pared-personalizado",
+      "title": "Papel de pared personalizado",
       "categorySlug": "material-flexible",
       "isPublished": true,
-      "shortDescription": "Papel de pared",
+      "shortDescription": "El papel de pared es una solución muy efectiva para vestir espacios con identidad: crea ambiente, refuerza marca y transforma paredes sin necesidad de obras. En Repro Disseny imprimimos papel de pared personalizado en gran formato para oficinas, retail y espacios corporativos, con diseños a medida, buena reproducción de color y acabados pensados para un resultado limpio y profesional.",
+      "bodyMd": "##Detalles \n\n¿Qué es el papel de pared y para qué se usa? \n\nEl papel de pared personalizado es un revestimiento impreso diseñado para cubrir paredes interiores con una gráfica decorativa o corporativa: patrones, imágenes, ilustraciones, branding, mensajes o ambientes temáticos. \nSe utiliza para decoración comercial, ambientación de marca, proyectos corporativos (recepciones, salas, pasillos) y espacios que necesitan un impacto visual diferencial sin reformas. \n\n##Beneficios \n\nTransforma el espacio sin obras: gran impacto con instalación rápida. \n\nBranding en gran formato: crea identidad en recepciones, salas y puntos clave. \n\nDiseño totalmente a medida: patrones, fotos, ilustración, mensajes, señalética suave. \n\nAcabado elegante: el mate funciona muy bien en paredes (evita reflejos). \n\nIdeal para proyectos por zonas: se puede aplicar por paredes completas o zonas concretas. \n\n##Aplicaciones \n\nOficinas y corporativo: recepción, salas de reunión, pasillos, valores de marca. \n\nRetail: paredes de tienda, corners, probadores, campañas estacionales. \n\nHostelería y hoteles: halls, habitaciones, restaurantes, zonas de paso. \n\nCentros y entidades: espacios informativos, áreas infantiles, zonas comunes. \n\nEventos y stands: ambientación temporal y fondos de marca en interior. \n\n \n\n##Características técnicas \n\nProducción por paños \n\nSe imprime en paneles/paños para cubrir paredes completas. \n\nPlanificación de uniones para que el empalme sea discreto y el diseño encaje bien. \n\nDiseño y preparación \n\nAdaptación del diseño a la pared real: alturas, anchos, elementos (puertas, enchufes, pilares). \n\nRecomendación: definir el “punto de vista” (zona de entrada) para colocar elementos clave donde más se ven. \n\nAcabados \n\nAcabado mate recomendado para paredes por lectura y ausencia de brillos. \n\nOpciones de mayor resistencia si la pared está en zona de roce o limpieza más frecuente (según proyecto). \n\nInstalación \n\nPensado para instalación en interior sobre paredes lisas y en buen estado. \n\nNota práctica: en paredes con textura marcada o pintura muy porosa, el acabado puede variar; conviene valorarlo antes. \n\nPersonalización \n\nDesde decoración neutra (patrones) hasta branding corporativo: logos, claims, mapas, ilustraciones, fotografía, etc. \n\nPosibilidad de versiones por sede, sala o zona manteniendo coherencia visual.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/papel-pared.webp",
         "width": 1200,
@@ -11376,9 +11584,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Papel de pared | Repro Disseny",
-        "metaDescription": "Papel de pared personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/papel-pared",
+        "metaTitle": "Papel de Pared Personalizado | Decoración y Branding en Gran Formato",
+        "metaDescription": "Papel de pared personalizado para oficinas, tiendas y espacios comerciales. Diseños a medida, impresión de gran formato y acabados mate. Ideal para branding y decoración sin obras. Pide presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/papel-de-pared-personalizado",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -11395,10 +11603,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Papel de pared",
-          "description": "Papel de pared",
+          "name": "Papel de pared personalizado",
+          "description": "El papel de pared es una solución muy efectiva para vestir espacios con identidad: crea ambiente, refuerza marca y transforma paredes sin necesidad de obras. En Repro Disseny imprimimos papel de pared personalizado en gran formato para oficinas, retail y espacios corporativos, con diseños a medida, buena reproducción de color y acabados pensados para un resultado limpio y profesional.",
           "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/papel-pared.webp",
-          "url": "https://reprodisseny.com/productos/papel-pared",
+          "url": "https://reprodisseny.com/productos/papel-de-pared-personalizado",
           "sku": "01-GRFO-0003",
           "brand": {
             "@type": "Organization",

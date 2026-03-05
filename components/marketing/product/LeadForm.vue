@@ -86,9 +86,9 @@ const dynamicSchema = computed(() => {
   const base: Record<string, z.ZodTypeAny> = {
     cantidad: z.coerce.number().min(1, "La cantidad mínima es 1"),
     comentario: z.string().min(1, "La descripción es obligatoria"),
-    privacy: z.coerce.boolean().refine((v) => v === true, {
-      message: "Debes leer y aceptar la política de privacidad",
-    }),
+    privacy: z.boolean().refine((v) => v === true, {
+  message: "Debes leer y aceptar la política de privacidad",
+}),
     nombre: z.string().min(1, "El nombre es obligatorio"),
     email: z.string().email("Correo inválido"),
     telefono: z.string().optional().nullable(),
@@ -119,6 +119,21 @@ const form = useForm({
   initialValues: initialValues.value,
 })
 
+function coerceToBool(v: unknown) {
+  // Radix puede mandar true/false o "indeterminate"
+  return v === true || v === "true" || v === 1;
+}
+
+async function setPrivacy(next: unknown) {
+  const val = coerceToBool(next);
+
+  // Actualiza el estado real del formulario
+  form.setFieldValue("privacy", val, true);
+  form.setFieldTouched("privacy", true, true);
+
+  // Revalida para quitar el error inmediatamente
+  await form.validateField("privacy");
+}
 watch(extraFieldsFiltered, () => {
   form.resetForm({ values: initialValues.value })
 })
@@ -192,12 +207,6 @@ const textareaCls =
   <section class="w-full">
     <form class="w-full flex flex-col gap-[12px]" @submit.prevent="handleSubmit" novalidate>
       <!-- Bloque intro (Frame 102 top, pb 16, gap 8) -->
-      <div class="flex flex-col gap-[8px] pb-[16px]">
-        <p class="text-[16px] leading-[22.4px] font-normal text-[#1E1E1E]">
-          Rellena el formulario para pedir tu presupuesto. Si algún punto no queda claro, no te preocupes,
-          alguien de nuestro equipo te puede asesorar.
-        </p>
-      </div>
 
       <!-- Campos: layout vertical, gap 12 -->
       <div class="flex flex-col gap-[12px]">
@@ -311,28 +320,33 @@ const textareaCls =
         </div>
 
         <!-- Privacidad (Frame 103) -->
-        <FormField v-slot="{ value, handleChange }" name="privacy">
-          <FormItem class="pt-[20px]">
-            <div class="flex flex-row items-center gap-[8px]">
-              <FormControl>
-                <Checkbox
-                  :checked="value === true"
-                  @update:checked="(v) => handleChange(v === true)"
-                  class="w-[20px] h-[20px] border border-[#A2A2A2] rounded-[5px] data-[state=checked]:bg-black data-[state=checked]:text-white"
-                />
-              </FormControl>
+        <FormField v-slot="{ value }" name="privacy">
+  <FormItem class="pt-[20px]">
+    <div class="flex flex-row items-center gap-[8px]">
+      <FormControl>
+        <Checkbox
+          id="privacy"
+          name="privacy"
+          :checked="form.values.privacy === true"
+          :model-value="form.values.privacy === true"
+          @update:checked="setPrivacy"
+          @update:modelValue="setPrivacy"
+          class="w-[20px] h-[20px] border border-[#A2A2A2] rounded-[5px] data-[state=checked]:bg-black data-[state=checked]:text-white"
+        />
+      </FormControl>
 
-              <FormLabel
-                class="text-[14px] leading-[19.6px] font-normal text-black cursor-pointer select-none"
-                @click="handleChange(!(value === true))"
-              >
-                He leído y acepto la política de privacidad.
-              </FormLabel>
-            </div>
-            <FormMessage class="text-xs mt-1" />
-          </FormItem>
-        </FormField>
+      <!-- El label lo hacemos interactivo y controlado -->
+      <FormLabel
+        class="text-[14px] leading-[19.6px] font-normal text-black cursor-pointer select-none"
+        @click.prevent="setPrivacy(!(form.values.privacy === true))"
+      >
+        He leído y acepto la política de privacidad.
+      </FormLabel>
+    </div>
 
+    <FormMessage class="text-xs mt-1" />
+  </FormItem>
+</FormField>
         <!-- Mensajes -->
         <div
           v-if="error"

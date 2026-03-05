@@ -75,9 +75,9 @@ const breadcrumbItems = computed(() => {
     <!-- Product -->
     <template v-else-if="product">
       <section :class="containerClass" class="pt-8 md:pt-16">
-        <div class="grid items-start gap-12 lg:grid-cols-2">
+        
           <ProductHero :product="product" :category="category" />
-        </div>
+        
       </section>
 
       <!-- Banner guía (full bleed) -->

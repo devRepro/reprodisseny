@@ -1,8 +1,11 @@
 <!-- pages/sobre-nosotros.vue -->
 <script setup lang="ts">
-import { Card, CardContent } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
-import { Check } from "lucide-vue-next";
+import ComparisonTable from "@/components/shared/blocks/ComparisonTable.vue"
+import EnvironmentSection from "@/components/shared/blocks/EnvironmentSection.vue"
+import CompanyTimeline from "@/components/shared/blocks/CompanyTimeline.vue"
+import { Building2, Printer, Factory, Palette, Maximize2, Sparkles } from "lucide-vue-next"
+
+import ClientLogosBand from "@/components/marketing/ClientLogosBand.vue"
 
 type TimelineItem = {
   year: string;
@@ -12,40 +15,50 @@ type TimelineItem = {
   side: "left" | "right";
 };
 
-const timeline: TimelineItem[] = [
+const timeline = [
   {
-    year: "1995",
-    title: "Lorem ipsum dolor sit",
+    year: 1983,
+    title: "Fundación de Repro Disseny",
     text:
-      "Lorem ipsum dolor sit amet consectetur. Vitae elementum elementum sit a lacus vitae consectetur consectetur. Aliquam id porta sit aliquam donec fermentum augue. Sagittis dictum lectus tellus sit massa fusce sed sapien.",
-    imageAlt: "Imatge històrica 1995",
-    side: "right",
+      "Inicia sus actividades en un pequeño local de 40 m2 en el barrio de San Gervasio realizando trabajos de copistería e imprenta rápida.\n\nEn 1986 nuestra actividad dio un vuelco con la llegada de los ordenadores Macintosh y los programas de autoedición: lo que antes tardábamos semanas, lo hacíamos en días.",
+    icon: Building2,
   },
   {
-    year: "2005",
-    title: "Lorem ipsum dolor sit",
+    year: 1993,
+    title: "Adquisición 1ª prensa digital en b/n",
     text:
-      "Lorem ipsum dolor sit amet consectetur. Vitae elementum elementum sit a lacus vitae consectetur consectetur. Aliquam id porta sit aliquam donec fermentum augue. Sagittis dictum lectus tellus sit massa fusce sed sapien. Pellentesque auctor fames quam commodo rhoncus id.",
-    imageAlt: "Imatge històrica 2005",
-    side: "left",
+      "Con la puesta en marcha de la Xerox Docutec iniciamos el cambio de analógico a digital. Empieza la revolución en nuestro sector.\n\nEn 1996 estrenamos nuestra primera web.",
+    icon: Printer,
   },
   {
-    year: "2015",
-    title: "Lorem ipsum dolor sit",
+    year: 1999,
+    title: "Inauguración del Centro de Producción Juan de Mena",
     text:
-      "Lorem ipsum dolor sit amet consectetur. Vitae elementum elementum sit a lacus vitae consectetur consectetur. Aliquam id porta sit aliquam donec fermentum augue. Sagittis dictum lectus tellus sit massa fusce sed sapien. Pellentesque auctor fames.",
-    imageAlt: "Imatge històrica 2015",
-    side: "right",
+      "Este hito supone un cambio radical en nuestra forma de trabajar. Situado cerca del Hospital de la Vall d’Hebrón y a pocos metros de la Ronda de Dalt, sus más de 1.000 m2 nos han permitido disfrutar de unas instalaciones preparadas para asumir grandes proyectos con rapidez y eficacia.",
+    icon: Factory,
   },
   {
-    year: "2025",
-    title: "Lorem ipsum dolor sit",
+    year: 2006,
+    title: "Llega la 1ª prensa digital en color",
     text:
-      "Lorem ipsum dolor sit amet consectetur. Vitae elementum elementum sit a lacus vitae consectetur consectetur. Aliquam id porta sit aliquam donec fermentum augue. Sagittis dictum lectus tellus sit massa fusce sed sapien.",
-    imageAlt: "Imatge històrica 2025",
-    side: "left",
+      "Somos pioneros incorporando iGen 3, la primera prensa digital en color preparada para altos volúmenes de trabajo.\n\nSu entrada supone la consolidación de nuestra apuesta digital, que se irá ampliando en los años siguientes. Somos los primeros del sector en implantar la plataforma Direct Smile, un software especializado en personalización y comunicación multicanal.",
+    icon: Palette,
   },
-];
+  {
+    year: 2017,
+    title: "Nuestra apuesta por el gran formato",
+    text:
+      "Hemos ampliado nuestra capacidad de producción con la incorporación de dos nuevas prensas en color, iGen 150 e iGen 5.\n\nAdemás, adquirimos una mesa de corte digital Kongsberg que, combinada con los plotters látex HP y el apoyo de nuestro equipo de montadores, nos permite reforzar nuestra presencia en este mercado en crecimiento y afrontar proyectos de gran envergadura.",
+    icon: Maximize2,
+  },
+  {
+    year: 2024,
+    title: "Consolidando 40 años de trayectoria",
+    text:
+      "Mejoramos nuestra oferta comercial con la incorporación de una impresora de gran formato HP R1000, que nos permite imprimir sobre una amplia variedad de materiales rígidos.\n\nActualmente, trabajamos con los principales proveedores de maquinaria del sector: Ricoh, Canon, HP, Kongsberg, ESKO, Horizon y Heidelberg, y estamos posicionados como una de las mejores imprentas digitales de Barcelona.\n\nEn el sector empieza una segunda revolución con el uso de la inteligencia artificial.",
+    icon: Sparkles,
+  },
+]
 
 const compareHead = [
   "Impremtes online",
@@ -101,101 +114,21 @@ const values = [
   "Lorem ipsum",
   "Lorem ipsum",
 ];
-
-const clients = [
-  { name: "Client 1", src: "" },
-  { name: "Client 2", src: "" },
-  { name: "Client 3", src: "" },
-  { name: "Client 4", src: "" },
-  { name: "Client 5", src: "" },
-  { name: "Client 6", src: "" },
-  { name: "Client 7", src: "" },
-  { name: "Client 8", src: "" },
-  { name: "Client 9", src: "" },
-  { name: "Client 10", src: "" },
-  { name: "Client 11", src: "" },
-  { name: "Client 12", src: "" },
-];
-
-// Si tu header está fixed/absolute, esto evita solapamientos.
-// Ajusta si tu layout ya empuja el contenido.
-const HEADER_OFFSET_PX = 141;
-</script>
-
+</script> 
 <template>
-  <main class="bg-white text-[#1E1E1E]" :style="{ paddingTop: `${HEADER_OFFSET_PX}px` }">
-    <!-- CLAIM -->
+  <main class="bg-white text-[#1E1E1E]">
     <section class="w-full bg-[#DEF4FF]">
       <div class="mx-auto max-w-[1200px] px-6 xl:px-0 py-[50px]">
         <h1
           class="text-center font-['Figtree'] font-semibold text-[30px] leading-[36px] text-[#004F78]"
         >
-          Tota una vida imprimint
+          Toda una vida imprimiendo
         </h1>
       </div>
     </section>
-
-    <!-- CRONOGRAMA (timeline alternado) -->
-    <section class="mx-auto max-w-[1200px] px-6 xl:px-0 py-20">
-      <div class="relative">
-        <!-- línea central -->
-        <div
-          class="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-full w-px bg-[#3F3F3F]"
-        />
-
-        <div class="space-y-14">
-          <div
-            v-for="(it, idx) in timeline"
-            :key="idx"
-            class="grid grid-cols-1 md:grid-cols-2 items-center gap-10"
-          >
-            <!-- LEFT -->
-            <div
-              class="flex"
-              :class="
-                it.side === 'left'
-                  ? 'md:justify-end md:order-1'
-                  : 'md:justify-end md:order-2'
-              "
-            >
-              <Card class="w-full max-w-[520px] border-0 shadow-none">
-                <CardContent class="p-0">
-                  <h3
-                    class="font-['Figtree'] font-normal text-[40px] leading-[52px] text-[#1E1E1E]"
-                    :class="it.side === 'left' ? 'text-right' : 'text-left'"
-                  >
-                    {{ it.year }} {{ it.title }}
-                  </h3>
-                  <p
-                    class="mt-6 font-['Figtree'] font-normal text-[16px] leading-[22px] text-[#1E1E1E]"
-                    :class="it.side === 'left' ? 'text-right' : 'text-left'"
-                  >
-                    {{ it.text }}
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
-
-            <!-- RIGHT (imagen) -->
-            <div
-              class="flex"
-              :class="
-                it.side === 'left'
-                  ? 'md:justify-start md:order-2'
-                  : 'md:justify-start md:order-1'
-              "
-            >
-              <!-- Placeholder con tamaños tipo Figma (245px alto) -->
-              <div
-                class="w-full max-w-[520px] h-[245px] rounded-[12px] bg-[#D9D9D9]"
-                role="img"
-                :aria-label="it.imageAlt"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  <section class="container">
+    <CompanyTimeline :items="timeline" />
+  </section>
 
     <!-- VIDEO -->
     <section class="w-full bg-[#004F78]">
@@ -205,7 +138,7 @@ const HEADER_OFFSET_PX = 141;
         <h2
           class="w-full text-center font-['Figtree'] font-semibold text-[30px] leading-[36px] text-white"
         >
-          Algunes dades sobre l’empresa
+          Algunos datos sobre nosotros
         </h2>
 
         <!-- ratio similar a 746x416 -->
@@ -220,98 +153,23 @@ const HEADER_OFFSET_PX = 141;
     </section>
 
     <!-- LO QUE NOS DIFERENCIA -->
-    <section class="mx-auto max-w-[1200px] px-6 xl:px-0 py-20">
-      <div class="flex flex-col gap-10">
-        <div class="flex flex-col gap-6">
-          <h2
-            class="font-['Figtree'] font-semibold text-[30px] leading-[36px] text-[#1E1E1E]"
-          >
-            El que ens diferencia
-          </h2>
-          <p class="font-['Inter'] font-normal text-[18px] leading-[22px] text-[#1E1E1E]">
-            Lorem ipsum dolor sit amet consectetur. Et adipiscing ac nunc consectetur
-            integer eu lorem. In euismod urna tempor nunc augue sed. Dictum bibendum
-            tincidunt et curabitur egestas. Commodo potenti viverra convallis lacus at
-            nisi.
-          </p>
-        </div>
+<section class="mx-auto max-w-[1200px] px-6 xl:px-0 py-20">
+  <div class="flex flex-col gap-10">
+    <div class="flex flex-col gap-6">
+      <h2 class="font-['Figtree'] font-semibold text-[30px] leading-[36px] text-[#1E1E1E]">
+        El que ens diferencia
+      </h2>
+      <p class="font-['Inter'] font-normal text-[18px] leading-[22px] text-[#1E1E1E]">
+        Lorem ipsum dolor sit amet consectetur. Et adipiscing ac nunc consectetur
+        integer eu lorem. In euismod urna tempor nunc augue sed. Dictum bibendum
+        tincidunt et curabitur egestas. Commodo potenti viverra convallis lacus at
+        nisi.
+      </p>
+    </div>
 
-        <div class="relative">
-          <!-- “columna” destacada para Repro (solo desktop) -->
-          <div
-            class="hidden lg:block absolute right-0 top-[56px] h-[calc(100%-56px)] w-[140px] bg-[#DEF4FF]"
-          />
-
-          <!-- Header -->
-          <div class="hidden lg:grid grid-cols-[1fr_141px_199px_122px] items-end gap-10">
-            <div />
-            <div
-              class="text-right font-['Inter'] text-[18px] leading-[22px] text-[#1E1E1E]"
-            >
-              {{ compareHead[0] }}
-            </div>
-            <div
-              class="text-right font-['Inter'] text-[18px] leading-[22px] text-[#1E1E1E]"
-            >
-              {{ compareHead[1] }}
-            </div>
-            <div
-              class="text-right font-['Inter'] text-[18px] leading-[22px] text-[#1E1E1E]"
-            >
-              {{ compareHead[2] }}
-            </div>
-          </div>
-
-          <Separator class="my-4 bg-[#1E1E1E]" />
-
-          <!-- Rows -->
-          <div class="divide-y divide-[#1E1E1E]">
-            <div v-for="(r, i) in compareRows" :key="i" class="py-4">
-              <!-- Desktop -->
-              <div
-                class="hidden lg:grid grid-cols-[1fr_141px_199px_122px] items-center gap-10"
-              >
-                <div class="font-['Inter'] text-[18px] leading-[22px] text-[#1E1E1E]">
-                  {{ r.label }}
-                </div>
-
-                <div class="flex justify-center">
-                  <Check v-if="r.online" class="h-6 w-6 text-[#004F78]" />
-                </div>
-                <div class="flex justify-center">
-                  <Check v-if="r.traditional" class="h-6 w-6 text-[#004F78]" />
-                </div>
-                <div class="flex justify-center">
-                  <Check v-if="r.repro" class="h-6 w-6 text-[#004F78]" />
-                </div>
-              </div>
-
-              <!-- Mobile -->
-              <div class="lg:hidden">
-                <div class="font-['Inter'] text-[16px] leading-[22px] text-[#1E1E1E]">
-                  {{ r.label }}
-                </div>
-                <div class="mt-3 grid grid-cols-3 gap-3 text-sm">
-                  <div class="flex items-center gap-2">
-                    <Check v-if="r.online" class="h-5 w-5 text-[#004F78]" />
-                    <span>{{ compareHead[0] }}</span>
-                  </div>
-                  <div class="flex items-center gap-2">
-                    <Check v-if="r.traditional" class="h-5 w-5 text-[#004F78]" />
-                    <span>{{ compareHead[1] }}</span>
-                  </div>
-                  <div class="flex items-center gap-2">
-                    <Check v-if="r.repro" class="h-5 w-5 text-[#004F78]" />
-                    <span>{{ compareHead[2] }}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
+    <ComparisonTable :head="compareHead" :rows="compareRows" />
+  </div>
+</section>
     <!-- VALORES -->
     <section class="mx-auto max-w-[1200px] px-6 xl:px-0 pb-24">
       <h2
@@ -333,85 +191,34 @@ const HEADER_OFFSET_PX = 141;
     </section>
 
     <!-- CLIENTES -->
-    <section class="w-full bg-[#FFF7E8]">
-      <div class="mx-auto max-w-[1200px] px-6 xl:px-0 py-16">
-        <h2
-          class="text-center font-['Figtree'] font-semibold text-[30px] leading-[36px] text-[#212121]"
-        >
-          Clients que confien en nosaltres
-        </h2>
+    <ClientLogosBand
+      :logos="[
+        { src: '/img/customers/vallhebron.svg', alt: `Vall d'Hebron` },
+        { src: '/img/customers/fcf.svg', alt: 'Federació Catalana' },
+        { src: '/img/customers/adevinta.svg', alt: 'Adevinta' },
+        { src: '/img/customers/hitachi.svg', alt: 'Hitachi' },
+        { src: '/img/customers/tuv.svg', alt: 'TÜV Rheinland' },
+        { src: '/img/customers/vueling.svg', alt: 'Vueling' },
+        { src: '/img/customers/cromology.svg', alt: 'Cromology' },
+        { src: '/img/customers/who.svg', alt: 'World Health Organization' },
+        { src: '/img/customers/uab.svg', alt: 'UAB' },
+        { src: '/img/customers/alcon.svg', alt: 'Alcon' },
+        { src: '/img/customers/renault.svg', alt: 'Renault' },
+        { src: '/img/customers/green-vita.svg', alt: 'Green Vita' },
+      ]"
+    />
 
-        <div
-          class="mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6"
-        >
-          <div
-            v-for="c in clients"
-            :key="c.name"
-            class="h-[56px] rounded-md bg-white/60 border border-[#D5C3A0] flex items-center justify-center"
-          >
-            <span class="font-['Figtree'] text-xs text-[#212121]">{{ c.name }}</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- MEDIO AMBIENTE -->
-    <section
-      class="w-full"
-      :style="{
-        backgroundImage:
-          'linear-gradient(0deg, rgba(3, 65, 55, 0.5), rgba(3, 65, 55, 0.5)), url(/img/medio-ambiente.jpg)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }"
-    >
-      <div class="mx-auto max-w-[900px] px-6 xl:px-0 py-24">
-        <div class="flex flex-col items-center gap-10">
-          <h2
-            class="text-center font-['Figtree'] font-semibold text-[30px] leading-[36px] text-white"
-          >
-            Compromesos amb el medi ambient
-          </h2>
-
-          <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div class="space-y-5">
-              <div
-                class="text-center font-['Figtree'] font-semibold text-[20px] leading-[26px] text-white"
-              >
-                Lorem ipsum dolor sit amet consectetur.
-              </div>
-              <div
-                class="text-center font-['Figtree'] font-semibold text-[20px] leading-[26px] text-white"
-              >
-                Lorem ipsum dolor sit amet consectetur.
-              </div>
-              <div
-                class="text-center font-['Figtree'] font-semibold text-[20px] leading-[26px] text-white"
-              >
-                Lorem ipsum dolor sit amet consectetur.
-              </div>
-            </div>
-
-            <div class="space-y-5">
-              <div
-                class="text-center font-['Figtree'] font-semibold text-[20px] leading-[26px] text-white"
-              >
-                Lorem ipsum dolor sit amet consectetur.
-              </div>
-              <div
-                class="text-center font-['Figtree'] font-semibold text-[20px] leading-[26px] text-white"
-              >
-                Lorem ipsum dolor sit amet consectetur.
-              </div>
-              <div
-                class="text-center font-['Figtree'] font-semibold text-[20px] leading-[26px] text-white"
-              >
-                Lorem ipsum dolor sit amet consectetur.
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <EnvironmentSection
+  title="Comprometidos con el mediao ambiente"
+  background-src="/img/ui/bggreen_1920.webp"
+  :items="[
+    'Reciclamos los productos químicos',
+    'Reutilizamos la energía reactiva.',
+    'Utilizamos tintas de látex que son inocuas para el medio ambiente.',
+    'Optimizamos el consumo de papel.',
+    'Utiliamos papeles con cerfificados FSC y PEFC.',
+    'Ofrecemos la posibilidad de imprimir sobre papeles reciclados.',
+  ]"
+/>
   </main>
 </template>

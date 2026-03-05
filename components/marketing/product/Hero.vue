@@ -22,8 +22,11 @@ const imgAlt = computed(() => {
 const extraFields = computed(() => props.product?.formFields || props.product?.extraFields || []);
 const categorySlug = computed(() => props.category?.slug || props.product?.categorySlug || "");
 const productTitle = computed(() => props.product?.title || "");
-const productDesc = computed(() => props.product?.shortDescription || props.product?.description || "");
+const productDesc = computed(
+  () => props.product?.shortDescription || props.product?.description || ""
+);
 
+// Lazy-load
 const LeadFormCmp = shallowRef<any>(null);
 const leadFormLoadError = ref<unknown>(null);
 
@@ -38,64 +41,80 @@ onMounted(async () => {
 </script>
 
 <template>
-  <!-- Contenedor "producte" -->
-  <section class="w-[1200px]">
-    <div class="grid grid-cols-[575px_555.95px] gap-[69px] items-start">
-      <!-- IZQUIERDA -->
-      <div class="w-[575px]">
-        <!-- Frame 125 -->
-        <div class="w-[571.14px] flex flex-col gap-[24px]">
-          <!-- H2 -->
-          <h1 class="font-figtree text-[30px] leading-[36px] font-semibold text-[#1E1E1E]">
-            {{ product?.title }}
-          </h1>
-
-          <!-- Body (descripción) -->
-          <p
-            v-if="productDesc"
-            class="font-figtree text-[16px] leading-[22.4px] font-normal text-[#1E1E1E]"
+  <article
+    class="w-full"
+    itemscope
+    itemtype="https://schema.org/Product"
+    :aria-label="`Página del producto ${productTitle}`"
+  >
+    <div class="grid items-start gap-10 lg:grid-cols-2 lg:gap-14">
+      <section class="min-w-0 self-start lg:sticky lg:top-24">
+        <header class="space-y-4">
+          <h1
+            class="text-2xl font-semibold tracking-tight text-foreground md:text-3xl"
+            itemprop="name"
           >
-            {{ productDesc }}
-          </p>
-        </div>
+            {{ productTitle }}
+          </h1>
+        </header>
 
-        <!-- imatges -->
-        <div class="mt-[24px]">
+        <figure
+          class="mt-6 overflow-hidden rounded-2xl border border-border bg-card"
+          itemprop="image"
+        >
           <NuxtImg
             :src="imgSrc"
             :alt="imgAlt"
-            class="w-[575px] h-[575px] rounded-[12px] object-cover"
-            sizes="575px"
+            class="aspect-[4/3] w-full object-cover sm:aspect-square"
+            sizes="sm:100vw lg:560px"
+            width="900"
+            height="900"
             densities="x1 x2"
             fetchpriority="high"
+            preload
           />
-        </div>
-      </div>
+        </figure>
 
-      <!-- DERECHA -->
-      <!-- Frame 102: gap 12 -->
-      <div class="w-[555.95px] flex flex-col gap-[12px] pt-[60px]">
-        <ClientOnly>
-          <div v-if="leadFormLoadError" class="text-sm text-red-600">
-            Error cargando el formulario.
+        <p class="mt-3 text-xs text-muted-foreground">
+          ¿Dudas con medidas o archivos? Completa el formulario y te orientamos.
+        </p>
+      </section>
+
+      <section class="min-w-0">
+        <div class="rounded-2xl border border-border bg-card p-4 shadow-sm sm:p-6">
+          <div class="mt-5">
+            <ClientOnly>
+              <div v-if="leadFormLoadError" class="rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+                Error cargando el formulario. Por favor, recarga la página o inténtalo más tarde.
+              </div>
+
+              <component
+                v-else-if="LeadFormCmp"
+                :is="LeadFormCmp"
+                :producto="productTitle"
+                :product-data="product"
+                :extra-fields="extraFields"
+                :category-slug="categorySlug"
+                class="w-full"
+              />
+
+              <template #fallback>
+                <div class="space-y-4" aria-label="Cargando formulario">
+                  <div v-for="i in 6" :key="i" class="space-y-2">
+                    <div class="h-4 w-28 rounded bg-muted" />
+                    <div class="h-12 w-full rounded-xl border border-border bg-background" />
+                  </div>
+                  <div class="h-12 w-full rounded-xl bg-muted" />
+                </div>
+              </template>
+            </ClientOnly>
           </div>
 
-          <component
-            v-else
-            :is="LeadFormCmp"
-            v-if="LeadFormCmp"
-            :producto="productTitle"
-            :product-data="product"
-            :extra-fields="extraFields"
-            :category-slug="categorySlug"
-            class="w-full"
-          />
-
-          <template #fallback>
-            <div class="text-sm text-[#A2A2A2]">Carregant formulari…</div>
-          </template>
-        </ClientOnly>
-      </div>
+          <p class="mt-4 text-xs text-muted-foreground">
+            Al enviar este formulario aceptas que te contactemos para darte el presupuesto.
+          </p>
+        </div>
+      </section>
     </div>
-  </section>
+  </article>
 </template>
