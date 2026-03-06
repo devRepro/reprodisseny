@@ -1,138 +1,146 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { Card, CardContent } from "@/components/ui/card"
+import { Separator } from "@/components/ui/separator"
+
+// Índice de navegación para generar el menú lateral y las secciones
+const sections = [
+  { id: "introduccion", title: "1. Introducción" },
+  { id: "datos-recopilados", title: "2. Datos que recopilamos" },
+  { id: "uso-datos", title: "3. Uso de sus datos" },
+  { id: "cookies", title: "4. Política de Cookies" },
+  { id: "derechos", title: "5. Sus derechos" },
+  { id: "contacto", title: "6. Contacto" },
+]
+
+// Fecha de última actualización dinámica o estática (SEO)
+const lastUpdated = "15 de mayo de 2024"
+</script>
 
 <template>
-  <h1>Términos y Condiciones de Uso</h1>
+  <main class="min-h-screen bg-background text-foreground py-12 px-6 lg:py-20">
+    <div class="mx-auto max-w-[1200px]">
+      <header class="mb-12 max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-primary mb-4">
+          Política de Privacidad
+        </h1>
+        <p class="text-lg text-muted-foreground">
+          En Repro Disseny valoramos su privacidad. Este documento explica cómo recopilamos, 
+          utilizamos y protegemos su información personal.
+        </p>
+        <div class="mt-6 flex items-center text-sm text-muted-foreground">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="16" y1="2" x2="16" y2="6"></line>
+            <line x1="8" y1="2" x2="8" y2="6"></line>
+            <line x1="3" y1="10" x2="21" y2="10"></line>
+          </svg>
+          <span>Última actualización: <time :datetime="lastUpdated">{{ lastUpdated }}</time></span>
+        </div>
+      </header>
 
-  <h2>1. Introducción</h2>
-  <p>
-    1.1. Bienvenido a <strong>REPRO DISSENY</strong>. Al acceder y utilizar este sitio web
-    (<code>www.reprodisseny.com</code> y subdominios asociados), aceptas estos Términos y
-    Condiciones de Uso y nuestra Política de Privacidad. Si no estás de acuerdo, te
-    pedimos que no utilices el sitio.
-  </p>
-  <p>
-    1.2. Este sitio es propiedad de <strong>REPRO DISSENY, S.L.</strong>, con domicilio en
-    Calle Juan de Mena, 19, 08035 Barcelona, CIF: B-64555105. Inscrita en el Registro
-    Mercantil de Barcelona, Tomo 39661, Folio 61, Hoja B-349885. Contacto:
-    <a href="mailto:repro@reprodisseny.com">repro@reprodisseny.com</a>
-  </p>
-  <p>
-    1.3. Te recomendamos leer y conservar una copia de estos términos, que estarán siempre
-    disponibles en el sitio web.
-  </p>
-  <p>1.4. Para usar el sitio, debes cumplir estos requisitos:</p>
-  <ul>
-    <li>Tener al menos 18 años, o 16 con consentimiento paterno/tutor.</li>
-    <li>Tener capacidad legal para aceptar un contrato vinculante.</li>
-    <li>Residir en España.</li>
-  </ul>
-  <p>El usuario garantiza que la información que proporcione será veraz y actualizada.</p>
+      <Separator class="mb-12" />
 
-  <h2>2. Objeto</h2>
-  <p>
-    2.1. Navegar por el sitio implica la aceptación total de estas condiciones, sin
-    necesidad de firma física.
-  </p>
-  <p>
-    2.2. El usuario, ya sea persona física o jurídica, acepta usar el sitio bajo su
-    responsabilidad, incluyendo el uso de la información, servicios y contenidos ofrecidos
-    por REPRO DISSENY.
-  </p>
+      <div class="flex flex-col lg:flex-row gap-12 relative">
+        
+        <aside class="lg:w-1/4 hidden lg:block">
+          <div class="sticky top-24">
+            <Card class="border-border/50 shadow-sm bg-muted/30">
+              <CardContent class="p-6">
+                <h3 class="font-semibold text-sm uppercase tracking-wider text-muted-foreground mb-4">
+                  En esta página
+                </h3>
+                <nav aria-label="Índice de Política de Privacidad">
+                  <ul class="space-y-3">
+                    <li v-for="item in sections" :key="item.id">
+                      <a 
+                        :href="`#${item.id}`" 
+                        class="text-sm text-foreground/80 hover:text-primary transition-colors hover:underline decoration-primary/30 underline-offset-4"
+                      >
+                        {{ item.title }}
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </CardContent>
+            </Card>
+          </div>
+        </aside>
 
-  <h2>3. Normas de Uso</h2>
+        <article class="lg:w-3/4 max-w-3xl space-y-12">
+          
+          <section id="introduccion" class="scroll-mt-24 space-y-4">
+            <h2 class="text-2xl font-bold tracking-tight text-foreground">1. Introducción</h2>
+            <p class="text-muted-foreground leading-relaxed">
+              Bienvenido a Repro Disseny. Nos comprometemos a proteger su información personal 
+              y su derecho a la privacidad. Si tiene alguna pregunta o inquietud sobre nuestra 
+              política o nuestras prácticas con respecto a su información personal, comuníquese 
+              con nosotros a través de los canales oficiales.
+            </p>
+          </section>
 
-  <h3>3.1 Acceso</h3>
-  <ul>
-    <li>
-      El usuario necesita conexión a internet y un dispositivo adecuado para acceder.
-    </li>
-    <li>
-      Algunos contenidos pueden requerir descargas. El usuario asume la responsabilidad de
-      instalar lo necesario.
-    </li>
-  </ul>
+          <section id="datos-recopilados" class="scroll-mt-24 space-y-4">
+            <h2 class="text-2xl font-bold tracking-tight text-foreground">2. Datos que recopilamos</h2>
+            <p class="text-muted-foreground leading-relaxed">
+              Recopilamos la información personal que usted nos proporciona voluntariamente al 
+              registrarse en el sitio web, expresar un interés en obtener información sobre 
+              nosotros o nuestros productos y servicios.
+            </p>
+            <ul class="list-disc pl-6 space-y-2 text-muted-foreground">
+              <li><strong>Datos de contacto:</strong> Nombre, dirección de correo electrónico y número de teléfono.</li>
+              <li><strong>Datos de facturación:</strong> Dirección física y NIF/CIF.</li>
+              <li><strong>Datos técnicos:</strong> Dirección IP, tipo de navegador y sistema operativo.</li>
+            </ul>
+          </section>
 
-  <h3>3.2 Uso correcto</h3>
-  <ul>
-    <li>El sitio debe utilizarse conforme a la ley, la moral y el orden público.</li>
-    <li>Queda prohibido dañar el sitio, introducir virus o alterar sistemas.</li>
-    <li>REPRO DISSENY puede denegar el acceso a quien incumpla estas condiciones.</li>
-  </ul>
+          <section id="uso-datos" class="scroll-mt-24 space-y-4">
+            <h2 class="text-2xl font-bold tracking-tight text-foreground">3. Uso de sus datos</h2>
+            <p class="text-muted-foreground leading-relaxed">
+              Procesamos su información para fines basados en intereses comerciales legítimos, 
+              el cumplimiento de nuestro contrato con usted, el cumplimiento de nuestras obligaciones 
+              legales y su consentimiento.
+            </p>
+          </section>
 
-  <h3>3.3 Limitación de responsabilidad</h3>
-  <p>REPRO DISSENY no será responsable de:</p>
-  <ul>
-    <li>Problemas de conexión o velocidad del usuario.</li>
-    <li>Interrupciones del sistema por causas externas.</li>
-    <li>Contenidos introducidos por terceros ajenos a la empresa.</li>
-  </ul>
+          <section id="cookies" class="scroll-mt-24 space-y-4">
+            <h2 class="text-2xl font-bold tracking-tight text-foreground">4. Política de Cookies</h2>
+            <p class="text-muted-foreground leading-relaxed">
+              Podemos utilizar cookies y tecnologías de seguimiento similares (como balizas web y píxeles) 
+              para acceder o almacenar información. La información específica sobre cómo usamos dichas 
+              tecnologías se establece en nuestra Política de Cookies separada.
+            </p>
+          </section>
 
-  <h2>4. Enlaces y contenido externo</h2>
-  <p>
-    4.1. No nos responsabilizamos del contenido ni legalidad de páginas externas enlazadas
-    desde nuestro sitio.
-  </p>
-  <p>
-    4.2. Aunque tomamos medidas de seguridad, navegar por internet conlleva riesgos. No
-    somos responsables de posibles daños derivados de la navegación.
-  </p>
+          <section id="derechos" class="scroll-mt-24 space-y-4">
+            <h2 class="text-2xl font-bold tracking-tight text-foreground">5. Sus derechos</h2>
+            <p class="text-muted-foreground leading-relaxed">
+              De acuerdo con el Reglamento General de Protección de Datos (RGPD), usted tiene derecho a:
+            </p>
+            <ul class="list-disc pl-6 space-y-2 text-muted-foreground">
+              <li>Acceder a sus datos personales.</li>
+              <li>Solicitar la rectificación de datos inexactos.</li>
+              <li>Solicitar la eliminación de sus datos (derecho al olvido).</li>
+              <li>Oponerse al procesamiento de su información.</li>
+            </ul>
+          </section>
 
-  <h2>5. Vigencia y cambios</h2>
-  <p>
-    5.1. REPRO DISSENY puede modificar estos términos en cualquier momento, sin previo
-    aviso.
-  </p>
-  <p>5.2. Las nuevas condiciones serán válidas desde su publicación en el sitio.</p>
+          <section id="contacto" class="scroll-mt-24 space-y-4">
+            <h2 class="text-2xl font-bold tracking-tight text-foreground">6. Contacto</h2>
+            <p class="text-muted-foreground leading-relaxed">
+              Si tiene preguntas o comentarios sobre esta política, puede enviarnos un correo electrónico a 
+              <a href="mailto:privacidad@reprodisseny.com" class="font-medium text-primary hover:underline">privacidad@reprodisseny.com</a> 
+              o por correo postal a nuestras instalaciones principales.
+            </p>
+          </section>
 
-  <h2>6. Propiedad intelectual e industrial</h2>
-  <p>
-    6.1. Todos los contenidos del sitio son propiedad de REPRO DISSENY o se usan con
-    permiso, y están protegidos por la legislación vigente.
-  </p>
-  <p>
-    6.2. Está prohibida su reproducción, distribución o modificación sin consentimiento
-    expreso.
-  </p>
-
-  <h2>7. Legislación y jurisdicción</h2>
-  <p>
-    7.1. REPRO DISSENY podrá ejercer acciones legales por el uso indebido del sitio o
-    incumplimiento de estos términos.
-  </p>
-  <p>
-    7.2. Las disputas se resolverán conforme a la legislación española, en los tribunales
-    de <strong>Barcelona</strong>.
-  </p>
-
-  <h2>8. Protección de datos</h2>
-  <p>
-    8.1. De acuerdo con el <strong>Reglamento (UE) 2016/679 (RGPD)</strong>, los datos
-    personales recabados serán tratados por REPRO DISSENY para gestionar la relación con
-    el usuario y realizar labores comerciales y estadísticas.
-  </p>
-  <p>
-    8.2. La base legal es el interés legítimo o el consentimiento del usuario (por
-    ejemplo, para cookies). Los datos se conservarán mientras exista ese consentimiento,
-    salvo obligación legal de conservación.
-  </p>
-  <p>8.3. Puedes ejercer tus derechos de:</p>
-  <ul>
-    <li>Acceso</li>
-    <li>Rectificación</li>
-    <li>Limitación</li>
-    <li>Supresión</li>
-    <li>Portabilidad</li>
-    <li>Oposición</li>
-  </ul>
-  <p>
-    También puedes retirar tu consentimiento en cualquier momento o presentar una
-    reclamación ante la autoridad de control.
-  </p>
-  <p>
-    8.4. Adoptamos medidas técnicas y organizativas para garantizar la seguridad de los
-    datos. Si introduces datos en formularios de terceros, ellos serán responsables de su
-    tratamiento.
-  </p>
-
-  <p><em>Fecha de última actualización: Barcelona, 09 de mayo de 2007.</em></p>
+        </article>
+      </div>
+    </div>
+  </main>
 </template>
+
+<style scoped>
+/* Transiciones suaves para el scroll */
+html {
+  scroll-behavior: smooth;
+}
+</style>

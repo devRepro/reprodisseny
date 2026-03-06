@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-05T09:12:37.740Z",
+  "generatedAt": "2026-03-06T11:42:54.026Z",
   "categories": [
     {
       "id": "10",
@@ -3529,12 +3529,13 @@
     {
       "id": "120",
       "type": "producto",
-      "slug": "panel-ligero",
-      "path": "/productos/panel-ligero",
-      "title": "Panel ligero",
+      "slug": "panel-ultraligero-personalizado",
+      "path": "/productos/panel-ultraligero-personalizado",
+      "title": "Panel ligero (rígido ultraligero)",
       "categorySlug": "material-rigido",
       "isPublished": true,
-      "shortDescription": "Panel ligero",
+      "shortDescription": "El panel ultraligero es una opción muy práctica cuando necesitas un soporte rígido con buena presencia, pero fácil de manipular y transportar. Se trata de un panel sándwich ultraligero, con núcleo de poliestireno extruido (XPS) y caras de PVC espumado, ideal para impresión directa, cartelería, expositores y señalización en interior.",
+      "bodyMd": "##Detalles \n\n¿Qué es un panel ultraligero y para qué se usa? \n\nEs un soporte rígido de gran formato pensado para comunicación visual. Gracias a su estructura sándwich (XPS + PVC), ofrece rigidez y planimetría con un peso muy contenido, lo que lo hace especialmente útil para piezas que se montan, se mueven o se instalan temporalmente: ferias, campañas en tienda, señalética interior o displays. \n\nForma##Beneficios \n\nMuy ligero y rígido: facilita transporte y montaje sin renunciar a presencia. \n\nSuperficie ideal para impresión directa: buen acabado para gráficos, textos y fotografía. \n\nBuena estabilidad: se comporta muy bien en piezas de cartelería y señalización de interior. \n\nCorte y mecanizado a medida: perfecto para siluetas, flechas, formas de producto o displays especiales. \n\nDisponible en varios grosores: para ajustar rigidez y presencia según el tamaño de la pieza. \n\n##Aplicaciones \n\nCartelería rígida para interior (punto de venta, campañas, pasillos). \n\nSeñalética (direccionales, normativa, zonas, información). \n\nExpositores y displays (de suelo o mostrador) y siluetas con forma. \n\nFondos y paneles para ferias y eventos (traseras, muros gráficos, photocalls). \n\nPaneles decorativos temporales y comunicación corporativa. \n\n##Características técnicas \n\nComposición del material \n\nPanel sándwich con núcleo XPS (poliestireno extruido) y caras de PVC espumado. \n\nGrosor \n\nDiferentes grosores según necesidad (rigidez, tamaño y tipo de montaje). \n\nImpresión \n\nImpresión a todo color en una o dos caras, según la aplicación. \n\nCorte y acabados \n\nCorte recto o corte a medida (mecanizado) para formas especiales, letras, iconos y siluetas. \n\nPosibilidad de preparar taladros/ranuras si el montaje lo requiere (soportes, colgadores, encajes). \n\nUso recomendado \n\nMuy recomendado para interior y campañas. Si se plantea exterior, conviene definir ubicación y duración para ajustar material y acabado.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/panel-ligero.webp",
         "width": 1200,
@@ -3550,18 +3551,18 @@
       "variants": [],
       "formFields": [],
       "seo": {
-        "metaTitle": "Panel ligero",
-        "metaDescription": "Panel ligero",
-        "canonical": "https://reprodisseny.com/productos/panel-ligero",
+        "metaTitle": "Panel ultraligero | Impresión en rígido sándwich a medida",
+        "metaDescription": "Panel ultraligero con núcleo XPS y caras de PVC para cartelería, señalética y displays. Impresión a color, una o dos caras y corte a medida. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/panel-ultraligero-personalizado",
         "hreflang": [],
         "keywords": [],
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Panel ligero",
-          "description": "Panel ligero",
+          "name": "Panel ligero (rígido ultraligero)",
+          "description": "El panel ultraligero es una opción muy práctica cuando necesitas un soporte rígido con buena presencia, pero fácil de manipular y transportar. Se trata de un panel sándwich ultraligero, con núcleo de poliestireno extruido (XPS) y caras de PVC espumado, ideal para impresión directa, cartelería, expositores y señalización en interior.",
           "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/panel-ligero.webp",
-          "url": "https://reprodisseny.com/productos/panel-ligero",
+          "url": "https://reprodisseny.com/productos/panel-ultraligero-personalizado",
           "brand": {
             "@type": "Organization",
             "name": "Repro Disseny"
@@ -5307,12 +5308,13 @@
     {
       "id": "21",
       "type": "producto",
-      "slug": "carton-compacto",
-      "path": "/productos/carton-compacto",
-      "title": "Cartón compacto",
+      "slug": "panel-carton-compacto-personalizado",
+      "path": "/productos/panel-carton-compacto-personalizado",
+      "title": "Panel de cartón compacto",
       "categorySlug": "material-rigido",
       "isPublished": true,
-      "shortDescription": "Cartón compacto",
+      "shortDescription": "El panel de cartón compacto es una solución perfecta cuando necesitas un soporte rígido, estable y con buena presencia para interior. En Repro Disseny lo utilizamos mucho en PLV, displays, señalética y piezas troqueladas, porque ofrece un acabado sólido y permite trabajar formatos a medida con cortes limpios.",
+      "bodyMd": "##Detalles \n\n¿Qué es un panel de cartón compacto y para qué se usa? \n\nUn panel de cartón compacto (también conocido como cartón rígido o cartón gris, según acabados) es un soporte de alta densidad, pensado para piezas que deben mantener la forma y aguantar manipulación en campañas, punto de venta o eventos. Se puede imprimir directamente o, más habitualmente, montar una impresión sobre el cartón para conseguir un acabado más “premium” y consistente. \n\n##Beneficios \n\nMuy rígido y estable: ideal para piezas que necesitan cuerpo y presencia. \n\nAcabado profesional: perfecto para comunicación corporativa y PLV. \n\nCorte y troquelado a medida: permite formas, siluetas y piezas funcionales. \n\nOpción más sostenible: al ser un soporte de base papel, es una alternativa interesante para campañas con enfoque eco (especialmente si se evita laminado plástico). \n\nVersátil: sirve como panel, base de display, soporte de mostrador o pieza estructural ligera. \n\n##Aplicaciones \n\nPLV y punto de venta: displays, stoppers, señalización interior y corners. \n\nExpositores de mesa: piezas rígidas para mostrador (promos, precios, QR). \n\nSeñalética interior: información, direcciones, normativa, pictogramas. \n\nEventos: cartelería rígida, paneles informativos, soportes temporales. \n\nPiezas creativas: siluetas troqueladas, letras, formas de producto y elementos decorativos. \n\n##Características técnicas \n\nMedidas y grosor \n\nFormatos estándar o totalmente a medida. \n\nDiferentes grosores según tamaño, rigidez necesaria y tipo de montaje. \n\nImpresión \n\nImpresión a todo color con buena definición. \n\nOpción a una o dos caras según visibilidad (por ejemplo, piezas en zonas de paso). \n\nMontaje (si aplica) \n\nPosibilidad de montar una impresión (papel impreso) sobre el cartón compacto para mejorar acabado y uniformidad, especialmente en piezas de marca. \n\nCorte y acabados \n\nCorte recto o troquel/corte a medida (formas, esquinas redondeadas, siluetas). \n\nPosibilidad de ranuras/encajes si la pieza debe ser automontable o formar parte de un display. \n\nSostenibilidad \n\nSoporte de base papel, reciclable en condiciones habituales. \n\nSi el objetivo es mantener la pieza “lo más reciclable posible”, conviene valorar acabados sin laminado plástico (te asesoramos según uso).",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/carton-compacto.webp",
         "width": 1200,
@@ -5389,9 +5391,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Cartón compacto | Repro Disseny",
-        "metaDescription": "Cartón compacto personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/carton-compacto",
+        "metaTitle": "Panel de cartón compacto personalizado | Rígido y reciclable para PLV y señalética",
+        "metaDescription": "Panel de cartón compacto impreso a medida para displays, cartelería y PLV en interior. Muy rígido, corte a medida y opción una o dos caras. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/panel-carton-compacto-personalizado",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -5408,10 +5410,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Cartón compacto",
-          "description": "Cartón compacto",
+          "name": "Panel de cartón compacto",
+          "description": "El panel de cartón compacto es una solución perfecta cuando necesitas un soporte rígido, estable y con buena presencia para interior. En Repro Disseny lo utilizamos mucho en PLV, displays, señalética y piezas troqueladas, porque ofrece un acabado sólido y permite trabajar formatos a medida con cortes limpios.",
           "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/carton-compacto.webp",
-          "url": "https://reprodisseny.com/productos/carton-compacto",
+          "url": "https://reprodisseny.com/productos/panel-carton-compacto-personalizado",
           "sku": "01-GRFO-0015",
           "brand": {
             "@type": "Organization",
@@ -5423,12 +5425,13 @@
     {
       "id": "22",
       "type": "producto",
-      "slug": "carton-corrugado",
-      "path": "/productos/carton-corrugado",
-      "title": "Cartón corrugado",
+      "slug": "panel-carton-corrugado-personalizado",
+      "path": "/productos/panel-carton-corrugado-personalizado",
+      "title": "Panel de cartón corrugado",
       "categorySlug": "material-rigido",
       "isPublished": true,
-      "shortDescription": "Cartón corrugado",
+      "shortDescription": "El panel de cartón corrugado es una opción muy práctica para campañas y comunicación interior: es ligero, tiene buena rigidez para su peso y permite producir piezas a medida de forma ágil. En Repro Disseny imprimimos paneles de cartón corrugado personalizados para cartelería, PLV y señalética, con opción de corte recto o a la forma y con un enfoque más sostenible: es un soporte de base papel reciclable.",
+      "bodyMd": "##Detalles \n\n¿Qué es un panel de cartón corrugado y para qué se usa? \n\nUn panel de cartón corrugado (cartón ondulado) es un soporte formado por una o varias capas de papel con una estructura interna ondulada que aporta rigidez sin aumentar demasiado el peso. Se utiliza principalmente en interior para comunicación temporal: cartelería rígida, displays, expositores sencillos, señalización y piezas promocionales que necesitan buena presencia con un coste contenido. \n\n##Beneficios \n\nLigero y manejable: fácil de transportar, mover y montar en tienda o evento. \n\nBuena rigidez para campañas: ideal para piezas temporales y comunicación en punto de venta. \n\nEficiente en coste: opción muy competitiva para campañas por volumen o rotación frecuente. \n\nReciclable y más sostenible: al ser un soporte de base papel, es una alternativa eco para acciones temporales (especialmente si evitamos laminados plásticos). \n\nPersonalización total: tamaños a medida, impresión a color y corte/troquelado según el diseño. \n\n##Aplicaciones \n\nPLV y punto de venta: paneles promocionales, stoppers grandes, cartelería de campaña, corners. \n\nSeñalética interior: direcciones, normativa, zonas, información temporal. \n\nFerias y eventos: carteles informativos, señalización de espacios, soportes ligeros para montaje rápido. \n\nCampañas estacionales: rebajas, lanzamientos, promociones y comunicación por departamentos/tiendas. \n\nPiezas creativas: siluetas, flechas, formas de producto y elementos decorativos temporales. \n\n##Características técnicas \n\nEstructura y grosores \n\nCartón ondulado con diferentes configuraciones según rigidez y uso (una onda o varias). \n\nElección de grosor en función de: tamaño del panel, si irá colgado, apoyado o autoportante. \n\nImpresión \n\nImpresión a todo color con buena definición para textos, iconos y gráfica corporativa. \n\nOpción a una o dos caras si se verá desde ambos sentidos. \n\nCorte y acabados \n\nCorte recto o corte/troquel a medida (formas, siluetas, esquinas redondeadas). \n\nPosibilidad de ranuras/encajes para piezas automontables o estructuras simples (según diseño). \n\nPreparación de taladros/puntos de fijación si se va a colgar o sujetar. \n\nMontaje e instalación \n\nPanel para colgar, fijar a pared, apoyar o integrar en un expositor. \n\nSi necesitas montaje rápido, podemos preparar la pieza pensada para instalación sencilla (por sets o por zonas). \n\nSostenibilidad \n\nSoporte de base papel reciclable. \n\nSi el objetivo es mantenerlo “lo más reciclable posible”, recomendamos evitar laminados plásticos o acabados no compatibles (te asesoramos según el uso y la duración). \n\nUso recomendado \n\nPrincipalmente interior. Para exterior o humedad prolongada, conviene valorar soportes más adecuados.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/carton-corrugado.webp",
         "width": 1200,
@@ -5506,9 +5509,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Cartón corrugado | Repro Disseny",
-        "metaDescription": "Cartón corrugado personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/carton-corrugado",
+        "metaTitle": "Panel de cartón corrugado personalizado | Rígido, ligero y reciclable",
+        "metaDescription": "Panel de cartón corrugado impreso a medida para cartelería, señalética y PLV en interior. Ligero, económico y reciclable, con corte recto o a la forma. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/panel-carton-corrugado-personalizado",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -5525,10 +5528,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Cartón corrugado",
-          "description": "Cartón corrugado",
+          "name": "Panel de cartón corrugado",
+          "description": "El panel de cartón corrugado es una opción muy práctica para campañas y comunicación interior: es ligero, tiene buena rigidez para su peso y permite producir piezas a medida de forma ágil. En Repro Disseny imprimimos paneles de cartón corrugado personalizados para cartelería, PLV y señalética, con opción de corte recto o a la forma y con un enfoque más sostenible: es un soporte de base papel reciclable.",
           "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/carton-corrugado.webp",
-          "url": "https://reprodisseny.com/productos/carton-corrugado",
+          "url": "https://reprodisseny.com/productos/panel-carton-corrugado-personalizado",
           "sku": "01-GRFO-0016",
           "brand": {
             "@type": "Organization",
@@ -6480,107 +6483,15 @@
       }
     },
     {
-      "id": "31",
-      "type": "producto",
-      "slug": "delantales",
-      "path": "/productos/delantales",
-      "title": "Delantales",
-      "categorySlug": "eventos",
-      "isPublished": true,
-      "shortDescription": "Delantales",
-      "image": {
-        "src": "https://webcms.blob.core.windows.net/media/product/eventos/delantal.webp",
-        "width": 1200,
-        "height": 1200,
-        "alt": "alt descripció de la foto"
-      },
-      "galleryImages": [],
-      "sku": "01-EVEN-0019",
-      "brand": "Reprodisseny",
-      "price": 0,
-      "priceCurrency": "EUR",
-      "inStock": true,
-      "attributes": [],
-      "variants": [],
-      "formFields": [
-        {
-          "label": "Tamaño",
-          "name": "tamaño",
-          "type": "select",
-          "required": true
-        },
-        {
-          "label": "Impresión",
-          "name": "impresión",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Cuatricromía 1 cara"
-          ]
-        },
-        {
-          "label": "Material",
-          "name": "material",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Textil"
-          ]
-        },
-        {
-          "label": "Cantidad",
-          "name": "cantidad",
-          "type": "number",
-          "required": true
-        },
-        {
-          "label": "Observaciones",
-          "name": "observaciones",
-          "type": "text",
-          "required": false
-        }
-      ],
-      "seo": {
-        "metaTitle": "Delantales | Repro Disseny",
-        "metaDescription": "Delantales personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/delantales",
-        "hreflang": [
-          {
-            "lang": "es-ES",
-            "url": "https://reprodisseny.com/productos/delantales"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/delantales"
-          }
-        ],
-        "keywords": [
-          "delantales"
-        ],
-        "schema": {
-          "@context": "https://schema.org",
-          "@type": "Product",
-          "name": "Delantales",
-          "description": "Delantales",
-          "image": "https://webcms.blob.core.windows.net/media/product/eventos/delantal.webp",
-          "url": "https://reprodisseny.com/productos/delantales",
-          "sku": "01-EVEN-0019",
-          "brand": {
-            "@type": "Organization",
-            "name": "Reprodisseny"
-          }
-        }
-      }
-    },
-    {
       "id": "32",
       "type": "producto",
-      "slug": "dibon",
-      "path": "/productos/dibon",
-      "title": "Dibon",
+      "slug": "panel-dibond-personalizado",
+      "path": "/productos/panel-dibond-personalizado",
+      "title": "Panel de Dibond (composite de aluminio)",
       "categorySlug": "material-rigido",
       "isPublished": true,
-      "shortDescription": "Dibon",
+      "shortDescription": "El panel de Dibond (composite de aluminio) es una de las opciones más fiables cuando necesitas un soporte rígido con acabado premium y máxima estabilidad, especialmente en exterior. En Repro Disseny imprimimos paneles de Dibond a medida para rótulos, señalización y cartelería corporativa, con opción de una o dos caras y corte recto o a la forma.",
+      "bodyMd": "##Detalles \n\n¿Qué es un panel de Dibond y para qué se usa? \n\nUn panel de Dibond es un soporte rígido formado por dos láminas de aluminio con un núcleo interior (material compuesto). Esta estructura le da una gran planimetría (se mantiene muy plano), buena resistencia y un acabado muy profesional. \nSe usa mucho para señalética, rótulos, placas corporativas, cartelería de larga duración y piezas que deben aguantar bien en exterior. \n\n##Beneficios \n\nMuy estable y duradero: ideal para exterior y uso prolongado. \n\nAcabado premium: aporta una imagen corporativa sólida y profesional. \n\nNo se comba fácilmente: excelente planimetría en formatos grandes. \n\nVersátil: sirve para rótulos, placas, señalización y cartelería fija. \n\nPersonalizable: tamaños, grosores, una o dos caras y corte a medida. \n\n##Aplicaciones \n\nRótulos y placas de fachada (identificación de negocio). \n\nSeñalética corporativa (interior/exterior): direcciones, normativa, zonas, horarios. \n\nCartelería rígida para campañas de larga duración en exterior. \n\nFerias y eventos: paneles de stand y piezas reutilizables con presencia premium. \n\nPlacas informativas (obras, inmuebles, señalización institucional). \n\n##Características técnicas \n\nMedidas y grosores \n\nFormatos estándar o totalmente a medida. \n\nDiferentes grosores según tamaño, rigidez y tipo de instalación. \n\nImpresión \n\nImpresión a todo color con buena definición para logos, tipografías e imágenes. \n\nOpción a una o dos caras si el panel se verá desde ambos sentidos. \n\nCorte y mecanizados \n\nCorte recto o corte a medida (contornos, flechas, formas de producto). \n\nPosibilidad de taladros, ranuras o preparaciones para tornillería/separadores (según montaje). \n\nAcabados recomendados \n\nAcabado mate si quieres menos reflejos o habrá iluminación directa. \n\nPosible protección extra si la pieza estará en zona de roce o manipulación (según uso). \n\nInstalación \n\nOpciones habituales: atornillado, separadores (efecto flotante), fijación sobre estructura o montaje en pared. \n\nSi nos indicas dónde irá (fachada/interior) te recomendamos el sistema más limpio y estable.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/dibond.webp",
         "width": 1200,
@@ -6657,9 +6568,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Dibon | Repro Disseny",
-        "metaDescription": "Dibon personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/dibon",
+        "metaTitle": "Panel de Dibond personalizado | Impresión en composite de aluminio a medida",
+        "metaDescription": "Panel de Dibond (composite de aluminio) impreso a medida para rótulos, señalética y exterior. Resistente, estable y con corte a medida. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/panel-dibond-personalizado",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -6676,10 +6587,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Dibon",
-          "description": "Dibon",
+          "name": "Panel de Dibond (composite de aluminio)",
+          "description": "El panel de Dibond (composite de aluminio) es una de las opciones más fiables cuando necesitas un soporte rígido con acabado premium y máxima estabilidad, especialmente en exterior. En Repro Disseny imprimimos paneles de Dibond a medida para rótulos, señalización y cartelería corporativa, con opción de una o dos caras y corte recto o a la forma.",
           "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/dibond.webp",
-          "url": "https://reprodisseny.com/productos/dibon",
+          "url": "https://reprodisseny.com/productos/panel-dibond-personalizado",
           "sku": "01-GRFO-0012",
           "brand": {
             "@type": "Organization",
@@ -6917,12 +6828,13 @@
     {
       "id": "35",
       "type": "producto",
-      "slug": "dispa",
-      "path": "/productos/dispa",
-      "title": "Dispa",
+      "slug": "panel-dispa-personalizado",
+      "path": "/productos/panel-dispa-personalizado",
+      "title": "Panel Dispa",
       "categorySlug": "material-rigido",
       "isPublished": true,
-      "shortDescription": "Dispa",
+      "shortDescription": "El panel Dispa es una opción muy utilizada en campañas y comunicación interior cuando buscas un soporte rígido, muy ligero y con un enfoque más sostenible. Está fabricado en 100% papel, por lo que es reciclable, y ofrece una superficie blanca de buena calidad para impresión en cartelería, señalética y PLV.",
+      "bodyMd": "##Detalles \n\n¿Qué es un panel Dispa y para qué se usa? \n\nEl panel Dispa es un panel rígido de papel con una estructura interna en relieve/embosada que le da rigidez y estabilidad manteniendo un peso muy bajo. Está pensado para impresión digital y serigrafía y se usa sobre todo en interior para campañas rápidas, cartelería colgante, expositores y comunicación en punto de venta. \n\n##Beneficios \n\nLigero y fácil de manipular: ideal para colgar, montar y mover en campañas y eventos. \n\nSoporte más sostenible: composición 100% papel y reciclable, con opciones certificadas FSC según proveedor. \n\nBuena planitud y rigidez: la estructura interna ayuda a que el panel se mantenga estable y con buena presencia.  \n\nSuperficie adecuada para impresión: acabado blanco que funciona bien para gráficos, textos y fotografía.  \n\nCorte y troquelado a medida: perfecto para siluetas, flechas, displays y formas creativas.  \n\n##Aplicaciones \n\nPLV y expositores en punto de venta (promos, lanzamientos, corners).  \n\nCartelería colgante y aérea (campañas temporales).  \n\nSeñalética interior (direccionales, zonas, información).  \n\nFerias y eventos: paneles informativos, traseras, comunicación rápida. ( \n\nFotomontaje / montaje de láminas y pósters.  \n\n##Características técnicas \n\nComposición \n\nPanel de 100% papel con capas exteriores blancas y núcleo de papel con estructura embosada para aportar rigidez.  \n\nImpresión \n\nApto para impresión digital (UV/latex según equipo) y serigrafía.  \n\nMedidas y grosores \n\nFormatos estándar o a medida, con grosores habituales de este tipo de panel según necesidad del proyecto (cartelería, colgante, display, etc.).  \n\nCorte y acabados \n\nCorte recto o corte a medida/troquelado (formas, siluetas, piezas de PLV).  \n\nPosibilidad de preparar taladros/ranuras si se necesita para colgar o montar. \n\nUso recomendado \n\nEspecialmente indicado para interior y campañas temporales. Existen versiones orientadas a exterior según proveedor, pero conviene definir ubicación y duración para escoger el soporte adecuado. (Antalis) \n\nSostenibilidad \n\nAl ser un soporte 100% papel, es reciclable; si necesitas mantenerlo “lo más reciclable posible”, te aconsejamos evitar acabados no compatibles con el reciclaje según el uso.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/dispa.webp",
         "width": 1200,
@@ -7000,9 +6912,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Dispa | Repro Disseny",
-        "metaDescription": "Dispa personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/dispa",
+        "metaTitle": "Panel Dispa personalizado | Cartón rígido ligero y reciclable",
+        "metaDescription": "Panel Dispa impreso a medida: rígido, muy ligero, 100% papel y reciclable. Ideal para cartelería, señalética y PLV en interior. Corte recto o a la forma. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/panel-dispa-personalizado",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -7019,10 +6931,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Dispa",
-          "description": "Dispa",
+          "name": "Panel Dispa",
+          "description": "El panel Dispa es una opción muy utilizada en campañas y comunicación interior cuando buscas un soporte rígido, muy ligero y con un enfoque más sostenible. Está fabricado en 100% papel, por lo que es reciclable, y ofrece una superficie blanca de buena calidad para impresión en cartelería, señalética y PLV.",
           "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/dispa.webp",
-          "url": "https://reprodisseny.com/productos/dispa",
+          "url": "https://reprodisseny.com/productos/panel-dispa-personalizado",
           "sku": "01-GRFO-0014",
           "brand": {
             "@type": "Organization",
@@ -7564,7 +7476,7 @@
       "shortDescription": "Un árbol de Navidad puede ser mucho más que decoración: es un punto de foto, un reclamo de marca y una pieza perfecta para ambientar espacios comerciales o eventos. En Repro Disseny producimos árboles de Navidad impresos sobre nido de abeja, troquelados a la forma y automontables en dos piezas, para que el montaje sea rápido y el resultado se vea profesional.",
       "bodyMd": "##Detalles\n¿Qué es un árbol de Navidad impreso y para qué se usa?\nEs una figura navideña en gran formato, impresa a todo color y fabricada en cartón nido de abeja, que se entrega troquelada y se monta encajando dos piezas (estructura en cruz). Se utiliza para decorar y señalizar espacios durante campañas de Navidad, reforzando marca y creando un punto visual atractivo para clientes, empleados o asistentes.\n\n##Beneficios\n•\tMontaje rápido y sin herramientas: sistema automontable en dos piezas (encaje).\n•\tImpacto visual en poco espacio: ideal para entradas, escaparates, recepciones o stands.\n•\tLigero y fácil de transportar: se entrega plano y ocupa poco en almacenaje.\n•\tPersonalizable al 100%: diseño, forma, mensajes, colores, patrocinadores, QR, etc.\n•\tSolución más sostenible: el nido de abeja es un material ligero y reciclable, perfecto para campañas estacionales.\n\n##Aplicaciones\n•\tTiendas y centros comerciales: escaparates, pasillos, zonas de caja o promociones navideñas.\n•\tEmpresas y oficinas: recepciones, salas comunes, eventos internos y campañas corporativas.\n•\tFerias y eventos: decoración de stand, photocall navideño, puntos de bienvenida.\n•\tHostelería: hoteles, restaurantes y espacios de celebración (zonas de paso y entradas).\n•\tActivaciones de marca: acciones con foto + QR a sorteo, landing, catálogo o redes.\n\n##Características técnicas\nMaterial\n•\tCartón nido de abeja: muy ligero, con buena rigidez para piezas autoportantes.\nTroquelado a la forma\n•\tCorte a medida siguiendo el contorno del árbol (y, si se desea, con formas internas o detalles).\nSistema automontable (2 piezas)\n•\tDos piezas que se encajan para formar una estructura estable en cruz.\n•\tDiseñado para montar y desmontar de forma práctica durante campaña.\nMedidas\n•\tTamaños a medida según el espacio y la distancia de visualización (desde formatos compactos hasta gran formato).\nImpresión y personalización\n•\tImpresión a color con posibilidad de incluir:\no\tlogo y mensaje corporativo,\no\tpatrocinadores,\no\tQR (promoción, sorteo, campaña, catálogo),\no\tvariantes por tienda/sede (si necesitas diferentes diseños).\nAcabados (según uso)\n•\tOpciones de protección si va a estar en zona de mucho paso o manipulación.\n•\tPreparación para entrega y montaje (embalaje y etiquetado por unidades si lo necesitas).",
       "image": {
-        "src": "https://webcms.blob.core.windows.net/media/product/eventos/arbol-navidad.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/eventos/arbol-de-navidad.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -7699,7 +7611,7 @@
           "@type": "Product",
           "name": "Árbol de Navidad corporativo personalizado",
           "description": "Un árbol de Navidad puede ser mucho más que decoración: es un punto de foto, un reclamo de marca y una pieza perfecta para ambientar espacios comerciales o eventos. En Repro Disseny producimos árboles de Navidad impresos sobre nido de abeja, troquelados a la forma y automontables en dos piezas, para que el montaje sea rápido y el resultado se vea profesional.",
-          "image": "https://webcms.blob.core.windows.net/media/product/eventos/arbol-navidad.webp",
+          "image": "https://webcms.blob.core.windows.net/media/product/eventos/arbol-de-navidad.webp",
           "url": "https://reprodisseny.com/productos/arbol-navidad-corporativo",
           "sku": "01-EVEN-0017",
           "brand": {
@@ -7852,12 +7764,13 @@
     {
       "id": "41",
       "type": "producto",
-      "slug": "enmarcados",
-      "path": "/productos/enmarcados",
-      "title": "Enmarcados",
+      "slug": "enmarcados-personalizados",
+      "path": "/productos/enmarcados-personalizados",
+      "title": "Enmarcados personalizados (impresión + marco)",
       "categorySlug": "material-rigido",
       "isPublished": true,
-      "shortDescription": "Enmarcados",
+      "shortDescription": "Los enmarcados son la forma más directa de presentar una imagen con acabado profesional: llegan listos para colgar, elevan la percepción del espacio y refuerzan tu marca en oficinas, tiendas o eventos. En Repro Disseny nos encargamos de todo el proceso: impresión, montaje y enmarcado a medida para que el resultado sea limpio, estable y duradero.",
+      "bodyMd": "##Detalles \n\n¿Qué es un enmarcado y para qué se usa? \n\nUn enmarcado es una impresión (póster, fotografía, ilustración, gráfico corporativo, etc.) presentada con un marco y, si se desea, una protección frontal (según modelo). Se utiliza para decoración, branding, señalética elegante o comunicación corporativa cuando necesitas un acabado cuidado y un producto final “terminado”, sin tener que gestionar por separado impresión y marco. \n\n##Beneficios \n\nAcabado profesional inmediato: pieza final lista para instalar, sin complicaciones. \n\nMejora la calidad percibida: ideal para recepciones, showrooms y puntos de atención. \n\nProtección y durabilidad: opciones de protección frontal y montaje estable según el uso. \n\nPersonalización total: formatos, estilo de marco, orientación y acabados. \n\nCoherencia de marca: series de enmarcados con la misma línea estética (colores, tipografías, estilo). \n\n##Aplicaciones \n\nOficinas y corporativo: recepción, salas de reunión, pasillos, valores de marca, organigramas. \n\nRetail y showrooms: campañas visuales, fichas de producto, decoración de tienda y corners. \n\nHostelería y hoteles: decoración de espacios comunes, habitaciones, señalética elegante. \n\nEventos: exposiciones temporales, corners de marca, señalización premium. \n\nCentros y entidades: paneles informativos con imagen cuidada y mayor durabilidad. \n\n##Características técnicas \n\nFormatos \n\nTamaños estándar (A4, A3, A2, A1, etc.) o a medida. \n\nOrientación vertical u horizontal, según el espacio y la distancia de lectura. \n\nImpresión \n\nImpresión a color con buena definición (fotografía, ilustración o gráfica corporativa). \n\nElección de acabado mate (menos reflejo, muy recomendable en interior) o brillo (más vivo, más contraste). \n\nTipos de marco \n\nMarcos de aluminio (línea limpia y moderna, muy usado en entornos corporativos). \n\nMarcos de madera (acabado más cálido y decorativo, ideal en retail/hostelería). \n\nEstilos y colores de marco según el look que buscas. \n\nProtección frontal (según necesidad) \n\nOpción con protección para mejorar durabilidad y facilitar limpieza en zonas de paso o uso frecuente. \n\nRecomendación práctica: si la pieza va en recepción, pasillos o zonas de contacto, compensa valorar una protección frontal. \n\nMontaje y presentación \n\nPosibilidad de incluir paspartú para un acabado más premium (según diseño). \n\nPreparación “lista para colgar” con sistemas de fijación adecuados al tamaño.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/enmarcados.webp",
         "width": 1200,
@@ -7947,9 +7860,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Enmarcados | Repro Disseny",
-        "metaDescription": "Enmarcados personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/enmarcados",
+        "metaTitle": "Enmarcados personalizados | Impresión y enmarcado listo para colgar",
+        "metaDescription": "Enmarcados personalizados para oficinas, retail y eventos: impresión de alta calidad con marco a medida (aluminio o madera), opciones de protección y acabados premium. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/enmarcados-personalizados",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -7966,10 +7879,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Enmarcados",
-          "description": "Enmarcados",
+          "name": "Enmarcados personalizados (impresión + marco)",
+          "description": "Los enmarcados son la forma más directa de presentar una imagen con acabado profesional: llegan listos para colgar, elevan la percepción del espacio y refuerzan tu marca en oficinas, tiendas o eventos. En Repro Disseny nos encargamos de todo el proceso: impresión, montaje y enmarcado a medida para que el resultado sea limpio, estable y duradero.",
           "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/enmarcados.webp",
-          "url": "https://reprodisseny.com/productos/enmarcados",
+          "url": "https://reprodisseny.com/productos/enmarcados-personalizados",
           "sku": "01-GRFO-0020",
           "brand": {
             "@type": "Organization",
@@ -8896,12 +8809,13 @@
     {
       "id": "50",
       "type": "producto",
-      "slug": "foam",
-      "path": "/productos/foam",
-      "title": "Foam",
+      "slug": "panel-foam-personalizado",
+      "path": "/productos/panel-foam-personalizado",
+      "title": "Panel de foam (cartón pluma)",
       "categorySlug": "material-rigido",
       "isPublished": true,
-      "shortDescription": "Foam",
+      "shortDescription": "El panel de foam (cartón pluma) es una solución muy utilizada en gran formato por un motivo claro: ofrece una excelente relación entre ligereza, rigidez y calidad de impresión. En Repro Disseny imprimimos paneles de foam a medida para señalización interior, displays, cartelería y eventos, con corte recto o a la forma para que la pieza quede lista para colocar.",
+      "bodyMd": "##Detalles \n\n¿Qué es un panel de foam y para qué se usa? \n\nUn panel de foam es un soporte rígido y ligero formado por un núcleo de espuma y dos caras exteriores (habitualmente blancas) sobre las que se imprime o se monta una impresión. Se utiliza principalmente en interior para cartelería, señalética, decoración temporal y expositores, porque es fácil de manipular, transportar e instalar. \n\n##Beneficios \n\nMuy ligero: ideal para montar, mover y colgar sin complicaciones. \n\nBuena rigidez para interior: mantiene forma y presencia en cartelería y displays. \n\nAcabado limpio: perfecto para comunicación corporativa y eventos. \n\nA medida: distintos grosores y tamaños, con posibilidad de corte especial. \n\nInstalación sencilla: se puede fijar, colgar o apoyar según el uso. \n\n##Aplicaciones \n\nFerias y eventos: señalización, carteles de stand, información de salas, photospots. \n\nRetail: cartelería interior, campañas estacionales, corners de producto. \n\nOficinas: señalética, comunicación interna, decoración corporativa. \n\nHostelería: carteles informativos, eventos, menús especiales en interior. \n\nExposiciones y centros: paneles informativos y displays ligeros. \n\n##Características técnicas \n\nMedidas y grosores \n\nFormatos estándar o a medida (desde piezas pequeñas hasta grandes paneles). \n\nDiferentes grosores según necesidad de rigidez y tipo de montaje. \n\nImpresión \n\nImpresión a color con buena definición para textos, iconos y fotografía. \n\nRecomendación: mantener jerarquía y contraste para lectura a distancia. \n\nCorte \n\nCorte recto (formato clásico) o corte a medida / troquelado para siluetas, flechas, formas de producto, etc. \n\nPosibilidad de hacer perforaciones/ranuras si el montaje lo requiere. \n\nMontaje e instalación \n\nPanel apoyado (en peana/soporte), colgado o fijado a pared. \n\nPreparación para sistemas de montaje habituales (según proyecto): adhesivos, velcro, colgadores, etc. \n\nUso recomendado \n\nPrincipalmente para interior. Si necesitas exterior o alta resistencia, conviene valorar otros rígidos (por ejemplo PVC/Dibond) según el caso. \n\nAcabados \n\nOpción de protección extra si se va a manipular mucho o viajar (según necesidad del proyecto).",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/foam.webp",
         "width": 1200,
@@ -8918,9 +8832,9 @@
       "variants": [],
       "formFields": [],
       "seo": {
-        "metaTitle": "Foam | Repro Disseny",
-        "metaDescription": "Foam personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/foam",
+        "metaTitle": "Panel de foam personalizado | Impresión en cartón pluma para interior",
+        "metaDescription": "Panel de foam (cartón pluma) impreso a medida para señalización, displays y eventos. Ligero, rígido y con corte recto o troquelado. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/panel-foam-personalizado",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -8937,10 +8851,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Foam",
-          "description": "Foam",
+          "name": "Panel de foam (cartón pluma)",
+          "description": "El panel de foam (cartón pluma) es una solución muy utilizada en gran formato por un motivo claro: ofrece una excelente relación entre ligereza, rigidez y calidad de impresión. En Repro Disseny imprimimos paneles de foam a medida para señalización interior, displays, cartelería y eventos, con corte recto o a la forma para que la pieza quede lista para colocar.",
           "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/foam.webp",
-          "url": "https://reprodisseny.com/productos/foam",
+          "url": "https://reprodisseny.com/productos/panel-foam-personalizado",
           "sku": "01-GRFO-0010",
           "brand": {
             "@type": "Organization",
@@ -9087,13 +9001,13 @@
     {
       "id": "52",
       "type": "producto",
-      "slug": "forex",
-      "path": "/productos/forex",
-      "title": "Forex",
+      "slug": "panel-forex-personalizado",
+      "path": "/productos/panel-forex-personalizado",
+      "title": "Panel de Forex (PVC espumado)",
       "categorySlug": "material-rigido",
       "isPublished": true,
-      "shortDescription": "Forex",
-      "bodyMd": "## Forex",
+      "shortDescription": "El panel de Forex (PVC espumado) es uno de los soportes rígidos más versátiles para comunicación visual: tiene buena presencia, es ligero y aguanta bien el uso en cartelería, señalización y expositores. En Repro Disseny imprimimos Forex a medida con alta calidad, opción a una o dos caras y corte recto o a la forma para dejar la pieza lista para instalar.",
+      "bodyMd": "##Detalles \n\n¿Qué es un panel de Forex y para qué se usa? \n\nUn panel de Forex es un soporte rígido de PVC espumado, muy utilizado en artes gráficas por su equilibrio entre rigidez, ligereza y resistencia. Se usa sobre todo para cartelería rígida, señalética, PLV y paneles informativos, tanto en interior como en aplicaciones puntuales en exterior (según ubicación y duración). \n\n##Beneficios \n\nSoporte rígido y ligero: fácil de manipular, transportar e instalar. \n\nAcabado profesional: ideal para señalética corporativa y cartelería cuidada. \n\nVersátil: funciona para paneles, displays, rótulos temporales y comunicación en punto de venta. \n\nA medida: tamaños, grosores y corte al contorno según el diseño. \n\nBuena resistencia: aguanta bien la manipulación y el día a día en interior (y usos específicos en exterior). \n\n##Aplicaciones \n\nSeñalética interior: direcciones, normativa, zonas, pictogramas, información. \n\nRetail y punto de venta: campañas, promociones, precios, corners y PLV. \n\nFerias y eventos: paneles de stand, cartelería rígida, fondos, indicaciones. \n\nOficinas y corporativo: recepción, salas, comunicación interna y branding. \n\nExposiciones y centros: paneles informativos, soportes visuales y señalización. \n\n##Características técnicas \n\nMedidas y grosores \n\nFormatos estándar o totalmente a medida. \n\nDisponible en varios grosores para ajustar rigidez según tamaño y uso. \n\nImpresión \n\nImpresión a todo color con buena definición para textos, logos y fotografía. \n\nOpción a una o dos caras (muy útil si el panel se verá desde ambos sentidos). \n\nCorte y mecanizados \n\nCorte recto o corte a medida (siluetas, flechas, formas de producto). \n\nPosibilidad de taladros, ranuras o preparaciones para colgar/fijar (según montaje). \n\nAcabados recomendados \n\nAcabado mate si habrá focos o quieres menos reflejos. \n\nProtección extra (si aplica) para piezas que se manipulan mucho o se usan en campañas intensivas. \n\nMontaje e instalación \n\nPuede ir pegado a pared, atornillado, colgado, en peana/soporte o integrado en un expositor (según proyecto). \n\nSi nos dices dónde irá, te recomendamos el sistema más limpio y estable.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/forex.webp",
         "width": 1200,
@@ -9172,9 +9086,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Forex | Repro Disseny",
-        "metaDescription": "Forex personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/forex",
+        "metaTitle": "Panel de Forex personalizado | Impresión en PVC espumado a medida",
+        "metaDescription": "Panel de Forex (PVC espumado) impreso a medida para cartelería, señalética y displays. Ligero, resistente y con corte recto o a la forma. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/panel-forex-personalizado",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -9191,10 +9105,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Forex",
-          "description": "Forex",
+          "name": "Panel de Forex (PVC espumado)",
+          "description": "El panel de Forex (PVC espumado) es uno de los soportes rígidos más versátiles para comunicación visual: tiene buena presencia, es ligero y aguanta bien el uso en cartelería, señalización y expositores. En Repro Disseny imprimimos Forex a medida con alta calidad, opción a una o dos caras y corte recto o a la forma para dejar la pieza lista para instalar.",
           "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/forex.webp",
-          "url": "https://reprodisseny.com/productos/forex",
+          "url": "https://reprodisseny.com/productos/panel-forex-personalizado",
           "sku": "01-GRFO-0011",
           "brand": {
             "@type": "Organization",
@@ -10033,7 +9947,7 @@
       "shortDescription": "La banderola luminosa para fachada es una de las soluciones más eficaces para señalizar y dar visibilidad a un negocio: destaca de día y, sobre todo, de noche, cuando la iluminación marca la diferencia. En Repro Disseny preparamos banderolas luminosas personalizadas con gráfica retroiluminada (backlit) y acabados listos para instalación, para que tu marca se vea clara desde la calle.",
       "bodyMd": "##Detalles \n\n¿Qué es una banderola luminosa para fachada y para qué se usa? \n\nUna banderola luminosa es un elemento de comunicación exterior que incorpora iluminación (habitualmente LED) y una gráfica preparada para que, al iluminarse, el diseño se vea uniforme y con alto impacto. Se instala en fachada mediante soporte/brazo y se utiliza para identificar el negocio, reforzar marca y mejorar la localización desde distintos ángulos, especialmente en calles con competencia visual o zonas con poco contraste nocturno. \n\n##Beneficios \n\nVisibilidad 24/7: tu marca se ve con claridad también por la noche. \n\nMás impacto en calle: destaca frente a rótulos no iluminados y entornos cargados. \n\nMejor localización del negocio: ayuda a encontrar la entrada desde lejos y desde distintos sentidos. \n\nImagen más profesional: transmite presencia de marca y refuerza confianza. \n\nGráfica renovable (según sistema): opción práctica para campañas o cambios de imagen. \n\n##Aplicaciones \n\nComercios y franquicias: identificación exterior, campañas estacionales, rebajas. \n\nHostelería: restaurantes, cafeterías, hoteles y locales con actividad nocturna. \n\nServicios: clínicas, academias, gimnasios, centros de estética, oficinas a pie de calle. \n\nNaves y accesos: señalización de entrada y orientación en polígonos. \n\nEventos temporales: señalización exterior de acceso (según necesidades del proyecto). \n\n##Características técnicas \n\nFormato y medidas \n\nMedidas estándar o a medida según fachada, distancia de lectura y normativa del municipio/comunidad (si aplica). \n\nConfiguración para visibilidad frontal o perpendicular a la fachada (según brazo/soporte). \n\nGráfica retroiluminada \n\nImpresión en material backlit para que la luz se distribuya de forma uniforme y los colores mantengan presencia. \n\nPreparación del diseño para iluminación (contrastes y densidades adaptadas al encendido). \n\nIluminación \n\nSistemas con LED por eficiencia y buena uniformidad. \n\nRecomendación práctica: definir horarios de encendido y ubicación ayuda a elegir la configuración adecuada. \n\nUna o dos caras \n\nHabitualmente se plantea doble cara si la banderola se ve desde ambos sentidos de la calle. \n\nOpción de una cara en configuraciones específicas, según ubicación. \n\nEstructura y montaje \n\nPreparación para instalación en fachada mediante soporte/brazo (según el sistema del cliente o proveedor de rótulos). \n\nPosibilidad de preparar la gráfica para diferentes sistemas de sujeción y cambio. \n\nAcabados recomendados \n\nAcabado pensado para exterior y uso continuado. \n\nSi el entorno tiene mucha luz directa, se ajusta el diseño para mantener legibilidad también durante el día.",
       "image": {
-        "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/lona-publicitaria.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/banderola-luminosa-para-fachada.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -10142,7 +10056,7 @@
           "@type": "Product",
           "name": "Banderola luminosa para fachada",
           "description": "La banderola luminosa para fachada es una de las soluciones más eficaces para señalizar y dar visibilidad a un negocio: destaca de día y, sobre todo, de noche, cuando la iluminación marca la diferencia. En Repro Disseny preparamos banderolas luminosas personalizadas con gráfica retroiluminada (backlit) y acabados listos para instalación, para que tu marca se vea clara desde la calle.",
-          "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/lona-publicitaria.webp",
+          "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/banderola-luminosa-para-fachada.webp",
           "url": "https://reprodisseny.com/productos/banderola-luminosa-fachada-personalizada",
           "sku": "01-GRFO-0008",
           "brand": {
@@ -10375,12 +10289,13 @@
     {
       "id": "64",
       "type": "producto",
-      "slug": "madera",
-      "path": "/productos/madera",
-      "title": "Madera",
+      "slug": "paneles-madera-personalizados",
+      "path": "/productos/paneles-madera-personalizados",
+      "title": "Paneles de madera personalizados (MDF y contrachapado)",
       "categorySlug": "material-rigido",
       "isPublished": true,
-      "shortDescription": "Madera",
+      "shortDescription": "Los paneles de madera aportan un acabado cálido y profesional en proyectos de señalética, decoración y branding. En Repro Disseny trabajamos tres opciones muy habituales por su equilibrio entre presencia, resistencia y posibilidades de corte/fresado: MDF 10 mm, MDF 19 mm y contrachapado 10 mm. Los fabricamos a medida, con corte recto o a la forma y acabados según el uso.",
+      "bodyMd": "##Detalles \n\n¿Qué son estos paneles de madera y para qué se usan? \n\nSon soportes rígidos pensados para cartelería, rotulación interior, letras corpóreas, señalética y elementos decorativos. \nLa elección entre MDF y contrachapado suele depender de dos cosas: el acabado estético (más uniforme vs. veta visible) y la rigidez/volumen que necesitas (especialmente si la pieza va a ser autoportante o con relieve). \n\n##Beneficios \n\nAcabado con presencia: aportan un look más “material” y premium que soportes plásticos estándar. \n\nCorte y fresado a medida: ideales para siluetas, letras, logotipos y piezas con forma. \n\nVersátiles en acabados: se pueden aplicar vinilos, impresión y/o acabados de pintura/barniz según el resultado buscado. \n\nOpciones por nivel de rigidez: desde piezas ligeras (10 mm) hasta piezas con más cuerpo (19 mm). \n\nBuena solución para interior: perfectos para proyectos corporativos, retail y eventos en interiores. \n\n##Aplicaciones \n\nSeñalética y placas interiores (zonas, direcciones, normativa). \n\nLetras corpóreas y logotipos para pared. \n\nDecoración corporativa: murales, mensajes de marca, valores, fondos y corners. \n\nPLV y elementos de campaña con forma (siluetas, iconos, displays rígidos). \n\nEscenografía interior para ferias y eventos (piezas con volumen y presencia). \n\n##Características técnicas \n\nMDF 10 mm \n\nUso recomendado: paneles y piezas con forma para pared, señalética y decoración interior. \n\nVentajas: buen equilibrio entre rigidez y peso; superficie uniforme (ideal si irá pintado o con acabado limpio). \n\nIdeal para: logos recortados, textos, flechas, paneles de señalética. \n\nMDF 19 mm \n\nUso recomendado: piezas que necesitan más cuerpo, volumen o sensación corpórea. \n\nVentajas: mayor rigidez y estabilidad; perfecto para letras más gruesas, relieves o piezas que deben “destacar” de la pared. \n\nIdeal para: letras corpóreas, logotipos con presencia, piezas con fresado/relieve, elementos decorativos robustos. \n\nContrachapado 10 mm \n\nUso recomendado: cuando buscas un acabado con veta visible y un aspecto más “natural”. \n\nVentajas: estética madera real, canto característico, muy utilizado en decoración y señalética con look cálido. \n\nIdeal para: señalética decorativa, branding con estilo artesanal/natural, piezas para interior donde la madera sea parte del diseño. \n\nProcesos disponibles (comunes) \n\nCorte recto o a la forma (siluetas, letras, contornos). \n\nFresado/mecanizado (según diseño): detalles, huecos, encajes o relieves. \n\nPreparación para montaje: taladros, puntos de fijación o sistemas de instalación (según necesidad). \n\nAcabados (según proyecto): vinilo aplicado, impresión directa, barnizado/pintura (si aplica), etc. \n\nNota práctica: si la pieza va en una zona de roce o uso intensivo, conviene definir el acabado/protección desde el inicio para que dure más y se limpie mejor.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/madera.webp",
         "width": 1200,
@@ -10459,9 +10374,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Madera | Repro Disseny",
-        "metaDescription": "Madera personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/madera",
+        "metaTitle": "Paneles de madera personalizados | MDF 10 mm, MDF 19 mm y Contrachapado 10 mm",
+        "metaDescription": "Paneles de madera a medida para rotulación, decoración y señalética: MDF 10 mm, MDF 19 mm y contrachapado 10 mm. Corte y fresado, impresión y acabados. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/paneles-madera-personalizados",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -10478,10 +10393,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Madera",
-          "description": "Madera",
+          "name": "Paneles de madera personalizados (MDF y contrachapado)",
+          "description": "Los paneles de madera aportan un acabado cálido y profesional en proyectos de señalética, decoración y branding. En Repro Disseny trabajamos tres opciones muy habituales por su equilibrio entre presencia, resistencia y posibilidades de corte/fresado: MDF 10 mm, MDF 19 mm y contrachapado 10 mm. Los fabricamos a medida, con corte recto o a la forma y acabados según el uso.",
           "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/madera.webp",
-          "url": "https://reprodisseny.com/productos/madera",
+          "url": "https://reprodisseny.com/productos/paneles-madera-personalizados",
           "sku": "01-GRFO-0018",
           "brand": {
             "@type": "Organization",
@@ -10880,12 +10795,13 @@
     {
       "id": "69",
       "type": "producto",
-      "slug": "metacrilato",
-      "path": "/productos/metacrilato",
-      "title": "Metacrilato",
+      "slug": "metacrilato-personalizado",
+      "path": "/productos/metacrilato-personalizado",
+      "title": "Metacrilato (panel rígido premium)",
       "categorySlug": "material-rigido",
       "isPublished": true,
-      "shortDescription": "Metacrilato",
+      "shortDescription": "El metacrilato es uno de los soportes más valorados cuando buscas un acabado premium: aporta brillo, profundidad y una presencia muy profesional en señalética, placas corporativas y decoración. En Repro Disseny imprimimos metacrilato a medida (transparente, opal o color) con opciones de corte, taladros y sistemas de fijación para que quede listo para instalar.",
+      "bodyMd": "##Detalles \n\n¿Qué es el metacrilato y para qué se usa? \n\nEl metacrilato (acrílico) es un material rígido, con gran calidad visual, que puede ser transparente u opal (blanco traslúcido). Se utiliza para placas corporativas, señalética, cartelería premium, rótulos interiores, decoración y soluciones de imagen donde importa la calidad percibida y el acabado final. \n\nForma##Beneficios \n\nAcabado premium: aporta brillo y un aspecto muy cuidado para entornos corporativos. \n\nEfecto de profundidad: especialmente atractivo en diseños sobre metacrilato transparente u opal. \n\nAlta resistencia y durabilidad: ideal para piezas que deben mantenerse impecables con el tiempo. \n\nVersatilidad de instalación: opciones de tornillería, separadores, adhesivos o montaje “flotante”. \n\nPersonalización total: corte a medida, formas especiales y detalles de montaje. \n\n##Aplicaciones \n\nPlacas corporativas: entradas, recepciones, despachos y salas. \n\nSeñalética interior: direcciones, normativa, zonas, pictogramas. \n\nRetail y showrooms: displays premium, cartelería de producto, precios y comunicación de marca. \n\nHostelería: señalización elegante, cartas rígidas, indicadores de espacios. \n\nDecoración y branding: logotipos, mensajes corporativos y paneles de imagen. \n\n##Características técnicas \n\nTipos de metacrilato \n\nTransparente: efecto “cristal”, ideal para placas y señalética elegante. \n\nOpal (blanco traslúcido): muy usado cuando buscas uniformidad visual o aplicaciones con luz. \n\nColor (según disponibilidad): para señalética o decoración con estética más marcada. \n\nGrosor y formato \n\nDiferentes grosores según tamaño, rigidez y tipo de montaje. \n\nFormatos estándar o totalmente a medida. \n\nImpresión \n\nImpresión UV directa a todo color. \n\nPosibilidad de trabajar con blanco (cuando se necesita opacidad o contraste sobre transparente). \n\nImpresión a una o dos caras según el efecto buscado (p. ej., gráfica protegida por la propia placa). \n\nCorte y mecanizados \n\nCorte recto o corte a medida (formas, esquinas redondeadas, siluetas). \n\nTaladros y mecanizados para tornillería, separadores o fijaciones específicas. \n\nPosibilidad de preparar piezas listas para montaje por zonas o sets. \n\nAcabados \n\nOpciones de canto pulido para un look más premium. \n\nRecomendación práctica: si la pieza estará en zonas de mucho roce, conviene valorar el acabado y la ubicación para minimizar marcas.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/metacrilato.webp",
         "width": 1200,
@@ -10963,9 +10879,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Metacrilato | Repro Disseny",
-        "metaDescription": "Metacrilato personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/metacrilato",
+        "metaTitle": "Metacrilato personalizado | Impresión en panel rígido premium",
+        "metaDescription": "Metacrilato personalizado para señalética, placas y decoración. Impresión directa UV, transparente u opal, corte a medida y acabados premium. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/metacrilato-personalizado",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -10982,10 +10898,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Metacrilato",
-          "description": "Metacrilato",
+          "name": "Metacrilato (panel rígido premium)",
+          "description": "El metacrilato es uno de los soportes más valorados cuando buscas un acabado premium: aporta brillo, profundidad y una presencia muy profesional en señalética, placas corporativas y decoración. En Repro Disseny imprimimos metacrilato a medida (transparente, opal o color) con opciones de corte, taladros y sistemas de fijación para que quede listo para instalar.",
           "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/metacrilato.webp",
-          "url": "https://reprodisseny.com/productos/metacrilato",
+          "url": "https://reprodisseny.com/productos/metacrilato-personalizado",
           "sku": "01-GRFO-0017",
           "brand": {
             "@type": "Organization",
@@ -11275,12 +11191,13 @@
     {
       "id": "71",
       "type": "producto",
-      "slug": "nido-abeja",
-      "path": "/productos/nido-abeja",
-      "title": "Nido abeja",
+      "slug": "panel-nido-de-abeja-personalizado",
+      "path": "/productos/panel-nido-de-abeja-personalizado",
+      "title": "Panel de nido de abeja",
       "categorySlug": "material-rigido",
       "isPublished": true,
-      "shortDescription": "Nido abeja",
+      "shortDescription": "El panel de nido de abeja es perfecto cuando necesitas piezas grandes con buena presencia, pero muy ligeras y fáciles de manipular. Además, al estar fabricado en cartón, es una opción especialmente interesante para campañas con enfoque sostenible: un soporte reciclable y pensado para acciones temporales en retail, ferias y eventos. En Repro Disseny imprimimos paneles de cartón nido de abeja a medida, con opción de corte recto o a la forma para dejar el material listo para montar o instalar.",
+      "bodyMd": "##Detalles \n\n¿Qué es un panel de nido de abeja y para qué se usa? \n\nUn panel de nido de abeja es un soporte rígido fabricado en cartón con estructura interna tipo “panal”, lo que le da rigidez con muy poco peso. Se utiliza sobre todo en interior para cartelería de gran formato, paneles autoportantes, decoración temporal, señalética y piezas creativas (siluetas, tótems, elementos de campaña), especialmente cuando el montaje, el transporte y la sostenibilidad son importantes. \n\nForma##Beneficios \n\nMuy ligero en grandes formatos: facilita transporte, montaje y recolocación. \n\nBuena rigidez y presencia: ideal para piezas de suelo, fondos y señalización interior. \n\nProducto reciclable y más sostenible: al ser un soporte de cartón, se puede reciclar al final de la campaña (ideal para acciones temporales y rotación de campañas). \n\nMenor impacto logístico: al pesar poco, reduce costes y esfuerzo en transporte y montaje, especialmente en eventos. \n\nA medida: tamaños grandes, series por zonas y corte al contorno. \n\nVersátil en montaje: puede usarse colgado, fijado o como pieza autoportante con peana/encaje. \n\n##Aplicaciones \n\nFerias y eventos: fondos de stand, señalización, photocalls, paneles informativos. \n\nRetail: campañas estacionales, corners de producto, PLV y cartelería de gran formato. \n\nOficinas y corporativo: comunicación interna, paneles informativos, decoración temporal. \n\nCentros y exposiciones: paneles de contenido, rutas, normativa y orientación al público. \n\nPiezas creativas: siluetas troqueladas, letras, figuras y elementos automontables. \n\n##Características técnicas \n\nMedidas y grosor \n\nFormatos estándar o totalmente a medida. \n\nDiferentes grosores según tamaño y rigidez necesaria (especialmente si será autoportante). \n\nImpresión \n\nImpresión a todo color con buena definición para textos, iconos e imagen. \n\nOpción a una o dos caras si el panel se verá desde ambos sentidos. \n\nCorte y acabados \n\nCorte recto o corte a medida / troquelado (siluetas, flechas, formas de producto, etc.). \n\nPosibilidad de ranuras/encajes para piezas automontables o montajes en cruz. \n\nPreparación de taladros/puntos de fijación si el montaje lo requiere. \n\nSostenibilidad \n\nSoporte basado en cartón, ideal para campañas temporales con enfoque eco. \n\nPosibilidad de plantear producción sin laminados plásticos para facilitar el reciclaje al final del uso (te asesoramos según el entorno y la duración). \n\nUso recomendado \n\nPrincipalmente para interior y campañas. Si se plantea exterior, conviene definir ubicación y duración para valorar la solución más adecuada.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/nido-de-abeja.webp",
         "width": 1200,
@@ -11358,9 +11275,9 @@
         }
       ],
       "seo": {
-        "metaTitle": "Nido abeja | Repro Disseny",
-        "metaDescription": "Nido abeja personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/nido-abeja",
+        "metaTitle": "Panel de nido de abeja personalizado | Rígido ligero y reciclable",
+        "metaDescription": "Panel de nido de abeja impreso a medida: rígido, muy ligero y reciclable. Ideal para gran formato interior, eventos y campañas. Corte a medida, una o dos caras. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/panel-nido-de-abeja-personalizado",
         "hreflang": [
           {
             "lang": "es-ES",
@@ -11377,10 +11294,10 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Nido abeja",
-          "description": "Nido abeja",
+          "name": "Panel de nido de abeja",
+          "description": "El panel de nido de abeja es perfecto cuando necesitas piezas grandes con buena presencia, pero muy ligeras y fáciles de manipular. Además, al estar fabricado en cartón, es una opción especialmente interesante para campañas con enfoque sostenible: un soporte reciclable y pensado para acciones temporales en retail, ferias y eventos. En Repro Disseny imprimimos paneles de cartón nido de abeja a medida, con opción de corte recto o a la forma para dejar el material listo para montar o instalar.",
           "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/nido-de-abeja.webp",
-          "url": "https://reprodisseny.com/productos/nido-abeja",
+          "url": "https://reprodisseny.com/productos/panel-nido-de-abeja-personalizado",
           "sku": "01-GRFO-0013",
           "brand": {
             "@type": "Organization",
