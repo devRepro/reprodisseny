@@ -23,9 +23,12 @@ const safeItems = computed(() => (props.items || []).filter((i) => i?.title && i
 </script>
 
 <template>
-  <section>
+  <section aria-labelledby="category-grid-heading">
     <div class="flex flex-col items-start gap-3">
-      <h2 class="text-[30px] leading-[36px] font-semibold text-foreground">
+      <h2
+        id="category-grid-heading"
+        class="text-[30px] leading-[36px] font-semibold text-foreground"
+      >
         {{ title || "¿Qué quieres hacer?" }}
       </h2>
 
@@ -39,47 +42,38 @@ const safeItems = computed(() => (props.items || []).filter((i) => i?.title && i
             v-for="(it, i) in safeItems"
             :key="`${it.to}-${i}`"
             :to="it.to"
-            class="group focus:outline-none"
+            :aria-label="`Ver detalles de ${it.title}`"
+            class="group flex w-[260px] flex-col items-center text-center min-h-[380px] md:min-h-[400px] rounded-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4"
           >
-            <!-- Card -->
             <div
-              class="flex w-[260px] flex-col items-center text-center
-                     min-h-[380px] md:min-h-[400px]"
+              aria-hidden="true"
+              class="w-[220px] h-[220px] rounded-full overflow-hidden bg-muted ring-1 ring-border transition-shadow duration-300 group-hover:shadow-md"
             >
-              <!-- Imagen -->
-              <div
-                class="w-[220px] h-[220px] rounded-full overflow-hidden bg-muted ring-1 ring-border
-                       group-focus-visible:ring-2 group-focus-visible:ring-ring"
-              >
-                <img
-                  v-if="it.imageSrc"
-                  :src="it.imageSrc"
-                  :alt="it.imageAlt || it.title"
-                  class="h-full w-full object-cover"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-
-              <!-- Título (altura consistente) -->
-              <p
-                class="mt-4 text-[17px] leading-[1.35] text-foreground/90
-                       max-w-[240px]
-                       line-clamp-2 min-h-[46px]"
-              >
-                {{ it.title }}
-              </p>
-
-              <!-- Botón siempre abajo -->
-              <span
-                role="button"
-                class="mt-auto inline-flex items-center rounded-md bg-primary px-4 py-2
-                       text-xs font-medium text-primary-foreground transition-opacity
-                       group-hover:opacity-90"
-              >
-                {{ it.ctaText || props.ctaText }}
-              </span>
+              <img
+                v-if="it.imageSrc"
+                :src="it.imageSrc"
+                :alt="it.imageAlt || ''"
+                width="220"
+                height="220"
+                class="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+                loading="lazy"
+                decoding="async"
+              />
             </div>
+
+            <h3
+              aria-hidden="true"
+              class="mt-4 text-[17px] leading-[1.35] text-foreground/90 max-w-[240px] line-clamp-2 min-h-[46px] font-medium"
+            >
+              {{ it.title }}
+            </h3>
+
+            <span
+              aria-hidden="true"
+              class="mt-auto inline-flex items-center rounded-md bg-primary px-4 py-2 text-xs font-medium text-primary-foreground transition-all duration-300 group-hover:opacity-90 group-hover:shadow-sm"
+            >
+              {{ it.ctaText || props.ctaText }}
+            </span>
           </NuxtLink>
         </div>
 

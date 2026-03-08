@@ -16,11 +16,17 @@ const imgSrc = computed(() => {
 
 const imgAlt = computed(() => {
   const x = props.product?.image;
-  return (typeof x === "object" ? x?.alt : undefined) || props.product?.title || "Producto";
+  return (
+    (typeof x === "object" ? x?.alt : undefined) || props.product?.title || "Producto"
+  );
 });
 
-const extraFields = computed(() => props.product?.formFields || props.product?.extraFields || []);
-const categorySlug = computed(() => props.category?.slug || props.product?.categorySlug || "");
+const extraFields = computed(
+  () => props.product?.formFields || props.product?.extraFields || []
+);
+const categorySlug = computed(
+  () => props.category?.slug || props.product?.categorySlug || ""
+);
 const productTitle = computed(() => props.product?.title || "");
 const productDesc = computed(
   () => props.product?.shortDescription || props.product?.description || ""
@@ -32,7 +38,9 @@ const leadFormLoadError = ref<unknown>(null);
 
 onMounted(async () => {
   try {
-    LeadFormCmp.value = (await import("@/components/marketing/product/LeadForm.vue")).default;
+    LeadFormCmp.value = (
+      await import("@/components/marketing/product/LeadForm.vue")
+    ).default;
   } catch (e) {
     leadFormLoadError.value = e;
     console.error("LeadForm import failed:", e);
@@ -84,8 +92,12 @@ onMounted(async () => {
         <div class="rounded-2xl border border-border bg-card p-4 shadow-sm sm:p-6">
           <div class="mt-5">
             <ClientOnly>
-              <div v-if="leadFormLoadError" class="rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">
-                Error cargando el formulario. Por favor, recarga la página o inténtalo más tarde.
+              <div
+                v-if="leadFormLoadError"
+                class="rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700"
+              >
+                Error cargando el formulario. Por favor, recarga la página o inténtalo más
+                tarde.
               </div>
 
               <component
@@ -102,7 +114,9 @@ onMounted(async () => {
                 <div class="space-y-4" aria-label="Cargando formulario">
                   <div v-for="i in 6" :key="i" class="space-y-2">
                     <div class="h-4 w-28 rounded bg-muted" />
-                    <div class="h-12 w-full rounded-xl border border-border bg-background" />
+                    <div
+                      class="h-12 w-full rounded-xl border border-border bg-background"
+                    />
                   </div>
                   <div class="h-12 w-full rounded-xl bg-muted" />
                 </div>
@@ -111,7 +125,8 @@ onMounted(async () => {
           </div>
 
           <p class="mt-4 text-xs text-muted-foreground">
-            Al enviar este formulario aceptas que te contactemos para darte el presupuesto.
+            Al enviar este formulario aceptas que te contactemos para darte el
+            presupuesto.
           </p>
         </div>
       </section>

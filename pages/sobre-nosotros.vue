@@ -1,11 +1,24 @@
 <!-- pages/sobre-nosotros.vue -->
 <script setup lang="ts">
-import ComparisonTable from "@/components/shared/blocks/ComparisonTable.vue"
-import EnvironmentSection from "@/components/shared/blocks/EnvironmentSection.vue"
-import CompanyTimeline from "@/components/shared/blocks/CompanyTimeline.vue"
-import { Building2, Printer, Factory, Palette, Maximize2, Sparkles } from "lucide-vue-next"
+import ComparisonTable from "@/components/shared/blocks/ComparisonTable.vue";
+import EnvironmentSection from "@/components/shared/blocks/EnvironmentSection.vue";
+import CompanyTimeline from "@/components/shared/blocks/CompanyTimeline.vue";
+import CompanyValuesSection from "@/components/shared/CompanyValuesSection.vue";
+import {
+  Building2,
+  Printer,
+  Factory,
+  Palette,
+  Maximize2,
+  Sparkles,
+  BadgeCheck,
+  Handshake,
+  Leaf,
+  MessagesSquare,
+  TimerReset,
+} from "lucide-vue-next";
 
-import ClientLogosBand from "@/components/marketing/ClientLogosBand.vue"
+import ClientLogosBand from "@/components/marketing/ClientLogosBand.vue";
 
 type TimelineItem = {
   year: string;
@@ -58,7 +71,7 @@ const timeline = [
       "Mejoramos nuestra oferta comercial con la incorporación de una impresora de gran formato HP R1000, que nos permite imprimir sobre una amplia variedad de materiales rígidos.\n\nActualmente, trabajamos con los principales proveedores de maquinaria del sector: Ricoh, Canon, HP, Kongsberg, ESKO, Horizon y Heidelberg, y estamos posicionados como una de las mejores imprentas digitales de Barcelona.\n\nEn el sector empieza una segunda revolución con el uso de la inteligencia artificial.",
     icon: Sparkles,
   },
-]
+];
 
 const compareHead = [
   "Impremtes online",
@@ -106,15 +119,51 @@ const compareRows = [
   },
 ];
 
-const values = [
-  "Lorem ipsum",
-  "Lorem ipsum",
-  "Lorem ipsum",
-  "Lorem ipsum",
-  "Lorem ipsum",
-  "Lorem ipsum",
+const companyValues = [
+  {
+    title: "Cercanía",
+    description:
+      "Trabajamos con una atención cercana y clara, entendiendo cada proyecto y cada necesidad desde el primer contacto.",
+    proof: "Acompañamiento comercial y técnico durante todo el proceso.",
+    icon: Handshake,
+  },
+  {
+    title: "Calidad",
+    description:
+      "Cuidamos el detalle en materiales, impresión y acabados para que cada solución transmita una imagen sólida y profesional.",
+    proof: "Control de acabados y validación antes de producción.",
+    icon: BadgeCheck,
+  },
+  {
+    title: "Agilidad",
+    description:
+      "Nos movemos con rapidez y capacidad de respuesta, adaptándonos a los plazos y a las necesidades reales de cada cliente.",
+    proof: "Respuestas ágiles y producción orientada a plazos reales.",
+    icon: TimerReset,
+  },
+  {
+    title: "Soluciones a medida",
+    description:
+      "No trabajamos con fórmulas cerradas. Proponemos opciones personalizadas según espacio, objetivo y presupuesto.",
+    proof: "Cada proyecto se plantea según uso, contexto y visibilidad.",
+    icon: Sparkles,
+  },
+  {
+    title: "Comunicación clara",
+    description:
+      "Explicamos cada paso de forma sencilla, con propuestas concretas y una relación transparente en todo momento.",
+    proof: "Información clara antes, durante y después de cada encargo.",
+    icon: MessagesSquare,
+  },
+  {
+    title: "Compromiso sostenible",
+    description:
+      "Buscamos soluciones responsables, optimizando materiales y procesos siempre que sea viable dentro de cada proyecto.",
+    proof: "Elección de materiales y procesos con criterio de eficiencia.",
+    icon: Leaf,
+  },
 ];
-</script> 
+</script>
 <template>
   <main class="bg-white text-[#1E1E1E]">
     <section class="w-full bg-[#DEF4FF]">
@@ -126,9 +175,9 @@ const values = [
         </h1>
       </div>
     </section>
-  <section class="container">
-    <CompanyTimeline :items="timeline" />
-  </section>
+    <section class="container">
+      <CompanyTimeline :items="timeline" />
+    </section>
 
     <!-- VIDEO -->
     <section class="w-full bg-[#004F78]">
@@ -153,42 +202,26 @@ const values = [
     </section>
 
     <!-- LO QUE NOS DIFERENCIA -->
-<section class="mx-auto max-w-[1200px] px-6 xl:px-0 py-20">
-  <div class="flex flex-col gap-10">
-    <div class="flex flex-col gap-6">
-      <h2 class="font-['Figtree'] font-semibold text-[30px] leading-[36px] text-[#1E1E1E]">
-        El que ens diferencia
-      </h2>
-      <p class="font-['Inter'] font-normal text-[18px] leading-[22px] text-[#1E1E1E]">
-        Lorem ipsum dolor sit amet consectetur. Et adipiscing ac nunc consectetur
-        integer eu lorem. In euismod urna tempor nunc augue sed. Dictum bibendum
-        tincidunt et curabitur egestas. Commodo potenti viverra convallis lacus at
-        nisi.
-      </p>
-    </div>
-
-    <ComparisonTable :head="compareHead" :rows="compareRows" />
-  </div>
-</section>
-    <!-- VALORES -->
-    <section class="mx-auto max-w-[1200px] px-6 xl:px-0 pb-24">
-      <h2
-        class="font-['Figtree'] font-semibold text-[30px] leading-[36px] text-[#1E1E1E]"
-      >
-        Els nostres valors
-      </h2>
-
-      <div class="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-10">
-        <div v-for="(v, i) in values" :key="i" class="flex flex-col items-center gap-6">
-          <div class="h-[97px] w-[97px] rounded-full border border-[#3F3F3F]" />
-          <div
-            class="text-center font-['Inter'] font-bold text-[18px] leading-[22px] text-[#1E1E1E]"
+    <section class="mx-auto max-w-[1200px] px-6 xl:px-0 py-20">
+      <div class="flex flex-col gap-10">
+        <div class="flex flex-col gap-6">
+          <h2
+            class="font-['Figtree'] font-semibold text-[30px] leading-[36px] text-[#1E1E1E]"
           >
-            {{ v }}
-          </div>
+            El que ens diferencia
+          </h2>
         </div>
+
+        <ComparisonTable :head="compareHead" :rows="compareRows" />
       </div>
     </section>
+
+    <CompanyValuesSection
+      eyebrow="Nuestra forma de trabajar"
+      title="Nuestros valores"
+      intro="Más que un proveedor, queremos ser un partner fiable para proyectos de comunicación visual, impresión y exposición."
+      :items="companyValues"
+    />
 
     <!-- CLIENTES -->
     <ClientLogosBand
@@ -209,16 +242,16 @@ const values = [
     />
 
     <EnvironmentSection
-  title="Comprometidos con el mediao ambiente"
-  background-src="/img/ui/bggreen_1920.webp"
-  :items="[
-    'Reciclamos los productos químicos',
-    'Reutilizamos la energía reactiva.',
-    'Utilizamos tintas de látex que son inocuas para el medio ambiente.',
-    'Optimizamos el consumo de papel.',
-    'Utiliamos papeles con cerfificados FSC y PEFC.',
-    'Ofrecemos la posibilidad de imprimir sobre papeles reciclados.',
-  ]"
-/>
+      title="Comprometidos con el mediao ambiente"
+      background-src="/img/ui/bggreen_1920.webp"
+      :items="[
+        'Reciclamos los productos químicos',
+        'Reutilizamos la energía reactiva.',
+        'Utilizamos tintas de látex que son inocuas para el medio ambiente.',
+        'Optimizamos el consumo de papel.',
+        'Utiliamos papeles con cerfificados FSC y PEFC.',
+        'Ofrecemos la posibilidad de imprimir sobre papeles reciclados.',
+      ]"
+    />
   </main>
 </template>
