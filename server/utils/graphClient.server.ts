@@ -1,4 +1,4 @@
-// server/utils/graph.ts
+// server/utils/graphClient.server.ts
 import { ofetch } from "ofetch"
 import { createError } from "h3"
 import { useRuntimeConfig } from "#imports"
@@ -56,16 +56,14 @@ function getAuth(event?: any): MsAuthCfg {
 function getTarget(event: any, ctx: Ctx): SpTargetCfg {
   const cfg = useRuntimeConfig(event) as any
   const target = cfg.sharepoint?.[ctx]
-
-  // legacy: tu config actual ms trae site/list
-  const legacy = cfg.ms as any
+  const legacy = cfg.msLegacy as SpTargetCfg | undefined
 
   const sp: SpTargetCfg = target ?? {
-    siteId: legacy.siteId,
-    siteHostname: legacy.siteHostname,
-    sitePath: legacy.sitePath,
-    listId: legacy.listId,
-    listDisplayName: legacy.listDisplayName,
+    siteId: legacy?.siteId,
+    siteHostname: legacy?.siteHostname,
+    sitePath: legacy?.sitePath,
+    listId: legacy?.listId,
+    listDisplayName: legacy?.listDisplayName,
   }
 
   const missing = [

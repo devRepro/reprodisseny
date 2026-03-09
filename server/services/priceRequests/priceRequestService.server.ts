@@ -166,8 +166,8 @@ export async function createPriceRequest(event: any, input: PriceRequestInput) {
 
   // Graph
   const token = await getGraphToken(event)
-  const siteId = await resolveSiteId(event)
-  const listId = await resolveListId(event)
+const siteId = await resolveSiteId(event, "crm")
+const listId = await resolveListId(event, "crm")
 
   // 1) Idempotency check (RequestKey)
   const checkUrl =
@@ -229,6 +229,14 @@ export async function createPriceRequest(event: any, input: PriceRequestInput) {
     `https://graph.microsoft.com/v1.0/sites/${encodeURIComponent(siteId)}` +
     `/lists/${encodeURIComponent(listId)}/items`
 
+  try {
+  console.error("SP CREATE ATTEMPT", {
+    siteId,
+    listId,
+    createUrl,
+    fields,
+  })
+
   const created = await ofetch(createUrl, {
     method: "POST",
     headers: {
@@ -237,6 +245,28 @@ export async function createPriceRequest(event: any, input: PriceRequestInput) {
     },
     body: { fields },
   })
+
+  console.error("SP CREATE OK", {
+    itemId: (created as any)?.id,
+  })
+
+  return {
+    ok: true as const,
+    duplicated: false as const,
+    itemId: String((created as any)?.id ?? ""),
+    requestKey,
+  }
+} catch (err: any) {
+  console.error("SP CREATE ERROR", {
+    message: err?.message,
+    status: err?.response?.status,
+    statusText: err?.response?.statusText,
+    data: err?.data,
+    responseText: err?.response?._data,
+  })
+
+  throw err
+}
 
   return { ok: true as const, duplicated: false as const, itemId: String((created as any)?.id ?? ""), requestKey }
 }

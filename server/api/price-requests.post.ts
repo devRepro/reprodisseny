@@ -92,7 +92,25 @@ export default defineEventHandler(async (event) => {
         : "Hem rebut la teva sol·licitud. Et respondrem en menys de 24h laborables.",
     }
   } catch (e: any) {
-    const status = e?.statusCode || 500
-    throw createError({ statusCode: status, statusMessage: e?.message || "Error" })
-  }
+     console.error("PRICE REQUEST API ERROR", {
+    message: e?.message,
+    statusCode: e?.statusCode,
+    statusMessage: e?.statusMessage,
+    data: e?.data,
+    responseStatus: e?.response?.status,
+    responseStatusText: e?.response?.statusText,
+    responseData: e?.response?._data,
+  })
+  const status = e?.statusCode || e?.response?.status || 500
+
+  throw createError({
+    statusCode: status,
+    statusMessage:
+      e?.response?._data?.error?.message ||
+      e?.data?.error?.message ||
+      e?.statusMessage ||
+      e?.message ||
+      "Error",
+  })
+}
 })
