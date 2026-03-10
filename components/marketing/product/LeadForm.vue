@@ -16,7 +16,6 @@ import {
 
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 
 import {
@@ -125,10 +124,6 @@ const fixedProductFields = computed(() =>
 
 const requiredProductFields = computed(() =>
   normalizedExtraFields.value.filter((field) => field.kind !== "fixed" && field.required)
-);
-
-const optionalProductFields = computed(() =>
-  normalizedExtraFields.value.filter((field) => field.kind !== "fixed" && !field.required)
 );
 
 function normalizeNumber(value: unknown) {
@@ -486,57 +481,6 @@ const textareaCls =
           </summary>
 
           <div class="mt-4 flex flex-col gap-[12px]">
-            <template v-for="field in optionalProductFields" :key="field.name">
-              <FormField
-                v-slot="{ componentField, value, handleChange }"
-                :name="field.name"
-              >
-                <FormItem class="flex flex-col gap-[4px]">
-                  <FormLabel :class="fieldLabelCls">{{ field.label }}</FormLabel>
-
-                  <FormControl>
-                    <Select
-                      v-if="field.kind === 'select'"
-                      :model-value="String(value ?? '')"
-                      @update:model-value="handleChange"
-                    >
-                      <SelectTrigger
-                        :class="controlBaseCls"
-                        :data-field-name="field.name"
-                      >
-                        <SelectValue
-                          :placeholder="field.placeholder || 'Selecciona una opción'"
-                        />
-                      </SelectTrigger>
-
-                      <SelectContent>
-                        <SelectItem
-                          v-for="opt in field.normalizedOptions"
-                          :key="opt"
-                          :value="opt"
-                        >
-                          {{ opt }}
-                        </SelectItem>
-                      </SelectContent>
-                    </Select>
-
-                    <Input
-                      v-else
-                      v-bind="componentField"
-                      :name="field.name"
-                      :type="field.type === 'number' ? 'number' : 'text'"
-                      :inputmode="field.type === 'number' ? 'numeric' : undefined"
-                      :placeholder="field.placeholder || ''"
-                      :class="controlBaseCls"
-                      autocomplete="off"
-                    />
-                  </FormControl>
-
-                  <FormMessage class="text-xs" />
-                </FormItem>
-              </FormField>
-            </template>
-
             <FormField v-slot="{ componentField }" name="telefono">
               <FormItem class="flex flex-col gap-[4px]">
                 <FormLabel :class="fieldLabelCls">Teléfono</FormLabel>
@@ -624,6 +568,7 @@ const textareaCls =
             <FormMessage class="mt-1 text-xs" />
           </FormItem>
         </FormField>
+
         <div
           v-if="error"
           class="rounded-[10px] border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700"

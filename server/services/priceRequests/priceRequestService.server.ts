@@ -69,10 +69,6 @@ function computeRequestKey(args: {
     .slice(0, 32)
 }
 
-/**
- * Server-side sanitize of extras based on product.formFields.
- * Keeps only allowed keys + casts types + enforces required.
- */
 function sanitizeExtras(extras: Record<string, unknown>, formFields: FormField[]) {
   const allowed = new Map<string, FormField>()
   for (const f of formFields || []) allowed.set(f.name, f)
@@ -81,7 +77,7 @@ function sanitizeExtras(extras: Record<string, unknown>, formFields: FormField[]
 
   for (const [k, v] of Object.entries(extras || {})) {
     const field = allowed.get(k)
-    if (!field) continue // drop unknown keys
+    if (!field) continue
 
     if (field.type === "checkbox") {
       clean[k] = Boolean(v)
@@ -105,17 +101,15 @@ function sanitizeExtras(extras: Record<string, unknown>, formFields: FormField[]
       continue
     }
 
-    // text / textarea
     const s = String(v ?? "").trim()
     if (!s) continue
     const max = "maxLength" in field && typeof field.maxLength === "number" ? field.maxLength : 200
     clean[k] = s.slice(0, max)
   }
 
-  // required check
   const missing = (formFields || []).filter((f) => f.required).filter((f) => {
     const v = clean[f.name]
-    if (f.type === "checkbox") return v !== true // required checkbox must be true
+    if (f.type === "checkbox") return v !== true
     return v == null || String(v).trim() === ""
   })
 
@@ -125,16 +119,22 @@ function sanitizeExtras(extras: Record<string, unknown>, formFields: FormField[]
 function safeJsonStringify(obj: any, maxLen = 12000) {
   const s = JSON.stringify(obj)
   if (s.length <= maxLen) return s
-  // If too long, trim selection
+
   if (obj?.selection && typeof obj.selection === "object") {
     return JSON.stringify({ ...obj, selection: { __trimmed: true } }).slice(0, maxLen)
   }
+
   return s.slice(0, maxLen)
+}
+
+function compactFields(obj: Record<string, any>) {
+  return Object.fromEntries(
+    Object.entries(obj).filter(([, v]) => v !== "" && v !== undefined && v !== null)
+  )
 }
 
 // ---- Main ----
 export async function createPriceRequest(event: any, input: PriceRequestInput) {
-  // Load product definition to validate extras server-side
   const { products } = await getCmsCatalog()
   const productSlug = (input.product.slug ?? "").trim() || null
 
@@ -148,7 +148,6 @@ export async function createPriceRequest(event: any, input: PriceRequestInput) {
   const { clean: extrasClean, missing } = sanitizeExtras(extrasRaw, formFields)
 
   if (formFields.length > 0 && missing.length > 0) {
-    // user-visible message should be Catalan
     const msg = `Falten camps obligatoris: ${missing.join(", ")}`
     const err: any = new Error(msg)
     err.statusCode = 400
@@ -164,10 +163,9 @@ export async function createPriceRequest(event: any, input: PriceRequestInput) {
     extras: extrasClean,
   })
 
-  // Graph
   const token = await getGraphToken(event)
-const siteId = await resolveSiteId(event, "crm")
-const listId = await resolveListId(event, "crm")
+  const siteId = await resolveSiteId(event, "crm")
+  const listId = await resolveListId(event, "crm")
 
   // 1) Idempotency check (RequestKey)
   const checkUrl =
@@ -183,16 +181,21 @@ const listId = await resolveListId(event, "crm")
 
   const ex = (existing as any)?.value?.[0]
   if (ex?.id) {
-    return { ok: true as const, duplicated: true as const, itemId: String(ex.id), requestKey }
+    return {
+      ok: true as const,
+      duplicated: true as const,
+      itemId: String(ex.id),
+      requestKey,
+    }
   }
 
-  // 2) Compose productJson snapshot for SharePoint
+  // 2) Compose product snapshot for SharePoint
   const productJson = {
     name: input.product.name,
     slug: productSlug,
     sku: input.product.sku ?? null,
     url: input.product.url ?? null,
-    selection: extrasClean, // ✅ dynamic fields go here
+    selection: extrasClean,
     context: {
       sourceUrl: input.sourceUrl || getHeader(event, "referer") || "",
       categorySlug: categorySlug || null,
@@ -201,28 +204,25 @@ const listId = await resolveListId(event, "crm")
     },
   }
 
-  const fields: Record<string, any> = {}
+  const rawFields: Record<string, any> = {
+    Title: input.name,
+    [SPF.EMAIL]: input.email,
+    [SPF.PHONE]: input.phone ?? "",
+    [SPF.COMPANY]: input.company ?? "",
+    [SPF.COMMENT]: input.message,
+    [SPF.PRODUCT]: safeJsonStringify(productJson),
+    [SPF.STATUS]: input.initialStatus || "Afegit CRM",
+    RequestKey: requestKey,
+    Consent: Boolean(input.consent),
+    CategorySlug: categorySlug || "",
+    ProductSlug: productSlug || "",
+    UtmJson: input.utm ? JSON.stringify(input.utm) : "",
+    SourceUrl: input.sourceUrl,
 
-  // Keep Title as contact name (matches your current list usage)
-  fields["Title"] = input.name
+    // NO enviar por ahora:
+  }
 
-  // Legacy fields (dashboard-compatible)
-  fields[SPF.EMAIL] = input.email
-  fields[SPF.PHONE] = input.phone ?? ""
-  fields[SPF.COMPANY] = input.company ?? ""
-  fields[SPF.COMMENT] = input.message
-  fields[SPF.PRODUCT] = safeJsonStringify(productJson)
-
-  // Initial status (must be a valid Choice value)
-  fields[SPF.STATUS] = input.initialStatus || "Afegit CRM"
-
-  // New columns (you confirmed internal names)
-  fields["RequestKey"] = requestKey
-  fields["Consent"] = Boolean(input.consent)
-  fields["SourceUrl"] = input.sourceUrl
-  fields["CategorySlug"] = categorySlug || ""
-  fields["ProductSlug"] = productSlug || ""
-  fields["UtmJson"] = input.utm ? JSON.stringify(input.utm) : ""
+  const fields = compactFields(rawFields)
 
   // 3) Create item
   const createUrl =
@@ -230,43 +230,41 @@ const listId = await resolveListId(event, "crm")
     `/lists/${encodeURIComponent(listId)}/items`
 
   try {
-  console.error("SP CREATE ATTEMPT", {
-    siteId,
-    listId,
-    createUrl,
-    fields,
-  })
+    console.error("SP CREATE ATTEMPT", {
+      siteId,
+      listId,
+      createUrl,
+      fields,
+    })
 
-  const created = await ofetch(createUrl, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${token}`,
-      "Content-Type": "application/json",
-    },
-    body: { fields },
-  })
+    const created = await ofetch(createUrl, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: { fields },
+    })
 
-  console.error("SP CREATE OK", {
-    itemId: (created as any)?.id,
-  })
+    console.error("SP CREATE OK", {
+      itemId: (created as any)?.id,
+    })
 
-  return {
-    ok: true as const,
-    duplicated: false as const,
-    itemId: String((created as any)?.id ?? ""),
-    requestKey,
+    return {
+      ok: true as const,
+      duplicated: false as const,
+      itemId: String((created as any)?.id ?? ""),
+      requestKey,
+    }
+  } catch (err: any) {
+    console.error("SP CREATE ERROR", {
+      message: err?.message,
+      status: err?.response?.status,
+      statusText: err?.response?.statusText,
+      data: err?.data,
+      responseText: err?.response?._data,
+    })
+
+    throw err
   }
-} catch (err: any) {
-  console.error("SP CREATE ERROR", {
-    message: err?.message,
-    status: err?.response?.status,
-    statusText: err?.response?.statusText,
-    data: err?.data,
-    responseText: err?.response?._data,
-  })
-
-  throw err
-}
-
-  return { ok: true as const, duplicated: false as const, itemId: String((created as any)?.id ?? ""), requestKey }
 }
