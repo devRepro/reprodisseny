@@ -57,6 +57,10 @@ const fileInputRef = ref<HTMLInputElement | null>(null);
 const fileRef = ref<File | null>(null);
 const fileName = computed(() => fileRef.value?.name || "Ningún archivo seleccionado");
 
+const emit = defineEmits<{
+  success: [];
+}>();
+
 function triggerFileSelect() {
   fileInputRef.value?.click();
 }
@@ -312,21 +316,13 @@ const onSubmit = form.handleSubmit(
       consent: values.privacy === true,
       sourceUrl: process.client ? window.location.href : route.fullPath,
       utm: route.query as any,
-      initialStatus: "Afegit CRM",
+      initialStatus: "Nova",
     });
 
     if (success.value) {
-      form.resetForm({
-        values: initialValues.value,
-        touched: {},
-        errors: {},
-      });
-      fileRef.value = null;
-
-      if (fileInputRef.value) {
-        fileInputRef.value.value = "";
-      }
-    }
+  emit("success");
+  return;
+}
   },
   ({ errors }) => {
     focusFirstInvalidField(errors as Record<string, string>);

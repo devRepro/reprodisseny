@@ -33,17 +33,17 @@ const productDesc = computed(
 );
 
 // Lazy-load
-const LeadFormCmp = shallowRef<any>(null);
-const leadFormLoadError = ref<unknown>(null);
+const LeadRequestSectionCmp = shallowRef<any>(null);
+const leadSectionLoadError = ref<unknown>(null);
 
 onMounted(async () => {
   try {
-    LeadFormCmp.value = (
-      await import("@/components/marketing/product/LeadForm.vue")
+    LeadRequestSectionCmp.value = (
+      await import("@/components/marketing/product/LeadRequestSection.vue")
     ).default;
   } catch (e) {
-    leadFormLoadError.value = e;
-    console.error("LeadForm import failed:", e);
+    leadSectionLoadError.value = e;
+    console.error("LeadRequestSection import failed:", e);
   }
 });
 </script>
@@ -93,7 +93,7 @@ onMounted(async () => {
           <div class="mt-5">
             <ClientOnly>
               <div
-                v-if="leadFormLoadError"
+                v-if="leadSectionLoadError"
                 class="rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700"
               >
                 Error cargando el formulario. Por favor, recarga la página o inténtalo más
@@ -101,8 +101,8 @@ onMounted(async () => {
               </div>
 
               <component
-                v-else-if="LeadFormCmp"
-                :is="LeadFormCmp"
+                v-else-if="LeadRequestSectionCmp"
+                :is="LeadRequestSectionCmp"
                 :producto="productTitle"
                 :product-data="product"
                 :extra-fields="extraFields"
@@ -114,9 +114,7 @@ onMounted(async () => {
                 <div class="space-y-4" aria-label="Cargando formulario">
                   <div v-for="i in 6" :key="i" class="space-y-2">
                     <div class="h-4 w-28 rounded bg-muted" />
-                    <div
-                      class="h-12 w-full rounded-xl border border-border bg-background"
-                    />
+                    <div class="h-12 w-full rounded-xl border border-border bg-background" />
                   </div>
                   <div class="h-12 w-full rounded-xl bg-muted" />
                 </div>

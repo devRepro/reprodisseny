@@ -211,7 +211,7 @@ export async function createPriceRequest(event: any, input: PriceRequestInput) {
     [SPF.COMPANY]: input.company ?? "",
     [SPF.COMMENT]: input.message,
     [SPF.PRODUCT]: safeJsonStringify(productJson),
-    [SPF.STATUS]: input.initialStatus || "Afegit CRM",
+    [SPF.STATUS]: input.initialStatus || "Nova",
     RequestKey: requestKey,
     Consent: Boolean(input.consent),
     CategorySlug: categorySlug || "",

@@ -80,7 +80,7 @@ export default defineEventHandler(async (event) => {
       utm: p.utm ?? null,
 
       // MUST exist in SharePoint Choice "Estat"
-      initialStatus: "Afegit CRM",
+      initialStatus: "Nova",
     })
 
     return {
