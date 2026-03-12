@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from "vue";
 import PageContainer from "@/components/layout/PageContainer.vue";
 
 type CategoryItem = {
@@ -8,40 +9,80 @@ type CategoryItem = {
   label?: string;
 };
 
-const props = defineProps<{
-  categories: CategoryItem[];
-  selectedCategory?: string | null;
-}>();
+const props = withDefaults(
+  defineProps<{
+    categories?: CategoryItem[];
+    selectedCategory?: string | null;
+    basePath?: string;
+  }>(),
+  {
+    categories: () => [],
+    selectedCategory: null,
+    basePath: "/productos",
+  }
+);
 
-const emit = defineEmits<{
-  (e: "select-category", value: string | null): void;
-}>();
+const route = useRoute();
+
+function normalizeSlug(value: string | null | undefined) {
+  return String(value || "")
+    .trim()
+    .toLowerCase();
+}
+
+const currentCategory = computed(() => normalizeSlug(props.selectedCategory));
+
+const safeCategories = computed(() =>
+  (props.categories || [])
+    .filter((category): category is CategoryItem => Boolean(category?.slug))
+    .map((category) => ({
+      ...category,
+      slug: normalizeSlug(category.slug),
+    }))
+);
+
+function getCategoryLabel(category: CategoryItem) {
+  return category.label || category.nav || category.title || category.slug;
+}
+
+function buildCategoryTo(slug: string | null) {
+  return {
+    path: slug ? `${props.basePath}/${slug}` : props.basePath,
+    query: {
+      q: typeof route.query.q === "string" ? route.query.q : undefined,
+      sort:
+        typeof route.query.sort === "string" && route.query.sort !== "relevance"
+          ? route.query.sort
+          : undefined,
+    },
+  };
+}
 </script>
 
 <template>
   <PageContainer>
     <section class="pb-2">
-      <div class="flex flex-wrap gap-3">
-        <button
-          type="button"
+      <nav class="flex flex-wrap gap-3" aria-label="Categorías del catálogo">
+        <NuxtLink
+          :to="buildCategoryTo(null)"
           class="catalog-chip"
-          :class="{ 'catalog-chip-active': !props.selectedCategory }"
-          @click="emit('select-category', null)"
+          :class="{ 'catalog-chip-active': !currentCategory }"
+          :aria-current="!currentCategory ? 'page' : undefined"
         >
           Todos
-        </button>
+        </NuxtLink>
 
-        <button
-          v-for="category in props.categories"
+        <NuxtLink
+          v-for="category in safeCategories"
           :key="category.slug"
-          type="button"
+          :to="buildCategoryTo(category.slug)"
           class="catalog-chip"
-          :class="{ 'catalog-chip-active': props.selectedCategory === category.slug }"
-          @click="emit('select-category', category.slug)"
+          :class="{ 'catalog-chip-active': currentCategory === category.slug }"
+          :aria-current="currentCategory === category.slug ? 'page' : undefined"
         >
-          {{ category.label || category.nav || category.title || category.slug }}
-        </button>
-      </div>
+          {{ getCategoryLabel(category) }}
+        </NuxtLink>
+      </nav>
     </section>
   </PageContainer>
 </template>

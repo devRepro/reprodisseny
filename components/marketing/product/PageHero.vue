@@ -1,64 +1,123 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, ref, watch, onBeforeUnmount } from "vue";
 import PageContainer from "@/components/layout/PageContainer.vue";
 
-// 1. Añadimos categoryName para que el título sea dinámico
-const props = defineProps<{
-  query: string;
-  total: number;
-  categoryName?: string; // Nueva prop opcional
-}>();
+const props = withDefaults(
+  defineProps<{
+    query: string;
+    total: number;
+    categoryName?: string;
+  }>(),
+  {
+    categoryName: "",
+  }
+);
 
 const emit = defineEmits<{
   "update:query": [value: string];
 }>();
 
-function onInput(event: Event) {
-  emit("update:query", (event.target as HTMLInputElement).value);
+const localQuery = ref(props.query);
+let debounceTimer: ReturnType<typeof setTimeout> | null = null;
+
+watch(
+  () => props.query,
+  (next) => {
+    if (next !== localQuery.value) {
+      localQuery.value = next;
+    }
+  }
+);
+
+function emitQuery(value: string) {
+  if (debounceTimer) clearTimeout(debounceTimer);
+
+  debounceTimer = setTimeout(() => {
+    emit("update:query", value.trim());
+  }, 250);
 }
 
-// 2. UX: Título dinámico para que el usuario sepa dónde está
-const displayTitle = computed(() => {
-  if (props.query) return `Resultados para "${props.query}"`;
-  return props.categoryName || "Productos";
+function onInput(event: Event) {
+  const value = (event.target as HTMLInputElement).value;
+  localQuery.value = value;
+  emitQuery(value);
+}
+
+function clearQuery() {
+  localQuery.value = "";
+  if (debounceTimer) clearTimeout(debounceTimer);
+  emit("update:query", "");
+}
+
+onBeforeUnmount(() => {
+  if (debounceTimer) clearTimeout(debounceTimer);
 });
 
-// 3. UX: Mensaje de "Kicker" dinámico
+const hasQuery = computed(() => localQuery.value.trim().length > 0);
+
+const displayTitle = computed(() => {
+  if (hasQuery.value) return `Resultados para “${localQuery.value.trim()}”`;
+  return props.categoryName || "Catálogo de productos";
+});
+
 const kickerText = computed(() => {
-  return props.categoryName ? "Categoría" : "Catálogo de Impresión";
+  if (hasQuery.value) return "Búsqueda";
+  return props.categoryName ? "Categoría" : "Catálogo de impresión";
+});
+
+const introText = computed(() => {
+  if (hasQuery.value) {
+    return "Ajusta la búsqueda para encontrar más rápido el soporte, material o acabado que necesitas.";
+  }
+
+  if (props.categoryName) {
+    return `Explora la categoría ${props.categoryName} y encuentra la mejor solución para tu proyecto.`;
+  }
+
+  return "Encuentra el soporte o formato que necesitas y solicita presupuesto en pocos pasos.";
+});
+
+const resultsText = computed(() => {
+  if (props.total === 1) return "1 producto encontrado";
+  return `${props.total} productos disponibles`;
 });
 </script>
 
 <template>
-  <section
-    class="catalog-section bg-slate-50/50 border-b border-slate-100 py-10 lg:py-16"
-  >
+  <section class="border-b border-slate-100 bg-slate-50/50 py-10 lg:py-16">
     <PageContainer>
       <div class="max-w-3xl">
-        <p
-          class="catalog-kicker uppercase tracking-widest text-xs font-bold text-primary/60"
-        >
+        <p class="text-xs font-bold uppercase tracking-widest text-primary/60">
           {{ kickerText }}
         </p>
 
         <h1
-          class="mt-3 text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight transition-all"
+          class="mt-3 text-4xl font-extrabold tracking-tight text-slate-900 lg:text-5xl"
         >
           {{ displayTitle }}
         </h1>
 
-        <p v-if="!query" class="mt-4 max-w-2xl text-lg text-slate-600 leading-relaxed">
-          Encuentra el soporte o formato que necesitas y solicita presupuesto en pocos
-          pasos.
+        <p class="mt-4 max-w-2xl text-lg leading-relaxed text-slate-600">
+          {{ introText }}
         </p>
 
-        <div class="mt-8 max-w-2xl relative group">
-          <div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+        <form
+          class="relative mt-8 max-w-2xl"
+          role="search"
+          aria-label="Buscar productos del catálogo"
+          @submit.prevent
+        >
+          <label for="catalog-search" class="sr-only">
+            Buscar productos del catálogo
+          </label>
+
+          <div class="pointer-events-none absolute inset-y-0 left-4 flex items-center">
             <svg
-              class="h-5 w-5 text-slate-400 group-focus-within:text-primary transition-colors"
+              class="h-5 w-5 text-slate-400 transition-colors"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
+              aria-hidden="true"
             >
               <path
                 stroke-linecap="round"
@@ -68,28 +127,47 @@ const kickerText = computed(() => {
               />
             </svg>
           </div>
+
           <input
-            :value="query"
+            id="catalog-search"
+            :value="localQuery"
             type="search"
+            inputmode="search"
+            autocomplete="off"
             placeholder="Busca por producto, uso o material (ej: vinilo, lona...)"
-            class="catalog-input w-full pl-12 pr-4 py-4 rounded-xl border-slate-200 shadow-sm focus:ring-4 focus:ring-primary/10 focus:border-primary transition-all outline-none"
+            class="w-full rounded-xl border border-slate-200 py-4 pl-12 pr-12 shadow-sm outline-none transition-all placeholder:text-slate-400 focus:border-primary focus:ring-4 focus:ring-primary/10"
             @input="onInput"
           />
-        </div>
 
-        <p class="catalog-meta mt-4 text-sm text-slate-500 flex items-center gap-2">
-          <span class="inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
-          <strong>{{ total }}</strong>
-          {{ total === 1 ? "producto encontrado" : "productos disponibles" }}
+          <button
+            v-if="hasQuery"
+            type="button"
+            class="absolute inset-y-0 right-3 my-auto inline-flex h-9 w-9 items-center justify-center rounded-lg text-slate-400 transition hover:bg-slate-100 hover:text-slate-700"
+            aria-label="Borrar búsqueda"
+            @click="clearQuery"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-4 w-4"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 8.586l4.95-4.95 1.414 1.414L11.414 10l4.95 4.95-1.414 1.414L10 11.414l-4.95 4.95-1.414-1.414L8.586 10l-4.95-4.95L5.05 3.636 10 8.586z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </button>
+        </form>
+
+        <p class="mt-4 flex items-center gap-2 text-sm text-slate-500">
+          <span class="inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+          <strong>{{ props.total }}</strong>
+          {{ resultsText }}
         </p>
       </div>
     </PageContainer>
   </section>
 </template>
-
-<style scoped>
-/* Estilos base mantenidos pero mejorados mediante clases de utilidad */
-.catalog-input::placeholder {
-  color: #94a3b8;
-}
-</style>

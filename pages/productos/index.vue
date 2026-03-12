@@ -34,7 +34,7 @@ const category = computed(() =>
 );
 
 const basePath = computed(() =>
-  category.value ? `/catalogo/${category.value}` : "/catalogo"
+  category.value ? `/productos/${category.value}` : "/productos"
 );
 
 const catalogKey = computed(() =>
@@ -48,9 +48,9 @@ const catalogKey = computed(() =>
 );
 
 const { data, pending, error, refresh } = await useAsyncData(
-  () => catalogKey.value,
+  "products-catalog",
   () =>
-    $fetch("/api/cms/catalog", {
+    $fetch("/api/cms/catalog-list", {
       query: {
         mode: "catalog",
         page: page.value,
@@ -59,7 +59,10 @@ const { data, pending, error, refresh } = await useAsyncData(
         q: q.value || undefined,
         sort: sort.value,
       },
-    })
+    }),
+  {
+    watch: [page, q, sort, category],
+  }
 );
 
 const items = computed(() => data.value?.items || []);
@@ -123,18 +126,8 @@ function updateSort(nextSort: string) {
   });
 }
 
-function updateCategory(nextCategory: string) {
-  router.push({
-    path: nextCategory ? `/catalogo/${nextCategory}` : "/catalogo",
-    query: {
-      q: q.value || undefined,
-      sort: sort.value !== "relevance" ? sort.value : undefined,
-    },
-  });
-}
-
 function clearFilters() {
-  router.push({ path: "/catalogo" });
+  router.push({ path: "/productos" });
 }
 </script>
 
@@ -151,11 +144,7 @@ function clearFilters() {
       aria-label="Categorías principales"
       class="sticky top-0 z-30 border-b bg-white/80 backdrop-blur-md"
     >
-      <ProductsCategoryRail
-        :categories="categories"
-        :selected-category="category"
-        @select-category="updateCategory"
-      />
+      <ProductsCategoryRail :categories="categories" :selected-category="category" />
     </nav>
 
     <PageContainer>
@@ -214,9 +203,9 @@ function clearFilters() {
               </h3>
 
               <ProductsFiltersPanel
-                :selected-category="category"
                 :categories="categories"
-                @update:selected-category="updateCategory"
+                :selected-category="category"
+                :base-path="'/productos'"
                 @clear="clearFilters"
               />
             </div>
@@ -228,17 +217,16 @@ function clearFilters() {
             aria-label="Resultados del catálogo"
           >
             <ProductsToolbar
-              :query="q"
               :sort="sort"
               :results-count="items.length"
               :total-count="total"
-              @update:query="updateQuery"
               @update:sort="updateSort"
             />
 
             <div class="min-h-[600px]">
               <ProductsResultsGrid
                 v-if="items.length"
+                :key="catalogKey"
                 :products="items"
                 :page="page"
                 :total-pages="totalPages"
