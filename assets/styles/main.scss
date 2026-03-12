@@ -14,9 +14,18 @@
    COMPONENTS (tus clases custom)
    ========================================================= */
 @layer components {
-    .page-shell {
-      @apply mx-auto w-full max-w-[1440px] px-6 lg:px-10 2xl:px-[120px];
-    }
+  .container-full {
+    @apply w-full max-w-none;
+  }
+
+  .container-wide {
+    @apply mx-auto w-full max-w-[1440px] px-6 lg:px-10 2xl:px-[120px];
+  }
+
+  .container-content {
+    @apply mx-auto w-full max-w-[1200px] px-6 lg:px-10;
+  }
+  
   .menubar {
     @apply w-full flex justify-center gap-4;
     background-color: hsl(var(--menubar-bg));
@@ -115,6 +124,156 @@
     background-color: hsl(var(--color-primary));
     color: hsl(var(--primary-foreground));
     border-color: hsl(var(--color-primary));
+  }
+
+  .catalog-section {
+    @apply py-8 md:py-10 lg:py-12;
+  }
+
+  .catalog-surface {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+  }
+
+  .catalog-panel {
+    @apply rounded-2xl border p-5 md:p-6;
+    background-color: hsl(var(--card));
+    color: hsl(var(--card-foreground));
+    border-color: hsl(var(--border));
+  }
+
+  .catalog-panel-soft {
+    @apply rounded-2xl border p-5 md:p-6;
+    background-color: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+    border-color: hsl(var(--border));
+  }
+
+  .catalog-card {
+    @apply overflow-hidden rounded-2xl border transition-shadow duration-200;
+    background-color: hsl(var(--card));
+    color: hsl(var(--card-foreground));
+    border-color: hsl(var(--border));
+  }
+
+  .catalog-card:hover {
+    @apply shadow-md;
+  }
+
+  .catalog-card-body {
+    @apply p-5;
+  }
+
+  .catalog-card-media {
+    @apply aspect-[4/3] w-full;
+    background-color: hsl(var(--muted));
+  }
+
+  .catalog-kicker {
+    font-size: var(--font-label-s);
+    line-height: var(--line-label-s);
+    font-weight: var(--weight-label);
+    color: hsl(var(--muted-foreground));
+    @apply uppercase tracking-[0.12em];
+  }
+
+  .catalog-title {
+    font-size: var(--font-h4);
+    line-height: var(--line-h4);
+    font-weight: var(--weight-h4);
+    color: hsl(var(--foreground));
+    @apply tracking-[-0.02em];
+  }
+
+  .catalog-copy {
+    font-size: var(--font-body);
+    line-height: var(--line-body);
+    font-weight: var(--weight-body);
+    color: hsl(var(--muted-foreground));
+  }
+
+  .catalog-input {
+    @apply h-12 w-full rounded-full border px-5 outline-none transition-colors;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    border-color: hsl(var(--input));
+  }
+
+  .catalog-input::placeholder {
+    color: hsl(var(--muted-foreground));
+  }
+
+  .catalog-input:focus {
+    border-color: hsl(var(--ring));
+    box-shadow: 0 0 0 3px hsl(var(--ring) / 0.15);
+  }
+
+  .catalog-select {
+    @apply h-11 rounded-full border px-4 outline-none transition-colors;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    border-color: hsl(var(--input));
+  }
+
+  .catalog-select:focus {
+    border-color: hsl(var(--ring));
+    box-shadow: 0 0 0 3px hsl(var(--ring) / 0.15);
+  }
+
+  .catalog-chip {
+    @apply inline-flex items-center rounded-full border px-4 py-2 transition-colors;
+    font-size: var(--font-body-s);
+    line-height: var(--line-body-s);
+    font-weight: 500;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    border-color: hsl(var(--border));
+  }
+
+  .catalog-chip:hover {
+    background-color: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+  }
+
+  .catalog-chip-active {
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    border-color: hsl(var(--primary));
+  }
+
+  .catalog-filter-option {
+    @apply block w-full rounded-xl px-3 py-2 text-left transition-colors;
+    font-size: var(--font-body-s);
+    line-height: var(--line-body-s);
+    font-weight: 500;
+    background-color: transparent;
+    color: hsl(var(--foreground));
+  }
+
+  .catalog-filter-option:hover {
+    background-color: hsl(var(--accent));
+  }
+
+  .catalog-filter-option-active {
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+
+  .catalog-toolbar {
+    @apply mb-6 flex flex-col gap-4 md:mb-8 md:flex-row md:items-center md:justify-between;
+  }
+
+  .catalog-empty {
+    @apply rounded-2xl border border-dashed px-6 py-12 text-center;
+    background-color: hsl(var(--card));
+    color: hsl(var(--card-foreground));
+    border-color: hsl(var(--border));
+  }
+
+  .catalog-meta {
+    font-size: var(--font-body-s);
+    line-height: var(--line-body-s);
+    color: hsl(var(--muted-foreground));
   }
 }
 

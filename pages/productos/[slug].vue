@@ -11,7 +11,7 @@ const route = useRoute();
 const slug = computed(() => String(route.params.slug || "").trim());
 
 // ✅ tus shells (consistentes con el resto)
-const containerClass = "page-shell";
+const containerClass = "container-wide";
 const contentNarrowClass = "mx-auto w-full max-w-[880px]";
 
 // ✅ fetch server-side del producto
@@ -118,7 +118,7 @@ const breadcrumbItems = computed(() => {
 
       <!-- CTA final -->
       <section class="bg-brand-dark py-16 text-center text-brand-ink-light">
-        <div class="page-shell">
+        <div class="container-wide">
           <h2>¿Tienes un proyecto especial?</h2>
           <p class="mx-auto mt-4 max-w-xl text-brand-ink-light/80">
             Si no encuentras lo que buscas en los detalles, contáctanos directamente y lo

@@ -19,7 +19,7 @@ import LocationMapSection from "@/components/marketing/LocationMapSection.vue";
 
     <ContactInfoBand
   section-class="bg-brand-dark text-brand-ink-light py-20"
-  container-class="page-shell"
+  container-class="container-wide"
 />
     <LocationMapSection :show-meta="false" :show-floating-cta="false" />
   </main>

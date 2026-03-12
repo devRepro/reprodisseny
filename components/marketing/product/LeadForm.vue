@@ -1,4 +1,5 @@
 <script setup lang="ts">
+
 import { computed, ref, watch } from "vue";
 import { useForm } from "vee-validate";
 import { z } from "zod";
@@ -190,14 +191,9 @@ const dynamicSchema = computed(() => {
         .min(1, "La cantidad mínima es 1")
     ),
     comentario: z.preprocess(
-      emptyToUndefined,
-      z
-        .string({
-          required_error: "La descripción es obligatoria",
-          invalid_type_error: "La descripción es obligatoria",
-        })
-        .min(1, "La descripción es obligatoria")
-    ),
+  emptyToUndefined,
+  z.string().max(4000, "La descripción no puede superar los 4000 caracteres").optional()
+),
     privacy: z.literal(true, {
       errorMap: () => ({
         message: "Debes leer y aceptar la política de privacidad",
@@ -303,26 +299,35 @@ const onSubmit = form.handleSubmit(
       url: route.fullPath,
     };
 
-    await sendPriceRequest({
-      website: null,
-      name: values.nombre,
-      email: values.email,
-      phone: values.telefono || null,
-      company: values.empresa || null,
-      message: String(values.comentario || "").trim(),
-      categorySlug: props.categorySlug,
-      product: productPayload,
-      extras,
-      consent: values.privacy === true,
-      sourceUrl: process.client ? window.location.href : route.fullPath,
-      utm: route.query as any,
-      initialStatus: "Nova",
-    });
+    await sendPriceRequest(
+      {
+        website: null,
+        name: values.nombre,
+        email: values.email,
+        phone: values.telefono || null,
+        company: values.empresa || null,
+        message:
+          typeof values.comentario === "string" && values.comentario.trim()
+            ? values.comentario.trim()
+            : null,
+        categorySlug: props.categorySlug,
+        product: productPayload,
+        extras,
+        consent: values.privacy === true,
+        sourceUrl: process.client ? window.location.href : route.fullPath,
+        utm: route.query as any,
+        initialStatus: "Nova",
+      },
+      {
+        file: fileRef.value ?? null,
+        fileKind: "design",
+      }
+    );
 
     if (success.value) {
-  emit("success");
-  return;
-}
+      emit("success");
+      return;
+    }
   },
   ({ errors }) => {
     focusFirstInvalidField(errors as Record<string, string>);

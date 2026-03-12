@@ -19,7 +19,7 @@ const homeCategories = computed(() => homeCategoriesData.value ?? []);
     <QuoteHero />
     <!-- ✅ padding 48px arriba/abajo -->
     <section class="bg-background py-12">
-  <div class="page-shell">
+  <div class="container-wide">
     <div class="mx-auto w-full max-w-[549px]">
       <QuoteFormSection submit-endpoint="/api/price-requests" />
     </div>
@@ -27,7 +27,7 @@ const homeCategories = computed(() => homeCategoriesData.value ?? []);
 </section>
 <ContactInfoBand
   section-class="bg-brand-dark text-brand-ink-light py-20"
-  container-class="page-shell"
+  container-class="container-wide"
 />
 
     <MarketingProductCategoryGrid

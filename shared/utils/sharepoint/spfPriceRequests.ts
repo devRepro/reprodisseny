@@ -22,5 +22,18 @@ export const SPF = {
     RESPONSABLE_ID: "ResponsableLookupId",
   
     COMMENT: "Comentari",
+      REQUEST_KEY: "RequestKey",
+  HAS_ATTACHMENT: "HasAttachment",
+  PRIMARY_FILE_DRIVE_ITEM_ID: "PrimaryFileDriveItemId",
+  PRIMARY_FILE_WEB_URL: "PrimaryFileWebUrl",
+  PRIMARY_FILE_NAME: "PrimaryFileName",
+  PRIMARY_FILE_MIME_TYPE: "PrimaryFileMimeType",
+  PRIMARY_FILE_SIZE: "PrimaryFileSize",
+
+  CONSENT: "Consent",
+  CATEGORY_SLUG: "CategorySlug",
+  PRODUCT_SLUG: "ProductSlug",
+  UTM_JSON: "UtmJson",
+  SOURCE_URL: "SourceUrl",
   } as const
   
