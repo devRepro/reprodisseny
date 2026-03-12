@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import { watchEffect } from "vue";
-import { useProductsCatalog } from "@/composables/useProductsCatalog";
+import { computed } from "vue";
+import { useSeoMeta, useHead, useRoute, useRouter, useAsyncData } from "#imports";
 
-import SectionStack from "@/components/layout/SectionStack.vue";
 import PageContainer from "@/components/layout/PageContainer.vue";
 import ProductsPageHero from "@/components/marketing/product/PageHero.vue";
 import ProductsCategoryRail from "@/components/marketing/product/CategoryRail.vue";
@@ -12,114 +11,265 @@ import ProductsResultsGrid from "@/components/marketing/product/ResultsGrid.vue"
 import ProductsEmptyState from "@/components/marketing/product/EmptyState.vue";
 import ProductsHelpCta from "@/components/marketing/product/HelpCta.vue";
 
-function extractProducts(payload: any) {
-  if (Array.isArray(payload)) return payload;
-  if (Array.isArray(payload?.products)) return payload.products;
-  if (Array.isArray(payload?.items)) return payload.items;
-  if (Array.isArray(payload?.data?.products)) return payload.data.products;
-  if (Array.isArray(payload?.data?.items)) return payload.data.items;
-  return [];
-}
+const route = useRoute();
+const router = useRouter();
 
-const {
-  products,
-  categories,
-  query,
-  selectedCategory,
-  sort,
-  filteredProducts,
-  totalProducts,
-  setProducts,
-  clearFilters,
-} = useProductsCatalog();
+const perPage = 12;
 
-const { data, pending, error } = await useAsyncData(
-  "products-catalog",
+const page = computed(() => {
+  const raw = Number(route.query.page || 1);
+  return Number.isFinite(raw) && raw > 0 ? Math.floor(raw) : 1;
+});
+
+const q = computed(() => (typeof route.query.q === "string" ? route.query.q.trim() : ""));
+
+const sort = computed(() =>
+  typeof route.query.sort === "string" && route.query.sort
+    ? route.query.sort
+    : "relevance"
+);
+
+const category = computed(() =>
+  typeof route.params.category === "string" ? route.params.category : ""
+);
+
+const basePath = computed(() =>
+  category.value ? `/catalogo/${category.value}` : "/catalogo"
+);
+
+const catalogKey = computed(() =>
+  [
+    "products-catalog",
+    category.value || "all",
+    page.value,
+    q.value || "",
+    sort.value || "relevance",
+  ].join(":")
+);
+
+const { data, pending, error, refresh } = await useAsyncData(
+  () => catalogKey.value,
   () =>
     $fetch("/api/cms/catalog", {
       query: {
         mode: "catalog",
-        includeProducts: 1,
-        productLimit: 500,
-        refresh: 1,
+        page: page.value,
+        perPage,
+        category: category.value || undefined,
+        q: q.value || undefined,
+        sort: sort.value,
       },
     })
 );
 
-watchEffect(() => {
-  const items = extractProducts(data.value);
-  setProducts(items);
+const items = computed(() => data.value?.items || []);
+const total = computed(() => data.value?.total || 0);
+const totalPages = computed(() => data.value?.totalPages || 1);
+const categories = computed(() => data.value?.categories || []);
+
+const canonical = computed(() => {
+  const base = `https://reprodisseny.com${basePath.value}`;
+  return page.value > 1 ? `${base}?page=${page.value}` : base;
 });
 
-watchEffect(() => {
-  console.log(
-    "[CATALOG] products snapshot",
-    products.value.map((p, i) => ({
-      i,
-      ok: !!p,
-      slug: p?.slug,
-      title: p?.title,
-    }))
-  );
+const shouldNoindex = computed(() => {
+  return Boolean(q.value) || sort.value !== "relevance";
 });
+
+useSeoMeta({
+  title: () => {
+    const categoryLabel = category.value
+      ? `Catálogo ${category.value} | Reprodisseny`
+      : "Catálogo de Productos | Reprodisseny";
+
+    return page.value > 1 ? `${categoryLabel} · Página ${page.value}` : categoryLabel;
+  },
+  description:
+    "Encuentra el soporte o formato que necesitas: adhesivos, gran formato, expositores y más. Solicita presupuesto online.",
+  ogTitle: () => {
+    const categoryLabel = category.value
+      ? `Catálogo ${category.value} | Reprodisseny`
+      : "Catálogo de Productos | Reprodisseny";
+
+    return page.value > 1 ? `${categoryLabel} · Página ${page.value}` : categoryLabel;
+  },
+  ogDescription: "Soluciones de impresión profesional para empresas y eventos.",
+  robots: () => (shouldNoindex.value ? "noindex,follow" : "index,follow"),
+});
+
+useHead(() => ({
+  link: [{ rel: "canonical", href: canonical.value }],
+}));
+
+function updateQuery(nextQuery: string) {
+  router.replace({
+    path: basePath.value,
+    query: {
+      ...route.query,
+      q: nextQuery?.trim() || undefined,
+      page: undefined,
+    },
+  });
+}
+
+function updateSort(nextSort: string) {
+  router.replace({
+    path: basePath.value,
+    query: {
+      ...route.query,
+      sort: nextSort && nextSort !== "relevance" ? nextSort : undefined,
+      page: undefined,
+    },
+  });
+}
+
+function updateCategory(nextCategory: string) {
+  router.push({
+    path: nextCategory ? `/catalogo/${nextCategory}` : "/catalogo",
+    query: {
+      q: q.value || undefined,
+      sort: sort.value !== "relevance" ? sort.value : undefined,
+    },
+  });
+}
+
+function clearFilters() {
+  router.push({ path: "/catalogo" });
+}
 </script>
 
 <template>
-  <main>
-    <SectionStack gap="normal">
-      <ProductsPageHero
-        v-model:query="query"
-        :total="filteredProducts.length"
-      />
+  <main class="min-h-screen bg-white">
+    <ProductsPageHero
+      :query="q"
+      :total="total"
+      :category-name="category"
+      @update:query="updateQuery"
+    />
 
+    <nav
+      aria-label="Categorías principales"
+      class="sticky top-0 z-30 border-b bg-white/80 backdrop-blur-md"
+    >
       <ProductsCategoryRail
         :categories="categories"
-        :selected-category="selectedCategory"
-        @select-category="selectedCategory = $event"
+        :selected-category="category"
+        @select-category="updateCategory"
       />
+    </nav>
 
-      <PageContainer>
-        <section class="py-8">
-          <div v-if="pending" class="text-sm text-muted-foreground">
-            Cargando productos…
+    <PageContainer>
+      <section class="py-8 lg:py-12">
+        <div
+          v-if="pending"
+          class="flex min-h-[400px] flex-col items-center justify-center py-24"
+        >
+          <div
+            class="h-12 w-12 animate-spin rounded-full border-4 border-primary/20 border-t-primary"
+          />
+          <p class="mt-4 font-medium text-muted-foreground">Actualizando catálogo...</p>
+        </div>
+
+        <div v-else-if="error" class="mx-auto max-w-md py-20 text-center">
+          <div class="mb-4 text-destructive">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="mx-auto h-12 w-12"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+              />
+            </svg>
           </div>
 
-          <div v-else-if="error" class="text-sm text-destructive">
-            No se ha podido cargar el catálogo.
-          </div>
+          <h2 class="text-xl font-bold text-slate-900">
+            No pudimos cargar los productos
+          </h2>
 
-          <div v-else class="grid gap-8 lg:grid-cols-[280px_minmax(0,1fr)]">
-            <aside class="hidden lg:block">
+          <p class="mt-2 mb-6 text-slate-500">
+            Hubo un problema de conexión con el servidor.
+          </p>
+
+          <button
+            @click="refresh()"
+            class="rounded-lg bg-primary px-6 py-2 text-white shadow-sm transition-all hover:bg-primary/90"
+          >
+            Reintentar ahora
+          </button>
+        </div>
+
+        <div v-else class="grid gap-10 lg:grid-cols-[260px_1fr]">
+          <aside class="hidden lg:block">
+            <div
+              class="custom-scrollbar sticky top-28 max-h-[calc(100vh-140px)] overflow-y-auto pr-4"
+            >
+              <h3 class="mb-6 text-sm font-bold uppercase tracking-wider text-slate-400">
+                Filtrar por
+              </h3>
+
               <ProductsFiltersPanel
-                v-model:selected-category="selectedCategory"
+                :selected-category="category"
                 :categories="categories"
-                @clear="clearFilters"
-              />
-            </aside>
-
-            <div class="min-w-0">
-              <ProductsToolbar
-                v-model:query="query"
-                v-model:sort="sort"
-                :results-count="filteredProducts.length"
-                :total-count="totalProducts"
-              />
-
-              <ProductsResultsGrid
-                v-if="filteredProducts.length"
-                :products="filteredProducts"
-              />
-
-              <ProductsEmptyState
-                v-else
+                @update:selected-category="updateCategory"
                 @clear="clearFilters"
               />
             </div>
-          </div>
-        </section>
-      </PageContainer>
+          </aside>
 
-      <ProductsHelpCta />
-    </SectionStack>
+          <div
+            class="flex flex-col gap-6"
+            role="region"
+            aria-label="Resultados del catálogo"
+          >
+            <ProductsToolbar
+              :query="q"
+              :sort="sort"
+              :results-count="items.length"
+              :total-count="total"
+              @update:query="updateQuery"
+              @update:sort="updateSort"
+            />
+
+            <div class="min-h-[600px]">
+              <ProductsResultsGrid
+                v-if="items.length"
+                :products="items"
+                :page="page"
+                :total-pages="totalPages"
+                :total="total"
+                :base-path="basePath"
+                class="animate-in fade-in duration-700"
+              />
+
+              <ProductsEmptyState v-else @clear="clearFilters" />
+            </div>
+          </div>
+        </div>
+      </section>
+    </PageContainer>
+
+    <ProductsHelpCta class="mt-12" />
   </main>
 </template>
+
+<style scoped>
+.custom-scrollbar::-webkit-scrollbar {
+  width: 5px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #f1f5f9;
+  border-radius: 10px;
+}
+.custom-scrollbar:hover::-webkit-scrollbar-thumb {
+  background: #e2e8f0;
+}
+</style>
