@@ -1,11 +1,13 @@
 import { computed, ref } from "vue";
-import type { Product } from "@/types/product";
+import type { ProductListItem } from "@/types/product";
 
-export function useProductsCatalog() {
-  const products = ref<Product[]>([]); // aquí cargas tus datos reales
+type SortOption = "featured" | "az" | "za";
+
+export function useProductsCatalog(initialProducts: ProductListItem[] = []) {
+  const products = ref<ProductListItem[]>(initialProducts);
   const query = ref("");
   const selectedCategory = ref<string | null>(null);
-  const sort = ref("featured");
+  const sort = ref<SortOption>("featured");
 
   const categories = computed(() => {
     const map = new Map<string, { label: string; slug: string }>();
@@ -21,7 +23,7 @@ export function useProductsCatalog() {
       }
     }
 
-    return [...map.values()];
+    return [...map.values()].sort((a, b) => a.label.localeCompare(b.label));
   });
 
   const filteredProducts = computed(() => {
@@ -39,9 +41,10 @@ export function useProductsCatalog() {
       result = result.filter((product) =>
         [
           product.title,
-          product.shortDescription,
+          product.description,
           product.categorySlug,
           ...(product.categories || []),
+          ...(product.searchTerms || []),
         ]
           .filter(Boolean)
           .join(" ")
@@ -52,16 +55,30 @@ export function useProductsCatalog() {
 
     if (sort.value === "az") {
       result.sort((a, b) => a.title.localeCompare(b.title));
-    }
-
-    if (sort.value === "za") {
+    } else if (sort.value === "za") {
       result.sort((a, b) => b.title.localeCompare(a.title));
+    } else if (sort.value === "featured") {
+      result.sort((a, b) => {
+        const featuredDiff = Number(Boolean(b.featured)) - Number(Boolean(a.featured));
+        if (featuredDiff !== 0) return featuredDiff;
+
+        const orderA = typeof a.order === "number" ? a.order : 999999;
+        const orderB = typeof b.order === "number" ? b.order : 999999;
+
+        if (orderA !== orderB) return orderA - orderB;
+
+        return a.title.localeCompare(b.title);
+      });
     }
 
     return result;
   });
 
   const totalProducts = computed(() => products.value.length);
+
+  function setProducts(items: ProductListItem[]) {
+    products.value = Array.isArray(items) ? items : [];
+  }
 
   function clearFilters() {
     query.value = "";
@@ -77,12 +94,19 @@ export function useProductsCatalog() {
     sort,
     filteredProducts,
     totalProducts,
+    setProducts,
     clearFilters,
   };
 }
 
-function getProductCategories(product: Product): string[] {
-  return [...new Set([product.categorySlug, ...(product.categories || [])].filter(Boolean))] as string[];
+function getProductCategories(product: ProductListItem): string[] {
+  return [
+    ...new Set(
+      [product.categorySlug, ...(product.categories || [])]
+        .map((v) => String(v || "").trim().toLowerCase())
+        .filter(Boolean)
+    ),
+  ];
 }
 
 function slugToLabel(slug: string) {

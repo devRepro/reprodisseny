@@ -1,5 +1,17 @@
+export interface ProductFormField {
+  name: string
+  label: string
+  type: "text" | "email" | "tel" | "number" | "select" | "textarea" | "checkbox" | "file"
+  required?: boolean
+  placeholder?: string
+  options?: Array<{
+    label: string
+    value: string
+  }>
+}
+
 export interface ProductFrontmatter {
-  type: 'producto'
+  type: "producto"
   title: string
   description?: string
   image?: string
@@ -15,7 +27,7 @@ export interface ProductFrontmatter {
   inStock?: boolean
 
   price?: number
-  priceCurrency?: 'EUR'
+  priceCurrency?: "EUR"
 
   galleryImages?: string[]
   ratingValue?: number
@@ -31,22 +43,10 @@ export interface ProductFrontmatter {
   tags?: string[]
   applications?: string[]
   materials?: string[]
-  locationTypes?: Array<'interior' | 'exterior'>
+  locationTypes?: Array<"interior" | "exterior">
 
   formFields?: ProductFormField[]
   schema?: Record<string, unknown>
-}
-
-export interface ProductFormField {
-  name: string
-  label: string
-  type: 'text' | 'email' | 'tel' | 'number' | 'select' | 'textarea' | 'checkbox' | 'file'
-  required?: boolean
-  placeholder?: string
-  options?: Array<{
-    label: string
-    value: string
-  }>
 }
 
 export interface ProductListItem {
@@ -67,6 +67,8 @@ export interface ProductListItem {
 
   searchTerms?: string[]
 }
+
+export type Product = ProductListItem
 
 export interface ProductsPayload {
   items: ProductListItem[]

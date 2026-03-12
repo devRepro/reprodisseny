@@ -1,3 +1,8 @@
+<script setup lang="ts">
+import CtaSection from "@/components/marketing/CtaSection.vue";
+
+</script>
+
 <template>
   <CtaSection
     title="¿No sabes qué producto encaja mejor?"

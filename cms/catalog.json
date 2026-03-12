@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-06T11:42:54.026Z",
+  "generatedAt": "2026-03-12T14:35:19.365Z",
   "categories": [
     {
       "id": "10",
@@ -3107,50 +3107,6 @@
       }
     },
     {
-      "id": "113",
-      "type": "producto",
-      "slug": "imanes-personalizados",
-      "path": "/productos/imanes-personalizados",
-      "title": "Imanes personalizados",
-      "categorySlug": "material-flexible",
-      "isPublished": true,
-      "shortDescription": "Los imanes personalizados son un soporte publicitario muy efectivo porque se quedan en un sitio visible durante mucho tiempo: neveras, archivadores metálicos, taquillas o paneles. En Repro Disseny producimos imanes a medida con impresión a color y corte a la forma, ideales para campañas, recordatorios, fidelización o branding en punto de venta.",
-      "bodyMd": "##Detalles \n\n¿Qué es un imán personalizado y para qué se usa? \n\nUn imán personalizado es una pieza impresa con base magnética que se adhiere a superficies metálicas sin adhesivos. Se utiliza como soporte de marca y recordatorio (teléfono, web, servicios), como elemento promocional (calendarios, cupones, campañas) o como material funcional para organización interna (etiquetas magnéticas, señalización temporal). \n\n##Beneficios \n\nAlta permanencia: no se tira fácilmente; se mantiene visible semanas o meses. \n\nPublicidad útil: funciona como recordatorio práctico (teléfono, cita, horario, QR). \n\nFácil de repartir: ligero y económico para campañas masivas. \n\nSin pegamentos: se pone y se quita sin dejar residuo en superficies metálicas. \n\nPersonalización total: tamaños, formas, mensajes por campaña o por zona. \n\n##Aplicaciones \n\nImanes de nevera: talleres, clínicas, seguros, restauración (teléfono a mano). \n\nPromociones y fidelización: campañas con QR, códigos, descuentos o sorteos. \n\nCalendarios magnéticos: marca presente todo el año en casa u oficina. \n\nOrganización interna: etiquetas magnéticas para almacén, paneles o planificación. \n\nSeñalización temporal en retail: mensajes que cambian sin adhesivos (en mobiliario metálico). \n\n##Características técnicas \n\nFormatos y corte \n\nFormatos estándar (rectangular/cuadrado/redondo) o corte a medida con la forma que necesites (logo, icono, silueta de producto). \n\nPosibilidad de series con distintas formas/tamaños en una misma campaña. \n\nImpresión \n\nImpresión a color con buena definición para logos, tipografías e imágenes. \n\nRecomendación práctica: mensajes cortos y claros (un imán se consulta “de un vistazo”). \n\nGrosor y uso \n\nDiferentes opciones de grosor según tamaño, rigidez y uso (promocional vs. más funcional). \n\nElección en función de dónde se colocará y cuánto quieres que dure. \n\nAcabados \n\nAcabado mate (menos reflejos) o brillo (más vivo) según el estilo. \n\nProtección extra si el imán va a manipularse mucho (por ejemplo, uso diario). \n\nPersonalización por campañas \n\nVariantes por zona, idioma, franquicia o promoción (misma base de diseño con cambios de datos). \n\nIntegración de QR para reservas, contacto, catálogo, reseñas o landing de campaña.",
-      "image": {
-        "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/imanes.webp",
-        "width": 1200,
-        "height": 1200,
-        "alt": "Imanes"
-      },
-      "galleryImages": [],
-      "brand": "Repro Disseny",
-      "price": 0,
-      "priceCurrency": "EUR",
-      "inStock": false,
-      "attributes": [],
-      "variants": [],
-      "formFields": [],
-      "seo": {
-        "metaTitle": "Imanes personalizados | Publicidad práctica para empresas y campañas",
-        "metaDescription": "Imanes personalizados para publicidad y organización: imanes de nevera, imanes con forma, calendarios e imanes para vehículos. Impresión a color y corte a medida. Solicita presupuesto.",
-        "canonical": "https://reprodisseny.com/productos/imanes-personalizados",
-        "hreflang": [],
-        "keywords": [],
-        "schema": {
-          "@context": "https://schema.org",
-          "@type": "Product",
-          "name": "Imanes personalizados",
-          "description": "Los imanes personalizados son un soporte publicitario muy efectivo porque se quedan en un sitio visible durante mucho tiempo: neveras, archivadores metálicos, taquillas o paneles. En Repro Disseny producimos imanes a medida con impresión a color y corte a la forma, ideales para campañas, recordatorios, fidelización o branding en punto de venta.",
-          "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/imanes.webp",
-          "url": "https://reprodisseny.com/productos/imanes-personalizados",
-          "brand": {
-            "@type": "Organization",
-            "name": "Repro Disseny"
-          }
-        }
-      }
-    },
-    {
       "id": "114",
       "type": "producto",
       "slug": "vinilos-pared-superficies-planas",
@@ -4127,6 +4083,8 @@
       "title": "Caja estándar",
       "categorySlug": "packaging",
       "isPublished": true,
+      "shortDescription": "La caja estándar es la solución más práctica para packaging corporativo: protege el contenido, ordena la entrega y refuerza tu marca desde el primer momento. En Repro Disseny fabricamos cajas estándar personalizadas para empresas y oficinas, ideales para welcome packs, envíos a clientes, kits de formación o packs internos, con opciones de impresión y acabados según el uso.",
+      "bodyMd": "##Detalles\n¿Qué es una caja estándar y para qué se usa?\nUna caja estándar es una caja de medidas habituales (o adaptada a medidas “tipo”) pensada para contener y proteger productos o documentación. En entorno corporativo se utiliza para presentar materiales con una imagen cuidada: kits de bienvenida, envíos de marca, packs de eventos, documentación premium o regalos de empresa. La clave es que sea funcional, fácil de montar y con una estética alineada con la identidad de la compañía.\n\n##Beneficios\n•\tImagen de marca inmediata: la caja es lo primero que se ve al recibir el pack.\n•\tProtección y orden: mantiene el contenido seguro y bien presentado.\n•\tVersátil para muchos usos: desde documentación hasta packs con varios elementos.\n•\tPersonalización completa: exterior, interior, mensajes y elementos de campaña.\n•\tEscalable: ideal para series (onboarding, campañas trimestrales, envíos a sedes).\n\n##Aplicaciones\n•\tWelcome pack corporativo: libreta, bolígrafo, credencial, guía de bienvenida, merchandising.\n•\tKits de formación: documentación, manuales, materiales y acreditaciones.\n•\tEnvíos a clientes y partners: propuestas premium, regalos corporativos, muestras.\n•\tKits para eventos: packs para asistentes, ponentes o prensa.\n•\tComunicación interna: packs por departamento o por sedes (campañas, cambios de marca).\n\n##Características técnicas\nFormatos y medidas\n•\tMedidas estándar o adaptación a medida según el contenido (para evitar “aire” y mejorar presentación).\n•\tDiseño pensado para montaje rápido y cierre seguro.\nMaterial\n•\tCartón resistente adecuado para protección y transporte (según peso y tipo de envío).\n•\tOpciones más rígidas si buscas una caja con presencia “premium” para regalo.\nImpresión y personalización\n•\tImpresión a color en exterior (logo, diseño corporativo, campaña).\n•\tOpción de impresión interior (mensaje de bienvenida, patrones, instrucciones, QR).\n•\tPosibilidad de series por sede/departamento o campañas (cambios de texto/fechas).\nAcabados opcionales\n•\tLaminado mate o brillo para mejorar presencia y resistencia al roce.\n•\tDetalles premium (según proyecto): barniz selectivo, stamping en logo, etc.\n•\tPosibilidad de añadir pegatinas/cierres si quieres un cierre de campaña (precinto de marca).\nExtras para mejorar la experiencia\n•\tSeparadores o interiores (si el pack incluye varios elementos).\n•\tTarjeta de bienvenida, folleto o guía dentro del pack.\n•\tQR a landing de onboarding, vídeo, catálogo o instrucciones.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/packaging/caja estandar.webp",
         "width": 1200,
@@ -4142,7 +4100,8 @@
       "variants": [],
       "formFields": [],
       "seo": {
-        "metaTitle": "Caja estándar",
+        "metaTitle": "Caja estándar personalizada | Packaging corporativo para empresas y oficinas",
+        "metaDescription": "Caja estándar personalizada para packaging corporativo: envíos, kits de bienvenida y documentación. Medidas estándar o a medida, impresión exterior/interior y acabados. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/caja-estandar",
         "hreflang": [
           {
@@ -4155,6 +4114,7 @@
           "@context": "https://schema.org",
           "@type": "Product",
           "name": "Caja estándar",
+          "description": "La caja estándar es la solución más práctica para packaging corporativo: protege el contenido, ordena la entrega y refuerza tu marca desde el primer momento. En Repro Disseny fabricamos cajas estándar personalizadas para empresas y oficinas, ideales para welcome packs, envíos a clientes, kits de formación o packs internos, con opciones de impresión y acabados según el uso.",
           "image": "https://webcms.blob.core.windows.net/media/product/packaging/caja estandar.webp",
           "url": "https://reprodisseny.com/productos/caja-estandar",
           "brand": {
@@ -4167,16 +4127,18 @@
     {
       "id": "136",
       "type": "producto",
-      "slug": "caja-pastel",
-      "path": "/productos/caja-pastel",
-      "title": "Caja pastel",
+      "slug": "caja-mini-dulces-automontable",
+      "path": "/productos/caja-mini-dulces-automontable",
+      "title": "Caja dulces mini",
       "categorySlug": "packaging",
       "isPublished": true,
+      "shortDescription": "Esta caja mini automontable (tipo cajas de pastelería con solapas, pero en formato pequeño) es ideal para presentar caramelos, bombones, barritas de turrón y detalles gourmet con un acabado cuidado. En Repro Disseny fabricamos cajas personalizadas para campañas corporativas, eventos y regalos de empresa, con impresión y acabados a medida.",
+      "bodyMd": "##Detalles\n¿Qué es esta caja y para qué se usa?\nEs una caja troquelada de una sola pieza que se entrega plana y se monta en segundos mediante solapas, sin necesidad de adhesivos (según diseño). Se usa para packaging de detalles dulces en entornos corporativos: packs de bienvenida, regalos a clientes, campañas de Navidad, eventos, kits para oficinas o envíos a partners.\n\n##Beneficios\n•\tPresentación premium en pequeño formato: convierte un detalle sencillo en un regalo de marca.\n•\tAutomontable: montaje rápido para equipos y logística (se envía plana).\n•\tPersonalizable 360º: diseño exterior (y opción interior) con tu identidad y mensaje de campaña.\n•\tVersátil: válida para caramelos, bombones, turrón mini o surtidos.\n•\tOpción más sostenible: al ser de cartón, es reciclable (y podemos priorizar acabados compatibles).\n##Aplicaciones\n•\tRegalos corporativos: detalles para clientes, partners o equipo.\n•\tCampañas de Navidad: barritas de turrón, bombones o surtidos de temporada.\n•\tWelcome packs: un “detalle dulce” dentro de un pack de onboarding.\n•\tEventos y ferias: obsequio para asistentes, ponentes o prensa.\n•\tPromociones en oficina/retail: sampling, acciones de marca y campañas de fidelización.\n##Características técnicas\nFormato y estructura\n•\tCaja tipo pastelería mini con solapas de cierre, automontable.\n•\tDiseño pensado para presentación y cierre seguro del contenido.\nMedidas\n•\tTamaños estándar o a medida según el producto (caramelo, bombón, mini turrón, surtidos).\nMaterial\n•\tCartoncillo/cartón adecuado para packaging ligero.\n•\tSi el contenido va a estar en contacto directo con alimento, se puede valorar material apto para uso alimentario según necesidad del proyecto.\nImpresión y personalización\n•\tImpresión a color exterior (logo, claim, campaña).\n•\tOpción de impresión interior (mensaje sorpresa, “gracias”, QR a landing, etc.).\n•\tPosibilidad de series por sede/departamento o por campaña.\nAcabados opcionales\n•\tLaminado mate (muy corporativo) o brillo para elevar presencia y resistencia al roce.\n•\tDetalles premium (según proyecto): barniz selectivo o stamping para campañas especiales.\n•\tVentana troquelada (opcional) si quieres que se vea el producto (según diseño y viabilidad).\nExtras\n•\tPosibilidad de incorporar separadores o adaptaciones interiores si necesitas que el contenido quede más fijo (según formato).",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/packaging/caja pastel.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Caja pastel"
+        "alt": "Caja dulces mini"
       },
       "galleryImages": [],
       "brand": "Repro Disseny",
@@ -4187,21 +4149,23 @@
       "variants": [],
       "formFields": [],
       "seo": {
-        "metaTitle": "Caja pastel",
-        "canonical": "https://reprodisseny.com/productos/caja-pastel",
+        "metaTitle": "Caja mini para dulces personalizada | Automontable tipo pastelería",
+        "metaDescription": "Caja mini automontable tipo pastelería para caramelos, bombones o barritas de turrón. Personalizada con tu marca, fácil de montar y perfecta para packs corporativos. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/caja-mini-dulces-automontable",
         "hreflang": [
           {
             "lang": "es-ES",
-            "url": "https://reprodisseny.com/productos/caja-pastel"
+            "url": "https://reprodisseny.com/productos/caja-mini-dulces-automontable"
           }
         ],
         "keywords": [],
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Caja pastel",
+          "name": "Caja dulces mini",
+          "description": "Esta caja mini automontable (tipo cajas de pastelería con solapas, pero en formato pequeño) es ideal para presentar caramelos, bombones, barritas de turrón y detalles gourmet con un acabado cuidado. En Repro Disseny fabricamos cajas personalizadas para campañas corporativas, eventos y regalos de empresa, con impresión y acabados a medida.",
           "image": "https://webcms.blob.core.windows.net/media/product/packaging/caja pastel.webp",
-          "url": "https://reprodisseny.com/productos/caja-pastel",
+          "url": "https://reprodisseny.com/productos/caja-mini-dulces-automontable",
           "brand": {
             "@type": "Organization",
             "name": "Repro Disseny"
@@ -4212,16 +4176,18 @@
     {
       "id": "137",
       "type": "producto",
-      "slug": "caja-para-botella",
-      "path": "/productos/caja-para-botella",
-      "title": "Caja para botella",
+      "slug": "caja-porta-botella",
+      "path": "/productos/caja-porta-botella",
+      "title": "Caja porta botella",
       "categorySlug": "packaging",
       "isPublished": true,
+      "shortDescription": "La caja porta botellas es un clásico del packaging corporativo cuando quieres regalar o enviar una botella con una presentación cuidada y segura. En Repro Disseny fabricamos cajas para botellas personalizadas para empresas y oficinas, pensadas para proteger, transportar y reforzar marca en regalos corporativos, packs de Navidad, agradecimientos a clientes o envíos especiales.",
+      "bodyMd": "##Detalles\n¿Qué es una caja porta botellas y para qué se usa?\nUna caja porta botellas es un embalaje diseñado para alojar una botella (vino, cava, aceite gourmet u otras) y mantenerla estable durante el transporte y la entrega. Puede ser de 1 botella o de varias, con separadores interiores y opciones de cierre/asa. Se utiliza como packaging de regalo, presentación premium y envío seguro, especialmente en campañas corporativas y acciones de fidelización.\n\n##Beneficios\n•\tProtección y seguridad: mantiene la botella fija y reduce riesgo de golpes.\n•\tPresentación premium: mejora la percepción del regalo y de tu marca.\n•\tBranding visible: caja personalizada con logo, mensaje y campaña.\n•\tIdeal para campañas: Navidad, cierre de proyecto, packs de agradecimiento.\n•\tVersátil: opciones para 1, 2 o más botellas y posibilidad de incluir otros elementos (tarjeta, folleto, accesorios).\n##Aplicaciones\n•\tRegalos corporativos: clientes, partners, proveedores, equipos.\n•\tCampañas de Navidad: packs de empresa con botella + tarjetón.\n•\tBienvenida o agradecimiento: cierre de proyecto, firma, hitos.\n•\tEventos: obsequios VIP, ponentes, patrocinadores.\n•\tMarcas gourmet: presentación de producto para ventas B2B o muestras.\n##Características técnicas\nCapacidad\n•\tCajas para 1 botella o formatos para 2/3 botellas (según necesidad).\n•\tPosibilidad de incorporar hueco para accesorios (sacacorchos, copa, tarjeta, etc.).\nEstructura\n•\tCaja automontable o con montaje más rígido (según presentación y logística).\n•\tOpciones con asa para transporte cómodo (si se requiere) o formato estuche sin asa para acabado más premium.\nMaterial\n•\tCartón resistente adecuado para soportar el peso y proteger la botella.\n•\tOpciones más “premium” si buscas una caja con mayor presencia (tipo estuche).\nInterior / separadores\n•\tSeparadores internos para evitar movimiento (especialmente en 2 o más botellas).\n•\tPosibilidad de interiores a medida para mejorar presentación y unboxing.\nImpresión y personalización\n•\tImpresión a color con branding y campaña.\n•\tOpción de incluir mensaje interior, QR a landing o tarjeta de bienvenida.\n•\tVariantes por sede/departamento o por campaña (misma caja, mensajes distintos).\nAcabados opcionales\n•\tLaminado mate (muy recomendable) o brillo para mejorar resistencia y presencia.\n•\tSoft touch para un tacto premium.\n•\tBarniz selectivo o stamping para resaltar logo/título (ideal en regalos corporativos).",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/packaging/caja para botella.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Caja para botella"
+        "alt": "Caja porta botella"
       },
       "galleryImages": [],
       "brand": "Repro Disseny",
@@ -4232,21 +4198,23 @@
       "variants": [],
       "formFields": [],
       "seo": {
-        "metaTitle": "Caja para botella",
-        "canonical": "https://reprodisseny.com/productos/caja-para-botella",
+        "metaTitle": "Caja porta botellas personalizada | Packaging corporativo para regalos y envíos",
+        "metaDescription": "Caja porta botellas personalizada para empresa: 1 o varias botellas, con asa o sin asa, cartón resistente y acabados premium. Ideal para regalos corporativos y packs. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/caja-porta-botella",
         "hreflang": [
           {
             "lang": "es-ES",
-            "url": "https://reprodisseny.com/productos/caja-para-botella"
+            "url": "https://reprodisseny.com/productos/caja-porta-botella"
           }
         ],
         "keywords": [],
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Caja para botella",
+          "name": "Caja porta botella",
+          "description": "La caja porta botellas es un clásico del packaging corporativo cuando quieres regalar o enviar una botella con una presentación cuidada y segura. En Repro Disseny fabricamos cajas para botellas personalizadas para empresas y oficinas, pensadas para proteger, transportar y reforzar marca en regalos corporativos, packs de Navidad, agradecimientos a clientes o envíos especiales.",
           "image": "https://webcms.blob.core.windows.net/media/product/packaging/caja para botella.webp",
-          "url": "https://reprodisseny.com/productos/caja-para-botella",
+          "url": "https://reprodisseny.com/productos/caja-porta-botella",
           "brand": {
             "@type": "Organization",
             "name": "Repro Disseny"
@@ -4257,16 +4225,18 @@
     {
       "id": "138",
       "type": "producto",
-      "slug": "caja-cerilla",
-      "path": "/productos/caja-cerilla",
-      "title": "Caja cerilla",
+      "slug": "caja-cerillas",
+      "path": "/productos/caja-cerillas",
+      "title": "Caja cerillas (funda + cajón)",
       "categorySlug": "packaging",
       "isPublished": true,
+      "shortDescription": "La caja cerilla es uno de los formatos más elegantes para packaging corporativo: combina una funda exterior y un cajón deslizante, creando una experiencia de apertura premium. En Repro Disseny fabricamos cajas tipo cerilla personalizadas para empresas y oficinas, ideales para regalos corporativos, welcome packs especiales y envíos a clientes donde la presentación marca la diferencia.",
+      "bodyMd": "##Detalles\n¿Qué es una caja cerilla y para qué se usa?\nUna caja cerilla es un packaging compuesto por dos piezas:\n•\tuna funda (exterior),\n•\ty un cajón (interior) que se extrae deslizando.\nSe utiliza para presentar productos o kits de forma ordenada y con un “unboxing” cuidado. Es perfecta cuando quieres una caja que transmita valor, proteja el contenido y refuerce la marca desde el primer contacto.\n##Beneficios\n•\tPresentación premium: el formato cajón eleva la calidad percibida al instante.\n•\tExperiencia de unboxing: apertura más “ritual” y memorable.\n•\tProtección y orden: ideal para packs con varios elementos o piezas delicadas.\n•\tBranding completo: personalización en funda, cajón e incluso interior.\n•\tPerfecta para ediciones especiales: campañas, regalos VIP, kits de alto valor.\n##Aplicaciones\n•\tRegalos corporativos premium: cierres de proyecto, Navidad, fidelización.\n•\tWelcome packs “VIP”: onboarding directivo o kits especiales para equipo.\n•\tPacks para eventos: ponentes, prensa, patrocinadores, invitados.\n•\tKits de producto: muestras, lanzamientos, presentaciones de marca.\n•\tPackaging de papelería: sets de libreta + bolígrafo + tarjeta + guía.\n##Características técnicas\nEstructura\n•\tFunda exterior + cajón interior deslizante.\n•\tPosibilidad de añadir detalle de extracción (hendidura/agarre) según diseño.\nMedidas\n•\tMedidas estándar o a medida según el contenido (recomendable para que el pack quede compacto y “de lujo”).\nMaterial\n•\tCartón rígido o cartoncillo reforzado (según el nivel de rigidez y el peso del contenido).\n•\tOpción de reforzar interior si el pack debe viajar o soportar manipulación.\nImpresión y personalización\n•\tImpresión a color en funda (marca, patrón, campaña).\n•\tOpción de impresión interior (mensaje de bienvenida, instrucciones, QR).\n•\tPosibilidad de versiones por sede/departamento o ediciones (muy útil en campañas).\nAcabados premium (opcionales)\n•\tLaminado mate (muy recomendable) o brillo.\n•\tSoft touch para tacto premium.\n•\tBarniz selectivo para resaltar logo o detalles.\n•\tStamping (dorado/plata/metalizados) para un acabado de alta gama.\nExtras para mejorar la experiencia\n•\tSeparadores/interiores para organizar elementos (si hay varios productos).\n•\tTarjeta de bienvenida o tarjetón dentro del cajón.\n•\tQR a onboarding, vídeo, catálogo o landing de campaña.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/packaging/caja cerillas.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Caja cerilla"
+        "alt": "Caja cerillas (funda + cajón)"
       },
       "galleryImages": [],
       "brand": "Repro Disseny",
@@ -4277,21 +4247,23 @@
       "variants": [],
       "formFields": [],
       "seo": {
-        "metaTitle": "Caja cerilla",
-        "canonical": "https://reprodisseny.com/productos/caja-cerilla",
+        "metaTitle": "Caja cerilla personalizada | Packaging corporativo premium con cajón",
+        "metaDescription": "Caja cerilla personalizada (funda + cajón) para regalos corporativos y kits. Presentación premium, impresión exterior/interior y opción de acabados (laminado, soft touch, stamping). Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/caja-cerillas",
         "hreflang": [
           {
             "lang": "es-ES",
-            "url": "https://reprodisseny.com/productos/caja-cerilla"
+            "url": "https://reprodisseny.com/productos/caja-cerillas"
           }
         ],
         "keywords": [],
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Caja cerilla",
+          "name": "Caja cerillas (funda + cajón)",
+          "description": "La caja cerilla es uno de los formatos más elegantes para packaging corporativo: combina una funda exterior y un cajón deslizante, creando una experiencia de apertura premium. En Repro Disseny fabricamos cajas tipo cerilla personalizadas para empresas y oficinas, ideales para regalos corporativos, welcome packs especiales y envíos a clientes donde la presentación marca la diferencia.",
           "image": "https://webcms.blob.core.windows.net/media/product/packaging/caja cerillas.webp",
-          "url": "https://reprodisseny.com/productos/caja-cerilla",
+          "url": "https://reprodisseny.com/productos/caja-cerillas",
           "brand": {
             "@type": "Organization",
             "name": "Repro Disseny"
@@ -4302,16 +4274,18 @@
     {
       "id": "139",
       "type": "producto",
-      "slug": "caja-con-cierre-envolvente",
-      "path": "/productos/caja-con-cierre-envolvente",
-      "title": "Caja con cierre envolvente",
+      "slug": "caja-envolvente",
+      "path": "/productos/caja-envolvente",
+      "title": "Caja envolvente",
       "categorySlug": "packaging",
       "isPublished": true,
+      "shortDescription": "La caja envolvente es una opción de packaging corporativo con efecto “wow”: combina una caja base con una envolvente (faja/sleeve) que la abraza y la presenta con un acabado más premium. En Repro Disseny fabricamos cajas envolventes personalizadas para empresas y oficinas, ideales para welcome packs, regalos corporativos y envíos a clientes donde la presentación marca la diferencia.",
+      "bodyMd": "##Detalles\n¿Qué es una caja envolvente y para qué se usa?\nUna caja envolvente es un packaging formado por dos partes: una caja (base o estuche) y una pieza exterior que envuelve la caja (tipo banda/faja). Esta envolvente puede incorporar el diseño de marca, mensajes de campaña o información del contenido. Se utiliza cuando quieres que el pack se perciba más cuidado, con una apertura más “experiencial” y un branding muy visible.\n##Beneficios\n•\tAcabado premium sin complicar la logística: la envolvente eleva la presentación con una pieza adicional muy efectiva.\n•\tBranding muy visible: la faja es un “espacio publicitario” perfecto para logo, claim o campaña.\n•\tIdeal para ediciones por campañas: puedes mantener la caja base y cambiar solo la envolvente (más eficiente).\n•\tExperiencia de unboxing: la apertura genera expectación y refuerza percepción de marca.\n•\tPersonalizable: medidas, cierre, impresión interior/exterior y variantes por sede o destinatario.\n##Aplicaciones\n•\tWelcome packs corporativos: onboarding, kits para nuevas incorporaciones, packs para equipos.\n•\tRegalos a clientes y partners: cierres de proyecto, campañas de fidelización, Navidad.\n•\tKits de formación: documentación + materiales en una presentación cuidada.\n•\tPacks para eventos: asistentes, ponentes, prensa, patrocinadores.\n•\tEnvíos de marca: propuestas premium, muestras o kits de lanzamiento.\n##Características técnicas\nEstructura\n•\tCaja base + envolvente/faja exterior.\n•\tPosibilidad de envolvente con cierre por encaje o sistema sencillo (según diseño).\nMedidas\n•\tMedidas estándar o a medida según el contenido (recomendable para que el pack quede compacto y “premium”).\nMaterial\n•\tCartón resistente para la caja (protección + presencia).\n•\tEnvolvente en cartulina/papel con buen cuerpo para que ajuste bien y mantenga forma.\nImpresión y personalización\n•\tImpresión en la envolvente: logo, mensaje de campaña, identificación del pack.\n•\tOpción de impresión interior (mensaje de bienvenida, instrucciones, QR).\n•\tVariantes por campaña, sede o destinatario (por ejemplo, “Welcome Sales”, “Welcome IT”, etc.).\nAcabados opcionales\n•\tLaminado mate (muy recomendable para look premium y menos reflejos).\n•\tSoft touch para un extra de calidad percibida.\n•\tBarniz selectivo para resaltar logo o titular en la envolvente.\n•\tStamping (dorado/plata) si buscas un acabado de lujo.\nExtras para mejorar la experiencia\n•\tTarjeta de bienvenida dentro del pack.\n•\tSeparadores/interiores si hay varios elementos.\n•\tQR a onboarding, vídeo, guía de uso o landing de campaña.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/packaging/caja con cierre envolvente.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Caja con cierre envolvente"
+        "alt": "Caja envolvente"
       },
       "galleryImages": [],
       "brand": "Repro Disseny",
@@ -4322,21 +4296,23 @@
       "variants": [],
       "formFields": [],
       "seo": {
-        "metaTitle": "Caja con cierre envolvente",
-        "canonical": "https://reprodisseny.com/productos/caja-con-cierre-envolvente",
+        "metaTitle": "Caja envolvente personalizada | Packaging corporativo premium para empresas",
+        "metaDescription": "Caja envolvente personalizada para packs corporativos: estuche con “faja” que envuelve la caja, acabado premium, impresión exterior/interior y opción de cierre. Ideal para welcome packs y regalos. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/caja-envolvente",
         "hreflang": [
           {
             "lang": "es-ES",
-            "url": "https://reprodisseny.com/productos/caja-con-cierre-envolvente"
+            "url": "https://reprodisseny.com/productos/caja-envolvente"
           }
         ],
         "keywords": [],
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Caja con cierre envolvente",
+          "name": "Caja envolvente",
+          "description": "La caja envolvente es una opción de packaging corporativo con efecto “wow”: combina una caja base con una envolvente (faja/sleeve) que la abraza y la presenta con un acabado más premium. En Repro Disseny fabricamos cajas envolventes personalizadas para empresas y oficinas, ideales para welcome packs, regalos corporativos y envíos a clientes donde la presentación marca la diferencia.",
           "image": "https://webcms.blob.core.windows.net/media/product/packaging/caja con cierre envolvente.webp",
-          "url": "https://reprodisseny.com/productos/caja-con-cierre-envolvente",
+          "url": "https://reprodisseny.com/productos/caja-envolvente",
           "brand": {
             "@type": "Organization",
             "name": "Repro Disseny"
@@ -4478,6 +4454,8 @@
       "title": "Caja almohada",
       "categorySlug": "packaging",
       "isPublished": true,
+      "shortDescription": "La caja almohada (pillow box) es una solución de packaging muy versátil para detalles corporativos: ocupa poco, se monta rápido y ofrece una presentación cuidada con un formato diferente. En Repro Disseny fabricamos cajas almohada personalizadas para empresas y oficinas, ideales para regalos, merchandising y packs pequeños con un acabado profesional.",
+      "bodyMd": "##Detalles\n¿Qué es una caja almohada y para qué se usa?\nLa caja almohada es una caja de cartulina con forma curva en los laterales (tipo “almohada”), normalmente automontable mediante solapas. Se utiliza para presentar productos pequeños de forma atractiva: welcome kits, detalles de marca, regalos corporativos, packs promocionales o elementos de papelería/merchandising.\n\n##Beneficios\n•\tPresentación diferente y atractiva: destaca frente a cajas convencionales.\n•\tAutomontable: se monta rápido y facilita la logística en packs y campañas.\n•\tLigera y fácil de almacenar: se entrega plana y ocupa poco espacio.\n•\tPersonalizable: branding, mensajes de campaña, QR, ediciones por evento o departamento.\n•\tIdeal para detalles: perfecta para regalos corporativos de pequeño formato.\n##Aplicaciones\n•\tRegalos corporativos: detalles para clientes, partners o equipo.\n•\tWelcome packs: kits de onboarding con pequeños elementos (merchandising, tarjeta, etc.).\n•\tEventos y ferias: obsequios para asistentes, ponentes o prensa.\n•\tRetail y promociones: packaging para producto pequeño o ediciones limitadas.\n•\tPapelería y oficina: packs de tarjetas, pin, USB, kit de escritura, etc.\n##Características técnicas\nMedidas y formato\n•\tTamaños estándar o a medida según el contenido.\n•\tAjuste recomendado: cuanto más “justo” quede el contenido, más premium se percibe el packaging.\nMaterial\n•\tCartulinas con buen cuerpo para mantener forma y dar sensación de calidad.\n•\tOpciones con enfoque más sostenible (papeles/cartulinas recicladas) si lo requiere la marca.\nImpresión\n•\tImpresión a color con posibilidad de:\no\tbranding exterior (logo, pattern, campaña),\no\tmensaje o sorpresa interior (si se desea),\no\tQR a landing, catálogo, onboarding o promoción.\nCierre\n•\tCierre por solapas curvadas (característico del modelo).\n•\tPosibilidad de añadir etiqueta/precinto de marca si buscas un cierre más “sellado” o de campaña.\nAcabados opcionales\n•\tLaminado mate o brillo para mejorar resistencia al roce y calidad percibida.\n•\tSoft touch para un acabado más premium.\n•\tBarniz selectivo o detalles especiales para resaltar logo/titular (según diseño).",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/packaging/caja almohada.webp",
         "width": 1200,
@@ -4493,7 +4471,8 @@
       "variants": [],
       "formFields": [],
       "seo": {
-        "metaTitle": "Caja almohada",
+        "metaTitle": "Caja almohada personalizada | Packaging corporativo para regalos y kits",
+        "metaDescription": "Caja almohada personalizada para regalos corporativos y packs pequeños. Automontable, ligera y con impresión a color. Ideal para welcome packs, merchandising y detalles. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/caja-almohada",
         "hreflang": [
           {
@@ -4506,6 +4485,7 @@
           "@context": "https://schema.org",
           "@type": "Product",
           "name": "Caja almohada",
+          "description": "La caja almohada (pillow box) es una solución de packaging muy versátil para detalles corporativos: ocupa poco, se monta rápido y ofrece una presentación cuidada con un formato diferente. En Repro Disseny fabricamos cajas almohada personalizadas para empresas y oficinas, ideales para regalos, merchandising y packs pequeños con un acabado profesional.",
           "image": "https://webcms.blob.core.windows.net/media/product/packaging/caja almohada.webp",
           "url": "https://reprodisseny.com/productos/caja-almohada",
           "brand": {
@@ -4523,6 +4503,8 @@
       "title": "Faja para caja",
       "categorySlug": "packaging",
       "isPublished": true,
+      "shortDescription": "Las fajas para caja son la forma más rápida y efectiva de “vestir” un packaging: convierten una caja neutra en una presentación corporativa y permiten lanzar campañas sin cambiar toda la caja. En Repro Disseny fabricamos sleeves personalizados a medida, con impresión de calidad y acabados premium para welcome packs, envíos a clientes, kits de oficina y regalos corporativos.",
+      "bodyMd": "##Detalles\n¿Qué es una faja para caja y para qué se usa?\nUna faja (o sleeve) es una banda de cartulina/papel impreso que envuelve una caja por el exterior. Su función es doble:\n1.\tBranding (logo, colores, mensaje)\n2.\tIdentificación/campaña (edición, departamento, evento, “kit de bienvenida”, etc.)\nEs ideal cuando quieres mantener una caja estándar y personalizarla por campañas, sedes o acciones puntuales.\n##Beneficios\n•\tPersonaliza sin cambiar la caja: más eficiente en costes y logística.\n•\tIdeal para campañas: puedes renovar solo la faja por temporada, evento o lanzamiento.\n•\tPresentación más premium: un detalle que eleva la percepción del pack.\n•\tPerfecta para series: variantes por sede, departamento o destinatario.\n•\tMedible: con QR o códigos (landing, onboarding, catálogo, promoción).\n##Aplicaciones\n•\tWelcome packs (onboarding): “Bienvenido/a”, equipo, sede, mensaje de marca.\n•\tRegalos corporativos: campañas de Navidad, cierre de proyecto, fidelización.\n•\tKits para eventos: asistentes, ponentes, prensa, patrocinadores.\n•\tEnvíos a clientes: propuestas premium, muestras, kits comerciales.\n•\tPackaging interno: organización por departamentos o contenidos (“IT kit”, “Sales kit”, etc.).\n##Características técnicas\nMedidas y ajuste\n•\tFabricación a medida según dimensiones de la caja (para un encaje limpio y sin holguras).\n•\tPosibilidad de ajustar la faja para que cubra más o menos superficie (según diseño y estética).\nMaterial\n•\tCartulinas con buen cuerpo para mantener forma y dar sensación de calidad.\n•\tOpciones más sostenibles (recicladas) si la marca lo requiere.\nImpresión\n•\tImpresión a todo color a una o dos caras.\n•\tOpcional: impresión interior con mensaje o detalle sorpresa (muy “unboxing”).\nCierre\n•\tCierre por encaje/solapa o banda continua (según diseño y medida).\n•\tOpción de añadir precinto/etiqueta si quieres un efecto “sellado” de campaña.\nAcabados recomendados\n•\tLaminado mate (muy recomendable): look corporativo y más resistencia al roce.\n•\tLaminado brillo: más impacto y color.\n•\tSoft touch: acabado premium para packs de alto valor.\n•\tBarniz selectivo: resalta logo o claim.\n•\tStamping (dorado/plata): ideal para regalos corporativos o ediciones especiales.\nPersonalización avanzada\n•\tDatos variables: nombre del destinatario, sede, fecha, edición, número de kit.\n•\tQR a onboarding, catálogo, vídeo, instrucciones o landing.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/packaging/faja para caja.webp",
         "width": 1200,
@@ -4538,7 +4520,8 @@
       "variants": [],
       "formFields": [],
       "seo": {
-        "metaTitle": "Faja para caja",
+        "metaTitle": "Fajas para caja personalizadas | Sleeves para packaging corporativo y campañas",
+        "metaDescription": "Fajas para caja personalizadas (sleeves) para branding y campañas. Impresión a color, medidas a medida, acabados premium y opción de QR o datos variables. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/faja-para-caja",
         "hreflang": [
           {
@@ -4551,6 +4534,7 @@
           "@context": "https://schema.org",
           "@type": "Product",
           "name": "Faja para caja",
+          "description": "Las fajas para caja son la forma más rápida y efectiva de “vestir” un packaging: convierten una caja neutra en una presentación corporativa y permiten lanzar campañas sin cambiar toda la caja. En Repro Disseny fabricamos sleeves personalizados a medida, con impresión de calidad y acabados premium para welcome packs, envíos a clientes, kits de oficina y regalos corporativos.",
           "image": "https://webcms.blob.core.windows.net/media/product/packaging/faja para caja.webp",
           "url": "https://reprodisseny.com/productos/faja-para-caja",
           "brand": {
@@ -4568,6 +4552,8 @@
       "title": "Caja cofre",
       "categorySlug": "packaging",
       "isPublished": true,
+      "shortDescription": "La caja cofre es una de las opciones más premium en packaging corporativo: rígida, con tapa y una presentación que transmite valor desde el primer momento. En Repro Disseny fabricamos cajas cofre personalizadas para empresas y oficinas, perfectas para regalos corporativos, kits de bienvenida especiales y envíos a clientes donde la experiencia y la imagen de marca importan.",
+      "bodyMd": "##Detalles\n¿Qué es una caja cofre y para qué se usa?\nUna caja cofre es una caja rígida con tapa (tipo estuche), pensada para proteger y presentar contenido de forma elegante. Se utiliza cuando quieres que el packaging sea parte del mensaje: proyectos importantes, regalos VIP, packs de marca o kits con varios elementos. Además, permite trabajar muy bien el interior (mensaje, organización, separadores), creando un unboxing más cuidado.\n##Beneficios\n•\tPresentación premium: aporta una sensación “de regalo” y eleva la calidad percibida.\n•\tProtección y durabilidad: ideal para contenido delicado o packs que van a enviarse.\n•\tExperiencia de unboxing: posibilidad de personalizar interior y organizar el contenido.\n•\tBranding completo: tapa, laterales, interior y elementos de campaña a medida.\n•\tPerfecta para ediciones especiales: campañas corporativas, Navidad, cierre de proyecto, kits VIP.\n##Aplicaciones\n•\tRegalos corporativos premium: clientes, partners, dirección, campañas de fidelización.\n•\tWelcome packs de alto valor: onboarding ejecutivo o kits especiales por equipo.\n•\tKits para eventos: ponentes, prensa, patrocinadores e invitados VIP.\n•\tPacks de producto: lanzamientos, muestras y presentaciones de marca.\n•\tPackaging de oficina: sets de libreta + bolígrafo + tarjeta + guía, etc.\n##Características técnicas\nEstructura\n•\tCaja rígida tipo cofre con tapa (encaje superior).\n•\tPosibilidad de tapa ajustada para cierre firme y acabado limpio.\nMedidas\n•\tMedidas estándar o a medida según contenido (muy recomendable para que el pack quede compacto y “premium”).\nMaterial\n•\tCartón rígido / estructura reforzada para una caja sólida y resistente.\n•\tOpciones de refuerzo e interior según peso y tipo de envío.\nImpresión y personalización\n•\tImpresión exterior (marca, patrón, campaña) y opción de impresión interior (mensaje, instrucciones, QR).\n•\tVersiones por sede/departamento o ediciones (ideal para campañas por lotes).\nAcabados premium (opcionales)\n•\tLaminado mate (muy recomendable) o brillo para proteger y mejorar presencia.\n•\tSoft touch para tacto premium.\n•\tBarniz selectivo para resaltar logo o detalles.\n•\tStamping (dorado/plata/metalizados) para un acabado de alta gama.\nInteriores y organización (muy recomendable)\n•\tSeparadores o bandejas para sujetar y ordenar el contenido.\n•\tEncajes a medida si el pack incluye varias piezas (por ejemplo, libreta + taza + tarjeta + folleto).\n•\tTarjeta de bienvenida o tarjetón dentro del cofre para reforzar el mensaje.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/packaging/caja cofre.webp",
         "width": 1200,
@@ -4583,7 +4569,8 @@
       "variants": [],
       "formFields": [],
       "seo": {
-        "metaTitle": "Caja cofre",
+        "metaTitle": "Caja cofre personalizada | Packaging corporativo premium para regalos y kits",
+        "metaDescription": "Caja cofre personalizada para empresas: packaging rígido premium con tapa, alta presencia y opción de impresión interior/exterior y acabados (laminado, soft touch, stamping). Ideal para regalos y welcome packs. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/caja-cofre",
         "hreflang": [
           {
@@ -4596,6 +4583,7 @@
           "@context": "https://schema.org",
           "@type": "Product",
           "name": "Caja cofre",
+          "description": "La caja cofre es una de las opciones más premium en packaging corporativo: rígida, con tapa y una presentación que transmite valor desde el primer momento. En Repro Disseny fabricamos cajas cofre personalizadas para empresas y oficinas, perfectas para regalos corporativos, kits de bienvenida especiales y envíos a clientes donde la experiencia y la imagen de marca importan.",
           "image": "https://webcms.blob.core.windows.net/media/product/packaging/caja cofre.webp",
           "url": "https://reprodisseny.com/productos/caja-cofre",
           "brand": {
@@ -4608,16 +4596,18 @@
     {
       "id": "143",
       "type": "producto",
-      "slug": "caja-sobre",
-      "path": "/productos/caja-sobre",
-      "title": "Caja sobre",
+      "slug": "caja-sobre-personalizada",
+      "path": "/productos/caja-sobre-personalizada",
+      "title": "Caja sobre personalizada",
       "categorySlug": "packaging",
       "isPublished": true,
+      "shortDescription": "La caja sobre es una solución de packaging corporativo muy práctica cuando el contenido es plano: documentación, tarjetas, catálogos finos, kits de bienvenida ligeros o packs de oficina. En Repro Disseny fabricamos cajas tipo sobre personalizadas con un acabado limpio y profesional, pensadas para proteger el contenido y reforzar tu marca desde el primer contacto.",
+      "bodyMd": "##Detalles\n¿Qué es una caja sobre y para qué se usa?\nUna caja sobre es un packaging con estructura tipo sobre (plano, con solapas de cierre), normalmente automontable, diseñado para contener y proteger elementos de poco grosor. Es ideal para envíos corporativos y presentaciones en mano, porque combina protección, buena presencia y un formato fácil de almacenar y montar.\n##Beneficios\n•\tPerfecta para contenidos planos: documentación, dossiers, tarjetas, kits ligeros.\n•\tPresentación profesional: alternativa premium a un sobre convencional.\n•\tProtege mejor: evita dobleces y mejora la entrega en mano o envío.\n•\tAutomontable y fácil de almacenar: se entrega plana y se monta rápido.\n•\tPersonalizable: exterior, interior, mensajes, QR y versiones por campañas o departamentos.\n##Aplicaciones\n•\tDocumentación corporativa: propuestas, contratos, dossiers, presentaciones.\n•\tWelcome packs “planos”: tarjetas, guía de bienvenida, credenciales, merchandising ligero.\n•\tKits de formación: materiales impresos, hojas, manuales finos, acceso/QR.\n•\tEnvíos a clientes y partners: comunicación premium, campañas, invitaciones.\n•\tEventos: packs para asistentes, prensa o ponentes con materiales planos.\n##Características técnicas\nFormato y medidas\n•\tMedidas estándar o a medida según el contenido (muy recomendable para que el pack quede compacto y “bien presentado”).\n•\tDiseñada para un grosor reducido (si el contenido es voluminoso, te recomendamos otra caja).\nMaterial\n•\tCartulinas/cartón con buen cuerpo para aportar rigidez y protección.\n•\tOpciones con enfoque más sostenible (papeles/cartulinas recicladas) si encaja con la marca.\nImpresión y personalización\n•\tImpresión a color en exterior (branding, campaña, identificación del pack).\n•\tOpción de impresión interior (mensaje, instrucciones, QR, sorpresa de marca).\n•\tVariantes por sede/departamento/edición (ideal para campañas y onboarding).\nCierre\n•\tCierre por solapas tipo sobre, con posibilidad de:\no\tencaje,\no\tetiqueta/precinto de marca (si quieres efecto “sellado”),\no\to soluciones de cierre según el proyecto.\nAcabados opcionales\n•\tLaminado mate (muy recomendable) o brillo para resistencia y presencia.\n•\tSoft touch para un acabado premium.\n•\tBarniz selectivo o detalles especiales para resaltar logo o titular.\n•\tStamping (dorado/plata) si es un pack de alto valor.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/packaging/caja sobre.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Caja sobre"
+        "alt": "Caja sobre personalizada"
       },
       "galleryImages": [],
       "brand": "Repro Disseny",
@@ -4628,21 +4618,23 @@
       "variants": [],
       "formFields": [],
       "seo": {
-        "metaTitle": "Caja sobre",
-        "canonical": "https://reprodisseny.com/productos/caja-sobre",
+        "metaTitle": "Caja sobre personalizada | Packaging corporativo plano y elegante",
+        "metaDescription": "Caja sobre personalizada para empresas: formato tipo sobre, automontable y perfecta para documentación, kits planos y envíos. Impresión exterior/interior y acabados premium. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/caja-sobre-personalizada",
         "hreflang": [
           {
             "lang": "es-ES",
-            "url": "https://reprodisseny.com/productos/caja-sobre"
+            "url": "https://reprodisseny.com/productos/caja-sobre-personalizada"
           }
         ],
         "keywords": [],
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Caja sobre",
+          "name": "Caja sobre personalizada",
+          "description": "La caja sobre es una solución de packaging corporativo muy práctica cuando el contenido es plano: documentación, tarjetas, catálogos finos, kits de bienvenida ligeros o packs de oficina. En Repro Disseny fabricamos cajas tipo sobre personalizadas con un acabado limpio y profesional, pensadas para proteger el contenido y reforzar tu marca desde el primer contacto.",
           "image": "https://webcms.blob.core.windows.net/media/product/packaging/caja sobre.webp",
-          "url": "https://reprodisseny.com/productos/caja-sobre",
+          "url": "https://reprodisseny.com/productos/caja-sobre-personalizada",
           "brand": {
             "@type": "Organization",
             "name": "Repro Disseny"
@@ -4658,6 +4650,8 @@
       "title": "Urna",
       "categorySlug": "packaging",
       "isPublished": true,
+      "shortDescription": "La caja urna es una solución práctica y muy visible para acciones en punto de venta, oficinas y eventos: permite recoger participaciones, tarjetas o votos de forma ordenada y con un gran impacto de marca. En Repro Disseny fabricamos urnas personalizadas a medida, automontables y con opciones de ventana y ranura, para que queden listas para usar.",
+      "bodyMd": "##Detalles\n¿Qué es una caja urna y para qué se usa?\nUna caja urna es una caja rígida o semirrígida diseñada para recogida de elementos pequeños: papeletas, tarjetas, cupones, encuestas o votaciones. Suele incorporar una ranura superior y, opcionalmente, una ventana para ver el interior. Se utiliza en campañas de sorteos, acciones de captación de leads, encuestas de satisfacción, votaciones internas o dinámicas promocionales.\n##Beneficios\n•\tImpulsa la participación: formato claro y familiar para sorteos y votaciones.\n•\tGran visibilidad de marca: la urna funciona como soporte publicitario en mostrador o stand.\n•\tOrden y seguridad: recogida limpia de papeletas/tarjetas en un único punto.\n•\tPersonalizable: medidas, diseño, mensajes, QR y versiones por campaña o sede.\n•\tMontaje rápido: opción automontable para facilitar logística y transporte.\n##Aplicaciones\n•\tSorteos en punto de venta: captación de datos y fidelización.\n•\tFerias y eventos: recogida de tarjetas, leads, votaciones o concursos.\n•\tOficinas y entornos corporativos: votaciones internas, sugerencias, buzón de ideas.\n•\tHostelería: encuestas de satisfacción, promociones, sorteos de temporada.\n•\tCentros y entidades: votaciones, campañas informativas y participación ciudadana.\n##Características técnicas\nMedidas y formato\n•\tTamaños estándar o a medida según el volumen esperado de papeletas/tarjetas.\n•\tDiseño pensado para estabilidad en mostrador o suelo.\nEstructura\n•\tCaja con ranura superior para introducir papeletas, tickets o tarjetas.\n•\tOpción de tapa/cierre según el uso (por ejemplo, para transporte o seguridad).\nMaterial\n•\tSoportes rígidos o semirrígidos de cartón para buena presencia y ligereza.\n•\tAlternativas más resistentes si la urna va a usarse en campañas largas o en varios eventos.\nVentana (opcional)\n•\tVentana frontal/lateral para ver el interior y aumentar “confianza” en el sorteo.\n•\tPosibilidad de ventana total o parcial según estética.\nImpresión y personalización\n•\tImpresión a todo color con branding, instrucciones y llamada a la acción.\n•\tQR opcional: formulario de participación, bases legales, registro, redes o landing.\n•\tVersiones por tienda/sede/campaña (mismo diseño base con cambios de texto).\nAcabados opcionales\n•\tLaminado mate o brillo si necesitas más resistencia al roce/manipulación.\n•\tRefuerzos en zonas de apertura o base (según tamaño y uso).",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/packaging/urna.webp",
         "width": 1200,
@@ -4673,7 +4667,8 @@
       "variants": [],
       "formFields": [],
       "seo": {
-        "metaTitle": "Urna",
+        "metaTitle": "Caja urna personalizada | Urnas para sorteos, encuestas y captación",
+        "metaDescription": "Caja urna personalizada para empresas y eventos: ideal para sorteos, votaciones y recogida de tarjetas. Automontable, con ventana opcional y branding a medida. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/urna",
         "hreflang": [
           {
@@ -4686,6 +4681,7 @@
           "@context": "https://schema.org",
           "@type": "Product",
           "name": "Urna",
+          "description": "La caja urna es una solución práctica y muy visible para acciones en punto de venta, oficinas y eventos: permite recoger participaciones, tarjetas o votos de forma ordenada y con un gran impacto de marca. En Repro Disseny fabricamos urnas personalizadas a medida, automontables y con opciones de ventana y ranura, para que queden listas para usar.",
           "image": "https://webcms.blob.core.windows.net/media/product/packaging/urna.webp",
           "url": "https://reprodisseny.com/productos/urna",
           "brand": {
@@ -4703,6 +4699,8 @@
       "title": "Caja desplegable con tapa",
       "categorySlug": "packaging",
       "isPublished": true,
+      "shortDescription": "La caja desplegable con tapa es una de las opciones más premium para packaging corporativo: ofrece la presencia de una caja rígida de regalo, pero con la ventaja logística de entregarse plegada para ahorrar espacio. En Repro Disseny fabricamos cajas desplegables personalizadas para empresas y oficinas, ideales para welcome packs VIP, regalos corporativos y envíos a clientes donde la experiencia de unboxing es clave.",
+      "bodyMd": "##Detalles\n¿Qué es una caja desplegable con tapa y para qué se usa?\nEs una caja rígida plegable que se entrega plana o semi-plegada y se monta fácilmente para formar una caja con tapa (tipo cofre/estuche). Se utiliza cuando quieres un packaging de alta calidad, con buena protección y estética premium, pero necesitas optimizar almacenaje y transporte (campañas, envíos por lotes, packs por sedes).\n##Beneficios\n•\tAcabado premium: aspecto de caja rígida de alta gama, ideal para regalos corporativos.\n•\tAhorro de espacio: se entrega plegada, facilitando logística y almacenaje.\n•\tUnboxing cuidado: tapa + interior personalizable para una experiencia de marca completa.\n•\tProtección del contenido: perfecta para kits con varios elementos o piezas delicadas.\n•\tReutilizable: la caja suele conservarse, aumentando permanencia de marca.\n##Aplicaciones\n•\tRegalos corporativos premium: clientes, partners, dirección, campañas de fidelización.\n•\tWelcome packs VIP: onboarding de equipos directivos o kits especiales por departamento.\n•\tKits para eventos: ponentes, prensa, patrocinadores e invitados.\n•\tPacks de marca: lanzamientos, muestras, kits comerciales de alto valor.\n•\tPacks de oficina: set de libreta + bolígrafo + tarjeta + guía + merchandising.\n##Características técnicas\nEstructura\n•\tCaja rígida plegable/desplegable con tapa.\n•\tMontaje rápido pensado para equipos y campañas (según diseño).\nMedidas\n•\tMedidas estándar o a medida según contenido (recomendable para que el pack quede compacto y premium).\nMaterial\n•\tEstructura rígida con acabados de forrado/impresión orientados a alta calidad percibida.\n•\tPosibilidad de reforzar interior si el pack debe viajar o soportar manipulación.\nImpresión y personalización\n•\tPersonalización exterior (marca, patrón, campaña).\n•\tOpción de personalización interior (mensaje, instrucciones, QR, “bienvenido/a”).\n•\tVariantes por sede/departamento o edición (ideal para campañas por lotes).\nCierre (según modelo)\n•\tCierre por encaje o sistemas premium (por ejemplo, imán) si se requiere un cierre más sólido y elegante.\nAcabados premium (opcionales)\n•\tLaminado mate (muy recomendable) o brillo.\n•\tSoft touch para tacto premium.\n•\tBarniz selectivo para resaltar logo o detalles.\n•\tStamping (dorado/plata/metalizados) para un acabado de alto nivel.\nInteriores y organización (opcional)\n•\tSeparadores o encajes para sujetar productos y mejorar presentación.\n•\tTarjetón o mensaje de bienvenida dentro de la tapa o en el interior.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/packaging/caja desplegable con tapa.webp",
         "width": 1200,
@@ -4718,7 +4716,8 @@
       "variants": [],
       "formFields": [],
       "seo": {
-        "metaTitle": "Caja desplegable con tapa",
+        "metaTitle": "Caja desplegable con tapa personalizada | Packaging corporativo premium",
+        "metaDescription": "Caja desplegable con tapa personalizada para regalos corporativos y kits premium. Rígida, plegable para logística, impresión exterior/interior y acabados (laminado, soft touch, stamping). Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/caja-desplegable-con-tapa",
         "hreflang": [
           {
@@ -4731,6 +4730,7 @@
           "@context": "https://schema.org",
           "@type": "Product",
           "name": "Caja desplegable con tapa",
+          "description": "La caja desplegable con tapa es una de las opciones más premium para packaging corporativo: ofrece la presencia de una caja rígida de regalo, pero con la ventaja logística de entregarse plegada para ahorrar espacio. En Repro Disseny fabricamos cajas desplegables personalizadas para empresas y oficinas, ideales para welcome packs VIP, regalos corporativos y envíos a clientes donde la experiencia de unboxing es clave.",
           "image": "https://webcms.blob.core.windows.net/media/product/packaging/caja desplegable con tapa.webp",
           "url": "https://reprodisseny.com/productos/caja-desplegable-con-tapa",
           "brand": {
@@ -4745,14 +4745,16 @@
       "type": "producto",
       "slug": "caja-envio",
       "path": "/productos/caja-envio",
-      "title": "Caja envío",
+      "title": "Caja de envío",
       "categorySlug": "packaging",
       "isPublished": true,
+      "shortDescription": "La caja de envío es la clave para que tu paquete llegue perfecto y con buena imagen: protege el contenido, reduce incidencias y refuerza tu marca desde el primer contacto. En Repro Disseny fabricamos cajas de envío corporativas resistentes, con medidas ajustadas al producto y opciones de personalización para que tu packaging sea seguro, eficiente y profesional.",
+      "bodyMd": "##Detalles\n¿Qué es una caja de envío y para qué se usa?\nUna caja de envío es un embalaje pensado específicamente para transporte: debe soportar manipulación, apilado y movimientos durante la entrega. Se utiliza para envíos a clientes, partners y sedes, y también para kits corporativos (welcome packs, formación, eventos) cuando el packaging debe ser funcional y robusto, sin renunciar al branding.\n##Beneficios\n•\tProtección real en transporte: reduce golpes, roces y deterioro del contenido.\n•\tMenos incidencias y devoluciones: una caja adecuada ayuda a evitar roturas y reclamaciones.\n•\tAhorro logístico: medidas ajustadas = menos “aire”, menos relleno y envíos más eficientes.\n•\tImagen de marca desde el primer momento: caja personalizada para un unboxing corporativo más cuidado.\n•\tVersátil: válida para envíos de producto, documentación, kits y packs por campañas.\n##Aplicaciones\n•\tEnvíos corporativos a clientes y partners (muestras, kits, regalos).\n•\tWelcome packs y onboarding (envíos a domicilio o a sedes).\n•\tKits de formación (manuales, materiales, acreditaciones).\n•\tEventos: envío previo de acreditaciones, merchandising, welcome kit.\n•\tEnvíos internos entre oficinas o delegaciones (documentación, material, packs).\n##Características técnicas\nMedidas\n•\tMedidas estándar o a medida según el contenido (recomendable para optimizar protección y coste de envío).\n•\tDiseño orientado a minimizar huecos y movimiento interior.\nMaterial y resistencia\n•\tCartón con resistencia adecuada al peso y al tipo de transporte (según contenido y distancia).\n•\tPosibilidad de reforzar estructura si el envío es pesado o delicado.\nCierre\n•\tCierre por solapas (clásico de envío) con opción de:\no\tprecinto/cinta personalizada,\no\tetiqueta de cierre,\no\to soluciones específicas según el pack.\nPersonalización\n•\tImpresión exterior (logo, marca, mensajes de manipulación si aplica).\n•\tOpción de impresión interior (mensaje de bienvenida, instrucciones, QR) para mejorar unboxing.\n•\tVariantes por campaña, sede o tipo de kit (misma caja, mensajes distintos).\nProtección interior (opcional)\n•\tSeparadores, interiores o encajes para que el contenido no se mueva.\n•\tRecomendación práctica: si el pack incluye varios elementos, un interior organizado mejora presentación y seguridad.\nAcabados\n•\tPosibilidad de acabados para elevar calidad percibida (según necesidad del proyecto).\n•\tSi el objetivo es priorizar logística/coste, se plantea una configuración más “operativa” sin perder imagen.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/packaging/caja envio.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Caja envío"
+        "alt": "Caja de envío"
       },
       "galleryImages": [],
       "brand": "Repro Disseny",
@@ -4763,7 +4765,8 @@
       "variants": [],
       "formFields": [],
       "seo": {
-        "metaTitle": "Caja envío",
+        "metaTitle": "Caja de envío personalizada | Packaging corporativo para envíos seguros",
+        "metaDescription": "Caja de envío personalizada para empresas: resistente, segura y preparada para transporte. Medidas a medida, impresión exterior/interior y opciones de cierre y protección. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/caja-envio",
         "hreflang": [
           {
@@ -4775,7 +4778,8 @@
         "schema": {
           "@context": "https://schema.org",
           "@type": "Product",
-          "name": "Caja envío",
+          "name": "Caja de envío",
+          "description": "La caja de envío es la clave para que tu paquete llegue perfecto y con buena imagen: protege el contenido, reduce incidencias y refuerza tu marca desde el primer contacto. En Repro Disseny fabricamos cajas de envío corporativas resistentes, con medidas ajustadas al producto y opciones de personalización para que tu packaging sea seguro, eficiente y profesional.",
           "image": "https://webcms.blob.core.windows.net/media/product/packaging/caja envio.webp",
           "url": "https://reprodisseny.com/productos/caja-envio",
           "brand": {
@@ -4827,6 +4831,55 @@
           "description": "Los carteles inmobiliarios son una herramienta directa para captar llamadas y visitas: comunican el inmueble, refuerzan tu marca y hacen visible el anuncio en el punto clave (escaparate, balcón, valla o comunidad). En Repro Disseny imprimimos carteles de “Se vende / Se alquila” y cartelería para promociones con distintos materiales y formatos, para que se vean bien y aguanten el uso real.",
           "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/carteles-inmobiliaria.webp",
           "url": "https://reprodisseny.com/productos/carteles-inmobiliaria-personalizados",
+          "brand": {
+            "@type": "Organization",
+            "name": "Repro Disseny"
+          }
+        }
+      }
+    },
+    {
+      "id": "148",
+      "type": "producto",
+      "slug": "lamina-magnetica-impresa",
+      "path": "/productos/lamina-magnetica-impresa",
+      "title": "Lámina magnética impresa",
+      "categorySlug": "material-flexible",
+      "isPublished": true,
+      "shortDescription": "La lámina magnética impresa es la solución perfecta cuando necesitas comunicar de forma visible, pero sin adhesivos ni instalaciones permanentes. En Repro Disseny producimos imán flexible en gran formato para cartelería removible y rotulación temporal, con corte a medida y acabados pensados para que sea fácil de poner, quitar y reutilizar.",
+      "bodyMd": "##Detalles\n¿Qué es una lámina magnética impresa y para qué se usa?\nEs un material flexible con base magnética que se adhiere a superficies metálicas (ferromagnéticas) y permite colocar y retirar la gráfica tantas veces como necesites. Se utiliza para promociones temporales, señalética móvil, campañas por temporadas y rotulación que debe cambiarse con frecuencia, sin dejar residuos ni dañar la superficie.\n##Beneficios\n•\tRemovible y reutilizable: se coloca y se retira sin cola ni marcas.\n•\tIdeal para campañas temporales: promos estacionales, cambios de mensaje, eventos.\n•\tAhorra tiempo: cambio rápido de gráfica en puntos de venta o flotas.\n•\tGran formato: más impacto visual que un imán publicitario pequeño.\n•\tCorte a medida: recto o con forma, para adaptarse a la superficie y al diseño.\n##Aplicaciones\n•\tRotulación temporal de vehículos (zonas planas metálicas): campañas, servicios puntuales, flotas compartidas.\n•\tCartelería removible en superficies metálicas: puertas metálicas, estanterías, paneles, mobiliario industrial.\n•\tSeñalética interna móvil: almacenes, producción, organización de espacios, cambios de zonas.\n•\tPromociones en retail: mensajes que cambian por temporada sin usar adhesivos.\n•\tEventos: señalización temporal en estructuras o soportes metálicos.\n\n##Características técnicas\nMaterial\n•\tLámina magnética flexible preparada para impresión y manipulación.\nImpresión\n•\tImpresión a color con buena definición para textos y gráfica corporativa.\nCorte\n•\tCorte recto o corte a medida (formas, esquinas redondeadas, contornos).\n•\tRecomendación práctica: esquinas redondeadas si va a manipularse a menudo (duran más).\nAcabados\n•\tLaminado protector opcional para mejorar resistencia al roce y facilitar limpieza (muy recomendable si se reutiliza o se usa en exterior puntual).\nRecomendaciones de uso\n•\tFunciona sobre superficies metálicas ferromagnéticas (no en aluminio, cristal, madera…).\n•\tEn vehículos: mejor en zonas planas; conviene retirar y limpiar periódicamente para evitar suciedad atrapada.",
+      "image": {
+        "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/imanes.webp",
+        "width": 1200,
+        "height": 1200,
+        "alt": "Lámina magnética impresa"
+      },
+      "galleryImages": [],
+      "brand": "Repro Disseny",
+      "price": 0,
+      "priceCurrency": "EUR",
+      "inStock": false,
+      "attributes": [],
+      "variants": [],
+      "formFields": [],
+      "seo": {
+        "metaTitle": "Lámina magnética impresa | Señalética removible y rotulación temporal",
+        "metaDescription": "Lámina magnética impresa (imán flexible) para cartelería removible y rotulación temporal: ideal para vehículos y superficies metálicas. Corte a medida y opción de laminado. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/lamina-magnetica-impresa",
+        "hreflang": [
+          {
+            "lang": "es-ES",
+            "url": "https://reprodisseny.com/productos/lamina-magnetica-impresa"
+          }
+        ],
+        "keywords": [],
+        "schema": {
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": "Lámina magnética impresa",
+          "description": "La lámina magnética impresa es la solución perfecta cuando necesitas comunicar de forma visible, pero sin adhesivos ni instalaciones permanentes. En Repro Disseny producimos imán flexible en gran formato para cartelería removible y rotulación temporal, con corte a medida y acabados pensados para que sea fácil de poner, quitar y reutilizar.",
+          "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/imanes.webp",
+          "url": "https://reprodisseny.com/productos/lamina-magnetica-impresa",
           "brand": {
             "@type": "Organization",
             "name": "Repro Disseny"
@@ -9766,8 +9819,8 @@
       "title": "Imanes publicitarios",
       "categorySlug": "material-publicitario",
       "isPublished": true,
-      "shortDescription": "Imanes publicitarios",
-      "bodyMd": "## Imanes\n\n## Imanes",
+      "shortDescription": "Los imanes personalizados son un soporte publicitario muy efectivo porque se quedan en un sitio visible durante mucho tiempo: neveras, archivadores metálicos, taquillas o paneles. En Repro Disseny producimos imanes a medida con impresión a color y corte a la forma, ideales para campañas, recordatorios, fidelización o branding en punto de venta.",
+      "bodyMd": "##Detalles \n\n¿Qué es un imán personalizado y para qué se usa? \n\nUn imán personalizado es una pieza impresa con base magnética que se adhiere a superficies metálicas sin adhesivos. Se utiliza como soporte de marca y recordatorio (teléfono, web, servicios), como elemento promocional (calendarios, cupones, campañas) o como material funcional para organización interna (etiquetas magnéticas, señalización temporal). \n\n##Beneficios \n\nAlta permanencia: no se tira fácilmente; se mantiene visible semanas o meses. \n\nPublicidad útil: funciona como recordatorio práctico (teléfono, cita, horario, QR). \n\nFácil de repartir: ligero y económico para campañas masivas. \n\nSin pegamentos: se pone y se quita sin dejar residuo en superficies metálicas. \n\nPersonalización total: tamaños, formas, mensajes por campaña o por zona. \n\n##Aplicaciones \n\nImanes de nevera: talleres, clínicas, seguros, restauración (teléfono a mano). \n\nPromociones y fidelización: campañas con QR, códigos, descuentos o sorteos. \n\nCalendarios magnéticos: marca presente todo el año en casa u oficina. \n\nOrganización interna: etiquetas magnéticas para almacén, paneles o planificación. \n\nSeñalización temporal en retail: mensajes que cambian sin adhesivos (en mobiliario metálico). \n\n##Características técnicas \n\nFormatos y corte \n\nFormatos estándar (rectangular/cuadrado/redondo) o corte a medida con la forma que necesites (logo, icono, silueta de producto). \n\nPosibilidad de series con distintas formas/tamaños en una misma campaña. \n\nImpresión \n\nImpresión a color con buena definición para logos, tipografías e imágenes. \n\nRecomendación práctica: mensajes cortos y claros (un imán se consulta “de un vistazo”). \n\nGrosor y uso \n\nDiferentes opciones de grosor según tamaño, rigidez y uso (promocional vs. más funcional). \n\nElección en función de dónde se colocará y cuánto quieres que dure. \n\nAcabados \n\nAcabado mate (menos reflejos) o brillo (más vivo) según el estilo. \n\nProtección extra si el imán va a manipularse mucho (por ejemplo, uso diario). \n\nPersonalización por campañas \n\nVariantes por zona, idioma, franquicia o promoción (misma base de diseño con cambios de datos). \n\nIntegración de QR para reservas, contacto, catálogo, reseñas o landing de campaña.",
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/imanes-publicitarios.webp",
         "width": 1200,
@@ -9905,8 +9958,8 @@
         }
       ],
       "seo": {
-        "metaTitle": "Imanes | Repro Disseny",
-        "metaDescription": "Imanes personalizadas con calidad profesional en Cataluña.",
+        "metaTitle": "Imanes personalizados | Publicidad práctica para empresas y campañas",
+        "metaDescription": "Imanes personalizados para publicidad y organización: imanes de nevera, imanes con forma, calendarios e imanes para vehículos. Impresión a color y corte a medida. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/imanes-publicitarios",
         "hreflang": [
           {
@@ -9925,7 +9978,7 @@
           "@context": "https://schema.org",
           "@type": "Product",
           "name": "Imanes publicitarios",
-          "description": "Imanes publicitarios",
+          "description": "Los imanes personalizados son un soporte publicitario muy efectivo porque se quedan en un sitio visible durante mucho tiempo: neveras, archivadores metálicos, taquillas o paneles. En Repro Disseny producimos imanes a medida con impresión a color y corte a la forma, ideales para campañas, recordatorios, fidelización o branding en punto de venta.",
           "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/imanes-publicitarios.webp",
           "url": "https://reprodisseny.com/productos/imanes-publicitarios",
           "sku": "01-OFICI-0012",

@@ -1,3 +1,28 @@
+<script setup lang="ts">
+type CategoryItem = {
+  slug: string;
+  title?: string;
+  nav?: string;
+  label?: string;
+};
+
+const props = withDefaults(
+  defineProps<{
+    categories?: CategoryItem[];
+    selectedCategory?: string | null;
+  }>(),
+  {
+    categories: () => [],
+    selectedCategory: null,
+  }
+);
+
+const emit = defineEmits<{
+  (e: "clear"): void;
+  (e: "update:selected-category", value: string | null): void;
+}>();
+</script>
+
 <template>
   <div class="catalog-panel">
     <div class="flex items-center justify-between">
@@ -21,21 +46,21 @@
         <button
           type="button"
           class="catalog-filter-option"
-          :class="{ 'catalog-filter-option-active': !selectedCategory }"
+          :class="{ 'catalog-filter-option-active': !props.selectedCategory }"
           @click="emit('update:selected-category', null)"
         >
           Todas
         </button>
 
         <button
-          v-for="category in categories"
+          v-for="category in props.categories"
           :key="category.slug"
           type="button"
           class="catalog-filter-option"
-          :class="{ 'catalog-filter-option-active': selectedCategory === category.slug }"
+          :class="{ 'catalog-filter-option-active': props.selectedCategory === category.slug }"
           @click="emit('update:selected-category', category.slug)"
         >
-          {{ category.label }}
+          {{ category.label || category.nav || category.title || category.slug }}
         </button>
       </div>
     </div>

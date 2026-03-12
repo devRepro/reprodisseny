@@ -1,15 +1,29 @@
 <script setup lang="ts">
-import type { Product } from "@/types/product";
+import { computed } from "vue";
+import type { ProductListItem } from "@/types/product";
+import ProductResultCard from "@/components/marketing/product/ResultCard.vue";
 
-defineProps<{
-  products: Product[];
-}>();
+const props = withDefaults(
+  defineProps<{
+    products?: ProductListItem[];
+  }>(),
+  {
+    products: () => [],
+  }
+);
+
+const safeProducts = computed(() =>
+  (props.products || []).filter(
+    (p): p is ProductListItem =>
+      Boolean(p && typeof p === "object" && p.slug && p.title)
+  )
+);
 </script>
 
 <template>
   <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
     <ProductResultCard
-      v-for="product in products"
+      v-for="product in safeProducts"
       :key="product.slug"
       :product="product"
     />

@@ -38,6 +38,44 @@ function normPath(v: unknown) {
   return s.replace(/\/+$/, "")
 }
 
+function normCategorySlug(v: unknown) {
+  return String(v ?? "").trim().toLowerCase()
+}
+
+function parseCategoriesValue(value: unknown): string[] {
+  if (Array.isArray(value)) {
+    return value.map(normCategorySlug).filter(Boolean)
+  }
+
+  if (typeof value !== "string") return []
+
+  const raw = value.trim()
+  if (!raw) return []
+
+  // JSON válido: ["eventos","expositores"]
+  try {
+    const parsed = JSON.parse(raw)
+    if (Array.isArray(parsed)) {
+      return parsed.map(normCategorySlug).filter(Boolean)
+    }
+  } catch {
+    // fallback para formatos legacy tipo ['eventos';'expositores']
+  }
+
+  return raw
+    .replace(/^\[/, "")
+    .replace(/\]$/, "")
+    .replace(/"/g, "")
+    .replace(/'/g, "")
+    .split(/[;,]/)
+    .map((v) => normCategorySlug(v))
+    .filter(Boolean)
+}
+
+function uniqueStrings(values: unknown[]) {
+  return [...new Set(values.map(normCategorySlug).filter(Boolean))]
+}
+
 function firstNonEmpty(obj: any, keys: string[], fallback: any = undefined) {
   for (const k of keys) {
     const v = obj?.[k]
@@ -106,11 +144,36 @@ function buildIndex(categories: any[]) {
   return { byPath, bySlug }
 }
 
+function normalizeProduct(p: any) {
+  const primaryCategory = normCategorySlug(
+    firstNonEmpty(p, ["primaryCategory", "PrimaryCategory"], "")
+  )
+
+  // Categories = categorías secundarias
+  const secondaryCategories = parseCategoriesValue(
+    firstNonEmpty(p, ["categories", "Categories"], [])
+  ).filter((slug) => slug !== primaryCategory)
+
+  const categorySlugs = uniqueStrings([
+    primaryCategory,
+    ...secondaryCategories,
+  ])
+
+  return {
+    ...p,
+    primaryCategory,
+    categories: secondaryCategories,
+    categorySlugs,
+  }
+}
+
 function prepareCatalog(raw: any): CmsCatalog {
   const categories = Array.isArray(raw?.categories) ? raw.categories : []
-  const products = Array.isArray(raw?.products) ? raw.products : []
+  const productsRaw = Array.isArray(raw?.products) ? raw.products : []
 
   for (const c of categories) hydrateCategory(c)
+
+  const products = productsRaw.map(normalizeProduct)
 
   const out: CmsCatalog = { categories, products }
   Object.defineProperty(out, "__index", {
