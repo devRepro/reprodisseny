@@ -47,7 +47,7 @@ function getCategoryLabel(category: CategoryItem) {
 
 function buildCategoryTo(slug: string | null) {
   return {
-    path: slug ? `${props.basePath}/${slug}` : props.basePath,
+    path: slug ? `/${slug}` : "/productos",
     query: {
       q: typeof route.query.q === "string" ? route.query.q : undefined,
       sort:
