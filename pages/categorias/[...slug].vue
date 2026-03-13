@@ -1,0 +1,141 @@
+<script setup lang="ts">
+import { computed } from "vue";
+
+import SiteBreadcrumbs from "@/components/shared/SiteBreadcrumbs.vue";
+import ProductHero from "@/components/marketing/product/Hero.vue";
+import GuideBanner from "@/components/marketing/GuideBanner.vue";
+import ProductDetails from "@/components/marketing/product/Details.vue";
+import ProductFaq from "@/components/marketing/product/Faq.vue";
+
+const route = useRoute();
+const slug = computed(() => String(route.params.slug || "").trim());
+
+// ✅ tus shells (consistentes con el resto)
+const containerClass = "container-wide";
+const contentNarrowClass = "mx-auto w-full max-w-[880px]";
+
+// ✅ fetch server-side del producto
+const { data, pending, error } = await useAsyncData(
+  () => `cms:product:${slug.value}`,
+  () =>
+    $fetch(`/api/cms/category/${slug.value}`, {
+  params: {
+    includeProducts: 1,
+    productLimit: 24,
+    includeChildren: 1,
+    childLimit: 50,
+  },
+}),
+  { server: true }
+);
+
+if (error.value) {
+  // 404 o fallo API
+  throw createError({
+    statusCode: (error.value as any)?.statusCode || 404,
+    statusMessage: "Producto no encontrado",
+  });
+}
+
+const product = computed(() => data.value?.product || null);
+const category = computed(() => data.value?.category || null);
+const detailsTabs = computed(() => data.value?.detailsTabs || []);
+const faqs = computed(() => data.value?.faqs || []);
+
+// ✅ breadcrumbs
+const breadcrumbItems = computed(() => {
+  const items: Array<{ label: string; to?: string }> = [
+    { label: "Inicio", to: "/" },
+    { label: "Productos", to: "/productos" },
+  ];
+
+  if (category.value?.title && category.value?.slug) {
+    items.push({ label: category.value.title, to: `/categorias/${category.value.slug}` });
+  }
+
+  if (product.value?.title) {
+    items.push({ label: product.value.title });
+  }
+
+  return items;
+});
+</script>
+
+<template>
+  <main class="min-h-screen bg-background">
+    <!-- Breadcrumbs -->
+    <nav class="border-b border-border bg-background/60">
+      <div :class="containerClass" class="py-4">
+        <SiteBreadcrumbs :items="breadcrumbItems" :auto="false" />
+      </div>
+    </nav>
+
+    <!-- Loading -->
+    <div v-if="pending" class="flex min-h-[40vh] items-center justify-center">
+      <div class="animate-pulse text-muted-foreground font-medium">
+        Cargando detalles del producto...
+      </div>
+    </div>
+
+    <!-- Product -->
+    <template v-else-if="product">
+      <section :class="containerClass" class="pt-8 md:pt-16">
+        
+          <ProductHero :product="product" :category="category" />
+        
+      </section>
+
+      <!-- Banner guía (full bleed) -->
+      <section class="mt-16 md:mt-24">
+        <!-- Importante: NO lo metas dentro de container si el banner es fullBleed -->
+        <GuideBanner
+          title="¿No estás seguro de las medidas?"
+          :cta="{ label: 'Consultar Guía', to: '/como-preparar-archivos' }"
+          base-path="/img/ui/banners/como-preparar-archivos"
+          :height="240"
+          :full-bleed="true"
+          :rounded="false"
+        />
+      </section>
+
+      <!-- Details -->
+      <section
+        id="detalles"
+        class="mt-20 border-y border-border bg-muted/20 py-20 md:mt-32"
+      >
+        <div :class="containerClass">
+          <div :class="contentNarrowClass">
+            <h2 class="mb-10 text-center">Especificaciones Técnicas</h2>
+            <ProductDetails :tabs="detailsTabs" />
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="py-20">
+        <div :class="containerClass">
+          <div :class="contentNarrowClass">
+            <h2 class="mb-8 text-center">Dudas frecuentes</h2>
+            <ProductFaq :faqs="faqs" />
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA final -->
+      <section class="bg-brand-dark py-16 text-center text-brand-ink-light">
+        <div class="container-wide">
+          <h2>¿Tienes un proyecto especial?</h2>
+          <p class="mx-auto mt-4 max-w-xl text-brand-ink-light/80">
+            Si no encuentras lo que buscas en los detalles, contáctanos directamente y lo
+            fabricaremos a medida.
+          </p>
+          <button
+            class="mt-8 rounded-full bg-background px-10 py-4 font-semibold text-foreground transition-colors hover:bg-brand-bg-2"
+          >
+            Contactar con un asesor
+          </button>
+        </div>
+      </section>
+    </template>
+  </main>
+</template>

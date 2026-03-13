@@ -13,12 +13,10 @@ const props = withDefaults(
   defineProps<{
     categories?: CategoryItem[];
     selectedCategory?: string | null;
-    basePath?: string;
   }>(),
   {
     categories: () => [],
     selectedCategory: null,
-    basePath: "/productos",
   }
 );
 
@@ -46,8 +44,10 @@ function getCategoryLabel(category: CategoryItem) {
 }
 
 function buildCategoryTo(slug: string | null) {
+  const normalizedSlug = normalizeSlug(slug);
+
   return {
-    path: slug ? `/${slug}` : "/productos",
+    path: normalizedSlug ? `/categorias/${normalizedSlug}` : "/productos",
     query: {
       q: typeof route.query.q === "string" ? route.query.q : undefined,
       sort:

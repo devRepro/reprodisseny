@@ -17,23 +17,39 @@ const emit = defineEmits<{
   "update:query": [value: string];
 }>();
 
-const localQuery = ref(props.query);
+const localQuery = ref(props.query ?? "");
 let debounceTimer: ReturnType<typeof setTimeout> | null = null;
 
 watch(
   () => props.query,
   (next) => {
-    if (next !== localQuery.value) {
-      localQuery.value = next;
+    const normalized = next ?? "";
+    if (normalized !== localQuery.value) {
+      localQuery.value = normalized;
     }
   }
 );
 
-function emitQuery(value: string) {
-  if (debounceTimer) clearTimeout(debounceTimer);
+function clearDebounce() {
+  if (debounceTimer) {
+    clearTimeout(debounceTimer);
+    debounceTimer = null;
+  }
+}
+
+function emitQuery(value: string, immediate = false) {
+  clearDebounce();
+
+  const normalized = value.trim();
+
+  if (immediate) {
+    emit("update:query", normalized);
+    return;
+  }
 
   debounceTimer = setTimeout(() => {
-    emit("update:query", value.trim());
+    emit("update:query", normalized);
+    debounceTimer = null;
   }, 250);
 }
 
@@ -43,26 +59,38 @@ function onInput(event: Event) {
   emitQuery(value);
 }
 
+function onSubmit() {
+  emitQuery(localQuery.value, true);
+}
+
+function onKeydown(event: KeyboardEvent) {
+  if (event.key === "Escape" && hasQuery.value) {
+    clearQuery();
+  }
+}
+
 function clearQuery() {
   localQuery.value = "";
-  if (debounceTimer) clearTimeout(debounceTimer);
+  clearDebounce();
   emit("update:query", "");
 }
 
 onBeforeUnmount(() => {
-  if (debounceTimer) clearTimeout(debounceTimer);
+  clearDebounce();
 });
 
 const hasQuery = computed(() => localQuery.value.trim().length > 0);
 
+const normalizedCategoryName = computed(() => props.categoryName?.trim() || "");
+
 const displayTitle = computed(() => {
   if (hasQuery.value) return `Resultados para “${localQuery.value.trim()}”`;
-  return props.categoryName || "Catálogo de productos";
+  return normalizedCategoryName.value || "Catálogo de productos";
 });
 
 const kickerText = computed(() => {
   if (hasQuery.value) return "Búsqueda";
-  return props.categoryName ? "Categoría" : "Catálogo de impresión";
+  return normalizedCategoryName.value ? "Categoría" : "Catálogo de impresión";
 });
 
 const introText = computed(() => {
@@ -70,16 +98,16 @@ const introText = computed(() => {
     return "Ajusta la búsqueda para encontrar más rápido el soporte, material o acabado que necesitas.";
   }
 
-  if (props.categoryName) {
-    return `Explora la categoría ${props.categoryName} y encuentra la mejor solución para tu proyecto.`;
+  if (normalizedCategoryName.value) {
+    return `Explora la categoría ${normalizedCategoryName.value} y encuentra la mejor solución para tu proyecto.`;
   }
 
   return "Encuentra el soporte o formato que necesitas y solicita presupuesto en pocos pasos.";
 });
 
-const resultsText = computed(() => {
-  if (props.total === 1) return "1 producto encontrado";
-  return `${props.total} productos disponibles`;
+const resultsLabel = computed(() => {
+  if (props.total === 1) return "producto disponible";
+  return "productos disponibles";
 });
 </script>
 
@@ -105,7 +133,7 @@ const resultsText = computed(() => {
           class="relative mt-8 max-w-2xl"
           role="search"
           aria-label="Buscar productos del catálogo"
-          @submit.prevent
+          @submit.prevent="onSubmit"
         >
           <label for="catalog-search" class="sr-only">
             Buscar productos del catálogo
@@ -133,17 +161,20 @@ const resultsText = computed(() => {
             :value="localQuery"
             type="search"
             inputmode="search"
+            enterkeyhint="search"
             autocomplete="off"
+            spellcheck="false"
             placeholder="Busca por producto, uso o material (ej: vinilo, lona...)"
-            class="w-full rounded-xl border border-slate-200 py-4 pl-12 pr-12 shadow-sm outline-none transition-all placeholder:text-slate-400 focus:border-primary focus:ring-4 focus:ring-primary/10"
+            class="catalog-search-input w-full rounded-xl border border-slate-200 py-4 pl-12 pr-12 shadow-sm outline-none transition-all placeholder:text-slate-400 focus:border-primary focus:ring-4 focus:ring-primary/10"
             @input="onInput"
+            @keydown="onKeydown"
           />
 
           <button
             v-if="hasQuery"
             type="button"
-            class="absolute inset-y-0 right-3 my-auto inline-flex h-9 w-9 items-center justify-center rounded-lg text-slate-400 transition hover:bg-slate-100 hover:text-slate-700"
-            aria-label="Borrar búsqueda"
+            class="absolute inset-y-0 right-3 my-auto inline-flex h-9 w-9 items-center justify-center rounded-lg text-slate-400 transition hover:bg-slate-100 hover:text-slate-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+            aria-label="Limpiar búsqueda"
             @click="clearQuery"
           >
             <svg
@@ -162,12 +193,30 @@ const resultsText = computed(() => {
           </button>
         </form>
 
-        <p class="mt-4 flex items-center gap-2 text-sm text-slate-500">
+        <p class="mt-4 flex items-center gap-2 text-sm text-slate-500" aria-live="polite">
           <span class="inline-flex h-2 w-2 rounded-full bg-emerald-500" />
           <strong>{{ props.total }}</strong>
-          {{ resultsText }}
+          <span>{{ resultsLabel }}</span>
         </p>
       </div>
     </PageContainer>
   </section>
 </template>
+
+<style scoped>
+.catalog-search-input::-webkit-search-cancel-button,
+.catalog-search-input::-webkit-search-decoration,
+.catalog-search-input::-webkit-search-results-button,
+.catalog-search-input::-webkit-search-results-decoration {
+  -webkit-appearance: none;
+  appearance: none;
+  display: none;
+}
+
+.catalog-search-input::-ms-clear,
+.catalog-search-input::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+</style>  

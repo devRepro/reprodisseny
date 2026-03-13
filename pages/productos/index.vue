@@ -15,13 +15,16 @@ const route = useRoute();
 const router = useRouter();
 
 const perPage = 12;
+const basePath = "/productos";
 
 const page = computed(() => {
   const raw = Number(route.query.page || 1);
   return Number.isFinite(raw) && raw > 0 ? Math.floor(raw) : 1;
 });
 
-const q = computed(() => (typeof route.query.q === "string" ? route.query.q.trim() : ""));
+const q = computed(() =>
+  typeof route.query.q === "string" ? route.query.q.trim() : ""
+);
 
 const sort = computed(() =>
   typeof route.query.sort === "string" && route.query.sort
@@ -29,39 +32,34 @@ const sort = computed(() =>
     : "relevance"
 );
 
-const category = computed(() =>
-  typeof route.params.category === "string" ? route.params.category : ""
-);
-
-const basePath = computed(() =>
-  category.value ? `/productos/${category.value}` : "/productos"
+const selectedCategory = computed(() =>
+  typeof route.query.category === "string" ? route.query.category.trim().toLowerCase() : ""
 );
 
 const catalogKey = computed(() =>
   [
     "products-catalog",
-    category.value || "all",
+    selectedCategory.value || "all",
     page.value,
     q.value || "",
-    sort.value || "relevance",
+    sort.value,
   ].join(":")
 );
 
 const { data, pending, error, refresh } = await useAsyncData(
-  "products-catalog",
+  () => catalogKey.value,
   () =>
     $fetch("/api/cms/catalog-list", {
       query: {
-        mode: "catalog",
         page: page.value,
         perPage,
-        category: category.value || undefined,
         q: q.value || undefined,
         sort: sort.value,
+        category: selectedCategory.value || undefined,
       },
     }),
   {
-    watch: [page, q, sort, category],
+    watch: [page, q, sort, selectedCategory],
   }
 );
 
@@ -70,32 +68,38 @@ const total = computed(() => data.value?.total || 0);
 const totalPages = computed(() => data.value?.totalPages || 1);
 const categories = computed(() => data.value?.categories || []);
 
+const currentCategoryLabel = computed(() => {
+  const match = categories.value.find(
+    (item: any) => String(item?.slug || "").trim().toLowerCase() === selectedCategory.value
+  );
+
+  return match?.label || match?.nav || match?.title || "";
+});
+
 const canonical = computed(() => {
-  const base = `https://reprodisseny.com${basePath.value}`;
-  return page.value > 1 ? `${base}?page=${page.value}` : base;
+  const url = new URL(`https://reprodisseny.com${basePath}`);
+
+  if (selectedCategory.value) url.searchParams.set("category", selectedCategory.value);
+  if (page.value > 1) url.searchParams.set("page", String(page.value));
+
+  return url.toString();
 });
 
 const shouldNoindex = computed(() => {
-  return Boolean(q.value) || sort.value !== "relevance";
+  return Boolean(q.value) || sort.value !== "relevance" || Boolean(selectedCategory.value);
 });
 
 useSeoMeta({
-  title: () => {
-    const categoryLabel = category.value
-      ? `Catálogo ${category.value} | Reprodisseny`
-      : "Catálogo de Productos | Reprodisseny";
-
-    return page.value > 1 ? `${categoryLabel} · Página ${page.value}` : categoryLabel;
-  },
+  title: () =>
+    selectedCategory.value
+      ? `Catálogo ${currentCategoryLabel.value || selectedCategory.value} | Reprodisseny`
+      : "Catálogo de Productos | Reprodisseny",
   description:
     "Encuentra el soporte o formato que necesitas: adhesivos, gran formato, expositores y más. Solicita presupuesto online.",
-  ogTitle: () => {
-    const categoryLabel = category.value
-      ? `Catálogo ${category.value} | Reprodisseny`
-      : "Catálogo de Productos | Reprodisseny";
-
-    return page.value > 1 ? `${categoryLabel} · Página ${page.value}` : categoryLabel;
-  },
+  ogTitle: () =>
+    selectedCategory.value
+      ? `Catálogo ${currentCategoryLabel.value || selectedCategory.value} | Reprodisseny`
+      : "Catálogo de Productos | Reprodisseny",
   ogDescription: "Soluciones de impresión profesional para empresas y eventos.",
   robots: () => (shouldNoindex.value ? "noindex,follow" : "index,follow"),
 });
@@ -106,7 +110,7 @@ useHead(() => ({
 
 function updateQuery(nextQuery: string) {
   router.replace({
-    path: basePath.value,
+    path: basePath,
     query: {
       ...route.query,
       q: nextQuery?.trim() || undefined,
@@ -117,7 +121,7 @@ function updateQuery(nextQuery: string) {
 
 function updateSort(nextSort: string) {
   router.replace({
-    path: basePath.value,
+    path: basePath,
     query: {
       ...route.query,
       sort: nextSort && nextSort !== "relevance" ? nextSort : undefined,
@@ -126,8 +130,27 @@ function updateSort(nextSort: string) {
   });
 }
 
+function updateCategoryFilter(nextCategory: string | null) {
+  router.replace({
+    path: "/productos",
+    query: {
+      ...route.query,
+      category: nextCategory || undefined,
+      page: undefined,
+    },
+  });
+}
+
 function clearFilters() {
-  router.push({ path: "/productos" });
+  router.push({
+    path: basePath,
+    query: {
+      q: undefined,
+      sort: undefined,
+      category: undefined,
+      page: undefined,
+    },
+  });
 }
 </script>
 
@@ -136,7 +159,7 @@ function clearFilters() {
     <ProductsPageHero
       :query="q"
       :total="total"
-      :category-name="category"
+      :category-name="currentCategoryLabel"
       @update:query="updateQuery"
     />
 
@@ -144,7 +167,11 @@ function clearFilters() {
       aria-label="Categorías principales"
       class="sticky top-0 z-30 border-b bg-white/80 backdrop-blur-md"
     >
-      <ProductsCategoryRail :categories="categories" :selected-category="category" />
+      <!-- navegación editorial -->
+      <ProductsCategoryRail
+        :categories="categories"
+        :selected-category="null"
+      />
     </nav>
 
     <PageContainer>
@@ -160,23 +187,6 @@ function clearFilters() {
         </div>
 
         <div v-else-if="error" class="mx-auto max-w-md py-20 text-center">
-          <div class="mb-4 text-destructive">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="mx-auto h-12 w-12"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
-              />
-            </svg>
-          </div>
-
           <h2 class="text-xl font-bold text-slate-900">
             No pudimos cargar los productos
           </h2>
@@ -204,8 +214,8 @@ function clearFilters() {
 
               <ProductsFiltersPanel
                 :categories="categories"
-                :selected-category="category"
-                :base-path="'/productos'"
+                :selected-category="selectedCategory"
+                @update:selected-category="updateCategoryFilter"
                 @clear="clearFilters"
               />
             </div>
@@ -217,11 +227,13 @@ function clearFilters() {
             aria-label="Resultados del catálogo"
           >
             <ProductsToolbar
-              :sort="sort"
-              :results-count="items.length"
-              :total-count="total"
-              @update:sort="updateSort"
-            />
+  :sort="sort"
+  :results-count="items.length"
+  :total-count="total"
+  :page="page"
+  :per-page="perPage"
+  @update:sort="updateSort"
+/>
 
             <div class="min-h-[600px]">
               <ProductsResultsGrid
