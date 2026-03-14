@@ -78,3 +78,6 @@ export const isSubcategoria = (n: CatalogNode | null | undefined): n is Subcateg
 
 export const isProducto = (n: CatalogNode | null | undefined): n is Producto =>
   !!n && n.type === 'producto'
+
+
+  

@@ -1,20 +1,24 @@
-type ImageDto = { src: string; alt?: string; width?: number; height?: number } | null
+type ImageDto = {
+  src: string
+  alt?: string
+  width?: number
+  height?: number
+} | null
 
-export type HomeCategoryGridItem = {
-  id?: string
+type HomeCategoryCardDto = {
+  id: string
   slug: string
-  path: string
   title: string
+  href: string
   image: ImageDto
-  order?: number
+  order: number
 }
 
 export function useHomeCategoriesGrid(limit = 8) {
-  return useFetch<HomeCategoryGridItem[]>("/api/cms/home-categories", {
-    key: `home-categories-grid:${limit}`,
+  return useFetch<HomeCategoryCardDto[]>("/api/home/categorias", {
+    key: `home-categorias-${limit}`,
     server: true,
+    query: { limit },
     default: () => [],
-    params: { limit },
   })
 }
-

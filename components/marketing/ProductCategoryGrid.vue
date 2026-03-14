@@ -3,13 +3,6 @@ import { computed } from "vue";
 import MarketingCategoryCard from "@/components/marketing/MarketingCategoryCard.vue";
 
 type ImageDto = { src: string; alt?: string; width?: number; height?: number } | null;
-type CategoryItem = {
-  slug: string;
-  title: string;
-  image?: ImageDto;
-  path?: string;
-  href?: string;
-};
 type FilledItem = CategoryItem & { __placeholder?: boolean };
 
 const props = withDefaults(
@@ -49,7 +42,7 @@ const filled = computed<FilledItem[]>(() => {
 });
 
 function categoryHref(c: CategoryItem) {
-  return c.href || c.path || `/categorias/${c.slug}`;
+  return c.href || c.path || (c.slug ? `/categorias/${c.slug}` : "/categorias");
 }
 </script>
 

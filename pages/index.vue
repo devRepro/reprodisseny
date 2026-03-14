@@ -57,6 +57,7 @@ import GetFiles from "@/components/marketing/GetFiles.vue"
 import { useHomeCategoriesGrid } from "@/composables/useHomeCategoriesGrid"
 import { MarketingServicesGrid } from "#components"
 
+
 definePageMeta({ layout: "home" })
 
 // ✅ Inyectamos el bundle del layout
