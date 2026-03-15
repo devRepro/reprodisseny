@@ -1,6 +1,7 @@
 // server/api/cms/category/[...slug].get.ts
 import { defineEventHandler, getQuery, getRouterParam, createError } from "h3"
 import { getCmsCatalog } from "~/server/utils/cmsCatalog.server"
+import { resolveCategoryRoute } from "~/server/utils/cmsCategoryRouting.server"
 
 type AnyObj = Record<string, any>
 
@@ -34,6 +35,26 @@ function stripCategorias(path: string) {
     .replace(/\/+$/, "")
 }
 
+function normAssetSrc(v: unknown) {
+  let s = String(v ?? "").trim()
+  if (!s) return null
+
+  if (/^(https?:)?\/\//i.test(s) || s.startsWith("data:") || s.startsWith("blob:")) {
+    return s
+  }
+
+  s = s.replace(/\\/g, "/")
+  s = s.replace(/^\.?\//, "")
+  s = s.replace(/^\/+/, "")
+
+  return "/" + s
+}
+
+function isAssetLike(v: unknown) {
+  const s = String(v ?? "").trim()
+  return /^(img|_nuxt)\//i.test(s) || /\.(jpg|jpeg|png|webp|avif|gif|svg|pdf)$/i.test(s)
+}
+
 /* -----------------------------
    Query helpers
 ------------------------------ */
@@ -50,21 +71,6 @@ function qInt(q: AnyObj, key: string, def: number, min: number, max: number) {
   return Math.max(min, Math.min(max, n))
 }
 
-function normAssetSrc(v: unknown) {
-  let s = String(v ?? "").trim()
-  if (!s) return null
-
-  // externas o especiales
-  if (/^(https?:)?\/\//i.test(s) || s.startsWith("data:") || s.startsWith("blob:")) {
-    return s
-  }
-
-  s = s.replace(/\\/g, "/")
-  s = s.replace(/^\.?\//, "") // quita ./ o /
-  s = s.replace(/^\/+/, "")
-
-  return "/" + s
-}
 /* -----------------------------
    SEO helpers
 ------------------------------ */
@@ -96,33 +102,45 @@ function computeRobots(c: AnyObj) {
 function resolveProducts(products: AnyObj[], categorySlug: string, limit: number) {
   const slugKey = normSlug(categorySlug)
   if (!slugKey) return []
+
   return (products || [])
-    .filter((p) => normSlug(p?.categorySlug) === slugKey)
+    .filter((p) => {
+      const productCategorySlug = normSlug(
+        p?.categorySlug || p?.CategorySlug || p?.category?.slug || p?.category
+      )
+      return productCategorySlug === slugKey
+    })
     .slice(0, limit)
 }
 
-function resolveChildren(categories: AnyObj[], parent: AnyObj, canonicalParentPath: string, limit: number) {
-  const parentSlugKey = normSlug(parent?.slug)
+function resolveChildren(
+  categories: AnyObj[],
+  parent: AnyObj,
+  canonicalParentPath: string,
+  limit: number
+) {
+  const parentSlugKey = normSlug(parent?.slug || parent?.categorySlug)
   const parentDepth = stripCategorias(canonicalParentPath).split("/").filter(Boolean).length
 
   return (categories || [])
     .filter((c) => {
       if (!c) return false
+
       const cPath = normPath(c?.path)
       if (!cPath.startsWith(canonicalParentPath + "/")) return false
 
       const cDepth = stripCategorias(cPath).split("/").filter(Boolean).length
       if (cDepth !== parentDepth + 1) return false
 
-      const cParent = normSlug(c?.parent)
+      const cParent = normSlug(c?.parent || c?.parentSlug || c?.Parent)
       if (cParent && parentSlugKey && cParent !== parentSlugKey) return false
 
       return true
     })
-    .sort((a, b) => Number(a?.order || 0) - Number(b?.order || 0))
+    .sort((a, b) => Number(a?.order ?? a?.SortOrder ?? 0) - Number(b?.order ?? b?.SortOrder ?? 0))
     .slice(0, limit)
     .map((c) => ({
-      slug: c.slug,
+      slug: c.slug || c.categorySlug || "",
       path: normPath(c.path),
       title: c.title ?? c.Title ?? "",
       nav: c.nav ?? c.NavLabel ?? "",
@@ -146,25 +164,18 @@ export default defineEventHandler(async (event) => {
       .map((s) => s.trim())
       .filter(Boolean)
   }
-  
+
   const raw = getRouterParam(event, "slug") || ""
 
-  /**
-   * ✅ SOLUCIÓN AL ERROR DE RUTAS:
-   * Si la petición termina en una extensión de imagen, significa que el archivo 
-   * no existe en la carpeta /public. Cortamos aquí para evitar que el CMS 
-   * intente buscar una categoría llamada "img/ui/..."
-   */
-  if (/\.(jpg|jpeg|png|webp|avif|gif|svg|pdf)$/i.test(raw)) {
-    throw createError({ 
-      statusCode: 404, 
-      statusMessage: "Recurso estático no encontrado. Verifica la ruta en la carpeta /public." 
+  if (isAssetLike(raw)) {
+    throw createError({
+      statusCode: 404,
+      message: `Ruta de asset capturada por /api/cms/category: ${raw}`,
     })
   }
 
   const slugParts = splitSlugParts(raw)
-  const wantedPath = normPath("/categorias/" + slugParts.join("/"))
-  const wantedSlug = normSlug(slugParts.at(-1) || "")
+  const requested = "/categorias/" + slugParts.join("/")
 
   const q = getQuery(event) as AnyObj
   const includeProducts = qBool(q, "includeProducts", false)
@@ -173,7 +184,6 @@ export default defineEventHandler(async (event) => {
   const includeChildren = qBool(q, "includeChildren", false)
   const childLimit = qInt(q, "childLimit", 24, 1, 200)
 
-  // Solo cargamos el catálogo si hemos pasado el filtro de archivos estáticos
   const catalog = await getCmsCatalog()
   const categories = catalog.categories || []
   const products = catalog.products || []
@@ -182,40 +192,44 @@ export default defineEventHandler(async (event) => {
   const byPath = idx?.byPath as Map<string, any> | undefined
   const bySlug = idx?.bySlug as Map<string, any> | undefined
 
-  const category =
-    byPath?.get(wantedPath) ||
-    bySlug?.get(wantedSlug) ||
-    categories.find((c) => normPath(c?.path) === wantedPath) ||
-    categories.find((c) => normSlug(c?.slug) === wantedSlug)
+  const resolved = resolveCategoryRoute(categories, byPath, bySlug, requested)
 
-  if (!category) {
-    throw createError({ 
-        statusCode: 404, 
-        statusMessage: `Categoría no encontrada: ${wantedPath}` 
+  if (!resolved?.category) {
+    throw createError({
+      statusCode: 404,
+      message: `Categoría no encontrada: ${requested}`,
     })
   }
 
-  const canonicalPath = normPath(category?.path)
-  const redirectTo = wantedPath !== canonicalPath ? canonicalPath : undefined
+  const category = resolved.category
+  const canonicalPath = normPath(resolved.canonicalPath || category?.path)
+  const redirectTo = resolved.redirectTo ? normPath(resolved.redirectTo) : undefined
 
-  const ogImageSrc = normAssetSrc(
-    category?.seo?.ogImageSrc ||
-    category?.seo?.ogImageSrc ||
-    category?.OgImageSrc ||
-    category?.image?.src ||
-    category?.ImageSrc
-  )
-  const outProducts = includeProducts ? resolveProducts(products, category?.slug, productLimit) : undefined
-  const outChildren = includeChildren ? resolveChildren(categories, category, canonicalPath, childLimit) : undefined
+  const categorySlug = normSlug(category?.slug || category?.categorySlug)
 
   const normalizedImageSrc = normAssetSrc(
     category?.imageSrc || category?.ImageSrc || category?.image?.src
   )
-  
-  
+
+  const ogImageSrc = normAssetSrc(
+    category?.seo?.ogImageSrc ||
+      category?.OgImageSrc ||
+      category?.image?.src ||
+      category?.ImageSrc
+  )
+
+  const outProducts = includeProducts
+    ? resolveProducts(products, categorySlug, productLimit)
+    : undefined
+
+  const outChildren = includeChildren
+    ? resolveChildren(categories, category, canonicalPath, childLimit)
+    : undefined
 
   return {
     ...category,
+    slug: categorySlug,
+    path: canonicalPath,
     imageSrc: normalizedImageSrc,
     image: category?.image
       ? {

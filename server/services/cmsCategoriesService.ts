@@ -1,11 +1,11 @@
 // server/services/cmsCategoriesService.ts
-import { useRuntimeConfig } from "#imports"
-import { getGraphClient } from "~/server/utils/graphClient.server" // <- adjust if you have a wrapper file
+import { fetchCmsCategories as fetchCatalogCategories } from "~/server/services/categories.service"
 
 type CategoryItem = {
   id: string
   title: string
   slug: string
+  path: string
   order: number
   parentSlug?: string | null
   featured: boolean
@@ -13,47 +13,18 @@ type CategoryItem = {
   isPublished: boolean
 }
 
-export async function fetchCmsCategories(event: any): Promise<CategoryItem[]> {
-  const cfg = useRuntimeConfig(event) as any
-  const listId = cfg.sharepoint?.cms?.categoriesListId
-  if (!listId) throw new Error("Falta sharepoint.cms.categoriesListId")
+export async function fetchCmsCategories(event?: any): Promise<CategoryItem[]> {
+  const categories = await fetchCatalogCategories(event)
 
-  const graph = await getGraphClient(event, "cms")
-  const siteId = await graph.resolveSiteId()
-
-  // NOTE: Select only what you need (faster + cheaper)
-  const select = [
-    "Title",
-    "Slug",
-    "Order",
-    "ParentSlug",     // <- recommended: store parent slug as text
-    "Featured",
-    "Hidden",
-    "IsPublished",
-  ].join(",")
-
-  const url =
-    `/sites/${encodeURIComponent(siteId)}` +
-    `/lists/${listId}/items` +
-    `?$top=500&$expand=fields($select=${encodeURIComponent(select)})`
-
-  const data = await graph.api(url).get()
-  const items = (data?.value ?? []) as any[]
-
-  return items
-    .map((it) => {
-      const f = it.fields || {}
-      return {
-        id: String(it.id), // <- FIX: id is item.id, not fields
-        title: String(f.Title ?? ""),
-        slug: String(f.Slug ?? ""),
-        order: Number(f.Order ?? 0),
-        parentSlug: f.ParentSlug ? String(f.ParentSlug) : null,
-        featured: Boolean(f.Featured),
-        hidden: Boolean(f.Hidden),
-        isPublished: f.IsPublished !== false,
-      }
-    })
-    .filter((c) => c.isPublished && !c.hidden && c.slug)
-    .sort((a, b) => a.order - b.order)
+  return categories.map((c) => ({
+    id: String(c.id),
+    title: String(c.title ?? c.nav ?? ""),
+    slug: String(c.slug ?? ""),
+    path: String(c.path ?? ""),
+    order: Number(c.order ?? 0),
+    parentSlug: c.parentSlug ? String(c.parentSlug) : null,
+    featured: Boolean(c.featured),
+    hidden: Boolean(c.hidden),
+    isPublished: c.isPublished !== false,
+  }))
 }

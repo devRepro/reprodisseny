@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { shallowRef, onMounted, computed, ref } from "vue";
+import { shallowRef, onMounted, computed, ref, watch } from "vue";
+import { normalizeCmsMediaSrc } from "@/utils/cmsMedia";
 
 const props = defineProps<{
   product: any;
@@ -8,11 +9,32 @@ const props = defineProps<{
 
 const FALLBACK = "/img/placeholders/producto.webp";
 
-const imgSrc = computed(() => {
-  const x = props.product?.image;
-  const src = typeof x === "string" ? x : x?.src;
-  return src || FALLBACK;
+const resolvedImgSrc = computed(() => {
+  const src =
+    props.product?.imageSrc ||
+    (typeof props.product?.image === "string"
+      ? props.product?.image
+      : props.product?.image?.src);
+
+  const normalized = normalizeCmsMediaSrc(src);
+  return normalized || FALLBACK;
 });
+
+const currentImgSrc = ref(FALLBACK);
+
+watch(
+  resolvedImgSrc,
+  (value) => {
+    currentImgSrc.value = value || FALLBACK;
+  },
+  { immediate: true }
+);
+
+function onImageError() {
+  if (currentImgSrc.value !== FALLBACK) {
+    currentImgSrc.value = FALLBACK;
+  }
+}
 
 const imgAlt = computed(() => {
   const x = props.product?.image;
@@ -24,15 +46,16 @@ const imgAlt = computed(() => {
 const extraFields = computed(
   () => props.product?.formFields || props.product?.extraFields || []
 );
+
 const categorySlug = computed(
   () => props.category?.slug || props.product?.categorySlug || ""
 );
+
 const productTitle = computed(() => props.product?.title || "");
 const productDesc = computed(
   () => props.product?.shortDescription || props.product?.description || ""
 );
 
-// Lazy-load
 const LeadRequestSectionCmp = shallowRef<any>(null);
 const leadSectionLoadError = ref<unknown>(null);
 
@@ -64,6 +87,14 @@ onMounted(async () => {
           >
             {{ productTitle }}
           </h1>
+
+          <p
+            v-if="productDesc"
+            class="max-w-2xl text-sm leading-6 text-muted-foreground md:text-base"
+            itemprop="description"
+          >
+            {{ productDesc }}
+          </p>
         </header>
 
         <figure
@@ -71,15 +102,15 @@ onMounted(async () => {
           itemprop="image"
         >
           <NuxtImg
-            :src="imgSrc"
+            :src="currentImgSrc"
             :alt="imgAlt"
             class="aspect-[4/3] w-full object-cover sm:aspect-square"
-            sizes="sm:100vw lg:560px"
+            sizes="(max-width: 1024px) 100vw, 560px"
             width="900"
             height="900"
-            densities="x1 x2"
             fetchpriority="high"
             preload
+            @error="onImageError"
           />
         </figure>
 
@@ -114,7 +145,9 @@ onMounted(async () => {
                 <div class="space-y-4" aria-label="Cargando formulario">
                   <div v-for="i in 6" :key="i" class="space-y-2">
                     <div class="h-4 w-28 rounded bg-muted" />
-                    <div class="h-12 w-full rounded-xl border border-border bg-background" />
+                    <div
+                      class="h-12 w-full rounded-xl border border-border bg-background"
+                    />
                   </div>
                   <div class="h-12 w-full rounded-xl bg-muted" />
                 </div>

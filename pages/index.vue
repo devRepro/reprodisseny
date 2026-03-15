@@ -42,7 +42,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, inject, type ComputedRef, type Ref } from "vue"
+import { computed, inject, type ComputedRef, type Ref, watchEffect } from "vue"
 import type { CategoriaNode } from "~/composables/useCategoriasNav"
 
 import CategoriasMenu from "@/components/shared/menu/Categorias.vue"
@@ -57,10 +57,8 @@ import GetFiles from "@/components/marketing/GetFiles.vue"
 import { useHomeCategoriesGrid } from "@/composables/useHomeCategoriesGrid"
 import { MarketingServicesGrid } from "#components"
 
-
 definePageMeta({ layout: "home" })
 
-// ✅ Inyectamos el bundle del layout
 type NavMenuProvide = {
   tree: ComputedRef<CategoriaNode[]>
   pending: Ref<boolean>
@@ -69,13 +67,59 @@ type NavMenuProvide = {
 
 const navMenu = inject<NavMenuProvide>("navMenu")
 
-// ✅ Importante: pasar VALORES (no refs) a props
 const menuTree = computed(() => navMenu?.tree.value ?? [])
 const menuPending = computed(() => navMenu?.pending.value ?? false)
 const menuError = computed(() => navMenu?.error.value ?? null)
 
-const { data: homeCategoriesData } = await useHomeCategoriesGrid(8)
-const homeCategories = computed(() => homeCategoriesData.value ?? [])
+const {
+  data: homeCategoriesData,
+  pending: homeCategoriesPending,
+  error: homeCategoriesError,
+} = await useHomeCategoriesGrid(8)
+
+console.log("[HOME] homeCategoriesData raw =", homeCategoriesData.value)
+console.log("[HOME] homeCategoriesPending =", homeCategoriesPending?.value)
+console.log("[HOME] homeCategoriesError =", homeCategoriesError?.value)
+
+const homeCategories = computed(() => {
+  const raw = homeCategoriesData.value as any
+
+  console.log("[HOME] raw typeof =", typeof raw)
+  console.log("[HOME] raw isArray =", Array.isArray(raw))
+  console.log("[HOME] raw keys =", raw && typeof raw === "object" ? Object.keys(raw) : null)
+
+  const arr =
+    Array.isArray(raw) ? raw :
+    Array.isArray(raw?.items) ? raw.items :
+    Array.isArray(raw?.categories) ? raw.categories :
+    Array.isArray(raw?.results) ? raw.results :
+    []
+
+  console.log("[HOME] normalized arr =", arr)
+
+  const normalized = arr.map((c: any, i: number) => {
+    const out = {
+      id: c.id ?? c.slug ?? `cat-${i}`,
+      title: c.title ?? c.name ?? c.nav ?? "",
+      slug: c.slug ?? "",
+      href: c.href ?? c.path ?? (c.slug ? `/categorias/${c.slug}` : "#"),
+      imageSrc: c.imageSrc ?? c.image?.src ?? c.image ?? null,
+      description: c.description ?? "",
+    }
+
+    console.log("[HOME] normalized item =", out)
+    return out
+  })
+
+  console.log("[HOME] final categories =", normalized)
+  return normalized
+})
+
+watchEffect(() => {
+  console.log("[HOME][watch] pending =", homeCategoriesPending?.value)
+  console.log("[HOME][watch] error =", homeCategoriesError?.value)
+  console.log("[HOME][watch] categories.length =", homeCategories.value.length)
+})
 
 const stripImages = [
   { src: "https://webcms.blob.core.windows.net/media/home/preimpresion.webp", alt: "Diseño y producción" },
