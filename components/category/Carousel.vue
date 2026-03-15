@@ -24,11 +24,11 @@ const props = withDefaults(
 const list = computed(() => (Array.isArray(props.items) ? props.items : []));
 
 // Construye ruta de página (nunca API) y limpia dobles barras
-const pageLink = (it: any) =>
-  (it?.path || (it?.slug ? `/categorias/${it.slug}` : "/categorias")).replace(
-    /\/{2,}/g,
-    "/"
-  );
+import { categoryHref } from "@/utils/categoryHref";
+
+function pageLink(it: any) {
+  return categoryHref(it);
+}
 
 // Key estable
 const itemKey = (it: any) => it.id ?? it._id ?? it.slug ?? it.path ?? JSON.stringify(it);

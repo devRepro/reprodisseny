@@ -50,6 +50,21 @@ function qInt(q: AnyObj, key: string, def: number, min: number, max: number) {
   return Math.max(min, Math.min(max, n))
 }
 
+function normAssetSrc(v: unknown) {
+  let s = String(v ?? "").trim()
+  if (!s) return null
+
+  // externas o especiales
+  if (/^(https?:)?\/\//i.test(s) || s.startsWith("data:") || s.startsWith("blob:")) {
+    return s
+  }
+
+  s = s.replace(/\\/g, "/")
+  s = s.replace(/^\.?\//, "") // quita ./ o /
+  s = s.replace(/^\/+/, "")
+
+  return "/" + s
+}
 /* -----------------------------
    SEO helpers
 ------------------------------ */
@@ -112,7 +127,7 @@ function resolveChildren(categories: AnyObj[], parent: AnyObj, canonicalParentPa
       title: c.title ?? c.Title ?? "",
       nav: c.nav ?? c.NavLabel ?? "",
       description: c.description ?? c.Description ?? "",
-      imageSrc: c.imageSrc || c.ImageSrc || c.image?.src || null,
+      imageSrc: normAssetSrc(c.imageSrc || c.ImageSrc || c.image?.src),
       alt: c.alt || c.ImageAlt || c.title || c.nav || "Subcategoría",
       order: Number(c.order ?? c.SortOrder ?? 0) || 0,
     }))
@@ -123,9 +138,31 @@ function resolveChildren(categories: AnyObj[], parent: AnyObj, canonicalParentPa
 ------------------------------ */
 
 export default defineEventHandler(async (event) => {
+  function splitSlugParts(v: unknown) {
+    return String(v ?? "")
+      .trim()
+      .replace(/^\/+|\/+$/g, "")
+      .split(/[\/,]+/)
+      .map((s) => s.trim())
+      .filter(Boolean)
+  }
+  
   const raw = getRouterParam(event, "slug") || ""
-  const slugParts = String(raw).split("/").filter(Boolean)
 
+  /**
+   * ✅ SOLUCIÓN AL ERROR DE RUTAS:
+   * Si la petición termina en una extensión de imagen, significa que el archivo 
+   * no existe en la carpeta /public. Cortamos aquí para evitar que el CMS 
+   * intente buscar una categoría llamada "img/ui/..."
+   */
+  if (/\.(jpg|jpeg|png|webp|avif|gif|svg|pdf)$/i.test(raw)) {
+    throw createError({ 
+      statusCode: 404, 
+      statusMessage: "Recurso estático no encontrado. Verifica la ruta en la carpeta /public." 
+    })
+  }
+
+  const slugParts = splitSlugParts(raw)
   const wantedPath = normPath("/categorias/" + slugParts.join("/"))
   const wantedSlug = normSlug(slugParts.at(-1) || "")
 
@@ -136,11 +173,11 @@ export default defineEventHandler(async (event) => {
   const includeChildren = qBool(q, "includeChildren", false)
   const childLimit = qInt(q, "childLimit", 24, 1, 200)
 
+  // Solo cargamos el catálogo si hemos pasado el filtro de archivos estáticos
   const catalog = await getCmsCatalog()
   const categories = catalog.categories || []
   const products = catalog.products || []
 
-  // lookup rápido (por índice) + fallback por si un día no existe
   const idx = (catalog as any).__index
   const byPath = idx?.byPath as Map<string, any> | undefined
   const bySlug = idx?.bySlug as Map<string, any> | undefined
@@ -151,20 +188,41 @@ export default defineEventHandler(async (event) => {
     categories.find((c) => normPath(c?.path) === wantedPath) ||
     categories.find((c) => normSlug(c?.slug) === wantedSlug)
 
-  if (!category) throw createError({ statusCode: 404, statusMessage: "Categoría no encontrada" })
+  if (!category) {
+    throw createError({ 
+        statusCode: 404, 
+        statusMessage: `Categoría no encontrada: ${wantedPath}` 
+    })
+  }
 
   const canonicalPath = normPath(category?.path)
   const redirectTo = wantedPath !== canonicalPath ? canonicalPath : undefined
 
-  const ogImageSrc =
-    category?.seo?.ogImageSrc || category?.OgImageSrc || category?.image?.src || category?.ImageSrc || null
-
+  const ogImageSrc = normAssetSrc(
+    category?.seo?.ogImageSrc ||
+    category?.seo?.ogImageSrc ||
+    category?.OgImageSrc ||
+    category?.image?.src ||
+    category?.ImageSrc
+  )
   const outProducts = includeProducts ? resolveProducts(products, category?.slug, productLimit) : undefined
   const outChildren = includeChildren ? resolveChildren(categories, category, canonicalPath, childLimit) : undefined
 
+  const normalizedImageSrc = normAssetSrc(
+    category?.imageSrc || category?.ImageSrc || category?.image?.src
+  )
+  
+  
+
   return {
     ...category,
-    // tabs ya hidratados en getCmsCatalog()
+    imageSrc: normalizedImageSrc,
+    image: category?.image
+      ? {
+          ...category.image,
+          src: normAssetSrc(category.image.src),
+        }
+      : category?.image,
     tabs: Array.isArray(category?.tabs) ? category.tabs : [],
     ...(outProducts ? { products: outProducts } : {}),
     ...(outChildren ? { children: outChildren } : {}),

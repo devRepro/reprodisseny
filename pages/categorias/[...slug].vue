@@ -8,7 +8,17 @@ import ProductDetails from "@/components/marketing/product/Details.vue";
 import ProductFaq from "@/components/marketing/product/Faq.vue";
 
 const route = useRoute();
-const slug = computed(() => String(route.params.slug || "").trim());
+const slug = computed(() => {
+  const raw = route.params.slug;
+  const parts = Array.isArray(raw)
+    ? raw
+    : String(raw ?? "")
+        .split(/[\/,]+/)
+        .map((s) => s.trim())
+        .filter(Boolean);
+
+  return parts.join("/");
+});
 
 // ✅ tus shells (consistentes con el resto)
 const containerClass = "container-wide";
@@ -19,13 +29,13 @@ const { data, pending, error } = await useAsyncData(
   () => `cms:product:${slug.value}`,
   () =>
     $fetch(`/api/cms/category/${slug.value}`, {
-  params: {
-    includeProducts: 1,
-    productLimit: 24,
-    includeChildren: 1,
-    childLimit: 50,
-  },
-}),
+      params: {
+        includeProducts: 1,
+        productLimit: 24,
+        includeChildren: 1,
+        childLimit: 50,
+      },
+    }),
   { server: true }
 );
 
@@ -80,9 +90,7 @@ const breadcrumbItems = computed(() => {
     <!-- Product -->
     <template v-else-if="product">
       <section :class="containerClass" class="pt-8 md:pt-16">
-        
-          <ProductHero :product="product" :category="category" />
-        
+        <ProductHero :product="product" :category="category" />
       </section>
 
       <!-- Banner guía (full bleed) -->

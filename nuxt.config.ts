@@ -89,7 +89,14 @@ export default defineNuxtConfig({
       siteHostname:
         process.env.CMS_SITE_HOSTNAME || "reprodisseny.sharepoint.com",
       sitePath: process.env.CMS_SITE_PATH || "",
-
+    
+      listId:
+        process.env.CMS_LIST_ID ||
+        process.env.CMS_CATEGORIES_LIST_ID ||
+        "",
+    
+      listDisplayName: process.env.CMS_LIST_DISPLAY_NAME || "",
+    
       categoriesListId: process.env.CMS_CATEGORIES_LIST_ID || "",
       productsListId: process.env.CMS_PRODUCTS_LIST_ID || "",
       assetsListId: process.env.CMS_ASSETS_LIST_ID || "",

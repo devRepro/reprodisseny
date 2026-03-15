@@ -14,6 +14,7 @@ import HeaderSearch from "@/components/layout/HeaderSearch.vue"
 import CategoriasMenu from "@/components/shared/menu/Categorias.vue"
 
 import { Search, Menu, Phone, X, ChevronDown } from "lucide-vue-next"
+import { categoryHref } from "@/utils/categoryHref"
 
 type MaybeRef<T> = T | Ref<T>
 
@@ -53,7 +54,7 @@ const errorValue = computed(() => {
 const categories = computed(() => props.menuTree ?? [])
 
 const labelOf = (c: any) => c?.nav || c?.title || c?.slug || ""
-const toCat = (c: any) => c?.path || (c?.slug ? `/categorias/${c.slug}` : "/categorias")
+const toCat = (c: any) => categoryHref(c)
 const toProd = (p: any) => p?.path || (p?.slug ? `/productos/${p.slug}` : "/productos")
 
 const hasDropdown = (c: CategoriaNode) =>
@@ -68,17 +69,19 @@ const staticLinks = [
 
 <template>
   <header class="w-full bg-white border-b border-slate-100 sticky top-0 z-[50]">
-    <div class="mx-auto w-full max-w-[1440px] h-16 md:h-20 px-6 md:px-10 lg:px-16 2xl:px-[120px] flex items-center justify-between gap-4 md:gap-8">
+    <div
+      class="mx-auto w-full max-w-[1440px] h-16 md:h-20 px-6 md:px-10 lg:px-16 2xl:px-[120px] flex items-center justify-between gap-4 md:gap-8"
+    >
       <NuxtLink to="/" class="flex items-center shrink-0" aria-label="Inicio">
         <SharedLogo class="h-7 w-auto md:h-9 lg:h-10 lg:w-[218px]" />
         <span class="sr-only">Repro Disseny</span>
       </NuxtLink>
 
       <div class="hidden lg:flex flex-1 justify-center">
-  <div class="w-full max-w-[560px]">
-    <HeaderSearch class="w-full" />
-  </div>
-</div>
+        <div class="w-full max-w-[560px]">
+          <HeaderSearch class="w-full" />
+        </div>
+      </div>
 
       <div class="flex items-center gap-1 md:gap-3 shrink-0">
         <!-- Mobile search toggle -->
@@ -113,7 +116,11 @@ const staticLinks = [
         <!-- ✅ HAMBURGUESA -->
         <DropdownMenu v-model:open="menuOpen">
           <DropdownMenuTrigger as-child>
-            <Button variant="ghost" class="h-10 w-10 p-0 rounded-lg hover:bg-slate-50" aria-label="Menú">
+            <Button
+              variant="ghost"
+              class="h-10 w-10 p-0 rounded-lg hover:bg-slate-50"
+              aria-label="Menú"
+            >
               <Menu class="h-6 w-6 text-[#212121]" />
             </Button>
           </DropdownMenuTrigger>
@@ -130,7 +137,9 @@ const staticLinks = [
             <!-- ✅ Categorías dentro del menú (solo <lg) -->
             <div class="lg:hidden mt-2">
               <div class="px-2 pt-2 pb-2 border-t border-slate-100">
-                <p class="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
+                <p
+                  class="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500"
+                >
                   Categorías
                 </p>
               </div>
@@ -141,14 +150,24 @@ const staticLinks = [
               <div v-else-if="errorValue" class="px-2 pb-2 text-sm text-red-600">
                 No se pudo cargar el menú.
               </div>
-              <div v-else-if="!categories.length" class="px-2 pb-2 text-sm text-slate-500">
+              <div
+                v-else-if="!categories.length"
+                class="px-2 pb-2 text-sm text-slate-500"
+              >
                 (Sin categorías)
               </div>
 
               <div v-else class="space-y-1 px-1 pb-2">
-                <template v-for="cat in categories" :key="cat.id || cat.slug || cat.path || cat.title">
+                <template
+                  v-for="cat in categories"
+                  :key="cat.id || cat.slug || cat.path || cat.title"
+                >
                   <!-- Category simple -->
-                  <DropdownMenuItem v-if="!hasDropdown(cat)" as-child class="cursor-pointer rounded-md">
+                  <DropdownMenuItem
+                    v-if="!hasDropdown(cat)"
+                    as-child
+                    class="cursor-pointer rounded-md"
+                  >
                     <NuxtLink
                       :to="toCat(cat)"
                       class="w-full px-3 py-2 text-sm font-medium text-slate-800 rounded-md hover:bg-slate-50"
@@ -188,7 +207,9 @@ const staticLinks = [
 
                         <!-- Subcategorías -->
                         <div v-if="cat.children?.length" class="space-y-1">
-                          <p class="text-xs font-semibold text-slate-500">Subcategorías</p>
+                          <p class="text-xs font-semibold text-slate-500">
+                            Subcategorías
+                          </p>
 
                           <div class="grid grid-cols-1 gap-1">
                             <DropdownMenuItem
@@ -203,7 +224,10 @@ const staticLinks = [
                                 @click="menuOpen = false"
                               >
                                 <span class="truncate">{{ labelOf(sub) }}</span>
-                                <span v-if="(sub.products?.length ?? 0) > 0" class="text-xs text-slate-400">
+                                <span
+                                  v-if="(sub.products?.length ?? 0) > 0"
+                                  class="text-xs text-slate-400"
+                                >
                                   {{ sub.products.length }}
                                 </span>
                               </NuxtLink>
@@ -227,14 +251,19 @@ const staticLinks = [
                                 class="rounded-md border border-slate-200 bg-white p-2 hover:bg-slate-50 min-w-0"
                                 @click="menuOpen = false"
                               >
-                                <span class="block text-xs font-medium text-slate-800 truncate">
+                                <span
+                                  class="block text-xs font-medium text-slate-800 truncate"
+                                >
                                   {{ prod.title }}
                                 </span>
                               </NuxtLink>
                             </DropdownMenuItem>
                           </div>
 
-                          <p v-if="(cat.products?.length ?? 0) > 8" class="text-xs text-slate-400">
+                          <p
+                            v-if="(cat.products?.length ?? 0) > 8"
+                            class="text-xs text-slate-400"
+                          >
                             +{{ cat.products.length - 8 }} más…
                           </p>
                         </div>

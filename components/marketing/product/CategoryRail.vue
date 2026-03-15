@@ -1,12 +1,19 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import PageContainer from "@/components/layout/PageContainer.vue";
+import { categoryHref } from "@/utils/categoryHref";
 
 type CategoryItem = {
   slug: string;
   title?: string;
   nav?: string;
   label?: string;
+  path?: string;
+  canonicalPath?: string;
+  categoryPath?: string;
+  slugPath?: string;
+  fullPath?: string;
+  url?: string;
 };
 
 const props = withDefaults(
@@ -19,8 +26,6 @@ const props = withDefaults(
     selectedCategory: null,
   }
 );
-
-const route = useRoute();
 
 function normalizeSlug(value: string | null | undefined) {
   return String(value || "")
@@ -43,19 +48,9 @@ function getCategoryLabel(category: CategoryItem) {
   return category.label || category.nav || category.title || category.slug;
 }
 
-function buildCategoryTo(slug: string | null) {
-  const normalizedSlug = normalizeSlug(slug);
-
-  return {
-    path: normalizedSlug ? `/categorias/${normalizedSlug}` : "/productos",
-    query: {
-      q: typeof route.query.q === "string" ? route.query.q : undefined,
-      sort:
-        typeof route.query.sort === "string" && route.query.sort !== "relevance"
-          ? route.query.sort
-          : undefined,
-    },
-  };
+function buildCategoryTo(category: CategoryItem | null) {
+  if (!category) return "/categorias";
+  return categoryHref(category);
 }
 </script>
 
@@ -75,7 +70,7 @@ function buildCategoryTo(slug: string | null) {
         <NuxtLink
           v-for="category in safeCategories"
           :key="category.slug"
-          :to="buildCategoryTo(category.slug)"
+          :to="buildCategoryTo(category)"
           class="catalog-chip"
           :class="{ 'catalog-chip-active': currentCategory === category.slug }"
           :aria-current="currentCategory === category.slug ? 'page' : undefined"

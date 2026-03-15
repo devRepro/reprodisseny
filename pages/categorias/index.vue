@@ -28,9 +28,7 @@ const page = computed(() => {
   return Number.isFinite(raw) && raw > 0 ? Math.floor(raw) : 1;
 });
 
-const q = computed(() =>
-  typeof route.query.q === "string" ? route.query.q.trim() : ""
-);
+const q = computed(() => (typeof route.query.q === "string" ? route.query.q.trim() : ""));
 
 const sort = computed(() =>
   typeof route.query.sort === "string" && route.query.sort
@@ -38,9 +36,7 @@ const sort = computed(() =>
     : "relevance"
 );
 
-const category = computed(() =>
-  typeof route.params.category === "string" ? route.params.category.trim().toLowerCase() : ""
-);
+const category = computed(() => "");
 
 const catalogKey = computed(() =>
   [
@@ -75,36 +71,23 @@ const total = computed(() => data.value?.total || 0);
 const totalPages = computed(() => data.value?.totalPages || 1);
 const categories = computed(() => data.value?.categories || []);
 
-const currentCategoryData = computed(() =>
-  categories.value.find((item: any) => {
-    const slug =
-      typeof item?.slug === "string" ? item.slug.trim().toLowerCase() : "";
-    return slug === category.value;
-  }) || null
+const currentCategoryData = computed(
+  () =>
+    categories.value.find((item: any) => {
+      const slug = typeof item?.slug === "string" ? item.slug.trim().toLowerCase() : "";
+      return slug === category.value;
+    }) || null
 );
 
 const currentCategoryLabel = computed(() => {
   const current = currentCategoryData.value;
-  return (
-    current?.label ||
-    current?.nav ||
-    current?.title ||
-    category.value
-  );
+  return current?.label || current?.nav || current?.title || "Catálogo";
 });
-
-if (!pending.value && !error.value && !currentCategoryData.value) {
-  throw createError({
-    statusCode: 404,
-    statusMessage: "Categoría no encontrada",
-  });
-}
 
 const canonical = computed(() => {
-  const base = `https://reprodisseny.com/${category.value}`;
+  const base = `https://reprodisseny.com/categorias`;
   return page.value > 1 ? `${base}?page=${page.value}` : base;
 });
-
 const shouldNoindex = computed(() => {
   return Boolean(q.value) || sort.value !== "relevance";
 });
@@ -131,7 +114,7 @@ useHead(() => ({
 
 function updateQuery(nextQuery: string) {
   router.replace({
-    path: `/${category.value}`,
+    path: "/categorias",
     query: {
       ...route.query,
       q: nextQuery?.trim() || undefined,
@@ -142,7 +125,7 @@ function updateQuery(nextQuery: string) {
 
 function updateSort(nextSort: string) {
   router.replace({
-    path: `/${category.value}`,
+    path: "/categorias",
     query: {
       ...route.query,
       sort: nextSort && nextSort !== "relevance" ? nextSort : undefined,
@@ -152,7 +135,7 @@ function updateSort(nextSort: string) {
 }
 
 function clearFilters() {
-  router.push({ path: `/${category.value}` });
+  router.push({ path: "/categorias" });
 }
 </script>
 
@@ -169,10 +152,7 @@ function clearFilters() {
       aria-label="Categorías principales"
       class="sticky top-0 z-30 border-b bg-white/80 backdrop-blur-md"
     >
-      <ProductsCategoryRail
-        :categories="categories"
-        :selected-category="category"
-      />
+      <ProductsCategoryRail :categories="categories" :selected-category="category" />
     </nav>
 
     <PageContainer>
@@ -184,9 +164,7 @@ function clearFilters() {
           <div
             class="h-12 w-12 animate-spin rounded-full border-4 border-primary/20 border-t-primary"
           />
-          <p class="mt-4 font-medium text-muted-foreground">
-            Actualizando catálogo...
-          </p>
+          <p class="mt-4 font-medium text-muted-foreground">Actualizando catálogo...</p>
         </div>
 
         <div v-else-if="error" class="mx-auto max-w-md py-20 text-center">
@@ -235,7 +213,7 @@ function clearFilters() {
               <ProductsFiltersPanel
                 :categories="categories"
                 :selected-category="category"
-                :base-path="'/'"
+                :base-path="'/categorias'"
                 @clear="clearFilters"
               />
             </div>
@@ -261,7 +239,7 @@ function clearFilters() {
                 :page="page"
                 :total-pages="totalPages"
                 :total="total"
-                :base-path="`/${category}`"
+                :base-path="'/categorias'"
                 class="animate-in fade-in duration-700"
               />
 

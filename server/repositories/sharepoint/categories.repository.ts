@@ -3,6 +3,7 @@ import { getGraphClient } from "~/server/utils/graphClient.server"
 
 export async function fetchSharePointCategoriesRaw(event: any): Promise<any[]> {
   const cfg = useRuntimeConfig(event) as any
+  console.log("[categories.repository] cms config =", cfg.sharepoint?.cms)
   const listId = cfg.sharepoint?.cms?.categoriesListId
   if (!listId) throw new Error("Falta sharepoint.cms.categoriesListId")
 
