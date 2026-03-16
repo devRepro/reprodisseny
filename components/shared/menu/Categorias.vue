@@ -29,22 +29,37 @@ const labelOf = (c: CategoriaNode) => c?.nav || c?.title || c?.slug || "";
 const toOf = (c: CategoriaNode) =>
   c?.path || (c?.slug ? `/categorias/${c.slug}` : "/categorias");
 
+const hasProducts = (c: CategoriaNode) => (c?.productCount ?? 0) > 0;
+
 const hasDropdown = (c: CategoriaNode) =>
-  (c?.children?.length ?? 0) > 0 || (c?.products?.length ?? 0) > 0;
+  (c?.children?.length ?? 0) > 0 || hasProducts(c);
+
+const imageSrcOf = (item: any) => item?.image?.src || item?.imageSrc || "";
+const imageAltOf = (item: any) =>
+  item?.image?.alt || item?.title || item?.nav || item?.slug || "";
+
+const previewProducts = (c: CategoriaNode) =>
+  Array.isArray(c?.products) ? c.products : [];
 </script>
 
 <template>
-  <nav class="w-full bg-[#004F78]" role="navigation" aria-label="Categories">
+  <nav class="w-full bg-[#004F78]" aria-label="Categorías">
     <div class="mx-auto w-full max-w-[1440px] min-w-0 px-4 sm:px-6 lg:px-10 xl:px-[80px] py-2">
-      <!-- Estados -->
-      <div v-if="pending" class="text-[14px] leading-[20px] text-white/80">Carregant…</div>
-      <div v-else-if="error" class="text-[14px] leading-[20px] text-white">No s’ha pogut carregar el menú.</div>
-      <div v-else-if="!categories.length" class="text-[14px] leading-[20px] text-white/80">(Sense categories)</div>
+      <div v-if="pending" class="text-[14px] leading-[20px] text-white/80">
+        Cargando…
+      </div>
+
+      <div v-else-if="error" class="text-[14px] leading-[20px] text-white">
+        No se ha podido cargar el menú.
+      </div>
+
+      <div v-else-if="!categories.length" class="text-[14px] leading-[20px] text-white/80">
+        (Sin categorías)
+      </div>
 
       <template v-else>
-        <!-- ✅ MOBILE (chips) -->
+        <!-- Mobile: solo enlaces rápidos -->
         <div class="md:hidden relative min-w-0">
-          <!-- fades laterales (opcional, queda pro) -->
           <div class="pointer-events-none absolute inset-y-0 left-0 w-6 bg-gradient-to-r from-[#004F78] to-transparent" />
           <div class="pointer-events-none absolute inset-y-0 right-0 w-6 bg-gradient-to-l from-[#004F78] to-transparent" />
 
@@ -53,22 +68,19 @@ const hasDropdown = (c: CategoriaNode) =>
               v-for="cat in categories"
               :key="cat.id || cat.slug || cat.path || cat.title"
               :to="toOf(cat)"
-              class="shrink-0 rounded-full border border-white/20 bg-white/10 px-3 py-2 text-xs font-semibold text-white
-                     hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+              class="shrink-0 rounded-full border border-white/20 bg-white/10 px-3 py-2 text-xs font-semibold text-white hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
             >
               {{ labelOf(cat) }}
             </NuxtLink>
           </div>
         </div>
 
-        <!-- ✅ DESKTOP (menubar) -->
+        <!-- Desktop -->
         <div class="hidden md:block w-full min-w-0">
           <div class="relative w-full min-w-0">
-            <!-- wrapper con scroll horizontal controlado -->
-            <div class="w-full min-w-0 overflow-x-auto overscroll-x-contain no-scrollbar">
+            <div class="w-full min-w-0 overflow-x-auto md:overflow-visible overscroll-x-contain no-scrollbar">
               <Menubar
-                class="inline-flex w-max items-center whitespace-nowrap !bg-transparent !border-0 !shadow-none !p-0
-                       gap-4 lg:gap-6 xl:gap-8"
+                class="inline-flex w-max items-center whitespace-nowrap !bg-transparent !border-0 !shadow-none !p-0 gap-4 lg:gap-6 xl:gap-8"
               >
                 <MenubarMenu
                   v-for="cat in categories"
@@ -79,52 +91,55 @@ const hasDropdown = (c: CategoriaNode) =>
                     <MenubarTrigger as-child>
                       <button
                         type="button"
-                        class="inline-flex max-w-[220px] items-center gap-1 whitespace-nowrap text-[14px] leading-[20px]
-                               font-normal text-white hover:text-white/90
-                               focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60
-                               focus-visible:ring-offset-2 focus-visible:ring-offset-[#004F78]"
-                        :aria-label="`Obrir submenú de ${labelOf(cat)}`"
+                        class="inline-flex max-w-[220px] items-center gap-1 whitespace-nowrap text-[14px] leading-[20px] font-normal text-white hover:text-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#004F78]"
+                        :aria-label="`Abrir submenú de ${labelOf(cat)}`"
                       >
                         <span class="truncate">{{ labelOf(cat) }}</span>
                         <ChevronDownIcon class="h-4 w-4 shrink-0" aria-hidden="true" />
                       </button>
                     </MenubarTrigger>
 
-                    <!-- ✅ Content más robusto: centrado + ancho responsive -->
                     <MenubarContent
                       class="z-50 w-[min(920px,calc(100vw-2rem))] max-h-[min(80vh,720px)] overflow-y-auto p-4 sm:p-6"
                       align="center"
                     >
-                      <!-- 👇 TU CONTENIDO ACTUAL TAL CUAL -->
                       <template v-if="cat.children?.length">
-                        <div class="grid gap-6 sm:gap-8 lg:gap-12 grid-cols-1 sm:grid-cols-2 max-w-3xl mx-auto">
-                          <div v-for="sub in cat.children" :key="sub.slug" class="min-w-0">
+                        <div class="grid gap-6 sm:gap-8 lg:gap-12 grid-cols-1 sm:grid-cols-2 max-w-4xl mx-auto">
+                          <div
+                            v-for="sub in cat.children"
+                            :key="sub.slug"
+                            class="min-w-0"
+                          >
                             <NuxtLink
-                              :to="sub.path || `/categorias/${sub.slug}`"
+                              :to="toOf(sub)"
                               class="flex items-center gap-2 border-b pb-2 mb-4 hover:opacity-80 transition-opacity"
                             >
                               <NuxtImg
-                                v-if="(sub as any).image || (sub as any).imageSrc"
-                                :src="(sub as any).image || (sub as any).imageSrc"
-                                :alt="sub.title || ''"
+                                v-if="imageSrcOf(sub)"
+                                :src="imageSrcOf(sub)"
+                                :alt="imageAltOf(sub)"
                                 class="h-8 w-8 shrink-0 rounded object-cover border border-border"
                                 loading="lazy"
                               />
                               <span class="text-base font-semibold uppercase tracking-wide text-foreground">
-                                {{ sub.nav || sub.title || sub.slug }}
+                                {{ labelOf(sub) }}
                               </span>
                             </NuxtLink>
 
-                            <div class="flex flex-col gap-1">
-                              <MenubarItem v-for="prod in sub.products || []" :key="prod.slug" as-child>
+                            <div v-if="hasProducts(sub)" class="flex flex-col gap-1">
+                              <MenubarItem
+                                v-for="prod in previewProducts(sub)"
+                                :key="prod.slug"
+                                as-child
+                              >
                                 <NuxtLink
                                   :to="prod.path || `/productos/${prod.slug}`"
                                   class="flex w-full min-w-0 items-center gap-3 rounded-md px-2 py-2 hover:bg-muted cursor-pointer"
                                 >
                                   <NuxtImg
-                                    v-if="(prod as any).image || (prod as any).imageSrc"
-                                    :src="(prod as any).image || (prod as any).imageSrc"
-                                    :alt="prod.title || ''"
+                                    v-if="imageSrcOf(prod)"
+                                    :src="imageSrcOf(prod)"
+                                    :alt="imageAltOf(prod)"
                                     class="h-8 w-8 shrink-0 rounded object-cover border border-border"
                                     loading="lazy"
                                   />
@@ -132,9 +147,16 @@ const hasDropdown = (c: CategoriaNode) =>
                                 </NuxtLink>
                               </MenubarItem>
 
-                              <MenubarItem v-if="(sub.products?.length ?? 0) === 0" disabled>
-                                <span class="text-sm text-muted-foreground">(Sense productes)</span>
-                              </MenubarItem>
+                              <NuxtLink
+                                :to="toOf(sub)"
+                                class="mt-2 inline-flex text-sm font-medium text-blue-600 hover:text-blue-800 hover:underline"
+                              >
+                                Ver subcategoría →
+                              </NuxtLink>
+                            </div>
+
+                            <div v-else class="text-sm text-muted-foreground">
+                              Sin productos destacados
                             </div>
                           </div>
                         </div>
@@ -150,25 +172,35 @@ const hasDropdown = (c: CategoriaNode) =>
                               :to="toOf(cat)"
                               class="shrink-0 text-sm font-medium text-blue-600 hover:underline hover:text-blue-800 transition-colors"
                             >
-                              Ver todo &rarr;
+                              Ver todo →
                             </NuxtLink>
                           </div>
 
-                          <div class="grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-                            <MenubarItem v-for="prod in cat.products || []" :key="prod.slug" as-child>
+                          <div
+                            v-if="hasProducts(cat)"
+                            class="grid gap-4 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6"
+                          >
+                            <MenubarItem
+                              v-for="prod in previewProducts(cat)"
+                              :key="prod.slug"
+                              as-child
+                            >
                               <NuxtLink
                                 :to="prod.path || `/productos/${prod.slug}`"
                                 class="group flex flex-col gap-2 rounded-md hover:bg-muted p-2 cursor-pointer min-w-0"
                               >
                                 <div class="aspect-square w-full overflow-hidden rounded-md border border-border bg-muted/30">
                                   <NuxtImg
-                                    v-if="(prod as any).image || (prod as any).imageSrc"
-                                    :src="(prod as any).image || (prod as any).imageSrc"
-                                    :alt="prod.title || ''"
+                                    v-if="imageSrcOf(prod)"
+                                    :src="imageSrcOf(prod)"
+                                    :alt="imageAltOf(prod)"
                                     class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
                                     loading="lazy"
                                   />
-                                  <div v-else class="h-full w-full flex items-center justify-center text-xs text-muted-foreground">
+                                  <div
+                                    v-else
+                                    class="h-full w-full flex items-center justify-center text-xs text-muted-foreground"
+                                  >
                                     Sin foto
                                   </div>
                                 </div>
@@ -178,6 +210,10 @@ const hasDropdown = (c: CategoriaNode) =>
                               </NuxtLink>
                             </MenubarItem>
                           </div>
+
+                          <div v-else class="text-sm text-muted-foreground">
+                            Sin productos destacados
+                          </div>
                         </div>
                       </template>
                     </MenubarContent>
@@ -186,9 +222,7 @@ const hasDropdown = (c: CategoriaNode) =>
                   <template v-else>
                     <NuxtLink
                       :to="toOf(cat)"
-                      class="shrink-0 whitespace-nowrap text-[14px] leading-[20px] font-normal text-white hover:text-white/90
-                             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60
-                             focus-visible:ring-offset-2 focus-visible:ring-offset-[#004F78]"
+                      class="shrink-0 whitespace-nowrap text-[14px] leading-[20px] font-normal text-white hover:text-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#004F78]"
                     >
                       {{ labelOf(cat) }}
                     </NuxtLink>
@@ -204,7 +238,6 @@ const hasDropdown = (c: CategoriaNode) =>
 </template>
 
 <style scoped>
-/* Oculta scrollbar sin romper scroll */
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }

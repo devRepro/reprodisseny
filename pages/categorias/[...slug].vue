@@ -1,54 +1,8 @@
 <script setup lang="ts">
 import { computed } from "vue";
+import type { CategoryDetailPageDto } from "~/server/services/cms/catalog.service";
 import SiteBreadcrumbs from "@/components/shared/SiteBreadcrumbs.vue";
 import GuideBanner from "@/components/marketing/GuideBanner.vue";
-
-type CmsImage = {
-  src?: string | null;
-  alt?: string | null;
-};
-
-type CmsProduct = {
-  slug?: string;
-  path?: string;
-  title?: string;
-  description?: string;
-  imageSrc?: string | null;
-  image?: CmsImage | null;
-};
-
-type CmsChild = {
-  slug?: string;
-  path?: string;
-  title?: string;
-  description?: string;
-  imageSrc?: string | null;
-  alt?: string;
-};
-
-type CmsTab = {
-  id?: string;
-  title?: string;
-  label?: string;
-  heading?: string;
-  content?: string;
-  body?: string;
-  html?: string;
-};
-
-type CmsCategory = {
-  slug?: string;
-  path?: string;
-  title?: string;
-  description?: string;
-  imageSrc?: string | null;
-  image?: CmsImage | null;
-  tabs?: CmsTab[];
-  children?: CmsChild[];
-  products?: CmsProduct[];
-  seo?: Record<string, unknown>;
-  redirectTo?: string;
-};
 
 const route = useRoute();
 const config = useRuntimeConfig();
@@ -56,18 +10,6 @@ const config = useRuntimeConfig();
 function isAssetLike(v: unknown) {
   const s = String(v ?? "").trim();
   return /^(img|_nuxt)\//i.test(s) || /\.(jpg|jpeg|png|webp|avif|gif|svg|pdf)$/i.test(s);
-}
-
-function toAssetUrl(v: unknown) {
-  let s = String(v ?? "").trim();
-  if (!s) return "";
-  if (/^(https?:)?\/\//i.test(s) || s.startsWith("data:") || s.startsWith("blob:")) {
-    return s;
-  }
-  s = s.replace(/\\/g, "/");
-  s = s.replace(/^\.?\//, "");
-  s = s.replace(/^\/+/, "");
-  return "/" + s;
 }
 
 const slug = computed(() => {
@@ -89,19 +31,9 @@ if (isAssetLike(slug.value)) {
   });
 }
 
-const fetchParams = {
-  includeProducts: 1,
-  productLimit: 24,
-  includeChildren: 1,
-  childLimit: 50,
-};
-
-const { data, pending, error } = await useAsyncData<CmsCategory>(
+const { data, pending, error } = await useAsyncData<CategoryDetailPageDto>(
   () => `cms:category:${slug.value}`,
-  () =>
-    $fetch(`/api/cms/category/${slug.value}`, {
-      params: fetchParams,
-    }),
+  () => $fetch(`/api/cms/category/${slug.value}`),
   { server: true }
 );
 
@@ -123,41 +55,12 @@ const category = computed(() => data.value ?? null);
 const children = computed(() => category.value?.children ?? []);
 const products = computed(() => category.value?.products ?? []);
 const tabs = computed(() => category.value?.tabs ?? []);
-
-const heroImage = computed(() =>
-  toAssetUrl(category.value?.imageSrc || category.value?.image?.src || "")
-);
-
-const breadcrumbItems = computed(() => {
-  const items: Array<{ label: string; to?: string }> = [
-    { label: "Inicio", to: "/" },
-    { label: "Categorías", to: "/categorias" },
-  ];
-
-  if (category.value?.title) {
-    items.push({ label: category.value.title });
-  }
-
-  return items;
-});
-
-const normalizedTabs = computed(() =>
-  tabs.value
-    .map((t, index) => {
-      const title = t?.title || t?.label || t?.heading || `Detalle ${index + 1}`;
-      const text = t?.content || t?.body || t?.html || "";
-      return {
-        id: t?.id || `tab-${index + 1}`,
-        title,
-        text,
-      };
-    })
-    .filter((t) => t.text || t.title)
-);
+const breadcrumbItems = computed(() => category.value?.breadcrumbs ?? []);
+const heroImage = computed(() => category.value?.image?.src || "");
 
 const canonicalUrl = computed(() => {
   const base = config.public.siteUrl || "https://reprodisseny.com";
-  const path = category.value?.path || route.path;
+  const path = category.value?.seo?.canonical || category.value?.path || route.path;
   return new URL(path, base).toString();
 });
 
@@ -167,13 +70,16 @@ useHead(() => ({
 
 useSeoMeta({
   title: () =>
-    category.value?.title
-      ? `${category.value.title} | Reprodisseny`
-      : "Categoría | Reprodisseny",
-  description: () => category.value?.description || "Categoría de productos",
-  ogTitle: () => category.value?.title || "Categoría",
-  ogDescription: () => category.value?.description || "Categoría de productos",
-  ogImage: () => heroImage.value || undefined,
+    category.value?.seo?.title ||
+    (category.value?.title ? `${category.value.title} | Reprodisseny` : "Categoría | Reprodisseny"),
+  description: () =>
+    category.value?.seo?.description || category.value?.description || "Categoría de productos",
+  ogTitle: () =>
+    category.value?.seo?.title || category.value?.title || "Categoría",
+  ogDescription: () =>
+    category.value?.seo?.description || category.value?.description || "Categoría de productos",
+  ogImage: () => category.value?.seo?.image || heroImage.value || undefined,
+  robots: () => category.value?.seo?.robots || "index,follow",
 });
 </script>
 
@@ -214,7 +120,7 @@ useSeoMeta({
           <div v-if="heroImage" class="overflow-hidden rounded-2xl border bg-muted/20">
             <img
               :src="heroImage"
-              :alt="category.title || 'Categoría'"
+              :alt="category.image?.alt || category.title || 'Categoría'"
               class="h-full max-h-[360px] w-full object-cover"
             />
           </div>
@@ -235,14 +141,14 @@ useSeoMeta({
           <NuxtLink
             v-for="child in children"
             :key="child.slug || child.path"
-            :to="child.path || `/categorias/${child.slug}`"
+            :to="child.path"
             class="group overflow-hidden rounded-2xl border bg-card transition hover:-translate-y-0.5 hover:shadow-md"
           >
             <div class="aspect-[16/10] overflow-hidden bg-muted/30">
               <img
-                v-if="child.imageSrc"
-                :src="toAssetUrl(child.imageSrc)"
-                :alt="child.alt || child.title || 'Subcategoría'"
+                v-if="child.image?.src"
+                :src="child.image.src"
+                :alt="child.image.alt || child.title || 'Subcategoría'"
                 class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.02]"
               />
               <div v-else class="h-full w-full bg-muted/40" />
@@ -289,16 +195,16 @@ useSeoMeta({
 
         <div class="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
           <NuxtLink
-            v-for="p in products"
-            :key="p.slug || p.path"
-            :to="p.path || `/productos/${p.slug}`"
+            v-for="product in products"
+            :key="product.slug || product.path"
+            :to="product.path"
             class="group overflow-hidden rounded-2xl border bg-card transition hover:-translate-y-0.5 hover:shadow-md"
           >
             <div class="aspect-[4/3] overflow-hidden bg-muted/30">
               <img
-                v-if="p.imageSrc || p.image?.src"
-                :src="toAssetUrl(p.imageSrc || p.image?.src)"
-                :alt="p.title || 'Producto'"
+                v-if="product.image?.src"
+                :src="product.image.src"
+                :alt="product.image.alt || product.title || 'Producto'"
                 class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.02]"
               />
               <div v-else class="h-full w-full bg-muted/40" />
@@ -306,14 +212,14 @@ useSeoMeta({
 
             <div class="p-5">
               <h3 class="text-base font-semibold">
-                {{ p.title }}
+                {{ product.title }}
               </h3>
 
               <p
-                v-if="p.description"
+                v-if="product.description"
                 class="mt-2 line-clamp-3 text-sm leading-6 text-muted-foreground"
               >
-                {{ p.description }}
+                {{ product.description }}
               </p>
 
               <div class="mt-4 text-sm font-medium text-primary">Ver producto</div>
@@ -323,7 +229,7 @@ useSeoMeta({
       </section>
 
       <section
-        v-if="normalizedTabs.length"
+        v-if="tabs.length"
         class="border-y border-border bg-muted/20 py-14 md:py-20"
       >
         <div class="container-wide">
@@ -334,7 +240,7 @@ useSeoMeta({
 
             <div class="space-y-6">
               <article
-                v-for="tab in normalizedTabs"
+                v-for="tab in tabs"
                 :key="tab.id"
                 class="rounded-2xl border bg-background p-6"
               >
@@ -343,12 +249,15 @@ useSeoMeta({
                 </h3>
 
                 <div
-                  v-if="/<\/?[a-z][\s\S]*>/i.test(tab.text)"
+                  v-if="tab.html"
                   class="prose prose-neutral mt-3 max-w-none"
-                  v-html="tab.text"
+                  v-html="tab.html"
                 />
 
-                <p v-else class="whitespace-pre-line leading-7 text-muted-foreground">
+                <p
+                  v-else-if="tab.text"
+                  class="mt-3 whitespace-pre-line leading-7 text-muted-foreground"
+                >
                   {{ tab.text }}
                 </p>
               </article>
