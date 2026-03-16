@@ -1,76 +1,35 @@
 <script setup lang="ts">
 import { computed } from "vue";
+import type { ProductDetailDto } from "~/server/services/cms/catalog.service";
 import SiteBreadcrumbs from "@/components/shared/SiteBreadcrumbs.vue";
 import ProductHero from "@/components/marketing/product/Hero.vue";
 import GuideBanner from "@/components/marketing/GuideBanner.vue";
 import ProductDetails from "@/components/marketing/product/Details.vue";
 import ProductFaq from "@/components/marketing/product/Faq.vue";
-import { normalizeCmsMediaSrc } from "@/utils/cmsMedia";
-
-type CmsImage = {
-  src?: string | null;
-  alt?: string | null;
-  width?: number | null;
-  height?: number | null;
-};
-
-type CmsSeoHreflang = {
-  lang?: string;
-  url?: string;
-};
-
-type CmsSeo = {
-  metaTitle?: string;
-  metaDescription?: string;
-  canonical?: string;
-  hreflang?: CmsSeoHreflang[];
-  schema?: Record<string, unknown>;
-};
-
-type CmsCategory = {
-  slug?: string;
-  path?: string;
-  title?: string;
-};
-
-type CmsProduct = {
-  id?: string;
-  slug?: string;
-  path?: string;
-  title?: string;
-  shortDescription?: string;
-  description?: string;
-  bodyMd?: string;
-  imageSrc?: string | null;
-  image?: CmsImage | null;
-  categorySlug?: string;
-  seo?: CmsSeo;
-  formFields?: any[];
-  extraFields?: any[];
-};
-
-type CmsProductPageData = {
-  product?: CmsProduct | null;
-  category?: CmsCategory | null;
-  detailsTabs?: any[];
-  faqs?: any[];
-  redirectTo?: string;
-};
 
 const route = useRoute();
 const config = useRuntimeConfig();
 
-const slug = computed(() => String(route.params.slug || "").trim());
-
 const containerClass = "container-wide";
 const contentNarrowClass = "mx-auto w-full max-w-[880px]";
 
-const { data, pending, error } = await useAsyncData<CmsProductPageData>(
+function isAssetLike(v: unknown) {
+  const s = String(v ?? "").trim();
+  return /^(img|_nuxt)\//i.test(s) || /\.(jpg|jpeg|png|webp|avif|gif|svg|pdf)$/i.test(s);
+}
+
+const slug = computed(() => String(route.params.slug || "").trim());
+
+if (isAssetLike(slug.value)) {
+  throw createError({
+    statusCode: 404,
+    message: `Ruta estática inválida para producto: ${slug.value}`,
+  });
+}
+
+const { data, pending, error } = await useAsyncData<ProductDetailDto>(
   () => `cms:product:${slug.value}`,
-  () =>
-    $fetch(`/api/cms/product/${slug.value}`, {
-      params: { includeRelated: 1, relatedLimit: 4 },
-    }),
+  () => $fetch(`/api/cms/product/${slug.value}`),
   { server: true }
 );
 
@@ -81,73 +40,107 @@ if (error.value) {
   });
 }
 
-const rawProduct = computed(() => data.value?.product || null);
-const category = computed(() => data.value?.category || null);
-const detailsTabs = computed(() => data.value?.detailsTabs || []);
-const faqs = computed(() => data.value?.faqs || []);
-
-const product = computed<CmsProduct | null>(() => {
-  if (!rawProduct.value) return null;
-
-  const normalizedSrc = normalizeCmsMediaSrc(
-    rawProduct.value.imageSrc || rawProduct.value.image?.src || ""
-  );
-
-  return {
-    ...rawProduct.value,
-    imageSrc: normalizedSrc || rawProduct.value.imageSrc || null,
-    image: rawProduct.value.image
-      ? {
-          ...rawProduct.value.image,
-          src: normalizedSrc || rawProduct.value.image?.src || null,
-        }
-      : rawProduct.value.image,
-  };
-});
-
-if (product.value?.path && product.value.path !== route.path) {
-  await navigateTo(product.value.path, {
+if (data.value?.redirectTo && data.value.redirectTo !== route.path) {
+  await navigateTo(data.value.redirectTo, {
     redirectCode: 301,
     replace: true,
   });
 }
 
-const breadcrumbItems = computed(() => {
-  const items: Array<{ label: string; to?: string }> = [
-    { label: "Inicio", to: "/" },
-    { label: "Productos", to: "/productos" },
-  ];
+const product = computed(() => data.value ?? null);
 
-  if (category.value?.title) {
-    items.push({
-      label: category.value.title,
-      to: category.value.path || undefined,
+const category = computed(() => {
+  if (!product.value?.category) return null;
+
+  return {
+    slug: product.value.category.slug,
+    path: product.value.category.path,
+    title: product.value.category.title,
+    nav: product.value.category.nav,
+  };
+});
+
+/**
+ * Adaptador fino para no romper ProductHero mientras ese componente
+ * siga esperando el shape antiguo.
+ */
+const heroProduct = computed(() => {
+  if (!product.value) return null;
+
+  return {
+    slug: product.value.slug,
+    path: product.value.path,
+    title: product.value.title,
+    shortDescription: product.value.shortDescription || product.value.description || "",
+    description: product.value.description || "",
+    imageSrc: product.value.image?.src || null,
+    image: product.value.image
+      ? {
+          src: product.value.image.src,
+          alt: product.value.image.alt,
+          width: product.value.image.width ?? null,
+          height: product.value.image.height ?? null,
+        }
+      : null,
+    seo: {
+      canonical: product.value.seo?.canonical,
+      metaTitle: product.value.seo?.title,
+      metaDescription: product.value.seo?.description,
+    },
+  };
+});
+
+const breadcrumbItems = computed(() => product.value?.breadcrumbs ?? []);
+const heroImage = computed(() => product.value?.image?.src || "");
+
+const detailsTabs = computed(() => {
+  const tabs: Array<{ id: string; title: string; text: string }> = [];
+
+  if (product.value?.bodyMd) {
+    tabs.push({
+      id: "descripcion",
+      title: "Descripción",
+      text: product.value.bodyMd,
     });
   }
 
-  if (product.value?.title) {
-    items.push({ label: product.value.title });
+  if (product.value?.formFields?.length) {
+    const text = product.value.formFields
+      .map((field) => {
+        const options = field.options?.length ? ` (${field.options.join(", ")})` : "";
+        const required = field.required ? " · obligatorio" : "";
+        return `${field.label || field.name}${options}${required}`;
+      })
+      .join("\n");
+
+    tabs.push({
+      id: "configuracion",
+      title: "Opciones de personalización",
+      text,
+    });
   }
 
-  return items;
+  return tabs;
 });
 
-const canonicalUrl = computed(() => {
-  if (product.value?.seo?.canonical) return product.value.seo.canonical;
+/**
+ * El catálogo actual no trae FAQs de producto.
+ * Dejamos la sección preparada pero no visible hasta que exista dato real.
+ */
+const faqs = computed<any[]>(() => []);
 
+const canonicalUrl = computed(() => {
   const base = config.public.siteUrl || "https://reprodisseny.com";
-  const path = product.value?.path || route.path;
+  const path = product.value?.seo?.canonical || product.value?.path || route.path;
   return new URL(path, base).toString();
 });
 
 const hreflangLinks = computed(() =>
-  (product.value?.seo?.hreflang || [])
-    .filter((x) => x?.lang && x?.url)
-    .map((x) => ({
-      rel: "alternate",
-      hreflang: x!.lang!,
-      href: x!.url!,
-    }))
+  (product.value?.seo?.hreflang || []).map((item) => ({
+    rel: "alternate" as const,
+    hreflang: item.lang,
+    href: item.url,
+  }))
 );
 
 const schemaJson = computed(() => {
@@ -169,22 +162,23 @@ useHead(() => ({
 
 useSeoMeta({
   title: () =>
-    product.value?.seo?.metaTitle ||
+    product.value?.seo?.title ||
     (product.value?.title
       ? `${product.value.title} | Reprodisseny`
       : "Producto | Reprodisseny"),
   description: () =>
-    product.value?.seo?.metaDescription ||
+    product.value?.seo?.description ||
     product.value?.shortDescription ||
     product.value?.description ||
     "Detalles de producto",
-  ogTitle: () => product.value?.seo?.metaTitle || product.value?.title || "Producto",
+  ogTitle: () => product.value?.seo?.title || product.value?.title || "Producto",
   ogDescription: () =>
-    product.value?.seo?.metaDescription ||
+    product.value?.seo?.description ||
     product.value?.shortDescription ||
     product.value?.description ||
     "Detalles de producto",
-  ogImage: () => product.value?.image?.src || product.value?.imageSrc || undefined,
+  ogImage: () => product.value?.seo?.image || heroImage.value || undefined,
+  robots: () => product.value?.seo?.robots || "index,follow",
 });
 </script>
 
@@ -202,9 +196,9 @@ useSeoMeta({
       </div>
     </div>
 
-    <template v-else-if="product">
+    <template v-else-if="product && heroProduct">
       <section :class="containerClass" class="pt-8 md:pt-16">
-        <ProductHero :product="product" :category="category" />
+        <ProductHero :product="heroProduct" :category="category" />
       </section>
 
       <section class="mt-16 md:mt-24">
@@ -219,6 +213,7 @@ useSeoMeta({
       </section>
 
       <section
+        v-if="detailsTabs.length"
         id="detalles"
         class="mt-20 border-y border-border bg-muted/20 py-20 md:mt-32"
       >
@@ -230,7 +225,7 @@ useSeoMeta({
         </div>
       </section>
 
-      <section class="py-20">
+      <section v-if="faqs.length" class="py-20">
         <div :class="containerClass">
           <div :class="contentNarrowClass">
             <h2 class="mb-8 text-center">Dudas frecuentes</h2>
@@ -246,11 +241,13 @@ useSeoMeta({
             Si no encuentras lo que buscas en los detalles, contáctanos directamente y lo
             fabricaremos a medida.
           </p>
-          <button
-            class="mt-8 rounded-full bg-background px-10 py-4 font-semibold text-foreground transition-colors hover:bg-brand-bg-2"
+
+          <NuxtLink
+            to="/contacto"
+            class="mt-8 inline-flex rounded-full bg-background px-10 py-4 font-semibold text-foreground transition-colors hover:bg-brand-bg-2"
           >
             Contactar con un asesor
-          </button>
+          </NuxtLink>
         </div>
       </section>
     </template>

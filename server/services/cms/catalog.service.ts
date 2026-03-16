@@ -1,5 +1,23 @@
 import catalog from "~/cms/catalog.json";
 
+type CatalogSeoHreflang = {
+  lang?: string;
+  url?: string;
+};
+
+type CatalogSeo = {
+  title?: string;
+  description?: string;
+  metaTitle?: string;
+  metaDescription?: string;
+  canonical?: string;
+  hreflang?: CatalogSeoHreflang[];
+  schema?: Record<string, unknown>;
+  ogImageSrc?: string;
+  robotsOverride?: string;
+  robotsAdvanced?: string;
+};
+
 type CatalogImage = {
   src: string;
   alt?: string;
@@ -17,12 +35,13 @@ type CatalogTab = {
   html?: string;
 };
 
-type CatalogSeo = {
-  title?: string;
-  description?: string;
-  ogImageSrc?: string;
-  robotsOverride?: string;
-  robotsAdvanced?: string;
+
+type CatalogProductFormField = {
+  label?: string;
+  name?: string;
+  type?: string;
+  required?: boolean;
+  options?: string[];
 };
 
 type CatalogProduct = {
@@ -35,8 +54,11 @@ type CatalogProduct = {
   order?: number;
   featured?: boolean;
   description?: string;
+  shortDescription?: string;
+  bodyMd?: string;
   price?: number;
   seo?: CatalogSeo;
+  formFields?: CatalogProductFormField[];
   image?: {
     src?: string;
     alt?: string;
@@ -174,11 +196,26 @@ export type CategoryDetailPageDto = {
   redirectTo?: string;
 };
 
+export type ProductDetailHreflangItem = {
+  lang: string;
+  url: string;
+};
+
+export type ProductDetailFormFieldItem = {
+  label: string;
+  name: string;
+  type: string;
+  required: boolean;
+  options: string[];
+};
+
 export type ProductDetailDto = {
   slug: string;
   path: string;
   title: string;
+  shortDescription?: string;
   description?: string;
+  bodyMd?: string;
   image: {
     src: string;
     alt: string;
@@ -191,6 +228,7 @@ export type ProductDetailDto = {
     title: string;
     nav?: string;
   } | null;
+  formFields: ProductDetailFormFieldItem[];
   breadcrumbs: BreadcrumbItem[];
   seo: {
     title?: string;
@@ -198,6 +236,8 @@ export type ProductDetailDto = {
     canonical: string;
     image?: string;
     robots?: string;
+    hreflang: ProductDetailHreflangItem[];
+    schema?: Record<string, unknown>;
   };
   redirectTo?: string;
 };
@@ -824,7 +864,6 @@ export function getCategoryProductsBySlug(
   };
 }
 
-
 export function getProductDetailBySlug(
   requestedSlugOrPath: string
 ): ProductDetailDto | null {
@@ -865,11 +904,36 @@ export function getProductDetailBySlug(
     ? buildCategoryTrail(parentCategory, getPublishedVisibleCategories())
     : [];
 
+  const hreflang = Array.isArray(product?.seo?.hreflang)
+    ? product.seo.hreflang
+        .filter((item): item is ProductDetailHreflangItem => {
+          return Boolean(item?.lang && item?.url);
+        })
+        .map((item) => ({
+          lang: String(item.lang),
+          url: String(item.url),
+        }))
+    : [];
+
+  const formFields = Array.isArray(product.formFields)
+    ? product.formFields.map((field) => ({
+        label: String(field?.label || ""),
+        name: String(field?.name || ""),
+        type: String(field?.type || "text"),
+        required: Boolean(field?.required),
+        options: Array.isArray(field?.options)
+          ? field.options.map((opt) => String(opt))
+          : [],
+      }))
+    : [];
+
   return {
     slug: product.slug,
     path: canonicalPath,
     title: product.title,
-    description: product.description || "",
+    shortDescription: product.shortDescription || "",
+    description: product.description || product.shortDescription || "",
+    bodyMd: product.bodyMd || "",
     image: productImageDtoOf(product.image, product.title),
     category: parentCategory
       ? {
@@ -879,6 +943,7 @@ export function getProductDetailBySlug(
           nav: parentCategory.nav || parentCategory.title,
         }
       : null,
+    formFields,
     breadcrumbs: [
       { label: "Inicio", to: "/" },
       { label: "Categorías", to: "/categorias" },
@@ -897,15 +962,24 @@ export function getProductDetailBySlug(
       { label: product.title },
     ],
     seo: {
-      title: product?.seo?.title || `${product.title} | Reprodisseny`,
+      title:
+        product?.seo?.metaTitle ||
+        product?.seo?.title ||
+        `${product.title} | Reprodisseny`,
       description:
-        product?.seo?.description || product.description || "",
-      canonical: canonicalPath,
+        product?.seo?.metaDescription ||
+        product?.seo?.description ||
+        product.shortDescription ||
+        product.description ||
+        "",
+      canonical: product?.seo?.canonical || canonicalPath,
       image:
         product?.seo?.ogImageSrc ||
         product.image?.src ||
         undefined,
       robots: computeProductRobots(product),
+      hreflang,
+      schema: product?.seo?.schema,
     },
     ...(redirectTo ? { redirectTo } : {}),
   };
