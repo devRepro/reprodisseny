@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import { computed, ref, watch } from "vue";
 import { useForm } from "vee-validate";
 import { z } from "zod";
@@ -30,7 +29,7 @@ import {
 type ExtraField = {
   name: string;
   label: string;
-  type?: "text" | "number" | "select";
+  type?: "text" | "number" | "select" | "textarea";
   placeholder?: string;
   required?: boolean;
   options?: string[];
@@ -47,20 +46,25 @@ const props = withDefaults(
     producto: string;
     categorySlug: string;
     extraFields?: ExtraField[];
-    productData?: any;
+    productData?: {
+      slug?: string;
+      sku?: string | null;
+      path?: string;
+      title?: string;
+    } | null;
   }>(),
-  { extraFields: () => [] }
+  { extraFields: () => [], productData: null }
 );
+
+const emit = defineEmits<{
+  success: [];
+}>();
 
 const route = useRoute();
 
 const fileInputRef = ref<HTMLInputElement | null>(null);
 const fileRef = ref<File | null>(null);
 const fileName = computed(() => fileRef.value?.name || "Ningún archivo seleccionado");
-
-const emit = defineEmits<{
-  success: [];
-}>();
 
 function triggerFileSelect() {
   fileInputRef.value?.click();
@@ -71,29 +75,48 @@ function onPickFile(e: Event) {
   fileRef.value = input.files?.[0] || null;
 }
 
-const BASE_FIELDS = [
-  "cantidad",
-  "comentario",
-  "privacy",
-  "nombre",
-  "email",
-  "telefono",
-  "empresa",
-];
+function normalizeKey(value: unknown) {
+  return String(value ?? "")
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "")
+    .trim()
+    .toLowerCase();
+}
+
+const BASE_FIELDS = new Set(
+  [
+    "cantidad",
+    "comentario",
+    "privacy",
+    "nombre",
+    "email",
+    "telefono",
+    "teléfono",
+    "empresa",
+  ].map(normalizeKey)
+);
 
 function normalizeExtraField(field: ExtraField): NormalizedExtraField | null {
+  const safeName = String(field.name || "").trim();
+  const safeLabel = String(field.label || field.name || "").trim();
+  const safeType = (field.type || "text") as ExtraField["type"];
+
+  if (!safeName || !safeLabel) return null;
+  if (BASE_FIELDS.has(normalizeKey(safeName))) return null;
+
   const normalizedOptions = (field.options || [])
     .map((opt) => String(opt).trim())
     .filter(Boolean);
 
-  if (field.type === "select") {
-    if (normalizedOptions.length === 0) {
-      return null;
-    }
+  if (safeType === "select") {
+    if (normalizedOptions.length === 0) return null;
 
     if (normalizedOptions.length === 1) {
       return {
         ...field,
+        name: safeName,
+        label: safeLabel,
+        type: safeType,
         kind: "fixed",
         normalizedOptions,
         initialValue: normalizedOptions[0],
@@ -102,6 +125,9 @@ function normalizeExtraField(field: ExtraField): NormalizedExtraField | null {
 
     return {
       ...field,
+      name: safeName,
+      label: safeLabel,
+      type: safeType,
       kind: "select",
       normalizedOptions,
       initialValue: "",
@@ -110,6 +136,9 @@ function normalizeExtraField(field: ExtraField): NormalizedExtraField | null {
 
   return {
     ...field,
+    name: safeName,
+    label: safeLabel,
+    type: safeType,
     kind: "input",
     normalizedOptions,
     initialValue: "",
@@ -118,7 +147,6 @@ function normalizeExtraField(field: ExtraField): NormalizedExtraField | null {
 
 const normalizedExtraFields = computed<NormalizedExtraField[]>(() =>
   (props.extraFields || [])
-    .filter((field) => !BASE_FIELDS.includes(field.name))
     .map(normalizeExtraField)
     .filter((field): field is NormalizedExtraField => Boolean(field))
 );
@@ -127,8 +155,12 @@ const fixedProductFields = computed(() =>
   normalizedExtraFields.value.filter((field) => field.kind === "fixed")
 );
 
-const requiredProductFields = computed(() =>
+const configurableRequiredFields = computed(() =>
   normalizedExtraFields.value.filter((field) => field.kind !== "fixed" && field.required)
+);
+
+const configurableOptionalFields = computed(() =>
+  normalizedExtraFields.value.filter((field) => field.kind !== "fixed" && !field.required)
 );
 
 function normalizeNumber(value: unknown) {
@@ -159,11 +191,18 @@ function schemaForField(field: NormalizedExtraField) {
           z
             .number({
               required_error: `El campo ${field.label} es obligatorio`,
-              invalid_type_error: `El campo ${field.label} es obligatorio`,
+              invalid_type_error: `El campo ${field.label} debe ser un número`,
             })
-            .min(0, `El campo ${field.label} debe ser mayor o igual a 0`)
+            .min(0, `El valor mínimo para ${field.label} es 0`)
         )
-      : z.preprocess(normalizeNumber, z.number().optional());
+      : z.preprocess(
+          normalizeNumber,
+          z
+            .number({
+              invalid_type_error: `El campo ${field.label} debe ser un número`,
+            })
+            .optional()
+        );
   }
 
   return field.required
@@ -186,14 +225,17 @@ const dynamicSchema = computed(() => {
       z
         .number({
           required_error: "La cantidad es obligatoria",
-          invalid_type_error: "La cantidad es obligatoria",
+          invalid_type_error: "La cantidad debe ser un número",
         })
         .min(1, "La cantidad mínima es 1")
     ),
     comentario: z.preprocess(
-  emptyToUndefined,
-  z.string().max(4000, "La descripción no puede superar los 4000 caracteres").optional()
-),
+      emptyToUndefined,
+      z
+        .string()
+        .max(4000, "La descripción no puede superar los 4000 caracteres")
+        .optional()
+    ),
     privacy: z.literal(true, {
       errorMap: () => ({
         message: "Debes leer y aceptar la política de privacidad",
@@ -256,9 +298,11 @@ watch(initialValues, (nextValues) => {
     touched: {},
     errors: {},
   });
+  fileRef.value = null;
+  if (fileInputRef.value) fileInputRef.value.value = "";
 });
 
-const { sendPriceRequest, isLoading, error, success } = usePriceRequests();
+const { sendPriceRequest, isLoading, error } = usePriceRequests();
 
 function focusFirstInvalidField(errors: Record<string, string>) {
   const first = Object.keys(errors || {})[0];
@@ -276,9 +320,11 @@ function focusFirstInvalidField(errors: Record<string, string>) {
 
 const onSubmit = form.handleSubmit(
   async (values) => {
-    const slug = Array.isArray(route.params.slug)
-      ? route.params.slug.at(-1)
-      : String(route.params.slug || "");
+    const slug =
+      props.productData?.slug ||
+      (Array.isArray(route.params.slug)
+        ? route.params.slug.at(-1)
+        : String(route.params.slug || ""));
 
     const extras: Record<string, unknown> = {};
 
@@ -294,9 +340,9 @@ const onSubmit = form.handleSubmit(
 
     const productPayload = {
       name: props.producto,
-      slug,
+      slug: slug || null,
       sku: props.productData?.sku ?? null,
-      url: route.fullPath,
+      url: props.productData?.path || route.fullPath,
     };
 
     await sendPriceRequest(
@@ -315,7 +361,7 @@ const onSubmit = form.handleSubmit(
         extras,
         consent: values.privacy === true,
         sourceUrl: process.client ? window.location.href : route.fullPath,
-        utm: route.query as any,
+        utm: route.query as Record<string, any>,
         initialStatus: "Nova",
       },
       {
@@ -324,31 +370,27 @@ const onSubmit = form.handleSubmit(
       }
     );
 
-    if (success.value) {
-      emit("success");
-      return;
-    }
+    emit("success");
   },
   ({ errors }) => {
     focusFirstInvalidField(errors as Record<string, string>);
-    console.warn("Formulario inválido:", errors);
   }
 );
 
-const fieldLabelCls = "text-[16px] leading-[22.4px] font-normal text-[#1E1E1E]";
-const controlBaseCls =
-  "h-[43px] rounded-[10px] border border-[#A2A2A2] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] focus-visible:ring-0 focus-visible:border-[#1E1E1E] text-[16px] leading-[22.4px]";
-const textareaCls =
-  "min-h-[128px] rounded-[10px] border border-[#A2A2A2] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] resize-none placeholder:text-[#A2A2A2] text-[16px] leading-[22.4px] focus-visible:ring-0 focus-visible:border-[#1E1E1E]";
+const fieldLabelCls = "product-form-label";
+const controlBaseCls = "product-form-control";
+const textareaCls = "product-form-textarea";
 </script>
 
 <template>
   <section class="w-full">
-    <form class="flex w-full flex-col gap-[12px]" @submit.prevent="onSubmit" novalidate>
-      <div class="flex flex-col gap-[12px]">
+    <form class="flex w-full flex-col gap-3" @submit.prevent="onSubmit" novalidate>
+      <div class="flex flex-col gap-3">
         <FormField v-slot="{ componentField }" name="cantidad">
-          <FormItem class="flex flex-col gap-[4px]">
-            <FormLabel :class="fieldLabelCls">Cantidad</FormLabel>
+          <FormItem class="flex flex-col gap-2">
+            <FormLabel :class="fieldLabelCls">
+              Cantidad <span class="text-destructive">*</span>
+            </FormLabel>
             <FormControl>
               <Input
                 v-bind="componentField"
@@ -364,73 +406,107 @@ const textareaCls =
           </FormItem>
         </FormField>
 
-        <div
-          v-if="fixedProductFields.length"
-          class="rounded-[10px] border border-slate-200 bg-slate-50 px-4 py-3"
-        >
-          <p class="text-sm font-medium text-slate-800">
-            Configuración incluida en este producto
-          </p>
+        <div v-if="fixedProductFields.length" class="product-form-defaults">
+          <div class="flex items-start justify-between gap-4">
+            <div>
+              <p class="product-form-defaults-kicker">Incluido por defecto</p>
+              <h3 class="mt-1 product-form-defaults-title">
+                Configuración incluida en este producto
+              </h3>
+              <p class="mt-1 product-form-defaults-copy">
+                Estas opciones ya están contempladas en el presupuesto base.
+              </p>
+            </div>
 
-          <ul class="mt-2 flex flex-wrap gap-2">
+            <span class="product-form-default-chip">Incluido</span>
+          </div>
+
+          <ul class="mt-4 flex flex-wrap gap-2">
             <li
               v-for="field in fixedProductFields"
               :key="field.name"
-              class="rounded-full bg-white px-3 py-1 text-xs text-slate-700 ring-1 ring-slate-200"
+              class="inline-flex max-w-full items-center gap-1.5 rounded-full border border-primary/15 bg-background px-3 py-2 text-sm font-medium text-foreground shadow-sm"
             >
-              {{ field.label }}: {{ field.initialValue }}
+              <span class="font-semibold text-primary">{{ field.label }}:</span>
+              <span class="truncate">{{ field.initialValue }}</span>
             </li>
           </ul>
         </div>
 
-        <template v-for="field in requiredProductFields" :key="field.name">
-          <FormField v-slot="{ componentField, value, handleChange }" :name="field.name">
-            <FormItem class="flex flex-col gap-[4px]">
-              <FormLabel :class="fieldLabelCls">{{ field.label }}</FormLabel>
+        <div v-if="configurableRequiredFields.length" class="space-y-4">
+          <div class="space-y-1">
+            <p class="product-form-defaults-kicker">Elige tus opciones</p>
+            <p class="product-form-section-copy">
+              Personaliza los detalles variables para ajustar el presupuesto.
+            </p>
+          </div>
 
-              <FormControl>
-                <Select
-                  v-if="field.kind === 'select'"
-                  :model-value="String(value ?? '')"
-                  @update:model-value="handleChange"
-                >
-                  <SelectTrigger :class="controlBaseCls" :data-field-name="field.name">
-                    <SelectValue
-                      :placeholder="field.placeholder || 'Selecciona una opción'"
-                    />
-                  </SelectTrigger>
+          <template v-for="field in configurableRequiredFields" :key="field.name">
+            <FormField
+              v-slot="{ componentField, value, handleChange }"
+              :name="field.name"
+            >
+              <FormItem class="flex flex-col gap-2">
+                <FormLabel :class="fieldLabelCls">
+                  {{ field.label }}
+                  <span v-if="field.required" class="text-destructive">*</span>
+                </FormLabel>
 
-                  <SelectContent>
-                    <SelectItem
-                      v-for="opt in field.normalizedOptions"
-                      :key="opt"
-                      :value="opt"
-                    >
-                      {{ opt }}
-                    </SelectItem>
-                  </SelectContent>
-                </Select>
+                <FormControl>
+                  <Select
+                    v-if="field.kind === 'select'"
+                    :model-value="String(value ?? '')"
+                    @update:model-value="handleChange"
+                  >
+                    <SelectTrigger :class="controlBaseCls" :data-field-name="field.name">
+                      <SelectValue
+                        :placeholder="field.placeholder || 'Selecciona una opción'"
+                      />
+                    </SelectTrigger>
 
-                <Input
-                  v-else
-                  v-bind="componentField"
-                  :name="field.name"
-                  :type="field.type === 'number' ? 'number' : 'text'"
-                  :inputmode="field.type === 'number' ? 'numeric' : undefined"
-                  :placeholder="field.placeholder || ''"
-                  :class="controlBaseCls"
-                  autocomplete="off"
-                />
-              </FormControl>
+                    <SelectContent>
+                      <SelectItem
+                        v-for="opt in field.normalizedOptions"
+                        :key="opt"
+                        :value="opt"
+                      >
+                        {{ opt }}
+                      </SelectItem>
+                    </SelectContent>
+                  </Select>
 
-              <FormMessage class="text-xs" />
-            </FormItem>
-          </FormField>
-        </template>
+                  <Textarea
+                    v-else-if="field.type === 'textarea'"
+                    v-bind="componentField"
+                    :name="field.name"
+                    :class="textareaCls"
+                    :placeholder="field.placeholder || ''"
+                    rows="4"
+                  />
+
+                  <Input
+                    v-else
+                    v-bind="componentField"
+                    :name="field.name"
+                    :type="field.type === 'number' ? 'number' : 'text'"
+                    :inputmode="field.type === 'number' ? 'numeric' : undefined"
+                    :placeholder="field.placeholder || ''"
+                    :class="controlBaseCls"
+                    autocomplete="off"
+                  />
+                </FormControl>
+
+                <FormMessage class="text-xs" />
+              </FormItem>
+            </FormField>
+          </template>
+        </div>
 
         <FormField v-slot="{ componentField }" name="nombre">
-          <FormItem class="flex flex-col gap-[4px]">
-            <FormLabel :class="fieldLabelCls">Nombre</FormLabel>
+          <FormItem class="flex flex-col gap-2">
+            <FormLabel :class="fieldLabelCls">
+              Nombre <span class="text-destructive">*</span>
+            </FormLabel>
             <FormControl>
               <Input
                 v-bind="componentField"
@@ -445,8 +521,10 @@ const textareaCls =
         </FormField>
 
         <FormField v-slot="{ componentField }" name="email">
-          <FormItem class="flex flex-col gap-[4px]">
-            <FormLabel :class="fieldLabelCls">Email</FormLabel>
+          <FormItem class="flex flex-col gap-2">
+            <FormLabel :class="fieldLabelCls">
+              Email <span class="text-destructive">*</span>
+            </FormLabel>
             <FormControl>
               <Input
                 v-bind="componentField"
@@ -461,7 +539,7 @@ const textareaCls =
         </FormField>
 
         <FormField v-slot="{ componentField }" name="comentario">
-          <FormItem class="flex flex-col gap-[4px]">
+          <FormItem class="flex flex-col gap-2">
             <FormLabel :class="fieldLabelCls">Descripción</FormLabel>
             <FormControl>
               <Textarea
@@ -476,14 +554,76 @@ const textareaCls =
           </FormItem>
         </FormField>
 
-        <details class="rounded-[10px] border border-slate-200 bg-slate-50 px-4 py-3">
-          <summary class="cursor-pointer list-none text-sm font-medium text-slate-800">
+        <details class="rounded-2xl border border-border bg-muted/30 px-4 py-3">
+          <summary class="cursor-pointer list-none text-sm font-medium text-foreground">
             Añadir más detalles para afinar el presupuesto
           </summary>
 
-          <div class="mt-4 flex flex-col gap-[12px]">
+          <div class="mt-4 flex flex-col gap-3">
+            <template v-for="field in configurableOptionalFields" :key="field.name">
+              <FormField
+                v-slot="{ componentField, value, handleChange }"
+                :name="field.name"
+              >
+                <FormItem class="flex flex-col gap-2">
+                  <FormLabel :class="fieldLabelCls">
+                    {{ field.label }}
+                  </FormLabel>
+
+                  <FormControl>
+                    <Select
+                      v-if="field.kind === 'select'"
+                      :model-value="String(value ?? '')"
+                      @update:model-value="handleChange"
+                    >
+                      <SelectTrigger
+                        :class="controlBaseCls"
+                        :data-field-name="field.name"
+                      >
+                        <SelectValue
+                          :placeholder="field.placeholder || 'Selecciona una opción'"
+                        />
+                      </SelectTrigger>
+
+                      <SelectContent>
+                        <SelectItem
+                          v-for="opt in field.normalizedOptions"
+                          :key="opt"
+                          :value="opt"
+                        >
+                          {{ opt }}
+                        </SelectItem>
+                      </SelectContent>
+                    </Select>
+
+                    <Textarea
+                      v-else-if="field.type === 'textarea'"
+                      v-bind="componentField"
+                      :name="field.name"
+                      :class="textareaCls"
+                      :placeholder="field.placeholder || ''"
+                      rows="4"
+                    />
+
+                    <Input
+                      v-else
+                      v-bind="componentField"
+                      :name="field.name"
+                      :type="field.type === 'number' ? 'number' : 'text'"
+                      :inputmode="field.type === 'number' ? 'numeric' : undefined"
+                      :placeholder="field.placeholder || ''"
+                      :class="controlBaseCls"
+                      autocomplete="off"
+                    />
+                  </FormControl>
+
+                  <FormMessage class="text-xs" />
+                </FormItem>
+              </FormField>
+            </template>
+
             <FormField v-slot="{ componentField }" name="telefono">
-              <FormItem class="flex flex-col gap-[4px]">
+              <FormItem class="flex flex-col gap-2">
                 <FormLabel :class="fieldLabelCls">Teléfono</FormLabel>
                 <FormControl>
                   <Input
@@ -499,7 +639,7 @@ const textareaCls =
             </FormField>
 
             <FormField v-slot="{ componentField }" name="empresa">
-              <FormItem class="flex flex-col gap-[4px]">
+              <FormItem class="flex flex-col gap-2">
                 <FormLabel :class="fieldLabelCls">Empresa</FormLabel>
                 <FormControl>
                   <Input
@@ -514,12 +654,10 @@ const textareaCls =
               </FormItem>
             </FormField>
 
-            <div class="flex flex-col gap-[8px] pt-[4px]">
-              <div class="text-[16px] leading-[22.4px] font-normal text-[#1E1E1E]">
-                Adjuntar archivo (opcional)
-              </div>
+            <div class="flex flex-col gap-2 pt-1">
+              <div class="product-form-label">Adjuntar archivo (opcional)</div>
 
-              <div class="flex flex-row items-center gap-[16px]">
+              <div class="flex items-center gap-4">
                 <input
                   ref="fileInputRef"
                   type="file"
@@ -531,16 +669,12 @@ const textareaCls =
                 <button
                   type="button"
                   @click="triggerFileSelect"
-                  class="inline-flex h-[28px] items-center justify-center rounded-[5px] border border-[#3F3F3F] bg-white px-[10px]"
+                  class="inline-flex h-10 items-center justify-center rounded-xl border border-border bg-background px-4 text-sm font-medium text-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
                 >
-                  <span class="text-[14px] leading-[19.6px] font-normal text-black">
-                    Seleccionar archivo
-                  </span>
+                  Seleccionar archivo
                 </button>
 
-                <span
-                  class="truncate text-[14px] leading-[19.6px] font-normal text-[#A2A2A2]"
-                >
+                <span class="truncate text-sm text-muted-foreground">
                   {{ fileName }}
                 </span>
               </div>
@@ -549,19 +683,23 @@ const textareaCls =
         </details>
 
         <FormField v-slot="{ value, handleChange }" name="privacy">
-          <FormItem class="pt-[8px]">
-            <div class="flex items-center gap-2">
+          <FormItem class="pt-2">
+            <div class="flex items-start gap-3">
               <FormControl>
                 <input
                   id="privacy"
                   name="privacy"
                   type="checkbox"
+                  class="mt-1 h-4 w-4 rounded border-border text-primary focus:ring-primary"
                   :checked="value === true"
                   @change="handleChange(($event.target as HTMLInputElement).checked)"
                 />
               </FormControl>
 
-              <FormLabel for="privacy">
+              <FormLabel
+                for="privacy"
+                class="mb-0 text-sm font-normal leading-6 text-foreground"
+              >
                 He leído y acepto la política de privacidad.
               </FormLabel>
             </div>
@@ -572,24 +710,15 @@ const textareaCls =
 
         <div
           v-if="error"
-          class="rounded-[10px] border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700"
+          class="rounded-xl border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700"
           role="alert"
         >
           {{ error }}
         </div>
 
-        <div
-          v-if="success"
-          class="rounded-[10px] border border-green-200 bg-green-50 px-3 py-2 text-sm text-green-700"
-          role="status"
-          aria-live="polite"
-        >
-          Solicitud enviada correctamente.
-        </div>
-
         <Button
           type="submit"
-          class="h-[42px] w-full rounded-[8px] bg-[#0076B3] text-[16px] font-normal leading-[22.4px] text-white hover:bg-[#005a8d]"
+          class="product-form-submit"
           :disabled="isLoading"
           :aria-busy="isLoading ? 'true' : 'false'"
         >

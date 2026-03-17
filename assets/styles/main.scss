@@ -19,261 +19,100 @@
   }
 
   .container-wide {
-    @apply mx-auto w-full max-w-[1440px] px-6 lg:px-10 2xl:px-[120px];
+    @apply mx-auto w-full max-w-[1440px] px-6;
   }
 
   .container-content {
-    @apply mx-auto w-full max-w-[1200px] px-6 lg:px-10;
+    @apply mx-auto w-full max-w-[1200px] px-6;
   }
-  
+
   .menubar {
-    @apply w-full flex justify-center gap-4;
+    @apply flex w-full justify-center gap-4;
     background-color: hsl(var(--menubar-bg));
     color: hsl(var(--menubar-text));
-  }
-
-  .menubar a,
-  .menubar button {
-    color: hsl(var(--menubar-text));
-    font-weight: 500;
-    transition: background-color 0.2s ease;
-  }
-
-  .menubar a:hover,
-  .menubar button:hover {
-    background-color: hsl(var(--menubar-hover));
-    text-decoration: none;
-  }
-
-  .menubar-content {
-    background-color: hsl(var(--menubar-bg));
-    color: hsl(var(--menubar-text));
-    border: 1px solid hsl(var(--menubar-hover));
-    @apply rounded-md shadow-md p-2;
-  }
-
-  .menubar-item {
-    @apply px-3 py-2 rounded-md text-sm;
-    transition: background-color 0.2s ease;
-  }
-
-  .menubar-item:hover {
-    background-color: hsl(var(--menubar-hover));
-  }
-
-  .menu-link {
-    @apply text-[hsl(var(--color-secondary))] font-medium transition-colors duration-200;
-  }
-
-  .menu-link:hover {
-    @apply text-[hsl(var(--color-primary))] font-semibold;
-  }
-
-  .dark .menu-link {
-    @apply text-[hsl(var(--foreground))];
-  }
-
-  .dark .menu-link:hover {
-    @apply text-[hsl(var(--color-primary))] font-semibold;
-  }
-
-  .menu-link[aria-current="page"] {
-    @apply font-semibold text-[hsl(var(--color-primary))] border-b-2 border-[hsl(var(--color-primary))];
-  }
-
-  .dark .menu-link[aria-current="page"] {
-    @apply text-[hsl(var(--color-primary))] border-b-2 border-[hsl(var(--color-primary))];
-  }
-
-  /* Botones custom (si no usas Shadcn <Button> en estos casos) */
-  .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors;
-    background-color: hsl(var(--color-primary));
-    color: hsl(var(--primary-foreground));
-    border: 1px solid hsl(var(--color-primary));
-  }
-
-  .btn-primary:hover {
-    filter: brightness(0.95);
-  }
-
-  .btn-outline {
-    @apply inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors;
-    background-color: transparent;
-    color: hsl(var(--color-secondary));
-    border: 1px solid hsl(var(--color-gray));
-  }
-
-  .btn-outline:hover {
-    border-color: hsl(var(--color-primary));
-    color: hsl(var(--color-primary));
-    background-color: hsl(var(--color-light));
-  }
-
-  .btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 text-sm font-medium transition-colors;
-    background-color: transparent;
-    color: hsl(var(--color-secondary));
-  }
-
-  .btn-ghost:hover {
-    background-color: hsl(var(--muted));
-  }
-
-  .btn-filter-active {
-    background-color: hsl(var(--color-primary));
-    color: hsl(var(--primary-foreground));
-    border-color: hsl(var(--color-primary));
   }
 
   .catalog-section {
-    @apply py-8 md:py-10 lg:py-12;
-  }
-
-  .catalog-surface {
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
+    @apply py-8;
   }
 
   .catalog-panel {
-    @apply rounded-2xl border p-5 md:p-6;
+    @apply rounded-2xl border p-5;
     background-color: hsl(var(--card));
     color: hsl(var(--card-foreground));
     border-color: hsl(var(--border));
   }
 
   .catalog-panel-soft {
-    @apply rounded-2xl border p-5 md:p-6;
+    @apply rounded-2xl border p-5;
     background-color: hsl(var(--accent));
     color: hsl(var(--accent-foreground));
     border-color: hsl(var(--border));
-  }
-
-  .catalog-card {
-    @apply overflow-hidden rounded-2xl border transition-shadow duration-200;
-    background-color: hsl(var(--card));
-    color: hsl(var(--card-foreground));
-    border-color: hsl(var(--border));
-  }
-
-  .catalog-card:hover {
-    @apply shadow-md;
-  }
-
-  .catalog-card-body {
-    @apply p-5;
-  }
-
-  .catalog-card-media {
-    @apply aspect-[4/3] w-full;
-    background-color: hsl(var(--muted));
-  }
-
-  .catalog-kicker {
-    font-size: var(--font-label-s);
-    line-height: var(--line-label-s);
-    font-weight: var(--weight-label);
-    color: hsl(var(--muted-foreground));
-    @apply uppercase tracking-[0.12em];
-  }
-
-  .catalog-title {
-    font-size: var(--font-h4);
-    line-height: var(--line-h4);
-    font-weight: var(--weight-h4);
-    color: hsl(var(--foreground));
-    @apply tracking-[-0.02em];
-  }
-
-  .catalog-copy {
-    font-size: var(--font-body);
-    line-height: var(--line-body);
-    font-weight: var(--weight-body);
-    color: hsl(var(--muted-foreground));
-  }
-
-  .catalog-input {
-    @apply h-12 w-full rounded-full border px-5 outline-none transition-colors;
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
-    border-color: hsl(var(--input));
-  }
-
-  .catalog-input::placeholder {
-    color: hsl(var(--muted-foreground));
-  }
-
-  .catalog-input:focus {
-    border-color: hsl(var(--ring));
-    box-shadow: 0 0 0 3px hsl(var(--ring) / 0.15);
-  }
-
-  .catalog-select {
-    @apply h-11 rounded-full border px-4 outline-none transition-colors;
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
-    border-color: hsl(var(--input));
-  }
-
-  .catalog-select:focus {
-    border-color: hsl(var(--ring));
-    box-shadow: 0 0 0 3px hsl(var(--ring) / 0.15);
-  }
-
-  .catalog-chip {
-    @apply inline-flex items-center rounded-full border px-4 py-2 transition-colors;
-    font-size: var(--font-body-s);
-    line-height: var(--line-body-s);
-    font-weight: 500;
-    background-color: hsl(var(--background));
-    color: hsl(var(--foreground));
-    border-color: hsl(var(--border));
-  }
-
-  .catalog-chip:hover {
-    background-color: hsl(var(--accent));
-    color: hsl(var(--accent-foreground));
-  }
-
-  .catalog-chip-active {
-    background-color: hsl(var(--primary));
-    color: hsl(var(--primary-foreground));
-    border-color: hsl(var(--primary));
-  }
-
-  .catalog-filter-option {
-    @apply block w-full rounded-xl px-3 py-2 text-left transition-colors;
-    font-size: var(--font-body-s);
-    line-height: var(--line-body-s);
-    font-weight: 500;
-    background-color: transparent;
-    color: hsl(var(--foreground));
-  }
-
-  .catalog-filter-option:hover {
-    background-color: hsl(var(--accent));
-  }
-
-  .catalog-filter-option-active {
-    background-color: hsl(var(--primary));
-    color: hsl(var(--primary-foreground));
   }
 
   .catalog-toolbar {
-    @apply mb-6 flex flex-col gap-4 md:mb-8 md:flex-row md:items-center md:justify-between;
+    @apply mb-6 flex flex-col gap-4;
   }
 
-  .catalog-empty {
-    @apply rounded-2xl border border-dashed px-6 py-12 text-center;
+  .product-form-card {
+    @apply rounded-[24px] border p-4 shadow-sm;
     background-color: hsl(var(--card));
     color: hsl(var(--card-foreground));
     border-color: hsl(var(--border));
   }
 
-  .catalog-meta {
-    font-size: var(--font-body-s);
-    line-height: var(--line-body-s);
-    color: hsl(var(--muted-foreground));
+  .product-form-defaults {
+    @apply rounded-2xl border p-4;
+    background: linear-gradient(180deg,
+        hsl(var(--accent) / 0.95) 0%,
+        hsl(var(--background)) 100%);
+    border-color: hsl(var(--primary) / 0.18);
+    box-shadow: inset 0 1px 0 hsl(var(--primary) / 0.08);
+  }
+
+  @screen sm {
+    .product-form-card {
+      @apply p-6;
+    }
+
+    .product-form-defaults {
+      @apply p-5;
+    }
+  }
+
+  @screen md {
+    .catalog-section {
+      @apply py-10;
+    }
+
+    .catalog-panel,
+    .catalog-panel-soft {
+      @apply p-6;
+    }
+
+    .catalog-toolbar {
+      @apply mb-8 flex-row items-center justify-between;
+    }
+  }
+
+  @screen lg {
+    .container-wide {
+      @apply px-10;
+    }
+
+    .container-content {
+      @apply px-10;
+    }
+
+    .catalog-section {
+      @apply py-12;
+    }
+  }
+
+  @screen 2xl {
+    .container-wide {
+      @apply px-[120px];
+    }
   }
 }
 
@@ -290,7 +129,8 @@
 
     /* Headings */
     --font-h1: 36px;
-    --line-h1: 1.2; /* 120% */
+    --line-h1: 1.2;
+    /* 120% */
     --weight-h1: 700;
 
     --font-h2: 30px;
@@ -298,7 +138,8 @@
     --weight-h2: 700;
 
     --font-h3: 24px;
-    --line-h3: 1.3; /* 130% */
+    --line-h3: 1.3;
+    /* 130% */
     --weight-h3: 600;
 
     --font-h4: 20px;
@@ -307,40 +148,55 @@
 
     /* Body */
     --font-body: 16px;
-    --line-body: 1.5; /* 150% */
+    --line-body: 1.5;
+    /* 150% */
     --weight-body: 400;
     --weight-body-bold: 700;
 
     /* Body small */
     --font-body-s: 14px;
-    --line-body-s: 1.4; /* 140% */
+    --line-body-s: 1.4;
+    /* 140% */
     --weight-body-s: 400;
     --weight-body-s-bold: 700;
 
     /* Labels */
     --font-label: 13px;
-    --line-label: 1.4; /* 140% */
-    --weight-label: 500; /* Medium */
+    --line-label: 1.4;
+    /* 140% */
+    --weight-label: 500;
+    /* Medium */
 
     --font-label-s: 12px;
-    --line-label-s: 1.35; /* 135% */
+    --line-label-s: 1.35;
+    /* 135% */
     --weight-label-s: 400;
 
     /* =========================
        BRAND COLORS (paleta diseñador) - HSL
        ========================= */
-    --brand-base: 201 100% 35%;        /* #0076B3 */
-    --brand-base-dark: 201 100% 24%;   /* #004F78 */
-    --brand-base-light: 201 100% 93%;  /* #DEF4FF */
-    --brand-bg-2: 42 74% 92%;          /* #FAF0DA */
+    --brand-base: 201 100% 35%;
+    /* #0076B3 */
+    --brand-base-dark: 201 100% 24%;
+    /* #004F78 */
+    --brand-base-light: 201 100% 93%;
+    /* #DEF4FF */
+    --brand-bg-2: 42 74% 92%;
+    /* #FAF0DA */
 
-    --brand-white: 0 0% 100%;          /* #FFFFFF */
-    --brand-ink-light: 0 0% 94%;       /* #EFEFEF */
-    --brand-ink-medium: 0 0% 58%;      /* #959595 */
-    --brand-ink-dark: 0 0% 13%;        /* #212121 */
+    --brand-white: 0 0% 100%;
+    /* #FFFFFF */
+    --brand-ink-light: 0 0% 94%;
+    /* #EFEFEF */
+    --brand-ink-medium: 0 0% 58%;
+    /* #959595 */
+    --brand-ink-dark: 0 0% 13%;
+    /* #212121 */
 
-    --brand-success: 101 100% 42%;     /* #44D400 */
-    --brand-error: 7 100% 60%;         /* #FF4D35 */
+    --brand-success: 101 100% 42%;
+    /* #44D400 */
+    --brand-error: 7 100% 60%;
+    /* #FF4D35 */
 
     /* =========================
        LEGACY ALIASES (para tu CSS actual)
@@ -412,7 +268,8 @@
     --popover: 0 0% 9%;
     --popover-foreground: var(--brand-white);
 
-    --primary: var(--brand-base); /* la marca NO cambia */
+    --primary: var(--brand-base);
+    /* la marca NO cambia */
     --primary-foreground: var(--brand-white);
 
     --secondary: 0 0% 18%;
@@ -498,26 +355,31 @@
     line-height: var(--line-body);
     font-weight: var(--weight-body);
   }
+
   .text-body-bold {
     font-size: var(--font-body);
     line-height: var(--line-body);
     font-weight: var(--weight-body-bold);
   }
+
   .text-body-s {
     font-size: var(--font-body-s);
     line-height: var(--line-body-s);
     font-weight: var(--weight-body-s);
   }
+
   .text-body-s-bold {
     font-size: var(--font-body-s);
     line-height: var(--line-body-s);
     font-weight: var(--weight-body-s-bold);
   }
+
   .text-label {
     font-size: var(--font-label);
     line-height: var(--line-label);
     font-weight: var(--weight-label);
   }
+
   .text-label-s {
     font-size: var(--font-label-s);
     line-height: var(--line-label-s);
