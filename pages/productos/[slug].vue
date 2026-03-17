@@ -6,22 +6,7 @@
   import GuideBanner from "@/components/marketing/GuideBanner.vue";
   import ProductDetails from "@/components/marketing/product/Details.vue";
   import ProductFaq from "@/components/marketing/product/Faq.vue";
-  
-  type ProductFormField = ProductDetailDto["formFields"][number];
-  
-  type NormalizedFormField = {
-    name: string;
-    label: string;
-    type: string;
-    required: boolean;
-    options: string[];
-  };
-  
-  type DetailsTab = {
-    id: string;
-    title: string;
-    text: string;
-  };
+  import ProductPriceRequestForm from "@/components/shared/forms/Lead.vue";
   
   const route = useRoute();
   const config = useRuntimeConfig();
@@ -37,74 +22,31 @@
     }
   }
   
-  function normalizeSlug(value: unknown) {
-    const raw = Array.isArray(value) ? value.join("/") : value;
-    return safeDecode(raw).trim().replace(/^\/+|\/+$/g, "");
-  }
-  
-  function isAssetLike(value: unknown) {
-    const s = String(value ?? "").trim();
+  function isAssetLike(v: unknown) {
+    const s = String(v ?? "").trim();
     return /^(img|_nuxt)\//i.test(s) || /\.(jpg|jpeg|png|webp|avif|gif|svg|pdf)$/i.test(s);
   }
   
-  function normalizeField(field: ProductFormField): NormalizedFormField {
-    return {
-      name: String(field?.name || "").trim(),
-      label: String(field?.label || field?.name || "").trim(),
-      type: String(field?.type || "text").trim().toLowerCase(),
-      required: Boolean(field?.required),
-      options: Array.isArray(field?.options)
-        ? field.options.map((opt) => String(opt).trim()).filter(Boolean)
-        : [],
-    };
-  }
-  
-  function isTextareaField(field: NormalizedFormField) {
-    return ["textarea", "text-area"].includes(field.type);
-  }
-  
-  function isSelectField(field: NormalizedFormField) {
-    return ["select", "dropdown"].includes(field.type);
-  }
-  
-  function isRadioField(field: NormalizedFormField) {
-    return field.type === "radio";
-  }
-  
-  function isCheckboxGroupField(field: NormalizedFormField) {
-    return field.type === "checkbox" && field.options.length > 0;
-  }
-  
-  function inputTypeOf(field: NormalizedFormField) {
-    if (["email", "tel", "number", "date"].includes(field.type)) {
-      return field.type;
-    }
-  
-    return "text";
-  }
-  
-  const slug = computed(() => normalizeSlug(route.params.slug));
+  const slug = computed(() =>
+    safeDecode(
+      Array.isArray(route.params.slug) ? route.params.slug.join("/") : route.params.slug
+    ).trim()
+  );
   
   if (!slug.value || isAssetLike(slug.value)) {
     throw createError({
       statusCode: 404,
-      message: `Ruta estática inválida para producto: ${slug.value || "vacía"}`,
+      message: `Ruta estática inválida para producto: ${slug.value}`,
     });
   }
   
-  const asyncKey = computed(() => `cms:product:${slug.value}`);
-  
-  const {
-    data: productData,
-    pending,
-    error,
-  } = await useAsyncData<ProductDetailDto | null>(
-    asyncKey,
-    () => $fetch<ProductDetailDto>(`/api/cms/product/${encodeURIComponent(slug.value)}`),
+  const { data, pending, error } = await useAsyncData<ProductDetailDto | null>(
+    () => `cms:product:${slug.value}`,
+    () => $fetch(`/api/cms/product/${encodeURIComponent(slug.value)}`),
     {
       server: true,
-      default: () => null,
       watch: [slug],
+      default: () => null,
     }
   );
   
@@ -115,14 +57,14 @@
     });
   }
   
-  if (productData.value?.redirectTo && productData.value.redirectTo !== route.path) {
-    await navigateTo(productData.value.redirectTo, {
+  if (data.value?.redirectTo && data.value.redirectTo !== route.path) {
+    await navigateTo(data.value.redirectTo, {
       redirectCode: 301,
       replace: true,
     });
   }
   
-  const product = computed(() => productData.value ?? null);
+  const product = computed(() => data.value ?? null);
   
   const category = computed(() => {
     if (!product.value?.category) return null;
@@ -161,14 +103,11 @@
     };
   });
   
-  const customizationFields = computed<NormalizedFormField[]>(() => {
-    return (product.value?.formFields ?? [])
-      .map(normalizeField)
-      .filter((field) => field.name && field.label);
-  });
+  const breadcrumbItems = computed(() => product.value?.breadcrumbs ?? []);
+  const heroImage = computed(() => product.value?.image?.src || "");
   
-  const detailsTabs = computed<DetailsTab[]>(() => {
-    const tabs: DetailsTab[] = [];
+  const detailsTabs = computed(() => {
+    const tabs: Array<{ id: string; title: string; text: string }> = [];
   
     if (product.value?.bodyMd) {
       tabs.push({
@@ -181,15 +120,6 @@
     return tabs;
   });
   
-  const breadcrumbItems = computed(() => product.value?.breadcrumbs ?? []);
-  const heroImage = computed(() => product.value?.image?.src || "");
-  const hasCustomizationFields = computed(() => customizationFields.value.length > 0);
-  const hasDetails = computed(() => detailsTabs.value.length > 0);
-  
-  /**
-   * El catálogo actual no trae FAQs de producto.
-   * Dejamos la sección preparada pero no visible hasta que exista dato real.
-   */
   const faqs = computed<any[]>(() => []);
   
   const canonicalUrl = computed(() => {
@@ -264,111 +194,22 @@
           <ProductHero :product="heroProduct" :category="category" />
         </section>
   
-        <section
-          v-if="hasCustomizationFields"
-          class="mt-16 md:mt-20"
-          aria-labelledby="personalizacion-producto"
-        >
+        <section class="mt-16 md:mt-20">
           <div :class="containerClass">
             <div :class="contentNarrowClass">
               <div class="rounded-3xl border bg-card p-6 md:p-8">
-                <h2 id="personalizacion-producto" class="text-center">
-                  Configura tu producto
-                </h2>
-  
+                <h2 class="text-center">Solicita presupuesto</h2>
                 <p class="mt-3 text-center text-muted-foreground">
-                  Estos campos vienen del contrato del catálogo y deben alimentar
-                  el formulario real de solicitud.
+                  Completa el formulario y te orientamos con la mejor opción para este producto.
                 </p>
   
-                <!-- Temporal: fallback visible para no perder los campos -->
-                <!-- Sustituir por tu componente real de formulario dinámico -->
-                <div class="mt-8 grid gap-5 md:grid-cols-2">
-                  <div
-                    v-for="field in customizationFields"
-                    :key="field.name"
-                    class="space-y-2"
-                  >
-                    <label :for="field.name" class="block text-sm font-medium">
-                      {{ field.label }}
-                      <span v-if="field.required" class="text-destructive">*</span>
-                    </label>
-  
-                    <select
-                      v-if="isSelectField(field)"
-                      :id="field.name"
-                      class="w-full rounded-xl border bg-background px-4 py-3"
-                    >
-                      <option value="">Selecciona una opción</option>
-                      <option
-                        v-for="option in field.options"
-                        :key="option"
-                        :value="option"
-                      >
-                        {{ option }}
-                      </option>
-                    </select>
-  
-                    <textarea
-                      v-else-if="isTextareaField(field)"
-                      :id="field.name"
-                      rows="4"
-                      class="w-full rounded-xl border bg-background px-4 py-3"
-                      :placeholder="field.label"
-                    />
-  
-                    <div
-                      v-else-if="isRadioField(field)"
-                      class="space-y-2 rounded-xl border bg-background p-4"
-                    >
-                      <label
-                        v-for="option in field.options"
-                        :key="option"
-                        class="flex items-center gap-3"
-                      >
-                        <input type="radio" :name="field.name" :value="option" />
-                        <span>{{ option }}</span>
-                      </label>
-                    </div>
-  
-                    <div
-                      v-else-if="isCheckboxGroupField(field)"
-                      class="space-y-2 rounded-xl border bg-background p-4"
-                    >
-                      <label
-                        v-for="option in field.options"
-                        :key="option"
-                        class="flex items-center gap-3"
-                      >
-                        <input type="checkbox" :name="field.name" :value="option" />
-                        <span>{{ option }}</span>
-                      </label>
-                    </div>
-  
-                    <input
-                      v-else
-                      :id="field.name"
-                      :type="inputTypeOf(field)"
-                      class="w-full rounded-xl border bg-background px-4 py-3"
-                      :placeholder="field.label"
-                    />
-                  </div>
-                </div>
-  
-                <div class="mt-8 flex flex-wrap items-center justify-center gap-4">
-                  <NuxtLink
-                    :to="{ path: '/pedir-presupuesto', query: { producto: product.slug } }"
-                    class="inline-flex rounded-full bg-foreground px-6 py-3 font-semibold text-background transition-opacity hover:opacity-90"
-                  >
-                    Solicitar presupuesto
-                  </NuxtLink>
-  
-                  <NuxtLink
-                    to="/contacto"
-                    class="inline-flex rounded-full border px-6 py-3 font-semibold transition-colors hover:bg-muted"
-                  >
-                    Contactar con un asesor
-                  </NuxtLink>
+                <div class="mt-8">
+                  <ProductPriceRequestForm
+                    :key="product.slug"
+                    :producto="product.title"
+                    :extra-fields="product.formFields"
+                    :product-data="product"
+                  />
                 </div>
               </div>
             </div>
@@ -387,7 +228,7 @@
         </section>
   
         <section
-          v-if="hasDetails"
+          v-if="detailsTabs.length"
           id="detalles"
           class="mt-20 border-y border-border bg-muted/20 py-20 md:mt-32"
         >
