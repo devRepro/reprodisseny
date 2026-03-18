@@ -298,8 +298,12 @@ watch(initialValues, (nextValues) => {
     touched: {},
     errors: {},
   });
+
   fileRef.value = null;
-  if (fileInputRef.value) fileInputRef.value.value = "";
+
+  if (fileInputRef.value) {
+    fileInputRef.value.value = "";
+  }
 });
 
 const { sendPriceRequest, isLoading, error } = usePriceRequests();
@@ -377,20 +381,23 @@ const onSubmit = form.handleSubmit(
   }
 );
 
-const fieldLabelCls = "product-form-label";
-const controlBaseCls = "product-form-control";
-const textareaCls = "product-form-textarea";
+const fieldLabelCls =
+  "text-[16px] leading-[22.4px] font-normal text-[#1E1E1E]";
+
+const controlBaseCls =
+  "!h-[43px] !rounded-[10px] !border !border-[#A2A2A2] !bg-white !px-3 !text-[16px] !leading-[22.4px] !text-[#1E1E1E] !shadow-[0px_4px_4px_rgba(0,0,0,0.25)] placeholder:!text-[#A2A2A2] focus-visible:!ring-0 focus-visible:!border-[#1E1E1E]";
+
+const textareaCls =
+  "!min-h-[128px] !rounded-[10px] !border !border-[#A2A2A2] !bg-white !px-3 !py-2 !text-[16px] !leading-[22.4px] !text-[#1E1E1E] !shadow-[0px_4px_4px_rgba(0,0,0,0.25)] !resize-none placeholder:!text-[#A2A2A2] focus-visible:!ring-0 focus-visible:!border-[#1E1E1E]";
 </script>
 
 <template>
   <section class="w-full">
-    <form class="flex w-full flex-col gap-3" @submit.prevent="onSubmit" novalidate>
-      <div class="flex flex-col gap-3">
+    <form class="flex w-full flex-col gap-[12px]" @submit.prevent="onSubmit" novalidate>
+      <div class="flex flex-col gap-[12px]">
         <FormField v-slot="{ componentField }" name="cantidad">
-          <FormItem class="flex flex-col gap-2">
-            <FormLabel :class="fieldLabelCls">
-              Cantidad <span class="text-destructive">*</span>
-            </FormLabel>
+          <FormItem class="flex flex-col gap-[4px]">
+            <FormLabel :class="fieldLabelCls">Cantidad</FormLabel>
             <FormControl>
               <Input
                 v-bind="componentField"
@@ -406,107 +413,82 @@ const textareaCls = "product-form-textarea";
           </FormItem>
         </FormField>
 
-        <div v-if="fixedProductFields.length" class="product-form-defaults">
-          <div class="flex items-start justify-between gap-4">
-            <div>
-              <p class="product-form-defaults-kicker">Incluido por defecto</p>
-              <h3 class="mt-1 product-form-defaults-title">
-                Configuración incluida en este producto
-              </h3>
-              <p class="mt-1 product-form-defaults-copy">
-                Estas opciones ya están contempladas en el presupuesto base.
-              </p>
-            </div>
+        <div
+          v-if="fixedProductFields.length"
+          class="rounded-[10px] border border-slate-200 bg-slate-50 px-4 py-3"
+        >
+          <p class="text-sm font-medium text-slate-800">
+            Configuración incluida en este producto
+          </p>
 
-            <span class="product-form-default-chip">Incluido</span>
-          </div>
-
-          <ul class="mt-4 flex flex-wrap gap-2">
+          <ul class="mt-2 flex flex-wrap gap-2">
             <li
               v-for="field in fixedProductFields"
               :key="field.name"
-              class="inline-flex max-w-full items-center gap-1.5 rounded-full border border-primary/15 bg-background px-3 py-2 text-sm font-medium text-foreground shadow-sm"
+              class="rounded-full bg-white px-3 py-1 text-xs text-slate-700 ring-1 ring-slate-200"
             >
-              <span class="font-semibold text-primary">{{ field.label }}:</span>
-              <span class="truncate">{{ field.initialValue }}</span>
+              {{ field.label }}: {{ field.initialValue }}
             </li>
           </ul>
         </div>
 
-        <div v-if="configurableRequiredFields.length" class="space-y-4">
-          <div class="space-y-1">
-            <p class="product-form-defaults-kicker">Elige tus opciones</p>
-            <p class="product-form-section-copy">
-              Personaliza los detalles variables para ajustar el presupuesto.
-            </p>
-          </div>
+        <template v-for="field in configurableRequiredFields" :key="field.name">
+          <FormField v-slot="{ componentField, value, handleChange }" :name="field.name">
+            <FormItem class="flex flex-col gap-[4px]">
+              <FormLabel :class="fieldLabelCls">{{ field.label }}</FormLabel>
 
-          <template v-for="field in configurableRequiredFields" :key="field.name">
-            <FormField
-              v-slot="{ componentField, value, handleChange }"
-              :name="field.name"
-            >
-              <FormItem class="flex flex-col gap-2">
-                <FormLabel :class="fieldLabelCls">
-                  {{ field.label }}
-                  <span v-if="field.required" class="text-destructive">*</span>
-                </FormLabel>
+              <FormControl>
+                <Select
+                  v-if="field.kind === 'select'"
+                  :model-value="String(value ?? '')"
+                  @update:model-value="handleChange"
+                >
+                  <SelectTrigger :class="controlBaseCls" :data-field-name="field.name">
+                    <SelectValue
+                      :placeholder="field.placeholder || 'Selecciona una opción'"
+                    />
+                  </SelectTrigger>
 
-                <FormControl>
-                  <Select
-                    v-if="field.kind === 'select'"
-                    :model-value="String(value ?? '')"
-                    @update:model-value="handleChange"
-                  >
-                    <SelectTrigger :class="controlBaseCls" :data-field-name="field.name">
-                      <SelectValue
-                        :placeholder="field.placeholder || 'Selecciona una opción'"
-                      />
-                    </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem
+                      v-for="opt in field.normalizedOptions"
+                      :key="opt"
+                      :value="opt"
+                    >
+                      {{ opt }}
+                    </SelectItem>
+                  </SelectContent>
+                </Select>
 
-                    <SelectContent>
-                      <SelectItem
-                        v-for="opt in field.normalizedOptions"
-                        :key="opt"
-                        :value="opt"
-                      >
-                        {{ opt }}
-                      </SelectItem>
-                    </SelectContent>
-                  </Select>
+                <Textarea
+                  v-else-if="field.type === 'textarea'"
+                  v-bind="componentField"
+                  :name="field.name"
+                  :class="textareaCls"
+                  :placeholder="field.placeholder || ''"
+                  rows="4"
+                />
 
-                  <Textarea
-                    v-else-if="field.type === 'textarea'"
-                    v-bind="componentField"
-                    :name="field.name"
-                    :class="textareaCls"
-                    :placeholder="field.placeholder || ''"
-                    rows="4"
-                  />
+                <Input
+                  v-else
+                  v-bind="componentField"
+                  :name="field.name"
+                  :type="field.type === 'number' ? 'number' : 'text'"
+                  :inputmode="field.type === 'number' ? 'numeric' : undefined"
+                  :placeholder="field.placeholder || ''"
+                  :class="controlBaseCls"
+                  autocomplete="off"
+                />
+              </FormControl>
 
-                  <Input
-                    v-else
-                    v-bind="componentField"
-                    :name="field.name"
-                    :type="field.type === 'number' ? 'number' : 'text'"
-                    :inputmode="field.type === 'number' ? 'numeric' : undefined"
-                    :placeholder="field.placeholder || ''"
-                    :class="controlBaseCls"
-                    autocomplete="off"
-                  />
-                </FormControl>
-
-                <FormMessage class="text-xs" />
-              </FormItem>
-            </FormField>
-          </template>
-        </div>
+              <FormMessage class="text-xs" />
+            </FormItem>
+          </FormField>
+        </template>
 
         <FormField v-slot="{ componentField }" name="nombre">
-          <FormItem class="flex flex-col gap-2">
-            <FormLabel :class="fieldLabelCls">
-              Nombre <span class="text-destructive">*</span>
-            </FormLabel>
+          <FormItem class="flex flex-col gap-[4px]">
+            <FormLabel :class="fieldLabelCls">Nombre</FormLabel>
             <FormControl>
               <Input
                 v-bind="componentField"
@@ -521,10 +503,8 @@ const textareaCls = "product-form-textarea";
         </FormField>
 
         <FormField v-slot="{ componentField }" name="email">
-          <FormItem class="flex flex-col gap-2">
-            <FormLabel :class="fieldLabelCls">
-              Email <span class="text-destructive">*</span>
-            </FormLabel>
+          <FormItem class="flex flex-col gap-[4px]">
+            <FormLabel :class="fieldLabelCls">Email</FormLabel>
             <FormControl>
               <Input
                 v-bind="componentField"
@@ -539,7 +519,7 @@ const textareaCls = "product-form-textarea";
         </FormField>
 
         <FormField v-slot="{ componentField }" name="comentario">
-          <FormItem class="flex flex-col gap-2">
+          <FormItem class="flex flex-col gap-[4px]">
             <FormLabel :class="fieldLabelCls">Descripción</FormLabel>
             <FormControl>
               <Textarea
@@ -554,21 +534,19 @@ const textareaCls = "product-form-textarea";
           </FormItem>
         </FormField>
 
-        <details class="rounded-2xl border border-border bg-muted/30 px-4 py-3">
-          <summary class="cursor-pointer list-none text-sm font-medium text-foreground">
+        <details class="rounded-[10px] border border-slate-200 bg-slate-50 px-4 py-3">
+          <summary class="cursor-pointer list-none text-sm font-medium text-slate-800">
             Añadir más detalles para afinar el presupuesto
           </summary>
 
-          <div class="mt-4 flex flex-col gap-3">
+          <div class="mt-4 flex flex-col gap-[12px]">
             <template v-for="field in configurableOptionalFields" :key="field.name">
               <FormField
                 v-slot="{ componentField, value, handleChange }"
                 :name="field.name"
               >
-                <FormItem class="flex flex-col gap-2">
-                  <FormLabel :class="fieldLabelCls">
-                    {{ field.label }}
-                  </FormLabel>
+                <FormItem class="flex flex-col gap-[4px]">
+                  <FormLabel :class="fieldLabelCls">{{ field.label }}</FormLabel>
 
                   <FormControl>
                     <Select
@@ -623,7 +601,7 @@ const textareaCls = "product-form-textarea";
             </template>
 
             <FormField v-slot="{ componentField }" name="telefono">
-              <FormItem class="flex flex-col gap-2">
+              <FormItem class="flex flex-col gap-[4px]">
                 <FormLabel :class="fieldLabelCls">Teléfono</FormLabel>
                 <FormControl>
                   <Input
@@ -639,7 +617,7 @@ const textareaCls = "product-form-textarea";
             </FormField>
 
             <FormField v-slot="{ componentField }" name="empresa">
-              <FormItem class="flex flex-col gap-2">
+              <FormItem class="flex flex-col gap-[4px]">
                 <FormLabel :class="fieldLabelCls">Empresa</FormLabel>
                 <FormControl>
                   <Input
@@ -654,10 +632,12 @@ const textareaCls = "product-form-textarea";
               </FormItem>
             </FormField>
 
-            <div class="flex flex-col gap-2 pt-1">
-              <div class="product-form-label">Adjuntar archivo (opcional)</div>
+            <div class="flex flex-col gap-[8px] pt-[4px]">
+              <div class="text-[16px] leading-[22.4px] font-normal text-[#1E1E1E]">
+                Adjuntar archivo (opcional)
+              </div>
 
-              <div class="flex items-center gap-4">
+              <div class="flex flex-row items-center gap-[16px]">
                 <input
                   ref="fileInputRef"
                   type="file"
@@ -669,12 +649,16 @@ const textareaCls = "product-form-textarea";
                 <button
                   type="button"
                   @click="triggerFileSelect"
-                  class="inline-flex h-10 items-center justify-center rounded-xl border border-border bg-background px-4 text-sm font-medium text-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+                  class="inline-flex h-[28px] items-center justify-center rounded-[5px] border border-[#3F3F3F] bg-white px-[10px]"
                 >
-                  Seleccionar archivo
+                  <span class="text-[14px] leading-[19.6px] font-normal text-black">
+                    Seleccionar archivo
+                  </span>
                 </button>
 
-                <span class="truncate text-sm text-muted-foreground">
+                <span
+                  class="truncate text-[14px] leading-[19.6px] font-normal text-[#A2A2A2]"
+                >
                   {{ fileName }}
                 </span>
               </div>
@@ -683,23 +667,19 @@ const textareaCls = "product-form-textarea";
         </details>
 
         <FormField v-slot="{ value, handleChange }" name="privacy">
-          <FormItem class="pt-2">
-            <div class="flex items-start gap-3">
+          <FormItem class="pt-[8px]">
+            <div class="flex items-center gap-2">
               <FormControl>
                 <input
                   id="privacy"
                   name="privacy"
                   type="checkbox"
-                  class="mt-1 h-4 w-4 rounded border-border text-primary focus:ring-primary"
                   :checked="value === true"
                   @change="handleChange(($event.target as HTMLInputElement).checked)"
                 />
               </FormControl>
 
-              <FormLabel
-                for="privacy"
-                class="mb-0 text-sm font-normal leading-6 text-foreground"
-              >
+              <FormLabel for="privacy">
                 He leído y acepto la política de privacidad.
               </FormLabel>
             </div>
@@ -710,7 +690,7 @@ const textareaCls = "product-form-textarea";
 
         <div
           v-if="error"
-          class="rounded-xl border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700"
+          class="rounded-[10px] border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700"
           role="alert"
         >
           {{ error }}
@@ -718,7 +698,7 @@ const textareaCls = "product-form-textarea";
 
         <Button
           type="submit"
-          class="product-form-submit"
+          class="h-[42px] w-full rounded-[8px] bg-[#0076B3] text-[16px] font-normal leading-[22.4px] text-white hover:bg-[#005a8d]"
           :disabled="isLoading"
           :aria-busy="isLoading ? 'true' : 'false'"
         >
