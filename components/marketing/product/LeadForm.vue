@@ -409,7 +409,6 @@ const textareaCls = "product-form-textarea";
         <div v-if="fixedProductFields.length" class="product-form-defaults">
           <div class="flex items-start justify-between gap-4">
             <div>
-              <p class="product-form-defaults-kicker">Incluido por defecto</p>
               <h3 class="mt-1 product-form-defaults-title">
                 Configuración incluida en este producto
               </h3>
@@ -418,7 +417,6 @@ const textareaCls = "product-form-textarea";
               </p>
             </div>
 
-            <span class="product-form-default-chip">Incluido</span>
           </div>
 
           <ul class="mt-4 flex flex-wrap gap-2">
