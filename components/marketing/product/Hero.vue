@@ -91,54 +91,73 @@ const categorySlug = computed(() => {
 });
 
 const productTitle = computed(() => props.product?.title || "");
+
+const productDesc = computed(() => {
+  return props.product?.shortDescription || props.product?.description || "";
+});
 </script>
 
 <template>
   <article
-    class="w-full"
+    class="mx-auto w-full max-w-[1280px]"
     itemscope
     itemtype="https://schema.org/Product"
     :aria-label="
       productTitle ? `Página del producto ${productTitle}` : 'Página de producto'
     "
   >
-    <div class="grid items-start gap-10 lg:grid-cols-2 lg:gap-14">
-      <section class="min-w-0 self-start lg:sticky lg:top-24">
-        <header class="space-y-4">
-          <h1
-            class="text-2xl font-semibold tracking-tight text-foreground md:text-3xl"
-            :title="productTitle"
-            itemprop="name"
+    <meta v-if="product?.sku" itemprop="sku" :content="String(product.sku)" />
+
+    <div
+      class="grid items-start gap-8 xl:gap-12 2xl:gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(460px,520px)]"
+    >
+      <section class="min-w-0 self-start">
+        <div class="mx-auto lg:mx-0 lg:max-w-[760px] xl:max-w-[720px]">
+          <header class="space-y-4">
+            <h1
+              class="text-3xl font-semibold leading-tight tracking-tight text-foreground md:text-4xl lg:text-[3.1rem] lg:leading-[1.05] [overflow-wrap:anywhere]"
+              :title="productTitle"
+              itemprop="name"
+            >
+              {{ productTitle }}
+            </h1>
+
+            <p
+              v-if="productDesc"
+              class="max-w-[72ch] text-sm leading-7 text-muted-foreground md:text-base md:leading-8"
+              itemprop="description"
+            >
+              {{ productDesc }}
+            </p>
+          </header>
+
+          <figure
+            class="mt-6 overflow-hidden rounded-[28px] border border-border bg-card shadow-[0_10px_30px_rgba(0,0,0,0.04)]"
+            itemprop="image"
           >
-            {{ productTitle }}
-          </h1>
-        </header>
+            <NuxtImg
+              :src="currentImgSrc"
+              :alt="imgAlt"
+              class="aspect-[16/11] w-full object-cover"
+              sizes="(max-width: 1024px) 100vw, (max-width: 1440px) 58vw, 720px"
+              width="720"
+              height="495"
+              densities="x1 x2"
+              fetchpriority="high"
+              preload
+              @error="onImageError"
+            />
+          </figure>
 
-        <figure
-          class="mt-6 overflow-hidden rounded-2xl border border-border bg-card"
-          itemprop="image"
-        >
-          <NuxtImg
-            :src="currentImgSrc"
-            :alt="imgAlt"
-            class="aspect-[4/3] w-full object-cover sm:aspect-square"
-            sizes="sm:100vw lg:560px"
-            width="900"
-            height="900"
-            densities="x1 x2"
-            fetchpriority="high"
-            preload
-            @error="onImageError"
-          />
-        </figure>
-
-        <p class="mt-3 text-xs text-muted-foreground">
-          ¿Dudas con medidas o archivos? Completa el formulario y te orientamos.
-        </p>
+          <p class="mt-4 mb-0 text-sm leading-6 text-muted-foreground">
+            ¿Dudas con medidas, materiales o archivos? Completa el formulario y te
+            ayudamos a elegir la mejor opción para tu proyecto.
+          </p>
+        </div>
       </section>
 
-      <aside class="min-w-0">
-        <div class="rounded-2xl border border-border bg-card p-4 shadow-sm sm:p-6">
+      <aside class="min-w-0 lg:sticky lg:top-24">
+        <div class="product-form-card rounded-[28px] md:p-7 xl:p-8">
           <LeadForm
             :producto="productTitle"
             :category-slug="categorySlug"
@@ -147,9 +166,9 @@ const productTitle = computed(() => props.product?.title || "");
             class="w-full"
           />
 
-          <p class="mt-4 text-xs text-muted-foreground">
-            Al enviar este formulario aceptas que te contactemos para darte el
-            presupuesto.
+          <p class="mt-5 mb-0 text-label-s text-muted-foreground">
+            Al enviar este formulario aceptas que te contactemos para preparar tu
+            presupuesto y resolver cualquier duda técnica relacionada con este producto.
           </p>
         </div>
       </aside>
