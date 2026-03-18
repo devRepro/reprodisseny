@@ -1,7 +1,8 @@
 <script setup lang="ts">
   import { computed, ref, watch } from "vue";
   import { normalizeCmsMediaSrc } from "@/utils/cmsMedia";
-  import LeadRequestSection from "@/components/marketing/product/LeadRequestSection.vue";
+  import LeadForm from "@/components/marketing/product/LeadForm.vue";
+  
   
   type HeroImage =
     | string
@@ -151,13 +152,13 @@
   
         <aside class="min-w-0 lg:sticky lg:top-24">
           <div class="product-form-card">
-            <LeadRequestSection
-              :producto="productTitle"
-              :category-slug="categorySlug"
-              :extra-fields="extraFields"
-              :product-data="product"
-              class="w-full"
-            />
+            <LeadForm
+      :producto="productTitle"
+      :category-slug="categorySlug"
+      :extra-fields="extraFields"
+      :product-data="product"
+      class="w-full"
+    />
   
             <p class="mt-4 product-form-helper">
               Al enviar este formulario aceptas que te contactemos para darte el
