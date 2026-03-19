@@ -1,3 +1,4 @@
++
 <script setup lang="ts">
 import { computed, ref, watch } from "vue";
 import { normalizeCmsMediaSrc } from "@/utils/cmsMedia";
@@ -49,15 +50,24 @@ const props = defineProps<{
 
 const FALLBACK = "/img/placeholders/producto.webp";
 
-const resolvedImgSrc = computed(() => {
-  const src =
+const supportItems = [
+  "Asesoramiento técnico",
+  "Revisión básica de archivo",
+  "Respuesta rápida",
+];
+
+const rawImageSrc = computed(() => {
+  return (
     props.product?.imageSrc ||
     (typeof props.product?.image === "string"
       ? props.product.image
-      : props.product?.image?.src);
+      : props.product?.image?.src) ||
+    ""
+  );
+});
 
-  const normalized = normalizeCmsMediaSrc(src);
-  return normalized || FALLBACK;
+const resolvedImgSrc = computed(() => {
+  return normalizeCmsMediaSrc(rawImageSrc.value) || FALLBACK;
 });
 
 const currentImgSrc = ref(FALLBACK);
@@ -78,28 +88,45 @@ function onImageError() {
 
 const imgAlt = computed(() => {
   const image = props.product?.image;
-  if (typeof image === "object" && image?.alt) return image.alt;
+
+  if (typeof image === "object" && image?.alt) {
+    return image.alt;
+  }
+
   return props.product?.title || "Producto";
 });
 
-const extraFields = computed(() => {
-  return props.product?.formFields || props.product?.extraFields || [];
+const productTitle = computed(() => props.product?.title?.trim() || "");
+
+const productDesc = computed(() => {
+  return (
+    props.product?.shortDescription?.trim() || props.product?.description?.trim() || ""
+  );
 });
 
 const categorySlug = computed(() => {
   return props.category?.slug || props.product?.categorySlug || "";
 });
 
-const productTitle = computed(() => props.product?.title || "");
+const extraFields = computed(() => {
+  const explicitExtraFields = Array.isArray(props.product?.extraFields)
+    ? props.product?.extraFields
+    : [];
 
-const productDesc = computed(() => {
-  return props.product?.shortDescription || props.product?.description || "";
+  if (explicitExtraFields.length) {
+    return explicitExtraFields;
+  }
+
+  return Array.isArray(props.product?.formFields) ? props.product?.formFields : [];
 });
+
+const hasImage = computed(() => Boolean(currentImgSrc.value));
+const productNameForForm = computed(() => productTitle.value || "Producto");
 </script>
 
 <template>
   <article
-    class="mx-auto w-full max-w-[1280px]"
+    class="w-full"
     itemscope
     itemtype="https://schema.org/Product"
     :aria-label="
@@ -107,15 +134,24 @@ const productDesc = computed(() => {
     "
   >
     <meta v-if="product?.sku" itemprop="sku" :content="String(product.sku)" />
+    <meta v-if="productTitle" itemprop="name" :content="productTitle" />
+    <meta v-if="productDesc" itemprop="description" :content="productDesc" />
 
     <div
-      class="grid items-start gap-8 xl:gap-12 2xl:gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(460px,520px)]"
+      class="grid items-start gap-8 lg:gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(380px,430px)] xl:gap-12 2xl:grid-cols-[minmax(0,1fr)_minmax(400px,450px)]"
     >
-      <section class="min-w-0 self-start">
-        <div class="mx-auto lg:mx-0 lg:max-w-[760px] xl:max-w-[720px]">
-          <header class="space-y-4">
+      <section class="min-w-0">
+        <div class="max-w-3xl">
+          <header class="space-y-4 md:space-y-5">
+            <p
+              v-if="category?.title || category?.nav"
+              class="text-label uppercase tracking-[0.08em] text-primary"
+            >
+              {{ category?.nav || category?.title }}
+            </p>
+
             <h1
-              class="text-3xl font-semibold leading-tight tracking-tight text-foreground md:text-4xl lg:text-[3.1rem] lg:leading-[1.05] [overflow-wrap:anywhere]"
+              class="text-[clamp(2.25rem,4vw,4.5rem)] font-semibold leading-[0.98] tracking-tight text-foreground [overflow-wrap:anywhere]"
               :title="productTitle"
               itemprop="name"
             >
@@ -124,7 +160,7 @@ const productDesc = computed(() => {
 
             <p
               v-if="productDesc"
-              class="max-w-[72ch] text-sm leading-7 text-muted-foreground md:text-base md:leading-8"
+              class="max-w-[68ch] text-body text-foreground/78 md:text-[18px] md:leading-[1.68]"
               itemprop="description"
             >
               {{ productDesc }}
@@ -132,44 +168,48 @@ const productDesc = computed(() => {
           </header>
 
           <figure
-            class="mt-6 overflow-hidden rounded-[28px] border border-border bg-card shadow-[0_10px_30px_rgba(0,0,0,0.04)]"
-            itemprop="image"
+            v-if="hasImage"
+            class="mt-6 overflow-hidden rounded-[28px] border border-border/70 bg-card shadow-[0_10px_30px_-24px_hsl(var(--foreground)/0.16)] md:mt-8"
           >
             <NuxtImg
               :src="currentImgSrc"
               :alt="imgAlt"
               class="aspect-[16/11] w-full object-cover"
-              sizes="(max-width: 1024px) 100vw, (max-width: 1440px) 58vw, 720px"
-              width="720"
-              height="495"
+              sizes="(max-width: 1024px) 100vw, (max-width: 1440px) 58vw, 760px"
+              width="760"
+              height="522"
               densities="x1 x2"
               fetchpriority="high"
               preload
               @error="onImageError"
             />
+
+            <meta itemprop="image" :content="currentImgSrc" />
           </figure>
 
-          <p class="mt-4 mb-0 text-sm leading-6 text-muted-foreground">
-            ¿Dudas con medidas, materiales o archivos? Completa el formulario y te
-            ayudamos a elegir la mejor opción para tu proyecto.
-          </p>
+          <div class="mt-4 grid gap-3 md:grid-cols-3">
+            <div
+              v-for="item in supportItems"
+              :key="item"
+              class="flex min-h-[72px] items-center rounded-2xl border border-border/70 bg-card/70 px-4 py-3 text-sm leading-5 text-muted-foreground"
+            >
+              {{ item }}
+            </div>
+          </div>
         </div>
       </section>
 
-      <aside class="min-w-0 lg:sticky lg:top-24">
-        <div class="product-form-card rounded-[28px] md:p-7 xl:p-8">
+      <aside class="min-w-0 xl:sticky xl:top-24">
+        <div
+          class="rounded-[28px] border border-border/70 bg-card px-5 py-5 shadow-[0_14px_36px_-26px_hsl(var(--foreground)/0.16)] md:px-6 md:py-6 xl:px-7 xl:py-7"
+        >
           <LeadForm
-            :producto="productTitle"
+            :producto="productNameForForm"
             :category-slug="categorySlug"
             :extra-fields="extraFields"
             :product-data="product"
             class="w-full"
           />
-
-          <p class="mt-5 mb-0 text-label-s text-muted-foreground">
-            Al enviar este formulario aceptas que te contactemos para preparar tu
-            presupuesto y resolver cualquier duda técnica relacionada con este producto.
-          </p>
         </div>
       </aside>
     </div>

@@ -11,7 +11,8 @@ const route = useRoute();
 const config = useRuntimeConfig();
 
 const pageContainerClass = "container-content";
-const contentNarrowClass = "mx-auto w-full max-w-[880px]";
+const contentNarrowClass = "mx-auto w-full max-w-4xl";
+const sectionIntroClass = "max-w-3xl";
 
 function safeDecode(value: unknown) {
   try {
@@ -26,6 +27,18 @@ function isAssetLike(value: unknown) {
   return /^(img|_nuxt)\//i.test(s) || /\.(jpg|jpeg|png|webp|avif|gif|svg|pdf)$/i.test(s);
 }
 
+function toAbsoluteUrl(value?: string | null) {
+  if (!value) return undefined;
+
+  const base = config.public.siteUrl || "https://reprodisseny.com";
+
+  try {
+    return new URL(value, base).toString();
+  } catch {
+    return undefined;
+  }
+}
+
 const slug = computed(() =>
   safeDecode(
     Array.isArray(route.params.slug) ? route.params.slug.join("/") : route.params.slug
@@ -35,7 +48,8 @@ const slug = computed(() =>
 if (!slug.value || isAssetLike(slug.value)) {
   throw createError({
     statusCode: 404,
-    message: `Ruta estática inválida para producto: ${slug.value}`,
+    statusMessage: "Producto no encontrado",
+    message: `Ruta inválida para producto: ${slug.value}`,
   });
 }
 
@@ -50,9 +64,12 @@ const { data, pending, error } = await useAsyncData<ProductDetailDto | null>(
 );
 
 if (error.value) {
+  const err = error.value as any;
+
   throw createError({
-    statusCode: (error.value as any)?.statusCode || 404,
-    message: "Producto no encontrado",
+    statusCode: err?.statusCode || err?.status || err?.response?.status || 404,
+    statusMessage: "Producto no encontrado",
+    message: err?.data?.message || err?.message || "No hemos podido cargar el producto",
   });
 }
 
@@ -63,92 +80,122 @@ if (data.value?.redirectTo && data.value.redirectTo !== route.path) {
   });
 }
 
-const product = computed(() => data.value ?? null);
+if (!data.value) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: "Producto no encontrado",
+    message: `No existe el producto "${slug.value}"`,
+  });
+}
+
+const product = computed(() => data.value as ProductDetailDto);
 
 const category = computed(() => {
-  if (!product.value?.category) return null;
+  const current = product.value?.category;
+  if (!current) return null;
 
   return {
-    slug: product.value.category.slug,
-    path: product.value.category.path,
-    title: product.value.category.title,
-    nav: product.value.category.nav,
+    slug: current.slug,
+    path: current.path,
+    title: current.title,
+    nav: current.nav,
   };
 });
 
 const heroProduct = computed(() => {
-  if (!product.value) return null;
+  const current = product.value;
+  if (!current) return null;
 
   return {
-    slug: product.value.slug,
-    path: product.value.path,
-    title: product.value.title,
-    shortDescription: product.value.shortDescription || product.value.description || "",
-    description: product.value.description || "",
-    bodyMd: product.value.bodyMd || "",
-    imageSrc: product.value.image?.src || null,
-    image: product.value.image
+    slug: current.slug,
+    path: current.path,
+    title: current.title,
+    shortDescription: current.shortDescription || current.description || "",
+    description: current.description || "",
+    bodyMd: current.bodyMd || "",
+    imageSrc: current.image?.src || null,
+    image: current.image
       ? {
-          src: product.value.image.src,
-          alt: product.value.image.alt,
-          width: product.value.image.width ?? null,
-          height: product.value.image.height ?? null,
+          src: current.image.src,
+          alt: current.image.alt,
+          width: current.image.width ?? null,
+          height: current.image.height ?? null,
         }
       : null,
-    formFields: product.value.formFields || [],
-    extraFields: product.value.formFields || [],
-    categorySlug: product.value.category?.slug || "",
-    sku: (product.value as any).sku ?? null,
+    formFields: current.formFields || [],
+    extraFields: (current as any).extraFields || current.formFields || [],
+    categorySlug: current.category?.slug || "",
+    sku: (current as any).sku ?? null,
     seo: {
-      canonical: product.value.seo?.canonical,
-      metaTitle: product.value.seo?.title,
-      metaDescription: product.value.seo?.description,
+      canonical: current.seo?.canonical,
+      metaTitle: current.seo?.title,
+      metaDescription: current.seo?.description,
     },
   };
 });
 
-const breadcrumbItems = computed(() => product.value?.breadcrumbs ?? []);
+const breadcrumbItems = computed(() =>
+  Array.isArray(product.value?.breadcrumbs) ? product.value.breadcrumbs : []
+);
+
 const heroImage = computed(() => product.value?.image?.src || "");
 
-const detailsTabs = computed(() => {
-  const tabs: Array<{ id: string; title: string; text: string }> = [];
-
-  const detailText =
+const detailText = computed(
+  () =>
     product.value?.bodyMd?.trim() ||
     product.value?.description?.trim() ||
     product.value?.shortDescription?.trim() ||
-    "";
+    ""
+);
 
-  if (detailText) {
-    tabs.push({
+const detailsTabs = computed(() => {
+  if (!detailText.value) return [];
+
+  return [
+    {
       id: "descripcion",
       title: "Detalles del producto",
-      text: detailText,
-    });
-  }
-
-  return tabs;
+      text: detailText.value,
+    },
+  ];
 });
 
 /**
- * Tu DTO actual no expone FAQs reales todavía.
- * Lo dejamos preparado por si el service las devuelve más adelante.
+ * Preparado para cuando el service exponga FAQs reales.
  */
 const faqs = computed<any[]>(() => ((product.value as any)?.faqs ?? []).filter(Boolean));
 
 const canonicalUrl = computed(() => {
-  const base = config.public.siteUrl || "https://reprodisseny.com";
-  const path = product.value?.seo?.canonical || product.value?.path || route.path;
-  return new URL(path, base).toString();
+  return (
+    toAbsoluteUrl(product.value?.seo?.canonical || product.value?.path || route.path) ||
+    toAbsoluteUrl("/") ||
+    "https://reprodisseny.com"
+  );
 });
 
-const hreflangLinks = computed(() =>
-  (product.value?.seo?.hreflang || []).map((item) => ({
-    rel: "alternate" as const,
-    hreflang: item.lang,
-    href: item.url,
-  }))
+const hreflangLinks = computed(
+  () =>
+    (product.value?.seo?.hreflang || [])
+      .map((item) => {
+        const href = toAbsoluteUrl(item?.url);
+        if (!href || !item?.lang) return null;
+
+        return {
+          rel: "alternate" as const,
+          hreflang: item.lang,
+          href,
+        };
+      })
+      .filter(Boolean) as Array<{
+      rel: "alternate";
+      hreflang: string;
+      href: string;
+    }>
 );
+
+const ogImageUrl = computed(() => {
+  return toAbsoluteUrl(product.value?.seo?.image || heroImage.value);
+});
 
 const schemaJson = computed(() => {
   const schema = product.value?.seo?.schema;
@@ -160,6 +207,7 @@ useHead(() => ({
   script: schemaJson.value
     ? [
         {
+          key: "product-jsonld",
           type: "application/ld+json",
           children: schemaJson.value,
         },
@@ -173,26 +221,42 @@ useSeoMeta({
     (product.value?.title
       ? `${product.value.title} | Reprodisseny`
       : "Producto | Reprodisseny"),
+
   description: () =>
     product.value?.seo?.description ||
     product.value?.shortDescription ||
     product.value?.description ||
     "Detalles de producto",
+
   ogTitle: () => product.value?.seo?.title || product.value?.title || "Producto",
+
   ogDescription: () =>
     product.value?.seo?.description ||
     product.value?.shortDescription ||
     product.value?.description ||
     "Detalles de producto",
-  ogImage: () => product.value?.seo?.image || heroImage.value || undefined,
+
+  ogUrl: () => canonicalUrl.value,
+  ogImage: () => ogImageUrl.value,
   robots: () => product.value?.seo?.robots || "index,follow",
+
+  twitterCard: () => (ogImageUrl.value ? "summary_large_image" : "summary"),
+  twitterTitle: () => product.value?.seo?.title || product.value?.title || "Producto",
+  twitterDescription: () =>
+    product.value?.seo?.description ||
+    product.value?.shortDescription ||
+    product.value?.description ||
+    "Detalles de producto",
+  twitterImage: () => ogImageUrl.value,
 });
 </script>
 
 <template>
   <main class="min-h-screen bg-background">
     <div v-if="pending" class="container-content py-16 md:py-20">
-      <div class="flex min-h-[30vh] items-center justify-center rounded-[28px] border border-border/70 bg-card/70">
+      <div
+        class="flex min-h-[30vh] items-center justify-center rounded-[28px] border border-border/70 bg-card/70"
+      >
         <div class="animate-pulse text-body text-muted-foreground">
           Cargando detalles del producto...
         </div>
@@ -216,7 +280,7 @@ useSeoMeta({
       >
         <div :class="pageContainerClass" class="py-10 md:py-14">
           <div :class="contentNarrowClass">
-            <div class="max-w-[760px]">
+            <div :class="sectionIntroClass">
               <p class="text-label uppercase tracking-[0.08em] text-primary">
                 Información del producto
               </p>
@@ -228,12 +292,17 @@ useSeoMeta({
                 Detalles y especificaciones
               </h2>
 
-              <p class="mt-3 max-w-[68ch] text-body text-foreground/78 md:text-[18px] md:leading-[1.68]">
-                Consulta la información principal para entender mejor materiales, acabados y uso recomendado.
+              <p
+                class="mt-3 max-w-[68ch] text-body text-foreground/78 md:text-[18px] md:leading-[1.68]"
+              >
+                Consulta la información principal para entender mejor materiales, acabados
+                y uso recomendado.
               </p>
             </div>
 
-            <div class="mt-8 rounded-[28px] border border-border/70 bg-card px-5 py-6 shadow-[0_10px_30px_-24px_hsl(var(--foreground)/0.14)] md:px-8 md:py-8">
+            <div
+              class="mt-8 rounded-[28px] border border-border/70 bg-card px-5 py-6 shadow-[0_10px_30px_-24px_hsl(var(--foreground)/0.14)] md:px-8 md:py-8"
+            >
               <ProductDetails :tabs="detailsTabs" />
             </div>
           </div>
@@ -247,7 +316,7 @@ useSeoMeta({
       >
         <div :class="pageContainerClass" class="py-4 md:py-8">
           <div :class="contentNarrowClass">
-            <div class="max-w-[760px]">
+            <div :class="sectionIntroClass">
               <p class="text-label uppercase tracking-[0.08em] text-primary">
                 Ayuda y dudas comunes
               </p>
@@ -270,7 +339,7 @@ useSeoMeta({
       <section class="mt-12 md:mt-16">
         <GuideBanner
           title="¿No estás seguro de las medidas?"
-          :cta="{ label: 'Consultar Guía', to: '/como-preparar-archivos' }"
+          :cta="{ label: 'Consultar guía', to: '/como-preparar-archivos' }"
           base-path="/img/ui/banners/como-preparar-archivos"
           :height="240"
           :full-bleed="true"
@@ -283,18 +352,22 @@ useSeoMeta({
           <div
             class="overflow-hidden rounded-[32px] border border-border/70 bg-[linear-gradient(135deg,hsl(var(--accent))_0%,hsl(var(--background))_100%)] px-6 py-8 shadow-[0_14px_36px_-26px_hsl(var(--foreground)/0.16)] md:px-10 md:py-10"
           >
-            <div class="max-w-[760px]">
+            <div :class="sectionIntroClass">
               <p class="text-label uppercase tracking-[0.08em] text-primary">
                 Proyecto a medida
               </p>
 
-              <h2 class="mt-3 text-[clamp(2rem,2.7vw,2.85rem)] font-bold leading-[1.08] tracking-tight text-foreground">
+              <h2
+                class="mt-3 text-[clamp(2rem,2.7vw,2.85rem)] font-bold leading-[1.08] tracking-tight text-foreground"
+              >
                 ¿Tienes un proyecto especial?
               </h2>
 
-              <p class="mt-3 max-w-[60ch] text-body text-foreground/76 md:text-[18px] md:leading-[1.68]">
-                Si no encuentras exactamente lo que necesitas en los detalles del producto,
-                te asesoramos para fabricar una solución adaptada a tu proyecto.
+              <p
+                class="mt-3 max-w-[60ch] text-body text-foreground/76 md:text-[18px] md:leading-[1.68]"
+              >
+                Si no encuentras exactamente lo que necesitas en los detalles del
+                producto, te asesoramos para fabricar una solución adaptada a tu proyecto.
               </p>
 
               <div class="mt-6">
@@ -310,16 +383,5 @@ useSeoMeta({
         </div>
       </section>
     </template>
-
-    <div v-else class="container-content py-16 md:py-20">
-      <div class="rounded-[28px] border border-border/70 bg-card p-8 shadow-sm">
-        <h1 class="text-[28px] font-semibold leading-[1.2] text-foreground">
-          Producto no encontrado
-        </h1>
-        <p class="mt-3 max-w-[60ch] text-body text-foreground/72">
-          No hemos podido cargar este producto.
-        </p>
-      </div>
-    </div>
   </main>
 </template>

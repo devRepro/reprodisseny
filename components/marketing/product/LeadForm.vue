@@ -4,7 +4,7 @@ import { useRoute } from "#imports";
 import { useForm } from "vee-validate";
 import { z } from "zod";
 import { toTypedSchema } from "@vee-validate/zod";
-import { Loader2, CheckCircle2 } from "lucide-vue-next";
+import { Loader2, CheckCircle2, AlertCircle } from "lucide-vue-next";
 
 import {
   FormField,
@@ -14,6 +14,8 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
@@ -26,8 +28,6 @@ import {
 } from "@/components/ui/select";
 
 import { usePriceRequests } from "@/composables/usePriceRequests";
-
-// --- Tipos e Interfaces ---
 
 type ExtraField = {
   name: string;
@@ -66,20 +66,19 @@ const emit = defineEmits<{
   success: [];
 }>();
 
-// --- Estado y Referencias ---
-
 const route = useRoute();
 const file = ref<File | null>(null);
 const success = ref(false);
 
 const inputClass =
-  "h-[43px] rounded-[10px] border-gray-300 focus:border-[#0076B3] focus:ring-2 focus:ring-[#0076B3]/20 shadow-sm transition-all duration-200";
+  "h-11 rounded-xl border-border/80 bg-background shadow-sm transition-colors focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/15";
+const readonlyInputClass =
+  "h-11 rounded-xl border-border/80 bg-muted/35 pr-24 text-foreground/85 shadow-sm";
 const textareaClass =
-  "min-h-[128px] resize-y rounded-[10px] border-gray-300 focus:border-[#0076B3] focus:ring-2 focus:ring-[#0076B3]/20 shadow-sm transition-all duration-200";
+  "min-h-[120px] resize-y rounded-xl border-border/80 bg-background shadow-sm transition-colors focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/15";
+const labelClass = "text-sm font-medium text-foreground";
 
 const fileName = computed(() => file.value?.name || "Ningún archivo seleccionado");
-
-// --- Utilidades de Normalización ---
 
 function onPickFile(e: Event) {
   const input = e.target as HTMLInputElement;
@@ -88,10 +87,12 @@ function onPickFile(e: Event) {
 
 function normalizeUtm(q: Record<string, any>) {
   const out: Record<string, string> = {};
+
   for (const [k, v] of Object.entries(q || {})) {
     if (!k.toLowerCase().startsWith("utm_")) continue;
     out[k] = Array.isArray(v) ? String(v[0] ?? "") : String(v ?? "");
   }
+
   return Object.keys(out).length ? out : null;
 }
 
@@ -111,7 +112,17 @@ function normalizeKey(value: unknown) {
 }
 
 const BASE_FIELDS = new Set(
-  ["cantidad", "comentario", "observaciones", "privacy", "nombre", "email", "telefono", "empresa", "website"].map(normalizeKey)
+  [
+    "cantidad",
+    "comentario",
+    "observaciones",
+    "privacy",
+    "nombre",
+    "email",
+    "telefono",
+    "empresa",
+    "website",
+  ].map(normalizeKey)
 );
 
 function normalizeExtraField(field: ExtraField): NormalizedExtraField | null {
@@ -119,26 +130,54 @@ function normalizeExtraField(field: ExtraField): NormalizedExtraField | null {
   const safeLabel = String(field.label || field.name || "").trim();
   const safeType = (field.type || "text") as ExtraField["type"];
 
-  if (!safeName || !safeLabel || BASE_FIELDS.has(normalizeKey(safeName))) return null;
+  if (!safeName || !safeLabel || BASE_FIELDS.has(normalizeKey(safeName))) {
+    return null;
+  }
 
-  const normalizedOptions = (field.options || []).map((opt) => String(opt).trim()).filter(Boolean);
+  const normalizedOptions = (field.options || [])
+    .map((opt) => String(opt).trim())
+    .filter(Boolean);
 
   if (safeType === "select") {
     if (normalizedOptions.length === 0) return null;
+
     if (normalizedOptions.length === 1) {
-      return { ...field, name: safeName, label: safeLabel, kind: "readonly", normalizedOptions, initialValue: normalizedOptions[0] };
+      return {
+        ...field,
+        name: safeName,
+        label: safeLabel,
+        kind: "readonly",
+        normalizedOptions,
+        initialValue: normalizedOptions[0],
+      };
     }
-    return { ...field, name: safeName, label: safeLabel, kind: "select", normalizedOptions, initialValue: "" };
+
+    return {
+      ...field,
+      name: safeName,
+      label: safeLabel,
+      kind: "select",
+      normalizedOptions,
+      initialValue: "",
+    };
   }
 
-  return { ...field, name: safeName, label: safeLabel, type: safeType, kind: "input", normalizedOptions, initialValue: "" };
+  return {
+    ...field,
+    name: safeName,
+    label: safeLabel,
+    type: safeType,
+    kind: "input",
+    normalizedOptions,
+    initialValue: "",
+  };
 }
 
 const normalizedExtraFields = computed<NormalizedExtraField[]>(() =>
-  (props.extraFields || []).map(normalizeExtraField).filter((f): f is NormalizedExtraField => !!f)
+  (props.extraFields || [])
+    .map(normalizeExtraField)
+    .filter((f): f is NormalizedExtraField => !!f)
 );
-
-// --- Validación y Esquema ---
 
 function normalizeNumber(value: unknown) {
   if (value === "" || value === null || value === undefined) return undefined;
@@ -153,19 +192,28 @@ function emptyToUndefined(value: unknown) {
 
 function schemaForField(field: NormalizedExtraField) {
   if (field.kind === "readonly") {
-    return z.preprocess(emptyToUndefined, z.string({ required_error: "Requerido" }).min(1));
+    return z.preprocess(
+      emptyToUndefined,
+      z.string({ required_error: "Requerido" }).min(1)
+    );
   }
+
   if (field.type === "number") {
-    const base = z.number({ 
-        required_error: `El campo ${field.label} es obligatorio`,
-        invalid_type_error: "Debe ser un número" 
+    const base = z.number({
+      required_error: `El campo ${field.label} es obligatorio`,
+      invalid_type_error: "Debe ser un número",
     });
-    return field.required 
-        ? z.preprocess(normalizeNumber, base.min(0, "Mínimo 0"))
-        : z.preprocess(normalizeNumber, base.optional());
+
+    return field.required
+      ? z.preprocess(normalizeNumber, base.min(0, "Mínimo 0"))
+      : z.preprocess(normalizeNumber, base.optional());
   }
-  const baseStr = z.string({ required_error: `El campo ${field.label} es obligatorio` });
-  return field.required 
+
+  const baseStr = z.string({
+    required_error: `El campo ${field.label} es obligatorio`,
+  });
+
+  return field.required
     ? z.preprocess(emptyToUndefined, baseStr.min(1, "Campo obligatorio"))
     : z.preprocess(emptyToUndefined, z.string().optional());
 }
@@ -173,20 +221,38 @@ function schemaForField(field: NormalizedExtraField) {
 const validationSchema = computed(() => {
   const shape: Record<string, z.ZodTypeAny> = {
     website: z.string().optional(),
-    cantidad: z.preprocess(normalizeNumber, z.number({ required_error: "Obligatorio" }).min(1, "Mínimo 1")),
-    nombre: z.preprocess(emptyToUndefined, z.string({ required_error: "Obligatorio" }).min(2, "Nombre demasiado corto")),
-    email: z.preprocess(emptyToUndefined, z.string({ required_error: "Obligatorio" }).email("Email no válido")),
-    telefono: z.preprocess(emptyToUndefined, z.string().regex(/^[\d\s\+\-]*$/, "Formato no válido").optional()),
+    cantidad: z.preprocess(
+      normalizeNumber,
+      z.number({ required_error: "Obligatorio" }).min(1, "Mínimo 1")
+    ),
+    nombre: z.preprocess(
+      emptyToUndefined,
+      z.string({ required_error: "Obligatorio" }).min(2, "Nombre demasiado corto")
+    ),
+    email: z.preprocess(
+      emptyToUndefined,
+      z.string({ required_error: "Obligatorio" }).email("Email no válido")
+    ),
+    telefono: z.preprocess(
+      emptyToUndefined,
+      z
+        .string()
+        .regex(/^[\d\s\+\-]*$/, "Formato no válido")
+        .optional()
+    ),
     empresa: z.preprocess(emptyToUndefined, z.string().optional()),
     comentario: z.preprocess(emptyToUndefined, z.string().max(4000).optional()),
-    privacy: z.literal(true, { errorMap: () => ({ message: "Debes aceptar la política" }) }),
+    privacy: z.literal(true, {
+      errorMap: () => ({ message: "Debes aceptar la política" }),
+    }),
   };
 
-  normalizedExtraFields.value.forEach(f => { shape[f.name] = schemaForField(f); });
+  normalizedExtraFields.value.forEach((field) => {
+    shape[field.name] = schemaForField(field);
+  });
+
   return toTypedSchema(z.object(shape));
 });
-
-// --- Lógica de Formulario ---
 
 const initialValues = computed(() => ({
   website: "",
@@ -197,33 +263,94 @@ const initialValues = computed(() => ({
   empresa: "",
   comentario: "",
   privacy: false,
-  ...Object.fromEntries(normalizedExtraFields.value.map(f => [f.name, f.initialValue]))
+  ...Object.fromEntries(
+    normalizedExtraFields.value.map((field) => [field.name, field.initialValue])
+  ),
 }));
 
-const { handleSubmit, resetForm } = useForm({
+const { handleSubmit, resetForm, errors, submitCount } = useForm({
   validationSchema,
   initialValues: initialValues.value,
 });
 
-watch(initialValues, (val) => resetForm({ values: val }), { deep: true });
+watch(initialValues, (values) => resetForm({ values }), { deep: true });
 
 const { sendPriceRequest, isLoading, error } = usePriceRequests();
+
+const fieldLabels = computed<Record<string, string>>(() => {
+  const base: Record<string, string> = {
+    cantidad: "Cantidad",
+    nombre: "Nombre",
+    email: "Email",
+    telefono: "Teléfono",
+    empresa: "Empresa",
+    comentario: "Comentarios",
+    privacy: "Política de privacidad",
+  };
+
+  normalizedExtraFields.value.forEach((field) => {
+    base[field.name] = field.label;
+  });
+
+  return base;
+});
+
+const validationSummary = computed(() => {
+  if (submitCount.value < 1) return [];
+
+  return Object.entries(errors.value || {})
+    .filter(([name]) => name !== "website")
+    .map(([name, message]) => ({
+      name,
+      label: fieldLabels.value[name] || name,
+      message: String(message),
+    }));
+});
+
+const submissionErrorMessage = computed(() => {
+  if (!error.value) return "";
+  return typeof error.value === "string"
+    ? error.value
+    : "No hemos podido enviar la solicitud. Inténtalo de nuevo en unos minutos.";
+});
 
 function focusFirstInvalidField(errors: Record<string, string>) {
   const first = Object.keys(errors || {})[0];
   if (!first) return;
-  const selector = `[name="${CSS.escape(first)}"], [data-field-name="${CSS.escape(first)}"], #${CSS.escape(first)}`;
-  (document.querySelector(selector) as HTMLElement)?.focus?.();
+
+  const selector = [
+    `[name="${CSS.escape(first)}"]`,
+    `[data-field-name="${CSS.escape(first)}"]`,
+    `#${CSS.escape(first)}`,
+  ].join(",");
+
+  (document.querySelector(selector) as HTMLElement | null)?.focus?.();
 }
 
 const onSubmit = handleSubmit(
   async (values) => {
-    if (values.website?.trim()) { success.value = true; return; }
+    if (values.website?.trim()) {
+      success.value = true;
+      return;
+    }
 
-    const slug = props.productData?.slug || (Array.isArray(route.params.slug) ? route.params.slug.at(-1) : String(route.params.slug || ""));
-    const extras: Record<string, unknown> = { cantidad: values.cantidad };
-    normalizedExtraFields.value.forEach(f => { extras[f.name] = (values as any)[f.name]; });
-    if (file.value) extras.fileName = file.value.name;
+    const slug =
+      props.productData?.slug ||
+      (Array.isArray(route.params.slug)
+        ? route.params.slug.at(-1)
+        : String(route.params.slug || ""));
+
+    const extras: Record<string, unknown> = {
+      cantidad: values.cantidad,
+    };
+
+    normalizedExtraFields.value.forEach((field) => {
+      extras[field.name] = (values as any)[field.name];
+    });
+
+    if (file.value) {
+      extras.fileName = file.value.name;
+    }
 
     await sendPriceRequest(
       {
@@ -251,119 +378,339 @@ const onSubmit = handleSubmit(
     if (!error.value) {
       success.value = true;
       emit("success");
-      resetForm();
+      resetForm({ values: initialValues.value });
       file.value = null;
     }
   },
-  ({ errors }) => focusFirstInvalidField(errors as Record<string, string>)
+  ({ errors }) => {
+    focusFirstInvalidField(errors as Record<string, string>);
+  }
 );
 </script>
 
 <template>
   <div class="mx-auto w-full">
-    <div v-if="success" class="flex min-h-[300px] flex-col items-center justify-center rounded-xl border border-emerald-100 bg-emerald-50 p-8 text-center animate-in fade-in slide-in-from-bottom-4">
-      <CheckCircle2 class="mb-4 h-16 w-16 text-emerald-600" />
-      <h3 class="mb-2 font-['Figtree'] text-2xl font-bold text-emerald-800">¡Solicitud enviada!</h3>
-      <p class="font-['Figtree'] text-emerald-700">Gracias. Te responderemos a la brevedad.</p>
-      <Button variant="outline" class="mt-6 border-emerald-200 text-emerald-700 hover:bg-emerald-100" @click="success = false">Enviar otra solicitud</Button>
+    <div v-if="success" class="flex min-h-[280px] flex-col justify-center">
+      <Alert class="border-emerald-200 bg-emerald-50 text-emerald-900">
+        <CheckCircle2 class="h-4 w-4 text-emerald-600" />
+        <AlertTitle>Solicitud enviada</AlertTitle>
+        <AlertDescription class="space-y-4">
+          <p>Gracias. Hemos recibido tu solicitud y te responderemos a la brevedad.</p>
+
+          <Button
+            type="button"
+            variant="outline"
+            class="border-emerald-300 text-emerald-800 hover:bg-emerald-100"
+            @click="success = false"
+          >
+            Enviar otra solicitud
+          </Button>
+        </AlertDescription>
+      </Alert>
     </div>
 
-    <form v-else @submit.prevent="onSubmit" novalidate class="flex flex-col gap-6">
-      <div v-if="error" class="rounded-lg border border-red-100 bg-red-50 p-3 text-center text-sm font-medium text-red-600">
-        ⚠️ {{ error }}
+    <form v-else @submit.prevent="onSubmit" novalidate class="flex flex-col">
+      <div class="space-y-2">
+        <h3 class="text-xl font-semibold tracking-tight text-foreground">
+          Configura tu solicitud
+        </h3>
+
+        <p class="text-sm leading-6 text-muted-foreground">
+          Indica las características del producto y te responderemos con la opción más
+          adecuada.
+        </p>
       </div>
 
-      <div class="flex flex-col gap-5">
-        <FormField name="cantidad" v-slot="{ componentField, errorMessage }">
-          <FormItem>
-            <FormLabel class="font-['Figtree'] text-base font-normal text-gray-900">Cantidad <span class="text-red-500">*</span></FormLabel>
-            <FormControl>
-              <Input v-bind="componentField" type="number" :class="[inputClass, errorMessage && 'border-red-500 focus:ring-red-200']" />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        </FormField>
+      <Alert v-if="submissionErrorMessage" variant="destructive" class="mt-4">
+        <AlertCircle class="h-4 w-4" />
+        <AlertTitle>No hemos podido enviar la solicitud</AlertTitle>
+        <AlertDescription>
+          {{ submissionErrorMessage }}
+        </AlertDescription>
+      </Alert>
 
-        <template v-for="field in normalizedExtraFields" :key="field.name">
-          <FormField :name="field.name" v-slot="{ componentField, value, handleChange, errorMessage }">
-            <FormItem>
-              <FormLabel class="font-['Figtree'] text-base font-normal text-gray-900">
-                {{ field.label }}
-                <span v-if="field.kind === 'readonly'" class="ml-1 text-sm text-gray-400">(Incluido)</span>
-                <span v-else-if="field.required" class="text-red-500">*</span>
-                <span v-else class="ml-1 text-sm text-gray-400">(Opcional)</span>
-              </FormLabel>
+      <Alert v-else-if="validationSummary.length" variant="destructive" class="mt-4">
+        <AlertCircle class="h-4 w-4" />
+        <AlertTitle>Revisa los campos marcados</AlertTitle>
+        <AlertDescription>
+          <ul class="list-disc space-y-1 pl-5">
+            <li v-for="item in validationSummary.slice(0, 5)" :key="item.name">
+              <strong>{{ item.label }}:</strong> {{ item.message }}
+            </li>
+          </ul>
+        </AlertDescription>
+      </Alert>
 
-              <FormControl>
-                <div v-if="field.kind === 'readonly'" class="relative">
-                  <Input v-bind="componentField" :value="String(value ?? field.initialValue)" readonly class="bg-slate-50 pr-24" />
-                  <span class="absolute right-3 top-1/2 -translate-y-1/2 text-xs font-medium text-[#0076B3]">Incluido</span>
-                </div>
+      <ScrollArea class="mt-5 pr-2 lg:max-h-[560px] xl:max-h-[620px] 2xl:max-h-[680px]">
+        <div class="space-y-6 pr-3">
+          <section class="space-y-5">
+            <FormField name="cantidad" v-slot="{ componentField, errorMessage }">
+              <FormItem>
+                <FormLabel :class="labelClass">
+                  Cantidad <span class="text-destructive">*</span>
+                </FormLabel>
 
-                <Select v-else-if="field.kind === 'select'" :model-value="String(value ?? '')" @update:model-value="handleChange">
-                  <SelectTrigger :class="[inputClass, errorMessage && 'border-red-500']" :data-field-name="field.name">
-                    <SelectValue :placeholder="field.placeholder || 'Selecciona...'" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem v-for="opt in field.normalizedOptions" :key="opt" :value="opt">{{ opt }}</SelectItem>
-                  </SelectContent>
-                </Select>
+                <FormControl>
+                  <Input
+                    id="cantidad"
+                    v-bind="componentField"
+                    type="number"
+                    min="1"
+                    :class="[
+                      inputClass,
+                      errorMessage &&
+                        'border-destructive focus-visible:ring-destructive/15',
+                    ]"
+                  />
+                </FormControl>
 
-                <Textarea v-else-if="field.type === 'textarea'" v-bind="componentField" :class="[textareaClass, errorMessage && 'border-red-500']" />
+                <FormMessage />
+              </FormItem>
+            </FormField>
 
-                <Input v-else v-bind="componentField" :type="field.type === 'number' ? 'number' : 'text'" :class="[inputClass, errorMessage && 'border-red-500']" />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          </FormField>
-        </template>
+            <template v-for="field in normalizedExtraFields" :key="field.name">
+              <FormField
+                :name="field.name"
+                v-slot="{ componentField, value, handleChange, errorMessage }"
+              >
+                <FormItem>
+                  <FormLabel :class="labelClass">
+                    {{ field.label }}
+                    <span
+                      v-if="field.kind === 'readonly'"
+                      class="ml-1 text-xs text-primary"
+                    >
+                      (Incluido)
+                    </span>
+                    <span v-else-if="field.required" class="text-destructive">*</span>
+                    <span v-else class="ml-1 text-xs text-muted-foreground"
+                      >(Opcional)</span
+                    >
+                  </FormLabel>
 
-        <FormField name="nombre" v-slot="{ componentField, errorMessage }">
-          <FormItem>
-            <FormLabel>Nombre <span class="text-red-500">*</span></FormLabel>
-            <FormControl><Input v-bind="componentField" :class="[inputClass, errorMessage && 'border-red-500']" /></FormControl>
-            <FormMessage />
-          </FormItem>
-        </FormField>
+                  <FormControl>
+                    <div v-if="field.kind === 'readonly'" class="relative">
+                      <Input
+                        :id="field.name"
+                        v-bind="componentField"
+                        :value="String(value ?? field.initialValue)"
+                        readonly
+                        aria-readonly="true"
+                        :class="readonlyInputClass"
+                      />
+                      <span
+                        class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 rounded-full border border-primary/15 bg-primary/10 px-2 py-0.5 text-[11px] font-medium text-primary"
+                      >
+                        Incluido
+                      </span>
+                    </div>
 
-        <FormField name="email" v-slot="{ componentField, errorMessage }">
-          <FormItem>
-            <FormLabel>Email <span class="text-red-500">*</span></FormLabel>
-            <FormControl><Input v-bind="componentField" type="email" :class="[inputClass, errorMessage && 'border-red-500']" /></FormControl>
-            <FormMessage />
-          </FormItem>
-        </FormField>
+                    <Select
+                      v-else-if="field.kind === 'select'"
+                      :model-value="String(value ?? '')"
+                      @update:model-value="handleChange"
+                    >
+                      <SelectTrigger
+                        :id="field.name"
+                        :data-field-name="field.name"
+                        :class="[inputClass, errorMessage && 'border-destructive']"
+                      >
+                        <SelectValue
+                          :placeholder="field.placeholder || 'Selecciona...'"
+                        />
+                      </SelectTrigger>
 
-        <FormField name="website" v-slot="{ componentField }">
-          <input v-bind="componentField" class="absolute -z-10 opacity-0" tabindex="-1" />
-        </FormField>
+                      <SelectContent>
+                        <SelectItem
+                          v-for="opt in field.normalizedOptions"
+                          :key="opt"
+                          :value="opt"
+                        >
+                          {{ opt }}
+                        </SelectItem>
+                      </SelectContent>
+                    </Select>
 
-        <div class="grid gap-2">
-          <label class="font-['Figtree'] text-base font-normal text-gray-900">Adjuntar archivo <span class="text-sm text-gray-400">(Opcional)</span></label>
-          <div class="flex items-center gap-4">
-            <label class="inline-flex h-[28px] cursor-pointer items-center rounded-[5px] border border-[#3F3F3F] px-[10px] text-[14px] text-black">
-              Seleccionar archivo
-              <input type="file" class="hidden" @change="onPickFile" accept=".pdf,.jpg,.jpeg,.png,.ai,.zip" />
-            </label>
-            <span class="truncate text-[14px] text-[#A2A2A2]">{{ fileName }}</span>
+                    <Textarea
+                      v-else-if="field.type === 'textarea'"
+                      :id="field.name"
+                      v-bind="componentField"
+                      :placeholder="field.placeholder || 'Escribe aquí...'"
+                      :class="[
+                        textareaClass,
+                        errorMessage &&
+                          'border-destructive focus-visible:ring-destructive/15',
+                      ]"
+                    />
+
+                    <Input
+                      v-else
+                      :id="field.name"
+                      v-bind="componentField"
+                      :type="field.type === 'number' ? 'number' : 'text'"
+                      :placeholder="field.placeholder || ''"
+                      :class="[
+                        inputClass,
+                        errorMessage &&
+                          'border-destructive focus-visible:ring-destructive/15',
+                      ]"
+                    />
+                  </FormControl>
+
+                  <FormMessage />
+                </FormItem>
+              </FormField>
+            </template>
+          </section>
+
+          <section class="space-y-5 border-t border-border/70 pt-6">
+            <div class="space-y-1">
+              <h4 class="text-sm font-semibold uppercase tracking-[0.08em] text-primary">
+                Datos de contacto
+              </h4>
+              <p class="text-xs leading-5 text-muted-foreground">
+                Necesitamos estos datos para enviarte la propuesta.
+              </p>
+            </div>
+
+            <FormField name="nombre" v-slot="{ componentField, errorMessage }">
+              <FormItem>
+                <FormLabel :class="labelClass">
+                  Nombre <span class="text-destructive">*</span>
+                </FormLabel>
+
+                <FormControl>
+                  <Input
+                    id="nombre"
+                    v-bind="componentField"
+                    placeholder="Tu nombre"
+                    :class="[
+                      inputClass,
+                      errorMessage &&
+                        'border-destructive focus-visible:ring-destructive/15',
+                    ]"
+                  />
+                </FormControl>
+
+                <FormMessage />
+              </FormItem>
+            </FormField>
+
+            <FormField name="email" v-slot="{ componentField, errorMessage }">
+              <FormItem>
+                <FormLabel :class="labelClass">
+                  Email <span class="text-destructive">*</span>
+                </FormLabel>
+
+                <FormControl>
+                  <Input
+                    id="email"
+                    v-bind="componentField"
+                    type="email"
+                    placeholder="tu@email.com"
+                    :class="[
+                      inputClass,
+                      errorMessage &&
+                        'border-destructive focus-visible:ring-destructive/15',
+                    ]"
+                  />
+                </FormControl>
+
+                <FormMessage />
+              </FormItem>
+            </FormField>
+
+            <FormField name="website" v-slot="{ componentField }">
+              <input
+                v-bind="componentField"
+                class="absolute -z-10 opacity-0"
+                tabindex="-1"
+                autocomplete="off"
+              />
+            </FormField>
+          </section>
+        </div>
+      </ScrollArea>
+
+      <div class="mt-5 border-t border-border/70 pt-5">
+        <div class="space-y-2">
+          <div class="flex items-center justify-between gap-3">
+            <label class="text-sm font-medium text-foreground"> Adjuntar archivo </label>
+            <span class="text-xs text-muted-foreground">(Opcional)</span>
           </div>
+
+          <label
+            class="flex cursor-pointer items-center justify-between gap-3 rounded-xl border border-dashed border-border/80 bg-muted/20 px-3 py-3 transition hover:bg-muted/30"
+          >
+            <span
+              class="inline-flex h-9 shrink-0 items-center rounded-lg border border-border bg-background px-3 text-sm font-medium text-foreground"
+            >
+              Seleccionar archivo
+            </span>
+
+            <span class="min-w-0 flex-1 truncate text-sm text-muted-foreground">
+              {{ fileName }}
+            </span>
+
+            <input
+              type="file"
+              class="hidden"
+              accept=".pdf,.jpg,.jpeg,.png,.ai,.zip"
+              @change="onPickFile"
+            />
+          </label>
+
+          <p class="text-xs text-muted-foreground">
+            Formatos admitidos: PDF, JPG, PNG, AI y ZIP.
+          </p>
         </div>
 
-        <FormField name="privacy" v-slot="{ componentField }">
-          <FormItem>
-            <div class="flex items-start gap-3">
-              <input id="privacy-check" type="checkbox" class="mt-1 h-5 w-5 rounded border-gray-300 text-[#0076B3]" :checked="componentField.modelValue === true" @change="(e) => componentField.onChange((e.target as HTMLInputElement).checked)" />
-              <label for="privacy-check" class="text-sm text-gray-700">He leído y acepto la <a href="/politica-privacidad" target="_blank" class="text-[#0076B3] hover:underline">política de privacidad</a>.</label>
+        <FormField name="privacy" v-slot="{ componentField, errorMessage }">
+          <FormItem class="mt-4">
+            <div
+              :class="[
+                'flex items-start gap-3 rounded-xl border px-3 py-3 transition-colors',
+                errorMessage
+                  ? 'border-destructive/50 bg-destructive/5'
+                  : 'border-border/70 bg-muted/20',
+              ]"
+            >
+              <input
+                id="privacy-check"
+                type="checkbox"
+                class="mt-1 h-4 w-4 rounded border-border text-primary focus:ring-primary/20"
+                :checked="componentField.modelValue === true"
+                @change="(e) => componentField.onChange((e.target as HTMLInputElement).checked)"
+              />
+
+              <div class="min-w-0">
+                <label for="privacy-check" class="text-sm leading-6 text-foreground/85">
+                  He leído y acepto la
+                  <NuxtLink
+                    to="/politica-privacidad"
+                    target="_blank"
+                    class="font-medium text-primary underline-offset-4 hover:underline"
+                  >
+                    política de privacidad </NuxtLink
+                  >.
+                </label>
+
+                <FormMessage />
+              </div>
             </div>
-            <FormMessage />
           </FormItem>
         </FormField>
-      </div>
 
-      <Button type="submit" :disabled="isLoading" class="h-12 w-full bg-[#0076B3] text-white hover:bg-[#006599]">
-        <Loader2 v-if="isLoading" class="mr-2 h-5 w-5 animate-spin" />
-        {{ isLoading ? "Enviando..." : "Solicitar presupuesto" }}
-      </Button>
+        <Button type="submit" :disabled="isLoading" class="mt-4 h-12 w-full rounded-xl">
+          <Loader2 v-if="isLoading" class="mr-2 h-4 w-4 animate-spin" />
+          {{ isLoading ? "Enviando..." : "Solicitar presupuesto" }}
+        </Button>
+
+        <p class="mt-3 text-xs leading-5 text-muted-foreground">
+          Al enviar este formulario aceptas que te contactemos para preparar tu
+          presupuesto y resolver cualquier duda técnica relacionada con este producto.
+        </p>
+      </div>
     </form>
   </div>
 </template>
