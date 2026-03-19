@@ -10,7 +10,7 @@ import ProductFaq from "@/components/marketing/product/Faq.vue";
 const route = useRoute();
 const config = useRuntimeConfig();
 
-const containerClass = "container-wide";
+const pageContainerClass = "container-content";
 const contentNarrowClass = "mx-auto w-full max-w-[880px]";
 
 function safeDecode(value: unknown) {
@@ -113,18 +113,28 @@ const heroImage = computed(() => product.value?.image?.src || "");
 const detailsTabs = computed(() => {
   const tabs: Array<{ id: string; title: string; text: string }> = [];
 
-  if (product.value?.bodyMd) {
+  const detailText =
+    product.value?.bodyMd?.trim() ||
+    product.value?.description?.trim() ||
+    product.value?.shortDescription?.trim() ||
+    "";
+
+  if (detailText) {
     tabs.push({
       id: "descripcion",
-      title: "Descripción",
-      text: product.value.bodyMd,
+      title: "Detalles del producto",
+      text: detailText,
     });
   }
 
   return tabs;
 });
 
-const faqs = computed<any[]>(() => []);
+/**
+ * Tu DTO actual no expone FAQs reales todavía.
+ * Lo dejamos preparado por si el service las devuelve más adelante.
+ */
+const faqs = computed<any[]>(() => ((product.value as any)?.faqs ?? []).filter(Boolean));
 
 const canonicalUrl = computed(() => {
   const base = config.public.siteUrl || "https://reprodisseny.com";
@@ -181,24 +191,83 @@ useSeoMeta({
 
 <template>
   <main class="min-h-screen bg-background">
-    <nav class="border-b border-border bg-background/60">
-      <div :class="containerClass" class="py-4">
-        <SiteBreadcrumbs :items="breadcrumbItems" :auto="false" />
-      </div>
-    </nav>
-
-    <div v-if="pending" class="flex min-h-[40vh] items-center justify-center">
-      <div class="animate-pulse font-medium text-muted-foreground">
-        Cargando detalles del producto...
+    <div v-if="pending" class="container-content py-16 md:py-20">
+      <div class="flex min-h-[30vh] items-center justify-center rounded-[28px] border border-border/70 bg-card/70">
+        <div class="animate-pulse text-body text-muted-foreground">
+          Cargando detalles del producto...
+        </div>
       </div>
     </div>
 
     <template v-else-if="product && heroProduct">
-      <section :class="containerClass" class="pt-8 md:pt-16">
+      <div class="container-content pt-4 pb-2 md:pt-6">
+        <SiteBreadcrumbs :items="breadcrumbItems" :auto="false" />
+      </div>
+
+      <section :class="pageContainerClass" class="pb-10 md:pb-14">
         <ProductHero :product="heroProduct" :category="category" />
       </section>
 
-      <section class="mt-16 md:mt-24">
+      <section
+        v-if="detailsTabs.length"
+        id="detalles"
+        class="bg-background"
+        aria-labelledby="product-details-heading"
+      >
+        <div :class="pageContainerClass" class="py-10 md:py-14">
+          <div :class="contentNarrowClass">
+            <div class="max-w-[760px]">
+              <p class="text-label uppercase tracking-[0.08em] text-primary">
+                Información del producto
+              </p>
+
+              <h2
+                id="product-details-heading"
+                class="mt-3 text-[clamp(2rem,2.7vw,2.85rem)] font-bold leading-[1.08] tracking-tight text-foreground"
+              >
+                Detalles y especificaciones
+              </h2>
+
+              <p class="mt-3 max-w-[68ch] text-body text-foreground/78 md:text-[18px] md:leading-[1.68]">
+                Consulta la información principal para entender mejor materiales, acabados y uso recomendado.
+              </p>
+            </div>
+
+            <div class="mt-8 rounded-[28px] border border-border/70 bg-card px-5 py-6 shadow-[0_10px_30px_-24px_hsl(var(--foreground)/0.14)] md:px-8 md:py-8">
+              <ProductDetails :tabs="detailsTabs" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        v-if="faqs.length"
+        class="bg-background"
+        aria-labelledby="product-faq-heading"
+      >
+        <div :class="pageContainerClass" class="py-4 md:py-8">
+          <div :class="contentNarrowClass">
+            <div class="max-w-[760px]">
+              <p class="text-label uppercase tracking-[0.08em] text-primary">
+                Ayuda y dudas comunes
+              </p>
+
+              <h2
+                id="product-faq-heading"
+                class="mt-3 text-[clamp(2rem,2.7vw,2.85rem)] font-bold leading-[1.08] tracking-tight text-foreground"
+              >
+                Preguntas frecuentes
+              </h2>
+            </div>
+
+            <div class="mt-8">
+              <ProductFaq :faqs="faqs" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mt-12 md:mt-16">
         <GuideBanner
           title="¿No estás seguro de las medidas?"
           :cta="{ label: 'Consultar Guía', to: '/como-preparar-archivos' }"
@@ -209,50 +278,47 @@ useSeoMeta({
         />
       </section>
 
-      <section
-        v-if="detailsTabs.length"
-        id="detalles"
-        class="mt-20 border-y border-border bg-muted/20 py-20 md:mt-32"
-      >
-        <div :class="containerClass">
-          <div :class="contentNarrowClass">
-            <h2 class="mb-10 text-center">Especificaciones técnicas</h2>
-            <ProductDetails :tabs="detailsTabs" />
-          </div>
-        </div>
-      </section>
-
-      <section v-if="faqs.length" class="py-20">
-        <div :class="containerClass">
-          <div :class="contentNarrowClass">
-            <h2 class="mb-8 text-center">Dudas frecuentes</h2>
-            <ProductFaq :faqs="faqs" />
-          </div>
-        </div>
-      </section>
-
-      <section class="bg-brand-dark py-16 text-center text-brand-ink-light">
-        <div class="container-wide">
-          <h2>¿Tienes un proyecto especial?</h2>
-          <p class="mx-auto mt-4 max-w-xl text-brand-ink-light/80">
-            Si no encuentras lo que buscas en los detalles, contáctanos directamente y lo
-            fabricaremos a medida.
-          </p>
-
-          <NuxtLink
-            to="/contacto"
-            class="mt-8 inline-flex rounded-full bg-background px-10 py-4 font-semibold text-foreground transition-colors hover:bg-brand-bg-2"
+      <section class="bg-background">
+        <div :class="pageContainerClass" class="py-14 md:py-20">
+          <div
+            class="overflow-hidden rounded-[32px] border border-border/70 bg-[linear-gradient(135deg,hsl(var(--accent))_0%,hsl(var(--background))_100%)] px-6 py-8 shadow-[0_14px_36px_-26px_hsl(var(--foreground)/0.16)] md:px-10 md:py-10"
           >
-            Contactar con un asesor
-          </NuxtLink>
+            <div class="max-w-[760px]">
+              <p class="text-label uppercase tracking-[0.08em] text-primary">
+                Proyecto a medida
+              </p>
+
+              <h2 class="mt-3 text-[clamp(2rem,2.7vw,2.85rem)] font-bold leading-[1.08] tracking-tight text-foreground">
+                ¿Tienes un proyecto especial?
+              </h2>
+
+              <p class="mt-3 max-w-[60ch] text-body text-foreground/76 md:text-[18px] md:leading-[1.68]">
+                Si no encuentras exactamente lo que necesitas en los detalles del producto,
+                te asesoramos para fabricar una solución adaptada a tu proyecto.
+              </p>
+
+              <div class="mt-6">
+                <NuxtLink
+                  to="/contacto"
+                  class="inline-flex min-h-12 items-center justify-center rounded-lg bg-primary px-6 py-3 text-body-s-bold text-primary-foreground transition hover:opacity-90"
+                >
+                  Contactar con un asesor
+                </NuxtLink>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </template>
 
-    <div v-else class="container-wide py-16">
-      <div class="rounded-2xl border bg-card p-8">
-        <h1 class="text-2xl font-semibold">Producto no encontrado</h1>
-        <p class="mt-3 text-muted-foreground">No hemos podido cargar este producto.</p>
+    <div v-else class="container-content py-16 md:py-20">
+      <div class="rounded-[28px] border border-border/70 bg-card p-8 shadow-sm">
+        <h1 class="text-[28px] font-semibold leading-[1.2] text-foreground">
+          Producto no encontrado
+        </h1>
+        <p class="mt-3 max-w-[60ch] text-body text-foreground/72">
+          No hemos podido cargar este producto.
+        </p>
       </div>
     </div>
   </main>
