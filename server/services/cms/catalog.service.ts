@@ -25,6 +25,25 @@ type CatalogImage = {
   height?: number;
 };
 
+type CatalogBlock =
+  | {
+      type: "text";
+      text?: string;
+      html?: boolean;
+    }
+  | {
+      type: "bullets";
+      items?: string[];
+    }
+  | {
+      type: "image";
+      src?: string;
+      alt?: string;
+      width?: number;
+      height?: number;
+      caption?: string;
+    };
+
 type CatalogTab = {
   id?: string;
   title?: string;
@@ -33,8 +52,8 @@ type CatalogTab = {
   content?: string;
   body?: string;
   html?: string;
+  blocks?: CatalogBlock[];
 };
-
 
 type CatalogProductFormField = {
   label?: string;
@@ -81,7 +100,15 @@ type CatalogCategory = {
   description?: string;
   seo?: CatalogSeo;
   tabs?: CatalogTab[];
+  faqs?: CatalogFaq[];
   image?: CatalogImage | null;
+};
+
+type CatalogFaq = {
+  q?: string;
+  a?: string;
+  question?: string;
+  answer?: string;
 };
 
 type CatalogShape = {
@@ -166,9 +193,15 @@ export type CategoryDetailProductItem = {
 export type CategoryDetailTabItem = {
   id: string;
   title: string;
+  blocks: CatalogBlock[];
   text?: string;
   html?: string;
 };
+export type CategoryDetailFaqItem = {
+  q: string;
+  a: string;
+};
+
 
 export type CategoryDetailPageDto = {
   slug: string;
@@ -185,6 +218,7 @@ export type CategoryDetailPageDto = {
   children: CategoryDetailChildItem[];
   products: CategoryDetailProductItem[];
   tabs: CategoryDetailTabItem[];
+  faqs: CategoryDetailFaqItem[];
   breadcrumbs: BreadcrumbItem[];
   seo: {
     title?: string;
@@ -387,7 +421,16 @@ function productImageDtoOf(
     height: image.height,
   };
 }
+function getCategoryFaqs(category: CatalogCategory): CategoryDetailFaqItem[] {
+  return (Array.isArray(category?.faqs) ? category.faqs : [])
+    .map((faq) => {
+      const q = String(faq?.q ?? faq?.question ?? "").trim();
+      const a = String(faq?.a ?? faq?.answer ?? "").trim();
 
+      return { q, a };
+    })
+    .filter((faq) => faq.q && faq.a);
+}
 function computeCategoryRobots(category: CatalogCategory & { seo?: CatalogSeo }) {
   if (category.hidden) return "noindex,follow";
 
@@ -483,6 +526,9 @@ function getCategoryTabs(category: CatalogCategory): CategoryDetailTabItem[] {
     .map((tab, index) => {
       const title =
         tab?.title || tab?.label || tab?.heading || `Detalle ${index + 1}`;
+
+      const rawBlocks = Array.isArray(tab?.blocks) ? tab.blocks.filter(Boolean) : [];
+
       const html = typeof tab?.html === "string" ? tab.html.trim() : "";
       const text =
         typeof tab?.content === "string"
@@ -491,14 +537,23 @@ function getCategoryTabs(category: CatalogCategory): CategoryDetailTabItem[] {
             ? tab.body.trim()
             : "";
 
+      const fallbackBlocks: CatalogBlock[] = html
+        ? [{ type: "text", text: html, html: true }]
+        : text
+          ? [{ type: "text", text, html: false }]
+          : [];
+
+      const blocks = rawBlocks.length ? rawBlocks : fallbackBlocks;
+
       return {
         id: tab?.id || `tab-${index + 1}`,
         title,
+        blocks,
         ...(html ? { html } : {}),
         ...(!html && text ? { text } : {}),
       };
     })
-    .filter((tab) => tab.title && (tab.html || tab.text));
+    .filter((tab) => tab.title && Array.isArray(tab.blocks) && tab.blocks.length > 0);
 }
 
 export function getHomeCategories(limit = 8): HomeCategoryCardItem[] {
@@ -655,46 +710,47 @@ export function getCategoryDetailByPath(
   const trail = buildCategoryTrail(category, categories);
 
   return {
-    slug: category.slug,
-    path: canonicalPath,
-    title: category.title,
-    nav: category.nav || category.title,
-    description: category.description || "",
-    image: imageDtoOf(category.image, category.title),
-    children: getDirectChildrenOf(
-      category,
-      categories,
-      options.childLimit ?? 50
-    ),
-    products: getDirectProductsOfCategory(
-      category,
-      options.productLimit ?? 24
-    ),
-    tabs: getCategoryTabs(category),
-    breadcrumbs: [
-      { label: "Inicio", to: "/" },
-      { label: "Categorías", to: "/categorias" },
-      ...trail.map((item) => ({
-        label: item.nav || item.title,
-        to: categoryPathOf(item),
-      })),
-      { label: category.nav || category.title },
-    ],
-    seo: {
-      title: category?.seo?.title || `${category.title} | Reprodisseny`,
-      description:
-        category?.seo?.description ||
-        category?.description ||
-        "",
-      canonical: canonicalPath,
-      image:
-        category?.seo?.ogImageSrc ||
-        category.image?.src ||
-        undefined,
-      robots: computeCategoryRobots(category),
-    },
-    ...(redirectTo ? { redirectTo } : {}),
-  };
+  slug: category.slug,
+  path: canonicalPath,
+  title: category.title,
+  nav: category.nav || category.title,
+  description: category.description || "",
+  image: imageDtoOf(category.image, category.title),
+  children: getDirectChildrenOf(
+    category,
+    categories,
+    options.childLimit ?? 50
+  ),
+  products: getDirectProductsOfCategory(
+    category,
+    options.productLimit ?? 24
+  ),
+  tabs: getCategoryTabs(category),
+  faqs: getCategoryFaqs(category),
+  breadcrumbs: [
+    { label: "Inicio", to: "/" },
+    { label: "Categorías", to: "/categorias" },
+    ...trail.map((item) => ({
+      label: item.nav || item.title,
+      to: categoryPathOf(item),
+    })),
+    { label: category.nav || category.title },
+  ],
+  seo: {
+    title: category?.seo?.title || `${category.title} | Reprodisseny`,
+    description:
+      category?.seo?.description ||
+      category?.description ||
+      "",
+    canonical: canonicalPath,
+    image:
+      category?.seo?.ogImageSrc ||
+      category.image?.src ||
+      undefined,
+    robots: computeCategoryRobots(category),
+  },
+  ...(redirectTo ? { redirectTo } : {}),
+};
 }
 
 function productPathOf(product: CatalogProduct) {

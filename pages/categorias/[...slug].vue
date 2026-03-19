@@ -3,6 +3,8 @@ import { computed } from "vue";
 import type { CategoryDetailPageDto } from "~/server/services/cms/catalog.service";
 import SiteBreadcrumbs from "@/components/shared/SiteBreadcrumbs.vue";
 import GuideBanner from "@/components/marketing/GuideBanner.vue";
+import CategoryContent from "@/components/marketing/category/CategoryContent.vue";
+import CategoryHero from "@/components/marketing/category/CategoryHero.vue";
 
 const route = useRoute();
 const config = useRuntimeConfig();
@@ -55,6 +57,7 @@ const category = computed(() => data.value ?? null);
 const children = computed(() => category.value?.children ?? []);
 const products = computed(() => category.value?.products ?? []);
 const tabs = computed(() => category.value?.tabs ?? []);
+const faqs = computed(() => category.value?.faqs ?? []);
 const breadcrumbItems = computed(() => category.value?.breadcrumbs ?? []);
 const heroImage = computed(() => category.value?.image?.src || "");
 
@@ -71,13 +74,19 @@ useHead(() => ({
 useSeoMeta({
   title: () =>
     category.value?.seo?.title ||
-    (category.value?.title ? `${category.value.title} | Reprodisseny` : "Categoría | Reprodisseny"),
+    (category.value?.title
+      ? `${category.value.title} | Reprodisseny`
+      : "Categoría | Reprodisseny"),
   description: () =>
-    category.value?.seo?.description || category.value?.description || "Categoría de productos",
+    category.value?.seo?.description ||
+    category.value?.description ||
+    "Categoría de productos",
   ogTitle: () =>
     category.value?.seo?.title || category.value?.title || "Categoría",
   ogDescription: () =>
-    category.value?.seo?.description || category.value?.description || "Categoría de productos",
+    category.value?.seo?.description ||
+    category.value?.description ||
+    "Categoría de productos",
   ogImage: () => category.value?.seo?.image || heroImage.value || undefined,
   robots: () => category.value?.seo?.robots || "index,follow",
 });
@@ -85,92 +94,99 @@ useSeoMeta({
 
 <template>
   <main class="min-h-screen bg-background">
-    <nav class="border-b border-border bg-background/60">
-      <div class="container-wide py-4">
-        <SiteBreadcrumbs :items="breadcrumbItems" :auto="false" />
-      </div>
-    </nav>
-
-    <div v-if="pending" class="flex min-h-[40vh] items-center justify-center">
-      <div class="animate-pulse font-medium text-muted-foreground">
-        Cargando categoría...
+    <div v-if="pending" class="container-content py-16 md:py-20">
+      <div class="flex min-h-[30vh] items-center justify-center rounded-[28px] border border-border/70 bg-card/70">
+        <div class="animate-pulse text-body text-muted-foreground">
+          Cargando categoría...
+        </div>
       </div>
     </div>
 
     <template v-else-if="category">
-      <section class="container-wide py-10 md:py-14">
-        <div class="grid gap-8 md:grid-cols-[1.2fr_.8fr] md:items-center">
-          <div>
-            <p class="mb-3 text-sm font-medium uppercase tracking-wide text-primary">
-              Categoría
+      <div class="container-content pt-4 pb-2 md:pt-6">
+        <SiteBreadcrumbs :items="breadcrumbItems" :auto="false" />
+      </div>
+
+      <CategoryHero
+        :category="category"
+        :primary-cta="{ label: 'Pedir presupuesto', to: '/contacto' }"
+        :secondary-cta="{ label: 'Ver productos', to: '#productos' }"
+      />
+
+      <section
+        v-if="children.length"
+        class="bg-background"
+        aria-labelledby="category-children-heading"
+      >
+        <div class="container-content py-10 md:py-14">
+          <div class="max-w-[760px]">
+            <p class="text-label uppercase tracking-[0.08em] text-primary">
+              Subcategorías
             </p>
-
-            <h1 class="text-4xl font-bold tracking-tight md:text-5xl">
-              {{ category.title }}
-            </h1>
-
-            <p
-              v-if="category.description"
-              class="mt-5 max-w-3xl text-base leading-7 text-muted-foreground md:text-lg"
+            <h2
+              id="category-children-heading"
+              class="mt-3 text-[clamp(2rem,2.7vw,2.85rem)] font-bold leading-[1.08] tracking-tight text-foreground"
             >
-              {{ category.description }}
+              Explora esta línea de soluciones
+            </h2>
+            <p class="mt-3 max-w-[68ch] text-body text-foreground/78 md:text-[18px] md:leading-[1.68]">
+              Accede directamente a las subcategorías relacionadas con esta área.
             </p>
           </div>
 
-          <div v-if="heroImage" class="overflow-hidden rounded-2xl border bg-muted/20">
-            <img
-              :src="heroImage"
-              :alt="category.image?.alt || category.title || 'Categoría'"
-              class="h-full max-h-[360px] w-full object-cover"
-            />
+          <div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
+            <NuxtLink
+              v-for="child in children"
+              :key="child.slug || child.path"
+              :to="child.path"
+              class="group flex h-full flex-col overflow-hidden rounded-[28px] border border-border/70 bg-card shadow-[0_10px_30px_-24px_hsl(var(--foreground)/0.14)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:shadow-[0_18px_40px_-26px_hsl(var(--foreground)/0.18)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:ring-offset-2"
+            >
+              <div class="aspect-[16/10] overflow-hidden bg-muted/25">
+                <img
+                  v-if="child.image?.src"
+                  :src="child.image.src"
+                  :alt="child.image.alt || child.title || 'Subcategoría'"
+                  class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <div v-else class="h-full w-full bg-muted/40" />
+              </div>
+
+              <div class="flex flex-1 flex-col px-5 py-5">
+                <h3 class="text-[20px] font-semibold leading-[1.25] text-foreground">
+                  {{ child.title }}
+                </h3>
+
+                <p
+                  v-if="child.description"
+                  class="mt-3 line-clamp-3 text-body-s leading-[1.6] text-foreground/72"
+                >
+                  {{ child.description }}
+                </p>
+
+                <span
+                  class="mt-5 inline-flex min-h-11 items-center justify-center self-start rounded-lg border border-border bg-background px-4 py-2.5 text-body-s-bold text-foreground transition group-hover:border-primary/25 group-hover:text-primary"
+                >
+                  Ver subcategoría
+                </span>
+              </div>
+            </NuxtLink>
           </div>
         </div>
       </section>
 
-      <section v-if="children.length" class="container-wide py-6 md:py-10">
-        <div class="mb-6 flex items-end justify-between gap-4">
-          <div>
-            <h2 class="text-2xl font-semibold md:text-3xl">Subcategorías</h2>
-            <p class="mt-2 text-muted-foreground">
-              Explora las líneas de producto dentro de esta categoría.
-            </p>
-          </div>
-        </div>
-
-        <div class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-          <NuxtLink
-            v-for="child in children"
-            :key="child.slug || child.path"
-            :to="child.path"
-            class="group overflow-hidden rounded-2xl border bg-card transition hover:-translate-y-0.5 hover:shadow-md"
-          >
-            <div class="aspect-[16/10] overflow-hidden bg-muted/30">
-              <img
-                v-if="child.image?.src"
-                :src="child.image.src"
-                :alt="child.image.alt || child.title || 'Subcategoría'"
-                class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.02]"
-              />
-              <div v-else class="h-full w-full bg-muted/40" />
-            </div>
-
-            <div class="p-5">
-              <h3 class="text-lg font-semibold">
-                {{ child.title }}
-              </h3>
-
-              <p
-                v-if="child.description"
-                class="mt-2 line-clamp-3 text-sm leading-6 text-muted-foreground"
-              >
-                {{ child.description }}
-              </p>
-
-              <div class="mt-4 text-sm font-medium text-primary">Ver subcategoría</div>
-            </div>
-          </NuxtLink>
-        </div>
-      </section>
+      <CategoryContent
+        :tabs="tabs"
+        :products="products"
+        :faqs="faqs"
+        :sticky-top="96"
+        :rail-scroll-offset="132"
+        products-title="Productos de esta categoría"
+        products-subtitle="Explora formatos y soluciones relacionadas."
+        faq-title="Preguntas frecuentes sobre esta categoría"
+        faq-subtitle="Respondemos las dudas más habituales sobre materiales, acabados, formatos y tiempos de producción."
+      />
 
       <section class="mt-12 md:mt-16">
         <GuideBanner
@@ -182,95 +198,16 @@ useSeoMeta({
           :rounded="false"
         />
       </section>
-
-      <section v-if="products.length" class="container-wide py-12 md:py-16">
-        <div class="mb-6 flex items-end justify-between gap-4">
-          <div>
-            <h2 class="text-2xl font-semibold md:text-3xl">Productos</h2>
-            <p class="mt-2 text-muted-foreground">
-              Selección de productos disponibles en esta categoría.
-            </p>
-          </div>
-        </div>
-
-        <div class="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
-          <NuxtLink
-            v-for="product in products"
-            :key="product.slug || product.path"
-            :to="product.path"
-            class="group overflow-hidden rounded-2xl border bg-card transition hover:-translate-y-0.5 hover:shadow-md"
-          >
-            <div class="aspect-[4/3] overflow-hidden bg-muted/30">
-              <img
-                v-if="product.image?.src"
-                :src="product.image.src"
-                :alt="product.image.alt || product.title || 'Producto'"
-                class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.02]"
-              />
-              <div v-else class="h-full w-full bg-muted/40" />
-            </div>
-
-            <div class="p-5">
-              <h3 class="text-base font-semibold">
-                {{ product.title }}
-              </h3>
-
-              <p
-                v-if="product.description"
-                class="mt-2 line-clamp-3 text-sm leading-6 text-muted-foreground"
-              >
-                {{ product.description }}
-              </p>
-
-              <div class="mt-4 text-sm font-medium text-primary">Ver producto</div>
-            </div>
-          </NuxtLink>
-        </div>
-      </section>
-
-      <section
-        v-if="tabs.length"
-        class="border-y border-border bg-muted/20 py-14 md:py-20"
-      >
-        <div class="container-wide">
-          <div class="mx-auto max-w-[980px]">
-            <h2 class="mb-8 text-center text-2xl font-semibold md:text-3xl">
-              Información adicional
-            </h2>
-
-            <div class="space-y-6">
-              <article
-                v-for="tab in tabs"
-                :key="tab.id"
-                class="rounded-2xl border bg-background p-6"
-              >
-                <h3 class="text-lg font-semibold">
-                  {{ tab.title }}
-                </h3>
-
-                <div
-                  v-if="tab.html"
-                  class="prose prose-neutral mt-3 max-w-none"
-                  v-html="tab.html"
-                />
-
-                <p
-                  v-else-if="tab.text"
-                  class="mt-3 whitespace-pre-line leading-7 text-muted-foreground"
-                >
-                  {{ tab.text }}
-                </p>
-              </article>
-            </div>
-          </div>
-        </div>
-      </section>
     </template>
 
-    <div v-else class="container-wide py-16">
-      <div class="rounded-2xl border bg-card p-8">
-        <h1 class="text-2xl font-semibold">Categoría no encontrada</h1>
-        <p class="mt-3 text-muted-foreground">No hemos podido cargar esta categoría.</p>
+    <div v-else class="container-content py-16 md:py-20">
+      <div class="rounded-[28px] border border-border/70 bg-card p-8 shadow-sm">
+        <h1 class="text-[28px] font-semibold leading-[1.2] text-foreground">
+          Categoría no encontrada
+        </h1>
+        <p class="mt-3 max-w-[60ch] text-body text-foreground/72">
+          No hemos podido cargar esta categoría.
+        </p>
       </div>
     </div>
   </main>

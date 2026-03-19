@@ -31,6 +31,7 @@ export async function fetchSharePointCategoriesRaw(event: any): Promise<any[]> {
     "GalleryImages",
     "Breadcrumbs",
     "LegacySlugs",
+    "FaqsJson",
     "Seo",
     "UpdatedAt",
   ].join(",")

@@ -1,10 +1,18 @@
-<!-- components/marketing/category/CategoryHero.vue -->
 <script setup lang="ts">
 import { computed } from "vue"
 import { cn } from "@/lib/utils"
 
-type BreadcrumbItem = { label: string; to: string }
-type HeroCta = { text: string; link: string }
+type HeroCta = {
+  label: string
+  to: string
+}
+
+type HeroImage = {
+  src?: string
+  alt?: string
+  width?: number
+  height?: number
+} | null
 
 type CategoryLike = {
   title?: string
@@ -12,92 +20,141 @@ type CategoryLike = {
   description?: string
   heroDescription?: string
   imageSrc?: string
-  image?: { src?: string; alt?: string }
+  image?: HeroImage
   alt?: string
-  breadcrumbs?: BreadcrumbItem[]
-  cta?: Partial<HeroCta>
 }
 
 const props = withDefaults(
   defineProps<{
     category: CategoryLike
-    showBreadcrumbs?: boolean
-    showCta?: boolean
+    showPrimaryCta?: boolean
+    showSecondaryCta?: boolean
+    primaryCta?: Partial<HeroCta> | null
+    secondaryCta?: Partial<HeroCta> | null
+    class?: string
     containerClass?: string
   }>(),
-  { showBreadcrumbs: false, showCta: false, containerClass: "" }
+  {
+    showPrimaryCta: true,
+    showSecondaryCta: true,
+    primaryCta: () => ({ label: "Pedir presupuesto", to: "/contacto" }),
+    secondaryCta: () => ({ label: "Ver productos", to: "#productos" }),
+    class: "",
+    containerClass: "",
+  }
 )
 
-const title = computed(() => props.category?.title || props.category?.nav || "Categoría")
-const description = computed(() => props.category?.heroDescription || props.category?.description || "")
-const imgSrc = computed(() => props.category?.imageSrc || props.category?.image?.src || null)
-const imgAlt = computed(() => props.category?.alt || props.category?.image?.alt || title.value)
-const breadcrumbs = computed(() => props.category?.breadcrumbs || [])
-
-const cta = computed<HeroCta>(() => ({
-  text: "Ver productos",
-  link: "#productos",
-  ...(props.category?.cta || {}),
-}))
-
-const container = computed(() =>
-  cn("mx-auto w-full max-w-[1200px] px-6 md:px-10", props.containerClass)
+const title = computed(
+  () => props.category?.title || props.category?.nav || "Categoría"
 )
+
+const description = computed(
+  () => props.category?.heroDescription || props.category?.description || ""
+)
+
+const imgSrc = computed(
+  () => props.category?.imageSrc || props.category?.image?.src || ""
+)
+
+const imgAlt = computed(
+  () => props.category?.alt || props.category?.image?.alt || title.value
+)
+
+const primaryCta = computed<HeroCta | null>(() => {
+  const to = String(props.primaryCta?.to || "").trim()
+  const label = String(props.primaryCta?.label || "").trim()
+  if (!to || !label) return null
+  return { to, label }
+})
+
+const secondaryCta = computed<HeroCta | null>(() => {
+  const to = String(props.secondaryCta?.to || "").trim()
+  const label = String(props.secondaryCta?.label || "").trim()
+  if (!to || !label) return null
+  return { to, label }
+})
 </script>
 
 <template>
-  <!-- alturas exactas -->
-  <header class="relative overflow-hidden h-[252px] md:h-[360px]">
-    <!-- background -->
-    <img
-      v-if="imgSrc"
-      :src="imgSrc"
-      :alt="imgAlt"
-      class="absolute inset-0 h-full w-full object-cover object-[70%_50%]"
-      loading="eager"
-      decoding="async"
-      fetchpriority="high"
-    />
+  <header
+    :class="
+      cn(
+        'relative overflow-hidden bg-background',
+        'pt-6 md:pt-8 lg:pt-10',
+        'pb-10 md:pb-14 lg:pb-16',
+        props.class
+      )
+    "
+  >
+    <div
+      aria-hidden="true"
+      class="pointer-events-none absolute inset-0"
+    >
+      <div
+        class="absolute inset-0 bg-[radial-gradient(circle_at_12%_18%,hsl(var(--brand-base-light)/0.95)_0%,transparent_34%)]"
+      />
+      <div
+        class="absolute inset-0 bg-[linear-gradient(180deg,hsl(var(--background))_0%,hsl(var(--background))_72%,hsl(var(--accent)/0.32)_100%)]"
+      />
+    </div>
 
-    <!-- overlay exacto: #DEF4FFBF -->
-    <div class="absolute inset-0 bg-[#DEF4FFBF]" />
+    <div :class="cn('container-content relative z-10', props.containerClass)">
+      <div class="grid items-center gap-8 lg:grid-cols-[minmax(0,1.18fr)_minmax(360px,0.82fr)] lg:gap-12">
+        <div class="min-w-0">
+          <p class="mb-3 text-label uppercase tracking-[0.08em] text-primary">
+            Categoría
+          </p>
 
-    <!-- contenido -->
-    <div :class="cn('relative z-10 h-full', container)">
-      <div class="flex h-full items-center">
-        <div class="max-w-[760px]">
-          <nav
-            v-if="showBreadcrumbs && breadcrumbs.length"
-            aria-label="Breadcrumb"
-            class="mb-4 text-xs text-slate-600"
-          >
-            <ol class="flex flex-wrap items-center gap-2">
-              <li v-for="(b, i) in breadcrumbs" :key="i" class="flex items-center gap-2">
-                <NuxtLink :to="b.to" class="hover:text-foreground">{{ b.label }}</NuxtLink>
-                <span v-if="i < breadcrumbs.length - 1" class="text-slate-600/60">/</span>
-              </li>
-            </ol>
-          </nav>
-
-          <!-- Ajusta aquí si quieres que en móvil sea más grande como en tu captura -->
-          <h1 class="font-semibold text-foreground text-[30px] leading-[36px]">
+          <h1 class="max-w-[15ch] text-[clamp(2.1rem,4.2vw,4.15rem)] font-bold leading-[1.03] text-foreground">
             {{ title }}
           </h1>
 
           <p
             v-if="description"
-            class="mt-4 text-[15px] leading-[22px] text-slate-600 max-w-[680px]"
+            class="mt-6 max-w-[66ch] text-body text-foreground/82 md:text-[18px] md:leading-[1.68]"
           >
             {{ description }}
           </p>
 
-          <div v-if="showCta" class="mt-7">
-            <a
-              :href="cta.link"
-              class="inline-flex items-center rounded-md bg-primary px-5 py-2.5 text-sm font-medium text-primary-foreground hover:opacity-90"
+          <div
+            v-if="(showPrimaryCta && primaryCta) || (showSecondaryCta && secondaryCta)"
+            class="mt-8 flex flex-wrap items-center gap-3"
+          >
+            <NuxtLink
+              v-if="showPrimaryCta && primaryCta"
+              :to="primaryCta.to"
+              class="inline-flex min-h-12 items-center justify-center rounded-lg bg-primary px-5 py-3 text-body-s-bold text-primary-foreground transition hover:opacity-90"
             >
-              {{ cta.text }}
-            </a>
+              {{ primaryCta.label }}
+            </NuxtLink>
+
+            <NuxtLink
+              v-if="showSecondaryCta && secondaryCta"
+              :to="secondaryCta.to"
+              class="inline-flex min-h-12 items-center justify-center rounded-lg border border-border bg-background px-5 py-3 text-body-s-bold text-foreground transition hover:border-primary/25 hover:text-primary"
+            >
+              {{ secondaryCta.label }}
+            </NuxtLink>
+          </div>
+        </div>
+
+        <div v-if="imgSrc" class="relative min-w-0">
+          <div
+            aria-hidden="true"
+            class="absolute inset-x-6 top-6 bottom-4 rounded-[36px] bg-[linear-gradient(135deg,hsl(var(--brand-base-light)/0.95)_0%,hsl(var(--brand-bg-2)/0.55)_45%,hsl(var(--background))_100%)] blur-2xl opacity-90"
+          />
+
+          <div
+            class="relative overflow-hidden rounded-[28px] border border-border/70 bg-card shadow-[0_10px_30px_-18px_hsl(var(--foreground)/0.18)]"
+          >
+            <img
+              :src="imgSrc"
+              :alt="imgAlt"
+              class="aspect-[4/3] w-full object-cover md:aspect-[5/4] lg:aspect-[4/3]"
+              loading="eager"
+              decoding="async"
+              fetchpriority="high"
+            />
           </div>
         </div>
       </div>
