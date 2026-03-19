@@ -13,6 +13,11 @@ type CategoryItem = {
     width: number;
     height: number;
   } | null;
+
+  // hierarchy metadata
+  parentId?: string | null;
+  parentSlug?: string | null;
+  level?: number | null;
 };
 
 type PlaceholderItem = {
@@ -43,8 +48,24 @@ const props = withDefaults(
 
 const headingId = "home-product-category-grid-title";
 
+/**
+ * A category is considered first-level when:
+ * - level === 1
+ * OR
+ * - it has no parentId and no parentSlug
+ */
+function isTopLevelCategory(category: CategoryItem) {
+  if (category.level != null) return category.level === 1;
+  return !category.parentId && !category.parentSlug;
+}
+
+const topLevelItems = computed<CategoryItem[]>(() => {
+  if (!Array.isArray(props.categories)) return [];
+  return props.categories.filter(isTopLevelCategory);
+});
+
 const items = computed<CategoryItem[]>(() =>
-  Array.isArray(props.categories) ? props.categories.slice(0, props.totalSlots) : []
+  topLevelItems.value.slice(0, props.totalSlots)
 );
 
 const placeholders = computed<PlaceholderItem[]>(() => {
@@ -79,7 +100,9 @@ function isPlaceholder(item: GridItem): item is PlaceholderItem {
       </div>
 
       <div class="mt-12">
-        <ul class="grid grid-cols-1 justify-items-center gap-x-6 gap-y-10 sm:grid-cols-2 xl:grid-cols-4 xl:gap-y-14">
+        <ul
+          class="grid grid-cols-1 justify-items-center gap-x-6 gap-y-10 sm:grid-cols-2 xl:grid-cols-4 xl:gap-y-14"
+        >
           <li
             v-for="item in gridItems"
             :key="item.id"

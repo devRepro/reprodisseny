@@ -312,6 +312,7 @@ function sortProducts(a: CatalogProduct, b: CatalogProduct) {
   });
 }
 
+
 export function getPublishedVisibleCategories(): CatalogCategory[] {
   return getCatalogCategories()
     .filter((item) => item?.isPublished !== false)
@@ -319,6 +320,13 @@ export function getPublishedVisibleCategories(): CatalogCategory[] {
     .sort(sortCategories);
 }
 
+function isTopLevelCategory(category: CatalogCategory) {
+  return !String(category.parent ?? "").trim();
+}
+
+function getTopLevelPublishedVisibleCategories(): CatalogCategory[] {
+  return getPublishedVisibleCategories().filter(isTopLevelCategory);
+}
 function getPublishedProducts(): CatalogProduct[] {
   return getCatalogProducts()
     .filter((item) => item?.isPublished !== false)
@@ -495,7 +503,7 @@ function getCategoryTabs(category: CatalogCategory): CategoryDetailTabItem[] {
 
 export function getHomeCategories(limit = 8): HomeCategoryCardItem[] {
   const safeLimit = Math.max(1, Math.min(Number(limit) || 8, 12));
-  const all = getPublishedVisibleCategories();
+  const all = getTopLevelPublishedVisibleCategories();
 
   const featured = all.filter((item) => item.featured);
   const rest = all.filter((item) => !item.featured);
@@ -504,7 +512,7 @@ export function getHomeCategories(limit = 8): HomeCategoryCardItem[] {
     id: String(category.id ?? category.slug),
     title: category.title,
     slug: category.slug,
-    href: category.path || `/categorias/${category.slug}`,
+    href: categoryPathOf(category),
     image: category.image?.src
       ? {
           src: category.image.src,
@@ -749,6 +757,10 @@ function getCategoryDescendantSlugs(
     current.push(slug);
     byParent.set(parent, current);
   }
+
+
+
+
 
   const out: string[] = [];
   const queue = [rootSlug];
