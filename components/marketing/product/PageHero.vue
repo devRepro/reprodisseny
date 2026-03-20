@@ -219,4 +219,4 @@ const resultsLabel = computed(() => {
   width: 0;
   height: 0;
 }
-</style>  
+</style>

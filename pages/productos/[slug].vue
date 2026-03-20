@@ -4,8 +4,8 @@ import type { ProductDetailDto } from "~/server/services/cms/catalog.service";
 import SiteBreadcrumbs from "@/components/shared/SiteBreadcrumbs.vue";
 import ProductHero from "@/components/marketing/product/Hero.vue";
 import GuideBanner from "@/components/marketing/GuideBanner.vue";
-import ProductDetails from "@/components/marketing/product/Details.vue";
-import ProductFaq from "@/components/marketing/product/Faq.vue";
+import ProductSections from "@/components/marketing/product/ProductSections.vue";
+import ProductFaq from "@/components/marketing/product/ProductFaq.vue";
 
 const route = useRoute();
 const config = useRuntimeConfig();
@@ -138,32 +138,14 @@ const breadcrumbItems = computed(() =>
   Array.isArray(product.value?.breadcrumbs) ? product.value.breadcrumbs : []
 );
 
-const heroImage = computed(() => product.value?.image?.src || "");
-
-const detailText = computed(
-  () =>
-    product.value?.bodyMd?.trim() ||
-    product.value?.description?.trim() ||
-    product.value?.shortDescription?.trim() ||
-    ""
+const sections = computed(() =>
+  (Array.isArray(product.value?.sections) ? product.value.sections : []).filter(Boolean)
+);
+const faqs = computed(() =>
+  (Array.isArray(product.value?.faqs) ? product.value.faqs : []).filter(Boolean)
 );
 
-const detailsTabs = computed(() => {
-  if (!detailText.value) return [];
-
-  return [
-    {
-      id: "descripcion",
-      title: "Detalles del producto",
-      text: detailText.value,
-    },
-  ];
-});
-
-/**
- * Preparado para cuando el service exponga FAQs reales.
- */
-const faqs = computed<any[]>(() => ((product.value as any)?.faqs ?? []).filter(Boolean));
+const heroImage = computed(() => product.value?.image?.src || "");
 
 const canonicalUrl = computed(() => {
   return (
@@ -273,7 +255,7 @@ useSeoMeta({
       </section>
 
       <section
-        v-if="detailsTabs.length"
+        v-if="sections.length"
         id="detalles"
         class="bg-background"
         aria-labelledby="product-details-heading"
@@ -300,10 +282,11 @@ useSeoMeta({
               </p>
             </div>
 
-            <div
-              class="mt-8 rounded-[28px] border border-border/70 bg-card px-5 py-6 shadow-[0_10px_30px_-24px_hsl(var(--foreground)/0.14)] md:px-8 md:py-8"
-            >
-              <ProductDetails :tabs="detailsTabs" />
+            <div class="mt-8">
+              <ProductSections
+                :sections="sections"
+                :show-section-nav="sections.length > 1"
+              />
             </div>
           </div>
         </div>

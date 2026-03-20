@@ -53,6 +53,16 @@ type CatalogTab = {
   body?: string;
   html?: string;
   blocks?: CatalogBlock[];
+  step?: number;
+};
+
+type CatalogProductSection = {
+  id?: string;
+  key?: string;
+  title?: string;
+  body?: string;
+  blocks?: CatalogBlock[];
+  step?: number;
 };
 
 type CatalogProductFormField = {
@@ -75,6 +85,8 @@ type CatalogProduct = {
   description?: string;
   shortDescription?: string;
   bodyMd?: string;
+  sections?: CatalogProductSection[];
+  faqs?: CatalogFaq[];
   price?: number;
   seo?: CatalogSeo;
   formFields?: CatalogProductFormField[];
@@ -197,11 +209,11 @@ export type CategoryDetailTabItem = {
   text?: string;
   html?: string;
 };
+
 export type CategoryDetailFaqItem = {
   q: string;
   a: string;
 };
-
 
 export type CategoryDetailPageDto = {
   slug: string;
@@ -243,6 +255,19 @@ export type ProductDetailFormFieldItem = {
   options: string[];
 };
 
+export type ProductDetailSectionItem = {
+  id: string;
+  key?: string;
+  title: string;
+  blocks: CatalogBlock[];
+  text?: string;
+};
+
+export type ProductDetailFaqItem = {
+  q: string;
+  a: string;
+};
+
 export type ProductDetailDto = {
   slug: string;
   path: string;
@@ -250,6 +275,8 @@ export type ProductDetailDto = {
   shortDescription?: string;
   description?: string;
   bodyMd?: string;
+  sections: ProductDetailSectionItem[];
+  faqs: ProductDetailFaqItem[];
   image: {
     src: string;
     alt: string;
@@ -346,7 +373,6 @@ function sortProducts(a: CatalogProduct, b: CatalogProduct) {
   });
 }
 
-
 export function getPublishedVisibleCategories(): CatalogCategory[] {
   return getCatalogCategories()
     .filter((item) => item?.isPublished !== false)
@@ -361,6 +387,7 @@ function isTopLevelCategory(category: CatalogCategory) {
 function getTopLevelPublishedVisibleCategories(): CatalogCategory[] {
   return getPublishedVisibleCategories().filter(isTopLevelCategory);
 }
+
 function getPublishedProducts(): CatalogProduct[] {
   return getCatalogProducts()
     .filter((item) => item?.isPublished !== false)
@@ -368,11 +395,16 @@ function getPublishedProducts(): CatalogProduct[] {
 }
 
 function normalizeSlug(value: unknown) {
-  return String(value ?? "").trim().replace(/^\/+|\/+$/g, "");
+  return String(value ?? "")
+    .trim()
+    .replace(/^\/+|\/+$/g, "");
 }
 
 function normalizeCategoryPath(value: unknown) {
-  const raw = String(value ?? "").trim().replace(/^\/+|\/+$/g, "");
+  const raw = String(value ?? "")
+    .trim()
+    .replace(/^\/+|\/+$/g, "");
+
   if (!raw) return "/categorias";
 
   if (raw.toLowerCase().startsWith("categorias/")) {
@@ -386,10 +418,15 @@ function categoryPathOf(category: CatalogCategory) {
   return normalizeCategoryPath(category.path || category.slug);
 }
 
-function imageDtoOf(
-  image: CatalogImage | null | undefined,
-  fallbackAlt: string
-) {
+function productPathOf(product: CatalogProduct) {
+  const raw = String(product.path || "").trim();
+  if (!raw) return `/productos/${product.slug}`;
+
+  if (raw.startsWith("/")) return raw;
+  return `/${raw}`;
+}
+
+function imageDtoOf(image: CatalogImage | null | undefined, fallbackAlt: string) {
   if (!image?.src) return null;
 
   return {
@@ -421,6 +458,7 @@ function productImageDtoOf(
     height: image.height,
   };
 }
+
 function getCategoryFaqs(category: CatalogCategory): CategoryDetailFaqItem[] {
   return (Array.isArray(category?.faqs) ? category.faqs : [])
     .map((faq) => {
@@ -431,6 +469,18 @@ function getCategoryFaqs(category: CatalogCategory): CategoryDetailFaqItem[] {
     })
     .filter((faq) => faq.q && faq.a);
 }
+
+function getProductFaqs(product: CatalogProduct): ProductDetailFaqItem[] {
+  return (Array.isArray(product?.faqs) ? product.faqs : [])
+    .map((faq) => {
+      const q = String(faq?.q ?? faq?.question ?? "").trim();
+      const a = String(faq?.a ?? faq?.answer ?? "").trim();
+
+      return { q, a };
+    })
+    .filter((faq) => faq.q && faq.a);
+}
+
 function computeCategoryRobots(category: CatalogCategory & { seo?: CatalogSeo }) {
   if (category.hidden) return "noindex,follow";
 
@@ -448,6 +498,25 @@ function computeCategoryRobots(category: CatalogCategory & { seo?: CatalogSeo })
           : "index,follow";
 
   const advanced = String(category?.seo?.robotsAdvanced ?? "").trim();
+
+  return advanced ? `${base},${advanced}` : base;
+}
+
+function computeProductRobots(product: CatalogProduct & { seo?: CatalogSeo }) {
+  const override = String(product?.seo?.robotsOverride ?? "")
+    .trim()
+    .toUpperCase();
+
+  const base =
+    override === "NOINDEX_FOLLOW"
+      ? "noindex,follow"
+      : override === "NOINDEX_NOFOLLOW"
+        ? "noindex,nofollow"
+        : override === "INDEX_NOFOLLOW"
+          ? "index,nofollow"
+          : "index,follow";
+
+  const advanced = String(product?.seo?.robotsAdvanced ?? "").trim();
 
   return advanced ? `${base},${advanced}` : base;
 }
@@ -513,9 +582,9 @@ function getDirectProductsOfCategory(
     .slice(0, safeLimit)
     .map((product) => ({
       slug: product.slug,
-      path: product.path || `/productos/${product.slug}`,
+      path: productPathOf(product),
       title: product.title,
-      description: product.description || "",
+      description: product.description || product.shortDescription || "",
       image: productImageDtoOf(product.image, product.title),
       order: Number.isFinite(product.order) ? Number(product.order) : DEFAULT_SORT_ORDER,
     }));
@@ -546,7 +615,7 @@ function getCategoryTabs(category: CatalogCategory): CategoryDetailTabItem[] {
       const blocks = rawBlocks.length ? rawBlocks : fallbackBlocks;
 
       return {
-        id: tab?.id || `tab-${index + 1}`,
+        id: String(tab?.id || `tab-${index + 1}`),
         title,
         blocks,
         ...(html ? { html } : {}),
@@ -554,6 +623,34 @@ function getCategoryTabs(category: CatalogCategory): CategoryDetailTabItem[] {
       };
     })
     .filter((tab) => tab.title && Array.isArray(tab.blocks) && tab.blocks.length > 0);
+}
+
+function getProductSections(product: CatalogProduct): ProductDetailSectionItem[] {
+  return (Array.isArray(product?.sections) ? product.sections : [])
+    .map((section, index) => {
+      const title = String(section?.title || `Sección ${index + 1}`).trim();
+      const text = String(section?.body || "").trim();
+      const key = String(section?.key || "").trim();
+
+      const rawBlocks = Array.isArray(section?.blocks)
+        ? section.blocks.filter(Boolean)
+        : [];
+
+      const fallbackBlocks: CatalogBlock[] = text
+        ? [{ type: "text", text, html: false }]
+        : [];
+
+      const blocks = rawBlocks.length ? rawBlocks : fallbackBlocks;
+
+      return {
+        id: String(section?.id || `section-${index + 1}`),
+        ...(key ? { key } : {}),
+        title,
+        blocks,
+        ...(text ? { text } : {}),
+      };
+    })
+    .filter((section) => section.title && section.blocks.length > 0);
 }
 
 export function getHomeCategories(limit = 8): HomeCategoryCardItem[] {
@@ -584,7 +681,7 @@ function toNavProductItem(product: CatalogProduct): NavProductItem {
     id: String(product.id ?? product.slug),
     slug: product.slug,
     title: product.title,
-    path: product.path || `/productos/${product.slug}`,
+    path: productPathOf(product),
     order: Number.isFinite(product.order) ? Number(product.order) : DEFAULT_SORT_ORDER,
     image: productImageDtoOf(product.image, product.title),
   };
@@ -710,55 +807,34 @@ export function getCategoryDetailByPath(
   const trail = buildCategoryTrail(category, categories);
 
   return {
-  slug: category.slug,
-  path: canonicalPath,
-  title: category.title,
-  nav: category.nav || category.title,
-  description: category.description || "",
-  image: imageDtoOf(category.image, category.title),
-  children: getDirectChildrenOf(
-    category,
-    categories,
-    options.childLimit ?? 50
-  ),
-  products: getDirectProductsOfCategory(
-    category,
-    options.productLimit ?? 24
-  ),
-  tabs: getCategoryTabs(category),
-  faqs: getCategoryFaqs(category),
-  breadcrumbs: [
-    { label: "Inicio", to: "/" },
-    { label: "Categorías", to: "/categorias" },
-    ...trail.map((item) => ({
-      label: item.nav || item.title,
-      to: categoryPathOf(item),
-    })),
-    { label: category.nav || category.title },
-  ],
-  seo: {
-    title: category?.seo?.title || `${category.title} | Reprodisseny`,
-    description:
-      category?.seo?.description ||
-      category?.description ||
-      "",
-    canonical: canonicalPath,
-    image:
-      category?.seo?.ogImageSrc ||
-      category.image?.src ||
-      undefined,
-    robots: computeCategoryRobots(category),
-  },
-  ...(redirectTo ? { redirectTo } : {}),
-};
-}
-
-function productPathOf(product: CatalogProduct) {
-  const raw = String(product.path || "").trim();
-  if (!raw) return `/productos/${product.slug}`;
-
-  if (raw.startsWith("/")) return raw;
-  return `/${raw}`;
+    slug: category.slug,
+    path: canonicalPath,
+    title: category.title,
+    nav: category.nav || category.title,
+    description: category.description || "",
+    image: imageDtoOf(category.image, category.title),
+    children: getDirectChildrenOf(category, categories, options.childLimit ?? 50),
+    products: getDirectProductsOfCategory(category, options.productLimit ?? 24),
+    tabs: getCategoryTabs(category),
+    faqs: getCategoryFaqs(category),
+    breadcrumbs: [
+      { label: "Inicio", to: "/" },
+      { label: "Categorías", to: "/categorias" },
+      ...trail.map((item) => ({
+        label: item.nav || item.title,
+        to: categoryPathOf(item),
+      })),
+      { label: category.nav || category.title },
+    ],
+    seo: {
+      title: category?.seo?.title || `${category.title} | Reprodisseny`,
+      description: category?.seo?.description || category?.description || "",
+      canonical: canonicalPath,
+      image: category?.seo?.ogImageSrc || category.image?.src || undefined,
+      robots: computeCategoryRobots(category),
+    },
+    ...(redirectTo ? { redirectTo } : {}),
+  };
 }
 
 function getCategoryBySlug(slug: string) {
@@ -767,25 +843,6 @@ function getCategoryBySlug(slug: string) {
       (item) => String(item.slug) === String(slug)
     ) || null
   );
-}
-
-function computeProductRobots(product: CatalogProduct & { seo?: CatalogSeo }) {
-  const override = String(product?.seo?.robotsOverride ?? "")
-    .trim()
-    .toUpperCase();
-
-  const base =
-    override === "NOINDEX_FOLLOW"
-      ? "noindex,follow"
-      : override === "NOINDEX_NOFOLLOW"
-        ? "noindex,nofollow"
-        : override === "INDEX_NOFOLLOW"
-          ? "index,nofollow"
-          : "index,follow";
-
-  const advanced = String(product?.seo?.robotsAdvanced ?? "").trim();
-
-  return advanced ? `${base},${advanced}` : base;
 }
 
 function normalizeQueryText(value: unknown) {
@@ -813,10 +870,6 @@ function getCategoryDescendantSlugs(
     current.push(slug);
     byParent.set(parent, current);
   }
-
-
-
-
 
   const out: string[] = [];
   const queue = [rootSlug];
@@ -900,9 +953,9 @@ export function getCategoryProductsBySlug(
     .map((product) => ({
       id: String(product.id ?? product.slug),
       slug: product.slug,
-      path: product.path || `/productos/${product.slug}`,
+      path: productPathOf(product),
       title: product.title,
-      description: product.description || "",
+      description: product.description || product.shortDescription || "",
       image: productImageDtoOf(product.image, product.title),
       order: Number.isFinite(product.order) ? Number(product.order) : DEFAULT_SORT_ORDER,
       price: Number.isFinite(product.price) ? Number(product.price) : undefined,
@@ -948,7 +1001,6 @@ export function getProductDetailBySlug(
   if (!normalizedSlug) return null;
 
   const products = getPublishedProducts();
-
   const product =
     products.find((item) => String(item.slug) === normalizedSlug) || null;
 
@@ -1002,6 +1054,8 @@ export function getProductDetailBySlug(
     shortDescription: product.shortDescription || "",
     description: product.description || product.shortDescription || "",
     bodyMd: product.bodyMd || "",
+    sections: getProductSections(product),
+    faqs: getProductFaqs(product),
     image: productImageDtoOf(product.image, product.title),
     category: parentCategory
       ? {
@@ -1041,10 +1095,7 @@ export function getProductDetailBySlug(
         product.description ||
         "",
       canonical: product?.seo?.canonical || canonicalPath,
-      image:
-        product?.seo?.ogImageSrc ||
-        product.image?.src ||
-        undefined,
+      image: product?.seo?.ogImageSrc || product.image?.src || undefined,
       robots: computeProductRobots(product),
       hreflang,
       schema: product?.seo?.schema,
