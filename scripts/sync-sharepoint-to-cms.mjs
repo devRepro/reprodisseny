@@ -1,12 +1,14 @@
-/* sync-cms.mjs (definitivo)
+/* sync-cms.mjs
    - Lee categorías y productos desde SharePoint (Graph)
    - Genera cms/catalog.json + cms/routes.json
-   - Tabs:
+   - Categorías:
      1) Si TabsJson existe y tiene tabs válidas => se usa
      2) Si NO, se generan desde BodyMd:
         - Texto antes del primer "##" => tab "Descripción" (si hay contenido)
-        - Cada "## Título" => 1 TAB (Formatos / Ubicación / Contenido / etc.)
-        - Dentro de cada tab, soporta ### / #### como subtítulos y bullets
+        - Cada "## Título" => 1 TAB
+   - Productos:
+     1) Se generan sections desde BodyMd
+     2) Se normalizan FAQs desde FaqsJson
 */
 
 import fs from "node:fs/promises";
@@ -42,6 +44,7 @@ if (
 function buildGraphClient() {
   const credential = new ClientSecretCredential(TENANT_ID, CLIENT_ID, CLIENT_SECRET);
   const scope = "https://graph.microsoft.com/.default";
+
   return Client.init({
     authProvider: async (done) => {
       try {
@@ -58,6 +61,7 @@ const graph = buildGraphClient();
 
 async function withRetry(fn, { tries = 6 } = {}) {
   let lastErr;
+
   for (let i = 0; i < tries; i++) {
     try {
       return await fn();
@@ -66,13 +70,16 @@ async function withRetry(fn, { tries = 6 } = {}) {
       const status = e?.statusCode || e?.status;
       const retryAfter = Number(e?.response?.headers?.get?.("retry-after") || 0);
       const waitMs = retryAfter ? retryAfter * 1000 : 500 * Math.pow(2, i);
+
       if (status === 429 || status === 503) {
         await new Promise((r) => setTimeout(r, waitMs));
         continue;
       }
+
       break;
     }
   }
+
   throw lastErr;
 }
 
@@ -86,23 +93,59 @@ function toStr(v) {
 function toBool(v) {
   if (v == null) return false;
   if (typeof v === "boolean") return v;
+
   const s = String(v).trim().toLowerCase();
   if (!s) return false;
+
   if (["1", "true", "yes", "y", "si", "sí", "verdadero"].includes(s)) return true;
   if (["0", "false", "no", "n", "falso"].includes(s)) return false;
+
   return Boolean(v);
+}
+
+function normalizeLooseJsonString(v) {
+  return String(v ?? "")
+    .trim()
+    .replace(/[“”]/g, '"')
+    .replace(/[‘’]/g, "'");
 }
 
 function parseJson(v, fallback) {
   if (v == null) return fallback;
-  if (typeof v === "object") return v; // Graph a veces ya devuelve objeto
+  if (typeof v === "object") return v;
+
   const s = toStr(v);
   if (!s) return fallback;
+
   try {
     return JSON.parse(s);
   } catch {
-    return fallback;
+    try {
+      return JSON.parse(normalizeLooseJsonString(s));
+    } catch {
+      return fallback;
+    }
   }
+}
+
+function parseStringList(v) {
+  if (v == null) return [];
+  if (Array.isArray(v)) return v.map(toStr).filter(Boolean);
+
+  const s = toStr(v);
+  if (!s) return [];
+
+  const j = parseJson(s, null);
+  if (Array.isArray(j)) return j.map(toStr).filter(Boolean);
+
+  return s
+    .split(",")
+    .map((x) => String(x).trim())
+    .filter(Boolean);
+}
+
+function uniq(arr) {
+  return [...new Set((arr || []).filter(Boolean))];
 }
 
 // --- URLs / SLUGS ---
@@ -121,7 +164,9 @@ function urlValue(v) {
 function urlPathValue(v) {
   const s = toStr(v);
   if (!s) return undefined;
+
   if (s.startsWith("/")) return s;
+
   try {
     return new URL(s).pathname || undefined;
   } catch {
@@ -136,7 +181,7 @@ function normalizeSlug(v) {
   if (s.includes("://")) {
     try {
       s = new URL(s).pathname || s;
-    } catch {}
+    } catch { }
   }
 
   s = s.split("?")[0].split("#")[0];
@@ -150,6 +195,7 @@ function normalizeSlug(v) {
 function slugLeaf(v) {
   const s = normalizeSlug(v);
   if (!s) return undefined;
+
   const parts = s.split("/").filter(Boolean);
   return parts[parts.length - 1] || undefined;
 }
@@ -182,36 +228,25 @@ function inferParentFromPath(pathValue, slug) {
 
 function normalizeCategoryPath(pathValue, slug, parent) {
   let p = toStr(pathValue) || "";
+
   if (p) {
     if (p.includes("://")) {
       try {
         p = new URL(p).pathname || p;
-      } catch {}
+      } catch { }
     }
+
     p = p.replace(/\/{2,}/g, "/").trim();
     if (!p.startsWith("/")) p = "/" + p;
-    if (!p.startsWith("/categorias/")) p = "/categorias/" + p.replace(/^\/+/, "");
+    if (!p.startsWith("/categorias/")) {
+      p = "/categorias/" + p.replace(/^\/+/, "");
+    }
+
     return p.replace(/\/+$/, "");
   }
+
   if (parent) return `/categorias/${parent}/${slug}`;
   return `/categorias/${slug}`;
-}
-
-function parseStringList(v) {
-  if (v == null) return [];
-  if (Array.isArray(v)) return v.map(toStr).filter(Boolean);
-  const s = toStr(v);
-  if (!s) return [];
-  const j = parseJson(s, null);
-  if (Array.isArray(j)) return j.map(toStr).filter(Boolean);
-  return s
-    .split(",")
-    .map((x) => String(x).trim())
-    .filter(Boolean);
-}
-
-function uniq(arr) {
-  return [...new Set((arr || []).filter(Boolean))];
 }
 
 // --- FETCH ALL ITEMS (Graph paging) ---
@@ -227,13 +262,15 @@ async function fetchAllItems(listId, selectFields) {
     const res = await withRetry(() =>
       graph.api(next).header("Prefer", "apiversion=2.1").get()
     );
+
     for (const it of res.value || []) items.push(it);
     next = res["@odata.nextLink"] || null;
   }
+
   return items;
 }
 
-// --- HTML / MARKDOWN -> BLOCKS (para CategoryTabs) ---
+// --- HTML / MARKDOWN -> BLOCKS ---
 function escapeHtml(s) {
   return String(s ?? "").replace(/[&<>"']/g, (ch) => {
     const map = {
@@ -310,6 +347,7 @@ function mdChunkToBlocks(md) {
   const pushHeading = (level, title) => {
     const safe = escapeHtml(stripMdInline(title));
     const tag = level === 4 ? "h4" : "h3";
+
     blocks.push({
       type: "text",
       html: true,
@@ -335,6 +373,7 @@ function mdChunkToBlocks(md) {
       pushHeading(3, mH3[1]);
       continue;
     }
+
     const mH4 = t.match(/^####\s*(.+?)\s*$/);
     if (mH4) {
       flushParagraph();
@@ -376,7 +415,7 @@ function mdChunkToBlocks(md) {
 /**
  * Separa BodyMd en:
  * - intro (antes del primer ##)
- * - sections (cada ##Titulo + contenido)
+ * - sections (cada ## Título + contenido)
  */
 function splitBodyMdSections(bodyMd) {
   const md = normalizeMdText(bodyMd);
@@ -391,7 +430,6 @@ function splitBodyMdSections(bodyMd) {
     const line = String(rawLine ?? "");
     const t = line.trim();
 
-    // H2: "## Título" o "##Título"
     const mH2 = t.match(/^##\s*(.+?)\s*$/);
     if (mH2) {
       const title = stripMdInline(mH2[1]);
@@ -414,16 +452,13 @@ function splitBodyMdSections(bodyMd) {
 }
 
 /**
- * Genera tabs desde BodyMd:
- * - Intro (antes del primer ##) => tab "Descripción" (si hay)
- * - Cada ## => 1 TAB (esto es lo que necesitas para Formatos/Ubicación/Contenido)
+ * Genera tabs desde BodyMd para categorías
  */
 function buildTabsFromBodyMd(bodyMd) {
   const md = normalizeMdText(bodyMd);
   if (!md) return [];
 
   const { introMd, sections } = splitBodyMdSections(md);
-
   const tabs = [];
   const usedIds = new Set();
 
@@ -431,14 +466,23 @@ function buildTabsFromBodyMd(bodyMd) {
     const base = slugifyId(preferredId || title) || "tab";
     let id = base;
     let n = 2;
+
     while (usedIds.has(id)) id = `${base}-${n++}`;
     usedIds.add(id);
 
-    if (blocks && blocks.length) tabs.push({ id, title: String(title).trim(), blocks });
+    if (blocks?.length) {
+      tabs.push({
+        id,
+        title: String(title).trim(),
+        blocks,
+      });
+    }
   };
 
   const introBlocks = mdChunkToBlocks(introMd);
-  if (introBlocks.length) pushTab("Descripción", introBlocks, "descripcion");
+  if (introBlocks.length) {
+    pushTab("Descripción", introBlocks, "descripcion");
+  }
 
   for (const sec of sections) {
     const title = String(sec.title || "").trim();
@@ -455,11 +499,68 @@ function buildTabsFromBodyMd(bodyMd) {
   return tabs;
 }
 
+/**
+ * Genera sections desde BodyMd para productos
+ */
+function buildSectionsFromBodyMd(bodyMd) {
+  const md = normalizeMdText(bodyMd);
+  if (!md) return [];
+
+  const { introMd, sections } = splitBodyMdSections(md);
+  const out = [];
+  const usedIds = new Set();
+
+  const pushSection = (title, mdContent, preferredId) => {
+    const blocks = mdChunkToBlocks(mdContent);
+    if (!blocks.length) return;
+
+    const base = slugifyId(preferredId || title) || "section";
+    let id = base;
+    let n = 2;
+
+    while (usedIds.has(id)) id = `${base}-${n++}`;
+    usedIds.add(id);
+
+    out.push({
+      id,
+      key: id,
+      title: String(title).trim(),
+      body: mdContent,
+      blocks,
+    });
+  };
+
+  if (introMd) {
+    pushSection("Descripción", introMd, "descripcion");
+  }
+
+  for (const sec of sections) {
+    if (!sec.title || !sec.md) continue;
+    pushSection(sec.title, sec.md, sec.title);
+  }
+
+  if (!out.length) {
+    pushSection("Descripción", md, "descripcion");
+  }
+
+  return out;
+}
+
+function buildFaqs(rawFaqs) {
+  const list = Array.isArray(rawFaqs) ? rawFaqs : [];
+
+  return list
+    .map((faq) => ({
+      question: toStr(faq?.question || faq?.q),
+      answer: toStr(faq?.answer || faq?.a),
+    }))
+    .filter((faq) => faq.question && faq.answer);
+}
+
 // --- MAPPERS ---
 function buildCategory(item) {
   const f = item.fields || {};
 
-  // 1) slug: CategorySlug -> Path -> Canonical -> SchemaJson.url
   const pathHint = urlPathValue(f.Path) || urlPathValue(f.Canonical);
   let slug = slugLeaf(f.CategorySlug) || slugLeaf(pathHint) || slugLeaf(f.Canonical);
 
@@ -467,29 +568,24 @@ function buildCategory(item) {
     const sj = parseJson(f.SchemaJson, null);
     slug = slugLeaf(sj?.url);
   }
+
   if (!slug) return null;
 
   const title = toStr(f.Title) || slug;
 
-  // 2) parent
   const parentRaw = f.ParentCategory ?? f.ParentSlug;
   let parent = normalizeParentSlug(parentRaw, slug);
 
-  // 3) inferencia de parent desde path/canonical
   if (!parent) {
     const inferred = inferParentFromPath(pathHint || f.Canonical, slug);
     parent = normalizeParentSlug(inferred, slug);
   }
 
-  // 4) path
   const pathValue = normalizeCategoryPath(pathHint, slug, parent);
-
   const baseUrl = "https://reprodisseny.com";
   const canonicalUrl = `${baseUrl}${pathValue}`;
-
   const imageSrc = urlValue(f.ImageSrc) || urlValue(f.OgImageSrc);
 
-  // Schema manual base
   const manualSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -503,18 +599,14 @@ function buildCategory(item) {
   const spSchema = parseJson(f.SchemaJson, {});
   const bodyMd = toStr(f.BodyMd);
 
-  // TabsJson puede venir como array o como { tabs: [...] }
   const tabsJsonRaw = parseJson(f.TabsJson, null);
-  const tabsJson =
-    Array.isArray(tabsJsonRaw) ? tabsJsonRaw :
-    Array.isArray(tabsJsonRaw?.tabs) ? tabsJsonRaw.tabs :
-    [];
+  const tabsJson = Array.isArray(tabsJsonRaw)
+    ? tabsJsonRaw
+    : Array.isArray(tabsJsonRaw?.tabs)
+      ? tabsJsonRaw.tabs
+      : [];
 
   const tabsFromBodyMd = buildTabsFromBodyMd(bodyMd);
-
-  // Prioridad:
-  // 1) TabsJson manual si existe
-  // 2) fallback desde BodyMd (H2 => tabs)
   const tabs = tabsJson.length ? tabsJson : tabsFromBodyMd;
 
   return {
@@ -536,7 +628,7 @@ function buildCategory(item) {
     publishedAt: toStr(f.PublishedAt),
 
     description: toStr(f.Description),
-    bodyMd: toStr(f.BodyMd),
+    bodyMd,
 
     tabs,
 
@@ -552,11 +644,13 @@ function buildCategory(item) {
       link: urlValue(f.CtaLink),
     },
 
-    faqs: parseJson(f.FaqsJson, []),
+    faqs: buildFaqs(parseJson(f.FaqsJson, [])),
     galleryImages: parseJson(f.GalleryImagesJson, []),
     breadcrumbs: parseJson(f.BreadcrumbsJson, []),
 
-    legacySlugs: uniq(parseStringList(f.LegacySlugs ?? f.LegacySlugsJson).map(normalizeSlug)),
+    legacySlugs: uniq(
+      parseStringList(f.LegacySlugs ?? f.LegacySlugsJson).map(normalizeSlug)
+    ),
 
     seo: {
       metaTitle: toStr(f.MetaTitle) || title,
@@ -567,6 +661,7 @@ function buildCategory(item) {
       schema: { ...manualSchema, ...spSchema },
       robotsOverride: toStr(f.RobotsOverride) || "INHERIT",
       robotsAdvanced: toStr(f.RobotsAdvanced),
+      ogImageSrc: urlValue(f.OgImageSrc) || imageSrc,
     },
   };
 }
@@ -577,31 +672,48 @@ function buildProduct(item) {
   if (!slug) return null;
 
   const title = toStr(f.Title) || slug;
-  const pathValue = `/productos/${slug}`;
   const baseUrl = "https://reprodisseny.com";
-  const canonicalUrl = `${baseUrl}${pathValue}`;
 
-  const imageSrc = urlValue(f.ImageSrc);
+  const canonicalField = urlValue(f.Canonical) || toStr(f.Canonical);
+  const pathValue = urlPathValue(canonicalField) || `/productos/${slug}`;
+  const canonicalUrl = canonicalField || `${baseUrl}${pathValue}`;
+
+  const imageSrc = urlValue(f.ImageSrc) || urlValue(f.OgImageSrc);
   const price = f.Price != null && f.Price !== "" ? Number(f.Price) : 0;
   const inStock = toBool(f.InStock);
+
+  const bodyMd = toStr(f.BodyMd);
+  const sections = buildSectionsFromBodyMd(bodyMd);
+  const faqs = buildFaqs(parseJson(f.FaqsJson, []));
+  const shortDescription = toStr(f.ShortDescription);
+
+  const description =
+    shortDescription ||
+    toStr(f.MetaDescription) ||
+    (sections[0]?.body ? String(sections[0].body).split("\n")[0].trim() : undefined);
 
   const baseSchema = {
     "@context": "https://schema.org",
     "@type": "Product",
     name: title,
-    description: toStr(f.ShortDescription) || toStr(f.MetaDescription),
+    description,
     image: imageSrc,
     url: canonicalUrl,
     sku: toStr(f.Sku),
-    brand: { "@type": "Organization", name: toStr(f.Brand) || "Reprodisseny" },
+    brand: {
+      "@type": "Organization",
+      name: toStr(f.Brand) || "Reprodisseny",
+    },
   };
 
   if (price > 0) {
     baseSchema.offers = {
       "@type": "Offer",
-      price: price,
+      price,
       priceCurrency: toStr(f.PriceCurrency) || "EUR",
-      availability: inStock ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+      availability: inStock
+        ? "https://schema.org/InStock"
+        : "https://schema.org/OutOfStock",
       url: canonicalUrl,
     };
   }
@@ -610,19 +722,24 @@ function buildProduct(item) {
 
   return {
     id: String(item.id),
+    updatedAt: item?.lastModifiedDateTime,
     type: "producto",
+
     slug,
     path: pathValue,
 
     title,
-
     categorySlug: slugLeaf(f.CategorySlug) || normalizeSlug(f.CategorySlug) || "",
 
     isPublished: toBool(f.IsPublished),
     publishedAt: toStr(f.PublishedAt),
 
-    shortDescription: toStr(f.ShortDescription),
-    bodyMd: toStr(f.BodyMd),
+    shortDescription,
+    description,
+    bodyMd,
+
+    sections,
+    faqs,
 
     image: {
       src: imageSrc,
@@ -645,11 +762,14 @@ function buildProduct(item) {
 
     seo: {
       metaTitle: toStr(f.MetaTitle) || title,
-      metaDescription: toStr(f.MetaDescription) || toStr(f.ShortDescription),
+      metaDescription: toStr(f.MetaDescription) || description,
       canonical: canonicalUrl,
       hreflang: parseJson(f.HrefLangJson, [{ lang: "es-ES", url: canonicalUrl }]),
       keywords: parseJson(f.KeywordsJson, []),
       schema: { ...baseSchema, ...spSchema },
+      robotsOverride: toStr(f.RobotsOverride) || "INHERIT",
+      robotsAdvanced: toStr(f.RobotsAdvanced),
+      ogImageSrc: urlValue(f.OgImageSrc) || imageSrc,
     },
   };
 }
@@ -701,6 +821,7 @@ async function run() {
     "PublishedAt",
     "ShortDescription",
     "BodyMd",
+    "FaqsJson",
     "ImageSrc",
     "ImageWidth",
     "ImageHeight",
@@ -720,6 +841,9 @@ async function run() {
     "HrefLangJson",
     "KeywordsJson",
     "SchemaJson",
+    "RobotsOverride",
+    "RobotsAdvanced",
+    "OgImageSrc",
   ];
 
   const [catItems, prodItems] = await Promise.all([
@@ -733,7 +857,6 @@ async function run() {
   const productsAll = prodItems.map(buildProduct).filter(Boolean);
   const products = productsAll.filter((p) => p.isPublished);
 
-  // --- Validaciones útiles ---
   const bySlug = new Map(categories.map((c) => [c.slug, c]));
   const orphans = categories.filter((c) => c.parent && !bySlug.has(c.parent));
 
@@ -743,12 +866,17 @@ async function run() {
     await fs.writeFile(
       "cms/orphan-categories.json",
       JSON.stringify(
-        orphans.map((o) => ({ slug: o.slug, parent: o.parent, title: o.title })),
+        orphans.map((o) => ({
+          slug: o.slug,
+          parent: o.parent,
+          title: o.title,
+        })),
         null,
         2
       ),
       "utf8"
     );
+
     console.warn(
       "⚠️ Orphan categories (parent not found):",
       orphans.map((o) => `${o.slug} -> ${o.parent}`)
@@ -760,7 +888,13 @@ async function run() {
 
   if (dupCat.length || dupProd.length) {
     const report = { dupCat, dupProd };
-    await fs.writeFile("cms/slug-collisions.json", JSON.stringify(report, null, 2), "utf8");
+
+    await fs.writeFile(
+      "cms/slug-collisions.json",
+      JSON.stringify(report, null, 2),
+      "utf8"
+    );
+
     console.error("⛔ Slug collisions detected:", report);
     // process.exit(1); // opcional
   }
@@ -770,7 +904,11 @@ async function run() {
   await fs.writeFile(
     "cms/catalog.json",
     JSON.stringify(
-      { generatedAt: new Date().toISOString(), categories, products },
+      {
+        generatedAt: new Date().toISOString(),
+        categories,
+        products,
+      },
       null,
       2
     ),
@@ -779,7 +917,7 @@ async function run() {
 
   await fs.writeFile("cms/routes.json", JSON.stringify(routes, null, 2), "utf8");
 
-  console.log(`✅ CMS sync OK.`);
+  console.log("✅ CMS sync OK.");
   console.log(`   Categories: ${categories.length}`);
   console.log(`   Products:   ${products.length}`);
   console.log(`   Routes:     ${routes.length}`);
@@ -788,10 +926,12 @@ async function run() {
 function findDuplicates(arr) {
   const seen = new Set();
   const dup = new Set();
+
   for (const x of arr) {
     if (seen.has(x)) dup.add(x);
     else seen.add(x);
   }
+
   return [...dup];
 }
 
