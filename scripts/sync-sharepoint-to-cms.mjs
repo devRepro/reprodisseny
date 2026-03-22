@@ -17,26 +17,50 @@ import { Client } from "@microsoft/microsoft-graph-client";
 import "isomorphic-fetch";
 import { ClientSecretCredential } from "@azure/identity";
 
-dotenv.config({ path: ".env.imports" });
+dotenv.config({ path: ".env.imports", override: true });
 
-const {
-  TENANT_ID,
-  CLIENT_ID,
-  CLIENT_SECRET,
-  SHAREPOINT_SITE_ID,
-  SP_LIST_CATEGORIES_ID,
-  SP_LIST_PRODUCTS_ID,
-} = process.env;
+const TENANT_ID = process.env.TENANT_ID || process.env.AZURE_TENANT_ID;
+const CLIENT_ID = process.env.CLIENT_ID || process.env.AZURE_CLIENT_ID;
+const CLIENT_SECRET = process.env.CLIENT_SECRET || process.env.AZURE_CLIENT_SECRET;
 
-if (
-  !TENANT_ID ||
-  !CLIENT_ID ||
-  !CLIENT_SECRET ||
-  !SHAREPOINT_SITE_ID ||
-  !SP_LIST_CATEGORIES_ID ||
-  !SP_LIST_PRODUCTS_ID
-) {
-  console.error("Missing env vars for sync.");
+const CMS_SITE_HOSTNAME =
+  process.env.CMS_SITE_HOSTNAME ||
+  process.env.SHAREPOINT_HOSTNAME;
+
+const CMS_SITE_PATH =
+  process.env.CMS_SITE_PATH ||
+  process.env.SHAREPOINT_SITE_PATH;
+
+const SHAREPOINT_SITE_ID =
+  process.env.SHAREPOINT_SITE_ID ||
+  process.env.CMS_SITE_ID ||
+  process.env.GRAPH_CMS_SITE_ID;
+
+const SP_LIST_CATEGORIES_ID =
+  process.env.SP_LIST_CATEGORIES_ID ||
+  process.env.CMS_CATEGORIES_LIST_ID ||
+  process.env.NUXT_SHAREPOINT_CMS_CATEGORIES_LIST_ID;
+
+const SP_LIST_PRODUCTS_ID =
+  process.env.SP_LIST_PRODUCTS_ID ||
+  process.env.CMS_PRODUCTS_LIST_ID ||
+  process.env.NUXT_SHAREPOINT_CMS_PRODUCTS_LIST_ID;
+
+const missing = [
+  ["TENANT_ID", TENANT_ID],
+  ["CLIENT_ID", CLIENT_ID],
+  ["CLIENT_SECRET", CLIENT_SECRET],
+  ["CMS_SITE_HOSTNAME", CMS_SITE_HOSTNAME],
+  ["CMS_SITE_PATH", CMS_SITE_PATH],
+  ["SP_LIST_CATEGORIES_ID", SP_LIST_CATEGORIES_ID],
+  ["SP_LIST_PRODUCTS_ID", SP_LIST_PRODUCTS_ID],
+].filter(([, value]) => !value);
+
+if (missing.length) {
+  console.error(
+    "Missing env vars for sync:",
+    missing.map(([name]) => name).join(", ")
+  );
   process.exit(1);
 }
 
@@ -58,6 +82,27 @@ function buildGraphClient() {
 }
 
 const graph = buildGraphClient();
+
+async function resolveSiteId() {
+  if (SHAREPOINT_SITE_ID) return SHAREPOINT_SITE_ID;
+
+  const path = String(CMS_SITE_PATH || "").startsWith("/")
+    ? String(CMS_SITE_PATH)
+    : `/${String(CMS_SITE_PATH || "")}`;
+
+  const site = await withRetry(() =>
+    graph
+      .api(`/sites/${CMS_SITE_HOSTNAME}:${path}`)
+      .header("Prefer", "apiversion=2.1")
+      .get()
+  );
+
+  if (!site?.id) {
+    throw new Error(`No se pudo resolver el site id para ${CMS_SITE_HOSTNAME}${path}`);
+  }
+
+  return String(site.id);
+}
 
 async function withRetry(fn, { tries = 6 } = {}) {
   let lastErr;
@@ -253,7 +298,9 @@ function normalizeCategoryPath(pathValue, slug, parent) {
 async function fetchAllItems(listId, selectFields) {
   const hasSelect = Array.isArray(selectFields) && selectFields.length > 0;
   const expand = hasSelect ? `fields($select=${selectFields.join(",")})` : "fields";
-  const base = `/sites/${SHAREPOINT_SITE_ID}/lists/${listId}/items?$top=999&$expand=${expand}`;
+
+  const siteId = await resolveSiteId();
+  const base = `/sites/${siteId}/lists/${listId}/items?$top=999&$expand=${expand}`;
 
   const items = [];
   let next = base;

@@ -73,11 +73,20 @@ type CatalogProductFormField = {
   options?: string[];
 };
 
+type CatalogFaq = {
+  q?: string;
+  a?: string;
+  question?: string;
+  answer?: string;
+};
+
 type CatalogProduct = {
   id?: string | number;
+  updatedAt?: string;
+  type?: string;
   slug: string;
+  path: string;
   title: string;
-  path?: string | null;
   categorySlug?: string | null;
   isPublished?: boolean;
   order?: number;
@@ -100,8 +109,10 @@ type CatalogProduct = {
 
 type CatalogCategory = {
   id?: string | number;
+  updatedAt?: string;
+  type?: string;
   slug: string;
-  path?: string | null;
+  path: string;
   title: string;
   nav?: string;
   order?: number;
@@ -110,17 +121,12 @@ type CatalogCategory = {
   featured?: boolean;
   isPublished?: boolean;
   description?: string;
-  seo?: CatalogSeo;
+  bodyMd?: string;
   tabs?: CatalogTab[];
   faqs?: CatalogFaq[];
   image?: CatalogImage | null;
-};
-
-type CatalogFaq = {
-  q?: string;
-  a?: string;
-  question?: string;
-  answer?: string;
+  legacySlugs?: string[];
+  seo?: CatalogSeo;
 };
 
 type CatalogShape = {
@@ -341,6 +347,46 @@ const FALLBACK_CARD_WIDTH = 252;
 const FALLBACK_CARD_HEIGHT = 231;
 const DEFAULT_SORT_ORDER = 9999;
 
+function safeDecode(value: unknown) {
+  try {
+    return decodeURIComponent(String(value ?? ""));
+  } catch {
+    return String(value ?? "");
+  }
+}
+
+function normalizeComparable(value: unknown) {
+  return safeDecode(value)
+    .trim()
+    .replace(/\\/g, "/")
+    .replace(/^[a-z]+:\/\/[^/]+/i, "")
+    .replace(/[?#].*$/, "")
+    .replace(/\/{2,}/g, "/")
+    .toLowerCase();
+}
+
+function normalizeSlug(value: unknown) {
+  return normalizeComparable(value).replace(/^\/+|\/+$/g, "");
+}
+
+function getLastPathSegment(value: unknown) {
+  const normalized = normalizeSlug(value);
+  if (!normalized) return "";
+  const parts = normalized.split("/").filter(Boolean);
+  return parts.length ? parts[parts.length - 1] : "";
+}
+
+function toBoundedInt(
+  value: unknown,
+  fallback: number,
+  min: number,
+  max: number
+) {
+  const n = Number(value);
+  const safe = Number.isFinite(n) ? Math.trunc(n) : fallback;
+  return Math.max(min, Math.min(safe, max));
+}
+
 function getCatalogCategories(): CatalogCategory[] {
   const data = catalog as CatalogShape;
   return Array.isArray(data.categories) ? data.categories : [];
@@ -394,24 +440,28 @@ function getPublishedProducts(): CatalogProduct[] {
     .sort(sortProducts);
 }
 
-function normalizeSlug(value: unknown) {
-  return String(value ?? "")
-    .trim()
-    .replace(/^\/+|\/+$/g, "");
-}
-
 function normalizeCategoryPath(value: unknown) {
-  const raw = String(value ?? "")
-    .trim()
-    .replace(/^\/+|\/+$/g, "");
+  const raw = normalizeSlug(value);
 
-  if (!raw) return "/categorias";
+  if (!raw || raw === "categorias") return "/categorias";
 
-  if (raw.toLowerCase().startsWith("categorias/")) {
+  if (raw.startsWith("categorias/")) {
     return `/${raw}`.replace(/\/{2,}/g, "/");
   }
 
   return `/categorias/${raw}`.replace(/\/{2,}/g, "/");
+}
+
+function normalizeProductPath(value: unknown) {
+  const raw = normalizeSlug(value);
+
+  if (!raw || raw === "productos") return "/productos";
+
+  if (raw.startsWith("productos/")) {
+    return `/${raw}`.replace(/\/{2,}/g, "/");
+  }
+
+  return `/productos/${raw}`.replace(/\/{2,}/g, "/");
 }
 
 function categoryPathOf(category: CatalogCategory) {
@@ -419,11 +469,60 @@ function categoryPathOf(category: CatalogCategory) {
 }
 
 function productPathOf(product: CatalogProduct) {
-  const raw = String(product.path || "").trim();
-  if (!raw) return `/productos/${product.slug}`;
+  return normalizeProductPath(product.path || product.slug);
+}
 
-  if (raw.startsWith("/")) return raw;
-  return `/${raw}`;
+function categoryPublicSlugOf(category: CatalogCategory) {
+  return getLastPathSegment(categoryPathOf(category)) || normalizeSlug(category.slug);
+}
+
+function productPublicSlugOf(product: CatalogProduct) {
+  return getLastPathSegment(productPathOf(product)) || normalizeSlug(product.slug);
+}
+
+function getCategoryLookupKeys(category: CatalogCategory) {
+  const keys = new Set<string>();
+
+  const canonicalPath = categoryPathOf(category);
+  const canonicalSlug = categoryPublicSlugOf(category);
+  const internalSlug = normalizeSlug(category.slug);
+
+  if (canonicalPath) keys.add(canonicalPath);
+  if (canonicalSlug) keys.add(canonicalSlug);
+  if (internalSlug) keys.add(internalSlug);
+
+  for (const legacy of Array.isArray(category.legacySlugs)
+    ? category.legacySlugs
+    : []) {
+    const rawLegacy = String(legacy || "").trim();
+    if (!rawLegacy) continue;
+
+    const legacyPath = normalizeCategoryPath(rawLegacy);
+    const legacySlug = normalizeSlug(rawLegacy);
+    const legacyLastSegment = getLastPathSegment(rawLegacy);
+
+    if (legacyPath) keys.add(legacyPath);
+    if (legacySlug) keys.add(legacySlug);
+    if (legacyLastSegment) keys.add(legacyLastSegment);
+  }
+
+  return keys;
+}
+
+function getProductLookupKeys(product: CatalogProduct) {
+  const keys = new Set<string>();
+
+  const canonicalPath = productPathOf(product);
+  const canonicalSlug = productPublicSlugOf(product);
+  const internalSlug = normalizeSlug(product.slug);
+  const internalSlugAsPath = normalizeProductPath(product.slug);
+
+  if (canonicalPath) keys.add(canonicalPath);
+  if (canonicalSlug) keys.add(canonicalSlug);
+  if (internalSlug) keys.add(internalSlug);
+  if (internalSlugAsPath) keys.add(internalSlugAsPath);
+
+  return keys;
 }
 
 function imageDtoOf(image: CatalogImage | null | undefined, fallbackAlt: string) {
@@ -554,14 +653,14 @@ function getDirectChildrenOf(
   categories: CatalogCategory[],
   limit: number
 ): CategoryDetailChildItem[] {
-  const safeLimit = Math.max(1, Math.min(Number(limit) || 50, 200));
+  const safeLimit = toBoundedInt(limit, 50, 1, 200);
 
   return categories
     .filter((item) => item.parent === parent.slug)
     .sort(sortCategories)
     .slice(0, safeLimit)
     .map((item) => ({
-      slug: item.slug,
+      slug: categoryPublicSlugOf(item),
       path: categoryPathOf(item),
       title: item.title,
       nav: item.nav || item.title,
@@ -575,13 +674,13 @@ function getDirectProductsOfCategory(
   category: CatalogCategory,
   limit: number
 ): CategoryDetailProductItem[] {
-  const safeLimit = Math.max(1, Math.min(Number(limit) || 24, 200));
+  const safeLimit = toBoundedInt(limit, 24, 1, 200);
 
   return getPublishedProducts()
     .filter((product) => String(product.categorySlug || "") === String(category.slug))
     .slice(0, safeLimit)
     .map((product) => ({
-      slug: product.slug,
+      slug: productPublicSlugOf(product),
       path: productPathOf(product),
       title: product.title,
       description: product.description || product.shortDescription || "",
@@ -654,7 +753,7 @@ function getProductSections(product: CatalogProduct): ProductDetailSectionItem[]
 }
 
 export function getHomeCategories(limit = 8): HomeCategoryCardItem[] {
-  const safeLimit = Math.max(1, Math.min(Number(limit) || 8, 12));
+  const safeLimit = toBoundedInt(limit, 8, 1, 12);
   const all = getTopLevelPublishedVisibleCategories();
 
   const featured = all.filter((item) => item.featured);
@@ -663,7 +762,7 @@ export function getHomeCategories(limit = 8): HomeCategoryCardItem[] {
   return [...featured, ...rest].slice(0, safeLimit).map((category) => ({
     id: String(category.id ?? category.slug),
     title: category.title,
-    slug: category.slug,
+    slug: categoryPublicSlugOf(category),
     href: categoryPathOf(category),
     image: category.image?.src
       ? {
@@ -679,7 +778,7 @@ export function getHomeCategories(limit = 8): HomeCategoryCardItem[] {
 function toNavProductItem(product: CatalogProduct): NavProductItem {
   return {
     id: String(product.id ?? product.slug),
-    slug: product.slug,
+    slug: productPublicSlugOf(product),
     title: product.title,
     path: productPathOf(product),
     order: Number.isFinite(product.order) ? Number(product.order) : DEFAULT_SORT_ORDER,
@@ -688,7 +787,7 @@ function toNavProductItem(product: CatalogProduct): NavProductItem {
 }
 
 export function getNavigationCategories(productLimit = 8): NavCategoryItem[] {
-  const safeProductLimit = Math.max(0, Math.min(Number(productLimit) || 8, 12));
+  const safeProductLimit = toBoundedInt(productLimit, 8, 0, 12);
   const allCategories = getPublishedVisibleCategories();
   const allProducts = getPublishedProducts();
 
@@ -716,7 +815,7 @@ export function getNavigationCategories(productLimit = 8): NavCategoryItem[] {
   for (const category of allCategories) {
     nodes.set(category.slug, {
       id: String(category.id ?? category.slug),
-      slug: category.slug,
+      slug: categoryPublicSlugOf(category),
       title: category.title,
       nav: category.nav || category.title,
       path: categoryPathOf(category),
@@ -772,6 +871,35 @@ export function getNavigationCategories(productLimit = 8): NavCategoryItem[] {
   return roots;
 }
 
+function resolveCategoryByPathOrSlug(
+  requestedPathOrSlug: string,
+  categories: CatalogCategory[]
+): { category: CatalogCategory | null; redirectTo?: string } {
+  const raw = String(requestedPathOrSlug || "").trim();
+  if (!raw) return { category: null };
+
+  const requestedPath = normalizeCategoryPath(raw);
+  const requestedSlug = getLastPathSegment(raw);
+  const requestedRawSlug = normalizeSlug(raw);
+
+  const category =
+    categories.find((item) => {
+      const keys = getCategoryLookupKeys(item);
+      return (
+        keys.has(requestedPath) ||
+        keys.has(requestedSlug) ||
+        keys.has(requestedRawSlug)
+      );
+    }) || null;
+
+  if (!category) return { category: null };
+
+  const canonicalPath = categoryPathOf(category);
+  const redirectTo = requestedPath !== canonicalPath ? canonicalPath : undefined;
+
+  return { category, ...(redirectTo ? { redirectTo } : {}) };
+}
+
 export function getCategoryDetailByPath(
   requestedPathOrSlug: string,
   options: {
@@ -780,26 +908,8 @@ export function getCategoryDetailByPath(
   } = {}
 ): CategoryDetailPageDto | null {
   const categories = getPublishedVisibleCategories();
-  const requestedPath = normalizeCategoryPath(requestedPathOrSlug);
-
-  let category =
-    categories.find((item) => categoryPathOf(item) === requestedPath) ?? null;
-
-  let redirectTo: string | undefined;
-
-  if (!category) {
-    const requestedSlug = normalizeSlug(requestedPathOrSlug).split("/").pop() || "";
-
-    category =
-      categories.find((item) => String(item.slug) === requestedSlug) ?? null;
-
-    if (category) {
-      const canonicalPath = categoryPathOf(category);
-      if (canonicalPath !== requestedPath) {
-        redirectTo = canonicalPath;
-      }
-    }
-  }
+  const resolved = resolveCategoryByPathOrSlug(requestedPathOrSlug, categories);
+  const category = resolved.category;
 
   if (!category) return null;
 
@@ -807,7 +917,7 @@ export function getCategoryDetailByPath(
   const trail = buildCategoryTrail(category, categories);
 
   return {
-    slug: category.slug,
+    slug: categoryPublicSlugOf(category),
     path: canonicalPath,
     title: category.title,
     nav: category.nav || category.title,
@@ -833,7 +943,7 @@ export function getCategoryDetailByPath(
       image: category?.seo?.ogImageSrc || category.image?.src || undefined,
       robots: computeCategoryRobots(category),
     },
-    ...(redirectTo ? { redirectTo } : {}),
+    ...(resolved.redirectTo ? { redirectTo: resolved.redirectTo } : {}),
   };
 }
 
@@ -952,7 +1062,7 @@ export function getCategoryProductsBySlug(
     })
     .map((product) => ({
       id: String(product.id ?? product.slug),
-      slug: product.slug,
+      slug: productPublicSlugOf(product),
       path: productPathOf(product),
       title: product.title,
       description: product.description || product.shortDescription || "",
@@ -985,36 +1095,45 @@ export function getCategoryProductsBySlug(
   };
 }
 
+function resolveProductBySlugOrPath(
+  requestedSlugOrPath: string,
+  products: CatalogProduct[]
+): { product: CatalogProduct | null; redirectTo?: string } {
+  const raw = String(requestedSlugOrPath || "").trim();
+  if (!raw) return { product: null };
+
+  const requestedPath = normalizeProductPath(raw);
+  const requestedSlug = getLastPathSegment(raw);
+  const requestedRawSlug = normalizeSlug(raw);
+
+  const product =
+    products.find((item) => {
+      const keys = getProductLookupKeys(item);
+      return (
+        keys.has(requestedPath) ||
+        keys.has(requestedSlug) ||
+        keys.has(requestedRawSlug)
+      );
+    }) || null;
+
+  if (!product) return { product: null };
+
+  const canonicalPath = productPathOf(product);
+  const redirectTo = requestedPath !== canonicalPath ? canonicalPath : undefined;
+
+  return { product, ...(redirectTo ? { redirectTo } : {}) };
+}
+
 export function getProductDetailBySlug(
   requestedSlugOrPath: string
 ): ProductDetailDto | null {
-  const raw = String(requestedSlugOrPath || "").trim();
-  if (!raw) return null;
-
-  const normalizedSlug = raw
-    .replace(/^\/+|\/+$/g, "")
-    .replace(/^productos\//i, "")
-    .split("/")
-    .filter(Boolean)
-    .pop();
-
-  if (!normalizedSlug) return null;
-
   const products = getPublishedProducts();
-  const product =
-    products.find((item) => String(item.slug) === normalizedSlug) || null;
+  const resolved = resolveProductBySlugOrPath(requestedSlugOrPath, products);
+  const product = resolved.product;
 
   if (!product) return null;
 
   const canonicalPath = productPathOf(product);
-  let redirectTo: string | undefined;
-
-  if (raw !== normalizedSlug && raw !== canonicalPath.replace(/^\/+/, "")) {
-    const normalizedRawPath = raw.startsWith("/") ? raw : `/${raw}`;
-    if (normalizedRawPath !== canonicalPath) {
-      redirectTo = canonicalPath;
-    }
-  }
 
   const parentCategory = product.categorySlug
     ? getCategoryBySlug(String(product.categorySlug))
@@ -1048,7 +1167,7 @@ export function getProductDetailBySlug(
     : [];
 
   return {
-    slug: product.slug,
+    slug: productPublicSlugOf(product),
     path: canonicalPath,
     title: product.title,
     shortDescription: product.shortDescription || "",
@@ -1059,7 +1178,7 @@ export function getProductDetailBySlug(
     image: productImageDtoOf(product.image, product.title),
     category: parentCategory
       ? {
-          slug: parentCategory.slug,
+          slug: categoryPublicSlugOf(parentCategory),
           path: categoryPathOf(parentCategory),
           title: parentCategory.title,
           nav: parentCategory.nav || parentCategory.title,
@@ -1100,6 +1219,6 @@ export function getProductDetailBySlug(
       hreflang,
       schema: product?.seo?.schema,
     },
-    ...(redirectTo ? { redirectTo } : {}),
+    ...(resolved.redirectTo ? { redirectTo: resolved.redirectTo } : {}),
   };
 }

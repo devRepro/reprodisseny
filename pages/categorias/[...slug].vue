@@ -9,16 +9,29 @@ import CategoryHero from "@/components/marketing/category/CategoryHero.vue";
 const route = useRoute();
 const config = useRuntimeConfig();
 
+function safeDecode(value: unknown) {
+  try {
+    return decodeURIComponent(String(value ?? ""));
+  } catch {
+    return String(value ?? "");
+  }
+}
+
 function isAssetLike(v: unknown) {
   const s = String(v ?? "").trim();
   return /^(img|_nuxt)\//i.test(s) || /\.(jpg|jpeg|png|webp|avif|gif|svg|pdf)$/i.test(s);
 }
 
+function looksLikeProductPath(value: string) {
+  return /^productos?\//i.test(String(value || "").trim());
+}
+
 const slug = computed(() => {
   const raw = route.params.slug;
+
   const parts = Array.isArray(raw)
-    ? raw
-    : String(raw ?? "")
+    ? raw.map((s) => safeDecode(s).trim()).filter(Boolean)
+    : String(safeDecode(raw ?? ""))
         .split(/[\/,]+/)
         .map((s) => s.trim())
         .filter(Boolean);
@@ -26,16 +39,16 @@ const slug = computed(() => {
   return parts.join("/");
 });
 
-if (isAssetLike(slug.value)) {
+if (!slug.value || isAssetLike(slug.value) || looksLikeProductPath(slug.value)) {
   throw createError({
     statusCode: 404,
-    message: `Ruta estática inválida para CMS: ${slug.value}`,
+    message: `Ruta inválida para categoría: ${slug.value}`,
   });
 }
 
 const { data, pending, error } = await useAsyncData<CategoryDetailPageDto>(
   () => `cms:category:${slug.value}`,
-  () => $fetch(`/api/cms/category/${slug.value}`),
+  () => $fetch(`/api/cms/category/${encodeURIComponent(slug.value)}`),
   { server: true }
 );
 
@@ -81,8 +94,7 @@ useSeoMeta({
     category.value?.seo?.description ||
     category.value?.description ||
     "Categoría de productos",
-  ogTitle: () =>
-    category.value?.seo?.title || category.value?.title || "Categoría",
+  ogTitle: () => category.value?.seo?.title || category.value?.title || "Categoría",
   ogDescription: () =>
     category.value?.seo?.description ||
     category.value?.description ||
@@ -95,7 +107,9 @@ useSeoMeta({
 <template>
   <main class="min-h-screen bg-background">
     <div v-if="pending" class="container-content py-16 md:py-20">
-      <div class="flex min-h-[30vh] items-center justify-center rounded-[28px] border border-border/70 bg-card/70">
+      <div
+        class="flex min-h-[30vh] items-center justify-center rounded-[28px] border border-border/70 bg-card/70"
+      >
         <div class="animate-pulse text-body text-muted-foreground">
           Cargando categoría...
         </div>
@@ -129,7 +143,9 @@ useSeoMeta({
             >
               Explora esta línea de soluciones
             </h2>
-            <p class="mt-3 max-w-[68ch] text-body text-foreground/78 md:text-[18px] md:leading-[1.68]">
+            <p
+              class="mt-3 max-w-[68ch] text-body text-foreground/78 md:text-[18px] md:leading-[1.68]"
+            >
               Accede directamente a las subcategorías relacionadas con esta área.
             </p>
           </div>
