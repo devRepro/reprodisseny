@@ -15,7 +15,6 @@ import {
 } from "@/components/ui/form";
 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-import { ScrollArea } from "@/components/ui/scroll-area";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
@@ -318,13 +317,21 @@ function focusFirstInvalidField(errors: Record<string, string>) {
   const first = Object.keys(errors || {})[0];
   if (!first) return;
 
-  const selector = [
-    `[name="${CSS.escape(first)}"]`,
-    `[data-field-name="${CSS.escape(first)}"]`,
-    `#${CSS.escape(first)}`,
-  ].join(",");
+  // Pequeño timeout para asegurar que el DOM y los mensajes de error se han renderizado
+  setTimeout(() => {
+    const selector = [
+      `[name="${CSS.escape(first)}"]`,
+      `[data-field-name="${CSS.escape(first)}"]`,
+      `#${CSS.escape(first)}`,
+    ].join(",");
 
-  (document.querySelector(selector) as HTMLElement | null)?.focus?.();
+    const el = document.querySelector(selector) as HTMLElement | null;
+    if (el) {
+      // Previene el salto brusco estándar y usa un scroll suave y centrado
+      el.focus({ preventScroll: true });
+      el.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }, 50);
 }
 
 const onSubmit = handleSubmit(
@@ -389,18 +396,19 @@ const onSubmit = handleSubmit(
 </script>
 
 <template>
-  <div class="mx-auto w-full">
-    <div v-if="success" class="flex min-h-[280px] flex-col justify-center">
-      <Alert class="border-emerald-200 bg-emerald-50 text-emerald-900">
-        <CheckCircle2 class="h-4 w-4 text-emerald-600" />
-        <AlertTitle>Solicitud enviada</AlertTitle>
-        <AlertDescription class="space-y-4">
-          <p>Gracias. Hemos recibido tu solicitud y te responderemos a la brevedad.</p>
-
+  <div class="mx-auto w-full flex flex-col h-full">
+    <div v-if="success" class="flex min-h-[280px] flex-col justify-center py-8">
+      <Alert class="border-emerald-200 bg-emerald-50 text-emerald-900 shadow-sm">
+        <CheckCircle2 class="h-5 w-5 text-emerald-600" />
+        <AlertTitle class="text-base font-semibold">Solicitud enviada</AlertTitle>
+        <AlertDescription class="space-y-4 mt-2">
+          <p class="text-sm">
+            Gracias. Hemos recibido tu solicitud y te responderemos a la brevedad.
+          </p>
           <Button
             type="button"
             variant="outline"
-            class="border-emerald-300 text-emerald-800 hover:bg-emerald-100"
+            class="w-full sm:w-auto border-emerald-300 text-emerald-800 hover:bg-emerald-100"
             @click="success = false"
           >
             Enviar otra solicitud
@@ -409,31 +417,36 @@ const onSubmit = handleSubmit(
       </Alert>
     </div>
 
-    <form v-else @submit.prevent="onSubmit" novalidate class="flex flex-col">
-      <div class="space-y-2">
+    <form
+      v-else
+      @submit.prevent="onSubmit"
+      novalidate
+      class="flex flex-col flex-1 relative"
+    >
+      <div class="space-y-1.5 mb-6">
         <h3 class="text-xl font-semibold tracking-tight text-foreground">
           Configura tu solicitud
         </h3>
-
-        <p class="text-sm leading-6 text-muted-foreground">
-          Indica las características del producto y te responderemos con la opción más
-          adecuada.
+        <p class="text-sm leading-relaxed text-muted-foreground">
+          Indica las características y te responderemos con la opción ideal.
         </p>
       </div>
 
-      <Alert v-if="submissionErrorMessage" variant="destructive" class="mt-4">
+      <Alert v-if="submissionErrorMessage" variant="destructive" class="mb-6 shadow-sm">
         <AlertCircle class="h-4 w-4" />
         <AlertTitle>No hemos podido enviar la solicitud</AlertTitle>
-        <AlertDescription>
-          {{ submissionErrorMessage }}
-        </AlertDescription>
+        <AlertDescription>{{ submissionErrorMessage }}</AlertDescription>
       </Alert>
 
-      <Alert v-else-if="validationSummary.length" variant="destructive" class="mt-4">
+      <Alert
+        v-else-if="validationSummary.length"
+        variant="destructive"
+        class="mb-6 shadow-sm"
+      >
         <AlertCircle class="h-4 w-4" />
         <AlertTitle>Revisa los campos marcados</AlertTitle>
         <AlertDescription>
-          <ul class="list-disc space-y-1 pl-5">
+          <ul class="list-disc space-y-1 pl-5 mt-2">
             <li v-for="item in validationSummary.slice(0, 5)" :key="item.name">
               <strong>{{ item.label }}:</strong> {{ item.message }}
             </li>
@@ -441,275 +454,289 @@ const onSubmit = handleSubmit(
         </AlertDescription>
       </Alert>
 
-      <ScrollArea class="mt-5 pr-2 lg:max-h-[560px] xl:max-h-[620px] 2xl:max-h-[680px]">
-        <div class="space-y-6 pr-3">
-          <section class="space-y-5">
-            <FormField name="cantidad" v-slot="{ componentField, errorMessage }">
+      <div class="space-y-8 pb-4">
+        <section class="space-y-5">
+          <FormField name="cantidad" v-slot="{ componentField, errorMessage }">
+            <FormItem>
+              <FormLabel :class="labelClass">
+                Cantidad <span class="text-destructive">*</span>
+              </FormLabel>
+              <FormControl>
+                <Input
+                  id="cantidad"
+                  v-bind="componentField"
+                  type="number"
+                  min="1"
+                  :class="[
+                    inputClass,
+                    errorMessage &&
+                      'border-destructive focus-visible:ring-destructive/15',
+                  ]"
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          </FormField>
+
+          <template v-for="field in normalizedExtraFields" :key="field.name">
+            <FormField
+              :name="field.name"
+              v-slot="{ componentField, value, handleChange, errorMessage }"
+            >
               <FormItem>
                 <FormLabel :class="labelClass">
-                  Cantidad <span class="text-destructive">*</span>
+                  {{ field.label }}
+                  <span
+                    v-if="field.kind === 'readonly'"
+                    class="ml-1 text-[11px] uppercase tracking-wider text-primary font-bold"
+                    >(Incluido)</span
+                  >
+                  <span v-else-if="field.required" class="text-destructive">*</span>
+                  <span v-else class="ml-1 text-xs text-muted-foreground font-normal"
+                    >(Opcional)</span
+                  >
                 </FormLabel>
 
                 <FormControl>
-                  <Input
-                    id="cantidad"
-                    v-bind="componentField"
-                    type="number"
-                    min="1"
-                    :class="[
-                      inputClass,
-                      errorMessage &&
-                        'border-destructive focus-visible:ring-destructive/15',
-                    ]"
-                  />
-                </FormControl>
-
-                <FormMessage />
-              </FormItem>
-            </FormField>
-
-            <template v-for="field in normalizedExtraFields" :key="field.name">
-              <FormField
-                :name="field.name"
-                v-slot="{ componentField, value, handleChange, errorMessage }"
-              >
-                <FormItem>
-                  <FormLabel :class="labelClass">
-                    {{ field.label }}
-                    <span
-                      v-if="field.kind === 'readonly'"
-                      class="ml-1 text-xs text-primary"
-                    >
-                      (Incluido)
-                    </span>
-                    <span v-else-if="field.required" class="text-destructive">*</span>
-                    <span v-else class="ml-1 text-xs text-muted-foreground"
-                      >(Opcional)</span
-                    >
-                  </FormLabel>
-
-                  <FormControl>
-                    <div v-if="field.kind === 'readonly'" class="relative">
-                      <Input
-                        :id="field.name"
-                        v-bind="componentField"
-                        :value="String(value ?? field.initialValue)"
-                        readonly
-                        aria-readonly="true"
-                        :class="readonlyInputClass"
-                      />
-                      <span
-                        class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 rounded-full border border-primary/15 bg-primary/10 px-2 py-0.5 text-[11px] font-medium text-primary"
-                      >
-                        Incluido
-                      </span>
-                    </div>
-
-                    <Select
-                      v-else-if="field.kind === 'select'"
-                      :model-value="String(value ?? '')"
-                      @update:model-value="handleChange"
-                    >
-                      <SelectTrigger
-                        :id="field.name"
-                        :data-field-name="field.name"
-                        :class="[inputClass, errorMessage && 'border-destructive']"
-                      >
-                        <SelectValue
-                          :placeholder="field.placeholder || 'Selecciona...'"
-                        />
-                      </SelectTrigger>
-
-                      <SelectContent>
-                        <SelectItem
-                          v-for="opt in field.normalizedOptions"
-                          :key="opt"
-                          :value="opt"
-                        >
-                          {{ opt }}
-                        </SelectItem>
-                      </SelectContent>
-                    </Select>
-
-                    <Textarea
-                      v-else-if="field.type === 'textarea'"
-                      :id="field.name"
-                      v-bind="componentField"
-                      :placeholder="field.placeholder || 'Escribe aquí...'"
-                      :class="[
-                        textareaClass,
-                        errorMessage &&
-                          'border-destructive focus-visible:ring-destructive/15',
-                      ]"
-                    />
-
+                  <div v-if="field.kind === 'readonly'" class="relative">
                     <Input
-                      v-else
                       :id="field.name"
                       v-bind="componentField"
-                      :type="field.type === 'number' ? 'number' : 'text'"
-                      :placeholder="field.placeholder || ''"
-                      :class="[
-                        inputClass,
-                        errorMessage &&
-                          'border-destructive focus-visible:ring-destructive/15',
-                      ]"
+                      :value="String(value ?? field.initialValue)"
+                      readonly
+                      aria-readonly="true"
+                      :class="readonlyInputClass"
                     />
-                  </FormControl>
+                    <span
+                      class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 rounded-full border border-primary/15 bg-primary/5 px-2.5 py-0.5 text-[11px] font-semibold text-primary"
+                    >
+                      Fijo
+                    </span>
+                  </div>
 
-                  <FormMessage />
-                </FormItem>
-              </FormField>
-            </template>
-          </section>
+                  <Select
+                    v-else-if="field.kind === 'select'"
+                    :model-value="String(value ?? '')"
+                    @update:model-value="handleChange"
+                  >
+                    <SelectTrigger
+                      :id="field.name"
+                      :data-field-name="field.name"
+                      :class="[inputClass, errorMessage && 'border-destructive']"
+                    >
+                      <SelectValue :placeholder="field.placeholder || 'Selecciona...'" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem
+                        v-for="opt in field.normalizedOptions"
+                        :key="opt"
+                        :value="opt"
+                      >
+                        {{ opt }}
+                      </SelectItem>
+                    </SelectContent>
+                  </Select>
 
-          <section class="space-y-5 border-t border-border/70 pt-6">
-            <div class="space-y-1">
-              <h4 class="text-sm font-semibold uppercase tracking-[0.08em] text-primary">
-                Datos de contacto
-              </h4>
-              <p class="text-xs leading-5 text-muted-foreground">
-                Necesitamos estos datos para enviarte la propuesta.
-              </p>
-            </div>
-
-            <FormField name="nombre" v-slot="{ componentField, errorMessage }">
-              <FormItem>
-                <FormLabel :class="labelClass">
-                  Nombre <span class="text-destructive">*</span>
-                </FormLabel>
-
-                <FormControl>
-                  <Input
-                    id="nombre"
+                  <Textarea
+                    v-else-if="field.type === 'textarea'"
+                    :id="field.name"
                     v-bind="componentField"
-                    placeholder="Tu nombre"
-                    :class="[
-                      inputClass,
-                      errorMessage &&
-                        'border-destructive focus-visible:ring-destructive/15',
-                    ]"
+                    :placeholder="field.placeholder || 'Escribe aquí...'"
+                    :class="[textareaClass, errorMessage && 'border-destructive']"
+                  />
+
+                  <Input
+                    v-else
+                    :id="field.name"
+                    v-bind="componentField"
+                    :type="field.type === 'number' ? 'number' : 'text'"
+                    :placeholder="field.placeholder || ''"
+                    :class="[inputClass, errorMessage && 'border-destructive']"
                   />
                 </FormControl>
-
                 <FormMessage />
               </FormItem>
             </FormField>
+          </template>
+        </section>
 
-            <FormField name="email" v-slot="{ componentField, errorMessage }">
-              <FormItem>
-                <FormLabel :class="labelClass">
-                  Email <span class="text-destructive">*</span>
-                </FormLabel>
-
-                <FormControl>
-                  <Input
-                    id="email"
-                    v-bind="componentField"
-                    type="email"
-                    placeholder="tu@email.com"
-                    :class="[
-                      inputClass,
-                      errorMessage &&
-                        'border-destructive focus-visible:ring-destructive/15',
-                    ]"
-                  />
-                </FormControl>
-
-                <FormMessage />
-              </FormItem>
-            </FormField>
-
-            <FormField name="website" v-slot="{ componentField }">
-              <input
-                v-bind="componentField"
-                class="absolute -z-10 opacity-0"
-                tabindex="-1"
-                autocomplete="off"
-              />
-            </FormField>
-          </section>
-        </div>
-      </ScrollArea>
-
-      <div class="mt-5 border-t border-border/70 pt-5">
-        <div class="space-y-2">
-          <div class="flex items-center justify-between gap-3">
-            <label class="text-sm font-medium text-foreground"> Adjuntar archivo </label>
-            <span class="text-xs text-muted-foreground">(Opcional)</span>
+        <section class="space-y-5 border-t border-border/60 pt-6">
+          <div class="mb-2">
+            <h4 class="text-sm font-bold uppercase tracking-[0.08em] text-foreground/80">
+              Datos de contacto
+            </h4>
           </div>
 
-          <label
-            class="flex cursor-pointer items-center justify-between gap-3 rounded-xl border border-dashed border-border/80 bg-muted/20 px-3 py-3 transition hover:bg-muted/30"
-          >
-            <span
-              class="inline-flex h-9 shrink-0 items-center rounded-lg border border-border bg-background px-3 text-sm font-medium text-foreground"
-            >
-              Seleccionar archivo
-            </span>
+          <FormField name="nombre" v-slot="{ componentField, errorMessage }">
+            <FormItem>
+              <FormLabel :class="labelClass"
+                >Nombre <span class="text-destructive">*</span></FormLabel
+              >
+              <FormControl>
+                <Input
+                  id="nombre"
+                  v-bind="componentField"
+                  placeholder="Tu nombre"
+                  :class="[inputClass, errorMessage && 'border-destructive']"
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          </FormField>
 
-            <span class="min-w-0 flex-1 truncate text-sm text-muted-foreground">
-              {{ fileName }}
-            </span>
+          <FormField name="email" v-slot="{ componentField, errorMessage }">
+            <FormItem>
+              <FormLabel :class="labelClass"
+                >Email <span class="text-destructive">*</span></FormLabel
+              >
+              <FormControl>
+                <Input
+                  id="email"
+                  v-bind="componentField"
+                  type="email"
+                  placeholder="tu@email.com"
+                  :class="[inputClass, errorMessage && 'border-destructive']"
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          </FormField>
 
+          <FormField name="telefono" v-slot="{ componentField, errorMessage }">
+            <FormItem>
+              <FormLabel :class="labelClass">Teléfono</FormLabel>
+              <FormControl>
+                <Input
+                  id="telefono"
+                  v-bind="componentField"
+                  type="tel"
+                  placeholder="+34 600 000 000"
+                  :class="[inputClass, errorMessage && 'border-destructive']"
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          </FormField>
+
+          <FormField name="empresa" v-slot="{ componentField, errorMessage }">
+            <FormItem>
+              <FormLabel :class="labelClass">Empresa</FormLabel>
+              <FormControl>
+                <Input
+                  id="empresa"
+                  v-bind="componentField"
+                  placeholder="Opcional"
+                  :class="[inputClass, errorMessage && 'border-destructive']"
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          </FormField>
+
+          <FormField name="comentario" v-slot="{ componentField, errorMessage }">
+            <FormItem>
+              <FormLabel :class="labelClass">Comentarios</FormLabel>
+              <FormControl>
+                <Textarea
+                  id="comentario"
+                  v-bind="componentField"
+                  placeholder="Medidas, acabados, plazos..."
+                  :class="[textareaClass, errorMessage && 'border-destructive']"
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          </FormField>
+
+          <FormField name="website" v-slot="{ componentField }">
             <input
-              type="file"
-              class="hidden"
-              accept=".pdf,.jpg,.jpeg,.png,.ai,.zip"
-              @change="onPickFile"
+              v-bind="componentField"
+              class="absolute -z-10 opacity-0"
+              tabindex="-1"
+              autocomplete="off"
             />
-          </label>
+          </FormField>
+        </section>
+      </div>
 
-          <p class="text-xs text-muted-foreground">
-            Formatos admitidos: PDF, JPG, PNG, AI y ZIP.
-          </p>
-        </div>
-
-        <FormField name="privacy" v-slot="{ componentField, errorMessage }">
-          <FormItem class="mt-4">
-            <div
-              :class="[
-                'flex items-start gap-3 rounded-xl border px-3 py-3 transition-colors',
-                errorMessage
-                  ? 'border-destructive/50 bg-destructive/5'
-                  : 'border-border/70 bg-muted/20',
-              ]"
+      <div
+        class="sticky bottom-0 z-20 mt-auto border-t border-border/40 bg-background/95 pb-6 pt-5 backdrop-blur-md supports-[backdrop-filter]:bg-background/80"
+      >
+        <div class="space-y-4">
+          <div>
+            <label
+              class="group flex cursor-pointer items-center justify-between gap-3 rounded-xl border border-dashed border-border/80 bg-muted/20 px-3 py-2.5 transition hover:bg-muted/40 hover:border-primary/40 focus-within:ring-2 focus-within:ring-primary/20"
             >
+              <span
+                class="inline-flex h-8 shrink-0 items-center rounded-md border border-border/60 bg-background px-3 text-xs font-semibold text-foreground transition-colors group-hover:bg-background/80"
+              >
+                Adjuntar archivo
+              </span>
+              <span
+                class="min-w-0 flex-1 text-right truncate text-xs text-muted-foreground group-hover:text-foreground"
+              >
+                {{
+                  fileName !== "Ningún archivo seleccionado"
+                    ? fileName
+                    : "Opcional (PDF, JPG, AI...)"
+                }}
+              </span>
               <input
-                id="privacy-check"
-                type="checkbox"
-                class="mt-1 h-4 w-4 rounded border-border text-primary focus:ring-primary/20"
-                :checked="componentField.modelValue === true"
-                @change="(e) => componentField.onChange((e.target as HTMLInputElement).checked)"
+                type="file"
+                class="sr-only"
+                accept=".pdf,.jpg,.jpeg,.png,.ai,.zip"
+                @change="onPickFile"
               />
+            </label>
+          </div>
 
-              <div class="min-w-0">
-                <label for="privacy-check" class="text-sm leading-6 text-foreground/85">
-                  He leído y acepto la
-                  <NuxtLink
-                    to="/politica-privacidad"
-                    target="_blank"
-                    class="font-medium text-primary underline-offset-4 hover:underline"
+          <FormField name="privacy" v-slot="{ componentField, errorMessage }">
+            <FormItem>
+              <div
+                :class="[
+                  'flex items-start gap-3 rounded-xl p-3 transition-colors',
+                  errorMessage
+                    ? 'bg-destructive/5 ring-1 ring-destructive/30'
+                    : 'bg-muted/30',
+                ]"
+              >
+                <input
+                  id="privacy"
+                  name="privacy"
+                  type="checkbox"
+                  class="mt-0.5 h-4 w-4 shrink-0 rounded border-border text-primary focus:ring-primary/20"
+                  :checked="componentField.modelValue === true"
+                  @change="(e) => componentField.onChange((e.target as HTMLInputElement).checked)"
+                />
+                <div class="min-w-0 flex-1">
+                  <label
+                    for="privacy"
+                    class="text-xs leading-tight text-foreground/80 cursor-pointer block"
                   >
-                    política de privacidad </NuxtLink
-                  >.
-                </label>
-
-                <FormMessage />
+                    Acepto la
+                    <NuxtLink
+                      to="/politica-privacidad"
+                      target="_blank"
+                      class="font-semibold text-primary hover:underline"
+                      >política de privacidad</NuxtLink
+                    >
+                    y consiento el tratamiento de mis datos.
+                  </label>
+                </div>
               </div>
-            </div>
-          </FormItem>
-        </FormField>
+              <FormMessage class="px-1" />
+            </FormItem>
+          </FormField>
 
-        <Button type="submit" :disabled="isLoading" class="mt-4 h-12 w-full rounded-xl">
-          <Loader2 v-if="isLoading" class="mr-2 h-4 w-4 animate-spin" />
-          {{ isLoading ? "Enviando..." : "Solicitar presupuesto" }}
-        </Button>
-
-        <p class="mt-3 text-xs leading-5 text-muted-foreground">
-          Al enviar este formulario aceptas que te contactemos para preparar tu
-          presupuesto y resolver cualquier duda técnica relacionada con este producto.
-        </p>
+          <Button
+            type="submit"
+            :disabled="isLoading"
+            class="h-12 w-full rounded-xl text-base font-semibold shadow-sm transition-all hover:shadow-md active:scale-[0.98]"
+          >
+            <Loader2 v-if="isLoading" class="mr-2 h-5 w-5 animate-spin" />
+            {{ isLoading ? "Procesando solicitud..." : "Solicitar presupuesto" }}
+          </Button>
+        </div>
       </div>
     </form>
   </div>

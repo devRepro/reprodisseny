@@ -17,7 +17,7 @@ function buildIndexBySlug(
   for (const node of nodes) {
     acc[node.slug] = node
 
-    if (node.children.length) {
+    if (node.children?.length) {
       buildIndexBySlug(node.children, acc)
     }
   }
@@ -25,12 +25,15 @@ function buildIndexBySlug(
   return acc
 }
 
+function parseProductLimit(value: unknown, fallback = 8) {
+  const parsed = Number(value)
+  if (!Number.isFinite(parsed)) return fallback
+  return Math.max(0, Math.min(parsed, 12))
+}
+
 export default defineEventHandler((event): ReturnShape => {
   const query = getQuery(event)
-  const productLimit = Math.max(
-    0,
-    Math.min(Number(query.productLimit ?? 8) || 8, 12)
-  )
+  const productLimit = parseProductLimit(query.productLimit, 8)
 
   const tree = getNavigationCategories(productLimit)
   const indexBySlug = buildIndexBySlug(tree)
