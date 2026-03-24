@@ -20,9 +20,7 @@
     <MarketingServicesGrid />
     <MarketingProcessSection />
 
-    <ClientLogosBand
-      :logos="clientLogos"
-    />
+    <ClientLogosBand :logos="clientLogos" />
 
     <GoogleReviewsSection />
 
@@ -31,23 +29,23 @@
 </template>
 
 <script setup lang="ts">
-import HomeHero from "@/components/marketing/HomeHero.vue"
-import HomeImageStrip from "@/components/marketing/HomeImageStrip.vue"
-import MarketingProductCategoryGrid from "@/components/marketing/ProductCategoryGrid.vue"
-import MarketingProcessSection from "@/components/marketing/ProcessSection.vue"
-import GuideBanner from "@/components/marketing/GuideBanner.vue"
-import ClientLogosBand from "@/components/marketing/ClientLogosBand.vue"
-import GetFiles from "@/components/marketing/GetFiles.vue"
-import { useHomeCategoriesGrid } from "@/composables/useHomeCategoriesGrid"
-import { GoogleReviewsSection, MarketingServicesGrid } from "#components"
+import HomeHero from "@/components/marketing/HomeHero.vue";
+import HomeImageStrip from "@/components/marketing/HomeImageStrip.vue";
+import MarketingProductCategoryGrid from "@/components/marketing/ProductCategoryGrid.vue";
+import MarketingProcessSection from "@/components/marketing/ProcessSection.vue";
+import GuideBanner from "@/components/marketing/GuideBanner.vue";
+import ClientLogosBand from "@/components/marketing/ClientLogosBand.vue";
+import GetFiles from "@/components/marketing/GetFiles.vue";
+import { useHomeCategoriesGrid } from "@/composables/useHomeCategoriesGrid";
+import { GoogleReviewsSection, MarketingServicesGrid } from "#components";
 
-definePageMeta({ layout: "home" })
+definePageMeta({ layout: "home" });
 
 const {
   categories: homeCategories,
   pending: homeCategoriesPending,
   error: homeCategoriesError,
-} = await useHomeCategoriesGrid(8)
+} = await useHomeCategoriesGrid(8);
 
 const stripImages = [
   {
@@ -66,7 +64,7 @@ const stripImages = [
     src: "https://webcms.blob.core.windows.net/media/home/logistica.webp",
     alt: "Logística",
   },
-]
+];
 
 const clientLogos = [
   { src: "/img/customers/vallhebron.svg", alt: "Vall d'Hebron" },
@@ -81,9 +79,9 @@ const clientLogos = [
   { src: "/img/customers/alcon.svg", alt: "Alcon" },
   { src: "/img/customers/renault.svg", alt: "Renault" },
   { src: "/img/customers/green-vita.svg", alt: "Green Vita" },
-]
+];
 
 if (import.meta.dev && homeCategoriesError.value) {
-  console.error("[HOME] error cargando categorías del grid:", homeCategoriesError.value)
+  console.error("[HOME] error cargando categorías del grid:", homeCategoriesError.value);
 }
 </script>

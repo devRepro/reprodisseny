@@ -1,24 +1,11 @@
 <script setup lang="ts">
-import { provide } from "vue"
-import SiteHeader from "@/components/layout/SiteHeader.vue"
-import SiteFooter from "@/components/shared/footer/SiteFooter.vue"
-import { useCategoriasNav } from "~/composables/useCategoriasNav"
+import SiteHeader from "@/components/layout/SiteHeader.vue";
+import SiteFooter from "@/components/shared/footer/SiteFooter.vue";
+import { useCategoriasNav } from "~/composables/useCategoriasNav";
 
-const {
-  tree: menuTree,
-  pending: menuPending,
-  error: menuError,
-  indexBySlug,
-  menuItems,
-} = await useCategoriasNav({ productLimit: 8 })
-
-provide("navMenu", {
-  tree: menuTree,
-  pending: menuPending,
-  error: menuError,
-  indexBySlug,
-  menuItems,
-})
+const { tree: menuTree, pending: menuPending, error: menuError } = useCategoriasNav({
+  productLimit: 6,
+});
 </script>
 
 <template>

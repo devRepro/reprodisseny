@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "cms:sync": "node scripts/sync-sharepoint-to-cms.mjs",
+    "sync:cms": "tsx scripts/sync-cms.ts",
     "build": "npm run cms:sync && nuxt build",
     "dev": "nuxt dev",
     "generate": "npm run cms:sync && nuxt generate",
@@ -83,6 +83,7 @@
     "tailwind-config-viewer": "^2.0.4",
     "tailwind-merge": "^3.3.1",
     "tailwindcss": "^3.4.17",
+    "tsx": "^4.21.0",
     "typescript": "^5.9.3",
     "vite": "^6.3.3",
     "vue": "^3.5.22"
@@ -94,6 +95,9 @@
     "esbuild": "^0.25",
     "node-fetch-native": "1.6.4",
     "minimatch": "^10.2.3",
-    "serialize-javascript": "7.0.3"
+    "serialize-javascript": "7.0.3",
+    "unhead": "^2.1.12",
+    "@unhead/vue": "^2.1.12",
+    "@unhead/addons": "^2.1.12"
   }
 }
