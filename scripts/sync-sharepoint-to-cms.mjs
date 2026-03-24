@@ -695,9 +695,7 @@ function buildCategory(item) {
     galleryImages: parseJson(f.GalleryImagesJson, []),
     breadcrumbs: parseJson(f.BreadcrumbsJson, []),
 
-    legacySlugs: uniq(
-      parseStringList(f.LegacySlugs ?? f.LegacySlugsJson).map(normalizeSlug)
-    ),
+    legacySlugs: uniq(parseStringList(f.LegacySlugs ?? f.LegacySlugsJson).map(normalizeSlug)),
 
     seo: {
       metaTitle: toStr(f.MetaTitle) || title,
@@ -715,7 +713,7 @@ function buildCategory(item) {
 
 function buildProduct(item) {
   const f = item.fields || {};
-  const slug = toStr(f.ProductSlug);
+  const slug = toStr(f.Slug); // Cambiado de f.ProductSlug
   if (!slug) return null;
 
   const title = toStr(f.Title) || slug;
@@ -776,17 +774,14 @@ function buildProduct(item) {
     path: pathValue,
 
     title,
+
     categorySlug: slugLeaf(f.CategorySlug) || normalizeSlug(f.CategorySlug) || "",
 
     isPublished: toBool(f.IsPublished),
     publishedAt: toStr(f.PublishedAt),
 
-    shortDescription,
-    description,
-    bodyMd,
-
-    sections,
-    faqs,
+    shortDescription: toStr(f.ShortDescription),
+    bodyMd: toStr(f.BodyMd),
 
     image: {
       src: imageSrc,
@@ -847,7 +842,7 @@ async function run() {
     "CtaLink",
     "Path",
     "TabsJson",
-    "LegacySlugs",
+    "LegacySlugsJson",
     "MetaTitle",
     "MetaDescription",
     "Canonical",
@@ -862,8 +857,8 @@ async function run() {
 
   const productFields = [
     "Title",
-    "ProductSlug",
-    "CategorySlug",
+    "Slug",
+    "PrimarySlug",
     "IsPublished",
     "PublishedAt",
     "ShortDescription",
@@ -888,9 +883,6 @@ async function run() {
     "HrefLangJson",
     "KeywordsJson",
     "SchemaJson",
-    "RobotsOverride",
-    "RobotsAdvanced",
-    "OgImageSrc",
   ];
 
   const [catItems, prodItems] = await Promise.all([
