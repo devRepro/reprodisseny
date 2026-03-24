@@ -69,7 +69,7 @@ if (data.value?.redirectTo && data.value.redirectTo !== route.path) {
 const category = computed(() => data.value ?? null);
 const children = computed(() => category.value?.children ?? []);
 const products = computed(() => category.value?.products ?? []);
-const tabs = computed(() => category.value?.tabs ?? []);
+const sections = computed(() => category.value?.sections ?? []);
 const faqs = computed(() => category.value?.faqs ?? []);
 const breadcrumbItems = computed(() => category.value?.breadcrumbs ?? []);
 const heroImage = computed(() => category.value?.image?.src || "");
@@ -193,11 +193,13 @@ useSeoMeta({
       </section>
 
       <CategoryContent
-        :tabs="tabs"
+        :title="category.title"
+        :description="category.description"
+        :image-src="category.image?.src || null"
+        :image-alt="category.image?.alt || category.title"
+        :sections="sections"
         :products="products"
         :faqs="faqs"
-        :sticky-top="96"
-        :rail-scroll-offset="132"
         products-title="Productos de esta categoría"
         products-subtitle="Explora formatos y soluciones relacionadas."
         faq-title="Preguntas frecuentes sobre esta categoría"

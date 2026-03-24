@@ -221,6 +221,14 @@ export type CategoryDetailFaqItem = {
   a: string;
 };
 
+export type CategoryDetailSectionItem = {
+  id: string;
+  title: string;
+  blocks: CatalogBlock[];
+  text?: string;
+  html?: string;
+};
+
 export type CategoryDetailPageDto = {
   slug: string;
   path: string;
@@ -235,7 +243,7 @@ export type CategoryDetailPageDto = {
   } | null;
   children: CategoryDetailChildItem[];
   products: CategoryDetailProductItem[];
-  tabs: CategoryDetailTabItem[];
+  sections: CategoryDetailSectionItem[];
   faqs: CategoryDetailFaqItem[];
   breadcrumbs: BreadcrumbItem[];
   seo: {
@@ -689,6 +697,48 @@ function getDirectProductsOfCategory(
     }));
 }
 
+
+function getCategorySections(category: CatalogCategory): CategoryDetailSectionItem[] {
+  const tabs = Array.isArray(category?.tabs) ? category.tabs : [];
+
+  return tabs
+    .map((tab, index) => {
+      const title =
+        tab?.title || tab?.label || tab?.heading || `Detalle ${index + 1}`;
+
+      const rawBlocks = Array.isArray(tab?.blocks) ? tab.blocks.filter(Boolean) : [];
+
+      const html = typeof tab?.html === "string" ? tab.html.trim() : "";
+      const text =
+        typeof tab?.content === "string"
+          ? tab.content.trim()
+          : typeof tab?.body === "string"
+            ? tab.body.trim()
+            : "";
+
+      const fallbackBlocks: CatalogBlock[] = html
+        ? [{ type: "text", text: html, html: true }]
+        : text
+          ? [{ type: "text", text, html: false }]
+          : [];
+
+      const blocks = rawBlocks.length ? rawBlocks : fallbackBlocks;
+
+      return {
+        id: String(tab?.id || `section-${index + 1}`),
+        title,
+        blocks,
+        ...(html ? { html } : {}),
+        ...(!html && text ? { text } : {}),
+      };
+    })
+    .filter(
+      (section) =>
+        section.title &&
+        Array.isArray(section.blocks) &&
+        section.blocks.length > 0
+    );
+}
 function getCategoryTabs(category: CatalogCategory): CategoryDetailTabItem[] {
   return (Array.isArray(category?.tabs) ? category.tabs : [])
     .map((tab, index) => {
@@ -915,6 +965,8 @@ export function getCategoryDetailByPath(
 
   const canonicalPath = categoryPathOf(category);
   const trail = buildCategoryTrail(category, categories);
+  const sections = getCategorySections(category);
+  const faqs = getCategoryFaqs(category);
 
   return {
     slug: categoryPublicSlugOf(category),
@@ -925,8 +977,9 @@ export function getCategoryDetailByPath(
     image: imageDtoOf(category.image, category.title),
     children: getDirectChildrenOf(category, categories, options.childLimit ?? 50),
     products: getDirectProductsOfCategory(category, options.productLimit ?? 24),
-    tabs: getCategoryTabs(category),
-    faqs: getCategoryFaqs(category),
+    sections,
+    tabs: getCategoryTabs(category), // legacy temporal
+    faqs,
     breadcrumbs: [
       { label: "Inicio", to: "/" },
       { label: "Categorías", to: "/categorias" },

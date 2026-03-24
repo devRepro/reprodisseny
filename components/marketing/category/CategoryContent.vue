@@ -1,98 +1,96 @@
 <script setup lang="ts">
-import { computed } from "vue"
-import { cn } from "@/lib/utils"
-import CategoryLead from "@/components/marketing/category/CategoryLead.vue"
-import CategoryRail from "@/components/marketing/category/CategoryRail.vue"
-import CategoryProductsGrid from "@/components/marketing/category/CategoryProductsGrid.vue"
-import CategoryFaq from "@/components/marketing/category/CategoryFaq.vue"
-import CategoryGuideCTA from "@/components/marketing/category/CategoryGuideCTA.vue"
-import type { Block, Tab } from "@/utils/categoryRail"
+import { computed } from "vue";
+import { cn } from "@/lib/utils";
+import CategoryLead from "@/components/marketing/category/CategoryLead.vue";
+import CategoryProductsGrid from "@/components/marketing/category/CategoryProductsGrid.vue";
+import CategoryFaq from "@/components/marketing/category/CategoryFaq.vue";
+import CategoryGuideCTA from "@/components/marketing/category/CategoryGuideCTA.vue";
+import type { Block } from "@/utils/categoryRail";
 
 type IncomingFaq = {
-  q?: string
-  a?: string
-  question?: string
-  answer?: string
-}
+  q?: string;
+  a?: string;
+  question?: string;
+  answer?: string;
+};
 
 type IncomingImage = {
-  src?: string
-  alt?: string
-  width?: number
-  height?: number
-} | null
+  src?: string;
+  alt?: string;
+  width?: number;
+  height?: number;
+} | null;
 
-type IncomingTab = {
-  id?: string
-  title?: string
-  blocks?: Block[]
-  content?: Block[]
-  text?: string
-  html?: string
-}
+type IncomingSection = {
+  id?: string;
+  key?: string;
+  title?: string;
+  blocks?: Block[];
+  content?: Block[];
+  text?: string;
+  html?: string;
+};
 
 type IncomingProduct = {
-  title?: string
-  to?: string
-  path?: string
-  imageSrc?: string
-  imageAlt?: string
-  image?: IncomingImage
-  ctaText?: string
-  description?: string
-}
+  title?: string;
+  to?: string;
+  path?: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  image?: IncomingImage;
+  ctaText?: string;
+  description?: string;
+};
 
 type GuideCta = {
-  imageSrc?: string | null
-  imageAlt?: string
-  title?: string
-  description?: string
-  to?: string
-  ctaLabel?: string
-}
+  imageSrc?: string | null;
+  imageAlt?: string;
+  title?: string;
+  description?: string;
+  to?: string;
+  ctaLabel?: string;
+};
 
 const props = withDefaults(
   defineProps<{
-    title?: string
-    description?: string
-    imageSrc?: string | null
-    imageAlt?: string
-    tabs?: IncomingTab[] | null
-    products?: IncomingProduct[] | null
-    faqs?: IncomingFaq[] | null
-    guideCta?: GuideCta | null
+    title?: string;
+    description?: string;
+    imageSrc?: string | null;
+    imageAlt?: string;
 
-    stickyTop?: number
-    railScrollOffset?: number
+    sections?: IncomingSection[] | null;
+    tabs?: IncomingSection[] | null; // legacy temporal
 
-    class?: string
-    leadClass?: string
-    railClass?: string
-    asideContainerClass?: string
+    products?: IncomingProduct[] | null;
+    faqs?: IncomingFaq[] | null;
+    guideCta?: GuideCta | null;
 
-    productsTitle?: string
-    productsSubtitle?: string
-    productsCtaText?: string
+    class?: string;
+    leadClass?: string;
+    sectionsClass?: string;
+    asideContainerClass?: string;
 
-    faqTitle?: string
-    faqSubtitle?: string
+    productsTitle?: string;
+    productsSubtitle?: string;
+    productsCtaText?: string;
+
+    faqTitle?: string;
+    faqSubtitle?: string;
   }>(),
   {
     title: "",
     description: "",
     imageSrc: null,
     imageAlt: "",
+    sections: () => [],
     tabs: () => [],
     products: () => [],
     faqs: () => [],
     guideCta: null,
 
-    stickyTop: 96,
-    railScrollOffset: 132,
-
     class: "",
     leadClass: "",
-    railClass: "",
+    sectionsClass: "",
     asideContainerClass: "mx-auto w-full max-w-[1100px] px-6 lg:px-16",
 
     productsTitle: "Productos relacionados",
@@ -102,70 +100,77 @@ const props = withDefaults(
     faqTitle: "Preguntas frecuentes",
     faqSubtitle: "",
   }
-)
+);
 
 function toTextBlock(text: string, html = false): Block {
   return {
     type: "text",
     text,
     html,
-  } as Block
+  } as Block;
 }
 
-function normalizeTabBlocks(tab: IncomingTab): Block[] {
-  if (Array.isArray(tab.blocks) && tab.blocks.length) {
-    return tab.blocks.filter(Boolean)
+function normalizeSectionBlocks(section: IncomingSection): Block[] {
+  if (Array.isArray(section.blocks) && section.blocks.length) {
+    return section.blocks.filter(Boolean);
   }
 
-  if (Array.isArray(tab.content) && tab.content.length) {
-    return tab.content.filter(Boolean)
+  if (Array.isArray(section.content) && section.content.length) {
+    return section.content.filter(Boolean);
   }
 
-  const html = String(tab.html ?? "").trim()
-  if (html) return [toTextBlock(html, true)]
+  const html = String(section.html ?? "").trim();
+  if (html) return [toTextBlock(html, true)];
 
-  const text = String(tab.text ?? "").trim()
-  if (text) return [toTextBlock(text, false)]
+  const text = String(section.text ?? "").trim();
+  if (text) return [toTextBlock(text, false)];
 
-  return []
+  return [];
 }
 
-const safeTabs = computed<Tab[]>(() =>
-  (props.tabs || [])
-    .map((tab, index) => {
-      const title = String(tab?.title ?? "").trim()
-      const id = String(tab?.id ?? "").trim() || `seccion-${index + 1}`
-      const blocks = normalizeTabBlocks(tab)
+const rawSections = computed<IncomingSection[]>(() => {
+  if (Array.isArray(props.sections) && props.sections.length) return props.sections;
+  if (Array.isArray(props.tabs) && props.tabs.length) return props.tabs;
+  return [];
+});
 
-      if (!title || !blocks.length) return null
+const safeSections = computed(() =>
+  rawSections.value
+    .map((section, index) => {
+      const title = String(section?.title ?? "").trim();
+      const id =
+        String(section?.id ?? section?.key ?? "").trim() || `seccion-${index + 1}`;
+      const blocks = normalizeSectionBlocks(section);
+
+      if (!title || !blocks.length) return null;
 
       return {
         id,
         title,
         blocks,
-      } as Tab
+      };
     })
-    .filter(Boolean) as Tab[]
-)
+    .filter(Boolean)
+);
 
 const leadChips = computed(() =>
-  safeTabs.value
-    .map((tab) => String(tab.title || "").trim())
+  safeSections.value
+    .map((section) => String(section?.title ?? "").trim())
     .filter(Boolean)
     .slice(0, 3)
-)
+);
 
 const safeProducts = computed(() =>
   (props.products || [])
     .map((item) => {
-      const title = String(item?.title ?? "").trim()
-      const to = String(item?.to ?? item?.path ?? "").trim()
+      const title = String(item?.title ?? "").trim();
+      const to = String(item?.to ?? item?.path ?? "").trim();
       const imageSrc =
-        String(item?.imageSrc ?? item?.image?.src ?? "").trim() || undefined
+        String(item?.imageSrc ?? item?.image?.src ?? "").trim() || undefined;
       const imageAlt =
-        String(item?.imageAlt ?? item?.image?.alt ?? title).trim() || title
+        String(item?.imageAlt ?? item?.image?.alt ?? title).trim() || title;
 
-      if (!title || !to) return null
+      if (!title || !to) return null;
 
       return {
         title,
@@ -173,29 +178,30 @@ const safeProducts = computed(() =>
         imageSrc,
         imageAlt,
         ctaText: String(item?.ctaText ?? "").trim() || undefined,
-      }
+      };
     })
     .filter(Boolean)
-)
+);
 
 const safeFaqs = computed(() =>
-  (props.faqs || []).filter((item) => {
-    const q = String(item?.q ?? item?.question ?? "").trim()
-    const a = String(item?.a ?? item?.answer ?? "").trim()
-    return q && a
-  })
-)
+  (props.faqs || [])
+    .map((item) => ({
+      q: String(item?.q ?? item?.question ?? "").trim(),
+      a: String(item?.a ?? item?.answer ?? "").trim(),
+    }))
+    .filter((item) => item.q && item.a)
+);
 
 const hasLead = computed(
   () =>
     Boolean(String(props.title || "").trim()) ||
     Boolean(String(props.description || "").trim())
-)
+);
 
-const hasRail = computed(() => safeTabs.value.length > 0)
-const hasProducts = computed(() => safeProducts.value.length > 0)
-const hasFaqs = computed(() => safeFaqs.value.length > 0)
-const hasGuideCta = computed(() => Boolean(props.guideCta))
+const hasSections = computed(() => safeSections.value.length > 0);
+const hasProducts = computed(() => safeProducts.value.length > 0);
+const hasFaqs = computed(() => safeFaqs.value.length > 0);
+const hasGuideCta = computed(() => Boolean(props.guideCta));
 </script>
 
 <template>
@@ -213,13 +219,106 @@ const hasGuideCta = computed(() => Boolean(props.guideCta))
       />
     </div>
 
-   
-
-    <div
-      v-if="hasProducts || hasFaqs || hasGuideCta"
-      :class="props.asideContainerClass"
-    >
+    <div :class="props.asideContainerClass">
       <div class="space-y-16 py-12 md:space-y-20 md:py-16">
+        <section
+          v-if="hasSections"
+          aria-labelledby="category-content-heading"
+          :class="props.sectionsClass"
+        >
+          <div class="max-w-[760px]">
+            <p class="text-label uppercase tracking-[0.08em] text-primary">
+              Características y detalles
+            </p>
+            <h2
+              id="category-content-heading"
+              class="mt-3 text-[clamp(2rem,2.7vw,2.85rem)] font-bold leading-[1.08] tracking-tight text-foreground"
+            >
+              Información clave de esta categoría
+            </h2>
+            <p
+              class="mt-3 max-w-[68ch] text-body text-foreground/78 md:text-[18px] md:leading-[1.68]"
+            >
+              Presentamos el contenido de forma clara y escaneable para facilitar la
+              comparación de soluciones, materiales, acabados y usos.
+            </p>
+          </div>
+
+          <div class="mt-8 space-y-6 md:space-y-8">
+            <section
+              v-for="section in safeSections"
+              :id="section.id"
+              :key="section.id"
+              class="scroll-mt-[132px] rounded-[28px] border border-border/70 bg-card p-6 shadow-[0_10px_30px_-24px_hsl(var(--foreground)/0.14)] md:p-8"
+            >
+              <header class="max-w-[760px]">
+                <h3
+                  class="text-[24px] font-semibold leading-[1.15] tracking-tight text-foreground md:text-[30px]"
+                >
+                  {{ section.title }}
+                </h3>
+              </header>
+
+              <div class="mt-6 space-y-5">
+                <template
+                  v-for="(block, index) in section.blocks"
+                  :key="`${section.id}-${index}`"
+                >
+                  <div v-if="block.type === 'text' && block.text" class="max-w-none">
+                    <div
+                      v-if="block.html"
+                      class="prose prose-slate max-w-none text-foreground/80"
+                      v-html="block.text"
+                    />
+                    <p
+                      v-else
+                      class="max-w-[78ch] text-body leading-[1.75] text-foreground/80"
+                    >
+                      {{ block.text }}
+                    </p>
+                  </div>
+
+                  <div
+                    v-else-if="block.type === 'bullets' && block.items?.length"
+                    class="grid grid-cols-1 gap-3 md:grid-cols-2"
+                  >
+                    <article
+                      v-for="(item, bulletIndex) in block.items"
+                      :key="`${section.id}-${index}-${bulletIndex}`"
+                      class="flex gap-3 rounded-2xl border border-border/60 bg-background px-4 py-4"
+                    >
+                      <span class="mt-[9px] h-2 w-2 shrink-0 rounded-full bg-primary" />
+                      <p class="text-body-s leading-[1.65] text-foreground/80">
+                        {{ item }}
+                      </p>
+                    </article>
+                  </div>
+
+                  <figure
+                    v-else-if="block.type === 'image' && block.src"
+                    class="overflow-hidden rounded-2xl border border-border/60 bg-background"
+                  >
+                    <NuxtImg
+                      :src="block.src"
+                      :alt="block.alt || section.title"
+                      :width="block.width || 1200"
+                      :height="block.height || 800"
+                      class="h-auto w-full object-cover"
+                      loading="lazy"
+                    />
+                    <figcaption
+                      v-if="block.caption"
+                      class="px-4 py-3 text-body-s text-foreground/70"
+                    >
+                      {{ block.caption }}
+                    </figcaption>
+                  </figure>
+                </template>
+              </div>
+            </section>
+          </div>
+        </section>
+
         <section
           v-if="hasProducts"
           id="productos"
@@ -232,20 +331,13 @@ const hasGuideCta = computed(() => Boolean(props.guideCta))
             :cta-text="productsCtaText"
           />
         </section>
-         <CategoryRail
-      v-if="hasRail"
-      :tabs="safeTabs"
-      :sticky-top="stickyTop"
-      :scroll-offset="railScrollOffset"
-      :container-class="'mx-auto w-full max-w-[1100px] px-6 md:px-10 lg:px-16'"
-      density="comfortable"
-      :class="props.railClass"
-    />
+
         <CategoryFaq
-  :items="faqs"
-  title="Preguntas frecuentes"
-  subtitle="Respondemos las dudas más habituales sobre materiales, acabados, formatos y tiempos de producción."
-/>
+          v-if="hasFaqs"
+          :items="safeFaqs"
+          :title="faqTitle"
+          :subtitle="faqSubtitle"
+        />
 
         <CategoryGuideCTA
           v-if="hasGuideCta"
