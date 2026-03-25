@@ -44,25 +44,12 @@ type CatalogBlock =
       caption?: string;
     };
 
-type CatalogTab = {
-  id?: string;
-  title?: string;
-  label?: string;
-  heading?: string;
-  content?: string;
-  body?: string;
-  html?: string;
-  blocks?: CatalogBlock[];
-  step?: number;
-};
-
-type CatalogProductSection = {
+type CatalogSection = {
   id?: string;
   key?: string;
   title?: string;
   body?: string;
   blocks?: CatalogBlock[];
-  step?: number;
 };
 
 type CatalogProductFormField = {
@@ -71,6 +58,9 @@ type CatalogProductFormField = {
   type?: string;
   required?: boolean;
   options?: string[];
+  readonly?: boolean;
+  placeholder?: string;
+  helpText?: string;
 };
 
 type CatalogFaq = {
@@ -122,7 +112,7 @@ type CatalogCategory = {
   isPublished?: boolean;
   description?: string;
   bodyMd?: string;
-  tabs?: CatalogTab[];
+  sections?: CatalogSection[];
   faqs?: CatalogFaq[];
   image?: CatalogImage | null;
   legacySlugs?: string[];
@@ -267,6 +257,9 @@ export type ProductDetailFormFieldItem = {
   type: string;
   required: boolean;
   options: string[];
+  readonly?: boolean;
+  placeholder?: string;
+  helpText?: string;
 };
 
 export type ProductDetailSectionItem = {
@@ -588,15 +581,22 @@ function getProductFaqs(product: CatalogProduct): ProductDetailFaqItem[] {
     .filter((faq) => faq.q && faq.a);
 }
 
-function computeCategoryRobots(category: CatalogCategory & { seo?: CatalogSeo }) {
-  if (category.hidden) return "noindex,follow";
+function computeRobotsBase(
+  overrideValue: unknown,
+  advancedValue: unknown,
+  forceNoindex = false
+) {
+  if (forceNoindex) {
+    const advanced = String(advancedValue ?? "").trim();
+    return advanced ? `noindex,follow,${advanced}` : "noindex,follow";
+  }
 
-  const override = String(category?.seo?.robotsOverride ?? "")
+  const override = String(overrideValue ?? "")
     .trim()
     .toUpperCase();
 
   const base =
-    override === "NOINDEX_FOLLOW"
+    override === "NOINDEX" || override === "NOINDEX_FOLLOW"
       ? "noindex,follow"
       : override === "NOINDEX_NOFOLLOW"
         ? "noindex,nofollow"
@@ -604,28 +604,23 @@ function computeCategoryRobots(category: CatalogCategory & { seo?: CatalogSeo })
           ? "index,nofollow"
           : "index,follow";
 
-  const advanced = String(category?.seo?.robotsAdvanced ?? "").trim();
-
+  const advanced = String(advancedValue ?? "").trim();
   return advanced ? `${base},${advanced}` : base;
 }
 
+function computeCategoryRobots(category: CatalogCategory & { seo?: CatalogSeo }) {
+  return computeRobotsBase(
+    category?.seo?.robotsOverride,
+    category?.seo?.robotsAdvanced,
+    Boolean(category.hidden)
+  );
+}
+
 function computeProductRobots(product: CatalogProduct & { seo?: CatalogSeo }) {
-  const override = String(product?.seo?.robotsOverride ?? "")
-    .trim()
-    .toUpperCase();
-
-  const base =
-    override === "NOINDEX_FOLLOW"
-      ? "noindex,follow"
-      : override === "NOINDEX_NOFOLLOW"
-        ? "noindex,nofollow"
-        : override === "INDEX_NOFOLLOW"
-          ? "index,nofollow"
-          : "index,follow";
-
-  const advanced = String(product?.seo?.robotsAdvanced ?? "").trim();
-
-  return advanced ? `${base},${advanced}` : base;
+  return computeRobotsBase(
+    product?.seo?.robotsOverride,
+    product?.seo?.robotsAdvanced
+  );
 }
 
 function buildCategoryTrail(
@@ -697,81 +692,29 @@ function getDirectProductsOfCategory(
     }));
 }
 
-
 function getCategorySections(category: CatalogCategory): CategoryDetailSectionItem[] {
-  const tabs = Array.isArray(category?.tabs) ? category.tabs : [];
+  return (Array.isArray(category?.sections) ? category.sections : [])
+    .map((section, index) => {
+      const title = String(section?.title || `Sección ${index + 1}`).trim();
+      const text = String(section?.body || "").trim();
+      const rawBlocks = Array.isArray(section?.blocks)
+        ? section.blocks.filter(Boolean)
+        : [];
 
-  return tabs
-    .map((tab, index) => {
-      const title =
-        tab?.title || tab?.label || tab?.heading || `Detalle ${index + 1}`;
-
-      const rawBlocks = Array.isArray(tab?.blocks) ? tab.blocks.filter(Boolean) : [];
-
-      const html = typeof tab?.html === "string" ? tab.html.trim() : "";
-      const text =
-        typeof tab?.content === "string"
-          ? tab.content.trim()
-          : typeof tab?.body === "string"
-            ? tab.body.trim()
-            : "";
-
-      const fallbackBlocks: CatalogBlock[] = html
-        ? [{ type: "text", text: html, html: true }]
-        : text
-          ? [{ type: "text", text, html: false }]
-          : [];
+      const fallbackBlocks: CatalogBlock[] = text
+        ? [{ type: "text", text, html: false }]
+        : [];
 
       const blocks = rawBlocks.length ? rawBlocks : fallbackBlocks;
 
       return {
-        id: String(tab?.id || `section-${index + 1}`),
+        id: String(section?.id || `section-${index + 1}`),
         title,
         blocks,
-        ...(html ? { html } : {}),
-        ...(!html && text ? { text } : {}),
+        ...(text ? { text } : {}),
       };
     })
-    .filter(
-      (section) =>
-        section.title &&
-        Array.isArray(section.blocks) &&
-        section.blocks.length > 0
-    );
-}
-function getCategoryTabs(category: CatalogCategory): CategoryDetailTabItem[] {
-  return (Array.isArray(category?.tabs) ? category.tabs : [])
-    .map((tab, index) => {
-      const title =
-        tab?.title || tab?.label || tab?.heading || `Detalle ${index + 1}`;
-
-      const rawBlocks = Array.isArray(tab?.blocks) ? tab.blocks.filter(Boolean) : [];
-
-      const html = typeof tab?.html === "string" ? tab.html.trim() : "";
-      const text =
-        typeof tab?.content === "string"
-          ? tab.content.trim()
-          : typeof tab?.body === "string"
-            ? tab.body.trim()
-            : "";
-
-      const fallbackBlocks: CatalogBlock[] = html
-        ? [{ type: "text", text: html, html: true }]
-        : text
-          ? [{ type: "text", text, html: false }]
-          : [];
-
-      const blocks = rawBlocks.length ? rawBlocks : fallbackBlocks;
-
-      return {
-        id: String(tab?.id || `tab-${index + 1}`),
-        title,
-        blocks,
-        ...(html ? { html } : {}),
-        ...(!html && text ? { text } : {}),
-      };
-    })
-    .filter((tab) => tab.title && Array.isArray(tab.blocks) && tab.blocks.length > 0);
+    .filter((section) => section.title && section.blocks.length > 0);
 }
 
 function getProductSections(product: CatalogProduct): ProductDetailSectionItem[] {
@@ -969,35 +912,41 @@ export function getCategoryDetailByPath(
   const faqs = getCategoryFaqs(category);
 
   return {
-    slug: categoryPublicSlugOf(category),
-    path: canonicalPath,
-    title: category.title,
-    nav: category.nav || category.title,
-    description: category.description || "",
-    image: imageDtoOf(category.image, category.title),
-    children: getDirectChildrenOf(category, categories, options.childLimit ?? 50),
-    products: getDirectProductsOfCategory(category, options.productLimit ?? 24),
-    sections,
-    tabs: getCategoryTabs(category), // legacy temporal
-    faqs,
-    breadcrumbs: [
-      { label: "Inicio", to: "/" },
-      { label: "Categorías", to: "/categorias" },
-      ...trail.map((item) => ({
-        label: item.nav || item.title,
-        to: categoryPathOf(item),
-      })),
-      { label: category.nav || category.title },
-    ],
-    seo: {
-      title: category?.seo?.title || `${category.title} | Reprodisseny`,
-      description: category?.seo?.description || category?.description || "",
-      canonical: canonicalPath,
-      image: category?.seo?.ogImageSrc || category.image?.src || undefined,
-      robots: computeCategoryRobots(category),
-    },
-    ...(resolved.redirectTo ? { redirectTo: resolved.redirectTo } : {}),
-  };
+  slug: categoryPublicSlugOf(category),
+  path: canonicalPath,
+  title: category.title,
+  nav: category.nav || category.title,
+  description: category.description || "",
+  image: imageDtoOf(category.image, category.title),
+  children: getDirectChildrenOf(category, categories, options.childLimit ?? 50),
+  products: getDirectProductsOfCategory(category, options.productLimit ?? 24),
+  sections,
+  faqs,
+  breadcrumbs: [
+    { label: "Inicio", to: "/" },
+    { label: "Categorías", to: "/categorias" },
+    ...trail.map((item) => ({
+      label: item.nav || item.title,
+      to: categoryPathOf(item),
+    })),
+    { label: category.nav || category.title },
+  ],
+  seo: {
+    title:
+      category?.seo?.metaTitle ||
+      category?.seo?.title ||
+      `${category.title} | Reprodisseny`,
+    description:
+      category?.seo?.metaDescription ||
+      category?.seo?.description ||
+      category?.description ||
+      "",
+    canonical: category?.seo?.canonical || canonicalPath,
+    image: category?.seo?.ogImageSrc || category.image?.src || undefined,
+    robots: computeCategoryRobots(category),
+  },
+  ...(resolved.redirectTo ? { redirectTo: resolved.redirectTo } : {}),
+};
 }
 
 function getCategoryBySlug(slug: string) {
@@ -1208,16 +1157,19 @@ export function getProductDetailBySlug(
     : [];
 
   const formFields = Array.isArray(product.formFields)
-    ? product.formFields.map((field) => ({
-        label: String(field?.label || ""),
-        name: String(field?.name || ""),
-        type: String(field?.type || "text"),
-        required: Boolean(field?.required),
-        options: Array.isArray(field?.options)
-          ? field.options.map((opt) => String(opt))
-          : [],
-      }))
-    : [];
+  ? product.formFields.map((field) => ({
+      label: String(field?.label || ""),
+      name: String(field?.name || ""),
+      type: String(field?.type || "text"),
+      required: Boolean(field?.required),
+      options: Array.isArray(field?.options)
+        ? field.options.map((opt) => String(opt))
+        : [],
+      readonly: Boolean(field?.readonly),
+      placeholder: field?.placeholder ? String(field.placeholder) : undefined,
+      helpText: field?.helpText ? String(field.helpText) : undefined,
+    }))
+  : [];
 
   return {
     slug: productPublicSlugOf(product),

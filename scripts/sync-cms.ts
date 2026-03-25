@@ -26,8 +26,15 @@ type SharePointCategoryFields = {
   IsHidden?: unknown;
   IsPublished?: unknown;
   PublishedAt?: unknown;
+
   Description?: unknown;
   BodyMd?: unknown;
+  DetailsMd?: unknown;
+  TypesMd?: unknown;
+  FormatsMd?: unknown;
+  UsesMd?: unknown;
+  FinishesMd?: unknown;
+
   ImageSrc?: unknown;
   ImageWidth?: unknown;
   ImageHeight?: unknown;
@@ -38,21 +45,31 @@ type SharePointCategoryFields = {
   CtaLink?: unknown;
   Path?: unknown;
   LegacySlugsJson?: unknown;
+  LegacySlugs?: unknown;
   MetaTitle?: unknown;
+  SeoTitle?: unknown;
   MetaDescription?: unknown;
+  SeoDescription?: unknown;
   Canonical?: unknown;
   HrefLangJson?: unknown;
+  HreflangJson?: unknown;
   KeywordsJson?: unknown;
+  Keywords?: unknown;
   SearchTermsJson?: unknown;
+  SearchTerms?: unknown;
   SchemaJson?: unknown;
+  Schema?: unknown;
   FaqsJson?: unknown;
   RobotsOverride?: unknown;
+  Robots?: unknown;
   RobotsAdvanced?: unknown;
   OgImageSrc?: unknown;
+  OgImage?: unknown;
 };
 
 type SharePointProductFields = {
   Title?: unknown;
+  ProductTitle?: unknown;
   Slug?: unknown;
   ProductSlug?: unknown;
   PrimarySlug?: unknown;
@@ -74,14 +91,25 @@ type SharePointProductFields = {
   Visible?: unknown;
   PublishedAt?: unknown;
   PublishDate?: unknown;
+
   ShortDescription?: unknown;
   Excerpt?: unknown;
   Summary?: unknown;
   Description?: unknown;
+
   BodyMd?: unknown;
   Body?: unknown;
   Markdown?: unknown;
   DescriptionMd?: unknown;
+
+  DetailsMd?: unknown;
+  BenefitsMd?: unknown;
+  MaterialsMd?: unknown;
+  FinishesMd?: unknown;
+  TechnicalSpecsMd?: unknown;
+  ApplicationsMd?: unknown;
+  FormatsMd?: unknown;
+
   FaqsJson?: unknown;
   FaqJson?: unknown;
   FAQsJson?: unknown;
@@ -212,6 +240,17 @@ type SeoDto = {
   ogImageSrc?: string;
 };
 
+type FormFieldDto = {
+  name: string;
+  label: string;
+  type: string;
+  required: boolean;
+  options: string[];
+  placeholder?: string;
+  helpText?: string;
+  readonly: boolean;
+};
+
 type CategoryDto = {
   id: string;
   updatedAt?: string;
@@ -271,7 +310,7 @@ type ProductDto = {
   reviewCount?: number;
   attributes: unknown[];
   variants: unknown[];
-  formFields: unknown[];
+  formFields: FormFieldDto[];
   legacySlugs: string[];
   seo: SeoDto;
 };
@@ -280,6 +319,74 @@ type SyncCatalog = {
   generatedAt: string;
   categories: CategoryDto[];
   products: ProductDto[];
+};
+
+const CATEGORY_SECTION_ORDER = [
+  "details",
+  "types",
+  "formats",
+  "finishes",
+  "uses",
+] as const;
+
+const PRODUCT_SECTION_ORDER = [
+  "details",
+  "benefits",
+  "materials",
+  "formats",
+  "finishes",
+  "technical-specs",
+  "applications",
+] as const;
+
+const SECTION_TITLE_MAP: Record<string, string> = {
+  details: "Detalles",
+  types: "Tipos",
+  formats: "Formatos y soportes",
+  finishes: "Acabados",
+  uses: "Usos habituales",
+  benefits: "Beneficios",
+  materials: "Materiales",
+  "technical-specs": "Características técnicas",
+  applications: "Aplicaciones",
+};
+
+const SECTION_ALIAS_MAP: Record<string, string> = {
+  descripcion: "details",
+  detalle: "details",
+  detalles: "details",
+
+  tipo: "types",
+  tipos: "types",
+
+  formato: "formats",
+  formatos: "formats",
+  "formatos-y-soportes": "formats",
+  "formatos-soportes": "formats",
+  "formatos-y-presentacion": "formats",
+  "formatos-y-cortes": "formats",
+
+  acabado: "finishes",
+  acabados: "finishes",
+
+  uso: "uses",
+  usos: "uses",
+  "usos-habituales": "uses",
+  "casos-de-uso": "uses",
+
+  beneficio: "benefits",
+  beneficios: "benefits",
+
+  material: "materials",
+  materiales: "materials",
+
+  "caracteristicas-tecnicas": "technical-specs",
+  caracteristicas: "technical-specs",
+  especificaciones: "technical-specs",
+  "technical-specs": "technical-specs",
+
+  aplicacion: "applications",
+  aplicaciones: "applications",
 };
 
 const TENANT_ID = process.env.TENANT_ID || process.env.AZURE_TENANT_ID;
@@ -750,6 +857,9 @@ function normalizeMdText(value: unknown): string {
   return String(value ?? "")
     .replace(/\r\n/g, "\n")
     .replace(/\u00A0/g, " ")
+    .replace(/\.\s*\/n/g, "\n")
+    .replace(/\/n/g, "\n")
+    .replace(/\n{3,}/g, "\n\n")
     .trim();
 }
 
@@ -773,24 +883,27 @@ function slugifyId(value: string): string {
     .replace(/^-+|-+$/g, "");
 }
 
-function inferSectionKey(title: string): string {
-  const normalized = slugifyId(title);
-  if (!normalized) return "otros";
-  if (["descripcion", "detalle", "detalles"].includes(normalized)) return "detalles";
-  if (normalized === "beneficios" || normalized === "beneficio") return "beneficios";
-  if (normalized === "aplicaciones" || normalized === "aplicacion") return "aplicaciones";
-  if (normalized === "caracteristicas-tecnicas" || normalized === "caracteristicas" || normalized === "especificaciones") {
-    return "caracteristicas-tecnicas";
-  }
-  if (normalized === "tipos" || normalized === "tipo") return "tipos";
-  if (normalized === "formatos-y-soportes" || normalized === "formatos-soportes" || normalized === "formatos") {
-    return "formatos-y-soportes";
-  }
-  if (normalized === "acabados" || normalized === "acabado") return "acabados";
-  if (normalized === "usos-habituales" || normalized === "usos" || normalized === "casos-de-uso") {
-    return "usos-habituales";
-  }
-  return "otros";
+function canonicalSectionId(value: unknown): string {
+  const normalized = slugifyId(String(value ?? ""));
+  return SECTION_ALIAS_MAP[normalized] || normalized || "details";
+}
+
+function canonicalSectionTitle(id: string, fallback?: string): string {
+  return SECTION_TITLE_MAP[id] || fallback || "Contenido";
+}
+
+function sortSections(
+  sections: ContentSection[],
+  preferredOrder: readonly string[]
+): ContentSection[] {
+  const orderMap = new Map(preferredOrder.map((id, index) => [id, index]));
+
+  return [...sections].sort((a, b) => {
+    const ai = orderMap.get(a.id) ?? 999;
+    const bi = orderMap.get(b.id) ?? 999;
+    if (ai !== bi) return ai - bi;
+    return a.title.localeCompare(b.title, "es", { sensitivity: "base" });
+  });
 }
 
 function mdChunkToBlocks(md: string): ContentBlock[] {
@@ -900,7 +1013,10 @@ function mdChunkToBlocks(md: string): ContentBlock[] {
   return blocks;
 }
 
-function splitBodyMdSections(bodyMd: string): { introMd: string; sections: Array<{ title: string; md: string }> } {
+function splitBodyMdSections(bodyMd: string): {
+  introMd: string;
+  sections: Array<{ title: string; md: string }>;
+} {
   const md = normalizeMdText(bodyMd);
   if (!md) return { introMd: "", sections: [] };
 
@@ -915,8 +1031,7 @@ function splitBodyMdSections(bodyMd: string): { introMd: string; sections: Array
 
     const mH2 = trimmed.match(/^##\s*(.+?)\s*$/);
     if (mH2) {
-      const title = stripMdInline(mH2[1]!);
-      current = { title, lines: [] };
+      current = { title: stripMdInline(mH2[1]!), lines: [] };
       sections.push(current);
       continue;
     }
@@ -934,66 +1049,163 @@ function splitBodyMdSections(bodyMd: string): { introMd: string; sections: Array
   };
 }
 
+function createSection(idLike: string, titleLike: string, body: unknown): ContentSection | null {
+  let cleanBody = normalizeMdText(body);
+  if (!cleanBody) return null;
+
+  cleanBody = cleanBody.replace(/^##+\s*[^\n]+\n*/i, "").trim();
+  if (!cleanBody) return null;
+
+  const id = canonicalSectionId(idLike || titleLike);
+  const title = canonicalSectionTitle(id, stripMdInline(titleLike));
+  const blocks = mdChunkToBlocks(cleanBody);
+
+  if (!blocks.length) return null;
+
+  return {
+    id,
+    key: id,
+    title,
+    body: cleanBody,
+    blocks,
+  };
+}
+
 function buildSectionsFromBodyMd(bodyMd: string | undefined): ContentSection[] {
   const md = normalizeMdText(bodyMd);
   if (!md) return [];
 
   const { introMd, sections } = splitBodyMdSections(md);
-  const out: ContentSection[] = [];
-  const usedIds = new Set<string>();
+  const out = new Map<string, ContentSection>();
 
-  const pushSection = (title: string, mdContent: string, preferredId?: string, preferredKey?: string) => {
-    const blocks = mdChunkToBlocks(mdContent);
-    if (!blocks.length) return;
+  const upsert = (section: ContentSection | null) => {
+    if (!section) return;
+    if (!out.has(section.id)) {
+      out.set(section.id, section);
+      return;
+    }
 
-    const base = slugifyId(preferredId || title) || "section";
-    let id = base;
-    let suffix = 2;
+    const existing = out.get(section.id)!;
+    const nextBody = [existing.body, section.body].filter(Boolean).join("\n\n").trim();
 
-    while (usedIds.has(id)) id = `${base}-${suffix++}`;
-    usedIds.add(id);
-
-    out.push({
-      id,
-      key: preferredKey || inferSectionKey(title),
-      title: title.trim(),
-      body: mdContent.trim(),
-      blocks,
+    out.set(section.id, {
+      ...existing,
+      body: nextBody,
+      blocks: [...existing.blocks, ...section.blocks],
     });
   };
 
   if (introMd) {
-    pushSection("Descripción", introMd, "descripcion", "detalles");
+    upsert(createSection("details", "Detalles", introMd));
   }
 
   for (const section of sections) {
-    if (!section.title || !section.md) continue;
-    pushSection(section.title, section.md, section.title, inferSectionKey(section.title));
+    upsert(createSection(section.title, section.title, section.md));
   }
 
-  if (!out.length) {
-    pushSection("Descripción", md, "descripcion", "detalles");
+  if (!out.size) {
+    upsert(createSection("details", "Detalles", md));
   }
 
-  return out;
+  return [...out.values()];
 }
 
-function buildSectionsWithFallback(bodyMd: string | undefined, fallbackDescription?: string): ContentSection[] {
-  const sections = buildSectionsFromBodyMd(bodyMd);
-  if (sections.length > 0) return sections;
+function buildStructuredSections(
+  input: Array<{
+    id: string;
+    title: string;
+    body: unknown;
+  }>,
+  preferredOrder: readonly string[]
+): ContentSection[] {
+  const sections = input
+    .map((item) => createSection(item.id, item.title, item.body))
+    .filter(Boolean) as ContentSection[];
+
+  return sortSections(sections, preferredOrder);
+}
+
+function buildSectionsStructuredFirst(
+  structuredSections: ContentSection[],
+  preferredOrder: readonly string[],
+  bodyMd?: string,
+  fallbackDescription?: string
+): ContentSection[] {
+  if (structuredSections.length > 0) {
+    return sortSections(structuredSections, preferredOrder);
+  }
+
+  const fallbackSections = buildSectionsFromBodyMd(bodyMd);
+  if (fallbackSections.length > 0) {
+    return sortSections(fallbackSections, preferredOrder);
+  }
 
   const fallback = normalizeMdText(fallbackDescription);
   if (!fallback) return [];
 
-  return [
-    {
-      id: "descripcion",
-      key: "detalles",
-      title: "Descripción",
-      body: fallback,
-      blocks: [{ type: "text", text: fallback, html: false }],
-    },
-  ];
+  const firstId = preferredOrder[0] || "details";
+  const section = createSection(firstId, canonicalSectionTitle(firstId), fallback);
+
+  return section ? [section] : [];
+}
+
+function buildCategorySections(fields: SharePointCategoryFields): ContentSection[] {
+  return buildStructuredSections(
+    [
+      { id: "details", title: "Detalles", body: fields.DetailsMd },
+      { id: "types", title: "Tipos", body: fields.TypesMd },
+      { id: "formats", title: "Formatos y soportes", body: fields.FormatsMd },
+      { id: "finishes", title: "Acabados", body: fields.FinishesMd },
+      { id: "uses", title: "Usos habituales", body: fields.UsesMd },
+    ],
+    CATEGORY_SECTION_ORDER
+  );
+}
+
+function buildProductSections(fields: Record<string, unknown>): ContentSection[] {
+  return buildStructuredSections(
+    [
+      { id: "details", title: "Detalles", body: fields.DetailsMd },
+      { id: "benefits", title: "Beneficios", body: fields.BenefitsMd },
+      { id: "materials", title: "Materiales", body: fields.MaterialsMd },
+      { id: "formats", title: "Formatos y soportes", body: fields.FormatsMd },
+      { id: "finishes", title: "Acabados", body: fields.FinishesMd },
+      { id: "technical-specs", title: "Características técnicas", body: fields.TechnicalSpecsMd },
+      { id: "applications", title: "Aplicaciones", body: fields.ApplicationsMd },
+    ],
+    PRODUCT_SECTION_ORDER
+  );
+}
+
+function normalizeFormFields(raw: unknown): FormFieldDto[] {
+  const parsed = parseJson<unknown[]>(raw, []);
+  if (!Array.isArray(parsed)) return [];
+
+  return parsed
+    .map((item, index) => {
+      if (!item || typeof item !== "object") return null;
+      const field = item as Record<string, unknown>;
+
+      const name = toStr(field.name) || toStr(field.id) || `field_${index + 1}`;
+      const label = toStr(field.label) || toStr(field.title) || name;
+      const type = (toStr(field.type) || "text").toLowerCase();
+
+      const options = Array.isArray(field.options)
+        ? (field.options.map(toStr).filter(Boolean) as string[])
+        : [];
+
+      return {
+        name,
+        label,
+        type,
+        required: toBool(field.required),
+        options,
+        placeholder: toStr(field.placeholder),
+        helpText: toStr(field.helpText || field.description),
+        readonly: type === "select" && options.length <= 1,
+      } satisfies FormFieldDto;
+    })
+    .filter(Boolean) as FormFieldDto[];
 }
 
 function parseFaqsJson(rawFaqs: unknown): FaqItem[] {
@@ -1020,7 +1232,9 @@ function parseFaqsJson(rawFaqs: unknown): FaqItem[] {
   }
 
   const extracted: FaqItem[] = [];
-  const pairRegex = /"question"\s*:\s*"([^"]+?)"\s*,?\s*"answer"\s*:\s*"([\s\S]*?)"\s*(?=\}\s*,?\s*\{|\}\s*\]?$)/g;
+  const pairRegex =
+    /"question"\s*:\s*"([^"]+?)"\s*,?\s*"answer"\s*:\s*"([\s\S]*?)"\s*(?=\}\s*,?\s*\{|\}\s*\]?$)/g;
+
   for (const match of raw.matchAll(pairRegex)) {
     const question = cleanFaqText(match[1]);
     const answer = cleanFaqText(match[2]);
@@ -1036,6 +1250,7 @@ function cleanFaqText(value: unknown): string | undefined {
     .replace(/^"+|"+$/g, "")
     .replace(/\s+/g, " ")
     .trim();
+
   return normalized || undefined;
 }
 
@@ -1081,7 +1296,9 @@ function validateCategory(category: CategoryDto): string[] {
   if (!category.path?.startsWith("/categorias/")) issues.push("invalid path");
   if (!category.seo?.canonical?.startsWith(SITE_URL)) issues.push("invalid canonical");
   if (!Array.isArray(category.sections)) issues.push("sections not array");
-  if (!Array.isArray(category.seo?.hreflang) || category.seo.hreflang.length === 0) issues.push("missing hreflang");
+  if (!Array.isArray(category.seo?.hreflang) || category.seo.hreflang.length === 0) {
+    issues.push("missing hreflang");
+  }
 
   return issues;
 }
@@ -1094,7 +1311,9 @@ function validateProduct(product: ProductDto): string[] {
   if (!product.seo?.canonical?.startsWith(SITE_URL)) issues.push("invalid canonical");
   if (!Array.isArray(product.sections)) issues.push("sections not array");
   if (!product.categorySlug) issues.push("missing categorySlug");
-  if (!Array.isArray(product.seo?.hreflang) || product.seo.hreflang.length === 0) issues.push("missing hreflang");
+  if (!Array.isArray(product.seo?.hreflang) || product.seo.hreflang.length === 0) {
+    issues.push("missing hreflang");
+  }
 
   return issues;
 }
@@ -1131,11 +1350,21 @@ function buildCategory(item: GraphItem<SharePointCategoryFields>): CategoryDto |
   const imageSrc =
     urlValue(fields.ImageSrc) ||
     urlValue(firstNonEmpty(fields as Record<string, unknown>, ["OgImageSrc", "OgImage"]));
-  const bodyMd = toStr(fields.BodyMd);
-  const sections = buildSectionsWithFallback(bodyMd, fields.Description);
-  const faqs = parseFaqsJson(fields.FaqsJson);
+
   const description = toStr(fields.Description);
-  const searchTerms = parseStringList(firstNonEmpty(fields as Record<string, unknown>, ["SearchTermsJson", "SearchTerms"]));
+  const bodyMd = toStr(fields.BodyMd);
+
+  const sections = buildSectionsStructuredFirst(
+    buildCategorySections(fields),
+    CATEGORY_SECTION_ORDER,
+    bodyMd,
+    description
+  );
+
+  const faqs = parseFaqsJson(fields.FaqsJson);
+  const searchTerms = parseStringList(
+    firstNonEmpty(fields as Record<string, unknown>, ["SearchTermsJson", "SearchTerms"])
+  );
 
   const manualSchema: Record<string, JsonValue | undefined> = {
     "@context": "https://schema.org",
@@ -1144,7 +1373,10 @@ function buildCategory(item: GraphItem<SharePointCategoryFields>): CategoryDto |
     description,
     url: canonicalUrl,
     image: imageSrc,
-    publisher: { "@type": "Organization", name: "Repro Disseny" },
+    publisher: {
+      "@type": "Organization",
+      name: "Repro Disseny",
+    },
   };
 
   const spSchema = parseJson<Record<string, JsonValue | undefined>>(
@@ -1180,7 +1412,10 @@ function buildCategory(item: GraphItem<SharePointCategoryFields>): CategoryDto |
       link: sanitizeInternalLink(fields.CtaLink),
     },
     faqs,
-    galleryImages: parseJson<unknown[]>(firstNonEmpty(fields as Record<string, unknown>, ["GalleryImagesJson", "GalleryJson"]), []),
+    galleryImages: parseJson<unknown[]>(
+      firstNonEmpty(fields as Record<string, unknown>, ["GalleryImagesJson", "GalleryJson"]),
+      []
+    ),
     breadcrumbs: normalizeBreadcrumbs(fields.BreadcrumbsJson),
     legacySlugs: uniq(
       parseStringList(firstNonEmpty(fields as Record<string, unknown>, ["LegacySlugsJson", "LegacySlugs"]))
@@ -1189,7 +1424,8 @@ function buildCategory(item: GraphItem<SharePointCategoryFields>): CategoryDto |
     ),
     seo: {
       metaTitle: toStr(firstNonEmpty(fields as Record<string, unknown>, ["MetaTitle", "SeoTitle"])) || title,
-      metaDescription: toStr(firstNonEmpty(fields as Record<string, unknown>, ["MetaDescription", "SeoDescription"])) || description,
+      metaDescription:
+        toStr(firstNonEmpty(fields as Record<string, unknown>, ["MetaDescription", "SeoDescription"])) || description,
       canonical: canonicalUrl,
       hreflang: normalizeHreflang(
         firstNonEmpty(fields as Record<string, unknown>, ["HrefLangJson", "HreflangJson"]),
@@ -1198,7 +1434,8 @@ function buildCategory(item: GraphItem<SharePointCategoryFields>): CategoryDto |
       keywords: parseStringList(firstNonEmpty(fields as Record<string, unknown>, ["KeywordsJson", "Keywords"])),
       searchTerms,
       schema: { ...manualSchema, ...spSchema },
-      robotsOverride: toStr(firstNonEmpty(fields as Record<string, unknown>, ["RobotsOverride", "Robots"])) || "INHERIT",
+      robotsOverride:
+        toStr(firstNonEmpty(fields as Record<string, unknown>, ["RobotsOverride", "Robots"])) || "INHERIT",
       robotsAdvanced: toStr(firstNonEmpty(fields as Record<string, unknown>, ["RobotsAdvanced"])),
       ogImageSrc: urlValue(firstNonEmpty(fields as Record<string, unknown>, ["OgImageSrc", "OgImage"])) || imageSrc,
     },
@@ -1209,7 +1446,7 @@ function buildProduct(item: GraphItem<SharePointProductFields>): ProductDto | nu
   const fields = (item.fields || {}) as Record<string, unknown>;
 
   const slugRaw = firstNonEmpty(fields, ["Slug", "ProductSlug", "PrimarySlug", "UrlSlug", "Handle"]);
-  const slug = toStr(slugRaw);
+  const slug = slugLeaf(slugRaw) || normalizeSlug(slugRaw);
   if (!slug) return null;
 
   const title = toStr(firstNonEmpty(fields, ["Title", "ProductTitle"], slug)) || slug;
@@ -1217,18 +1454,35 @@ function buildProduct(item: GraphItem<SharePointProductFields>): ProductDto | nu
   const pathSource = firstNonEmpty(fields, ["Path", "ProductPath", "UrlPath"]);
   const path = normalizeProductPath(pathSource, canonicalSource, slug);
   const canonicalUrl = toAbsoluteSiteUrl(canonicalSource, path);
+
   const imageSrc =
     urlValue(firstNonEmpty(fields, ["ImageSrc", "Image", "FeaturedImage"])) ||
     urlValue(firstNonEmpty(fields, ["OgImageSrc", "OgImage"]));
+
   const price = toPrice(firstNonEmpty(fields, ["Price", "BasePrice"]));
   const inStock = toBool(firstNonEmpty(fields, ["InStock", "Stock", "Available"]));
-  const bodyMd = toStr(firstNonEmpty(fields, ["BodyMd", "Body", "Markdown", "DescriptionMd"]));
-  const shortDescription = toStr(firstNonEmpty(fields, ["ShortDescription", "Excerpt", "Summary"])) || undefined;
-  const descriptionFallback =
+
+  const shortDescription =
+    toStr(firstNonEmpty(fields, ["ShortDescription", "Excerpt", "Summary"])) || undefined;
+
+  const bodyMd =
+    toStr(firstNonEmpty(fields, ["BodyMd", "Body", "Markdown", "DescriptionMd"])) || undefined;
+
+  const sections = buildSectionsStructuredFirst(
+    buildProductSections(fields),
+    PRODUCT_SECTION_ORDER,
+    bodyMd,
+    shortDescription ||
+      toStr(firstNonEmpty(fields, ["MetaDescription", "SeoDescription"])) ||
+      toStr(firstNonEmpty(fields, ["Description"]))
+  );
+
+  const description =
     shortDescription ||
     toStr(firstNonEmpty(fields, ["MetaDescription", "SeoDescription"])) ||
-    toStr(firstNonEmpty(fields, ["Description"]));
-  const sections = buildSectionsWithFallback(bodyMd, descriptionFallback);
+    toStr(firstNonEmpty(fields, ["Description"])) ||
+    (sections[0]?.body ? String(sections[0].body).split("\n")[0]?.trim() : undefined);
+
   const faqs = parseFaqsJson(firstNonEmpty(fields, ["FaqsJson", "FaqJson", "FAQsJson"]));
 
   const primaryCategoryRaw = firstNonEmpty(fields, [
@@ -1237,17 +1491,16 @@ function buildProduct(item: GraphItem<SharePointProductFields>): ProductDto | nu
     "Category",
     "PrimaryCategorySlug",
   ]);
+
   const primaryCategory = slugLeaf(primaryCategoryRaw) || normalizeSlug(primaryCategoryRaw) || "";
+
   const extraCategories = parseStringList(firstNonEmpty(fields, ["Categories", "SecondaryCategories"]))
     .map((value) => slugLeaf(value) || normalizeSlug(value))
     .filter(Boolean) as string[];
+
   const categorySlugs = uniq([primaryCategory, ...extraCategories].filter(Boolean));
   const categorySlug = primaryCategory || categorySlugs[0] || "";
 
-  const description =
-    shortDescription ||
-    toStr(firstNonEmpty(fields, ["MetaDescription", "SeoDescription"])) ||
-    (sections[0]?.body ? String(sections[0].body).split("\n")[0]?.trim() : undefined);
   const searchTerms = parseStringList(firstNonEmpty(fields, ["SearchTermsJson", "SearchTerms"]));
 
   const baseSchema: Record<string, JsonValue | undefined> = {
@@ -1276,6 +1529,7 @@ function buildProduct(item: GraphItem<SharePointProductFields>): ProductDto | nu
 
   const ratingValue = toPrice(firstNonEmpty(fields, ["RatingValue", "Rating"]));
   const reviewCount = toNumber(firstNonEmpty(fields, ["ReviewCount", "Reviews"]));
+
   if (ratingValue > 0 && reviewCount && reviewCount > 0) {
     baseSchema.aggregateRating = {
       "@type": "AggregateRating",
@@ -1284,7 +1538,11 @@ function buildProduct(item: GraphItem<SharePointProductFields>): ProductDto | nu
     };
   }
 
-  const spSchema = parseJson<Record<string, JsonValue | undefined>>(firstNonEmpty(fields, ["SchemaJson", "Schema"]), {});
+  const spSchema = parseJson<Record<string, JsonValue | undefined>>(
+    firstNonEmpty(fields, ["SchemaJson", "Schema"]),
+    {}
+  );
+
   const noIndex = toBool(firstNonEmpty(fields, ["NoIndex", "Noindex"]));
 
   return {
@@ -1322,13 +1580,16 @@ function buildProduct(item: GraphItem<SharePointProductFields>): ProductDto | nu
     reviewCount: reviewCount && reviewCount > 0 ? reviewCount : undefined,
     attributes: parseJson<unknown[]>(firstNonEmpty(fields, ["AttributesJson", "Attributes"]), []),
     variants: parseJson<unknown[]>(firstNonEmpty(fields, ["VariantsJson", "Variants"]), []),
-    formFields: parseJson<unknown[]>(firstNonEmpty(fields, ["FormFieldsJson", "FormFields"]), []),
+    formFields: normalizeFormFields(firstNonEmpty(fields, ["FormFieldsJson", "FormFields"])),
     legacySlugs: uniq(
-      parseStringList(firstNonEmpty(fields, ["LegacySlugsJson", "LegacySlugs"])).map(normalizeSlug).filter(Boolean) as string[]
+      parseStringList(firstNonEmpty(fields, ["LegacySlugsJson", "LegacySlugs"]))
+        .map(normalizeSlug)
+        .filter(Boolean) as string[]
     ),
     seo: {
       metaTitle: toStr(firstNonEmpty(fields, ["MetaTitle", "SeoTitle"])) || title,
-      metaDescription: toStr(firstNonEmpty(fields, ["MetaDescription", "SeoDescription"])) || description,
+      metaDescription:
+        toStr(firstNonEmpty(fields, ["MetaDescription", "SeoDescription"])) || description,
       canonical: canonicalUrl,
       hreflang: normalizeHreflang(firstNonEmpty(fields, ["HrefLangJson", "HreflangJson"]), canonicalUrl),
       keywords: parseStringList(firstNonEmpty(fields, ["KeywordsJson", "Keywords"])),
@@ -1368,8 +1629,15 @@ async function run(): Promise<void> {
     "IsHidden",
     "IsPublished",
     "PublishedAt",
+
     "Description",
     "BodyMd",
+    "DetailsMd",
+    "TypesMd",
+    "FormatsMd",
+    "UsesMd",
+    "FinishesMd",
+
     "ImageSrc",
     "ImageWidth",
     "ImageHeight",
@@ -1380,22 +1648,144 @@ async function run(): Promise<void> {
     "CtaLink",
     "Path",
     "LegacySlugsJson",
+    "LegacySlugs",
     "MetaTitle",
+    "SeoTitle",
     "MetaDescription",
+    "SeoDescription",
     "Canonical",
     "HrefLangJson",
+    "HreflangJson",
     "KeywordsJson",
+    "Keywords",
     "SearchTermsJson",
+    "SearchTerms",
     "FaqsJson",
     "SchemaJson",
+    "Schema",
     "RobotsOverride",
+    "Robots",
     "RobotsAdvanced",
     "OgImageSrc",
+    "OgImage",
+  ];
+
+  const productFields = [
+    "Title",
+    "ProductTitle",
+    "Slug",
+    "ProductSlug",
+    "PrimarySlug",
+    "UrlSlug",
+    "Handle",
+    "Path",
+    "ProductPath",
+    "UrlPath",
+    "PrimaryCategory",
+    "CategorySlug",
+    "Category",
+    "PrimaryCategorySlug",
+    "Categories",
+    "SecondaryCategories",
+    "SortOrder",
+    "Order",
+    "IsPublished",
+    "Published",
+    "Visible",
+    "PublishedAt",
+    "PublishDate",
+
+    "ShortDescription",
+    "Excerpt",
+    "Summary",
+    "Description",
+
+    "BodyMd",
+    "Body",
+    "Markdown",
+    "DescriptionMd",
+
+    "DetailsMd",
+    "BenefitsMd",
+    "MaterialsMd",
+    "FormatsMd",
+    "FinishesMd",
+    "TechnicalSpecsMd",
+    "ApplicationsMd",
+
+    "FaqsJson",
+    "FaqJson",
+    "FAQsJson",
+
+    "ImageSrc",
+    "Image",
+    "FeaturedImage",
+    "ImageWidth",
+    "Width",
+    "ImageHeight",
+    "Height",
+    "ImageAlt",
+    "Alt",
+    "GalleryImagesJson",
+    "GalleryJson",
+
+    "Sku",
+    "SKU",
+    "Mpn",
+    "MPN",
+    "Gtin13",
+    "GTIN13",
+    "Ean13",
+    "Brand",
+    "Marca",
+    "Price",
+    "BasePrice",
+    "PriceCurrency",
+    "Currency",
+    "InStock",
+    "Stock",
+    "Available",
+    "RatingValue",
+    "Rating",
+    "ReviewCount",
+    "Reviews",
+
+    "AttributesJson",
+    "Attributes",
+    "VariantsJson",
+    "Variants",
+    "FormFieldsJson",
+    "FormFields",
+
+    "MetaTitle",
+    "SeoTitle",
+    "MetaDescription",
+    "SeoDescription",
+    "Canonical",
+    "CanonicalUrl",
+    "SeoCanonical",
+    "HrefLangJson",
+    "HreflangJson",
+    "KeywordsJson",
+    "Keywords",
+    "SearchTermsJson",
+    "SearchTerms",
+    "SchemaJson",
+    "Schema",
+    "LegacySlugsJson",
+    "LegacySlugs",
+    "NoIndex",
+    "Noindex",
+    "RobotsOverride",
+    "Robots",
+    "RobotsAdvanced",
+    "OgImageSrc",
+    "OgImage",
   ];
 
   const [catItems, prodItems] = await Promise.all([
     fetchAllItems<SharePointCategoryFields>(SP_LIST_CATEGORIES_ID!, categoryFields),
-    fetchAllItems<SharePointProductFields>(SP_LIST_PRODUCTS_ID!, []),
+    fetchAllItems<SharePointProductFields>(SP_LIST_PRODUCTS_ID!, productFields),
   ]);
 
   if (prodItems.length) {
@@ -1417,6 +1807,7 @@ async function run(): Promise<void> {
 
   const productsMissingSlug = prodItems.length - productsAll.length;
   const productsUnpublished = productsAll.length - products.length;
+
   console.log("   Product diagnostics:", {
     raw: prodItems.length,
     built: productsAll.length,
