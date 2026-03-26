@@ -1,0 +1,1485 @@
+[
+  {
+    "type": "categoria",
+    "slug": "adhesivos-personalizados",
+    "title": "Adhesivos personalizados para branding e interiorismo",
+    "path": "/categorias/adhesivos-personalizados",
+    "keywords": [
+      "Adhesivos personalizados para empresas",
+      "Etiquetas adhesivas en Cataluña",
+      "Impresión de pegatinas promocionales",
+      "Adhesivos para packaging",
+      "Etiquetas autoadhesivas de calidad"
+    ],
+    "searchTerms": []
+  },
+  {
+    "type": "categoria",
+    "slug": "eventos",
+    "title": "Impresión personalizada para eventos corporativos",
+    "path": "/categorias/eventos",
+    "keywords": [
+      "Material gráfico para eventos corporativos",
+      "Impresión de acreditaciones y lanyards",
+      "Señalética personalizada para eventos",
+      "Invitaciones y programas impresos",
+      "Soluciones gráficas para congresos"
+    ],
+    "searchTerms": [
+      "impresión personalizada para eventos corporativos | repro disseny"
+    ]
+  },
+  {
+    "type": "categoria",
+    "slug": "expositores",
+    "title": "Expositores personalizados para ferias y punto de venta",
+    "path": "/categorias/expositores",
+    "keywords": [
+      "Diseño de stands para ferias",
+      "Expositores personalizados para puntos de venta",
+      "Roll-ups publicitarios",
+      "Displays promocionales",
+      "Expositores portátiles para eventos"
+    ],
+    "searchTerms": [
+      "expositores impresos para punto de venta y eventos | repro disseny"
+    ]
+  },
+  {
+    "type": "categoria",
+    "slug": "gran-formato",
+    "title": "Impresión gran formato (flexible y rígido)",
+    "path": "/categorias/gran-formato",
+    "keywords": [
+      "impresión gran formato Barcelona",
+      "lonas publicitarias gran formato",
+      "carteles y pancartas eventos",
+      "vinilos decorativos oficinas",
+      "soportes publicitarios gran formato"
+    ],
+    "searchTerms": [
+      "impresión gran formato Cataluña",
+      "impresión digital gran formato",
+      "cartelería gran formato Barcelona"
+    ]
+  },
+  {
+    "type": "categoria",
+    "slug": "material-flexible",
+    "title": "Impresión en Materiales Flexibles - Gran Formato",
+    "path": "/categorias/gran-formato/material-flexible",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "categoria",
+    "slug": "material-rigido",
+    "title": "Impresión en Materiales Rígidos - Gran Formato",
+    "path": "/categorias/gran-formato/material-rigido",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "categoria",
+    "slug": "hosteleria-restauracion",
+    "title": "Impresión para hostelería y restauración: hoteles, restaurantes y eventos",
+    "path": "/categorias/hosteleria-restauracion",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "categoria",
+    "slug": "libros-revistas-catalogos",
+    "title": "Libros, revistas y catálogos en impresión digital",
+    "path": "/categorias/libros-revistas-catalogos",
+    "keywords": [
+      "Impresión de libros personalizados",
+      "Editoriales en Cataluña",
+      "Publicación de libros para empresas",
+      "Servicios de autoedición",
+      "Imprenta de libros corporativos",
+      "Impresión de revistas en Barcelona",
+      "Diseño de catálogos para empresas",
+      "Catálogos de productos personalizados",
+      "Servicios de impresión de revistas",
+      "Catálogos corporativos de alta calidad"
+    ],
+    "searchTerms": [
+      "impresión de libros, revistas y catálogos en barcelona | repro disseny"
+    ]
+  },
+  {
+    "type": "categoria",
+    "slug": "packaging",
+    "title": "Packaging a medida: soluciones folding y corrugado para empresa",
+    "path": "/categorias/packaging",
+    "keywords": [
+      "Diseño de envases personalizados",
+      "Cajas impresas para productos",
+      "Etiquetas y sleeves para packaging",
+      "Soluciones de embalaje sostenible",
+      "Packaging creativo para marcas"
+    ],
+    "searchTerms": [
+      "packaging personalizado para productos y marcas | repro disseny"
+    ]
+  },
+  {
+    "type": "categoria",
+    "slug": "publicidad-oficina",
+    "title": "Impresión para publicidad y oficina: material promocional y papelería corporativa",
+    "path": "/categorias/publicidad-oficina",
+    "keywords": [
+      "publicidad impresa barcelona",
+      "material oficina personalizado",
+      "papelería corporativa",
+      "impresión flyers cataluña"
+    ],
+    "searchTerms": [
+      "imprenta publicidad barcelona",
+      "material oficina empresas"
+    ]
+  },
+  {
+    "type": "categoria",
+    "slug": "material-oficina",
+    "title": "Impresión para oficina: papelería corporativa y material interno",
+    "path": "/categorias/publicidad-oficina/material-oficina",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "categoria",
+    "slug": "material-publicitario",
+    "title": "Impresión para publicidad: material promocional y punto de venta",
+    "path": "/categorias/publicidad-oficina/material-publicitario",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "producto",
+    "slug": "abanicos-personalizados",
+    "title": "Abanicos personalizados para eventos",
+    "path": "/productos/abanicos-personalizados",
+    "keywords": [
+      "abanicos"
+    ],
+    "searchTerms": [
+      "abanicos"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "acreditaciones-personalizadas",
+    "title": "Acreditaciones personalizadas para eventos",
+    "path": "/productos/acreditaciones-personalizadas",
+    "keywords": [
+      "acreditaciones"
+    ],
+    "searchTerms": [
+      "acreditaciones"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "agendas-personalizadas",
+    "title": "Agendas personalizadas",
+    "path": "/productos/agendas-personalizadas",
+    "keywords": [
+      "agendas personalizadas"
+    ],
+    "searchTerms": [
+      "agendas personalizadas"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "arbol-navidad-corporativo",
+    "title": "Árbol de Navidad corporativo personalizado",
+    "path": "/productos/arbol-navidad-corporativo",
+    "keywords": [
+      "árbol de navidad",
+      "navidad",
+      "vacaciones",
+      "fin de año"
+    ],
+    "searchTerms": [
+      "árbol de navidad",
+      "navidad",
+      "vacaciones",
+      "fin de año"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "banderola-lona-fachada",
+    "title": "Banderola de lona para fachada",
+    "path": "/productos/banderola-lona-fachada",
+    "keywords": [
+      "banderola para fachada de lona"
+    ],
+    "searchTerms": [
+      "banderola para fachada de lona"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "banderola-fachada-personalizada",
+    "title": "Banderola luminosa para fachada",
+    "path": "/productos/banderola-fachada/banderola-fachada-personalizada",
+    "keywords": [
+      "banderola luminosa para fachada"
+    ],
+    "searchTerms": [
+      "banderola luminosa para fachada"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "banderolas-lineal-personalizadas",
+    "title": "Banderolas de lineal personalizadas",
+    "path": "/productos/banderolas-lineal-personalizadas",
+    "keywords": [
+      "banderolas lineal"
+    ],
+    "searchTerms": [
+      "banderolas lineal"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "banderolas-personalizadas",
+    "title": "Banderolas personalizadas (publicidad exterior y eventos)",
+    "path": "/productos/banderolas-personalizadas",
+    "keywords": [
+      "banderolas"
+    ],
+    "searchTerms": [
+      "banderolas"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "banner-golf-personalizado",
+    "title": "Banner Golf personalizado (expositor exterior)",
+    "path": "/productos/banner-golf-personalizado",
+    "keywords": [
+      "banner golf"
+    ],
+    "searchTerms": [
+      "banner golf"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "bloc-notas",
+    "title": "Blocs de notas personalizados",
+    "path": "/productos/bloc-notas",
+    "keywords": [
+      "bloc de notas"
+    ],
+    "searchTerms": [
+      "bloc de notas"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "caballetes-publicitarios-personalizados",
+    "title": "Caballetes publicitarios personalizados",
+    "path": "/productos/caballetes-publicitarios-personalizados",
+    "keywords": [
+      "caballetes"
+    ],
+    "searchTerms": [
+      "caballetes"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "caja-almohada",
+    "title": "Caja almohada",
+    "path": "/productos/caja-almohada",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "producto",
+    "slug": "caja-cerillas",
+    "title": "Caja cerillas (funda + cajón)",
+    "path": "/productos/caja-cerillas",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "producto",
+    "slug": "caja-cofre",
+    "title": "Caja cofre",
+    "path": "/productos/caja-cofre",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "producto",
+    "slug": "caja-envio",
+    "title": "Caja de envío",
+    "path": "/productos/caja-envio",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "producto",
+    "slug": "caja-desplegable-tapa",
+    "title": "Caja desplegable con tapa",
+    "path": "/productos/caja-desplegable-tapa",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "producto",
+    "slug": "caja-automontable",
+    "title": "Caja dulces mini",
+    "path": "/productos/caja-automontable",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "producto",
+    "slug": "caja-envolvente",
+    "title": "Caja envolvente",
+    "path": "/productos/caja-envolvente",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "producto",
+    "slug": "caja-estandar",
+    "title": "Caja estándar",
+    "path": "/productos/caja-estandar",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "producto",
+    "slug": "caja-porta-botella",
+    "title": "Caja porta botella",
+    "path": "/productos/caja-porta-botella",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "producto",
+    "slug": "caja-sobre-personalizada",
+    "title": "Caja sobre personalizada",
+    "path": "/productos/caja-sobre-personalizada",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "producto",
+    "slug": "cajas-luz-personalizadas",
+    "title": "Cajas de luz personalizadas (expositores retroiluminados)",
+    "path": "/productos/cajas-luz-personalizadas",
+    "keywords": [
+      "cajas de luz"
+    ],
+    "searchTerms": [
+      "cajas de luz"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "calendarios-personalizados",
+    "title": "Calendarios personalizados",
+    "path": "/productos/calendarios-personalizados",
+    "keywords": [
+      "calendarios"
+    ],
+    "searchTerms": [
+      "calendarios"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "carpetas-presentacion-personalizadas",
+    "title": "Carpetas de presentación personalizadas",
+    "path": "/productos/carpetas-presentacion-personalizadas",
+    "keywords": [
+      "carpetas de presentación"
+    ],
+    "searchTerms": [
+      "carpetas de presentación"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "cartas-restaurante-personalizadas",
+    "title": "Cartas de restaurante personalizadas",
+    "path": "/productos/cartas-restaurante-personalizadas",
+    "keywords": [
+      "cartas de restaurante"
+    ],
+    "searchTerms": [
+      "cartas de restaurante"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "carteles-inmobiliaria-personalizados",
+    "title": "Carteles inmobiliaria personalizados",
+    "path": "/productos/carteles-inmobiliaria-personalizados",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "producto",
+    "slug": "carteles-personalizados-gran-formato",
+    "title": "Carteles personalizados (cartelería publicitaria)",
+    "path": "/productos/carteles-personalizados-gran-formato",
+    "keywords": [
+      "carteles"
+    ],
+    "searchTerms": [
+      "carteles"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "certificados-personalizados",
+    "title": "Certificados personalizados",
+    "path": "/productos/certificados-personalizados",
+    "keywords": [
+      "certificados"
+    ],
+    "searchTerms": [
+      "certificados"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "colgador-de-botellas-personalizado",
+    "title": "Colgador de botellas personalizado",
+    "path": "/productos/colgador-de-botellas-personalizado",
+    "keywords": [
+      "colgador de puerta"
+    ],
+    "searchTerms": [
+      "colgador de puerta"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "contenedores-de-reciclaje",
+    "title": "Contenedores de reciclaje personalizados",
+    "path": "/productos/contenedores-de-reciclaje",
+    "keywords": [
+      "papeleras personalizadas"
+    ],
+    "searchTerms": [
+      "papeleras personalizadas"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "cubos-publicitarios-personalizados",
+    "title": "Cubos",
+    "path": "/productos/cubos-publicitarios-personalizados",
+    "keywords": [
+      "cubos"
+    ],
+    "searchTerms": [
+      "cubos"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "cubrealarmas-tiendas-retail",
+    "title": "Cubrealarmas personalizados para tiendas y retail",
+    "path": "/productos/cubrealarmas-tiendas-retail",
+    "keywords": [
+      "cubrealarmas"
+    ],
+    "searchTerms": [
+      "cubrealarmas"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "cupones-promocionales",
+    "title": "Cupones promocionales",
+    "path": "/productos/cupones-promocionales",
+    "keywords": [
+      "cupones promocionales"
+    ],
+    "searchTerms": [
+      "cupones promocionales"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "diplomas-personalizados",
+    "title": "Diplomas personalizados para eventos",
+    "path": "/productos/diplomas-personalizados",
+    "keywords": [
+      "diplomas"
+    ],
+    "searchTerms": [
+      "diplomas"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "tarjeta-habitacion-hotel",
+    "title": "Díptico tarjeta de habitación para hoteles",
+    "path": "/productos/tarjeta-habitacion-hotel",
+    "keywords": [
+      "díptico tarjeta habitación"
+    ],
+    "searchTerms": [
+      "díptico tarjeta habitación"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "displays-de-mesa-personalizados",
+    "title": "Displays de mesa personalizados",
+    "path": "/productos/displays-de-mesa-personalizados",
+    "keywords": [
+      "displays"
+    ],
+    "searchTerms": [
+      "displays"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "dorsales-carrera",
+    "title": "Dorsales de carrera personalizados",
+    "path": "/productos/dorsales-carrera",
+    "keywords": [
+      "dorsales de carrera"
+    ],
+    "searchTerms": [
+      "dorsales de carrera"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "cosida-tapa-blanda",
+    "title": "Encuadernación  cosida tapa blanda",
+    "path": "/productos/cosida-tapa-blanda",
+    "keywords": [
+      "encuadernación  cosida tapa blanda"
+    ],
+    "searchTerms": [
+      "encuadernación  cosida tapa blanda"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "encuadernacion-wire-o-oculto",
+    "title": "Encuadernación  Wire O Oculto",
+    "path": "/productos/encuadernacion-wire-o-oculto",
+    "keywords": [
+      "encuadernación  wire o oculto"
+    ],
+    "searchTerms": [
+      "encuadernación  wire o oculto"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "encuadernacion-cosida-tapa-dura",
+    "title": "Encuadernación cosida tapa dura",
+    "path": "/productos/encuadernacion-cosida-tapa-dura",
+    "keywords": [
+      "encuadernación  cosida tapa dura"
+    ],
+    "searchTerms": [
+      "encuadernación  cosida tapa dura"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "encuadernacion-encolada-tapa-blanda",
+    "title": "Encuadernación encolada tapa blanda (rústica fresada)",
+    "path": "/productos/encuadernacion-encolada-tapa-blanda",
+    "keywords": [
+      "encuadernación  encolada tapa blanda"
+    ],
+    "searchTerms": [
+      "encuadernación  encolada tapa blanda"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "encuadernacion-wire-o",
+    "title": "Encuadernación Wire-O (doble espiral)",
+    "path": "/productos/encuadernacion-wire-o",
+    "keywords": [
+      "encuadernación  wire o"
+    ],
+    "searchTerms": [
+      "encuadernación  wire o"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "encuadernado-con-grapas",
+    "title": "Encuadernado con grapas (caballito)",
+    "path": "/productos/encuadernado-con-grapas",
+    "keywords": [
+      "encuadernado grapas"
+    ],
+    "searchTerms": [
+      "encuadernado grapas"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "enmarcados-personalizados",
+    "title": "Enmarcados personalizados (impresión + marco)",
+    "path": "/productos/enmarcados-personalizados",
+    "keywords": [
+      "enmarcados"
+    ],
+    "searchTerms": [
+      "enmarcados"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "entradas-personalizadas",
+    "title": "Entradas personalizadas para eventos",
+    "path": "/productos/entradas-personalizadas",
+    "keywords": [
+      "entradas"
+    ],
+    "searchTerms": [
+      "entradas"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "etiquetas-adhesivas-en-bobina",
+    "title": "Etiquetas Adhesivas en Bobina Personalizadas",
+    "path": "/productos/etiquetas-adhesivas-en-bobina",
+    "keywords": [
+      "etiquetas en bobina"
+    ],
+    "searchTerms": [
+      "etiquetas en bobina"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "etiquetas-colgantes",
+    "title": "Etiquetas colgantes personalizadas",
+    "path": "/productos/etiquetas-colgantes",
+    "keywords": [
+      "etiquetas colgantes"
+    ],
+    "searchTerms": [
+      "etiquetas colgantes"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "etiquetas-doming",
+    "title": "Etiquetas Doming Personalizadas en Barcelona",
+    "path": "/productos/etiquetas-doming",
+    "keywords": [
+      "doming ( gota resina )"
+    ],
+    "searchTerms": [
+      "doming ( gota resina )"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "expositores-mesa-personalizados",
+    "title": "Expositores de mesa personalizados (displays de sobremesa)",
+    "path": "/productos/expositores-mesa-personalizados",
+    "keywords": [
+      "expositores de mesa"
+    ],
+    "searchTerms": [
+      "expositores de mesa"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "expositores-suelo-personalizados",
+    "title": "Expositores de suelo personalizados (displays de pie)",
+    "path": "/productos/expositores-suelo-personalizados",
+    "keywords": [
+      "expositores de suelo"
+    ],
+    "searchTerms": [
+      "expositores de suelo"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "faja-para-caja",
+    "title": "Faja para caja",
+    "path": "/productos/faja-para-caja",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "producto",
+    "slug": "figuras-arbol-navidad",
+    "title": "Figuras árbol de Navidad personalizadas para branding",
+    "path": "/productos/figuras-arbol-navidad",
+    "keywords": [
+      "figuras árbol de navidad"
+    ],
+    "searchTerms": [
+      "figuras árbol de navidad"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "flyers-con-forma-personalizados",
+    "title": "Flyers con forma (troquelados) personalizados",
+    "path": "/productos/flyers-con-forma-personalizados",
+    "keywords": [
+      "flyers con forma"
+    ],
+    "searchTerms": [
+      "flyers con forma"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "flyers-personalizados",
+    "title": "Flyers personalizados",
+    "path": "/productos/flyers-personalizados",
+    "keywords": [
+      "flyers"
+    ],
+    "searchTerms": [
+      "flyers"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "folletos-plegados-personalizados",
+    "title": "Folletos plegados personalizados",
+    "path": "/productos/folletos-plegados-personalizados",
+    "keywords": [
+      "folletos plegados"
+    ],
+    "searchTerms": [
+      "folletos plegados"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "fundas-sant-jordi",
+    "title": "Funda para rosa de Sant Jordi personalizada",
+    "path": "/productos/fundas-sant-jordi",
+    "keywords": [
+      "fundas rosas sant jordi"
+    ],
+    "searchTerms": [
+      "fundas rosas sant jordi"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "hojas-pegatinas-personalizadas",
+    "title": "Hojas con Pegatinas Personalizadas",
+    "path": "/productos/hojas-pegatinas-personalizadas",
+    "keywords": [
+      "pegatinas personalizadas",
+      "hojas de adhesivos",
+      "vinilo impreso"
+    ],
+    "searchTerms": [
+      "hojas con pegatinas personalizadas",
+      "imprimir pegatinas en Cataluña",
+      "etiquetas en vinilo"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "hojas-sueltas-archivadores",
+    "title": "Hojas sueltas para archivadores",
+    "path": "/productos/hojas-sueltas-archivadores",
+    "keywords": [
+      "holas sueltas para archivadores"
+    ],
+    "searchTerms": [
+      "holas sueltas para archivadores"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "hule-personalizado",
+    "title": "Hule personalizado (mantel lavable a medida)",
+    "path": "/productos/hule-personalizado",
+    "keywords": [
+      "hule personalizado"
+    ],
+    "searchTerms": [
+      "hule personalizado"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "idenficador-maleta",
+    "title": "Identificador de maleta",
+    "path": "/productos/idenficador-maleta",
+    "keywords": [
+      "identificador de maleta"
+    ],
+    "searchTerms": [
+      "identificador de maleta"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "imanes-publicitarios",
+    "title": "Imanes publicitarios",
+    "path": "/productos/imanes-publicitarios",
+    "keywords": [
+      "imanes"
+    ],
+    "searchTerms": [
+      "imanes"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "invitaciones-y-tarjetones-personalizados",
+    "title": "Invitaciones y tarjetones personalizados",
+    "path": "/productos/invitaciones-y-tarjetones-personalizados",
+    "keywords": [
+      "tarjetones e invitaciones"
+    ],
+    "searchTerms": [
+      "tarjetones e invitaciones"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "lamina-magnetica-impresa",
+    "title": "Lámina magnética impresa",
+    "path": "/productos/lamina-magnetica-impresa",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "producto",
+    "slug": "lanyards-eventos-barcelona",
+    "title": "Lanyards personalizados para eventos",
+    "path": "/productos/lanyards-eventos-barcelona",
+    "keywords": [
+      "lanyards"
+    ],
+    "searchTerms": [
+      "lanyards"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "letras-corporeas-personalizadas",
+    "title": "Letras corpóreas personalizadas",
+    "path": "/productos/letras-corporeas-personalizadas",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "producto",
+    "slug": "libretas-personalizadas",
+    "title": "Libretas personalizadas",
+    "path": "/productos/libretas-personalizadas",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "producto",
+    "slug": "lona-publicitaria",
+    "title": "Lona publicitaria",
+    "path": "/productos/lona-publicitaria",
+    "keywords": [
+      "lona publicitaria"
+    ],
+    "searchTerms": [
+      "lona publicitaria"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "manteles-individuales-personalizados",
+    "title": "Manteles individuales de mesa personalizados",
+    "path": "/productos/manteles-individuales-personalizados",
+    "keywords": [
+      "manteles individuales de mesa"
+    ],
+    "searchTerms": [
+      "manteles individuales de mesa"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "marcos-click-system-personalizados",
+    "title": "Marcos Click System (porta pósters de cambio rápido)",
+    "path": "/productos/marcos-click-system-personalizados",
+    "keywords": [
+      "marcos click system"
+    ],
+    "searchTerms": [
+      "marcos click system"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "marcos-photocall-personalizados",
+    "title": "Marcos para photocall personalizados",
+    "path": "/productos/marcos-photocall-personalizados",
+    "keywords": [
+      "marcos photocall"
+    ],
+    "searchTerms": [
+      "marcos photocall"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "marcos-photocall",
+    "title": "Marcos photocall",
+    "path": "/productos/marcos-photocall",
+    "keywords": [
+      "marcos photocall"
+    ],
+    "searchTerms": [
+      "marcos photocall"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "metacrilato-personalizado",
+    "title": "Metacrilato (panel rígido premium)",
+    "path": "/productos/metacrilato-personalizado",
+    "keywords": [
+      "metacrilato"
+    ],
+    "searchTerms": [
+      "metacrilato"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "minutas-de-boda",
+    "title": "Minutas de boda",
+    "path": "/productos/minutas-de-boda",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "producto",
+    "slug": "minutas-boda",
+    "title": "Minutas de boda",
+    "path": "/productos/minutas-boda",
+    "keywords": [
+      "minutas de boda"
+    ],
+    "searchTerms": [
+      "minutas de boda"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "nombres-sobremesa-personalizados",
+    "title": "Nombres de sobremesa personalizados para eventos",
+    "path": "/productos/nombres-sobremesa-personalizados",
+    "keywords": [
+      "nombres de sobremesa"
+    ],
+    "searchTerms": [
+      "nombres de sobremesa"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "panel-carton-compacto-personalizado",
+    "title": "Panel de cartón compacto",
+    "path": "/productos/panel-carton-compacto-personalizado",
+    "keywords": [
+      "cartón compacto"
+    ],
+    "searchTerms": [
+      "cartón compacto"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "panel-carton-corrugado-personalizado",
+    "title": "Panel de cartón corrugado",
+    "path": "/productos/panel-carton-corrugado-personalizado",
+    "keywords": [
+      "cartón corrugado"
+    ],
+    "searchTerms": [
+      "cartón corrugado"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "panel-dibond-personalizado",
+    "title": "Panel de Dibond (composite de aluminio)",
+    "path": "/productos/panel-dibond-personalizado",
+    "keywords": [
+      "dibon"
+    ],
+    "searchTerms": [
+      "dibon"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "panel-foam-personalizado",
+    "title": "Panel de foam (cartón pluma)",
+    "path": "/productos/panel-foam-personalizado",
+    "keywords": [
+      "foam"
+    ],
+    "searchTerms": [
+      "foam"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "panel-forex",
+    "title": "Panel de Forex (PVC espumado)",
+    "path": "/productos/panel-forex",
+    "keywords": [
+      "forex"
+    ],
+    "searchTerms": [
+      "forex"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "panel-nido-de-abeja-personalizado",
+    "title": "Panel de nido de abeja",
+    "path": "/productos/panel-nido-de-abeja-personalizado",
+    "keywords": [
+      "nido abeja"
+    ],
+    "searchTerms": [
+      "nido abeja"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "panel-dispa-personalizado",
+    "title": "Panel Dispa",
+    "path": "/productos/panel-dispa-personalizado",
+    "keywords": [
+      "dispa"
+    ],
+    "searchTerms": [
+      "dispa"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "panel-ultraligero",
+    "title": "Panel ligero (rígido ultraligero)",
+    "path": "/productos/panel-ultraligero",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "producto",
+    "slug": "paneles-madera",
+    "title": "Paneles de madera personalizados (MDF y contrachapado)",
+    "path": "/productos/paneles-madera",
+    "keywords": [
+      "madera"
+    ],
+    "searchTerms": [
+      "madera"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "papel-de-carta",
+    "title": "Papel de carta personalizado (hojas membretadas)",
+    "path": "/productos/papel-de-carta",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "producto",
+    "slug": "papel-de-pared-personalizado",
+    "title": "Papel de pared personalizado",
+    "path": "/productos/papel-de-pared-personalizado",
+    "keywords": [
+      "papel de pared"
+    ],
+    "searchTerms": [
+      "papel de pared"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "pegatinas-personalizadas",
+    "title": "Pegatinas personalizadas",
+    "path": "/productos/pegatinas-personalizadas",
+    "keywords": [
+      "pegatinas individuales"
+    ],
+    "searchTerms": [
+      "pegatinas individuales"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "photocall-personalizado",
+    "title": "Photocall personalizado (fondo para eventos)",
+    "path": "/productos/photocall-personalizado",
+    "keywords": [
+      "photocalls"
+    ],
+    "searchTerms": [
+      "photocalls"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "pizarras-a-medida",
+    "title": "Pizarras personalizadas a medida (tipo Velleda)",
+    "path": "/productos/pizarras-a-medida",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "producto",
+    "slug": "placa-direccion-personalizada",
+    "title": "Placa dirección personalizada",
+    "path": "/productos/placa-direccion-personalizada",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "producto",
+    "slug": "portacuentas-personalizados",
+    "title": "Portacuentas personalizados",
+    "path": "/productos/portacuentas-personalizados",
+    "keywords": [
+      "portacuentas"
+    ],
+    "searchTerms": [
+      "portacuentas"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "posavasos",
+    "title": "Posavasos",
+    "path": "/productos/posavasos",
+    "keywords": [
+      "posavasos"
+    ],
+    "searchTerms": [
+      "posavasos"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "posters-personalizados",
+    "title": "Pósters personalizados",
+    "path": "/productos/posters-personalizados",
+    "keywords": [
+      "posters"
+    ],
+    "searchTerms": [
+      "posters"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "premios-personalizados",
+    "title": "Premios personalizados para eventos",
+    "path": "/productos/premios-personalizados",
+    "keywords": [
+      "premios personalizados"
+    ],
+    "searchTerms": [
+      "premios personalizados"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "puntos-de-libro-personalizados",
+    "title": "Puntos de libro personalizados (marcapáginas)",
+    "path": "/productos/puntos-de-libro-personalizados",
+    "keywords": [
+      "puntos de libro"
+    ],
+    "searchTerms": [
+      "puntos de libro"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "retoiluminados",
+    "title": "Retoiluminados",
+    "path": "/productos/retoiluminados",
+    "keywords": [
+      "retoiluminados"
+    ],
+    "searchTerms": [
+      "retoiluminados"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "roll-up-personalizado",
+    "title": "Roll Up personalizado (expositor enrollable)",
+    "path": "/productos/roll-up-personalizado",
+    "keywords": [
+      "roll ups"
+    ],
+    "searchTerms": [
+      "roll ups"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "sellos-de-goma-personalizados",
+    "title": "Sellos de goma personalizados",
+    "path": "/productos/sellos-de-goma-personalizados",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "producto",
+    "slug": "sobres-personalizados",
+    "title": "Sobres personalizados (papelería corporativa)",
+    "path": "/productos/sobres-personalizados",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "producto",
+    "slug": "stand-de-feria",
+    "title": "Stand de feria",
+    "path": "/productos/stand-de-feria",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "producto",
+    "slug": "stoppers-lineal-personalizados",
+    "title": "Stoppers personalizados (punto de venta)",
+    "path": "/productos/stoppers-lineal-personalizados",
+    "keywords": [
+      "stoppers"
+    ],
+    "searchTerms": [
+      "stoppers"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "tabletens-personalizados",
+    "title": "Tabletens personalizados (displays de sobremesa)",
+    "path": "/productos/tabletens-personalizados",
+    "keywords": [
+      "tabletents"
+    ],
+    "searchTerms": [
+      "tabletents"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "tabletent",
+    "title": "Tabletent",
+    "path": "/productos/tabletent",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "producto",
+    "slug": "talonarios-autocopiativos-personalizados",
+    "title": "Talonarios autocopiativos personalizados",
+    "path": "/productos/talonarios-autocopiativos-personalizados",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "producto",
+    "slug": "tarjetas-pvc-personalizadas",
+    "title": "Tarjetas de PVC personalizadas",
+    "path": "/productos/tarjetas-pvc-personalizadas",
+    "keywords": [
+      "tarjetas de pvc"
+    ],
+    "searchTerms": [
+      "tarjetas de pvc"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "tarjetas-de-visita-personalizadas",
+    "title": "Tarjetas de visita personalizadas",
+    "path": "/productos/tarjetas-de-visita-personalizadas",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "producto",
+    "slug": "tarjetas-postales-personalizadas",
+    "title": "Tarjetas postales personalizadas",
+    "path": "/productos/tarjetas-postales-personalizadas",
+    "keywords": [
+      "tarjetas postales"
+    ],
+    "searchTerms": [
+      "tarjetas postales"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "tarjetas-rasca",
+    "title": "Tarjetas rasca",
+    "path": "/productos/tarjetas-rasca",
+    "keywords": [
+      "tarjetas rasca"
+    ],
+    "searchTerms": [
+      "tarjetas rasca"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "tarjetas-rasca-publicitario",
+    "title": "Tarjetas rasca publicitario",
+    "path": "/productos/tarjetas-rasca-publicitario",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "producto",
+    "slug": "tazas-personalizadas-empresa",
+    "title": "Tazas personalizadas (corporativas)",
+    "path": "/productos/tazas-personalizadas-empresa",
+    "keywords": [
+      "tazas"
+    ],
+    "searchTerms": [
+      "tazas"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "textil-reposacabezas-personalizado",
+    "title": "Textil reposacabezas personalizado",
+    "path": "/productos/textil-reposacabezas-personalizado",
+    "keywords": [
+      "textil reposacabezas"
+    ],
+    "searchTerms": [
+      "textil reposacabezas"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "tiras-de-lineal.personalizadas",
+    "title": "Tiras de lineal personalizadas",
+    "path": "/productos/tiras-de-lineal.personalizadas",
+    "keywords": [
+      "tiras lineal"
+    ],
+    "searchTerms": [
+      "tiras lineal"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "totems-publicitarios-personalizados",
+    "title": "Tótems publicitarios personalizados (expositores de suelo)",
+    "path": "/productos/totems-publicitarios-personalizados",
+    "keywords": [
+      "totems"
+    ],
+    "searchTerms": [
+      "totems"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "urna",
+    "title": "Urna",
+    "path": "/productos/urna",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "producto",
+    "slug": "vinilo-de-corte",
+    "title": "Vinilo de corte",
+    "path": "/productos/vinilo-de-corte",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "producto",
+    "slug": "vinilo-para-cristal",
+    "title": "Vinilo para cristal",
+    "path": "/productos/vinilo-para-cristal",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "producto",
+    "slug": "vinilo-pizarra",
+    "title": "Vinilo para pizarra (escribible)",
+    "path": "/productos/vinilo-pizarra",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "producto",
+    "slug": "vinilo-suelo-personalizado",
+    "title": "Vinilo para suelo personalizado (señalización y campañas)",
+    "path": "/productos/vinilo-suelo-personalizado",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "producto",
+    "slug": "vinilo-vehiculos-personalizado",
+    "title": "Vinilo para vehículos personalizado (rotulación y branding)",
+    "path": "/productos/vinilo-vehiculos-personalizado",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "producto",
+    "slug": "vinilos-superficies-planas",
+    "title": "Vinilos para pared y superficies planas",
+    "path": "/productos/vinilos-superficies-planas",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "producto",
+    "slug": "xbanner-personalizado",
+    "title": "X-Banner personalizado (expositor tipo X)",
+    "path": "/productos/xbanner-personalizado",
+    "keywords": [
+      "banner"
+    ],
+    "searchTerms": [
+      "banner"
+    ]
+  }
+]
