@@ -1,38 +1,38 @@
 <script setup lang="ts">
-import { computed } from "vue"
-import { cn } from "@/lib/utils"
+import { computed } from "vue";
+import { cn } from "@/lib/utils";
 
 type HeroCta = {
-  label: string
-  to: string
-}
+  label: string;
+  to: string;
+};
 
 type HeroImage = {
-  src?: string
-  alt?: string
-  width?: number
-  height?: number
-} | null
+  src?: string;
+  alt?: string;
+  width?: number;
+  height?: number;
+} | null;
 
 type CategoryLike = {
-  title?: string
-  nav?: string
-  description?: string
-  heroDescription?: string
-  imageSrc?: string
-  image?: HeroImage
-  alt?: string
-}
+  title?: string;
+  nav?: string;
+  description?: string;
+  heroDescription?: string;
+  imageSrc?: string;
+  image?: HeroImage;
+  alt?: string;
+};
 
 const props = withDefaults(
   defineProps<{
-    category: CategoryLike
-    showPrimaryCta?: boolean
-    showSecondaryCta?: boolean
-    primaryCta?: Partial<HeroCta> | null
-    secondaryCta?: Partial<HeroCta> | null
-    class?: string
-    containerClass?: string
+    category: CategoryLike;
+    showPrimaryCta?: boolean;
+    showSecondaryCta?: boolean;
+    primaryCta?: Partial<HeroCta> | null;
+    secondaryCta?: Partial<HeroCta> | null;
+    class?: string;
+    containerClass?: string;
   }>(),
   {
     showPrimaryCta: true,
@@ -42,37 +42,35 @@ const props = withDefaults(
     class: "",
     containerClass: "",
   }
-)
+);
 
-const title = computed(
-  () => props.category?.title || props.category?.nav || "Categoría"
-)
+const title = computed(() => props.category?.title || props.category?.nav || "Categoría");
 
 const description = computed(
   () => props.category?.heroDescription || props.category?.description || ""
-)
+);
 
 const imgSrc = computed(
   () => props.category?.imageSrc || props.category?.image?.src || ""
-)
+);
 
 const imgAlt = computed(
   () => props.category?.alt || props.category?.image?.alt || title.value
-)
+);
 
 const primaryCta = computed<HeroCta | null>(() => {
-  const to = String(props.primaryCta?.to || "").trim()
-  const label = String(props.primaryCta?.label || "").trim()
-  if (!to || !label) return null
-  return { to, label }
-})
+  const to = String(props.primaryCta?.to || "").trim();
+  const label = String(props.primaryCta?.label || "").trim();
+  if (!to || !label) return null;
+  return { to, label };
+});
 
 const secondaryCta = computed<HeroCta | null>(() => {
-  const to = String(props.secondaryCta?.to || "").trim()
-  const label = String(props.secondaryCta?.label || "").trim()
-  if (!to || !label) return null
-  return { to, label }
-})
+  const to = String(props.secondaryCta?.to || "").trim();
+  const label = String(props.secondaryCta?.label || "").trim();
+  if (!to || !label) return null;
+  return { to, label };
+});
 </script>
 
 <template>
@@ -86,10 +84,7 @@ const secondaryCta = computed<HeroCta | null>(() => {
       )
     "
   >
-    <div
-      aria-hidden="true"
-      class="pointer-events-none absolute inset-0"
-    >
+    <div aria-hidden="true" class="pointer-events-none absolute inset-0">
       <div
         class="absolute inset-0 bg-[radial-gradient(circle_at_12%_18%,hsl(var(--brand-base-light)/0.95)_0%,transparent_34%)]"
       />
@@ -99,13 +94,19 @@ const secondaryCta = computed<HeroCta | null>(() => {
     </div>
 
     <div :class="cn('container-content relative z-10', props.containerClass)">
-      <div class="grid items-center gap-8 lg:grid-cols-[minmax(0,1.18fr)_minmax(360px,0.82fr)] lg:gap-12">
+      <div
+        class="grid items-center gap-8 lg:grid-cols-[minmax(0,1.12fr)_minmax(340px,0.88fr)] lg:gap-12"
+      >
         <div class="min-w-0">
-          <p class="mb-3 text-label uppercase tracking-[0.08em] text-primary">
+          <p
+            class="mb-4 inline-flex w-fit items-center rounded-full border border-primary/15 bg-primary/5 px-3 py-1.5 text-label text-primary"
+          >
             Categoría
           </p>
 
-          <h1 class="max-w-[15ch] text-[clamp(2.1rem,4.2vw,4.15rem)] font-bold leading-[1.03] text-foreground">
+          <h1
+            class="max-w-[16ch] text-[clamp(2rem,4vw,3.9rem)] font-bold leading-[1.04] text-foreground"
+          >
             {{ title }}
           </h1>
 

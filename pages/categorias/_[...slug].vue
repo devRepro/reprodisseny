@@ -9,9 +9,6 @@ import CategoryHero from "@/components/marketing/category/CategoryHero.vue";
 const route = useRoute();
 const config = useRuntimeConfig();
 
-const pageContainerClass = "container-content";
-const sectionIntroClass = "max-w-3xl";
-
 function safeDecode(value: unknown) {
   try {
     return decodeURIComponent(String(value ?? ""));
@@ -77,18 +74,6 @@ const faqs = computed(() => category.value?.faqs ?? []);
 const breadcrumbItems = computed(() => category.value?.breadcrumbs ?? []);
 const heroImage = computed(() => category.value?.image?.src || "");
 
-const secondaryCta = computed(() => {
-  if (products.value.length) {
-    return { label: "Ver productos", to: "#productos" };
-  }
-
-  if (children.value.length) {
-    return { label: "Explorar subcategorías", to: "#subcategorias" };
-  }
-
-  return undefined;
-});
-
 const canonicalUrl = computed(() => {
   const base = config.public.siteUrl || "https://reprodisseny.com";
   const path = category.value?.seo?.canonical || category.value?.path || route.path;
@@ -136,34 +121,31 @@ useSeoMeta({
         <SiteBreadcrumbs :items="breadcrumbItems" :auto="false" />
       </div>
 
-      <section :class="pageContainerClass" class="pb-10 md:pb-14">
-        <CategoryHero
-          :category="category"
-          :primary-cta="{ label: 'Pedir presupuesto', to: '/contacto' }"
-          :secondary-cta="secondaryCta"
-        />
-      </section>
+      <CategoryHero
+        :category="category"
+        :primary-cta="{ label: 'Pedir presupuesto', to: '/contacto' }"
+        :secondary-cta="{ label: 'Ver productos', to: '#productos' }"
+      />
 
       <section
         v-if="children.length"
-        id="subcategorias"
         class="bg-background"
         aria-labelledby="category-children-heading"
       >
-        <div :class="pageContainerClass" class="py-8 md:py-12">
-          <div :class="sectionIntroClass">
-            <p class="text-label text-primary">
+        <div class="container-content py-10 md:py-14">
+          <div class="max-w-[760px]">
+            <p class="text-label uppercase tracking-[0.08em] text-primary">
               Subcategorías
             </p>
-
             <h2
               id="category-children-heading"
               class="mt-2 text-[clamp(1.6rem,2vw,2rem)] font-semibold leading-tight tracking-tight text-foreground"
             >
               Explora esta línea de soluciones
             </h2>
-
-            <p class="mt-2 max-w-[62ch] text-body text-muted-foreground">
+            <p
+              class="mt-3 max-w-[68ch] text-body text-foreground/78 md:text-[18px] md:leading-[1.68]"
+            >
               Accede directamente a las subcategorías relacionadas con esta área.
             </p>
           </div>
@@ -220,17 +202,15 @@ useSeoMeta({
         faq-subtitle="Respondemos las dudas más habituales sobre materiales, acabados, formatos y tiempos de producción."
       />
 
-      <section class="bg-background">
-        <div :class="pageContainerClass" class="py-12 md:py-16">
-          <GuideBanner
-            title="¿No estás seguro de las medidas?"
-            :cta="{ label: 'Consultar guía', to: '/como-preparar-archivos' }"
-            base-path="/img/ui/banners/como-preparar-archivos"
-            :height="240"
-            :full-bleed="false"
-            :rounded="true"
-          />
-        </div>
+      <section class="mt-12 md:mt-16">
+        <GuideBanner
+          title="¿No estás seguro de las medidas?"
+          :cta="{ label: 'Consultar Guía', to: '/como-preparar-archivos' }"
+          base-path="/img/ui/banners/como-preparar-archivos"
+          :height="240"
+          :full-bleed="true"
+          :rounded="false"
+        />
       </section>
     </template>
 

@@ -396,7 +396,7 @@ const onSubmit = handleSubmit(
 </script>
 
 <template>
-  <div class="mx-auto w-full flex flex-col h-full">
+  <div class="w-full min-w-0 flex h-full flex-col">
     <div v-if="success" class="flex min-h-[280px] flex-col justify-center py-8">
       <Alert class="border-emerald-200 bg-emerald-50 text-emerald-900 shadow-sm">
         <CheckCircle2 class="h-5 w-5 text-emerald-600" />
@@ -424,7 +424,9 @@ const onSubmit = handleSubmit(
       class="flex flex-col flex-1 relative"
     >
       <div class="space-y-1.5 mb-6">
-        <h3 class="text-xl font-semibold tracking-tight text-foreground">
+        <h3
+          class="text-[1.05rem] font-semibold tracking-tight text-foreground md:text-xl"
+        >
           Configura tu solicitud
         </h3>
         <p class="text-sm leading-relaxed text-muted-foreground">
@@ -454,8 +456,8 @@ const onSubmit = handleSubmit(
         </AlertDescription>
       </Alert>
 
-      <div class="space-y-8 pb-4">
-        <section class="space-y-5">
+      <div class="space-y-6 pb-4 md:space-y-8">
+        <section class="space-y-4 md:space-y-5">
           <FormField name="cantidad" v-slot="{ componentField, errorMessage }">
             <FormItem>
               <FormLabel :class="labelClass">
@@ -660,7 +662,7 @@ const onSubmit = handleSubmit(
       </div>
 
       <div
-        class="sticky bottom-0 z-20 mt-auto border-t border-border/40 bg-background/95 pb-6 pt-5 backdrop-blur-md supports-[backdrop-filter]:bg-background/80"
+        class="mt-6 border-t border-border/40 pt-5 lg:sticky lg:bottom-0 lg:z-20 lg:mt-auto lg:bg-background/95 lg:pb-6 lg:backdrop-blur-md lg:supports-[backdrop-filter]:bg-background/80"
       >
         <div class="space-y-4">
           <div>

@@ -1,4 +1,3 @@
-<!-- components/layout/SiteFooter.vue -->
 <script setup lang="ts">
 import { Linkedin, Instagram } from "lucide-vue-next";
 
@@ -14,7 +13,7 @@ const props = withDefaults(
   }>(),
   {
     description:
-      "Lorem ipsum dolor sit amet consectetur. Nunc ultricies ut tellus pellentesque viverra faucibus cras in. Quisque turpis in elit pretium volutpat eu adipiscing habitasse massa.",
+      "Impresión profesional, gran formato, PLV, vinilos, packaging y soluciones gráficas para empresas, retail, eventos y comunicación visual.",
     menuLeft: () => [
       { label: "Libros, revistas y catálogos", to: "/categorias/libros" },
       { label: "Adhesivos", to: "/categorias/adhesivos" },
@@ -37,100 +36,98 @@ const props = withDefaults(
 </script>
 
 <template>
-  <footer class="w-full bg-[#212121] text-white">
-    <!-- Desktop frame: 1440 x 426 -->
-    <div class="mx-auto max-w-[1440px] h-[426px] relative">
-      <!-- Content area with exact paddings from Figma -->
-      <div class="px-[120px] pt-[64px]">
-        <div class="grid grid-cols-[206px_1fr_219px] items-start">
-          <!-- Logo + story (206 x 176) -->
-          <div class="flex flex-col items-start gap-[24px] w-[206px] h-[176px]">
-            <!-- Ajusta tu logo para que renderice en blanco -->
-            <SharedLogo variant="negative" class="w-[174px] h-[32px]" />
-            <p class="w-[206px] text-[14px] leading-[20px] font-normal">
-              {{ description }}
-            </p>
+  <footer class="bg-[hsl(var(--brand-ink-dark))] text-white">
+    <div class="container-wide py-12 md:py-14 lg:py-16">
+      <div
+        class="grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)_minmax(260px,0.9fr)] lg:gap-12"
+      >
+        <section class="min-w-0">
+          <SharedLogo variant="negative" class="h-8 w-auto" />
+
+          <p class="mt-5 max-w-[34ch] text-body-s leading-[1.7] text-white/78">
+            {{ description }}
+          </p>
+        </section>
+
+        <nav aria-label="Categorías del sitio" class="min-w-0">
+          <div class="grid grid-cols-1 gap-8 sm:grid-cols-2">
+            <ul class="space-y-3">
+              <li v-for="item in menuLeft" :key="item.to">
+                <NuxtLink
+                  :to="item.to"
+                  class="text-body-s leading-[1.6] text-white/82 transition hover:text-white hover:underline underline-offset-4"
+                >
+                  {{ item.label }}
+                </NuxtLink>
+              </li>
+            </ul>
+
+            <ul class="space-y-3">
+              <li v-for="item in menuRight" :key="item.to">
+                <NuxtLink
+                  :to="item.to"
+                  class="text-body-s leading-[1.6] text-white/82 transition hover:text-white hover:underline underline-offset-4"
+                >
+                  {{ item.label }}
+                </NuxtLink>
+              </li>
+            </ul>
           </div>
+        </nav>
 
-          <!-- Categories (centered block: 343 x 120, gap 40) -->
-          <nav aria-label="Categorías" class="w-full">
-            <div class="mx-auto flex items-center gap-[40px] w-[343px] h-[120px]">
-              <ul
-                class="flex flex-col justify-center items-start gap-[16px] w-[170px] h-[120px]"
-              >
-                <li v-for="item in menuLeft" :key="item.to">
-                  <NuxtLink
-                    :to="item.to"
-                    class="text-[13px] leading-[18px] font-medium hover:underline underline-offset-4"
-                  >
-                    {{ item.label }}
-                  </NuxtLink>
-                </li>
-              </ul>
+        <address class="min-w-0 not-italic">
+          <div class="space-y-4 text-body-s leading-[1.65] text-white/82">
+            <p>Juan de Mena 19, 08035 Barcelona</p>
 
-              <ul
-                class="flex flex-col justify-center items-start gap-[16px] w-[133px] h-[120px]"
-              >
-                <li v-for="item in menuRight" :key="item.to">
-                  <NuxtLink
-                    :to="item.to"
-                    class="text-[13px] leading-[18px] font-medium hover:underline underline-offset-4"
-                  >
-                    {{ item.label }}
-                  </NuxtLink>
-                </li>
-              </ul>
-            </div>
-          </nav>
-
-          <!-- Contact data (219 x 168) with the extra right margin (34px) from Figma -->
-          <address
-            class="not-italic flex flex-col justify-center items-start gap-[16px] w-[219px] h-[168px] mr-[34px]"
-          >
-            <p class="w-[219px] text-[14px] leading-[20px] font-normal">
-              Juan de Mena 19, 08035 Barcelona
-            </p>
-
-            <p class="w-[162px] text-[14px] leading-[20px] font-normal">
+            <p>
               93 274 98 90<br />
               lunes a jueves 8:30-18:00<br />
               viernes 8:00-14:00
             </p>
 
+            <p>
+              <a
+                href="mailto:comercial@reprodisseny.com"
+                class="transition hover:text-white hover:underline underline-offset-4"
+              >
+                comercial@reprodisseny.com
+              </a>
+            </p>
+          </div>
+
+          <div class="mt-5 flex items-center gap-4">
             <a
-              href="mailto:comercial@reprodisseny.com"
-              class="w-[187px] text-[14px] leading-[20px] font-normal hover:underline underline-offset-4"
+              :href="props.linkedinUrl"
+              aria-label="LinkedIn"
+              class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/82 transition hover:border-white/30 hover:text-white"
             >
-              comercial@reprodisseny.com
+              <Linkedin class="h-5 w-5" :stroke-width="1.75" />
             </a>
 
-            <div class="flex items-start gap-[20px] w-[60px] h-[20px]">
-              <a :href="props.linkedinUrl" aria-label="LinkedIn" class="inline-flex">
-                <Linkedin class="w-[20px] h-[20px]" :stroke-width="1.5" />
-              </a>
-              <a :href="props.instagramUrl" aria-label="Instagram" class="inline-flex">
-                <Instagram class="w-[20px] h-[20px]" :stroke-width="1.5" />
-              </a>
-            </div>
-          </address>
-        </div>
+            <a
+              :href="props.instagramUrl"
+              aria-label="Instagram"
+              class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/82 transition hover:border-white/30 hover:text-white"
+            >
+              <Instagram class="h-5 w-5" :stroke-width="1.75" />
+            </a>
+          </div>
+        </address>
       </div>
 
-      <!-- Divider line at y = 350px from top of footer, width 1200 starting at x=120 -->
-      <div
-        class="absolute top-[350px] left-1/2 -translate-x-1/2 w-[calc(100%-32px)] max-w-[1200px] border-t border-white"
-      />
+      <div class="mt-10 border-t border-white/12 pt-5">
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+          <p class="text-[13px] leading-5 text-white/56">
+            © {{ new Date().getFullYear() }} Reprodisseny
+          </p>
 
-      <!-- Bottom links group centered at y = 372px -->
-      <div
-        class="absolute left-1/2 top-[372px] -translate-x-1/2 flex items-center w-[142px] h-[20px]"
-      >
-        <NuxtLink
-          to="/politica-privacidad"
-          class="ml-[2px] text-[14px] leading-[20px] font-normal hover:underline underline-offset-4"
-        >
-          Aviso legal
-        </NuxtLink>
+          <NuxtLink
+            to="/politica-privacidad"
+            class="text-[13px] leading-5 text-white/72 transition hover:text-white hover:underline underline-offset-4"
+          >
+            Aviso legal
+          </NuxtLink>
+        </div>
       </div>
     </div>
   </footer>

@@ -76,14 +76,14 @@ function isImageBlock(
     <nav
       v-if="showSectionNav && safeSections.length > 1"
       aria-label="Navegación de secciones del producto"
-      class="mb-8 overflow-x-auto pb-2"
+      class="sticky top-20 z-20 mb-8 overflow-x-auto rounded-full border border-border/70 bg-background/85 p-2 backdrop-blur"
     >
       <div class="flex min-w-max gap-2">
         <a
           v-for="section in safeSections"
           :key="section.id"
           :href="`#${section.id}`"
-          class="inline-flex min-h-10 items-center rounded-full border border-border bg-background px-4 text-sm font-medium text-foreground/80 transition hover:border-primary hover:text-primary"
+          class="inline-flex min-h-10 items-center rounded-full px-4 text-sm font-medium text-foreground/75 transition hover:bg-primary/5 hover:text-primary"
         >
           {{ section.title }}
         </a>
@@ -95,7 +95,7 @@ function isImageBlock(
         v-for="section in safeSections"
         :id="section.id"
         :key="section.id"
-        class="scroll-mt-28"
+        class="scroll-mt-28 rounded-[28px] border border-border/70 bg-card px-5 py-6 md:px-7 md:py-8"
       >
         <header class="mb-5 md:mb-6">
           <h3
@@ -144,7 +144,7 @@ function isImageBlock(
               v-else-if="isImageBlock(block) && block.src"
               class="overflow-hidden rounded-3xl border border-border/70 bg-card"
             >
-              <img
+              <NuxtImg
                 :src="block.src"
                 :alt="block.alt || section.title"
                 :width="block.width"

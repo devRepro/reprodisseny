@@ -126,7 +126,7 @@ const productNameForForm = computed(() => productTitle.value || "Producto");
 
 <template>
   <article
-    class="w-full"
+    class="w-full rounded-[32px] border border-border/70 bg-[linear-gradient(180deg,hsl(var(--background))_0%,hsl(var(--accent)/0.38)_100%)] p-6 md:p-8 xl:p-10"
     itemscope
     itemtype="https://schema.org/Product"
     :aria-label="
@@ -145,13 +145,13 @@ const productNameForForm = computed(() => productTitle.value || "Producto");
           <header class="space-y-4 md:space-y-5">
             <p
               v-if="category?.title || category?.nav"
-              class="text-label uppercase tracking-[0.08em] text-primary"
+              class="inline-flex w-fit items-center rounded-full border border-primary/15 bg-primary/5 px-3 py-1.5 text-label text-primary"
             >
               {{ category?.nav || category?.title }}
             </p>
 
             <h1
-              class="text-[clamp(2.25rem,4vw,4.5rem)] font-semibold leading-[0.98] tracking-tight text-foreground [overflow-wrap:anywhere]"
+              class="text-[clamp(2.1rem,3.6vw,3.9rem)] leading-[1.02] tracking-tight text-foreground [overflow-wrap:anywhere]"
               :title="productTitle"
               itemprop="name"
             >
@@ -187,15 +187,15 @@ const productNameForForm = computed(() => productTitle.value || "Producto");
             <meta itemprop="image" :content="currentImgSrc" />
           </figure>
 
-          <div class="mt-4 grid gap-3 md:grid-cols-3">
-            <div
+          <ul class="mt-5 flex flex-wrap gap-2">
+            <li
               v-for="item in supportItems"
               :key="item"
-              class="flex min-h-[72px] items-center rounded-2xl border border-border/70 bg-card/70 px-4 py-3 text-sm leading-5 text-muted-foreground"
+              class="inline-flex items-center rounded-full border border-border/70 bg-background/80 px-3 py-2 text-body-s text-muted-fore ground"
             >
               {{ item }}
-            </div>
-          </div>
+            </li>
+          </ul>
         </div>
       </section>
 

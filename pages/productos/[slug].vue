@@ -263,22 +263,18 @@ useSeoMeta({
         <div :class="pageContainerClass" class="py-10 md:py-14">
           <div :class="contentNarrowClass">
             <div :class="sectionIntroClass">
-              <p class="text-label uppercase tracking-[0.08em] text-primary">
-                Información del producto
-              </p>
+              <p class="text-label text-primary">Información del producto</p>
 
               <h2
                 id="product-details-heading"
-                class="mt-3 text-[clamp(2rem,2.7vw,2.85rem)] font-bold leading-[1.08] tracking-tight text-foreground"
+                class="mt-2 text-[clamp(1.6rem,2vw,2rem)] font-semibold leading-tight tracking-tight text-foreground"
               >
-                Detalles y especificaciones
+                Características, formatos y acabados
               </h2>
 
-              <p
-                class="mt-3 max-w-[68ch] text-body text-foreground/78 md:text-[18px] md:leading-[1.68]"
-              >
-                Consulta la información principal para entender mejor materiales, acabados
-                y uso recomendado.
+              <p class="mt-2 max-w-[62ch] text-body text-muted-foreground">
+                Consulta la información clave para valorar opciones, materiales y uso
+                recomendado.
               </p>
             </div>
 

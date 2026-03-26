@@ -1,29 +1,37 @@
 <script setup lang="ts">
-import { ref, computed, unref, watch, type Ref } from "vue"
-import type { CategoriaNode } from "~/composables/useCategoriasNav"
+import { ref, computed, unref, watch, type Ref } from "vue";
+import type { CategoriaNode } from "~/composables/useCategoriasNav";
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetTrigger,
   SheetContent,
   SheetTitle,
-} from "@/components/ui/sheet"
+} from "@/components/ui/sheet";
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuLabel,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+} from "@/components/ui/dropdown-menu";
 
-import HeaderSearch from "@/components/layout/HeaderSearch.vue"
-import CategoriasMenu from "@/components/shared/menu/Categorias.vue"
+import HeaderSearch from "@/components/layout/HeaderSearch.vue";
+import CategoriasMenu from "@/components/shared/menu/Categorias.vue";
 
-import { Search, Menu, Phone, X, ChevronDown } from "lucide-vue-next"
-import { categoryHref } from "@/utils/categoryHref"
+import { Search, Menu, Phone, X, ChevronDown } from "lucide-vue-next";
+import { categoryHref } from "@/utils/categoryHref";
 
-type MaybeRef<T> = T | Ref<T>
+type MaybeRef<T> = T | Ref<T>;
 
 const props = withDefaults(
   defineProps<{
-    menuTree?: CategoriaNode[]
-    menuPending?: MaybeRef<boolean>
-    menuError?: MaybeRef<unknown> | null
-    showMenu?: boolean
+    menuTree?: CategoriaNode[];
+    menuPending?: MaybeRef<boolean>;
+    menuError?: MaybeRef<unknown> | null;
+    showMenu?: boolean;
   }>(),
   {
     menuTree: () => [],
@@ -31,84 +39,88 @@ const props = withDefaults(
     menuError: null,
     showMenu: true,
   }
-)
+);
 
-const isMobileSearchOpen = ref(false)
-const isMobileMenuOpen = ref(false)
-const expandedCategories = ref<Set<string>>(new Set())
+const isMobileSearchOpen = ref(false);
+const isMobileMenuOpen = ref(false);
+const expandedCategories = ref<Set<string>>(new Set());
 
-const pendingValue = computed(() => Boolean(unref(props.menuPending)))
+const pendingValue = computed(() => Boolean(unref(props.menuPending)));
 
 const errorValue = computed(() => {
-  const v = unref(props.menuError as any)
-  if (v == null || v === false) return null
-  if (typeof v === "string" && v.trim() === "") return null
-  return v
-})
+  const v = unref(props.menuError as any);
+  if (v == null || v === false) return null;
+  if (typeof v === "string" && v.trim() === "") return null;
+  return v;
+});
 
 const categories = computed<CategoriaNode[]>(() =>
   Array.isArray(props.menuTree) ? props.menuTree : []
-)
+);
 
 const labelOf = (c: Partial<CategoriaNode> | null | undefined) =>
-  c?.nav || c?.title || c?.slug || ""
+  c?.nav || c?.title || c?.slug || "";
 
 const nodeKeyOf = (c: Partial<CategoriaNode> | null | undefined) =>
-  c?.path || c?.slug || ""
+  c?.path || c?.slug || "";
 
 const toCat = (c: Partial<CategoriaNode> | null | undefined) =>
-  categoryHref(c)
+  categoryHref(c);
 
 const toProd = (p: any) =>
-  p?.path || (p?.slug ? `/productos/${p.slug}` : "/productos")
+  p?.path || (p?.slug ? `/productos/${p.slug}` : "/productos");
 
 const hasChildren = (c: CategoriaNode | null | undefined) =>
-  Array.isArray(c?.children) && c.children.length > 0
+  Array.isArray(c?.children) && c.children.length > 0;
 
 const hasProducts = (c: CategoriaNode | null | undefined) =>
-  (c?.productCount ?? 0) > 0 && Array.isArray(c?.products) && c.products.length > 0
+  (c?.productCount ?? 0) > 0 && Array.isArray(c?.products) && c.products.length > 0;
 
 const hasDropdown = (c: CategoriaNode) =>
-  hasChildren(c) || (c?.productCount ?? 0) > 0
+  hasChildren(c) || (c?.productCount ?? 0) > 0;
 
 const previewProducts = (c: CategoriaNode | null | undefined) =>
-  Array.isArray(c?.products) ? c.products.slice(0, 8) : []
+  Array.isArray(c?.products) ? c.products.slice(0, 8) : [];
 
 const toggleExpand = (key: string) => {
-  if (!key) return
+  if (!key) return;
 
-  const next = new Set(expandedCategories.value)
-  if (next.has(key)) next.delete(key)
-  else next.add(key)
+  const next = new Set(expandedCategories.value);
+  if (next.has(key)) next.delete(key);
+  else next.add(key);
 
-  expandedCategories.value = next
-}
+  expandedCategories.value = next;
+};
 
 const isExpanded = (key: string) =>
-  key ? expandedCategories.value.has(key) : false
+  key ? expandedCategories.value.has(key) : false;
+
+const closeMobileMenu = () => {
+  isMobileMenuOpen.value = false;
+};
 
 watch(isMobileMenuOpen, (isOpen) => {
   if (isOpen) {
-    isMobileSearchOpen.value = false
-    return
+    isMobileSearchOpen.value = false;
+    return;
   }
 
-  expandedCategories.value = new Set()
-})
+  expandedCategories.value = new Set();
+});
 
 watch(isMobileSearchOpen, (isOpen) => {
-  if (isOpen) isMobileMenuOpen.value = false
-})
+  if (isOpen) isMobileMenuOpen.value = false;
+});
 
 const staticLinks = [
   { to: "/sobre-nosotros", label: "Sobre nosotros" },
   { to: "/contacto", label: "Contacto" },
   { to: "/como-preparar-archivos", label: "Cómo preparar archivo" },
-]
+];
 </script>
 
 <template>
-  <header class="w-full bg-white border-b border-slate-100 sticky top-0 z-[50]">
+  <header class="sticky top-0 z-[50] w-full border-b border-slate-100 bg-white">
     <div
       class="mx-auto flex h-16 w-full max-w-[1440px] items-center justify-between gap-4 px-6 md:h-20 md:gap-8 md:px-10 lg:px-16 2xl:px-[120px]"
     >
@@ -127,9 +139,9 @@ const staticLinks = [
         </div>
       </div>
 
-      <div class="flex shrink-0 items-center gap-1 md:gap-3">
+      <div class="flex shrink-0 items-center gap-1.5 md:gap-3">
         <button
-          class="p-2 text-slate-500 transition-colors hover:text-sky-700 lg:hidden"
+          class="shrink-0 p-2 text-slate-500 transition-colors hover:text-sky-700 lg:hidden"
           aria-label="Alternar barra de búsqueda"
           :aria-expanded="isMobileSearchOpen"
           @click="isMobileSearchOpen = !isMobileSearchOpen"
@@ -140,7 +152,7 @@ const staticLinks = [
 
         <a
           href="tel:+34932749890"
-          class="flex items-center gap-2 p-2 text-slate-400 transition-colors hover:text-sky-700"
+          class="hidden items-center gap-2 p-2 text-slate-400 transition-colors hover:text-sky-700 sm:flex"
           aria-label="Llamar a atención al cliente"
         >
           <Phone class="h-5 w-5 md:h-4 md:w-4" />
@@ -151,17 +163,46 @@ const staticLinks = [
 
         <NuxtLink
           to="/pedir-presupuesto"
-          class="inline-flex h-9 items-center justify-center gap-2 whitespace-nowrap rounded-lg bg-[#0076B3] px-3 text-[13px] font-semibold text-white shadow-sm transition-all hover:bg-[#006aa1] md:h-11 md:px-6 md:text-[14px]"
+          class="inline-flex h-9 shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-lg bg-[#0076B3] px-2.5 text-[12px] font-semibold text-white shadow-sm transition-all hover:bg-[#006aa1] sm:px-3 sm:text-[13px] md:h-11 md:px-6 md:text-[14px]"
         >
           <span class="hidden text-sm sm:inline">Pide presupuesto</span>
           <span class="text-xs sm:hidden">Presupuesto</span>
         </NuxtLink>
 
+        <!-- Desktop: accesos rápidos -->
+        <DropdownMenu>
+          <DropdownMenuTrigger as-child>
+            <Button
+              variant="ghost"
+              class="hidden h-10 w-10 shrink-0 rounded-lg p-0 hover:bg-slate-50 lg:inline-flex"
+              aria-label="Abrir accesos rápidos"
+            >
+              <Menu class="h-6 w-6 text-[#212121]" />
+            </Button>
+          </DropdownMenuTrigger>
+
+          <DropdownMenuContent align="end" class="w-64">
+            <DropdownMenuLabel>Accesos rápidos</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+
+            <DropdownMenuItem
+              v-for="link in staticLinks"
+              :key="link.to"
+              as-child
+            >
+              <NuxtLink :to="link.to" class="w-full">
+                {{ link.label }}
+              </NuxtLink>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+
+        <!-- Mobile: sheet con categorías + enlaces estáticos al final -->
         <Sheet v-model:open="isMobileMenuOpen">
           <SheetTrigger as-child>
             <Button
               variant="ghost"
-              class="h-10 w-10 rounded-lg p-0 hover:bg-slate-50 lg:hidden"
+              class="h-10 w-10 shrink-0 rounded-lg p-0 hover:bg-slate-50 lg:hidden"
               aria-label="Abrir menú de navegación"
             >
               <Menu class="h-6 w-6 text-[#212121]" />
@@ -175,11 +216,11 @@ const staticLinks = [
             <SheetTitle class="sr-only">Menú de navegación principal</SheetTitle>
 
             <div class="border-b border-slate-100 bg-slate-50/50 p-4">
-              <HeaderSearch @search="isMobileMenuOpen = false" />
+              <HeaderSearch @search="closeMobileMenu" />
             </div>
 
             <nav class="flex flex-1 flex-col gap-6 overflow-y-auto p-4">
-              <div>
+              <div v-if="showMenu">
                 <h2
                   class="mb-3 px-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500"
                 >
@@ -204,7 +245,7 @@ const staticLinks = [
                       v-if="!hasDropdown(cat)"
                       :to="toCat(cat)"
                       class="flex w-full items-center rounded-lg px-3 py-3 text-sm font-medium text-slate-800 transition-colors hover:bg-slate-50"
-                      @click="isMobileMenuOpen = false"
+                      @click="closeMobileMenu"
                     >
                       {{ labelOf(cat) }}
                     </NuxtLink>
@@ -235,7 +276,7 @@ const staticLinks = [
                         <NuxtLink
                           :to="toCat(cat)"
                           class="inline-flex w-full items-center justify-between rounded-md bg-slate-100/50 px-3 py-2 text-sm font-medium text-sky-700 transition-colors hover:bg-sky-50"
-                          @click="isMobileMenuOpen = false"
+                          @click="closeMobileMenu"
                         >
                           <span>Ver todo {{ labelOf(cat) }}</span>
                           <span>&rarr;</span>
@@ -271,7 +312,7 @@ const staticLinks = [
                               v-else
                               :to="toCat(sub)"
                               class="block px-3 py-2 text-sm text-slate-700 hover:bg-slate-50"
-                              @click="isMobileMenuOpen = false"
+                              @click="closeMobileMenu"
                             >
                               {{ labelOf(sub) }}
                             </NuxtLink>
@@ -283,7 +324,7 @@ const staticLinks = [
                               <NuxtLink
                                 :to="toCat(sub)"
                                 class="mb-2 block px-1 text-xs font-medium text-sky-600"
-                                @click="isMobileMenuOpen = false"
+                                @click="closeMobileMenu"
                               >
                                 Ver toda la subcategoría &rarr;
                               </NuxtLink>
@@ -294,7 +335,7 @@ const staticLinks = [
                                   :key="prod.path || prod.slug || prod.title"
                                   :to="toProd(prod)"
                                   class="truncate rounded-md p-2 text-xs text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900"
-                                  @click="isMobileMenuOpen = false"
+                                  @click="closeMobileMenu"
                                 >
                                   {{ prod.title }}
                                 </NuxtLink>
@@ -316,7 +357,7 @@ const staticLinks = [
                               :key="prod.path || prod.slug || prod.title"
                               :to="toProd(prod)"
                               class="truncate rounded-md border border-slate-100 bg-white p-2 text-sm text-slate-600 transition-colors hover:bg-slate-50"
-                              @click="isMobileMenuOpen = false"
+                              @click="closeMobileMenu"
                             >
                               {{ prod.title }}
                             </NuxtLink>
@@ -328,13 +369,22 @@ const staticLinks = [
                 </ul>
               </div>
 
-              <div class="mt-auto border-t border-slate-100 pt-6">
+              <div
+                class="mt-auto border-t border-slate-100 pt-6"
+                :class="{ 'mt-0 border-t-0 pt-0': !showMenu }"
+              >
+                <h2
+                  class="mb-3 px-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500"
+                >
+                  Más información
+                </h2>
+
                 <ul class="space-y-1">
                   <li v-for="l in staticLinks" :key="l.to">
                     <NuxtLink
                       :to="l.to"
                       class="block rounded-lg px-3 py-2.5 text-sm font-medium text-slate-700 transition-colors hover:bg-sky-50 hover:text-sky-700"
-                      @click="isMobileMenuOpen = false"
+                      @click="closeMobileMenu"
                     >
                       {{ l.label }}
                     </NuxtLink>
