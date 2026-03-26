@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "sync:cms": "tsx scripts/sync-cms.ts",
+    "sync:cms": "tsx ./scripts/sync-cms.ts",
     "build": "npm run cms:sync && nuxt build",
     "dev": "nuxt dev",
     "generate": "npm run cms:sync && nuxt generate",
