@@ -67,7 +67,6 @@ type CategoryDto = {
   bodyMd?: string;
   sections: ContentSection[];
   image: ImageDto;
-  cta?: { text?: string; link?: string };
   faqs: Array<{ question: string; answer: string }>;
   galleryImages: unknown[];
   breadcrumbs: Array<{ name: string; url: string }>;
@@ -154,9 +153,6 @@ const CATEGORY_FIELDS = [
   "ImageHeight",
   "ImageAlt",
   "GalleryImagesJson",
-  "BreadcrumbsJson",
-  "CtaText",
-  "CtaLink",
   "MetaTitle",
   "MetaDescription",
   "Canonical",
@@ -168,6 +164,56 @@ const CATEGORY_FIELDS = [
   "RobotsOverride",
   "OgImageSrc",
   "Path",
+] as const;
+
+const PRODUCT_FIELDS = [
+  "Title",
+  "ProductSlug",
+  "Path",
+  "Canonical",
+  "CategorySlug",
+  "Categories",
+  "IsPublished",
+  "PublishedAt",
+  "ShortDescription",
+  "BodyMd",
+  "DetailsMd",
+  "BenefitsMd",
+  "MaterialsMd",
+  "FormatsMd",
+  "FinishesMd",
+  "TechnicalSpecsMd",
+  "ApplicationsMd",
+  "FaqsJson",
+  "ImageSrc",
+  "ImageWidth",
+  "ImageHeight",
+  "ImageAlt",
+  "GalleryImagesJson",
+  "MetaTitle",
+  "MetaDescription",
+  "HrefLangJson",
+  "KeywordsJson",
+  "SearchTermsJson",
+  "SchemaJson",
+  "LegacySlugsJson",
+  "RobotsOverride",
+  "RobotsAdvanced",
+  "NoIndex",
+  "OgImageSrc",
+  "Sku",
+  "Mpn",
+  "Gtin13",
+  "Brand",
+  "Price",
+  "PriceCurrency",
+  "InStock",
+  "RatingValue",
+  "ReviewCount",
+  "AttributesJson",
+  "VariantsJson",
+  "FormFieldsJson",
+  "SortOrder",
 ] as const;
 
 const CATEGORY_SECTION_TITLES: Record<string, string> = {
@@ -540,20 +586,6 @@ function firstSentence(value: string): string | undefined {
   return sentence && sentence.length > 10 ? sentence : undefined;
 }
 
-function parseBreadcrumbs(value: unknown): Array<{ name: string; url: string }> {
-  const parsed = parseJsonLoose<Array<{ name?: unknown; url?: unknown }>>(value, []);
-  const items = parsed
-    .map((item) => ({
-      name: str(item?.name) || "",
-      url: sanitizeLink(item?.url) || "/",
-    }))
-    .filter((item) => item.name);
-
-  return uniq(items.map((item) => JSON.stringify(item))).map(
-    (item) => JSON.parse(item) as { name: string; url: string },
-  );
-}
-
 function dedupeBreadcrumbs(breadcrumbs: Array<{ name: string; url: string }>): Array<{ name: string; url: string }> {
   const seen = new Set<string>();
   const result: Array<{ name: string; url: string }> = [];
@@ -570,17 +602,6 @@ function dedupeBreadcrumbs(breadcrumbs: Array<{ name: string; url: string }>): A
   }
 
   return result;
-}
-
-function humanizeSlug(value: string): string {
-  const clean =
-    String(value ?? "")
-      .replace(/^\/+|\/+$/g, "")
-      .split("/")
-      .filter(Boolean)
-      .at(-1) || "";
-
-  return clean.replace(/[-_]+/g, " ").replace(/\b\w/g, (char) => char.toUpperCase());
 }
 
 function normalizeFieldKey(key: string): string {
@@ -620,48 +641,33 @@ function getField(fields: Record<string, unknown>, candidates: string[]): unknow
   return undefined;
 }
 
-function logFirstProductFieldSnapshot(items: Array<GraphItem<Record<string, unknown>>>): void {
-  const firstFields = items[0]?.fields || {};
+function buildCategoryBreadcrumbs(
+  category: CategoryDto,
+  categoriesBySlug: Map<string, CategoryDto>,
+): Array<{ name: string; url: string }> {
+  const trail: CategoryDto[] = [];
+  const seen = new Set<string>();
 
-  console.log("\n🧪 Claves reales del primer producto:");
-  console.log(Object.keys(firstFields).sort());
+  let current = category.parent ? categoriesBySlug.get(category.parent) : undefined;
 
-  console.log("\n🧪 Valor raw de posibles campos:");
-  console.log(
-    "PrimaryCategory:",
-    getField(firstFields, ["PrimaryCategory", "OrimaryCategory", "Primary_x0020_Category"]),
-  );
-  console.log("Categories:", getField(firstFields, ["Categories", "CategorySlugs"]));
-}
-
-function fallbackCategoryBreadcrumbs(title: string, categoryPath: string): Array<{ name: string; url: string }> {
-  const cleanPath = categoryPath.replace(/^\/+|\/+$/g, "");
-  const segments = cleanPath.split("/").filter(Boolean);
-
-  if (segments[0] !== "categorias") {
-    return dedupeBreadcrumbs([
-      { name: "Inicio", url: "/" },
-      { name: title, url: categoryPath },
-    ]);
+  while (current && !seen.has(current.slug)) {
+    trail.unshift(current);
+    seen.add(current.slug);
+    current = current.parent ? categoriesBySlug.get(current.parent) : undefined;
   }
 
-  const crumbs: Array<{ name: string; url: string }> = [
+  return dedupeBreadcrumbs([
     { name: "Inicio", url: "/" },
     { name: "Categorías", url: "/categorias" },
-  ];
-
-  let currentPath = "/categorias";
-
-  for (let index = 1; index < segments.length; index += 1) {
-    const segment = segments[index]!;
-    currentPath += `/${segment}`;
-    crumbs.push({
-      name: index === segments.length - 1 ? title : humanizeSlug(segment),
-      url: currentPath,
-    });
-  }
-
-  return dedupeBreadcrumbs(crumbs);
+    ...trail.map((item) => ({
+      name: item.nav || item.title,
+      url: item.path,
+    })),
+    {
+      name: category.nav || category.title,
+      url: category.path,
+    },
+  ]);
 }
 
 function buildProductBreadcrumbs(
@@ -719,6 +725,7 @@ function buildFaqSchema(
 
 function schemaOverrideShape(value: Record<string, JsonValue | undefined>): Record<string, JsonValue | undefined> {
   const override = { ...(value || {}) };
+
   delete override["@context"];
   delete override["@graph"];
   delete override["url"];
@@ -727,6 +734,11 @@ function schemaOverrideShape(value: Record<string, JsonValue | undefined>): Reco
   delete override["itemListElement"];
   delete override["offers"];
   delete override["aggregateRating"];
+  delete override["brand"];
+  delete override["sku"];
+  delete override["mpn"];
+  delete override["gtin13"];
+
   return override;
 }
 
@@ -1072,7 +1084,7 @@ function buildCategorySeo(
   publicPath: string,
   imageSrc?: string,
 ): SeoDto {
-  const canonical = toAbsoluteUrl(fields.Canonical, publicPath);
+  const canonical = `${SITE_URL}${publicPath}`;
   const metaTitle = str(fields.MetaTitle) || title;
   const metaDescription =
     str(fields.MetaDescription) ||
@@ -1110,7 +1122,7 @@ function buildProductSeo(
   imageSrc?: string,
   sku?: string,
 ): SeoDto {
-  const canonical = toAbsoluteUrl(fields.Canonical, publicPath);
+  const canonical = `${SITE_URL}${publicPath}`;
   const metaTitle = str(fields.MetaTitle) || title;
   const metaDescription =
     str(fields.MetaDescription) ||
@@ -1160,6 +1172,11 @@ function buildCategory(item: GraphItem<Record<string, unknown>>): CategoryDto | 
   const bodyMd = str(fields.BodyMd);
   const description = str(fields.Description);
 
+  const rawCanonicalPath = pathFromUrlLike(fields.Canonical);
+  if (rawCanonicalPath && rawCanonicalPath !== publicPath) {
+    warn(`Categoría ${slug}: canonical origen distinto al path (${rawCanonicalPath} -> ${publicPath}).`);
+  }
+
   const sectionEntries: Array<{ target: string; value?: string }> = [
     { target: "details", value: detailsMd || description },
     { target: "types", value: str(fields.TypesMd) },
@@ -1183,7 +1200,6 @@ function buildCategory(item: GraphItem<Record<string, unknown>>): CategoryDto | 
 
   const pathSegments = publicPath.split("/").filter(Boolean);
   const parent = pathSegments.length > 2 ? pathSegments[pathSegments.length - 2] : undefined;
-  const breadcrumbs = parseBreadcrumbs(fields.BreadcrumbsJson);
   const seo = buildCategorySeo(fields, title, publicPath, imageSrc);
 
   return {
@@ -1208,13 +1224,9 @@ function buildCategory(item: GraphItem<Record<string, unknown>>): CategoryDto | 
       height: parsePositiveInt(fields.ImageHeight),
       alt: str(fields.ImageAlt) || title,
     },
-    cta: {
-      text: str(fields.CtaText),
-      link: sanitizeLink(fields.CtaLink),
-    },
     faqs: parseFaqs(fields.FaqsJson),
     galleryImages: parseJsonLoose<unknown[]>(fields.GalleryImagesJson, []),
-    breadcrumbs: breadcrumbs.length > 0 ? breadcrumbs : fallbackCategoryBreadcrumbs(title, publicPath),
+    breadcrumbs: [],
     legacySlugs: uniq(
       parseStringList(fields.LegacySlugsJson)
         .map((value) => normalizeSlug(value))
@@ -1228,7 +1240,7 @@ function buildProduct(item: GraphItem<Record<string, unknown>>): ProductDto | nu
   const fields = item.fields || {};
 
   const slug =
-    normalizeSlug(getField(fields, ["Slug"])) ||
+    normalizeSlug(getField(fields, ["ProductSlug"])) ||
     slugFromPath(pathFromUrlLike(getField(fields, ["Path"])), "/productos") ||
     slugFromPath(pathFromUrlLike(getField(fields, ["Canonical"])), "/productos");
 
@@ -1246,13 +1258,8 @@ function buildProduct(item: GraphItem<Record<string, unknown>>): ProductDto | nu
 
   const title = str(getField(fields, ["Title"])) || slug;
 
-  const rawPrimaryCategory = getField(fields, [
-    "PrimaryCategory",
-    "OrimaryCategory",
-    "Primary_x0020_Category",
-  ]);
-
-  const rawCategories = getField(fields, ["Categories", "CategorySlugs"]);
+  const rawPrimaryCategory = getField(fields, ["CategorySlug"]);
+  const rawCategories = getField(fields, ["Categories"]);
 
   const additionalCategories = parseStringList(rawCategories)
     .map((value) => leafSlug(value))
@@ -1263,7 +1270,9 @@ function buildProduct(item: GraphItem<Record<string, unknown>>): ProductDto | nu
   const categorySlugs = uniq([categorySlug, ...additionalCategories].filter(Boolean)) as string[];
 
   if (!primaryCategorySlug && categorySlug) {
-    warn(`Producto ${slug}: PrimaryCategory vacío, usando fallback desde Categories (${categorySlug}).`);
+    warn(
+      `Producto ${slug}: CategorySlug vacío o no legible. raw=${JSON.stringify(rawPrimaryCategory)} | fallback=${categorySlug}`,
+    );
   }
 
   const imageSrc = sanitizeImageSrc(getField(fields, ["ImageSrc"]));
@@ -1274,7 +1283,7 @@ function buildProduct(item: GraphItem<Record<string, unknown>>): ProductDto | nu
     firstSentence(detailsMd || "") ||
     firstSentence(bodyMd || "");
 
-  const description = str(getField(fields, ["ShortDescription"])) || shortDescription;
+  const description = shortDescription;
   const brand = str(getField(fields, ["Brand"]));
   const priceValue = parsePrice(getField(fields, ["Price"]));
   const currency = str(getField(fields, ["PriceCurrency"])) || "EUR";
@@ -1414,21 +1423,13 @@ function finalizeCatalog(categories: CategoryDto[], products: ProductDto[]): voi
   const categoriesBySlug = new Map<string, CategoryDto>();
 
   for (const category of categories) {
-    category.breadcrumbs =
-      Array.isArray(category.breadcrumbs) && category.breadcrumbs.length > 0
-        ? dedupeBreadcrumbs(category.breadcrumbs)
-        : fallbackCategoryBreadcrumbs(category.title, category.path);
+    categoriesBySlug.set(category.slug, category);
+  }
 
-    const expectedCanonical = `${SITE_URL}${category.path}`;
-    const currentCanonicalPath = pathFromUrlLike(category.seo.canonical);
-    if (!currentCanonicalPath || currentCanonicalPath !== category.path) {
-      warn(`Categoría ${category.slug}: canonical corregido a ${expectedCanonical}.`);
-      category.seo.canonical = expectedCanonical;
-    }
-
+  for (const category of categories) {
+    category.breadcrumbs = buildCategoryBreadcrumbs(category, categoriesBySlug);
     category.seo.hreflang = normalizeHreflang(category.seo.hreflang, category.seo.canonical);
     category.seo.schema = buildCategorySchemaGraph(category);
-    categoriesBySlug.set(category.slug, category);
   }
 
   for (const product of products) {
@@ -1437,14 +1438,6 @@ function finalizeCatalog(categories: CategoryDto[], products: ProductDto[]): voi
     }
 
     product.breadcrumbs = buildProductBreadcrumbs(product, categoriesBySlug);
-
-    const expectedCanonical = `${SITE_URL}${product.path}`;
-    const currentCanonicalPath = pathFromUrlLike(product.seo.canonical);
-    if (!currentCanonicalPath || currentCanonicalPath !== product.path) {
-      warn(`Producto ${product.slug}: canonical corregido a ${expectedCanonical}.`);
-      product.seo.canonical = expectedCanonical;
-    }
-
     product.seo.hreflang = normalizeHreflang(product.seo.hreflang, product.seo.canonical);
     product.seo.schema = buildProductSchemaGraph(product);
   }
@@ -1487,7 +1480,7 @@ function validateCatalog(categories: CategoryDto[], products: ProductDto[]): voi
     }
 
     if (!product.categorySlug) {
-      warn(`Producto ${product.slug}: PrimaryCategory vacío.`);
+      warn(`Producto ${product.slug}: CategorySlug vacío.`);
     }
 
     if (product.image.src && !/^(https?:\/\/|\/)/i.test(product.image.src)) {
@@ -1514,7 +1507,7 @@ function validateCatalog(categories: CategoryDto[], products: ProductDto[]): voi
       : false;
 
     if (product.categorySlug && !categoryExists) {
-      warn(`Producto ${product.slug}: PrimaryCategory (${product.categorySlug}) no existe en categorías publicadas.`);
+      warn(`Producto ${product.slug}: CategorySlug (${product.categorySlug}) no existe en categorías publicadas.`);
     }
 
     const owner = seenPaths.get(product.path);
@@ -1531,12 +1524,10 @@ async function run(): Promise<void> {
 
   const [categoryItems, productItems] = await Promise.all([
     fetchAllItems<Record<string, unknown>>(SP_LIST_CATEGORIES_ID!, CATEGORY_FIELDS),
-    fetchAllItems<Record<string, unknown>>(SP_LIST_PRODUCTS_ID!),
+    fetchAllItems<Record<string, unknown>>(SP_LIST_PRODUCTS_ID!, PRODUCT_FIELDS),
   ]);
 
   console.log(`📦 SharePoint: ${categoryItems.length} categorías, ${productItems.length} productos`);
-
-  logFirstProductFieldSnapshot(productItems);
 
   const builtCategories = categoryItems.map(buildCategory).filter((item): item is CategoryDto => Boolean(item));
   const builtProducts = productItems.map(buildProduct).filter((item): item is ProductDto => Boolean(item));

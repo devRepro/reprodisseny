@@ -1,8 +1,12 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { cn } from "@/lib/utils";
+import { normalizeCmsMediaSrc } from "@/utils/cmsMedia";
 import CategoryProductsGrid from "@/components/marketing/category/CategoryProductsGrid.vue";
 import CategoryFaq from "@/components/marketing/category/CategoryFaq.vue";
+import ContentSectionIntro from "@/components/marketing/content/ContentSectionIntro.vue";
+import ContentSectionNav from "@/components/marketing/content/ContentSectionNav.vue";
+import ContentSectionShell from "@/components/marketing/content/ContentSectionShell.vue";
 import type { Block } from "@/utils/categoryRail";
 
 type IncomingFaq = {
@@ -13,10 +17,10 @@ type IncomingFaq = {
 };
 
 type IncomingImage = {
-  src?: string;
-  alt?: string;
-  width?: number;
-  height?: number;
+  src?: string | null;
+  alt?: string | null;
+  width?: number | null;
+  height?: number | null;
 } | null;
 
 type IncomingSection = {
@@ -38,6 +42,30 @@ type IncomingProduct = {
   image?: IncomingImage;
   ctaText?: string;
   description?: string;
+};
+
+type SafeSection = {
+  id: string;
+  title: string;
+  blocks: Block[];
+};
+
+type SafeProduct = {
+  title: string;
+  to: string;
+  imageSrc?: string;
+  imageAlt: string;
+  ctaText?: string;
+};
+
+type SafeFaq = {
+  q: string;
+  a: string;
+};
+
+type NavItem = {
+  id: string;
+  label: string;
 };
 
 const props = withDefaults(
@@ -67,7 +95,7 @@ const props = withDefaults(
 
     class: "",
     sectionsClass: "",
-    asideContainerClass: "mx-auto w-full max-w-[1100px] px-6 lg:px-16",
+    asideContainerClass: "container-content",
 
     productsTitle: "Productos relacionados",
     productsSubtitle: "",
@@ -84,6 +112,17 @@ function toTextBlock(text: string, html = false): Block {
     text,
     html,
   } as Block;
+}
+
+function makeAnchorId(value: string, fallback: string) {
+  const normalized = String(value || "")
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
+  return normalized || fallback;
 }
 
 function normalizeSectionBlocks(section: IncomingSection): Block[] {
@@ -110,15 +149,16 @@ const rawSections = computed<IncomingSection[]>(() => {
   return [];
 });
 
-const safeSections = computed(() =>
+const safeSections = computed<SafeSection[]>(() =>
   rawSections.value
     .map((section, index) => {
       const title = String(section?.title ?? "").trim();
-      const id =
-        String(section?.id ?? section?.key ?? "").trim() || `seccion-${index + 1}`;
       const blocks = normalizeSectionBlocks(section);
 
       if (!title || !blocks.length) return null;
+
+      const rawId = String(section?.id ?? section?.key ?? "").trim();
+      const id = makeAnchorId(rawId || title, `seccion-${index + 1}`);
 
       return {
         id,
@@ -126,16 +166,19 @@ const safeSections = computed(() =>
         blocks,
       };
     })
-    .filter(Boolean)
+    .filter((section): section is SafeSection => Boolean(section))
 );
 
-const safeProducts = computed(() =>
+const safeProducts = computed<SafeProduct[]>(() =>
   (props.products || [])
     .map((item) => {
       const title = String(item?.title ?? "").trim();
       const to = String(item?.to ?? item?.path ?? "").trim();
-      const imageSrc =
+      const rawImageSrc =
         String(item?.imageSrc ?? item?.image?.src ?? "").trim() || undefined;
+      const imageSrc = rawImageSrc
+        ? normalizeCmsMediaSrc(rawImageSrc) || rawImageSrc
+        : undefined;
       const imageAlt =
         String(item?.imageAlt ?? item?.image?.alt ?? title).trim() || title;
 
@@ -149,70 +192,79 @@ const safeProducts = computed(() =>
         ctaText: String(item?.ctaText ?? "").trim() || undefined,
       };
     })
-    .filter(Boolean)
+    .filter((item): item is SafeProduct => Boolean(item))
 );
 
-const safeFaqs = computed(() =>
+const safeFaqs = computed<SafeFaq[]>(() =>
   (props.faqs || [])
     .map((item) => ({
       q: String(item?.q ?? item?.question ?? "").trim(),
       a: String(item?.a ?? item?.answer ?? "").trim(),
     }))
-    .filter((item) => item.q && item.a)
+    .filter((item): item is SafeFaq => Boolean(item.q && item.a))
 );
 
 const hasSections = computed(() => safeSections.value.length > 0);
 const hasProducts = computed(() => safeProducts.value.length > 0);
 const hasFaqs = computed(() => safeFaqs.value.length > 0);
+
+const navItems = computed<NavItem[]>(() => {
+  const items: NavItem[] = safeSections.value.map((section) => ({
+    id: section.id,
+    label: section.title,
+  }));
+
+  if (hasProducts.value) {
+    items.push({ id: "productos", label: "Productos" });
+  }
+
+  if (hasFaqs.value) {
+    items.push({ id: "faqs", label: "FAQ" });
+  }
+
+  return items;
+});
 </script>
 
 <template>
   <section :class="cn('bg-background text-foreground', props.class)">
     <div :class="props.asideContainerClass">
-      <div class="space-y-16 py-12 md:space-y-20 md:py-16">
+      <div class="py-12 md:py-16">
         <section
           v-if="hasSections"
           aria-labelledby="category-content-heading"
           :class="props.sectionsClass"
         >
-          <div class="max-w-3xl">
-            <p class="text-label text-primary">
-              Información de la categoría
-            </p>
+          <ContentSectionIntro
+            eyebrow="Información de la categoría"
+            title="Características, formatos y aplicaciones"
+            description="Consulta los aspectos clave para comparar soluciones, materiales, acabados y usos habituales."
+          />
 
-            <h2
-              id="category-content-heading"
-              class="mt-2 text-[clamp(1.6rem,2vw,2rem)] font-semibold leading-tight tracking-tight text-foreground"
-            >
-              Características, formatos y aplicaciones
-            </h2>
-
-            <p class="mt-2 max-w-[62ch] text-body text-muted-foreground">
-              Consulta los aspectos clave para comparar soluciones, materiales, acabados y usos habituales.
-            </p>
-          </div>
+          <ContentSectionNav
+            v-if="navItems.length > 1"
+            :items="navItems"
+            class="mt-8"
+            sticky-top-class="top-20 md:top-24"
+            :offset="136"
+          />
 
           <div class="mt-8 space-y-6 md:space-y-8">
-            <section
+            <ContentSectionShell
               v-for="section in safeSections"
               :id="section.id"
               :key="section.id"
-              class="scroll-mt-[132px] rounded-[28px] border border-border/70 bg-card p-6 shadow-[0_10px_30px_-24px_hsl(var(--foreground)/0.14)] md:p-8"
+              :title="section.title"
             >
-              <header class="max-w-[760px]">
-                <h3
-                  class="text-[22px] font-semibold leading-[1.15] tracking-tight text-foreground md:text-[26px]"
-                >
-                  {{ section.title }}
-                </h3>
-              </header>
-
-              <div class="mt-6 space-y-5">
+              <div class="space-y-5">
                 <template
                   v-for="(block, index) in section.blocks"
                   :key="`${section.id}-${index}`"
                 >
-                  <div v-if="block.type === 'text' && block.text" class="max-w-none">
+                  <div
+                    v-if="block.type === 'text' && block.text"
+                    class="max-w-none"
+                  >
                     <div
                       v-if="block.html"
                       class="prose prose-slate max-w-none text-foreground/80"
@@ -247,7 +299,7 @@ const hasFaqs = computed(() => safeFaqs.value.length > 0);
                     class="overflow-hidden rounded-2xl border border-border/60 bg-background"
                   >
                     <NuxtImg
-                      :src="block.src"
+                      :src="normalizeCmsMediaSrc(block.src) || block.src"
                       :alt="block.alt || section.title"
                       :width="block.width || 1200"
                       :height="block.height || 800"
@@ -263,7 +315,7 @@ const hasFaqs = computed(() => safeFaqs.value.length > 0);
                   </figure>
                 </template>
               </div>
-            </section>
+            </ContentSectionShell>
           </div>
         </section>
 
@@ -271,7 +323,12 @@ const hasFaqs = computed(() => safeFaqs.value.length > 0);
           v-if="hasProducts"
           id="productos"
           aria-labelledby="category-products-heading"
+          class="mt-16 scroll-mt-[148px] md:mt-20"
         >
+          <h2 id="category-products-heading" class="sr-only">
+            {{ props.productsTitle }}
+          </h2>
+
           <CategoryProductsGrid
             :title="productsTitle"
             :subtitle="productsSubtitle"
@@ -280,12 +337,22 @@ const hasFaqs = computed(() => safeFaqs.value.length > 0);
           />
         </section>
 
-        <CategoryFaq
+        <section
           v-if="hasFaqs"
-          :items="safeFaqs"
-          :title="faqTitle"
-          :subtitle="faqSubtitle"
-        />
+          id="faqs"
+          aria-labelledby="category-faq-heading"
+          class="mt-16 scroll-mt-[148px] md:mt-20"
+        >
+          <h2 id="category-faq-heading" class="sr-only">
+            {{ props.faqTitle }}
+          </h2>
+
+          <CategoryFaq
+            :items="safeFaqs"
+            :title="faqTitle"
+            :subtitle="faqSubtitle"
+          />
+        </section>
       </div>
     </div>
   </section>

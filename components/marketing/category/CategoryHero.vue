@@ -1,32 +1,36 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { cn } from "@/lib/utils";
+import { normalizeCmsMediaSrc } from "@/utils/cmsMedia";
 
 type HeroCta = {
   label: string;
   to: string;
 };
 
-type HeroImage = {
-  src?: string;
-  alt?: string;
-  width?: number;
-  height?: number;
-} | null;
+type HeroImage =
+  | {
+      src?: string | null;
+      alt?: string | null;
+      width?: number | null;
+      height?: number | null;
+    }
+  | null
+  | undefined;
 
 type CategoryLike = {
-  title?: string;
-  nav?: string;
-  description?: string;
-  heroDescription?: string;
-  imageSrc?: string;
+  title?: string | null;
+  nav?: string | null;
+  description?: string | null;
+  heroDescription?: string | null;
+  imageSrc?: string | null;
   image?: HeroImage;
-  alt?: string;
+  alt?: string | null;
 };
 
 const props = withDefaults(
   defineProps<{
-    category: CategoryLike;
+    category: CategoryLike | null;
     showPrimaryCta?: boolean;
     showSecondaryCta?: boolean;
     primaryCta?: Partial<HeroCta> | null;
@@ -44,31 +48,42 @@ const props = withDefaults(
   }
 );
 
-const title = computed(() => props.category?.title || props.category?.nav || "Categoría");
+const title = computed(
+  () => props.category?.title || props.category?.nav || "Categoría"
+);
 
 const description = computed(
   () => props.category?.heroDescription || props.category?.description || ""
 );
 
-const imgSrc = computed(
+const rawImgSrc = computed(
   () => props.category?.imageSrc || props.category?.image?.src || ""
 );
+
+const imgSrc = computed(() => normalizeCmsMediaSrc(rawImgSrc.value || "") || "");
 
 const imgAlt = computed(
   () => props.category?.alt || props.category?.image?.alt || title.value
 );
 
+const imgWidth = computed(() => props.category?.image?.width || undefined);
+const imgHeight = computed(() => props.category?.image?.height || undefined);
+
 const primaryCta = computed<HeroCta | null>(() => {
   const to = String(props.primaryCta?.to || "").trim();
   const label = String(props.primaryCta?.label || "").trim();
+
   if (!to || !label) return null;
+
   return { to, label };
 });
 
 const secondaryCta = computed<HeroCta | null>(() => {
   const to = String(props.secondaryCta?.to || "").trim();
   const label = String(props.secondaryCta?.label || "").trim();
+
   if (!to || !label) return null;
+
   return { to, label };
 });
 </script>
@@ -77,7 +92,7 @@ const secondaryCta = computed<HeroCta | null>(() => {
   <header
     :class="
       cn(
-        'relative overflow-hidden bg-background',
+        'relative w-full overflow-hidden bg-background',
         'pt-6 md:pt-8 lg:pt-10',
         'pb-10 md:pb-14 lg:pb-16',
         props.class
@@ -142,7 +157,7 @@ const secondaryCta = computed<HeroCta | null>(() => {
         <div v-if="imgSrc" class="relative min-w-0">
           <div
             aria-hidden="true"
-            class="absolute inset-x-6 top-6 bottom-4 rounded-[36px] bg-[linear-gradient(135deg,hsl(var(--brand-base-light)/0.95)_0%,hsl(var(--brand-bg-2)/0.55)_45%,hsl(var(--background))_100%)] blur-2xl opacity-90"
+            class="absolute inset-x-6 bottom-4 top-6 rounded-[36px] bg-[linear-gradient(135deg,hsl(var(--brand-base-light)/0.95)_0%,hsl(var(--brand-bg-2)/0.55)_45%,hsl(var(--background))_100%)] opacity-90 blur-2xl"
           />
 
           <div
@@ -151,6 +166,8 @@ const secondaryCta = computed<HeroCta | null>(() => {
             <img
               :src="imgSrc"
               :alt="imgAlt"
+              :width="imgWidth"
+              :height="imgHeight"
               class="aspect-[4/3] w-full object-cover md:aspect-[5/4] lg:aspect-[4/3]"
               loading="eager"
               decoding="async"

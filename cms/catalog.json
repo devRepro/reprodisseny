@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-26T18:06:31.838Z",
+  "generatedAt": "2026-03-27T11:19:42.041Z",
   "categories": [
     {
       "id": "2",
@@ -101,10 +101,6 @@
         "height": 321,
         "alt": "Adhesivos personalizados en vinilo para escaparates y productos de empresas en Cataluña"
       },
-      "cta": {
-        "text": "Ver Productos",
-        "link": "https://www.reprodisseny.com/"
-      },
       "faqs": [
         {
           "question": "¿Qué material es mejor para exterior?",
@@ -130,12 +126,12 @@
           "url": "/"
         },
         {
-          "name": "Adhesivos",
-          "url": "/categorias/adhesivos"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Adhesivos personalizados para branding e interiorismo",
-          "url": "/categorias/adhesivos"
+          "name": "Adhesivos",
+          "url": "/categorias/adhesivos-personalizados"
         }
       ],
       "legacySlugs": [],
@@ -171,11 +167,6 @@
                 "@type": "Organization",
                 "name": "Repro Disseny",
                 "url": "https://reprodisseny.com"
-              },
-              "sku": "",
-              "brand": {
-                "@type": "Organization",
-                "name": "Repro Disseny"
               }
             },
             {
@@ -190,14 +181,14 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Adhesivos",
-                  "item": "https://reprodisseny.com/categorias/adhesivos"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Adhesivos personalizados para branding e interiorismo",
-                  "item": "https://reprodisseny.com/categorias/adhesivos"
+                  "name": "Adhesivos",
+                  "item": "https://reprodisseny.com/categorias/adhesivos-personalizados"
                 }
               ]
             },
@@ -347,10 +338,6 @@
         "height": 1200,
         "alt": "Material gráfico personalizado para eventos corporativos en Cataluña"
       },
-      "cta": {
-        "text": "Ver Productos",
-        "link": "https://www.reprodisseny.com/"
-      },
       "faqs": [
         {
           "question": "¿Qué material recomendáis para eventos en exterior?",
@@ -378,6 +365,10 @@
         {
           "name": "Inicio",
           "url": "/"
+        },
+        {
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
           "name": "Eventos",
@@ -437,6 +428,12 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
                   "name": "Eventos",
                   "item": "https://reprodisseny.com/categorias/eventos"
                 }
@@ -611,10 +608,6 @@
         "height": 1200,
         "alt": "Expositores impresos personalizados para ferias y puntos de venta en Cataluña"
       },
-      "cta": {
-        "text": "Ver Productos",
-        "link": "https://www.reprodisseny.com/"
-      },
       "faqs": [],
       "galleryImages": [],
       "breadcrumbs": [
@@ -623,11 +616,11 @@
           "url": "/"
         },
         {
-          "name": "Expositores",
-          "url": "/categorias/expositores"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Expositores impresos para punto de venta y eventos | Repro Disseny",
+          "name": "Expositores",
           "url": "/categorias/expositores"
         }
       ],
@@ -666,11 +659,6 @@
                 "@type": "Organization",
                 "name": "Repro Disseny",
                 "url": "https://reprodisseny.com"
-              },
-              "sku": "",
-              "brand": {
-                "@type": "Organization",
-                "name": "Repro Disseny"
               }
             },
             {
@@ -685,13 +673,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Expositores",
-                  "item": "https://reprodisseny.com/categorias/expositores"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Expositores impresos para punto de venta y eventos | Repro Disseny",
+                  "name": "Expositores",
                   "item": "https://reprodisseny.com/categorias/expositores"
                 }
               ]
@@ -827,10 +815,6 @@
         "height": 1200,
         "alt": "Soportes publicitarios de gran formato impresos para eventos y escaparates en Cataluña"
       },
-      "cta": {
-        "text": "Ver Productos",
-        "link": "https://www.reprodisseny.com/"
-      },
       "faqs": [],
       "galleryImages": [],
       "breadcrumbs": [
@@ -839,11 +823,11 @@
           "url": "/"
         },
         {
-          "name": "Gran Formato",
-          "url": "/categorias/gran-formato"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Impresión en Gran Formato en Barcelona y Cataluña | Repro Disseny",
+          "name": "Gran Formato",
           "url": "/categorias/gran-formato"
         }
       ],
@@ -884,10 +868,6 @@
                 "@type": "Organization",
                 "name": "Repro Disseny",
                 "url": "https://reprodisseny.com"
-              },
-              "brand": {
-                "@type": "Organization",
-                "name": "Repro Disseny"
               }
             },
             {
@@ -902,13 +882,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Gran Formato",
-                  "item": "https://reprodisseny.com/categorias/gran-formato"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Impresión en Gran Formato en Barcelona y Cataluña | Repro Disseny",
+                  "name": "Gran Formato",
                   "item": "https://reprodisseny.com/categorias/gran-formato"
                 }
               ]
@@ -1018,9 +998,6 @@
         "height": 1200,
         "alt": "Imatge subcategoria material flexible"
       },
-      "cta": {
-        "text": "Ver Productos"
-      },
       "faqs": [],
       "galleryImages": [],
       "breadcrumbs": [
@@ -1037,7 +1014,7 @@
           "url": "/categorias/gran-formato"
         },
         {
-          "name": "Impresión en Materiales Flexibles - Gran Formato",
+          "name": "Material Flexible",
           "url": "/categorias/gran-formato/material-flexible"
         }
       ],
@@ -1094,7 +1071,7 @@
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión en Materiales Flexibles - Gran Formato",
+                  "name": "Material Flexible",
                   "item": "https://reprodisseny.com/categorias/gran-formato/material-flexible"
                 }
               ]
@@ -1107,7 +1084,7 @@
     },
     {
       "id": "13",
-      "updatedAt": "2026-03-25T09:13:34Z",
+      "updatedAt": "2026-03-27T06:47:36Z",
       "type": "subcategoria",
       "slug": "material-rigido",
       "path": "/categorias/gran-formato/material-rigido",
@@ -1189,6 +1166,23 @@
               "ordered": false
             }
           ]
+        },
+        {
+          "id": "finishes",
+          "key": "finishes",
+          "title": "Acabados",
+          "body": "• Laminado mate o brillo: mejora la presencia y añade protección extra (recomendable cuando hay manipulación o roce).\n• Corte a medida / troquelado: contornos especiales para adaptar la pieza al soporte o crear formatos con forma.\n• Opciones de montaje (según producto): soluciones para dejar la pieza lista para instalar, como enmarcados u otras opciones según necesidad.",
+          "blocks": [
+            {
+              "type": "bullets",
+              "items": [
+                "Laminado mate o brillo: mejora la presencia y añade protección extra (recomendable cuando hay manipulación o roce).",
+                "Corte a medida / troquelado: contornos especiales para adaptar la pieza al soporte o crear formatos con forma.",
+                "Opciones de montaje (según producto): soluciones para dejar la pieza lista para instalar, como enmarcados u otras opciones según necesidad."
+              ],
+              "ordered": false
+            }
+          ]
         }
       ],
       "image": {
@@ -1196,9 +1190,6 @@
         "width": 2400,
         "height": 1200,
         "alt": "Material rígido para impresión en gran formato"
-      },
-      "cta": {
-        "text": "Ver productos"
       },
       "faqs": [],
       "galleryImages": [],
@@ -1216,7 +1207,7 @@
           "url": "/categorias/gran-formato"
         },
         {
-          "name": "Impresión en Materiales Rígidos - Gran Formato",
+          "name": "Materiales Rígidos",
           "url": "/categorias/gran-formato/material-rigido"
         }
       ],
@@ -1273,7 +1264,7 @@
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión en Materiales Rígidos - Gran Formato",
+                  "name": "Materiales Rígidos",
                   "item": "https://reprodisseny.com/categorias/gran-formato/material-rigido"
                 }
               ]
@@ -1391,10 +1382,6 @@
         "height": 1200,
         "alt": "Cartas y menús impresos para restaurantes y hoteles en Cataluña"
       },
-      "cta": {
-        "text": "Ver Productos",
-        "link": "https://www.reprodisseny.com/"
-      },
       "faqs": [],
       "galleryImages": [],
       "breadcrumbs": [
@@ -1403,11 +1390,11 @@
           "url": "/"
         },
         {
-          "name": "Hostelería y restauración",
-          "url": "/categorias/hosteleria-restauracion"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Impresión para Hoteles y Restaurantes",
+          "name": "Hostelería y restauración",
           "url": "/categorias/hosteleria-restauracion"
         }
       ],
@@ -1452,13 +1439,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Hostelería y restauración",
-                  "item": "https://reprodisseny.com/categorias/hosteleria-restauracion"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Impresión para Hoteles y Restaurantes",
+                  "name": "Hostelería y restauración",
                   "item": "https://reprodisseny.com/categorias/hosteleria-restauracion"
                 }
               ]
@@ -1588,10 +1575,6 @@
         "height": 321,
         "alt": "Imagen de libros, catálogos y revistas impresas de alta calidad para empresas en Barcelona"
       },
-      "cta": {
-        "text": "Ver Productos",
-        "link": "https://www.reprodisseny.com/"
-      },
       "faqs": [],
       "galleryImages": [],
       "breadcrumbs": [
@@ -1600,11 +1583,11 @@
           "url": "/"
         },
         {
-          "name": "Libros Revistas Catalogos",
-          "url": "/categorias/libros-revistas-catalogos"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Impresión de libros, revistas y catálogos en Barcelona",
+          "name": "Publicaciones",
           "url": "/categorias/libros-revistas-catalogos"
         }
       ],
@@ -1648,10 +1631,6 @@
                 "@type": "Organization",
                 "name": "Repro Disseny",
                 "url": "https://reprodisseny.com"
-              },
-              "brand": {
-                "@type": "Organization",
-                "name": "Repro Disseny"
               }
             },
             {
@@ -1666,13 +1645,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Libros Revistas Catalogos",
-                  "item": "https://reprodisseny.com/categorias/libros-revistas-catalogos"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Impresión de libros, revistas y catálogos en Barcelona",
+                  "name": "Publicaciones",
                   "item": "https://reprodisseny.com/categorias/libros-revistas-catalogos"
                 }
               ]
@@ -1787,10 +1766,6 @@
         "height": 1200,
         "alt": "Cajas y envases impresos para packaging de productos personalizados en Cataluña"
       },
-      "cta": {
-        "text": "Ver Productos",
-        "link": "https://www.reprodisseny.com/"
-      },
       "faqs": [
         {
           "question": "¿Qué tipo de packaging puedo personalizar?",
@@ -1816,11 +1791,11 @@
           "url": "/"
         },
         {
-          "name": "Packaging",
-          "url": "/categorias/packaging"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Packaging personalizado para productos y marcas",
+          "name": "Packaging",
           "url": "/categorias/packaging"
         }
       ],
@@ -1859,10 +1834,6 @@
                 "@type": "Organization",
                 "name": "Repro Disseny",
                 "url": "https://reprodisseny.com"
-              },
-              "brand": {
-                "@type": "Organization",
-                "name": "Repro Disseny"
               }
             },
             {
@@ -1877,13 +1848,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Packaging",
-                  "item": "https://reprodisseny.com/categorias/packaging"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Packaging personalizado para productos y marcas",
+                  "name": "Packaging",
                   "item": "https://reprodisseny.com/categorias/packaging"
                 }
               ]
@@ -2040,10 +2011,6 @@
         "height": 1200,
         "alt": "Material publicitario y de oficina diverso impreso"
       },
-      "cta": {
-        "text": "Ver Productos",
-        "link": "https://www.reprodisseny.com/"
-      },
       "faqs": [],
       "galleryImages": [],
       "breadcrumbs": [
@@ -2052,11 +2019,11 @@
           "url": "/"
         },
         {
-          "name": "Publicitario Oficina",
-          "url": "/categorias/publicidad-oficina"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Publicidad y Material de Oficina Personalizado",
+          "name": "Publicidad y Oficina",
           "url": "/categorias/publicidad-oficina"
         }
       ],
@@ -2095,10 +2062,6 @@
                 "@type": "Organization",
                 "name": "Repro Disseny",
                 "url": "https://reprodisseny.com"
-              },
-              "brand": {
-                "@type": "Organization",
-                "name": "Repro Disseny"
               }
             },
             {
@@ -2113,13 +2076,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Publicitario Oficina",
-                  "item": "https://reprodisseny.com/categorias/publicidad-oficina"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Publicidad y Material de Oficina Personalizado",
+                  "name": "Publicidad y Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina"
                 }
               ]
@@ -2216,10 +2179,6 @@
         "height": 1200,
         "alt": "Material de Oficina Personalizado para Empresas"
       },
-      "cta": {
-        "text": "Ver productos",
-        "link": "/categorias/publicitario-oficina"
-      },
       "faqs": [],
       "galleryImages": [],
       "breadcrumbs": [
@@ -2232,11 +2191,11 @@
           "url": "/categorias"
         },
         {
-          "name": "Publicidad Oficina",
+          "name": "Publicidad y Oficina",
           "url": "/categorias/publicidad-oficina"
         },
         {
-          "name": "Impresión para oficina: papelería corporativa y material interno",
+          "name": "Material Oficina",
           "url": "/categorias/publicidad-oficina/material-oficina"
         }
       ],
@@ -2287,13 +2246,13 @@
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Publicidad Oficina",
+                  "name": "Publicidad y Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina"
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión para oficina: papelería corporativa y material interno",
+                  "name": "Material Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina/material-oficina"
                 }
               ]
@@ -2405,10 +2364,6 @@
         "height": 1200,
         "alt": "Alt imatege"
       },
-      "cta": {
-        "text": "Ver productos",
-        "link": "/categorias/publicitario-oficina"
-      },
       "faqs": [],
       "galleryImages": [],
       "breadcrumbs": [
@@ -2421,11 +2376,11 @@
           "url": "/categorias"
         },
         {
-          "name": "Publicidad Oficina",
+          "name": "Publicidad y Oficina",
           "url": "/categorias/publicidad-oficina"
         },
         {
-          "name": "Impresión para publicidad: material promocional y punto de venta",
+          "name": "Material Publicitario",
           "url": "/categorias/publicidad-oficina/material-publicitario"
         }
       ],
@@ -2476,13 +2431,13 @@
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Publicidad Oficina",
+                  "name": "Publicidad y Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina"
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión para publicidad: material promocional y punto de venta",
+                  "name": "Material Publicitario",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina/material-publicitario"
                 }
               ]
@@ -2607,6 +2562,10 @@
         {
           "name": "Inicio",
           "url": "/"
+        },
+        {
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
           "name": "Eventos",
@@ -2739,12 +2698,18 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
                   "name": "Eventos",
                   "item": "https://reprodisseny.com/categorias/eventos"
                 },
                 {
                   "@type": "ListItem",
-                  "position": 3,
+                  "position": 4,
                   "name": "Abanicos personalizados para eventos",
                   "item": "https://reprodisseny.com/productos/abanicos-personalizados"
                 }
@@ -2811,7 +2776,7 @@
     },
     {
       "id": "2",
-      "updatedAt": "2026-03-26T12:47:23Z",
+      "updatedAt": "2026-03-27T09:10:29Z",
       "type": "producto",
       "slug": "acreditaciones-personalizadas",
       "path": "/productos/acreditaciones-personalizadas",
@@ -2858,29 +2823,11 @@
           ]
         },
         {
-          "id": "technical-specs",
-          "key": "technical-specs",
-          "title": "Características técnicas",
-          "body": "Formatos habituales\n• Medidas estándar (tipo acreditación) o a medida, según diseño y uso.\n• Orientación vertical u horizontal.\nMateriales (según duración y uso)\n• Cartulina: opción práctica para eventos de corta duración con buena presencia.\n• Material sintético (tipo “papel plástico”): recomendado cuando habrá mucho uso o riesgo de humedad\roce.\n• PVC (si buscas máxima durabilidad): ideal para acreditaciones reutilizables o de larga vida (por ejemplo, personal interno o accesos recurrentes).\nImpresión\n• Color o 1 tinta, a una o dos caras (por ejemplo, datos delante y agenda/plano\normas detrás).\nPersonalización y control\n• Datos variables: nombre, empresa, cargo, categoría, etc.\n• QR / código de barras: check-in, descarga de entradas, agenda, mapas o validación.\n• Numeración: control interno o por lotes.\nTroquel y perforaciones\n• Agujero\redondeo y troquel cuando el formato lo requiera (p. ej., para colgar o encajar en funda).\nAcabados recomendados\n• Laminado mate o brillo: protege frente a roces y mejora la presencia (muy útil si se manipulan mucho).\n• Soft touch / barniz selectivo (opcional): para eventos premium o acreditaciones VIP.",
+          "id": "materials",
+          "key": "materials",
+          "title": "Materiales",
+          "body": "• Cartulina: opción práctica para eventos de corta duración con buena presencia.\n• Material sintético (tipo “papel plástico”): recomendado cuando habrá mucho uso o riesgo de humedad\roce.\n• PVC (si buscas máxima durabilidad): ideal para acreditaciones reutilizables o de larga vida (por ejemplo, personal interno o accesos recurrentes).\nImpresión",
           "blocks": [
-            {
-              "type": "text",
-              "text": "Formatos habituales",
-              "html": false
-            },
-            {
-              "type": "bullets",
-              "items": [
-                "Medidas estándar (tipo acreditación) o a medida, según diseño y uso.",
-                "Orientación vertical u horizontal."
-              ],
-              "ordered": false
-            },
-            {
-              "type": "text",
-              "text": "Materiales (según duración y uso)",
-              "html": false
-            },
             {
               "type": "bullets",
               "items": [
@@ -2893,6 +2840,63 @@
             {
               "type": "text",
               "text": "Impresión",
+              "html": false
+            }
+          ]
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "body": "• Medidas estándar (tipo acreditación) o a medida, según diseño y uso.\n• Orientación vertical u horizontal.",
+          "blocks": [
+            {
+              "type": "bullets",
+              "items": [
+                "Medidas estándar (tipo acreditación) o a medida, según diseño y uso.",
+                "Orientación vertical u horizontal."
+              ],
+              "ordered": false
+            }
+          ]
+        },
+        {
+          "id": "finishes",
+          "key": "finishes",
+          "title": "Acabados",
+          "body": "• Agujero\redondeo y troquel cuando el formato lo requiera (p. ej., para colgar o encajar en funda).\nAcabados recomendados\n• Laminado mate o brillo: protege frente a roces y mejora la presencia (muy útil si se manipulan mucho).\n• Soft touch / barniz selectivo (opcional): para eventos premium o acreditaciones VIP.",
+          "blocks": [
+            {
+              "type": "bullets",
+              "items": [
+                "Agujero\redondeo y troquel cuando el formato lo requiera (p. ej., para colgar o encajar en funda)."
+              ],
+              "ordered": false
+            },
+            {
+              "type": "text",
+              "text": "Acabados recomendados",
+              "html": false
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Laminado mate o brillo: protege frente a roces y mejora la presencia (muy útil si se manipulan mucho).",
+                "Soft touch / barniz selectivo (opcional): para eventos premium o acreditaciones VIP."
+              ],
+              "ordered": false
+            }
+          ]
+        },
+        {
+          "id": "technical-specs",
+          "key": "technical-specs",
+          "title": "Características técnicas",
+          "body": "Formatos habituales\n\n• Color o 1 tinta, a una o dos caras (por ejemplo, datos delante y agenda/plano\normas detrás).\nPersonalización y control\n• Datos variables: nombre, empresa, cargo, categoría, etc.\n• QR / código de barras: check-in, descarga de entradas, agenda, mapas o validación.\n• Numeración: control interno o por lotes.",
+          "blocks": [
+            {
+              "type": "text",
+              "text": "Formatos habituales",
               "html": false
             },
             {
@@ -2913,31 +2917,6 @@
                 "Datos variables: nombre, empresa, cargo, categoría, etc.",
                 "QR / código de barras: check-in, descarga de entradas, agenda, mapas o validación.",
                 "Numeración: control interno o por lotes."
-              ],
-              "ordered": false
-            },
-            {
-              "type": "text",
-              "text": "Troquel y perforaciones",
-              "html": false
-            },
-            {
-              "type": "bullets",
-              "items": [
-                "Agujero\redondeo y troquel cuando el formato lo requiera (p. ej., para colgar o encajar en funda)."
-              ],
-              "ordered": false
-            },
-            {
-              "type": "text",
-              "text": "Acabados recomendados",
-              "html": false
-            },
-            {
-              "type": "bullets",
-              "items": [
-                "Laminado mate o brillo: protege frente a roces y mejora la presencia (muy útil si se manipulan mucho).",
-                "Soft touch / barniz selectivo (opcional): para eventos premium o acreditaciones VIP."
               ],
               "ordered": false
             }
@@ -2992,6 +2971,10 @@
         {
           "name": "Inicio",
           "url": "/"
+        },
+        {
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
           "name": "Eventos",
@@ -3151,12 +3134,18 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
                   "name": "Eventos",
                   "item": "https://reprodisseny.com/categorias/eventos"
                 },
                 {
                   "@type": "ListItem",
-                  "position": 3,
+                  "position": 4,
                   "name": "Acreditaciones personalizadas para eventos",
                   "item": "https://reprodisseny.com/productos/acreditaciones-personalizadas"
                 }
@@ -3326,11 +3315,11 @@
           "url": "/categorias"
         },
         {
-          "name": "Publicidad Oficina",
+          "name": "Publicidad y Oficina",
           "url": "/categorias/publicidad-oficina"
         },
         {
-          "name": "Impresión para oficina: papelería corporativa y material interno",
+          "name": "Material Oficina",
           "url": "/categorias/publicidad-oficina/material-oficina"
         },
         {
@@ -3494,13 +3483,13 @@
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Publicidad Oficina",
+                  "name": "Publicidad y Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina"
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión para oficina: papelería corporativa y material interno",
+                  "name": "Material Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina/material-oficina"
                 },
                 {
@@ -3577,8 +3566,9 @@
       "slug": "arbol-navidad-corporativo",
       "path": "/productos/arbol-navidad-corporativo",
       "title": "Árbol de Navidad corporativo personalizado",
-      "categorySlug": "expositores",
+      "categorySlug": "eventos",
       "categorySlugs": [
+        "eventos",
         "expositores"
       ],
       "order": 0,
@@ -3756,12 +3746,12 @@
           "url": "/"
         },
         {
-          "name": "Expositores",
-          "url": "/categorias/expositores"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Expositores impresos para punto de venta y eventos | Repro Disseny",
-          "url": "/categorias/expositores"
+          "name": "Eventos",
+          "url": "/categorias/eventos"
         },
         {
           "name": "Árbol de Navidad corporativo personalizado",
@@ -3897,14 +3887,14 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Expositores",
-                  "item": "https://reprodisseny.com/categorias/expositores"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Expositores impresos para punto de venta y eventos | Repro Disseny",
-                  "item": "https://reprodisseny.com/categorias/expositores"
+                  "name": "Eventos",
+                  "item": "https://reprodisseny.com/categorias/eventos"
                 },
                 {
                   "@type": "ListItem",
@@ -4057,7 +4047,7 @@
           "url": "/categorias/gran-formato"
         },
         {
-          "name": "Impresión en Materiales Flexibles - Gran Formato",
+          "name": "Material Flexible",
           "url": "/categorias/gran-formato/material-flexible"
         },
         {
@@ -4220,7 +4210,7 @@
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión en Materiales Flexibles - Gran Formato",
+                  "name": "Material Flexible",
                   "item": "https://reprodisseny.com/categorias/gran-formato/material-flexible"
                 },
                 {
@@ -4346,7 +4336,7 @@
           "url": "/categorias/gran-formato"
         },
         {
-          "name": "Impresión en Materiales Rígidos - Gran Formato",
+          "name": "Materiales Rígidos",
           "url": "/categorias/gran-formato/material-rigido"
         },
         {
@@ -4514,7 +4504,7 @@
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión en Materiales Rígidos - Gran Formato",
+                  "name": "Materiales Rígidos",
                   "item": "https://reprodisseny.com/categorias/gran-formato/material-rigido"
                 },
                 {
@@ -4586,7 +4576,7 @@
     },
     {
       "id": "8",
-      "updatedAt": "2026-03-26T14:14:06Z",
+      "updatedAt": "2026-03-27T09:07:41Z",
       "type": "producto",
       "slug": "banderolas-lineal-personalizadas",
       "path": "/productos/banderolas-lineal-personalizadas",
@@ -4627,14 +4617,27 @@
           ]
         },
         {
-          "id": "technical-specs",
-          "key": "technical-specs",
-          "title": "Características técnicas",
-          "body": "Formatos \nMedidas estándar o a medida según la estantería y el espacio disponible. \nFormatos habituales: vertical tipo “banderín”, rectangular o con formas especiales (flecha, bocadillo, silueta). \nImpresión a una o dos caras si se verá desde ambos sentidos del pasillo. \nMateriales\nSoportes ligeros pero estables para mantener forma y buena lectura. \nOpciones más resistentes si la campaña dura más o habrá mucha manipulación. \nImpresión \nImpresión a todo color con buena definición para textos grandes, iconos y logos. \nSeries por campaña con variantes (precio, claim, color de familia, etc.). \nCorte y acabados \nCorte recto o corte a medida/troquelado para formas llamativas. \nLaminado opcional si necesitas más resistencia al roce o limpieza. \nEsquinas redondeadas (opcional) para mejorar durabilidad. \nSistema de fijación \nPreparación según el lineal: rail, pinza, adhesivo, pestaña/encaje u otros sistemas habituales en PLV. \nSi nos dices el tipo de estantería o el sistema que usáis, lo adaptamos para que encaje perfecto.",
+          "id": "materials",
+          "key": "materials",
+          "title": "Materiales",
+          "body": "Soportes ligeros pero estables para mantener forma y buena lectura. \nOpciones más resistentes si la campaña dura más o habrá mucha manipulación. \nImpresión \nImpresión a todo color con buena definición para textos grandes, iconos y logos. \nSeries por campaña con variantes (precio, claim, color de familia, etc.).",
           "blocks": [
             {
               "type": "text",
-              "text": "Formatos\nMedidas estándar o a medida según la estantería y el espacio disponible.\nFormatos habituales: vertical tipo “banderín”, rectangular o con formas especiales (flecha, bocadillo, silueta).\nImpresión a una o dos caras si se verá desde ambos sentidos del pasillo.\nMateriales\nSoportes ligeros pero estables para mantener forma y buena lectura.\nOpciones más resistentes si la campaña dura más o habrá mucha manipulación.\nImpresión\nImpresión a todo color con buena definición para textos grandes, iconos y logos.\nSeries por campaña con variantes (precio, claim, color de familia, etc.).\nCorte y acabados\nCorte recto o corte a medida/troquelado para formas llamativas.\nLaminado opcional si necesitas más resistencia al roce o limpieza.\nEsquinas redondeadas (opcional) para mejorar durabilidad.\nSistema de fijación\nPreparación según el lineal: rail, pinza, adhesivo, pestaña/encaje u otros sistemas habituales en PLV.\nSi nos dices el tipo de estantería o el sistema que usáis, lo adaptamos para que encaje perfecto.",
+              "text": "Soportes ligeros pero estables para mantener forma y buena lectura.\nOpciones más resistentes si la campaña dura más o habrá mucha manipulación.\nImpresión\nImpresión a todo color con buena definición para textos grandes, iconos y logos.\nSeries por campaña con variantes (precio, claim, color de familia, etc.).",
+              "html": false
+            }
+          ]
+        },
+        {
+          "id": "finishes",
+          "key": "finishes",
+          "title": "Acabados",
+          "body": "Corte recto o corte a medida/troquelado para formas llamativas. \nLaminado opcional si necesitas más resistencia al roce o limpieza. \nEsquinas redondeadas (opcional) para mejorar durabilidad. \nSistema de fijación \nPreparación según el lineal: rail, pinza, adhesivo, pestaña/encaje u otros sistemas habituales en PLV. \nSi nos dices el tipo de estantería o el sistema que usáis, lo adaptamos para que encaje perfecto.",
+          "blocks": [
+            {
+              "type": "text",
+              "text": "Corte recto o corte a medida/troquelado para formas llamativas.\nLaminado opcional si necesitas más resistencia al roce o limpieza.\nEsquinas redondeadas (opcional) para mejorar durabilidad.\nSistema de fijación\nPreparación según el lineal: rail, pinza, adhesivo, pestaña/encaje u otros sistemas habituales en PLV.\nSi nos dices el tipo de estantería o el sistema que usáis, lo adaptamos para que encaje perfecto.",
               "html": false
             }
           ]
@@ -4681,11 +4684,11 @@
           "url": "/categorias"
         },
         {
-          "name": "Publicidad Oficina",
+          "name": "Publicidad y Oficina",
           "url": "/categorias/publicidad-oficina"
         },
         {
-          "name": "Impresión para publicidad: material promocional y punto de venta",
+          "name": "Material Publicitario",
           "url": "/categorias/publicidad-oficina/material-publicitario"
         },
         {
@@ -4813,13 +4816,13 @@
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Publicidad Oficina",
+                  "name": "Publicidad y Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina"
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión para publicidad: material promocional y punto de venta",
+                  "name": "Material Publicitario",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina/material-publicitario"
                 },
                 {
@@ -4966,11 +4969,11 @@
           "url": "/"
         },
         {
-          "name": "Expositores",
-          "url": "/categorias/expositores"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Expositores impresos para punto de venta y eventos | Repro Disseny",
+          "name": "Expositores",
           "url": "/categorias/expositores"
         },
         {
@@ -5113,13 +5116,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Expositores",
-                  "item": "https://reprodisseny.com/categorias/expositores"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Expositores impresos para punto de venta y eventos | Repro Disseny",
+                  "name": "Expositores",
                   "item": "https://reprodisseny.com/categorias/expositores"
                 },
                 {
@@ -5266,11 +5269,11 @@
           "url": "/"
         },
         {
-          "name": "Expositores",
-          "url": "/categorias/expositores"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Expositores impresos para punto de venta y eventos | Repro Disseny",
+          "name": "Expositores",
           "url": "/categorias/expositores"
         },
         {
@@ -5403,13 +5406,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Expositores",
-                  "item": "https://reprodisseny.com/categorias/expositores"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Expositores impresos para punto de venta y eventos | Repro Disseny",
+                  "name": "Expositores",
                   "item": "https://reprodisseny.com/categorias/expositores"
                 },
                 {
@@ -5543,11 +5546,11 @@
           "url": "/categorias"
         },
         {
-          "name": "Publicidad Oficina",
+          "name": "Publicidad y Oficina",
           "url": "/categorias/publicidad-oficina"
         },
         {
-          "name": "Impresión para oficina: papelería corporativa y material interno",
+          "name": "Material Oficina",
           "url": "/categorias/publicidad-oficina/material-oficina"
         },
         {
@@ -5689,13 +5692,13 @@
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Publicidad Oficina",
+                  "name": "Publicidad y Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina"
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión para oficina: papelería corporativa y material interno",
+                  "name": "Material Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina/material-oficina"
                 },
                 {
@@ -5788,11 +5791,11 @@
           "url": "/"
         },
         {
-          "name": "Expositores",
-          "url": "/categorias/expositores"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Expositores impresos para punto de venta y eventos | Repro Disseny",
+          "name": "Expositores",
           "url": "/categorias/expositores"
         },
         {
@@ -5926,13 +5929,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Expositores",
-                  "item": "https://reprodisseny.com/categorias/expositores"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Expositores impresos para punto de venta y eventos | Repro Disseny",
+                  "name": "Expositores",
                   "item": "https://reprodisseny.com/categorias/expositores"
                 },
                 {
@@ -6089,11 +6092,11 @@
           "url": "/"
         },
         {
-          "name": "Packaging",
-          "url": "/categorias/packaging"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Packaging personalizado para productos y marcas",
+          "name": "Packaging",
           "url": "/categorias/packaging"
         },
         {
@@ -6154,13 +6157,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Packaging",
-                  "item": "https://reprodisseny.com/categorias/packaging"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Packaging personalizado para productos y marcas",
+                  "name": "Packaging",
                   "item": "https://reprodisseny.com/categorias/packaging"
                 },
                 {
@@ -6341,11 +6344,11 @@
           "url": "/"
         },
         {
-          "name": "Packaging",
-          "url": "/categorias/packaging"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Packaging personalizado para productos y marcas",
+          "name": "Packaging",
           "url": "/categorias/packaging"
         },
         {
@@ -6406,13 +6409,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Packaging",
-                  "item": "https://reprodisseny.com/categorias/packaging"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Packaging personalizado para productos y marcas",
+                  "name": "Packaging",
                   "item": "https://reprodisseny.com/categorias/packaging"
                 },
                 {
@@ -6579,11 +6582,11 @@
           "url": "/"
         },
         {
-          "name": "Packaging",
-          "url": "/categorias/packaging"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Packaging personalizado para productos y marcas",
+          "name": "Packaging",
           "url": "/categorias/packaging"
         },
         {
@@ -6644,13 +6647,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Packaging",
-                  "item": "https://reprodisseny.com/categorias/packaging"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Packaging personalizado para productos y marcas",
+                  "name": "Packaging",
                   "item": "https://reprodisseny.com/categorias/packaging"
                 },
                 {
@@ -6831,11 +6834,11 @@
           "url": "/"
         },
         {
-          "name": "Packaging",
-          "url": "/categorias/packaging"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Packaging personalizado para productos y marcas",
+          "name": "Packaging",
           "url": "/categorias/packaging"
         },
         {
@@ -6896,13 +6899,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Packaging",
-                  "item": "https://reprodisseny.com/categorias/packaging"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Packaging personalizado para productos y marcas",
+                  "name": "Packaging",
                   "item": "https://reprodisseny.com/categorias/packaging"
                 },
                 {
@@ -7097,11 +7100,11 @@
           "url": "/"
         },
         {
-          "name": "Packaging",
-          "url": "/categorias/packaging"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Packaging personalizado para productos y marcas",
+          "name": "Packaging",
           "url": "/categorias/packaging"
         },
         {
@@ -7162,13 +7165,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Packaging",
-                  "item": "https://reprodisseny.com/categorias/packaging"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Packaging personalizado para productos y marcas",
+                  "name": "Packaging",
                   "item": "https://reprodisseny.com/categorias/packaging"
                 },
                 {
@@ -7338,11 +7341,11 @@
           "url": "/"
         },
         {
-          "name": "Packaging",
-          "url": "/categorias/packaging"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Packaging personalizado para productos y marcas",
+          "name": "Packaging",
           "url": "/categorias/packaging"
         },
         {
@@ -7403,13 +7406,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Packaging",
-                  "item": "https://reprodisseny.com/categorias/packaging"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Packaging personalizado para productos y marcas",
+                  "name": "Packaging",
                   "item": "https://reprodisseny.com/categorias/packaging"
                 },
                 {
@@ -7577,11 +7580,11 @@
           "url": "/"
         },
         {
-          "name": "Packaging",
-          "url": "/categorias/packaging"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Packaging personalizado para productos y marcas",
+          "name": "Packaging",
           "url": "/categorias/packaging"
         },
         {
@@ -7642,13 +7645,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Packaging",
-                  "item": "https://reprodisseny.com/categorias/packaging"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Packaging personalizado para productos y marcas",
+                  "name": "Packaging",
                   "item": "https://reprodisseny.com/categorias/packaging"
                 },
                 {
@@ -7808,11 +7811,11 @@
           "url": "/"
         },
         {
-          "name": "Packaging",
-          "url": "/categorias/packaging"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Packaging personalizado para productos y marcas",
+          "name": "Packaging",
           "url": "/categorias/packaging"
         },
         {
@@ -7873,13 +7876,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Packaging",
-                  "item": "https://reprodisseny.com/categorias/packaging"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Packaging personalizado para productos y marcas",
+                  "name": "Packaging",
                   "item": "https://reprodisseny.com/categorias/packaging"
                 },
                 {
@@ -8051,11 +8054,11 @@
           "url": "/"
         },
         {
-          "name": "Packaging",
-          "url": "/categorias/packaging"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Packaging personalizado para productos y marcas",
+          "name": "Packaging",
           "url": "/categorias/packaging"
         },
         {
@@ -8116,13 +8119,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Packaging",
-                  "item": "https://reprodisseny.com/categorias/packaging"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Packaging personalizado para productos y marcas",
+                  "name": "Packaging",
                   "item": "https://reprodisseny.com/categorias/packaging"
                 },
                 {
@@ -8276,11 +8279,11 @@
           "url": "/"
         },
         {
-          "name": "Packaging",
-          "url": "/categorias/packaging"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Packaging personalizado para productos y marcas",
+          "name": "Packaging",
           "url": "/categorias/packaging"
         },
         {
@@ -8341,13 +8344,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Packaging",
-                  "item": "https://reprodisseny.com/categorias/packaging"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Packaging personalizado para productos y marcas",
+                  "name": "Packaging",
                   "item": "https://reprodisseny.com/categorias/packaging"
                 },
                 {
@@ -8371,8 +8374,9 @@
       "slug": "cajas-de-luz-personalizadas",
       "path": "/productos/cajas-luz-personalizadas",
       "title": "Cajas de luz personalizadas (expositores retroiluminados)",
-      "categorySlug": "material-rigido",
+      "categorySlug": "expositores",
       "categorySlugs": [
+        "expositores",
         "material-rigido"
       ],
       "order": 0,
@@ -8444,12 +8448,8 @@
           "url": "/categorias"
         },
         {
-          "name": "Gran Formato",
-          "url": "/categorias/gran-formato"
-        },
-        {
-          "name": "Impresión en Materiales Rígidos - Gran Formato",
-          "url": "/categorias/gran-formato/material-rigido"
+          "name": "Expositores",
+          "url": "/categorias/expositores"
         },
         {
           "name": "Cajas de luz personalizadas (expositores retroiluminados)",
@@ -8606,18 +8606,12 @@
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Gran Formato",
-                  "item": "https://reprodisseny.com/categorias/gran-formato"
+                  "name": "Expositores",
+                  "item": "https://reprodisseny.com/categorias/expositores"
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión en Materiales Rígidos - Gran Formato",
-                  "item": "https://reprodisseny.com/categorias/gran-formato/material-rigido"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 5,
                   "name": "Cajas de luz personalizadas (expositores retroiluminados)",
                   "item": "https://reprodisseny.com/productos/cajas-luz-personalizadas"
                 }
@@ -8709,11 +8703,11 @@
           "url": "/categorias"
         },
         {
-          "name": "Publicidad Oficina",
+          "name": "Publicidad y Oficina",
           "url": "/categorias/publicidad-oficina"
         },
         {
-          "name": "Impresión para oficina: papelería corporativa y material interno",
+          "name": "Material Oficina",
           "url": "/categorias/publicidad-oficina/material-oficina"
         },
         {
@@ -8866,13 +8860,13 @@
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Publicidad Oficina",
+                  "name": "Publicidad y Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina"
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión para oficina: papelería corporativa y material interno",
+                  "name": "Material Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina/material-oficina"
                 },
                 {
@@ -8969,11 +8963,11 @@
           "url": "/categorias"
         },
         {
-          "name": "Publicidad Oficina",
+          "name": "Publicidad y Oficina",
           "url": "/categorias/publicidad-oficina"
         },
         {
-          "name": "Impresión para oficina: papelería corporativa y material interno",
+          "name": "Material Oficina",
           "url": "/categorias/publicidad-oficina/material-oficina"
         },
         {
@@ -9052,13 +9046,13 @@
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Publicidad Oficina",
+                  "name": "Publicidad y Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina"
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión para oficina: papelería corporativa y material interno",
+                  "name": "Material Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina/material-oficina"
                 },
                 {
@@ -9151,11 +9145,11 @@
           "url": "/"
         },
         {
-          "name": "Hostelería y restauración",
-          "url": "/categorias/hosteleria-restauracion"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Impresión para Hoteles y Restaurantes",
+          "name": "Hostelería y restauración",
           "url": "/categorias/hosteleria-restauracion"
         },
         {
@@ -9228,13 +9222,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Hostelería y restauración",
-                  "item": "https://reprodisseny.com/categorias/hosteleria-restauracion"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Impresión para Hoteles y Restaurantes",
+                  "name": "Hostelería y restauración",
                   "item": "https://reprodisseny.com/categorias/hosteleria-restauracion"
                 },
                 {
@@ -9366,7 +9360,7 @@
           "url": "/categorias/gran-formato"
         },
         {
-          "name": "Impresión en Materiales Rígidos - Gran Formato",
+          "name": "Materiales Rígidos",
           "url": "/categorias/gran-formato/material-rigido"
         },
         {
@@ -9441,7 +9435,7 @@
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión en Materiales Rígidos - Gran Formato",
+                  "name": "Materiales Rígidos",
                   "item": "https://reprodisseny.com/categorias/gran-formato/material-rigido"
                 },
                 {
@@ -9542,7 +9536,7 @@
           "url": "/categorias/gran-formato"
         },
         {
-          "name": "Impresión en Materiales Flexibles - Gran Formato",
+          "name": "Material Flexible",
           "url": "/categorias/gran-formato/material-flexible"
         },
         {
@@ -9681,7 +9675,7 @@
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión en Materiales Flexibles - Gran Formato",
+                  "name": "Material Flexible",
                   "item": "https://reprodisseny.com/categorias/gran-formato/material-flexible"
                 },
                 {
@@ -9778,11 +9772,11 @@
           "url": "/categorias"
         },
         {
-          "name": "Publicidad Oficina",
+          "name": "Publicidad y Oficina",
           "url": "/categorias/publicidad-oficina"
         },
         {
-          "name": "Impresión para oficina: papelería corporativa y material interno",
+          "name": "Material Oficina",
           "url": "/categorias/publicidad-oficina/material-oficina"
         },
         {
@@ -9912,13 +9906,13 @@
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Publicidad Oficina",
+                  "name": "Publicidad y Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina"
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión para oficina: papelería corporativa y material interno",
+                  "name": "Material Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina/material-oficina"
                 },
                 {
@@ -10011,11 +10005,11 @@
           "url": "/"
         },
         {
-          "name": "Hostelería y restauración",
-          "url": "/categorias/hosteleria-restauracion"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Impresión para Hoteles y Restaurantes",
+          "name": "Hostelería y restauración",
           "url": "/categorias/hosteleria-restauracion"
         },
         {
@@ -10156,13 +10150,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Hostelería y restauración",
-                  "item": "https://reprodisseny.com/categorias/hosteleria-restauracion"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Impresión para Hoteles y Restaurantes",
+                  "name": "Hostelería y restauración",
                   "item": "https://reprodisseny.com/categorias/hosteleria-restauracion"
                 },
                 {
@@ -10255,11 +10249,11 @@
           "url": "/"
         },
         {
-          "name": "Expositores",
-          "url": "/categorias/expositores"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Expositores impresos para punto de venta y eventos | Repro Disseny",
+          "name": "Expositores",
           "url": "/categorias/expositores"
         },
         {
@@ -10332,13 +10326,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Expositores",
-                  "item": "https://reprodisseny.com/categorias/expositores"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Expositores impresos para punto de venta y eventos | Repro Disseny",
+                  "name": "Expositores",
                   "item": "https://reprodisseny.com/categorias/expositores"
                 },
                 {
@@ -10431,11 +10425,11 @@
           "url": "/"
         },
         {
-          "name": "Expositores",
-          "url": "/categorias/expositores"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Expositores impresos para punto de venta y eventos | Repro Disseny",
+          "name": "Expositores",
           "url": "/categorias/expositores"
         },
         {
@@ -10557,13 +10551,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Expositores",
-                  "item": "https://reprodisseny.com/categorias/expositores"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Expositores impresos para punto de venta y eventos | Repro Disseny",
+                  "name": "Expositores",
                   "item": "https://reprodisseny.com/categorias/expositores"
                 },
                 {
@@ -10656,11 +10650,11 @@
           "url": "/"
         },
         {
-          "name": "Expositores",
-          "url": "/categorias/expositores"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Expositores impresos para punto de venta y eventos | Repro Disseny",
+          "name": "Expositores",
           "url": "/categorias/expositores"
         },
         {
@@ -10795,13 +10789,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Expositores",
-                  "item": "https://reprodisseny.com/categorias/expositores"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Expositores impresos para punto de venta y eventos | Repro Disseny",
+                  "name": "Expositores",
                   "item": "https://reprodisseny.com/categorias/expositores"
                 },
                 {
@@ -10892,6 +10886,10 @@
         {
           "name": "Inicio",
           "url": "/"
+        },
+        {
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
           "name": "Eventos",
@@ -11019,12 +11017,18 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
                   "name": "Eventos",
                   "item": "https://reprodisseny.com/categorias/eventos"
                 },
                 {
                   "@type": "ListItem",
-                  "position": 3,
+                  "position": 4,
                   "name": "Cupones promocionales",
                   "item": "https://reprodisseny.com/productos/cupones-promocionales"
                 }
@@ -11186,6 +11190,10 @@
           "url": "/"
         },
         {
+          "name": "Categorías",
+          "url": "/categorias"
+        },
+        {
           "name": "Eventos",
           "url": "/categorias/eventos"
         },
@@ -11320,12 +11328,18 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
                   "name": "Eventos",
                   "item": "https://reprodisseny.com/categorias/eventos"
                 },
                 {
                   "@type": "ListItem",
-                  "position": 3,
+                  "position": 4,
                   "name": "Diplomas personalizados para eventos",
                   "item": "https://reprodisseny.com/productos/diplomas-personalizados"
                 }
@@ -11413,11 +11427,11 @@
           "url": "/"
         },
         {
-          "name": "Hostelería y restauración",
-          "url": "/categorias/hosteleria-restauracion"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Impresión para Hoteles y Restaurantes",
+          "name": "Hostelería y restauración",
           "url": "/categorias/hosteleria-restauracion"
         },
         {
@@ -11558,13 +11572,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Hostelería y restauración",
-                  "item": "https://reprodisseny.com/categorias/hosteleria-restauracion"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Impresión para Hoteles y Restaurantes",
+                  "name": "Hostelería y restauración",
                   "item": "https://reprodisseny.com/categorias/hosteleria-restauracion"
                 },
                 {
@@ -11588,8 +11602,9 @@
       "slug": "displays-de-mesa-personalizados",
       "path": "/productos/displays-de-mesa-personalizados",
       "title": "Displays de mesa personalizados",
-      "categorySlug": "expositores",
+      "categorySlug": "material-publicitario",
       "categorySlugs": [
+        "material-publicitario",
         "expositores"
       ],
       "order": 0,
@@ -11657,12 +11672,16 @@
           "url": "/"
         },
         {
-          "name": "Expositores",
-          "url": "/categorias/expositores"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Expositores impresos para punto de venta y eventos | Repro Disseny",
-          "url": "/categorias/expositores"
+          "name": "Publicidad y Oficina",
+          "url": "/categorias/publicidad-oficina"
+        },
+        {
+          "name": "Material Publicitario",
+          "url": "/categorias/publicidad-oficina/material-publicitario"
         },
         {
           "name": "Displays de mesa personalizados",
@@ -11826,18 +11845,24 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Expositores",
-                  "item": "https://reprodisseny.com/categorias/expositores"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Expositores impresos para punto de venta y eventos | Repro Disseny",
-                  "item": "https://reprodisseny.com/categorias/expositores"
+                  "name": "Publicidad y Oficina",
+                  "item": "https://reprodisseny.com/categorias/publicidad-oficina"
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
+                  "name": "Material Publicitario",
+                  "item": "https://reprodisseny.com/categorias/publicidad-oficina/material-publicitario"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 5,
                   "name": "Displays de mesa personalizados",
                   "item": "https://reprodisseny.com/productos/displays-de-mesa-personalizados"
                 }
@@ -12013,6 +12038,10 @@
           "url": "/"
         },
         {
+          "name": "Categorías",
+          "url": "/categorias"
+        },
+        {
           "name": "Eventos",
           "url": "/categorias/eventos"
         },
@@ -12143,12 +12172,18 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
                   "name": "Eventos",
                   "item": "https://reprodisseny.com/categorias/eventos"
                 },
                 {
                   "@type": "ListItem",
-                  "position": 3,
+                  "position": 4,
                   "name": "Dorsales de carrera personalizados",
                   "item": "https://reprodisseny.com/productos/dorsales-carrera"
                 }
@@ -12197,11 +12232,11 @@
           "url": "/"
         },
         {
-          "name": "Libros Revistas Catalogos",
-          "url": "/categorias/libros-revistas-catalogos"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Impresión de libros, revistas y catálogos en Barcelona",
+          "name": "Publicaciones",
           "url": "/categorias/libros-revistas-catalogos"
         },
         {
@@ -12370,13 +12405,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Libros Revistas Catalogos",
-                  "item": "https://reprodisseny.com/categorias/libros-revistas-catalogos"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Impresión de libros, revistas y catálogos en Barcelona",
+                  "name": "Publicaciones",
                   "item": "https://reprodisseny.com/categorias/libros-revistas-catalogos"
                 },
                 {
@@ -12469,11 +12504,11 @@
           "url": "/"
         },
         {
-          "name": "Libros Revistas Catalogos",
-          "url": "/categorias/libros-revistas-catalogos"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Impresión de libros, revistas y catálogos en Barcelona",
+          "name": "Publicaciones",
           "url": "/categorias/libros-revistas-catalogos"
         },
         {
@@ -12634,13 +12669,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Libros Revistas Catalogos",
-                  "item": "https://reprodisseny.com/categorias/libros-revistas-catalogos"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Impresión de libros, revistas y catálogos en Barcelona",
+                  "name": "Publicaciones",
                   "item": "https://reprodisseny.com/categorias/libros-revistas-catalogos"
                 },
                 {
@@ -12733,11 +12768,11 @@
           "url": "/"
         },
         {
-          "name": "Libros Revistas Catalogos",
-          "url": "/categorias/libros-revistas-catalogos"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Impresión de libros, revistas y catálogos en Barcelona",
+          "name": "Publicaciones",
           "url": "/categorias/libros-revistas-catalogos"
         },
         {
@@ -12906,13 +12941,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Libros Revistas Catalogos",
-                  "item": "https://reprodisseny.com/categorias/libros-revistas-catalogos"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Impresión de libros, revistas y catálogos en Barcelona",
+                  "name": "Publicaciones",
                   "item": "https://reprodisseny.com/categorias/libros-revistas-catalogos"
                 },
                 {
@@ -13005,11 +13040,11 @@
           "url": "/"
         },
         {
-          "name": "Libros Revistas Catalogos",
-          "url": "/categorias/libros-revistas-catalogos"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Impresión de libros, revistas y catálogos en Barcelona",
+          "name": "Publicaciones",
           "url": "/categorias/libros-revistas-catalogos"
         },
         {
@@ -13178,13 +13213,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Libros Revistas Catalogos",
-                  "item": "https://reprodisseny.com/categorias/libros-revistas-catalogos"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Impresión de libros, revistas y catálogos en Barcelona",
+                  "name": "Publicaciones",
                   "item": "https://reprodisseny.com/categorias/libros-revistas-catalogos"
                 },
                 {
@@ -13277,11 +13312,11 @@
           "url": "/"
         },
         {
-          "name": "Libros Revistas Catalogos",
-          "url": "/categorias/libros-revistas-catalogos"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Impresión de libros, revistas y catálogos en Barcelona",
+          "name": "Publicaciones",
           "url": "/categorias/libros-revistas-catalogos"
         },
         {
@@ -13450,13 +13485,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Libros Revistas Catalogos",
-                  "item": "https://reprodisseny.com/categorias/libros-revistas-catalogos"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Impresión de libros, revistas y catálogos en Barcelona",
+                  "name": "Publicaciones",
                   "item": "https://reprodisseny.com/categorias/libros-revistas-catalogos"
                 },
                 {
@@ -13549,11 +13584,11 @@
           "url": "/"
         },
         {
-          "name": "Libros Revistas Catalogos",
-          "url": "/categorias/libros-revistas-catalogos"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Impresión de libros, revistas y catálogos en Barcelona",
+          "name": "Publicaciones",
           "url": "/categorias/libros-revistas-catalogos"
         },
         {
@@ -13721,13 +13756,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Libros Revistas Catalogos",
-                  "item": "https://reprodisseny.com/categorias/libros-revistas-catalogos"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Impresión de libros, revistas y catálogos en Barcelona",
+                  "name": "Publicaciones",
                   "item": "https://reprodisseny.com/categorias/libros-revistas-catalogos"
                 },
                 {
@@ -13828,7 +13863,7 @@
           "url": "/categorias/gran-formato"
         },
         {
-          "name": "Impresión en Materiales Rígidos - Gran Formato",
+          "name": "Materiales Rígidos",
           "url": "/categorias/gran-formato/material-rigido"
         },
         {
@@ -13996,7 +14031,7 @@
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión en Materiales Rígidos - Gran Formato",
+                  "name": "Materiales Rígidos",
                   "item": "https://reprodisseny.com/categorias/gran-formato/material-rigido"
                 },
                 {
@@ -14176,6 +14211,10 @@
           "url": "/"
         },
         {
+          "name": "Categorías",
+          "url": "/categorias"
+        },
+        {
           "name": "Eventos",
           "url": "/categorias/eventos"
         },
@@ -14325,12 +14364,18 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
                   "name": "Eventos",
                   "item": "https://reprodisseny.com/categorias/eventos"
                 },
                 {
                   "@type": "ListItem",
-                  "position": 3,
+                  "position": 4,
                   "name": "Entradas personalizadas para eventos",
                   "item": "https://reprodisseny.com/productos/entradas-personalizadas"
                 }
@@ -14418,12 +14463,12 @@
           "url": "/"
         },
         {
-          "name": "Adhesivos",
-          "url": "/categorias/adhesivos"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Adhesivos personalizados para branding e interiorismo",
-          "url": "/categorias/adhesivos"
+          "name": "Adhesivos",
+          "url": "/categorias/adhesivos-personalizados"
         },
         {
           "name": "Etiquetas Adhesivas en Bobina Personalizadas",
@@ -14556,14 +14601,14 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Adhesivos",
-                  "item": "https://reprodisseny.com/categorias/adhesivos"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Adhesivos personalizados para branding e interiorismo",
-                  "item": "https://reprodisseny.com/categorias/adhesivos"
+                  "name": "Adhesivos",
+                  "item": "https://reprodisseny.com/categorias/adhesivos-personalizados"
                 },
                 {
                   "@type": "ListItem",
@@ -14659,11 +14704,11 @@
           "url": "/categorias"
         },
         {
-          "name": "Publicidad Oficina",
+          "name": "Publicidad y Oficina",
           "url": "/categorias/publicidad-oficina"
         },
         {
-          "name": "Impresión para publicidad: material promocional y punto de venta",
+          "name": "Material Publicitario",
           "url": "/categorias/publicidad-oficina/material-publicitario"
         },
         {
@@ -14814,13 +14859,13 @@
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Publicidad Oficina",
+                  "name": "Publicidad y Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina"
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión para publicidad: material promocional y punto de venta",
+                  "name": "Material Publicitario",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina/material-publicitario"
                 },
                 {
@@ -14913,12 +14958,12 @@
           "url": "/"
         },
         {
-          "name": "Adhesivos",
-          "url": "/categorias/adhesivos"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Adhesivos personalizados para branding e interiorismo",
-          "url": "/categorias/adhesivos"
+          "name": "Adhesivos",
+          "url": "/categorias/adhesivos-personalizados"
         },
         {
           "name": "Etiquetas Doming Personalizadas en Barcelona",
@@ -15047,14 +15092,14 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Adhesivos",
-                  "item": "https://reprodisseny.com/categorias/adhesivos"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Adhesivos personalizados para branding e interiorismo",
-                  "item": "https://reprodisseny.com/categorias/adhesivos"
+                  "name": "Adhesivos",
+                  "item": "https://reprodisseny.com/categorias/adhesivos-personalizados"
                 },
                 {
                   "@type": "ListItem",
@@ -15146,11 +15191,11 @@
           "url": "/"
         },
         {
-          "name": "Expositores",
-          "url": "/categorias/expositores"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Expositores impresos para punto de venta y eventos | Repro Disseny",
+          "name": "Expositores",
           "url": "/categorias/expositores"
         },
         {
@@ -15280,13 +15325,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Expositores",
-                  "item": "https://reprodisseny.com/categorias/expositores"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Expositores impresos para punto de venta y eventos | Repro Disseny",
+                  "name": "Expositores",
                   "item": "https://reprodisseny.com/categorias/expositores"
                 },
                 {
@@ -15379,11 +15424,11 @@
           "url": "/"
         },
         {
-          "name": "Expositores",
-          "url": "/categorias/expositores"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Expositores impresos para punto de venta y eventos | Repro Disseny",
+          "name": "Expositores",
           "url": "/categorias/expositores"
         },
         {
@@ -15513,13 +15558,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Expositores",
-                  "item": "https://reprodisseny.com/categorias/expositores"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Expositores impresos para punto de venta y eventos | Repro Disseny",
+                  "name": "Expositores",
                   "item": "https://reprodisseny.com/categorias/expositores"
                 },
                 {
@@ -15700,11 +15745,11 @@
           "url": "/"
         },
         {
-          "name": "Packaging",
-          "url": "/categorias/packaging"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Packaging personalizado para productos y marcas",
+          "name": "Packaging",
           "url": "/categorias/packaging"
         },
         {
@@ -15765,13 +15810,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Packaging",
-                  "item": "https://reprodisseny.com/categorias/packaging"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Packaging personalizado para productos y marcas",
+                  "name": "Packaging",
                   "item": "https://reprodisseny.com/categorias/packaging"
                 },
                 {
@@ -15952,6 +15997,10 @@
           "url": "/"
         },
         {
+          "name": "Categorías",
+          "url": "/categorias"
+        },
+        {
           "name": "Eventos",
           "url": "/categorias/eventos"
         },
@@ -16078,12 +16127,18 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
                   "name": "Eventos",
                   "item": "https://reprodisseny.com/categorias/eventos"
                 },
                 {
                   "@type": "ListItem",
-                  "position": 3,
+                  "position": 4,
                   "name": "Figuras árbol de Navidad personalizadas para branding",
                   "item": "https://reprodisseny.com/productos/figuras-arbol-navidad"
                 }
@@ -16175,11 +16230,11 @@
           "url": "/categorias"
         },
         {
-          "name": "Publicidad Oficina",
+          "name": "Publicidad y Oficina",
           "url": "/categorias/publicidad-oficina"
         },
         {
-          "name": "Impresión para publicidad: material promocional y punto de venta",
+          "name": "Material Publicitario",
           "url": "/categorias/publicidad-oficina/material-publicitario"
         },
         {
@@ -16335,13 +16390,13 @@
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Publicidad Oficina",
+                  "name": "Publicidad y Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina"
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión para publicidad: material promocional y punto de venta",
+                  "name": "Material Publicitario",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina/material-publicitario"
                 },
                 {
@@ -16438,11 +16493,11 @@
           "url": "/categorias"
         },
         {
-          "name": "Publicidad Oficina",
+          "name": "Publicidad y Oficina",
           "url": "/categorias/publicidad-oficina"
         },
         {
-          "name": "Impresión para publicidad: material promocional y punto de venta",
+          "name": "Material Publicitario",
           "url": "/categorias/publicidad-oficina/material-publicitario"
         },
         {
@@ -16598,13 +16653,13 @@
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Publicidad Oficina",
+                  "name": "Publicidad y Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina"
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión para publicidad: material promocional y punto de venta",
+                  "name": "Material Publicitario",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina/material-publicitario"
                 },
                 {
@@ -16701,11 +16756,11 @@
           "url": "/categorias"
         },
         {
-          "name": "Publicidad Oficina",
+          "name": "Publicidad y Oficina",
           "url": "/categorias/publicidad-oficina"
         },
         {
-          "name": "Impresión para publicidad: material promocional y punto de venta",
+          "name": "Material Publicitario",
           "url": "/categorias/publicidad-oficina/material-publicitario"
         },
         {
@@ -16872,13 +16927,13 @@
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Publicidad Oficina",
+                  "name": "Publicidad y Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina"
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión para publicidad: material promocional y punto de venta",
+                  "name": "Material Publicitario",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina/material-publicitario"
                 },
                 {
@@ -17031,6 +17086,10 @@
           "url": "/"
         },
         {
+          "name": "Categorías",
+          "url": "/categorias"
+        },
+        {
           "name": "Eventos",
           "url": "/categorias/eventos"
         },
@@ -17140,12 +17199,18 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
                   "name": "Eventos",
                   "item": "https://reprodisseny.com/categorias/eventos"
                 },
                 {
                   "@type": "ListItem",
-                  "position": 3,
+                  "position": 4,
                   "name": "Funda para rosa de Sant Jordi personalizada",
                   "item": "https://reprodisseny.com/productos/fundas-sant-jordi"
                 }
@@ -17233,12 +17298,12 @@
           "url": "/"
         },
         {
-          "name": "Adhesivos",
-          "url": "/categorias/adhesivos"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Adhesivos personalizados para branding e interiorismo",
-          "url": "/categorias/adhesivos"
+          "name": "Adhesivos",
+          "url": "/categorias/adhesivos-personalizados"
         },
         {
           "name": "Hojas con Pegatinas Personalizadas",
@@ -17364,14 +17429,14 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Adhesivos",
-                  "item": "https://reprodisseny.com/categorias/adhesivos"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Adhesivos personalizados para branding e interiorismo",
-                  "item": "https://reprodisseny.com/categorias/adhesivos"
+                  "name": "Adhesivos",
+                  "item": "https://reprodisseny.com/categorias/adhesivos-personalizados"
                 },
                 {
                   "@type": "ListItem",
@@ -17463,11 +17528,11 @@
           "url": "/"
         },
         {
-          "name": "Libros Revistas Catalogos",
-          "url": "/categorias/libros-revistas-catalogos"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Impresión de libros, revistas y catálogos en Barcelona",
+          "name": "Publicaciones",
           "url": "/categorias/libros-revistas-catalogos"
         },
         {
@@ -17633,13 +17698,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Libros Revistas Catalogos",
-                  "item": "https://reprodisseny.com/categorias/libros-revistas-catalogos"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Impresión de libros, revistas y catálogos en Barcelona",
+                  "name": "Publicaciones",
                   "item": "https://reprodisseny.com/categorias/libros-revistas-catalogos"
                 },
                 {
@@ -17732,11 +17797,11 @@
           "url": "/"
         },
         {
-          "name": "Hostelería y restauración",
-          "url": "/categorias/hosteleria-restauracion"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Impresión para Hoteles y Restaurantes",
+          "name": "Hostelería y restauración",
           "url": "/categorias/hosteleria-restauracion"
         },
         {
@@ -17871,13 +17936,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Hostelería y restauración",
-                  "item": "https://reprodisseny.com/categorias/hosteleria-restauracion"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Impresión para Hoteles y Restaurantes",
+                  "name": "Hostelería y restauración",
                   "item": "https://reprodisseny.com/categorias/hosteleria-restauracion"
                 },
                 {
@@ -18044,6 +18109,10 @@
           "url": "/"
         },
         {
+          "name": "Categorías",
+          "url": "/categorias"
+        },
+        {
           "name": "Eventos",
           "url": "/categorias/eventos"
         },
@@ -18161,12 +18230,18 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
                   "name": "Eventos",
                   "item": "https://reprodisseny.com/categorias/eventos"
                 },
                 {
                   "@type": "ListItem",
-                  "position": 3,
+                  "position": 4,
                   "name": "Identificador de maleta",
                   "item": "https://reprodisseny.com/productos/idenficador-maleta"
                 }
@@ -18258,11 +18333,11 @@
           "url": "/categorias"
         },
         {
-          "name": "Publicidad Oficina",
+          "name": "Publicidad y Oficina",
           "url": "/categorias/publicidad-oficina"
         },
         {
-          "name": "Impresión para publicidad: material promocional y punto de venta",
+          "name": "Material Publicitario",
           "url": "/categorias/publicidad-oficina/material-publicitario"
         },
         {
@@ -18444,13 +18519,13 @@
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Publicidad Oficina",
+                  "name": "Publicidad y Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina"
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión para publicidad: material promocional y punto de venta",
+                  "name": "Material Publicitario",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina/material-publicitario"
                 },
                 {
@@ -18689,11 +18764,11 @@
           "url": "/categorias"
         },
         {
-          "name": "Publicidad Oficina",
+          "name": "Publicidad y Oficina",
           "url": "/categorias/publicidad-oficina"
         },
         {
-          "name": "Impresión para publicidad: material promocional y punto de venta",
+          "name": "Material Publicitario",
           "url": "/categorias/publicidad-oficina/material-publicitario"
         },
         {
@@ -18858,13 +18933,13 @@
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Publicidad Oficina",
+                  "name": "Publicidad y Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina"
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión para publicidad: material promocional y punto de venta",
+                  "name": "Material Publicitario",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina/material-publicitario"
                 },
                 {
@@ -19034,7 +19109,7 @@
           "url": "/categorias/gran-formato"
         },
         {
-          "name": "Impresión en Materiales Flexibles - Gran Formato",
+          "name": "Material Flexible",
           "url": "/categorias/gran-formato/material-flexible"
         },
         {
@@ -19107,7 +19182,7 @@
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión en Materiales Flexibles - Gran Formato",
+                  "name": "Material Flexible",
                   "item": "https://reprodisseny.com/categorias/gran-formato/material-flexible"
                 },
                 {
@@ -19275,6 +19350,10 @@
           "url": "/"
         },
         {
+          "name": "Categorías",
+          "url": "/categorias"
+        },
+        {
           "name": "Eventos",
           "url": "/categorias/eventos"
         },
@@ -19401,12 +19480,18 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
                   "name": "Eventos",
                   "item": "https://reprodisseny.com/categorias/eventos"
                 },
                 {
                   "@type": "ListItem",
-                  "position": 3,
+                  "position": 4,
                   "name": "Lanyards personalizados para eventos",
                   "item": "https://reprodisseny.com/productos/lanyards-eventos-barcelona"
                 }
@@ -19563,11 +19648,11 @@
           "url": "/categorias"
         },
         {
-          "name": "Publicidad Oficina",
+          "name": "Publicidad y Oficina",
           "url": "/categorias/publicidad-oficina"
         },
         {
-          "name": "Impresión para oficina: papelería corporativa y material interno",
+          "name": "Material Oficina",
           "url": "/categorias/publicidad-oficina/material-oficina"
         },
         {
@@ -19634,13 +19719,13 @@
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Publicidad Oficina",
+                  "name": "Publicidad y Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina"
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión para oficina: papelería corporativa y material interno",
+                  "name": "Material Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina/material-oficina"
                 },
                 {
@@ -19899,11 +19984,11 @@
           "url": "/categorias"
         },
         {
-          "name": "Publicidad Oficina",
+          "name": "Publicidad y Oficina",
           "url": "/categorias/publicidad-oficina"
         },
         {
-          "name": "Impresión para oficina: papelería corporativa y material interno",
+          "name": "Material Oficina",
           "url": "/categorias/publicidad-oficina/material-oficina"
         },
         {
@@ -19970,13 +20055,13 @@
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Publicidad Oficina",
+                  "name": "Publicidad y Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina"
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión para oficina: papelería corporativa y material interno",
+                  "name": "Material Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina/material-oficina"
                 },
                 {
@@ -20077,7 +20162,7 @@
           "url": "/categorias/gran-formato"
         },
         {
-          "name": "Impresión en Materiales Flexibles - Gran Formato",
+          "name": "Material Flexible",
           "url": "/categorias/gran-formato/material-flexible"
         },
         {
@@ -20231,7 +20316,7 @@
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión en Materiales Flexibles - Gran Formato",
+                  "name": "Material Flexible",
                   "item": "https://reprodisseny.com/categorias/gran-formato/material-flexible"
                 },
                 {
@@ -20324,11 +20409,11 @@
           "url": "/"
         },
         {
-          "name": "Hostelería y restauración",
-          "url": "/categorias/hosteleria-restauracion"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Impresión para Hoteles y Restaurantes",
+          "name": "Hostelería y restauración",
           "url": "/categorias/hosteleria-restauracion"
         },
         {
@@ -20401,13 +20486,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Hostelería y restauración",
-                  "item": "https://reprodisseny.com/categorias/hosteleria-restauracion"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Impresión para Hoteles y Restaurantes",
+                  "name": "Hostelería y restauración",
                   "item": "https://reprodisseny.com/categorias/hosteleria-restauracion"
                 },
                 {
@@ -20500,11 +20585,11 @@
           "url": "/"
         },
         {
-          "name": "Expositores",
-          "url": "/categorias/expositores"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Expositores impresos para punto de venta y eventos | Repro Disseny",
+          "name": "Expositores",
           "url": "/categorias/expositores"
         },
         {
@@ -20642,13 +20727,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Expositores",
-                  "item": "https://reprodisseny.com/categorias/expositores"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Expositores impresos para punto de venta y eventos | Repro Disseny",
+                  "name": "Expositores",
                   "item": "https://reprodisseny.com/categorias/expositores"
                 },
                 {
@@ -20672,8 +20757,9 @@
       "slug": "marcos-photocall-personalizados",
       "path": "/productos/marcos-photocall-personalizados",
       "title": "Marcos para photocall personalizados",
-      "categorySlug": "expositores",
+      "categorySlug": "eventos",
       "categorySlugs": [
+        "eventos",
         "expositores"
       ],
       "order": 0,
@@ -20817,12 +20903,12 @@
           "url": "/"
         },
         {
-          "name": "Expositores",
-          "url": "/categorias/expositores"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Expositores impresos para punto de venta y eventos | Repro Disseny",
-          "url": "/categorias/expositores"
+          "name": "Eventos",
+          "url": "/categorias/eventos"
         },
         {
           "name": "Marcos para photocall personalizados",
@@ -20894,14 +20980,14 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Expositores",
-                  "item": "https://reprodisseny.com/categorias/expositores"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Expositores impresos para punto de venta y eventos | Repro Disseny",
-                  "item": "https://reprodisseny.com/categorias/expositores"
+                  "name": "Eventos",
+                  "item": "https://reprodisseny.com/categorias/eventos"
                 },
                 {
                   "@type": "ListItem",
@@ -20954,11 +21040,11 @@
           "url": "/"
         },
         {
-          "name": "Expositores",
-          "url": "/categorias/expositores"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Expositores impresos para punto de venta y eventos | Repro Disseny",
+          "name": "Expositores",
           "url": "/categorias/expositores"
         },
         {
@@ -21101,13 +21187,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Expositores",
-                  "item": "https://reprodisseny.com/categorias/expositores"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Expositores impresos para punto de venta y eventos | Repro Disseny",
+                  "name": "Expositores",
                   "item": "https://reprodisseny.com/categorias/expositores"
                 },
                 {
@@ -21208,7 +21294,7 @@
           "url": "/categorias/gran-formato"
         },
         {
-          "name": "Impresión en Materiales Rígidos - Gran Formato",
+          "name": "Materiales Rígidos",
           "url": "/categorias/gran-formato/material-rigido"
         },
         {
@@ -21363,7 +21449,7 @@
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión en Materiales Rígidos - Gran Formato",
+                  "name": "Materiales Rígidos",
                   "item": "https://reprodisseny.com/categorias/gran-formato/material-rigido"
                 },
                 {
@@ -21417,11 +21503,11 @@
           "url": "/"
         },
         {
-          "name": "Hostelería y restauración",
-          "url": "/categorias/hosteleria-restauracion"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Impresión para Hoteles y Restaurantes",
+          "name": "Hostelería y restauración",
           "url": "/categorias/hosteleria-restauracion"
         },
         {
@@ -21482,13 +21568,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Hostelería y restauración",
-                  "item": "https://reprodisseny.com/categorias/hosteleria-restauracion"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Impresión para Hoteles y Restaurantes",
+                  "name": "Hostelería y restauración",
                   "item": "https://reprodisseny.com/categorias/hosteleria-restauracion"
                 },
                 {
@@ -21512,8 +21598,9 @@
       "slug": "minutas-boda",
       "path": "/productos/minutas-boda",
       "title": "Minutas de boda",
-      "categorySlug": "hosteleria-restauracion",
+      "categorySlug": "eventos",
       "categorySlugs": [
+        "eventos",
         "hosteleria-restauracion"
       ],
       "order": 0,
@@ -21660,12 +21747,12 @@
           "url": "/"
         },
         {
-          "name": "Hostelería y restauración",
-          "url": "/categorias/hosteleria-restauracion"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Impresión para Hoteles y Restaurantes",
-          "url": "/categorias/hosteleria-restauracion"
+          "name": "Eventos",
+          "url": "/categorias/eventos"
         },
         {
           "name": "Minutas de boda",
@@ -21809,14 +21896,14 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Hostelería y restauración",
-                  "item": "https://reprodisseny.com/categorias/hosteleria-restauracion"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Impresión para Hoteles y Restaurantes",
-                  "item": "https://reprodisseny.com/categorias/hosteleria-restauracion"
+                  "name": "Eventos",
+                  "item": "https://reprodisseny.com/categorias/eventos"
                 },
                 {
                   "@type": "ListItem",
@@ -21984,6 +22071,10 @@
           "url": "/"
         },
         {
+          "name": "Categorías",
+          "url": "/categorias"
+        },
+        {
           "name": "Eventos",
           "url": "/categorias/eventos"
         },
@@ -22118,12 +22209,18 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
                   "name": "Eventos",
                   "item": "https://reprodisseny.com/categorias/eventos"
                 },
                 {
                   "@type": "ListItem",
-                  "position": 3,
+                  "position": 4,
                   "name": "Nombres de sobremesa personalizados para eventos",
                   "item": "https://reprodisseny.com/productos/nombres-sobremesa-personalizados"
                 }
@@ -22219,7 +22316,7 @@
           "url": "/categorias/gran-formato"
         },
         {
-          "name": "Impresión en Materiales Rígidos - Gran Formato",
+          "name": "Materiales Rígidos",
           "url": "/categorias/gran-formato/material-rigido"
         },
         {
@@ -22373,7 +22470,7 @@
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión en Materiales Rígidos - Gran Formato",
+                  "name": "Materiales Rígidos",
                   "item": "https://reprodisseny.com/categorias/gran-formato/material-rigido"
                 },
                 {
@@ -22474,7 +22571,7 @@
           "url": "/categorias/gran-formato"
         },
         {
-          "name": "Impresión en Materiales Rígidos - Gran Formato",
+          "name": "Materiales Rígidos",
           "url": "/categorias/gran-formato/material-rigido"
         },
         {
@@ -22629,7 +22726,7 @@
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión en Materiales Rígidos - Gran Formato",
+                  "name": "Materiales Rígidos",
                   "item": "https://reprodisseny.com/categorias/gran-formato/material-rigido"
                 },
                 {
@@ -22730,7 +22827,7 @@
           "url": "/categorias/gran-formato"
         },
         {
-          "name": "Impresión en Materiales Rígidos - Gran Formato",
+          "name": "Materiales Rígidos",
           "url": "/categorias/gran-formato/material-rigido"
         },
         {
@@ -22884,7 +22981,7 @@
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión en Materiales Rígidos - Gran Formato",
+                  "name": "Materiales Rígidos",
                   "item": "https://reprodisseny.com/categorias/gran-formato/material-rigido"
                 },
                 {
@@ -22985,7 +23082,7 @@
           "url": "/categorias/gran-formato"
         },
         {
-          "name": "Impresión en Materiales Rígidos - Gran Formato",
+          "name": "Materiales Rígidos",
           "url": "/categorias/gran-formato/material-rigido"
         },
         {
@@ -23070,7 +23167,7 @@
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión en Materiales Rígidos - Gran Formato",
+                  "name": "Materiales Rígidos",
                   "item": "https://reprodisseny.com/categorias/gran-formato/material-rigido"
                 },
                 {
@@ -23171,7 +23268,7 @@
           "url": "/categorias/gran-formato"
         },
         {
-          "name": "Impresión en Materiales Rígidos - Gran Formato",
+          "name": "Materiales Rígidos",
           "url": "/categorias/gran-formato/material-rigido"
         },
         {
@@ -23327,7 +23424,7 @@
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión en Materiales Rígidos - Gran Formato",
+                  "name": "Materiales Rígidos",
                   "item": "https://reprodisseny.com/categorias/gran-formato/material-rigido"
                 },
                 {
@@ -23428,7 +23525,7 @@
           "url": "/categorias/gran-formato"
         },
         {
-          "name": "Impresión en Materiales Rígidos - Gran Formato",
+          "name": "Materiales Rígidos",
           "url": "/categorias/gran-formato/material-rigido"
         },
         {
@@ -23583,7 +23680,7 @@
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión en Materiales Rígidos - Gran Formato",
+                  "name": "Materiales Rígidos",
                   "item": "https://reprodisseny.com/categorias/gran-formato/material-rigido"
                 },
                 {
@@ -23684,7 +23781,7 @@
           "url": "/categorias/gran-formato"
         },
         {
-          "name": "Impresión en Materiales Rígidos - Gran Formato",
+          "name": "Materiales Rígidos",
           "url": "/categorias/gran-formato/material-rigido"
         },
         {
@@ -23839,7 +23936,7 @@
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión en Materiales Rígidos - Gran Formato",
+                  "name": "Materiales Rígidos",
                   "item": "https://reprodisseny.com/categorias/gran-formato/material-rigido"
                 },
                 {
@@ -24037,7 +24134,7 @@
           "url": "/categorias/gran-formato"
         },
         {
-          "name": "Impresión en Materiales Rígidos - Gran Formato",
+          "name": "Materiales Rígidos",
           "url": "/categorias/gran-formato/material-rigido"
         },
         {
@@ -24110,7 +24207,7 @@
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión en Materiales Rígidos - Gran Formato",
+                  "name": "Materiales Rígidos",
                   "item": "https://reprodisseny.com/categorias/gran-formato/material-rigido"
                 },
                 {
@@ -24211,7 +24308,7 @@
           "url": "/categorias/gran-formato"
         },
         {
-          "name": "Impresión en Materiales Rígidos - Gran Formato",
+          "name": "Materiales Rígidos",
           "url": "/categorias/gran-formato/material-rigido"
         },
         {
@@ -24367,7 +24464,7 @@
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión en Materiales Rígidos - Gran Formato",
+                  "name": "Materiales Rígidos",
                   "item": "https://reprodisseny.com/categorias/gran-formato/material-rigido"
                 },
                 {
@@ -24576,11 +24673,11 @@
           "url": "/categorias"
         },
         {
-          "name": "Publicidad Oficina",
+          "name": "Publicidad y Oficina",
           "url": "/categorias/publicidad-oficina"
         },
         {
-          "name": "Impresión para oficina: papelería corporativa y material interno",
+          "name": "Material Oficina",
           "url": "/categorias/publicidad-oficina/material-oficina"
         },
         {
@@ -24647,13 +24744,13 @@
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Publicidad Oficina",
+                  "name": "Publicidad y Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina"
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión para oficina: papelería corporativa y material interno",
+                  "name": "Material Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina/material-oficina"
                 },
                 {
@@ -24754,7 +24851,7 @@
           "url": "/categorias/gran-formato"
         },
         {
-          "name": "Impresión en Materiales Flexibles - Gran Formato",
+          "name": "Material Flexible",
           "url": "/categorias/gran-formato/material-flexible"
         },
         {
@@ -24907,7 +25004,7 @@
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión en Materiales Flexibles - Gran Formato",
+                  "name": "Material Flexible",
                   "item": "https://reprodisseny.com/categorias/gran-formato/material-flexible"
                 },
                 {
@@ -25013,12 +25110,12 @@
           "url": "/"
         },
         {
-          "name": "Adhesivos",
-          "url": "/categorias/adhesivos"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Adhesivos personalizados para branding e interiorismo",
-          "url": "/categorias/adhesivos"
+          "name": "Adhesivos",
+          "url": "/categorias/adhesivos-personalizados"
         },
         {
           "name": "Pegatinas personalizadas",
@@ -25139,14 +25236,14 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Adhesivos",
-                  "item": "https://reprodisseny.com/categorias/adhesivos"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Adhesivos personalizados para branding e interiorismo",
-                  "item": "https://reprodisseny.com/categorias/adhesivos"
+                  "name": "Adhesivos",
+                  "item": "https://reprodisseny.com/categorias/adhesivos-personalizados"
                 },
                 {
                   "@type": "ListItem",
@@ -25238,11 +25335,11 @@
           "url": "/"
         },
         {
-          "name": "Expositores",
-          "url": "/categorias/expositores"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Expositores impresos para punto de venta y eventos | Repro Disseny",
+          "name": "Expositores",
           "url": "/categorias/expositores"
         },
         {
@@ -25376,13 +25473,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Expositores",
-                  "item": "https://reprodisseny.com/categorias/expositores"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Expositores impresos para punto de venta y eventos | Repro Disseny",
+                  "name": "Expositores",
                   "item": "https://reprodisseny.com/categorias/expositores"
                 },
                 {
@@ -25606,11 +25703,11 @@
           "url": "/categorias"
         },
         {
-          "name": "Publicidad Oficina",
+          "name": "Publicidad y Oficina",
           "url": "/categorias/publicidad-oficina"
         },
         {
-          "name": "Impresión para oficina: papelería corporativa y material interno",
+          "name": "Material Oficina",
           "url": "/categorias/publicidad-oficina/material-oficina"
         },
         {
@@ -25677,13 +25774,13 @@
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Publicidad Oficina",
+                  "name": "Publicidad y Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina"
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión para oficina: papelería corporativa y material interno",
+                  "name": "Material Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina/material-oficina"
                 },
                 {
@@ -25830,11 +25927,11 @@
           "url": "/categorias"
         },
         {
-          "name": "Publicidad Oficina",
+          "name": "Publicidad y Oficina",
           "url": "/categorias/publicidad-oficina"
         },
         {
-          "name": "Impresión para oficina: papelería corporativa y material interno",
+          "name": "Material Oficina",
           "url": "/categorias/publicidad-oficina/material-oficina"
         },
         {
@@ -25901,13 +25998,13 @@
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Publicidad Oficina",
+                  "name": "Publicidad y Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina"
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión para oficina: papelería corporativa y material interno",
+                  "name": "Material Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina/material-oficina"
                 },
                 {
@@ -26000,11 +26097,11 @@
           "url": "/"
         },
         {
-          "name": "Hostelería y restauración",
-          "url": "/categorias/hosteleria-restauracion"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Impresión para Hoteles y Restaurantes",
+          "name": "Hostelería y restauración",
           "url": "/categorias/hosteleria-restauracion"
         },
         {
@@ -26146,13 +26243,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Hostelería y restauración",
-                  "item": "https://reprodisseny.com/categorias/hosteleria-restauracion"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Impresión para Hoteles y Restaurantes",
+                  "name": "Hostelería y restauración",
                   "item": "https://reprodisseny.com/categorias/hosteleria-restauracion"
                 },
                 {
@@ -26206,11 +26303,11 @@
           "url": "/"
         },
         {
-          "name": "Hostelería y restauración",
-          "url": "/categorias/hosteleria-restauracion"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Impresión para Hoteles y Restaurantes",
+          "name": "Hostelería y restauración",
           "url": "/categorias/hosteleria-restauracion"
         },
         {
@@ -26346,13 +26443,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Hostelería y restauración",
-                  "item": "https://reprodisseny.com/categorias/hosteleria-restauracion"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Impresión para Hoteles y Restaurantes",
+                  "name": "Hostelería y restauración",
                   "item": "https://reprodisseny.com/categorias/hosteleria-restauracion"
                 },
                 {
@@ -26561,11 +26658,11 @@
           "url": "/categorias"
         },
         {
-          "name": "Publicidad Oficina",
+          "name": "Publicidad y Oficina",
           "url": "/categorias/publicidad-oficina"
         },
         {
-          "name": "Impresión para publicidad: material promocional y punto de venta",
+          "name": "Material Publicitario",
           "url": "/categorias/publicidad-oficina/material-publicitario"
         },
         {
@@ -26717,13 +26814,13 @@
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Publicidad Oficina",
+                  "name": "Publicidad y Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina"
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión para publicidad: material promocional y punto de venta",
+                  "name": "Material Publicitario",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina/material-publicitario"
                 },
                 {
@@ -26879,6 +26976,10 @@
           "url": "/"
         },
         {
+          "name": "Categorías",
+          "url": "/categorias"
+        },
+        {
           "name": "Eventos",
           "url": "/categorias/eventos"
         },
@@ -27023,12 +27124,18 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
                   "name": "Eventos",
                   "item": "https://reprodisseny.com/categorias/eventos"
                 },
                 {
                   "@type": "ListItem",
-                  "position": 3,
+                  "position": 4,
                   "name": "Premios personalizados para eventos",
                   "item": "https://reprodisseny.com/productos/premios-personalizados"
                 }
@@ -27247,11 +27354,11 @@
           "url": "/categorias"
         },
         {
-          "name": "Publicidad Oficina",
+          "name": "Publicidad y Oficina",
           "url": "/categorias/publicidad-oficina"
         },
         {
-          "name": "Impresión para publicidad: material promocional y punto de venta",
+          "name": "Material Publicitario",
           "url": "/categorias/publicidad-oficina/material-publicitario"
         },
         {
@@ -27402,13 +27509,13 @@
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Publicidad Oficina",
+                  "name": "Publicidad y Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina"
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión para publicidad: material promocional y punto de venta",
+                  "name": "Material Publicitario",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina/material-publicitario"
                 },
                 {
@@ -27470,7 +27577,7 @@
           "url": "/categorias/gran-formato"
         },
         {
-          "name": "Impresión en Materiales Rígidos - Gran Formato",
+          "name": "Materiales Rígidos",
           "url": "/categorias/gran-formato/material-rigido"
         },
         {
@@ -27555,7 +27662,7 @@
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión en Materiales Rígidos - Gran Formato",
+                  "name": "Materiales Rígidos",
                   "item": "https://reprodisseny.com/categorias/gran-formato/material-rigido"
                 },
                 {
@@ -27775,11 +27882,11 @@
           "url": "/"
         },
         {
-          "name": "Expositores",
-          "url": "/categorias/expositores"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Expositores impresos para punto de venta y eventos | Repro Disseny",
+          "name": "Expositores",
           "url": "/categorias/expositores"
         },
         {
@@ -27901,13 +28008,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Expositores",
-                  "item": "https://reprodisseny.com/categorias/expositores"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Expositores impresos para punto de venta y eventos | Repro Disseny",
+                  "name": "Expositores",
                   "item": "https://reprodisseny.com/categorias/expositores"
                 },
                 {
@@ -28131,11 +28238,11 @@
           "url": "/categorias"
         },
         {
-          "name": "Publicidad Oficina",
+          "name": "Publicidad y Oficina",
           "url": "/categorias/publicidad-oficina"
         },
         {
-          "name": "Impresión para oficina: papelería corporativa y material interno",
+          "name": "Material Oficina",
           "url": "/categorias/publicidad-oficina/material-oficina"
         },
         {
@@ -28202,13 +28309,13 @@
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Publicidad Oficina",
+                  "name": "Publicidad y Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina"
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión para oficina: papelería corporativa y material interno",
+                  "name": "Material Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina/material-oficina"
                 },
                 {
@@ -28427,11 +28534,11 @@
           "url": "/categorias"
         },
         {
-          "name": "Publicidad Oficina",
+          "name": "Publicidad y Oficina",
           "url": "/categorias/publicidad-oficina"
         },
         {
-          "name": "Impresión para oficina: papelería corporativa y material interno",
+          "name": "Material Oficina",
           "url": "/categorias/publicidad-oficina/material-oficina"
         },
         {
@@ -28498,13 +28605,13 @@
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Publicidad Oficina",
+                  "name": "Publicidad y Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina"
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión para oficina: papelería corporativa y material interno",
+                  "name": "Material Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina/material-oficina"
                 },
                 {
@@ -28558,11 +28665,11 @@
           "url": "/"
         },
         {
-          "name": "Expositores",
-          "url": "/categorias/expositores"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Expositores impresos para punto de venta y eventos | Repro Disseny",
+          "name": "Expositores",
           "url": "/categorias/expositores"
         },
         {
@@ -28623,13 +28730,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Expositores",
-                  "item": "https://reprodisseny.com/categorias/expositores"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Expositores impresos para punto de venta y eventos | Repro Disseny",
+                  "name": "Expositores",
                   "item": "https://reprodisseny.com/categorias/expositores"
                 },
                 {
@@ -28853,11 +28960,11 @@
           "url": "/categorias"
         },
         {
-          "name": "Publicidad Oficina",
+          "name": "Publicidad y Oficina",
           "url": "/categorias/publicidad-oficina"
         },
         {
-          "name": "Impresión para publicidad: material promocional y punto de venta",
+          "name": "Material Publicitario",
           "url": "/categorias/publicidad-oficina/material-publicitario"
         },
         {
@@ -28997,13 +29104,13 @@
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Publicidad Oficina",
+                  "name": "Publicidad y Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina"
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión para publicidad: material promocional y punto de venta",
+                  "name": "Material Publicitario",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina/material-publicitario"
                 },
                 {
@@ -29027,8 +29134,9 @@
       "slug": "tabletens-personalizados",
       "path": "/productos/tabletens-personalizados",
       "title": "Tabletens personalizados (displays de sobremesa)",
-      "categorySlug": "hosteleria-restauracion",
+      "categorySlug": "eventos",
       "categorySlugs": [
+        "eventos",
         "hosteleria-restauracion"
       ],
       "order": 0,
@@ -29163,12 +29271,12 @@
           "url": "/"
         },
         {
-          "name": "Hostelería y restauración",
-          "url": "/categorias/hosteleria-restauracion"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Impresión para Hoteles y Restaurantes",
-          "url": "/categorias/hosteleria-restauracion"
+          "name": "Eventos",
+          "url": "/categorias/eventos"
         },
         {
           "name": "Tabletens personalizados (displays de sobremesa)",
@@ -29301,14 +29409,14 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Hostelería y restauración",
-                  "item": "https://reprodisseny.com/categorias/hosteleria-restauracion"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Impresión para Hoteles y Restaurantes",
-                  "item": "https://reprodisseny.com/categorias/hosteleria-restauracion"
+                  "name": "Eventos",
+                  "item": "https://reprodisseny.com/categorias/eventos"
                 },
                 {
                   "@type": "ListItem",
@@ -29361,11 +29469,11 @@
           "url": "/"
         },
         {
-          "name": "Hostelería y restauración",
-          "url": "/categorias/hosteleria-restauracion"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Impresión para Hoteles y Restaurantes",
+          "name": "Hostelería y restauración",
           "url": "/categorias/hosteleria-restauracion"
         },
         {
@@ -29426,13 +29534,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Hostelería y restauración",
-                  "item": "https://reprodisseny.com/categorias/hosteleria-restauracion"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Impresión para Hoteles y Restaurantes",
+                  "name": "Hostelería y restauración",
                   "item": "https://reprodisseny.com/categorias/hosteleria-restauracion"
                 },
                 {
@@ -29671,11 +29779,11 @@
           "url": "/categorias"
         },
         {
-          "name": "Publicidad Oficina",
+          "name": "Publicidad y Oficina",
           "url": "/categorias/publicidad-oficina"
         },
         {
-          "name": "Impresión para oficina: papelería corporativa y material interno",
+          "name": "Material Oficina",
           "url": "/categorias/publicidad-oficina/material-oficina"
         },
         {
@@ -29742,13 +29850,13 @@
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Publicidad Oficina",
+                  "name": "Publicidad y Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina"
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión para oficina: papelería corporativa y material interno",
+                  "name": "Material Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina/material-oficina"
                 },
                 {
@@ -29952,11 +30060,11 @@
           "url": "/categorias"
         },
         {
-          "name": "Publicidad Oficina",
+          "name": "Publicidad y Oficina",
           "url": "/categorias/publicidad-oficina"
         },
         {
-          "name": "Impresión para publicidad: material promocional y punto de venta",
+          "name": "Material Publicitario",
           "url": "/categorias/publicidad-oficina/material-publicitario"
         },
         {
@@ -30105,13 +30213,13 @@
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Publicidad Oficina",
+                  "name": "Publicidad y Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina"
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión para publicidad: material promocional y punto de venta",
+                  "name": "Material Publicitario",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina/material-publicitario"
                 },
                 {
@@ -30345,11 +30453,11 @@
           "url": "/categorias"
         },
         {
-          "name": "Publicidad Oficina",
+          "name": "Publicidad y Oficina",
           "url": "/categorias/publicidad-oficina"
         },
         {
-          "name": "Impresión para oficina: papelería corporativa y material interno",
+          "name": "Material Oficina",
           "url": "/categorias/publicidad-oficina/material-oficina"
         },
         {
@@ -30416,13 +30524,13 @@
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Publicidad Oficina",
+                  "name": "Publicidad y Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina"
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión para oficina: papelería corporativa y material interno",
+                  "name": "Material Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina/material-oficina"
                 },
                 {
@@ -30641,11 +30749,11 @@
           "url": "/categorias"
         },
         {
-          "name": "Publicidad Oficina",
+          "name": "Publicidad y Oficina",
           "url": "/categorias/publicidad-oficina"
         },
         {
-          "name": "Impresión para publicidad: material promocional y punto de venta",
+          "name": "Material Publicitario",
           "url": "/categorias/publicidad-oficina/material-publicitario"
         },
         {
@@ -30787,13 +30895,13 @@
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Publicidad Oficina",
+                  "name": "Publicidad y Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina"
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión para publicidad: material promocional y punto de venta",
+                  "name": "Material Publicitario",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina/material-publicitario"
                 },
                 {
@@ -30817,8 +30925,9 @@
       "slug": "tarjetas-rasca",
       "path": "/productos/tarjetas-rasca",
       "title": "Tarjetas rasca",
-      "categorySlug": "material-publicitario",
+      "categorySlug": "eventos",
       "categorySlugs": [
+        "eventos",
         "material-publicitario"
       ],
       "order": 0,
@@ -30953,12 +31062,8 @@
           "url": "/categorias"
         },
         {
-          "name": "Publicidad Oficina",
-          "url": "/categorias/publicidad-oficina"
-        },
-        {
-          "name": "Impresión para publicidad: material promocional y punto de venta",
-          "url": "/categorias/publicidad-oficina/material-publicitario"
+          "name": "Eventos",
+          "url": "/categorias/eventos"
         },
         {
           "name": "Tarjetas rasca",
@@ -31106,18 +31211,12 @@
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Publicidad Oficina",
-                  "item": "https://reprodisseny.com/categorias/publicidad-oficina"
+                  "name": "Eventos",
+                  "item": "https://reprodisseny.com/categorias/eventos"
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión para publicidad: material promocional y punto de venta",
-                  "item": "https://reprodisseny.com/categorias/publicidad-oficina/material-publicitario"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 5,
                   "name": "Tarjetas rasca",
                   "item": "https://reprodisseny.com/productos/tarjetas-rasca"
                 }
@@ -31170,11 +31269,11 @@
           "url": "/categorias"
         },
         {
-          "name": "Publicidad Oficina",
+          "name": "Publicidad y Oficina",
           "url": "/categorias/publicidad-oficina"
         },
         {
-          "name": "Impresión para publicidad: material promocional y punto de venta",
+          "name": "Material Publicitario",
           "url": "/categorias/publicidad-oficina/material-publicitario"
         },
         {
@@ -31241,13 +31340,13 @@
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Publicidad Oficina",
+                  "name": "Publicidad y Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina"
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión para publicidad: material promocional y punto de venta",
+                  "name": "Material Publicitario",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina/material-publicitario"
                 },
                 {
@@ -31471,11 +31570,11 @@
           "url": "/categorias"
         },
         {
-          "name": "Publicidad Oficina",
+          "name": "Publicidad y Oficina",
           "url": "/categorias/publicidad-oficina"
         },
         {
-          "name": "Impresión para oficina: papelería corporativa y material interno",
+          "name": "Material Oficina",
           "url": "/categorias/publicidad-oficina/material-oficina"
         },
         {
@@ -31589,13 +31688,13 @@
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Publicidad Oficina",
+                  "name": "Publicidad y Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina"
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión para oficina: papelería corporativa y material interno",
+                  "name": "Material Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina/material-oficina"
                 },
                 {
@@ -31748,6 +31847,10 @@
           "url": "/"
         },
         {
+          "name": "Categorías",
+          "url": "/categorias"
+        },
+        {
           "name": "Eventos",
           "url": "/categorias/eventos"
         },
@@ -31864,12 +31967,18 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
                   "name": "Eventos",
                   "item": "https://reprodisseny.com/categorias/eventos"
                 },
                 {
                   "@type": "ListItem",
-                  "position": 3,
+                  "position": 4,
                   "name": "Textil reposacabezas personalizado",
                   "item": "https://reprodisseny.com/productos/textil-reposacabezas-personalizado"
                 }
@@ -32078,11 +32187,11 @@
           "url": "/categorias"
         },
         {
-          "name": "Publicidad Oficina",
+          "name": "Publicidad y Oficina",
           "url": "/categorias/publicidad-oficina"
         },
         {
-          "name": "Impresión para publicidad: material promocional y punto de venta",
+          "name": "Material Publicitario",
           "url": "/categorias/publicidad-oficina/material-publicitario"
         },
         {
@@ -32219,13 +32328,13 @@
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Publicidad Oficina",
+                  "name": "Publicidad y Oficina",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina"
                 },
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión para publicidad: material promocional y punto de venta",
+                  "name": "Material Publicitario",
                   "item": "https://reprodisseny.com/categorias/publicidad-oficina/material-publicitario"
                 },
                 {
@@ -32455,11 +32564,11 @@
           "url": "/"
         },
         {
-          "name": "Expositores",
-          "url": "/categorias/expositores"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Expositores impresos para punto de venta y eventos | Repro Disseny",
+          "name": "Expositores",
           "url": "/categorias/expositores"
         },
         {
@@ -32592,13 +32701,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Expositores",
-                  "item": "https://reprodisseny.com/categorias/expositores"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Expositores impresos para punto de venta y eventos | Repro Disseny",
+                  "name": "Expositores",
                   "item": "https://reprodisseny.com/categorias/expositores"
                 },
                 {
@@ -32652,11 +32761,11 @@
           "url": "/"
         },
         {
-          "name": "Packaging",
-          "url": "/categorias/packaging"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Packaging personalizado para productos y marcas",
+          "name": "Packaging",
           "url": "/categorias/packaging"
         },
         {
@@ -32717,13 +32826,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Packaging",
-                  "item": "https://reprodisseny.com/categorias/packaging"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Packaging personalizado para productos y marcas",
+                  "name": "Packaging",
                   "item": "https://reprodisseny.com/categorias/packaging"
                 },
                 {
@@ -32946,7 +33055,7 @@
           "url": "/categorias/gran-formato"
         },
         {
-          "name": "Impresión en Materiales Flexibles - Gran Formato",
+          "name": "Material Flexible",
           "url": "/categorias/gran-formato/material-flexible"
         },
         {
@@ -33019,7 +33128,7 @@
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión en Materiales Flexibles - Gran Formato",
+                  "name": "Material Flexible",
                   "item": "https://reprodisseny.com/categorias/gran-formato/material-flexible"
                 },
                 {
@@ -33262,7 +33371,7 @@
           "url": "/categorias/gran-formato"
         },
         {
-          "name": "Impresión en Materiales Flexibles - Gran Formato",
+          "name": "Material Flexible",
           "url": "/categorias/gran-formato/material-flexible"
         },
         {
@@ -33335,7 +33444,7 @@
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión en Materiales Flexibles - Gran Formato",
+                  "name": "Material Flexible",
                   "item": "https://reprodisseny.com/categorias/gran-formato/material-flexible"
                 },
                 {
@@ -33354,7 +33463,7 @@
     },
     {
       "id": "119",
-      "updatedAt": "2026-03-26T12:58:21Z",
+      "updatedAt": "2026-03-27T10:56:50Z",
       "type": "producto",
       "slug": "vinilo-pizarra",
       "path": "/productos/vinilo-pizarra",
@@ -33367,24 +33476,13 @@
       "isPublished": true,
       "shortDescription": "El vinilo pizarra es un vinilo adhesivo con acabado tipo pizarra sobre el que se puede escribir con tiza o rotuladores específicos (según modelo). Se aplica sobre paredes lisas, puertas, muebles o paneles para crear una superficie reutilizable: comunicar ofertas, menús del día, horarios, recordatorios, planning semanal o mensajes de marca. Podemos aplacarlo sobre un panel sólido como forex, Dibon, plancha metálica y construirla a medida para fijarla a cualquier pared",
       "description": "El vinilo pizarra es un vinilo adhesivo con acabado tipo pizarra sobre el que se puede escribir con tiza o rotuladores específicos (según modelo). Se aplica sobre paredes lisas, puertas, muebles o paneles para crear una superficie reutilizable: comunicar ofertas, menús del día, horarios, recordatorios, planning semanal o mensajes de marca. Podemos aplacarlo sobre un panel sólido como forex, Dibon, plancha metálica y construirla a medida para fijarla a cualquier pared",
-      "bodyMd": "##Detalles \n\n¿Qué es un vinilo para pizarra y para qué se usa? \n\nEl vinilo pizarra es un vinilo adhesivo con acabado tipo pizarra sobre el que se puede escribir con tiza o rotuladores específicos (según modelo). Se aplica sobre paredes lisas, puertas, muebles o paneles para crear una superficie reutilizable: comunicar ofertas, menús del día, horarios, recordatorios, planning semanal o mensajes de marca. \n\nForma \n\n## Beneficios \n\nConvierte cualquier superficie en pizarra: sin obras ni instalaciones complejas. \n\nReutilizable: escribe, borra y actualiza tantas veces como necesites. \n\nIdeal para mensajes que cambian a menudo: menús, ofertas, planificación, eventos. \n\nA medida: desde formatos pequeños hasta pared completa, con corte recto o a la forma. \n\nImagen cuidada y funcional: más limpio y profesional que carteles improvisados. \n\n##Aplicaciones \n\nHostelería: menús del día, especiales, eventos, vinos, reservas o mensajes en barra. \n\nRetail: promociones, “novedades”, precios, mensajes de campaña o escaparate interior. \n\nOficinas: planificación, brainstorming, salas de reuniones, organización de equipos. \n\nCentros educativos: aulas, talleres, zonas creativas y señalización interna. \n\nHogar y espacios creativos: cocina, zona de estudio, habitación infantil (si aplica). \n\n##Características técnicas \n\nSuperficies recomendadas \n\nParedes lisas (pintura en buen estado), pladur, melamina y superficies planas. \n\nNota práctica: en paredes con gotele o textura marcada, el acabado y la adherencia pueden variar. \n\nFormato y corte \n\nCorte recto (rectángulo/cuadrado) o corte a medida (formas, bocadillos, iconos, etc.). \n\nPosibilidad de cubrir zonas grandes por paños si se necesita una superficie amplia. \n\nUso y borrado \n\nDiseñado para escribir y borrar de forma cómoda. \n\nRecomendación: usar el tipo de escritura adecuado (tiza o rotulador específico) y evitar productos abrasivos para alargar la vida útil. \n\nAdhesivo \n\nAdhesivo pensado para instalación en interior sobre superficies planas. \n\nOpción de plantear soluciones removibles si la aplicación es temporal (según proyecto). \n\nAcabado \n\nSuperficie tipo pizarra con tacto mate, que evita reflejos y favorece la lectura.",
       "sections": [
         {
           "id": "details",
           "key": "details",
           "title": "Detalles",
-          "body": "El vinilo pizarra es un vinilo adhesivo con acabado tipo pizarra sobre el que se puede escribir con tiza o rotuladores específicos (según modelo). Se aplica sobre paredes lisas, puertas, muebles o paneles para crear una superficie reutilizable: comunicar ofertas, menús del día, horarios, recordatorios, planning semanal o mensajes de marca. Podemos aplacarlo sobre un panel sólido como forex, Dibon, plancha metálica y construirla a medida para fijarla a cualquier pared\n\n##Detalles \n\n¿Qué es un vinilo para pizarra y para qué se usa? \n\nEl vinilo pizarra es un vinilo adhesivo con acabado tipo pizarra sobre el que se puede escribir con tiza o rotuladores específicos (según modelo). Se aplica sobre paredes lisas, puertas, muebles o paneles para crear una superficie reutilizable: comunicar ofertas, menús del día, horarios, recordatorios, planning semanal o mensajes de marca. \n\nForma \n\n## Beneficios \n\nConvierte cualquier superficie en pizarra: sin obras ni instalaciones complejas. \n\nReutilizable: escribe, borra y actualiza tantas veces como necesites. \n\nIdeal para mensajes que cambian a menudo: menús, ofertas, planificación, eventos. \n\nA medida: desde formatos pequeños hasta pared completa, con corte recto o a la forma. \n\nImagen cuidada y funcional: más limpio y profesional que carteles improvisados. \n\n##Aplicaciones \n\nHostelería: menús del día, especiales, eventos, vinos, reservas o mensajes en barra. \n\nRetail: promociones, “novedades”, precios, mensajes de campaña o escaparate interior. \n\nOficinas: planificación, brainstorming, salas de reuniones, organización de equipos. \n\nCentros educativos: aulas, talleres, zonas creativas y señalización interna. \n\nHogar y espacios creativos: cocina, zona de estudio, habitación infantil (si aplica). \n\n##Características técnicas \n\nSuperficies recomendadas \n\nParedes lisas (pintura en buen estado), pladur, melamina y superficies planas. \n\nNota práctica: en paredes con gotele o textura marcada, el acabado y la adherencia pueden variar. \n\nFormato y corte \n\nCorte recto (rectángulo/cuadrado) o corte a medida (formas, bocadillos, iconos, etc.). \n\nPosibilidad de cubrir zonas grandes por paños si se necesita una superficie amplia. \n\nUso y borrado \n\nDiseñado para escribir y borrar de forma cómoda. \n\nRecomendación: usar el tipo de escritura adecuado (tiza o rotulador específico) y evitar productos abrasivos para alargar la vida útil. \n\nAdhesivo \n\nAdhesivo pensado para instalación en interior sobre superficies planas. \n\nOpción de plantear soluciones removibles si la aplicación es temporal (según proyecto). \n\nAcabado \n\nSuperficie tipo pizarra con tacto mate, que evita reflejos y favorece la lectura.",
+          "body": "¿Qué es un vinilo para pizarra y para qué se usa? \n\nEl vinilo pizarra es un vinilo adhesivo con acabado tipo pizarra sobre el que se puede escribir con tiza o rotuladores específicos (según modelo). Se aplica sobre paredes lisas, puertas, muebles o paneles para crear una superficie reutilizable: comunicar ofertas, menús del día, horarios, recordatorios, planning semanal o mensajes de marca.",
           "blocks": [
-            {
-              "type": "text",
-              "text": "El vinilo pizarra es un vinilo adhesivo con acabado tipo pizarra sobre el que se puede escribir con tiza o rotuladores específicos (según modelo). Se aplica sobre paredes lisas, puertas, muebles o paneles para crear una superficie reutilizable: comunicar ofertas, menús del día, horarios, recordatorios, planning semanal o mensajes de marca. Podemos aplacarlo sobre un panel sólido como forex, Dibon, plancha metálica y construirla a medida para fijarla a cualquier pared",
-              "html": false
-            },
-            {
-              "type": "text",
-              "text": "##Detalles",
-              "html": false
-            },
             {
               "type": "text",
               "text": "¿Qué es un vinilo para pizarra y para qué se usa?",
@@ -33394,77 +33492,15 @@
               "type": "text",
               "text": "El vinilo pizarra es un vinilo adhesivo con acabado tipo pizarra sobre el que se puede escribir con tiza o rotuladores específicos (según modelo). Se aplica sobre paredes lisas, puertas, muebles o paneles para crear una superficie reutilizable: comunicar ofertas, menús del día, horarios, recordatorios, planning semanal o mensajes de marca.",
               "html": false
-            },
-            {
-              "type": "text",
-              "text": "Forma",
-              "html": false
-            },
-            {
-              "type": "text",
-              "text": "## Beneficios",
-              "html": false
-            },
-            {
-              "type": "text",
-              "text": "Convierte cualquier superficie en pizarra: sin obras ni instalaciones complejas.",
-              "html": false
-            },
-            {
-              "type": "text",
-              "text": "Reutilizable: escribe, borra y actualiza tantas veces como necesites.",
-              "html": false
-            },
-            {
-              "type": "text",
-              "text": "Ideal para mensajes que cambian a menudo: menús, ofertas, planificación, eventos.",
-              "html": false
-            },
-            {
-              "type": "text",
-              "text": "A medida: desde formatos pequeños hasta pared completa, con corte recto o a la forma.",
-              "html": false
-            },
-            {
-              "type": "text",
-              "text": "Imagen cuidada y funcional: más limpio y profesional que carteles improvisados.",
-              "html": false
-            },
-            {
-              "type": "text",
-              "text": "##Aplicaciones",
-              "html": false
-            },
-            {
-              "type": "text",
-              "text": "Hostelería: menús del día, especiales, eventos, vinos, reservas o mensajes en barra.",
-              "html": false
-            },
-            {
-              "type": "text",
-              "text": "Retail: promociones, “novedades”, precios, mensajes de campaña o escaparate interior.",
-              "html": false
-            },
-            {
-              "type": "text",
-              "text": "Oficinas: planificación, brainstorming, salas de reuniones, organización de equipos.",
-              "html": false
-            },
-            {
-              "type": "text",
-              "text": "Centros educativos: aulas, talleres, zonas creativas y señalización interna.",
-              "html": false
-            },
-            {
-              "type": "text",
-              "text": "Hogar y espacios creativos: cocina, zona de estudio, habitación infantil (si aplica).",
-              "html": false
-            },
-            {
-              "type": "text",
-              "text": "##Características técnicas",
-              "html": false
-            },
+            }
+          ]
+        },
+        {
+          "id": "technical-specs",
+          "key": "technical-specs",
+          "title": "Características técnicas",
+          "body": "Superficies recomendadas \n\nParedes lisas (pintura en buen estado), pladur, melamina y superficies planas. \n\nNota práctica: en paredes con gotele o textura marcada, el acabado y la adherencia pueden variar. \n\nFormato y corte \n\nCorte recto (rectángulo/cuadrado) o corte a medida (formas, bocadillos, iconos, etc.). \n\nPosibilidad de cubrir zonas grandes por paños si se necesita una superficie amplia. \n\nUso y borrado \n\nDiseñado para escribir y borrar de forma cómoda. \n\nRecomendación: usar el tipo de escritura adecuado (tiza o rotulador específico) y evitar productos abrasivos para alargar la vida útil. \n\nAdhesivo \n\nAdhesivo pensado para instalación en interior sobre superficies planas. \n\nOpción de plantear soluciones removibles si la aplicación es temporal (según proyecto). \n\nAcabado \n\nSuperficie tipo pizarra con tacto mate, que evita reflejos y favorece la lectura.",
+          "blocks": [
             {
               "type": "text",
               "text": "Superficies recomendadas",
@@ -33536,6 +33572,39 @@
               "html": false
             }
           ]
+        },
+        {
+          "id": "applications",
+          "key": "applications",
+          "title": "Aplicaciones",
+          "body": "Hostelería: menús del día, especiales, eventos, vinos, reservas o mensajes en barra. \n\nRetail: promociones, “novedades”, precios, mensajes de campaña o escaparate interior. \n\nOficinas: planificación, brainstorming, salas de reuniones, organización de equipos. \n\nCentros educativos: aulas, talleres, zonas creativas y señalización interna. \n\nHogar y espacios creativos: cocina, zona de estudio, habitación infantil (si aplica).",
+          "blocks": [
+            {
+              "type": "text",
+              "text": "Hostelería: menús del día, especiales, eventos, vinos, reservas o mensajes en barra.",
+              "html": false
+            },
+            {
+              "type": "text",
+              "text": "Retail: promociones, “novedades”, precios, mensajes de campaña o escaparate interior.",
+              "html": false
+            },
+            {
+              "type": "text",
+              "text": "Oficinas: planificación, brainstorming, salas de reuniones, organización de equipos.",
+              "html": false
+            },
+            {
+              "type": "text",
+              "text": "Centros educativos: aulas, talleres, zonas creativas y señalización interna.",
+              "html": false
+            },
+            {
+              "type": "text",
+              "text": "Hogar y espacios creativos: cocina, zona de estudio, habitación infantil (si aplica).",
+              "html": false
+            }
+          ]
         }
       ],
       "faqs": [],
@@ -33553,7 +33622,7 @@
           "url": "/categorias/gran-formato"
         },
         {
-          "name": "Impresión en Materiales Flexibles - Gran Formato",
+          "name": "Material Flexible",
           "url": "/categorias/gran-formato/material-flexible"
         },
         {
@@ -33626,7 +33695,7 @@
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión en Materiales Flexibles - Gran Formato",
+                  "name": "Material Flexible",
                   "item": "https://reprodisseny.com/categorias/gran-formato/material-flexible"
                 },
                 {
@@ -33854,7 +33923,7 @@
           "url": "/categorias/gran-formato"
         },
         {
-          "name": "Impresión en Materiales Flexibles - Gran Formato",
+          "name": "Material Flexible",
           "url": "/categorias/gran-formato/material-flexible"
         },
         {
@@ -33927,7 +33996,7 @@
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión en Materiales Flexibles - Gran Formato",
+                  "name": "Material Flexible",
                   "item": "https://reprodisseny.com/categorias/gran-formato/material-flexible"
                 },
                 {
@@ -34170,7 +34239,7 @@
           "url": "/categorias/gran-formato"
         },
         {
-          "name": "Impresión en Materiales Flexibles - Gran Formato",
+          "name": "Material Flexible",
           "url": "/categorias/gran-formato/material-flexible"
         },
         {
@@ -34243,7 +34312,7 @@
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión en Materiales Flexibles - Gran Formato",
+                  "name": "Material Flexible",
                   "item": "https://reprodisseny.com/categorias/gran-formato/material-flexible"
                 },
                 {
@@ -34481,7 +34550,7 @@
           "url": "/categorias/gran-formato"
         },
         {
-          "name": "Impresión en Materiales Flexibles - Gran Formato",
+          "name": "Material Flexible",
           "url": "/categorias/gran-formato/material-flexible"
         },
         {
@@ -34554,7 +34623,7 @@
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Impresión en Materiales Flexibles - Gran Formato",
+                  "name": "Material Flexible",
                   "item": "https://reprodisseny.com/categorias/gran-formato/material-flexible"
                 },
                 {
@@ -34647,11 +34716,11 @@
           "url": "/"
         },
         {
-          "name": "Expositores",
-          "url": "/categorias/expositores"
+          "name": "Categorías",
+          "url": "/categorias"
         },
         {
-          "name": "Expositores impresos para punto de venta y eventos | Repro Disseny",
+          "name": "Expositores",
           "url": "/categorias/expositores"
         },
         {
@@ -34724,13 +34793,13 @@
                 {
                   "@type": "ListItem",
                   "position": 2,
-                  "name": "Expositores",
-                  "item": "https://reprodisseny.com/categorias/expositores"
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
                 },
                 {
                   "@type": "ListItem",
                   "position": 3,
-                  "name": "Expositores impresos para punto de venta y eventos | Repro Disseny",
+                  "name": "Expositores",
                   "item": "https://reprodisseny.com/categorias/expositores"
                 },
                 {

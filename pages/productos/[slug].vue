@@ -6,13 +6,14 @@ import ProductHero from "@/components/marketing/product/Hero.vue";
 import GuideBanner from "@/components/marketing/GuideBanner.vue";
 import ProductSections from "@/components/marketing/product/ProductSections.vue";
 import ProductFaq from "@/components/marketing/product/ProductFaq.vue";
+import ContentSectionShell from "@/components/marketing/content/ContentSectionShell.vue";
 
 const route = useRoute();
 const config = useRuntimeConfig();
 
 const pageContainerClass = "container-content";
-const contentNarrowClass = "mx-auto w-full max-w-4xl";
-const sectionIntroClass = "max-w-3xl";
+const pageFlowClass = "space-y-16 md:space-y-20";
+const pageBottomSpacingClass = "pb-16 md:pb-24";
 
 function safeDecode(value: unknown) {
   try {
@@ -41,7 +42,9 @@ function toAbsoluteUrl(value?: string | null) {
 
 const slug = computed(() =>
   safeDecode(
-    Array.isArray(route.params.slug) ? route.params.slug.join("/") : route.params.slug
+    Array.isArray(route.params.slug)
+      ? route.params.slug.join("/")
+      : route.params.slug
   ).trim()
 );
 
@@ -69,7 +72,10 @@ if (error.value) {
   throw createError({
     statusCode: err?.statusCode || err?.status || err?.response?.status || 404,
     statusMessage: "Producto no encontrado",
-    message: err?.data?.message || err?.message || "No hemos podido cargar el producto",
+    message:
+      err?.data?.message ||
+      err?.message ||
+      "No hemos podido cargar el producto",
   });
 }
 
@@ -102,9 +108,36 @@ const category = computed(() => {
   };
 });
 
+const breadcrumbItems = computed(() =>
+  Array.isArray(product.value?.breadcrumbs) ? product.value.breadcrumbs : []
+);
+
+const sections = computed(() =>
+  Array.isArray(product.value?.sections)
+    ? product.value.sections.filter(Boolean)
+    : []
+);
+
+const faqs = computed(() =>
+  Array.isArray(product.value?.faqs)
+    ? product.value.faqs.filter(Boolean)
+    : []
+);
+
+const hasSections = computed(() => sections.value.length > 0);
+const hasFaqs = computed(() => faqs.value.length > 0);
+
+const heroImage = computed(() => product.value?.image?.src || "");
+
 const heroProduct = computed(() => {
   const current = product.value;
   if (!current) return null;
+
+  const extraFields = Array.isArray((current as any).extraFields)
+    ? (current as any).extraFields
+    : Array.isArray(current.formFields)
+      ? current.formFields
+      : [];
 
   return {
     slug: current.slug,
@@ -122,8 +155,8 @@ const heroProduct = computed(() => {
           height: current.image.height ?? null,
         }
       : null,
-    formFields: current.formFields || [],
-    extraFields: (current as any).extraFields || current.formFields || [],
+    formFields: Array.isArray(current.formFields) ? current.formFields : [],
+    extraFields,
     categorySlug: current.category?.slug || "",
     sku: (current as any).sku ?? null,
     seo: {
@@ -133,19 +166,6 @@ const heroProduct = computed(() => {
     },
   };
 });
-
-const breadcrumbItems = computed(() =>
-  Array.isArray(product.value?.breadcrumbs) ? product.value.breadcrumbs : []
-);
-
-const sections = computed(() =>
-  (Array.isArray(product.value?.sections) ? product.value.sections : []).filter(Boolean)
-);
-const faqs = computed(() =>
-  (Array.isArray(product.value?.faqs) ? product.value.faqs : []).filter(Boolean)
-);
-
-const heroImage = computed(() => product.value?.image?.src || "");
 
 const canonicalUrl = computed(() => {
   return (
@@ -169,10 +189,10 @@ const hreflangLinks = computed(
         };
       })
       .filter(Boolean) as Array<{
-      rel: "alternate";
-      hreflang: string;
-      href: string;
-    }>
+        rel: "alternate";
+        hreflang: string;
+        href: string;
+      }>
 );
 
 const ogImageUrl = computed(() => {
@@ -210,7 +230,10 @@ useSeoMeta({
     product.value?.description ||
     "Detalles de producto",
 
-  ogTitle: () => product.value?.seo?.title || product.value?.title || "Producto",
+  ogTitle: () =>
+    product.value?.seo?.title ||
+    product.value?.title ||
+    "Producto",
 
   ogDescription: () =>
     product.value?.seo?.description ||
@@ -220,10 +243,14 @@ useSeoMeta({
 
   ogUrl: () => canonicalUrl.value,
   ogImage: () => ogImageUrl.value,
+  ogType: "product",
   robots: () => product.value?.seo?.robots || "index,follow",
 
   twitterCard: () => (ogImageUrl.value ? "summary_large_image" : "summary"),
-  twitterTitle: () => product.value?.seo?.title || product.value?.title || "Producto",
+  twitterTitle: () =>
+    product.value?.seo?.title ||
+    product.value?.title ||
+    "Producto",
   twitterDescription: () =>
     product.value?.seo?.description ||
     product.value?.shortDescription ||
@@ -246,121 +273,62 @@ useSeoMeta({
     </div>
 
     <template v-else-if="product && heroProduct">
-      <div class="container-content pt-4 pb-2 md:pt-6">
+      <div class="container-content pt-4 pb-4 md:pt-6 md:pb-6">
         <SiteBreadcrumbs :items="breadcrumbItems" :auto="false" />
       </div>
 
-      <section :class="pageContainerClass" class="pb-10 md:pb-14">
-        <ProductHero :product="heroProduct" :category="category" />
-      </section>
+      <div :class="pageBottomSpacingClass">
+        <div :class="pageFlowClass">
+          <section :class="pageContainerClass" aria-label="Presentación del producto">
+            <ProductHero :product="heroProduct" :category="category" />
+          </section>
 
-      <section
-        v-if="sections.length"
-        id="detalles"
-        class="bg-background"
-        aria-labelledby="product-details-heading"
-      >
-        <div :class="pageContainerClass" class="py-10 md:py-14">
-          <div :class="contentNarrowClass">
-            <div :class="sectionIntroClass">
-              <p class="text-label text-primary">Información del producto</p>
-
-              <h2
-                id="product-details-heading"
-                class="mt-2 text-[clamp(1.6rem,2vw,2rem)] font-semibold leading-tight tracking-tight text-foreground"
-              >
-                Características, formatos y acabados
-              </h2>
-
-              <p class="mt-2 max-w-[62ch] text-body text-muted-foreground">
-                Consulta la información clave para valorar opciones, materiales y uso
-                recomendado.
-              </p>
-            </div>
-
-            <div class="mt-8">
-              <ProductSections
-                :sections="sections"
-                :show-section-nav="sections.length > 1"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section
-        v-if="faqs.length"
-        class="bg-background"
-        aria-labelledby="product-faq-heading"
-      >
-        <div :class="pageContainerClass" class="py-4 md:py-8">
-          <div :class="contentNarrowClass">
-            <div :class="sectionIntroClass">
-              <p class="text-label uppercase tracking-[0.08em] text-primary">
-                Ayuda y dudas comunes
-              </p>
-
-              <h2
-                id="product-faq-heading"
-                class="mt-3 text-[clamp(2rem,2.7vw,2.85rem)] font-bold leading-[1.08] tracking-tight text-foreground"
-              >
-                Preguntas frecuentes
-              </h2>
-            </div>
-
-            <div class="mt-8">
-              <ProductFaq :faqs="faqs" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="mt-12 md:mt-16">
-        <GuideBanner
-          title="¿No estás seguro de las medidas?"
-          :cta="{ label: 'Consultar guía', to: '/como-preparar-archivos' }"
-          base-path="/img/ui/banners/como-preparar-archivos"
-          :height="240"
-          :full-bleed="true"
-          :rounded="false"
-        />
-      </section>
-
-      <section class="bg-background">
-        <div :class="pageContainerClass" class="py-14 md:py-20">
-          <div
-            class="overflow-hidden rounded-[32px] border border-border/70 bg-[linear-gradient(135deg,hsl(var(--accent))_0%,hsl(var(--background))_100%)] px-6 py-8 shadow-[0_14px_36px_-26px_hsl(var(--foreground)/0.16)] md:px-10 md:py-10"
+          <ContentSectionShell
+            v-if="hasSections"
+            eyebrow="Información del producto"
+            title="Características, formatos y acabados"
+            description="Consulta la información clave para valorar opciones, materiales y usos recomendados antes de solicitar tu presupuesto."
           >
-            <div :class="sectionIntroClass">
-              <p class="text-label uppercase tracking-[0.08em] text-primary">
-                Proyecto a medida
-              </p>
+            <ProductSections
+              :sections="sections"
+              :show-section-nav="sections.length > 1"
+            />
+          </ContentSectionShell>
 
-              <h2
-                class="mt-3 text-[clamp(2rem,2.7vw,2.85rem)] font-bold leading-[1.08] tracking-tight text-foreground"
-              >
-                ¿Tienes un proyecto especial?
-              </h2>
+          <ContentSectionShell
+            v-if="hasFaqs"
+            eyebrow="Ayuda y dudas comunes"
+            title="Preguntas frecuentes"
+            description="Resolvemos las consultas más habituales sobre materiales, medidas, acabados, preparación y entrega."
+          >
+            <ProductFaq :faqs="faqs" />
+          </ContentSectionShell>
 
-              <p
-                class="mt-3 max-w-[60ch] text-body text-foreground/76 md:text-[18px] md:leading-[1.68]"
-              >
-                Si no encuentras exactamente lo que necesitas en los detalles del
-                producto, te asesoramos para fabricar una solución adaptada a tu proyecto.
-              </p>
+          <section aria-label="Guía de preparación de archivos">
+            <GuideBanner
+              title="¿No estás seguro de las medidas?"
+              :cta="{ label: 'Consultar guía', to: '/como-preparar-archivos' }"
+              base-path="/img/ui/banners/como-preparar-archivos"
+              :height="240"
+              :full-bleed="true"
+              :rounded="false"
+            />
+          </section>
 
-              <div class="mt-6">
-                <NuxtLink
-                  to="/contacto"
-                  class="inline-flex min-h-12 items-center justify-center rounded-lg bg-primary px-6 py-3 text-body-s-bold text-primary-foreground transition hover:opacity-90"
-                >
-                  Contactar con un asesor
-                </NuxtLink>
-              </div>
-            </div>
-          </div>
+          <ContentSectionShell
+            eyebrow="Proyecto a medida"
+            title="¿Tienes un proyecto especial?"
+            description="Si no encuentras exactamente lo que necesitas en los detalles del producto, te asesoramos para fabricar una solución adaptada a tu proyecto."
+          >
+            <NuxtLink
+              to="/contacto"
+              class="inline-flex min-h-12 items-center justify-center rounded-lg bg-primary px-6 py-3 text-body-s-bold text-primary-foreground transition hover:opacity-90"
+            >
+              Contactar con un asesor
+            </NuxtLink>
+          </ContentSectionShell>
         </div>
-      </section>
+      </div>
     </template>
   </main>
 </template>

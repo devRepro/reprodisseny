@@ -20,8 +20,8 @@ function safeDecode(value: unknown) {
   }
 }
 
-function isAssetLike(v: unknown) {
-  const s = String(v ?? "").trim();
+function isAssetLike(value: unknown) {
+  const s = String(value ?? "").trim();
   return /^(img|_nuxt)\//i.test(s) || /\.(jpg|jpeg|png|webp|avif|gif|svg|pdf)$/i.test(s);
 }
 
@@ -29,38 +29,57 @@ function looksLikeProductPath(value: string) {
   return /^productos?\//i.test(String(value || "").trim());
 }
 
-const slug = computed(() => {
+function toAbsoluteUrl(value?: string | null) {
+  if (!value) return undefined;
+
+  const base = config.public.siteUrl || "https://reprodisseny.com";
+
+  try {
+    return new URL(value, base).toString();
+  } catch {
+    return undefined;
+  }
+}
+
+const slugParts = computed(() => {
   const raw = route.params.slug;
 
-  const parts = Array.isArray(raw)
+  return Array.isArray(raw)
     ? raw.map((s) => safeDecode(s).trim()).filter(Boolean)
     : String(safeDecode(raw ?? ""))
         .split(/[\/,]+/)
         .map((s) => s.trim())
         .filter(Boolean);
-
-  return parts.join("/");
 });
+
+const slug = computed(() => slugParts.value.join("/"));
+const apiSlug = computed(() => slugParts.value.map((part) => encodeURIComponent(part)).join("/"));
 
 if (!slug.value || isAssetLike(slug.value) || looksLikeProductPath(slug.value)) {
   throw createError({
     statusCode: 404,
+    statusMessage: "Categoría no encontrada",
     message: `Ruta inválida para categoría: ${slug.value}`,
   });
 }
 
-const { data, pending, error } = await useAsyncData<CategoryDetailPageDto>(
+const { data, pending, error } = await useAsyncData<CategoryDetailPageDto | null>(
   () => `cms:category:${slug.value}`,
-  () => $fetch(`/api/cms/category/${encodeURIComponent(slug.value)}`),
-  { server: true }
+  () =>
+    $fetch(`/api/cms/category/${apiSlug.value}`, {
+      query: {
+        includeProducts: 1,
+        productLimit: 24,
+        includeChildren: 1,
+        childLimit: 50,
+      },
+    }),
+  {
+    server: true,
+    watch: [slug],
+    default: () => null,
+  }
 );
-
-if (error.value) {
-  throw createError({
-    statusCode: (error.value as any)?.statusCode || 404,
-    message: "Categoría no encontrada",
-  });
-}
 
 if (data.value?.redirectTo && data.value.redirectTo !== route.path) {
   await navigateTo(data.value.redirectTo, {
@@ -69,12 +88,33 @@ if (data.value?.redirectTo && data.value.redirectTo !== route.path) {
   });
 }
 
-const category = computed(() => data.value ?? null);
-const children = computed(() => category.value?.children ?? []);
-const products = computed(() => category.value?.products ?? []);
-const sections = computed(() => category.value?.sections ?? []);
-const faqs = computed(() => category.value?.faqs ?? []);
-const breadcrumbItems = computed(() => category.value?.breadcrumbs ?? []);
+if (import.meta.dev) {
+  console.log("CATEGORY SLUG", slug.value);
+  console.log("CATEGORY API SLUG", apiSlug.value);
+  console.log("CATEGORY DTO", data.value);
+  console.log("CATEGORY ERROR", error.value);
+  console.log("CATEGORY SECTIONS", data.value?.sections);
+  console.log("CATEGORY PRODUCTS", data.value?.products);
+  console.log("CATEGORY FAQS", data.value?.faqs);
+}
+
+const fetchError = computed(() => (error.value as any) || null);
+const category = computed(() => data.value as CategoryDetailPageDto | null);
+const children = computed(() =>
+  Array.isArray(category.value?.children) ? category.value.children : []
+);
+const products = computed(() =>
+  Array.isArray(category.value?.products) ? category.value.products : []
+);
+const sections = computed(() =>
+  Array.isArray(category.value?.sections) ? category.value.sections : []
+);
+const faqs = computed(() =>
+  Array.isArray(category.value?.faqs) ? category.value.faqs : []
+);
+const breadcrumbItems = computed(() =>
+  Array.isArray(category.value?.breadcrumbs) ? category.value.breadcrumbs : []
+);
 const heroImage = computed(() => category.value?.image?.src || "");
 
 const secondaryCta = computed(() => {
@@ -90,9 +130,15 @@ const secondaryCta = computed(() => {
 });
 
 const canonicalUrl = computed(() => {
-  const base = config.public.siteUrl || "https://reprodisseny.com";
-  const path = category.value?.seo?.canonical || category.value?.path || route.path;
-  return new URL(path, base).toString();
+  return (
+    toAbsoluteUrl(category.value?.seo?.canonical || category.value?.path || route.path) ||
+    toAbsoluteUrl("/") ||
+    "https://reprodisseny.com"
+  );
+});
+
+const ogImageUrl = computed(() => {
+  return toAbsoluteUrl(category.value?.seo?.image || heroImage.value);
 });
 
 useHead(() => ({
@@ -102,29 +148,32 @@ useHead(() => ({
 useSeoMeta({
   title: () =>
     category.value?.seo?.title ||
-    (category.value?.title
-      ? `${category.value.title} | Reprodisseny`
-      : "Categoría | Reprodisseny"),
+    (category.value?.title ? `${category.value.title} | Reprodisseny` : "Categoría | Reprodisseny"),
+
   description: () =>
-    category.value?.seo?.description ||
-    category.value?.description ||
-    "Categoría de productos",
+    category.value?.seo?.description || category.value?.description || "Categoría de productos",
+
   ogTitle: () => category.value?.seo?.title || category.value?.title || "Categoría",
+
   ogDescription: () =>
-    category.value?.seo?.description ||
-    category.value?.description ||
-    "Categoría de productos",
-  ogImage: () => category.value?.seo?.image || heroImage.value || undefined,
+    category.value?.seo?.description || category.value?.description || "Categoría de productos",
+
+  ogUrl: () => canonicalUrl.value,
+  ogImage: () => ogImageUrl.value,
   robots: () => category.value?.seo?.robots || "index,follow",
+
+  twitterCard: () => (ogImageUrl.value ? "summary_large_image" : "summary"),
+  twitterTitle: () => category.value?.seo?.title || category.value?.title || "Categoría",
+  twitterDescription: () =>
+    category.value?.seo?.description || category.value?.description || "Categoría de productos",
+  twitterImage: () => ogImageUrl.value,
 });
 </script>
 
 <template>
   <main class="min-h-screen bg-background">
     <div v-if="pending" class="container-content py-16 md:py-20">
-      <div
-        class="flex min-h-[30vh] items-center justify-center rounded-[28px] border border-border/70 bg-card/70"
-      >
+      <div class="flex min-h-[30vh] items-center justify-center rounded-[28px] border border-border/70 bg-card/70">
         <div class="animate-pulse text-body text-muted-foreground">
           Cargando categoría...
         </div>
@@ -132,11 +181,11 @@ useSeoMeta({
     </div>
 
     <template v-else-if="category">
-      <div class="container-content pt-4 pb-2 md:pt-6">
+      <div class="container-content pb-2 pt-4 md:pt-6">
         <SiteBreadcrumbs :items="breadcrumbItems" :auto="false" />
       </div>
 
-      <section :class="pageContainerClass" class="pb-10 md:pb-14">
+      <section class="pb-8 md:pb-10">
         <CategoryHero
           :category="category"
           :primary-cta="{ label: 'Pedir presupuesto', to: '/contacto' }"
@@ -150,11 +199,9 @@ useSeoMeta({
         class="bg-background"
         aria-labelledby="category-children-heading"
       >
-        <div :class="pageContainerClass" class="py-8 md:py-12">
+        <div :class="pageContainerClass" class="py-10 md:py-14">
           <div :class="sectionIntroClass">
-            <p class="text-label text-primary">
-              Subcategorías
-            </p>
+            <p class="text-label text-primary">Subcategorías</p>
 
             <h2
               id="category-children-heading"
@@ -220,16 +267,49 @@ useSeoMeta({
         faq-subtitle="Respondemos las dudas más habituales sobre materiales, acabados, formatos y tiempos de producción."
       />
 
+      <section class="mt-12 md:mt-16">
+        <GuideBanner
+          title="¿No estás seguro de las medidas?"
+          :cta="{ label: 'Consultar guía', to: '/como-preparar-archivos' }"
+          base-path="/img/ui/banners/como-preparar-archivos"
+          :height="240"
+          :full-bleed="true"
+          :rounded="false"
+        />
+      </section>
+
       <section class="bg-background">
-        <div :class="pageContainerClass" class="py-12 md:py-16">
-          <GuideBanner
-            title="¿No estás seguro de las medidas?"
-            :cta="{ label: 'Consultar guía', to: '/como-preparar-archivos' }"
-            base-path="/img/ui/banners/como-preparar-archivos"
-            :height="240"
-            :full-bleed="false"
-            :rounded="true"
-          />
+        <div :class="pageContainerClass" class="py-14 md:py-20">
+          <div
+            class="overflow-hidden rounded-[32px] border border-border/70 bg-[linear-gradient(135deg,hsl(var(--accent))_0%,hsl(var(--background))_100%)] px-6 py-8 shadow-[0_14px_36px_-26px_hsl(var(--foreground)/0.16)] md:px-10 md:py-10"
+          >
+            <div :class="sectionIntroClass">
+              <p class="text-label uppercase tracking-[0.08em] text-primary">
+                Asesoramiento personalizado
+              </p>
+
+              <h2
+                class="mt-3 text-[clamp(2rem,2.7vw,2.85rem)] font-bold leading-[1.08] tracking-tight text-foreground"
+              >
+                ¿Necesitas ayuda para elegir la mejor opción?
+              </h2>
+
+              <p
+                class="mt-3 max-w-[60ch] text-body text-foreground/76 md:text-[18px] md:leading-[1.68]"
+              >
+                Te ayudamos a comparar materiales, formatos, acabados y aplicaciones para encontrar la solución más adecuada para tu proyecto.
+              </p>
+
+              <div class="mt-6">
+                <NuxtLink
+                  to="/contacto"
+                  class="inline-flex min-h-12 items-center justify-center rounded-lg bg-primary px-6 py-3 text-body-s-bold text-primary-foreground transition hover:opacity-90"
+                >
+                  Contactar con un asesor
+                </NuxtLink>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </template>
@@ -241,6 +321,9 @@ useSeoMeta({
         </h1>
         <p class="mt-3 max-w-[60ch] text-body text-foreground/72">
           No hemos podido cargar esta categoría.
+        </p>
+        <p v-if="fetchError" class="mt-3 text-body-s text-destructive/80">
+          {{ fetchError?.data?.message || fetchError?.message || 'El endpoint devolvió error.' }}
         </p>
       </div>
     </div>
