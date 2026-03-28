@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import MarketingCategoryCard from "@/components/marketing/MarketingCategoryCard.vue";
+import SectionHeading from "@/components/marketing/content/SectionHeading.vue";
 
 type CategoryItem = {
   id: string;
@@ -13,8 +14,6 @@ type CategoryItem = {
     width: number;
     height: number;
   } | null;
-
-  // hierarchy metadata
   parentId?: string | null;
   parentSlug?: string | null;
   level?: number | null;
@@ -42,7 +41,7 @@ const props = withDefaults(
     totalSlots: 8,
     pending: false,
     sectionClass: "",
-    containerClass: "mx-auto w-full max-w-[1440px] px-6 lg:px-10 2xl:px-[120px] py-16",
+    containerClass: "container-content py-10 md:py-14 lg:py-16",
   }
 );
 
@@ -92,14 +91,16 @@ function isPlaceholder(item: GridItem): item is PlaceholderItem {
     :aria-labelledby="headingId"
   >
     <div :class="props.containerClass">
-      <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-6">
-        <h2 :id="headingId" class="text-brand-ink-dark">
-          {{ props.title }}
-        </h2>
-        <div class="h-px w-full bg-brand-ink-medium/30 sm:flex-1" />
-      </div>
+      <SectionHeading
+        :id="headingId"
+        as="h2"
+        :title="props.title"
+        title-tone="ink"
+        line-tone="ink"
+        class="w-full"
+      />
 
-      <div class="mt-12">
+      <div class="mt-10 md:mt-12">
         <ul
           class="grid grid-cols-1 justify-items-center gap-x-6 gap-y-10 sm:grid-cols-2 xl:grid-cols-4 xl:gap-y-14"
         >
