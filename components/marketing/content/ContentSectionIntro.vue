@@ -27,14 +27,8 @@ const props = withDefaults(
 </script>
 
 <template>
-  <component
-    :is="props.as"
-    :class="cn(props.maxWidthClass, props.class)"
-  >
-    <p
-      v-if="props.eyebrow"
-      :class="cn('text-label text-primary', props.eyebrowClass)"
-    >
+  <component :is="props.as" :class="cn(props.maxWidthClass, props.class)">
+    <p v-if="props.eyebrow" :class="cn('text-label text-primary', props.eyebrowClass)">
       {{ props.eyebrow }}
     </p>
 
@@ -52,10 +46,7 @@ const props = withDefaults(
     <p
       v-if="props.description"
       :class="
-        cn(
-          'mt-2 max-w-[62ch] text-body text-muted-foreground',
-          props.descriptionClass
-        )
+        cn('mt-2 max-w-[62ch] text-body text-muted-foreground', props.descriptionClass)
       "
     >
       {{ props.description }}

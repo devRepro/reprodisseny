@@ -23,6 +23,9 @@ type Props = {
   titleTone?: HeadingTone;
   lineTone?: LineTone;
   line?: boolean;
+  eyebrowClass?: string;
+  titleClass?: string;
+  subtitleClass?: string;
 };
 
 const props = withDefaults(defineProps<Props>(), {
@@ -36,6 +39,9 @@ const props = withDefaults(defineProps<Props>(), {
   titleTone: "brand",
   lineTone: "default",
   line: true,
+  eyebrowClass: "",
+  titleClass: "",
+  subtitleClass: "",
 });
 
 const attrs = useAttrs();
@@ -50,7 +56,7 @@ const rootClass = computed(() => {
   ].join(" ");
 });
 
-const eyebrowClass = computed(() => {
+const eyebrowBaseClass = computed(() => {
   const base = "text-sm font-medium tracking-wide";
   const color = props.theme === "inverse" ? "text-white/75" : "text-primary";
 
@@ -65,7 +71,7 @@ const rowClass = computed(() => {
   return "flex flex-col gap-3 md:flex-row md:items-center md:gap-5";
 });
 
-const titleClass = computed(() => {
+const titleBaseClass = computed(() => {
   const sizeMap: Record<HeadingSize, string> = {
     hero: "text-3xl font-semibold leading-tight tracking-tight sm:text-4xl lg:text-5xl",
     section: "text-2xl font-semibold leading-tight tracking-tight sm:text-3xl",
@@ -84,7 +90,7 @@ const titleClass = computed(() => {
   return ["m-0 text-pretty", sizeMap[props.size], colorClass].join(" ");
 });
 
-const subtitleClass = computed(() => {
+const subtitleBaseClass = computed(() => {
   const themeMap: Record<HeadingTheme, string> = {
     default: "text-muted-foreground",
     inverse: "text-white/80",
@@ -135,12 +141,12 @@ const mobileLineClass = computed(() => {
 
 <template>
   <div v-bind="attrs" :class="rootClass">
-    <p v-if="eyebrow" :class="eyebrowClass">
+    <p v-if="eyebrow" :class="[eyebrowBaseClass, props.eyebrowClass]">
       {{ eyebrow }}
     </p>
 
     <div :class="rowClass">
-      <component :is="headingTag" :class="titleClass">
+      <component :is="headingTag" :class="[titleBaseClass, props.titleClass]">
         <slot>
           {{ title }}
         </slot>
@@ -151,7 +157,7 @@ const mobileLineClass = computed(() => {
 
     <span v-if="line" aria-hidden="true" :class="mobileLineClass" />
 
-    <p v-if="subtitle" :class="subtitleClass">
+    <p v-if="subtitle" :class="[subtitleBaseClass, props.subtitleClass]">
       {{ subtitle }}
     </p>
   </div>
