@@ -63,84 +63,184 @@
 
   .product-form-defaults {
     @apply rounded-2xl border p-4;
-    background: linear-gradient(180deg,
-        hsl(var(--accent) / 0.95) 0%,
-        hsl(var(--background)) 100%);
+    background: linear-gradient(
+      180deg,
+      hsl(var(--accent) / 0.95) 0%,
+      hsl(var(--background)) 100%
+    );
     border-color: hsl(var(--primary) / 0.18);
     box-shadow: inset 0 1px 0 hsl(var(--primary) / 0.08);
   }
+
   .product-form-chip {
-  @apply inline-flex max-w-full items-center gap-1.5 rounded-full border px-3 py-1.5 text-body-s shadow-sm;
-  background: linear-gradient(
-    180deg,
-    hsl(var(--background)) 0%,
-    hsl(var(--accent) / 0.75) 100%
-  );
-  color: hsl(var(--foreground));
-  border-color: hsl(var(--primary) / 0.18);
-}
-
-.product-form-chip-label {
-  color: hsl(var(--primary));
-  font-weight: 700;
-}
-
-.product-form-scroll-shell {
-  @apply relative min-h-0 flex-1;
-}
-
-.product-form-scroll {
-  @apply min-h-0 flex-1;
-  scrollbar-width: thin;
-  scrollbar-color: hsl(var(--primary) / 0.35) transparent;
-}
-
-.product-form-scroll::-webkit-scrollbar {
-  width: 10px;
-}
-
-.product-form-scroll::-webkit-scrollbar-track {
-  background: transparent;
-  margin-block: 0.25rem;
-}
-
-.product-form-scroll::-webkit-scrollbar-thumb {
-  background-color: hsl(var(--primary) / 0.32);
-  border-radius: 9999px;
-  border: 2px solid hsl(var(--background));
-}
-
-.product-form-scroll-shell::before,
-.product-form-scroll-shell::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0.75rem;
-  height: 18px;
-  pointer-events: none;
-  z-index: 10;
-}
-
-.product-form-scroll-shell::before {
-  top: 0;
-  background: linear-gradient(180deg, hsl(var(--card)) 0%, transparent 100%);
-}
-
-.product-form-scroll-shell::after {
-  bottom: 0;
-  background: linear-gradient(0deg, hsl(var(--card)) 0%, transparent 100%);
-}
-
-.product-form-footer {
-  @apply shrink-0 border-t border-border pt-4;
-  background-color: hsl(var(--card));
-}
-
-@screen lg {
-  .product-form-footer {
-    box-shadow: 0 -8px 20px -16px hsl(var(--foreground) / 0.18);
+    @apply inline-flex max-w-full items-center gap-1.5 rounded-full border px-3 py-1.5 text-body-s shadow-sm;
+    background: linear-gradient(
+      180deg,
+      hsl(var(--background)) 0%,
+      hsl(var(--accent) / 0.75) 100%
+    );
+    color: hsl(var(--foreground));
+    border-color: hsl(var(--primary) / 0.18);
   }
-}
+
+  .product-form-chip-label {
+    color: hsl(var(--primary));
+    font-weight: 700;
+  }
+
+  .product-form-scroll-shell {
+    @apply relative min-h-0 flex-1;
+  }
+
+  .product-form-scroll {
+    @apply min-h-0 flex-1;
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--primary) / 0.35) transparent;
+  }
+
+  .product-form-scroll::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .product-form-scroll::-webkit-scrollbar-track {
+    background: transparent;
+    margin-block: 0.25rem;
+  }
+
+  .product-form-scroll::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--primary) / 0.32);
+    border-radius: 9999px;
+    border: 2px solid hsl(var(--background));
+  }
+
+  .product-form-scroll-shell::before,
+  .product-form-scroll-shell::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0.75rem;
+    height: 18px;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .product-form-scroll-shell::before {
+    top: 0;
+    background: linear-gradient(180deg, hsl(var(--card)) 0%, transparent 100%);
+  }
+
+  .product-form-scroll-shell::after {
+    bottom: 0;
+    background: linear-gradient(0deg, hsl(var(--card)) 0%, transparent 100%);
+  }
+
+  .product-form-footer {
+    @apply shrink-0 border-t border-border pt-4;
+    background-color: hsl(var(--card));
+  }
+
+  /* =========================================================
+     DETAIL SECTIONS NAV / ANCHORS / TITLES
+     ========================================================= */
+
+  .detail-sections-nav {
+    position: sticky;
+    top: var(--site-header-offset);
+    z-index: 60;
+    border-bottom: 1px solid hsl(var(--border));
+    background-color: hsl(var(--background) / 0.92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .detail-sections-nav-inner {
+    @apply flex items-center gap-2 overflow-x-auto py-2;
+    min-height: var(--details-nav-height);
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .detail-sections-nav-inner::-webkit-scrollbar {
+    display: none;
+  }
+
+  .detail-sections-nav-link {
+    @apply inline-flex shrink-0 items-center rounded-full px-4 py-2 text-body-s transition-colors;
+    white-space: nowrap;
+    color: hsl(var(--muted-foreground));
+    border: 1px solid transparent;
+  }
+
+  .detail-sections-nav-link:hover {
+    background-color: hsl(var(--accent));
+    color: hsl(var(--foreground));
+  }
+
+  .detail-sections-nav-link:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+    background-color: hsl(var(--accent));
+    color: hsl(var(--foreground));
+  }
+
+  .detail-sections-nav-link.is-active,
+  .detail-sections-nav-link[aria-current="true"] {
+    background-color: hsl(var(--accent));
+    color: hsl(var(--primary));
+    border-color: hsl(var(--primary) / 0.18);
+    font-weight: 700;
+  }
+
+  .detail-section {
+    scroll-margin-top: var(--details-anchor-offset);
+  }
+
+  .detail-section-header {
+    @apply mb-6;
+    max-width: 880px;
+  }
+
+  .detail-section-kicker {
+    @apply mb-3 inline-flex items-center rounded-full px-3 py-1 text-label;
+    background-color: hsl(var(--accent));
+    color: hsl(var(--primary));
+    font-size: var(--font-section-eyebrow);
+    line-height: var(--line-section-eyebrow);
+    font-weight: var(--weight-section-eyebrow);
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+  }
+
+  .detail-section-title {
+    margin: 0;
+    color: hsl(var(--foreground));
+    font-size: var(--font-section-title);
+    line-height: var(--line-section-title);
+    font-weight: var(--weight-section-title);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  .detail-section-intro {
+    margin-top: 1rem;
+    margin-bottom: 0;
+    max-width: 72ch;
+    color: hsl(var(--muted-foreground));
+    font-size: var(--font-section-intro);
+    line-height: var(--line-section-intro);
+    font-weight: var(--weight-section-intro);
+    text-wrap: pretty;
+  }
+
+  .detail-section-grid {
+    @apply grid gap-4;
+  }
+
+  .detail-section-card {
+    @apply rounded-2xl border p-5;
+    background-color: hsl(var(--card));
+    border-color: hsl(var(--border));
+  }
 
   @screen sm {
     .product-form-card {
@@ -165,6 +265,14 @@
     .catalog-toolbar {
       @apply mb-8 flex-row items-center justify-between;
     }
+
+    .detail-section-header {
+      @apply mb-8;
+    }
+
+    .detail-section-grid {
+      @apply grid-cols-2 gap-5;
+    }
   }
 
   @screen lg {
@@ -178,6 +286,14 @@
 
     .catalog-section {
       @apply py-12;
+    }
+
+    .product-form-footer {
+      box-shadow: 0 -8px 20px -16px hsl(var(--foreground) / 0.18);
+    }
+
+    .detail-sections-nav {
+      box-shadow: 0 10px 24px -20px hsl(var(--foreground) / 0.18);
     }
   }
 
@@ -202,7 +318,6 @@
     /* Headings */
     --font-h1: 36px;
     --line-h1: 1.2;
-    /* 120% */
     --weight-h1: 700;
 
     --font-h2: 30px;
@@ -211,7 +326,6 @@
 
     --font-h3: 24px;
     --line-h3: 1.3;
-    /* 130% */
     --weight-h3: 600;
 
     --font-h4: 20px;
@@ -221,54 +335,63 @@
     /* Body */
     --font-body: 16px;
     --line-body: 1.5;
-    /* 150% */
     --weight-body: 400;
     --weight-body-bold: 700;
 
     /* Body small */
     --font-body-s: 14px;
     --line-body-s: 1.4;
-    /* 140% */
     --weight-body-s: 400;
     --weight-body-s-bold: 700;
 
     /* Labels */
     --font-label: 13px;
     --line-label: 1.4;
-    /* 140% */
     --weight-label: 500;
-    /* Medium */
 
     --font-label-s: 12px;
     --line-label-s: 1.35;
-    /* 135% */
     --weight-label-s: 400;
+
+    /* =========================
+       LAYOUT OFFSETS (sticky nav + anclas)
+       Ajusta estos valores a la altura real
+       de tu header/topbar/menú
+       ========================= */
+    --site-header-offset: 136px;
+    --details-nav-height: 56px;
+    --details-anchor-offset: calc(var(--site-header-offset) + var(--details-nav-height) + 24px);
+
+    /* =========================
+       TITULACIÓN DE SECCIÓN
+       ========================= */
+    --font-section-title: 32px;
+    --line-section-title: 1.15;
+    --weight-section-title: 700;
+
+    --font-section-intro: 18px;
+    --line-section-intro: 1.55;
+    --weight-section-intro: 400;
+
+    --font-section-eyebrow: 13px;
+    --line-section-eyebrow: 1.3;
+    --weight-section-eyebrow: 700;
 
     /* =========================
        BRAND COLORS (paleta diseñador) - HSL
        ========================= */
     --brand-base: 201 100% 35%;
-    /* #0076B3 */
     --brand-base-dark: 201 100% 24%;
-    /* #004F78 */
     --brand-base-light: 201 100% 93%;
-    /* #DEF4FF */
     --brand-bg-2: 42 74% 92%;
-    /* #FAF0DA */
 
     --brand-white: 0 0% 100%;
-    /* #FFFFFF */
     --brand-ink-light: 0 0% 94%;
-    /* #EFEFEF */
     --brand-ink-medium: 0 0% 58%;
-    /* #959595 */
     --brand-ink-dark: 0 0% 13%;
-    /* #212121 */
 
     --brand-success: 101 100% 42%;
-    /* #44D400 */
     --brand-error: 7 100% 60%;
-    /* #FF4D35 */
 
     /* =========================
        LEGACY ALIASES (para tu CSS actual)
@@ -286,7 +409,7 @@
     --menubar-hover: 0 0% 20%;
 
     /* =========================
-       SHADCN / TAILWIND TOKENS (mapeados a marca)
+       SHADCN / TAILWIND TOKENS
        ========================= */
     --background: var(--brand-white);
     --foreground: var(--brand-ink-dark);
@@ -318,7 +441,7 @@
 
     --radius: 0.5rem;
 
-    /* Sidebar (lo dejamos como estaba por ahora) */
+    /* Sidebar */
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
@@ -327,6 +450,28 @@
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  @media (max-width: 767px) {
+    :root {
+      --site-header-offset: 120px;
+      --details-nav-height: 52px;
+      --details-anchor-offset: calc(var(--site-header-offset) + var(--details-nav-height) + 20px);
+
+      --font-section-title: 28px;
+      --font-section-intro: 16px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    :root {
+      --site-header-offset: 144px;
+      --details-nav-height: 56px;
+      --details-anchor-offset: calc(var(--site-header-offset) + var(--details-nav-height) + 24px);
+
+      --font-section-title: 36px;
+      --font-section-intro: 18px;
+    }
   }
 
   /* Dark mode: mantenemos la marca y ajustamos superficies/texto */
@@ -341,7 +486,6 @@
     --popover-foreground: var(--brand-white);
 
     --primary: var(--brand-base);
-    /* la marca NO cambia */
     --primary-foreground: var(--brand-white);
 
     --secondary: 0 0% 18%;
@@ -368,6 +512,16 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  html {
+    scroll-padding-top: var(--details-anchor-offset);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html:focus-within {
+      scroll-behavior: smooth;
+    }
   }
 
   * {
@@ -421,7 +575,6 @@
     line-height: var(--line-body-s);
   }
 
-  /* Helpers opcionales */
   .text-body {
     font-size: var(--font-body);
     line-height: var(--line-body);
@@ -457,6 +610,4 @@
     line-height: var(--line-label-s);
     font-weight: var(--weight-label-s);
   }
-
-  /* Nota: mantenemos comentados estilos genéricos de inputs si usas Shadcn <Input> */
 }
