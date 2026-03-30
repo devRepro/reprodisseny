@@ -5,6 +5,7 @@ import SiteBreadcrumbs from "@/components/shared/SiteBreadcrumbs.vue";
 import GuideBanner from "@/components/marketing/GuideBanner.vue";
 import CategoryContent from "@/components/marketing/category/CategoryContent.vue";
 import CategoryHero from "@/components/marketing/category/CategoryHero.vue";
+import ContentSectionIntro from "@/components/marketing/content/ContentSectionIntro.vue";
 
 const route = useRoute();
 const config = useRuntimeConfig();
@@ -54,6 +55,19 @@ const slugParts = computed(() => {
 
 const slug = computed(() => slugParts.value.join("/"));
 const apiSlug = computed(() => slugParts.value.map((part) => encodeURIComponent(part)).join("/"));
+const childrenGridClass = computed(() => {
+  const count = children.value.length;
+
+  if (count <= 1) {
+    return "mx-auto max-w-[520px] grid-cols-1";
+  }
+
+  if (count === 2) {
+    return "mx-auto max-w-[1080px] grid-cols-1 justify-items-center sm:grid-cols-2";
+  }
+
+  return "grid-cols-1 sm:grid-cols-2 xl:grid-cols-3";
+});
 
 if (!slug.value || isAssetLike(slug.value) || looksLikeProductPath(slug.value)) {
   throw createError({
@@ -194,68 +208,65 @@ useSeoMeta({
       </section>
 
       <section
-        v-if="children.length"
-        id="subcategorias"
-        class="bg-background"
-        aria-labelledby="category-children-heading"
+  v-if="children.length"
+  id="subcategorias"
+  class="bg-background"
+  aria-label="Subcategorías"
+>
+  <div :class="pageContainerClass" class="py-10 md:py-14">
+    <div :class="sectionIntroClass">
+      <ContentSectionIntro
+        eyebrow="Subcategorías"
+        title="Explora esta línea de soluciones"
+        description="Accede directamente a las subcategorías relacionadas con esta área."
+        heading-tag="h2"
+        heading-size="section"
+        :line="false"
+        title-tone="foreground"
+      />
+    </div>
+
+    <div :class="['mt-8 grid gap-6', childrenGridClass]">
+      <NuxtLink
+        v-for="child in children"
+        :key="child.slug || child.path"
+        :to="child.path"
+        class="group flex h-full w-full max-w-[520px] flex-col overflow-hidden rounded-[28px] border border-border/70 bg-card shadow-[0_10px_30px_-24px_hsl(var(--foreground)/0.14)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:shadow-[0_18px_40px_-26px_hsl(var(--foreground)/0.18)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:ring-offset-2"
       >
-        <div :class="pageContainerClass" class="py-10 md:py-14">
-          <div :class="sectionIntroClass">
-            <p class="text-label text-primary">Subcategorías</p>
-
-            <h2
-              id="category-children-heading"
-              class="mt-2 text-[clamp(1.6rem,2vw,2rem)] font-semibold leading-tight tracking-tight text-foreground"
-            >
-              Explora esta línea de soluciones
-            </h2>
-
-            <p class="mt-2 max-w-[62ch] text-body text-muted-foreground">
-              Accede directamente a las subcategorías relacionadas con esta área.
-            </p>
-          </div>
-
-          <div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3">
-            <NuxtLink
-              v-for="child in children"
-              :key="child.slug || child.path"
-              :to="child.path"
-              class="group flex h-full flex-col overflow-hidden rounded-[28px] border border-border/70 bg-card shadow-[0_10px_30px_-24px_hsl(var(--foreground)/0.14)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:shadow-[0_18px_40px_-26px_hsl(var(--foreground)/0.18)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:ring-offset-2"
-            >
-              <div class="aspect-[16/10] overflow-hidden bg-muted/25">
-                <img
-                  v-if="child.image?.src"
-                  :src="child.image.src"
-                  :alt="child.image.alt || child.title || 'Subcategoría'"
-                  class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div v-else class="h-full w-full bg-muted/40" />
-              </div>
-
-              <div class="flex flex-1 flex-col px-5 py-5">
-                <h3 class="text-[20px] font-semibold leading-[1.25] text-foreground">
-                  {{ child.title }}
-                </h3>
-
-                <p
-                  v-if="child.description"
-                  class="mt-3 line-clamp-3 text-body-s leading-[1.6] text-foreground/72"
-                >
-                  {{ child.description }}
-                </p>
-
-                <span
-                  class="mt-5 inline-flex min-h-11 items-center justify-center self-start rounded-lg border border-border bg-background px-4 py-2.5 text-body-s-bold text-foreground transition group-hover:border-primary/25 group-hover:text-primary"
-                >
-                  Ver subcategoría
-                </span>
-              </div>
-            </NuxtLink>
-          </div>
+        <div class="aspect-[16/10] overflow-hidden bg-muted/25">
+          <img
+            v-if="child.image?.src"
+            :src="child.image.src"
+            :alt="child.image.alt || child.title || 'Subcategoría'"
+            class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+            loading="lazy"
+            decoding="async"
+          />
+          <div v-else class="h-full w-full bg-muted/40" />
         </div>
-      </section>
+
+        <div class="flex flex-1 flex-col px-5 py-5">
+          <h3 class="text-[20px] font-semibold leading-[1.25] text-foreground">
+            {{ child.title }}
+          </h3>
+
+          <p
+            v-if="child.description"
+            class="mt-3 line-clamp-3 text-body-s leading-[1.6] text-foreground/72"
+          >
+            {{ child.description }}
+          </p>
+
+          <span
+            class="mt-5 inline-flex min-h-11 items-center justify-center self-start rounded-lg border border-border bg-background px-4 py-2.5 text-body-s-bold text-foreground transition group-hover:border-primary/25 group-hover:text-primary"
+          >
+            Ver subcategoría
+          </span>
+        </div>
+      </NuxtLink>
+    </div>
+  </div>
+</section>
 
       <CategoryContent
         :sections="sections"
@@ -283,32 +294,33 @@ useSeoMeta({
           <div
             class="overflow-hidden rounded-[32px] border border-border/70 bg-[linear-gradient(135deg,hsl(var(--accent))_0%,hsl(var(--background))_100%)] px-6 py-8 shadow-[0_14px_36px_-26px_hsl(var(--foreground)/0.16)] md:px-10 md:py-10"
           >
-            <div :class="sectionIntroClass">
-              <p class="text-label uppercase tracking-[0.08em] text-primary">
-                Asesoramiento personalizado
-              </p>
+            
 
-              <h2
-                class="mt-3 text-[clamp(2rem,2.7vw,2.85rem)] font-bold leading-[1.08] tracking-tight text-foreground"
-              >
-                ¿Necesitas ayuda para elegir la mejor opción?
-              </h2>
+          <div :class="sectionIntroClass">
+  <ContentSectionIntro
+    eyebrow="Asesoramiento personalizado"
+    title="¿Necesitas ayuda para elegir la mejor opción?"
+    description="Te ayudamos a comparar materiales, formatos, acabados y aplicaciones para encontrar la solución más adecuada para tu proyecto."
+    heading-tag="h2"
+    heading-size="section"
+    :line="false"
+    title-tone="foreground"
+    eyebrow-class="uppercase tracking-[0.08em]"
+    description-class="max-w-[60ch] text-body text-foreground/76 md:text-[18px] md:leading-[1.68]"
+  />
 
-              <p
-                class="mt-3 max-w-[60ch] text-body text-foreground/76 md:text-[18px] md:leading-[1.68]"
-              >
-                Te ayudamos a comparar materiales, formatos, acabados y aplicaciones para encontrar la solución más adecuada para tu proyecto.
-              </p>
+  <div class="mt-6">
+    <NuxtLink
+      to="/contacto"
+      class="inline-flex min-h-12 items-center justify-center rounded-lg bg-primary px-6 py-3 text-body-s-bold text-primary-foreground transition hover:opacity-90"
+    >
+      Contactar con un asesor
+    </NuxtLink>
+  </div>
+</div>
 
-              <div class="mt-6">
-                <NuxtLink
-                  to="/contacto"
-                  class="inline-flex min-h-12 items-center justify-center rounded-lg bg-primary px-6 py-3 text-body-s-bold text-primary-foreground transition hover:opacity-90"
-                >
-                  Contactar con un asesor
-                </NuxtLink>
-              </div>
-            </div>
+
+
           </div>
         </div>
       </section>
