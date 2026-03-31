@@ -12,6 +12,7 @@
 
     <MarketingProductCategoryGrid
       title="Ofrecemos una amplia gama de productos"
+      description="Explora las principales categorías y encuentra la solución que mejor encaja con tu proyecto."
       :categories="homeCategories"
       :total-slots="8"
       :pending="homeCategoriesPending"

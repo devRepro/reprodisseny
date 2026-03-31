@@ -1,126 +1,110 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { cn } from "@/lib/utils";
+import CatalogGrid from "@/components/shared/catalog/CatalogGrid.vue";
+import CategoryCard from "@/components/marketing/category/CategoryCard.vue";
+import ProductCard from "@/components/marketing/product/ProductCard.vue";
 
-type GridItem = {
-  title: string;
-  to: string;
-  imageSrc?: string;
-  imageAlt?: string;
-  ctaText?: string;
+type CategoryLike = {
+  slug?: string | null;
+  path?: string | null;
+  title?: string | null;
+  name?: string | null;
+  shortDescription?: string | null;
+  description?: string | null;
+  excerpt?: string | null;
+  image?: unknown;
+  imageSrc?: string | null;
+  hero?: {
+    image?: unknown;
+  } | null;
+};
+
+type ProductLike = {
+  slug?: string | null;
+  path?: string | null;
+  title?: string | null;
+  name?: string | null;
+  shortDescription?: string | null;
+  description?: string | null;
+  excerpt?: string | null;
+  image?: unknown;
+  imageSrc?: string | null;
 };
 
 const props = withDefaults(
   defineProps<{
-    title?: string;
-    subtitle?: string;
     eyebrow?: string;
-    items: GridItem[];
-    ctaText?: string;
-    class?: string;
+    title?: string;
+    description?: string;
+    categories?: CategoryLike[];
+    products?: ProductLike[];
+    maxColumns?: 2 | 3 | 4;
   }>(),
   {
+    eyebrow: "",
     title: "Productos de esta categoría",
-    subtitle: "",
-    eyebrow: "Productos relacionados",
-    items: () => [],
-    ctaText: "Ver producto",
-    class: "",
+    description: "Explora formatos y soluciones relacionadas.",
+    categories: () => [],
+    products: () => [],
+    maxColumns: 3,
   }
 );
 
-const safeItems = computed(() =>
-  (props.items || []).filter((item) => item?.title && item?.to)
+const visibleCategories = computed(() =>
+  (props.categories ?? []).filter(
+    (item) => Boolean(item?.title || item?.name) && Boolean(item?.path || item?.slug)
+  )
+);
+
+const visibleProducts = computed(() =>
+  (props.products ?? []).filter(
+    (item) => Boolean(item?.title || item?.name) && Boolean(item?.path || item?.slug)
+  )
+);
+
+const hasContent = computed(
+  () => visibleCategories.value.length > 0 || visibleProducts.value.length > 0
 );
 </script>
 
 <template>
-  <section :class="cn('w-full', props.class)" aria-labelledby="category-grid-heading">
-    <header class="max-w-3xl">
-      <p v-if="eyebrow" class="text-label text-primary">
-        {{ eyebrow }}
-      </p>
+  <section v-if="hasContent" class="container-content py-16 md:py-20">
+    <div class="space-y-8 md:space-y-10">
+      <header class="max-w-3xl space-y-3">
+        <p v-if="eyebrow" class="text-sm font-semibold text-primary">
+          {{ eyebrow }}
+        </p>
 
-      <h2
-        id="category-grid-heading"
-        class="mt-2 text-[clamp(1.6rem,2vw,2rem)] font-semibold leading-tight tracking-tight text-foreground"
-      >
-        {{ title }}
-      </h2>
+        <h2 class="text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+          {{ title }}
+        </h2>
 
-      <p v-if="subtitle" class="mt-2 max-w-[62ch] text-body text-muted-foreground">
-        {{ subtitle }}
-      </p>
-    </header>
-
-    <div class="mt-8 md:mt-10">
-      <div
-        v-if="safeItems.length"
-        class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
-      >
-        <NuxtLink
-          v-for="(it, i) in safeItems"
-          :key="`${it.to}-${i}`"
-          :to="it.to"
-          :aria-label="`Ver detalles de ${it.title}`"
-          class="group flex h-full flex-col rounded-[28px] border border-border/70 bg-card px-5 pb-6 pt-5 shadow-[0_10px_30px_-24px_hsl(var(--foreground)/0.14)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:shadow-[0_18px_40px_-26px_hsl(var(--foreground)/0.18)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:ring-offset-2"
+        <p
+          v-if="description"
+          class="text-base leading-7 text-muted-foreground"
         >
-          <div class="relative mx-auto w-full max-w-[220px]">
-            <div
-              aria-hidden="true"
-              class="absolute -inset-2 rounded-full bg-[linear-gradient(180deg,hsl(var(--accent)/0.55)_0%,hsl(var(--background))_100%)] blur-lg opacity-60 transition-opacity duration-300 group-hover:opacity-80"
-            />
+          {{ description }}
+        </p>
+      </header>
 
-            <div
-              class="relative grid aspect-square w-full place-items-center rounded-full border border-border/70 bg-[linear-gradient(180deg,hsl(var(--accent)/0.35)_0%,hsl(var(--background))_100%)] p-3"
-            >
-              <div
-                class="h-full w-full overflow-hidden rounded-full bg-muted/30 ring-1 ring-border/60"
-              >
-                <NuxtImg
-                  v-if="it.imageSrc"
-                  :src="it.imageSrc"
-                  :alt="it.imageAlt || it.title"
-                  width="220"
-                  height="220"
-                  class="h-full w-full object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.03]"
-                  loading="lazy"
-                />
-                <div
-                  v-else
-                  class="grid h-full w-full place-items-center bg-muted text-body-s text-muted-foreground"
-                >
-                  Imagen no disponible
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="mt-6 flex flex-1 flex-col items-center text-center">
-            <div class="flex min-h-[64px] items-start justify-center">
-              <h3
-                aria-hidden="true"
-                class="max-w-[18ch] text-[1.1rem] font-semibold leading-[1.35] tracking-tight text-foreground"
-              >
-                {{ it.title }}
-              </h3>
-            </div>
-
-            <span
-              aria-hidden="true"
-              class="mt-5 inline-flex min-h-11 items-center justify-center rounded-lg border border-border bg-background px-4 py-2.5 text-body-s-bold text-foreground transition group-hover:border-primary/25 group-hover:text-primary"
-            >
-              {{ it.ctaText || props.ctaText }}
-            </span>
-          </div>
-        </NuxtLink>
+      <div v-if="visibleCategories.length" class="space-y-6">
+        <CatalogGrid :max-columns="maxColumns">
+          <CategoryCard
+            v-for="category in visibleCategories"
+            :key="category.path || category.slug || category.title || category.name"
+            :category="category"
+          />
+        </CatalogGrid>
       </div>
 
-      <div
-        v-else
-        class="rounded-[24px] border border-border/70 bg-card px-5 py-4 text-body-s text-muted-foreground"
-      >
-        No hay elementos disponibles.
+      <div v-if="visibleProducts.length" class="space-y-6">
+        <CatalogGrid :max-columns="maxColumns">
+          <ProductCard
+            v-for="product in visibleProducts"
+            :key="product.path || product.slug || product.title || product.name"
+            :product="product"
+          />
+        </CatalogGrid>
       </div>
     </div>
   </section>
