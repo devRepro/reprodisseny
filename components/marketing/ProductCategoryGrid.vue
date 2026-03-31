@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import MarketingCategoryCard from "@/components/marketing/MarketingCategoryCard.vue";
 import SectionHeading from "@/components/marketing/content/SectionHeading.vue";
-import CatalogGrid from "@/components/shared/catalog/CatalogGrid.vue";
+import CatalogCard from "@/components/shared/catalog/CatalogCard.vue";
 
 type CategoryItem = {
   id: string;
@@ -31,7 +30,6 @@ const props = withDefaults(
     pending?: boolean;
     sectionClass?: string;
     containerClass?: string;
-    headingId?: string;
   }>(),
   {
     title: "Ofrecemos una amplia gama de productos",
@@ -41,9 +39,10 @@ const props = withDefaults(
     pending: false,
     sectionClass: "",
     containerClass: "container-content py-10 md:py-14 lg:py-16",
-    headingId: "home-product-category-grid-title",
   }
 );
+
+const headingId = "home-product-category-grid-title";
 
 function isTopLevelCategory(category: CategoryItem) {
   if (category.level != null) return category.level === 1;
@@ -67,12 +66,12 @@ const skeletonCount = computed(() => {
 <template>
   <section
     :class="['bg-background text-foreground', props.sectionClass]"
-    :aria-labelledby="props.headingId"
+    :aria-labelledby="headingId"
   >
     <div :class="props.containerClass">
       <header class="space-y-4">
         <SectionHeading
-          :id="props.headingId"
+          :id="headingId"
           as="h2"
           :title="props.title"
           title-tone="ink"
@@ -89,36 +88,45 @@ const skeletonCount = computed(() => {
       </header>
 
       <div class="mt-10 md:mt-12">
-        <CatalogGrid :max-columns="4" gap-class="gap-6 md:gap-8">
-          <MarketingCategoryCard
+        <ul class="grid auto-rows-fr grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4 xl:gap-8">
+          <li
             v-for="item in visibleItems"
             :key="item.id"
-            :title="item.title"
-            :href="item.href"
-            :image="item.image"
-            :description="item.shortDescription || item.description || ''"
-            class="h-full"
-          />
+            class="h-full list-none"
+          >
+            <CatalogCard
+              :href="item.href"
+              :title="item.title"
+              :description="item.shortDescription || item.description || ''"
+              :image="item.image"
+              cta-label="Ver categoría"
+              fallback-label="Categoría"
+            />
+          </li>
 
-          <article
+          <li
             v-for="n in skeletonCount"
             :key="`home-category-skeleton-${n}`"
-            class="h-full rounded-3xl border border-border/60 bg-card p-4 shadow-sm md:p-5"
+            class="h-full list-none"
             aria-hidden="true"
           >
-            <div class="overflow-hidden rounded-[1.25rem] border border-border/40 bg-muted/30">
-              <div class="aspect-[4/3] animate-pulse bg-muted" />
-            </div>
-
-            <div class="space-y-3 px-1 pt-4">
-              <div class="h-6 w-3/4 animate-pulse rounded-md bg-muted" />
-              <div class="h-4 w-2/3 animate-pulse rounded-md bg-muted" />
-              <div class="pt-2">
-                <div class="h-10 w-36 animate-pulse rounded-full bg-muted" />
+            <article
+              class="h-full rounded-3xl border border-border/60 bg-card p-4 shadow-sm md:p-5"
+            >
+              <div class="overflow-hidden rounded-[1.25rem] border border-border/40 bg-muted/30">
+                <div class="aspect-[4/3] animate-pulse bg-muted" />
               </div>
-            </div>
-          </article>
-        </CatalogGrid>
+
+              <div class="space-y-3 px-1 pt-4">
+                <div class="h-6 w-3/4 animate-pulse rounded-md bg-muted" />
+                <div class="h-4 w-2/3 animate-pulse rounded-md bg-muted" />
+                <div class="pt-2">
+                  <div class="h-10 w-36 animate-pulse rounded-full bg-muted" />
+                </div>
+              </div>
+            </article>
+          </li>
+        </ul>
       </div>
     </div>
   </section>

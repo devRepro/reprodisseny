@@ -31,7 +31,7 @@ const props = withDefaults(
     image: null,
     ctaLabel: "Ver más",
     imageAspectClass: "aspect-[4/3]",
-    imageSizes: "(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw",
+    imageSizes: "(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 25vw",
     fallbackLabel: "Sin imagen",
     badge: "",
   }
@@ -68,7 +68,7 @@ const linkAriaLabel = computed(() => `${props.ctaLabel}: ${props.title}`);
       :aria-label="linkAriaLabel"
       class="flex h-full flex-col rounded-3xl border border-border/60 bg-card p-4 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-primary/20 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 md:p-5"
     >
-      <div class="overflow-hidden rounded-[1.25rem] border border-border/40 bg-muted/40">
+      <div class="overflow-hidden rounded-[1.25rem] border border-border/40 bg-muted/30">
         <div :class="['relative w-full overflow-hidden', imageAspectClass]">
           <NuxtImg
             v-if="hasMedia"
@@ -99,13 +99,13 @@ const linkAriaLabel = computed(() => `${props.ctaLabel}: ${props.title}`);
             {{ badge }}
           </p>
 
-          <h3 class="text-lg font-semibold leading-tight text-foreground md:text-xl">
+          <h3 class="text-balance text-lg font-semibold leading-tight text-foreground md:text-xl">
             {{ title }}
           </h3>
 
           <p
             v-if="description"
-            class="text-sm leading-6 text-muted-foreground md:text-base"
+            class="line-clamp-2 text-sm leading-6 text-muted-foreground md:text-base"
           >
             {{ description }}
           </p>

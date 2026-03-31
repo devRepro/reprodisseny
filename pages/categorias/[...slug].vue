@@ -5,6 +5,7 @@ import SiteBreadcrumbs from "@/components/shared/SiteBreadcrumbs.vue";
 import GuideBanner from "@/components/marketing/GuideBanner.vue";
 import CategoryContent from "@/components/marketing/category/CategoryContent.vue";
 import CategoryHero from "@/components/marketing/category/CategoryHero.vue";
+import CategoryProductsGrid from "@/components/marketing/category/CategoryProductsGrid.vue";
 import ContentSectionIntro from "@/components/marketing/content/ContentSectionIntro.vue";
 
 const route = useRoute();
@@ -100,16 +101,6 @@ if (data.value?.redirectTo && data.value.redirectTo !== route.path) {
     redirectCode: 301,
     replace: true,
   });
-}
-
-if (import.meta.dev) {
-  console.log("CATEGORY SLUG", slug.value);
-  console.log("CATEGORY API SLUG", apiSlug.value);
-  console.log("CATEGORY DTO", data.value);
-  console.log("CATEGORY ERROR", error.value);
-  console.log("CATEGORY SECTIONS", data.value?.sections);
-  console.log("CATEGORY PRODUCTS", data.value?.products);
-  console.log("CATEGORY FAQS", data.value?.faqs);
 }
 
 const fetchError = computed(() => (error.value as any) || null);
@@ -268,15 +259,22 @@ useSeoMeta({
   </div>
 </section>
 
-      <CategoryContent
-        :sections="sections"
-        :products="products"
-        :faqs="faqs"
-        products-title="Productos de esta categoría"
-        products-subtitle="Explora formatos y soluciones relacionadas."
-        faq-title="Preguntas frecuentes sobre esta categoría"
-        faq-subtitle="Respondemos las dudas más habituales sobre materiales, acabados, formatos y tiempos de producción."
-      />
+<CategoryProductsGrid
+  :products="products"
+  eyebrow="Productos relacionados"
+  title="Productos de esta categoría"
+  description="Explora formatos y soluciones relacionadas."
+/>
+
+<CategoryContent
+  :sections="sections"
+  :faqs="faqs"
+  faq-title="Preguntas frecuentes sobre esta categoría"
+  faq-subtitle="Respondemos las dudas más habituales sobre materiales, acabados, formatos y tiempos de producción."
+/>
+
+      
+
 
       <section class="mt-12 md:mt-16">
         <GuideBanner
