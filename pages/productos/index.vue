@@ -33,7 +33,9 @@ const sort = computed(() =>
 );
 
 const selectedCategory = computed(() =>
-  typeof route.query.category === "string" ? route.query.category.trim().toLowerCase() : ""
+  typeof route.query.category === "string"
+    ? route.query.category.trim().toLowerCase()
+    : ""
 );
 
 const catalogKey = computed(() =>
@@ -93,14 +95,19 @@ useSeoMeta({
   title: () =>
     selectedCategory.value
       ? `Catálogo ${currentCategoryLabel.value || selectedCategory.value} | Reprodisseny`
-      : "Catálogo de Productos | Reprodisseny",
+      : "Catálogo de productos | Reprodisseny",
+
   description:
     "Encuentra el soporte o formato que necesitas: adhesivos, gran formato, expositores y más. Solicita presupuesto online.",
+
   ogTitle: () =>
     selectedCategory.value
       ? `Catálogo ${currentCategoryLabel.value || selectedCategory.value} | Reprodisseny`
-      : "Catálogo de Productos | Reprodisseny",
-  ogDescription: "Soluciones de impresión profesional para empresas y eventos.",
+      : "Catálogo de productos | Reprodisseny",
+
+  ogDescription:
+    "Soluciones de impresión profesional para empresas, retail, eventos y espacios corporativos.",
+
   robots: () => (shouldNoindex.value ? "noindex,follow" : "index,follow"),
 });
 
@@ -132,7 +139,7 @@ function updateSort(nextSort: string) {
 
 function updateCategoryFilter(nextCategory: string | null) {
   router.replace({
-    path: "/productos",
+    path: basePath,
     query: {
       ...route.query,
       category: nextCategory || undefined,
@@ -155,7 +162,7 @@ function clearFilters() {
 </script>
 
 <template>
-  <main class="min-h-screen bg-white">
+  <main class="min-h-screen bg-background">
     <ProductsPageHero
       :query="q"
       :total="total"
@@ -165,12 +172,11 @@ function clearFilters() {
 
     <nav
       aria-label="Categorías principales"
-      class="sticky top-0 z-30 border-b bg-white/80 backdrop-blur-md"
+      class="sticky top-0 z-30 border-b border-border/70 bg-background/80 backdrop-blur-md"
     >
-      <!-- navegación editorial -->
       <ProductsCategoryRail
         :categories="categories"
-        :selected-category="null"
+        :selected-category="selectedCategory"
       />
     </nav>
 
@@ -183,21 +189,23 @@ function clearFilters() {
           <div
             class="h-12 w-12 animate-spin rounded-full border-4 border-primary/20 border-t-primary"
           />
-          <p class="mt-4 font-medium text-muted-foreground">Actualizando catálogo...</p>
+          <p class="mt-4 font-medium text-muted-foreground">
+            Actualizando catálogo...
+          </p>
         </div>
 
         <div v-else-if="error" class="mx-auto max-w-md py-20 text-center">
-          <h2 class="text-xl font-bold text-slate-900">
+          <h2 class="text-xl font-bold text-foreground">
             No pudimos cargar los productos
           </h2>
 
-          <p class="mt-2 mb-6 text-slate-500">
+          <p class="mt-2 mb-6 text-muted-foreground">
             Hubo un problema de conexión con el servidor.
           </p>
 
           <button
             @click="refresh()"
-            class="rounded-lg bg-primary px-6 py-2 text-white shadow-sm transition-all hover:bg-primary/90"
+            class="rounded-lg bg-primary px-6 py-2 text-primary-foreground shadow-sm transition-all hover:opacity-90"
           >
             Reintentar ahora
           </button>
@@ -208,7 +216,7 @@ function clearFilters() {
             <div
               class="custom-scrollbar sticky top-28 max-h-[calc(100vh-140px)] overflow-y-auto pr-4"
             >
-              <h3 class="mb-6 text-sm font-bold uppercase tracking-wider text-slate-400">
+              <h3 class="mb-6 text-sm font-bold uppercase tracking-wider text-muted-foreground">
                 Filtrar por
               </h3>
 
@@ -227,13 +235,13 @@ function clearFilters() {
             aria-label="Resultados del catálogo"
           >
             <ProductsToolbar
-  :sort="sort"
-  :results-count="items.length"
-  :total-count="total"
-  :page="page"
-  :per-page="perPage"
-  @update:sort="updateSort"
-/>
+              :sort="sort"
+              :results-count="items.length"
+              :total-count="total"
+              :page="page"
+              :per-page="perPage"
+              @update:sort="updateSort"
+            />
 
             <div class="min-h-[600px]">
               <ProductsResultsGrid

@@ -12,6 +12,8 @@ const props = withDefaults(
     titleClass?: string;
     descriptionClass?: string;
     maxWidthClass?: string;
+    spacingClass?: string;
+    centered?: boolean;
   }>(),
   {
     eyebrow: "",
@@ -22,20 +24,40 @@ const props = withDefaults(
     titleClass: "",
     descriptionClass: "",
     maxWidthClass: "max-w-3xl",
+    spacingClass: "space-y-3 md:space-y-4",
+    centered: false,
   }
 );
 </script>
 
 <template>
-  <component :is="props.as" :class="cn(props.maxWidthClass, props.class)">
-    <p v-if="props.eyebrow" :class="cn('text-label text-primary', props.eyebrowClass)">
+  <component
+    :is="props.as"
+    :class="
+      cn(
+        props.maxWidthClass,
+        props.spacingClass,
+        props.centered && 'mx-auto text-center',
+        props.class
+      )
+    "
+  >
+    <p
+      v-if="props.eyebrow"
+      :class="
+        cn(
+          'text-sm font-medium tracking-normal text-primary',
+          props.eyebrowClass
+        )
+      "
+    >
       {{ props.eyebrow }}
     </p>
 
     <h2
       :class="
         cn(
-          'mt-2 text-[clamp(1.6rem,2vw,2rem)] font-semibold leading-tight tracking-tight text-foreground',
+          'text-3xl font-semibold leading-tight tracking-tight text-foreground md:text-4xl',
           props.titleClass
         )
       "
@@ -46,7 +68,11 @@ const props = withDefaults(
     <p
       v-if="props.description"
       :class="
-        cn('mt-2 max-w-[62ch] text-body text-muted-foreground', props.descriptionClass)
+        cn(
+          'max-w-[62ch] text-base leading-7 text-muted-foreground md:text-lg',
+          props.centered && 'mx-auto',
+          props.descriptionClass
+        )
       "
     >
       {{ props.description }}

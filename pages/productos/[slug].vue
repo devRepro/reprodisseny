@@ -5,7 +5,7 @@ import SiteBreadcrumbs from "@/components/shared/SiteBreadcrumbs.vue";
 import ProductHero from "@/components/marketing/product/Hero.vue";
 import GuideBanner from "@/components/marketing/GuideBanner.vue";
 import ProductSections from "@/components/marketing/product/ProductSections.vue";
-import ProductFaq from "@/components/marketing/product/ProductFaq.vue";
+import FaqAccordion from "@/components/shared/blocks/FaqAccordion.vue";
 import ContentSectionShell from "@/components/marketing/content/ContentSectionShell.vue";
 
 const route = useRoute();
@@ -301,9 +301,9 @@ useSeoMeta({
             title="Preguntas frecuentes"
             description="Resolvemos las consultas más habituales sobre materiales, medidas, acabados, preparación y entrega."
           >
-            <ProductFaq :faqs="faqs" />
+            <FaqAccordion :items="faqs" />
           </ContentSectionShell>
-
+          
           <section aria-label="Guía de preparación de archivos">
             <GuideBanner
               title="¿No estás seguro de las medidas?"
