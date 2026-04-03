@@ -10,13 +10,13 @@
       :cta="{ label: 'Ver la guía rápida', to: '/contacto' }"
     />
 
- <MarketingProductCategoryGrid
-  title="Ofrecemos una amplia gama de productos"
-  description="Explora las principales categorías y encuentra la solución que mejor encaja con tu proyecto."
-  :categories="homeCategories"
-  :total-slots="8"
-  :pending="homeCategoriesPending"
-/>
+    <MarketingProductCategoryGrid
+      title="Ofrecemos una amplia gama de productos"
+      description="Explora las principales categorías y encuentra la solución que mejor encaja con tu proyecto."
+      :categories="safeHomeCategories"
+      :total-slots="8"
+      :pending="homeCategoriesPending"
+    />
 
     <MarketingServicesGrid />
     <MarketingProcessSection />
@@ -30,6 +30,7 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from "vue";
 import HomeHero from "@/components/marketing/HomeHero.vue";
 import HomeImageStrip from "@/components/marketing/HomeImageStrip.vue";
 import MarketingProductCategoryGrid from "@/components/marketing/ProductCategoryGrid.vue";
@@ -46,7 +47,9 @@ const {
   categories: homeCategories,
   pending: homeCategoriesPending,
   error: homeCategoriesError,
-} = await useHomeCategoriesGrid(8);
+} = useHomeCategoriesGrid(8);
+
+const safeHomeCategories = computed(() => homeCategories.value ?? []);
 
 const stripImages = [
   {
@@ -82,7 +85,9 @@ const clientLogos = [
   { src: "/img/customers/green-vita.svg", alt: "Green Vita" },
 ];
 
-if (import.meta.dev && homeCategoriesError.value) {
-  console.error("[HOME] error cargando categorías del grid:", homeCategoriesError.value);
+if (import.meta.dev) {
+  console.log("[HOME] categorías grid:", safeHomeCategories.value);
+  console.log("[HOME] pending:", homeCategoriesPending.value);
+  console.log("[HOME] error:", homeCategoriesError.value);
 }
 </script>

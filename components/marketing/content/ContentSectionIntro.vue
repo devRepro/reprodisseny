@@ -44,12 +44,7 @@ const props = withDefaults(
   >
     <p
       v-if="props.eyebrow"
-      :class="
-        cn(
-          'text-sm font-medium tracking-normal text-primary',
-          props.eyebrowClass
-        )
-      "
+      :class="cn('text-sm font-medium tracking-normal text-primary', props.eyebrowClass)"
     >
       {{ props.eyebrow }}
     </p>

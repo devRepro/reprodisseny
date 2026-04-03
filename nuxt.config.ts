@@ -4,9 +4,10 @@ import { defineNuxtConfig } from "nuxt/config"
 const siteUrl = process.env.NUXT_PUBLIC_SITE_URL || "http://localhost:3000"
 
 export default defineNuxtConfig({
-  experimental: {
-    payloadExtraction: process.env.NODE_ENV === "production",
-  },
+    experimental: {
+  payloadExtraction: process.env.NODE_ENV === "production",
+  appManifest: false,
+},
 
   runtimeConfig: {
     mail: {
@@ -230,17 +231,25 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "@nuxtjs/color-mode",
     "@nuxt/icon",
+    "@nuxtjs/seo",
     "vue-sonner/nuxt",
     "shadcn-nuxt",
   ],
 
+  ogImage: {
+    enabled: false,
+  },
+
   css: ["@/assets/styles/main.scss"],
+
 
   image: {
     provider: "ipx",
     domains: ["webcms.blob.core.windows.net"],
   },
 
+
+  
   shadcn: {
     prefix: "",
     componentDir: "components/ui",

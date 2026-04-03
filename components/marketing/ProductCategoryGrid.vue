@@ -14,9 +14,6 @@ type CategoryItem = {
     width?: number | null;
     height?: number | null;
   } | null;
-  parentId?: string | null;
-  parentSlug?: string | null;
-  level?: number | null;
   shortDescription?: string | null;
   description?: string | null;
 };
@@ -44,17 +41,12 @@ const props = withDefaults(
 
 const headingId = "home-product-category-grid-title";
 
-function isTopLevelCategory(category: CategoryItem) {
-  if (category.level != null) return category.level === 1;
-  return !category.parentId && !category.parentSlug;
-}
-
 const sourceCategories = computed<CategoryItem[]>(() =>
-  Array.isArray(props.categories) ? props.categories : []
+  Array.isArray(props.categories) ? props.categories.filter(Boolean) : []
 );
 
 const visibleItems = computed<CategoryItem[]>(() =>
-  sourceCategories.value.filter(isTopLevelCategory).slice(0, props.totalSlots)
+  sourceCategories.value.slice(0, props.totalSlots)
 );
 
 const skeletonCount = computed(() => {
@@ -88,12 +80,10 @@ const skeletonCount = computed(() => {
       </header>
 
       <div class="mt-10 md:mt-12">
-        <ul class="grid auto-rows-fr grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4 xl:gap-8">
-          <li
-            v-for="item in visibleItems"
-            :key="item.id"
-            class="h-full list-none"
-          >
+        <ul
+          class="grid auto-rows-fr grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4 xl:gap-8"
+        >
+          <li v-for="item in visibleItems" :key="item.id" class="h-full list-none">
             <CatalogCard
               :href="item.href"
               :title="item.title"
@@ -113,7 +103,9 @@ const skeletonCount = computed(() => {
             <article
               class="h-full rounded-3xl border border-border/60 bg-card p-4 shadow-sm md:p-5"
             >
-              <div class="overflow-hidden rounded-[1.25rem] border border-border/40 bg-muted/30">
+              <div
+                class="overflow-hidden rounded-[1.25rem] border border-border/40 bg-muted/30"
+              >
                 <div class="aspect-[4/3] animate-pulse bg-muted" />
               </div>
 

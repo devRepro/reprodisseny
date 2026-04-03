@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-03-31T12:22:48.591Z",
+  "generatedAt": "2026-04-01T16:24:00.828Z",
   "categories": [
     {
       "id": "2",
-      "updatedAt": "2026-03-25T08:29:52Z",
+      "updatedAt": "2026-04-01T16:23:37Z",
       "type": "categoria",
       "slug": "adhesivos-personalizados",
       "path": "/categorias/adhesivos-personalizados",
@@ -13,22 +13,48 @@
       "hidden": false,
       "featured": false,
       "isPublished": true,
-      "description": "Diseñamos e imprimimos adhesivos personalizados para marcas y empresas: etiquetas de producto, pegatinas promocionales, vinilos para escaparates, packaging y señalización. Elige material, forma y acabado, y te ayudamos a conseguir un resultado resistente, profesional y con colores fieles.",
+      "description": "Diseñamos e imprimimos adhesivos personalizados para marcas y empresas: etiquetas de producto, pegatinas promocionales, vinilos para escaparates, soluciones para packaging y elementos de señalización. Te ayudamos a elegir el material, la forma y el acabado más adecuados para conseguir un resultado resistente, profesional y con colores fieles.",
+      "bodyMd": "Cómo trabajamos\n1.\tNos indicas qué tipo de adhesivo necesitas, dónde se aplicará, medidas, cantidades y duración prevista.\n2.\tRevisamos el diseño (o te ayudamos a adaptarlo) para asegurar legibilidad, cortes, márgenes y correcta preparación de imprenta.\n3.\tTe recomendamos el material adhesivo, el formato y el acabado más adecuados según la superficie, el uso y el resultado que quieres conseguir.\n4.\tImprimimos y entregamos los adhesivos listos para aplicar, con buena definición, consistencia de color y acabados profesionales.\n\n¿No tienes claro qué adhesivo elegir? Cuéntanos si es para producto, escaparate, packaging, señalización o promoción, en qué superficie irá y cuánto debe durar. Te recomendamos la opción más adecuada y te preparamos presupuesto sin compromiso.",
       "sections": [
         {
           "id": "details",
           "key": "details",
           "title": "Detalles",
-          "body": "Libera tu imaginación y deja adherido tu mejor adhesivo personalizado\n\nLos adhesivos personalizados son una forma rápida y rentable de dar visibilidad a una marca, identificar productos y reforzar la experiencia de compra. Imprimimos pegatinas y etiquetas para campañas promocionales, packaging, escaparates y señalización.\nTrabajamos con materiales para interior y exterior, con opciones removibles o permanentes, y acabados que protegen la impresión frente a roce, humedad y luz. Si lo necesitas, te asesoramos para elegir el soporte adecuado según uso, superficie y duración, y lograr un resultado duradero y profesional.",
+          "body": "## Adhesivos personalizados para dar visibilidad a tu marca\n\nLos adhesivos personalizados son una solución rápida y rentable para dar visibilidad a una marca, identificar productos y reforzar la experiencia de compra. Imprimimos pegatinas y etiquetas para campañas promocionales, packaging, escaparates y señalización, adaptadas a cada necesidad y aplicación.\n\nTrabajamos con materiales para interior y exterior, con opciones removibles o permanentes, y acabados que protegen la impresión frente al roce, la humedad y la luz. Si lo necesitas, te asesoramos para elegir el soporte más adecuado según el uso, la superficie y la duración del proyecto, y conseguir un resultado duradero, profesional y con colores fieles.\n\nCómo trabajamos\n1.\tNos indicas qué tipo de adhesivo necesitas, dónde se aplicará, medidas, cantidades y duración prevista.\n2.\tRevisamos el diseño (o te ayudamos a adaptarlo) para asegurar legibilidad, cortes, márgenes y correcta preparación de imprenta.\n3.\tTe recomendamos el material adhesivo, el formato y el acabado más adecuados según la superficie, el uso y el resultado que quieres conseguir.\n4.\tImprimimos y entregamos los adhesivos listos para aplicar, con buena definición, consistencia de color y acabados profesionales.\n\n¿No tienes claro qué adhesivo elegir? Cuéntanos si es para producto, escaparate, packaging, señalización o promoción, en qué superficie irá y cuánto debe durar. Te recomendamos la opción más adecuada y te preparamos presupuesto sin compromiso.",
           "blocks": [
             {
               "type": "text",
-              "text": "Libera tu imaginación y deja adherido tu mejor adhesivo personalizado",
+              "text": "## Adhesivos personalizados para dar visibilidad a tu marca",
               "html": false
             },
             {
               "type": "text",
-              "text": "Los adhesivos personalizados son una forma rápida y rentable de dar visibilidad a una marca, identificar productos y reforzar la experiencia de compra. Imprimimos pegatinas y etiquetas para campañas promocionales, packaging, escaparates y señalización.\nTrabajamos con materiales para interior y exterior, con opciones removibles o permanentes, y acabados que protegen la impresión frente a roce, humedad y luz. Si lo necesitas, te asesoramos para elegir el soporte adecuado según uso, superficie y duración, y lograr un resultado duradero y profesional.",
+              "text": "Los adhesivos personalizados son una solución rápida y rentable para dar visibilidad a una marca, identificar productos y reforzar la experiencia de compra. Imprimimos pegatinas y etiquetas para campañas promocionales, packaging, escaparates y señalización, adaptadas a cada necesidad y aplicación.",
+              "html": false
+            },
+            {
+              "type": "text",
+              "text": "Trabajamos con materiales para interior y exterior, con opciones removibles o permanentes, y acabados que protegen la impresión frente al roce, la humedad y la luz. Si lo necesitas, te asesoramos para elegir el soporte más adecuado según el uso, la superficie y la duración del proyecto, y conseguir un resultado duradero, profesional y con colores fieles.",
+              "html": false
+            },
+            {
+              "type": "text",
+              "text": "Cómo trabajamos",
+              "html": false
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Nos indicas qué tipo de adhesivo necesitas, dónde se aplicará, medidas, cantidades y duración prevista.",
+                "Revisamos el diseño (o te ayudamos a adaptarlo) para asegurar legibilidad, cortes, márgenes y correcta preparación de imprenta.",
+                "Te recomendamos el material adhesivo, el formato y el acabado más adecuados según la superficie, el uso y el resultado que quieres conseguir.",
+                "Imprimimos y entregamos los adhesivos listos para aplicar, con buena definición, consistencia de color y acabados profesionales."
+              ],
+              "ordered": true
+            },
+            {
+              "type": "text",
+              "text": "¿No tienes claro qué adhesivo elegir? Cuéntanos si es para producto, escaparate, packaging, señalización o promoción, en qué superficie irá y cuánto debe durar. Te recomendamos la opción más adecuada y te preparamos presupuesto sin compromiso.",
               "html": false
             }
           ]
@@ -37,22 +63,17 @@
           "id": "types",
           "key": "types",
           "title": "Tipos",
-          "body": "Pegatinas en papel: perfectas para uso interior, promociones y packaging. Buena calidad de impresión y opción económica.\n•\tPegatinas en papel: perfectas para uso interior, promociones y packaging. Buena calidad de impresión y opción económica.\n•\tVinilo (PVC): ideal para superficies lisas y mayor durabilidad. Muy versátil para marca y rotulación.\n•\tVinilo resistente exterior: pensado para intemperie y uso intensivo (con la protección adecuada).\n•\tVinilo transparente: efecto “sin fondo” para cristal o packaging con acabado más premium.\n•\tAdhesivo removible: se retira con facilidad recomendado para campañas temporales o acciones puntuales.\n•\tAdhesivo permanente: máxima fijación para etiquetado estable y aplicaciones que deben durar.",
+          "body": "- **Pegatinas en papel**: perfectas para uso interior, promociones y packaging. Ofrecen buena calidad de impresión y una opción económica para campañas y etiquetado.\n- **Vinilo (PVC)**: ideal para superficies lisas y para aplicaciones que requieren mayor durabilidad. Es una solución muy versátil para branding, rotulación y señalización.\n- **Vinilo resistente para exterior**: pensado para intemperie y usos más exigentes, especialmente cuando se combina con la protección o el acabado adecuados.\n- **Vinilo transparente**: aporta un efecto visual sin fondo, ideal para cristal, escaparates o packaging con una estética más cuidada y premium.\n- **Adhesivo removible**: se retira con facilidad y está recomendado para campañas temporales, promociones o acciones puntuales.\n- **Adhesivo permanente**: ofrece una fijación más fuerte y duradera, ideal para etiquetado estable y aplicaciones que deben mantenerse en el tiempo.",
           "blocks": [
-            {
-              "type": "text",
-              "text": "Pegatinas en papel: perfectas para uso interior, promociones y packaging. Buena calidad de impresión y opción económica.",
-              "html": false
-            },
             {
               "type": "bullets",
               "items": [
-                "Pegatinas en papel: perfectas para uso interior, promociones y packaging. Buena calidad de impresión y opción económica.",
-                "Vinilo (PVC): ideal para superficies lisas y mayor durabilidad. Muy versátil para marca y rotulación.",
-                "Vinilo resistente exterior: pensado para intemperie y uso intensivo (con la protección adecuada).",
-                "Vinilo transparente: efecto “sin fondo” para cristal o packaging con acabado más premium.",
-                "Adhesivo removible: se retira con facilidad recomendado para campañas temporales o acciones puntuales.",
-                "Adhesivo permanente: máxima fijación para etiquetado estable y aplicaciones que deben durar."
+                "**Pegatinas en papel**: perfectas para uso interior, promociones y packaging. Ofrecen buena calidad de impresión y una opción económica para campañas y etiquetado.",
+                "**Vinilo (PVC)**: ideal para superficies lisas y para aplicaciones que requieren mayor durabilidad. Es una solución muy versátil para branding, rotulación y señalización.",
+                "**Vinilo resistente para exterior**: pensado para intemperie y usos más exigentes, especialmente cuando se combina con la protección o el acabado adecuados.",
+                "**Vinilo transparente**: aporta un efecto visual sin fondo, ideal para cristal, escaparates o packaging con una estética más cuidada y premium.",
+                "**Adhesivo removible**: se retira con facilidad y está recomendado para campañas temporales, promociones o acciones puntuales.",
+                "**Adhesivo permanente**: ofrece una fijación más fuerte y duradera, ideal para etiquetado estable y aplicaciones que deben mantenerse en el tiempo."
               ],
               "ordered": false
             }
@@ -62,11 +83,11 @@
           "id": "formats",
           "key": "formats",
           "title": "Formatos y soportes",
-          "body": "Imprimimos adhesivos rectangulares, redondos, ovalados o con forma personalizada mediante troquelado a medida. Según el tipo de adhesivo y su aplicación, podemos entregarlos en unidades sueltas, planchas (hojas) o bobina.",
+          "body": "Imprimimos adhesivos en formato rectangular, redondo, ovalado o con forma personalizada mediante troquelado a medida. Según el tipo de adhesivo y su aplicación, podemos entregarlos en unidades sueltas, en planchas (hojas) o en bobina.",
           "blocks": [
             {
               "type": "text",
-              "text": "Imprimimos adhesivos rectangulares, redondos, ovalados o con forma personalizada mediante troquelado a medida. Según el tipo de adhesivo y su aplicación, podemos entregarlos en unidades sueltas, planchas (hojas) o bobina.",
+              "text": "Imprimimos adhesivos en formato rectangular, redondo, ovalado o con forma personalizada mediante troquelado a medida. Según el tipo de adhesivo y su aplicación, podemos entregarlos en unidades sueltas, en planchas (hojas) o en bobina.",
               "html": false
             }
           ]
@@ -75,20 +96,15 @@
           "id": "finishes",
           "key": "finishes",
           "title": "Acabados",
-          "body": "En los acabados \n•\tLaminado mate o brillo aporta protección extra y un acabado más profesional.\n•\tBarniz selectivo resalta logos o zonas concretas para un efecto visual premium.\n•\tAcabado soft touch tacto aterciopelado, ideal para packaging y marca.\n•\tRefuerzo para exterior (según material y uso): pensado para mejorar la durabilidad en condiciones exigentes.",
+          "body": "- **Laminado mate o brillo**: aporta protección extra y un acabado más profesional.\n- **Barniz selectivo**: resalta logotipos o zonas concretas para conseguir un efecto visual más premium.\n- **Acabado soft touch**: ofrece un tacto aterciopelado, ideal para packaging y piezas de marca con una presentación más cuidada.\n- **Refuerzo para exterior**: según el material y el uso, mejora la durabilidad en condiciones más exigentes.",
           "blocks": [
-            {
-              "type": "text",
-              "text": "En los acabados",
-              "html": false
-            },
             {
               "type": "bullets",
               "items": [
-                "Laminado mate o brillo aporta protección extra y un acabado más profesional.",
-                "Barniz selectivo resalta logos o zonas concretas para un efecto visual premium.",
-                "Acabado soft touch tacto aterciopelado, ideal para packaging y marca.",
-                "Refuerzo para exterior (según material y uso): pensado para mejorar la durabilidad en condiciones exigentes."
+                "**Laminado mate o brillo**: aporta protección extra y un acabado más profesional.",
+                "**Barniz selectivo**: resalta logotipos o zonas concretas para conseguir un efecto visual más premium.",
+                "**Acabado soft touch**: ofrece un tacto aterciopelado, ideal para packaging y piezas de marca con una presentación más cuidada.",
+                "**Refuerzo para exterior**: según el material y el uso, mejora la durabilidad en condiciones más exigentes."
               ],
               "ordered": false
             }
