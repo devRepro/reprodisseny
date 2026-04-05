@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-04-05T18:31:38.081Z",
+  "generatedAt": "2026-04-05T19:34:06.602Z",
   "categories": [
     {
       "id": "2",
-      "updatedAt": "2026-04-05T18:31:11Z",
+      "updatedAt": "2026-04-05T19:33:30Z",
       "type": "categoria",
       "slug": "adhesivos-personalizados",
       "path": "/categorias/adhesivos-personalizados",
@@ -20,16 +20,36 @@
           "id": "details",
           "key": "details",
           "title": "Detalles",
-          "body": "Los adhesivos personalizados son una solución rápida y rentable para dar visibilidad a una marca, identificar productos y reforzar la experiencia de compra.\n\nImprimimos pegatinas y etiquetas para campañas promocionales, packaging, escaparates y señalización, adaptadas a cada necesidad y aplicación.\n\nCómo trabajamos\n1.\tNos indicas qué tipo de adhesivo necesitas, dónde se aplicará, medidas, cantidades y duración prevista.\n2.\tRevisamos el diseño (o te ayudamos a adaptarlo) para asegurar legibilidad, cortes, márgenes y correcta preparación de imprenta.\n3.\tTe recomendamos el material adhesivo, el formato y el acabado más adecuados según la superficie, el uso y el resultado que quieres conseguir.\n4.\tImprimimos y entregamos los adhesivos listos para aplicar, con buena definición, consistencia de color y acabados profesionales.\n\n¿No tienes claro qué adhesivo elegir? Cuéntanos si es para producto, escaparate, packaging, señalización o promoción, en qué superficie irá y cuánto debe durar. Te recomendamos la opción más adecuada y te preparamos presupuesto sin compromiso.",
+          "body": "Los adhesivos personalizados son una solución práctica y rentable para mejorar la visibilidad de marca, identificar productos y reforzar la experiencia de compra.\n\nImprimimos pegatinas y etiquetas adhesivas para campañas promocionales, packaging, escaparates y señalización, adaptadas al uso, la superficie y la durabilidad que necesita cada aplicación.\n\nMateriales y acabados\n\nTrabajamos con materiales adhesivos para interior y exterior, con opciones removibles o permanentes y acabados que ayudan a proteger la impresión frente al roce, la humedad y la exposición a la luz.\n\nAsesoramiento personalizado\n\nTe ayudamos a elegir el material, el formato y el acabado más adecuados según el uso previsto, la superficie donde se aplicará y la durabilidad que requiere tu proyecto.\n\nCómo trabajamos\n1.\tNos indicas qué tipo de adhesivo necesitas, dónde se aplicará, medidas, cantidades y duración prevista.\n2.\tRevisamos el diseño (o te ayudamos a adaptarlo) para asegurar legibilidad, cortes, márgenes y correcta preparación de imprenta.\n3.\tTe recomendamos el material adhesivo, el formato y el acabado más adecuados según la superficie, el uso y el resultado que quieres conseguir.\n4.\tImprimimos y entregamos los adhesivos listos para aplicar, con buena definición, consistencia de color y acabados profesionales.\n\n¿No tienes claro qué adhesivo elegir? Cuéntanos si es para producto, escaparate, packaging, señalización o promoción, en qué superficie irá y cuánto debe durar. Te recomendamos la opción más adecuada y te preparamos presupuesto sin compromiso.",
           "blocks": [
             {
               "type": "text",
-              "text": "Los adhesivos personalizados son una solución rápida y rentable para dar visibilidad a una marca, identificar productos y reforzar la experiencia de compra.",
+              "text": "Los adhesivos personalizados son una solución práctica y rentable para mejorar la visibilidad de marca, identificar productos y reforzar la experiencia de compra.",
               "html": false
             },
             {
               "type": "text",
-              "text": "Imprimimos pegatinas y etiquetas para campañas promocionales, packaging, escaparates y señalización, adaptadas a cada necesidad y aplicación.",
+              "text": "Imprimimos pegatinas y etiquetas adhesivas para campañas promocionales, packaging, escaparates y señalización, adaptadas al uso, la superficie y la durabilidad que necesita cada aplicación.",
+              "html": false
+            },
+            {
+              "type": "text",
+              "text": "Materiales y acabados",
+              "html": false
+            },
+            {
+              "type": "text",
+              "text": "Trabajamos con materiales adhesivos para interior y exterior, con opciones removibles o permanentes y acabados que ayudan a proteger la impresión frente al roce, la humedad y la exposición a la luz.",
+              "html": false
+            },
+            {
+              "type": "text",
+              "text": "Asesoramiento personalizado",
+              "html": false
+            },
+            {
+              "type": "text",
+              "text": "Te ayudamos a elegir el material, el formato y el acabado más adecuados según el uso previsto, la superficie donde se aplicará y la durabilidad que requiere tu proyecto.",
               "html": false
             },
             {
