@@ -336,8 +336,9 @@ function parsePositiveInt(value: unknown): number | undefined {
 }
 
 function bool(value: unknown): boolean {
+  if (typeof value === "boolean") return value;
   const raw = String(value ?? "").trim().toLowerCase();
-  return ["1", "true", "verdadero", "yes", "si", "sí", "y"].includes(raw);
+  return ["1", "true", "verdadero", "yes", "si", "sí", "y", "on", "checked"].includes(raw);
 }
 
 function parsePrice(value: unknown): number {
@@ -607,8 +608,7 @@ function dedupeBreadcrumbs(breadcrumbs: Array<{ name: string; url: string }>): A
 function normalizeFieldKey(key: string): string {
   return String(key ?? "")
     .toLowerCase()
-    .replace(/_x[0-9a-f]{4}_/gi, "")
-    .replace(/x[0-9a-f]{4}/gi, "")
+    .replace(/_x[0-9a-f]{4}_/gi, "") // elimina escapes SharePoint tipo _x0020_
     .replace(/[^a-z0-9]/g, "");
 }
 
@@ -1013,6 +1013,21 @@ function mdToBlocks(md: string): ContentBlock[] {
       }
     }
 
+    // h2 — subsección dentro del bloque (## Título)
+    if (/^##\s+/.test(trimmed) && !/^###/.test(trimmed)) {
+      flushParagraph();
+      flushBullets();
+      const heading = trimmed.replace(/^##\s+/, "").trim();
+      blocks.push({
+        type: "text",
+        text: `<h2>${stripMdInline(heading)}</h2>`,
+        html: true,
+        format: "html",
+      });
+      continue;
+    }
+
+    // h3 — subtítulo dentro de subsección (### Título)
     if (/^###\s+/.test(trimmed)) {
       flushParagraph();
       flushBullets();

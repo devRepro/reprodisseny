@@ -78,6 +78,7 @@ type CatalogProduct = {
   path: string;
   title: string;
   categorySlug?: string | null;
+  categorySlugs?: string[];
   isPublished?: boolean;
   order?: number;
   featured?: boolean;
@@ -681,6 +682,7 @@ function getDirectProductsOfCategory(
 
   return getPublishedProducts()
     .filter((product) => String(product.categorySlug || "") === String(category.slug))
+    .sort(sortProducts)
     .slice(0, safeLimit)
     .map((product) => ({
       slug: productPublicSlugOf(product),
@@ -1059,8 +1061,13 @@ export function getCategoryProductsBySlug(
 
   let items: CategoryProductsListItem[] = getPublishedProducts()
     .filter((product) => {
-      const productCategorySlug = String(product.categorySlug || "").trim();
-      return allowedSlugs.has(productCategorySlug);
+      const primary = String(product.categorySlug || "").trim();
+      if (allowedSlugs.has(primary)) return true;
+      // también comprobar el array categorySlugs generado por sync-cms
+      const extras = Array.isArray(product.categorySlugs)
+        ? product.categorySlugs.map((s) => String(s || "").trim())
+        : [];
+      return extras.some((s) => allowedSlugs.has(s));
     })
     .map((product) => ({
       id: String(product.id ?? product.slug),

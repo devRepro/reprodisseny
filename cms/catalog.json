@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-04-01T16:24:00.828Z",
+  "generatedAt": "2026-04-05T18:31:38.081Z",
   "categories": [
     {
       "id": "2",
-      "updatedAt": "2026-04-01T16:23:37Z",
+      "updatedAt": "2026-04-05T18:31:11Z",
       "type": "categoria",
       "slug": "adhesivos-personalizados",
       "path": "/categorias/adhesivos-personalizados",
@@ -20,21 +20,16 @@
           "id": "details",
           "key": "details",
           "title": "Detalles",
-          "body": "## Adhesivos personalizados para dar visibilidad a tu marca\n\nLos adhesivos personalizados son una solución rápida y rentable para dar visibilidad a una marca, identificar productos y reforzar la experiencia de compra. Imprimimos pegatinas y etiquetas para campañas promocionales, packaging, escaparates y señalización, adaptadas a cada necesidad y aplicación.\n\nTrabajamos con materiales para interior y exterior, con opciones removibles o permanentes, y acabados que protegen la impresión frente al roce, la humedad y la luz. Si lo necesitas, te asesoramos para elegir el soporte más adecuado según el uso, la superficie y la duración del proyecto, y conseguir un resultado duradero, profesional y con colores fieles.\n\nCómo trabajamos\n1.\tNos indicas qué tipo de adhesivo necesitas, dónde se aplicará, medidas, cantidades y duración prevista.\n2.\tRevisamos el diseño (o te ayudamos a adaptarlo) para asegurar legibilidad, cortes, márgenes y correcta preparación de imprenta.\n3.\tTe recomendamos el material adhesivo, el formato y el acabado más adecuados según la superficie, el uso y el resultado que quieres conseguir.\n4.\tImprimimos y entregamos los adhesivos listos para aplicar, con buena definición, consistencia de color y acabados profesionales.\n\n¿No tienes claro qué adhesivo elegir? Cuéntanos si es para producto, escaparate, packaging, señalización o promoción, en qué superficie irá y cuánto debe durar. Te recomendamos la opción más adecuada y te preparamos presupuesto sin compromiso.",
+          "body": "Los adhesivos personalizados son una solución rápida y rentable para dar visibilidad a una marca, identificar productos y reforzar la experiencia de compra.\n\nImprimimos pegatinas y etiquetas para campañas promocionales, packaging, escaparates y señalización, adaptadas a cada necesidad y aplicación.\n\nCómo trabajamos\n1.\tNos indicas qué tipo de adhesivo necesitas, dónde se aplicará, medidas, cantidades y duración prevista.\n2.\tRevisamos el diseño (o te ayudamos a adaptarlo) para asegurar legibilidad, cortes, márgenes y correcta preparación de imprenta.\n3.\tTe recomendamos el material adhesivo, el formato y el acabado más adecuados según la superficie, el uso y el resultado que quieres conseguir.\n4.\tImprimimos y entregamos los adhesivos listos para aplicar, con buena definición, consistencia de color y acabados profesionales.\n\n¿No tienes claro qué adhesivo elegir? Cuéntanos si es para producto, escaparate, packaging, señalización o promoción, en qué superficie irá y cuánto debe durar. Te recomendamos la opción más adecuada y te preparamos presupuesto sin compromiso.",
           "blocks": [
             {
               "type": "text",
-              "text": "## Adhesivos personalizados para dar visibilidad a tu marca",
+              "text": "Los adhesivos personalizados son una solución rápida y rentable para dar visibilidad a una marca, identificar productos y reforzar la experiencia de compra.",
               "html": false
             },
             {
               "type": "text",
-              "text": "Los adhesivos personalizados son una solución rápida y rentable para dar visibilidad a una marca, identificar productos y reforzar la experiencia de compra. Imprimimos pegatinas y etiquetas para campañas promocionales, packaging, escaparates y señalización, adaptadas a cada necesidad y aplicación.",
-              "html": false
-            },
-            {
-              "type": "text",
-              "text": "Trabajamos con materiales para interior y exterior, con opciones removibles o permanentes, y acabados que protegen la impresión frente al roce, la humedad y la luz. Si lo necesitas, te asesoramos para elegir el soporte más adecuado según el uso, la superficie y la duración del proyecto, y conseguir un resultado duradero, profesional y con colores fieles.",
+              "text": "Imprimimos pegatinas y etiquetas para campañas promocionales, packaging, escaparates y señalización, adaptadas a cada necesidad y aplicación.",
               "html": false
             },
             {
@@ -63,19 +58,12 @@
           "id": "types",
           "key": "types",
           "title": "Tipos",
-          "body": "- **Pegatinas en papel**: perfectas para uso interior, promociones y packaging. Ofrecen buena calidad de impresión y una opción económica para campañas y etiquetado.\n- **Vinilo (PVC)**: ideal para superficies lisas y para aplicaciones que requieren mayor durabilidad. Es una solución muy versátil para branding, rotulación y señalización.\n- **Vinilo resistente para exterior**: pensado para intemperie y usos más exigentes, especialmente cuando se combina con la protección o el acabado adecuados.\n- **Vinilo transparente**: aporta un efecto visual sin fondo, ideal para cristal, escaparates o packaging con una estética más cuidada y premium.\n- **Adhesivo removible**: se retira con facilidad y está recomendado para campañas temporales, promociones o acciones puntuales.\n- **Adhesivo permanente**: ofrece una fijación más fuerte y duradera, ideal para etiquetado estable y aplicaciones que deben mantenerse en el tiempo.",
+          "body": "Pegatinas en papel | Adhesivo personalizado económico para uso interior, promociones, etiquetas y packaging con buena calidad de impresión. | Interior, Económico, Packaging | Ideal para campañas, etiquetado y promociones.\nVinilo (PVC) | Adhesivo de vinilo versátil y duradero para superficies lisas, rotulación, branding y señalización. | Duradero, Versátil, Superficies lisas | Ideal para escaparates, señalización y adhesivos corporativos.\nVinilo resistente para exterior | Vinilo adhesivo pensado para exterior, intemperie y aplicaciones exigentes donde se necesita mayor resistencia y durabilidad. | Exterior, Resistente, Intemperie | Ideal para señalización exterior, rotulación y campañas de larga duración.\nVinilo transparente | Adhesivo transparente sin fondo visible para cristal, escaparates y packaging con un acabado más limpio y premium. | Transparente, Premium, Cristal | Ideal para vidrio, escaparates y etiquetas con efecto discreto.\nAdhesivo removible | Adhesivo fácil de retirar, recomendado para promociones temporales, campañas estacionales y acciones puntuales. | Temporal, Removible, Promocional | Ideal para ofertas, escaparates y campañas de corta duración.\nAdhesivo permanente | Adhesivo de fijación fuerte y duradera para etiquetado estable y aplicaciones que deben mantenerse en el tiempo. | Permanente, Fijación alta, Duradero | Ideal para identificación de producto, señalización y uso continuado.",
           "blocks": [
             {
-              "type": "bullets",
-              "items": [
-                "**Pegatinas en papel**: perfectas para uso interior, promociones y packaging. Ofrecen buena calidad de impresión y una opción económica para campañas y etiquetado.",
-                "**Vinilo (PVC)**: ideal para superficies lisas y para aplicaciones que requieren mayor durabilidad. Es una solución muy versátil para branding, rotulación y señalización.",
-                "**Vinilo resistente para exterior**: pensado para intemperie y usos más exigentes, especialmente cuando se combina con la protección o el acabado adecuados.",
-                "**Vinilo transparente**: aporta un efecto visual sin fondo, ideal para cristal, escaparates o packaging con una estética más cuidada y premium.",
-                "**Adhesivo removible**: se retira con facilidad y está recomendado para campañas temporales, promociones o acciones puntuales.",
-                "**Adhesivo permanente**: ofrece una fijación más fuerte y duradera, ideal para etiquetado estable y aplicaciones que deben mantenerse en el tiempo."
-              ],
-              "ordered": false
+              "type": "text",
+              "text": "Pegatinas en papel | Adhesivo personalizado económico para uso interior, promociones, etiquetas y packaging con buena calidad de impresión. | Interior, Económico, Packaging | Ideal para campañas, etiquetado y promociones.\nVinilo (PVC) | Adhesivo de vinilo versátil y duradero para superficies lisas, rotulación, branding y señalización. | Duradero, Versátil, Superficies lisas | Ideal para escaparates, señalización y adhesivos corporativos.\nVinilo resistente para exterior | Vinilo adhesivo pensado para exterior, intemperie y aplicaciones exigentes donde se necesita mayor resistencia y durabilidad. | Exterior, Resistente, Intemperie | Ideal para señalización exterior, rotulación y campañas de larga duración.\nVinilo transparente | Adhesivo transparente sin fondo visible para cristal, escaparates y packaging con un acabado más limpio y premium. | Transparente, Premium, Cristal | Ideal para vidrio, escaparates y etiquetas con efecto discreto.\nAdhesivo removible | Adhesivo fácil de retirar, recomendado para promociones temporales, campañas estacionales y acciones puntuales. | Temporal, Removible, Promocional | Ideal para ofertas, escaparates y campañas de corta duración.\nAdhesivo permanente | Adhesivo de fijación fuerte y duradera para etiquetado estable y aplicaciones que deben mantenerse en el tiempo. | Permanente, Fijación alta, Duradero | Ideal para identificación de producto, señalización y uso continuado.",
+              "html": false
             }
           ]
         },
@@ -253,7 +241,7 @@
     },
     {
       "id": "3",
-      "updatedAt": "2026-03-25T08:59:02Z",
+      "updatedAt": "2026-04-05T15:08:00Z",
       "type": "categoria",
       "slug": "eventos",
       "path": "/categorias/eventos",
@@ -270,16 +258,27 @@
           "id": "details",
           "key": "details",
           "title": "Detalles",
-          "body": "Conoce las características de la impresión para eventos\n\nPara que un evento transmita una imagen profesional y coherente, la impresión debe cumplir tres cosas: verse bien desde la distancia, aguantar el uso (montaje, manipulación, tránsito) y llegar a tiempo con los formatos listos para instalar. Por eso, la impresión para eventos se define por la combinación de tipos de pieza, soportes y acabados, en función de si es interior/exterior y de la duración del evento.\n\nCómo trabajamos\n1.\tNos envías el diseño o te ayudamos a prepararlo.\n2.\tRevisamos medidas, sangrado, legibilidad y requisitos de montaje.\n3.\tImprimimos y aplicamos acabados según el uso (interior/exterior).\n4.\tEntregamos listo para instalar y, si lo necesitas, coordinamos la logística.\n\n¿Tienes un evento con fecha cerrada? Dinos día, lugar y qué necesitas (stand, señalética, acreditaciones, gran formato…) y te recomendamos materiales y acabados para llegar a tiempo con el mejor resultado.",
+          "body": "## Conoce las características de la impresión para eventos\n\nLa impresión para eventos debe cumplir tres objetivos: ofrecer una imagen profesional y coherente, mantener una buena visibilidad a distancia y soportar el montaje, la manipulación y el tránsito propios del uso intensivo.\n\nPor eso, la elección de piezas, soportes y acabados debe adaptarse al tipo de evento, al entorno de instalación y a la duración prevista. No requiere lo mismo una aplicación interior de corta duración que una solución para exterior expuesta al uso continuado.\n\nTrabajamos la impresión para eventos teniendo en cuenta la funcionalidad, la resistencia y la facilidad de instalación, para que cada elemento llegue preparado, se monte con agilidad y mantenga un resultado visual cuidado durante todo el evento.\n\nCómo trabajamos\n1.\tNos envías el diseño o te ayudamos a prepararlo.\n2.\tRevisamos medidas, sangrado, legibilidad y requisitos de montaje.\n3.\tImprimimos y aplicamos acabados según el uso (interior/exterior).\n4.\tEntregamos listo para instalar y, si lo necesitas, coordinamos la logística.\n\n¿Tienes un evento con fecha cerrada? Dinos día, lugar y qué necesitas (stand, señalética, acreditaciones, gran formato…) y te recomendamos materiales y acabados para llegar a tiempo con el mejor resultado.",
           "blocks": [
             {
               "type": "text",
-              "text": "Conoce las características de la impresión para eventos",
+              "text": "<h2>Conoce las características de la impresión para eventos</h2>",
+              "html": true,
+              "format": "html"
+            },
+            {
+              "type": "text",
+              "text": "La impresión para eventos debe cumplir tres objetivos: ofrecer una imagen profesional y coherente, mantener una buena visibilidad a distancia y soportar el montaje, la manipulación y el tránsito propios del uso intensivo.",
               "html": false
             },
             {
               "type": "text",
-              "text": "Para que un evento transmita una imagen profesional y coherente, la impresión debe cumplir tres cosas: verse bien desde la distancia, aguantar el uso (montaje, manipulación, tránsito) y llegar a tiempo con los formatos listos para instalar. Por eso, la impresión para eventos se define por la combinación de tipos de pieza, soportes y acabados, en función de si es interior/exterior y de la duración del evento.",
+              "text": "Por eso, la elección de piezas, soportes y acabados debe adaptarse al tipo de evento, al entorno de instalación y a la duración prevista. No requiere lo mismo una aplicación interior de corta duración que una solución para exterior expuesta al uso continuado.",
+              "html": false
+            },
+            {
+              "type": "text",
+              "text": "Trabajamos la impresión para eventos teniendo en cuenta la funcionalidad, la resistencia y la facilidad de instalación, para que cada elemento llegue preparado, se monte con agilidad y mantenga un resultado visual cuidado durante todo el evento.",
               "html": false
             },
             {
@@ -508,7 +507,7 @@
     },
     {
       "id": "4",
-      "updatedAt": "2026-03-25T08:56:49Z",
+      "updatedAt": "2026-04-05T15:11:24Z",
       "type": "categoria",
       "slug": "expositores",
       "path": "/categorias/expositores",
@@ -525,16 +524,27 @@
           "id": "details",
           "key": "details",
           "title": "Detalles",
-          "body": "Conoce las características de los expositores\n\nUn expositor efectivo no es solo “una gráfica bonita”: tiene que verse desde la distancia, mantenerse estable en el entorno donde se instala y permitir un montaje rápido sin complicaciones. Por eso, la clave está en combinar bien tipo de expositor + soporte + sistema (estructura/base/tensado) y rematarlo con el acabado adecuado para el uso real (feria, punto de venta, exterior, campañas temporales, etc.).\n\nCómo trabajamos\n1.\tNos indicas el tipo de expositor, medidas y dónde se instalará.\n2.\tRevisamos el diseño (o lo adaptamos) para asegurar legibilidad y margen de seguridad.\n3.\tTe recomendamos material/soporte según interior/exterior y duración.\n4.\tImprimimos, montamos si aplica y entregamos listo para usar.\n\nCuéntanos dónde irá el expositor (interior/exterior), medidas y fecha del evento, y te proponemos la opción más efectiva para que tu marca se vea impecable.",
+          "body": "## Conoce las características de los expositores publicitarios\n\nLos expositores publicitarios deben combinar visibilidad, estabilidad y facilidad de montaje para presentar productos, promociones o mensajes de forma clara y atractiva en espacios comerciales, ferias y puntos de venta.\n\nPara que cumplan su función, es importante elegir bien el formato, la estructura, el soporte gráfico y el acabado, teniendo en cuenta el lugar de instalación, la duración de la campaña y el uso previsto. No requiere la misma solución un expositor temporal para una promoción que una pieza pensada para un uso continuado.\n\nTrabajamos los expositores publicitarios con criterios de funcionalidad, resistencia y presentación, para que cada soporte resulte práctico, transmita una imagen profesional y mantenga un buen acabado durante todo el tiempo de exposición.\n\nCómo trabajamos\n1.\tNos indicas el tipo de expositor, medidas y dónde se instalará.\n2.\tRevisamos el diseño (o lo adaptamos) para asegurar legibilidad y margen de seguridad.\n3.\tTe recomendamos material/soporte según interior/exterior y duración.\n4.\tImprimimos, montamos si aplica y entregamos listo para usar.\n\nCuéntanos dónde irá el expositor (interior/exterior), medidas y fecha del evento, y te proponemos la opción más efectiva para que tu marca se vea impecable.",
           "blocks": [
             {
               "type": "text",
-              "text": "Conoce las características de los expositores",
+              "text": "<h2>Conoce las características de los expositores publicitarios</h2>",
+              "html": true,
+              "format": "html"
+            },
+            {
+              "type": "text",
+              "text": "Los expositores publicitarios deben combinar visibilidad, estabilidad y facilidad de montaje para presentar productos, promociones o mensajes de forma clara y atractiva en espacios comerciales, ferias y puntos de venta.",
               "html": false
             },
             {
               "type": "text",
-              "text": "Un expositor efectivo no es solo “una gráfica bonita”: tiene que verse desde la distancia, mantenerse estable en el entorno donde se instala y permitir un montaje rápido sin complicaciones. Por eso, la clave está en combinar bien tipo de expositor + soporte + sistema (estructura/base/tensado) y rematarlo con el acabado adecuado para el uso real (feria, punto de venta, exterior, campañas temporales, etc.).",
+              "text": "Para que cumplan su función, es importante elegir bien el formato, la estructura, el soporte gráfico y el acabado, teniendo en cuenta el lugar de instalación, la duración de la campaña y el uso previsto. No requiere la misma solución un expositor temporal para una promoción que una pieza pensada para un uso continuado.",
+              "html": false
+            },
+            {
+              "type": "text",
+              "text": "Trabajamos los expositores publicitarios con criterios de funcionalidad, resistencia y presentación, para que cada soporte resulte práctico, transmita una imagen profesional y mantenga un buen acabado durante todo el tiempo de exposición.",
               "html": false
             },
             {
@@ -917,7 +927,7 @@
     },
     {
       "id": "12",
-      "updatedAt": "2026-03-31T12:18:05Z",
+      "updatedAt": "2026-04-05T15:20:25Z",
       "type": "subcategoria",
       "slug": "material-flexible",
       "path": "/categorias/gran-formato/material-flexible",
@@ -935,11 +945,27 @@
           "id": "details",
           "key": "details",
           "title": "Detalles",
-          "body": "Conoce las características del gran formato flexible\nEl gran formato no es solo “imprimir grande”: es elegir bien material + adhesivo (si aplica) + acabado para que la gráfica tenga impacto visual, durabilidad y facilidad de instalación según ubicación (interior/exterior), superficie (cristal, pared, suelo, vehículo…) y tiempo de uso.\n\n1.\tNos dices dónde irá (pared, cristal, suelo, vehículo, exterior…) y la medida.\n2.\tRevisamos el archivo y definimos material/adhesivo según superficie y duración.\n3.\tImprimimos y aplicamos acabados (laminado, corte, refuerzos).\n4.\tEntregamos listo para instalar (y si aplica, coordinamos logística).\n\n¿Dudas entre vinilo, lona, textil o retroiluminado? Cuéntanos superficie, ubicación (interior/exterior), medida y duración y te recomendamos el material más adecuado.",
+          "body": "## Conoce las características del gran formato flexible\n\nEl gran formato flexible está pensado para crear aplicaciones visuales de gran impacto con materiales adaptables a diferentes superficies, entornos y necesidades de instalación. No se trata solo de imprimir a gran tamaño, sino de elegir correctamente el soporte, el sistema de adhesión cuando aplica y el acabado más adecuado para garantizar un buen resultado visual y funcional.\n\nPara que cada aplicación responda bien, es importante tener en cuenta la ubicación, la superficie sobre la que se instalará y el tiempo de uso previsto. No requiere la misma solución una gráfica para interior que una aplicación exterior, ni se comporta igual un material destinado a cristal, pared, suelo o vehículo.\n\nTrabajamos el gran formato flexible valorando el impacto visual, la durabilidad y la facilidad de instalación, para que cada pieza se adapte correctamente al espacio, mantenga una imagen profesional y funcione con garantías durante toda su vida útil.\n\n1.\tNos dices dónde irá (pared, cristal, suelo, vehículo, exterior…) y la medida.\n2.\tRevisamos el archivo y definimos material/adhesivo según superficie y duración.\n3.\tImprimimos y aplicamos acabados (laminado, corte, refuerzos).\n4.\tEntregamos listo para instalar (y si aplica, coordinamos logística).\n\n¿Dudas entre vinilo, lona, textil o retroiluminado? Cuéntanos superficie, ubicación (interior/exterior), medida y duración y te recomendamos el material más adecuado.",
           "blocks": [
             {
               "type": "text",
-              "text": "Conoce las características del gran formato flexible\nEl gran formato no es solo “imprimir grande”: es elegir bien material + adhesivo (si aplica) + acabado para que la gráfica tenga impacto visual, durabilidad y facilidad de instalación según ubicación (interior/exterior), superficie (cristal, pared, suelo, vehículo…) y tiempo de uso.",
+              "text": "<h2>Conoce las características del gran formato flexible</h2>",
+              "html": true,
+              "format": "html"
+            },
+            {
+              "type": "text",
+              "text": "El gran formato flexible está pensado para crear aplicaciones visuales de gran impacto con materiales adaptables a diferentes superficies, entornos y necesidades de instalación. No se trata solo de imprimir a gran tamaño, sino de elegir correctamente el soporte, el sistema de adhesión cuando aplica y el acabado más adecuado para garantizar un buen resultado visual y funcional.",
+              "html": false
+            },
+            {
+              "type": "text",
+              "text": "Para que cada aplicación responda bien, es importante tener en cuenta la ubicación, la superficie sobre la que se instalará y el tiempo de uso previsto. No requiere la misma solución una gráfica para interior que una aplicación exterior, ni se comporta igual un material destinado a cristal, pared, suelo o vehículo.",
+              "html": false
+            },
+            {
+              "type": "text",
+              "text": "Trabajamos el gran formato flexible valorando el impacto visual, la durabilidad y la facilidad de instalación, para que cada pieza se adapte correctamente al espacio, mantenga una imagen profesional y funcione con garantías durante toda su vida útil.",
               "html": false
             },
             {
@@ -1154,7 +1180,7 @@
     },
     {
       "id": "13",
-      "updatedAt": "2026-03-31T12:16:48Z",
+      "updatedAt": "2026-04-05T15:21:53Z",
       "type": "subcategoria",
       "slug": "material-rigido",
       "path": "/categorias/gran-formato/material-rigido",
@@ -1172,11 +1198,27 @@
           "id": "details",
           "key": "details",
           "title": "Detalles",
-          "body": "Conoce las características del gran formato rígido\nEl gran formato rígido no es solo “imprimir grande”: es elegir bien material + acabado para que la gráfica tenga impacto visual, cuerpo y estabilidad. Los soportes rígidos se recomiendan cuando necesitas una pieza firme y con presencia, por ejemplo en señalética, displays o puntos de información.\n\n1. Nos dices dónde irá (interior/exterior), medida y objetivo (señalética, display, evento…).\n2. Revisamos el archivo y definimos el soporte rígido más adecuado.\n3. Imprimimos y aplicamos acabados (laminado, corte, opciones de montaje).\n4. Entregamos listo para instalar (y si aplica, coordinamos logística).\n¿Dudas entre Forex, Dibond, metacrilato o un panel ligero? Cuéntanos ubicación (interior/exterior), medida, duración y cómo se instalará, y te recomendamos el soporte rígido más adecuado.",
+          "body": "## Conoce las características del gran formato rígido\n\nEl gran formato rígido está pensado para crear piezas visuales con presencia, estabilidad y una buena resistencia estructural, especialmente en aplicaciones donde el soporte debe mantenerse firme y ofrecer una imagen sólida y profesional. No se trata solo de imprimir a gran tamaño, sino de elegir el material y el acabado adecuados para que la pieza funcione bien en el espacio en el que se va a instalar.\n\nPara obtener un buen resultado, es importante valorar el tipo de aplicación, el entorno de uso y el nivel de rigidez o resistencia que necesita cada proyecto. No requiere la misma solución una pieza destinada a señalética, un display promocional o un punto de información con uso continuado.\n\nTrabajamos el gran formato rígido teniendo en cuenta la visibilidad, la estabilidad y la calidad de acabado, para que cada soporte transmita una imagen cuidada, se mantenga firme durante su uso y responda correctamente a las exigencias de cada instalación.\n\n1. Nos dices dónde irá (interior/exterior), medida y objetivo (señalética, display, evento…).\n2. Revisamos el archivo y definimos el soporte rígido más adecuado.\n3. Imprimimos y aplicamos acabados (laminado, corte, opciones de montaje).\n4. Entregamos listo para instalar (y si aplica, coordinamos logística).\n¿Dudas entre Forex, Dibond, metacrilato o un panel ligero? Cuéntanos ubicación (interior/exterior), medida, duración y cómo se instalará, y te recomendamos el soporte rígido más adecuado.",
           "blocks": [
             {
               "type": "text",
-              "text": "Conoce las características del gran formato rígido\nEl gran formato rígido no es solo “imprimir grande”: es elegir bien material + acabado para que la gráfica tenga impacto visual, cuerpo y estabilidad. Los soportes rígidos se recomiendan cuando necesitas una pieza firme y con presencia, por ejemplo en señalética, displays o puntos de información.",
+              "text": "<h2>Conoce las características del gran formato rígido</h2>",
+              "html": true,
+              "format": "html"
+            },
+            {
+              "type": "text",
+              "text": "El gran formato rígido está pensado para crear piezas visuales con presencia, estabilidad y una buena resistencia estructural, especialmente en aplicaciones donde el soporte debe mantenerse firme y ofrecer una imagen sólida y profesional. No se trata solo de imprimir a gran tamaño, sino de elegir el material y el acabado adecuados para que la pieza funcione bien en el espacio en el que se va a instalar.",
+              "html": false
+            },
+            {
+              "type": "text",
+              "text": "Para obtener un buen resultado, es importante valorar el tipo de aplicación, el entorno de uso y el nivel de rigidez o resistencia que necesita cada proyecto. No requiere la misma solución una pieza destinada a señalética, un display promocional o un punto de información con uso continuado.",
+              "html": false
+            },
+            {
+              "type": "text",
+              "text": "Trabajamos el gran formato rígido teniendo en cuenta la visibilidad, la estabilidad y la calidad de acabado, para que cada soporte transmita una imagen cuidada, se mantenga firme durante su uso y responda correctamente a las exigencias de cada instalación.",
               "html": false
             },
             {
@@ -1389,7 +1431,7 @@
     },
     {
       "id": "6",
-      "updatedAt": "2026-03-25T09:02:20Z",
+      "updatedAt": "2026-04-05T15:13:24Z",
       "type": "categoria",
       "slug": "hosteleria-restauracion",
       "path": "/categorias/hosteleria-restauracion",
@@ -1406,16 +1448,27 @@
           "id": "details",
           "key": "details",
           "title": "Detalles",
-          "body": "Conoce las características de los productos de hostelería y restauración\n \nLa impresión para hoteles y restaurantes debe funcionar en el día a día: buena imagen de marca, resistencia a la manipulación continua y practicidad (limpieza, lectura rápida, formatos cómodos). Por eso, las características clave se definen por la combinación de producto + soporte + acabado, según dónde se use (habitación, recepción, barra, sala, terraza o eventos) y el tipo de limpieza que tendrá cada pieza.\n\nCómo trabajamos\nNos indicas el tipo de producto, medidas y dónde se usará (habitación, sala, terraza, evento).\nRevisamos el diseño (o lo adaptamos) para asegurar legibilidad y margen de seguridad.\nTe recomendamos material/soporte según uso, limpieza y durabilidad esperada.\nImprimimos y entregamos listo para usar, con acabados profesionales.\n\nCuéntanos si es para hotel, restaurante, bar o catering, qué piezas necesitas, cantidades y fecha. Te proponemos el soporte y acabado más adecuados para tu día a día. Solicita presupuesto.",
+          "body": "## Conoce las características de los productos para hostelería y restauración\n\nLos productos impresos para hostelería y restauración deben responder bien al uso diario, transmitir una imagen cuidada y facilitar la experiencia del cliente en cada punto de contacto. Además de reforzar la identidad del negocio, deben ofrecer buena legibilidad, comodidad de uso y resistencia frente a la manipulación continua.\n\nPara conseguirlo, es importante elegir correctamente el tipo de pieza, el soporte y el acabado según el espacio en el que se va a utilizar y el nivel de exigencia al que estará expuesta. No requiere la misma solución un material para habitación o recepción que una carta de sala, una pieza para barra, una aplicación para terraza o un soporte pensado para eventos.\n\nTrabajamos los productos para hostelería y restauración teniendo en cuenta la funcionalidad, la durabilidad y la presentación, para que cada elemento resulte práctico, mantenga un buen acabado y proyecte una imagen profesional y coherente en el día a día.\n\nCómo trabajamos\nNos indicas el tipo de producto, medidas y dónde se usará (habitación, sala, terraza, evento).\nRevisamos el diseño (o lo adaptamos) para asegurar legibilidad y margen de seguridad.\nTe recomendamos material/soporte según uso, limpieza y durabilidad esperada.\nImprimimos y entregamos listo para usar, con acabados profesionales.\n\nCuéntanos si es para hotel, restaurante, bar o catering, qué piezas necesitas, cantidades y fecha. Te proponemos el soporte y acabado más adecuados para tu día a día. Solicita presupuesto.",
           "blocks": [
             {
               "type": "text",
-              "text": "Conoce las características de los productos de hostelería y restauración",
+              "text": "<h2>Conoce las características de los productos para hostelería y restauración</h2>",
+              "html": true,
+              "format": "html"
+            },
+            {
+              "type": "text",
+              "text": "Los productos impresos para hostelería y restauración deben responder bien al uso diario, transmitir una imagen cuidada y facilitar la experiencia del cliente en cada punto de contacto. Además de reforzar la identidad del negocio, deben ofrecer buena legibilidad, comodidad de uso y resistencia frente a la manipulación continua.",
               "html": false
             },
             {
               "type": "text",
-              "text": "La impresión para hoteles y restaurantes debe funcionar en el día a día: buena imagen de marca, resistencia a la manipulación continua y practicidad (limpieza, lectura rápida, formatos cómodos). Por eso, las características clave se definen por la combinación de producto + soporte + acabado, según dónde se use (habitación, recepción, barra, sala, terraza o eventos) y el tipo de limpieza que tendrá cada pieza.",
+              "text": "Para conseguirlo, es importante elegir correctamente el tipo de pieza, el soporte y el acabado según el espacio en el que se va a utilizar y el nivel de exigencia al que estará expuesta. No requiere la misma solución un material para habitación o recepción que una carta de sala, una pieza para barra, una aplicación para terraza o un soporte pensado para eventos.",
+              "html": false
+            },
+            {
+              "type": "text",
+              "text": "Trabajamos los productos para hostelería y restauración teniendo en cuenta la funcionalidad, la durabilidad y la presentación, para que cada elemento resulte práctico, mantenga un buen acabado y proyecte una imagen profesional y coherente en el día a día.",
               "html": false
             },
             {
@@ -1570,7 +1623,7 @@
     },
     {
       "id": "7",
-      "updatedAt": "2026-03-25T09:03:33Z",
+      "updatedAt": "2026-04-05T15:14:48Z",
       "type": "categoria",
       "slug": "libros-revistas-catalogos",
       "path": "/categorias/libros-revistas-catalogos",
@@ -1587,16 +1640,27 @@
           "id": "details",
           "key": "details",
           "title": "Detalles",
-          "body": "Conoce las características de libros, revistas y catálogos\n \nUna publicación profesional se nota (y se recuerda) por los detalles: papel, encuadernación, acabado de cubierta y una impresión con buena reproducción de color. En Repro Disseny trabajamos libros, revistas y catálogos para marcas, empresas y editoriales con el objetivo de que el resultado sea sólido, cómodo de leer y alineado con tu imagen, tanto en tiradas cortas como en producciones medias.\n\nCómo trabajamos\n1.\tNos envías el diseño o te ayudamos a prepararlo.\n2.\tRevisamos formato, sangrado, márgenes, lomo (si aplica) y orden de páginas.\n3.\tTe proponemos papel, encuadernación y acabados según uso y presupuesto.\n4.\tImprimimos, encuadernamos y entregamos el material listo para distribuir.\n\n¿No tienes claro qué encuadernación o papel elegir para tu publicación? Dinos formato, número de páginas, cantidad y uso (catálogo, revista o libro) y te recomendamos la opción más adecuada para pedir presupuesto con seguridad.",
+          "body": "## Conoce las características de libros, revistas y catálogos\n\nLos libros, revistas y catálogos deben combinar una presentación cuidada, una lectura cómoda y una producción coherente con la imagen de marca o el carácter editorial de cada proyecto. Una publicación profesional se percibe en la calidad de impresión, en la elección del papel, en la encuadernación y en el acabado de la cubierta.\n\nPara conseguir un buen resultado, es importante definir correctamente el formato, los materiales y el sistema de encuadernación según el tipo de contenido, la frecuencia de uso y la tirada prevista. No requiere la misma solución un catálogo comercial de consulta frecuente que una revista corporativa o una publicación editorial pensada para una conservación más duradera.\n\nTrabajamos libros, revistas y catálogos para marcas, empresas y editoriales con criterios de calidad, funcionalidad y acabado, para que cada pieza resulte sólida, cómoda de leer y alineada con la identidad visual del proyecto, tanto en tiradas cortas como en producciones medias.\n\nCómo trabajamos\n1.\tNos envías el diseño o te ayudamos a prepararlo.\n2.\tRevisamos formato, sangrado, márgenes, lomo (si aplica) y orden de páginas.\n3.\tTe proponemos papel, encuadernación y acabados según uso y presupuesto.\n4.\tImprimimos, encuadernamos y entregamos el material listo para distribuir.\n\n¿No tienes claro qué encuadernación o papel elegir para tu publicación? Dinos formato, número de páginas, cantidad y uso (catálogo, revista o libro) y te recomendamos la opción más adecuada para pedir presupuesto con seguridad.",
           "blocks": [
             {
               "type": "text",
-              "text": "Conoce las características de libros, revistas y catálogos",
+              "text": "<h2>Conoce las características de libros, revistas y catálogos</h2>",
+              "html": true,
+              "format": "html"
+            },
+            {
+              "type": "text",
+              "text": "Los libros, revistas y catálogos deben combinar una presentación cuidada, una lectura cómoda y una producción coherente con la imagen de marca o el carácter editorial de cada proyecto. Una publicación profesional se percibe en la calidad de impresión, en la elección del papel, en la encuadernación y en el acabado de la cubierta.",
               "html": false
             },
             {
               "type": "text",
-              "text": "Una publicación profesional se nota (y se recuerda) por los detalles: papel, encuadernación, acabado de cubierta y una impresión con buena reproducción de color. En Repro Disseny trabajamos libros, revistas y catálogos para marcas, empresas y editoriales con el objetivo de que el resultado sea sólido, cómodo de leer y alineado con tu imagen, tanto en tiradas cortas como en producciones medias.",
+              "text": "Para conseguir un buen resultado, es importante definir correctamente el formato, los materiales y el sistema de encuadernación según el tipo de contenido, la frecuencia de uso y la tirada prevista. No requiere la misma solución un catálogo comercial de consulta frecuente que una revista corporativa o una publicación editorial pensada para una conservación más duradera.",
+              "html": false
+            },
+            {
+              "type": "text",
+              "text": "Trabajamos libros, revistas y catálogos para marcas, empresas y editoriales con criterios de calidad, funcionalidad y acabado, para que cada pieza resulte sólida, cómoda de leer y alineada con la identidad visual del proyecto, tanto en tiradas cortas como en producciones medias.",
               "html": false
             },
             {
@@ -1776,7 +1840,7 @@
     },
     {
       "id": "8",
-      "updatedAt": "2026-03-25T09:04:28Z",
+      "updatedAt": "2026-04-05T15:15:51Z",
       "type": "categoria",
       "slug": "packaging",
       "path": "/categorias/packaging",
@@ -1793,11 +1857,27 @@
           "id": "details",
           "key": "details",
           "title": "Detalles",
-          "body": "Conoce las características del packaging\nUn buen packaging no se limita a “una caja”: debe proteger, presentar y ser eficiente de montar, almacenar y enviar. En esta categoría el peso principal lo tiene el folding, porque es el formato más versátil para packs corporativos, presentación y campañas. El corrugado lo usamos cuando el objetivo es resistencia en transporte o soluciones funcionales como urnas.\n\nCómo trabajamos\n1.\tNos indicas el producto, medidas, peso, canal (entrega en mano / envío) y cantidades.\n2.\tRevisamos el diseño (o lo adaptamos) para asegurar márgenes, troqueles y preparación correcta.\n3.\tTe recomendamos formato, soporte y acabados según objetivo de marca y operativa.\n4.\tProducimos y entregamos listo para montar/usar, con control de calidad.\n\n¿Quieres que te recomendemos la opción adecuada? Indícanos qué vas a empaquetar (medidas/peso/fragilidad), si es para pack corporativo o envío, cantidades y fecha. Te proponemos la solución más eficiente (principalmente folding y, si aplica, corrugado) y te preparamos presupuesto.",
+          "body": "## Conoce las características del packaging\n\nEl packaging debe cumplir varias funciones a la vez: proteger el contenido, presentar el producto de forma atractiva y facilitar su manipulación, montaje, almacenamiento y envío. No se trata solo del envase en sí, sino de cómo cada solución contribuye a la funcionalidad y a la imagen de marca del conjunto.\n\nPara conseguir un buen resultado, es importante elegir el tipo de estructura, el material y el acabado según el uso previsto, el nivel de protección necesario y la forma en que el packaging va a presentarse o transportarse. No responde igual una caja pensada para presentación corporativa o campañas promocionales que una solución orientada a resistencia, transporte o usos funcionales.\n\nTrabajamos el packaging valorando la versatilidad, la resistencia y la eficiencia de cada formato, para que cada pieza combine una buena presencia, una función práctica y un comportamiento adecuado en todo el proceso de uso y manipulación.\n\nCómo trabajamos\n1.\tNos indicas el producto, medidas, peso, canal (entrega en mano / envío) y cantidades.\n2.\tRevisamos el diseño (o lo adaptamos) para asegurar márgenes, troqueles y preparación correcta.\n3.\tTe recomendamos formato, soporte y acabados según objetivo de marca y operativa.\n4.\tProducimos y entregamos listo para montar/usar, con control de calidad.\n\n¿Quieres que te recomendemos la opción adecuada? Indícanos qué vas a empaquetar (medidas/peso/fragilidad), si es para pack corporativo o envío, cantidades y fecha. Te proponemos la solución más eficiente (principalmente folding y, si aplica, corrugado) y te preparamos presupuesto.",
           "blocks": [
             {
               "type": "text",
-              "text": "Conoce las características del packaging\nUn buen packaging no se limita a “una caja”: debe proteger, presentar y ser eficiente de montar, almacenar y enviar. En esta categoría el peso principal lo tiene el folding, porque es el formato más versátil para packs corporativos, presentación y campañas. El corrugado lo usamos cuando el objetivo es resistencia en transporte o soluciones funcionales como urnas.",
+              "text": "<h2>Conoce las características del packaging</h2>",
+              "html": true,
+              "format": "html"
+            },
+            {
+              "type": "text",
+              "text": "El packaging debe cumplir varias funciones a la vez: proteger el contenido, presentar el producto de forma atractiva y facilitar su manipulación, montaje, almacenamiento y envío. No se trata solo del envase en sí, sino de cómo cada solución contribuye a la funcionalidad y a la imagen de marca del conjunto.",
+              "html": false
+            },
+            {
+              "type": "text",
+              "text": "Para conseguir un buen resultado, es importante elegir el tipo de estructura, el material y el acabado según el uso previsto, el nivel de protección necesario y la forma en que el packaging va a presentarse o transportarse. No responde igual una caja pensada para presentación corporativa o campañas promocionales que una solución orientada a resistencia, transporte o usos funcionales.",
+              "html": false
+            },
+            {
+              "type": "text",
+              "text": "Trabajamos el packaging valorando la versatilidad, la resistencia y la eficiencia de cada formato, para que cada pieza combine una buena presencia, una función práctica y un comportamiento adecuado en todo el proceso de uso y manipulación.",
               "html": false
             },
             {
@@ -2016,7 +2096,7 @@
     },
     {
       "id": "9",
-      "updatedAt": "2026-03-31T12:20:47Z",
+      "updatedAt": "2026-04-05T15:16:48Z",
       "type": "categoria",
       "slug": "publicidad-oficina",
       "path": "/categorias/publicidad-oficina",
@@ -2033,16 +2113,27 @@
           "id": "details",
           "key": "details",
           "title": "Detalles",
-          "body": "Conoce las características de los productos de publicidad y oficina \n\nLa impresión para publicidad y oficina tiene un objetivo claro: comunicar rápido, con buena presencia y coherencia de marca, tanto en piezas promocionales (captación y punto de venta) como en papelería corporativa (uso diario y documentación). Por eso, las características más importantes se definen por la combinación de tipo de producto + formato/soporte + acabado, según si la pieza se va a repartir, enviar, manipular a diario o exponer en tienda.\n\nNos indicas qué necesitas (producto, cantidades, medidas, uso y fecha).\nRevisamos el diseño para asegurar legibilidad, márgenes y preparación correcta de imprenta.\nTe recomendamos soporte y acabado según objetivo (impacto, durabilidad, manipulación, punto de venta, envío).\nImprimimos y entregamos listo para usar, con control de calidad y consistencia de color.\n\nSi nos indicas qué pieza necesitas, cantidades, cómo se va a usar (reparto, envío, tienda u oficina) y fecha, te recomendamos la combinación más eficiente de formato, soporte y acabado para que el material funcione y se vea profesional. Solicita tu presupuesto sin compromiso",
+          "body": "## Conoce las características de los productos de publicidad y oficina\n\nLos productos de publicidad y oficina deben ayudar a comunicar de forma clara, transmitir una imagen cuidada y mantener la coherencia visual de la marca en contextos muy distintos, desde acciones promocionales hasta el uso cotidiano de la papelería corporativa.\n\nPara que cada pieza cumpla bien su función, es importante elegir correctamente el tipo de producto, el formato, el soporte y el acabado según el uso previsto. No requiere la misma solución un material pensado para captar atención en punto de venta o reparto promocional que una pieza de oficina destinada a documentación, organización interna o uso diario.\n\nTrabajamos los productos de publicidad y oficina teniendo en cuenta la funcionalidad, la presentación y la durabilidad, para que cada elemento resulte práctico, refuerce la identidad de marca y ofrezca un acabado profesional en cualquier aplicación.\n\nNos indicas qué necesitas (producto, cantidades, medidas, uso y fecha).\nRevisamos el diseño para asegurar legibilidad, márgenes y preparación correcta de imprenta.\nTe recomendamos soporte y acabado según objetivo (impacto, durabilidad, manipulación, punto de venta, envío).\nImprimimos y entregamos listo para usar, con control de calidad y consistencia de color.\n\nSi nos indicas qué pieza necesitas, cantidades, cómo se va a usar (reparto, envío, tienda u oficina) y fecha, te recomendamos la combinación más eficiente de formato, soporte y acabado para que el material funcione y se vea profesional. Solicita tu presupuesto sin compromiso",
           "blocks": [
             {
               "type": "text",
-              "text": "Conoce las características de los productos de publicidad y oficina",
+              "text": "<h2>Conoce las características de los productos de publicidad y oficina</h2>",
+              "html": true,
+              "format": "html"
+            },
+            {
+              "type": "text",
+              "text": "Los productos de publicidad y oficina deben ayudar a comunicar de forma clara, transmitir una imagen cuidada y mantener la coherencia visual de la marca en contextos muy distintos, desde acciones promocionales hasta el uso cotidiano de la papelería corporativa.",
               "html": false
             },
             {
               "type": "text",
-              "text": "La impresión para publicidad y oficina tiene un objetivo claro: comunicar rápido, con buena presencia y coherencia de marca, tanto en piezas promocionales (captación y punto de venta) como en papelería corporativa (uso diario y documentación). Por eso, las características más importantes se definen por la combinación de tipo de producto + formato/soporte + acabado, según si la pieza se va a repartir, enviar, manipular a diario o exponer en tienda.",
+              "text": "Para que cada pieza cumpla bien su función, es importante elegir correctamente el tipo de producto, el formato, el soporte y el acabado según el uso previsto. No requiere la misma solución un material pensado para captar atención en punto de venta o reparto promocional que una pieza de oficina destinada a documentación, organización interna o uso diario.",
+              "html": false
+            },
+            {
+              "type": "text",
+              "text": "Trabajamos los productos de publicidad y oficina teniendo en cuenta la funcionalidad, la presentación y la durabilidad, para que cada elemento resulte práctico, refuerce la identidad de marca y ofrezca un acabado profesional en cualquier aplicación.",
               "html": false
             },
             {
@@ -2273,7 +2364,7 @@
     },
     {
       "id": "10",
-      "updatedAt": "2026-03-31T12:20:09Z",
+      "updatedAt": "2026-04-05T15:17:46Z",
       "type": "subcategoria",
       "slug": "material-oficina",
       "path": "/categorias/publicidad-oficina/material-oficina",
@@ -2291,11 +2382,27 @@
           "id": "details",
           "key": "details",
           "title": "Detalles",
-          "body": "Conoce las características de los productos de oficina\nLa impresión de oficina tiene un objetivo claro: orden, coherencia de marca y funcionalidad. Por eso, lo más importante suele ser la combinación de tipo de producto + formato/soporte + acabado, según si la pieza se va a enviar, manipular a diario, archivar o mostrar en la recepción.\n\nCómo trabajamos\n1.\tNos indicas qué necesitas (producto, cantidades, medidas, uso y fecha).\n2.\tRevisamos el diseño para asegurar legibilidad, márgenes y preparación correcta de imprenta.\n3.\tTe recomendamos soporte y acabado según objetivo (durabilidad, manipulación diaria, envío o recepción).\n4.\tImprimimos y entregamos listo para usar, con control de calidad y consistencia de color.\n\nSi nos indicas qué pieza necesitas, cantidades, cómo se va a usar (oficina, envío o recepción) y fecha, te recomendamos la combinación más eficiente de formato, soporte y acabado para que el material funcione y se vea profesional. Solicita tu presupuesto sin compromiso.",
+          "body": "## Conoce las características de los productos de oficina\n\nLos productos impresos de oficina deben aportar orden, funcionalidad y coherencia de marca en el trabajo diario. Además de cumplir una función práctica, ayudan a proyectar una imagen profesional y cuidada en la documentación, la organización interna y los espacios de atención al cliente.\n\nPara que cada pieza resulte útil, es importante elegir correctamente el tipo de producto, el formato, el soporte y el acabado según el uso previsto. No requiere la misma solución un material pensado para envío, archivo o manipulación diaria que una pieza destinada a recepción, presentación o gestión documental.\n\nTrabajamos los productos de oficina teniendo en cuenta la practicidad, la durabilidad y la presentación, para que cada elemento facilite el día a día, mantenga un buen acabado y refuerce una imagen corporativa coherente.\n\nCómo trabajamos\n1.\tNos indicas qué necesitas (producto, cantidades, medidas, uso y fecha).\n2.\tRevisamos el diseño para asegurar legibilidad, márgenes y preparación correcta de imprenta.\n3.\tTe recomendamos soporte y acabado según objetivo (durabilidad, manipulación diaria, envío o recepción).\n4.\tImprimimos y entregamos listo para usar, con control de calidad y consistencia de color.\n\nSi nos indicas qué pieza necesitas, cantidades, cómo se va a usar (oficina, envío o recepción) y fecha, te recomendamos la combinación más eficiente de formato, soporte y acabado para que el material funcione y se vea profesional. Solicita tu presupuesto sin compromiso.",
           "blocks": [
             {
               "type": "text",
-              "text": "Conoce las características de los productos de oficina\nLa impresión de oficina tiene un objetivo claro: orden, coherencia de marca y funcionalidad. Por eso, lo más importante suele ser la combinación de tipo de producto + formato/soporte + acabado, según si la pieza se va a enviar, manipular a diario, archivar o mostrar en la recepción.",
+              "text": "<h2>Conoce las características de los productos de oficina</h2>",
+              "html": true,
+              "format": "html"
+            },
+            {
+              "type": "text",
+              "text": "Los productos impresos de oficina deben aportar orden, funcionalidad y coherencia de marca en el trabajo diario. Además de cumplir una función práctica, ayudan a proyectar una imagen profesional y cuidada en la documentación, la organización interna y los espacios de atención al cliente.",
+              "html": false
+            },
+            {
+              "type": "text",
+              "text": "Para que cada pieza resulte útil, es importante elegir correctamente el tipo de producto, el formato, el soporte y el acabado según el uso previsto. No requiere la misma solución un material pensado para envío, archivo o manipulación diaria que una pieza destinada a recepción, presentación o gestión documental.",
+              "html": false
+            },
+            {
+              "type": "text",
+              "text": "Trabajamos los productos de oficina teniendo en cuenta la practicidad, la durabilidad y la presentación, para que cada elemento facilite el día a día, mantenga un buen acabado y refuerce una imagen corporativa coherente.",
               "html": false
             },
             {
@@ -2497,7 +2604,7 @@
     },
     {
       "id": "11",
-      "updatedAt": "2026-03-31T12:19:33Z",
+      "updatedAt": "2026-04-05T15:19:25Z",
       "type": "subcategoria",
       "slug": "material-publicitario",
       "path": "/categorias/publicidad-oficina/material-publicitario",
@@ -2515,11 +2622,27 @@
           "id": "details",
           "key": "details",
           "title": "Detalles",
-          "body": "Conoce las características de los productos de publicidad\nLa impresión publicitaria tiene un objetivo claro: captar atención y provocar acción (entrar, comprar, llamar, visitar una web, ir a un evento…). Por eso, las decisiones clave suelen ser tipo de producto + formato + soporte + acabado, según si la pieza se va a repartir, enviar por correo o exponer en tienda.\n\n1.\tNos indicas qué necesitas (producto, cantidades, medidas, uso y fecha).\n2.\tRevisamos el diseño para asegurar legibilidad, márgenes y preparación correcta.\n3.\tTe recomendamos soporte y acabado según objetivo (impacto, durabilidad, manipulación, punto de venta o envío).\n4.\tImprimimos y entregamos listo para usar, con control de calidad y consistencia de color.\n\nSi nos indicas qué pieza necesitas, cantidades, cómo se va a usar (reparto, envío o tienda) y la fecha, te recomendamos la combinación más eficiente de formato, soporte y acabado. Solicita tu presupuesto sin compromiso.",
+          "body": "## Conoce las características de los productos de publicidad\n\nLos productos de publicidad deben captar la atención de forma rápida, transmitir el mensaje con claridad y reforzar la presencia de marca en acciones promocionales, campañas comerciales y entornos de punto de venta. Además de resultar visualmente atractivos, deben estar bien adaptados al contexto en el que se van a utilizar.\n\nPara que cada pieza funcione correctamente, es importante elegir el tipo de producto, el formato, el soporte y el acabado según el canal y el uso previsto. No requiere la misma solución un material pensado para reparto promocional, una acción de mailing o una pieza destinada a exposición en tienda.\n\nTrabajamos los productos de publicidad teniendo en cuenta el impacto visual, la funcionalidad y la calidad de acabado, para que cada elemento ayude a comunicar mejor, genere respuesta y proyecte una imagen profesional y coherente.\n\n1.\tNos indicas qué necesitas (producto, cantidades, medidas, uso y fecha).\n2.\tRevisamos el diseño para asegurar legibilidad, márgenes y preparación correcta.\n3.\tTe recomendamos soporte y acabado según objetivo (impacto, durabilidad, manipulación, punto de venta o envío).\n4.\tImprimimos y entregamos listo para usar, con control de calidad y consistencia de color.\n\nSi nos indicas qué pieza necesitas, cantidades, cómo se va a usar (reparto, envío o tienda) y la fecha, te recomendamos la combinación más eficiente de formato, soporte y acabado. Solicita tu presupuesto sin compromiso.",
           "blocks": [
             {
               "type": "text",
-              "text": "Conoce las características de los productos de publicidad\nLa impresión publicitaria tiene un objetivo claro: captar atención y provocar acción (entrar, comprar, llamar, visitar una web, ir a un evento…). Por eso, las decisiones clave suelen ser tipo de producto + formato + soporte + acabado, según si la pieza se va a repartir, enviar por correo o exponer en tienda.",
+              "text": "<h2>Conoce las características de los productos de publicidad</h2>",
+              "html": true,
+              "format": "html"
+            },
+            {
+              "type": "text",
+              "text": "Los productos de publicidad deben captar la atención de forma rápida, transmitir el mensaje con claridad y reforzar la presencia de marca en acciones promocionales, campañas comerciales y entornos de punto de venta. Además de resultar visualmente atractivos, deben estar bien adaptados al contexto en el que se van a utilizar.",
+              "html": false
+            },
+            {
+              "type": "text",
+              "text": "Para que cada pieza funcione correctamente, es importante elegir el tipo de producto, el formato, el soporte y el acabado según el canal y el uso previsto. No requiere la misma solución un material pensado para reparto promocional, una acción de mailing o una pieza destinada a exposición en tienda.",
+              "html": false
+            },
+            {
+              "type": "text",
+              "text": "Trabajamos los productos de publicidad teniendo en cuenta el impacto visual, la funcionalidad y la calidad de acabado, para que cada elemento ayude a comunicar mejor, genere respuesta y proyecte una imagen profesional y coherente.",
               "html": false
             },
             {
