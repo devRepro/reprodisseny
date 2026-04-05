@@ -1,6 +1,9 @@
 <script setup lang="ts">
 import { computed, ref, onMounted, onBeforeUnmount } from "vue";
 import { normalizeCmsMediaSrc } from "@/utils/cmsMedia";
+import ProcessSteps, {
+  type ProcessStep,
+} from "@/components/marketing/content/ProcessSteps.vue";
 
 type CategoryBlock =
   | { type: "text"; text?: string; html?: boolean }
