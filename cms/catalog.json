@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-06T16:23:15.490Z",
+  "generatedAt": "2026-04-06T18:33:40.728Z",
   "categories": [
     {
       "id": "2",
@@ -2395,6 +2395,7 @@
       "hidden": false,
       "featured": false,
       "isPublished": true,
+      "publishedAt": "2026-02-04T23:00:00Z",
       "description": "La imagen de marca también se construye en el día a día: lo que entregas, lo que envías y la documentación que usa tu equipo. En Repro Disseny imprimimos papelería corporativa (tarjetas, sobres, papel de carta, carpetas, certificados…), material de organización (blocs, libretas, agendas, calendarios, talonarios autocopiativos, sellos…) y piezas de imagen/señalización para reforzar presencia (pizarras, placa de dirección, letras corpóreas).",
       "bodyMd": "Cómo trabajamos\n1.\tNos indicas qué necesitas (producto, cantidades, medidas, uso y fecha).\n2.\tRevisamos el diseño para asegurar legibilidad, márgenes y preparación correcta de imprenta.\n3.\tTe recomendamos soporte y acabado según objetivo (durabilidad, manipulación diaria, envío o recepción).\n4.\tImprimimos y entregamos listo para usar, con control de calidad y consistencia de color.\n\nSi nos indicas qué pieza necesitas, cantidades, cómo se va a usar (oficina, envío o recepción) y fecha, te recomendamos la combinación más eficiente de formato, soporte y acabado para que el material funcione y se vea profesional. Solicita tu presupuesto sin compromiso.",
       "sections": [
@@ -2635,6 +2636,7 @@
       "hidden": false,
       "featured": false,
       "isPublished": true,
+      "publishedAt": "2026-02-04T23:00:00Z",
       "description": "La publicidad impresa funciona cuando comunica rápido y se entiende al primer vistazo. En Repro Disseny imprimimos material promocional (flyers, folletos, posters, invitaciones, postales…) y material para punto de venta (displays, stoppers, banderolas y elementos de lineal) con acabados profesionales, buena reproducción de color y opciones pensadas para campañas, ferias y retail.",
       "bodyMd": "1.\tNos indicas qué necesitas (producto, cantidades, medidas, uso y fecha).\n2.\tRevisamos el diseño para asegurar legibilidad, márgenes y preparación correcta.\n3.\tTe recomendamos soporte y acabado según objetivo (impacto, durabilidad, manipulación, punto de venta o envío).\n4.\tImprimimos y entregamos listo para usar, con control de calidad y consistencia de color.\n\nSi nos indicas qué pieza necesitas, cantidades, cómo se va a usar (reparto, envío o tienda) y la fecha, te recomendamos la combinación más eficiente de formato, soporte y acabado. Solicita tu presupuesto sin compromiso.",
       "sections": [

@@ -135,86 +135,143 @@ const SITE_URL = (
 
 const BRAND_NAME = "Repro Disseny";
 
-const CATEGORY_FIELDS = [
-  "Title",
-  "CategorySlug",
-  "NavLabel",
-  "IsPublished",
-  "Description",
-  "BodyMd",
-  "DetailsMd",
-  "TypesMd",
-  "FormatsMd",
-  "UsesMd",
-  "FinishesMd",
-  "FaqsJson",
-  "ImageSrc",
-  "ImageWidth",
-  "ImageHeight",
-  "ImageAlt",
-  "GalleryImagesJson",
-  "MetaTitle",
-  "MetaDescription",
-  "Canonical",
-  "HrefLangJson",
-  "KeywordsJson",
-  "SearchTermsJson",
-  "SchemaJson",
-  "LegacySlugsJson",
-  "RobotsOverride",
-  "OgImageSrc",
-  "Path",
-] as const;
+const TENANT_ID = process.env.TENANT_ID || process.env.AZURE_TENANT_ID;
+const CLIENT_ID = process.env.CLIENT_ID || process.env.AZURE_CLIENT_ID;
+const CLIENT_SECRET = process.env.CLIENT_SECRET || process.env.AZURE_CLIENT_SECRET;
 
-const PRODUCT_FIELDS = [
-  "Title",
-  "ProductSlug",
-  "Path",
-  "Canonical",
-  "CategorySlug",
-  "Categories",
-  "IsPublished",
-  "PublishedAt",
-  "ShortDescription",
-  "BodyMd",
-  "DetailsMd",
-  "BenefitsMd",
-  "MaterialsMd",
-  "FormatsMd",
-  "FinishesMd",
-  "TechnicalSpecsMd",
-  "ApplicationsMd",
-  "FaqsJson",
-  "ImageSrc",
-  "ImageWidth",
-  "ImageHeight",
-  "ImageAlt",
-  "GalleryImagesJson",
-  "MetaTitle",
-  "MetaDescription",
-  "HrefLangJson",
-  "KeywordsJson",
-  "SearchTermsJson",
-  "SchemaJson",
-  "LegacySlugsJson",
-  "RobotsOverride",
-  "RobotsAdvanced",
-  "NoIndex",
-  "OgImageSrc",
-  "Sku",
-  "Mpn",
-  "Gtin13",
-  "Brand",
-  "Price",
-  "PriceCurrency",
-  "InStock",
-  "RatingValue",
-  "ReviewCount",
-  "AttributesJson",
-  "VariantsJson",
-  "FormFieldsJson",
-  "SortOrder",
-] as const;
+const CMS_SITE_HOSTNAME = process.env.CMS_SITE_HOSTNAME || process.env.SHAREPOINT_HOSTNAME;
+const CMS_SITE_PATH = process.env.CMS_SITE_PATH || process.env.SHAREPOINT_SITE_PATH;
+const SHAREPOINT_SITE_ID =
+  process.env.SHAREPOINT_SITE_ID || process.env.CMS_SITE_ID || process.env.GRAPH_CMS_SITE_ID;
+
+const SP_LIST_CATEGORIES_ID =
+  process.env.SP_LIST_CATEGORIES_ID ||
+  process.env.CMS_CATEGORIES_LIST_ID ||
+  process.env.NUXT_SHAREPOINT_CMS_CATEGORIES_LIST_ID;
+
+const SP_LIST_PRODUCTS_ID =
+  process.env.SP_LIST_PRODUCTS_ID ||
+  process.env.CMS_PRODUCTS_LIST_ID ||
+  process.env.NUXT_SHAREPOINT_CMS_PRODUCTS_LIST_ID;
+
+const REQUIRED_BASE_ENV = [
+  ["TENANT_ID", TENANT_ID],
+  ["CLIENT_ID", CLIENT_ID],
+  ["CLIENT_SECRET", CLIENT_SECRET],
+  ["SP_LIST_CATEGORIES_ID", SP_LIST_CATEGORIES_ID],
+  ["SP_LIST_PRODUCTS_ID", SP_LIST_PRODUCTS_ID],
+].filter(([, value]) => !value);
+
+if (REQUIRED_BASE_ENV.length > 0) {
+  console.error(
+    "❌ Faltan variables de entorno:",
+    REQUIRED_BASE_ENV.map(([name]) => name).join(", "),
+  );
+  process.exit(1);
+}
+
+if (!SHAREPOINT_SITE_ID && (!CMS_SITE_HOSTNAME || !CMS_SITE_PATH)) {
+  console.error(
+    "❌ Debes definir SHAREPOINT_SITE_ID o, alternativamente, CMS_SITE_HOSTNAME + CMS_SITE_PATH",
+  );
+  process.exit(1);
+}
+
+const warnings: string[] = [];
+const warn = (message: string): void => {
+  warnings.push(message);
+};
+
+const CATEGORY_FIELDS = {
+  title: "Title",
+  slug: "CategorySlug",
+  nav: "NavLabel",
+  sortOrder: "SortOrder",
+  parentCategory: "ParentCategory",
+  isFeatured: "IsFeatured",
+  isHidden: "IsHidden",
+  isPublished: "IsPublished",
+  publishedAt: "PublishedAt",
+  path: "Path",
+  canonical: "Canonical",
+  description: "Description",
+  bodyMd: "BodyMd",
+  detailsMd: "DetailsMd",
+  typesMd: "TypesMd",
+  formatsMd: "FormatsMd",
+  finishesMd: "FinishesMd",
+  usesMd: "UsesMd",
+  faqsJson: "FaqsJson",
+  imageSrc: "ImageSrc",
+  imageWidth: "ImageWidth",
+  imageHeight: "ImageHeight",
+  imageAlt: "ImageAlt",
+  galleryImagesJson: "GalleryImagesJson",
+  ogImageSrc: "OgImageSrc",
+  metaTitle: "MetaTitle",
+  metaDescription: "MetaDescription",
+  hreflangJson: "HrefLangJson",
+  keywordsJson: "KeywordsJson",
+  searchTermsJson: "SearchTermsJson",
+  schemaJson: "SchemaJson",
+  legacySlugsJson: "LegacySlugsJson",
+  robotsOverride: "RobotsOverride",
+  robotsAdvanced: "RobotsAdvanced",
+} as const;
+
+const PRODUCT_FIELDS = {
+  title: "Title",
+  slug: "Slug",
+  categorySlug: "PrimaryCategory",
+  categories: "Categories",
+  isFeatured: "IsFeatured",
+  isPublished: "IsPublished",
+  publishedAt: "PublishedAt",
+  sortOrder: "SortOrder",
+  path: "Path",
+  canonical: "Canonical",
+  sku: "Sku",
+  mpn: "Mpn",
+  gtin13: "Gtin13",
+  brand: "Brand",
+  price: "Price",
+  priceCurrency: "PriceCurrency",
+  inStock: "InStock",
+  ratingValue: "RatingValue",
+  reviewCount: "ReviewCount",
+  shortDescription: "ShortDescription",
+  bodyMd: "BodyMd",
+  detailsMd: "DetailsMd",
+  benefitsMd: "BenefitsMd",
+  applicationsMd: "ApplicationsMd",
+  technicalSpecsMd: "TechnicalSpecsMd",
+  materialsMd: "MaterialsMd",
+  formatsMd: "FormatsMd",
+  finishesMd: "FinishesMd",
+  faqsJson: "FaqsJson",
+  imageSrc: "ImageSrc",
+  imageWidth: "ImageWidth",
+  imageHeight: "ImageHeight",
+  imageAlt: "ImageAlt",
+  galleryImagesJson: "GalleryImagesJson",
+  ogImageSrc: "OgImageSrc",
+  attributesJson: "AttributesJson",
+  variantsJson: "VariantsJson",
+  formFieldsJson: "FormFieldsJson",
+  metaTitle: "MetaTitle",
+  metaDescription: "MetaDescription",
+  hreflangJson: "HrefLangJson",
+  keywordsJson: "KeywordsJson",
+  searchTermsJson: "SearchTermsJson",
+  schemaJson: "SchemaJson",
+  legacySlugsJson: "LegacySlugsJson",
+  noIndex: "NoIndex",
+  robotsOverride: "RobotsOverride",
+  robotsAdvanced: "RobotsAdvanced",
+} as const;
+
+const CATEGORY_SELECT = [...new Set(Object.values(CATEGORY_FIELDS))];
+const PRODUCT_SELECT = [...new Set(Object.values(PRODUCT_FIELDS))];
 
 const CATEGORY_SECTION_TITLES: Record<string, string> = {
   details: "Detalles",
@@ -273,43 +330,6 @@ const PRODUCT_SECTION_ALIASES: Record<string, keyof typeof PRODUCT_SECTION_TITLE
   aplicaciones: "applications",
 };
 
-const TENANT_ID = process.env.TENANT_ID || process.env.AZURE_TENANT_ID;
-const CLIENT_ID = process.env.CLIENT_ID || process.env.AZURE_CLIENT_ID;
-const CLIENT_SECRET = process.env.CLIENT_SECRET || process.env.AZURE_CLIENT_SECRET;
-const CMS_SITE_HOSTNAME = process.env.CMS_SITE_HOSTNAME || process.env.SHAREPOINT_HOSTNAME;
-const CMS_SITE_PATH = process.env.CMS_SITE_PATH || process.env.SHAREPOINT_SITE_PATH;
-const SHAREPOINT_SITE_ID =
-  process.env.SHAREPOINT_SITE_ID || process.env.CMS_SITE_ID || process.env.GRAPH_CMS_SITE_ID;
-const SP_LIST_CATEGORIES_ID =
-  process.env.SP_LIST_CATEGORIES_ID ||
-  process.env.CMS_CATEGORIES_LIST_ID ||
-  process.env.NUXT_SHAREPOINT_CMS_CATEGORIES_LIST_ID;
-const SP_LIST_PRODUCTS_ID =
-  process.env.SP_LIST_PRODUCTS_ID ||
-  process.env.CMS_PRODUCTS_LIST_ID ||
-  process.env.NUXT_SHAREPOINT_CMS_PRODUCTS_LIST_ID;
-
-const MISSING_VARS = [
-  ["TENANT_ID", TENANT_ID],
-  ["CLIENT_ID", CLIENT_ID],
-  ["CLIENT_SECRET", CLIENT_SECRET],
-  ["CMS_SITE_HOSTNAME", CMS_SITE_HOSTNAME],
-  ["CMS_SITE_PATH", CMS_SITE_PATH],
-  ["SP_LIST_CATEGORIES_ID", SP_LIST_CATEGORIES_ID],
-  ["SP_LIST_PRODUCTS_ID", SP_LIST_PRODUCTS_ID],
-].filter(([, value]) => !value);
-
-if (MISSING_VARS.length > 0) {
-  console.error("❌ Faltan variables de entorno:", MISSING_VARS.map(([name]) => name).join(", "));
-  process.exit(1);
-}
-
-const warnings: string[] = [];
-
-function warn(message: string): void {
-  warnings.push(message);
-}
-
 function str(value: unknown): string | undefined {
   if (value == null) return undefined;
   const text = String(value).replace(/\u00A0/g, " ").trim();
@@ -319,18 +339,30 @@ function str(value: unknown): string | undefined {
 function num(value: unknown): number | undefined {
   if (value == null || value === "") return undefined;
   if (typeof value === "number") return Number.isFinite(value) ? value : undefined;
-  const parsed = Number(String(value).trim().replace(/,/g, "."));
+
+  const raw = String(value).trim();
+  if (!raw) return undefined;
+
+  const normalized = raw
+    .replace(/\.(?=\d{3}(?:\D|$))/g, "")
+    .replace(/,(?=\d{3}(?:\D|$))/g, "")
+    .replace(",", ".");
+
+  const parsed = Number(normalized);
   return Number.isFinite(parsed) ? parsed : undefined;
 }
 
 function parsePositiveInt(value: unknown): number | undefined {
   const raw = str(value);
   if (!raw) return undefined;
+
   const normalized = raw
     .replace(/\.(?=\d{3}(?:\D|$))/g, "")
     .replace(/,(?=\d{3}(?:\D|$))/g, "")
     .replace(/[^\d]/g, "");
+
   if (!normalized) return undefined;
+
   const parsed = Number.parseInt(normalized, 10);
   return Number.isFinite(parsed) ? parsed : undefined;
 }
@@ -385,7 +417,6 @@ function normalizeMarkdown(value: unknown): string {
   return String(value ?? "")
     .replace(/\r\n/g, "\n")
     .replace(/\u00A0/g, " ")
-    .replace(/\.\/n/g, "\n")
     .replace(/\\n/g, "\n")
     .replace(/\\r/g, "\r")
     .replace(/\/n/g, "\n")
@@ -446,7 +477,7 @@ function parseStringList(value: unknown): string[] {
   if (Array.isArray(value)) {
     return value
       .map((item) => str(item))
-      .filter((item): item is string => Boolean(item) && item !== "[]" && item !== "{}" && item !== "[ ]");
+      .filter((item): item is string => Boolean(item) && !["[]", "{}", "[ ]"].includes(item));
   }
 
   const raw = str(value);
@@ -460,19 +491,20 @@ function parseStringList(value: unknown): string[] {
     if (Array.isArray(parsed)) {
       return parsed
         .map((item) => str(item))
-        .filter((item): item is string => Boolean(item) && item !== "[]" && item !== "{}" && item !== "[ ]");
+        .filter((item): item is string => Boolean(item) && !["[]", "{}", "[ ]"].includes(item));
     }
   }
 
   return normalizedRaw
     .split(/[;,\n]/)
     .map((item) => item.trim())
-    .filter((item) => item && item !== "[]" && item !== "{}" && item !== "[ ]");
+    .filter((item) => item && !["[]", "{}", "[ ]"].includes(item));
 }
 
 function pathFromUrlLike(value: unknown): string | undefined {
   const raw = str(value);
   if (!raw) return undefined;
+
   if (raw.startsWith("/")) return raw.replace(/\/+$/, "") || "/";
 
   try {
@@ -511,8 +543,7 @@ function normalizePublicPath(
   const fromCanonical = pathFromUrlLike(rawCanonical);
   const candidate = fromPath || fromCanonical || fallbackPath;
   const clean = candidate.replace(/\/+$/, "") || "/";
-  if (clean.startsWith(expectedPrefix)) return clean;
-  return fallbackPath;
+  return clean.startsWith(expectedPrefix) ? clean : fallbackPath;
 }
 
 function sanitizeImageSrc(value: unknown): string | undefined {
@@ -523,9 +554,7 @@ function sanitizeImageSrc(value: unknown): string | undefined {
     /(https?:\/\/[^\s,]+?\.(?:avif|gif|jpe?g|png|svg|webp)(?:\?[^\s,]+)?|\/[^,\s]+?\.(?:avif|gif|jpe?g|png|svg|webp)(?:\?[^\s,]+)?)/i,
   );
   const cleaned = match?.[1] || raw.split(",")[0]?.trim() || raw;
-
-  if (/^(https?:\/\/|\/)/i.test(cleaned)) return cleaned;
-  return undefined;
+  return /^(https?:\/\/|\/)/i.test(cleaned) ? cleaned : undefined;
 }
 
 function sanitizeLink(value: unknown): string | undefined {
@@ -551,8 +580,7 @@ function slugFromPath(pathname: string | undefined, prefix: "/categorias" | "/pr
   const clean = pathname.replace(/\/+$/, "");
   if (!clean.startsWith(prefix)) return undefined;
   const rest = clean.slice(prefix.length).replace(/^\/+/, "");
-  const last = rest.split("/").filter(Boolean).at(-1);
-  return last || undefined;
+  return rest.split("/").filter(Boolean).at(-1);
 }
 
 function normalizeSlug(value: unknown): string | undefined {
@@ -587,7 +615,9 @@ function firstSentence(value: string): string | undefined {
   return sentence && sentence.length > 10 ? sentence : undefined;
 }
 
-function dedupeBreadcrumbs(breadcrumbs: Array<{ name: string; url: string }>): Array<{ name: string; url: string }> {
+function dedupeBreadcrumbs(
+  breadcrumbs: Array<{ name: string; url: string }>,
+): Array<{ name: string; url: string }> {
   const seen = new Set<string>();
   const result: Array<{ name: string; url: string }> = [];
 
@@ -605,241 +635,82 @@ function dedupeBreadcrumbs(breadcrumbs: Array<{ name: string; url: string }>): A
   return result;
 }
 
-function normalizeFieldKey(key: string): string {
-  return String(key ?? "")
-    .toLowerCase()
-    .replace(/_x[0-9a-f]{4}_/gi, "") // elimina escapes SharePoint tipo _x0020_
-    .replace(/[^a-z0-9]/g, "");
-}
+function buildGraphClient(): Client {
+  const credential = new ClientSecretCredential(TENANT_ID!, CLIENT_ID!, CLIENT_SECRET!);
 
-function getField(fields: Record<string, unknown>, candidates: string[]): unknown {
-  for (const candidate of candidates) {
-    if (candidate in fields) return fields[candidate];
-  }
-
-  const entries = Object.entries(fields).map(([key, value]) => ({
-    key,
-    value,
-    normalized: normalizeFieldKey(key),
-  }));
-
-  for (const candidate of candidates) {
-    const normalizedCandidate = normalizeFieldKey(candidate);
-    const exact = entries.find((entry) => entry.normalized === normalizedCandidate);
-    if (exact) return exact.value;
-  }
-
-  for (const candidate of candidates) {
-    const normalizedCandidate = normalizeFieldKey(candidate);
-    const fuzzy = entries.find(
-      (entry) =>
-        entry.normalized.includes(normalizedCandidate) || normalizedCandidate.includes(entry.normalized),
-    );
-    if (fuzzy) return fuzzy.value;
-  }
-
-  return undefined;
-}
-
-function buildCategoryBreadcrumbs(
-  category: CategoryDto,
-  categoriesBySlug: Map<string, CategoryDto>,
-): Array<{ name: string; url: string }> {
-  const trail: CategoryDto[] = [];
-  const seen = new Set<string>();
-
-  let current = category.parent ? categoriesBySlug.get(category.parent) : undefined;
-
-  while (current && !seen.has(current.slug)) {
-    trail.unshift(current);
-    seen.add(current.slug);
-    current = current.parent ? categoriesBySlug.get(current.parent) : undefined;
-  }
-
-  return dedupeBreadcrumbs([
-    { name: "Inicio", url: "/" },
-    { name: "Categorías", url: "/categorias" },
-    ...trail.map((item) => ({
-      name: item.nav || item.title,
-      url: item.path,
-    })),
-    {
-      name: category.nav || category.title,
-      url: category.path,
+  return Client.init({
+    authProvider: async (done) => {
+      try {
+        const token = await credential.getToken("https://graph.microsoft.com/.default");
+        done(null, token?.token ?? null);
+      } catch (error) {
+        done(error as Error, null);
+      }
     },
-  ]);
+  });
 }
 
-function buildProductBreadcrumbs(
-  product: ProductDto,
-  categoriesBySlug: Map<string, CategoryDto>,
-): Array<{ name: string; url: string }> {
-  const primaryCategory =
-    categoriesBySlug.get(product.categorySlug) ||
-    product.categorySlugs.map((slug) => categoriesBySlug.get(slug)).find(Boolean);
+const graph = buildGraphClient();
+let siteIdPromise: Promise<string> | null = null;
 
-  if (!primaryCategory) {
-    return dedupeBreadcrumbs([
-      { name: "Inicio", url: "/" },
-      { name: "Productos", url: "/productos" },
-      { name: product.title, url: product.path },
-    ]);
+function sleep(ms: number): Promise<void> {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+function isRetryableGraphError(error: unknown): boolean {
+  const statusCode = Number((error as any)?.statusCode || (error as any)?.status || 0);
+  return [429, 500, 502, 503, 504].includes(statusCode);
+}
+
+async function graphGet<T = unknown>(url: string, maxRetries = 4): Promise<T> {
+  let attempt = 0;
+
+  while (true) {
+    try {
+      return await graph.api(url).header("Prefer", "apiversion=2.1").get();
+    } catch (error) {
+      attempt += 1;
+      if (!isRetryableGraphError(error) || attempt > maxRetries) throw error;
+      warn(`Graph retry ${attempt}/${maxRetries} para ${url}`);
+      await sleep(500 * 2 ** (attempt - 1));
+    }
+  }
+}
+
+async function resolveSiteId(): Promise<string> {
+  if (SHAREPOINT_SITE_ID) return SHAREPOINT_SITE_ID;
+
+  if (!siteIdPromise) {
+    siteIdPromise = (async () => {
+      const safePath = CMS_SITE_PATH!.startsWith("/") ? CMS_SITE_PATH! : `/${CMS_SITE_PATH!}`;
+      const site = await graphGet<{ id?: string }>(`/sites/${CMS_SITE_HOSTNAME}:${safePath}`);
+      if (!site?.id) {
+        throw new Error(`No se pudo resolver el site de SharePoint: ${CMS_SITE_HOSTNAME}${safePath}`);
+      }
+      return String(site.id);
+    })();
   }
 
-  return dedupeBreadcrumbs([...primaryCategory.breadcrumbs, { name: product.title, url: product.path }]);
+  return siteIdPromise;
 }
 
-function buildBreadcrumbSchema(
-  breadcrumbs: Array<{ name: string; url: string }>,
-): Record<string, JsonValue | undefined> | undefined {
-  if (!Array.isArray(breadcrumbs) || breadcrumbs.length === 0) return undefined;
+async function fetchAllItems<T extends Record<string, unknown>>(
+  listId: string,
+  fields: readonly string[],
+): Promise<Array<GraphItem<T>>> {
+  const siteId = await resolveSiteId();
+  const expand = fields.length ? `fields($select=${fields.join(",")})` : "fields";
 
-  return {
-    "@type": "BreadcrumbList",
-    itemListElement: breadcrumbs.map((breadcrumb, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      name: breadcrumb.name,
-      item: toAbsoluteUrl(breadcrumb.url, breadcrumb.url),
-    })),
-  };
-}
+  const items: Array<GraphItem<T>> = [];
+  let next: string | null = `/sites/${siteId}/lists/${listId}/items?$top=999&$expand=${expand}`;
 
-function buildFaqSchema(
-  faqs: Array<{ question: string; answer: string }>,
-): Record<string, JsonValue | undefined> | undefined {
-  if (!Array.isArray(faqs) || faqs.length === 0) return undefined;
-
-  return {
-    "@type": "FAQPage",
-    mainEntity: faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
-    })),
-  };
-}
-
-function schemaOverrideShape(value: Record<string, JsonValue | undefined>): Record<string, JsonValue | undefined> {
-  const override = { ...(value || {}) };
-
-  delete override["@context"];
-  delete override["@graph"];
-  delete override["url"];
-  delete override["image"];
-  delete override["mainEntity"];
-  delete override["itemListElement"];
-  delete override["offers"];
-  delete override["aggregateRating"];
-  delete override["brand"];
-  delete override["sku"];
-  delete override["mpn"];
-  delete override["gtin13"];
-
-  return override;
-}
-
-function normalizeHreflang(
-  entries: Array<{ lang: string; url: string }> | undefined,
-  canonical: string,
-): Array<{ lang: string; url: string }> {
-  const map = new Map<string, { lang: string; url: string }>();
-  const canonicalPath = pathFromUrlLike(canonical) || "/";
-
-  for (const entry of entries || []) {
-    const lang = str(entry?.lang) || "es-ES";
-    const url = toAbsoluteUrl(entry?.url, canonicalPath);
-    map.set(lang.toLowerCase(), { lang, url });
+  while (next) {
+    const response = await graphGet<{ value?: Array<GraphItem<T>>; "@odata.nextLink"?: string }>(next);
+    for (const item of response.value || []) items.push(item);
+    next = response["@odata.nextLink"] || null;
   }
 
-  map.set("es-es", { lang: "es-ES", url: canonical });
-  return [...map.values()];
-}
-
-function buildCategorySchemaGraph(category: CategoryDto): Record<string, JsonValue | undefined> {
-  const primary = {
-    "@type": "CollectionPage",
-    name: category.title,
-    description:
-      category.seo.metaDescription ||
-      category.description ||
-      firstSentence(category.sections[0]?.body || "") ||
-      undefined,
-    url: category.seo.canonical,
-    image: category.seo.ogImageSrc || category.image.src,
-    inLanguage: "es-ES",
-    publisher: { "@type": "Organization", name: BRAND_NAME, url: SITE_URL },
-    ...schemaOverrideShape(category.seo.schema),
-  };
-
-  const graph: Array<Record<string, JsonValue | undefined>> = [primary];
-  const breadcrumbSchema = buildBreadcrumbSchema(category.breadcrumbs);
-  const faqSchema = buildFaqSchema(category.faqs);
-
-  if (breadcrumbSchema) graph.push(breadcrumbSchema);
-  if (faqSchema) graph.push(faqSchema);
-
-  return {
-    "@context": "https://schema.org",
-    "@graph": graph,
-  };
-}
-
-function buildProductSchemaGraph(product: ProductDto): Record<string, JsonValue | undefined> {
-  const primary: Record<string, JsonValue | undefined> = {
-    "@type": "Product",
-    name: product.title,
-    description:
-      product.seo.metaDescription ||
-      product.shortDescription ||
-      product.description ||
-      firstSentence(product.sections[0]?.body || "") ||
-      undefined,
-    image: product.seo.ogImageSrc || product.image.src,
-    url: product.seo.canonical,
-    brand: { "@type": "Organization", name: product.brand || BRAND_NAME },
-    sku: product.sku,
-    mpn: product.mpn,
-    gtin13: product.gtin13,
-    ...schemaOverrideShape(product.seo.schema),
-  };
-
-  if (product.price > 0) {
-    primary.offers = {
-      "@type": "Offer",
-      price: product.price,
-      priceCurrency: product.priceCurrency || "EUR",
-      availability: product.inStock ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
-      url: product.seo.canonical,
-    };
-  }
-
-  if (
-    typeof product.ratingValue === "number" &&
-    typeof product.reviewCount === "number" &&
-    product.reviewCount > 0
-  ) {
-    primary.aggregateRating = {
-      "@type": "AggregateRating",
-      ratingValue: product.ratingValue,
-      reviewCount: product.reviewCount,
-    };
-  }
-
-  const graph: Array<Record<string, JsonValue | undefined>> = [primary];
-  const breadcrumbSchema = buildBreadcrumbSchema(product.breadcrumbs);
-  const faqSchema = buildFaqSchema(product.faqs);
-
-  if (breadcrumbSchema) graph.push(breadcrumbSchema);
-  if (faqSchema) graph.push(faqSchema);
-
-  return {
-    "@context": "https://schema.org",
-    "@graph": graph,
-  };
+  return items;
 }
 
 function parseFaqs(value: unknown): Array<{ question: string; answer: string }> {
@@ -907,7 +778,6 @@ function splitMarkdownByHeading(
 
   const headingRegex = /^##+\s*(.+?)\s*$/gm;
   const matches = [...md.matchAll(headingRegex)];
-
   if (matches.length === 0) return { lead: md, extracted: [] };
 
   const extracted: Array<{ id: string; body: string }> = [];
@@ -923,17 +793,14 @@ function splitMarkdownByHeading(
     const body = md.slice(start, end).trim();
     const id = canonicalSectionId(title, aliases);
 
-    if (body && aliases[id]) {
-      extracted.push({ id: aliases[id]!, body });
-    }
+    if (body && aliases[id]) extracted.push({ id: aliases[id]!, body });
   }
 
   const normalizedLead =
     lead ||
     (() => {
       const firstTitleId = canonicalSectionId(stripMdInline(first[1] || ""), aliases);
-      if (aliases[firstTitleId]) return "";
-      return md;
+      return aliases[firstTitleId] ? "" : md;
     })();
 
   return { lead: normalizedLead.trim(), extracted };
@@ -984,11 +851,7 @@ function mdToBlocks(md: string): ContentBlock[] {
 
   const flushBullets = (): void => {
     if (bullets.length === 0) return;
-    blocks.push({
-      type: "bullets",
-      items: bullets.map((item) => item.trim()).filter(Boolean),
-      ordered,
-    });
+    blocks.push({ type: "bullets", items: bullets.map((item) => item.trim()).filter(Boolean), ordered });
     bullets = [];
     ordered = false;
   };
@@ -1013,31 +876,19 @@ function mdToBlocks(md: string): ContentBlock[] {
       }
     }
 
-    // h2 — subsección dentro del bloque (## Título)
     if (/^##\s+/.test(trimmed) && !/^###/.test(trimmed)) {
       flushParagraph();
       flushBullets();
       const heading = trimmed.replace(/^##\s+/, "").trim();
-      blocks.push({
-        type: "text",
-        text: `<h2>${stripMdInline(heading)}</h2>`,
-        html: true,
-        format: "html",
-      });
+      blocks.push({ type: "text", text: `<h2>${stripMdInline(heading)}</h2>`, html: true, format: "html" });
       continue;
     }
 
-    // h3 — subtítulo dentro de subsección (### Título)
     if (/^###\s+/.test(trimmed)) {
       flushParagraph();
       flushBullets();
       const heading = trimmed.replace(/^###\s+/, "").trim();
-      blocks.push({
-        type: "text",
-        text: `<h3>${stripMdInline(heading)}</h3>`,
-        html: true,
-        format: "html",
-      });
+      blocks.push({ type: "text", text: `<h3>${stripMdInline(heading)}</h3>`, html: true, format: "html" });
       continue;
     }
 
@@ -1081,16 +932,75 @@ function buildSections(
     const blocks = mdToBlocks(body);
     if (blocks.length === 0) continue;
 
-    sections.push({
-      id,
-      key: id,
-      title: titles[id] || id,
-      body,
-      blocks,
-    });
+    sections.push({ id, key: id, title: titles[id] || id, body, blocks });
   }
 
   return sections;
+}
+
+function buildBreadcrumbSchema(
+  breadcrumbs: Array<{ name: string; url: string }>,
+): Record<string, JsonValue | undefined> | undefined {
+  if (!breadcrumbs.length) return undefined;
+
+  return {
+    "@type": "BreadcrumbList",
+    itemListElement: breadcrumbs.map((breadcrumb, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: breadcrumb.name,
+      item: toAbsoluteUrl(breadcrumb.url, breadcrumb.url),
+    })),
+  };
+}
+
+function buildFaqSchema(
+  faqs: Array<{ question: string; answer: string }>,
+): Record<string, JsonValue | undefined> | undefined {
+  if (!faqs.length) return undefined;
+
+  return {
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: { "@type": "Answer", text: faq.answer },
+    })),
+  };
+}
+
+function schemaOverrideShape(value: Record<string, JsonValue | undefined>): Record<string, JsonValue | undefined> {
+  const override = { ...(value || {}) };
+  delete override["@context"];
+  delete override["@graph"];
+  delete override.url;
+  delete override.image;
+  delete override.mainEntity;
+  delete override.itemListElement;
+  delete override.offers;
+  delete override.aggregateRating;
+  delete override.brand;
+  delete override.sku;
+  delete override.mpn;
+  delete override.gtin13;
+  return override;
+}
+
+function normalizeHreflang(
+  entries: Array<{ lang: string; url: string }> | undefined,
+  canonical: string,
+): Array<{ lang: string; url: string }> {
+  const map = new Map<string, { lang: string; url: string }>();
+  const canonicalPath = pathFromUrlLike(canonical) || "/";
+
+  for (const entry of entries || []) {
+    const lang = str(entry.lang) || "es-ES";
+    const url = toAbsoluteUrl(entry.url, canonicalPath);
+    map.set(lang.toLowerCase(), { lang, url });
+  }
+
+  map.set("es-es", { lang: "es-ES", url: canonical });
+  return [...map.values()];
 }
 
 function buildCategorySeo(
@@ -1100,13 +1010,16 @@ function buildCategorySeo(
   imageSrc?: string,
 ): SeoDto {
   const canonical = `${SITE_URL}${publicPath}`;
-  const metaTitle = str(fields.MetaTitle) || title;
+  const metaTitle = str(fields[CATEGORY_FIELDS.metaTitle]) || title;
   const metaDescription =
-    str(fields.MetaDescription) ||
-    str(fields.Description) ||
-    firstSentence(str(fields.DetailsMd) || "");
+    str(fields[CATEGORY_FIELDS.metaDescription]) ||
+    str(fields[CATEGORY_FIELDS.description]) ||
+    firstSentence(str(fields[CATEGORY_FIELDS.detailsMd]) || "");
 
-  const hreflang = parseJsonLoose<Array<{ lang?: unknown; url?: unknown }>>(fields.HrefLangJson, [])
+  const hreflang = parseJsonLoose<Array<{ lang?: unknown; url?: unknown }>>(
+    fields[CATEGORY_FIELDS.hreflangJson],
+    [],
+  )
     .map((item) => ({
       lang: str(item?.lang) || "es-ES",
       url: toAbsoluteUrl(item?.url, publicPath),
@@ -1117,12 +1030,12 @@ function buildCategorySeo(
     metaTitle,
     metaDescription,
     canonical,
-    hreflang: hreflang.length > 0 ? hreflang : [{ lang: "es-ES", url: canonical }],
-    keywords: uniq(parseStringList(fields.KeywordsJson)),
-    searchTerms: uniq(parseStringList(fields.SearchTermsJson)),
-    schema: parseJsonLoose<Record<string, JsonValue>>(fields.SchemaJson, {}),
-    robotsOverride: str(fields.RobotsOverride) || "INHERIT",
-    ogImageSrc: sanitizeImageSrc(fields.OgImageSrc) || imageSrc,
+    hreflang: hreflang.length ? hreflang : [{ lang: "es-ES", url: canonical }],
+    keywords: uniq(parseStringList(fields[CATEGORY_FIELDS.keywordsJson])),
+    searchTerms: uniq(parseStringList(fields[CATEGORY_FIELDS.searchTermsJson])),
+    schema: parseJsonLoose<Record<string, JsonValue>>(fields[CATEGORY_FIELDS.schemaJson], {}),
+    robotsOverride: str(fields[CATEGORY_FIELDS.robotsOverride]) || "INHERIT",
+    ogImageSrc: sanitizeImageSrc(fields[CATEGORY_FIELDS.ogImageSrc]) || imageSrc,
   };
 }
 
@@ -1130,22 +1043,20 @@ function buildProductSeo(
   fields: Record<string, unknown>,
   title: string,
   publicPath: string,
-  priceValue: number,
-  priceCurrency: string,
-  inStock: boolean,
-  brand: string | undefined,
   imageSrc?: string,
-  sku?: string,
 ): SeoDto {
   const canonical = `${SITE_URL}${publicPath}`;
-  const metaTitle = str(fields.MetaTitle) || title;
+  const metaTitle = str(fields[PRODUCT_FIELDS.metaTitle]) || title;
   const metaDescription =
-    str(fields.MetaDescription) ||
-    str(fields.ShortDescription) ||
-    firstSentence(str(fields.DetailsMd) || "") ||
-    firstSentence(str(fields.BodyMd) || "");
+    str(fields[PRODUCT_FIELDS.metaDescription]) ||
+    str(fields[PRODUCT_FIELDS.shortDescription]) ||
+    firstSentence(str(fields[PRODUCT_FIELDS.detailsMd]) || "") ||
+    firstSentence(str(fields[PRODUCT_FIELDS.bodyMd]) || "");
 
-  const hreflang = parseJsonLoose<Array<{ lang?: unknown; url?: unknown }>>(fields.HrefLangJson, [])
+  const hreflang = parseJsonLoose<Array<{ lang?: unknown; url?: unknown }>>(
+    fields[PRODUCT_FIELDS.hreflangJson],
+    [],
+  )
     .map((item) => ({
       lang: str(item?.lang) || "es-ES",
       url: toAbsoluteUrl(item?.url, publicPath),
@@ -1156,48 +1067,126 @@ function buildProductSeo(
     metaTitle,
     metaDescription,
     canonical,
-    hreflang: hreflang.length > 0 ? hreflang : [{ lang: "es-ES", url: canonical }],
-    keywords: uniq(parseStringList(fields.KeywordsJson)),
-    searchTerms: uniq(parseStringList(fields.SearchTermsJson)),
-    schema: parseJsonLoose<Record<string, JsonValue>>(fields.SchemaJson, {}),
-    robotsOverride: bool(fields.NoIndex) ? "NOINDEX" : str(fields.RobotsOverride) || "INHERIT",
-    robotsAdvanced: str(fields.RobotsAdvanced),
-    ogImageSrc: sanitizeImageSrc(fields.OgImageSrc) || imageSrc,
+    hreflang: hreflang.length ? hreflang : [{ lang: "es-ES", url: canonical }],
+    keywords: uniq(parseStringList(fields[PRODUCT_FIELDS.keywordsJson])),
+    searchTerms: uniq(parseStringList(fields[PRODUCT_FIELDS.searchTermsJson])),
+    schema: parseJsonLoose<Record<string, JsonValue>>(fields[PRODUCT_FIELDS.schemaJson], {}),
+    robotsOverride: bool(fields[PRODUCT_FIELDS.noIndex])
+      ? "NOINDEX"
+      : str(fields[PRODUCT_FIELDS.robotsOverride]) || "INHERIT",
+    robotsAdvanced: str(fields[PRODUCT_FIELDS.robotsAdvanced]),
+    ogImageSrc: sanitizeImageSrc(fields[PRODUCT_FIELDS.ogImageSrc]) || imageSrc,
   };
+}
+
+function buildCategorySchemaGraph(category: CategoryDto): Record<string, JsonValue | undefined> {
+  const primary = {
+    "@type": "CollectionPage",
+    name: category.title,
+    description:
+      category.seo.metaDescription ||
+      category.description ||
+      firstSentence(category.sections[0]?.body || "") ||
+      undefined,
+    url: category.seo.canonical,
+    image: category.seo.ogImageSrc || category.image.src,
+    inLanguage: "es-ES",
+    publisher: { "@type": "Organization", name: BRAND_NAME, url: SITE_URL },
+    ...schemaOverrideShape(category.seo.schema),
+  };
+
+  const graphItems: Array<Record<string, JsonValue | undefined>> = [primary];
+  const breadcrumbSchema = buildBreadcrumbSchema(category.breadcrumbs);
+  const faqSchema = buildFaqSchema(category.faqs);
+  if (breadcrumbSchema) graphItems.push(breadcrumbSchema);
+  if (faqSchema) graphItems.push(faqSchema);
+
+  return { "@context": "https://schema.org", "@graph": graphItems };
+}
+
+function buildProductSchemaGraph(product: ProductDto): Record<string, JsonValue | undefined> {
+  const primary: Record<string, JsonValue | undefined> = {
+    "@type": "Product",
+    name: product.title,
+    description:
+      product.seo.metaDescription ||
+      product.shortDescription ||
+      product.description ||
+      firstSentence(product.sections[0]?.body || "") ||
+      undefined,
+    image: product.seo.ogImageSrc || product.image.src,
+    url: product.seo.canonical,
+    brand: { "@type": "Organization", name: product.brand || BRAND_NAME },
+    sku: product.sku,
+    mpn: product.mpn,
+    gtin13: product.gtin13,
+    ...schemaOverrideShape(product.seo.schema),
+  };
+
+  if (product.price > 0) {
+    primary.offers = {
+      "@type": "Offer",
+      price: product.price,
+      priceCurrency: product.priceCurrency || "EUR",
+      availability: product.inStock ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
+      url: product.seo.canonical,
+    };
+  }
+
+  if (
+    typeof product.ratingValue === "number" &&
+    typeof product.reviewCount === "number" &&
+    product.reviewCount > 0
+  ) {
+    primary.aggregateRating = {
+      "@type": "AggregateRating",
+      ratingValue: product.ratingValue,
+      reviewCount: product.reviewCount,
+    };
+  }
+
+  const graphItems: Array<Record<string, JsonValue | undefined>> = [primary];
+  const breadcrumbSchema = buildBreadcrumbSchema(product.breadcrumbs);
+  const faqSchema = buildFaqSchema(product.faqs);
+  if (breadcrumbSchema) graphItems.push(breadcrumbSchema);
+  if (faqSchema) graphItems.push(faqSchema);
+
+  return { "@context": "https://schema.org", "@graph": graphItems };
 }
 
 function buildCategory(item: GraphItem<Record<string, unknown>>): CategoryDto | null {
   const fields = item.fields || {};
 
   const slug =
-    normalizeSlug(fields.CategorySlug) ||
-    slugFromPath(pathFromUrlLike(fields.Path), "/categorias") ||
-    slugFromPath(pathFromUrlLike(fields.Canonical), "/categorias");
+    normalizeSlug(fields[CATEGORY_FIELDS.slug]) ||
+    slugFromPath(pathFromUrlLike(fields[CATEGORY_FIELDS.path]), "/categorias") ||
+    slugFromPath(pathFromUrlLike(fields[CATEGORY_FIELDS.canonical]), "/categorias");
 
   if (!slug) {
     warn(`Categoría descartada: item ${String(item.id ?? "sin-id")} sin slug válido.`);
     return null;
   }
 
-  const publicPath = normalizePublicPath(fields.Path, fields.Canonical, `/categorias/${slug}`, "/categorias");
-  const title = str(fields.Title) || slug;
-  const nav = str(fields.NavLabel) || title;
-  const imageSrc = sanitizeImageSrc(fields.ImageSrc);
-  const detailsMd = str(fields.DetailsMd);
-  const bodyMd = str(fields.BodyMd);
-  const description = str(fields.Description);
+  const publicPath = normalizePublicPath(
+    fields[CATEGORY_FIELDS.path],
+    fields[CATEGORY_FIELDS.canonical],
+    `/categorias/${slug}`,
+    "/categorias",
+  );
 
-  const rawCanonicalPath = pathFromUrlLike(fields.Canonical);
-  if (rawCanonicalPath && rawCanonicalPath !== publicPath) {
-    warn(`Categoría ${slug}: canonical origen distinto al path (${rawCanonicalPath} -> ${publicPath}).`);
-  }
+  const title = str(fields[CATEGORY_FIELDS.title]) || slug;
+  const nav = str(fields[CATEGORY_FIELDS.nav]) || title;
+  const imageSrc = sanitizeImageSrc(fields[CATEGORY_FIELDS.imageSrc]);
+  const detailsMd = str(fields[CATEGORY_FIELDS.detailsMd]);
+  const bodyMd = str(fields[CATEGORY_FIELDS.bodyMd]);
+  const description = str(fields[CATEGORY_FIELDS.description]);
 
   const sectionEntries: Array<{ target: string; value?: string }> = [
     { target: "details", value: detailsMd || description },
-    { target: "types", value: str(fields.TypesMd) },
-    { target: "formats", value: str(fields.FormatsMd) },
-    { target: "finishes", value: str(fields.FinishesMd) },
-    { target: "uses", value: str(fields.UsesMd) },
+    { target: "types", value: str(fields[CATEGORY_FIELDS.typesMd]) },
+    { target: "formats", value: str(fields[CATEGORY_FIELDS.formatsMd]) },
+    { target: "finishes", value: str(fields[CATEGORY_FIELDS.finishesMd]) },
+    { target: "uses", value: str(fields[CATEGORY_FIELDS.usesMd]) },
   ];
 
   if (bodyMd && bodyMd !== detailsMd) {
@@ -1213,8 +1202,12 @@ function buildCategory(item: GraphItem<Record<string, unknown>>): CategoryDto | 
     "uses",
   ]);
 
-  const pathSegments = publicPath.split("/").filter(Boolean);
-  const parent = pathSegments.length > 2 ? pathSegments[pathSegments.length - 2] : undefined;
+  const inferredParent =
+    publicPath.split("/").filter(Boolean).length > 2
+      ? publicPath.split("/").filter(Boolean).slice(-2, -1)[0]
+      : undefined;
+
+  const parent = normalizeSlug(fields[CATEGORY_FIELDS.parentCategory]) || inferredParent;
   const seo = buildCategorySeo(fields, title, publicPath, imageSrc);
 
   return {
@@ -1225,25 +1218,26 @@ function buildCategory(item: GraphItem<Record<string, unknown>>): CategoryDto | 
     path: publicPath,
     title,
     nav,
-    order: 0,
+    order: num(fields[CATEGORY_FIELDS.sortOrder]) ?? 0,
     parent,
-    hidden: false,
-    featured: false,
-    isPublished: bool(fields.IsPublished),
+    hidden: bool(fields[CATEGORY_FIELDS.isHidden]),
+    featured: bool(fields[CATEGORY_FIELDS.isFeatured]),
+    isPublished: bool(fields[CATEGORY_FIELDS.isPublished]),
+    publishedAt: str(fields[CATEGORY_FIELDS.publishedAt]),
     description,
     bodyMd,
     sections,
     image: {
       src: imageSrc,
-      width: parsePositiveInt(fields.ImageWidth),
-      height: parsePositiveInt(fields.ImageHeight),
-      alt: str(fields.ImageAlt) || title,
+      width: parseImageDimension(fields[CATEGORY_FIELDS.imageWidth]),
+      height: parseImageDimension(fields[CATEGORY_FIELDS.imageHeight]),
+      alt: str(fields[CATEGORY_FIELDS.imageAlt]) || title,
     },
-    faqs: parseFaqs(fields.FaqsJson),
-    galleryImages: parseJsonLoose<unknown[]>(fields.GalleryImagesJson, []),
+    faqs: parseFaqs(fields[CATEGORY_FIELDS.faqsJson]),
+    galleryImages: parseJsonLoose<unknown[]>(fields[CATEGORY_FIELDS.galleryImagesJson], []),
     breadcrumbs: [],
     legacySlugs: uniq(
-      parseStringList(fields.LegacySlugsJson)
+      parseStringList(fields[CATEGORY_FIELDS.legacySlugsJson])
         .map((value) => normalizeSlug(value))
         .filter(Boolean) as string[],
     ),
@@ -1255,9 +1249,9 @@ function buildProduct(item: GraphItem<Record<string, unknown>>): ProductDto | nu
   const fields = item.fields || {};
 
   const slug =
-    normalizeSlug(getField(fields, ["ProductSlug"])) ||
-    slugFromPath(pathFromUrlLike(getField(fields, ["Path"])), "/productos") ||
-    slugFromPath(pathFromUrlLike(getField(fields, ["Canonical"])), "/productos");
+    normalizeSlug(fields[PRODUCT_FIELDS.slug]) ||
+    slugFromPath(pathFromUrlLike(fields[PRODUCT_FIELDS.path]), "/productos") ||
+    slugFromPath(pathFromUrlLike(fields[PRODUCT_FIELDS.canonical]), "/productos");
 
   if (!slug) {
     warn(`Producto descartado: item ${String(item.id ?? "sin-id")} sin slug válido.`);
@@ -1265,16 +1259,16 @@ function buildProduct(item: GraphItem<Record<string, unknown>>): ProductDto | nu
   }
 
   const publicPath = normalizePublicPath(
-    getField(fields, ["Path"]),
-    getField(fields, ["Canonical"]),
+    fields[PRODUCT_FIELDS.path],
+    fields[PRODUCT_FIELDS.canonical],
     `/productos/${slug}`,
     "/productos",
   );
 
-  const title = str(getField(fields, ["Title"])) || slug;
+  const title = str(fields[PRODUCT_FIELDS.title]) || slug;
 
-  const rawPrimaryCategory = getField(fields, ["CategorySlug"]);
-  const rawCategories = getField(fields, ["Categories"]);
+  const rawPrimaryCategory = fields[PRODUCT_FIELDS.categorySlug];
+  const rawCategories = fields[PRODUCT_FIELDS.categories];
 
   const additionalCategories = parseStringList(rawCategories)
     .map((value) => leafSlug(value))
@@ -1284,34 +1278,28 @@ function buildProduct(item: GraphItem<Record<string, unknown>>): ProductDto | nu
   const categorySlug = primaryCategorySlug || additionalCategories[0] || "";
   const categorySlugs = uniq([categorySlug, ...additionalCategories].filter(Boolean)) as string[];
 
-  if (!primaryCategorySlug && categorySlug) {
-    warn(
-      `Producto ${slug}: CategorySlug vacío o no legible. raw=${JSON.stringify(rawPrimaryCategory)} | fallback=${categorySlug}`,
-    );
-  }
+  const imageSrc = sanitizeImageSrc(fields[PRODUCT_FIELDS.imageSrc]);
+  const detailsMd = str(fields[PRODUCT_FIELDS.detailsMd]);
+  const bodyMd = str(fields[PRODUCT_FIELDS.bodyMd]);
 
-  const imageSrc = sanitizeImageSrc(getField(fields, ["ImageSrc"]));
-  const detailsMd = str(getField(fields, ["DetailsMd"]));
-  const bodyMd = str(getField(fields, ["BodyMd"]));
   const shortDescription =
-    str(getField(fields, ["ShortDescription"])) ||
+    str(fields[PRODUCT_FIELDS.shortDescription]) ||
     firstSentence(detailsMd || "") ||
     firstSentence(bodyMd || "");
 
-  const description = shortDescription;
-  const brand = str(getField(fields, ["Brand"]));
-  const priceValue = parsePrice(getField(fields, ["Price"]));
-  const currency = str(getField(fields, ["PriceCurrency"])) || "EUR";
-  const inStock = bool(getField(fields, ["InStock"]));
+  const brand = str(fields[PRODUCT_FIELDS.brand]);
+  const priceValue = parsePrice(fields[PRODUCT_FIELDS.price]);
+  const currency = str(fields[PRODUCT_FIELDS.priceCurrency]) || "EUR";
+  const inStock = bool(fields[PRODUCT_FIELDS.inStock]);
 
   const sectionEntries: Array<{ target: string; value?: string }> = [
     { target: "details", value: detailsMd || shortDescription },
-    { target: "benefits", value: str(getField(fields, ["BenefitsMd"])) },
-    { target: "materials", value: str(getField(fields, ["MaterialsMd"])) },
-    { target: "formats", value: str(getField(fields, ["FormatsMd"])) },
-    { target: "finishes", value: str(getField(fields, ["FinishesMd"])) },
-    { target: "technical-specs", value: str(getField(fields, ["TechnicalSpecsMd"])) },
-    { target: "applications", value: str(getField(fields, ["ApplicationsMd"])) },
+    { target: "benefits", value: str(fields[PRODUCT_FIELDS.benefitsMd]) },
+    { target: "materials", value: str(fields[PRODUCT_FIELDS.materialsMd]) },
+    { target: "formats", value: str(fields[PRODUCT_FIELDS.formatsMd]) },
+    { target: "finishes", value: str(fields[PRODUCT_FIELDS.finishesMd]) },
+    { target: "technical-specs", value: str(fields[PRODUCT_FIELDS.technicalSpecsMd]) },
+    { target: "applications", value: str(fields[PRODUCT_FIELDS.applicationsMd]) },
   ];
 
   if (bodyMd && bodyMd !== detailsMd) {
@@ -1329,17 +1317,7 @@ function buildProduct(item: GraphItem<Record<string, unknown>>): ProductDto | nu
     "applications",
   ]);
 
-  const seo = buildProductSeo(
-    fields,
-    title,
-    publicPath,
-    priceValue,
-    currency,
-    inStock,
-    brand,
-    imageSrc,
-    str(getField(fields, ["Sku"])),
-  );
+  const seo = buildProductSeo(fields, title, publicPath, imageSrc);
 
   return {
     id: String(item.id || slug),
@@ -1350,36 +1328,36 @@ function buildProduct(item: GraphItem<Record<string, unknown>>): ProductDto | nu
     title,
     categorySlug,
     categorySlugs,
-    order: num(getField(fields, ["SortOrder"])) ?? 0,
-    isPublished: bool(getField(fields, ["IsPublished"])),
-    publishedAt: str(getField(fields, ["PublishedAt"])),
+    order: num(fields[PRODUCT_FIELDS.sortOrder]) ?? 0,
+    isPublished: bool(fields[PRODUCT_FIELDS.isPublished]),
+    publishedAt: str(fields[PRODUCT_FIELDS.publishedAt]),
     shortDescription,
-    description,
+    description: shortDescription,
     bodyMd,
     sections,
-    faqs: parseFaqs(getField(fields, ["FaqsJson"])),
+    faqs: parseFaqs(fields[PRODUCT_FIELDS.faqsJson]),
     breadcrumbs: [],
     image: {
       src: imageSrc,
-      width: parsePositiveInt(getField(fields, ["ImageWidth"])),
-      height: parsePositiveInt(getField(fields, ["ImageHeight"])),
-      alt: str(getField(fields, ["ImageAlt"])) || title,
+      width: parseImageDimension(fields[PRODUCT_FIELDS.imageWidth]),
+      height: parseImageDimension(fields[PRODUCT_FIELDS.imageHeight]),
+      alt: str(fields[PRODUCT_FIELDS.imageAlt]) || title,
     },
-    galleryImages: parseJsonLoose<unknown[]>(getField(fields, ["GalleryImagesJson"]), []),
-    sku: str(getField(fields, ["Sku"])),
-    mpn: str(getField(fields, ["Mpn"])),
-    gtin13: str(getField(fields, ["Gtin13"])),
+    galleryImages: parseJsonLoose<unknown[]>(fields[PRODUCT_FIELDS.galleryImagesJson], []),
+    sku: str(fields[PRODUCT_FIELDS.sku]),
+    mpn: str(fields[PRODUCT_FIELDS.mpn]),
+    gtin13: str(fields[PRODUCT_FIELDS.gtin13]),
     brand,
     price: priceValue,
     priceCurrency: currency,
     inStock,
-    ratingValue: num(getField(fields, ["RatingValue"])),
-    reviewCount: parsePositiveInt(getField(fields, ["ReviewCount"])),
-    attributes: parseJsonLoose<unknown[]>(getField(fields, ["AttributesJson"]), []),
-    variants: parseJsonLoose<unknown[]>(getField(fields, ["VariantsJson"]), []),
-    formFields: parseFormFields(getField(fields, ["FormFieldsJson"])),
+    ratingValue: num(fields[PRODUCT_FIELDS.ratingValue]),
+    reviewCount: num(fields[PRODUCT_FIELDS.reviewCount]),
+    attributes: parseJsonLoose<unknown[]>(fields[PRODUCT_FIELDS.attributesJson], []),
+    variants: parseJsonLoose<unknown[]>(fields[PRODUCT_FIELDS.variantsJson], []),
+    formFields: parseFormFields(fields[PRODUCT_FIELDS.formFieldsJson]),
     legacySlugs: uniq(
-      parseStringList(getField(fields, ["LegacySlugsJson"]))
+      parseStringList(fields[PRODUCT_FIELDS.legacySlugsJson])
         .map((value) => normalizeSlug(value))
         .filter(Boolean) as string[],
     ),
@@ -1387,59 +1365,50 @@ function buildProduct(item: GraphItem<Record<string, unknown>>): ProductDto | nu
   };
 }
 
-function buildGraphClient(): Client {
-  const credential = new ClientSecretCredential(TENANT_ID!, CLIENT_ID!, CLIENT_SECRET!);
+function buildCategoryBreadcrumbs(
+  category: CategoryDto,
+  categoriesBySlug: Map<string, CategoryDto>,
+): Array<{ name: string; url: string }> {
+  const trail: CategoryDto[] = [];
+  const seen = new Set<string>();
+  let current = category.parent ? categoriesBySlug.get(category.parent) : undefined;
 
-  return Client.init({
-    authProvider: async (done) => {
-      try {
-        const token = await credential.getToken("https://graph.microsoft.com/.default");
-        done(null, token?.token ?? null);
-      } catch (error) {
-        done(error as Error, null);
-      }
-    },
-  });
-}
-
-const graph = buildGraphClient();
-
-async function resolveSiteId(): Promise<string> {
-  if (SHAREPOINT_SITE_ID) return SHAREPOINT_SITE_ID;
-  const safePath = CMS_SITE_PATH!.startsWith("/") ? CMS_SITE_PATH! : `/${CMS_SITE_PATH!}`;
-  const site = await graph.api(`/sites/${CMS_SITE_HOSTNAME}:${safePath}`).header("Prefer", "apiversion=2.1").get();
-  if (!site?.id) {
-    throw new Error(`No se pudo resolver el site de SharePoint: ${CMS_SITE_HOSTNAME}${safePath}`);
-  }
-  return String(site.id);
-}
-
-async function fetchAllItems<T extends Record<string, unknown>>(
-  listId: string,
-  fields?: readonly string[],
-): Promise<Array<GraphItem<T>>> {
-  const siteId = await resolveSiteId();
-  const expand = fields?.length ? `fields($select=${fields.join(",")})` : "fields";
-  const items: Array<GraphItem<T>> = [];
-  let next: string | null = `/sites/${siteId}/lists/${listId}/items?$top=999&$expand=${expand}`;
-
-  while (next) {
-    const response = await graph.api(next).header("Prefer", "apiversion=2.1").get();
-    for (const item of response.value || []) {
-      items.push(item);
-    }
-    next = response["@odata.nextLink"] || null;
+  while (current && !seen.has(current.slug)) {
+    trail.unshift(current);
+    seen.add(current.slug);
+    current = current.parent ? categoriesBySlug.get(current.parent) : undefined;
   }
 
-  return items;
+  return dedupeBreadcrumbs([
+    { name: "Inicio", url: "/" },
+    { name: "Categorías", url: "/categorias" },
+    ...trail.map((item) => ({ name: item.nav || item.title, url: item.path })),
+    { name: category.nav || category.title, url: category.path },
+  ]);
+}
+
+function buildProductBreadcrumbs(
+  product: ProductDto,
+  categoriesBySlug: Map<string, CategoryDto>,
+): Array<{ name: string; url: string }> {
+  const primaryCategory =
+    categoriesBySlug.get(product.categorySlug) ||
+    product.categorySlugs.map((slug) => categoriesBySlug.get(slug)).find(Boolean);
+
+  if (!primaryCategory) {
+    return dedupeBreadcrumbs([
+      { name: "Inicio", url: "/" },
+      { name: "Productos", url: "/productos" },
+      { name: product.title, url: product.path },
+    ]);
+  }
+
+  return dedupeBreadcrumbs([...primaryCategory.breadcrumbs, { name: product.title, url: product.path }]);
 }
 
 function finalizeCatalog(categories: CategoryDto[], products: ProductDto[]): void {
   const categoriesBySlug = new Map<string, CategoryDto>();
-
-  for (const category of categories) {
-    categoriesBySlug.set(category.slug, category);
-  }
+  for (const category of categories) categoriesBySlug.set(category.slug, category);
 
   for (const category of categories) {
     category.breadcrumbs = buildCategoryBreadcrumbs(category, categoriesBySlug);
@@ -1451,41 +1420,55 @@ function finalizeCatalog(categories: CategoryDto[], products: ProductDto[]): voi
     if (!product.categorySlug && product.categorySlugs.length > 0) {
       product.categorySlug = product.categorySlugs[0] || "";
     }
-
     product.breadcrumbs = buildProductBreadcrumbs(product, categoriesBySlug);
     product.seo.hreflang = normalizeHreflang(product.seo.hreflang, product.seo.canonical);
     product.seo.schema = buildProductSchemaGraph(product);
   }
 }
 
+function assertUniqueOrThrow(items: Array<{ key: string; label: string }>, message: string): void {
+  const seen = new Map<string, string>();
+  for (const item of items) {
+    const owner = seen.get(item.key);
+    if (owner) throw new Error(`${message}: "${item.key}" repetido entre ${owner} y ${item.label}`);
+    seen.set(item.key, item.label);
+  }
+}
+
 function validateCatalog(categories: CategoryDto[], products: ProductDto[]): void {
-  const seenPaths = new Map<string, string>();
+  assertUniqueOrThrow(
+    categories.map((item) => ({ key: item.slug, label: `categoría:${item.slug}` })),
+    "Slug de categoría duplicado",
+  );
+
+  assertUniqueOrThrow(
+    products.map((item) => ({ key: item.slug, label: `producto:${item.slug}` })),
+    "Slug de producto duplicado",
+  );
+
+  assertUniqueOrThrow(
+    [
+      ...categories.map((item) => ({ key: item.path, label: `categoría:${item.slug}` })),
+      ...products.map((item) => ({ key: item.path, label: `producto:${item.slug}` })),
+    ],
+    "Ruta pública duplicada",
+  );
+
+  const categorySlugSet = new Set(categories.map((category) => category.slug));
 
   for (const category of categories) {
     if (!category.path.startsWith("/categorias")) {
       warn(`Categoría ${category.slug}: path inválido (${category.path}).`);
     }
-
     if (category.image.src && !/^(https?:\/\/|\/)/i.test(category.image.src)) {
       warn(`Categoría ${category.slug}: image.src no parece una URL válida (${category.image.src}).`);
     }
-
     const canonicalPath = pathFromUrlLike(category.seo.canonical);
     if (canonicalPath && canonicalPath !== category.path) {
       warn(`Categoría ${category.slug}: canonical y path no coinciden (${canonicalPath} !== ${category.path}).`);
     }
-
-    for (const section of category.sections) {
-      if (/^##+\s+/m.test(section.body)) {
-        warn(`Categoría ${category.slug}: quedó un heading incrustado dentro de la sección ${section.id}.`);
-      }
-    }
-
-    const owner = seenPaths.get(category.path);
-    if (owner) {
-      warn(`Ruta duplicada ${category.path} entre ${owner} y categoría:${category.slug}.`);
-    } else {
-      seenPaths.set(category.path, `categoría:${category.slug}`);
+    if (category.parent && !categorySlugSet.has(category.parent)) {
+      warn(`Categoría ${category.slug}: parent (${category.parent}) no existe entre categorías publicadas.`);
     }
   }
 
@@ -1493,53 +1476,41 @@ function validateCatalog(categories: CategoryDto[], products: ProductDto[]): voi
     if (!product.path.startsWith("/productos")) {
       warn(`Producto ${product.slug}: path inválido (${product.path}).`);
     }
-
     if (!product.categorySlug) {
       warn(`Producto ${product.slug}: CategorySlug vacío.`);
     }
-
     if (product.image.src && !/^(https?:\/\/|\/)/i.test(product.image.src)) {
       warn(`Producto ${product.slug}: image.src no parece una URL válida (${product.image.src}).`);
     }
-
     const canonicalPath = pathFromUrlLike(product.seo.canonical);
     if (canonicalPath && canonicalPath !== product.path) {
       warn(`Producto ${product.slug}: canonical y path no coinciden (${canonicalPath} !== ${product.path}).`);
     }
-
-    for (const section of product.sections) {
-      if (/^##+\s+/m.test(section.body)) {
-        warn(`Producto ${product.slug}: quedó un heading incrustado dentro de la sección ${section.id}.`);
-      }
+    if (product.categorySlug && !categorySlugSet.has(product.categorySlug)) {
+      warn(`Producto ${product.slug}: CategorySlug (${product.categorySlug}) no existe en categorías publicadas.`);
     }
-
     if (product.breadcrumbs.length === 0) {
       warn(`Producto ${product.slug}: breadcrumbs vacíos.`);
     }
-
-    const categoryExists = product.categorySlug
-      ? categories.some((category) => category.slug === product.categorySlug)
-      : false;
-
-    if (product.categorySlug && !categoryExists) {
-      warn(`Producto ${product.slug}: CategorySlug (${product.categorySlug}) no existe en categorías publicadas.`);
-    }
-
-    const owner = seenPaths.get(product.path);
-    if (owner) {
-      warn(`Ruta duplicada ${product.path} entre ${owner} y producto:${product.slug}.`);
-    } else {
-      seenPaths.set(product.path, `producto:${product.slug}`);
-    }
   }
+}
+
+async function writeJsonAtomic(filePath: string, data: unknown): Promise<void> {
+  const dir = path.dirname(filePath);
+  const base = path.basename(filePath);
+  const tempPath = path.join(dir, `${base}.tmp`);
+
+  await fs.mkdir(dir, { recursive: true });
+  await fs.writeFile(tempPath, JSON.stringify(data, null, 2), "utf8");
+  await fs.rename(tempPath, filePath);
 }
 
 async function run(): Promise<void> {
   console.log("🔄 Sincronizando SharePoint -> cms/catalog.json\n");
 
   const [categoryItems, productItems] = await Promise.all([
-    fetchAllItems<Record<string, unknown>>(SP_LIST_CATEGORIES_ID!, CATEGORY_FIELDS),
-    fetchAllItems<Record<string, unknown>>(SP_LIST_PRODUCTS_ID!, PRODUCT_FIELDS),
+    fetchAllItems<Record<string, unknown>>(SP_LIST_CATEGORIES_ID!, CATEGORY_SELECT),
+    fetchAllItems<Record<string, unknown>>(SP_LIST_PRODUCTS_ID!, PRODUCT_SELECT),
   ]);
 
   console.log(`📦 SharePoint: ${categoryItems.length} categorías, ${productItems.length} productos`);
@@ -1547,30 +1518,16 @@ async function run(): Promise<void> {
   const builtCategories = categoryItems.map(buildCategory).filter((item): item is CategoryDto => Boolean(item));
   const builtProducts = productItems.map(buildProduct).filter((item): item is ProductDto => Boolean(item));
 
-  for (const item of builtCategories) {
-    if (!item.path || !item.title) {
-      warn(`Categoría incompleta: id=${item.id} slug=${item.slug} path=${item.path} title=${item.title}`);
-    }
-  }
-
-  for (const item of builtProducts) {
-    if (!item.path || !item.title) {
-      warn(`Producto incompleto: id=${item.id} slug=${item.slug} path=${item.path} title=${item.title}`);
-    }
-  }
-
   const categories = builtCategories
     .filter((item) => item.isPublished)
-    .sort((a, b) => safeLocaleCompare(a?.path, b?.path));
+    .sort((a, b) => safeLocaleCompare(a.path, b.path));
 
   const products = builtProducts
     .filter((item) => item.isPublished)
-    .sort((a, b) => (a.order !== b.order ? a.order - b.order : safeLocaleCompare(a?.title, b?.title)));
+    .sort((a, b) => (a.order !== b.order ? a.order - b.order : safeLocaleCompare(a.title, b.title)));
 
   finalizeCatalog(categories, products);
   validateCatalog(categories, products);
-
-  await fs.mkdir(path.resolve("cms"), { recursive: true });
 
   const catalog: SyncCatalog = {
     generatedAt: new Date().toISOString(),
@@ -1578,12 +1535,9 @@ async function run(): Promise<void> {
     products,
   };
 
-  await fs.writeFile(path.resolve("cms/catalog.json"), JSON.stringify(catalog, null, 2), "utf8");
-
   const routes = uniq([...categories.map((item) => item.path), ...products.map((item) => item.path)]).sort((a, b) =>
     safeLocaleCompare(a, b),
   );
-  await fs.writeFile(path.resolve("cms/routes.json"), JSON.stringify(routes, null, 2), "utf8");
 
   const searchIndex = [
     ...categories.map((item) => ({
@@ -1604,7 +1558,9 @@ async function run(): Promise<void> {
     })),
   ];
 
-  await fs.writeFile(path.resolve("cms/search-index.json"), JSON.stringify(searchIndex, null, 2), "utf8");
+  await writeJsonAtomic(path.resolve("cms/catalog.json"), catalog);
+  await writeJsonAtomic(path.resolve("cms/routes.json"), routes);
+  await writeJsonAtomic(path.resolve("cms/search-index.json"), searchIndex);
 
   console.log("\n✅ Generados:");
   console.log("   cms/catalog.json");
