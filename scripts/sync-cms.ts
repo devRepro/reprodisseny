@@ -8,7 +8,7 @@ import { ClientSecretCredential } from "@azure/identity";
 dotenv.config({ path: ".env.imports", override: true });
 
 type JsonPrimitive = string | number | boolean | null;
-type JsonValue = JsonPrimitive | JsonValue[] | { [key: string]: JsonValue };
+type JsonValue = JsonPrimitive | JsonValue[] | { [key: string]: JsonValue | undefined };
 
 type GraphItem<T extends Record<string, unknown>> = {
   id?: string | number;
@@ -124,6 +124,8 @@ type SyncCatalog = {
   categories: CategoryDto[];
   products: ProductDto[];
 };
+
+const DEFAULT_SORT_ORDER = 9999;
 
 const SITE_URL = (
   process.env.NUXT_PUBLIC_SITE_URL ||
@@ -367,6 +369,11 @@ function parsePositiveInt(value: unknown): number | undefined {
   return Number.isFinite(parsed) ? parsed : undefined;
 }
 
+function parseImageDimension(value: unknown): number | undefined {
+  const parsed = parsePositiveInt(value);
+  return parsed && parsed > 0 ? parsed : undefined;
+}
+
 function bool(value: unknown): boolean {
   if (typeof value === "boolean") return value;
   const raw = String(value ?? "").trim().toLowerCase();
@@ -413,6 +420,12 @@ function slugify(input: string): string {
     .replace(/^-+|-+$/g, "");
 }
 
+function normalizeSmartQuotes(value: string): string {
+  return value
+    .replace(/[\u201C\u201D\u00AB\u00BB]/g, '"')
+    .replace(/[\u2018\u2019]/g, "'");
+}
+
 function normalizeMarkdown(value: unknown): string {
   return String(value ?? "")
     .replace(/\r\n/g, "\n")
@@ -421,6 +434,8 @@ function normalizeMarkdown(value: unknown): string {
     .replace(/\\r/g, "\r")
     .replace(/\/n/g, "\n")
     .replace(/\/r/g, "\r")
+    .replace(/([^\n])\s*(#{2,6})([^\s#])/g, "$1\n$2 $3")
+    .replace(/(^|\n)(#{2,6})([^\s#])/g, "$1$2 $3")
     .replace(/\n{3,}/g, "\n\n")
     .trim();
 }
@@ -431,12 +446,6 @@ function stripMdInline(value: string): string {
     .replace(/\*(.+?)\*/g, "$1")
     .replace(/`(.+?)`/g, "$1")
     .trim();
-}
-
-function normalizeSmartQuotes(value: string): string {
-  return value
-    .replace(/[\u201C\u201D\u00AB\u00BB]/g, '"')
-    .replace(/[\u2018\u2019]/g, "'");
 }
 
 function extractJsonFragment(value: string): string {
@@ -499,6 +508,14 @@ function parseStringList(value: unknown): string[] {
     .split(/[;,\n]/)
     .map((item) => item.trim())
     .filter((item) => item && !["[]", "{}", "[ ]"].includes(item));
+}
+
+function normalizeKeywordList(value: unknown): string[] {
+  return uniq(
+    parseStringList(value)
+      .map((item) => item.trim())
+      .filter(Boolean),
+  );
 }
 
 function pathFromUrlLike(value: unknown): string | undefined {
@@ -635,6 +652,113 @@ function dedupeBreadcrumbs(
   return result;
 }
 
+function looksLikeJsonContainer(value: unknown): boolean {
+  const raw = str(value);
+  if (!raw) return false;
+  const text = normalizeSmartQuotes(raw).trim();
+  return (
+    (text.startsWith("[") && text.endsWith("]")) ||
+    (text.startsWith("{") && text.endsWith("}"))
+  );
+}
+
+function objectToMarkdown(obj: Record<string, unknown>): string {
+  const title = str(obj.title ?? obj.name ?? obj.label ?? obj.heading ?? obj.kicker);
+  const text = normalizeMarkdown(obj.text ?? obj.description ?? obj.body ?? obj.content ?? obj.copy ?? "");
+  const bullets = Array.isArray(obj.items)
+    ? (obj.items.map((item) => str(item)).filter(Boolean) as string[])
+    : Array.isArray(obj.bullets)
+      ? (obj.bullets.map((item) => str(item)).filter(Boolean) as string[])
+      : Array.isArray(obj.points)
+        ? (obj.points.map((item) => str(item)).filter(Boolean) as string[])
+        : [];
+
+  const nestedArray =
+    !text &&
+    bullets.length === 0 &&
+    Array.isArray(obj.items) &&
+    obj.items.some((item) => typeof item === "object" && item !== null)
+      ? obj.items
+      : null;
+
+  const imageRecord =
+    typeof obj.image === "object" && obj.image !== null ? (obj.image as Record<string, unknown>) : undefined;
+
+  const imageSrc = sanitizeImageSrc(obj.src ?? imageRecord?.src);
+  const imageAlt = str(obj.alt ?? imageRecord?.alt ?? title ?? "");
+
+  const parts: string[] = [];
+
+  if (title && (text || bullets.length > 0 || imageSrc || nestedArray)) {
+    parts.push(`### ${title}`);
+  } else if (title && !text && bullets.length === 0 && !nestedArray && !imageSrc) {
+    parts.push(title);
+  }
+
+  if (text) parts.push(text);
+
+  if (bullets.length > 0) {
+    parts.push(bullets.map((item) => `- ${item}`).join("\n"));
+  }
+
+  if (nestedArray) {
+    const nested = structuredSectionToMarkdown(nestedArray);
+    if (nested) parts.push(nested);
+  }
+
+  if (imageSrc) {
+    parts.push(`![${imageAlt || ""}](${imageSrc})`);
+  }
+
+  return parts.join("\n\n").trim();
+}
+
+function structuredSectionToMarkdown(value: unknown): string {
+  if (typeof value === "string") {
+    const raw = normalizeMarkdown(value);
+    if (!raw) return "";
+
+    if (!looksLikeJsonContainer(raw)) return raw;
+
+    const parsed = parseJsonLoose<unknown>(raw, null);
+    if (parsed == null || typeof parsed === "string") return raw;
+    return structuredSectionToMarkdown(parsed);
+  }
+
+  if (Array.isArray(value)) {
+    const parts = value
+      .map((item) => {
+        if (typeof item === "string") return normalizeMarkdown(item);
+        if (typeof item === "object" && item !== null) return objectToMarkdown(item as Record<string, unknown>);
+        return "";
+      })
+      .filter(Boolean);
+
+    return parts.join("\n\n").trim();
+  }
+
+  if (typeof value === "object" && value !== null) {
+    const obj = value as Record<string, unknown>;
+
+    if (
+      !str(obj.title ?? obj.name ?? obj.label ?? obj.heading) &&
+      !str(obj.text ?? obj.description ?? obj.body ?? obj.content) &&
+      Array.isArray(obj.items) &&
+      obj.items.every((item) => typeof item === "string" || typeof item === "number")
+    ) {
+      return (obj.items as unknown[])
+        .map((item) => str(item))
+        .filter(Boolean)
+        .map((item) => `- ${item}`)
+        .join("\n");
+    }
+
+    return objectToMarkdown(obj);
+  }
+
+  return "";
+}
+
 function buildGraphClient(): Client {
   const credential = new ClientSecretCredential(TENANT_ID!, CLIENT_ID!, CLIENT_SECRET!);
 
@@ -658,7 +782,11 @@ function sleep(ms: number): Promise<void> {
 }
 
 function isRetryableGraphError(error: unknown): boolean {
-  const statusCode = Number((error as any)?.statusCode || (error as any)?.status || 0);
+  const statusCode = Number(
+    (error as { statusCode?: number; status?: number })?.statusCode ||
+      (error as { statusCode?: number; status?: number })?.status ||
+      0,
+  );
   return [429, 500, 502, 503, 504].includes(statusCode);
 }
 
@@ -717,23 +845,22 @@ function parseFaqs(value: unknown): Array<{ question: string; answer: string }> 
   const raw = str(value);
   if (!raw) return [];
 
-  const parsed = parseJsonLoose<Array<{ question?: unknown; answer?: unknown }>>(
+  const parsed = parseJsonLoose<Array<Record<string, unknown>>>(
     normalizeSmartQuotes(extractJsonFragment(raw)),
     [],
   );
-
   if (!Array.isArray(parsed)) return [];
 
   return parsed
     .map((item) => ({
-      question: str(item?.question) || "",
-      answer: normalizeMarkdown(item?.answer || ""),
+      question: str(item?.question ?? item?.q ?? item?.pregunta ?? item?.title) || "",
+      answer: normalizeMarkdown(item?.answer ?? item?.a ?? item?.respuesta ?? item?.text ?? ""),
     }))
     .filter((item) => item.question && item.answer);
 }
 
 function parseFormFields(value: unknown): ProductDto["formFields"] {
-  const parsed = parseJsonLoose<any[]>(value, []);
+  const parsed = parseJsonLoose<Record<string, unknown>[]>(value, []);
   if (!Array.isArray(parsed)) return [];
 
   const fields = parsed.map((field, index) => {
@@ -750,7 +877,7 @@ function parseFormFields(value: unknown): ProductDto["formFields"] {
       placeholder: str(field?.placeholder),
       helpText: str(field?.helpText || field?.description),
       readonly:
-        bool(field?.readonly) ||
+        bool(field?.readonly ?? field?.readOnly) ||
         (options.length === 1 && (str(field?.type) || "").toLowerCase() === "select"),
     };
   });
@@ -772,17 +899,17 @@ function canonicalSectionId(value: string, aliases: Record<string, string>): str
 function splitMarkdownByHeading(
   value: string,
   aliases: Record<string, string>,
+  allowedIds: Set<string>,
 ): { lead: string; extracted: Array<{ id: string; body: string }> } {
   const md = normalizeMarkdown(value);
   if (!md) return { lead: "", extracted: [] };
 
-  const headingRegex = /^##+\s*(.+?)\s*$/gm;
+  const headingRegex = /^#{2,6}\s*(.+?)\s*$/gm;
   const matches = [...md.matchAll(headingRegex)];
   if (matches.length === 0) return { lead: md, extracted: [] };
 
   const extracted: Array<{ id: string; body: string }> = [];
-  const first = matches[0]!;
-  const lead = md.slice(0, first.index ?? 0).trim();
+  const preamble = md.slice(0, matches[0]?.index ?? 0).trim();
 
   for (let index = 0; index < matches.length; index += 1) {
     const current = matches[index]!;
@@ -793,30 +920,29 @@ function splitMarkdownByHeading(
     const body = md.slice(start, end).trim();
     const id = canonicalSectionId(title, aliases);
 
-    if (body && aliases[id]) extracted.push({ id: aliases[id]!, body });
+    if (body && allowedIds.has(id)) {
+      extracted.push({ id, body });
+    }
   }
 
-  const normalizedLead =
-    lead ||
-    (() => {
-      const firstTitleId = canonicalSectionId(stripMdInline(first[1] || ""), aliases);
-      return aliases[firstTitleId] ? "" : md;
-    })();
-
-  return { lead: normalizedLead.trim(), extracted };
+  return {
+    lead: extracted.length > 0 ? preamble : md,
+    extracted,
+  };
 }
 
 function mergeSectionSources(
   entries: Array<{ target: string; value?: string }>,
   aliases: Record<string, string>,
+  allowedIds: Set<string>,
 ): Record<string, string[]> {
   const buckets: Record<string, string[]> = {};
 
   for (const entry of entries) {
-    const md = normalizeMarkdown(entry.value);
-    if (!md) continue;
+    const normalizedValue = structuredSectionToMarkdown(entry.value);
+    if (!normalizedValue) continue;
 
-    const split = splitMarkdownByHeading(md, aliases);
+    const split = splitMarkdownByHeading(normalizedValue, aliases, allowedIds);
 
     if (split.lead) {
       buckets[entry.target] ||= [];
@@ -1014,7 +1140,8 @@ function buildCategorySeo(
   const metaDescription =
     str(fields[CATEGORY_FIELDS.metaDescription]) ||
     str(fields[CATEGORY_FIELDS.description]) ||
-    firstSentence(str(fields[CATEGORY_FIELDS.detailsMd]) || "");
+    firstSentence(str(fields[CATEGORY_FIELDS.detailsMd]) || "") ||
+    firstSentence(str(fields[CATEGORY_FIELDS.bodyMd]) || "");
 
   const hreflang = parseJsonLoose<Array<{ lang?: unknown; url?: unknown }>>(
     fields[CATEGORY_FIELDS.hreflangJson],
@@ -1031,10 +1158,11 @@ function buildCategorySeo(
     metaDescription,
     canonical,
     hreflang: hreflang.length ? hreflang : [{ lang: "es-ES", url: canonical }],
-    keywords: uniq(parseStringList(fields[CATEGORY_FIELDS.keywordsJson])),
-    searchTerms: uniq(parseStringList(fields[CATEGORY_FIELDS.searchTermsJson])),
+    keywords: normalizeKeywordList(fields[CATEGORY_FIELDS.keywordsJson]),
+    searchTerms: normalizeKeywordList(fields[CATEGORY_FIELDS.searchTermsJson]),
     schema: parseJsonLoose<Record<string, JsonValue>>(fields[CATEGORY_FIELDS.schemaJson], {}),
     robotsOverride: str(fields[CATEGORY_FIELDS.robotsOverride]) || "INHERIT",
+    robotsAdvanced: str(fields[CATEGORY_FIELDS.robotsAdvanced]),
     ogImageSrc: sanitizeImageSrc(fields[CATEGORY_FIELDS.ogImageSrc]) || imageSrc,
   };
 }
@@ -1068,8 +1196,8 @@ function buildProductSeo(
     metaDescription,
     canonical,
     hreflang: hreflang.length ? hreflang : [{ lang: "es-ES", url: canonical }],
-    keywords: uniq(parseStringList(fields[PRODUCT_FIELDS.keywordsJson])),
-    searchTerms: uniq(parseStringList(fields[PRODUCT_FIELDS.searchTermsJson])),
+    keywords: normalizeKeywordList(fields[PRODUCT_FIELDS.keywordsJson]),
+    searchTerms: normalizeKeywordList(fields[PRODUCT_FIELDS.searchTermsJson]),
     schema: parseJsonLoose<Record<string, JsonValue>>(fields[PRODUCT_FIELDS.schemaJson], {}),
     robotsOverride: bool(fields[PRODUCT_FIELDS.noIndex])
       ? "NOINDEX"
@@ -1080,7 +1208,7 @@ function buildProductSeo(
 }
 
 function buildCategorySchemaGraph(category: CategoryDto): Record<string, JsonValue | undefined> {
-  const primary = {
+  const primary: Record<string, JsonValue | undefined> = {
     "@type": "CollectionPage",
     name: category.title,
     description:
@@ -1193,19 +1321,16 @@ function buildCategory(item: GraphItem<Record<string, unknown>>): CategoryDto | 
     sectionEntries.push({ target: "details", value: bodyMd });
   }
 
-  const sectionSources = mergeSectionSources(sectionEntries, CATEGORY_SECTION_ALIASES);
-  const sections = buildSections(sectionSources, CATEGORY_SECTION_TITLES, [
-    "details",
-    "types",
-    "formats",
-    "finishes",
-    "uses",
-  ]);
+  const categorySectionOrder = ["details", "types", "formats", "finishes", "uses"];
+  const sectionSources = mergeSectionSources(
+    sectionEntries,
+    CATEGORY_SECTION_ALIASES,
+    new Set(categorySectionOrder),
+  );
+  const sections = buildSections(sectionSources, CATEGORY_SECTION_TITLES, categorySectionOrder);
 
-  const inferredParent =
-    publicPath.split("/").filter(Boolean).length > 2
-      ? publicPath.split("/").filter(Boolean).slice(-2, -1)[0]
-      : undefined;
+  const pathSegments = publicPath.split("/").filter(Boolean);
+  const inferredParent = pathSegments.length > 2 ? pathSegments.slice(-2, -1)[0] : undefined;
 
   const parent = normalizeSlug(fields[CATEGORY_FIELDS.parentCategory]) || inferredParent;
   const seo = buildCategorySeo(fields, title, publicPath, imageSrc);
@@ -1218,14 +1343,14 @@ function buildCategory(item: GraphItem<Record<string, unknown>>): CategoryDto | 
     path: publicPath,
     title,
     nav,
-    order: num(fields[CATEGORY_FIELDS.sortOrder]) ?? 0,
+    order: num(fields[CATEGORY_FIELDS.sortOrder]) ?? DEFAULT_SORT_ORDER,
     parent,
     hidden: bool(fields[CATEGORY_FIELDS.isHidden]),
     featured: bool(fields[CATEGORY_FIELDS.isFeatured]),
     isPublished: bool(fields[CATEGORY_FIELDS.isPublished]),
     publishedAt: str(fields[CATEGORY_FIELDS.publishedAt]),
     description,
-    bodyMd,
+    bodyMd: bodyMd || detailsMd || description,
     sections,
     image: {
       src: imageSrc,
@@ -1306,8 +1431,7 @@ function buildProduct(item: GraphItem<Record<string, unknown>>): ProductDto | nu
     sectionEntries.push({ target: "details", value: bodyMd });
   }
 
-  const sectionSources = mergeSectionSources(sectionEntries, PRODUCT_SECTION_ALIASES);
-  const sections = buildSections(sectionSources, PRODUCT_SECTION_TITLES, [
+  const productSectionOrder = [
     "details",
     "benefits",
     "materials",
@@ -1315,7 +1439,13 @@ function buildProduct(item: GraphItem<Record<string, unknown>>): ProductDto | nu
     "finishes",
     "technical-specs",
     "applications",
-  ]);
+  ];
+  const sectionSources = mergeSectionSources(
+    sectionEntries,
+    PRODUCT_SECTION_ALIASES,
+    new Set(productSectionOrder),
+  );
+  const sections = buildSections(sectionSources, PRODUCT_SECTION_TITLES, productSectionOrder);
 
   const seo = buildProductSeo(fields, title, publicPath, imageSrc);
 
@@ -1328,12 +1458,12 @@ function buildProduct(item: GraphItem<Record<string, unknown>>): ProductDto | nu
     title,
     categorySlug,
     categorySlugs,
-    order: num(fields[PRODUCT_FIELDS.sortOrder]) ?? 0,
+    order: num(fields[PRODUCT_FIELDS.sortOrder]) ?? DEFAULT_SORT_ORDER,
     isPublished: bool(fields[PRODUCT_FIELDS.isPublished]),
     publishedAt: str(fields[PRODUCT_FIELDS.publishedAt]),
     shortDescription,
     description: shortDescription,
-    bodyMd,
+    bodyMd: bodyMd || detailsMd || shortDescription,
     sections,
     faqs: parseFaqs(fields[PRODUCT_FIELDS.faqsJson]),
     breadcrumbs: [],
@@ -1519,8 +1649,8 @@ async function run(): Promise<void> {
   const builtProducts = productItems.map(buildProduct).filter((item): item is ProductDto => Boolean(item));
 
   const categories = builtCategories
-    .filter((item) => item.isPublished)
-    .sort((a, b) => safeLocaleCompare(a.path, b.path));
+    .filter((item) => item.isPublished && !item.hidden)
+    .sort((a, b) => (a.order !== b.order ? a.order - b.order : safeLocaleCompare(a.title, b.title)));
 
   const products = builtProducts
     .filter((item) => item.isPublished)
@@ -1545,16 +1675,16 @@ async function run(): Promise<void> {
       slug: item.slug,
       title: item.title,
       path: item.path,
-      keywords: item.seo.keywords,
-      searchTerms: item.seo.searchTerms || [],
+      keywords: normalizeKeywordList(item.seo.keywords),
+      searchTerms: normalizeKeywordList(item.seo.searchTerms || []),
     })),
     ...products.map((item) => ({
       type: "producto",
       slug: item.slug,
       title: item.title,
       path: item.path,
-      keywords: item.seo.keywords,
-      searchTerms: item.seo.searchTerms || [],
+      keywords: normalizeKeywordList(item.seo.keywords),
+      searchTerms: normalizeKeywordList(item.seo.searchTerms || []),
     })),
   ];
 

@@ -1,6 +1,38 @@
 [
   {
     "type": "categoria",
+    "slug": "material-flexible",
+    "title": "Impresión en Materiales Flexibles - Gran Formato",
+    "path": "/categorias/gran-formato/material-flexible",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "categoria",
+    "slug": "material-rigido",
+    "title": "Impresión en Materiales Rígidos - Gran Formato",
+    "path": "/categorias/gran-formato/material-rigido",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "categoria",
+    "slug": "material-oficina",
+    "title": "Impresión para oficina: papelería corporativa y material interno",
+    "path": "/categorias/publicidad-oficina/material-oficina",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "categoria",
+    "slug": "material-publicitario",
+    "title": "Impresión para publicidad: material promocional y punto de venta",
+    "path": "/categorias/publicidad-oficina/material-publicitario",
+    "keywords": [],
+    "searchTerms": []
+  },
+  {
+    "type": "categoria",
     "slug": "adhesivos-personalizados",
     "title": "Adhesivos personalizados para branding e interiorismo",
     "path": "/categorias/adhesivos-personalizados",
@@ -12,38 +44,6 @@
       "Etiquetas autoadhesivas de calidad"
     ],
     "searchTerms": []
-  },
-  {
-    "type": "categoria",
-    "slug": "eventos",
-    "title": "Impresión personalizada para eventos corporativos",
-    "path": "/categorias/eventos",
-    "keywords": [
-      "Material gráfico para eventos corporativos",
-      "Impresión de acreditaciones y lanyards",
-      "Señalética personalizada para eventos",
-      "Invitaciones y programas impresos",
-      "Soluciones gráficas para congresos"
-    ],
-    "searchTerms": [
-      "impresión personalizada para eventos corporativos | repro disseny"
-    ]
-  },
-  {
-    "type": "categoria",
-    "slug": "expositores",
-    "title": "Expositores personalizados para ferias y punto de venta",
-    "path": "/categorias/expositores",
-    "keywords": [
-      "Diseño de stands para ferias",
-      "Expositores personalizados para puntos de venta",
-      "Roll-ups publicitarios",
-      "Displays promocionales",
-      "Expositores portátiles para eventos"
-    ],
-    "searchTerms": [
-      "expositores impresos para punto de venta y eventos | repro disseny"
-    ]
   },
   {
     "type": "categoria",
@@ -65,27 +65,19 @@
   },
   {
     "type": "categoria",
-    "slug": "material-flexible",
-    "title": "Impresión en Materiales Flexibles - Gran Formato",
-    "path": "/categorias/gran-formato/material-flexible",
-    "keywords": [],
-    "searchTerms": []
-  },
-  {
-    "type": "categoria",
-    "slug": "material-rigido",
-    "title": "Impresión en Materiales Rígidos - Gran Formato",
-    "path": "/categorias/gran-formato/material-rigido",
-    "keywords": [],
-    "searchTerms": []
-  },
-  {
-    "type": "categoria",
-    "slug": "hosteleria-restauracion",
-    "title": "Impresión para hostelería y restauración: hoteles, restaurantes y eventos",
-    "path": "/categorias/hosteleria-restauracion",
-    "keywords": [],
-    "searchTerms": []
+    "slug": "expositores",
+    "title": "Expositores personalizados para ferias y punto de venta",
+    "path": "/categorias/expositores",
+    "keywords": [
+      "Diseño de stands para ferias",
+      "Expositores personalizados para puntos de venta",
+      "Roll-ups publicitarios",
+      "Displays promocionales",
+      "Expositores portátiles para eventos"
+    ],
+    "searchTerms": [
+      "expositores impresos para punto de venta y eventos | repro disseny"
+    ]
   },
   {
     "type": "categoria",
@@ -110,18 +102,18 @@
   },
   {
     "type": "categoria",
-    "slug": "packaging",
-    "title": "Packaging a medida: soluciones folding y corrugado para empresa",
-    "path": "/categorias/packaging",
+    "slug": "eventos",
+    "title": "Impresión personalizada para eventos corporativos",
+    "path": "/categorias/eventos",
     "keywords": [
-      "Diseño de envases personalizados",
-      "Cajas impresas para productos",
-      "Etiquetas y sleeves para packaging",
-      "Soluciones de embalaje sostenible",
-      "Packaging creativo para marcas"
+      "Material gráfico para eventos corporativos",
+      "Impresión de acreditaciones y lanyards",
+      "Señalética personalizada para eventos",
+      "Invitaciones y programas impresos",
+      "Soluciones gráficas para congresos"
     ],
     "searchTerms": [
-      "packaging personalizado para productos y marcas | repro disseny"
+      "impresión personalizada para eventos corporativos | repro disseny"
     ]
   },
   {
@@ -142,19 +134,27 @@
   },
   {
     "type": "categoria",
-    "slug": "material-oficina",
-    "title": "Impresión para oficina: papelería corporativa y material interno",
-    "path": "/categorias/publicidad-oficina/material-oficina",
+    "slug": "hosteleria-restauracion",
+    "title": "Impresión para hostelería y restauración: hoteles, restaurantes y eventos",
+    "path": "/categorias/hosteleria-restauracion",
     "keywords": [],
     "searchTerms": []
   },
   {
     "type": "categoria",
-    "slug": "material-publicitario",
-    "title": "Impresión para publicidad: material promocional y punto de venta",
-    "path": "/categorias/publicidad-oficina/material-publicitario",
-    "keywords": [],
-    "searchTerms": []
+    "slug": "packaging",
+    "title": "Packaging a medida: soluciones folding y corrugado para empresa",
+    "path": "/categorias/packaging",
+    "keywords": [
+      "Diseño de envases personalizados",
+      "Cajas impresas para productos",
+      "Etiquetas y sleeves para packaging",
+      "Soluciones de embalaje sostenible",
+      "Packaging creativo para marcas"
+    ],
+    "searchTerms": [
+      "packaging personalizado para productos y marcas | repro disseny"
+    ]
   },
   {
     "type": "producto",
@@ -272,7 +272,7 @@
   },
   {
     "type": "producto",
-    "slug": "blocs-notas",
+    "slug": "bloc-notas",
     "title": "Blocs de notas personalizados",
     "path": "/productos/bloc-notas",
     "keywords": [
@@ -376,7 +376,7 @@
   },
   {
     "type": "producto",
-    "slug": "cajas-de-luz-personalizadas",
+    "slug": "cajas-luz-personalizadas",
     "title": "Cajas de luz personalizadas (expositores retroiluminados)",
     "path": "/productos/cajas-luz-personalizadas",
     "keywords": [
@@ -400,7 +400,7 @@
   },
   {
     "type": "producto",
-    "slug": "carpetas-de-presentacion-personalizadas",
+    "slug": "carpetas-presentacion-personalizadas",
     "title": "Carpetas de presentación personalizadas",
     "path": "/productos/carpetas-presentacion-personalizadas",
     "keywords": [
@@ -696,7 +696,7 @@
   },
   {
     "type": "producto",
-    "slug": "expositores-de-mesa-personalizados",
+    "slug": "expositores-mesa-personalizados",
     "title": "Expositores de mesa personalizados (displays de sobremesa)",
     "path": "/productos/expositores-mesa-personalizados",
     "keywords": [
@@ -1392,7 +1392,7 @@
   },
   {
     "type": "producto",
-    "slug": "tiras-de-lineal-personalizadas",
+    "slug": "tiras-de-lineal.personalizadas",
     "title": "Tiras de lineal personalizadas",
     "path": "/productos/tiras-de-lineal.personalizadas",
     "keywords": [
