@@ -3,7 +3,7 @@ import { computed } from "vue";
 import { Card, CardContent } from "@/components/ui/card";
 
 export type ProcessStep = {
-  title: string;
+  title?: string; // Hecho opcional para que coincida con la captura
   description: string;
   label?: string;
 };
@@ -34,11 +34,13 @@ function isGenericStepTitle(value: string) {
 const normalizedSteps = computed(() =>
   (props.steps || [])
     .filter(
-      (step) => String(step?.title || "").trim() && String(step?.description || "").trim()
+      // Ahora solo exige que haya descripción para mostrar el paso
+      (step) => String(step?.description || "").trim()
     )
     .map((step, index) => ({
       ...step,
-      cleanTitle: isGenericStepTitle(step.title) ? "" : step.title.trim(),
+      cleanTitle:
+        step.title && isGenericStepTitle(step.title) ? "" : step.title?.trim() || "",
       number: String(index + 1).padStart(2, "0"),
     }))
 );
@@ -46,54 +48,54 @@ const normalizedSteps = computed(() =>
 
 <template>
   <section v-if="normalizedSteps.length" class="w-full">
-    <div v-if="title || description" :class="['space-y-2', introClass]">
+    <div v-if="title || description" :class="['mb-8 space-y-3', introClass]">
       <h3
         v-if="title"
-        class="text-xl font-semibold leading-tight text-foreground md:text-2xl"
+        class="text-2xl font-bold tracking-tight text-foreground md:text-3xl"
       >
         {{ title }}
       </h3>
 
       <p
         v-if="description"
-        class="max-w-3xl text-sm leading-7 text-muted-foreground md:text-base"
+        class="max-w-3xl text-base leading-relaxed text-muted-foreground"
       >
         {{ description }}
       </p>
     </div>
 
-    <div :class="['grid gap-3 md:grid-cols-2', gridClass]">
+    <div :class="['grid gap-4 md:grid-cols-2 lg:gap-6', gridClass]">
       <Card
         v-for="step in normalizedSteps"
-        :key="`${step.number}-${step.title}`"
+        :key="`${step.number}-${step.cleanTitle}`"
         :class="[
-          'rounded-2xl border border-border/60 bg-background shadow-none',
+          'overflow-hidden rounded-2xl border border-border/60 bg-card shadow-none transition-all duration-200 hover:border-primary/20 hover:bg-accent/5',
           cardClass,
         ]"
       >
-        <CardContent class="p-4 md:p-5">
-          <div class="flex items-start gap-4">
+        <CardContent class="p-5 sm:p-6">
+          <div class="flex items-start gap-5">
             <div
-              class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-primary/10 text-sm font-semibold text-primary"
+              class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-accent text-lg font-bold text-primary sm:h-12 sm:w-12"
             >
               {{ step.number }}
             </div>
 
-            <div class="min-w-0 space-y-1.5">
+            <div class="flex flex-col pt-1 sm:pt-1.5">
               <h4
                 v-if="step.cleanTitle"
-                class="text-sm font-semibold leading-6 text-foreground md:text-base"
+                class="mb-1.5 text-base font-semibold leading-none text-foreground md:text-lg"
               >
                 {{ step.cleanTitle }}
               </h4>
 
-              <p class="text-sm leading-6 text-muted-foreground md:text-[15px]">
+              <p class="text-sm leading-relaxed text-muted-foreground md:text-base">
                 {{ step.description }}
               </p>
 
-              <div v-if="step.label" class="pt-1">
+              <div v-if="step.label" class="mt-3">
                 <span
-                  class="inline-flex items-center rounded-full border border-border/60 bg-muted/40 px-2.5 py-1 text-[11px] font-medium text-muted-foreground"
+                  class="inline-flex items-center rounded-full border border-border/60 bg-muted/40 px-2.5 py-1 text-xs font-medium text-muted-foreground"
                 >
                   {{ step.label }}
                 </span>

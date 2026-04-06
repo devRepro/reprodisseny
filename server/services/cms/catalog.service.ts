@@ -44,13 +44,22 @@ type CatalogBlock =
       caption?: string;
     };
 
-type CatalogSection = {
-  id?: string;
-  key?: string;
-  title?: string;
-  body?: string;
-  blocks?: CatalogBlock[];
-};
+    type CatalogTypeItem = {
+      title?: string;
+      description?: string;
+      features?: string[];
+      idealFor?: string;
+    };
+    
+    type CatalogSection = {
+      id?: string;
+      key?: string;
+      title?: string;
+      body?: string;
+      intro?: string;
+      blocks?: CatalogBlock[];
+      items?: CatalogTypeItem[];
+    };
 
 type CatalogProductFormField = {
   label?: string;
@@ -212,12 +221,28 @@ export type CategoryDetailFaqItem = {
   a: string;
 };
 
+type CatalogProductSection = {
+  id?: string;
+  key?: string;
+  title?: string;
+  body?: string;
+  blocks?: CatalogBlock[];
+};
+
 export type CategoryDetailSectionItem = {
   id: string;
+  key?: string;
   title: string;
+  intro?: string;
   blocks: CatalogBlock[];
   text?: string;
   html?: string;
+  items?: {
+    title: string;
+    description: string;
+    features?: string[];
+    idealFor?: string;
+  }[];
 };
 
 export type CategoryDetailPageDto = {
@@ -699,26 +724,84 @@ function getCategorySections(category: CatalogCategory): CategoryDetailSectionIt
     .map((section, index) => {
       const title = String(section?.title || `Sección ${index + 1}`).trim();
       const text = String(section?.body || "").trim();
+      const key = String(section?.key || "").trim();
+      const intro = String(section?.intro || "").trim();
+      const items = normalizeCategoryTypeItems(section?.items);
+
       const rawBlocks = Array.isArray(section?.blocks)
         ? section.blocks.filter(Boolean)
         : [];
 
       const fallbackBlocks: CatalogBlock[] = text
         ? [{ type: "text", text, html: false }]
-        : [];
+        : intro
+          ? [{ type: "text", text: intro, html: false }]
+          : [];
 
       const blocks = rawBlocks.length ? rawBlocks : fallbackBlocks;
 
       return {
         id: String(section?.id || `section-${index + 1}`),
+        ...(key ? { key } : {}),
         title,
         blocks,
         ...(text ? { text } : {}),
+        ...(intro ? { intro } : {}),
+        ...(items.length ? { items } : {}),
       };
     })
-    .filter((section) => section.title && section.blocks.length > 0);
+    .filter(
+      (section) =>
+        section.title &&
+        (section.blocks.length > 0 || (section.items?.length ?? 0) > 0)
+    );
 }
 
+function normalizeCategoryTypeItems(
+  value: unknown
+): {
+  title: string;
+  description: string;
+  features?: string[];
+  idealFor?: string;
+}[] {
+  if (!Array.isArray(value)) return [];
+
+  return value
+    .map((item) => {
+      if (!item || typeof item !== "object") return null;
+
+      const raw = item as CatalogTypeItem;
+
+      const title = String(raw.title ?? "").trim();
+      const description = String(raw.description ?? "").trim();
+
+      if (!title || !description) return null;
+
+      const features = Array.isArray(raw.features)
+        ? raw.features.map((feature) => String(feature ?? "").trim()).filter(Boolean)
+        : [];
+
+      const idealFor = String(raw.idealFor ?? "").trim();
+
+      return {
+        title,
+        description,
+        ...(features.length ? { features } : {}),
+        ...(idealFor ? { idealFor } : {}),
+      };
+    })
+    .filter(
+      (
+        item
+      ): item is {
+        title: string;
+        description: string;
+        features?: string[];
+        idealFor?: string;
+      } => Boolean(item)
+    );
+}
 function getProductSections(product: CatalogProduct): ProductDetailSectionItem[] {
   return (Array.isArray(product?.sections) ? product.sections : [])
     .map((section, index) => {

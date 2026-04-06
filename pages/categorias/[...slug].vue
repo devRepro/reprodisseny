@@ -160,20 +160,30 @@ const secondaryCta = computed(() => {
 const detailsSection = computed(() => {
   return (
     sections.value.find((section) => {
-      const key = String(section?.key || "")
-        .trim()
-        .toLowerCase();
-      return key === "details" || key === "detalles";
+      const token = [section?.key, section?.id, section?.title]
+        .map((v) =>
+          String(v || "")
+            .trim()
+            .toLowerCase()
+        )
+        .join(" ");
+
+      return token.includes("details") || token.includes("detalles");
     }) || null
   );
 });
 
 const otherSections = computed(() =>
   sections.value.filter((section) => {
-    const key = String(section?.key || "")
-      .trim()
-      .toLowerCase();
-    return key !== "details" && key !== "detalles";
+    const token = [section?.key, section?.id, section?.title]
+      .map((v) =>
+        String(v || "")
+          .trim()
+          .toLowerCase()
+      )
+      .join(" ");
+
+    return !token.includes("details") && !token.includes("detalles");
   })
 );
 
