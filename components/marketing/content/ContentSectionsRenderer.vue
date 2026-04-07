@@ -3,6 +3,7 @@ import { computed } from "vue";
 import { normalizeCmsMediaSrc } from "@/utils/cmsMedia";
 import ContentSectionNav from "@/components/marketing/content/ContentSectionNav.vue";
 import ContentTypesGrid from "@/components/marketing/content/ContentTypesGrid.vue";
+import CategoryFormatsSection from "@/components/marketing/content/CategoryFormatsSection.vue";
 
 type ContentBlock =
   | { type: "text"; text?: string; html?: boolean }
@@ -15,6 +16,17 @@ type ContentBlock =
       height?: number;
       caption?: string;
     };
+
+type ContentFormatItem = {
+  title: string;
+  description: string;
+};
+
+type ContentFormatsData = {
+  intro?: string;
+  shapes?: ContentFormatItem[];
+  deliveryFormats?: ContentFormatItem[];
+};
 
 type ContentTypeItem = {
   title: string;
@@ -29,6 +41,7 @@ type IncomingSection = {
   title?: string;
   intro?: string;
   items?: ContentTypeItem[];
+  formatsData?: ContentFormatsData;
   blocks?: ContentBlock[];
   content?: ContentBlock[];
   text?: string;
@@ -41,6 +54,7 @@ type SafeSection = {
   title: string;
   intro?: string;
   items?: ContentTypeItem[];
+  formatsData?: ContentFormatsData;
   blocks: ContentBlock[];
 };
 
@@ -89,15 +103,39 @@ function normalizeSectionBlocks(section: IncomingSection): ContentBlock[] {
 const safeSections = computed<SafeSection[]>(() =>
   (props.sections || [])
     .map((section, index) => {
+      console.log("SECTION RAW", section);
+
       const title = String(section?.title ?? "").trim();
       const key = String(section?.key ?? "").trim() || undefined;
       const intro = String(section?.intro ?? "").trim() || undefined;
-      const items = Array.isArray(section?.items)
-        ? section.items.filter(Boolean)
-        : [];
+      const items = Array.isArray(section?.items) ? section.items.filter(Boolean) : [];
       const blocks = normalizeSectionBlocks(section);
 
-      const hasContent = blocks.length > 0 || items.length > 0;
+      const formatsData =
+        section?.formatsData && typeof section.formatsData === "object"
+          ? {
+              intro: String(section.formatsData.intro ?? "").trim() || undefined,
+              shapes: Array.isArray(section.formatsData.shapes)
+                ? section.formatsData.shapes.filter(
+                    (item) => item?.title && item?.description
+                  )
+                : [],
+              deliveryFormats: Array.isArray(section.formatsData.deliveryFormats)
+                ? section.formatsData.deliveryFormats.filter(
+                    (item) => item?.title && item?.description
+                  )
+                : [],
+            }
+          : undefined;
+
+      const hasFormatsData = Boolean(
+        formatsData &&
+          ((formatsData.shapes?.length ?? 0) > 0 ||
+            (formatsData.deliveryFormats?.length ?? 0) > 0 ||
+            formatsData.intro)
+      );
+
+      const hasContent = blocks.length > 0 || items.length > 0 || hasFormatsData;
       if (!title || !hasContent) return null;
 
       const rawId = String(section?.id ?? section?.key ?? "").trim();
@@ -108,6 +146,7 @@ const safeSections = computed<SafeSection[]>(() =>
         title,
         ...(intro ? { intro } : {}),
         ...(items.length ? { items } : {}),
+        ...(hasFormatsData ? { formatsData } : {}),
         blocks,
       };
     })
@@ -129,9 +168,7 @@ function isBullets(
   block: ContentBlock
 ): block is Extract<ContentBlock, { type: "bullets" }> {
   return (
-    block?.type === "bullets" &&
-    Array.isArray(block.items) &&
-    block.items.length > 0
+    block?.type === "bullets" && Array.isArray(block.items) && block.items.length > 0
   );
 }
 
@@ -158,13 +195,24 @@ function isImage(block: ContentBlock): block is Extract<ContentBlock, { type: "i
           :items="section.items"
         />
 
+        <CategoryFormatsSection
+          v-else-if="section.key === 'formats' && section.formatsData"
+          :section-id="section.id"
+          :title="section.title"
+          :data="section.formatsData"
+        />
+
         <section
           v-else
           :id="section.id"
           class="scroll-mt-32 overflow-hidden rounded-[24px] border border-border/60 bg-card shadow-sm"
         >
-          <header class="flex items-center gap-4 border-b border-border/40 bg-muted/10 px-6 py-5 md:px-8">
-            <div class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary">
+          <header
+            class="flex items-center gap-4 border-b border-border/40 bg-muted/10 px-6 py-5 md:px-8"
+          >
+            <div
+              class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+            >
               <span aria-hidden="true" class="font-mono text-xs font-bold tabular-nums">
                 {{ String(sectionIdx + 1).padStart(2, "0") }}
               </span>

@@ -50,6 +50,17 @@ type CatalogBlock =
       features?: string[];
       idealFor?: string;
     };
+
+    type CatalogFormatItem = {
+      title?: string;
+      description?: string;
+    };
+    
+    type CatalogFormatsData = {
+      intro?: string;
+      shapes?: CatalogFormatItem[];
+      deliveryFormats?: CatalogFormatItem[];
+    };
     
     type CatalogSection = {
       id?: string;
@@ -59,6 +70,7 @@ type CatalogBlock =
       intro?: string;
       blocks?: CatalogBlock[];
       items?: CatalogTypeItem[];
+      formatsData?: CatalogFormatsData;
     };
 
 type CatalogProductFormField = {
@@ -243,6 +255,17 @@ export type CategoryDetailSectionItem = {
     features?: string[];
     idealFor?: string;
   }[];
+  formatsData?: {
+    intro?: string;
+    shapes?: {
+      title: string;
+      description: string;
+    }[];
+    deliveryFormats?: {
+      title: string;
+      description: string;
+    }[];
+  };
 };
 
 export type CategoryDetailPageDto = {
@@ -727,6 +750,7 @@ function getCategorySections(category: CatalogCategory): CategoryDetailSectionIt
       const key = String(section?.key || "").trim();
       const intro = String(section?.intro || "").trim();
       const items = normalizeCategoryTypeItems(section?.items);
+      const formatsData = normalizeCategoryFormatsData(section?.formatsData);
 
       const rawBlocks = Array.isArray(section?.blocks)
         ? section.blocks.filter(Boolean)
@@ -734,7 +758,7 @@ function getCategorySections(category: CatalogCategory): CategoryDetailSectionIt
 
       const fallbackBlocks: CatalogBlock[] = text
         ? [{ type: "text", text, html: false }]
-        : intro
+        : intro && !formatsData
           ? [{ type: "text", text: intro, html: false }]
           : [];
 
@@ -748,12 +772,17 @@ function getCategorySections(category: CatalogCategory): CategoryDetailSectionIt
         ...(text ? { text } : {}),
         ...(intro ? { intro } : {}),
         ...(items.length ? { items } : {}),
+        ...(formatsData ? { formatsData } : {}),
       };
     })
     .filter(
       (section) =>
         section.title &&
-        (section.blocks.length > 0 || (section.items?.length ?? 0) > 0)
+        (
+          section.blocks.length > 0 ||
+          (section.items?.length ?? 0) > 0 ||
+          Boolean(section.formatsData)
+        )
     );
 }
 
@@ -802,6 +831,51 @@ function normalizeCategoryTypeItems(
       } => Boolean(item)
     );
 }
+
+function normalizeCategoryFormatsData(
+  value: unknown
+): {
+  intro?: string;
+  shapes?: { title: string; description: string }[];
+  deliveryFormats?: { title: string; description: string }[];
+} | undefined {
+  if (!value || typeof value !== "object") return undefined;
+
+  const raw = value as CatalogFormatsData;
+
+  const normalizeItems = (items: unknown) => {
+    if (!Array.isArray(items)) return [];
+
+    return items
+      .map((item) => {
+        if (!item || typeof item !== "object") return null;
+
+        const record = item as CatalogFormatItem;
+        const title = String(record.title ?? "").trim();
+        const description = String(record.description ?? "").trim();
+
+        if (!title || !description) return null;
+
+        return { title, description };
+      })
+      .filter(
+        (item): item is { title: string; description: string } => Boolean(item)
+      );
+  };
+
+  const intro = String(raw.intro ?? "").trim();
+  const shapes = normalizeItems(raw.shapes);
+  const deliveryFormats = normalizeItems(raw.deliveryFormats);
+
+  if (!intro && !shapes.length && !deliveryFormats.length) return undefined;
+
+  return {
+    ...(intro ? { intro } : {}),
+    ...(shapes.length ? { shapes } : {}),
+    ...(deliveryFormats.length ? { deliveryFormats } : {}),
+  };
+}
+
 function getProductSections(product: CatalogProduct): ProductDetailSectionItem[] {
   return (Array.isArray(product?.sections) ? product.sections : [])
     .map((section, index) => {

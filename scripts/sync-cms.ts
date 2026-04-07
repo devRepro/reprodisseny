@@ -21,13 +21,35 @@ type ContentBlock =
   | { type: "bullets"; items: string[]; ordered?: boolean }
   | { type: "image"; src: string; alt?: string; caption?: string; width?: number; height?: number };
 
-type ContentSection = {
-  id: string;
-  key: string;
-  title: string;
-  body: string;
-  blocks: ContentBlock[];
-};
+
+  type ContentTypeItem = {
+    title: string;
+    description: string;
+    features?: string[];
+    idealFor?: string;
+  }; 
+
+  type ContentFormatItem = {
+    title: string;
+    description: string;
+  };
+  
+  type ContentFormatsData = {
+    intro?: string;
+    shapes: ContentFormatItem[];
+    deliveryFormats: ContentFormatItem[];
+  };
+
+  type ContentSection = {
+    id: string;
+    key: string;
+    title: string;
+    body: string;
+    blocks: ContentBlock[];
+    intro?: string;
+    items?: ContentTypeItem[];
+    formatsData?: ContentFormatsData;
+  };
 
 type ImageDto = {
   src?: string;
@@ -1069,22 +1091,180 @@ function mdToBlocks(md: string): ContentBlock[] {
   return blocks;
 }
 
+function extractTypesData(value: unknown): { introMd: string; items: ContentTypeItem[] } {
+  const md = normalizeMarkdown(value);
+  if (!md) return { introMd: "", items: [] };
+
+  const matches = [...md.matchAll(/^###\s+(.+?)\s*$/gm)];
+  if (!matches.length) return { introMd: md, items: [] };
+
+  const items: ContentTypeItem[] = [];
+  const introMd = md.slice(0, matches[0].index).trim();
+
+  for (let index = 0; index < matches.length; index += 1) {
+    const current = matches[index]!;
+    const next = matches[index + 1];
+
+    const title = stripMdInline(current[1] || "").trim();
+    const start = (current.index ?? 0) + current[0].length;
+    const end = next?.index ?? md.length;
+
+    const description = md
+      .slice(start, end)
+      .trim()
+      .replace(/\n{2,}/g, "\n")
+      .replace(/\n/g, " ")
+      .trim();
+
+    if (title && description) {
+      items.push({ title, description });
+    }
+  }
+
+  return { introMd, items };
+}
+
+function buildCategorySections(
+  fields: Record<string, unknown>,
+  detailsMd?: string,
+  bodyMd?: string,
+  description?: string,
+): ContentSection[] {
+  const editorialSectionEntries: Array<{ target: string; value?: string }> = [
+    { target: "details", value: detailsMd || description },
+    { target: "overview", value: bodyMd },
+    { target: "finishes", value: str(fields[CATEGORY_FIELDS.finishesMd]) },
+    { target: "applications", value: str(fields[CATEGORY_FIELDS.usesMd]) },
+  ];
+
+  const editorialSectionOrder = [
+    "details",
+    "overview",
+    "finishes",
+    "applications",
+  ] as const;
+
+  const fullCategorySectionOrder = [
+    "details",
+    "overview",
+    "types",
+    "formats",
+    "finishes",
+    "applications",
+  ] as const;
+
+  const editorialSectionSources = mergeSectionSources(
+    editorialSectionEntries,
+    CATEGORY_SECTION_ALIASES,
+    new Set<string>(editorialSectionOrder),
+  );
+
+  const editorialSections = buildSections(
+    editorialSectionSources,
+    CATEGORY_SECTION_TITLES,
+    [...editorialSectionOrder],
+  );
+
+  const editorialSectionsById = new Map(
+    editorialSections.map((section) => [section.id, section] as const),
+  );
+
+  const typeItems = parseTypesMd(fields[CATEGORY_FIELDS.typesMd]);
+  const formatsData = parseFormatsMd(fields[CATEGORY_FIELDS.formatsMd]);
+
+  const sections: ContentSection[] = [];
+
+  for (const id of fullCategorySectionOrder) {
+    if (id === "types") {
+      if (typeItems.length > 0) {
+        sections.push({
+          id: "types",
+          key: "types",
+          title: CATEGORY_SECTION_TITLES.types || "Tipos",
+          body: "",
+          blocks: [],
+          items: typeItems,
+        });
+      }
+      continue;
+    }
+
+    if (id === "formats") {
+      if (formatsData) {
+        sections.push({
+          id: "formats",
+          key: "formats",
+          title: CATEGORY_SECTION_TITLES.formats || "Formatos y soportes",
+          body: "",
+          blocks: [],
+          formatsData,
+        });
+      }
+      continue;
+    }
+
+    const section = editorialSectionsById.get(id);
+    if (section) sections.push(section);
+  }
+
+  return sections;
+}
+
+function parseFormatsMd(value: unknown): ContentFormatsData | undefined {
+  const parsed = parseJsonLoose<Record<string, unknown>>(value, {});
+  if (!parsed || typeof parsed !== "object") return undefined;
+
+  const toItems = (input: unknown): ContentFormatItem[] => {
+    if (!Array.isArray(input)) return [];
+
+    return input
+      .map((item) => {
+        const record = (item ?? {}) as Record<string, unknown>;
+        return {
+          title: str(record.title) || "",
+          description: str(record.description) || "",
+        };
+      })
+      .filter((item) => item.title && item.description);
+  };
+
+  const intro = str(parsed.intro);
+  const shapes = toItems(parsed.shapes);
+  const deliveryFormats = toItems(parsed.deliveryFormats);
+
+  if (!intro && !shapes.length && !deliveryFormats.length) return undefined;
+
+  return {
+    intro,
+    shapes,
+    deliveryFormats,
+  };
+}
+
 function buildSections(
   sources: Record<string, string[]>,
   titles: Record<string, string>,
   order: string[],
+  extraContent?: Record<string, { items?: ContentTypeItem[] }>
 ): ContentSection[] {
   const sections: ContentSection[] = [];
 
   for (const id of order) {
     const parts = (sources[id] || []).map((part) => normalizeMarkdown(part)).filter(Boolean);
-    if (parts.length === 0) continue;
-
     const body = parts.join("\n\n").trim();
     const blocks = mdToBlocks(body);
-    if (blocks.length === 0) continue;
+    const items = extraContent?.[id]?.items;
 
-    sections.push({ id, key: id, title: titles[id] || id, body, blocks });
+    // Crea la sección si tiene bloques normales o si tiene cards estructuradas
+    if (blocks.length === 0 && (!items || items.length === 0)) continue;
+
+    const section: ContentSection = { id, key: id, title: titles[id] || id, body, blocks };
+    
+    if (items && items.length > 0) {
+      section.items = items;
+    }
+    
+    sections.push(section);
   }
 
   return sections;
@@ -1308,6 +1488,33 @@ function buildProductSchemaGraph(product: ProductDto): Record<string, JsonValue 
   return { "@context": "https://schema.org", "@graph": graphItems };
 }
 
+function parseTypesMd(value: unknown): ContentTypeItem[] {
+  const parsed = parseJsonLoose<unknown[]>(value, []);
+  if (!Array.isArray(parsed)) return [];
+
+  return parsed
+    .map((item) => {
+      const record = (item ?? {}) as Record<string, unknown>;
+
+      const title = str(record.title) || "";
+      const description = str(record.description) || "";
+
+      const features = Array.isArray(record.features)
+        ? record.features.map((feature) => str(feature)).filter(Boolean) as string[]
+        : [];
+
+      const idealFor = str(record.idealFor);
+
+      return {
+        title,
+        description,
+        features,
+        idealFor,
+      };
+    })
+    .filter((item) => item.title && item.description);
+}
+
 function buildCategory(item: GraphItem<Record<string, unknown>>): CategoryDto | null {
   const fields = item.fields || {};
 
@@ -1335,29 +1542,7 @@ function buildCategory(item: GraphItem<Record<string, unknown>>): CategoryDto | 
   const bodyMd = str(fields[CATEGORY_FIELDS.bodyMd]);
   const description = str(fields[CATEGORY_FIELDS.description]);
 
-  const sectionEntries: Array<{ target: string; value?: string }> = [
-  { target: "details", value: detailsMd || description },
-  { target: "overview", value: bodyMd },
-  { target: "types", value: str(fields[CATEGORY_FIELDS.typesMd]) },
-  { target: "formats", value: str(fields[CATEGORY_FIELDS.formatsMd]) },
-  { target: "finishes", value: str(fields[CATEGORY_FIELDS.finishesMd]) },
-  { target: "applications", value: str(fields[CATEGORY_FIELDS.usesMd]) },
-];
-
-const categorySectionOrder = [
-  "details",
-  "overview",
-  "types",
-  "formats",
-  "finishes",
-  "applications",
-];
-  const sectionSources = mergeSectionSources(
-    sectionEntries,
-    CATEGORY_SECTION_ALIASES,
-    new Set(categorySectionOrder),
-  );
-  const sections = buildSections(sectionSources, CATEGORY_SECTION_TITLES, categorySectionOrder);
+  const sections = buildCategorySections(fields, detailsMd, bodyMd, description);
 
   const pathSegments = publicPath.split("/").filter(Boolean);
   const inferredParent = pathSegments.length > 2 ? pathSegments.slice(-2, -1)[0] : undefined;
@@ -1399,6 +1584,7 @@ const categorySectionOrder = [
     seo,
   };
 }
+
 
 function buildProduct(item: GraphItem<Record<string, unknown>>): ProductDto | null {
   const fields = item.fields || {};

@@ -1,5 +1,4 @@
-import type { CmsFaqItem } from "./content.types";
-import { parseBodyMdSections } from "./parseBodyMdSections";
+import type { CmsFaqItem, ParsedBodyMdSection } from "./content.types";
 import { mapParsedSectionsToBlocks } from "./mapSectionBlocks";
 
 function firstNonEmpty(obj: any, keys: string[], fallback: any = "") {
@@ -48,19 +47,139 @@ function parseFaqs(value: unknown): CmsFaqItem[] {
   }
 }
 
+function pushBodySection(
+  target: ParsedBodyMdSection[],
+  options: {
+    id: string;
+    key:
+      | "detalles"
+      | "beneficios"
+      | "aplicaciones"
+      | "caracteristicas-tecnicas"
+      | "formatos-y-soportes"
+      | "acabados"
+      | "usos-habituales"
+      | "otros";
+    title: string;
+    body: unknown;
+  }
+) {
+  const body = String(options.body ?? "").trim();
+  if (!body) return;
+
+  target.push({
+    id: options.id,
+    key: options.key,
+    title: options.title,
+    body,
+    step: target.length + 1,
+  });
+}
+
 export function mapProductContent(product: any) {
   const rawBodyMd = String(
     firstNonEmpty(product, ["BodyMd", "bodyMd", "body", "markdown"], "")
   ).trim();
 
-  const fallbackBody = String(
-    firstNonEmpty(product, ["description", "Description", "shortDescription", "ShortDescription"], "")
-  ).trim();
+  const parsedEditorialSections: ParsedBodyMdSection[] = [];
 
-  const contentSource = rawBodyMd || fallbackBody;
+  pushBodySection(parsedEditorialSections, {
+    id: "details",
+    key: "detalles",
+    title: "Detalles",
+    body: firstNonEmpty(product, [
+      "DetailsMd",
+      "detailsMd",
+      "Details",
+      "details",
+      "ShortDescription",
+      "shortDescription",
+    ], ""),
+  });
 
-  const parsedSections = parseBodyMdSections(contentSource);
-  const sections = mapParsedSectionsToBlocks(parsedSections);
+  pushBodySection(parsedEditorialSections, {
+    id: "benefits",
+    key: "beneficios",
+    title: "Beneficios",
+    body: firstNonEmpty(product, [
+      "BenefitsMd",
+      "benefitsMd",
+      "Benefits",
+      "benefits",
+    ], ""),
+  });
+
+  pushBodySection(parsedEditorialSections, {
+    id: "materials",
+    key: "otros",
+    title: "Materiales",
+    body: firstNonEmpty(product, [
+      "MaterialsMd",
+      "materialsMd",
+      "Materials",
+      "materials",
+    ], ""),
+  });
+
+  pushBodySection(parsedEditorialSections, {
+    id: "formats-supports",
+    key: "formatos-y-soportes",
+    title: "Formatos y soportes",
+    body: firstNonEmpty(product, [
+      "FormatsMd",
+      "formatsMd",
+      "Formats",
+      "formats",
+    ], ""),
+  });
+
+  pushBodySection(parsedEditorialSections, {
+    id: "finishes",
+    key: "acabados",
+    title: "Acabados",
+    body: firstNonEmpty(product, [
+      "FinishesMd",
+      "finishesMd",
+      "Finishes",
+      "finishes",
+    ], ""),
+  });
+
+  pushBodySection(parsedEditorialSections, {
+    id: "technical-details",
+    key: "caracteristicas-tecnicas",
+    title: "Características técnicas",
+    body: firstNonEmpty(product, [
+      "TechnicalSpecsMd",
+      "technicalSpecsMd",
+      "TechnicalSpecs",
+      "technicalSpecs",
+    ], ""),
+  });
+
+  pushBodySection(parsedEditorialSections, {
+    id: "applications",
+    key: "aplicaciones",
+    title: "Aplicaciones",
+    body: firstNonEmpty(product, [
+      "ApplicationsMd",
+      "applicationsMd",
+      "Applications",
+      "applications",
+    ], ""),
+  });
+
+  // Fallback legacy: solo si todavía no hay contenido editorial en columnas específicas.
+  if (!parsedEditorialSections.length && rawBodyMd) {
+    pushBodySection(parsedEditorialSections, {
+      id: "details",
+      key: "detalles",
+      title: "Detalles",
+      body: rawBodyMd,
+    });
+  }
+
+  const sections = mapParsedSectionsToBlocks(parsedEditorialSections);
 
   const faqs = parseFaqs(
     firstNonEmpty(product, ["FaqsJson", "faqsJson", "faqs"], "")

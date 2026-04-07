@@ -102,6 +102,10 @@ const { data, status, error } = await useAsyncData<CategoryDetailPageDto | null>
   }
 );
 
+watchEffect(() => {
+  console.log("API category raw", data.value);
+});
+
 if (
   data.value?.redirectTo &&
   normalizePath(data.value.redirectTo) !== normalizePath(route.path)
@@ -131,6 +135,20 @@ const products = computed(() =>
 const sections = computed(() =>
   Array.isArray(category.value?.sections) ? category.value.sections.filter(Boolean) : []
 );
+
+watchEffect(() => {
+  console.log(
+    "PAGE sections",
+    sections.value.map((section: any) => ({
+      id: section?.id,
+      key: section?.key,
+      title: section?.title,
+      hasItems: Array.isArray(section?.items) ? section.items.length : 0,
+      hasFormatsData: Boolean(section?.formatsData),
+      blockCount: Array.isArray(section?.blocks) ? section.blocks.length : 0,
+    }))
+  );
+});
 
 const hasSections = computed(() => sections.value.length > 0);
 
@@ -326,34 +344,6 @@ useSeoMeta({
               :show-section-nav="sections.length > 1"
             />
           </ContentSectionShell>
-
-          <div :class="pageContainerClass">
-            <ContentTypesGrid
-              section-id="tipos"
-              title="Tipos de Adhesivos"
-              intro="Consulta las opciones de materiales disponibles y encuentra el que mejor se adapte a tu proyecto."
-              :items="[
-                {
-                  title: 'Pegatinas en papel',
-                  description: 'Adhesivo personalizado económico con buena calidad de impresión.',
-                  features: ['Económico', 'Uso interior'],
-                  idealFor: 'Uso interior, promociones, etiquetas y packaging.'
-                },
-                {
-                  title: 'Vinilo (PVC)',
-                  description: 'Adhesivo de vinilo versátil y duradero para superficies lisas.',
-                  features: ['Versátil', 'Duradero'],
-                  idealFor: 'Rotulación, branding y señalización.'
-                },
-                {
-                  title: 'Vinilo resistente para exterior',
-                  description: 'Vinilo adhesivo pensado para exterior, intemperie y aplicaciones exigentes.',
-                  features: ['Alta resistencia', 'Intemperie'],
-                  idealFor: 'Aplicaciones exigentes donde se necesita mayor resistencia y durabilidad al aire libre.'
-                }
-              ]"
-            />
-          </div>
 
           <ContentSectionShell
             v-if="hasFaqs"
