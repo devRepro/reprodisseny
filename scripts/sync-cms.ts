@@ -277,14 +277,16 @@ const PRODUCT_SELECT = [...new Set(Object.values(PRODUCT_FIELDS))];
 
 const CATEGORY_SECTION_TITLES: Record<string, string> = {
   details: "Detalles",
+  overview: "Información adicional",
   types: "Tipos",
   formats: "Formatos y soportes",
   finishes: "Acabados",
-  uses: "Usos habituales",
+  applications: "Aplicaciones",
 };
 
 const PRODUCT_SECTION_TITLES: Record<string, string> = {
   details: "Detalles",
+  overview: "Información adicional",
   benefits: "Beneficios",
   materials: "Materiales",
   formats: "Formatos y soportes",
@@ -296,38 +298,62 @@ const PRODUCT_SECTION_TITLES: Record<string, string> = {
 const CATEGORY_SECTION_ALIASES: Record<string, keyof typeof CATEGORY_SECTION_TITLES> = {
   detalle: "details",
   detalles: "details",
-  descripcion: "details",
-  descripcio: "details",
+
+  informacion: "overview",
+  "informacion-adicional": "overview",
+  "informacion-general": "overview",
+  introduccion: "overview",
+  resumen: "overview",
+  descripcion: "overview",
+  descripcio: "overview",
+
   tipo: "types",
   tipos: "types",
+
   formato: "formats",
   formatos: "formats",
   soportes: "formats",
   "formatos-y-soportes": "formats",
+
   acabado: "finishes",
   acabados: "finishes",
-  uso: "uses",
-  usos: "uses",
-  "usos-habituales": "uses",
+
+  uso: "applications",
+  usos: "applications",
+  aplicacion: "applications",
+  aplicaciones: "applications",
+  "usos-habituales": "applications",
 };
 
 const PRODUCT_SECTION_ALIASES: Record<string, keyof typeof PRODUCT_SECTION_TITLES> = {
   detalle: "details",
   detalles: "details",
-  descripcion: "details",
+
+  informacion: "overview",
+  "informacion-adicional": "overview",
+  "informacion-general": "overview",
+  introduccion: "overview",
+  resumen: "overview",
+  descripcion: "overview",
+
   beneficio: "benefits",
   beneficios: "benefits",
+
   material: "materials",
   materiales: "materials",
+
   formato: "formats",
   formatos: "formats",
   soportes: "formats",
+
   acabado: "finishes",
   acabados: "finishes",
+
   caracteristicas: "technical-specs",
   "caracteristicas-tecnicas": "technical-specs",
   especificaciones: "technical-specs",
   specs: "technical-specs",
+
   aplicacion: "applications",
   aplicaciones: "applications",
 };
@@ -1310,18 +1336,22 @@ function buildCategory(item: GraphItem<Record<string, unknown>>): CategoryDto | 
   const description = str(fields[CATEGORY_FIELDS.description]);
 
   const sectionEntries: Array<{ target: string; value?: string }> = [
-    { target: "details", value: detailsMd || description },
-    { target: "types", value: str(fields[CATEGORY_FIELDS.typesMd]) },
-    { target: "formats", value: str(fields[CATEGORY_FIELDS.formatsMd]) },
-    { target: "finishes", value: str(fields[CATEGORY_FIELDS.finishesMd]) },
-    { target: "uses", value: str(fields[CATEGORY_FIELDS.usesMd]) },
-  ];
+  { target: "details", value: detailsMd || description },
+  { target: "overview", value: bodyMd },
+  { target: "types", value: str(fields[CATEGORY_FIELDS.typesMd]) },
+  { target: "formats", value: str(fields[CATEGORY_FIELDS.formatsMd]) },
+  { target: "finishes", value: str(fields[CATEGORY_FIELDS.finishesMd]) },
+  { target: "applications", value: str(fields[CATEGORY_FIELDS.usesMd]) },
+];
 
-  if (bodyMd && bodyMd !== detailsMd) {
-    sectionEntries.push({ target: "details", value: bodyMd });
-  }
-
-  const categorySectionOrder = ["details", "types", "formats", "finishes", "uses"];
+const categorySectionOrder = [
+  "details",
+  "overview",
+  "types",
+  "formats",
+  "finishes",
+  "applications",
+];
   const sectionSources = mergeSectionSources(
     sectionEntries,
     CATEGORY_SECTION_ALIASES,
@@ -1418,28 +1448,26 @@ function buildProduct(item: GraphItem<Record<string, unknown>>): ProductDto | nu
   const inStock = bool(fields[PRODUCT_FIELDS.inStock]);
 
   const sectionEntries: Array<{ target: string; value?: string }> = [
-    { target: "details", value: detailsMd || shortDescription },
-    { target: "benefits", value: str(fields[PRODUCT_FIELDS.benefitsMd]) },
-    { target: "materials", value: str(fields[PRODUCT_FIELDS.materialsMd]) },
-    { target: "formats", value: str(fields[PRODUCT_FIELDS.formatsMd]) },
-    { target: "finishes", value: str(fields[PRODUCT_FIELDS.finishesMd]) },
-    { target: "technical-specs", value: str(fields[PRODUCT_FIELDS.technicalSpecsMd]) },
-    { target: "applications", value: str(fields[PRODUCT_FIELDS.applicationsMd]) },
-  ];
+  { target: "details", value: detailsMd || shortDescription },
+  { target: "overview", value: bodyMd },
+  { target: "benefits", value: str(fields[PRODUCT_FIELDS.benefitsMd]) },
+  { target: "materials", value: str(fields[PRODUCT_FIELDS.materialsMd]) },
+  { target: "formats", value: str(fields[PRODUCT_FIELDS.formatsMd]) },
+  { target: "finishes", value: str(fields[PRODUCT_FIELDS.finishesMd]) },
+  { target: "technical-specs", value: str(fields[PRODUCT_FIELDS.technicalSpecsMd]) },
+  { target: "applications", value: str(fields[PRODUCT_FIELDS.applicationsMd]) },
+];
 
-  if (bodyMd && bodyMd !== detailsMd) {
-    sectionEntries.push({ target: "details", value: bodyMd });
-  }
-
-  const productSectionOrder = [
-    "details",
-    "benefits",
-    "materials",
-    "formats",
-    "finishes",
-    "technical-specs",
-    "applications",
-  ];
+const productSectionOrder = [
+  "details",
+  "overview",
+  "benefits",
+  "materials",
+  "formats",
+  "finishes",
+  "technical-specs",
+  "applications",
+];
   const sectionSources = mergeSectionSources(
     sectionEntries,
     PRODUCT_SECTION_ALIASES,

@@ -1,4 +1,3 @@
-+
 <script setup lang="ts">
 import { computed, ref, watch } from "vue";
 import { normalizeCmsMediaSrc } from "@/utils/cmsMedia";
@@ -191,7 +190,7 @@ const productNameForForm = computed(() => productTitle.value || "Producto");
             <li
               v-for="item in supportItems"
               :key="item"
-              class="inline-flex items-center rounded-full border border-border/70 bg-background/80 px-3 py-2 text-body-s text-muted-fore ground"
+              class="inline-flex items-center rounded-full border border-border/70 bg-background/80 px-3 py-2 text-body-s text-muted-foreground"
             >
               {{ item }}
             </li>

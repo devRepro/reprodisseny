@@ -5,11 +5,11 @@ import SiteBreadcrumbs from "@/components/shared/SiteBreadcrumbs.vue";
 import GuideBanner from "@/components/marketing/GuideBanner.vue";
 import CategoryHero from "@/components/marketing/category/CategoryHero.vue";
 import CategoryProductsGrid from "@/components/marketing/category/CategoryProductsGrid.vue";
-import CategorySections from "@/components/marketing/category/CategorySections.vue";
+import ContentSectionsRenderer from "@/components/marketing/content/ContentSectionsRenderer.vue";
 import FaqAccordion from "@/components/shared/blocks/FaqAccordion.vue";
 import ContentSectionIntro from "@/components/marketing/content/ContentSectionIntro.vue";
-import ContentDetailsSection from "@/components/marketing/content/ContentDetailsSection.vue";
 import ContentSectionShell from "@/components/marketing/content/ContentSectionShell.vue";
+import ContentTypesGrid from "@/components/marketing/content/ContentTypesGrid.vue";
 
 const route = useRoute();
 const config = useRuntimeConfig();
@@ -132,11 +132,12 @@ const sections = computed(() =>
   Array.isArray(category.value?.sections) ? category.value.sections.filter(Boolean) : []
 );
 
+const hasSections = computed(() => sections.value.length > 0);
+
 const faqs = computed(() =>
   Array.isArray(category.value?.faqs) ? category.value.faqs.filter(Boolean) : []
 );
 
-const hasSections = computed(() => sections.value.length > 0);
 const hasFaqs = computed(() => faqs.value.length > 0);
 
 const breadcrumbItems = computed(() =>
@@ -156,38 +157,6 @@ const secondaryCta = computed(() => {
 
   return undefined;
 });
-
-const detailsSection = computed(() => {
-  return (
-    sections.value.find((section) => {
-      const token = [section?.key, section?.id, section?.title]
-        .map((v) =>
-          String(v || "")
-            .trim()
-            .toLowerCase()
-        )
-        .join(" ");
-
-      return token.includes("details") || token.includes("detalles");
-    }) || null
-  );
-});
-
-const otherSections = computed(() =>
-  sections.value.filter((section) => {
-    const token = [section?.key, section?.id, section?.title]
-      .map((v) =>
-        String(v || "")
-          .trim()
-          .toLowerCase()
-      )
-      .join(" ");
-
-    return !token.includes("details") && !token.includes("detalles");
-  })
-);
-
-const hasOtherSections = computed(() => otherSections.value.length > 0);
 
 const childrenGridClass = computed(() => {
   const count = children.value.length;
@@ -332,30 +301,60 @@ useSeoMeta({
             </div>
           </section>
 
-          <CategoryProductsGrid
-            :products="products"
-            eyebrow="Productos relacionados"
-            title="Productos de esta categoría"
-            description="Explora formatos y soluciones relacionadas."
-          />
-
-          <ContentDetailsSection
-            v-if="detailsSection"
-            :section="detailsSection"
-            eyebrow="Información de la categoría"
-          />
+          <section
+            v-if="products.length"
+            id="productos"
+            :class="pageContainerClass"
+            aria-label="Productos de la categoría"
+          >
+            <CategoryProductsGrid
+              :products="products"
+              eyebrow="Productos relacionados"
+              title="Productos de esta categoría"
+              description="Explora formatos y soluciones relacionadas."
+            />
+          </section>
 
           <ContentSectionShell
-            v-if="hasOtherSections"
+            v-if="hasSections"
             eyebrow="Información de la categoría"
-            title="Formatos, acabados y aplicaciones"
+            title="Características, formatos, acabados y aplicaciones"
             description="Consulta los aspectos clave para comparar soluciones, materiales y opciones disponibles."
           >
-            <CategorySections
-              :sections="otherSections"
-              :show-section-nav="otherSections.length > 1"
+            <ContentSectionsRenderer
+              :sections="sections"
+              :show-section-nav="sections.length > 1"
             />
           </ContentSectionShell>
+
+          <div :class="pageContainerClass">
+            <ContentTypesGrid
+              section-id="tipos"
+              title="Tipos de Adhesivos"
+              intro="Consulta las opciones de materiales disponibles y encuentra el que mejor se adapte a tu proyecto."
+              :items="[
+                {
+                  title: 'Pegatinas en papel',
+                  description: 'Adhesivo personalizado económico con buena calidad de impresión.',
+                  features: ['Económico', 'Uso interior'],
+                  idealFor: 'Uso interior, promociones, etiquetas y packaging.'
+                },
+                {
+                  title: 'Vinilo (PVC)',
+                  description: 'Adhesivo de vinilo versátil y duradero para superficies lisas.',
+                  features: ['Versátil', 'Duradero'],
+                  idealFor: 'Rotulación, branding y señalización.'
+                },
+                {
+                  title: 'Vinilo resistente para exterior',
+                  description: 'Vinilo adhesivo pensado para exterior, intemperie y aplicaciones exigentes.',
+                  features: ['Alta resistencia', 'Intemperie'],
+                  idealFor: 'Aplicaciones exigentes donde se necesita mayor resistencia y durabilidad al aire libre.'
+                }
+              ]"
+            />
+          </div>
+
           <ContentSectionShell
             v-if="hasFaqs"
             eyebrow="Ayuda y dudas comunes"

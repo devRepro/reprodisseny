@@ -948,18 +948,6 @@
   },
   {
     "type": "producto",
-    "slug": "marcos-photocall",
-    "title": "Marcos photocall",
-    "path": "/productos/marcos-photocall",
-    "keywords": [
-      "marcos photocall"
-    ],
-    "searchTerms": [
-      "marcos photocall"
-    ]
-  },
-  {
-    "type": "producto",
     "slug": "metacrilato-personalizado",
     "title": "Metacrilato (panel rígido premium)",
     "path": "/productos/metacrilato-personalizado",
@@ -969,14 +957,6 @@
     "searchTerms": [
       "metacrilato"
     ]
-  },
-  {
-    "type": "producto",
-    "slug": "minutas-de-boda",
-    "title": "Minutas de boda",
-    "path": "/productos/minutas-de-boda",
-    "keywords": [],
-    "searchTerms": []
   },
   {
     "type": "producto",
@@ -1268,14 +1248,6 @@
   },
   {
     "type": "producto",
-    "slug": "stand-de-feria",
-    "title": "Stand de feria",
-    "path": "/productos/stand-de-feria",
-    "keywords": [],
-    "searchTerms": []
-  },
-  {
-    "type": "producto",
     "slug": "stoppers-lineal-personalizados",
     "title": "Stoppers personalizados (punto de venta)",
     "path": "/productos/stoppers-lineal-personalizados",
@@ -1297,14 +1269,6 @@
     "searchTerms": [
       "tabletents"
     ]
-  },
-  {
-    "type": "producto",
-    "slug": "tabletent",
-    "title": "Tabletent",
-    "path": "/productos/tabletent",
-    "keywords": [],
-    "searchTerms": []
   },
   {
     "type": "producto",
@@ -1357,14 +1321,6 @@
     "searchTerms": [
       "tarjetas rasca"
     ]
-  },
-  {
-    "type": "producto",
-    "slug": "tarjetas-rasca-publicitario",
-    "title": "Tarjetas rasca publicitario",
-    "path": "/productos/tarjetas-rasca-publicitario",
-    "keywords": [],
-    "searchTerms": []
   },
   {
     "type": "producto",
