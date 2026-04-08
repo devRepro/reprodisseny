@@ -4,6 +4,7 @@ import { normalizeCmsMediaSrc } from "@/utils/cmsMedia";
 import ContentSectionNav from "@/components/marketing/content/ContentSectionNav.vue";
 import ContentTypesGrid from "@/components/marketing/content/ContentTypesGrid.vue";
 import CategoryFormatsSection from "@/components/marketing/content/CategoryFormatsSection.vue";
+import ContentBulletCards from "@/components/marketing/content/ContentBulletCards.vue";
 
 type ContentBlock =
   | { type: "text"; text?: string; html?: boolean }
@@ -175,6 +176,80 @@ function isBullets(
 function isImage(block: ContentBlock): block is Extract<ContentBlock, { type: "image" }> {
   return block?.type === "image" && Boolean(block.src);
 }
+
+type BulletCardItem = {
+  title: string;
+  description: string;
+};
+
+function stripInlineMarkdown(value: string): string {
+  return String(value ?? "")
+    .replace(/\*\*(.*?)\*\*/g, "$1")
+    .replace(/__(.*?)__/g, "$1")
+    .replace(/`([^`]+)`/g, "$1")
+    .replace(/\[(.*?)\]\((.*?)\)/g, "$1")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function parseBulletCardItem(raw: string): BulletCardItem | null {
+  const normalized = String(raw ?? "")
+    .replace(/\s+/g, " ")
+    .trim();
+  if (!normalized) return null;
+
+  const boldTitleWithDesc = normalized.match(/^\*\*(.+?)\*\*\s*:\s*(.+)$/);
+  if (boldTitleWithDesc) {
+    return {
+      title: stripInlineMarkdown(boldTitleWithDesc[1]),
+      description: stripInlineMarkdown(boldTitleWithDesc[2]),
+    };
+  }
+
+  const plainTitleWithDesc = normalized.match(/^([^:]{1,160})\s*:\s*(.+)$/);
+  if (plainTitleWithDesc) {
+    return {
+      title: stripInlineMarkdown(plainTitleWithDesc[1]),
+      description: stripInlineMarkdown(plainTitleWithDesc[2]),
+    };
+  }
+
+  return {
+    title: "",
+    description: stripInlineMarkdown(normalized),
+  };
+}
+
+function collectRawBulletItems(section: SafeSection): string[] {
+  const fromBulletBlocks = section.blocks.flatMap((block) =>
+    isBullets(block) ? block.items ?? [] : []
+  );
+
+  if (fromBulletBlocks.length) return fromBulletBlocks;
+
+  const rawText = section.blocks
+    .filter(
+      (block): block is Extract<ContentBlock, { type: "text" }> =>
+        isText(block) && !block.html && Boolean(block.text)
+    )
+    .map((block) => String(block.text ?? ""))
+    .join("\n");
+
+  if (!rawText.trim()) return [];
+
+  return rawText
+    .replace(/\r\n/g, "\n")
+    .split("\n")
+    .map((line) => line.trim())
+    .filter((line) => /^[-*]\s+/.test(line))
+    .map((line) => line.replace(/^[-*]\s+/, "").trim());
+}
+
+function getBulletCardItems(section: SafeSection): BulletCardItem[] {
+  return collectRawBulletItems(section)
+    .map(parseBulletCardItem)
+    .filter((item): item is BulletCardItem => Boolean(item));
+}
 </script>
 
 <template>
@@ -200,6 +275,19 @@ function isImage(block: ContentBlock): block is Extract<ContentBlock, { type: "i
           :section-id="section.id"
           :title="section.title"
           :data="section.formatsData"
+        />
+
+        <ContentBulletCards
+          v-else-if="
+            (section.key === 'uses' || section.key === 'finishes') &&
+            getBulletCardItems(section).length
+          "
+          :section-id="section.id"
+          :eyebrow="section.key === 'uses' ? 'Aplicaciones' : 'Acabados'"
+          :title="section.title"
+          :intro="section.intro"
+          :items="getBulletCardItems(section)"
+          :columns="4"
         />
 
         <section

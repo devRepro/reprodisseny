@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
+import { useRoute } from "#imports";
 import type { CategoriaNode } from "~/composables/useCategoriasNav";
 import {
   Menubar,
@@ -24,9 +25,13 @@ const props = withDefaults(
   }
 );
 
+const route = useRoute();
+
 const categories = computed<CategoriaNode[]>(() =>
   Array.isArray(props.tree) ? props.tree : []
 );
+
+const hasCategories = computed(() => categories.value.length > 0);
 
 const labelOf = (c: Partial<CategoriaNode> | null | undefined) =>
   c?.nav || c?.title || c?.slug || "";
@@ -49,12 +54,18 @@ const hasChildren = (c: CategoriaNode | null | undefined) => childrenOf(c).lengt
 const hasPreviewProducts = (c: CategoriaNode | null | undefined) =>
   previewProducts(c).length > 0;
 
-const hasDropdown = (c: CategoriaNode) => hasChildren(c) || (c?.productCount ?? 0) > 0;
+const hasDropdown = (c: CategoriaNode) => hasChildren(c) || hasPreviewProducts(c);
 
 const imageSrcOf = (item: any) => item?.image?.src || item?.imageSrc || "";
 
 const imageAltOf = (item: any) =>
   item?.image?.alt || item?.title || item?.nav || item?.slug || "";
+
+const isCategoryActive = (c: Partial<CategoriaNode> | null | undefined) => {
+  const href = toCat(c);
+  if (!href) return false;
+  return route.path === href || route.path.startsWith(`${href}/`);
+};
 </script>
 
 <template>
@@ -62,20 +73,18 @@ const imageAltOf = (item: any) =>
     <div
       class="mx-auto w-full max-w-[1440px] min-w-0 px-4 py-2 sm:px-6 lg:px-10 xl:px-[80px]"
     >
-      <div v-if="pending" class="text-[14px] leading-[20px] text-white/80">Cargando…</div>
-
-      <div v-else-if="error" class="text-[14px] leading-[20px] text-white">
-        No se ha podido cargar el menú.
-      </div>
-
-      <div
-        v-else-if="!categories.length"
-        class="text-[14px] leading-[20px] text-white/80"
-      >
-        (Sin categorías)
+      <div v-if="!hasCategories" class="text-[14px] leading-[20px] text-white/80">
+        <span v-if="pending">Cargando…</span>
+        <span v-else-if="error">No se ha podido cargar el menú.</span>
+        <span v-else>(Sin categorías)</span>
       </div>
 
       <template v-else>
+        <div class="sr-only" aria-live="polite">
+          <span v-if="pending">Actualizando categorías</span>
+        </div>
+
+        <!-- Mobile -->
         <div class="relative min-w-0 md:hidden">
           <div
             class="pointer-events-none absolute inset-y-0 left-0 w-6 bg-gradient-to-r from-[#004F78] to-transparent"
@@ -91,13 +100,19 @@ const imageAltOf = (item: any) =>
               v-for="cat in categories"
               :key="nodeKeyOf(cat)"
               :to="toCat(cat)"
-              class="shrink-0 rounded-full border border-white/20 bg-white/10 px-3 py-2 text-xs font-semibold text-white hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+              class="shrink-0 rounded-full border px-3 py-2 text-xs font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+              :class="
+                isCategoryActive(cat)
+                  ? 'border-white/30 bg-white text-[#004F78]'
+                  : 'border-white/20 bg-white/10 text-white hover:bg-white/15'
+              "
             >
               {{ labelOf(cat) }}
             </NuxtLink>
           </div>
         </div>
 
+        <!-- Desktop -->
         <div class="hidden w-full min-w-0 md:block">
           <div class="relative w-full min-w-0">
             <div
@@ -112,16 +127,29 @@ const imageAltOf = (item: any) =>
                   class="shrink-0"
                 >
                   <template v-if="hasDropdown(cat)">
-                    <MenubarTrigger as-child>
-                      <button
-                        type="button"
-                        class="inline-flex max-w-[220px] items-center gap-1 whitespace-nowrap text-[14px] font-normal leading-[20px] text-white hover:text-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#004F78]"
-                        :aria-label="`Abrir submenú de ${labelOf(cat)}`"
+                    <div class="inline-flex items-center gap-1">
+                      <NuxtLink
+                        :to="toCat(cat)"
+                        class="shrink-0 whitespace-nowrap text-[14px] leading-[20px] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#004F78]"
+                        :class="
+                          isCategoryActive(cat)
+                            ? 'font-semibold text-white'
+                            : 'font-normal text-white hover:text-white/90'
+                        "
                       >
-                        <span class="truncate">{{ labelOf(cat) }}</span>
-                        <ChevronDownIcon class="h-4 w-4 shrink-0" aria-hidden="true" />
-                      </button>
-                    </MenubarTrigger>
+                        {{ labelOf(cat) }}
+                      </NuxtLink>
+
+                      <MenubarTrigger as-child>
+                        <button
+                          type="button"
+                          class="inline-flex h-8 w-8 items-center justify-center rounded-full text-white transition hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#004F78]"
+                          :aria-label="`Abrir submenú de ${labelOf(cat)}`"
+                        >
+                          <ChevronDownIcon class="h-4 w-4 shrink-0" aria-hidden="true" />
+                        </button>
+                      </MenubarTrigger>
+                    </div>
 
                     <MenubarContent
                       align="center"
@@ -165,6 +193,7 @@ const imageAltOf = (item: any) =>
                               >
                                 <NuxtLink
                                   :to="toProd(prod)"
+                                  :prefetch="false"
                                   class="flex min-w-0 w-full cursor-pointer items-center gap-3 rounded-md px-2 py-2 hover:bg-muted"
                                 >
                                   <NuxtImg
@@ -230,6 +259,7 @@ const imageAltOf = (item: any) =>
                             >
                               <NuxtLink
                                 :to="toProd(prod)"
+                                :prefetch="false"
                                 class="group flex min-w-0 cursor-pointer flex-col gap-2 rounded-md p-2 hover:bg-muted"
                               >
                                 <div
@@ -277,7 +307,12 @@ const imageAltOf = (item: any) =>
                   <template v-else>
                     <NuxtLink
                       :to="toCat(cat)"
-                      class="shrink-0 whitespace-nowrap text-[14px] font-normal leading-[20px] text-white hover:text-white/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#004F78]"
+                      class="shrink-0 whitespace-nowrap text-[14px] leading-[20px] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#004F78]"
+                      :class="
+                        isCategoryActive(cat)
+                          ? 'font-semibold text-white'
+                          : 'font-normal text-white hover:text-white/90'
+                      "
                     >
                       {{ labelOf(cat) }}
                     </NuxtLink>

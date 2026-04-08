@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-07T17:26:54.548Z",
+  "generatedAt": "2026-04-07T18:09:06.585Z",
   "categories": [
     {
       "id": "12",
@@ -921,7 +921,7 @@
     },
     {
       "id": "2",
-      "updatedAt": "2026-04-07T16:32:23Z",
+      "updatedAt": "2026-04-07T18:02:30Z",
       "type": "categoria",
       "slug": "adhesivos-personalizados",
       "path": "/categorias/adhesivos-personalizados",
@@ -1109,15 +1109,15 @@
           "id": "finishes",
           "key": "finishes",
           "title": "Acabados",
-          "body": "- **Laminado mate o brillo**: aporta protección extra y un acabado más profesional.\n- **Barniz selectivo**: resalta logotipos o zonas concretas para conseguir un efecto visual más premium.\n- **Acabado soft touch**: ofrece un tacto aterciopelado, ideal para packaging y piezas de marca con una presentación más cuidada.\n- **Refuerzo para exterior**: según el material y el uso, mejora la durabilidad en condiciones más exigentes.",
+          "body": "- **Laminado mate o brillo**: aporta protección adicional y un acabado más profesional.\n- **Barniz selectivo**: resalta logotipos o zonas concretas para conseguir un efecto visual más premium.\n- **Acabado soft touch**: ofrece un tacto aterciopelado, ideal para packaging y piezas de marca con una presentación más cuidada.\n- **Refuerzo para exterior**: según el material y el uso, mejora la durabilidad en aplicaciones expuestas a condiciones más exigentes.",
           "blocks": [
             {
               "type": "bullets",
               "items": [
-                "**Laminado mate o brillo**: aporta protección extra y un acabado más profesional.",
+                "**Laminado mate o brillo**: aporta protección adicional y un acabado más profesional.",
                 "**Barniz selectivo**: resalta logotipos o zonas concretas para conseguir un efecto visual más premium.",
                 "**Acabado soft touch**: ofrece un tacto aterciopelado, ideal para packaging y piezas de marca con una presentación más cuidada.",
-                "**Refuerzo para exterior**: según el material y el uso, mejora la durabilidad en condiciones más exigentes."
+                "**Refuerzo para exterior**: según el material y el uso, mejora la durabilidad en aplicaciones expuestas a condiciones más exigentes."
               ],
               "ordered": false
             }
