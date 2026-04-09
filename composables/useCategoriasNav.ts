@@ -2,7 +2,7 @@ import { computed, watch } from "vue";
 import type {
   NavCategoryItem,
   NavProductItem,
-} from "~/server/services/catalog.service";
+} from "~/server/services/cms/catalog.service";
 
 export type ProductoNode = NavProductItem;
 export type CategoriaNode = NavCategoryItem;
@@ -18,15 +18,25 @@ type ReturnShape = {
   menuItems: CategoriaNode[];
 };
 
-export function useCategoriasNav(opts: Options = {}) {
+const EMPTY_NAV: ReturnShape = {
+  tree: [],
+  indexBySlug: {},
+  menuItems: [],
+};
+
+export async function useCategoriasNav(opts: Options = {}) {
   const includeProducts = opts.includeProducts ?? true;
   const productLimit = Math.max(0, Math.min(opts.productLimit ?? 8, 12));
 
   const cacheKey = `nav-categorias:ip${includeProducts ? 1 : 0}:pl${productLimit}`;
 
-  const stableNav = useState<ReturnShape | null>(`${cacheKey}:stable`, () => null);
+  const stableNav = useState<ReturnShape>(`${cacheKey}:stable`, () => ({
+    tree: [],
+    indexBySlug: {},
+    menuItems: [],
+  }));
 
-  const request = useFetch<ReturnShape>("/api/nav/categorias", {
+  const request = await useFetch<ReturnShape>("/api/nav/categorias", {
     key: cacheKey,
     query: {
       includeProducts,
@@ -35,6 +45,12 @@ export function useCategoriasNav(opts: Options = {}) {
     server: true,
     lazy: false,
     dedupe: "defer",
+    default: () => ({
+      tree: [],
+      indexBySlug: {},
+      menuItems: [],
+    }),
+    transform: (value) => value ?? EMPTY_NAV,
   });
 
   watch(
@@ -44,18 +60,13 @@ export function useCategoriasNav(opts: Options = {}) {
         stableNav.value = value;
       }
     },
-    { immediate: true, deep: true }
+    { immediate: true, deep: false }
   );
 
   const resolvedData = computed<ReturnShape>(() => {
-    return (
-      request.data.value ??
-      stableNav.value ?? {
-        tree: [],
-        indexBySlug: {},
-        menuItems: [],
-      }
-    );
+    if (request.data.value?.tree?.length) return request.data.value;
+    if (stableNav.value?.tree?.length) return stableNav.value;
+    return EMPTY_NAV;
   });
 
   const tree = computed(() => resolvedData.value.tree ?? []);

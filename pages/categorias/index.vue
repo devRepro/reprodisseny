@@ -7,11 +7,7 @@ import CategoryChildrenGrid from "@/components/marketing/category/CategoryChildr
 import GuideBanner from "@/components/marketing/GuideBanner.vue";
 import { useHomeCategoriesGrid } from "@/composables/useHomeCategoriesGrid";
 
-const {
-  categories,
-  pending,
-  error,
-} = await useHomeCategoriesGrid(24);
+const { categories, pending, error } = await useHomeCategoriesGrid(24);
 
 const canonical = computed(() => "https://reprodisseny.com/categorias");
 
@@ -43,8 +39,8 @@ useHead(() => ({
     </div>
 
     <template v-else>
-      <div class="pb-16 md:pb-24">
-        <div class="space-y-16 md:space-y-20">
+      <div class="pb-10 md:pb-14">
+        <div class="space-y-8 md:space-y-12">
           <ContentSectionShell
             eyebrow="Categorías"
             title="Explora nuestras familias de producto"

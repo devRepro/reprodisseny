@@ -19,7 +19,7 @@ const props = withDefaults(
       { label: "Adhesivos", to: "/categorias/adhesivos" },
       {
         label: "Material publicitario y oficina",
-        to: "/categorias/material-publicitario",
+        to: "/categorias/publicidad-oficina",
       },
       { label: "Gran formato", to: "/categorias/gran-formato" },
     ],

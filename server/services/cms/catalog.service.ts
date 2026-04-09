@@ -938,44 +938,67 @@ function toNavProductItem(product: CatalogProduct): NavProductItem {
   };
 }
 
-export function getNavigationCategories(productLimit = 8): NavCategoryItem[] {
-  const safeProductLimit = toBoundedInt(productLimit, 8, 0, 12);
+type GetNavigationCategoriesOptions = {
+  includeProducts?: boolean;
+  productLimit?: number;
+};
+
+export function getNavigationCategories(
+  options: GetNavigationCategoriesOptions = {}
+): NavCategoryItem[] {
+  const includeProducts = options.includeProducts ?? true;
+  const safeProductLimit = toBoundedInt(options.productLimit, 8, 0, 12);
+
   const allCategories = getPublishedVisibleCategories();
   const allProducts = getPublishedProducts();
+
+  const categoryByInternalSlug = new Map(
+    allCategories.map((category) => [String(category.slug), category] as const)
+  );
 
   const previewProductsByCategory = new Map<string, NavProductItem[]>();
   const productCountByCategory = new Map<string, number>();
 
-  for (const product of allProducts) {
-    const categorySlug = String(product.categorySlug || "").trim();
-    if (!categorySlug) continue;
+  if (includeProducts) {
+    for (const product of allProducts) {
+      const categorySlug = String(product.categorySlug || "").trim();
+      if (!categorySlug) continue;
 
-    productCountByCategory.set(
-      categorySlug,
-      (productCountByCategory.get(categorySlug) ?? 0) + 1
-    );
+      productCountByCategory.set(
+        categorySlug,
+        (productCountByCategory.get(categorySlug) ?? 0) + 1
+      );
 
-    const preview = previewProductsByCategory.get(categorySlug) ?? [];
-    if (preview.length < safeProductLimit) {
-      preview.push(toNavProductItem(product));
-      previewProductsByCategory.set(categorySlug, preview);
+      const preview = previewProductsByCategory.get(categorySlug) ?? [];
+      if (preview.length < safeProductLimit) {
+        preview.push(toNavProductItem(product));
+        previewProductsByCategory.set(categorySlug, preview);
+      }
     }
   }
 
   const nodes = new Map<string, NavCategoryItem>();
 
   for (const category of allCategories) {
+    const parentCategory = category.parent
+      ? categoryByInternalSlug.get(String(category.parent))
+      : null;
+
     nodes.set(category.slug, {
       id: String(category.id ?? category.slug),
       slug: categoryPublicSlugOf(category),
       title: category.title,
       nav: category.nav || category.title,
       path: categoryPathOf(category),
-      parent: category.parent ?? null,
+      parent: parentCategory ? categoryPublicSlugOf(parentCategory) : null,
       order: Number.isFinite(category.order) ? Number(category.order) : DEFAULT_SORT_ORDER,
       children: [],
-      products: previewProductsByCategory.get(category.slug) ?? [],
-      productCount: productCountByCategory.get(category.slug) ?? 0,
+      products: includeProducts
+        ? previewProductsByCategory.get(category.slug) ?? []
+        : [],
+      productCount: includeProducts
+        ? productCountByCategory.get(category.slug) ?? 0
+        : 0,
     });
   }
 

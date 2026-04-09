@@ -15,8 +15,8 @@ const config = useRuntimeConfig();
 const nuxtApp = useNuxtApp();
 
 const pageContainerClass = "container-content";
-const pageFlowClass = "space-y-16 md:space-y-20";
-const pageBottomSpacingClass = "pb-16 md:pb-24";
+const pageFlowClass = "space-y-8 md:space-y-12";
+const pageBottomSpacingClass = "pb-10 md:pb-14";
 const sectionIntroClass = "max-w-3xl";
 
 function safeDecode(value: unknown) {
@@ -318,19 +318,14 @@ useSeoMeta({
             </div>
           </section>
 
-          <section
-            v-if="products.length"
-            id="productos"
-            :class="pageContainerClass"
-            aria-label="Productos de la categoría"
-          >
-            <CategoryProductsGrid
-              :products="products"
-              eyebrow="Productos relacionados"
-              title="Productos de esta categoría"
-              description="Explora formatos y soluciones relacionadas."
-            />
-          </section>
+          <CategoryProductsGrid
+            :products="products"
+            eyebrow="Catálogo"
+            title="Productos de esta categoría"
+            description="Explora opciones, formatos y acabados disponibles."
+            :initial-limit="8"
+            :load-more-step="8"
+          />
 
           <ContentSectionShell
             v-if="hasSections"
@@ -350,16 +345,14 @@ useSeoMeta({
             <FaqAccordion :items="faqs" />
           </ContentSectionShell>
 
-          <section aria-label="Guía de preparación de archivos">
-            <GuideBanner
-              title="¿No estás seguro de las medidas?"
-              :cta="{ label: 'Consultar guía', to: '/como-preparar-archivos' }"
-              base-path="/img/ui/banners/como-preparar-archivos"
-              :height="240"
-              :full-bleed="true"
-              :rounded="false"
-            />
-          </section>
+          <GuideBanner
+            title="¿No estás seguro de las medidas?"
+            :cta="{ label: 'Consultar guía', to: '/como-preparar-archivos' }"
+            base-path="/img/ui/banners/como-preparar-archivos"
+            :height="240"
+            :full-bleed="true"
+            :rounded="false"
+          />
 
           <ContentSectionShell
             eyebrow="Asesoramiento personalizado"

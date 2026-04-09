@@ -12,8 +12,9 @@ const route = useRoute();
 const config = useRuntimeConfig();
 
 const pageContainerClass = "container-content";
-const pageFlowClass = "space-y-16 md:space-y-20";
-const pageBottomSpacingClass = "pb-16 md:pb-24";
+const pageFlowClass = "space-y-8 md:space-y-10";
+const pageBottomSpacingClass = "pb-10 md:pb-14";
+const sectionIntroClass = "max-w-3xl";
 
 function safeDecode(value: unknown) {
   try {
@@ -42,9 +43,7 @@ function toAbsoluteUrl(value?: string | null) {
 
 const slug = computed(() =>
   safeDecode(
-    Array.isArray(route.params.slug)
-      ? route.params.slug.join("/")
-      : route.params.slug
+    Array.isArray(route.params.slug) ? route.params.slug.join("/") : route.params.slug
   ).trim()
 );
 
@@ -72,10 +71,7 @@ if (error.value) {
   throw createError({
     statusCode: err?.statusCode || err?.status || err?.response?.status || 404,
     statusMessage: "Producto no encontrado",
-    message:
-      err?.data?.message ||
-      err?.message ||
-      "No hemos podido cargar el producto",
+    message: err?.data?.message || err?.message || "No hemos podido cargar el producto",
   });
 }
 
@@ -113,15 +109,11 @@ const breadcrumbItems = computed(() =>
 );
 
 const sections = computed(() =>
-  Array.isArray(product.value?.sections)
-    ? product.value.sections.filter(Boolean)
-    : []
+  Array.isArray(product.value?.sections) ? product.value.sections.filter(Boolean) : []
 );
 
 const faqs = computed(() =>
-  Array.isArray(product.value?.faqs)
-    ? product.value.faqs.filter(Boolean)
-    : []
+  Array.isArray(product.value?.faqs) ? product.value.faqs.filter(Boolean) : []
 );
 
 const hasSections = computed(() => sections.value.length > 0);
@@ -136,8 +128,8 @@ const heroProduct = computed(() => {
   const extraFields = Array.isArray((current as any).extraFields)
     ? (current as any).extraFields
     : Array.isArray(current.formFields)
-      ? current.formFields
-      : [];
+    ? current.formFields
+    : [];
 
   return {
     slug: current.slug,
@@ -189,10 +181,10 @@ const hreflangLinks = computed(
         };
       })
       .filter(Boolean) as Array<{
-        rel: "alternate";
-        hreflang: string;
-        href: string;
-      }>
+      rel: "alternate";
+      hreflang: string;
+      href: string;
+    }>
 );
 
 const ogImageUrl = computed(() => {
@@ -230,10 +222,7 @@ useSeoMeta({
     product.value?.description ||
     "Detalles de producto",
 
-  ogTitle: () =>
-    product.value?.seo?.title ||
-    product.value?.title ||
-    "Producto",
+  ogTitle: () => product.value?.seo?.title || product.value?.title || "Producto",
 
   ogDescription: () =>
     product.value?.seo?.description ||
@@ -247,10 +236,7 @@ useSeoMeta({
   robots: () => product.value?.seo?.robots || "index,follow",
 
   twitterCard: () => (ogImageUrl.value ? "summary_large_image" : "summary"),
-  twitterTitle: () =>
-    product.value?.seo?.title ||
-    product.value?.title ||
-    "Producto",
+  twitterTitle: () => product.value?.seo?.title || product.value?.title || "Producto",
   twitterDescription: () =>
     product.value?.seo?.description ||
     product.value?.shortDescription ||
@@ -303,7 +289,7 @@ useSeoMeta({
           >
             <FaqAccordion :items="faqs" />
           </ContentSectionShell>
-          
+
           <section aria-label="Guía de preparación de archivos">
             <GuideBanner
               title="¿No estás seguro de las medidas?"

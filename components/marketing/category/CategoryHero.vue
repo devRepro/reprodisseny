@@ -50,17 +50,13 @@ const props = withDefaults(
   }
 );
 
-const title = computed(
-  () => props.category?.title || props.category?.nav || "Categoría"
-);
+const title = computed(() => props.category?.title || props.category?.nav || "Categoría");
 
 const description = computed(
   () => props.category?.heroDescription || props.category?.description || ""
 );
 
-const kicker = computed(
-  () => props.category?.heroKicker || "Impresión personalizada"
-);
+const kicker = computed(() => props.category?.heroKicker || "Impresión personalizada");
 
 const highlights = computed(() =>
   (props.category?.heroHighlights || []).filter(Boolean).slice(0, 4)
@@ -100,8 +96,8 @@ const secondaryCta = computed<HeroCta | null>(() => {
       cn(
         'relative w-full overflow-hidden',
         'bg-[linear-gradient(180deg,hsl(var(--brand-base-light)/0.42)_0%,hsl(var(--background))_58%,hsl(var(--background))_100%)]',
-        'pt-8 md:pt-10 lg:pt-14',
-        'pb-12 md:pb-16 lg:pb-20',
+        'pt-6 md:pt-8 lg:pt-10',
+        'pb-8 md:pb-10 lg:pb-12',
         props.class
       )
     "

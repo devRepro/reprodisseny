@@ -88,7 +88,9 @@ const resultsSummary = computed(() => {
             Búsqueda global
           </p>
 
-          <h1 class="mt-3 text-[34px] font-semibold leading-[1.05] text-foreground md:text-[46px]">
+          <h1
+            class="mt-3 text-[34px] font-semibold leading-[1.05] text-foreground md:text-[46px]"
+          >
             Buscar en toda la web
           </h1>
 
@@ -148,7 +150,9 @@ const resultsSummary = computed(() => {
             </div>
           </form>
 
-          <div class="mt-5 flex flex-wrap items-center gap-3 text-sm text-muted-foreground">
+          <div
+            class="mt-5 flex flex-wrap items-center gap-3 text-sm text-muted-foreground"
+          >
             <span v-if="hasQuery">
               Resultados para:
               <span class="font-medium text-foreground">“{{ q }}”</span>
@@ -173,8 +177,11 @@ const resultsSummary = computed(() => {
       </div>
     </section>
 
-    <section class="container-content py-10 md:py-14">
-      <div v-if="!hasQuery" class="rounded-[28px] border border-border/70 bg-card p-8 shadow-sm">
+    <section class="container-content">
+      <div
+        v-if="!hasQuery"
+        class="rounded-[28px] border border-border/70 bg-card p-8 shadow-sm"
+      >
         <h2 class="text-[24px] font-semibold leading-[1.15] text-foreground">
           Empieza escribiendo una búsqueda
         </h2>
@@ -230,10 +237,16 @@ const resultsSummary = computed(() => {
       </div>
 
       <div v-else class="space-y-12">
-        <section v-if="products.length" class="space-y-5" aria-labelledby="search-products">
+        <section
+          v-if="products.length"
+          class="space-y-5"
+          aria-labelledby="search-products"
+        >
           <div class="flex items-end justify-between gap-4">
             <div>
-              <p class="text-xs font-semibold uppercase tracking-[0.16em] text-primary/75">
+              <p
+                class="text-xs font-semibold uppercase tracking-[0.16em] text-primary/75"
+              >
                 Resultados
               </p>
               <h2
@@ -247,7 +260,9 @@ const resultsSummary = computed(() => {
             <span
               class="inline-flex min-h-9 items-center justify-center rounded-full border border-border/60 bg-card px-3 py-2 text-sm text-foreground/72"
             >
-              {{ products.length === 1 ? "1 resultado" : `${products.length} resultados` }}
+              {{
+                products.length === 1 ? "1 resultado" : `${products.length} resultados`
+              }}
             </span>
           </div>
 
@@ -271,7 +286,9 @@ const resultsSummary = computed(() => {
               </div>
 
               <div class="flex flex-1 flex-col px-5 py-5">
-                <p class="text-xs font-semibold uppercase tracking-[0.14em] text-primary/75">
+                <p
+                  class="text-xs font-semibold uppercase tracking-[0.14em] text-primary/75"
+                >
                   Producto
                 </p>
 
@@ -296,7 +313,9 @@ const resultsSummary = computed(() => {
         >
           <div class="flex items-end justify-between gap-4">
             <div>
-              <p class="text-xs font-semibold uppercase tracking-[0.16em] text-primary/75">
+              <p
+                class="text-xs font-semibold uppercase tracking-[0.16em] text-primary/75"
+              >
                 Resultados
               </p>
               <h2
@@ -310,7 +329,11 @@ const resultsSummary = computed(() => {
             <span
               class="inline-flex min-h-9 items-center justify-center rounded-full border border-border/60 bg-card px-3 py-2 text-sm text-foreground/72"
             >
-              {{ categories.length === 1 ? "1 resultado" : `${categories.length} resultados` }}
+              {{
+                categories.length === 1
+                  ? "1 resultado"
+                  : `${categories.length} resultados`
+              }}
             </span>
           </div>
 
@@ -334,7 +357,9 @@ const resultsSummary = computed(() => {
               </div>
 
               <div class="flex flex-1 flex-col px-5 py-5">
-                <p class="text-xs font-semibold uppercase tracking-[0.14em] text-primary/75">
+                <p
+                  class="text-xs font-semibold uppercase tracking-[0.14em] text-primary/75"
+                >
                   Categoría
                 </p>
 

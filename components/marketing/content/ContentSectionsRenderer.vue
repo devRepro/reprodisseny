@@ -266,13 +266,10 @@ function getBulletCardItems(section: SafeSection): BulletCardItem[] {
 }
 
 function isDetailsSection(section?: SafeSection | null) {
-  const title = String(section?.title ?? "").trim().toLowerCase();
-
-  return (
-    section?.key === "details" ||
-    section?.id === "details" ||
-    title === "detalles"
-  );
+  const title = String(section?.title ?? "")
+    .trim()
+    .toLowerCase();
+  return section?.key === "details" || section?.id === "details" || title === "detalles";
 }
 
 function getSectionKind(
@@ -281,7 +278,11 @@ function getSectionKind(
 ): RenderSectionKind {
   if (isDetailsSection(section)) return "details";
 
-  if (section.key === "types" && Array.isArray(section.items) && section.items.length > 0) {
+  if (
+    section.key === "types" &&
+    Array.isArray(section.items) &&
+    section.items.length > 0
+  ) {
     return "types";
   }
 
@@ -310,8 +311,8 @@ const renderSections = computed<RenderSection[]>(() =>
         section.key === "uses"
           ? "Aplicaciones"
           : section.key === "finishes"
-            ? "Acabados"
-            : undefined,
+          ? "Acabados"
+          : undefined,
     };
   })
 );
@@ -324,14 +325,22 @@ const tabItems = computed<TabItem[]>(() =>
 );
 
 const renderSectionsById = computed<Record<string, RenderSection>>(() =>
-  renderSections.value.reduce(
-    (acc, entry) => {
-      acc[entry.uid] = entry;
-      return acc;
-    },
-    {} as Record<string, RenderSection>
-  )
+  renderSections.value.reduce((acc, entry) => {
+    acc[entry.uid] = entry;
+    return acc;
+  }, {} as Record<string, RenderSection>)
 );
+
+function getEntryByTabId(tabId?: string | null): RenderSection | null {
+  if (!tabId) return null;
+  return renderSectionsById.value[tabId] ?? null;
+}
+
+function getPanelEntries(item?: TabItem | null): RenderSection[] {
+  if (!item?.id) return [];
+  const entry = getEntryByTabId(item.id);
+  return entry ? [entry] : [];
+}
 </script>
 
 <template>
@@ -341,31 +350,26 @@ const renderSectionsById = computed<Record<string, RenderSection>>(() =>
       :items="tabItems"
       aria-label="Información detallada"
       :keep-mounted="true"
-      section-class="space-y-6 md:space-y-8"
+      section-class="space-y-4 md:space-y-6"
       panel-class="min-w-0"
     >
       <template #panel="{ item }">
-        <template
-          v-for="entry in renderSectionsById[item.id] ? [renderSectionsById[item.id]] : []"
-          :key="entry.uid"
-        >
+        <template v-for="entry in getPanelEntries(item)" :key="entry.uid">
           <div :id="entry.section.id" class="scroll-mt-32">
-            <ContentDetailsSection
-              v-if="entry.kind === 'details'"
-              :section="entry.section"
-              eyebrow="Detalles"
-            />
+            <template v-if="entry.kind === 'details'">
+              <ContentDetailsSection :section="entry.section" eyebrow="Detalles" />
 
-            <CategoryShowcaseCta
-              v-if="entry.kind === 'details' && featuredProduct"
-              class="mt-4 md:mt-6"
-              :product="featuredProduct"
-              :highlights="[
-                'Ideal para packaging, retail y promociones.',
-                'Disponible en distintos materiales y acabados.',
-                'Solicita presupuesto desde la ficha del producto.'
-              ]"
-            />
+              <CategoryShowcaseCta
+                v-if="featuredProduct"
+                class="mt-4 md:mt-6"
+                :product="featuredProduct"
+                :highlights="[
+                  'Ideal para packaging, retail y promociones.',
+                  'Disponible en distintos materiales y acabados.',
+                  'Solicita presupuesto desde la ficha del producto.',
+                ]"
+              />
+            </template>
 
             <ContentTypesGrid
               v-else-if="entry.kind === 'types'"
@@ -397,7 +401,7 @@ const renderSectionsById = computed<Record<string, RenderSection>>(() =>
               class="overflow-hidden rounded-[24px] border border-border/60 bg-card shadow-sm"
             >
               <header
-                class="flex items-center gap-4 border-b border-border/40 bg-muted/10 px-6 py-5 md:px-8"
+                class="flex items-center gap-3 border-b border-border/40 bg-muted/10 px-5 py-4 md:px-6"
               >
                 <div
                   class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
@@ -408,7 +412,8 @@ const renderSectionsById = computed<Record<string, RenderSection>>(() =>
                   >
                     {{
                       String(
-                        renderSections.findIndex((section) => section.uid === entry.uid) + 1
+                        renderSections.findIndex((section) => section.uid === entry.uid) +
+                          1
                       ).padStart(2, "0")
                     }}
                   </span>
@@ -416,13 +421,15 @@ const renderSectionsById = computed<Record<string, RenderSection>>(() =>
 
                 <div class="flex min-w-0 items-center gap-3">
                   <span aria-hidden="true" class="h-9 w-1.5 rounded-full bg-primary/85" />
-                  <h3 class="text-xl font-bold tracking-tight text-foreground md:text-2xl">
+                  <h3
+                    class="text-xl font-bold tracking-tight text-foreground md:text-2xl"
+                  >
                     {{ entry.section.title }}
                   </h3>
                 </div>
               </header>
 
-              <div class="space-y-8 px-6 py-8 md:px-8 md:py-10">
+              <div class="space-y-6 px-5 py-6 md:px-6 md:py-8">
                 <p
                   v-if="entry.section.intro"
                   class="max-w-[75ch] text-base leading-relaxed text-muted-foreground md:text-lg"
@@ -468,7 +475,9 @@ const renderSectionsById = computed<Record<string, RenderSection>>(() =>
                         </span>
                       </div>
 
-                      <span class="text-sm leading-relaxed text-foreground/80 md:text-base">
+                      <span
+                        class="text-sm leading-relaxed text-foreground/80 md:text-base"
+                      >
                         {{ blockItem }}
                       </span>
                     </li>

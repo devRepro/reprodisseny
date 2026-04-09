@@ -3,9 +3,12 @@ import SiteHeader from "@/components/layout/SiteHeader.vue";
 import SiteFooter from "@/components/shared/footer/SiteFooter.vue";
 import { useCategoriasNav } from "~/composables/useCategoriasNav";
 
-const { tree: menuTree, pending: menuPending, error: menuError } = useCategoriasNav({
-  productLimit: 6,
-});
+const { tree: menuTree, pending: menuPending, error: menuError } = await useCategoriasNav(
+  {
+    includeProducts: true,
+    productLimit: 6,
+  }
+);
 </script>
 
 <template>
