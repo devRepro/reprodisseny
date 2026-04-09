@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-09T11:39:38.632Z",
+  "generatedAt": "2026-04-09T18:28:05.561Z",
   "categories": [
     {
       "id": "12",
@@ -4854,10 +4854,10 @@
     },
     {
       "id": "6",
-      "updatedAt": "2026-03-26T12:25:43Z",
+      "updatedAt": "2026-04-09T18:27:47Z",
       "type": "producto",
       "slug": "banderola-fachada-personalizada",
-      "path": "/productos/banderola-fachada/banderola-fachada-personalizada",
+      "path": "/productos/banderola-fachada-personalizada",
       "title": "Banderola luminosa para fachada",
       "categorySlug": "material-rigido",
       "categorySlugs": [
@@ -4967,7 +4967,7 @@
         },
         {
           "name": "Banderola luminosa para fachada",
-          "url": "/productos/banderola-fachada/banderola-fachada-personalizada"
+          "url": "/productos/banderola-fachada-personalizada"
         }
       ],
       "image": {
@@ -5074,11 +5074,11 @@
       "seo": {
         "metaTitle": "Banderola luminosa para fachada | Visibilidad exterior día y noche",
         "metaDescription": "Banderola luminosa para fachada con impresión retroiluminada (backlit) y luz LED. Ideal para identificar tu negocio y campañas exteriores. Medidas a medida. Solicita presupuesto.",
-        "canonical": "https://reprodisseny.com/productos/banderola-fachada/banderola-fachada-personalizada",
+        "canonical": "https://reprodisseny.com/productos/banderola-fachada-personalizada",
         "hreflang": [
           {
             "lang": "es-ES",
-            "url": "https://reprodisseny.com/productos/banderola-fachada/banderola-fachada-personalizada"
+            "url": "https://reprodisseny.com/productos/banderola-fachada-personalizada"
           },
           {
             "lang": "ca-ES",
@@ -5099,7 +5099,7 @@
               "name": "Banderola luminosa para fachada",
               "description": "Banderola luminosa para fachada con impresión retroiluminada (backlit) y luz LED. Ideal para identificar tu negocio y campañas exteriores. Medidas a medida. Solicita presupuesto.",
               "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/banderola-luminosa-para-fachada.webp",
-              "url": "https://reprodisseny.com/productos/banderola-fachada/banderola-fachada-personalizada",
+              "url": "https://reprodisseny.com/productos/banderola-fachada-personalizada",
               "brand": {
                 "@type": "Organization",
                 "name": "Reprodisseny"
@@ -5137,7 +5137,7 @@
                   "@type": "ListItem",
                   "position": 5,
                   "name": "Banderola luminosa para fachada",
-                  "item": "https://reprodisseny.com/productos/banderola-fachada/banderola-fachada-personalizada"
+                  "item": "https://reprodisseny.com/productos/banderola-fachada-personalizada"
                 }
               ]
             },
