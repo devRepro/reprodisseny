@@ -1,112 +1,134 @@
-import { defineEventHandler, getQuery, createError } from "h3"
-import { useStorage } from "#imports"
-import { getCmsCatalog } from "~/server/utils/cmsCatalog.server"
+import { defineEventHandler, getQuery } from "h3";
+import { useStorage } from "#imports";
+import { getCmsCatalog } from "~/server/utils/cmsCatalog.server";
 
-type Kind = "producto" | "categoria"
+type Kind = "producto" | "categoria";
+
 type SuggestItem = {
-  id: string
-  kind: Kind
-  title: string
-  href: string
-  image?: string | null
+  id: string;
+  kind: Kind;
+  title: string;
+  href: string;
+  image?: string | null;
+};
+
+type SuggestResponse = {
+  q: string;
+  items: SuggestItem[];
+};
+
+function s(v: unknown) {
+  return String(v ?? "").trim();
 }
 
-type SuggestResponse = { q: string; items: SuggestItem[] }
+function clampInt(v: unknown, fallback: number, min: number, max: number) {
+  const value = parseInt(String(v ?? ""), 10);
+  if (!Number.isFinite(value)) return fallback;
+  return Math.max(min, Math.min(max, value));
+}
 
-const n = (v: any) => (Number.isFinite(Number(v)) ? Number(v) : 0)
-const s = (v: any) => String(v ?? "").trim()
-
-function normText(v: any) {
+function norm(v: unknown) {
   return s(v)
     .toLowerCase()
     .normalize("NFD")
-    .replace(/\p{Diacritic}/gu, "")
+    .replace(/[\u0300-\u036f]/g, "");
 }
 
-function clampInt(v: any, fallback: number, min: number, max: number) {
-  const x = parseInt(String(v ?? ""), 10)
-  if (!Number.isFinite(x)) return fallback
-  return Math.max(min, Math.min(max, x))
+function scoreText(title: string, term: string) {
+  const t = norm(title);
+  if (!t) return 0;
+  if (t.startsWith(term)) return 100;
+  if (t.includes(term)) return 50;
+  return 0;
 }
 
-// ranking simple: empieza por término > contiene
-function score(title: string, term: string) {
-  const t = normText(title)
-  if (!t) return 0
-  if (t.startsWith(term)) return 100
-  if (t.includes(term)) return 50
-  return 0
+function isVisibleCategory(item: any) {
+  return item?.hidden !== true && item?.isPublished !== false && item?.published !== false;
+}
+
+function isVisibleProduct(item: any) {
+  return item?.hidden !== true && item?.isPublished !== false && item?.published !== false;
 }
 
 export default defineEventHandler(async (event) => {
-  const q = getQuery(event) as { q?: string; limit?: string; force?: string }
+  const query = getQuery(event);
 
-  const termRaw = s(q.q)
-  const term = normText(termRaw)
-  const limit = clampInt(q.limit, 8, 1, 30)
-  const force = q.force === "1"
+  const qRaw = s(query.q);
+  const term = norm(qRaw);
+  const limit = clampInt(query.limit, 8, 1, 12);
+  const force = s(query.force) === "1";
 
-  if (!termRaw) return { q: "", items: [] } satisfies SuggestResponse
-
-  const storage = useStorage("cache")
-  const cacheKey = `search:suggest:${term}:${limit}`
-  if (!force) {
-    const cached = await storage.getItem<SuggestResponse>(cacheKey)
-    if (cached) return cached
+  if (!qRaw || term.length < 2) {
+    return { q: qRaw, items: [] } satisfies SuggestResponse;
   }
 
-  const { categories, products } = await getCmsCatalog()
-  if (!categories && !products) throw createError({ statusCode: 500, statusMessage: "Catalog not available" })
+  const storage = useStorage("cache");
+  const cacheKey = `search:suggest:${term}:${limit}`;
 
-  // filtra como en catalog.get.ts (publicados y no ocultos)
-  const cats = (categories ?? [])
-    .filter((c: any) => c?.isPublished !== false && c?.hidden !== true)
-    .filter((c: any) => c?.showInNav !== false)
+  if (!force) {
+    const cached = await storage.getItem<SuggestResponse>(cacheKey);
+    if (cached) return cached;
+  }
 
-  const prods = (products ?? [])
-    .filter((p: any) => p?.isPublished !== false && p?.hidden !== true)
+  const { categories, products } = await getCmsCatalog();
 
-  // score + sort
-  const catMatches = cats
-    .map((c: any) => {
-      const title = s(c.title)
+  const visibleCategories = (Array.isArray(categories) ? categories : []).filter(
+    isVisibleCategory
+  );
+
+  const visibleProducts = (Array.isArray(products) ? products : []).filter(
+    isVisibleProduct
+  );
+
+  const categoryMatches = visibleCategories
+    .map((category: any) => {
+      const title = s(category?.label || category?.nav || category?.title);
       return {
-        score: score(title, term),
+        score: scoreText(title, term),
         item: {
-          id: s(c.id || c.slug || c.path),
+          id: s(category?.id || category?.slug || category?.path),
           kind: "categoria" as const,
           title,
-          href: s(c.path || `/categorias/${c.slug}`),
-          image: (typeof c.image === "string" ? c.image : c.image?.src) || null,
+          href: s(category?.path || `/categorias/${category?.slug}`),
+          image:
+            (typeof category?.image === "string"
+              ? category.image
+              : category?.image?.src) || null,
         },
-      }
+      };
     })
-    .filter((x) => x.score > 0)
-    .sort((a, b) => b.score - a.score || n(a.item.title.localeCompare(b.item.title)))
-    .map((x) => x.item)
+    .filter((entry) => entry.score > 0)
+    .sort((a, b) => b.score - a.score || a.item.title.localeCompare(b.item.title))
+    .map((entry) => entry.item);
 
-  const prodMatches = prods
-    .map((p: any) => {
-      const title = s(p.title)
+  const productMatches = visibleProducts
+    .map((product: any) => {
+      const title = s(product?.title);
       return {
-        score: score(title, term),
+        score: scoreText(title, term),
         item: {
-          id: s(p.id || p.slug || p.path),
+          id: s(product?.id || product?.slug || product?.path),
           kind: "producto" as const,
           title,
-          href: s(p.path || `/productos/${p.slug}`),
-          image: (typeof p.image === "string" ? p.image : p.image?.src) || null,
+          href: s(product?.path || `/productos/${product?.slug}`),
+          image:
+            (typeof product?.image === "string"
+              ? product.image
+              : product?.image?.src) || null,
         },
-      }
+      };
     })
-    .filter((x) => x.score > 0)
-    .sort((a, b) => b.score - a.score || n(a.item.title.localeCompare(b.item.title)))
-    .map((x) => x.item)
+    .filter((entry) => entry.score > 0)
+    .sort((a, b) => b.score - a.score || a.item.title.localeCompare(b.item.title))
+    .map((entry) => entry.item);
 
-  // mezcla: productos primero (como TruYol)
-  const items: SuggestItem[] = [...prodMatches, ...catMatches].slice(0, limit)
+  const items = [...productMatches, ...categoryMatches].slice(0, limit);
 
-  const payload: SuggestResponse = { q: termRaw, items }
-  await storage.setItem(cacheKey, payload, { ttl: 60 * 5 }) // 5 min
-  return payload
-})
+  const payload: SuggestResponse = {
+    q: qRaw,
+    items,
+  };
+
+  await storage.setItem(cacheKey, payload);
+  return payload;
+});

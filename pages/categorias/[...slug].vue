@@ -9,7 +9,6 @@ import ContentSectionsRenderer from "@/components/marketing/content/ContentSecti
 import FaqAccordion from "@/components/shared/blocks/FaqAccordion.vue";
 import ContentSectionIntro from "@/components/marketing/content/ContentSectionIntro.vue";
 import ContentSectionShell from "@/components/marketing/content/ContentSectionShell.vue";
-import ContentTypesGrid from "@/components/marketing/content/ContentTypesGrid.vue";
 
 const route = useRoute();
 const config = useRuntimeConfig();
@@ -248,13 +247,13 @@ useSeoMeta({
     </div>
 
     <div v-else-if="category">
-      <div class="container-content pt-4 pb-4 md:pt-6 md:pb-6">
+      <div class="container-content pt-4 pb-2 md:pt-6 md:pb-3">
         <SiteBreadcrumbs :items="breadcrumbItems" :auto="false" />
       </div>
 
       <div :class="pageBottomSpacingClass">
         <div :class="pageFlowClass">
-          <section :class="pageContainerClass" aria-label="Presentación de la categoría">
+          <section aria-label="Presentación de la categoría">
             <CategoryHero
               :category="category"
               :primary-cta="{ label: 'Pedir presupuesto', to: '/contacto' }"
@@ -336,13 +335,10 @@ useSeoMeta({
           <ContentSectionShell
             v-if="hasSections"
             eyebrow="Información de la categoría"
-            title="Características, formatos, acabados y aplicaciones"
-            description="Consulta los aspectos clave para comparar soluciones, materiales y opciones disponibles."
+            title="Características, tipos, formatos y acabados"
+            description="Consulta la información clave de esta categoría en un formato más claro y fácil de comparar."
           >
-            <ContentSectionsRenderer
-              :sections="sections"
-              :show-section-nav="sections.length > 1"
-            />
+            <ContentSectionsRenderer :sections="sections" />
           </ContentSectionShell>
 
           <ContentSectionShell

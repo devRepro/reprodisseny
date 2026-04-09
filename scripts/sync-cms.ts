@@ -243,10 +243,11 @@ const CATEGORY_FIELDS = {
   robotsAdvanced: "RobotsAdvanced",
 } as const;
 
+
 const PRODUCT_FIELDS = {
   title: "Title",
-  slug: "Slug",
-  categorySlug: "PrimaryCategory",
+  slug: "ProductSlug",
+  categorySlug: "CategorySlug",
   categories: "Categories",
   isFeatured: "IsFeatured",
   isPublished: "IsPublished",
@@ -298,7 +299,7 @@ const CATEGORY_SELECT = [...new Set(Object.values(CATEGORY_FIELDS))];
 const PRODUCT_SELECT = [...new Set(Object.values(PRODUCT_FIELDS))];
 
 const CATEGORY_SECTION_TITLES: Record<string, string> = {
-  details: "Detalles",
+  details: "Detalles y características",
   overview: "Información adicional",
   types: "Tipos",
   formats: "Formatos y soportes",
@@ -510,6 +511,15 @@ function escapeControlChars(value: string): string {
   });
 }
 
+
+function pickField(fields: Record<string, unknown>, names: string[]): unknown {
+  for (const name of names) {
+    if (name in fields && fields[name] != null && String(fields[name]).trim() !== "") {
+      return fields[name];
+    }
+  }
+  return undefined;
+}
 function parseJsonLoose<T>(value: unknown, fallback: T): T {
   if (value == null) return fallback;
   if (typeof value === "object") return value as T;
@@ -1518,6 +1528,7 @@ function parseTypesMd(value: unknown): ContentTypeItem[] {
 function buildCategory(item: GraphItem<Record<string, unknown>>): CategoryDto | null {
   const fields = item.fields || {};
 
+
   const slug =
     normalizeSlug(fields[CATEGORY_FIELDS.slug]) ||
     slugFromPath(pathFromUrlLike(fields[CATEGORY_FIELDS.path]), "/categorias") ||
@@ -1589,8 +1600,20 @@ function buildCategory(item: GraphItem<Record<string, unknown>>): CategoryDto | 
 function buildProduct(item: GraphItem<Record<string, unknown>>): ProductDto | null {
   const fields = item.fields || {};
 
+  const rawSlug =
+    pickField(fields, ["ProductSlug", "Slug"]) ??
+    fields[PRODUCT_FIELDS.slug];
+
+  const rawPrimaryCategory =
+    pickField(fields, ["CategorySlug", "PrimaryCategory"]) ??
+    fields[PRODUCT_FIELDS.categorySlug];
+
+  const rawCategories =
+    pickField(fields, ["Categories"]) ??
+    fields[PRODUCT_FIELDS.categories];
+
   const slug =
-    normalizeSlug(fields[PRODUCT_FIELDS.slug]) ||
+    normalizeSlug(rawSlug) ||
     slugFromPath(pathFromUrlLike(fields[PRODUCT_FIELDS.path]), "/productos") ||
     slugFromPath(pathFromUrlLike(fields[PRODUCT_FIELDS.canonical]), "/productos");
 
@@ -1607,9 +1630,6 @@ function buildProduct(item: GraphItem<Record<string, unknown>>): ProductDto | nu
   );
 
   const title = str(fields[PRODUCT_FIELDS.title]) || slug;
-
-  const rawPrimaryCategory = fields[PRODUCT_FIELDS.categorySlug];
-  const rawCategories = fields[PRODUCT_FIELDS.categories];
 
   const additionalCategories = parseStringList(rawCategories)
     .map((value) => leafSlug(value))
@@ -1839,6 +1859,60 @@ function validateCatalog(categories: CategoryDto[], products: ProductDto[]): voi
   }
 }
 
+
+function countItemsWithField(
+  items: Array<GraphItem<Record<string, unknown>>>,
+  fieldName: string,
+): number {
+  return items.reduce((count, item) => {
+    const value = item.fields?.[fieldName];
+    return str(value) ? count + 1 : count;
+  }, 0);
+}
+
+function assertRawProductFieldCoverage(
+  productItems: Array<GraphItem<Record<string, unknown>>>,
+): void {
+  const titleCount = countItemsWithField(productItems, PRODUCT_FIELDS.title);
+  const slugCount = countItemsWithField(productItems, PRODUCT_FIELDS.slug);
+  const pathCount = countItemsWithField(productItems, PRODUCT_FIELDS.path);
+  const primaryCategoryCount = countItemsWithField(productItems, PRODUCT_FIELDS.categorySlug);
+  const categoriesCount = countItemsWithField(productItems, PRODUCT_FIELDS.categories);
+
+  console.log(
+    `🧪 Cobertura campos producto: title=${titleCount}/${productItems.length}, slug=${slugCount}/${productItems.length}, path=${pathCount}/${productItems.length}, primaryCategory=${primaryCategoryCount}/${productItems.length}, categories=${categoriesCount}/${productItems.length}`,
+  );
+
+  if (productItems.length === 0) return;
+
+  if (primaryCategoryCount === 0) {
+    throw new Error(
+      `El campo "${PRODUCT_FIELDS.categorySlug}" no está llegando desde SharePoint. Revisa el $select de productos y el nombre interno de la columna.`,
+    );
+  }
+
+  if (slugCount === 0 && pathCount === 0) {
+    throw new Error(
+      `Ni "${PRODUCT_FIELDS.slug}" ni "${PRODUCT_FIELDS.path}" están llegando desde SharePoint. No se puede construir un catálogo fiable.`,
+    );
+  }
+}
+
+function assertPublishedProductsHaveCategories(products: ProductDto[]): void {
+  const missing = products.filter((product) => !product.categorySlug);
+
+  if (missing.length === 0) return;
+
+  const preview = missing
+    .slice(0, 10)
+    .map((product) => product.slug)
+    .join(", ");
+
+  throw new Error(
+    `Hay ${missing.length} productos publicados sin categoría asignada. Primeros casos: ${preview}. Se aborta para evitar generar un catalog.json incoherente.`,
+  );
+}
+
 async function writeJsonAtomic(filePath: string, data: unknown): Promise<void> {
   const dir = path.dirname(filePath);
   const base = path.basename(filePath);
@@ -1849,15 +1923,32 @@ async function writeJsonAtomic(filePath: string, data: unknown): Promise<void> {
   await fs.rename(tempPath, filePath);
 }
 
+async function debugProductColumns(): Promise<void> {
+  const siteId = await resolveSiteId();
+  const response = await graphGet<{
+    value?: Array<{
+      name?: string;
+      displayName?: string;
+      hidden?: boolean;
+    }>;
+  }>(`/sites/${siteId}/lists/${SP_LIST_PRODUCTS_ID}/columns?$top=999&$select=name,displayName,hidden`);
+
+  console.log("\n🧱 Columnas reales de la lista de productos:");
+  for (const col of response.value || []) {
+    console.log(`- displayName="${col.displayName}" | internal="${col.name}" | hidden=${col.hidden}`);
+  }
+}
+
 async function run(): Promise<void> {
   console.log("🔄 Sincronizando SharePoint -> cms/catalog.json\n");
-
+  await debugProductColumns();
   const [categoryItems, productItems] = await Promise.all([
     fetchAllItems<Record<string, unknown>>(SP_LIST_CATEGORIES_ID!, CATEGORY_SELECT),
     fetchAllItems<Record<string, unknown>>(SP_LIST_PRODUCTS_ID!, PRODUCT_SELECT),
   ]);
 
   console.log(`📦 SharePoint: ${categoryItems.length} categorías, ${productItems.length} productos`);
+  assertRawProductFieldCoverage(productItems);
 
   const builtCategories = categoryItems.map(buildCategory).filter((item): item is CategoryDto => Boolean(item));
   const builtProducts = productItems.map(buildProduct).filter((item): item is ProductDto => Boolean(item));
@@ -1872,6 +1963,7 @@ async function run(): Promise<void> {
 
   finalizeCatalog(categories, products);
   validateCatalog(categories, products);
+  assertPublishedProductsHaveCategories(products);
 
   const catalog: SyncCatalog = {
     generatedAt: new Date().toISOString(),
@@ -1918,6 +2010,8 @@ async function run(): Promise<void> {
     console.log("\n✅ Sin warnings de validación");
   }
 }
+
+
 
 run().catch((error) => {
   console.error("❌ Error durante la sincronización:");

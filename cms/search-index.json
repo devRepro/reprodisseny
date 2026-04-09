@@ -212,6 +212,18 @@
   },
   {
     "type": "producto",
+    "slug": "archivadores-personalizados",
+    "title": "Archivadores personalizados",
+    "path": "/productos/archivadores-personalizados",
+    "keywords": [
+      "archivadores"
+    ],
+    "searchTerms": [
+      "archivadores"
+    ]
+  },
+  {
+    "type": "producto",
     "slug": "banderola-lona-fachada",
     "title": "Banderola de lona para fachada",
     "path": "/productos/banderola-lona-fachada",
@@ -272,7 +284,7 @@
   },
   {
     "type": "producto",
-    "slug": "bloc-notas",
+    "slug": "blocs-notas",
     "title": "Blocs de notas personalizados",
     "path": "/productos/bloc-notas",
     "keywords": [
@@ -376,7 +388,7 @@
   },
   {
     "type": "producto",
-    "slug": "cajas-luz-personalizadas",
+    "slug": "cajas-de-luz-personalizadas",
     "title": "Cajas de luz personalizadas (expositores retroiluminados)",
     "path": "/productos/cajas-luz-personalizadas",
     "keywords": [
@@ -400,7 +412,7 @@
   },
   {
     "type": "producto",
-    "slug": "carpetas-presentacion-personalizadas",
+    "slug": "carpetas-de-presentacion-personalizadas",
     "title": "Carpetas de presentación personalizadas",
     "path": "/productos/carpetas-presentacion-personalizadas",
     "keywords": [
@@ -696,7 +708,7 @@
   },
   {
     "type": "producto",
-    "slug": "expositores-mesa-personalizados",
+    "slug": "expositores-de-mesa-personalizados",
     "title": "Expositores de mesa personalizados (displays de sobremesa)",
     "path": "/productos/expositores-mesa-personalizados",
     "keywords": [
@@ -1348,7 +1360,7 @@
   },
   {
     "type": "producto",
-    "slug": "tiras-de-lineal.personalizadas",
+    "slug": "tiras-de-lineal-personalizadas",
     "title": "Tiras de lineal personalizadas",
     "path": "/productos/tiras-de-lineal.personalizadas",
     "keywords": [

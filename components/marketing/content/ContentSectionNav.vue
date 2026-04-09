@@ -163,7 +163,7 @@ onBeforeUnmount(() => {
     <div
       :class="cn('rounded-2xl border border-border/70 bg-background/95 p-3 shadow-[0_10px_24px_-20px_hsl(var(--foreground)/0.16)] backdrop-blur supports-[backdrop-filter]:bg-background/85', props.navClass)"
     >
-      <nav aria-label="Navegación interna de contenidos" class="overflow-x-auto">
+      <nav aria-label="Contenido de la categoría" class="overflow-x-auto">
         <div :class="cn('flex w-max min-w-full gap-2', props.pillsClass)">
           <button
             v-for="item in props.items"

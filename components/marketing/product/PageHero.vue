@@ -164,7 +164,7 @@ const resultsLabel = computed(() => {
             enterkeyhint="search"
             autocomplete="off"
             spellcheck="false"
-            placeholder="Busca por producto, uso o material (ej: vinilo, lona...)"
+            placeholder="Buscar en el catálogo: productos, materiales o usos"
             class="catalog-search-input w-full rounded-xl border border-slate-200 py-4 pl-12 pr-12 shadow-sm outline-none transition-all placeholder:text-slate-400 focus:border-primary focus:ring-4 focus:ring-primary/10"
             @input="onInput"
             @keydown="onKeydown"

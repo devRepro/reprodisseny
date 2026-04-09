@@ -47,7 +47,7 @@ watch(
     open.value = true;
     pending.value = true;
     try {
-      const res = await $fetch<{ items: SuggestItem[] }>("/api/search/suggest", {
+      const res = await $fetch<{ items: SuggestItem[] }>("/api/search/results", {
         query: {
           q: term,
           limit: props.limit,
@@ -98,7 +98,7 @@ function clear() {
             <Input
               v-model="q"
               type="search"
-              placeholder="Buscar"
+              placeholder="Buscar en la web"
               aria-label="Buscar"
               class="h-8 rounded-lg border border-[#959595] bg-white pl-10 pr-10 py-[5px] text-base leading-[22px] font-normal shadow-none placeholder:text-[#959595] focus-visible:ring-0 focus-visible:ring-offset-0"
               @focus="open = !!q.trim()"

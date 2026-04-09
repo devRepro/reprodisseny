@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
+import ContentSectionHeader from "@/components/marketing/content/ContentSectionHeader.vue";
 
 type CardItemInput = {
   title?: string | null;
@@ -15,7 +16,6 @@ type CardItem = {
 const props = withDefaults(
   defineProps<{
     sectionId?: string;
-    eyebrow?: string;
     title: string;
     intro?: string;
     markdown?: string | null;
@@ -24,7 +24,6 @@ const props = withDefaults(
   }>(),
   {
     sectionId: undefined,
-    eyebrow: undefined,
     intro: undefined,
     markdown: "",
     items: () => [],
@@ -57,6 +56,7 @@ function parseBulletBlock(raw: string): Omit<CardItem, "key"> | null {
   const normalized = String(raw ?? "")
     .replace(/\s+/g, " ")
     .trim();
+
   if (!normalized) return null;
 
   const boldTitleWithDesc = normalized.match(/^\*\*(.+?)\*\*\s*:\s*(.+)$/);
@@ -165,36 +165,24 @@ const gridClass = computed(() => {
 </script>
 
 <template>
-  <section v-if="hasContent" :id="sectionId" class="scroll-mt-28 space-y-6 md:space-y-8">
-    <header class="space-y-3">
-      <p
-        v-if="eyebrow"
-        class="text-xs font-semibold uppercase tracking-[0.16em] text-[hsl(var(--brand-base))] md:text-sm"
-      >
-        {{ eyebrow }}
-      </p>
-
-      <div class="space-y-2">
-        <h2
-          class="text-balance text-2xl font-semibold tracking-tight text-foreground md:text-3xl"
-        >
-          {{ title }}
-        </h2>
-
-        <p
-          v-if="intro"
-          class="max-w-3xl text-sm leading-7 text-muted-foreground md:text-base"
-        >
-          {{ intro }}
-        </p>
-      </div>
-    </header>
+  <section
+    v-if="hasContent"
+    :id="sectionId"
+    class="scroll-mt-32 space-y-8 md:space-y-10"
+  >
+    <div class="max-w-3xl">
+      <ContentSectionHeader
+        :title="title"
+        :subtitle="intro"
+        as="h2"
+      />
+    </div>
 
     <div :class="gridClass">
       <article
         v-for="item in normalizedItems"
         :key="item.key"
-        class="h-full rounded-2xl border border-border/60 bg-card p-5 shadow-sm transition-transform duration-200 hover:-translate-y-0.5"
+        class="h-full rounded-2xl border border-border/60 bg-card p-5 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-primary/20"
       >
         <div class="flex h-full flex-col gap-3">
           <h3
