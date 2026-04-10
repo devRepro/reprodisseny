@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-09T18:28:05.561Z",
+  "generatedAt": "2026-04-10T07:19:24.627Z",
   "categories": [
     {
       "id": "12",
@@ -921,7 +921,7 @@
     },
     {
       "id": "2",
-      "updatedAt": "2026-04-09T11:37:57Z",
+      "updatedAt": "2026-04-10T07:17:32Z",
       "type": "categoria",
       "slug": "adhesivos-personalizados",
       "path": "/categorias/adhesivos-personalizados",
@@ -932,13 +932,13 @@
       "featured": false,
       "isPublished": true,
       "description": "Diseñamos e imprimimos adhesivos personalizados para marcas y empresas: etiquetas de producto, pegatinas promocionales, vinilos para escaparates, soluciones para packaging y elementos de señalización. Te ayudamos a elegir el material, la forma y el acabado más adecuados para conseguir un resultado resistente, profesional y con colores fieles.",
-      "bodyMd": "Los adhesivos personalizados son una solución práctica y rentable para mejorar la visibilidad de marca, identificar productos y reforzar la experiencia de compra.\n\nImprimimos pegatinas y etiquetas adhesivas para campañas promocionales, packaging, escaparates y señalización, adaptadas al uso, la superficie y la durabilidad que necesita cada aplicación.\n\n### Materiales y acabados\n\nTrabajamos con materiales adhesivos para interior y exterior, con opciones removibles o permanentes y acabados que ayudan a proteger la impresión frente al roce, la humedad y la exposición a la luz.\n\n### Asesoramiento personalizado\n\nTe ayudamos a elegir el material, el formato y el acabado más adecuados según el uso previsto, la superficie donde se aplicará y la durabilidad que requiere tu proyecto.\n\nCómo trabajamos\n1.\tNos indicas qué tipo de adhesivo necesitas, dónde se aplicará, medidas, cantidades y duración prevista.\n2.\tRevisamos el diseño (o te ayudamos a adaptarlo) para asegurar legibilidad, cortes, márgenes y correcta preparación de imprenta.\n3.\tTe recomendamos el material adhesivo, el formato y el acabado más adecuados según la superficie, el uso y el resultado que quieres conseguir.\n4.\tImprimimos y entregamos los adhesivos listos para aplicar, con buena definición, consistencia de color y acabados profesionales.\n\n¿No tienes claro qué adhesivo elegir? Cuéntanos si es para producto, escaparate, packaging, señalización o promoción, en qué superficie irá y cuánto debe durar. Te recomendamos la opción más adecuada y te preparamos presupuesto sin compromiso.",
+      "bodyMd": "## Cómo trabajamos\n\n1. **Analizamos el tipo de adhesivo, la aplicación y las medidas**  \n   Nos indicas qué necesitas, dónde se aplicará, las dimensiones, las cantidades y la duración prevista.\n\n2. **Revisamos el diseño y preparamos el archivo**  \n   Comprobamos la legibilidad, los márgenes, los cortes y la correcta preparación para impresión, o te ayudamos a adaptar el diseño si lo necesitas.\n\n3. **Definimos el material y el acabado más adecuados**  \n   Te recomendamos el adhesivo, el formato y el acabado según la superficie, el uso previsto y el resultado visual que quieres conseguir.\n\n4. **Imprimimos y entregamos los adhesivos listos para aplicar**  \n   Producimos las piezas con buena definición, consistencia de color y acabados profesionales para que lleguen preparadas para su colocación.\n\n**¿No tienes claro qué adhesivo elegir?** Cuéntanos si es para producto, escaparate, packaging, señalización o promoción, en qué superficie se aplicará y cuánto tiempo debe durar. Te recomendaremos la opción más adecuada y te prepararemos presupuesto sin compromiso.",
       "sections": [
         {
           "id": "details",
           "key": "details",
           "title": "Detalles y características",
-          "body": "Los adhesivos personalizados son una solución práctica y rentable para mejorar la visibilidad de marca, identificar productos y reforzar la experiencia de compra.\n\nImprimimos pegatinas y etiquetas adhesivas para campañas promocionales, packaging, escaparates y señalización, adaptadas al uso, la superficie y la durabilidad que necesita cada aplicación.\n\n### Materiales y acabados\n\nTrabajamos con materiales adhesivos para interior y exterior, con opciones removibles o permanentes y acabados que ayudan a proteger la impresión frente al roce, la humedad y la exposición a la luz.\n\n### Asesoramiento personalizado\n\nTe ayudamos a elegir el material, el formato y el acabado más adecuados según el uso previsto, la superficie donde se aplicará y la durabilidad que requiere tu proyecto.\n\nCómo trabajamos\n1.\tNos indicas qué tipo de adhesivo necesitas, dónde se aplicará, medidas, cantidades y duración prevista.\n2.\tRevisamos el diseño (o te ayudamos a adaptarlo) para asegurar legibilidad, cortes, márgenes y correcta preparación de imprenta.\n3.\tTe recomendamos el material adhesivo, el formato y el acabado más adecuados según la superficie, el uso y el resultado que quieres conseguir.\n4.\tImprimimos y entregamos los adhesivos listos para aplicar, con buena definición, consistencia de color y acabados profesionales.\n\n¿No tienes claro qué adhesivo elegir? Cuéntanos si es para producto, escaparate, packaging, señalización o promoción, en qué superficie irá y cuánto debe durar. Te recomendamos la opción más adecuada y te preparamos presupuesto sin compromiso.",
+          "body": "Los adhesivos personalizados son una solución práctica y rentable para mejorar la visibilidad de marca, identificar productos y reforzar la experiencia de compra.\n\nImprimimos pegatinas y etiquetas adhesivas para campañas promocionales, packaging, escaparates y señalización, adaptadas al uso, la superficie y la durabilidad que necesita cada aplicación.\n\n### Materiales y acabados\n\nTrabajamos con materiales adhesivos para interior y exterior, con opciones removibles o permanentes y acabados que ayudan a proteger la impresión frente al roce, la humedad y la exposición a la luz.\n\n### Asesoramiento personalizado\n\nTe ayudamos a elegir el material, el formato y el acabado más adecuados según el uso previsto, la superficie donde se aplicará y la durabilidad que requiere tu proyecto.",
           "blocks": [
             {
               "type": "text",
@@ -971,25 +971,72 @@
               "type": "text",
               "text": "Te ayudamos a elegir el material, el formato y el acabado más adecuados según el uso previsto, la superficie donde se aplicará y la durabilidad que requiere tu proyecto.",
               "html": false
-            },
+            }
+          ]
+        },
+        {
+          "id": "overview",
+          "key": "overview",
+          "title": "Información adicional",
+          "body": "## Cómo trabajamos\n\n1. **Analizamos el tipo de adhesivo, la aplicación y las medidas**  \n   Nos indicas qué necesitas, dónde se aplicará, las dimensiones, las cantidades y la duración prevista.\n\n2. **Revisamos el diseño y preparamos el archivo**  \n   Comprobamos la legibilidad, los márgenes, los cortes y la correcta preparación para impresión, o te ayudamos a adaptar el diseño si lo necesitas.\n\n3. **Definimos el material y el acabado más adecuados**  \n   Te recomendamos el adhesivo, el formato y el acabado según la superficie, el uso previsto y el resultado visual que quieres conseguir.\n\n4. **Imprimimos y entregamos los adhesivos listos para aplicar**  \n   Producimos las piezas con buena definición, consistencia de color y acabados profesionales para que lleguen preparadas para su colocación.\n\n**¿No tienes claro qué adhesivo elegir?** Cuéntanos si es para producto, escaparate, packaging, señalización o promoción, en qué superficie se aplicará y cuánto tiempo debe durar. Te recomendaremos la opción más adecuada y te prepararemos presupuesto sin compromiso.",
+          "blocks": [
             {
               "type": "text",
-              "text": "Cómo trabajamos",
-              "html": false
+              "text": "<h2>Cómo trabajamos</h2>",
+              "html": true,
+              "format": "html"
             },
             {
               "type": "bullets",
               "items": [
-                "Nos indicas qué tipo de adhesivo necesitas, dónde se aplicará, medidas, cantidades y duración prevista.",
-                "Revisamos el diseño (o te ayudamos a adaptarlo) para asegurar legibilidad, cortes, márgenes y correcta preparación de imprenta.",
-                "Te recomendamos el material adhesivo, el formato y el acabado más adecuados según la superficie, el uso y el resultado que quieres conseguir.",
-                "Imprimimos y entregamos los adhesivos listos para aplicar, con buena definición, consistencia de color y acabados profesionales."
+                "**Analizamos el tipo de adhesivo, la aplicación y las medidas**"
               ],
               "ordered": true
             },
             {
               "type": "text",
-              "text": "¿No tienes claro qué adhesivo elegir? Cuéntanos si es para producto, escaparate, packaging, señalización o promoción, en qué superficie irá y cuánto debe durar. Te recomendamos la opción más adecuada y te preparamos presupuesto sin compromiso.",
+              "text": "Nos indicas qué necesitas, dónde se aplicará, las dimensiones, las cantidades y la duración prevista.",
+              "html": false
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "**Revisamos el diseño y preparamos el archivo**"
+              ],
+              "ordered": true
+            },
+            {
+              "type": "text",
+              "text": "Comprobamos la legibilidad, los márgenes, los cortes y la correcta preparación para impresión, o te ayudamos a adaptar el diseño si lo necesitas.",
+              "html": false
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "**Definimos el material y el acabado más adecuados**"
+              ],
+              "ordered": true
+            },
+            {
+              "type": "text",
+              "text": "Te recomendamos el adhesivo, el formato y el acabado según la superficie, el uso previsto y el resultado visual que quieres conseguir.",
+              "html": false
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "**Imprimimos y entregamos los adhesivos listos para aplicar**"
+              ],
+              "ordered": true
+            },
+            {
+              "type": "text",
+              "text": "Producimos las piezas con buena definición, consistencia de color y acabados profesionales para que lleguen preparadas para su colocación.",
+              "html": false
+            },
+            {
+              "type": "text",
+              "text": "**¿No tienes claro qué adhesivo elegir?** Cuéntanos si es para producto, escaparate, packaging, señalización o promoción, en qué superficie se aplicará y cuánto tiempo debe durar. Te recomendaremos la opción más adecuada y te prepararemos presupuesto sin compromiso.",
               "html": false
             }
           ]
@@ -1005,7 +1052,7 @@
               "title": "Pegatinas en papel",
               "description": "Adhesivo personalizado económico para uso interior, promociones, etiquetas y packaging con buena calidad de impresión.",
               "features": [
-                "Interior",
+                "m",
                 "Económico",
                 "Packaging"
               ],
@@ -1266,7 +1313,7 @@
     },
     {
       "id": "5",
-      "updatedAt": "2026-03-25T09:00:51Z",
+      "updatedAt": "2026-04-10T06:23:12Z",
       "type": "categoria",
       "slug": "gran-formato",
       "path": "/categorias/gran-formato",
@@ -1277,32 +1324,19 @@
       "featured": true,
       "isPublished": true,
       "description": "Imprimimos en gran formato para exterior e interior: vinilos, lonas, cartelería, retroiluminados y soportes rígidos para punto de venta, escaparates, ferias, señalética y rotulación. Te asesoramos para elegir el material ideal según la superficie, la duración y las condiciones (sol, humedad, roce o tránsito).",
-      "bodyMd": "Cómo trabajamos\n1.\tNos dices dónde irá (pared, cristal, suelo, vehículo, exterior…) y medida.\n2.\tRevisamos el archivo y definimos material/adhesivo según superficie y duración.\n3.\tImprimimos y aplicamos acabados (laminado, corte, refuerzos).\n4.\tEntregamos listo para instalar (y si aplica, coordinamos logística).\n\n¿Dudas entre vinilo, lona o rígido? Cuéntanos superficie, ubicación (interior/exterior), medida y duración y te recomendamos el material más adecuado.",
+      "bodyMd": "Conoce las características del gran formato\nEl gran formato no es solo “imprimir grande”: es elegir bien material + adhesivo (si aplica) + acabado para que la gráfica se vea impecable y tenga la resistencia que necesitas según la ubicación (interior/exterior), la superficie (cristal, pared, suelo, vehículo…) y el tiempo de uso. Un buen gran formato se nota en tres cosas: impacto visual, durabilidad y facilidad de instalación.\n\nCómo trabajamos\n1.\tNos dices dónde irá (pared, cristal, suelo, vehículo, exterior…) y medida.\n2.\tRevisamos el archivo y definimos material/adhesivo según superficie y duración.\n3.\tImprimimos y aplicamos acabados (laminado, corte, refuerzos).\n4.\tEntregamos listo para instalar (y si aplica, coordinamos logística).\n\n¿Dudas entre vinilo, lona o rígido? Cuéntanos superficie, ubicación (interior/exterior), medida y duración y te recomendamos el material más adecuado.",
       "sections": [
         {
           "id": "details",
           "key": "details",
           "title": "Detalles y características",
-          "body": "Conoce las características del gran formato\n\nEl gran formato no es solo “imprimir grande”: es elegir bien material + adhesivo (si aplica) + acabado para que la gráfica se vea impecable y tenga la resistencia que necesitas según la ubicación (interior/exterior), la superficie (cristal, pared, suelo, vehículo…) y el tiempo de uso. Un buen gran formato se nota en tres cosas: impacto visual, durabilidad y facilidad de instalación.",
+          "body": "Conoce las características del gran formato\nEl gran formato no es solo “imprimir grande”: es elegir bien material + adhesivo (si aplica) + acabado para que la gráfica se vea impecable y tenga la resistencia que necesitas según la ubicación (interior/exterior), la superficie (cristal, pared, suelo, vehículo…) y el tiempo de uso. Un buen gran formato se nota en tres cosas: impacto visual, durabilidad y facilidad de instalación.\n\nCómo trabajamos\n1.\tNos dices dónde irá (pared, cristal, suelo, vehículo, exterior…) y medida.\n2.\tRevisamos el archivo y definimos material/adhesivo según superficie y duración.\n3.\tImprimimos y aplicamos acabados (laminado, corte, refuerzos).\n4.\tEntregamos listo para instalar (y si aplica, coordinamos logística).\n\n¿Dudas entre vinilo, lona o rígido? Cuéntanos superficie, ubicación (interior/exterior), medida y duración y te recomendamos el material más adecuado.",
           "blocks": [
             {
               "type": "text",
-              "text": "Conoce las características del gran formato",
+              "text": "Conoce las características del gran formato\nEl gran formato no es solo “imprimir grande”: es elegir bien material + adhesivo (si aplica) + acabado para que la gráfica se vea impecable y tenga la resistencia que necesitas según la ubicación (interior/exterior), la superficie (cristal, pared, suelo, vehículo…) y el tiempo de uso. Un buen gran formato se nota en tres cosas: impacto visual, durabilidad y facilidad de instalación.",
               "html": false
             },
-            {
-              "type": "text",
-              "text": "El gran formato no es solo “imprimir grande”: es elegir bien material + adhesivo (si aplica) + acabado para que la gráfica se vea impecable y tenga la resistencia que necesitas según la ubicación (interior/exterior), la superficie (cristal, pared, suelo, vehículo…) y el tiempo de uso. Un buen gran formato se nota en tres cosas: impacto visual, durabilidad y facilidad de instalación.",
-              "html": false
-            }
-          ]
-        },
-        {
-          "id": "overview",
-          "key": "overview",
-          "title": "Información adicional",
-          "body": "Cómo trabajamos\n1.\tNos dices dónde irá (pared, cristal, suelo, vehículo, exterior…) y medida.\n2.\tRevisamos el archivo y definimos material/adhesivo según superficie y duración.\n3.\tImprimimos y aplicamos acabados (laminado, corte, refuerzos).\n4.\tEntregamos listo para instalar (y si aplica, coordinamos logística).\n\n¿Dudas entre vinilo, lona o rígido? Cuéntanos superficie, ubicación (interior/exterior), medida y duración y te recomendamos el material más adecuado.",
-          "blocks": [
             {
               "type": "text",
               "text": "Cómo trabajamos",
@@ -1339,26 +1373,6 @@
                 "Refuerzos para lona: dobladillo, ojales, vaina o refuerzo perimetral según cómo vaya instalada (fachada, tensado, puntos de anclaje, etc.).",
                 "Corte a medida / troquelado: contornos especiales en vinilos, displays o piezas promocionales para adaptar la gráfica al soporte o crear formatos con forma.",
                 "Opciones de montaje (según producto): enmarcados, sistemas luminosos, adhesivos específicos y soluciones pensadas para dejar la pieza lista para instalar."
-              ],
-              "ordered": false
-            }
-          ]
-        },
-        {
-          "id": "applications",
-          "key": "applications",
-          "title": "Aplicaciones",
-          "body": "•\tEscaparates y retail: vinilos de cristal, campañas promocionales y rotulación temporal.\n•\tSeñalética: indicaciones, normas, zonas, precios, direccionales.\n•\tFerias y eventos: fondos, cartelería grande, rigidez/ligereza según transporte.\n•\tFachadas: banderolas y lonas para máxima visibilidad.\n•\tDecoración corporativa: papel de pared, vinilos de pared y gráficos de marca.\n•\tVehículos: rotulación parcial o completa con vinilo para vehículo.",
-          "blocks": [
-            {
-              "type": "bullets",
-              "items": [
-                "Escaparates y retail: vinilos de cristal, campañas promocionales y rotulación temporal.",
-                "Señalética: indicaciones, normas, zonas, precios, direccionales.",
-                "Ferias y eventos: fondos, cartelería grande, rigidez/ligereza según transporte.",
-                "Fachadas: banderolas y lonas para máxima visibilidad.",
-                "Decoración corporativa: papel de pared, vinilos de pared y gráficos de marca.",
-                "Vehículos: rotulación parcial o completa con vinilo para vehículo."
               ],
               "ordered": false
             }
@@ -1636,7 +1650,7 @@
     },
     {
       "id": "7",
-      "updatedAt": "2026-04-05T15:14:48Z",
+      "updatedAt": "2026-04-10T07:14:46Z",
       "type": "categoria",
       "slug": "libros-revistas-catalogos",
       "path": "/categorias/libros-revistas-catalogos",
@@ -1647,33 +1661,17 @@
       "featured": false,
       "isPublished": true,
       "description": "Imprimimos libros, revistas y catálogos para empresas, marcas y editoriales: desde tiradas cortas y reimpresiones rápidas hasta producciones más amplias. Te asesoramos en papeles, encuadernación y acabados para lograr un resultado profesional, resistente y alineado con tu imagen.",
-      "bodyMd": "Cómo trabajamos\n1.\tNos envías el diseño o te ayudamos a prepararlo.\n2.\tRevisamos formato, sangrado, márgenes, lomo (si aplica) y orden de páginas.\n3.\tTe proponemos papel, encuadernación y acabados según uso y presupuesto.\n4.\tImprimimos, encuadernamos y entregamos el material listo para distribuir.\n\n\n¿No tienes claro qué encuadernación o papel elegir para tu publicación? Dinos formato, número de páginas, cantidad y uso (catálogo, revista o libro) y te recomendamos la opción más adecuada para pedir presupuesto con seguridad.",
+      "bodyMd": "## Cómo trabajamos\n\n1. **Definimos el formato y el tipo de publicación**  \n   Analizamos el contenido, el número de páginas, el uso previsto y la tirada para plantear una solución coherente con el proyecto.\n\n2. **Seleccionamos papel, encuadernación y acabados**  \n   Te ayudamos a elegir los materiales y acabados más adecuados según el tipo de pieza, la frecuencia de uso y la imagen que quieres transmitir.\n\n3. **Revisamos el archivo y preparamos la producción**  \n   Comprobamos que la maquetación, las imágenes, los márgenes y el sangrado estén listos para imprimir con garantías.\n\n4. **Imprimimos y entregamos la publicación terminada**  \n   Producimos el trabajo con el sistema más adecuado y entregamos el material listo para su distribución o uso.\n\n**¿Dudas entre fresado, grapado o espiral?** Cuéntanos el tipo de publicación, el número de páginas, la tirada y el uso previsto y te orientaremos sobre la opción más adecuada.",
       "sections": [
         {
           "id": "details",
           "key": "details",
           "title": "Detalles y características",
-          "body": "## Conoce las características de libros, revistas y catálogos\n\nLos libros, revistas y catálogos deben combinar una presentación cuidada, una lectura cómoda y una producción coherente con la imagen de marca o el carácter editorial de cada proyecto. Una publicación profesional se percibe en la calidad de impresión, en la elección del papel, en la encuadernación y en el acabado de la cubierta.\n\nPara conseguir un buen resultado, es importante definir correctamente el formato, los materiales y el sistema de encuadernación según el tipo de contenido, la frecuencia de uso y la tirada prevista. No requiere la misma solución un catálogo comercial de consulta frecuente que una revista corporativa o una publicación editorial pensada para una conservación más duradera.\n\nTrabajamos libros, revistas y catálogos para marcas, empresas y editoriales con criterios de calidad, funcionalidad y acabado, para que cada pieza resulte sólida, cómoda de leer y alineada con la identidad visual del proyecto, tanto en tiradas cortas como en producciones medias.",
+          "body": "Los libros, revistas y catálogos deben combinar una presentación cuidada, una lectura cómoda y una producción coherente con la imagen de marca o el carácter editorial de cada proyecto. Una publicación profesional se percibe en la calidad de impresión, en la elección del papel, en la encuadernación y en el acabado de la cubierta.\nPara conseguir un buen resultado, es importante definir correctamente el formato, los materiales y el sistema de encuadernación según el tipo de contenido, la frecuencia de uso y la tirada prevista. No requiere la misma solución un catálogo comercial de consulta frecuente que una revista corporativa o una publicación editorial pensada para una conservación más duradera.\nTrabajamos libros, revistas y catálogos para marcas, empresas y editoriales con criterios de calidad, funcionalidad y acabado, para que cada pieza resulte sólida, cómoda de leer y alineada con la identidad visual del proyecto, tanto en tiradas cortas como en producciones medias.",
           "blocks": [
             {
               "type": "text",
-              "text": "<h2>Conoce las características de libros, revistas y catálogos</h2>",
-              "html": true,
-              "format": "html"
-            },
-            {
-              "type": "text",
-              "text": "Los libros, revistas y catálogos deben combinar una presentación cuidada, una lectura cómoda y una producción coherente con la imagen de marca o el carácter editorial de cada proyecto. Una publicación profesional se percibe en la calidad de impresión, en la elección del papel, en la encuadernación y en el acabado de la cubierta.",
-              "html": false
-            },
-            {
-              "type": "text",
-              "text": "Para conseguir un buen resultado, es importante definir correctamente el formato, los materiales y el sistema de encuadernación según el tipo de contenido, la frecuencia de uso y la tirada prevista. No requiere la misma solución un catálogo comercial de consulta frecuente que una revista corporativa o una publicación editorial pensada para una conservación más duradera.",
-              "html": false
-            },
-            {
-              "type": "text",
-              "text": "Trabajamos libros, revistas y catálogos para marcas, empresas y editoriales con criterios de calidad, funcionalidad y acabado, para que cada pieza resulte sólida, cómoda de leer y alineada con la identidad visual del proyecto, tanto en tiradas cortas como en producciones medias.",
+              "text": "Los libros, revistas y catálogos deben combinar una presentación cuidada, una lectura cómoda y una producción coherente con la imagen de marca o el carácter editorial de cada proyecto. Una publicación profesional se percibe en la calidad de impresión, en la elección del papel, en la encuadernación y en el acabado de la cubierta.\nPara conseguir un buen resultado, es importante definir correctamente el formato, los materiales y el sistema de encuadernación según el tipo de contenido, la frecuencia de uso y la tirada prevista. No requiere la misma solución un catálogo comercial de consulta frecuente que una revista corporativa o una publicación editorial pensada para una conservación más duradera.\nTrabajamos libros, revistas y catálogos para marcas, empresas y editoriales con criterios de calidad, funcionalidad y acabado, para que cada pieza resulte sólida, cómoda de leer y alineada con la identidad visual del proyecto, tanto en tiradas cortas como en producciones medias.",
               "html": false
             }
           ]
@@ -1682,26 +1680,65 @@
           "id": "overview",
           "key": "overview",
           "title": "Información adicional",
-          "body": "Cómo trabajamos\n1.\tNos envías el diseño o te ayudamos a prepararlo.\n2.\tRevisamos formato, sangrado, márgenes, lomo (si aplica) y orden de páginas.\n3.\tTe proponemos papel, encuadernación y acabados según uso y presupuesto.\n4.\tImprimimos, encuadernamos y entregamos el material listo para distribuir.\n\n¿No tienes claro qué encuadernación o papel elegir para tu publicación? Dinos formato, número de páginas, cantidad y uso (catálogo, revista o libro) y te recomendamos la opción más adecuada para pedir presupuesto con seguridad.",
+          "body": "## Cómo trabajamos\n\n1. **Definimos el formato y el tipo de publicación**  \n   Analizamos el contenido, el número de páginas, el uso previsto y la tirada para plantear una solución coherente con el proyecto.\n\n2. **Seleccionamos papel, encuadernación y acabados**  \n   Te ayudamos a elegir los materiales y acabados más adecuados según el tipo de pieza, la frecuencia de uso y la imagen que quieres transmitir.\n\n3. **Revisamos el archivo y preparamos la producción**  \n   Comprobamos que la maquetación, las imágenes, los márgenes y el sangrado estén listos para imprimir con garantías.\n\n4. **Imprimimos y entregamos la publicación terminada**  \n   Producimos el trabajo con el sistema más adecuado y entregamos el material listo para su distribución o uso.\n\n**¿Dudas entre fresado, grapado o espiral?** Cuéntanos el tipo de publicación, el número de páginas, la tirada y el uso previsto y te orientaremos sobre la opción más adecuada.",
           "blocks": [
             {
               "type": "text",
-              "text": "Cómo trabajamos",
-              "html": false
+              "text": "<h2>Cómo trabajamos</h2>",
+              "html": true,
+              "format": "html"
             },
             {
               "type": "bullets",
               "items": [
-                "Nos envías el diseño o te ayudamos a prepararlo.",
-                "Revisamos formato, sangrado, márgenes, lomo (si aplica) y orden de páginas.",
-                "Te proponemos papel, encuadernación y acabados según uso y presupuesto.",
-                "Imprimimos, encuadernamos y entregamos el material listo para distribuir."
+                "**Definimos el formato y el tipo de publicación**"
               ],
               "ordered": true
             },
             {
               "type": "text",
-              "text": "¿No tienes claro qué encuadernación o papel elegir para tu publicación? Dinos formato, número de páginas, cantidad y uso (catálogo, revista o libro) y te recomendamos la opción más adecuada para pedir presupuesto con seguridad.",
+              "text": "Analizamos el contenido, el número de páginas, el uso previsto y la tirada para plantear una solución coherente con el proyecto.",
+              "html": false
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "**Seleccionamos papel, encuadernación y acabados**"
+              ],
+              "ordered": true
+            },
+            {
+              "type": "text",
+              "text": "Te ayudamos a elegir los materiales y acabados más adecuados según el tipo de pieza, la frecuencia de uso y la imagen que quieres transmitir.",
+              "html": false
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "**Revisamos el archivo y preparamos la producción**"
+              ],
+              "ordered": true
+            },
+            {
+              "type": "text",
+              "text": "Comprobamos que la maquetación, las imágenes, los márgenes y el sangrado estén listos para imprimir con garantías.",
+              "html": false
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "**Imprimimos y entregamos la publicación terminada**"
+              ],
+              "ordered": true
+            },
+            {
+              "type": "text",
+              "text": "Producimos el trabajo con el sistema más adecuado y entregamos el material listo para su distribución o uso.",
+              "html": false
+            },
+            {
+              "type": "text",
+              "text": "**¿Dudas entre fresado, grapado o espiral?** Cuéntanos el tipo de publicación, el número de páginas, la tirada y el uso previsto y te orientaremos sobre la opción más adecuada.",
               "html": false
             }
           ]
@@ -1822,7 +1859,7 @@
     },
     {
       "id": "3",
-      "updatedAt": "2026-04-05T15:08:00Z",
+      "updatedAt": "2026-04-10T07:08:47Z",
       "type": "categoria",
       "slug": "eventos",
       "path": "/categorias/eventos",
@@ -1833,28 +1870,17 @@
       "featured": false,
       "isPublished": true,
       "description": "Preparamos e imprimimos todo el material gráfico para eventos: ferias, congresos, presentaciones, inauguraciones y actos corporativos. Desde cartelería y stands hasta acreditaciones y señalética, con asesoramiento en materiales, acabados y formatos para que tu marca destaque y todo llegue a tiempo.",
-      "bodyMd": "Cómo trabajamos\n1.\tNos envías el diseño o te ayudamos a prepararlo.\n2.\tRevisamos medidas, sangrado, legibilidad y requisitos de montaje.\n3.\tImprimimos y aplicamos acabados según el uso (interior/exterior).\n4.\tEntregamos listo para instalar y, si lo necesitas, coordinamos la logística.\n\n¿Tienes un evento con fecha cerrada? Dinos día, lugar y qué necesitas (stand, señalética, acreditaciones, gran formato…) y te recomendamos materiales y acabados para llegar a tiempo con el mejor resultado.",
+      "bodyMd": "1. **Recibimos el diseño o te ayudamos a prepararlo**  \n   Partimos de tu creatividad o te orientamos para adaptar los archivos a las necesidades reales del evento.\n\n2. **Revisamos medidas, sangrado, legibilidad y montaje**  \n   Comprobamos que cada pieza esté correctamente preparada para imprimirse y funcionar bien en su espacio final.\n\n3. **Imprimimos y aplicamos los acabados necesarios**  \n   Producimos cada elemento con los materiales y acabados adecuados según el uso, la ubicación y la duración prevista.\n\n4. **Entregamos el material listo para instalar**  \n   Preparamos el pedido para que llegue en plazo y, si lo necesitas, coordinamos la logística para facilitar el montaje.\n\n**¿Tienes un evento con fecha cerrada?** Dinos el día, el lugar y qué necesitas —stand, señalética, acreditaciones, gran formato o piezas promocionales— y te recomendaremos los materiales y acabados más adecuados para llegar a tiempo con el mejor resultado.",
       "sections": [
         {
           "id": "details",
           "key": "details",
           "title": "Detalles y características",
-          "body": "## Conoce las características de la impresión para eventos\n\nLa impresión para eventos debe cumplir tres objetivos: ofrecer una imagen profesional y coherente, mantener una buena visibilidad a distancia y soportar el montaje, la manipulación y el tránsito propios del uso intensivo.\n\nPor eso, la elección de piezas, soportes y acabados debe adaptarse al tipo de evento, al entorno de instalación y a la duración prevista. No requiere lo mismo una aplicación interior de corta duración que una solución para exterior expuesta al uso continuado.\n\nTrabajamos la impresión para eventos teniendo en cuenta la funcionalidad, la resistencia y la facilidad de instalación, para que cada elemento llegue preparado, se monte con agilidad y mantenga un resultado visual cuidado durante todo el evento.",
+          "body": "La impresión para eventos debe cumplir tres objetivos: ofrecer una imagen profesional y coherente, mantener una buena visibilidad a distancia y soportar el montaje, la manipulación y el tránsito propios de un uso intensivo.\nPor eso, la elección de piezas, soportes y acabados debe adaptarse al tipo de evento, al entorno de instalación y a la duración prevista. No requiere la misma solución una aplicación interior de corta duración que una producción para exterior expuesta al uso continuado.\n\nTrabajamos la impresión para eventos teniendo en cuenta la funcionalidad, la resistencia y la facilidad de instalación, para que cada elemento llegue preparado, se monte con agilidad y mantenga un resultado visual cuidado durante todo el evento.",
           "blocks": [
             {
               "type": "text",
-              "text": "<h2>Conoce las características de la impresión para eventos</h2>",
-              "html": true,
-              "format": "html"
-            },
-            {
-              "type": "text",
-              "text": "La impresión para eventos debe cumplir tres objetivos: ofrecer una imagen profesional y coherente, mantener una buena visibilidad a distancia y soportar el montaje, la manipulación y el tránsito propios del uso intensivo.",
-              "html": false
-            },
-            {
-              "type": "text",
-              "text": "Por eso, la elección de piezas, soportes y acabados debe adaptarse al tipo de evento, al entorno de instalación y a la duración prevista. No requiere lo mismo una aplicación interior de corta duración que una solución para exterior expuesta al uso continuado.",
+              "text": "La impresión para eventos debe cumplir tres objetivos: ofrecer una imagen profesional y coherente, mantener una buena visibilidad a distancia y soportar el montaje, la manipulación y el tránsito propios de un uso intensivo.\nPor eso, la elección de piezas, soportes y acabados debe adaptarse al tipo de evento, al entorno de instalación y a la duración prevista. No requiere la misma solución una aplicación interior de corta duración que una producción para exterior expuesta al uso continuado.",
               "html": false
             },
             {
@@ -1868,26 +1894,59 @@
           "id": "overview",
           "key": "overview",
           "title": "Información adicional",
-          "body": "Cómo trabajamos\n1.\tNos envías el diseño o te ayudamos a prepararlo.\n2.\tRevisamos medidas, sangrado, legibilidad y requisitos de montaje.\n3.\tImprimimos y aplicamos acabados según el uso (interior/exterior).\n4.\tEntregamos listo para instalar y, si lo necesitas, coordinamos la logística.\n\n¿Tienes un evento con fecha cerrada? Dinos día, lugar y qué necesitas (stand, señalética, acreditaciones, gran formato…) y te recomendamos materiales y acabados para llegar a tiempo con el mejor resultado.",
+          "body": "1. **Recibimos el diseño o te ayudamos a prepararlo**  \n   Partimos de tu creatividad o te orientamos para adaptar los archivos a las necesidades reales del evento.\n\n2. **Revisamos medidas, sangrado, legibilidad y montaje**  \n   Comprobamos que cada pieza esté correctamente preparada para imprimirse y funcionar bien en su espacio final.\n\n3. **Imprimimos y aplicamos los acabados necesarios**  \n   Producimos cada elemento con los materiales y acabados adecuados según el uso, la ubicación y la duración prevista.\n\n4. **Entregamos el material listo para instalar**  \n   Preparamos el pedido para que llegue en plazo y, si lo necesitas, coordinamos la logística para facilitar el montaje.\n\n**¿Tienes un evento con fecha cerrada?** Dinos el día, el lugar y qué necesitas —stand, señalética, acreditaciones, gran formato o piezas promocionales— y te recomendaremos los materiales y acabados más adecuados para llegar a tiempo con el mejor resultado.",
           "blocks": [
-            {
-              "type": "text",
-              "text": "Cómo trabajamos",
-              "html": false
-            },
             {
               "type": "bullets",
               "items": [
-                "Nos envías el diseño o te ayudamos a prepararlo.",
-                "Revisamos medidas, sangrado, legibilidad y requisitos de montaje.",
-                "Imprimimos y aplicamos acabados según el uso (interior/exterior).",
-                "Entregamos listo para instalar y, si lo necesitas, coordinamos la logística."
+                "**Recibimos el diseño o te ayudamos a prepararlo**"
               ],
               "ordered": true
             },
             {
               "type": "text",
-              "text": "¿Tienes un evento con fecha cerrada? Dinos día, lugar y qué necesitas (stand, señalética, acreditaciones, gran formato…) y te recomendamos materiales y acabados para llegar a tiempo con el mejor resultado.",
+              "text": "Partimos de tu creatividad o te orientamos para adaptar los archivos a las necesidades reales del evento.",
+              "html": false
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "**Revisamos medidas, sangrado, legibilidad y montaje**"
+              ],
+              "ordered": true
+            },
+            {
+              "type": "text",
+              "text": "Comprobamos que cada pieza esté correctamente preparada para imprimirse y funcionar bien en su espacio final.",
+              "html": false
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "**Imprimimos y aplicamos los acabados necesarios**"
+              ],
+              "ordered": true
+            },
+            {
+              "type": "text",
+              "text": "Producimos cada elemento con los materiales y acabados adecuados según el uso, la ubicación y la duración prevista.",
+              "html": false
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "**Entregamos el material listo para instalar**"
+              ],
+              "ordered": true
+            },
+            {
+              "type": "text",
+              "text": "Preparamos el pedido para que llegue en plazo y, si lo necesitas, coordinamos la logística para facilitar el montaje.",
+              "html": false
+            },
+            {
+              "type": "text",
+              "text": "**¿Tienes un evento con fecha cerrada?** Dinos el día, el lugar y qué necesitas —stand, señalética, acreditaciones, gran formato o piezas promocionales— y te recomendaremos los materiales y acabados más adecuados para llegar a tiempo con el mejor resultado.",
               "html": false
             }
           ]

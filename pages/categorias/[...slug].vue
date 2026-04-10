@@ -9,6 +9,7 @@ import ContentSectionsRenderer from "@/components/marketing/content/ContentSecti
 import FaqAccordion from "@/components/shared/blocks/FaqAccordion.vue";
 import ContentSectionIntro from "@/components/marketing/content/ContentSectionIntro.vue";
 import ContentSectionShell from "@/components/marketing/content/ContentSectionShell.vue";
+import ProcessSteps from "@/components/marketing/content/ProcessSteps.vue";
 
 const route = useRoute();
 const config = useRuntimeConfig();
@@ -26,6 +27,34 @@ function safeDecode(value: unknown) {
     return String(value ?? "");
   }
 }
+
+
+const demoProcessSteps = [
+  {
+    title: "Cuéntanos tu proyecto",
+    label: "Brief",
+    description:
+      "Analizamos el uso, el soporte, el formato y las necesidades del trabajo para orientarte desde el inicio.",
+  },
+  {
+    title: "Te asesoramos",
+    label: "Propuesta",
+    description:
+      "Te ayudamos a elegir materiales, medidas, acabados y la solución más adecuada según tu objetivo y presupuesto.",
+  },
+  {
+    title: "Producción",
+    label: "Impresión",
+    description:
+      "Preparamos el trabajo, revisamos los detalles técnicos y producimos con control de calidad para asegurar un buen resultado.",
+  },
+  {
+    title: "Entrega",
+    label: "Final",
+    description:
+      "Recibes el pedido listo para instalar, distribuir o utilizar, con acompañamiento durante todo el proceso.",
+  },
+];
 
 function isAssetLike(value: unknown) {
   const s = String(value ?? "").trim();
@@ -101,9 +130,6 @@ const { data, status, error } = await useAsyncData<CategoryDetailPageDto | null>
   }
 );
 
-watchEffect(() => {
-  console.log("API category raw", data.value);
-});
 
 if (
   data.value?.redirectTo &&
@@ -135,19 +161,6 @@ const sections = computed(() =>
   Array.isArray(category.value?.sections) ? category.value.sections.filter(Boolean) : []
 );
 
-watchEffect(() => {
-  console.log(
-    "PAGE sections",
-    sections.value.map((section: any) => ({
-      id: section?.id,
-      key: section?.key,
-      title: section?.title,
-      hasItems: Array.isArray(section?.items) ? section.items.length : 0,
-      hasFormatsData: Boolean(section?.formatsData),
-      blockCount: Array.isArray(section?.blocks) ? section.blocks.length : 0,
-    }))
-  );
-});
 
 const hasSections = computed(() => sections.value.length > 0);
 
@@ -345,14 +358,6 @@ useSeoMeta({
             <FaqAccordion :items="faqs" />
           </ContentSectionShell>
 
-          <GuideBanner
-            title="¿No estás seguro de las medidas?"
-            :cta="{ label: 'Consultar guía', to: '/como-preparar-archivos' }"
-            base-path="/img/ui/banners/como-preparar-archivos"
-            :height="240"
-            :full-bleed="true"
-            :rounded="false"
-          />
 
           <ContentSectionShell
             eyebrow="Asesoramiento personalizado"

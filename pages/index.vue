@@ -85,9 +85,4 @@ const clientLogos = [
   { src: "/img/customers/green-vita.svg", alt: "Green Vita" },
 ];
 
-if (import.meta.dev) {
-  console.log("[HOME] categorías grid:", safeHomeCategories.value);
-  console.log("[HOME] pending:", homeCategoriesPending.value);
-  console.log("[HOME] error:", homeCategoriesError.value);
-}
 </script>
