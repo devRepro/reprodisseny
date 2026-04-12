@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "sync:cms": "tsx ./scripts/sync-cms.ts",
-    "build": "npm run cms:sync && nuxt build",
+    "build": "npm run && nuxt build",
     "dev": "nuxt dev",
     "generate": "npm run cms:sync && nuxt generate",
     "preview": "nuxt preview",

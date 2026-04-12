@@ -9,7 +9,6 @@ import ProductsFiltersPanel from "@/components/marketing/product/FiltersPanel.vu
 import ProductsToolbar from "@/components/marketing/product/Toolbar.vue";
 import ProductsResultsGrid from "@/components/marketing/product/ResultsGrid.vue";
 import ProductsEmptyState from "@/components/marketing/product/EmptyState.vue";
-import ProductsHelpCta from "@/components/marketing/product/HelpCta.vue";
 
 const route = useRoute();
 const router = useRouter();
@@ -22,9 +21,7 @@ const page = computed(() => {
   return Number.isFinite(raw) && raw > 0 ? Math.floor(raw) : 1;
 });
 
-const q = computed(() =>
-  typeof route.query.q === "string" ? route.query.q.trim() : ""
-);
+const q = computed(() => (typeof route.query.q === "string" ? route.query.q.trim() : ""));
 
 const sort = computed(() =>
   typeof route.query.sort === "string" && route.query.sort
@@ -72,7 +69,10 @@ const categories = computed(() => data.value?.categories || []);
 
 const currentCategoryLabel = computed(() => {
   const match = categories.value.find(
-    (item: any) => String(item?.slug || "").trim().toLowerCase() === selectedCategory.value
+    (item: any) =>
+      String(item?.slug || "")
+        .trim()
+        .toLowerCase() === selectedCategory.value
   );
 
   return match?.label || match?.nav || match?.title || "";
@@ -88,7 +88,9 @@ const canonical = computed(() => {
 });
 
 const shouldNoindex = computed(() => {
-  return Boolean(q.value) || sort.value !== "relevance" || Boolean(selectedCategory.value);
+  return (
+    Boolean(q.value) || sort.value !== "relevance" || Boolean(selectedCategory.value)
+  );
 });
 
 useSeoMeta({
@@ -189,9 +191,7 @@ function clearFilters() {
           <div
             class="h-12 w-12 animate-spin rounded-full border-4 border-primary/20 border-t-primary"
           />
-          <p class="mt-4 font-medium text-muted-foreground">
-            Actualizando catálogo...
-          </p>
+          <p class="mt-4 font-medium text-muted-foreground">Actualizando catálogo...</p>
         </div>
 
         <div v-else-if="error" class="mx-auto max-w-md py-20 text-center">
@@ -216,7 +216,9 @@ function clearFilters() {
             <div
               class="custom-scrollbar sticky top-28 max-h-[calc(100vh-140px)] overflow-y-auto pr-4"
             >
-              <h3 class="mb-6 text-sm font-bold uppercase tracking-wider text-muted-foreground">
+              <h3
+                class="mb-6 text-sm font-bold uppercase tracking-wider text-muted-foreground"
+              >
                 Filtrar por
               </h3>
 
@@ -261,8 +263,6 @@ function clearFilters() {
         </div>
       </section>
     </PageContainer>
-
-    <ProductsHelpCta class="mt-12" />
   </main>
 </template>
 
