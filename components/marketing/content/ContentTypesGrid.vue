@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ContentSectionHeader from "@/components/marketing/content/ContentSectionHeader.vue";
+import ContentSectionShell from "@/components/marketing/content/ContentSectionShell.vue";
 
 type CategoryTypeItem = {
   title: string;
@@ -25,19 +25,18 @@ withDefaults(
 </script>
 
 <template>
-  <section
+  <ContentSectionShell
     v-if="items?.length"
     :id="sectionId"
-    class="scroll-mt-32 space-y-8 md:space-y-10"
+    eyebrow="Información de la categoría"
+    :title="title || 'Tipos'"
+    :description="intro || ''"
+    theme="default"
+    section-class="scroll-mt-32"
+    container-class="container-content"
+    intro-class="max-w-4xl"
+    body-class="space-y-8 md:space-y-10"
   >
-    <div class="max-w-3xl">
-      <ContentSectionHeader
-        :title="title || 'Tipos'"
-        :subtitle="intro"
-        as="h2"
-      />
-    </div>
-
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       <article
         v-for="item in items"
@@ -64,21 +63,18 @@ withDefaults(
             <span
               v-for="feature in item.features"
               :key="feature"
-              class="inline-flex items-center rounded-md border border-primary/15 bg-primary/5 px-2.5 py-1 text-xs font-medium text-primary transition-colors hover:bg-primary/10"
+              class="inline-flex items-center rounded-md border border-primary/15 bg-primary/5 px-2.5 py-1 text-xs font-medium text-primary"
             >
               {{ feature }}
             </span>
           </div>
         </div>
 
-        <div
-          v-if="item.idealFor"
-          class="mt-6 rounded-xl bg-muted/30 p-4 text-sm"
-        >
+        <div v-if="item.idealFor" class="mt-6 rounded-xl bg-muted/30 p-4 text-sm">
           <span class="mb-1 block font-semibold text-foreground">Ideal para:</span>
           <span class="leading-relaxed text-muted-foreground">{{ item.idealFor }}</span>
         </div>
       </article>
     </div>
-  </section>
+  </ContentSectionShell>
 </template>

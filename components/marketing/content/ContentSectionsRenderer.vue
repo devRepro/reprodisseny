@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { normalizeCmsMediaSrc } from "@/utils/cmsMedia";
 import ContentTabs from "@/components/marketing/content/ContentTabs.vue";
 import ContentTypesGrid from "@/components/marketing/content/ContentTypesGrid.vue";
 import CategoryFormatsSection from "@/components/marketing/content/CategoryFormatsSection.vue";
@@ -191,10 +190,6 @@ function isBullets(
   );
 }
 
-function isImage(block: ContentBlock): block is Extract<ContentBlock, { type: "image" }> {
-  return block?.type === "image" && Boolean(block.src);
-}
-
 function stripInlineMarkdown(value: string): string {
   return String(value ?? "")
     .replace(/\*\*(.*?)\*\*/g, "$1")
@@ -269,7 +264,14 @@ function isDetailsSection(section?: SafeSection | null) {
   const title = String(section?.title ?? "")
     .trim()
     .toLowerCase();
-  return section?.key === "details" || section?.id === "details" || title === "detalles";
+
+  return (
+    section?.key === "details" ||
+    section?.id === "details" ||
+    title === "detalles" ||
+    title === "detalles y características" ||
+    title.startsWith("detalles")
+  );
 }
 
 function getSectionKind(
@@ -357,7 +359,7 @@ function getPanelEntries(item?: TabItem | null): RenderSection[] {
         <template v-for="entry in getPanelEntries(item)" :key="entry.uid">
           <div :id="entry.section.id" class="scroll-mt-32">
             <template v-if="entry.kind === 'details'">
-              <ContentDetailsSection :section="entry.section" eyebrow="Detalles" />
+              <ContentDetailsSection :section="entry.section" />
 
               <CategoryShowcaseCta
                 v-if="featuredProduct"
@@ -396,116 +398,7 @@ function getPanelEntries(item?: TabItem | null): RenderSection[] {
               :columns="4"
             />
 
-            <section
-              v-else
-              class="overflow-hidden rounded-[24px] border border-border/60 bg-card shadow-sm"
-            >
-              <header
-                class="flex items-center gap-3 border-b border-border/40 bg-muted/10 px-5 py-4 md:px-6"
-              >
-                <div
-                  class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
-                >
-                  <span
-                    aria-hidden="true"
-                    class="font-mono text-sm font-bold tabular-nums"
-                  >
-                    {{
-                      String(
-                        renderSections.findIndex((section) => section.uid === entry.uid) +
-                          1
-                      ).padStart(2, "0")
-                    }}
-                  </span>
-                </div>
-
-                <div class="flex min-w-0 items-center gap-3">
-                  <span aria-hidden="true" class="h-9 w-1.5 rounded-full bg-primary/85" />
-                  <h3
-                    class="text-xl font-bold tracking-tight text-foreground md:text-2xl"
-                  >
-                    {{ entry.section.title }}
-                  </h3>
-                </div>
-              </header>
-
-              <div class="space-y-6 px-5 py-6 md:px-6 md:py-8">
-                <p
-                  v-if="entry.section.intro"
-                  class="max-w-[75ch] text-base leading-relaxed text-muted-foreground md:text-lg"
-                >
-                  {{ entry.section.intro }}
-                </p>
-
-                <template
-                  v-for="(block, blockIndex) in entry.section.blocks"
-                  :key="`${entry.uid}-${blockIndex}`"
-                >
-                  <p
-                    v-if="isText(block) && !block.html && block.text"
-                    class="max-w-[75ch] text-base leading-relaxed text-foreground/80 md:text-lg"
-                  >
-                    {{ block.text }}
-                  </p>
-
-                  <div
-                    v-else-if="isText(block) && block.html && block.text"
-                    class="prose prose-neutral max-w-[75ch] prose-headings:font-bold prose-headings:text-foreground prose-p:text-foreground/80 prose-p:leading-relaxed prose-a:text-primary prose-strong:text-foreground prose-li:text-foreground/80"
-                    v-html="block.text"
-                  />
-
-                  <component
-                    :is="isBullets(block) && block.ordered ? 'ol' : 'ul'"
-                    v-else-if="isBullets(block)"
-                    class="grid gap-3 md:grid-cols-2 lg:gap-4"
-                  >
-                    <li
-                      v-for="(blockItem, itemIndex) in block.items"
-                      :key="`${entry.uid}-${blockIndex}-${itemIndex}`"
-                      class="group relative flex items-start gap-4 rounded-2xl border border-border/40 bg-muted/5 p-4"
-                    >
-                      <div class="mt-1 flex shrink-0 items-center justify-center">
-                        <span
-                          v-if="!block.ordered"
-                          aria-hidden="true"
-                          class="h-2 w-2 rounded-full bg-primary/40 ring-4 ring-primary/10"
-                        />
-                        <span v-else class="font-mono text-xs font-bold text-primary/70">
-                          {{ String(itemIndex + 1).padStart(2, "0") }}.
-                        </span>
-                      </div>
-
-                      <span
-                        class="text-sm leading-relaxed text-foreground/80 md:text-base"
-                      >
-                        {{ blockItem }}
-                      </span>
-                    </li>
-                  </component>
-
-                  <figure
-                    v-else-if="isImage(block)"
-                    class="group relative overflow-hidden rounded-2xl border border-border/40 bg-muted/10"
-                  >
-                    <NuxtImg
-                      :src="normalizeCmsMediaSrc(block.src) || block.src"
-                      :alt="block.alt || entry.section.title"
-                      :width="block.width || 1200"
-                      :height="block.height || 800"
-                      class="h-auto w-full object-cover"
-                      loading="lazy"
-                    />
-
-                    <figcaption
-                      v-if="block.caption"
-                      class="border-t border-border/20 bg-background/80 px-4 py-3 text-sm text-foreground/70"
-                    >
-                      {{ block.caption }}
-                    </figcaption>
-                  </figure>
-                </template>
-              </div>
-            </section>
+            <ContentDetailsSection v-else :section="entry.section" />
           </div>
         </template>
       </template>

@@ -13,45 +13,35 @@ const props = withDefaults(
     subtitleClass?: string;
     tone?: "brand" | "ink" | "foreground" | "white";
     divider?: boolean;
-    dividerClass?: string;
+    eyebrow?: string;
   }>(),
   {
     subtitle: "",
-    as: "h2",
+    as: "h3",
     class: "",
     headingClass: "",
     titleClass: "",
     subtitleClass: "",
     tone: "foreground",
     divider: true,
-    dividerClass: "",
+    eyebrow: "",
   }
 );
 </script>
 
 <template>
-  <div :class="cn('w-full space-y-4', props.class)">
+  <div :class="cn('w-full', props.class)">
     <SectionHeading
       :as="props.as"
+      size="subsection"
+      :eyebrow="props.eyebrow"
       :title="props.title"
       :subtitle="props.subtitle"
-      size="compact"
       :title-tone="props.tone"
-      :line="false"
-      :class="cn('w-full', props.headingClass)"
-      :title-class="cn('mb-0', props.titleClass)"
-      :subtitle-class="cn('mt-3', props.subtitleClass)"
-    />
-
-    <div
-      v-if="divider"
-      aria-hidden="true"
-      :class="
-        cn(
-          'h-px w-full bg-[linear-gradient(90deg,hsl(var(--border)/0),hsl(var(--border)/0.9)_12%,hsl(var(--border)/0.9)_88%,hsl(var(--border)/0))]',
-          props.dividerClass
-        )
-      "
+      :line="props.divider"
+      :class="props.headingClass"
+      :title-class="props.titleClass"
+      :subtitle-class="props.subtitleClass"
     />
   </div>
 </template>

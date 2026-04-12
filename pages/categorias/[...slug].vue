@@ -28,7 +28,6 @@ function safeDecode(value: unknown) {
   }
 }
 
-
 const demoProcessSteps = [
   {
     title: "Cuéntanos tu proyecto",
@@ -130,7 +129,6 @@ const { data, status, error } = await useAsyncData<CategoryDetailPageDto | null>
   }
 );
 
-
 if (
   data.value?.redirectTo &&
   normalizePath(data.value.redirectTo) !== normalizePath(route.path)
@@ -160,7 +158,6 @@ const products = computed(() =>
 const sections = computed(() =>
   Array.isArray(category.value?.sections) ? category.value.sections.filter(Boolean) : []
 );
-
 
 const hasSections = computed(() => sections.value.length > 0);
 
@@ -342,6 +339,7 @@ useSeoMeta({
 
           <ContentSectionShell
             v-if="hasSections"
+            theme="muted"
             eyebrow="Información de la categoría"
             title="Características, tipos, formatos y acabados"
             description="Consulta la información clave de esta categoría en un formato más claro y fácil de comparar."
@@ -357,7 +355,6 @@ useSeoMeta({
           >
             <FaqAccordion :items="faqs" />
           </ContentSectionShell>
-
 
           <ContentSectionShell
             eyebrow="Asesoramiento personalizado"

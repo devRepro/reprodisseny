@@ -1,16 +1,16 @@
 <script setup lang="ts">
 import { computed, useAttrs } from "vue";
+import { cn } from "@/lib/utils";
 
 defineOptions({
   inheritAttrs: false,
 });
 
 type HeadingTag = "h1" | "h2" | "h3" | "h4";
-type HeadingSize = "hero" | "section" | "compact";
+type HeadingSize = "hero" | "section" | "subsection" | "compact";
 type HeadingAlign = "left" | "center";
 type HeadingTheme = "default" | "inverse";
 type HeadingTone = "brand" | "ink" | "foreground" | "white";
-type LineTone = "default" | "ink" | "foreground" | "white";
 
 type Props = {
   as?: HeadingTag;
@@ -21,8 +21,8 @@ type Props = {
   align?: HeadingAlign;
   theme?: HeadingTheme;
   titleTone?: HeadingTone;
-  lineTone?: LineTone;
   line?: boolean;
+  ornament?: boolean;
   eyebrowClass?: string;
   titleClass?: string;
   subtitleClass?: string;
@@ -36,9 +36,9 @@ const props = withDefaults(defineProps<Props>(), {
   size: "section",
   align: "left",
   theme: "default",
-  titleTone: "brand",
-  lineTone: "default",
+  titleTone: "foreground",
   line: true,
+  ornament: true,
   eyebrowClass: "",
   titleClass: "",
   subtitleClass: "",
@@ -48,117 +48,79 @@ const attrs = useAttrs();
 
 const headingTag = computed(() => props.as);
 
-const rootClass = computed(() => {
-  return [
-    "w-full",
-    "space-y-3",
-    props.align === "center" ? "text-center" : "text-left",
-  ].join(" ");
+const titleSizeClass = computed(() => {
+  const map: Record<HeadingSize, string> = {
+    hero: "section-title--hero",
+    section: "section-title--section",
+    subsection: "section-title--subsection",
+    compact: "section-title--compact",
+  };
+  return map[props.size];
 });
 
-const eyebrowBaseClass = computed(() => {
-  const base = "text-sm font-medium tracking-wide";
-  const color = props.theme === "inverse" ? "text-white/75" : "text-primary";
-
-  return [base, color].join(" ");
-});
-
-const rowClass = computed(() => {
-  if (props.align === "center") {
-    return "flex flex-col items-center gap-3";
-  }
-
-  return "flex flex-col gap-3 md:flex-row md:items-center md:gap-5";
-});
-
-const titleBaseClass = computed(() => {
-  const sizeMap: Record<HeadingSize, string> = {
-    hero: "text-3xl font-semibold leading-tight tracking-tight sm:text-4xl lg:text-5xl",
-    section: "text-2xl font-semibold leading-tight tracking-tight sm:text-3xl",
-    compact: "text-xl font-semibold leading-tight tracking-tight sm:text-2xl",
+const titleToneClass = computed(() => {
+  const map: Record<HeadingTone, string> = {
+    brand: "section-title--brand",
+    ink: "section-title--ink",
+    foreground: "section-title--foreground",
+    white: "section-title--white",
   };
 
-  const toneMap: Record<HeadingTone, string> = {
-    brand: "text-primary",
-    ink: "text-brand-ink-dark",
-    foreground: "text-foreground",
-    white: "text-white",
-  };
-
-  const colorClass = props.theme === "inverse" ? "text-white" : toneMap[props.titleTone];
-
-  return ["m-0 text-pretty", sizeMap[props.size], colorClass].join(" ");
+  return props.theme === "inverse" ? "section-title--white" : map[props.titleTone];
 });
 
-const subtitleBaseClass = computed(() => {
-  const themeMap: Record<HeadingTheme, string> = {
-    default: "text-muted-foreground",
-    inverse: "text-white/80",
-  };
+const eyebrowBaseClass = computed(() =>
+  cn(
+    "section-eyebrow",
+    props.theme === "inverse" && "section-eyebrow--inverse",
+    !props.ornament && "before:hidden"
+  )
+);
 
-  return [
-    "max-w-3xl text-sm leading-6 sm:text-base",
-    props.align === "center" ? "mx-auto" : "",
-    themeMap[props.theme],
-  ].join(" ");
-});
+const subtitleBaseClass = computed(() =>
+  cn(
+    "section-subtitle",
+    props.align === "center" && "section-subtitle--center",
+    props.theme === "inverse" && "text-white/80"
+  )
+);
 
-const lineClass = computed(() => {
-  if (props.theme === "inverse") {
-    return "block h-px bg-white/25";
-  }
-
-  const toneMap: Record<LineTone, string> = {
-    default: "bg-border",
-    ink: "bg-brand-ink-dark",
-    foreground: "bg-foreground",
-    white: "bg-white",
-  };
-
-  return ["block h-px", toneMap[props.lineTone]].join(" ");
-});
-
-const desktopLineClass = computed(() => {
-  if (!props.line || props.align !== "left") {
-    return "hidden";
-  }
-
-  return [lineClass.value, "hidden md:block md:flex-1"].join(" ");
-});
-
-const mobileLineClass = computed(() => {
-  if (!props.line) {
-    return "hidden";
-  }
-
-  if (props.align === "center") {
-    return [lineClass.value, "mx-auto w-full max-w-xs"].join(" ");
-  }
-
-  return [lineClass.value, "w-full md:hidden"].join(" ");
-});
+const lineClass = computed(() =>
+  cn(
+    "section-divider",
+    props.align === "center" && "section-divider--center",
+    props.theme === "inverse" && "section-divider--inverse"
+  )
+);
 </script>
 
 <template>
-  <div v-bind="attrs" :class="rootClass">
+  <div
+    v-bind="attrs"
+    :class="
+      cn(
+        'section-heading space-y-4',
+        props.align === 'center' && 'section-heading--center'
+      )
+    "
+  >
     <p v-if="eyebrow" :class="[eyebrowBaseClass, props.eyebrowClass]">
       {{ eyebrow }}
     </p>
 
-    <div :class="rowClass">
-      <component :is="headingTag" :class="[titleBaseClass, props.titleClass]">
-        <slot>
-          {{ title }}
-        </slot>
-      </component>
-
-      <span v-if="line" aria-hidden="true" :class="desktopLineClass" />
-    </div>
-
-    <span v-if="line" aria-hidden="true" :class="mobileLineClass" />
+    <component
+      :is="headingTag"
+      :class="['section-title', titleSizeClass, titleToneClass, props.titleClass]"
+    >
+      <slot>
+        {{ title }}
+      </slot>
+    </component>
 
     <p v-if="subtitle" :class="[subtitleBaseClass, props.subtitleClass]">
       {{ subtitle }}
     </p>
+
+    <div v-if="line" aria-hidden="true" :class="lineClass" />
   </div>
 </template>

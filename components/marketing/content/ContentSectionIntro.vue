@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { cn } from "@/lib/utils";
+import SectionHeading from "@/components/marketing/content/SectionHeading.vue";
 
 const props = withDefaults(
   defineProps<{
@@ -14,6 +15,8 @@ const props = withDefaults(
     maxWidthClass?: string;
     spacingClass?: string;
     centered?: boolean;
+    line?: boolean;
+    surface?: boolean;
   }>(),
   {
     eyebrow: "",
@@ -24,8 +27,10 @@ const props = withDefaults(
     titleClass: "",
     descriptionClass: "",
     maxWidthClass: "max-w-3xl",
-    spacingClass: "space-y-3 md:space-y-4",
+    spacingClass: "",
     centered: false,
+    line: true,
+    surface: false,
   }
 );
 </script>
@@ -36,41 +41,24 @@ const props = withDefaults(
     :class="
       cn(
         props.maxWidthClass,
-        props.spacingClass,
-        props.centered && 'mx-auto text-center',
+        props.centered && 'mx-auto',
+        props.surface && 'section-intro-surface',
         props.class
       )
     "
   >
-    <p
-      v-if="props.eyebrow"
-      :class="cn('text-sm font-medium tracking-normal text-primary', props.eyebrowClass)"
-    >
-      {{ props.eyebrow }}
-    </p>
-
-    <h2
-      :class="
-        cn(
-          'text-3xl font-semibold leading-tight tracking-tight text-foreground md:text-4xl',
-          props.titleClass
-        )
-      "
-    >
-      {{ props.title }}
-    </h2>
-
-    <p
-      v-if="props.description"
-      :class="
-        cn(
-          'max-w-[62ch] text-base leading-7 text-muted-foreground md:text-lg',
-          props.centered && 'mx-auto',
-          props.descriptionClass
-        )
-      "
-    >
-      {{ props.description }}
-    </p>
+    <SectionHeading
+      as="h2"
+      size="section"
+      title-tone="foreground"
+      :eyebrow="props.eyebrow"
+      :title="props.title"
+      :subtitle="props.description"
+      :align="props.centered ? 'center' : 'left'"
+      :line="props.line"
+      :eyebrow-class="props.eyebrowClass"
+      :title-class="props.titleClass"
+      :subtitle-class="props.descriptionClass"
+    />
   </component>
 </template>
