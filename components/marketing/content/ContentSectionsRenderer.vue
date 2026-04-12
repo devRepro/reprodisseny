@@ -314,7 +314,7 @@ const renderSections = computed<RenderSection[]>(() =>
           ? "Aplicaciones"
           : section.key === "finishes"
           ? "Acabados"
-          : undefined,
+          : "Información de la categoría",
     };
   })
 );
@@ -357,49 +357,54 @@ function getPanelEntries(item?: TabItem | null): RenderSection[] {
     >
       <template #panel="{ item }">
         <template v-for="entry in getPanelEntries(item)" :key="entry.uid">
-          <div :id="entry.section.id" class="scroll-mt-32">
-            <template v-if="entry.kind === 'details'">
-              <ContentDetailsSection :section="entry.section" />
-
-              <CategoryShowcaseCta
-                v-if="featuredProduct"
-                class="mt-4 md:mt-6"
-                :product="featuredProduct"
-                :highlights="[
-                  'Ideal para packaging, retail y promociones.',
-                  'Disponible en distintos materiales y acabados.',
-                  'Solicita presupuesto desde la ficha del producto.',
-                ]"
-              />
-            </template>
-
-            <ContentTypesGrid
-              v-else-if="entry.kind === 'types'"
-              :section-id="entry.section.id"
-              :title="entry.section.title"
-              :intro="entry.section.intro"
-              :items="entry.section.items || []"
+          <template v-if="entry.kind === 'details'">
+            <ContentDetailsSection
+              :section="entry.section"
+              eyebrow="Información de la categoría"
             />
 
-            <CategoryFormatsSection
-              v-else-if="entry.kind === 'formats'"
-              :section-id="entry.section.id"
-              :title="entry.section.title"
-              :data="entry.section.formatsData!"
+            <CategoryShowcaseCta
+              v-if="featuredProduct"
+              class="mt-4 md:mt-6"
+              :product="featuredProduct"
+              :highlights="[
+                'Ideal para packaging, retail y promociones.',
+                'Disponible en distintos materiales y acabados.',
+                'Solicita presupuesto desde la ficha del producto.',
+              ]"
             />
+          </template>
 
-            <ContentBulletCards
-              v-else-if="entry.kind === 'bullets'"
-              :section-id="entry.section.id"
-              :eyebrow="entry.eyebrow"
-              :title="entry.section.title"
-              :intro="entry.section.intro"
-              :items="entry.bulletItems"
-              :columns="4"
-            />
+          <ContentTypesGrid
+            v-else-if="entry.kind === 'types'"
+            :section-id="entry.section.id"
+            :title="entry.section.title"
+            :intro="entry.section.intro"
+            :items="entry.section.items || []"
+          />
 
-            <ContentDetailsSection v-else :section="entry.section" />
-          </div>
+          <CategoryFormatsSection
+            v-else-if="entry.kind === 'formats'"
+            :section-id="entry.section.id"
+            :title="entry.section.title"
+            :data="entry.section.formatsData!"
+          />
+
+          <ContentBulletCards
+            v-else-if="entry.kind === 'bullets'"
+            :section-id="entry.section.id"
+            :eyebrow="entry.eyebrow"
+            :title="entry.section.title"
+            :intro="entry.section.intro"
+            :items="entry.bulletItems"
+            :columns="4"
+          />
+
+          <ContentDetailsSection
+            v-else
+            :section="entry.section"
+            eyebrow="Información de la categoría"
+          />
         </template>
       </template>
     </ContentTabs>

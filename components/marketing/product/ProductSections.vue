@@ -1,16 +1,11 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, ref } from "vue";
+import ContentTabs from "@/components/marketing/content/ContentTabs.vue";
+import ContentDetailsSection from "@/components/marketing/content/ContentDetailsSection.vue";
 
 type ProductBlock =
-  | {
-      type: "text";
-      text?: string;
-      html?: boolean;
-    }
-  | {
-      type: "bullets";
-      items?: string[];
-    }
+  | { type: "text"; text?: string; html?: boolean }
+  | { type: "bullets"; items?: string[]; ordered?: boolean }
   | {
       type: "image";
       src?: string;
@@ -21,11 +16,19 @@ type ProductBlock =
     };
 
 type ProductSection = {
-  id: string;
+  id?: string;
   key?: string;
-  title: string;
-  blocks: ProductBlock[];
+  title?: string;
+  intro?: string;
+  blocks?: ProductBlock[];
+  content?: ProductBlock[];
   text?: string;
+  html?: string;
+};
+
+type TabItem = {
+  id: string;
+  label: string;
 };
 
 const props = withDefaults(
@@ -39,129 +42,94 @@ const props = withDefaults(
   }
 );
 
-const safeSections = computed(() =>
-  (props.sections || []).filter((section): section is ProductSection =>
-    Boolean(
-      section &&
-        typeof section === "object" &&
-        section.id &&
-        section.title &&
-        Array.isArray(section.blocks) &&
-        section.blocks.length
+const activeTabId = ref("");
+
+function makeAnchorId(value: string, fallback: string): string {
+  const normalized = String(value || "")
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
+  return normalized || fallback;
+}
+
+function hasRenderableContent(section: ProductSection): boolean {
+  if (Array.isArray(section.blocks) && section.blocks.length) return true;
+  if (Array.isArray(section.content) && section.content.length) return true;
+  if (String(section.text ?? "").trim()) return true;
+  if (String(section.html ?? "").trim()) return true;
+  return false;
+}
+
+const safeSections = computed<ProductSection[]>(() =>
+  (props.sections || [])
+    .filter((section): section is ProductSection =>
+      Boolean(
+        section &&
+          typeof section === "object" &&
+          String(section.title ?? "").trim() &&
+          hasRenderableContent(section)
+      )
     )
-  )
+    .map((section, index) => {
+      const rawId = String(section.id ?? section.key ?? section.title ?? "").trim();
+
+      return {
+        ...section,
+        id: makeAnchorId(rawId, `seccion-${index + 1}`),
+      };
+    })
 );
 
-function isTextBlock(
-  block: ProductBlock
-): block is Extract<ProductBlock, { type: "text" }> {
-  return block?.type === "text";
-}
+const tabItems = computed<TabItem[]>(() =>
+  safeSections.value.map((section) => ({
+    id: section.id as string,
+    label: String(section.title ?? ""),
+  }))
+);
 
-function isBulletsBlock(
-  block: ProductBlock
-): block is Extract<ProductBlock, { type: "bullets" }> {
-  return block?.type === "bullets";
-}
+const sectionsById = computed<Record<string, ProductSection>>(() =>
+  safeSections.value.reduce((acc, section) => {
+    if (section.id) acc[section.id] = section;
+    return acc;
+  }, {} as Record<string, ProductSection>)
+);
 
-function isImageBlock(
-  block: ProductBlock
-): block is Extract<ProductBlock, { type: "image" }> {
-  return block?.type === "image";
+function getSectionByTabId(tabId?: string | null): ProductSection | null {
+  if (!tabId) return null;
+  return sectionsById.value[tabId] ?? null;
 }
 </script>
 
 <template>
-  <div class="w-full">
-    <nav
+  <div v-if="safeSections.length" class="w-full">
+    <ContentTabs
       v-if="showSectionNav && safeSections.length > 1"
-      aria-label="Navegación de secciones del producto"
-      class="sticky top-20 z-20 mb-8 overflow-x-auto rounded-full border border-border/70 bg-background/85 p-2 backdrop-blur"
+      v-model="activeTabId"
+      :items="tabItems"
+      aria-label="Información del producto"
+      :keep-mounted="true"
+      section-class="space-y-6 md:space-y-8"
+      panel-class="min-w-0"
     >
-      <div class="flex min-w-max gap-2">
-        <a
-          v-for="section in safeSections"
-          :key="section.id"
-          :href="`#${section.id}`"
-          class="inline-flex min-h-10 items-center rounded-full px-4 text-sm font-medium text-foreground/75 transition hover:bg-primary/5 hover:text-primary"
-        >
-          {{ section.title }}
-        </a>
-      </div>
-    </nav>
+      <template #panel="{ item }">
+        <ContentDetailsSection
+          v-if="getSectionByTabId(item.id)"
+          :section="getSectionByTabId(item.id)"
+          eyebrow="Información del producto"
+        />
+      </template>
+    </ContentTabs>
 
-    <div class="space-y-10 md:space-y-14">
-      <section
+    <div v-else class="space-y-10 md:space-y-12">
+      <ContentDetailsSection
         v-for="section in safeSections"
-        :id="section.id"
         :key="section.id"
-        class="scroll-mt-28 rounded-[28px] border border-border/70 bg-card px-5 py-6 md:px-7 md:py-8"
-      >
-        <header class="mb-5 md:mb-6">
-          <h3
-            class="text-[clamp(1.35rem,1.6vw,1.75rem)] font-semibold leading-tight tracking-tight text-foreground"
-          >
-            {{ section.title }}
-          </h3>
-        </header>
-
-        <div class="space-y-5">
-          <template
-            v-for="(block, blockIndex) in section.blocks"
-            :key="`${section.id}-${blockIndex}`"
-          >
-            <div
-              v-if="isTextBlock(block) && block.text"
-              class="text-body leading-7 text-foreground/85 md:text-[17px]"
-            >
-              <div
-                v-if="block.html"
-                class="prose prose-neutral max-w-none prose-p:my-0 prose-h3:mt-5 prose-h3:mb-2 prose-h4:mt-4 prose-h4:mb-2 prose-ul:my-3 prose-li:my-1"
-                v-html="block.text"
-              />
-              <p v-else class="whitespace-pre-line">
-                {{ block.text }}
-              </p>
-            </div>
-
-            <ul
-              v-else-if="isBulletsBlock(block) && block.items?.length"
-              class="grid gap-3"
-            >
-              <li
-                v-for="(item, itemIndex) in block.items"
-                :key="`${section.id}-${blockIndex}-${itemIndex}`"
-                class="flex gap-3 rounded-2xl border border-border/70 bg-card/70 px-4 py-3"
-              >
-                <span class="mt-[9px] h-2 w-2 shrink-0 rounded-full bg-primary" />
-                <span class="text-body leading-7 text-foreground/85">
-                  {{ item }}
-                </span>
-              </li>
-            </ul>
-
-            <figure
-              v-else-if="isImageBlock(block) && block.src"
-              class="overflow-hidden rounded-3xl border border-border/70 bg-card"
-            >
-              <NuxtImg
-                :src="block.src"
-                :alt="block.alt || section.title"
-                :width="block.width"
-                :height="block.height"
-                class="h-auto w-full object-cover"
-                loading="lazy"
-              />
-              <figcaption
-                v-if="block.caption"
-                class="border-t border-border/70 px-4 py-3 text-sm text-muted-foreground"
-              >
-                {{ block.caption }}
-              </figcaption>
-            </figure>
-          </template>
-        </div>
-      </section>
+        :section="section"
+        eyebrow="Información del producto"
+      />
     </div>
   </div>
 </template>

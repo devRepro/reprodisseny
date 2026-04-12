@@ -3,7 +3,7 @@ import { computed } from "vue";
 import { normalizeCmsMediaSrc } from "@/utils/cmsMedia";
 import ContentSectionShell from "@/components/marketing/content/ContentSectionShell.vue";
 
-type CategoryBlock =
+type ContentBlock =
   | { type: "text"; text?: string; html?: boolean; format?: "plain" | "html" }
   | { type: "bullets"; items?: string[]; ordered?: boolean }
   | {
@@ -20,8 +20,8 @@ type IncomingSection = {
   key?: string;
   title?: string;
   intro?: string;
-  blocks?: CategoryBlock[];
-  content?: CategoryBlock[];
+  blocks?: ContentBlock[];
+  content?: ContentBlock[];
   text?: string;
   html?: string;
 };
@@ -30,15 +30,19 @@ type SafeSection = {
   id: string;
   title: string;
   intro?: string;
-  blocks: CategoryBlock[];
+  blocks: ContentBlock[];
 };
 
 const props = withDefaults(
   defineProps<{
     section?: IncomingSection | null;
+    eyebrow?: string;
+    containerClass?: string;
   }>(),
   {
     section: null,
+    eyebrow: "Información",
+    containerClass: "container-content",
   }
 );
 
@@ -53,13 +57,13 @@ function makeAnchorId(value: string, fallback: string): string {
   return normalized || fallback;
 }
 
-function normalizeSectionBlocks(section: IncomingSection): CategoryBlock[] {
+function normalizeSectionBlocks(section: IncomingSection): ContentBlock[] {
   if (Array.isArray(section.blocks) && section.blocks.length) {
-    return section.blocks.filter(Boolean) as CategoryBlock[];
+    return section.blocks.filter(Boolean) as ContentBlock[];
   }
 
   if (Array.isArray(section.content) && section.content.length) {
-    return section.content.filter(Boolean) as CategoryBlock[];
+    return section.content.filter(Boolean) as ContentBlock[];
   }
 
   const html = String(section.html ?? "").trim();
@@ -84,26 +88,26 @@ const safeSection = computed<SafeSection | null>(() => {
   const rawId = String(section.id ?? section.key ?? "").trim();
 
   return {
-    id: makeAnchorId(rawId || title, "detalles"),
+    id: makeAnchorId(rawId || title, "seccion"),
     title,
     ...(intro ? { intro } : {}),
     blocks,
   };
 });
 
-function isPlainText(b: CategoryBlock): b is Extract<CategoryBlock, { type: "text" }> {
+function isPlainText(b: ContentBlock): b is Extract<ContentBlock, { type: "text" }> {
   return b?.type === "text" && !b.html && Boolean(b.text);
 }
 
-function isHtmlText(b: CategoryBlock): b is Extract<CategoryBlock, { type: "text" }> {
+function isHtmlText(b: ContentBlock): b is Extract<ContentBlock, { type: "text" }> {
   return b?.type === "text" && !!b.html && Boolean(b.text);
 }
 
-function isBullets(b: CategoryBlock): b is Extract<CategoryBlock, { type: "bullets" }> {
+function isBullets(b: ContentBlock): b is Extract<ContentBlock, { type: "bullets" }> {
   return b?.type === "bullets" && Array.isArray(b.items) && b.items.length > 0;
 }
 
-function isImage(b: CategoryBlock): b is Extract<CategoryBlock, { type: "image" }> {
+function isImage(b: ContentBlock): b is Extract<ContentBlock, { type: "image" }> {
   return b?.type === "image" && Boolean(b.src);
 }
 </script>
@@ -112,12 +116,12 @@ function isImage(b: CategoryBlock): b is Extract<CategoryBlock, { type: "image" 
   <ContentSectionShell
     v-if="safeSection"
     :id="safeSection.id"
-    eyebrow="Información de la categoría"
+    :eyebrow="eyebrow"
     :title="safeSection.title"
     :description="safeSection.intro || ''"
     theme="default"
     section-class="scroll-mt-32"
-    container-class="container-content"
+    :container-class="containerClass"
     intro-class="max-w-4xl"
     body-class="space-y-8 md:space-y-10"
   >
@@ -125,7 +129,6 @@ function isImage(b: CategoryBlock): b is Extract<CategoryBlock, { type: "image" 
       v-for="(block, blockIndex) in safeSection.blocks"
       :key="`${safeSection.id}-${blockIndex}`"
     >
-      <!-- Texto plano -->
       <div v-if="isPlainText(block)" class="max-w-[78ch]">
         <p
           class="whitespace-pre-line text-[15px] leading-8 text-foreground/80 md:text-[16px] md:leading-8"
@@ -134,14 +137,12 @@ function isImage(b: CategoryBlock): b is Extract<CategoryBlock, { type: "image" 
         </p>
       </div>
 
-      <!-- HTML rico desde CMS -->
       <div
         v-else-if="isHtmlText(block)"
         class="prose prose-neutral max-w-none prose-headings:font-semibold prose-headings:tracking-[-0.03em] prose-headings:text-foreground prose-h2:mt-0 prose-h2:mb-5 prose-h2:border-t prose-h2:border-border/50 prose-h2:pt-8 prose-h2:text-[1.9rem] prose-h2:leading-[1.1] prose-h3:mt-10 prose-h3:mb-3 prose-h3:text-[1.35rem] prose-h3:leading-[1.16] prose-h4:mt-8 prose-h4:mb-2 prose-h4:text-[1.05rem] prose-h4:font-semibold prose-p:text-[15px] prose-p:leading-8 prose-p:text-foreground/80 prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-strong:font-semibold prose-strong:text-foreground prose-ul:mt-5 prose-ul:mb-6 prose-ol:mt-5 prose-ol:mb-6 prose-li:text-foreground/80"
         v-html="block.text"
       />
 
-      <!-- Bullets -->
       <component
         :is="block.ordered ? 'ol' : 'ul'"
         v-else-if="isBullets(block)"
@@ -161,7 +162,6 @@ function isImage(b: CategoryBlock): b is Extract<CategoryBlock, { type: "image" 
         </li>
       </component>
 
-      <!-- Imagen -->
       <figure
         v-else-if="isImage(block)"
         class="overflow-hidden rounded-3xl border border-border/60 bg-background"

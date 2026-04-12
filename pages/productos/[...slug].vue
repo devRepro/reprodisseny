@@ -12,9 +12,8 @@ const route = useRoute();
 const config = useRuntimeConfig();
 
 const pageContainerClass = "container-content";
-const pageFlowClass = "space-y-8 md:space-y-10";
-const pageBottomSpacingClass = "pb-10 md:pb-14";
-const sectionIntroClass = "max-w-3xl";
+const pageFlowClass = "space-y-10 md:space-y-14";
+const pageBottomSpacingClass = "pb-12 md:pb-16";
 
 function safeDecode(value: unknown) {
   try {
@@ -269,17 +268,16 @@ useSeoMeta({
             <ProductHero :product="heroProduct" :category="category" />
           </section>
 
-          <ContentSectionShell
+          <section
             v-if="hasSections"
-            eyebrow="Información del producto"
-            title="Características, formatos y acabados"
-            description="Consulta la información clave para valorar opciones, materiales y usos recomendados antes de solicitar tu presupuesto."
+            :class="pageContainerClass"
+            aria-label="Información del producto"
           >
             <ProductSections
               :sections="sections"
               :show-section-nav="sections.length > 1"
             />
-          </ContentSectionShell>
+          </section>
 
           <ContentSectionShell
             v-if="hasFaqs"
