@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-10T07:19:24.627Z",
+  "generatedAt": "2026-04-13T12:35:29.647Z",
   "categories": [
     {
       "id": "12",
@@ -1471,7 +1471,7 @@
     },
     {
       "id": "4",
-      "updatedAt": "2026-04-05T15:11:24Z",
+      "updatedAt": "2026-04-13T12:10:55Z",
       "type": "categoria",
       "slug": "expositores",
       "path": "/categorias/expositores",
@@ -1566,7 +1566,32 @@
         "height": 1200,
         "alt": "Expositores impresos personalizados para ferias y puntos de venta en Cataluña"
       },
-      "faqs": [],
+      "faqs": [
+        {
+          "question": "¿Qué expositor es más práctico para ferias?",
+          "answer": "El roll-up suele ser el más rápido y fácil de transportar; para impacto visual, photocall, tótem o caja de luz."
+        },
+        {
+          "question": "¿Qué material recomendáis para exterior?",
+          "answer": "Depende de la ubicación (viento/sol). Normalmente se usan lonas y sistemas con refuerzo y estructura estable."
+        },
+        {
+          "question": "¿Incluís la estructura (roll-up, marco, base)?",
+          "answer": "Puede ser solo impresión o impresión + sistema completo, según el producto."
+        },
+        {
+          "question": "¿Podéis hacerlo a medida (tamaño y forma)?",
+          "answer": "Sí, trabajamos medidas personalizadas y cortes a medida cuando el soporte lo permite."
+        },
+        {
+          "question": "¿Qué archivos necesitáis para imprimir?",
+          "answer": "PDF en alta calidad con medidas finales y sangrado. Si hay marco o sistema, confirmamos plantilla/márgenes antes de producir."
+        },
+        {
+          "question": "¿Puedo pedir un adhesivo con impresión personalizada y en cantidades pequeñas?",
+          "answer": "Claro, trabajamos desde pequeñas tiradas hasta grandes producciones, adaptándonos a las necesidades de cada cliente."
+        }
+      ],
       "galleryImages": [],
       "breadcrumbs": [
         {
@@ -1639,6 +1664,59 @@
                   "position": 3,
                   "name": "Expositores",
                   "item": "https://reprodisseny.com/categorias/expositores"
+                }
+              ]
+            },
+            {
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "¿Qué expositor es más práctico para ferias?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "El roll-up suele ser el más rápido y fácil de transportar; para impacto visual, photocall, tótem o caja de luz."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Qué material recomendáis para exterior?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Depende de la ubicación (viento/sol). Normalmente se usan lonas y sistemas con refuerzo y estructura estable."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Incluís la estructura (roll-up, marco, base)?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Puede ser solo impresión o impresión + sistema completo, según el producto."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Podéis hacerlo a medida (tamaño y forma)?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí, trabajamos medidas personalizadas y cortes a medida cuando el soporte lo permite."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Qué archivos necesitáis para imprimir?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "PDF en alta calidad con medidas finales y sangrado. Si hay marco o sistema, confirmamos plantilla/márgenes antes de producir."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Puedo pedir un adhesivo con impresión personalizada y en cantidades pequeñas?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Claro, trabajamos desde pequeñas tiradas hasta grandes producciones, adaptándonos a las necesidades de cada cliente."
+                  }
                 }
               ]
             }

@@ -6,6 +6,7 @@ import CategoryFormatsSection from "@/components/marketing/content/CategoryForma
 import ContentBulletCards from "@/components/marketing/content/ContentBulletCards.vue";
 import ContentDetailsSection from "@/components/marketing/content/ContentDetailsSection.vue";
 import CategoryShowcaseCta from "@/components/marketing/category/CategoryShowcaseCta.vue";
+import ContentFinishesSection from "@/components/marketing/content/ContentFinishesSection.vue";
 
 type ContentBlock =
   | { type: "text"; text?: string; html?: boolean }
@@ -65,7 +66,13 @@ type BulletCardItem = {
   description: string;
 };
 
-type RenderSectionKind = "details" | "types" | "formats" | "bullets" | "default";
+type RenderSectionKind =
+  | "details"
+  | "types"
+  | "formats"
+  | "uses"
+  | "finishes"
+  | "default";
 
 type RenderSection = {
   uid: string;
@@ -292,8 +299,12 @@ function getSectionKind(
     return "formats";
   }
 
-  if ((section.key === "uses" || section.key === "finishes") && bulletItems.length > 0) {
-    return "bullets";
+  if (section.key === "finishes" && bulletItems.length > 0) {
+    return "finishes";
+  }
+
+  if (section.key === "uses" && bulletItems.length > 0) {
+    return "uses";
   }
 
   return "default";
@@ -390,8 +401,16 @@ function getPanelEntries(item?: TabItem | null): RenderSection[] {
             :data="entry.section.formatsData!"
           />
 
+          <ContentFinishesSection
+            v-else-if="entry.kind === 'finishes'"
+            :section-id="entry.section.id"
+            :title="entry.section.title"
+            :intro="entry.section.intro"
+            :items="entry.bulletItems"
+          />
+
           <ContentBulletCards
-            v-else-if="entry.kind === 'bullets'"
+            v-else-if="entry.kind === 'uses'"
             :section-id="entry.section.id"
             :eyebrow="entry.eyebrow"
             :title="entry.section.title"
