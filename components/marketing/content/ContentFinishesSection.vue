@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
+import { cn } from "@/lib/utils";
+import SectionHeading from "@/components/marketing/content/SectionHeading.vue";
 import {
   Sparkles,
   ShieldCheck,
@@ -19,22 +21,38 @@ const props = withDefaults(
     title?: string;
     intro?: string;
     items?: FinishItem[];
+    eyebrow?: string;
+    class?: string;
+    headingClass?: string;
+    gridClass?: string;
+    cardClass?: string;
   }>(),
   {
     sectionId: "",
     title: "Acabados",
     intro: "",
     items: () => [],
+    eyebrow: "Opciones de acabado",
+    class: "",
+    headingClass: "",
+    gridClass: "",
+    cardClass: "",
   }
 );
 
+const fallbackIntro =
+  "Opciones de acabado pensadas para reforzar la protección, la percepción de calidad y el comportamiento del material según su uso final.";
+
+const sectionSubtitle = computed(() =>
+  String(props.intro || "").trim() || fallbackIntro
+);
+
 const normalizedItems = computed(() =>
-  (props.items || []).filter(
-    (item) =>
-      item &&
-      String(item.title || "").trim() &&
-      String(item.description || "").trim()
-  )
+  (props.items || []).filter((item) => {
+    const title = String(item?.title ?? "").trim();
+    const description = String(item?.description ?? "").trim();
+    return Boolean(title && description);
+  })
 );
 
 function iconFor(title: string): LucideIcon {
@@ -67,6 +85,7 @@ function iconFor(title: string): LucideIcon {
   if (
     value.includes("exterior") ||
     value.includes("refuerzo") ||
+    value.includes("proteccion") ||
     value.includes("protección") ||
     value.includes("durabilidad")
   ) {
@@ -78,40 +97,36 @@ function iconFor(title: string): LucideIcon {
 </script>
 
 <template>
-  <section
-    :id="sectionId"
-    class="space-y-6 rounded-3xl border border-border/60 bg-card p-5 md:p-7"
-  >
-    <div class="max-w-3xl space-y-3">
-      <div
-        class="inline-flex items-center rounded-full border border-border/60 bg-background px-3 py-1 text-xs font-medium tracking-wide text-muted-foreground"
-      >
-        Acabados
-      </div>
-
-      <div class="space-y-2">
-        <h2 class="font-h3 text-foreground">
-          {{ title }}
-        </h2>
-
-        <p v-if="intro" class="font-body text-muted-foreground">
-          {{ intro }}
-        </p>
-        <p v-else class="font-body text-muted-foreground">
-          Diferentes opciones para reforzar la percepción de calidad, la protección
-          y el comportamiento del material según su uso final.
-        </p>
-      </div>
-    </div>
+  <section :id="sectionId" :class="cn('space-y-6 md:space-y-8', props.class)">
+    <SectionHeading
+      as="h3"
+      size="subsection"
+      :eyebrow="props.eyebrow"
+      :title="props.title"
+      :subtitle="sectionSubtitle"
+      title-tone="foreground"
+      :line="true"
+      :class="cn('max-w-3xl', props.headingClass)"
+    />
 
     <div
       v-if="normalizedItems.length"
-      class="grid gap-4 md:grid-cols-2"
+      :class="
+        cn(
+          'grid gap-4 md:grid-cols-2',
+          props.gridClass
+        )
+      "
     >
       <article
         v-for="(item, index) in normalizedItems"
-        :key="`${sectionId}-${index}-${item.title}`"
-        class="group h-full rounded-2xl border border-border/60 bg-background p-5 transition-transform duration-200 hover:-translate-y-0.5"
+        :key="`${sectionId || 'finishes'}-${index}-${item.title}`"
+        :class="
+          cn(
+            'group h-full rounded-3xl border border-border/60 bg-card p-5 shadow-sm transition-transform duration-200 hover:-translate-y-0.5 md:p-6',
+            props.cardClass
+          )
+        "
       >
         <div class="flex items-start gap-4">
           <div
@@ -121,15 +136,13 @@ function iconFor(title: string): LucideIcon {
           </div>
 
           <div class="min-w-0 space-y-2">
-            <div
-              class="text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground"
-            >
+            <p class="text-[11px] font-medium uppercase tracking-[0.18em] text-muted-foreground">
               Acabado {{ String(index + 1).padStart(2, "0") }}
-            </div>
+            </p>
 
-            <h3 class="font-h4 text-foreground">
+            <h4 class="font-h4 text-foreground">
               {{ item.title }}
-            </h3>
+            </h4>
 
             <p class="font-body text-sm leading-6 text-muted-foreground">
               {{ item.description }}

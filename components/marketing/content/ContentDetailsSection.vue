@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { computed } from "vue";
+import { cn } from "@/lib/utils";
 import { normalizeCmsMediaSrc } from "@/utils/cmsMedia";
-import ContentSectionShell from "@/components/marketing/content/ContentSectionShell.vue";
+import ContentSectionHeader from "@/components/marketing/content/ContentSectionHeader.vue";
 
 type ContentBlock =
   | { type: "text"; text?: string; html?: boolean; format?: "plain" | "html" }
@@ -37,12 +38,16 @@ const props = withDefaults(
   defineProps<{
     section?: IncomingSection | null;
     eyebrow?: string;
-    containerClass?: string;
+    class?: string;
+    headerClass?: string;
+    contentClass?: string;
   }>(),
   {
     section: null,
     eyebrow: "Información",
-    containerClass: "container-content",
+    class: "",
+    headerClass: "",
+    contentClass: "",
   }
 );
 
@@ -113,75 +118,80 @@ function isImage(b: ContentBlock): b is Extract<ContentBlock, { type: "image" }>
 </script>
 
 <template>
-  <ContentSectionShell
+  <section
     v-if="safeSection"
     :id="safeSection.id"
-    :eyebrow="eyebrow"
-    :title="safeSection.title"
-    :description="safeSection.intro || ''"
-    theme="default"
-    section-class="scroll-mt-32"
-    :container-class="containerClass"
-    intro-class="max-w-4xl"
-    body-class="space-y-8 md:space-y-10"
+    :class="cn('space-y-8 md:space-y-10', props.class)"
   >
-    <template
-      v-for="(block, blockIndex) in safeSection.blocks"
-      :key="`${safeSection.id}-${blockIndex}`"
-    >
-      <div v-if="isPlainText(block)" class="max-w-[78ch]">
-        <p
-          class="whitespace-pre-line text-[15px] leading-8 text-foreground/80 md:text-[16px] md:leading-8"
-        >
-          {{ block.text }}
-        </p>
-      </div>
+    <ContentSectionHeader
+      :title="safeSection.title"
+      :subtitle="safeSection.intro || ''"
+      :eyebrow="eyebrow"
+      as="h3"
+      tone="foreground"
+      :divider="true"
+      :class="cn('max-w-3xl', props.headerClass)"
+    />
 
-      <div
-        v-else-if="isHtmlText(block)"
-        class="prose prose-neutral max-w-none prose-headings:font-semibold prose-headings:tracking-[-0.03em] prose-headings:text-foreground prose-h2:mt-0 prose-h2:mb-5 prose-h2:border-t prose-h2:border-border/50 prose-h2:pt-8 prose-h2:text-[1.9rem] prose-h2:leading-[1.1] prose-h3:mt-10 prose-h3:mb-3 prose-h3:text-[1.35rem] prose-h3:leading-[1.16] prose-h4:mt-8 prose-h4:mb-2 prose-h4:text-[1.05rem] prose-h4:font-semibold prose-p:text-[15px] prose-p:leading-8 prose-p:text-foreground/80 prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-strong:font-semibold prose-strong:text-foreground prose-ul:mt-5 prose-ul:mb-6 prose-ol:mt-5 prose-ol:mb-6 prose-li:text-foreground/80"
-        v-html="block.text"
-      />
-
-      <component
-        :is="block.ordered ? 'ol' : 'ul'"
-        v-else-if="isBullets(block)"
-        class="grid gap-3 md:grid-cols-2"
+    <div :class="cn('space-y-6 md:space-y-8', props.contentClass)">
+      <template
+        v-for="(block, blockIndex) in safeSection.blocks"
+        :key="`${safeSection.id}-${blockIndex}`"
       >
-        <li
-          v-for="(item, itemIndex) in block.items"
-          :key="`${safeSection.id}-${blockIndex}-${itemIndex}`"
-          class="rounded-2xl border border-border/60 bg-background p-4 md:p-5"
-        >
-          <div class="flex items-start gap-3">
-            <div class="mt-[7px] h-2 w-2 shrink-0 rounded-full bg-primary/70" />
-            <p class="text-sm leading-7 text-foreground/80 md:text-[15px]">
-              {{ item }}
-            </p>
-          </div>
-        </li>
-      </component>
+        <div v-if="isPlainText(block)" class="max-w-[78ch]">
+          <p
+            class="whitespace-pre-line font-body text-[15px] leading-8 text-muted-foreground md:text-[16px]"
+          >
+            {{ block.text }}
+          </p>
+        </div>
 
-      <figure
-        v-else-if="isImage(block)"
-        class="overflow-hidden rounded-3xl border border-border/60 bg-background"
-      >
-        <NuxtImg
-          :src="normalizeCmsMediaSrc(block.src) || block.src"
-          :alt="block.alt || safeSection.title"
-          :width="block.width || 1200"
-          :height="block.height || 800"
-          class="h-auto w-full object-cover"
-          loading="lazy"
+        <div
+          v-else-if="isHtmlText(block)"
+          class="prose prose-neutral max-w-none prose-headings:font-semibold prose-headings:tracking-[-0.03em] prose-headings:text-foreground prose-h2:mt-0 prose-h2:mb-5 prose-h2:border-t prose-h2:border-border/50 prose-h2:pt-8 prose-h2:text-[1.9rem] prose-h2:leading-[1.1] prose-h3:mt-10 prose-h3:mb-3 prose-h3:text-[1.35rem] prose-h3:leading-[1.16] prose-h4:mt-8 prose-h4:mb-2 prose-h4:text-[1.05rem] prose-h4:font-semibold prose-p:text-[15px] prose-p:leading-8 prose-p:text-muted-foreground prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-strong:font-semibold prose-strong:text-foreground prose-ul:mt-5 prose-ul:mb-6 prose-ol:mt-5 prose-ol:mb-6 prose-li:text-muted-foreground"
+          v-html="block.text"
         />
 
-        <figcaption
-          v-if="block.caption"
-          class="border-t border-border/50 px-5 py-4 text-sm leading-7 text-muted-foreground"
+        <component
+          :is="block.ordered ? 'ol' : 'ul'"
+          v-else-if="isBullets(block)"
+          class="grid gap-3 md:grid-cols-2"
         >
-          {{ block.caption }}
-        </figcaption>
-      </figure>
-    </template>
-  </ContentSectionShell>
+          <li
+            v-for="(item, itemIndex) in block.items"
+            :key="`${safeSection.id}-${blockIndex}-${itemIndex}`"
+            class="rounded-2xl border border-border/60 bg-card p-4 md:p-5"
+          >
+            <div class="flex items-start gap-3">
+              <div class="mt-[7px] h-2 w-2 shrink-0 rounded-full bg-primary/70" />
+              <p class="font-body text-sm leading-7 text-muted-foreground md:text-[15px]">
+                {{ item }}
+              </p>
+            </div>
+          </li>
+        </component>
+
+        <figure
+          v-else-if="isImage(block)"
+          class="overflow-hidden rounded-3xl border border-border/60 bg-card"
+        >
+          <NuxtImg
+            :src="normalizeCmsMediaSrc(block.src) || block.src"
+            :alt="block.alt || safeSection.title"
+            :width="block.width || 1200"
+            :height="block.height || 800"
+            class="h-auto w-full object-cover"
+            loading="lazy"
+          />
+
+          <figcaption
+            v-if="block.caption"
+            class="border-t border-border/50 px-5 py-4 text-sm leading-7 text-muted-foreground"
+          >
+            {{ block.caption }}
+          </figcaption>
+        </figure>
+      </template>
+    </div>
+  </section>
 </template>

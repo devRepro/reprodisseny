@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import ContentSectionShell from "@/components/marketing/content/ContentSectionShell.vue";
+import SectionHeading from "@/components/marketing/content/SectionHeading.vue";
+import { cn } from "@/lib/utils";
 
 type CategoryTypeItem = {
   title: string;
@@ -8,40 +9,66 @@ type CategoryTypeItem = {
   idealFor?: string;
 };
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
     title?: string;
     intro?: string;
     items?: CategoryTypeItem[];
     sectionId?: string;
+    eyebrow?: string;
+    class?: string;
+    headingClass?: string;
+    gridClass?: string;
+    cardClass?: string;
   }>(),
   {
     title: "Tipos",
     intro: "",
     items: () => [],
     sectionId: "",
+    eyebrow: "Información sobre los diferentes tipos",
+    class: "",
+    headingClass: "",
+    gridClass: "",
+    cardClass: "",
   }
 );
 </script>
 
 <template>
-  <ContentSectionShell
+  <section
     v-if="items?.length"
     :id="sectionId"
-    eyebrow="Información de la categoría"
-    :title="title || 'Tipos'"
-    :description="intro || ''"
-    theme="default"
-    section-class="scroll-mt-32"
-    container-class="container-content"
-    intro-class="max-w-4xl"
-    body-class="space-y-8 md:space-y-10"
+    :class="cn('space-y-6 md:space-y-8', props.class)"
   >
-    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <SectionHeading
+      as="h3"
+      size="subsection"
+      :eyebrow="props.eyebrow"
+      :title="props.title || 'Tipos'"
+      :subtitle="props.intro || ''"
+      title-tone="foreground"
+      :line="true"
+      :class="cn('max-w-3xl', props.headingClass)"
+    />
+
+    <div
+      :class="
+        cn(
+          'grid gap-6 sm:grid-cols-2 lg:grid-cols-3',
+          props.gridClass
+        )
+      "
+    >
       <article
         v-for="item in items"
         :key="item.title"
-        class="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border/60 bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5"
+        :class="
+          cn(
+            'group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border/60 bg-card p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5',
+            props.cardClass
+          )
+        "
       >
         <div
           class="absolute inset-x-0 top-0 h-1 bg-primary/60 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
@@ -54,6 +81,7 @@ withDefaults(
             >
               {{ item.title }}
             </h3>
+
             <p class="text-sm leading-relaxed text-muted-foreground">
               {{ item.description }}
             </p>
@@ -72,9 +100,11 @@ withDefaults(
 
         <div v-if="item.idealFor" class="mt-6 rounded-xl bg-muted/30 p-4 text-sm">
           <span class="mb-1 block font-semibold text-foreground">Ideal para:</span>
-          <span class="leading-relaxed text-muted-foreground">{{ item.idealFor }}</span>
+          <span class="leading-relaxed text-muted-foreground">
+            {{ item.idealFor }}
+          </span>
         </div>
       </article>
     </div>
-  </ContentSectionShell>
+  </section>
 </template>

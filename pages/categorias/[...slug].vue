@@ -340,7 +340,7 @@ useSeoMeta({
           <ContentSectionShell
             v-if="hasSections"
             theme="muted"
-            eyebrow="Información de la categoría"
+            eyebrow="Información general"
             title="Características, tipos, formatos y acabados"
             description="Consulta la información clave de esta categoría en un formato más claro y fácil de comparar."
           >
