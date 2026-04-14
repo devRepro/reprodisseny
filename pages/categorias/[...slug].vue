@@ -2,14 +2,23 @@
 import { computed } from "vue";
 import type { CategoryDetailPageDto } from "~/server/services/cms/catalog.service";
 import SiteBreadcrumbs from "@/components/shared/SiteBreadcrumbs.vue";
-import GuideBanner from "@/components/marketing/GuideBanner.vue";
 import CategoryHero from "@/components/marketing/category/CategoryHero.vue";
 import CategoryProductsGrid from "@/components/marketing/category/CategoryProductsGrid.vue";
 import ContentSectionsRenderer from "@/components/marketing/content/ContentSectionsRenderer.vue";
 import FaqAccordion from "@/components/shared/blocks/FaqAccordion.vue";
 import ContentSectionIntro from "@/components/marketing/content/ContentSectionIntro.vue";
 import ContentSectionShell from "@/components/marketing/content/ContentSectionShell.vue";
-import ProcessSteps from "@/components/marketing/content/ProcessSteps.vue";
+import ContentProcessSteps, {
+  type ProcessStepItem,
+  type ProcessStepsCta,
+} from "@/components/marketing/content/ContentProcessSteps.vue";
+
+type CategoryHowWeWork = {
+  title?: string;
+  description?: string;
+  steps?: ProcessStepItem[];
+  cta?: ProcessStepsCta | null;
+};
 
 const route = useRoute();
 const config = useRuntimeConfig();
@@ -28,32 +37,40 @@ function safeDecode(value: unknown) {
   }
 }
 
-const demoProcessSteps = [
+const fallbackProcessSteps: ProcessStepItem[] = [
   {
+    label: "01",
     title: "Cuéntanos tu proyecto",
-    label: "Brief",
     description:
       "Analizamos el uso, el soporte, el formato y las necesidades del trabajo para orientarte desde el inicio.",
   },
   {
+    label: "02",
     title: "Te asesoramos",
-    label: "Propuesta",
     description:
       "Te ayudamos a elegir materiales, medidas, acabados y la solución más adecuada según tu objetivo y presupuesto.",
   },
   {
+    label: "03",
     title: "Producción",
-    label: "Impresión",
     description:
       "Preparamos el trabajo, revisamos los detalles técnicos y producimos con control de calidad para asegurar un buen resultado.",
   },
   {
+    label: "04",
     title: "Entrega",
-    label: "Final",
     description:
       "Recibes el pedido listo para instalar, distribuir o utilizar, con acompañamiento durante todo el proceso.",
   },
 ];
+
+const fallbackProcessCta: ProcessStepsCta = {
+  title: "¿Tienes dudas antes de elegir?",
+  description:
+    "Te ayudamos a definir materiales, formato, acabados y la solución más adecuada según el uso real de tu proyecto.",
+  buttonLabel: "Solicitar asesoramiento",
+  href: "/contacto",
+};
 
 function isAssetLike(value: unknown) {
   const s = String(value ?? "").trim();
@@ -166,6 +183,34 @@ const faqs = computed(() =>
 );
 
 const hasFaqs = computed(() => faqs.value.length > 0);
+
+const howWeWork = computed<CategoryHowWeWork | null>(() => {
+  const value = category.value as (CategoryDetailPageDto & { howWeWork?: CategoryHowWeWork }) | null;
+  return value?.howWeWork ?? null;
+});
+
+const processTitle = computed(
+  () => howWeWork.value?.title?.trim() || "Cómo trabajamos"
+);
+
+const processDescription = computed(
+  () =>
+    howWeWork.value?.description?.trim() ||
+    "Te acompañamos desde la definición del material y la revisión del archivo hasta la producción y la entrega final."
+);
+
+const processSteps = computed<ProcessStepItem[]>(() => {
+  const items = Array.isArray(howWeWork.value?.steps) ? howWeWork.value?.steps : [];
+  return items.length ? items : fallbackProcessSteps;
+});
+
+const processCta = computed<ProcessStepsCta | null>(() => {
+  const cta = howWeWork.value?.cta;
+  if (cta?.title?.trim() || cta?.description?.trim()) return cta;
+  return fallbackProcessCta;
+});
+
+const hasProcessSteps = computed(() => processSteps.value.length > 0);
 
 const breadcrumbItems = computed(() =>
   Array.isArray(category.value?.breadcrumbs) ? category.value.breadcrumbs : []
@@ -348,6 +393,19 @@ useSeoMeta({
           </ContentSectionShell>
 
           <ContentSectionShell
+            v-if="hasProcessSteps"
+            id="como-trabajamos"
+            eyebrow="Cómo trabajamos"
+            :title="processTitle"
+            :description="processDescription"
+          >
+            <ContentProcessSteps
+              :steps="processSteps"
+              :cta="processCta"
+            />
+          </ContentSectionShell>
+
+          <ContentSectionShell
             v-if="hasFaqs"
             eyebrow="Ayuda y dudas comunes"
             title="Preguntas frecuentes"
@@ -377,9 +435,11 @@ useSeoMeta({
         <h1 class="text-[28px] font-semibold leading-[1.2] text-foreground">
           Categoría no encontrada
         </h1>
+
         <p class="mt-3 max-w-[60ch] text-body text-foreground/72">
           No hemos podido cargar esta categoría.
         </p>
+
         <p v-if="fetchError" class="mt-3 text-body-s text-destructive/80">
           {{
             fetchError?.data?.message ||

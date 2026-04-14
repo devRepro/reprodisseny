@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-13T12:35:29.647Z",
+  "generatedAt": "2026-04-14T09:04:21.388Z",
   "categories": [
     {
       "id": "12",
@@ -921,7 +921,7 @@
     },
     {
       "id": "2",
-      "updatedAt": "2026-04-10T07:17:32Z",
+      "updatedAt": "2026-04-14T08:55:32Z",
       "type": "categoria",
       "slug": "adhesivos-personalizados",
       "path": "/categorias/adhesivos-personalizados",
@@ -932,7 +932,7 @@
       "featured": false,
       "isPublished": true,
       "description": "Diseñamos e imprimimos adhesivos personalizados para marcas y empresas: etiquetas de producto, pegatinas promocionales, vinilos para escaparates, soluciones para packaging y elementos de señalización. Te ayudamos a elegir el material, la forma y el acabado más adecuados para conseguir un resultado resistente, profesional y con colores fieles.",
-      "bodyMd": "## Cómo trabajamos\n\n1. **Analizamos el tipo de adhesivo, la aplicación y las medidas**  \n   Nos indicas qué necesitas, dónde se aplicará, las dimensiones, las cantidades y la duración prevista.\n\n2. **Revisamos el diseño y preparamos el archivo**  \n   Comprobamos la legibilidad, los márgenes, los cortes y la correcta preparación para impresión, o te ayudamos a adaptar el diseño si lo necesitas.\n\n3. **Definimos el material y el acabado más adecuados**  \n   Te recomendamos el adhesivo, el formato y el acabado según la superficie, el uso previsto y el resultado visual que quieres conseguir.\n\n4. **Imprimimos y entregamos los adhesivos listos para aplicar**  \n   Producimos las piezas con buena definición, consistencia de color y acabados profesionales para que lleguen preparadas para su colocación.\n\n**¿No tienes claro qué adhesivo elegir?** Cuéntanos si es para producto, escaparate, packaging, señalización o promoción, en qué superficie se aplicará y cuánto tiempo debe durar. Te recomendaremos la opción más adecuada y te prepararemos presupuesto sin compromiso.",
+      "bodyMd": "{\n  \"id\": \"how-we-work\",\n  \"key\": \"howWeWork\",\n  \"title\": \"Cómo trabajamos\",\n  \"description\": \"Te acompañamos desde la definición del adhesivo y la revisión del archivo hasta la producción y la entrega final.\",\n  \"steps\": [\n    {\n      \"label\": \"01\",\n      \"title\": \"Analizamos la aplicación y las medidas\",\n      \"description\": \"Nos indicas qué necesitas, dónde se aplicará, las dimensiones, las cantidades y la duración prevista.\"\n    },\n    {\n      \"label\": \"02\",\n      \"title\": \"Revisamos el diseño y preparamos el archivo\",\n      \"description\": \"Comprobamos la legibilidad, los márgenes, los cortes y la correcta preparación para impresión, o te ayudamos a adaptar el diseño si lo necesitas.\"\n    },\n    {\n      \"label\": \"03\",\n      \"title\": \"Definimos el material y el acabado más adecuados\",\n      \"description\": \"Te recomendamos el adhesivo, el formato y el acabado según la superficie, el uso previsto y el resultado visual que quieres conseguir.\"\n    },\n    {\n      \"label\": \"04\",\n      \"title\": \"Imprimimos y entregamos listo para aplicar\",\n      \"description\": \"Producimos las piezas con buena definición, consistencia de color y acabados profesionales para que lleguen preparadas para su colocación.\"\n    }\n  ],\n  \"cta\": {\n    \"title\": \"¿No tienes claro qué adhesivo elegir?\",\n    \"description\": \"Cuéntanos si es para producto, escaparate, packaging, señalización o promoción, en qué superficie se aplicará y cuánto tiempo debe durar. Te recomendaremos la opción más adecuada y te prepararemos presupuesto sin compromiso.\"\n  }\n}",
       "sections": [
         {
           "id": "details",
@@ -978,65 +978,17 @@
           "id": "overview",
           "key": "overview",
           "title": "Información adicional",
-          "body": "## Cómo trabajamos\n\n1. **Analizamos el tipo de adhesivo, la aplicación y las medidas**  \n   Nos indicas qué necesitas, dónde se aplicará, las dimensiones, las cantidades y la duración prevista.\n\n2. **Revisamos el diseño y preparamos el archivo**  \n   Comprobamos la legibilidad, los márgenes, los cortes y la correcta preparación para impresión, o te ayudamos a adaptar el diseño si lo necesitas.\n\n3. **Definimos el material y el acabado más adecuados**  \n   Te recomendamos el adhesivo, el formato y el acabado según la superficie, el uso previsto y el resultado visual que quieres conseguir.\n\n4. **Imprimimos y entregamos los adhesivos listos para aplicar**  \n   Producimos las piezas con buena definición, consistencia de color y acabados profesionales para que lleguen preparadas para su colocación.\n\n**¿No tienes claro qué adhesivo elegir?** Cuéntanos si es para producto, escaparate, packaging, señalización o promoción, en qué superficie se aplicará y cuánto tiempo debe durar. Te recomendaremos la opción más adecuada y te prepararemos presupuesto sin compromiso.",
+          "body": "### Cómo trabajamos\n\nTe acompañamos desde la definición del adhesivo y la revisión del archivo hasta la producción y la entrega final.",
           "blocks": [
             {
               "type": "text",
-              "text": "<h2>Cómo trabajamos</h2>",
+              "text": "<h3>Cómo trabajamos</h3>",
               "html": true,
               "format": "html"
             },
             {
-              "type": "bullets",
-              "items": [
-                "**Analizamos el tipo de adhesivo, la aplicación y las medidas**"
-              ],
-              "ordered": true
-            },
-            {
               "type": "text",
-              "text": "Nos indicas qué necesitas, dónde se aplicará, las dimensiones, las cantidades y la duración prevista.",
-              "html": false
-            },
-            {
-              "type": "bullets",
-              "items": [
-                "**Revisamos el diseño y preparamos el archivo**"
-              ],
-              "ordered": true
-            },
-            {
-              "type": "text",
-              "text": "Comprobamos la legibilidad, los márgenes, los cortes y la correcta preparación para impresión, o te ayudamos a adaptar el diseño si lo necesitas.",
-              "html": false
-            },
-            {
-              "type": "bullets",
-              "items": [
-                "**Definimos el material y el acabado más adecuados**"
-              ],
-              "ordered": true
-            },
-            {
-              "type": "text",
-              "text": "Te recomendamos el adhesivo, el formato y el acabado según la superficie, el uso previsto y el resultado visual que quieres conseguir.",
-              "html": false
-            },
-            {
-              "type": "bullets",
-              "items": [
-                "**Imprimimos y entregamos los adhesivos listos para aplicar**"
-              ],
-              "ordered": true
-            },
-            {
-              "type": "text",
-              "text": "Producimos las piezas con buena definición, consistencia de color y acabados profesionales para que lleguen preparadas para su colocación.",
-              "html": false
-            },
-            {
-              "type": "text",
-              "text": "**¿No tienes claro qué adhesivo elegir?** Cuéntanos si es para producto, escaparate, packaging, señalización o promoción, en qué superficie se aplicará y cuánto tiempo debe durar. Te recomendaremos la opción más adecuada y te prepararemos presupuesto sin compromiso.",
+              "text": "Te acompañamos desde la definición del adhesivo y la revisión del archivo hasta la producción y la entrega final.",
               "html": false
             }
           ]
