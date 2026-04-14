@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-04-14T09:04:21.388Z",
+  "generatedAt": "2026-04-14T09:32:51.647Z",
   "categories": [
     {
       "id": "12",
-      "updatedAt": "2026-04-05T15:20:25Z",
+      "updatedAt": "2026-04-14T09:22:35Z",
       "type": "subcategoria",
       "slug": "material-flexible",
       "path": "/categorias/gran-formato/material-flexible",
@@ -15,7 +15,7 @@
       "featured": true,
       "isPublished": true,
       "description": "Imprimimos en gran formato flexible para exterior e interior: vinilos, lonas, cartelería, retroiluminados, textil y soluciones especiales como imanes. Te asesoramos para elegir el material ideal según la superficie, la duración y las condiciones (sol, humedad, roce o tránsito), para que la gráfica se vea impecable y sea fácil de instalar.",
-      "bodyMd": "1.\tNos dices dónde irá (pared, cristal, suelo, vehículo, exterior…) y la medida.\n2.\tRevisamos el archivo y definimos material/adhesivo según superficie y duración.\n3.\tImprimimos y aplicamos acabados (laminado, corte, refuerzos).\n4.\tEntregamos listo para instalar (y si aplica, coordinamos logística).\n\n¿Dudas entre vinilo, lona, textil o retroiluminado? Cuéntanos superficie, ubicación (interior/exterior), medida y duración y te recomendamos el material más adecuado.",
+      "bodyMd": "{\n  \"title\": \"Cómo trabajamos\",\n  \"description\": \"Te ayudamos a elegir, producir y entregar la solución gráfica más adecuada según la superficie, la ubicación y la duración prevista.\",\n  \"steps\": [\n    {\n      \"label\": \"01\",\n      \"title\": \"Definimos la ubicación, la superficie y la medida\",\n      \"description\": \"Nos dices dónde irá la pieza —pared, cristal, suelo, vehículo o exterior— y las medidas necesarias para orientar correctamente la solución.\"\n    },\n    {\n      \"label\": \"02\",\n      \"title\": \"Revisamos el archivo y elegimos material y sistema gráfico\",\n      \"description\": \"Comprobamos el diseño y definimos el material o adhesivo más adecuado según la superficie, el uso y la duración prevista.\"\n    },\n    {\n      \"label\": \"03\",\n      \"title\": \"Imprimimos y aplicamos los acabados necesarios\",\n      \"description\": \"Producimos la pieza y aplicamos acabados como laminado, corte o refuerzos según los requisitos del proyecto.\"\n    },\n    {\n      \"label\": \"04\",\n      \"title\": \"Entregamos listo para instalar\",\n      \"description\": \"Preparamos el pedido para que llegue listo para su colocación y, si aplica, coordinamos la logística para facilitar la instalación.\"\n    }\n  ],\n  \"cta\": {\n    \"title\": \"¿Dudas entre vinilo, lona, textil o retroiluminado?\",\n    \"description\": \"Cuéntanos la superficie, la ubicación, la medida y la duración prevista, y te recomendaremos el material más adecuado para tu proyecto.\",\n    \"buttonLabel\": \"Solicitar asesoramiento\",\n    \"href\": \"/contacto\"\n  }\n}",
       "sections": [
         {
           "id": "details",
@@ -50,21 +50,17 @@
           "id": "overview",
           "key": "overview",
           "title": "Información adicional",
-          "body": "1.\tNos dices dónde irá (pared, cristal, suelo, vehículo, exterior…) y la medida.\n2.\tRevisamos el archivo y definimos material/adhesivo según superficie y duración.\n3.\tImprimimos y aplicamos acabados (laminado, corte, refuerzos).\n4.\tEntregamos listo para instalar (y si aplica, coordinamos logística).\n\n¿Dudas entre vinilo, lona, textil o retroiluminado? Cuéntanos superficie, ubicación (interior/exterior), medida y duración y te recomendamos el material más adecuado.",
+          "body": "### Cómo trabajamos\n\nTe ayudamos a elegir, producir y entregar la solución gráfica más adecuada según la superficie, la ubicación y la duración prevista.",
           "blocks": [
             {
-              "type": "bullets",
-              "items": [
-                "Nos dices dónde irá (pared, cristal, suelo, vehículo, exterior…) y la medida.",
-                "Revisamos el archivo y definimos material/adhesivo según superficie y duración.",
-                "Imprimimos y aplicamos acabados (laminado, corte, refuerzos).",
-                "Entregamos listo para instalar (y si aplica, coordinamos logística)."
-              ],
-              "ordered": true
+              "type": "text",
+              "text": "<h3>Cómo trabajamos</h3>",
+              "html": true,
+              "format": "html"
             },
             {
               "type": "text",
-              "text": "¿Dudas entre vinilo, lona, textil o retroiluminado? Cuéntanos superficie, ubicación (interior/exterior), medida y duración y te recomendamos el material más adecuado.",
+              "text": "Te ayudamos a elegir, producir y entregar la solución gráfica más adecuada según la superficie, la ubicación y la duración prevista.",
               "html": false
             }
           ]
@@ -234,7 +230,7 @@
     },
     {
       "id": "13",
-      "updatedAt": "2026-04-05T15:21:53Z",
+      "updatedAt": "2026-04-14T09:23:24Z",
       "type": "subcategoria",
       "slug": "material-rigido",
       "path": "/categorias/gran-formato/material-rigido",
@@ -246,7 +242,7 @@
       "featured": true,
       "isPublished": true,
       "description": "Imprimimos en gran formato rígido para exterior e interior: soportes como foam/panel ligero, Forex, Dibond, nido de abeja, Dispa, cartones, metacrilato, madera y opciones enmarcadas. Te asesoramos para elegir el material ideal según la ubicación (interior/exterior), la durabilidad y las condiciones del entorno (roce, humedad o manipulación).",
-      "bodyMd": "1. Nos dices dónde irá (interior/exterior), medida y objetivo (señalética, display, evento…).\n2. Revisamos el archivo y definimos el soporte rígido más adecuado.\n3. Imprimimos y aplicamos acabados (laminado, corte, opciones de montaje).\n4. Entregamos listo para instalar (y si aplica, coordinamos logística).\n¿Dudas entre Forex, Dibond, metacrilato o un panel ligero? Cuéntanos ubicación (interior/exterior), medida, duración y cómo se instalará, y te recomendamos el soporte rígido más adecuado.",
+      "bodyMd": "{\n  \"title\": \"Cómo trabajamos\",\n  \"description\": \"Te ayudamos a definir, producir y entregar el soporte rígido más adecuado según la ubicación, el sistema de instalación y la durabilidad que necesitas.\",\n  \"steps\": [\n    {\n      \"label\": \"01\",\n      \"title\": \"Definimos la ubicación, la medida y el objetivo\",\n      \"description\": \"Nos dices si irá en interior o exterior, las medidas y si la pieza es para señalética, display, evento u otro uso concreto.\"\n    },\n    {\n      \"label\": \"02\",\n      \"title\": \"Revisamos el archivo y elegimos el soporte rígido\",\n      \"description\": \"Comprobamos el diseño y definimos el material más adecuado según el uso, la instalación y la duración prevista.\"\n    },\n    {\n      \"label\": \"03\",\n      \"title\": \"Imprimimos y aplicamos los acabados necesarios\",\n      \"description\": \"Producimos la pieza y aplicamos acabados como laminado, corte y opciones de montaje según los requisitos del proyecto.\"\n    },\n    {\n      \"label\": \"04\",\n      \"title\": \"Entregamos listo para instalar\",\n      \"description\": \"Preparamos el pedido para que llegue listo para su colocación y, si aplica, coordinamos la logística para facilitar la instalación.\"\n    }\n  ],\n  \"cta\": {\n    \"title\": \"¿Dudas entre Forex, Dibond, metacrilato o un panel ligero?\",\n    \"description\": \"Cuéntanos la ubicación, la medida, la duración prevista y cómo se instalará, y te recomendaremos el soporte rígido más adecuado para tu proyecto.\",\n    \"buttonLabel\": \"Solicitar asesoramiento\",\n    \"href\": \"/contacto\"\n  }\n}",
       "sections": [
         {
           "id": "details",
@@ -281,21 +277,17 @@
           "id": "overview",
           "key": "overview",
           "title": "Información adicional",
-          "body": "1. Nos dices dónde irá (interior/exterior), medida y objetivo (señalética, display, evento…).\n2. Revisamos el archivo y definimos el soporte rígido más adecuado.\n3. Imprimimos y aplicamos acabados (laminado, corte, opciones de montaje).\n4. Entregamos listo para instalar (y si aplica, coordinamos logística).\n¿Dudas entre Forex, Dibond, metacrilato o un panel ligero? Cuéntanos ubicación (interior/exterior), medida, duración y cómo se instalará, y te recomendamos el soporte rígido más adecuado.",
+          "body": "### Cómo trabajamos\n\nTe ayudamos a definir, producir y entregar el soporte rígido más adecuado según la ubicación, el sistema de instalación y la durabilidad que necesitas.",
           "blocks": [
             {
-              "type": "bullets",
-              "items": [
-                "Nos dices dónde irá (interior/exterior), medida y objetivo (señalética, display, evento…).",
-                "Revisamos el archivo y definimos el soporte rígido más adecuado.",
-                "Imprimimos y aplicamos acabados (laminado, corte, opciones de montaje).",
-                "Entregamos listo para instalar (y si aplica, coordinamos logística)."
-              ],
-              "ordered": true
+              "type": "text",
+              "text": "<h3>Cómo trabajamos</h3>",
+              "html": true,
+              "format": "html"
             },
             {
               "type": "text",
-              "text": "¿Dudas entre Forex, Dibond, metacrilato o un panel ligero? Cuéntanos ubicación (interior/exterior), medida, duración y cómo se instalará, y te recomendamos el soporte rígido más adecuado.",
+              "text": "Te ayudamos a definir, producir y entregar el soporte rígido más adecuado según la ubicación, el sistema de instalación y la durabilidad que necesitas.",
               "html": false
             }
           ]
@@ -452,7 +444,7 @@
     },
     {
       "id": "10",
-      "updatedAt": "2026-04-05T15:17:46Z",
+      "updatedAt": "2026-04-14T09:21:28Z",
       "type": "subcategoria",
       "slug": "material-oficina",
       "path": "/categorias/publicidad-oficina/material-oficina",
@@ -465,7 +457,7 @@
       "isPublished": true,
       "publishedAt": "2026-02-04T23:00:00Z",
       "description": "La imagen de marca también se construye en el día a día: lo que entregas, lo que envías y la documentación que usa tu equipo. En Repro Disseny imprimimos papelería corporativa (tarjetas, sobres, papel de carta, carpetas, certificados…), material de organización (blocs, libretas, agendas, calendarios, talonarios autocopiativos, sellos…) y piezas de imagen/señalización para reforzar presencia (pizarras, placa de dirección, letras corpóreas).",
-      "bodyMd": "Cómo trabajamos\n1.\tNos indicas qué necesitas (producto, cantidades, medidas, uso y fecha).\n2.\tRevisamos el diseño para asegurar legibilidad, márgenes y preparación correcta de imprenta.\n3.\tTe recomendamos soporte y acabado según objetivo (durabilidad, manipulación diaria, envío o recepción).\n4.\tImprimimos y entregamos listo para usar, con control de calidad y consistencia de color.\n\nSi nos indicas qué pieza necesitas, cantidades, cómo se va a usar (oficina, envío o recepción) y fecha, te recomendamos la combinación más eficiente de formato, soporte y acabado para que el material funcione y se vea profesional. Solicita tu presupuesto sin compromiso.",
+      "bodyMd": "{\n  \"title\": \"Cómo trabajamos\",\n  \"description\": \"Te ayudamos a definir, producir y entregar el material más adecuado según el uso, la operativa diaria y la imagen que quieres proyectar.\",\n  \"steps\": [\n    {\n      \"label\": \"01\",\n      \"title\": \"Definimos la pieza, las cantidades y el uso previsto\",\n      \"description\": \"Nos indicas qué necesitas, las cantidades, las medidas, el uso y la fecha para orientar correctamente la solución desde el inicio.\"\n    },\n    {\n      \"label\": \"02\",\n      \"title\": \"Revisamos el diseño y la preparación de imprenta\",\n      \"description\": \"Comprobamos legibilidad, márgenes y la correcta preparación técnica del archivo para asegurar una producción fiable.\"\n    },\n    {\n      \"label\": \"03\",\n      \"title\": \"Recomendamos soporte y acabado según el uso real\",\n      \"description\": \"Te orientamos según la durabilidad, la manipulación diaria y si la pieza será para oficina, envío o recepción.\"\n    },\n    {\n      \"label\": \"04\",\n      \"title\": \"Imprimimos y entregamos listo para usar\",\n      \"description\": \"Producimos el material con control de calidad y consistencia de color para que llegue preparado para su uso final.\"\n    }\n  ],\n  \"cta\": {\n    \"title\": \"¿Quieres que te recomendemos la mejor combinación?\",\n    \"description\": \"Indícanos qué pieza necesitas, las cantidades, cómo se va a usar y la fecha prevista, y te recomendaremos la combinación más eficiente de formato, soporte y acabado para que el material funcione y se vea profesional.\",\n    \"buttonLabel\": \"Solicitar presupuesto\",\n    \"href\": \"/contacto\"\n  }\n}",
       "sections": [
         {
           "id": "details",
@@ -500,26 +492,17 @@
           "id": "overview",
           "key": "overview",
           "title": "Información adicional",
-          "body": "Cómo trabajamos\n1.\tNos indicas qué necesitas (producto, cantidades, medidas, uso y fecha).\n2.\tRevisamos el diseño para asegurar legibilidad, márgenes y preparación correcta de imprenta.\n3.\tTe recomendamos soporte y acabado según objetivo (durabilidad, manipulación diaria, envío o recepción).\n4.\tImprimimos y entregamos listo para usar, con control de calidad y consistencia de color.\n\nSi nos indicas qué pieza necesitas, cantidades, cómo se va a usar (oficina, envío o recepción) y fecha, te recomendamos la combinación más eficiente de formato, soporte y acabado para que el material funcione y se vea profesional. Solicita tu presupuesto sin compromiso.",
+          "body": "### Cómo trabajamos\n\nTe ayudamos a definir, producir y entregar el material más adecuado según el uso, la operativa diaria y la imagen que quieres proyectar.",
           "blocks": [
             {
               "type": "text",
-              "text": "Cómo trabajamos",
-              "html": false
-            },
-            {
-              "type": "bullets",
-              "items": [
-                "Nos indicas qué necesitas (producto, cantidades, medidas, uso y fecha).",
-                "Revisamos el diseño para asegurar legibilidad, márgenes y preparación correcta de imprenta.",
-                "Te recomendamos soporte y acabado según objetivo (durabilidad, manipulación diaria, envío o recepción).",
-                "Imprimimos y entregamos listo para usar, con control de calidad y consistencia de color."
-              ],
-              "ordered": true
+              "text": "<h3>Cómo trabajamos</h3>",
+              "html": true,
+              "format": "html"
             },
             {
               "type": "text",
-              "text": "Si nos indicas qué pieza necesitas, cantidades, cómo se va a usar (oficina, envío o recepción) y fecha, te recomendamos la combinación más eficiente de formato, soporte y acabado para que el material funcione y se vea profesional. Solicita tu presupuesto sin compromiso.",
+              "text": "Te ayudamos a definir, producir y entregar el material más adecuado según el uso, la operativa diaria y la imagen que quieres proyectar.",
               "html": false
             }
           ]
@@ -671,7 +654,7 @@
     },
     {
       "id": "11",
-      "updatedAt": "2026-04-05T15:19:25Z",
+      "updatedAt": "2026-04-14T09:22:04Z",
       "type": "subcategoria",
       "slug": "material-publicitario",
       "path": "/categorias/publicidad-oficina/material-publicitario",
@@ -684,7 +667,7 @@
       "isPublished": true,
       "publishedAt": "2026-02-04T23:00:00Z",
       "description": "La publicidad impresa funciona cuando comunica rápido y se entiende al primer vistazo. En Repro Disseny imprimimos material promocional (flyers, folletos, posters, invitaciones, postales…) y material para punto de venta (displays, stoppers, banderolas y elementos de lineal) con acabados profesionales, buena reproducción de color y opciones pensadas para campañas, ferias y retail.",
-      "bodyMd": "1.\tNos indicas qué necesitas (producto, cantidades, medidas, uso y fecha).\n2.\tRevisamos el diseño para asegurar legibilidad, márgenes y preparación correcta.\n3.\tTe recomendamos soporte y acabado según objetivo (impacto, durabilidad, manipulación, punto de venta o envío).\n4.\tImprimimos y entregamos listo para usar, con control de calidad y consistencia de color.\n\nSi nos indicas qué pieza necesitas, cantidades, cómo se va a usar (reparto, envío o tienda) y la fecha, te recomendamos la combinación más eficiente de formato, soporte y acabado. Solicita tu presupuesto sin compromiso.",
+      "bodyMd": "{\n  \"title\": \"Cómo trabajamos\",\n  \"description\": \"Te ayudamos a definir, producir y entregar el material más adecuado según el uso, el canal y el resultado que necesitas.\",\n  \"steps\": [\n    {\n      \"label\": \"01\",\n      \"title\": \"Definimos la pieza, las cantidades y el uso previsto\",\n      \"description\": \"Nos indicas qué necesitas, las cantidades, las medidas, el uso y la fecha para orientar correctamente la solución desde el inicio.\"\n    },\n    {\n      \"label\": \"02\",\n      \"title\": \"Revisamos el diseño y la preparación técnica\",\n      \"description\": \"Comprobamos legibilidad, márgenes y la correcta preparación del archivo para asegurar una producción fiable.\"\n    },\n    {\n      \"label\": \"03\",\n      \"title\": \"Recomendamos soporte y acabado según el objetivo\",\n      \"description\": \"Te orientamos según el impacto visual, la durabilidad, la manipulación y si la pieza será para punto de venta, reparto o envío.\"\n    },\n    {\n      \"label\": \"04\",\n      \"title\": \"Imprimimos y entregamos listo para usar\",\n      \"description\": \"Producimos el material con control de calidad y consistencia de color para que llegue preparado para su uso final.\"\n    }\n  ],\n  \"cta\": {\n    \"title\": \"¿Quieres que te recomendemos la mejor combinación?\",\n    \"description\": \"Indícanos qué pieza necesitas, las cantidades, cómo se va a usar y la fecha prevista, y te recomendaremos la combinación más eficiente de formato, soporte y acabado.\",\n    \"buttonLabel\": \"Solicitar presupuesto\",\n    \"href\": \"/contacto\"\n  }\n}",
       "sections": [
         {
           "id": "details",
@@ -719,21 +702,17 @@
           "id": "overview",
           "key": "overview",
           "title": "Información adicional",
-          "body": "1.\tNos indicas qué necesitas (producto, cantidades, medidas, uso y fecha).\n2.\tRevisamos el diseño para asegurar legibilidad, márgenes y preparación correcta.\n3.\tTe recomendamos soporte y acabado según objetivo (impacto, durabilidad, manipulación, punto de venta o envío).\n4.\tImprimimos y entregamos listo para usar, con control de calidad y consistencia de color.\n\nSi nos indicas qué pieza necesitas, cantidades, cómo se va a usar (reparto, envío o tienda) y la fecha, te recomendamos la combinación más eficiente de formato, soporte y acabado. Solicita tu presupuesto sin compromiso.",
+          "body": "### Cómo trabajamos\n\nTe ayudamos a definir, producir y entregar el material más adecuado según el uso, el canal y el resultado que necesitas.",
           "blocks": [
             {
-              "type": "bullets",
-              "items": [
-                "Nos indicas qué necesitas (producto, cantidades, medidas, uso y fecha).",
-                "Revisamos el diseño para asegurar legibilidad, márgenes y preparación correcta.",
-                "Te recomendamos soporte y acabado según objetivo (impacto, durabilidad, manipulación, punto de venta o envío).",
-                "Imprimimos y entregamos listo para usar, con control de calidad y consistencia de color."
-              ],
-              "ordered": true
+              "type": "text",
+              "text": "<h3>Cómo trabajamos</h3>",
+              "html": true,
+              "format": "html"
             },
             {
               "type": "text",
-              "text": "Si nos indicas qué pieza necesitas, cantidades, cómo se va a usar (reparto, envío o tienda) y la fecha, te recomendamos la combinación más eficiente de formato, soporte y acabado. Solicita tu presupuesto sin compromiso.",
+              "text": "Te ayudamos a definir, producir y entregar el material más adecuado según el uso, el canal y el resultado que necesitas.",
               "html": false
             }
           ]
@@ -1265,7 +1244,7 @@
     },
     {
       "id": "5",
-      "updatedAt": "2026-04-10T06:23:12Z",
+      "updatedAt": "2026-04-14T09:16:25Z",
       "type": "categoria",
       "slug": "gran-formato",
       "path": "/categorias/gran-formato",
@@ -1276,37 +1255,36 @@
       "featured": true,
       "isPublished": true,
       "description": "Imprimimos en gran formato para exterior e interior: vinilos, lonas, cartelería, retroiluminados y soportes rígidos para punto de venta, escaparates, ferias, señalética y rotulación. Te asesoramos para elegir el material ideal según la superficie, la duración y las condiciones (sol, humedad, roce o tránsito).",
-      "bodyMd": "Conoce las características del gran formato\nEl gran formato no es solo “imprimir grande”: es elegir bien material + adhesivo (si aplica) + acabado para que la gráfica se vea impecable y tenga la resistencia que necesitas según la ubicación (interior/exterior), la superficie (cristal, pared, suelo, vehículo…) y el tiempo de uso. Un buen gran formato se nota en tres cosas: impacto visual, durabilidad y facilidad de instalación.\n\nCómo trabajamos\n1.\tNos dices dónde irá (pared, cristal, suelo, vehículo, exterior…) y medida.\n2.\tRevisamos el archivo y definimos material/adhesivo según superficie y duración.\n3.\tImprimimos y aplicamos acabados (laminado, corte, refuerzos).\n4.\tEntregamos listo para instalar (y si aplica, coordinamos logística).\n\n¿Dudas entre vinilo, lona o rígido? Cuéntanos superficie, ubicación (interior/exterior), medida y duración y te recomendamos el material más adecuado.",
+      "bodyMd": "{\n  \"title\": \"Cómo trabajamos\",\n  \"description\": \"Te ayudamos a elegir, producir y entregar la solución gráfica más adecuada según la superficie, la ubicación y la duración prevista.\",\n  \"steps\": [\n    {\n      \"label\": \"01\",\n      \"title\": \"Definimos la ubicación, la superficie y la medida\",\n      \"description\": \"Nos dices dónde irá la pieza —pared, cristal, suelo, vehículo o exterior— y las medidas necesarias para orientar correctamente la solución.\"\n    },\n    {\n      \"label\": \"02\",\n      \"title\": \"Revisamos el archivo y elegimos material y adhesivo\",\n      \"description\": \"Comprobamos el diseño y definimos el material y el adhesivo más adecuados según la superficie, el uso y la duración prevista.\"\n    },\n    {\n      \"label\": \"03\",\n      \"title\": \"Imprimimos y aplicamos los acabados necesarios\",\n      \"description\": \"Producimos la pieza y aplicamos acabados como laminado, corte o refuerzos según los requisitos del proyecto.\"\n    },\n    {\n      \"label\": \"04\",\n      \"title\": \"Entregamos listo para instalar\",\n      \"description\": \"Preparamos el pedido para que llegue listo para su colocación y, si aplica, coordinamos la logística para facilitar la instalación.\"\n    }\n  ],\n  \"cta\": {\n    \"title\": \"¿Dudas entre vinilo, lona o rígido?\",\n    \"description\": \"Cuéntanos la superficie, la ubicación, la medida y la duración prevista, y te recomendaremos el material más adecuado para tu proyecto.\",\n    \"buttonLabel\": \"Solicitar asesoramiento\",\n    \"href\": \"/contacto\"\n  }\n}",
       "sections": [
         {
           "id": "details",
           "key": "details",
           "title": "Detalles y características",
-          "body": "Conoce las características del gran formato\nEl gran formato no es solo “imprimir grande”: es elegir bien material + adhesivo (si aplica) + acabado para que la gráfica se vea impecable y tenga la resistencia que necesitas según la ubicación (interior/exterior), la superficie (cristal, pared, suelo, vehículo…) y el tiempo de uso. Un buen gran formato se nota en tres cosas: impacto visual, durabilidad y facilidad de instalación.\n\nCómo trabajamos\n1.\tNos dices dónde irá (pared, cristal, suelo, vehículo, exterior…) y medida.\n2.\tRevisamos el archivo y definimos material/adhesivo según superficie y duración.\n3.\tImprimimos y aplicamos acabados (laminado, corte, refuerzos).\n4.\tEntregamos listo para instalar (y si aplica, coordinamos logística).\n\n¿Dudas entre vinilo, lona o rígido? Cuéntanos superficie, ubicación (interior/exterior), medida y duración y te recomendamos el material más adecuado.",
+          "body": "Conoce las características del gran formato\nEl gran formato no es solo “imprimir grande”: es elegir bien material + adhesivo (si aplica) + acabado para que la gráfica se vea impecable y tenga la resistencia que necesitas según la ubicación (interior/exterior), la superficie (cristal, pared, suelo, vehículo…) y el tiempo de uso. Un buen gran formato se nota en tres cosas: impacto visual, durabilidad y facilidad de instalación.",
           "blocks": [
             {
               "type": "text",
               "text": "Conoce las características del gran formato\nEl gran formato no es solo “imprimir grande”: es elegir bien material + adhesivo (si aplica) + acabado para que la gráfica se vea impecable y tenga la resistencia que necesitas según la ubicación (interior/exterior), la superficie (cristal, pared, suelo, vehículo…) y el tiempo de uso. Un buen gran formato se nota en tres cosas: impacto visual, durabilidad y facilidad de instalación.",
               "html": false
+            }
+          ]
+        },
+        {
+          "id": "overview",
+          "key": "overview",
+          "title": "Información adicional",
+          "body": "### Cómo trabajamos\n\nTe ayudamos a elegir, producir y entregar la solución gráfica más adecuada según la superficie, la ubicación y la duración prevista.",
+          "blocks": [
+            {
+              "type": "text",
+              "text": "<h3>Cómo trabajamos</h3>",
+              "html": true,
+              "format": "html"
             },
             {
               "type": "text",
-              "text": "Cómo trabajamos",
-              "html": false
-            },
-            {
-              "type": "bullets",
-              "items": [
-                "Nos dices dónde irá (pared, cristal, suelo, vehículo, exterior…) y medida.",
-                "Revisamos el archivo y definimos material/adhesivo según superficie y duración.",
-                "Imprimimos y aplicamos acabados (laminado, corte, refuerzos).",
-                "Entregamos listo para instalar (y si aplica, coordinamos logística)."
-              ],
-              "ordered": true
-            },
-            {
-              "type": "text",
-              "text": "¿Dudas entre vinilo, lona o rígido? Cuéntanos superficie, ubicación (interior/exterior), medida y duración y te recomendamos el material más adecuado.",
+              "text": "Te ayudamos a elegir, producir y entregar la solución gráfica más adecuada según la superficie, la ubicación y la duración prevista.",
               "html": false
             }
           ]
@@ -1423,7 +1401,7 @@
     },
     {
       "id": "4",
-      "updatedAt": "2026-04-13T12:10:55Z",
+      "updatedAt": "2026-04-14T09:15:16Z",
       "type": "categoria",
       "slug": "expositores",
       "path": "/categorias/expositores",
@@ -1434,7 +1412,7 @@
       "featured": false,
       "isPublished": true,
       "description": "Diseñamos e imprimimos expositores publicitarios para que tu marca destaque en ferias, congresos, eventos y espacios comerciales. Desde soluciones rápidas como roll-ups y banners hasta montajes más impactantes como photocalls, tótems o cajas de luz, con materiales pensados para interior o exterior y un acabado profesional.",
-      "bodyMd": "Cómo trabajamos\n1.\tNos indicas el tipo de expositor, medidas y dónde se instalará.\n2.\tRevisamos el diseño (o lo adaptamos) para asegurar legibilidad y margen de seguridad.\n3.\tTe recomendamos material/soporte según interior/exterior y duración.\n4.\tImprimimos, montamos si aplica y entregamos listo para usar.\n\nCuéntanos dónde irá el expositor (interior/exterior), medidas y fecha del evento, y te proponemos la opción más efectiva para que tu marca se vea impecable.",
+      "bodyMd": "{\n  \"title\": \"Cómo trabajamos\",\n  \"description\": \"Te ayudamos a definir, producir y entregar el expositor más adecuado según el espacio, el uso y la fecha del evento.\",\n  \"steps\": [\n    {\n      \"label\": \"01\",\n      \"title\": \"Definimos el expositor, las medidas y la instalación\",\n      \"description\": \"Nos indicas el tipo de expositor, las medidas y el lugar donde se instalará para orientar la solución desde el inicio.\"\n    },\n    {\n      \"label\": \"02\",\n      \"title\": \"Revisamos el diseño o lo adaptamos\",\n      \"description\": \"Comprobamos legibilidad, composición y márgenes de seguridad para que la pieza funcione correctamente una vez producida.\"\n    },\n    {\n      \"label\": \"03\",\n      \"title\": \"Recomendamos el material y el soporte adecuados\",\n      \"description\": \"Te orientamos según si el uso será en interior o exterior, la duración prevista y el resultado visual que necesitas.\"\n    },\n    {\n      \"label\": \"04\",\n      \"title\": \"Imprimimos, montamos y entregamos listo para usar\",\n      \"description\": \"Producimos el expositor, realizamos el montaje si aplica y lo entregamos preparado para su colocación o uso directo.\"\n    }\n  ],\n  \"cta\": {\n    \"title\": \"¿Necesitas un expositor para un evento o punto de venta?\",\n    \"description\": \"Cuéntanos dónde irá el expositor, las medidas y la fecha del evento, y te propondremos la opción más efectiva para que tu marca se vea impecable.\",\n    \"buttonLabel\": \"Solicitar asesoramiento\",\n    \"href\": \"/contacto\"\n  }\n}",
       "sections": [
         {
           "id": "details",
@@ -1469,26 +1447,17 @@
           "id": "overview",
           "key": "overview",
           "title": "Información adicional",
-          "body": "Cómo trabajamos\n1.\tNos indicas el tipo de expositor, medidas y dónde se instalará.\n2.\tRevisamos el diseño (o lo adaptamos) para asegurar legibilidad y margen de seguridad.\n3.\tTe recomendamos material/soporte según interior/exterior y duración.\n4.\tImprimimos, montamos si aplica y entregamos listo para usar.\n\nCuéntanos dónde irá el expositor (interior/exterior), medidas y fecha del evento, y te proponemos la opción más efectiva para que tu marca se vea impecable.",
+          "body": "### Cómo trabajamos\n\nTe ayudamos a definir, producir y entregar el expositor más adecuado según el espacio, el uso y la fecha del evento.",
           "blocks": [
             {
               "type": "text",
-              "text": "Cómo trabajamos",
-              "html": false
-            },
-            {
-              "type": "bullets",
-              "items": [
-                "Nos indicas el tipo de expositor, medidas y dónde se instalará.",
-                "Revisamos el diseño (o lo adaptamos) para asegurar legibilidad y margen de seguridad.",
-                "Te recomendamos material/soporte según interior/exterior y duración.",
-                "Imprimimos, montamos si aplica y entregamos listo para usar."
-              ],
-              "ordered": true
+              "text": "<h3>Cómo trabajamos</h3>",
+              "html": true,
+              "format": "html"
             },
             {
               "type": "text",
-              "text": "Cuéntanos dónde irá el expositor (interior/exterior), medidas y fecha del evento, y te proponemos la opción más efectiva para que tu marca se vea impecable.",
+              "text": "Te ayudamos a definir, producir y entregar el expositor más adecuado según el espacio, el uso y la fecha del evento.",
               "html": false
             }
           ]
@@ -1680,7 +1649,7 @@
     },
     {
       "id": "7",
-      "updatedAt": "2026-04-10T07:14:46Z",
+      "updatedAt": "2026-04-14T09:18:57Z",
       "type": "categoria",
       "slug": "libros-revistas-catalogos",
       "path": "/categorias/libros-revistas-catalogos",
@@ -1691,7 +1660,7 @@
       "featured": false,
       "isPublished": true,
       "description": "Imprimimos libros, revistas y catálogos para empresas, marcas y editoriales: desde tiradas cortas y reimpresiones rápidas hasta producciones más amplias. Te asesoramos en papeles, encuadernación y acabados para lograr un resultado profesional, resistente y alineado con tu imagen.",
-      "bodyMd": "## Cómo trabajamos\n\n1. **Definimos el formato y el tipo de publicación**  \n   Analizamos el contenido, el número de páginas, el uso previsto y la tirada para plantear una solución coherente con el proyecto.\n\n2. **Seleccionamos papel, encuadernación y acabados**  \n   Te ayudamos a elegir los materiales y acabados más adecuados según el tipo de pieza, la frecuencia de uso y la imagen que quieres transmitir.\n\n3. **Revisamos el archivo y preparamos la producción**  \n   Comprobamos que la maquetación, las imágenes, los márgenes y el sangrado estén listos para imprimir con garantías.\n\n4. **Imprimimos y entregamos la publicación terminada**  \n   Producimos el trabajo con el sistema más adecuado y entregamos el material listo para su distribución o uso.\n\n**¿Dudas entre fresado, grapado o espiral?** Cuéntanos el tipo de publicación, el número de páginas, la tirada y el uso previsto y te orientaremos sobre la opción más adecuada.",
+      "bodyMd": "{\n  \"title\": \"Cómo trabajamos\",\n  \"description\": \"Te ayudamos a definir, producir y entregar la publicación más adecuada según el formato, el uso previsto y la imagen que quieres transmitir.\",\n  \"steps\": [\n    {\n      \"label\": \"01\",\n      \"title\": \"Definimos el formato y el tipo de publicación\",\n      \"description\": \"Analizamos el contenido, el número de páginas, el uso previsto y la tirada para plantear una solución coherente con el proyecto.\"\n    },\n    {\n      \"label\": \"02\",\n      \"title\": \"Seleccionamos papel, encuadernación y acabados\",\n      \"description\": \"Te ayudamos a elegir los materiales y acabados más adecuados según el tipo de pieza, la frecuencia de uso y la imagen que quieres transmitir.\"\n    },\n    {\n      \"label\": \"03\",\n      \"title\": \"Revisamos el archivo y preparamos la producción\",\n      \"description\": \"Comprobamos que la maquetación, las imágenes, los márgenes y el sangrado estén listos para imprimir con garantías.\"\n    },\n    {\n      \"label\": \"04\",\n      \"title\": \"Imprimimos y entregamos la publicación terminada\",\n      \"description\": \"Producimos el trabajo con el sistema más adecuado y entregamos el material listo para su distribución o uso.\"\n    }\n  ],\n  \"cta\": {\n    \"title\": \"¿Dudas entre fresado, grapado o espiral?\",\n    \"description\": \"Cuéntanos el tipo de publicación, el número de páginas, la tirada y el uso previsto, y te orientaremos sobre la opción más adecuada.\",\n    \"buttonLabel\": \"Solicitar asesoramiento\",\n    \"href\": \"/contacto\"\n  }\n}",
       "sections": [
         {
           "id": "details",
@@ -1710,65 +1679,17 @@
           "id": "overview",
           "key": "overview",
           "title": "Información adicional",
-          "body": "## Cómo trabajamos\n\n1. **Definimos el formato y el tipo de publicación**  \n   Analizamos el contenido, el número de páginas, el uso previsto y la tirada para plantear una solución coherente con el proyecto.\n\n2. **Seleccionamos papel, encuadernación y acabados**  \n   Te ayudamos a elegir los materiales y acabados más adecuados según el tipo de pieza, la frecuencia de uso y la imagen que quieres transmitir.\n\n3. **Revisamos el archivo y preparamos la producción**  \n   Comprobamos que la maquetación, las imágenes, los márgenes y el sangrado estén listos para imprimir con garantías.\n\n4. **Imprimimos y entregamos la publicación terminada**  \n   Producimos el trabajo con el sistema más adecuado y entregamos el material listo para su distribución o uso.\n\n**¿Dudas entre fresado, grapado o espiral?** Cuéntanos el tipo de publicación, el número de páginas, la tirada y el uso previsto y te orientaremos sobre la opción más adecuada.",
+          "body": "### Cómo trabajamos\n\nTe ayudamos a definir, producir y entregar la publicación más adecuada según el formato, el uso previsto y la imagen que quieres transmitir.",
           "blocks": [
             {
               "type": "text",
-              "text": "<h2>Cómo trabajamos</h2>",
+              "text": "<h3>Cómo trabajamos</h3>",
               "html": true,
               "format": "html"
             },
             {
-              "type": "bullets",
-              "items": [
-                "**Definimos el formato y el tipo de publicación**"
-              ],
-              "ordered": true
-            },
-            {
               "type": "text",
-              "text": "Analizamos el contenido, el número de páginas, el uso previsto y la tirada para plantear una solución coherente con el proyecto.",
-              "html": false
-            },
-            {
-              "type": "bullets",
-              "items": [
-                "**Seleccionamos papel, encuadernación y acabados**"
-              ],
-              "ordered": true
-            },
-            {
-              "type": "text",
-              "text": "Te ayudamos a elegir los materiales y acabados más adecuados según el tipo de pieza, la frecuencia de uso y la imagen que quieres transmitir.",
-              "html": false
-            },
-            {
-              "type": "bullets",
-              "items": [
-                "**Revisamos el archivo y preparamos la producción**"
-              ],
-              "ordered": true
-            },
-            {
-              "type": "text",
-              "text": "Comprobamos que la maquetación, las imágenes, los márgenes y el sangrado estén listos para imprimir con garantías.",
-              "html": false
-            },
-            {
-              "type": "bullets",
-              "items": [
-                "**Imprimimos y entregamos la publicación terminada**"
-              ],
-              "ordered": true
-            },
-            {
-              "type": "text",
-              "text": "Producimos el trabajo con el sistema más adecuado y entregamos el material listo para su distribución o uso.",
-              "html": false
-            },
-            {
-              "type": "text",
-              "text": "**¿Dudas entre fresado, grapado o espiral?** Cuéntanos el tipo de publicación, el número de páginas, la tirada y el uso previsto y te orientaremos sobre la opción más adecuada.",
+              "text": "Te ayudamos a definir, producir y entregar la publicación más adecuada según el formato, el uso previsto y la imagen que quieres transmitir.",
               "html": false
             }
           ]
@@ -1889,7 +1810,7 @@
     },
     {
       "id": "3",
-      "updatedAt": "2026-04-10T07:08:47Z",
+      "updatedAt": "2026-04-14T09:14:25Z",
       "type": "categoria",
       "slug": "eventos",
       "path": "/categorias/eventos",
@@ -1900,7 +1821,7 @@
       "featured": false,
       "isPublished": true,
       "description": "Preparamos e imprimimos todo el material gráfico para eventos: ferias, congresos, presentaciones, inauguraciones y actos corporativos. Desde cartelería y stands hasta acreditaciones y señalética, con asesoramiento en materiales, acabados y formatos para que tu marca destaque y todo llegue a tiempo.",
-      "bodyMd": "1. **Recibimos el diseño o te ayudamos a prepararlo**  \n   Partimos de tu creatividad o te orientamos para adaptar los archivos a las necesidades reales del evento.\n\n2. **Revisamos medidas, sangrado, legibilidad y montaje**  \n   Comprobamos que cada pieza esté correctamente preparada para imprimirse y funcionar bien en su espacio final.\n\n3. **Imprimimos y aplicamos los acabados necesarios**  \n   Producimos cada elemento con los materiales y acabados adecuados según el uso, la ubicación y la duración prevista.\n\n4. **Entregamos el material listo para instalar**  \n   Preparamos el pedido para que llegue en plazo y, si lo necesitas, coordinamos la logística para facilitar el montaje.\n\n**¿Tienes un evento con fecha cerrada?** Dinos el día, el lugar y qué necesitas —stand, señalética, acreditaciones, gran formato o piezas promocionales— y te recomendaremos los materiales y acabados más adecuados para llegar a tiempo con el mejor resultado.",
+      "bodyMd": "{\n  \"title\": \"Cómo trabajamos\",\n  \"description\": \"Te ayudamos a preparar, producir y entregar el material gráfico del evento para que cada pieza llegue lista y a tiempo.\",\n  \"steps\": [\n    {\n      \"label\": \"01\",\n      \"title\": \"Recibimos el diseño o te ayudamos a prepararlo\",\n      \"description\": \"Partimos de tu creatividad o te orientamos para adaptar los archivos a las necesidades reales del evento.\"\n    },\n    {\n      \"label\": \"02\",\n      \"title\": \"Revisamos medidas, sangrado, legibilidad y montaje\",\n      \"description\": \"Comprobamos que cada pieza esté correctamente preparada para imprimirse y funcionar bien en su espacio final.\"\n    },\n    {\n      \"label\": \"03\",\n      \"title\": \"Imprimimos y aplicamos los acabados necesarios\",\n      \"description\": \"Producimos cada elemento con los materiales y acabados adecuados según el uso, la ubicación y la duración prevista.\"\n    },\n    {\n      \"label\": \"04\",\n      \"title\": \"Entregamos el material listo para instalar\",\n      \"description\": \"Preparamos el pedido para que llegue en plazo y, si lo necesitas, coordinamos la logística para facilitar el montaje.\"\n    }\n  ],\n  \"cta\": {\n    \"title\": \"¿Tienes un evento con fecha cerrada?\",\n    \"description\": \"Dinos el día, el lugar y qué necesitas —stand, señalética, acreditaciones, gran formato o piezas promocionales— y te recomendaremos los materiales y acabados más adecuados para llegar a tiempo con el mejor resultado.\",\n    \"buttonLabel\": \"Solicitar asesoramiento\",\n    \"href\": \"/contacto\"\n  }\n}",
       "sections": [
         {
           "id": "details",
@@ -1924,59 +1845,17 @@
           "id": "overview",
           "key": "overview",
           "title": "Información adicional",
-          "body": "1. **Recibimos el diseño o te ayudamos a prepararlo**  \n   Partimos de tu creatividad o te orientamos para adaptar los archivos a las necesidades reales del evento.\n\n2. **Revisamos medidas, sangrado, legibilidad y montaje**  \n   Comprobamos que cada pieza esté correctamente preparada para imprimirse y funcionar bien en su espacio final.\n\n3. **Imprimimos y aplicamos los acabados necesarios**  \n   Producimos cada elemento con los materiales y acabados adecuados según el uso, la ubicación y la duración prevista.\n\n4. **Entregamos el material listo para instalar**  \n   Preparamos el pedido para que llegue en plazo y, si lo necesitas, coordinamos la logística para facilitar el montaje.\n\n**¿Tienes un evento con fecha cerrada?** Dinos el día, el lugar y qué necesitas —stand, señalética, acreditaciones, gran formato o piezas promocionales— y te recomendaremos los materiales y acabados más adecuados para llegar a tiempo con el mejor resultado.",
+          "body": "### Cómo trabajamos\n\nTe ayudamos a preparar, producir y entregar el material gráfico del evento para que cada pieza llegue lista y a tiempo.",
           "blocks": [
             {
-              "type": "bullets",
-              "items": [
-                "**Recibimos el diseño o te ayudamos a prepararlo**"
-              ],
-              "ordered": true
+              "type": "text",
+              "text": "<h3>Cómo trabajamos</h3>",
+              "html": true,
+              "format": "html"
             },
             {
               "type": "text",
-              "text": "Partimos de tu creatividad o te orientamos para adaptar los archivos a las necesidades reales del evento.",
-              "html": false
-            },
-            {
-              "type": "bullets",
-              "items": [
-                "**Revisamos medidas, sangrado, legibilidad y montaje**"
-              ],
-              "ordered": true
-            },
-            {
-              "type": "text",
-              "text": "Comprobamos que cada pieza esté correctamente preparada para imprimirse y funcionar bien en su espacio final.",
-              "html": false
-            },
-            {
-              "type": "bullets",
-              "items": [
-                "**Imprimimos y aplicamos los acabados necesarios**"
-              ],
-              "ordered": true
-            },
-            {
-              "type": "text",
-              "text": "Producimos cada elemento con los materiales y acabados adecuados según el uso, la ubicación y la duración prevista.",
-              "html": false
-            },
-            {
-              "type": "bullets",
-              "items": [
-                "**Entregamos el material listo para instalar**"
-              ],
-              "ordered": true
-            },
-            {
-              "type": "text",
-              "text": "Preparamos el pedido para que llegue en plazo y, si lo necesitas, coordinamos la logística para facilitar el montaje.",
-              "html": false
-            },
-            {
-              "type": "text",
-              "text": "**¿Tienes un evento con fecha cerrada?** Dinos el día, el lugar y qué necesitas —stand, señalética, acreditaciones, gran formato o piezas promocionales— y te recomendaremos los materiales y acabados más adecuados para llegar a tiempo con el mejor resultado.",
+              "text": "Te ayudamos a preparar, producir y entregar el material gráfico del evento para que cada pieza llegue lista y a tiempo.",
               "html": false
             }
           ]
@@ -2142,7 +2021,7 @@
     },
     {
       "id": "9",
-      "updatedAt": "2026-04-05T15:16:48Z",
+      "updatedAt": "2026-04-14T09:20:38Z",
       "type": "categoria",
       "slug": "publicidad-oficina",
       "path": "/categorias/publicidad-oficina",
@@ -2153,7 +2032,7 @@
       "featured": false,
       "isPublished": true,
       "description": "La comunicación de tu marca no termina en el diseño: se nota en lo que entregas, envías o colocas en el punto de venta. En Repro Disseny imprimimos materiales de publicidad (flyers, folletos, posters, displays, stoppers…) y materiales de oficina (tarjetas, sobres, carpetas, blocs, agendas…) con acabados profesionales, buena reproducción de color y opciones pensadas para campañas, ferias, tiendas y uso diario.",
-      "bodyMd": "Nos indicas qué necesitas (producto, cantidades, medidas, uso y fecha).\nRevisamos el diseño para asegurar legibilidad, márgenes y preparación correcta de imprenta.\nTe recomendamos soporte y acabado según objetivo (impacto, durabilidad, manipulación, punto de venta, envío).\nImprimimos y entregamos listo para usar, con control de calidad y consistencia de color.\n\nSi nos indicas qué pieza necesitas, cantidades, cómo se va a usar (reparto, envío, tienda u oficina) y fecha, te recomendamos la combinación más eficiente de formato, soporte y acabado para que el material funcione y se vea profesional. Solicita tu presupuesto sin compromiso",
+      "bodyMd": "{\n  \"title\": \"Cómo trabajamos\",\n  \"description\": \"Te ayudamos a definir, producir y entregar el material más adecuado según el uso, la cantidad y el resultado que necesitas.\",\n  \"steps\": [\n    {\n      \"label\": \"01\",\n      \"title\": \"Definimos la pieza, las cantidades y el uso previsto\",\n      \"description\": \"Nos indicas qué necesitas, las cantidades, las medidas, el uso y la fecha para orientar correctamente la solución desde el inicio.\"\n    },\n    {\n      \"label\": \"02\",\n      \"title\": \"Revisamos el diseño y la preparación de imprenta\",\n      \"description\": \"Comprobamos legibilidad, márgenes y la correcta preparación técnica del archivo para asegurar una producción fiable.\"\n    },\n    {\n      \"label\": \"03\",\n      \"title\": \"Recomendamos soporte y acabado según el objetivo\",\n      \"description\": \"Te orientamos según el impacto visual, la durabilidad, la manipulación y el canal de uso para elegir la opción más adecuada.\"\n    },\n    {\n      \"label\": \"04\",\n      \"title\": \"Imprimimos y entregamos listo para usar\",\n      \"description\": \"Producimos el material con control de calidad y consistencia de color para que llegue preparado para su uso final.\"\n    }\n  ],\n  \"cta\": {\n    \"title\": \"¿Quieres que te recomendemos la mejor combinación?\",\n    \"description\": \"Indícanos qué pieza necesitas, las cantidades, cómo se va a usar y la fecha prevista, y te recomendaremos la combinación más eficiente de formato, soporte y acabado para que el material funcione y se vea profesional.\",\n    \"buttonLabel\": \"Solicitar presupuesto\",\n    \"href\": \"/contacto\"\n  }\n}",
       "sections": [
         {
           "id": "details",
@@ -2188,16 +2067,17 @@
           "id": "overview",
           "key": "overview",
           "title": "Información adicional",
-          "body": "Nos indicas qué necesitas (producto, cantidades, medidas, uso y fecha).\nRevisamos el diseño para asegurar legibilidad, márgenes y preparación correcta de imprenta.\nTe recomendamos soporte y acabado según objetivo (impacto, durabilidad, manipulación, punto de venta, envío).\nImprimimos y entregamos listo para usar, con control de calidad y consistencia de color.\n\nSi nos indicas qué pieza necesitas, cantidades, cómo se va a usar (reparto, envío, tienda u oficina) y fecha, te recomendamos la combinación más eficiente de formato, soporte y acabado para que el material funcione y se vea profesional. Solicita tu presupuesto sin compromiso",
+          "body": "### Cómo trabajamos\n\nTe ayudamos a definir, producir y entregar el material más adecuado según el uso, la cantidad y el resultado que necesitas.",
           "blocks": [
             {
               "type": "text",
-              "text": "Nos indicas qué necesitas (producto, cantidades, medidas, uso y fecha).\nRevisamos el diseño para asegurar legibilidad, márgenes y preparación correcta de imprenta.\nTe recomendamos soporte y acabado según objetivo (impacto, durabilidad, manipulación, punto de venta, envío).\nImprimimos y entregamos listo para usar, con control de calidad y consistencia de color.",
-              "html": false
+              "text": "<h3>Cómo trabajamos</h3>",
+              "html": true,
+              "format": "html"
             },
             {
               "type": "text",
-              "text": "Si nos indicas qué pieza necesitas, cantidades, cómo se va a usar (reparto, envío, tienda u oficina) y fecha, te recomendamos la combinación más eficiente de formato, soporte y acabado para que el material funcione y se vea profesional. Solicita tu presupuesto sin compromiso",
+              "text": "Te ayudamos a definir, producir y entregar el material más adecuado según el uso, la cantidad y el resultado que necesitas.",
               "html": false
             }
           ]
@@ -2397,7 +2277,7 @@
     },
     {
       "id": "6",
-      "updatedAt": "2026-04-05T15:13:24Z",
+      "updatedAt": "2026-04-14T09:18:22Z",
       "type": "categoria",
       "slug": "hosteleria-restauracion",
       "path": "/categorias/hosteleria-restauracion",
@@ -2408,7 +2288,7 @@
       "featured": false,
       "isPublished": true,
       "description": "En hostelería, la impresión forma parte de la experiencia del cliente: una tarjeta/díptico de habitación claro, un colgador de puerta duradero, un identificador de maleta práctico para grupos y, en sala, una carta de restaurante, tabletents, manteles individuales y portacuentas que transmiten orden y refuerzan la marca. En Repro Disseny imprimimos materiales para hoteles, restaurantes, bares, caterings y eventos con soportes pensados para el uso diario y acabados que aguantan manipulación y limpieza.",
-      "bodyMd": "Cómo trabajamos\nNos indicas el tipo de producto, medidas y dónde se usará (habitación, sala, terraza, evento).\nRevisamos el diseño (o lo adaptamos) para asegurar legibilidad y margen de seguridad.\nTe recomendamos material/soporte según uso, limpieza y durabilidad esperada.\nImprimimos y entregamos listo para usar, con acabados profesionales.\n\nCuéntanos si es para hotel, restaurante, bar o catering, qué piezas necesitas, cantidades y fecha. Te proponemos el soporte y acabado más adecuados para tu día a día. Solicita presupuesto.",
+      "bodyMd": "{\n  \"title\": \"Cómo trabajamos\",\n  \"description\": \"Te ayudamos a definir, producir y entregar las piezas más adecuadas según el uso, el espacio y la durabilidad que necesitas en tu actividad diaria.\",\n  \"steps\": [\n    {\n      \"label\": \"01\",\n      \"title\": \"Definimos el producto, las medidas y el uso previsto\",\n      \"description\": \"Nos indicas el tipo de producto, las medidas y dónde se utilizará, ya sea en una habitación, sala, terraza o evento.\"\n    },\n    {\n      \"label\": \"02\",\n      \"title\": \"Revisamos el diseño o lo adaptamos\",\n      \"description\": \"Comprobamos legibilidad, composición y márgenes de seguridad para que cada pieza funcione correctamente una vez producida.\"\n    },\n    {\n      \"label\": \"03\",\n      \"title\": \"Recomendamos el material y el soporte adecuados\",\n      \"description\": \"Te orientamos según el uso, la limpieza necesaria y la durabilidad esperada para elegir la opción más adecuada.\"\n    },\n    {\n      \"label\": \"04\",\n      \"title\": \"Imprimimos y entregamos listo para usar\",\n      \"description\": \"Producimos cada pieza con acabados profesionales y la entregamos preparada para su uso inmediato.\"\n    }\n  ],\n  \"cta\": {\n    \"title\": \"¿Necesitas material para hotel, restaurante, bar o catering?\",\n    \"description\": \"Cuéntanos qué piezas necesitas, las cantidades y la fecha prevista, y te propondremos el soporte y el acabado más adecuados para tu día a día.\",\n    \"buttonLabel\": \"Solicitar presupuesto\",\n    \"href\": \"/contacto\"\n  }\n}",
       "sections": [
         {
           "id": "details",
@@ -2443,16 +2323,17 @@
           "id": "overview",
           "key": "overview",
           "title": "Información adicional",
-          "body": "Cómo trabajamos\nNos indicas el tipo de producto, medidas y dónde se usará (habitación, sala, terraza, evento).\nRevisamos el diseño (o lo adaptamos) para asegurar legibilidad y margen de seguridad.\nTe recomendamos material/soporte según uso, limpieza y durabilidad esperada.\nImprimimos y entregamos listo para usar, con acabados profesionales.\n\nCuéntanos si es para hotel, restaurante, bar o catering, qué piezas necesitas, cantidades y fecha. Te proponemos el soporte y acabado más adecuados para tu día a día. Solicita presupuesto.",
+          "body": "### Cómo trabajamos\n\nTe ayudamos a definir, producir y entregar las piezas más adecuadas según el uso, el espacio y la durabilidad que necesitas en tu actividad diaria.",
           "blocks": [
             {
               "type": "text",
-              "text": "Cómo trabajamos\nNos indicas el tipo de producto, medidas y dónde se usará (habitación, sala, terraza, evento).\nRevisamos el diseño (o lo adaptamos) para asegurar legibilidad y margen de seguridad.\nTe recomendamos material/soporte según uso, limpieza y durabilidad esperada.\nImprimimos y entregamos listo para usar, con acabados profesionales.",
-              "html": false
+              "text": "<h3>Cómo trabajamos</h3>",
+              "html": true,
+              "format": "html"
             },
             {
               "type": "text",
-              "text": "Cuéntanos si es para hotel, restaurante, bar o catering, qué piezas necesitas, cantidades y fecha. Te proponemos el soporte y acabado más adecuados para tu día a día. Solicita presupuesto.",
+              "text": "Te ayudamos a definir, producir y entregar las piezas más adecuadas según el uso, el espacio y la durabilidad que necesitas en tu actividad diaria.",
               "html": false
             }
           ]
@@ -2559,7 +2440,7 @@
     },
     {
       "id": "8",
-      "updatedAt": "2026-04-05T15:15:51Z",
+      "updatedAt": "2026-04-14T09:19:32Z",
       "type": "categoria",
       "slug": "packaging",
       "path": "/categorias/packaging",
@@ -2570,7 +2451,7 @@
       "featured": false,
       "isPublished": true,
       "description": "El packaging no solo protege: también comunica marca, mejora la experiencia y eleva el valor percibido del contenido. En Repro Disseny trabajamos principalmente packaging folding (cartoncillo), ideal para presentación, packs corporativos y unboxing premium. Como complemento, producimos packaging corrugado (cartón ondulado) para envío, logística y recogida (urnas). Te ayudamos a elegir formato, resistencia y acabados según producto, canal (entrega en mano o envío) y nivel de presentación.",
-      "bodyMd": "Cómo trabajamos\n1.\tNos indicas el producto, medidas, peso, canal (entrega en mano / envío) y cantidades.\n2.\tRevisamos el diseño (o lo adaptamos) para asegurar márgenes, troqueles y preparación correcta.\n3.\tTe recomendamos formato, soporte y acabados según objetivo de marca y operativa.\n4.\tProducimos y entregamos listo para montar/usar, con control de calidad.\n\n¿Quieres que te recomendemos la opción adecuada? Indícanos qué vas a empaquetar (medidas/peso/fragilidad), si es para pack corporativo o envío, cantidades y fecha. Te proponemos la solución más eficiente (principalmente folding y, si aplica, corrugado) y te preparamos presupuesto.",
+      "bodyMd": "{\n  \"title\": \"Cómo trabajamos\",\n  \"description\": \"Te ayudamos a definir, producir y entregar la solución de packaging más adecuada según el producto, la operativa y la imagen de marca que quieres transmitir.\",\n  \"steps\": [\n    {\n      \"label\": \"01\",\n      \"title\": \"Definimos el producto, las medidas y la logística\",\n      \"description\": \"Nos indicas qué vas a empaquetar, las medidas, el peso, el canal de entrega y las cantidades para orientar la solución desde el inicio.\"\n    },\n    {\n      \"label\": \"02\",\n      \"title\": \"Revisamos el diseño o lo adaptamos\",\n      \"description\": \"Comprobamos márgenes, troqueles y la preparación técnica del archivo para asegurar una producción correcta y funcional.\"\n    },\n    {\n      \"label\": \"03\",\n      \"title\": \"Recomendamos formato, soporte y acabados\",\n      \"description\": \"Te orientamos según el objetivo de marca, la operativa y el tipo de uso para elegir la solución más adecuada.\"\n    },\n    {\n      \"label\": \"04\",\n      \"title\": \"Producimos y entregamos listo para montar o usar\",\n      \"description\": \"Fabricamos el packaging con control de calidad y lo entregamos preparado para su montaje, manipulación o uso directo.\"\n    }\n  ],\n  \"cta\": {\n    \"title\": \"¿Quieres que te recomendemos la opción adecuada?\",\n    \"description\": \"Indícanos qué vas a empaquetar, sus medidas, peso y fragilidad, si es para pack corporativo o envío, las cantidades y la fecha prevista. Te propondremos la solución más eficiente y te prepararemos presupuesto.\",\n    \"buttonLabel\": \"Solicitar presupuesto\",\n    \"href\": \"/contacto\"\n  }\n}",
       "sections": [
         {
           "id": "details",
@@ -2605,26 +2486,17 @@
           "id": "overview",
           "key": "overview",
           "title": "Información adicional",
-          "body": "Cómo trabajamos\n1.\tNos indicas el producto, medidas, peso, canal (entrega en mano / envío) y cantidades.\n2.\tRevisamos el diseño (o lo adaptamos) para asegurar márgenes, troqueles y preparación correcta.\n3.\tTe recomendamos formato, soporte y acabados según objetivo de marca y operativa.\n4.\tProducimos y entregamos listo para montar/usar, con control de calidad.\n\n¿Quieres que te recomendemos la opción adecuada? Indícanos qué vas a empaquetar (medidas/peso/fragilidad), si es para pack corporativo o envío, cantidades y fecha. Te proponemos la solución más eficiente (principalmente folding y, si aplica, corrugado) y te preparamos presupuesto.",
+          "body": "### Cómo trabajamos\n\nTe ayudamos a definir, producir y entregar la solución de packaging más adecuada según el producto, la operativa y la imagen de marca que quieres transmitir.",
           "blocks": [
             {
               "type": "text",
-              "text": "Cómo trabajamos",
-              "html": false
-            },
-            {
-              "type": "bullets",
-              "items": [
-                "Nos indicas el producto, medidas, peso, canal (entrega en mano / envío) y cantidades.",
-                "Revisamos el diseño (o lo adaptamos) para asegurar márgenes, troqueles y preparación correcta.",
-                "Te recomendamos formato, soporte y acabados según objetivo de marca y operativa.",
-                "Producimos y entregamos listo para montar/usar, con control de calidad."
-              ],
-              "ordered": true
+              "text": "<h3>Cómo trabajamos</h3>",
+              "html": true,
+              "format": "html"
             },
             {
               "type": "text",
-              "text": "¿Quieres que te recomendemos la opción adecuada? Indícanos qué vas a empaquetar (medidas/peso/fragilidad), si es para pack corporativo o envío, cantidades y fecha. Te proponemos la solución más eficiente (principalmente folding y, si aplica, corrugado) y te preparamos presupuesto.",
+              "text": "Te ayudamos a definir, producir y entregar la solución de packaging más adecuada según el producto, la operativa y la imagen de marca que quieres transmitir.",
               "html": false
             }
           ]
