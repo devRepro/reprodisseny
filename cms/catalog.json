@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-14T09:32:51.647Z",
+  "generatedAt": "2026-04-15T07:13:02.199Z",
   "categories": [
     {
       "id": "12",
@@ -900,7 +900,7 @@
     },
     {
       "id": "2",
-      "updatedAt": "2026-04-14T08:55:32Z",
+      "updatedAt": "2026-04-14T17:56:38Z",
       "type": "categoria",
       "slug": "adhesivos-personalizados",
       "path": "/categorias/adhesivos-personalizados",
@@ -1048,37 +1048,45 @@
           "body": "",
           "blocks": [],
           "formatsData": {
-            "intro": "Fabricamos adhesivos en distintos formatos y presentaciones según el diseño, el uso y la aplicación final.",
+            "intro": "En material para eventos y comunicación visual, la elección del formato depende de dónde se va a instalar, cuánto tiempo debe durar y qué sistema de montaje necesita la pieza.",
             "shapes": [
               {
-                "title": "Rectangular",
-                "description": "Formato versátil para etiquetas de producto, envases, cajas y comunicación promocional."
+                "title": "Soportes rígidos",
+                "description": "Cartón pluma, PVC, metacrilato, Dibond, nido de abeja u otros materiales según la necesidad. Son ideales para señalización, displays, piezas autoportantes y elementos que deben mantener su forma."
               },
               {
-                "title": "Redondo",
-                "description": "Muy utilizado para cierres, promociones, packs y piezas visuales con un acabado más dinámico."
+                "title": "Soportes flexibles",
+                "description": "Lona, textil, papel o vinilo adhesivo. Funcionan muy bien para gran formato enrollable, aplicaciones en pared o cristal y piezas que requieren transporte o montaje sencillo."
               },
               {
-                "title": "Ovalado",
-                "description": "Aporta una estética más suave y diferenciada para etiquetas de marca y packaging."
+                "title": "Formatos estándar o a medida",
+                "description": "Las piezas pueden producirse en tamaños convencionales o totalmente personalizados, adaptándose al espacio disponible, la distancia de lectura y el tipo de instalación."
               },
               {
-                "title": "Troquelado personalizado",
-                "description": "Permite adaptar la forma al diseño, logotipo o silueta del producto para un resultado más distintivo."
+                "title": "Corte y troquelado personalizado",
+                "description": "Permite crear piezas con formas especiales, displays, identificadores o elementos visuales adaptados al diseño y al uso final."
               }
             ],
             "deliveryFormats": [
               {
-                "title": "Unidades sueltas",
-                "description": "Adecuadas para entregas manuales, acciones promocionales o aplicaciones individuales."
+                "title": "Listo para instalar",
+                "description": "Se puede preparar con sistemas como ojales, dobladillo, vaina o estructuras de exposición para facilitar un montaje rápido y seguro."
               },
               {
-                "title": "Hojas",
-                "description": "Prácticas para pequeñas series, manipulación manual y almacenamiento sencillo."
+                "title": "Interior o exterior",
+                "description": "La elección del soporte y la protección se adapta al entorno de uso, teniendo en cuenta factores como luz, humedad, roce y duración prevista."
               },
               {
-                "title": "Bobina",
-                "description": "La mejor opción para volúmenes altos, etiquetado ágil y procesos más automatizados."
+                "title": "Laminado mate o brillo",
+                "description": "Mejora la presencia visual y añade protección, especialmente en piezas manipuladas o expuestas durante varios días."
+              },
+              {
+                "title": "Soft touch y barniz selectivo",
+                "description": "Opciones pensadas para piezas corporativas o promocionales donde se busca una percepción más premium y un acabado más distintivo."
+              },
+              {
+                "title": "Refuerzos para uso intensivo",
+                "description": "Cuando el material debe soportar transporte, montaje, desmontaje o uso continuado, se contemplan soluciones de refuerzo según el soporte y la aplicación."
               }
             ]
           }
@@ -1810,7 +1818,7 @@
     },
     {
       "id": "3",
-      "updatedAt": "2026-04-14T09:14:25Z",
+      "updatedAt": "2026-04-14T17:47:50Z",
       "type": "categoria",
       "slug": "eventos",
       "path": "/categorias/eventos",
@@ -1859,6 +1867,56 @@
               "html": false
             }
           ]
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "body": "",
+          "blocks": [],
+          "formatsData": {
+            "intro": "En material para eventos y comunicación visual, la elección del formato depende de dónde se va a instalar, cuánto tiempo debe durar y qué sistema de montaje necesita la pieza.",
+            "shapes": [
+              {
+                "title": "Soportes rígidos",
+                "description": "Cartón pluma, PVC, metacrilato, Dibond, nido de abeja u otros materiales según la necesidad. Son ideales para señalización, displays, piezas autoportantes y elementos que deben mantener su forma."
+              },
+              {
+                "title": "Soportes flexibles",
+                "description": "Lona, textil, papel o vinilo adhesivo. Funcionan muy bien para gran formato enrollable, aplicaciones en pared o cristal y piezas que requieren transporte o montaje sencillo."
+              },
+              {
+                "title": "Formatos estándar o a medida",
+                "description": "Las piezas pueden producirse en tamaños convencionales o totalmente personalizados, adaptándose al espacio disponible, la distancia de lectura y el tipo de instalación."
+              },
+              {
+                "title": "Corte y troquelado personalizado",
+                "description": "Permite crear piezas con formas especiales, displays, identificadores o elementos visuales adaptados al diseño y al uso final."
+              }
+            ],
+            "deliveryFormats": [
+              {
+                "title": "Listo para instalar",
+                "description": "Se puede preparar con sistemas como ojales, dobladillo, vaina o estructuras de exposición para facilitar un montaje rápido y seguro."
+              },
+              {
+                "title": "Interior o exterior",
+                "description": "La elección del soporte y la protección se adapta al entorno de uso, teniendo en cuenta factores como luz, humedad, roce y duración prevista."
+              },
+              {
+                "title": "Laminado mate o brillo",
+                "description": "Mejora la presencia visual y añade protección, especialmente en piezas manipuladas o expuestas durante varios días."
+              },
+              {
+                "title": "Soft touch y barniz selectivo",
+                "description": "Opciones pensadas para piezas corporativas o promocionales donde se busca una percepción más premium y un acabado más distintivo."
+              },
+              {
+                "title": "Refuerzos para uso intensivo",
+                "description": "Cuando el material debe soportar transporte, montaje, desmontaje o uso continuado, se contemplan soluciones de refuerzo según el soporte y la aplicación."
+              }
+            ]
+          }
         }
       ],
       "image": {
