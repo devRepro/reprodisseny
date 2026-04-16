@@ -4,13 +4,14 @@
       <HomeImageStrip :images="stripImages" />
     </HomeHero>
 
-    <MediaBanner
+    <SectionMediaBanner
       title="Sant Jordi"
+      description="Soluciones de impresión para campañas, materiales promocionales y acciones especiales."
       primary-label="Ver la guía rápida"
       primary-to="/contacto"
       base-path="/img/ui/banners/sant-jordi"
-      image-name="sant-jordi-banner"
-      image-alt="Banner de Sant Jordi"
+      image-name="sant-jordi-home-banner"
+      image-alt="Banner de Sant Jordi para la home"
     />
 
     <MarketingProductCategoryGrid

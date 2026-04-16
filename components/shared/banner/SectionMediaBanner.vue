@@ -14,9 +14,14 @@ const props = withDefaults(
     secondaryLabel?: string;
     secondaryTo?: LinkTarget | null;
 
-    basePath: string;
-    imageName?: string;
+    /** Modo simple: una sola imagen */
+    bgImageSrc?: string;
     imageAlt?: string;
+
+    /** Modo responsive: carpeta + nombre base */
+    basePath?: string;
+    imageName?: string;
+
     height?: number;
     objectPosition?: string;
 
@@ -26,15 +31,20 @@ const props = withDefaults(
 
     rounded?: boolean;
     fullBleed?: boolean;
+    overlayClass?: string;
+    panelClass?: string;
   }>(),
   {
-    eyebrow: "¿Necesitas una guía rápida?",
+    eyebrow: "",
     description: "",
     secondaryLabel: "",
     secondaryTo: null,
 
-    imageName: "banner",
+    bgImageSrc: "",
     imageAlt: "",
+    basePath: "",
+    imageName: "banner",
+
     height: 280,
     objectPosition: "right center",
 
@@ -44,6 +54,9 @@ const props = withDefaults(
 
     rounded: true,
     fullBleed: false,
+    overlayClass:
+      "pointer-events-none absolute inset-0 bg-gradient-to-r from-background/95 via-background/86 to-background/20 md:from-background md:via-background/82 md:to-transparent",
+    panelClass: "",
   }
 );
 
@@ -61,15 +74,26 @@ const base = computed(() => {
 
 const widths = [1440, 1920, 2560, 2880, 3840, 4096] as const;
 
+const hasDirectImage = computed(() => Boolean(props.bgImageSrc?.trim()));
+const hasResponsiveImages = computed(() => Boolean(base.value && props.imageName));
+
 const webpSrcset = computed(() =>
-  widths.map((w) => `${base.value}/${props.imageName}_${w}w.webp ${w}w`).join(", ")
+  hasResponsiveImages.value
+    ? widths.map((w) => `${base.value}/${props.imageName}_${w}w.webp ${w}w`).join(", ")
+    : ""
 );
 
 const jpgSrcset = computed(() =>
-  widths.map((w) => `${base.value}/${props.imageName}_${w}w.jpg ${w}w`).join(", ")
+  hasResponsiveImages.value
+    ? widths.map((w) => `${base.value}/${props.imageName}_${w}w.jpg ${w}w`).join(", ")
+    : ""
 );
 
-const fallbackJpg = computed(() => `${base.value}/${props.imageName}_1920w.jpg`);
+const fallbackJpg = computed(() =>
+  hasResponsiveImages.value ? `${base.value}/${props.imageName}_1920w.jpg` : ""
+);
+
+const resolvedAlt = computed(() => props.imageAlt?.trim() || props.title);
 
 const pictureSizes = computed(() =>
   props.fullBleed ? "100vw" : "(min-width: 1536px) 1440px, 100vw"
@@ -95,8 +119,9 @@ const innerContainerClass = computed(() =>
 
 const frameClass = computed(() =>
   [
-    "relative overflow-hidden bg-background shadow-sm",
+    "relative overflow-hidden bg-muted shadow-sm",
     props.rounded ? "rounded-[28px]" : "",
+    props.panelClass,
   ]
     .filter(Boolean)
     .join(" ")
@@ -108,12 +133,24 @@ const frameClass = computed(() =>
     <div :class="outerClass">
       <div :class="frameClass" :style="cssVars">
         <div class="relative min-h-[var(--media-banner-h)]">
-          <picture>
+          <!-- Imagen directa -->
+          <img
+            v-if="hasDirectImage"
+            :src="props.bgImageSrc"
+            :alt="resolvedAlt"
+            class="absolute inset-0 h-full w-full object-cover"
+            :style="{ objectPosition: 'var(--media-banner-pos)' }"
+            loading="lazy"
+            decoding="async"
+          />
+
+          <!-- Set responsive -->
+          <picture v-else-if="hasResponsiveImages">
             <source type="image/webp" :srcset="webpSrcset" :sizes="pictureSizes" />
             <source type="image/jpeg" :srcset="jpgSrcset" :sizes="pictureSizes" />
             <img
               :src="fallbackJpg"
-              :alt="props.imageAlt"
+              :alt="resolvedAlt"
               class="absolute inset-0 h-full w-full object-cover"
               :style="{ objectPosition: 'var(--media-banner-pos)' }"
               loading="lazy"
@@ -121,9 +158,7 @@ const frameClass = computed(() =>
             />
           </picture>
 
-          <div
-            class="pointer-events-none absolute inset-0 bg-gradient-to-r from-background/95 via-background/85 to-background/20 md:from-background md:via-background/82 md:to-transparent"
-          />
+          <div :class="props.overlayClass" />
 
           <div class="relative z-10 min-h-[var(--media-banner-h)]">
             <div :class="innerContainerClass" class="h-full">
