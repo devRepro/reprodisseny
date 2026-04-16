@@ -4,10 +4,13 @@
       <HomeImageStrip :images="stripImages" />
     </HomeHero>
 
-    <GuideBanner
+    <MediaBanner
       title="Sant Jordi"
-      bgImageSrc="/img/ui/archivos-book-4k.webp"
-      :cta="{ label: 'Ver la guía rápida', to: '/contacto' }"
+      primary-label="Ver la guía rápida"
+      primary-to="/contacto"
+      base-path="/img/ui/banners/sant-jordi"
+      image-name="sant-jordi-banner"
+      image-alt="Banner de Sant Jordi"
     />
 
     <MarketingProductCategoryGrid
@@ -35,7 +38,7 @@ import HomeHero from "@/components/marketing/HomeHero.vue";
 import HomeImageStrip from "@/components/marketing/HomeImageStrip.vue";
 import MarketingProductCategoryGrid from "@/components/marketing/ProductCategoryGrid.vue";
 import MarketingProcessSection from "@/components/marketing/ProcessSection.vue";
-import GuideBanner from "@/components/marketing/GuideBanner.vue";
+import SectionMediaBanner from "@/components/shared/banner/SectionMediaBanner.vue";
 import ClientLogosBand from "@/components/marketing/ClientLogosBand.vue";
 import GetFiles from "@/components/marketing/GetFiles.vue";
 import { useHomeCategoriesGrid } from "@/composables/useHomeCategoriesGrid";
@@ -84,5 +87,4 @@ const clientLogos = [
   { src: "/img/customers/renault.svg", alt: "Renault" },
   { src: "/img/customers/green-vita.svg", alt: "Green Vita" },
 ];
-
 </script>

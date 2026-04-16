@@ -6,18 +6,17 @@ type CTA = { label: string; to: string; external?: boolean };
 
 type Props = {
   title?: string;
-  cta?: CTA;
-  ctaText?: string;
-  to?: string;
-  /** Ruta base a la carpeta donde están las imágenes (en /public) */
-  basePath?: string;
+  description?: string;
+  cta?: { label: string; to: string; external?: boolean } | null;
+  imageBasePath: string;
+  imageName?: string; // por ejemplo "archivos_banner"
   height?: number;
-  external?: boolean;
-  rounded?: boolean;
   fullBleed?: boolean;
+  rounded?: boolean;
   containerClass?: string;
-  /** Punto focal para el object-position */
+  contentClass?: string;
   objectPosition?: string;
+  overlayClass?: string;
 };
 
 const props = withDefaults(defineProps<Props>(), {
