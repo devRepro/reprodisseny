@@ -14,49 +14,28 @@ const props = withDefaults(
     secondaryLabel?: string;
     secondaryTo?: LinkTarget | null;
 
-    /** Modo simple: una sola imagen */
-    bgImageSrc?: string;
-    imageAlt?: string;
+    /** Carpeta en /public */
+    basePath: string;
 
-    /** Modo responsive: carpeta + nombre base */
-    basePath?: string;
-    imageName?: string;
+    /** Nombre base del archivo, sin _1440w.webp */
+    imageName: string;
+    imageAlt?: string;
 
     height?: number;
     objectPosition?: string;
-
-    sectionClass?: string;
-    containerClass?: string;
-    contentClass?: string;
-
-    rounded?: boolean;
     fullBleed?: boolean;
-    overlayClass?: string;
-    panelClass?: string;
+    rounded?: boolean;
   }>(),
   {
     eyebrow: "",
     description: "",
     secondaryLabel: "",
     secondaryTo: null,
-
-    bgImageSrc: "",
     imageAlt: "",
-    basePath: "",
-    imageName: "banner",
-
-    height: 280,
+    height: 320,
     objectPosition: "right center",
-
-    sectionClass: "catalog-section",
-    containerClass: "container-wide",
-    contentClass: "max-w-3xl",
-
-    rounded: true,
-    fullBleed: false,
-    overlayClass:
-      "pointer-events-none absolute inset-0 bg-gradient-to-r from-background/95 via-background/86 to-background/20 md:from-background md:via-background/82 md:to-transparent",
-    panelClass: "",
+    fullBleed: true,
+    rounded: false,
   }
 );
 
@@ -66,7 +45,6 @@ const hasSecondaryAction = computed(() =>
 
 const base = computed(() => {
   const value = String(props.basePath || "").trim();
-  if (!value) return "";
   return value.startsWith("/")
     ? value.replace(/\/$/, "")
     : `/${value.replace(/\/$/, "")}`;
@@ -74,24 +52,15 @@ const base = computed(() => {
 
 const widths = [1440, 1920, 2560, 2880, 3840, 4096] as const;
 
-const hasDirectImage = computed(() => Boolean(props.bgImageSrc?.trim()));
-const hasResponsiveImages = computed(() => Boolean(base.value && props.imageName));
-
 const webpSrcset = computed(() =>
-  hasResponsiveImages.value
-    ? widths.map((w) => `${base.value}/${props.imageName}_${w}w.webp ${w}w`).join(", ")
-    : ""
+  widths.map((w) => `${base.value}/${props.imageName}_${w}w.webp ${w}w`).join(", ")
 );
 
 const jpgSrcset = computed(() =>
-  hasResponsiveImages.value
-    ? widths.map((w) => `${base.value}/${props.imageName}_${w}w.jpg ${w}w`).join(", ")
-    : ""
+  widths.map((w) => `${base.value}/${props.imageName}_${w}w.jpg ${w}w`).join(", ")
 );
 
-const fallbackJpg = computed(() =>
-  hasResponsiveImages.value ? `${base.value}/${props.imageName}_1920w.jpg` : ""
-);
+const fallbackJpg = computed(() => `${base.value}/${props.imageName}_1920w.jpg`);
 
 const resolvedAlt = computed(() => props.imageAlt?.trim() || props.title);
 
@@ -102,70 +71,56 @@ const pictureSizes = computed(() =>
 const cssVars = computed(
   () =>
     ({
-      "--media-banner-h": `${props.height}px`,
-      "--media-banner-pos": props.objectPosition,
+      "--section-media-banner-h": `${props.height}px`,
+      "--section-media-banner-pos": props.objectPosition,
     } as Record<string, string>)
 );
 
 const outerClass = computed(() =>
   props.fullBleed
     ? "relative left-1/2 right-1/2 -mx-[50vw] w-[100vw] overflow-x-clip"
-    : props.containerClass
+    : "container-wide"
 );
 
 const innerContainerClass = computed(() =>
-  props.fullBleed ? props.containerClass : "w-full"
+  props.fullBleed ? "container-wide" : "w-full"
 );
 
 const frameClass = computed(() =>
-  [
-    "relative overflow-hidden bg-muted shadow-sm",
-    props.rounded ? "rounded-[28px]" : "",
-    props.panelClass,
-  ]
+  ["relative overflow-hidden bg-muted", props.rounded ? "rounded-[28px]" : ""]
     .filter(Boolean)
     .join(" ")
 );
 </script>
 
 <template>
-  <section :class="props.sectionClass">
+  <section class="catalog-section">
     <div :class="outerClass">
       <div :class="frameClass" :style="cssVars">
-        <div class="relative min-h-[var(--media-banner-h)]">
-          <!-- Imagen directa -->
-          <img
-            v-if="hasDirectImage"
-            :src="props.bgImageSrc"
-            :alt="resolvedAlt"
-            class="absolute inset-0 h-full w-full object-cover"
-            :style="{ objectPosition: 'var(--media-banner-pos)' }"
-            loading="lazy"
-            decoding="async"
-          />
-
-          <!-- Set responsive -->
-          <picture v-else-if="hasResponsiveImages">
+        <div class="relative min-h-[var(--section-media-banner-h)]">
+          <picture>
             <source type="image/webp" :srcset="webpSrcset" :sizes="pictureSizes" />
             <source type="image/jpeg" :srcset="jpgSrcset" :sizes="pictureSizes" />
             <img
               :src="fallbackJpg"
               :alt="resolvedAlt"
               class="absolute inset-0 h-full w-full object-cover"
-              :style="{ objectPosition: 'var(--media-banner-pos)' }"
+              :style="{ objectPosition: 'var(--section-media-banner-pos)' }"
               loading="lazy"
               decoding="async"
             />
           </picture>
 
-          <div :class="props.overlayClass" />
+          <div
+            class="pointer-events-none absolute inset-0 bg-gradient-to-r from-background/95 via-background/86 to-background/20 md:from-background md:via-background/82 md:to-transparent"
+          />
 
-          <div class="relative z-10 min-h-[var(--media-banner-h)]">
+          <div class="relative z-10 min-h-[var(--section-media-banner-h)]">
             <div :class="innerContainerClass" class="h-full">
               <div
-                class="flex min-h-[var(--media-banner-h)] items-center px-6 py-8 md:px-8 md:py-10"
+                class="flex min-h-[var(--section-media-banner-h)] items-center px-6 py-8 md:px-8 md:py-10"
               >
-                <div :class="props.contentClass">
+                <div class="max-w-3xl">
                   <p v-if="props.eyebrow" class="section-eyebrow mb-0">
                     {{ props.eyebrow }}
                   </p>

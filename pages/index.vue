@@ -12,6 +12,7 @@
       base-path="/img/ui/banners/sant-jordi"
       image-name="sant-jordi-home-banner"
       image-alt="Banner de Sant Jordi para la home"
+      :full-bleed="true"
     />
 
     <MarketingProductCategoryGrid

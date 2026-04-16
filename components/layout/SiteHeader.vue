@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, computed, unref, watch, type Ref } from "vue";
+import BrandLockup from "@/components/shared/brand/Lockup.vue";
 import type { CategoriaNode } from "~/composables/useCategoriasNav";
 
 import AppButton from "@/components/shared/button/AppButton.vue";
@@ -64,8 +65,7 @@ const labelOf = (c: Partial<CategoriaNode> | null | undefined) =>
 const nodeKeyOf = (c: Partial<CategoriaNode> | null | undefined) =>
   c?.path || c?.slug || "";
 
-const toCat = (c: Partial<CategoriaNode> | null | undefined) =>
-  categoryHref(c);
+const toCat = (c: Partial<CategoriaNode> | null | undefined) => categoryHref(c);
 
 const toProd = (p: any) =>
   p?.path || (p?.slug ? `/productos/${p.slug}` : "/productos");
@@ -115,25 +115,25 @@ watch(isMobileSearchOpen, (isOpen) => {
 const staticLinks = [
   { to: "/sobre-nosotros", label: "Sobre nosotros" },
   { to: "/contacto", label: "Contacto" },
-  { to: "/como-preparar-archivos", label: "Cómo preparar archivo" },
+  { to: "/como-preparar-archivos", label: "Cómo preparar archivos" },
 ];
 </script>
 
 <template>
   <header class="sticky top-0 z-[50] w-full border-b border-slate-100 bg-white">
     <div
-      class="mx-auto flex h-16 w-full max-w-[1440px] items-center justify-between gap-4 px-6 md:h-20 md:gap-8 md:px-10 lg:px-16 2xl:px-[120px]"
+      class="mx-auto flex h-16 w-full max-w-[1440px] items-center justify-between gap-3 px-4 sm:px-6 md:h-20 md:gap-6 md:px-10 lg:px-16 2xl:px-[120px]"
     >
       <NuxtLink
         to="/"
-        class="flex shrink-0 items-center"
+        class="flex min-w-0 shrink-0 items-center"
         aria-label="Ir a la página de inicio"
       >
-        <SharedLogo class="h-7 w-auto md:h-9 lg:h-10 lg:w-[218px]" />
+        <BrandLockup class="min-w-0" />
         <span class="sr-only">Repro Disseny Inicio</span>
       </NuxtLink>
 
-      <div class="hidden flex-1 justify-center lg:flex">
+      <div class="hidden min-w-0 flex-1 justify-center lg:flex">
         <div class="w-full max-w-[560px]">
           <HeaderSearch class="w-full" />
         </div>
@@ -141,16 +141,16 @@ const staticLinks = [
 
       <div class="flex shrink-0 items-center gap-1.5 md:gap-3">
         <AppButton
-  variant="ghost"
-  size="icon"
-  class="shrink-0 lg:hidden text-slate-500 hover:text-sky-700"
-  aria-label="Alternar barra de búsqueda"
-  :aria-expanded="isMobileSearchOpen"
-  @click="isMobileSearchOpen = !isMobileSearchOpen"
->
-  <Search v-if="!isMobileSearchOpen" class="h-6 w-6" />
-  <X v-else class="h-6 w-6" />
-</AppButton>
+          variant="ghost"
+          size="icon"
+          class="shrink-0 text-slate-500 hover:text-sky-700 lg:hidden"
+          aria-label="Alternar barra de búsqueda"
+          :aria-expanded="isMobileSearchOpen"
+          @click="isMobileSearchOpen = !isMobileSearchOpen"
+        >
+          <Search v-if="!isMobileSearchOpen" class="h-6 w-6" />
+          <X v-else class="h-6 w-6" />
+        </AppButton>
 
         <a
           href="tel:+34932749890"
@@ -164,37 +164,32 @@ const staticLinks = [
         </a>
 
         <AppButton
-  to="/pedir-presupuesto"
-  variant="primary"
-  size="md"
-  class="h-9 px-2.5 text-[12px] sm:px-3 sm:text-[13px] md:h-11 md:px-6 md:text-[14px]"
->
-  <span class="hidden text-sm sm:inline">Pide presupuesto</span>
-  <span class="text-xs sm:hidden">Presupuesto</span>
-</AppButton>
+          to="/pedir-presupuesto"
+          variant="primary"
+          size="md"
+          class="h-9 px-2.5 text-[12px] sm:px-3 sm:text-[13px] md:h-11 md:px-6 md:text-[14px]"
+        >
+          <span class="hidden text-sm sm:inline">Pide presupuesto</span>
+          <span class="text-xs sm:hidden">Presupuesto</span>
+        </AppButton>
 
-        <!-- Desktop: accesos rápidos -->
         <DropdownMenu>
           <DropdownMenuTrigger as-child>
-  <AppButton
-    variant="ghost"
-    size="icon"
-    class="hidden shrink-0 lg:inline-flex"
-    aria-label="Abrir accesos rápidos"
-  >
-    <Menu class="h-6 w-6 text-[#212121]" />
-  </AppButton>
-</DropdownMenuTrigger>
+            <AppButton
+              variant="ghost"
+              size="icon"
+              class="hidden shrink-0 lg:inline-flex"
+              aria-label="Abrir accesos rápidos"
+            >
+              <Menu class="h-6 w-6 text-[#212121]" />
+            </AppButton>
+          </DropdownMenuTrigger>
 
           <DropdownMenuContent align="end" class="w-64">
             <DropdownMenuLabel>Accesos rápidos</DropdownMenuLabel>
             <DropdownMenuSeparator />
 
-            <DropdownMenuItem
-              v-for="link in staticLinks"
-              :key="link.to"
-              as-child
-            >
+            <DropdownMenuItem v-for="link in staticLinks" :key="link.to" as-child>
               <NuxtLink :to="link.to" class="w-full">
                 {{ link.label }}
               </NuxtLink>
@@ -202,18 +197,17 @@ const staticLinks = [
           </DropdownMenuContent>
         </DropdownMenu>
 
-        <!-- Mobile: sheet con categorías + enlaces estáticos al final -->
         <Sheet v-model:open="isMobileMenuOpen">
-        <SheetTrigger as-child>
-  <AppButton
-    variant="ghost"
-    size="icon"
-    class="shrink-0 lg:hidden"
-    aria-label="Abrir menú de navegación"
-  >
-    <Menu class="h-6 w-6 text-[#212121]" />
-  </AppButton>
-</SheetTrigger>
+          <SheetTrigger as-child>
+            <AppButton
+              variant="ghost"
+              size="icon"
+              class="shrink-0 lg:hidden"
+              aria-label="Abrir menú de navegación"
+            >
+              <Menu class="h-6 w-6 text-[#212121]" />
+            </AppButton>
+          </SheetTrigger>
 
           <SheetContent
             side="left"
