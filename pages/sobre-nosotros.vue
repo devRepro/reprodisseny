@@ -4,12 +4,8 @@ import ComparisonTable from "@/components/shared/blocks/ComparisonTable.vue";
 import EnvironmentSection from "@/components/shared/blocks/EnvironmentSection.vue";
 import CompanyTimeline from "@/components/shared/blocks/CompanyTimeline.vue";
 import CompanyValuesSection from "@/components/shared/CompanyValuesSection.vue";
+import ClientLogosBand from "@/components/marketing/ClientLogosBand.vue";
 import {
-  Building2,
-  Printer,
-  Factory,
-  Palette,
-  Maximize2,
   Sparkles,
   BadgeCheck,
   Handshake,
@@ -17,8 +13,6 @@ import {
   MessagesSquare,
   TimerReset,
 } from "lucide-vue-next";
-
-import ClientLogosBand from "@/components/marketing/ClientLogosBand.vue";
 
 type TimelineItem = {
   year: number | string;
@@ -30,6 +24,13 @@ type TimelineItem = {
   icon?: any;
 };
 
+const pageContainerClass = "container-content";
+const pageSectionSpaceClass = "py-12 md:py-16 lg:py-20";
+const sectionTitleClass =
+  "text-3xl font-semibold leading-tight text-foreground md:text-4xl";
+const sectionTitleInverseClass =
+  "text-3xl font-semibold leading-tight text-white md:text-4xl";
+
 const timeline: TimelineItem[] = [
   {
     year: 1983,
@@ -39,7 +40,6 @@ const timeline: TimelineItem[] = [
     imageSrc: "/img/ui/reprodisseny/primer_local.webp",
     imageAlt: "Fundación de Repro Disseny en sus inicios",
     side: "left",
-    
   },
   {
     year: 1993,
@@ -49,7 +49,6 @@ const timeline: TimelineItem[] = [
     imageSrc: "/img/ui/reprodisseny/xerox_docutech.webp",
     imageAlt: "Primera prensa digital en blanco y negro",
     side: "right",
-    
   },
   {
     year: 1999,
@@ -190,68 +189,100 @@ const companyValues = [
     icon: Leaf,
   },
 ];
+
+const clientLogos = [
+  { src: "/img/customers/vallhebron.svg", alt: "Vall d'Hebron" },
+  { src: "/img/customers/fcf.svg", alt: "Federació Catalana" },
+  { src: "/img/customers/adevinta.svg", alt: "Adevinta" },
+  { src: "/img/customers/hitachi.svg", alt: "Hitachi" },
+  { src: "/img/customers/tuv.svg", alt: "TÜV Rheinland" },
+  { src: "/img/customers/vueling.svg", alt: "Vueling" },
+  { src: "/img/customers/cromology.svg", alt: "Cromology" },
+  { src: "/img/customers/who.svg", alt: "World Health Organization" },
+  { src: "/img/customers/uab.svg", alt: "UAB" },
+  { src: "/img/customers/alcon.svg", alt: "Alcon" },
+  { src: "/img/customers/renault.svg", alt: "Renault" },
+  { src: "/img/customers/green-vita.svg", alt: "Green Vita" },
+];
+
+const environmentItems = [
+  "Reciclamos los productos químicos.",
+  "Reutilizamos la energía reactiva.",
+  "Utilizamos tintas de látex inocuas para el medio ambiente.",
+  "Optimizamos el consumo de papel.",
+  "Utilizamos papeles con certificados FSC y PEFC.",
+  "Ofrecemos la posibilidad de imprimir sobre papeles reciclados.",
+];
 </script>
 
 <template>
-  <main class="bg-white text-[#1E1E1E]">
-    <section class="w-full bg-[#DEF4FF]">
-      <div class="mx-auto max-w-[1200px] px-6 xl:px-0 py-[50px]">
-        <h1
-          class="text-center font-['Figtree'] font-semibold text-[30px] leading-[36px] text-[#004F78]"
-        >
-          Toda una vida imprimiendo
-        </h1>
-      </div>
-    </section>
-
-    <section class="container">
-      <CompanyTimeline :items="timeline" />
-    </section>
-
-    <!-- IMAGEN / VIDEO CORPORATIVO -->
-    <section class="w-full bg-[#004F78]">
-      <div
-        class="mx-auto max-w-[1200px] px-6 xl:px-0 py-16 flex flex-col items-center gap-8"
-      >
-        <h2
-          class="w-full text-center font-['Figtree'] font-semibold text-[30px] leading-[36px] text-white"
-        >
-          Algunos datos sobre nosotros
-        </h2>
-
-        <div
-          class="w-full max-w-[746px] rounded-[12px] overflow-hidden bg-[#D9D9D9] shadow-sm"
-        >
-          <NuxtImg
-            src="/img/ui/reprodisseny/sobre-nosotros-datos.webp"
-            alt="Instalaciones y equipo de Repro Disseny"
-            width="746"
-            height="416"
-            class="block h-auto w-full object-cover"
-            sizes="sm:100vw md:746px"
-            format="webp"
-            loading="lazy"
-          />
-        </div>
-
-        <!--
-        Si luego quieres sustituir esta imagen por un vídeo, cambia este bloque por un iframe.
-        -->
-      </div>
-    </section>
-
-    <!-- LO QUE NOS DIFERENCIA -->
-    <section class="mx-auto max-w-[1200px] px-6 xl:px-0 py-20">
-      <div class="flex flex-col gap-10">
-        <div class="flex flex-col gap-6">
-          <h2
-            class="font-['Figtree'] font-semibold text-[30px] leading-[36px] text-[#1E1E1E]"
+  <main class="bg-background text-foreground">
+    <section class="bg-brand-base-light">
+      <div :class="pageContainerClass" class="py-10 md:py-14 lg:py-16">
+        <div class="mx-auto max-w-3xl text-center">
+          <h1
+            class="text-3xl font-semibold leading-tight text-brand-base-dark md:text-4xl"
           >
-            Lo que nos diferencia
-          </h2>
-        </div>
+            Toda una vida imprimiendo
+          </h1>
 
-        <ComparisonTable :head="compareHead" :rows="compareRows" />
+          <p class="mt-4 text-base leading-7 text-foreground/75 md:text-lg md:leading-8">
+            Más de cuatro décadas evolucionando con la tecnología, la producción gráfica y
+            las necesidades reales de nuestros clientes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <CompanyTimeline :items="timeline" />
+
+    <section class="bg-[#004F78]">
+      <div :class="pageContainerClass" class="py-12 md:py-16 lg:py-20">
+        <div class="flex flex-col items-center gap-8 md:gap-10">
+          <div class="max-w-3xl text-center">
+            <h2 class="text-3xl font-semibold leading-tight text-white md:text-4xl">
+              Algunos datos sobre nosotros
+            </h2>
+
+            <p class="mt-4 text-base leading-7 text-white/80 md:text-lg md:leading-8">
+              Instalaciones, equipo y capacidad productiva para abordar proyectos de
+              impresión, exposición y comunicación visual con solvencia.
+            </p>
+          </div>
+
+          <div
+            class="w-full max-w-[746px] overflow-hidden rounded-3xl bg-white/10 shadow-sm ring-1 ring-white/10"
+          >
+            <img
+              src="/img/ui/reprodisseny/juan_de_mena.webp"
+              alt="Instalaciones y equipo de Repro Disseny"
+              width="746"
+              height="416"
+              class="block h-auto w-full object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section :class="pageSectionSpaceClass">
+      <div :class="pageContainerClass">
+        <div class="flex flex-col gap-8 md:gap-10">
+          <div class="max-w-3xl">
+            <h2 :class="sectionTitleClass">Lo que nos diferencia</h2>
+
+            <p
+              class="mt-4 text-base leading-7 text-foreground/75 md:text-lg md:leading-8"
+            >
+              Combinamos la agilidad del entorno digital con el acompañamiento, el control
+              de calidad y la capacidad técnica de un equipo con experiencia.
+            </p>
+          </div>
+
+          <ComparisonTable :head="compareHead" :rows="compareRows" />
+        </div>
       </div>
     </section>
 
@@ -263,33 +294,15 @@ const companyValues = [
     />
 
     <ClientLogosBand
-      :logos="[
-        { src: '/img/customers/vallhebron.svg', alt: `Vall d'Hebron` },
-        { src: '/img/customers/fcf.svg', alt: 'Federació Catalana' },
-        { src: '/img/customers/adevinta.svg', alt: 'Adevinta' },
-        { src: '/img/customers/hitachi.svg', alt: 'Hitachi' },
-        { src: '/img/customers/tuv.svg', alt: 'TÜV Rheinland' },
-        { src: '/img/customers/vueling.svg', alt: 'Vueling' },
-        { src: '/img/customers/cromology.svg', alt: 'Cromology' },
-        { src: '/img/customers/who.svg', alt: 'World Health Organization' },
-        { src: '/img/customers/uab.svg', alt: 'UAB' },
-        { src: '/img/customers/alcon.svg', alt: 'Alcon' },
-        { src: '/img/customers/renault.svg', alt: 'Renault' },
-        { src: '/img/customers/green-vita.svg', alt: 'Green Vita' },
-      ]"
+      title="Clientes que confían en nosotros"
+      intro="Trabajamos con empresas, instituciones y organizaciones que necesitan un partner fiable para proyectos de impresión, comunicación visual y producción gráfica."
+      :logos="clientLogos"
     />
 
     <EnvironmentSection
       title="Comprometidos con el medio ambiente"
       background-src="/img/ui/bggreen_1920.webp"
-      :items="[
-        'Reciclamos los productos químicos.',
-        'Reutilizamos la energía reactiva.',
-        'Utilizamos tintas de látex inocuas para el medio ambiente.',
-        'Optimizamos el consumo de papel.',
-        'Utilizamos papeles con certificados FSC y PEFC.',
-        'Ofrecemos la posibilidad de imprimir sobre papeles reciclados.',
-      ]"
+      :items="environmentItems"
     />
   </main>
 </template>

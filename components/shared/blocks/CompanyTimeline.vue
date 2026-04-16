@@ -1,134 +1,154 @@
 <script setup lang="ts">
-import { ref } from "vue"
-import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
+import { ref } from "vue";
 
 type TimelineItem = {
-  year: number
-  title: string
-  text: string
-  icon?: any
-  imageSrc?: string
-  imageAlt?: string
-  mediaLabel?: string 
-}
+  year: number | string;
+  title: string;
+  text: string;
+  icon?: any;
+  imageSrc?: string;
+  imageAlt?: string;
+  mediaLabel?: string;
+  side?: "left" | "right";
+};
 
-defineProps<{ items: TimelineItem[] }>()
+const props = defineProps<{
+  items: TimelineItem[];
+}>();
 
-const expanded = ref<Record<number, boolean>>({})
-const toggle = (i: number) => (expanded.value[i] = !expanded.value[i])
+const expanded = ref<Record<number, boolean>>({});
+
+const toggle = (index: number) => {
+  expanded.value[index] = !expanded.value[index];
+};
+
+const shouldClamp = (text?: string) => String(text || "").trim().length > 220;
+
+const resolvedSide = (item: TimelineItem, index: number) =>
+  item.side || (index % 2 === 0 ? "left" : "right");
+
+const mediaOrderClass = (item: TimelineItem, index: number) =>
+  resolvedSide(item, index) === "right" ? "lg:order-2" : "lg:order-1";
+
+const contentOrderClass = (item: TimelineItem, index: number) =>
+  resolvedSide(item, index) === "right" ? "lg:order-1" : "lg:order-2";
 </script>
 
 <template>
-  <section aria-label="Historia cronológica de la empresa" class="w-full max-w-6xl mx-auto py-10 px-4 md:px-6">
-    <ol class="space-y-16 lg:space-y-24">
+  <section
+    aria-label="Historia cronológica de la empresa"
+    class="container-content py-12 md:py-16 lg:py-20"
+  >
+    <ol class="space-y-12 md:space-y-16 lg:space-y-20">
       <li
-        v-for="(it, idx) in items"
-        :key="it.year"
-        class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center group"
+        v-for="(item, index) in props.items"
+        :key="`${item.year}-${item.title}`"
+        class="grid items-center gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.95fr)] lg:gap-12"
       >
-        
-        <div 
-          class="w-full transition-transform duration-500 hover:scale-[1.02]"
-          :class="idx % 2 !== 0 ? 'lg:order-2' : 'lg:order-1'"
-        >
-          <Card class="overflow-hidden border-none shadow-md bg-transparent">
-            <CardContent class="p-0">
-              <div class="relative aspect-[4/3] sm:aspect-[16/9] lg:aspect-[4/3] w-full rounded-xl overflow-hidden">
-                <img
-                  v-if="it.imageSrc"
-                  :src="it.imageSrc"
-                  :alt="it.imageAlt || `Imagen representativa del hito de ${it.year}: ${it.title}`"
-                  class="absolute inset-0 h-full w-full object-cover"
-                  loading="lazy"
-                  decoding="async"
-                />
-                <div
-                  v-else
-                  class="absolute inset-0 bg-gradient-to-br from-slate-200 via-slate-100 to-slate-300 dark:from-slate-800 dark:via-slate-800 dark:to-slate-900"
-                />
+        <div :class="mediaOrderClass(item, index)" class="w-full">
+          <div class="overflow-hidden rounded-3xl bg-card shadow-sm ring-1 ring-black/5">
+            <div class="relative aspect-[4/3] w-full overflow-hidden">
+              <img
+                v-if="item.imageSrc"
+                :src="item.imageSrc"
+                :alt="
+                  item.imageAlt ||
+                  `Imagen representativa del hito ${item.year}: ${item.title}`
+                "
+                class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 hover:scale-[1.02]"
+                loading="lazy"
+                decoding="async"
+              />
 
-                <div
-                  class="absolute inset-0 flex items-center justify-center transition-colors duration-300 group-hover:bg-black/5"
-                  :class="it.imageSrc ? 'bg-black/15' : ''"
-                  aria-hidden="true"
-                >
-                  <div class="flex flex-col items-center gap-3">
-                    <component
-                      v-if="it.icon"
-                      :is="it.icon"
-                      class="h-12 w-12 text-white drop-shadow-md"
-                    />
-                    <span
-                      v-if="it.mediaLabel"
-                      class="rounded-full bg-background/90 px-4 py-1.5 text-xs font-semibold tracking-wide text-foreground shadow-sm backdrop-blur-sm"
-                    >
-                      {{ it.mediaLabel }}
-                    </span>
-                  </div>
+              <div
+                v-else
+                class="absolute inset-0 bg-gradient-to-br from-slate-200 via-slate-100 to-slate-300"
+              />
+
+              <div
+                v-if="item.icon || item.mediaLabel"
+                class="pointer-events-none absolute inset-0 flex items-end justify-start p-5"
+                aria-hidden="true"
+              >
+                <div class="flex items-center gap-3">
+                  <component
+                    :is="item.icon"
+                    v-if="item.icon"
+                    class="h-10 w-10 text-white drop-shadow-md"
+                  />
+
+                  <span
+                    v-if="item.mediaLabel"
+                    class="rounded-full bg-white/90 px-3 py-1 text-xs font-semibold tracking-wide text-foreground shadow-sm backdrop-blur-sm"
+                  >
+                    {{ item.mediaLabel }}
+                  </span>
                 </div>
               </div>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         </div>
 
-        <div 
-          class="w-full flex flex-col justify-center"
-          :class="idx % 2 !== 0 ? 'lg:order-1' : 'lg:order-2'"
-        >
-          <div class="space-y-3">
-            <time 
-              class="block text-4xl lg:text-5xl font-extrabold text-primary tracking-tight" 
-              :datetime="String(it.year)"
-            >
-              {{ it.year }}
-            </time>
-            
-            <h3 class="text-2xl font-semibold text-foreground leading-snug">
-              {{ it.title }}
-            </h3>
+        <div :class="contentOrderClass(item, index)" class="min-w-0">
+          <div
+            class="inline-flex items-center rounded-full bg-brand-base-light px-3 py-1 text-sm font-semibold text-brand-base-dark"
+          >
+            {{ item.year }}
           </div>
 
-          <div class="mt-4 relative">
+          <h3
+            class="mt-4 text-2xl font-semibold leading-tight text-foreground md:text-3xl"
+          >
+            {{ item.title }}
+          </h3>
+
+          <div class="relative mt-4">
             <p
-              class="text-base leading-relaxed text-muted-foreground whitespace-pre-line transition-[max-height] duration-500 ease-in-out"
-              :class="expanded[idx] ? 'max-h-[1000px]' : 'max-h-[4.5rem] overflow-hidden'"
-              :id="`timeline-text-${idx}`"
+              :id="`timeline-text-${index}`"
+              class="whitespace-pre-line text-base leading-7 text-muted-foreground transition-[max-height] duration-300 ease-out"
+              :class="
+                shouldClamp(item.text)
+                  ? expanded[index]
+                    ? 'max-h-[1000px]'
+                    : 'max-h-[6.5rem] overflow-hidden'
+                  : ''
+              "
             >
-              {{ it.text }}
+              {{ item.text }}
             </p>
 
             <div
-              v-if="!expanded[idx]"
-              class="pointer-events-none absolute inset-x-0 bottom-0 h-8 bg-gradient-to-t from-background to-transparent"
+              v-if="shouldClamp(item.text) && !expanded[index]"
+              class="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-background to-transparent"
               aria-hidden="true"
             />
           </div>
 
-          <div class="mt-4 flex items-center gap-2">
-            <Button
-              type="button"
-              variant="ghost"
-              size="sm"
-              class="h-8 px-0 text-primary hover:bg-transparent hover:text-primary/80 font-semibold"
-              @click="toggle(idx)"
-              :aria-expanded="expanded[idx] ? 'true' : 'false'"
-              :aria-controls="`timeline-text-${idx}`"
-            >
-              {{ expanded[idx] ? "Ocultar detalles" : "Leer más" }}
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                width="16" height="16" viewBox="0 0 24 24" fill="none" 
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" 
-                class="ml-1 transition-transform duration-300"
-                :class="expanded[idx] ? 'rotate-180' : 'rotate-0'"
-              >
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </Button>
-          </div>
-        </div>
+          <button
+            v-if="shouldClamp(item.text)"
+            type="button"
+            class="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-brand-base-dark transition-colors hover:text-brand-base"
+            :aria-expanded="expanded[index] ? 'true' : 'false'"
+            :aria-controls="`timeline-text-${index}`"
+            @click="toggle(index)"
+          >
+            {{ expanded[index] ? "Ocultar detalles" : "Leer más" }}
 
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="h-4 w-4 transition-transform duration-300"
+              :class="expanded[index] ? 'rotate-180' : 'rotate-0'"
+            >
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
+          </button>
+        </div>
       </li>
     </ol>
   </section>

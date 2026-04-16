@@ -6,29 +6,26 @@ type Props = {
 };
 
 const props = withDefaults(defineProps<Props>(), {
-  title: "Contacta con nosotros",
+  title: "Pide tu presupuesto",
   description:
-    "Para cualquier consulta, rellena el formulario, llámanos, envíanos un email o visita nuestras oficinas.",
+    "Explícanos qué necesitas producir y te diremos cómo podemos ayudarte.\nRespondemos rápido, pero si lo necesitas urgente, mejor llámanos.",
 });
 </script>
 
 <template>
-  <!-- HERO / CLAIM (pixel-perfect) -->
-  <section class="w-full bg-[#DEF4FF]">
-    <div
-      class="mx-auto max-w-[1440px] h-[204px] flex flex-col items-center justify-center py-[50px] gap-[24px]"
-    >
-      <h2
-        class="w-[312px] h-[36px] text-center font-['Figtree'] font-semibold text-[30px] leading-[36px] text-[#004F78]"
-      >
-        {{ props.title }}
-      </h2>
+  <section class="bg-brand-base-light">
+    <div class="container-content py-10 md:py-14 lg:py-16">
+      <div class="mx-auto max-w-3xl text-center">
+        <h1 class="text-3xl font-semibold leading-tight text-brand-base-dark md:text-4xl">
+          {{ props.title }}
+        </h1>
 
-      <p
-        class="w-[496px] h-[44px] text-center font-['Figtree'] font-normal text-[16px] leading-[22px] text-[#004F78]"
-      >
-        {{ props.description }}
-      </p>
+        <p
+          class="mt-4 whitespace-pre-line text-base leading-7 text-brand-base-dark/80 md:text-lg md:leading-8"
+        >
+          {{ props.description }}
+        </p>
+      </div>
     </div>
   </section>
 </template>
