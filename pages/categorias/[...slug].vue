@@ -12,7 +12,7 @@ import ContentProcessSteps, {
   type ProcessStepItem,
   type ProcessStepsCta,
 } from "@/components/marketing/content/ContentProcessSteps.vue";
-
+import CategoryCtaBanner from "@/components/shared/banner/CategoryCtaBanner.vue";
 type CategoryHowWeWork = {
   title?: string;
   description?: string;
@@ -25,9 +25,11 @@ const config = useRuntimeConfig();
 const nuxtApp = useNuxtApp();
 
 const pageContainerClass = "container-content";
-const pageFlowClass = "space-y-8 md:space-y-12";
-const pageBottomSpacingClass = "pb-10 md:pb-14";
-const sectionIntroClass = "max-w-3xl";
+const pageFlowClass = "space-y-0";
+const pageBottomSpacingClass = "pb-8 md:pb-10";
+const sectionIntroClass = "max-w-2xl";
+const sectionSpacingClass = "mt-10 md:mt-12";
+const sectionSpacingCompactClass = "mt-8 md:mt-10";
 
 function safeDecode(value: unknown) {
   try {
@@ -110,9 +112,9 @@ const slugParts = computed(() => {
   return Array.isArray(raw)
     ? raw.map((s) => safeDecode(s).trim()).filter(Boolean)
     : String(safeDecode(raw ?? ""))
-        .split(/[\/,]+/)
-        .map((s) => s.trim())
-        .filter(Boolean);
+      .split(/[\/,]+/)
+      .map((s) => s.trim())
+      .filter(Boolean);
 });
 
 const slug = computed(() => slugParts.value.join("/"));
@@ -287,14 +289,38 @@ useSeoMeta({
     "Categoría de productos",
   twitterImage: () => ogImageUrl.value,
 });
+
+const categoryLabel = computed(
+  () => category.value?.nav || category.value?.title || "esta categoría"
+);
+
+const bannerTitle = computed(
+  () => `¿Te ayudamos a preparar tu proyecto de ${categoryLabel.value.toLowerCase()}?`
+);
+
+const bannerDescription = computed(() => {
+  return (
+    category.value?.description ||
+    "Te orientamos sobre materiales, formatos, acabados y la solución más adecuada según el uso real de la pieza."
+  );
+});
+
+const bannerPills = computed(() => {
+  if (children.value.length) {
+    return children.value
+      .map((item) => item?.title?.trim())
+      .filter(Boolean)
+      .slice(0, 4) as string[];
+  }
+
+  return [];
+});
 </script>
 
 <template>
   <main class="min-h-screen bg-background">
     <div v-if="isPending && !category" class="container-content py-16 md:py-20">
-      <div
-        class="flex min-h-[30vh] items-center justify-center rounded-[28px] border border-border/70 bg-card/70"
-      >
+      <div class="flex min-h-[30vh] items-center justify-center rounded-[28px] border border-border/70 bg-card/70">
         <div class="animate-pulse text-body text-muted-foreground">
           Cargando categoría...
         </div>
@@ -309,44 +335,25 @@ useSeoMeta({
       <div :class="pageBottomSpacingClass">
         <div :class="pageFlowClass">
           <section aria-label="Presentación de la categoría">
-            <CategoryHero
-              :category="category"
-              :primary-cta="{ label: 'Pedir presupuesto', to: '/contacto' }"
-              :secondary-cta="secondaryCta"
-            />
+            <CategoryHero :category="category" :primary-cta="{ label: 'Pedir presupuesto', to: '/contacto' }"
+              :secondary-cta="secondaryCta" />
           </section>
 
-          <section
-            v-if="children.length"
-            id="subcategorias"
-            :class="pageContainerClass"
-            aria-label="Subcategorías"
-          >
+          <section v-if="children.length" id="subcategorias" :class="pageContainerClass" aria-label="Subcategorías">
             <div class="space-y-8 md:space-y-10">
               <div :class="sectionIntroClass">
-                <ContentSectionIntro
-                  eyebrow="Subcategorías"
-                  title="Explora esta línea de soluciones"
-                  description="Accede directamente a las subcategorías relacionadas con esta área."
-                />
+                <ContentSectionIntro eyebrow="Subcategorías" title="Explora esta línea de soluciones"
+                  description="Accede directamente a las subcategorías relacionadas con esta área." />
               </div>
 
               <div :class="['grid auto-rows-fr gap-6', childrenGridClass]">
-                <NuxtLink
-                  v-for="child in children"
-                  :key="child.slug || child.path"
-                  :to="child.path"
-                  class="group flex h-full flex-col overflow-hidden rounded-[28px] border border-border/70 bg-card shadow-[0_10px_30px_-24px_hsl(var(--foreground)/0.14)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:shadow-[0_18px_40px_-26px_hsl(var(--foreground)/0.18)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:ring-offset-2"
-                >
+                <NuxtLink v-for="child in children" :key="child.slug || child.path" :to="child.path"
+                  class="group flex h-full flex-col overflow-hidden rounded-[28px] border border-border/70 bg-card shadow-[0_10px_30px_-24px_hsl(var(--foreground)/0.14)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:shadow-[0_18px_40px_-26px_hsl(var(--foreground)/0.18)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:ring-offset-2">
                   <div class="aspect-[16/10] overflow-hidden bg-muted/25">
-                    <img
-                      v-if="child.image?.src"
-                      :src="child.image.src"
+                    <img v-if="child.image?.src" :src="child.image.src"
                       :alt="child.image.alt || child.title || 'Subcategoría'"
                       class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                      loading="lazy"
-                      decoding="async"
-                    />
+                      loading="lazy" decoding="async" />
                     <div v-else class="h-full w-full bg-muted/40" />
                   </div>
 
@@ -355,16 +362,12 @@ useSeoMeta({
                       {{ child.title }}
                     </h3>
 
-                    <p
-                      v-if="child.description"
-                      class="mt-3 line-clamp-3 text-body-s leading-[1.6] text-foreground/72"
-                    >
+                    <p v-if="child.description" class="mt-3 line-clamp-3 text-body-s leading-[1.6] text-foreground/72">
                       {{ child.description }}
                     </p>
 
                     <span
-                      class="mt-5 inline-flex min-h-11 items-center justify-center self-start rounded-lg border border-border bg-background px-4 py-2.5 text-body-s-bold text-foreground transition group-hover:border-primary/25 group-hover:text-primary"
-                    >
+                      class="mt-5 inline-flex min-h-11 items-center justify-center self-start rounded-lg border border-border bg-background px-4 py-2.5 text-body-s-bold text-foreground transition group-hover:border-primary/25 group-hover:text-primary">
                       Ver subcategoría
                     </span>
                   </div>
@@ -373,59 +376,36 @@ useSeoMeta({
             </div>
           </section>
 
-          <CategoryProductsGrid
-            :products="products"
-            eyebrow="Catálogo"
-            title="Productos de esta categoría"
-            description="Explora opciones, formatos y acabados disponibles."
-            :initial-limit="8"
-            :load-more-step="8"
-          />
+          <CategoryProductsGrid :products="products" eyebrow="Catálogo" title="Productos de esta categoría"
+            description="Explora opciones, formatos y acabados disponibles." :initial-limit="8" :load-more-step="8" />
 
-          <ContentSectionShell
-            v-if="hasSections"
-            theme="muted"
-            eyebrow="Información general"
+          <ContentSectionShell v-if="hasSections" theme="muted" eyebrow="Soluciones Gráficas"
             title="Características, tipos, formatos y acabados"
-            description="Consulta la información clave de esta categoría en un formato más claro y fácil de comparar."
-          >
+            description="Consulta la información clave de esta categoría en un formato más claro y fácil de comparar.">
             <ContentSectionsRenderer :sections="sections" />
           </ContentSectionShell>
 
-          <ContentSectionShell
-            v-if="hasProcessSteps"
-            id="como-trabajamos"
-            eyebrow="Cómo trabajamos"
-            :title="processTitle"
-            :description="processDescription"
-          >
-            <ContentProcessSteps
-              :steps="processSteps"
-              :cta="processCta"
-            />
-          </ContentSectionShell>
+          <div v-if="hasProcessSteps" :class="sectionSpacingClass">
+            <ContentSectionShell id="como-trabajamos" eyebrow="Cómo realizamos tu pedido" :title="processTitle"
+              :description="processDescription" density="compact" intro-spacing="tight">
+              <ContentProcessSteps :steps="processSteps" :cta="processCta" />
+            </ContentSectionShell>
+          </div>
 
-          <ContentSectionShell
-            v-if="hasFaqs"
-            eyebrow="Ayuda y dudas comunes"
-            title="Preguntas frecuentes"
-            description="Respondemos las dudas más habituales sobre materiales, formatos, acabados y criterios de elección."
-          >
-            <FaqAccordion :items="faqs" />
-          </ContentSectionShell>
+          <div v-if="hasFaqs" :class="sectionSpacingCompactClass">
+            <ContentSectionShell eyebrow="Ayuda y dudas comunes" title="Preguntas frecuentes"
+              description="Respondemos las dudas más habituales sobre materiales, formatos, acabados y criterios de elección."
+              density="compact" intro-spacing="tight">
+              <FaqAccordion :items="faqs" />
+            </ContentSectionShell>
+          </div>
+          <div :class="sectionSpacingCompactClass">
+            <CategoryCtaBanner eyebrow="Asesoramiento" :title="bannerTitle" :description="bannerDescription"
+              :pills="bannerPills" primary-label="Pedir presupuesto" primary-to="/contacto" secondary-label="Contactar"
+              secondary-to="/contacto" />
+          </div>
 
-          <ContentSectionShell
-            eyebrow="Asesoramiento personalizado"
-            title="¿Necesitas ayuda para elegir la mejor opción?"
-            description="Te ayudamos a comparar materiales, formatos, acabados y aplicaciones para encontrar la solución más adecuada para tu proyecto."
-          >
-            <NuxtLink
-              to="/contacto"
-              class="inline-flex min-h-12 items-center justify-center rounded-lg bg-primary px-6 py-3 text-body-s-bold text-primary-foreground transition hover:opacity-90"
-            >
-              Contactar con un asesor
-            </NuxtLink>
-          </ContentSectionShell>
+
         </div>
       </div>
     </div>

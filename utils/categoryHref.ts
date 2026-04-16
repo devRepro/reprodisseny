@@ -1,46 +1,41 @@
-export function normalizeCategoryPath(input: unknown) {
-  let s = String(input ?? "").trim()
-  if (!s) return ""
+type CategoryHrefInput = {
+  canonicalPath?: string | null;
+  categoryPath?: string | null;
+  path?: string | null;
+  slugPath?: string | null;
+  fullPath?: string | null;
+  slug?: string | null;
+};
 
-  s = s.replace(/^https?:\/\/[^/]+/i, "")
-  s = s.replace(/^\/+|\/+$/g, "")
-
-  if (s.startsWith("categorias/")) {
-    s = s.replace(/^categorias\//i, "")
-  }
-
-  return s
+function normalizePath(value?: string | null) {
+  const raw = String(value ?? "").trim();
+  if (!raw) return "";
+  if (/^https?:\/\//i.test(raw)) return raw;
+  return raw.startsWith("/") ? raw : `/${raw}`;
 }
 
-function isCategoryLikePath(input: unknown) {
-  const s = String(input ?? "").trim()
-  if (!s) return false
-
-  // rutas canónicas de categoría
-  if (/^\/?categorias\//i.test(s)) return true
-
-  // slugs o paths relativos de categorías
-  if (/^[a-z0-9-]+(\/[a-z0-9-]+)*$/i.test(s)) return true
-
-  return false
+function isCategoryLikePath(value?: string | null): value is string {
+  const path = normalizePath(value);
+  if (!path) return false;
+  if (/^https?:\/\//i.test(path)) return true;
+  return path.startsWith("/categorias/");
 }
 
-export function categoryHref(cat: any) {
+export function categoryHref(cat: CategoryHrefInput | null | undefined) {
   const explicitCandidates = [
     cat?.canonicalPath,
     cat?.categoryPath,
+    cat?.path,
     cat?.slugPath,
     cat?.fullPath,
-  ]
+  ].filter((value): value is string => isCategoryLikePath(value));
 
-  const explicit = explicitCandidates.find((value) => isCategoryLikePath(value))
-  if (explicit) {
-    return `/categorias/${normalizeCategoryPath(explicit)}`
+  if (explicitCandidates.length > 0) {
+    return normalizePath(explicitCandidates[0]);
   }
 
-  if (typeof cat?.slug === "string" && /^[a-z0-9-]+$/i.test(cat.slug.trim())) {
-    return `/categorias/${cat.slug.trim().toLowerCase()}`
-  }
+  const slug = String(cat?.slug ?? "").trim();
+  if (!slug) return "/categorias";
 
-  return "/categorias"
+  return `/categorias/${slug}`;
 }

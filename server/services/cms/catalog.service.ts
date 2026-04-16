@@ -274,6 +274,8 @@ export type CategoryDetailPageDto = {
   title: string;
   nav?: string;
   description?: string;
+  bodyMd?: string;
+  howWeWork?: CategoryHowWeWorkDto | null;
   image: {
     src: string;
     alt: string;
@@ -294,6 +296,29 @@ export type CategoryDetailPageDto = {
   };
   redirectTo?: string;
 };
+
+export type CategoryHowWeWorkStepItem = {
+  label?: string;
+  title: string;
+  description: string;
+};
+
+export type CategoryHowWeWorkCta = {
+  title: string;
+  description?: string;
+  buttonLabel?: string;
+  href?: string;
+};
+
+export type CategoryHowWeWorkDto = {
+  id?: string;
+  key?: string;
+  title?: string;
+  description?: string;
+  steps: CategoryHowWeWorkStepItem[];
+  cta?: CategoryHowWeWorkCta | null;
+};
+
 
 export type ProductDetailHreflangItem = {
   lang: string;
@@ -1094,41 +1119,43 @@ export function getCategoryDetailByPath(
   const faqs = getCategoryFaqs(category);
 
   return {
-  slug: categoryPublicSlugOf(category),
-  path: canonicalPath,
-  title: category.title,
-  nav: category.nav || category.title,
-  description: category.description || "",
-  image: imageDtoOf(category.image, category.title),
-  children: getDirectChildrenOf(category, categories, options.childLimit ?? 50),
-  products: getDirectProductsOfCategory(category, options.productLimit ?? 24),
-  sections,
-  faqs,
-  breadcrumbs: [
-    { label: "Inicio", to: "/" },
-    { label: "Categorías", to: "/categorias" },
-    ...trail.map((item) => ({
-      label: item.nav || item.title,
-      to: categoryPathOf(item),
-    })),
-    { label: category.nav || category.title },
-  ],
-  seo: {
-    title:
-      category?.seo?.metaTitle ||
-      category?.seo?.title ||
-      `${category.title} | Reprodisseny`,
-    description:
-      category?.seo?.metaDescription ||
-      category?.seo?.description ||
-      category?.description ||
-      "",
-    canonical: category?.seo?.canonical || canonicalPath,
-    image: category?.seo?.ogImageSrc || category.image?.src || undefined,
-    robots: computeCategoryRobots(category),
-  },
-  ...(resolved.redirectTo ? { redirectTo: resolved.redirectTo } : {}),
-};
+    slug: categoryPublicSlugOf(category),
+    path: canonicalPath,
+    title: category.title,
+    nav: category.nav || category.title,
+    description: category.description || "",
+    bodyMd: category.bodyMd || "",
+    howWeWork: parseCategoryHowWeWork(category.bodyMd),
+    image: imageDtoOf(category.image, category.title),
+    children: getDirectChildrenOf(category, categories, options.childLimit ?? 50),
+    products: getDirectProductsOfCategory(category, options.productLimit ?? 24),
+    sections,
+    faqs,
+    breadcrumbs: [
+      { label: "Inicio", to: "/" },
+      { label: "Categorías", to: "/categorias" },
+      ...trail.map((item) => ({
+        label: item.nav || item.title,
+        to: categoryPathOf(item),
+      })),
+      { label: category.nav || category.title },
+    ],
+    seo: {
+      title:
+        category?.seo?.metaTitle ||
+        category?.seo?.title ||
+        `${category.title} | Reprodisseny`,
+      description:
+        category?.seo?.metaDescription ||
+        category?.seo?.description ||
+        category?.description ||
+        "",
+      canonical: category?.seo?.canonical || canonicalPath,
+      image: category?.seo?.ogImageSrc || category.image?.src || undefined,
+      robots: computeCategoryRobots(category),
+    },
+    ...(resolved.redirectTo ? { redirectTo: resolved.redirectTo } : {}),
+  };
 }
 
 function getCategoryBySlug(slug: string) {
@@ -1184,6 +1211,75 @@ function getCategoryDescendantSlugs(
   return out;
 }
 
+function parseCategoryHowWeWork(value: unknown): CategoryHowWeWorkDto | null {
+  const raw = String(value ?? "").trim();
+  if (!raw) return null;
+
+  try {
+    const parsed = JSON.parse(raw) as Record<string, unknown>;
+
+    const steps = Array.isArray(parsed.steps)
+      ? parsed.steps
+          .map((step) => {
+            const item = step as Record<string, unknown>;
+            const title = String(item.title ?? "").trim();
+            const description = String(item.description ?? "").trim();
+            const label = String(item.label ?? "").trim();
+
+            if (!title || !description) return null;
+
+            return {
+              ...(label ? { label } : {}),
+              title,
+              description,
+            };
+          })
+          .filter(Boolean) as CategoryHowWeWorkStepItem[]
+      : [];
+
+    const ctaRaw =
+      parsed.cta && typeof parsed.cta === "object"
+        ? (parsed.cta as Record<string, unknown>)
+        : null;
+
+    const cta =
+      ctaRaw &&
+      (String(ctaRaw.title ?? "").trim() ||
+        String(ctaRaw.description ?? "").trim() ||
+        String(ctaRaw.buttonLabel ?? "").trim() ||
+        String(ctaRaw.href ?? "").trim())
+        ? {
+            title: String(ctaRaw.title ?? "").trim(),
+            ...(String(ctaRaw.description ?? "").trim()
+              ? { description: String(ctaRaw.description).trim() }
+              : {}),
+            ...(String(ctaRaw.buttonLabel ?? "").trim()
+              ? { buttonLabel: String(ctaRaw.buttonLabel).trim() }
+              : {}),
+            ...(String(ctaRaw.href ?? "").trim()
+              ? { href: String(ctaRaw.href).trim() }
+              : {}),
+          }
+        : null;
+
+    if (!steps.length) return null;
+
+    return {
+      ...(String(parsed.id ?? "").trim() ? { id: String(parsed.id).trim() } : {}),
+      ...(String(parsed.key ?? "").trim() ? { key: String(parsed.key).trim() } : {}),
+      ...(String(parsed.title ?? "").trim()
+        ? { title: String(parsed.title).trim() }
+        : {}),
+      ...(String(parsed.description ?? "").trim()
+        ? { description: String(parsed.description).trim() }
+        : {}),
+      steps,
+      cta,
+    };
+  } catch {
+    return null;
+  }
+}
 function sortCategoryProducts(
   items: CategoryProductsListItem[],
   sort: "order" | "title" | "price",

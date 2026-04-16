@@ -224,7 +224,7 @@ const CATEGORY_FIELDS = {
   typesMd: "TypesMd",
   formatsMd: "FormatsMd",
   finishesMd: "FinishesMd",
-  usesMd: "UsesMd",
+  usesMd: "UseMd", // <- aquí
   faqsJson: "FaqsJson",
   imageSrc: "ImageSrc",
   imageWidth: "ImageWidth",
@@ -300,7 +300,6 @@ const PRODUCT_SELECT = [...new Set(Object.values(PRODUCT_FIELDS))];
 
 const CATEGORY_SECTION_TITLES: Record<string, string> = {
   details: "Detalles y características",
-  overview: "Información adicional",
   types: "Tipos",
   formats: "Formatos y soportes",
   finishes: "Acabados",
@@ -309,7 +308,6 @@ const CATEGORY_SECTION_TITLES: Record<string, string> = {
 
 const PRODUCT_SECTION_TITLES: Record<string, string> = {
   details: "Detalles",
-  overview: "Información adicional",
   benefits: "Beneficios",
   materials: "Materiales",
   formats: "Formatos y soportes",
@@ -321,14 +319,6 @@ const PRODUCT_SECTION_TITLES: Record<string, string> = {
 const CATEGORY_SECTION_ALIASES: Record<string, keyof typeof CATEGORY_SECTION_TITLES> = {
   detalle: "details",
   detalles: "details",
-
-  informacion: "overview",
-  "informacion-adicional": "overview",
-  "informacion-general": "overview",
-  introduccion: "overview",
-  resumen: "overview",
-  descripcion: "overview",
-  descripcio: "overview",
 
   tipo: "types",
   tipos: "types",
@@ -352,13 +342,7 @@ const PRODUCT_SECTION_ALIASES: Record<string, keyof typeof PRODUCT_SECTION_TITLE
   detalle: "details",
   detalles: "details",
 
-  informacion: "overview",
-  "informacion-adicional": "overview",
-  "informacion-general": "overview",
-  introduccion: "overview",
-  resumen: "overview",
-  descripcion: "overview",
-
+  
   beneficio: "benefits",
   beneficios: "benefits",
 
@@ -1142,21 +1126,18 @@ function buildCategorySections(
 ): ContentSection[] {
   const editorialSectionEntries: Array<{ target: string; value?: string }> = [
     { target: "details", value: detailsMd || description },
-    { target: "overview", value: bodyMd },
     { target: "finishes", value: str(fields[CATEGORY_FIELDS.finishesMd]) },
     { target: "applications", value: str(fields[CATEGORY_FIELDS.usesMd]) },
   ];
 
   const editorialSectionOrder = [
     "details",
-    "overview",
     "finishes",
     "applications",
   ] as const;
 
   const fullCategorySectionOrder = [
     "details",
-    "overview",
     "types",
     "formats",
     "finishes",
@@ -1655,7 +1636,6 @@ function buildProduct(item: GraphItem<Record<string, unknown>>): ProductDto | nu
 
   const sectionEntries: Array<{ target: string; value?: string }> = [
   { target: "details", value: detailsMd || shortDescription },
-  { target: "overview", value: bodyMd },
   { target: "benefits", value: str(fields[PRODUCT_FIELDS.benefitsMd]) },
   { target: "materials", value: str(fields[PRODUCT_FIELDS.materialsMd]) },
   { target: "formats", value: str(fields[PRODUCT_FIELDS.formatsMd]) },
@@ -1666,7 +1646,6 @@ function buildProduct(item: GraphItem<Record<string, unknown>>): ProductDto | nu
 
 const productSectionOrder = [
   "details",
-  "overview",
   "benefits",
   "materials",
   "formats",

@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-04-15T07:13:02.199Z",
+  "generatedAt": "2026-04-15T12:52:56.350Z",
   "categories": [
     {
       "id": "12",
-      "updatedAt": "2026-04-14T09:22:35Z",
+      "updatedAt": "2026-04-15T08:31:03Z",
       "type": "subcategoria",
       "slug": "material-flexible",
       "path": "/categorias/gran-formato/material-flexible",
@@ -21,14 +21,8 @@
           "id": "details",
           "key": "details",
           "title": "Detalles y características",
-          "body": "## Conoce las características del gran formato flexible\n\nEl gran formato flexible está pensado para crear aplicaciones visuales de gran impacto con materiales adaptables a diferentes superficies, entornos y necesidades de instalación. No se trata solo de imprimir a gran tamaño, sino de elegir correctamente el soporte, el sistema de adhesión cuando aplica y el acabado más adecuado para garantizar un buen resultado visual y funcional.\n\nPara que cada aplicación responda bien, es importante tener en cuenta la ubicación, la superficie sobre la que se instalará y el tiempo de uso previsto. No requiere la misma solución una gráfica para interior que una aplicación exterior, ni se comporta igual un material destinado a cristal, pared, suelo o vehículo.\n\nTrabajamos el gran formato flexible valorando el impacto visual, la durabilidad y la facilidad de instalación, para que cada pieza se adapte correctamente al espacio, mantenga una imagen profesional y funcione con garantías durante toda su vida útil.",
+          "body": "El gran formato flexible está pensado para crear aplicaciones visuales de gran impacto con materiales adaptables a diferentes superficies, entornos y necesidades de instalación. No se trata solo de imprimir a gran tamaño, sino de elegir correctamente el soporte, el sistema de adhesión cuando aplica y el acabado más adecuado para garantizar un buen resultado visual y funcional.\n\nPara que cada aplicación responda bien, es importante tener en cuenta la ubicación, la superficie sobre la que se instalará y el tiempo de uso previsto. No requiere la misma solución una gráfica para interior que una aplicación exterior, ni se comporta igual un material destinado a cristal, pared, suelo o vehículo.\n\nTrabajamos el gran formato flexible valorando el impacto visual, la durabilidad y la facilidad de instalación, para que cada pieza se adapte correctamente al espacio, mantenga una imagen profesional y funcione con garantías durante toda su vida útil.",
           "blocks": [
-            {
-              "type": "text",
-              "text": "<h2>Conoce las características del gran formato flexible</h2>",
-              "html": true,
-              "format": "html"
-            },
             {
               "type": "text",
               "text": "El gran formato flexible está pensado para crear aplicaciones visuales de gran impacto con materiales adaptables a diferentes superficies, entornos y necesidades de instalación. No se trata solo de imprimir a gran tamaño, sino de elegir correctamente el soporte, el sistema de adhesión cuando aplica y el acabado más adecuado para garantizar un buen resultado visual y funcional.",
@@ -47,23 +41,29 @@
           ]
         },
         {
-          "id": "overview",
-          "key": "overview",
-          "title": "Información adicional",
-          "body": "### Cómo trabajamos\n\nTe ayudamos a elegir, producir y entregar la solución gráfica más adecuada según la superficie, la ubicación y la duración prevista.",
-          "blocks": [
-            {
-              "type": "text",
-              "text": "<h3>Cómo trabajamos</h3>",
-              "html": true,
-              "format": "html"
-            },
-            {
-              "type": "text",
-              "text": "Te ayudamos a elegir, producir y entregar la solución gráfica más adecuada según la superficie, la ubicación y la duración prevista.",
-              "html": false
-            }
-          ]
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "body": "",
+          "blocks": [],
+          "formatsData": {
+            "intro": "Definimos el formato, el material y el sistema de aplicación según el tamaño de la pieza, el entorno de uso y la superficie donde debe instalarse.",
+            "shapes": [
+              {
+                "title": "Medidas estándar o a medida",
+                "description": "Trabajamos desde formatos habituales hasta piezas totalmente personalizadas. Si el tamaño lo requiere, la producción puede plantearse en varias piezas o módulos para facilitar el transporte y la instalación."
+              },
+              {
+                "title": "Interior o exterior",
+                "description": "El entorno de uso determina el material y la tinta más adecuados, especialmente en aplicaciones exteriores expuestas al sol, la lluvia y los cambios de temperatura."
+              },
+              {
+                "title": "Superficie de aplicación",
+                "description": "No es lo mismo instalar sobre una pared lisa, un cristal, un suelo o un vehículo. En vinilos, elegir correctamente el tipo de material y adhesivo es clave para asegurar una buena colocación y la durabilidad prevista."
+              }
+            ],
+            "deliveryFormats": []
+          }
         },
         {
           "id": "finishes",
@@ -78,6 +78,26 @@
                 "Acabados específicos para suelo: cuando hay tránsito, se usa vinilo para suelo con el acabado adecuado para resistencia.",
                 "Refuerzos para lona: dobladillo, ojales, vaina o refuerzo perimetral según instalación (fachada, tensado, puntos de anclaje).",
                 "Corte a medida / troquelado: contornos especiales para adaptar la gráfica al soporte o crear piezas con forma."
+              ],
+              "ordered": false
+            }
+          ]
+        },
+        {
+          "id": "applications",
+          "key": "applications",
+          "title": "Aplicaciones",
+          "body": "•\tEscaparates y retail: vinilos de cristal, campañas promocionales, rotulación temporal.\n•\tSeñalética: indicaciones, normas, zonas, direccionales.\n•\tFerias y eventos: fondos, cartelería grande, materiales ligeros para transporte.\n•\tFachadas: banderolas y lonas para máxima visibilidad.\n•\tDecoración corporativa: papel de pared, vinilos de pared y gráficos de marca.\n•\tVehículos: rotulación parcial o completa.",
+          "blocks": [
+            {
+              "type": "bullets",
+              "items": [
+                "Escaparates y retail: vinilos de cristal, campañas promocionales, rotulación temporal.",
+                "Señalética: indicaciones, normas, zonas, direccionales.",
+                "Ferias y eventos: fondos, cartelería grande, materiales ligeros para transporte.",
+                "Fachadas: banderolas y lonas para máxima visibilidad.",
+                "Decoración corporativa: papel de pared, vinilos de pared y gráficos de marca.",
+                "Vehículos: rotulación parcial o completa."
               ],
               "ordered": false
             }
@@ -230,7 +250,7 @@
     },
     {
       "id": "13",
-      "updatedAt": "2026-04-14T09:23:24Z",
+      "updatedAt": "2026-04-15T08:31:11Z",
       "type": "subcategoria",
       "slug": "material-rigido",
       "path": "/categorias/gran-formato/material-rigido",
@@ -248,14 +268,8 @@
           "id": "details",
           "key": "details",
           "title": "Detalles y características",
-          "body": "## Conoce las características del gran formato rígido\n\nEl gran formato rígido está pensado para crear piezas visuales con presencia, estabilidad y una buena resistencia estructural, especialmente en aplicaciones donde el soporte debe mantenerse firme y ofrecer una imagen sólida y profesional. No se trata solo de imprimir a gran tamaño, sino de elegir el material y el acabado adecuados para que la pieza funcione bien en el espacio en el que se va a instalar.\n\nPara obtener un buen resultado, es importante valorar el tipo de aplicación, el entorno de uso y el nivel de rigidez o resistencia que necesita cada proyecto. No requiere la misma solución una pieza destinada a señalética, un display promocional o un punto de información con uso continuado.\n\nTrabajamos el gran formato rígido teniendo en cuenta la visibilidad, la estabilidad y la calidad de acabado, para que cada soporte transmita una imagen cuidada, se mantenga firme durante su uso y responda correctamente a las exigencias de cada instalación.",
+          "body": "El gran formato rígido está pensado para crear piezas visuales con presencia, estabilidad y una buena resistencia estructural, especialmente en aplicaciones donde el soporte debe mantenerse firme y ofrecer una imagen sólida y profesional. No se trata solo de imprimir a gran tamaño, sino de elegir el material y el acabado adecuados para que la pieza funcione bien en el espacio en el que se va a instalar.\n\nPara obtener un buen resultado, es importante valorar el tipo de aplicación, el entorno de uso y el nivel de rigidez o resistencia que necesita cada proyecto. No requiere la misma solución una pieza destinada a señalética, un display promocional o un punto de información con uso continuado.\n\nTrabajamos el gran formato rígido teniendo en cuenta la visibilidad, la estabilidad y la calidad de acabado, para que cada soporte transmita una imagen cuidada, se mantenga firme durante su uso y responda correctamente a las exigencias de cada instalación.",
           "blocks": [
-            {
-              "type": "text",
-              "text": "<h2>Conoce las características del gran formato rígido</h2>",
-              "html": true,
-              "format": "html"
-            },
             {
               "type": "text",
               "text": "El gran formato rígido está pensado para crear piezas visuales con presencia, estabilidad y una buena resistencia estructural, especialmente en aplicaciones donde el soporte debe mantenerse firme y ofrecer una imagen sólida y profesional. No se trata solo de imprimir a gran tamaño, sino de elegir el material y el acabado adecuados para que la pieza funcione bien en el espacio en el que se va a instalar.",
@@ -274,23 +288,29 @@
           ]
         },
         {
-          "id": "overview",
-          "key": "overview",
-          "title": "Información adicional",
-          "body": "### Cómo trabajamos\n\nTe ayudamos a definir, producir y entregar el soporte rígido más adecuado según la ubicación, el sistema de instalación y la durabilidad que necesitas.",
-          "blocks": [
-            {
-              "type": "text",
-              "text": "<h3>Cómo trabajamos</h3>",
-              "html": true,
-              "format": "html"
-            },
-            {
-              "type": "text",
-              "text": "Te ayudamos a definir, producir y entregar el soporte rígido más adecuado según la ubicación, el sistema de instalación y la durabilidad que necesitas.",
-              "html": false
-            }
-          ]
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "body": "",
+          "blocks": [],
+          "formatsData": {
+            "intro": "Definimos el formato, la estructura y el material según el tamaño de la pieza, la forma de instalación y las condiciones reales de uso.",
+            "shapes": [
+              {
+                "title": "Medidas estándar o a medida",
+                "description": "Trabajamos desde formatos habituales hasta piezas completamente personalizadas, adaptadas a cada proyecto y espacio."
+              },
+              {
+                "title": "Una pieza o varias",
+                "description": "Si el tamaño lo requiere, la producción puede resolverse en varias piezas o módulos para facilitar el transporte, la manipulación y la instalación."
+              },
+              {
+                "title": "Interior o exterior",
+                "description": "El entorno de uso determina el material y la durabilidad necesaria, especialmente en aplicaciones expuestas al sol, la lluvia y los cambios de temperatura."
+              }
+            ],
+            "deliveryFormats": []
+          }
         },
         {
           "id": "finishes",
@@ -304,6 +324,24 @@
                 "Laminado mate o brillo: mejora la presencia y añade protección extra (recomendable cuando hay manipulación o roce).",
                 "Corte a medida / troquelado: contornos especiales para adaptar la pieza al soporte o crear formatos con forma.",
                 "Opciones de montaje (según producto): soluciones para dejar la pieza lista para instalar, como enmarcados u otras opciones según necesidad."
+              ],
+              "ordered": false
+            }
+          ]
+        },
+        {
+          "id": "applications",
+          "key": "applications",
+          "title": "Aplicaciones",
+          "body": "• Escaparates y punto de venta: comunicación estable, displays y cartelería de alto impacto.\n• Señalética: indicaciones, normas, zonas, precios, direccionales.\n• Ferias y eventos: piezas con equilibrio entre rigidez/ligereza para transporte y montaje.\n• Cartelería inmobiliaria: carteles grandes pensados para máxima legibilidad.",
+          "blocks": [
+            {
+              "type": "bullets",
+              "items": [
+                "Escaparates y punto de venta: comunicación estable, displays y cartelería de alto impacto.",
+                "Señalética: indicaciones, normas, zonas, precios, direccionales.",
+                "Ferias y eventos: piezas con equilibrio entre rigidez/ligereza para transporte y montaje.",
+                "Cartelería inmobiliaria: carteles grandes pensados para máxima legibilidad."
               ],
               "ordered": false
             }
@@ -444,7 +482,7 @@
     },
     {
       "id": "10",
-      "updatedAt": "2026-04-14T09:21:28Z",
+      "updatedAt": "2026-04-15T08:56:28Z",
       "type": "subcategoria",
       "slug": "material-oficina",
       "path": "/categorias/publicidad-oficina/material-oficina",
@@ -463,14 +501,8 @@
           "id": "details",
           "key": "details",
           "title": "Detalles y características",
-          "body": "## Conoce las características de los productos de oficina\n\nLos productos impresos de oficina deben aportar orden, funcionalidad y coherencia de marca en el trabajo diario. Además de cumplir una función práctica, ayudan a proyectar una imagen profesional y cuidada en la documentación, la organización interna y los espacios de atención al cliente.\n\nPara que cada pieza resulte útil, es importante elegir correctamente el tipo de producto, el formato, el soporte y el acabado según el uso previsto. No requiere la misma solución un material pensado para envío, archivo o manipulación diaria que una pieza destinada a recepción, presentación o gestión documental.\n\nTrabajamos los productos de oficina teniendo en cuenta la practicidad, la durabilidad y la presentación, para que cada elemento facilite el día a día, mantenga un buen acabado y refuerce una imagen corporativa coherente.",
+          "body": "Los productos impresos de oficina deben aportar orden, funcionalidad y coherencia de marca en el trabajo diario. Además de cumplir una función práctica, ayudan a proyectar una imagen profesional y cuidada en la documentación, la organización interna y los espacios de atención al cliente.\n\nPara que cada pieza resulte útil, es importante elegir correctamente el tipo de producto, el formato, el soporte y el acabado según el uso previsto. No requiere la misma solución un material pensado para envío, archivo o manipulación diaria que una pieza destinada a recepción, presentación o gestión documental.\n\nTrabajamos los productos de oficina teniendo en cuenta la practicidad, la durabilidad y la presentación, para que cada elemento facilite el día a día, mantenga un buen acabado y refuerce una imagen corporativa coherente.",
           "blocks": [
-            {
-              "type": "text",
-              "text": "<h2>Conoce las características de los productos de oficina</h2>",
-              "html": true,
-              "format": "html"
-            },
             {
               "type": "text",
               "text": "Los productos impresos de oficina deben aportar orden, funcionalidad y coherencia de marca en el trabajo diario. Además de cumplir una función práctica, ayudan a proyectar una imagen profesional y cuidada en la documentación, la organización interna y los espacios de atención al cliente.",
@@ -489,21 +521,58 @@
           ]
         },
         {
-          "id": "overview",
-          "key": "overview",
-          "title": "Información adicional",
-          "body": "### Cómo trabajamos\n\nTe ayudamos a definir, producir y entregar el material más adecuado según el uso, la operativa diaria y la imagen que quieres proyectar.",
-          "blocks": [
+          "id": "types",
+          "key": "types",
+          "title": "Tipos",
+          "body": "",
+          "blocks": [],
+          "items": [
             {
-              "type": "text",
-              "text": "<h3>Cómo trabajamos</h3>",
-              "html": true,
-              "format": "html"
+              "title": "Oficina y marca corporativa",
+              "description": "Tarjetas de visita, papel de carta, sobres, carpetas, archivadores y certificados pensados para transmitir seriedad, orden y coherencia con la imagen de marca.",
+              "features": [
+                "Corporativo",
+                "Profesional",
+                "Buena presencia"
+              ],
+              "idealFor": "Documentación comercial, oficina y representación de marca"
             },
             {
-              "type": "text",
-              "text": "Te ayudamos a definir, producir y entregar el material más adecuado según el uso, la operativa diaria y la imagen que quieres proyectar.",
-              "html": false
+              "title": "Organización y uso diario",
+              "description": "Blocs, libretas, agendas, calendarios, talonarios autocopiativos y sellos orientados a la practicidad, la resistencia al uso continuado y la claridad de lectura.",
+              "features": [
+                "Práctico",
+                "Resistente",
+                "Uso diario"
+              ],
+              "idealFor": "Gestión interna, trabajo diario y documentación operativa"
+            },
+            {
+              "title": "Imagen y señalización",
+              "description": "Pizarras, placas de dirección y letras corpóreas diseñadas para aportar visibilidad y presencia, con soportes adecuados para un resultado estable y profesional.",
+              "features": [
+                "Visible",
+                "Estable",
+                "Profesional"
+              ],
+              "idealFor": "Oficinas, accesos, señalización y espacios corporativos"
+            }
+          ]
+        },
+        {
+          "id": "applications",
+          "key": "applications",
+          "title": "Aplicaciones",
+          "body": "•\tImagen corporativa sólida: papelería alineada (tarjetas, sobres, carpetas, certificados) para dar consistencia a tu marca.\n•\tGestión y operativa: talonarios autocopiativos, sellos, archivadores, calendarios y material interno.\n•\tSeñalización y presencia: placa de dirección y letras corpóreas para reforzar la visibilidad del negocio.",
+          "blocks": [
+            {
+              "type": "bullets",
+              "items": [
+                "Imagen corporativa sólida: papelería alineada (tarjetas, sobres, carpetas, certificados) para dar consistencia a tu marca.",
+                "Gestión y operativa: talonarios autocopiativos, sellos, archivadores, calendarios y material interno.",
+                "Señalización y presencia: placa de dirección y letras corpóreas para reforzar la visibilidad del negocio."
+              ],
+              "ordered": false
             }
           ]
         }
@@ -654,7 +723,7 @@
     },
     {
       "id": "11",
-      "updatedAt": "2026-04-14T09:22:04Z",
+      "updatedAt": "2026-04-15T08:57:40Z",
       "type": "subcategoria",
       "slug": "material-publicitario",
       "path": "/categorias/publicidad-oficina/material-publicitario",
@@ -673,14 +742,8 @@
           "id": "details",
           "key": "details",
           "title": "Detalles y características",
-          "body": "## Conoce las características de los productos de publicidad\n\nLos productos de publicidad deben captar la atención de forma rápida, transmitir el mensaje con claridad y reforzar la presencia de marca en acciones promocionales, campañas comerciales y entornos de punto de venta. Además de resultar visualmente atractivos, deben estar bien adaptados al contexto en el que se van a utilizar.\n\nPara que cada pieza funcione correctamente, es importante elegir el tipo de producto, el formato, el soporte y el acabado según el canal y el uso previsto. No requiere la misma solución un material pensado para reparto promocional, una acción de mailing o una pieza destinada a exposición en tienda.\n\nTrabajamos los productos de publicidad teniendo en cuenta el impacto visual, la funcionalidad y la calidad de acabado, para que cada elemento ayude a comunicar mejor, genere respuesta y proyecte una imagen profesional y coherente.",
+          "body": "Los productos de publicidad deben captar la atención de forma rápida, transmitir el mensaje con claridad y reforzar la presencia de marca en acciones promocionales, campañas comerciales y entornos de punto de venta. Además de resultar visualmente atractivos, deben estar bien adaptados al contexto en el que se van a utilizar.\n\nPara que cada pieza funcione correctamente, es importante elegir el tipo de producto, el formato, el soporte y el acabado según el canal y el uso previsto. No requiere la misma solución un material pensado para reparto promocional, una acción de mailing o una pieza destinada a exposición en tienda.\n\nTrabajamos los productos de publicidad teniendo en cuenta el impacto visual, la funcionalidad y la calidad de acabado, para que cada elemento ayude a comunicar mejor, genere respuesta y proyecte una imagen profesional y coherente.",
           "blocks": [
-            {
-              "type": "text",
-              "text": "<h2>Conoce las características de los productos de publicidad</h2>",
-              "html": true,
-              "format": "html"
-            },
             {
               "type": "text",
               "text": "Los productos de publicidad deben captar la atención de forma rápida, transmitir el mensaje con claridad y reforzar la presencia de marca en acciones promocionales, campañas comerciales y entornos de punto de venta. Además de resultar visualmente atractivos, deben estar bien adaptados al contexto en el que se van a utilizar.",
@@ -699,23 +762,82 @@
           ]
         },
         {
-          "id": "overview",
-          "key": "overview",
-          "title": "Información adicional",
-          "body": "### Cómo trabajamos\n\nTe ayudamos a definir, producir y entregar el material más adecuado según el uso, el canal y el resultado que necesitas.",
-          "blocks": [
+          "id": "types",
+          "key": "types",
+          "title": "Tipos",
+          "body": "",
+          "blocks": [],
+          "items": [
             {
-              "type": "text",
-              "text": "<h3>Cómo trabajamos</h3>",
-              "html": true,
-              "format": "html"
+              "title": "Publicidad para captar y promocionar",
+              "description": "Piezas como flyers, folletos plegados, posters, postales e invitaciones pensadas para generar impacto inmediato, con buena legibilidad, información bien ordenada y color consistente con la marca.",
+              "features": [
+                "Promocional",
+                "Legible",
+                "Impacto visual"
+              ],
+              "idealFor": "Campañas, invitaciones y comunicación comercial"
             },
             {
-              "type": "text",
-              "text": "Te ayudamos a definir, producir y entregar el material más adecuado según el uso, el canal y el resultado que necesitas.",
-              "html": false
+              "title": "Punto de venta y retail",
+              "description": "Materiales como displays de mesa, stoppers, banderolas de lineal y tiras de lineal diseñados para destacar en el momento de decisión, con estabilidad, lectura a distancia y resistencia al roce.",
+              "features": [
+                "Retail",
+                "Visible",
+                "Resistente"
+              ],
+              "idealFor": "Lineales, promociones en tienda y exposición de producto"
+            },
+            {
+              "title": "Acciones especiales y fidelización",
+              "description": "Productos como tarjetas rasca, tarjetas de PVC, imanes o puntos de libro pensados para diferenciarse, durar más y reforzar la relación con el cliente.",
+              "features": [
+                "Duradero",
+                "Personalizable",
+                "Diferencial"
+              ],
+              "idealFor": "Promociones, fidelización y campañas especiales"
+            },
+            {
+              "title": "Packaging y etiquetado",
+              "description": "Etiquetas colgantes y piezas de etiquetado diseñadas para ser funcionales, resistentes y coherentes con el producto y la imagen de marca.",
+              "features": [
+                "Funcional",
+                "Coherente",
+                "Resistente"
+              ],
+              "idealFor": "Producto, packaging y presentación en punto de venta"
             }
           ]
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "body": "",
+          "blocks": [],
+          "formatsData": {
+            "intro": "Definimos el formato, el soporte y el material según el canal de distribución, el tipo de exposición, la estabilidad necesaria y el impacto visual que se busca en cada pieza.",
+            "shapes": [
+              {
+                "title": "Medidas estándar o a medida",
+                "description": "Trabajamos desde formatos habituales como A6, A5 o A4 hasta tamaños especiales según el canal de uso, ya sea reparto, mostrador o mailing."
+              },
+              {
+                "title": "Formas personalizadas",
+                "description": "Realizamos flyers con forma y piezas troqueladas para campañas que buscan un mayor impacto visual y una presentación más diferencial."
+              },
+              {
+                "title": "Soportes para mostrador y lineal",
+                "description": "Seleccionamos materiales pensados para mantenerse visibles, estables y con buena presencia en displays, expositores y acciones de retail."
+              },
+              {
+                "title": "Materiales especiales",
+                "description": "También trabajamos PVC para tarjetas duraderas de fidelización o acceso, cuando el proyecto requiere mayor resistencia y vida útil."
+              }
+            ],
+            "deliveryFormats": []
+          }
         },
         {
           "id": "finishes",
@@ -900,7 +1022,7 @@
     },
     {
       "id": "2",
-      "updatedAt": "2026-04-14T17:56:38Z",
+      "updatedAt": "2026-04-15T08:49:06Z",
       "type": "categoria",
       "slug": "adhesivos-personalizados",
       "path": "/categorias/adhesivos-personalizados",
@@ -954,25 +1076,6 @@
           ]
         },
         {
-          "id": "overview",
-          "key": "overview",
-          "title": "Información adicional",
-          "body": "### Cómo trabajamos\n\nTe acompañamos desde la definición del adhesivo y la revisión del archivo hasta la producción y la entrega final.",
-          "blocks": [
-            {
-              "type": "text",
-              "text": "<h3>Cómo trabajamos</h3>",
-              "html": true,
-              "format": "html"
-            },
-            {
-              "type": "text",
-              "text": "Te acompañamos desde la definición del adhesivo y la revisión del archivo hasta la producción y la entrega final.",
-              "html": false
-            }
-          ]
-        },
-        {
           "id": "types",
           "key": "types",
           "title": "Tipos",
@@ -983,7 +1086,7 @@
               "title": "Pegatinas en papel",
               "description": "Adhesivo personalizado económico para uso interior, promociones, etiquetas y packaging con buena calidad de impresión.",
               "features": [
-                "m",
+                "Ecológico",
                 "Económico",
                 "Packaging"
               ],
@@ -1104,6 +1207,24 @@
                 "**Barniz selectivo**: resalta logotipos o zonas concretas para conseguir un efecto visual más premium.",
                 "**Acabado soft touch**: ofrece un tacto aterciopelado, ideal para packaging y piezas de marca con una presentación más cuidada.",
                 "**Refuerzo para exterior**: según el material y el uso, mejora la durabilidad en aplicaciones expuestas a condiciones más exigentes."
+              ],
+              "ordered": false
+            }
+          ]
+        },
+        {
+          "id": "applications",
+          "key": "applications",
+          "title": "Aplicaciones",
+          "body": "- **Etiquetas para cosmética, alimentación, bebidas y ecommerce**: una solución práctica para identificar el producto, reforzar la marca y cuidar la presentación.\n- **Stickers para eventos, acciones promocionales y street marketing**: ideales para campañas de visibilidad, reparto y acciones de marca.\n- **Vinilos para escaparates, paredes y señalización**: pensados para la comunicación visual en tiendas, oficinas y espacios comerciales.\n- **Identificación de paquetes, cajas, carpetas y material corporativo**: útil para organización interna, etiquetado profesional e imagen de marca.",
+          "blocks": [
+            {
+              "type": "bullets",
+              "items": [
+                "**Etiquetas para cosmética, alimentación, bebidas y ecommerce**: una solución práctica para identificar el producto, reforzar la marca y cuidar la presentación.",
+                "**Stickers para eventos, acciones promocionales y street marketing**: ideales para campañas de visibilidad, reparto y acciones de marca.",
+                "**Vinilos para escaparates, paredes y señalización**: pensados para la comunicación visual en tiendas, oficinas y espacios comerciales.",
+                "**Identificación de paquetes, cajas, carpetas y material corporativo**: útil para organización interna, etiquetado profesional e imagen de marca."
               ],
               "ordered": false
             }
@@ -1252,7 +1373,7 @@
     },
     {
       "id": "5",
-      "updatedAt": "2026-04-14T09:16:25Z",
+      "updatedAt": "2026-04-15T08:51:37Z",
       "type": "categoria",
       "slug": "gran-formato",
       "path": "/categorias/gran-formato",
@@ -1269,33 +1390,132 @@
           "id": "details",
           "key": "details",
           "title": "Detalles y características",
-          "body": "Conoce las características del gran formato\nEl gran formato no es solo “imprimir grande”: es elegir bien material + adhesivo (si aplica) + acabado para que la gráfica se vea impecable y tenga la resistencia que necesitas según la ubicación (interior/exterior), la superficie (cristal, pared, suelo, vehículo…) y el tiempo de uso. Un buen gran formato se nota en tres cosas: impacto visual, durabilidad y facilidad de instalación.",
+          "body": "El gran formato no es solo “imprimir grande”: es elegir bien material + adhesivo (si aplica) + acabado para que la gráfica se vea impecable y tenga la resistencia que necesitas según la ubicación (interior/exterior), la superficie (cristal, pared, suelo, vehículo…) y el tiempo de uso. Un buen gran formato se nota en tres cosas: impacto visual, durabilidad y facilidad de instalación.",
           "blocks": [
             {
               "type": "text",
-              "text": "Conoce las características del gran formato\nEl gran formato no es solo “imprimir grande”: es elegir bien material + adhesivo (si aplica) + acabado para que la gráfica se vea impecable y tenga la resistencia que necesitas según la ubicación (interior/exterior), la superficie (cristal, pared, suelo, vehículo…) y el tiempo de uso. Un buen gran formato se nota en tres cosas: impacto visual, durabilidad y facilidad de instalación.",
+              "text": "El gran formato no es solo “imprimir grande”: es elegir bien material + adhesivo (si aplica) + acabado para que la gráfica se vea impecable y tenga la resistencia que necesitas según la ubicación (interior/exterior), la superficie (cristal, pared, suelo, vehículo…) y el tiempo de uso. Un buen gran formato se nota en tres cosas: impacto visual, durabilidad y facilidad de instalación.",
               "html": false
             }
           ]
         },
         {
-          "id": "overview",
-          "key": "overview",
-          "title": "Información adicional",
-          "body": "### Cómo trabajamos\n\nTe ayudamos a elegir, producir y entregar la solución gráfica más adecuada según la superficie, la ubicación y la duración prevista.",
-          "blocks": [
+          "id": "types",
+          "key": "types",
+          "title": "Tipos",
+          "body": "",
+          "blocks": [],
+          "items": [
             {
-              "type": "text",
-              "text": "<h3>Cómo trabajamos</h3>",
-              "html": true,
-              "format": "html"
+              "title": "Vinilos adhesivos",
+              "description": "Soluciones versátiles para pared y superficies planas, cristal, suelo, vehículo y aplicaciones especiales, donde la elección del vinilo depende de la superficie, la exposición y el efecto buscado.",
+              "features": [
+                "Versátil",
+                "Adhesivo",
+                "Multisuperficie"
+              ],
+              "idealFor": "Rotulación, campañas temporales, señalización y decoración"
             },
             {
-              "type": "text",
-              "text": "Te ayudamos a elegir, producir y entregar la solución gráfica más adecuada según la superficie, la ubicación y la duración prevista.",
-              "html": false
+              "title": "Lonas y banderolas",
+              "description": "Piezas orientadas a la visibilidad a distancia y a la comunicación en gran formato, con soluciones para fachada y sistemas luminosos según la instalación.",
+              "features": [
+                "Gran formato",
+                "Exterior",
+                "Visible"
+              ],
+              "idealFor": "Fachadas, promociones y comunicación de alto impacto"
+            },
+            {
+              "title": "Papel de pared y decoración",
+              "description": "Material pensado para interiores comerciales, oficinas y espacios de marca, con un acabado cuidado y una fuerte presencia visual en gran superficie.",
+              "features": [
+                "Interior",
+                "Decorativo",
+                "Impacto visual"
+              ],
+              "idealFor": "Oficinas, retail y espacios de marca"
+            },
+            {
+              "title": "Textil o tela poliéster",
+              "description": "Soporte ligero, transportable y con buen resultado visual, ideal para montajes y desmontajes frecuentes en ferias, eventos y acciones promocionales.",
+              "features": [
+                "Ligero",
+                "Transportable",
+                "Textil"
+              ],
+              "idealFor": "Ferias, eventos y gráficas reutilizables"
+            },
+            {
+              "title": "Retroiluminados",
+              "description": "Gráficas preparadas para cajas de luz y soportes iluminados desde detrás, donde es fundamental una reproducción uniforme para lograr una iluminación homogénea.",
+              "features": [
+                "Backlight",
+                "Uniforme",
+                "Luminoso"
+              ],
+              "idealFor": "Cajas de luz, retail y espacios con alta visibilidad"
+            },
+            {
+              "title": "Cartelería",
+              "description": "Posters y carteles de gran tamaño, incluida cartelería inmobiliaria, diseñados para captar atención y comunicar con máxima legibilidad.",
+              "features": [
+                "Legible",
+                "Visible",
+                "Promocional"
+              ],
+              "idealFor": "Promoción, inmobiliaria y comunicación visual"
+            },
+            {
+              "title": "Imanes",
+              "description": "Una opción práctica para superficies metálicas y comunicaciones temporales, especialmente útil cuando necesitas colocar y retirar sin adhesivo.",
+              "features": [
+                "Magnético",
+                "Temporal",
+                "Sin adhesivo"
+              ],
+              "idealFor": "Vehículos, superficies metálicas y campañas temporales"
+            },
+            {
+              "title": "Soportes rígidos",
+              "description": "Materiales como foam, Forex, Dibond, nido de abeja, Dispa, cartón, metacrilato, madera o enmarcados, recomendados cuando buscas cuerpo, estabilidad y presencia.",
+              "features": [
+                "Rígido",
+                "Estable",
+                "Presencia"
+              ],
+              "idealFor": "Señalética, displays y puntos de información"
             }
           ]
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "body": "",
+          "blocks": [],
+          "formatsData": {
+            "intro": "Definimos el formato y el soporte según el tamaño de la pieza, el entorno de uso, la superficie de aplicación y el tipo de instalación previsto.",
+            "shapes": [
+              {
+                "title": "Medidas estándar o a medida",
+                "description": "Producimos desde formatos habituales hasta piezas completamente personalizadas. Si el tamaño lo requiere, puede resolverse en una o varias piezas para facilitar el transporte y la instalación."
+              },
+              {
+                "title": "Interior o exterior",
+                "description": "El entorno de uso determina el material y la tinta más adecuada, especialmente en aplicaciones exteriores expuestas al sol, la lluvia y los cambios de temperatura."
+              },
+              {
+                "title": "Superficie de aplicación",
+                "description": "No es lo mismo aplicar la pieza sobre una pared lisa, un cristal, un suelo o un vehículo. En vinilo es fundamental elegir el material y el adhesivo correctos para asegurar una buena instalación y la durabilidad esperada."
+              },
+              {
+                "title": "Soportes rígidos para señalética y displays",
+                "description": "Cuando necesitas carteles más permanentes o piezas con mayor estabilidad, los materiales rígidos son una opción sólida y adecuada para señalización, comunicación visual y expositores."
+              }
+            ],
+            "deliveryFormats": []
+          }
         },
         {
           "id": "finishes",
@@ -1311,6 +1531,26 @@
                 "Refuerzos para lona: dobladillo, ojales, vaina o refuerzo perimetral según cómo vaya instalada (fachada, tensado, puntos de anclaje, etc.).",
                 "Corte a medida / troquelado: contornos especiales en vinilos, displays o piezas promocionales para adaptar la gráfica al soporte o crear formatos con forma.",
                 "Opciones de montaje (según producto): enmarcados, sistemas luminosos, adhesivos específicos y soluciones pensadas para dejar la pieza lista para instalar."
+              ],
+              "ordered": false
+            }
+          ]
+        },
+        {
+          "id": "applications",
+          "key": "applications",
+          "title": "Aplicaciones",
+          "body": "•\tEscaparates y retail: vinilos de cristal, campañas promocionales y rotulación temporal.\n•\tSeñalética: indicaciones, normas, zonas, precios, direccionales.\n•\tFerias y eventos: fondos, cartelería grande, rigidez/ligereza según transporte.\n•\tFachadas: banderolas y lonas para máxima visibilidad.\n•\tDecoración corporativa: papel de pared, vinilos de pared y gráficos de marca.\n•\tVehículos: rotulación parcial o completa con vinilo para vehículo.",
+          "blocks": [
+            {
+              "type": "bullets",
+              "items": [
+                "Escaparates y retail: vinilos de cristal, campañas promocionales y rotulación temporal.",
+                "Señalética: indicaciones, normas, zonas, precios, direccionales.",
+                "Ferias y eventos: fondos, cartelería grande, rigidez/ligereza según transporte.",
+                "Fachadas: banderolas y lonas para máxima visibilidad.",
+                "Decoración corporativa: papel de pared, vinilos de pared y gráficos de marca.",
+                "Vehículos: rotulación parcial o completa con vinilo para vehículo."
               ],
               "ordered": false
             }
@@ -1409,7 +1649,7 @@
     },
     {
       "id": "4",
-      "updatedAt": "2026-04-14T09:15:16Z",
+      "updatedAt": "2026-04-15T08:50:38Z",
       "type": "categoria",
       "slug": "expositores",
       "path": "/categorias/expositores",
@@ -1426,14 +1666,8 @@
           "id": "details",
           "key": "details",
           "title": "Detalles y características",
-          "body": "## Conoce las características de los expositores publicitarios\n\nLos expositores publicitarios deben combinar visibilidad, estabilidad y facilidad de montaje para presentar productos, promociones o mensajes de forma clara y atractiva en espacios comerciales, ferias y puntos de venta.\n\nPara que cumplan su función, es importante elegir bien el formato, la estructura, el soporte gráfico y el acabado, teniendo en cuenta el lugar de instalación, la duración de la campaña y el uso previsto. No requiere la misma solución un expositor temporal para una promoción que una pieza pensada para un uso continuado.\n\nTrabajamos los expositores publicitarios con criterios de funcionalidad, resistencia y presentación, para que cada soporte resulte práctico, transmita una imagen profesional y mantenga un buen acabado durante todo el tiempo de exposición.",
+          "body": "Los expositores publicitarios deben combinar visibilidad, estabilidad y facilidad de montaje para presentar productos, promociones o mensajes de forma clara y atractiva en espacios comerciales, ferias y puntos de venta.\n\nPara que cumplan su función, es importante elegir bien el formato, la estructura, el soporte gráfico y el acabado, teniendo en cuenta el lugar de instalación, la duración de la campaña y el uso previsto. No requiere la misma solución un expositor temporal para una promoción que una pieza pensada para un uso continuado.\n\nTrabajamos los expositores publicitarios con criterios de funcionalidad, resistencia y presentación, para que cada soporte resulte práctico, transmita una imagen profesional y mantenga un buen acabado durante todo el tiempo de exposición.",
           "blocks": [
-            {
-              "type": "text",
-              "text": "<h2>Conoce las características de los expositores publicitarios</h2>",
-              "html": true,
-              "format": "html"
-            },
             {
               "type": "text",
               "text": "Los expositores publicitarios deben combinar visibilidad, estabilidad y facilidad de montaje para presentar productos, promociones o mensajes de forma clara y atractiva en espacios comerciales, ferias y puntos de venta.",
@@ -1452,23 +1686,116 @@
           ]
         },
         {
-          "id": "overview",
-          "key": "overview",
-          "title": "Información adicional",
-          "body": "### Cómo trabajamos\n\nTe ayudamos a definir, producir y entregar el expositor más adecuado según el espacio, el uso y la fecha del evento.",
-          "blocks": [
+          "id": "types",
+          "key": "types",
+          "title": "Tipos",
+          "body": "",
+          "blocks": [],
+          "items": [
             {
-              "type": "text",
-              "text": "<h3>Cómo trabajamos</h3>",
-              "html": true,
-              "format": "html"
+              "title": "Expositores enrollables y portátiles",
+              "description": "Soluciones como roll-ups, banners o caballetes pensadas para transportar, montar y desmontar con facilidad, con una presencia visual eficaz y repetible.",
+              "features": [
+                "Portátil",
+                "Rápido montaje",
+                "Reutilizable"
+              ],
+              "idealFor": "Eventos itinerantes, promociones y puntos de venta"
             },
             {
-              "type": "text",
-              "text": "Te ayudamos a definir, producir y entregar el expositor más adecuado según el espacio, el uso y la fecha del evento.",
-              "html": false
+              "title": "Señalización vertical de alto impacto",
+              "description": "Tótems, expositores de suelo y marcos system diseñados para ganar visibilidad en altura, dirigir el flujo de personas y destacar promociones o zonas concretas.",
+              "features": [
+                "Vertical",
+                "Visible",
+                "Impacto"
+              ],
+              "idealFor": "Accesos, recorridos, promociones y espacios de marca"
+            },
+            {
+              "title": "Fondos y sets para fotos",
+              "description": "Photocalls, marcos photocall y cubos pensados para crear un fondo de marca homogéneo, bien tensado y con una gráfica centrada y legible en fotos, prensa o redes.",
+              "features": [
+                "Photocall",
+                "Sin arrugas",
+                "Imagen de marca"
+              ],
+              "idealFor": "Eventos, prensa, activaciones y redes sociales"
+            },
+            {
+              "title": "Visibilidad exterior",
+              "description": "Banderolas y banner golf concebidos para captar atención en zonas abiertas, con sistemas y refuerzos adaptados a la ubicación y a las condiciones de viento.",
+              "features": [
+                "Exterior",
+                "Captación",
+                "Resistente"
+              ],
+              "idealFor": "Acciones al aire libre, accesos y ferias exteriores"
+            },
+            {
+              "title": "Iluminación y acabados premium",
+              "description": "Cajas de luz textiles o rígidas que aportan un extra de impacto visual gracias al efecto retroiluminado y a una presentación más premium.",
+              "features": [
+                "Retroiluminado",
+                "Premium",
+                "Alto impacto"
+              ],
+              "idealFor": "Ferias, retail y espacios comerciales con alta competencia visual"
+            },
+            {
+              "title": "Punto de venta y mostrador",
+              "description": "Expositores de mesa y displays compactos pensados para producto, ofertas o información, con buena lectura a corta distancia y rigidez adecuada.",
+              "features": [
+                "Compacto",
+                "Mostrador",
+                "Buena lectura"
+              ],
+              "idealFor": "Retail, recepción, promociones y exposición de producto"
+            },
+            {
+              "title": "Soluciones específicas",
+              "description": "Piezas funcionales como cubrealarmas, contenedores de reciclaje o elementos estacionales personalizados para mantener una estética de marca coherente.",
+              "features": [
+                "Personalizado",
+                "Funcional",
+                "Corporativo"
+              ],
+              "idealFor": "Elementos técnicos, campañas temáticas y espacios corporativos"
             }
           ]
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "body": "",
+          "blocks": [],
+          "formatsData": {
+            "intro": "Definimos el formato, el soporte y el sistema de montaje según el espacio disponible, la distancia de lectura, el entorno de uso y el nivel de presencia que necesita la pieza.",
+            "shapes": [
+              {
+                "title": "Medidas estándar o a medida",
+                "description": "Se definen en función del espacio disponible y, sobre todo, de la distancia de lectura. Un mensaje pensado para 2 metros no se diseña igual que uno para 10."
+              },
+              {
+                "title": "Interior o exterior",
+                "description": "Condiciona el material, la protección y la estructura. En exterior se valora especialmente la resistencia al sol, la humedad y el viento, además de una base o estructura estable."
+              },
+              {
+                "title": "Soportes flexibles",
+                "description": "Lona, textil, vinilo o backlit. Son ideales para sistemas enrollables, banderolas, photocalls textiles y cajas de luz, ya que permiten transporte cómodo y grandes formatos con buen impacto visual."
+              },
+              {
+                "title": "Soportes rígidos",
+                "description": "PVC, Forex, cartón pluma, Dibond y otros materiales similares. Se recomiendan cuando necesitas cuerpo, estabilidad o piezas autoportantes con mayor presencia."
+              },
+              {
+                "title": "Sistemas y montaje",
+                "description": "Estructuras, marcos, bases, perfiles y tensado. Aquí se decide gran parte del resultado profesional: un buen tensado evita arrugas, una base correcta evita vuelcos y un marco adecuado mejora la percepción de calidad."
+              }
+            ],
+            "deliveryFormats": []
+          }
         },
         {
           "id": "finishes",
@@ -1483,6 +1810,25 @@
                 "Refuerzos para exterior: dobladillos, refuerzo perimetral, ojales o vaina cuando aplica, para asegurar fijación y resistencia en montajes expuestos.",
                 "Corte a medida / troquelado: perfecto para displays y elementos promocionales con forma personalizada, aportando diferenciación sin perder funcionalidad.",
                 "Impresión a una o dos caras: según el tipo de expositor y su ubicación, puedes optar por visibilidad frontal o doble cara (por ejemplo, en zonas de paso)."
+              ],
+              "ordered": false
+            }
+          ]
+        },
+        {
+          "id": "applications",
+          "key": "applications",
+          "title": "Aplicaciones",
+          "body": "•\tFerias y congresos: señalización de stand, promociones, lanzamientos.\n•\tPunto de venta: comunicación de campañas, ofertas, novedades.\n•\tEventos y photocalls: fondos de marca, patrocinadores, prensa.\n•\tSeñalética interna: dirección, normas, itinerarios, información.\n•\tCampañas estacionales: Navidad, rebajas, promociones temporales.",
+          "blocks": [
+            {
+              "type": "bullets",
+              "items": [
+                "Ferias y congresos: señalización de stand, promociones, lanzamientos.",
+                "Punto de venta: comunicación de campañas, ofertas, novedades.",
+                "Eventos y photocalls: fondos de marca, patrocinadores, prensa.",
+                "Señalética interna: dirección, normas, itinerarios, información.",
+                "Campañas estacionales: Navidad, rebajas, promociones temporales."
               ],
               "ordered": false
             }
@@ -1657,7 +2003,7 @@
     },
     {
       "id": "7",
-      "updatedAt": "2026-04-14T09:18:57Z",
+      "updatedAt": "2026-04-15T08:53:32Z",
       "type": "categoria",
       "slug": "libros-revistas-catalogos",
       "path": "/categorias/libros-revistas-catalogos",
@@ -1684,23 +2030,94 @@
           ]
         },
         {
-          "id": "overview",
-          "key": "overview",
-          "title": "Información adicional",
-          "body": "### Cómo trabajamos\n\nTe ayudamos a definir, producir y entregar la publicación más adecuada según el formato, el uso previsto y la imagen que quieres transmitir.",
-          "blocks": [
+          "id": "types",
+          "key": "types",
+          "title": "Tipos",
+          "body": "",
+          "blocks": [],
+          "items": [
             {
-              "type": "text",
-              "text": "<h3>Cómo trabajamos</h3>",
-              "html": true,
-              "format": "html"
+              "title": "Catálogos",
+              "description": "Piezas pensadas para presentar productos o servicios con una estructura clara, buena presencia visual y materiales adecuados para un uso comercial continuado.",
+              "features": [
+                "Comercial",
+                "Estructurado",
+                "Buena presencia"
+              ],
+              "idealFor": "Visitas comerciales, ferias, showrooms y presentación de producto"
             },
             {
-              "type": "text",
-              "text": "Te ayudamos a definir, producir y entregar la publicación más adecuada según el formato, el uso previsto y la imagen que quieres transmitir.",
-              "html": false
+              "title": "Revistas",
+              "description": "Publicaciones periódicas o promocionales, internas o de marca, donde se busca equilibrar ligereza, buena lectura y un acabado alineado con la identidad visual.",
+              "features": [
+                "Periódico",
+                "Ligero",
+                "Visual"
+              ],
+              "idealFor": "Comunicación de marca, eventos y publicaciones promocionales"
+            },
+            {
+              "title": "Libros",
+              "description": "Soluciones para contenidos corporativos, formativos o ediciones especiales, en las que la durabilidad, el lomo y el tipo de encuadernación tienen un papel clave.",
+              "features": [
+                "Duradero",
+                "Editorial",
+                "Encuadernado"
+              ],
+              "idealFor": "Ediciones corporativas, formación y publicaciones especiales"
+            },
+            {
+              "title": "Manuales y dossiers",
+              "description": "Documentación técnica, guías, memorias y presentaciones pensadas para facilitar la consulta, la organización del contenido y el uso frecuente.",
+              "features": [
+                "Claro",
+                "Práctico",
+                "Consulta frecuente"
+              ],
+              "idealFor": "Guías, documentación técnica, memorias y presentaciones"
             }
           ]
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "body": "",
+          "blocks": [],
+          "formatsData": {
+            "intro": "Definimos el formato, la encuadernación y los papeles según el volumen de contenido, el uso previsto, la presentación deseada y la experiencia de lectura que necesita la publicación.",
+            "shapes": [
+              {
+                "title": "Tamaños habituales y a medida",
+                "description": "Trabajamos formatos como A4, A5, cuadrado o medidas personalizadas. El tamaño se define según el contenido, el canal de uso y la comodidad de lectura."
+              },
+              {
+                "title": "Encuadernación grapada",
+                "description": "La encuadernación tipo caballito es ideal para revistas finas y catálogos con pocas páginas. Es ligera, práctica y muy habitual en publicaciones periódicas."
+              },
+              {
+                "title": "Encuadernación fresada",
+                "description": "La encuadernación rústica o encolada aporta una presencia más sólida, tipo libro, y resulta muy adecuada para catálogos y publicaciones con mayor número de páginas."
+              },
+              {
+                "title": "Cosido y tapa dura",
+                "description": "Pensado para libros y ediciones premium que requieren mayor durabilidad, una mejor apertura y un acabado más editorial."
+              },
+              {
+                "title": "Espiral o Wire-O",
+                "description": "Es una opción muy práctica para manuales, recetarios o documentos de consulta, ya que permite abrir la publicación cómodamente y mantenerla plana."
+              },
+              {
+                "title": "Papeles interiores",
+                "description": "Offset, estucados mate o brillo, reciclados y otras opciones según el proyecto. El papel influye en el tacto, la lectura y el comportamiento del color."
+              },
+              {
+                "title": "Cubiertas",
+                "description": "Utilizamos cartulinas gráficas y papeles estucados de mayor gramaje para aportar rigidez y presencia, con posibilidad de acabados texturados para una imagen más diferenciada."
+              }
+            ],
+            "deliveryFormats": []
+          }
         },
         {
           "id": "finishes",
@@ -1717,6 +2134,26 @@
                 "Stamping: detalle premium para portadas, ideal si buscas un impacto visual distintivo.",
                 "Relieve en seco (gofrado): aporta volumen y presencia sin necesidad de tinta adicional; muy útil en cubiertas corporativas.",
                 "Solapas: especialmente en rústica, mejoran la presentación y la funcionalidad (información extra, marca, protección de cantos)."
+              ],
+              "ordered": false
+            }
+          ]
+        },
+        {
+          "id": "applications",
+          "key": "applications",
+          "title": "Aplicaciones",
+          "body": "•\tCatálogos de producto (colecciones, tarifas, campañas) \n•\tRevistas corporativas o internas (comunicación, cultura de empresa) \n•\tMemorias anuales y documentación institucional \n•\tManuales de uso y formación \n•\tLookbooks y portfolios para marcas creativas \n•\tPresentaciones comerciales y dossiers de ventas",
+          "blocks": [
+            {
+              "type": "bullets",
+              "items": [
+                "Catálogos de producto (colecciones, tarifas, campañas)",
+                "Revistas corporativas o internas (comunicación, cultura de empresa)",
+                "Memorias anuales y documentación institucional",
+                "Manuales de uso y formación",
+                "Lookbooks y portfolios para marcas creativas",
+                "Presentaciones comerciales y dossiers de ventas"
               ],
               "ordered": false
             }
@@ -1818,7 +2255,7 @@
     },
     {
       "id": "3",
-      "updatedAt": "2026-04-14T17:47:50Z",
+      "updatedAt": "2026-04-15T08:49:25Z",
       "type": "categoria",
       "slug": "eventos",
       "path": "/categorias/eventos",
@@ -1850,21 +2287,71 @@
           ]
         },
         {
-          "id": "overview",
-          "key": "overview",
-          "title": "Información adicional",
-          "body": "### Cómo trabajamos\n\nTe ayudamos a preparar, producir y entregar el material gráfico del evento para que cada pieza llegue lista y a tiempo.",
-          "blocks": [
+          "id": "types",
+          "key": "types",
+          "title": "Tipos",
+          "body": "",
+          "blocks": [],
+          "items": [
             {
-              "type": "text",
-              "text": "<h3>Cómo trabajamos</h3>",
-              "html": true,
-              "format": "html"
+              "title": "Cartelería y promoción",
+              "description": "Piezas pensadas para informar, atraer y reforzar la comunicación del evento, como flyers, folletos, pósters, trípticos, invitaciones, entradas, tarjetas rasca, cupones promocionales o fundas especiales.",
+              "features": [
+                "Promocional",
+                "Legible",
+                "Imagen de marca"
+              ],
+              "idealFor": "Flyers, invitaciones, entradas y materiales de difusión"
             },
             {
-              "type": "text",
-              "text": "Te ayudamos a preparar, producir y entregar el material gráfico del evento para que cada pieza llegue lista y a tiempo.",
-              "html": false
+              "title": "Stands y gran formato",
+              "description": "Elementos que construyen el espacio de marca, como roll-ups, X-banners, lonas, photocalls o tótems, donde la estabilidad, la presencia visual y un montaje correcto son fundamentales.",
+              "features": [
+                "Gran formato",
+                "Impacto visual",
+                "Montaje"
+              ],
+              "idealFor": "Ferias, congresos, photocalls y espacios expositivos"
+            },
+            {
+              "title": "Señalética",
+              "description": "Soluciones visuales para guiar, ordenar e informar dentro del evento, incluyendo vinilos de pared o suelo, flechas, indicadores, carteles informativos y dorsales.",
+              "features": [
+                "Orientación",
+                "Lectura rápida",
+                "Resistente"
+              ],
+              "idealFor": "Recorridos, accesos, zonas internas y gestión de flujos"
+            },
+            {
+              "title": "Identificación",
+              "description": "Elementos como acreditaciones, tarjetas, lanyards, nombres de sobremesa o identificadores personales, diseñados para ser claros, cómodos y resistentes durante toda la jornada.",
+              "features": [
+                "Identificación",
+                "Cómodo",
+                "Duradero"
+              ],
+              "idealFor": "Staff, asistentes, ponentes y control de accesos"
+            },
+            {
+              "title": "Material corporativo",
+              "description": "Piezas impresas con acabado cuidado, como carpetas, catálogos, tarjetas, diplomas o minutas, alineadas con la imagen y el tono visual de la marca.",
+              "features": [
+                "Corporativo",
+                "Cuidado visual",
+                "Presentación"
+              ],
+              "idealFor": "Documentación, entregas, presentaciones y branding"
+            },
+            {
+              "title": "Merchandising impreso",
+              "description": "Productos impresos de apoyo promocional, como pegatinas, etiquetas, premios personalizados o abanicos, pensados para generar impacto visual y adaptarse al uso previsto.",
+              "features": [
+                "Promocional",
+                "Visual",
+                "Versátil"
+              ],
+              "idealFor": "Acciones promocionales, reparto y recuerdo de marca"
             }
           ]
         },
@@ -1917,6 +2404,25 @@
               }
             ]
           }
+        },
+        {
+          "id": "applications",
+          "key": "applications",
+          "title": "Aplicaciones",
+          "body": "•\tFerias y congresos: stands, photocall, señalización y material promocional.\n•\tEventos corporativos: presentaciones, formaciones, convenciones internas.\n•\tPuntos de venta e inauguraciones: vinilos, carteles, displays y promociones.\n•\tEventos culturales/deportivos: entradas, acreditaciones, programas, cartelería.\n•\tAcciones de marca: campañas temporales, activaciones y street marketing.",
+          "blocks": [
+            {
+              "type": "bullets",
+              "items": [
+                "Ferias y congresos: stands, photocall, señalización y material promocional.",
+                "Eventos corporativos: presentaciones, formaciones, convenciones internas.",
+                "Puntos de venta e inauguraciones: vinilos, carteles, displays y promociones.",
+                "Eventos culturales/deportivos: entradas, acreditaciones, programas, cartelería.",
+                "Acciones de marca: campañas temporales, activaciones y street marketing."
+              ],
+              "ordered": false
+            }
+          ]
         }
       ],
       "image": {
@@ -2079,7 +2585,7 @@
     },
     {
       "id": "9",
-      "updatedAt": "2026-04-14T09:20:38Z",
+      "updatedAt": "2026-04-15T08:55:49Z",
       "type": "categoria",
       "slug": "publicidad-oficina",
       "path": "/categorias/publicidad-oficina",
@@ -2096,14 +2602,8 @@
           "id": "details",
           "key": "details",
           "title": "Detalles y características",
-          "body": "## Conoce las características de los productos de publicidad y oficina\n\nLos productos de publicidad y oficina deben ayudar a comunicar de forma clara, transmitir una imagen cuidada y mantener la coherencia visual de la marca en contextos muy distintos, desde acciones promocionales hasta el uso cotidiano de la papelería corporativa.\n\nPara que cada pieza cumpla bien su función, es importante elegir correctamente el tipo de producto, el formato, el soporte y el acabado según el uso previsto. No requiere la misma solución un material pensado para captar atención en punto de venta o reparto promocional que una pieza de oficina destinada a documentación, organización interna o uso diario.\n\nTrabajamos los productos de publicidad y oficina teniendo en cuenta la funcionalidad, la presentación y la durabilidad, para que cada elemento resulte práctico, refuerce la identidad de marca y ofrezca un acabado profesional en cualquier aplicación.",
+          "body": "Los productos de publicidad y oficina deben ayudar a comunicar de forma clara, transmitir una imagen cuidada y mantener la coherencia visual de la marca en contextos muy distintos, desde acciones promocionales hasta el uso cotidiano de la papelería corporativa.\n\nPara que cada pieza cumpla bien su función, es importante elegir correctamente el tipo de producto, el formato, el soporte y el acabado según el uso previsto. No requiere la misma solución un material pensado para captar atención en punto de venta o reparto promocional que una pieza de oficina destinada a documentación, organización interna o uso diario.\n\nTrabajamos los productos de publicidad y oficina teniendo en cuenta la funcionalidad, la presentación y la durabilidad, para que cada elemento resulte práctico, refuerce la identidad de marca y ofrezca un acabado profesional en cualquier aplicación.",
           "blocks": [
-            {
-              "type": "text",
-              "text": "<h2>Conoce las características de los productos de publicidad y oficina</h2>",
-              "html": true,
-              "format": "html"
-            },
             {
               "type": "text",
               "text": "Los productos de publicidad y oficina deben ayudar a comunicar de forma clara, transmitir una imagen cuidada y mantener la coherencia visual de la marca en contextos muy distintos, desde acciones promocionales hasta el uso cotidiano de la papelería corporativa.",
@@ -2122,23 +2622,116 @@
           ]
         },
         {
-          "id": "overview",
-          "key": "overview",
-          "title": "Información adicional",
-          "body": "### Cómo trabajamos\n\nTe ayudamos a definir, producir y entregar el material más adecuado según el uso, la cantidad y el resultado que necesitas.",
-          "blocks": [
+          "id": "types",
+          "key": "types",
+          "title": "Tipos",
+          "body": "",
+          "blocks": [],
+          "items": [
             {
-              "type": "text",
-              "text": "<h3>Cómo trabajamos</h3>",
-              "html": true,
-              "format": "html"
+              "title": "Publicidad para captar y promocionar",
+              "description": "Piezas como flyers, folletos plegados, posters, postales e invitaciones pensadas para generar impacto inmediato, con información clara, buena legibilidad y una reproducción de color consistente.",
+              "features": [
+                "Promocional",
+                "Legible",
+                "Impacto visual"
+              ],
+              "idealFor": "Campañas, lanzamientos, invitaciones y comunicación comercial"
             },
             {
-              "type": "text",
-              "text": "Te ayudamos a definir, producir y entregar el material más adecuado según el uso, la cantidad y el resultado que necesitas.",
-              "html": false
+              "title": "Punto de venta y retail",
+              "description": "Materiales como displays de mesa, stoppers, banderolas de lineal y tiras de lineal diseñados para destacar en el momento de decisión, con estabilidad, buena lectura y resistencia al uso.",
+              "features": [
+                "Retail",
+                "Visible",
+                "Resistente"
+              ],
+              "idealFor": "Lineales, promociones en tienda y exposición de producto"
+            },
+            {
+              "title": "Acciones especiales y fidelización",
+              "description": "Productos como tarjetas rasca, tarjetas de PVC, imanes o puntos de libro pensados para diferenciarse, durar más y reforzar la relación con el cliente.",
+              "features": [
+                "Personalizable",
+                "Duradero",
+                "Diferencial"
+              ],
+              "idealFor": "Promociones, fidelización y campañas especiales"
+            },
+            {
+              "title": "Packaging y etiquetado",
+              "description": "Etiquetas colgantes y piezas de etiquetado funcionales, diseñadas para integrarse bien con el producto, resistir la manipulación y mantener una imagen cuidada.",
+              "features": [
+                "Funcional",
+                "Coherente",
+                "Resistente"
+              ],
+              "idealFor": "Producto, packaging y presentación en punto de venta"
+            },
+            {
+              "title": "Oficina y marca corporativa",
+              "description": "Tarjetas de visita, papel de carta, sobres, carpetas, archivadores y certificados que transmiten orden, seriedad y coherencia visual con la identidad de marca.",
+              "features": [
+                "Corporativo",
+                "Profesional",
+                "Imagen de marca"
+              ],
+              "idealFor": "Documentación comercial, oficina y representación corporativa"
+            },
+            {
+              "title": "Organización y uso diario",
+              "description": "Blocs, libretas, agendas, calendarios, talonarios autocopiativos y sellos orientados a la practicidad, la claridad de lectura y la resistencia al uso continuado.",
+              "features": [
+                "Práctico",
+                "Uso diario",
+                "Claro"
+              ],
+              "idealFor": "Gestión interna, trabajo diario y documentación operativa"
+            },
+            {
+              "title": "Imagen y señalización",
+              "description": "Elementos como letras corpóreas, pizarras o placas de dirección pensados para aportar visibilidad, presencia y una imagen estable y profesional en el espacio.",
+              "features": [
+                "Señalización",
+                "Presencia",
+                "Profesional"
+              ],
+              "idealFor": "Oficinas, accesos, espacios comerciales y orientación"
             }
           ]
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "body": "",
+          "blocks": [],
+          "formatsData": {
+            "intro": "Definimos el formato, el soporte y el material según el canal de uso, el tipo de exposición, la durabilidad necesaria y el impacto visual que se busca en cada pieza.",
+            "shapes": [
+              {
+                "title": "Medidas estándar o a medida",
+                "description": "Trabajamos desde formatos habituales como A6, A5 o A4 hasta dípticos, trípticos y tamaños especiales, según el canal de distribución o exposición."
+              },
+              {
+                "title": "Formas personalizadas",
+                "description": "Realizamos flyers con forma y piezas troqueladas para campañas con mayor impacto visual o para adaptarse a usos concretos, como acciones en punto de venta."
+              },
+              {
+                "title": "Soportes para mostrador y lineal",
+                "description": "Seleccionamos materiales pensados para mantenerse en pie y conservar su visibilidad sin deformarse, especialmente en displays y piezas de retail."
+              },
+              {
+                "title": "Papeles según el objetivo",
+                "description": "Disponemos de opciones más sobrias y corporativas para entornos de oficina, así como alternativas más visuales para promociones y campañas que necesitan destacar sin perder legibilidad."
+              },
+              {
+                "title": "Materiales especiales",
+                "description": "También trabajamos PVC para tarjetas duraderas, así como soportes más rígidos y estructurales para piezas de imagen, señalización o elementos corpóreos."
+              }
+            ],
+            "deliveryFormats": []
+          }
         },
         {
           "id": "finishes",
@@ -2335,7 +2928,7 @@
     },
     {
       "id": "6",
-      "updatedAt": "2026-04-14T09:18:22Z",
+      "updatedAt": "2026-04-15T08:52:27Z",
       "type": "categoria",
       "slug": "hosteleria-restauracion",
       "path": "/categorias/hosteleria-restauracion",
@@ -2352,14 +2945,8 @@
           "id": "details",
           "key": "details",
           "title": "Detalles y características",
-          "body": "## Conoce las características de los productos para hostelería y restauración\n\nLos productos impresos para hostelería y restauración deben responder bien al uso diario, transmitir una imagen cuidada y facilitar la experiencia del cliente en cada punto de contacto. Además de reforzar la identidad del negocio, deben ofrecer buena legibilidad, comodidad de uso y resistencia frente a la manipulación continua.\n\nPara conseguirlo, es importante elegir correctamente el tipo de pieza, el soporte y el acabado según el espacio en el que se va a utilizar y el nivel de exigencia al que estará expuesta. No requiere la misma solución un material para habitación o recepción que una carta de sala, una pieza para barra, una aplicación para terraza o un soporte pensado para eventos.\n\nTrabajamos los productos para hostelería y restauración teniendo en cuenta la funcionalidad, la durabilidad y la presentación, para que cada elemento resulte práctico, mantenga un buen acabado y proyecte una imagen profesional y coherente en el día a día.",
+          "body": "Los productos impresos para hostelería y restauración deben responder bien al uso diario, transmitir una imagen cuidada y facilitar la experiencia del cliente en cada punto de contacto. Además de reforzar la identidad del negocio, deben ofrecer buena legibilidad, comodidad de uso y resistencia frente a la manipulación continua.\n\nPara conseguirlo, es importante elegir correctamente el tipo de pieza, el soporte y el acabado según el espacio en el que se va a utilizar y el nivel de exigencia al que estará expuesta. No requiere la misma solución un material para habitación o recepción que una carta de sala, una pieza para barra, una aplicación para terraza o un soporte pensado para eventos.\n\nTrabajamos los productos para hostelería y restauración teniendo en cuenta la funcionalidad, la durabilidad y la presentación, para que cada elemento resulte práctico, mantenga un buen acabado y proyecte una imagen profesional y coherente en el día a día.",
           "blocks": [
-            {
-              "type": "text",
-              "text": "<h2>Conoce las características de los productos para hostelería y restauración</h2>",
-              "html": true,
-              "format": "html"
-            },
             {
               "type": "text",
               "text": "Los productos impresos para hostelería y restauración deben responder bien al uso diario, transmitir una imagen cuidada y facilitar la experiencia del cliente en cada punto de contacto. Además de reforzar la identidad del negocio, deben ofrecer buena legibilidad, comodidad de uso y resistencia frente a la manipulación continua.",
@@ -2378,23 +2965,96 @@
           ]
         },
         {
-          "id": "overview",
-          "key": "overview",
-          "title": "Información adicional",
-          "body": "### Cómo trabajamos\n\nTe ayudamos a definir, producir y entregar las piezas más adecuadas según el uso, el espacio y la durabilidad que necesitas en tu actividad diaria.",
-          "blocks": [
+          "id": "types",
+          "key": "types",
+          "title": "Tipos",
+          "body": "",
+          "blocks": [],
+          "items": [
             {
-              "type": "text",
-              "text": "<h3>Cómo trabajamos</h3>",
-              "html": true,
-              "format": "html"
+              "title": "Habitaciones y servicios del hotel",
+              "description": "Incluye dípticos o tarjetas de habitación con información útil como wifi, horarios, servicios o códigos QR, además de colgadores de puerta para mensajes como \"no molestar\" o \"limpieza\".",
+              "features": [
+                "Legible",
+                "Práctico",
+                "Uso repetido"
+              ],
+              "idealFor": "Habitaciones, recepción e información para huéspedes"
             },
             {
-              "type": "text",
-              "text": "Te ayudamos a definir, producir y entregar las piezas más adecuadas según el uso, el espacio y la durabilidad que necesitas en tu actividad diaria.",
-              "html": false
+              "title": "Restaurante y sala",
+              "description": "Cartas de comidas, bebidas o vinos, manteles individuales y portacuentas, con materiales pensados para ofrecer buena presencia, tacto agradable y resistencia al uso continuado.",
+              "features": [
+                "Duradero",
+                "Lavable",
+                "Presentación"
+              ],
+              "idealFor": "Restaurantes, comedores, terrazas y servicio de mesa"
+            },
+            {
+              "title": "Promoción y comunicación rápida",
+              "description": "Tabletents y colgadores de botella pensados para destacar menús del día, sugerencias, QR, reseñas o promociones temporales en puntos de decisión.",
+              "features": [
+                "Visible",
+                "Estable",
+                "Promocional"
+              ],
+              "idealFor": "Mesas, barra, mostrador y acciones promocionales"
+            },
+            {
+              "title": "Eventos y banquetes",
+              "description": "Minutas de boda y piezas impresas para banquetes diseñadas para presentar el menú y acompañar la organización del servicio con un acabado más cuidado.",
+              "features": [
+                "Cuidado visual",
+                "Evento",
+                "Presentación"
+              ],
+              "idealFor": "Bodas, celebraciones, banquetes y eventos especiales"
+            },
+            {
+              "title": "Grupos y organización",
+              "description": "Identificadores de maleta y piezas de organización para excursiones, eventos MICE, bodas y acciones corporativas, con un diseño claro, práctico y alineado con la imagen del establecimiento.",
+              "features": [
+                "Identificación",
+                "Claro",
+                "Corporativo"
+              ],
+              "idealFor": "Grupos, excursiones, eventos y logística de asistentes"
             }
           ]
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "body": "",
+          "blocks": [],
+          "formatsData": {
+            "intro": "Adaptamos el formato y el soporte según el uso previsto, la frecuencia de manipulación, el entorno de colocación y la necesidad de resistencia o facilidad de limpieza.",
+            "shapes": [
+              {
+                "title": "Medidas estándar o a medida",
+                "description": "Adaptamos tamaño y formato a la operativa del espacio, desde carta clásica hasta díptico, sobremesa o tabletent."
+              },
+              {
+                "title": "Soportes rígidos en cartulina",
+                "description": "Aportan buena presencia y facilidad de manejo en piezas como portacuentas, minutas o colgadores, manteniendo forma y rigidez."
+              },
+              {
+                "title": "Opciones más resistentes para uso intensivo",
+                "description": "Para cartas, tabletents o colgadores con alta rotación, seleccionamos materiales y gramajes adecuados para soportar una manipulación continuada."
+              },
+              {
+                "title": "Soluciones lavables",
+                "description": "Para superficies con limpieza frecuente, como mesas o zonas de trabajo, existe la opción de hule personalizado, pensada para un uso práctico y repetido."
+              },
+              {
+                "title": "Plegados y montajes",
+                "description": "Disponemos de dípticos listos para habitación, tabletents autoportantes y formatos preparados para colocar directamente en sala o recepción."
+              }
+            ],
+            "deliveryFormats": []
+          }
         },
         {
           "id": "finishes",
@@ -2410,6 +3070,25 @@
                 "Troquelado: esencial para que colgadores de puerta y colgadores de botellas encajen y funcionen bien (forma precisa y uso cómodo).",
                 "Esquinas redondeadas: aumentan la durabilidad y reducen el desgaste en piezas manipuladas a diario.",
                 "Impresión a una o dos caras: según visibilidad y uso (por ejemplo, información por ambos lados en colgadores o piezas de mesa)."
+              ],
+              "ordered": false
+            }
+          ]
+        },
+        {
+          "id": "applications",
+          "key": "applications",
+          "title": "Aplicaciones",
+          "body": "•\tHoteles y alojamientos: información de habitación (wifi, horarios, servicios, QR), señal de “no molestar”, comunicación de promociones y servicios.\n•\tRestaurantes y bares: cartas claras y resistentes, comunicación de menús del día, sugerencias y campañas en mesa/barra.\n•\tMejorar la experiencia del cliente: coherencia visual y sensación de orden y calidad en cada punto de contacto.\n•\tVentas y upselling: tabletents y colgadores de botellas para destacar recomendaciones y promociones.\n•\tEventos: minutas de boda para presentación cuidada y organización del servicio.",
+          "blocks": [
+            {
+              "type": "bullets",
+              "items": [
+                "Hoteles y alojamientos: información de habitación (wifi, horarios, servicios, QR), señal de “no molestar”, comunicación de promociones y servicios.",
+                "Restaurantes y bares: cartas claras y resistentes, comunicación de menús del día, sugerencias y campañas en mesa/barra.",
+                "Mejorar la experiencia del cliente: coherencia visual y sensación de orden y calidad en cada punto de contacto.",
+                "Ventas y upselling: tabletents y colgadores de botellas para destacar recomendaciones y promociones.",
+                "Eventos: minutas de boda para presentación cuidada y organización del servicio."
               ],
               "ordered": false
             }
@@ -2498,7 +3177,7 @@
     },
     {
       "id": "8",
-      "updatedAt": "2026-04-14T09:19:32Z",
+      "updatedAt": "2026-04-15T08:54:11Z",
       "type": "categoria",
       "slug": "packaging",
       "path": "/categorias/packaging",
@@ -2515,14 +3194,8 @@
           "id": "details",
           "key": "details",
           "title": "Detalles y características",
-          "body": "## Conoce las características del packaging\n\nEl packaging debe cumplir varias funciones a la vez: proteger el contenido, presentar el producto de forma atractiva y facilitar su manipulación, montaje, almacenamiento y envío. No se trata solo del envase en sí, sino de cómo cada solución contribuye a la funcionalidad y a la imagen de marca del conjunto.\n\nPara conseguir un buen resultado, es importante elegir el tipo de estructura, el material y el acabado según el uso previsto, el nivel de protección necesario y la forma en que el packaging va a presentarse o transportarse. No responde igual una caja pensada para presentación corporativa o campañas promocionales que una solución orientada a resistencia, transporte o usos funcionales.\n\nTrabajamos el packaging valorando la versatilidad, la resistencia y la eficiencia de cada formato, para que cada pieza combine una buena presencia, una función práctica y un comportamiento adecuado en todo el proceso de uso y manipulación.",
+          "body": "El packaging debe cumplir varias funciones a la vez: proteger el contenido, presentar el producto de forma atractiva y facilitar su manipulación, montaje, almacenamiento y envío. No se trata solo del envase en sí, sino de cómo cada solución contribuye a la funcionalidad y a la imagen de marca del conjunto.\n\nPara conseguir un buen resultado, es importante elegir el tipo de estructura, el material y el acabado según el uso previsto, el nivel de protección necesario y la forma en que el packaging va a presentarse o transportarse. No responde igual una caja pensada para presentación corporativa o campañas promocionales que una solución orientada a resistencia, transporte o usos funcionales.\n\nTrabajamos el packaging valorando la versatilidad, la resistencia y la eficiencia de cada formato, para que cada pieza combine una buena presencia, una función práctica y un comportamiento adecuado en todo el proceso de uso y manipulación.",
           "blocks": [
-            {
-              "type": "text",
-              "text": "<h2>Conoce las características del packaging</h2>",
-              "html": true,
-              "format": "html"
-            },
             {
               "type": "text",
               "text": "El packaging debe cumplir varias funciones a la vez: proteger el contenido, presentar el producto de forma atractiva y facilitar su manipulación, montaje, almacenamiento y envío. No se trata solo del envase en sí, sino de cómo cada solución contribuye a la funcionalidad y a la imagen de marca del conjunto.",
@@ -2541,23 +3214,72 @@
           ]
         },
         {
-          "id": "overview",
-          "key": "overview",
-          "title": "Información adicional",
-          "body": "### Cómo trabajamos\n\nTe ayudamos a definir, producir y entregar la solución de packaging más adecuada según el producto, la operativa y la imagen de marca que quieres transmitir.",
-          "blocks": [
+          "id": "types",
+          "key": "types",
+          "title": "Tipos",
+          "body": "",
+          "blocks": [],
+          "items": [
             {
-              "type": "text",
-              "text": "<h3>Cómo trabajamos</h3>",
-              "html": true,
-              "format": "html"
+              "title": "Folding",
+              "description": "Soluciones en cartoncillo pensadas para imagen, branding y experiencia de apertura, con formatos como estuches, cajas automontables, cajas tipo sobre, fundas o sleeves y presentaciones para kits corporativos.",
+              "features": [
+                "Premium",
+                "Unboxing",
+                "Branding"
+              ],
+              "idealFor": "Packaging de presentación, regalos, onboarding y campañas"
             },
             {
-              "type": "text",
-              "text": "Te ayudamos a definir, producir y entregar la solución de packaging más adecuada según el producto, la operativa y la imagen de marca que quieres transmitir.",
-              "html": false
+              "title": "Corrugado",
+              "description": "Cajas en cartón ondulado diseñadas para proteger y transportar el contenido, recomendadas cuando la pieza debe soportar manipulación, apilado y reparto.",
+              "features": [
+                "Protección",
+                "Logística",
+                "Resistente"
+              ],
+              "idealFor": "Cajas de envío, urnas y embalaje para transporte"
+            },
+            {
+              "title": "Protección interior",
+              "description": "Separadores, celdillas e insertos interiores que ayudan a evitar movimientos, roces y golpes, especialmente en packs con varias piezas o productos delicados.",
+              "features": [
+                "Insertos",
+                "Protección",
+                "Orden"
+              ],
+              "idealFor": "Botellas, kits, packs multiproducto y contenido frágil"
             }
           ]
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "body": "",
+          "blocks": [],
+          "formatsData": {
+            "intro": "Definimos el formato y la estructura según el tipo de producto, la operativa de montaje, la presentación de marca y las necesidades reales de envío y protección.",
+            "shapes": [
+              {
+                "title": "Medidas estándar o totalmente a medida",
+                "description": "Fabricamos cajas en formatos habituales o completamente personalizados. Ajustar la caja al producto reduce holguras y relleno, mejora la presentación y ayuda a optimizar costes de envío."
+              },
+              {
+                "title": "Folding para presentación de marca",
+                "description": "Es una opción muy adecuada cuando importa la estética, el orden del pack y la experiencia de unboxing, con un acabado más cuidado y visual."
+              },
+              {
+                "title": "Corrugado para envío",
+                "description": "Se selecciona según el peso del contenido, la ruta logística, el apilado y la manipulación prevista, buscando la protección necesaria sin sobredimensionar el embalaje."
+              },
+              {
+                "title": "Montaje y operativa",
+                "description": "Disponemos de soluciones automontables y troqueladas para agilizar la preparación de packs en oficina, almacén, punto de venta o eventos."
+              }
+            ],
+            "deliveryFormats": []
+          }
         },
         {
           "id": "finishes",
@@ -2740,7 +3462,7 @@
   "products": [
     {
       "id": "1",
-      "updatedAt": "2026-03-26T12:20:36Z",
+      "updatedAt": "2026-04-15T12:19:08Z",
       "type": "producto",
       "slug": "abanicos-personalizados",
       "path": "/productos/abanicos-personalizados",
@@ -2753,17 +3475,28 @@
       "isPublished": true,
       "shortDescription": "Los abanicos personalizados son un detalle útil y muy visible en eventos con calor: mejoran la experiencia del asistente y, a la vez, hacen que tu marca esté presente en fotos, vídeos y durante todo el acto. En Repro Disseny producimos abanicos para bodas, eventos corporativos, festivales y acciones de marca, con impresión cuidada y opciones de formato según el uso.",
       "description": "Los abanicos personalizados son un detalle útil y muy visible en eventos con calor: mejoran la experiencia del asistente y, a la vez, hacen que tu marca esté presente en fotos, vídeos y durante todo el acto. En Repro Disseny producimos abanicos para bodas, eventos corporativos, festivales y acciones de marca, con impresión cuidada y opciones de formato según el uso.",
-      "bodyMd": "¿Qué es un abanico personalizado y para qué se usa?\nUn abanico personalizado es una pieza de merchandising pensada para refrescar y comunicar. Puede ser un abanico plegable (con varillas) o un abanico tipo pai pai (mango y superficie rígida), e incluye diseño, logo, claim, fecha del evento o incluso nombres de invitados. Se utiliza especialmente en eventos al aire libre o de verano, donde el abanico pasa a ser un “must” que el público agradece… y recuerda.",
+      "bodyMd": "### ¿Qué es un abanico personalizado y para qué se usa?\n\nUn abanico personalizado es una pieza de merchandising pensada para refrescar y comunicar. Puede ser un abanico plegable (con varillas) o un abanico tipo pai pai (mango y superficie rígida), e incluye diseño, logo, claim, fecha del evento o incluso nombres de invitados.\n\nSe utiliza especialmente en eventos al aire libre o de verano, donde el abanico pasa a ser un recurso práctico que el público agradece y, al mismo tiempo, una pieza de marca que se conserva y se recuerda.",
       "sections": [
         {
           "id": "details",
           "key": "details",
           "title": "Detalles",
-          "body": "¿Qué es un abanico personalizado y para qué se usa?\nUn abanico personalizado es una pieza de merchandising pensada para refrescar y comunicar. Puede ser un abanico plegable (con varillas) o un abanico tipo pai pai (mango y superficie rígida), e incluye diseño, logo, claim, fecha del evento o incluso nombres de invitados. Se utiliza especialmente en eventos al aire libre o de verano, donde el abanico pasa a ser un “must” que el público agradece… y recuerda.",
+          "body": "### ¿Qué es un abanico personalizado y para qué se usa?\n\nUn abanico personalizado es una pieza de merchandising pensada para refrescar y comunicar. Puede ser un abanico plegable (con varillas) o un abanico tipo pai pai (mango y superficie rígida), e incluye diseño, logo, claim, fecha del evento o incluso nombres de invitados.\n\nSe utiliza especialmente en eventos al aire libre o de verano, donde el abanico pasa a ser un recurso práctico que el público agradece y, al mismo tiempo, una pieza de marca que se conserva y se recuerda.",
           "blocks": [
             {
               "type": "text",
-              "text": "¿Qué es un abanico personalizado y para qué se usa?\nUn abanico personalizado es una pieza de merchandising pensada para refrescar y comunicar. Puede ser un abanico plegable (con varillas) o un abanico tipo pai pai (mango y superficie rígida), e incluye diseño, logo, claim, fecha del evento o incluso nombres de invitados. Se utiliza especialmente en eventos al aire libre o de verano, donde el abanico pasa a ser un “must” que el público agradece… y recuerda.",
+              "text": "<h3>¿Qué es un abanico personalizado y para qué se usa?</h3>",
+              "html": true,
+              "format": "html"
+            },
+            {
+              "type": "text",
+              "text": "Un abanico personalizado es una pieza de merchandising pensada para refrescar y comunicar. Puede ser un abanico plegable (con varillas) o un abanico tipo pai pai (mango y superficie rígida), e incluye diseño, logo, claim, fecha del evento o incluso nombres de invitados.",
+              "html": false
+            },
+            {
+              "type": "text",
+              "text": "Se utiliza especialmente en eventos al aire libre o de verano, donde el abanico pasa a ser un recurso práctico que el público agradece y, al mismo tiempo, una pieza de marca que se conserva y se recuerda.",
               "html": false
             }
           ]
@@ -2772,12 +3505,18 @@
           "id": "benefits",
           "key": "benefits",
           "title": "Beneficios",
-          "body": "Útil de verdad: mejora el confort del asistente en exteriores, carpas, terrazas o eventos con mucha gente.\nAlta visibilidad de marca: tu logo y mensajes se ven durante todo el evento y aparecen en fotos y contenido social.\nDetalle memorable: funciona como obsequio práctico y refuerza la experiencia del evento sin complicaciones.\nPersonalización por tipo de público: versiones para invitados, staff, VIP, patrocinadores o diferentes zonas del evento.\nFácil de repartir: ligero, cómodo y perfecto para packs de bienvenida o entrega en accesos.",
+          "body": "- Utilidad real: mejora el confort del asistente en exteriores, carpas, terrazas o eventos con mucha gente.\n- Alta visibilidad de marca: tu logo y mensajes se ven durante todo el evento y aparecen en fotos y contenido social.\n- Recuerdo memorable: funciona como un obsequio práctico y refuerza la experiencia del evento sin complicaciones.\n- Personalización por público: permite crear versiones para invitados, staff, VIP, patrocinadores o distintas zonas del evento.\n- Fácil de repartir: es ligero, cómodo y perfecto para packs de bienvenida o entrega en accesos.",
           "blocks": [
             {
-              "type": "text",
-              "text": "Útil de verdad: mejora el confort del asistente en exteriores, carpas, terrazas o eventos con mucha gente.\nAlta visibilidad de marca: tu logo y mensajes se ven durante todo el evento y aparecen en fotos y contenido social.\nDetalle memorable: funciona como obsequio práctico y refuerza la experiencia del evento sin complicaciones.\nPersonalización por tipo de público: versiones para invitados, staff, VIP, patrocinadores o diferentes zonas del evento.\nFácil de repartir: ligero, cómodo y perfecto para packs de bienvenida o entrega en accesos.",
-              "html": false
+              "type": "bullets",
+              "items": [
+                "Utilidad real: mejora el confort del asistente en exteriores, carpas, terrazas o eventos con mucha gente.",
+                "Alta visibilidad de marca: tu logo y mensajes se ven durante todo el evento y aparecen en fotos y contenido social.",
+                "Recuerdo memorable: funciona como un obsequio práctico y refuerza la experiencia del evento sin complicaciones.",
+                "Personalización por público: permite crear versiones para invitados, staff, VIP, patrocinadores o distintas zonas del evento.",
+                "Fácil de repartir: es ligero, cómodo y perfecto para packs de bienvenida o entrega en accesos."
+              ],
+              "ordered": false
             }
           ]
         },
@@ -2785,12 +3524,15 @@
           "id": "formats",
           "key": "formats",
           "title": "Formatos y soportes",
-          "body": "Abanico plegable: el clásico con varillas, pensado para uso continuado y “efecto regalo”.\nAbanico tipo pai pai: ligero y rápido de repartir, ideal para accesos y grandes cantidades.\nTamaños estándar o a medida según el diseño y la superficie de impresión.\nMateriales\nOpciones en papel/cartulina para pai pai, con buen cuerpo para que no se doble con facilidad.\nOpciones con varillas (según modelo) para abanico plegable, pensadas para un uso cómodo.\nAlternativas más resistentes si el evento exige mucha manipulación o duración.\nImpresión y personalización\nImpresión a color con posibilidad de diseño por caras según el formato.\nPersonalización con datos (si lo necesitas): nombres, mesas, códigos o versiones por patrocinador.\nIntegración de QR (opcional): para agenda, mapa del evento, redes, landing o sorteos.",
+          "body": "- Disponible como abanico plegable con varillas o como abanico tipo pai pai con mango y superficie rígida.\n- El formato se define según el uso, el presupuesto y el tipo de evento.",
           "blocks": [
             {
-              "type": "text",
-              "text": "Abanico plegable: el clásico con varillas, pensado para uso continuado y “efecto regalo”.\nAbanico tipo pai pai: ligero y rápido de repartir, ideal para accesos y grandes cantidades.\nTamaños estándar o a medida según el diseño y la superficie de impresión.\nMateriales\nOpciones en papel/cartulina para pai pai, con buen cuerpo para que no se doble con facilidad.\nOpciones con varillas (según modelo) para abanico plegable, pensadas para un uso cómodo.\nAlternativas más resistentes si el evento exige mucha manipulación o duración.\nImpresión y personalización\nImpresión a color con posibilidad de diseño por caras según el formato.\nPersonalización con datos (si lo necesitas): nombres, mesas, códigos o versiones por patrocinador.\nIntegración de QR (opcional): para agenda, mapa del evento, redes, landing o sorteos.",
-              "html": false
+              "type": "bullets",
+              "items": [
+                "Disponible como abanico plegable con varillas o como abanico tipo pai pai con mango y superficie rígida.",
+                "El formato se define según el uso, el presupuesto y el tipo de evento."
+              ],
+              "ordered": false
             }
           ]
         },
@@ -2798,12 +3540,16 @@
           "id": "finishes",
           "key": "finishes",
           "title": "Acabados",
-          "body": "Acabado mate recomendado cuando habrá mucha luz o fotos (reduce reflejos).\nAcabado brillo si buscas colores más vivos y un efecto más llamativo.\nOpción de empaquetado por sets o preparación para entrega (packs de bienvenida).",
+          "body": "- Acabado mate: recomendado cuando habrá mucha luz o se harán fotos, ya que ayuda a reducir reflejos.\n- Acabado brillo: adecuado cuando se busca un color más vivo y un efecto visual más llamativo.\n- Preparación para entrega: opción de empaquetado por sets o preparación para packs de bienvenida y reparto.",
           "blocks": [
             {
-              "type": "text",
-              "text": "Acabado mate recomendado cuando habrá mucha luz o fotos (reduce reflejos).\nAcabado brillo si buscas colores más vivos y un efecto más llamativo.\nOpción de empaquetado por sets o preparación para entrega (packs de bienvenida).",
-              "html": false
+              "type": "bullets",
+              "items": [
+                "Acabado mate: recomendado cuando habrá mucha luz o se harán fotos, ya que ayuda a reducir reflejos.",
+                "Acabado brillo: adecuado cuando se busca un color más vivo y un efecto visual más llamativo.",
+                "Preparación para entrega: opción de empaquetado por sets o preparación para packs de bienvenida y reparto."
+              ],
+              "ordered": false
             }
           ]
         },
@@ -2811,12 +3557,18 @@
           "id": "applications",
           "key": "applications",
           "title": "Aplicaciones",
-          "body": "Bodas y celebraciones: abanicos con fecha, iniciales o seating para ceremonias en exterior.\nEventos corporativos: congresos, inauguraciones, presentaciones y jornadas de verano.\nFerias y activaciones de marca: reparto en stand o acciones de street marketing con alto flujo.\nFestivales y eventos culturales: merchandising útil y visible en recintos al aire libre.\nHostelería en eventos: terrazas, caterings y eventos con servicio (detalle práctico para invitados).",
+          "body": "- Bodas y celebraciones: aporta un detalle útil y elegante para invitados en ceremonias y recepciones al aire libre.\n- Ferias y eventos corporativos: refuerza la visibilidad de marca y mejora la experiencia del asistente en espacios concurridos.\n- Acciones promocionales: funciona como soporte publicitario práctico en campañas de verano, street marketing y reparto promocional.\n- Hostelería y terrazas: ayuda a mejorar el confort en eventos, restaurantes y espacios expuestos al calor.\n- Eventos segmentados: permite crear versiones específicas para invitados, staff, patrocinadores o distintas zonas del evento.",
           "blocks": [
             {
-              "type": "text",
-              "text": "Bodas y celebraciones: abanicos con fecha, iniciales o seating para ceremonias en exterior.\nEventos corporativos: congresos, inauguraciones, presentaciones y jornadas de verano.\nFerias y activaciones de marca: reparto en stand o acciones de street marketing con alto flujo.\nFestivales y eventos culturales: merchandising útil y visible en recintos al aire libre.\nHostelería en eventos: terrazas, caterings y eventos con servicio (detalle práctico para invitados).",
-              "html": false
+              "type": "bullets",
+              "items": [
+                "Bodas y celebraciones: aporta un detalle útil y elegante para invitados en ceremonias y recepciones al aire libre.",
+                "Ferias y eventos corporativos: refuerza la visibilidad de marca y mejora la experiencia del asistente en espacios concurridos.",
+                "Acciones promocionales: funciona como soporte publicitario práctico en campañas de verano, street marketing y reparto promocional.",
+                "Hostelería y terrazas: ayuda a mejorar el confort en eventos, restaurantes y espacios expuestos al calor.",
+                "Eventos segmentados: permite crear versiones específicas para invitados, staff, patrocinadores o distintas zonas del evento."
+              ],
+              "ordered": false
             }
           ]
         }

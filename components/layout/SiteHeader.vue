@@ -2,7 +2,7 @@
 import { ref, computed, unref, watch, type Ref } from "vue";
 import type { CategoriaNode } from "~/composables/useCategoriasNav";
 
-import { Button } from "@/components/ui/button";
+import AppButton from "@/components/shared/button/AppButton.vue";
 import {
   Sheet,
   SheetTrigger,
@@ -140,15 +140,17 @@ const staticLinks = [
       </div>
 
       <div class="flex shrink-0 items-center gap-1.5 md:gap-3">
-        <button
-          class="shrink-0 p-2 text-slate-500 transition-colors hover:text-sky-700 lg:hidden"
-          aria-label="Alternar barra de búsqueda"
-          :aria-expanded="isMobileSearchOpen"
-          @click="isMobileSearchOpen = !isMobileSearchOpen"
-        >
-          <Search v-if="!isMobileSearchOpen" class="h-6 w-6" />
-          <X v-else class="h-6 w-6" />
-        </button>
+        <AppButton
+  variant="ghost"
+  size="icon"
+  class="shrink-0 lg:hidden text-slate-500 hover:text-sky-700"
+  aria-label="Alternar barra de búsqueda"
+  :aria-expanded="isMobileSearchOpen"
+  @click="isMobileSearchOpen = !isMobileSearchOpen"
+>
+  <Search v-if="!isMobileSearchOpen" class="h-6 w-6" />
+  <X v-else class="h-6 w-6" />
+</AppButton>
 
         <a
           href="tel:+34932749890"
@@ -161,25 +163,28 @@ const staticLinks = [
           </span>
         </a>
 
-        <NuxtLink
-          to="/pedir-presupuesto"
-          class="inline-flex h-9 shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-lg bg-[#0076B3] px-2.5 text-[12px] font-semibold text-white shadow-sm transition-all hover:bg-[#006aa1] sm:px-3 sm:text-[13px] md:h-11 md:px-6 md:text-[14px]"
-        >
-          <span class="hidden text-sm sm:inline">Pide presupuesto</span>
-          <span class="text-xs sm:hidden">Presupuesto</span>
-        </NuxtLink>
+        <AppButton
+  to="/pedir-presupuesto"
+  variant="primary"
+  size="md"
+  class="h-9 px-2.5 text-[12px] sm:px-3 sm:text-[13px] md:h-11 md:px-6 md:text-[14px]"
+>
+  <span class="hidden text-sm sm:inline">Pide presupuesto</span>
+  <span class="text-xs sm:hidden">Presupuesto</span>
+</AppButton>
 
         <!-- Desktop: accesos rápidos -->
         <DropdownMenu>
           <DropdownMenuTrigger as-child>
-            <Button
-              variant="ghost"
-              class="hidden h-10 w-10 shrink-0 rounded-lg p-0 hover:bg-slate-50 lg:inline-flex"
-              aria-label="Abrir accesos rápidos"
-            >
-              <Menu class="h-6 w-6 text-[#212121]" />
-            </Button>
-          </DropdownMenuTrigger>
+  <AppButton
+    variant="ghost"
+    size="icon"
+    class="hidden shrink-0 lg:inline-flex"
+    aria-label="Abrir accesos rápidos"
+  >
+    <Menu class="h-6 w-6 text-[#212121]" />
+  </AppButton>
+</DropdownMenuTrigger>
 
           <DropdownMenuContent align="end" class="w-64">
             <DropdownMenuLabel>Accesos rápidos</DropdownMenuLabel>
@@ -199,15 +204,16 @@ const staticLinks = [
 
         <!-- Mobile: sheet con categorías + enlaces estáticos al final -->
         <Sheet v-model:open="isMobileMenuOpen">
-          <SheetTrigger as-child>
-            <Button
-              variant="ghost"
-              class="h-10 w-10 shrink-0 rounded-lg p-0 hover:bg-slate-50 lg:hidden"
-              aria-label="Abrir menú de navegación"
-            >
-              <Menu class="h-6 w-6 text-[#212121]" />
-            </Button>
-          </SheetTrigger>
+        <SheetTrigger as-child>
+  <AppButton
+    variant="ghost"
+    size="icon"
+    class="shrink-0 lg:hidden"
+    aria-label="Abrir menú de navegación"
+  >
+    <Menu class="h-6 w-6 text-[#212121]" />
+  </AppButton>
+</SheetTrigger>
 
           <SheetContent
             side="left"

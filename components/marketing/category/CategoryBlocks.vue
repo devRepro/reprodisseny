@@ -1,8 +1,8 @@
 <!-- components/marketing/category/CategoryBlocks.vue -->
 <script setup lang="ts">
 import { computed } from "vue"
-import type { Block } from "@/utils/categoryRail"
-import { isHtmlTextBlock } from "@/utils/categoryRail"
+import type { Block } from "~/utils/_categoryRail"
+import { isHtmlTextBlock } from "~/utils/_categoryRail"
 
 const props = defineProps<{ blocks: Block[] }>()
 

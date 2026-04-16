@@ -7,7 +7,7 @@ import CategoryFaq from "@/components/marketing/category/CategoryFaq.vue";
 import ContentSectionIntro from "@/components/marketing/content/ContentSectionIntro.vue";
 import ContentSectionNav from "@/components/marketing/content/ContentSectionNav.vue";
 import ContentSectionShell from "@/components/marketing/content/ContentSectionShell.vue";
-import type { Block } from "@/utils/categoryRail";
+import type { Block } from "~/utils/_categoryRail";
 
 type IncomingFaq = {
   q?: string;
