@@ -21,7 +21,7 @@ const props = withDefaults(
       v-if="props.showTagline"
       class="hidden xl:block text-[11px] leading-4 text-slate-500 max-w-[16rem]"
     >
-      {{ props.tagline }}
+      <!--{{ props.tagline }}-->
     </p>
   </div>
 </template>
