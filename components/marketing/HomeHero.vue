@@ -9,11 +9,11 @@ import AppButton from "@/components/shared/button/AppButton.vue";
         class="grid grid-cols-1 items-start gap-8 md:gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start"
       >
         <div class="max-w-3xl">
-          <p
-            class="text-[11px] font-semibold uppercase tracking-[0.18em] text-sky-800/80 sm:text-xs"
-          >
-            Hacemos posible la comunicación gráfica
-          </p>
+        <p
+  class="text-sm font-semibold uppercase tracking-[0.14em] text-sky-800/85 sm:text-[0.95rem] lg:text-base"
+>
+  Hacemos posible la comunicación gráfica
+</p>
 
           <h1
             class="mt-3 text-balance text-4xl font-extrabold leading-[1.02] tracking-tight text-slate-900 sm:text-5xl lg:text-[clamp(3.25rem,4.2vw,4.75rem)]"

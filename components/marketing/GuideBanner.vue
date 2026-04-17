@@ -2,14 +2,18 @@
 import { computed } from "vue";
 import { Button } from "@/components/ui/button";
 
-type CTA = { label: string; to: string; external?: boolean };
+type CTA = {
+  label: string;
+  to: string;
+  external?: boolean;
+};
 
 type Props = {
   title?: string;
   description?: string;
-  cta?: { label: string; to: string; external?: boolean } | null;
-  imageBasePath: string;
-  imageName?: string; // por ejemplo "archivos_banner"
+  cta?: CTA | null;
+  imageBasePath?: string;
+  imageName?: string;
   height?: number;
   fullBleed?: boolean;
   rounded?: boolean;
@@ -20,27 +24,36 @@ type Props = {
 };
 
 const props = withDefaults(defineProps<Props>(), {
-  title: "Cómo preparar tus archivos",
-  ctaText: "Ver la guía rápida",
-  to: "/como-preparar-archivos",
-  basePath: "/img/ui/banners/como-preparar-archivos",
+  title: "¿Sabes cómo preparar tus archivos correctamente?",
+  description: "",
+  cta: () => ({
+    label: "Ver la guía rápida",
+    to: "/como-preparar-archivos",
+    external: false,
+  }),
+  imageBasePath: "/img/ui/banners/como-preparar-archivos",
+  imageName: "archivos_banner",
   height: 240,
-  external: false,
   rounded: false,
   fullBleed: true,
   containerClass: "mx-auto w-full max-w-[1440px] px-6 lg:px-10 2xl:px-[120px]",
+  contentClass: "",
   objectPosition: "right center",
+  overlayClass:
+    "pointer-events-none absolute inset-0 bg-gradient-to-r from-background via-background/90 to-transparent",
 });
 
-const ctaLabel = computed(() => props.cta?.label ?? props.ctaText);
-const ctaTo = computed(() => props.cta?.to ?? props.to);
-const isExternal = computed(() => Boolean(props.cta?.external ?? props.external));
+const ctaLabel = computed(() => props.cta?.label ?? "Ver la guía rápida");
+const ctaTo = computed(() => props.cta?.to ?? "/como-preparar-archivos");
+const isExternal = computed(() => Boolean(props.cta?.external));
 
 const base = computed(() => {
-  const s = String(props.basePath || "").trim();
+  const s = String(props.imageBasePath || "").trim();
   if (!s) return "";
   return s.startsWith("/") ? s.replace(/\/$/, "") : `/${s.replace(/\/$/, "")}`;
 });
+
+const fileBaseName = computed(() => String(props.imageName || "archivos_banner").trim());
 
 const cssVars = computed(
   () =>
@@ -50,19 +63,23 @@ const cssVars = computed(
     } as Record<string, string>)
 );
 
-/** Puedes ajustar aquí si un día cambias el set */
 const widths = [1440, 1920, 2560, 2880, 3840, 4096] as const;
 
 const webpSrcset = computed(() =>
-  widths.map((w) => `${base.value}/archivos_banner_${w}w.webp ${w}w`).join(", ")
+  widths
+    .map((w) => `${base.value}/${fileBaseName.value}_${w}w.webp ${w}w`)
+    .join(", ")
 );
 
 const jpgSrcset = computed(() =>
-  widths.map((w) => `${base.value}/archivos_banner_${w}w.jpg ${w}w`).join(", ")
+  widths
+    .map((w) => `${base.value}/${fileBaseName.value}_${w}w.jpg ${w}w`)
+    .join(", ")
 );
 
-/** Fallback: una imagen “media” para el <img src=""> */
-const fallbackJpg = computed(() => `${base.value}/archivos_banner_1920w.jpg`);
+const fallbackJpg = computed(
+  () => `${base.value}/${fileBaseName.value}_1920w.jpg`
+);
 </script>
 
 <template>
@@ -79,7 +96,6 @@ const fallbackJpg = computed(() => `${base.value}/archivos_banner_1920w.jpg`);
       :style="cssVars"
     >
       <div class="relative h-[var(--gb-h)] w-full">
-        <!-- Fondo responsive (control total en /public) -->
         <picture>
           <source type="image/webp" :srcset="webpSrcset" sizes="100vw" />
           <source type="image/jpeg" :srcset="jpgSrcset" sizes="100vw" />
@@ -93,20 +109,26 @@ const fallbackJpg = computed(() => `${base.value}/archivos_banner_1920w.jpg`);
           />
         </picture>
 
-        <!-- Overlay -->
-        <div
-          class="pointer-events-none absolute inset-0 bg-gradient-to-r from-background via-background/90 to-transparent"
-        />
+        <div :class="props.overlayClass" />
 
-        <!-- Contenido -->
         <div class="relative h-full">
           <div :class="props.containerClass" class="h-full">
-            <div class="flex h-full flex-col items-start justify-center gap-5">
+            <div
+              class="flex h-full flex-col items-start justify-center gap-5"
+              :class="props.contentClass"
+            >
               <h2
                 class="text-2xl font-semibold leading-tight text-foreground md:text-3xl"
               >
                 {{ title }}
               </h2>
+
+              <p
+                v-if="description"
+                class="max-w-2xl text-sm leading-7 text-muted-foreground md:text-base"
+              >
+                {{ description }}
+              </p>
 
               <Button as-child class="h-11 rounded-full px-6">
                 <NuxtLink
@@ -124,4 +146,3 @@ const fallbackJpg = computed(() => `${base.value}/archivos_banner_1920w.jpg`);
     </div>
   </section>
 </template>
-s

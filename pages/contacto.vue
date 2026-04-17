@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ContactHero from "@/components/marketing/contact/ContactHero.vue";
+import HeaderPage from "@/components/shared/hero/HeaderPage.vue";
 import ContactForm from "@/components/marketing/contact/ContactForm.vue";
 import ContactInfoBand from "@/components/marketing/ContactInfoBand.vue";
 import LocationMapSection from "@/components/marketing/LocationMapSection.vue";
@@ -7,7 +7,11 @@ import LocationMapSection from "@/components/marketing/LocationMapSection.vue";
 
 <template>
   <main>
-    <ContactHero />
+    <HeaderPage
+  title="Contáctanos"
+  description="Explícanos tu consulta y te responderemos lo antes posible.
+Si lo necesitas urgente, mejor llámanos."
+/>
 
     <!-- Sección formulario -->
     <section class="container">

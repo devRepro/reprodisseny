@@ -4,7 +4,7 @@ import { useRoute } from "#imports";
 import { useForm } from "vee-validate";
 import { z } from "zod";
 import { toTypedSchema } from "@vee-validate/zod";
-import { Loader2, CheckCircle2, AlertCircle } from "lucide-vue-next";
+import { Loader2, AlertCircle } from "lucide-vue-next";
 
 import {
   FormField,
@@ -14,7 +14,12 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import {
+  Alert,
+  AlertTitle,
+  AlertDescription,
+} from "@/components/ui/alert";
+
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
@@ -26,6 +31,7 @@ import {
   SelectItem,
 } from "@/components/ui/select";
 
+import RequestSuccessState from "@/components/marketing/quote/RequestSuccessState.vue";
 import { usePriceRequests } from "@/composables/usePriceRequests";
 
 type ExtraField = {
@@ -68,13 +74,18 @@ const emit = defineEmits<{
 const route = useRoute();
 const file = ref<File | null>(null);
 const success = ref(false);
+const submittedEmail = ref("");
+const submittedReference = ref<string | null>(null);
 
 const inputClass =
   "h-11 rounded-xl border-border/80 bg-background shadow-sm transition-colors focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/15";
+
 const readonlyInputClass =
   "h-11 rounded-xl border-border/80 bg-muted/35 pr-24 text-foreground/85 shadow-sm";
+
 const textareaClass =
   "min-h-[96px] resize-y rounded-xl border-border/80 bg-background shadow-sm transition-colors focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/15";
+
 const labelClass = "text-sm font-medium text-foreground";
 
 const fileName = computed(() => file.value?.name || "Ningún archivo seleccionado");
@@ -234,10 +245,7 @@ const validationSchema = computed(() => {
     ),
     telefono: z.preprocess(
       emptyToUndefined,
-      z
-        .string()
-        .regex(/^[\d\s\+\-]*$/, "Formato no válido")
-        .optional()
+      z.string().regex(/^[\d\s\+\-]*$/, "Formato no válido").optional()
     ),
     empresa: z.preprocess(emptyToUndefined, z.string().optional()),
     comentario: z.preprocess(emptyToUndefined, z.string().max(4000).optional()),
@@ -275,6 +283,17 @@ const { handleSubmit, resetForm, errors, submitCount } = useForm({
 watch(initialValues, (values) => resetForm({ values }), { deep: true });
 
 const { sendPriceRequest, isLoading, error } = usePriceRequests();
+
+function handleResetSuccessState() {
+  success.value = false;
+  submittedEmail.value = "";
+  submittedReference.value = null;
+  file.value = null;
+
+  resetForm({
+    values: initialValues.value,
+  });
+}
 
 const fieldLabels = computed<Record<string, string>>(() => {
   const base: Record<string, string> = {
@@ -357,7 +376,7 @@ const onSubmit = handleSubmit(
       extras.fileName = file.value.name;
     }
 
-    await sendPriceRequest(
+    const response = await sendPriceRequest(
       {
         name: values.nombre.trim(),
         email: values.email.trim(),
@@ -381,10 +400,15 @@ const onSubmit = handleSubmit(
     );
 
     if (!error.value) {
+      submittedEmail.value = values.email.trim();
+      submittedReference.value =
+        (response as any)?.reference ||
+        (response as any)?.requestId ||
+        (response as any)?.id ||
+        null;
+
       success.value = true;
       emit("success");
-      resetForm({ values: initialValues.value });
-      file.value = null;
     }
   },
   ({ errors }) => {
@@ -395,33 +419,21 @@ const onSubmit = handleSubmit(
 
 <template>
   <div class="flex h-full min-h-0 w-full min-w-0 flex-col">
-    <div v-if="success" class="flex min-h-[280px] flex-col justify-center py-8">
-      <Alert class="border-emerald-200 bg-emerald-50 text-emerald-900 shadow-sm">
-        <CheckCircle2 class="h-5 w-5 text-emerald-600" />
-        <AlertTitle class="text-base font-semibold">Solicitud enviada</AlertTitle>
-        <AlertDescription class="mt-2 space-y-4">
-          <p class="text-sm">
-            Gracias. Hemos recibido tu solicitud y te responderemos a la brevedad.
-          </p>
-          <Button
-            type="button"
-            variant="outline"
-            class="w-full border-emerald-300 text-emerald-800 hover:bg-emerald-100 sm:w-auto"
-            @click="success = false"
-          >
-            Enviar otra solicitud
-          </Button>
-        </AlertDescription>
-      </Alert>
-    </div>
+    <RequestSuccessState
+      v-if="success"
+      :product-name="producto"
+      primary-to="/productos"
+      class="h-full w-full flex-1"
+      @reset="handleResetSuccessState"
+    />
 
     <form
       v-else
       @submit.prevent="onSubmit"
       novalidate
-      class="relative flex min-h-0 flex-1 flex-col"
+      class="relative flex min-h-0 flex-1 flex-col px-4 py-4 md:px-6 md:py-6"
     >
-      <div class="mb-5 shrink-0 space-y-1">
+      <div class="mb-4 shrink-0 space-y-1 md:mb-5">
         <h3
           class="text-[1.05rem] font-semibold tracking-tight text-foreground md:text-xl"
         >
@@ -501,7 +513,10 @@ const onSubmit = handleSubmit(
 
                     <span v-else-if="field.required" class="text-destructive">*</span>
 
-                    <span v-else class="ml-1 text-xs font-normal text-muted-foreground">
+                    <span
+                      v-else
+                      class="ml-1 text-xs font-normal text-muted-foreground"
+                    >
                       (Opcional)
                     </span>
                   </FormLabel>
@@ -675,7 +690,7 @@ const onSubmit = handleSubmit(
         </div>
       </div>
 
-      <div class="mt-4 shrink-0 border-t border-border/40 pt-4 lg:bg-card">
+      <div class="mt-4 shrink-0 border-t border-border/40 pt-4">
         <div class="space-y-4">
           <div>
             <label

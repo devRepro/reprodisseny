@@ -5,9 +5,9 @@ type Props = {
 };
 
 const props = withDefaults(defineProps<Props>(), {
-  title: "Pide tu presupuesto",
+  title: "Contáctanos",
   description:
-    "Explícanos qué necesitas producir y te diremos cómo podemos ayudarte.\nRespondemos rápido, pero si lo necesitas urgente, mejor llámanos.",
+    "Explícanos tu consulta y te responderemos lo antes posible.\nSi lo necesitas urgente, mejor llámanos.",
 });
 </script>
 
