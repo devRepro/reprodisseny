@@ -1,5 +1,10 @@
 import catalog from "~/cms/catalog.json";
 
+import {
+  getCategoryDetailGalleryBySlug,
+  type CategoryDetailMediaItemDto,
+} from "./category-detail-gallery-registry";
+
 type CatalogSeoHreflang = {
   lang?: string;
   url?: string;
@@ -283,6 +288,7 @@ export type CategoryDetailPageDto = {
     height?: number;
   } | null;
   children: CategoryDetailChildItem[];
+  detailGallery?: CategoryDetailMediaItemDto[];
   products: CategoryDetailProductItem[];
   sections: CategoryDetailSectionItem[];
   faqs: CategoryDetailFaqItem[];
@@ -1131,6 +1137,7 @@ export function getCategoryDetailByPath(
     products: getDirectProductsOfCategory(category, options.productLimit ?? 24),
     sections,
     faqs,
+    detailGallery: getCategoryDetailGalleryBySlug(categoryPublicSlugOf(category)),
     breadcrumbs: [
       { label: "Inicio", to: "/" },
       { label: "Categorías", to: "/categorias" },

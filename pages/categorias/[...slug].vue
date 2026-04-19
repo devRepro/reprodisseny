@@ -13,6 +13,8 @@ import ContentProcessSteps, {
   type ProcessStepsCta,
 } from "@/components/marketing/content/ContentProcessSteps.vue";
 import CategoryCtaBanner from "@/components/shared/banner/CategoryCtaBanner.vue";
+import CategoryDetailsMedia from "@/components/marketing/category/CategoryDetailsMedia.vue";
+
 type CategoryHowWeWork = {
   title?: string;
   description?: string;
@@ -160,6 +162,16 @@ if (
 
 const fetchError = computed(() => (error.value as any) || null);
 const category = computed(() => data.value as CategoryDetailPageDto | null);
+
+const detailGallery = computed(() => {
+  const items = Array.isArray(category.value?.detailGallery)
+    ? category.value.detailGallery
+    : [];
+
+  return items.filter((item) => String(item?.src || "").trim()).slice(0, 3);
+});
+
+const hasDetailGallery = computed(() => detailGallery.value.length > 0);
 
 const isPending = computed(() => status.value === "pending");
 const showNotFound = computed(() => {
@@ -320,7 +332,9 @@ const bannerPills = computed(() => {
 <template>
   <main class="min-h-screen bg-background">
     <div v-if="isPending && !category" class="container-content py-16 md:py-20">
-      <div class="flex min-h-[30vh] items-center justify-center rounded-[28px] border border-border/70 bg-card/70">
+      <div
+        class="flex min-h-[30vh] items-center justify-center rounded-[28px] border border-border/70 bg-card/70"
+      >
         <div class="animate-pulse text-body text-muted-foreground">
           Cargando categoría...
         </div>
@@ -335,25 +349,44 @@ const bannerPills = computed(() => {
       <div :class="pageBottomSpacingClass">
         <div :class="pageFlowClass">
           <section aria-label="Presentación de la categoría">
-            <CategoryHero :category="category" :primary-cta="{ label: 'Pedir presupuesto', to: '/contacto' }"
-              :secondary-cta="secondaryCta" />
+            <CategoryHero
+              :category="category"
+              :primary-cta="{ label: 'Pedir presupuesto', to: '/contacto' }"
+              :secondary-cta="secondaryCta"
+            />
           </section>
 
-          <section v-if="children.length" id="subcategorias" :class="pageContainerClass" aria-label="Subcategorías">
+          <section
+            v-if="children.length"
+            id="subcategorias"
+            :class="pageContainerClass"
+            aria-label="Subcategorías"
+          >
             <div class="space-y-8 md:space-y-10">
               <div :class="sectionIntroClass">
-                <ContentSectionIntro eyebrow="Subcategorías" title="Explora esta línea de soluciones"
-                  description="Accede directamente a las subcategorías relacionadas con esta área." />
+                <ContentSectionIntro
+                  eyebrow="Subcategorías"
+                  title="Explora esta línea de soluciones"
+                  description="Accede directamente a las subcategorías relacionadas con esta área."
+                />
               </div>
 
               <div :class="['grid auto-rows-fr gap-6', childrenGridClass]">
-                <NuxtLink v-for="child in children" :key="child.slug || child.path" :to="child.path"
-                  class="group flex h-full flex-col overflow-hidden rounded-[28px] border border-border/70 bg-card shadow-[0_10px_30px_-24px_hsl(var(--foreground)/0.14)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:shadow-[0_18px_40px_-26px_hsl(var(--foreground)/0.18)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:ring-offset-2">
+                <NuxtLink
+                  v-for="child in children"
+                  :key="child.slug || child.path"
+                  :to="child.path"
+                  class="group flex h-full flex-col overflow-hidden rounded-[28px] border border-border/70 bg-card shadow-[0_10px_30px_-24px_hsl(var(--foreground)/0.14)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:shadow-[0_18px_40px_-26px_hsl(var(--foreground)/0.18)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:ring-offset-2"
+                >
                   <div class="aspect-[16/10] overflow-hidden bg-muted/25">
-                    <img v-if="child.image?.src" :src="child.image.src"
+                    <img
+                      v-if="child.image?.src"
+                      :src="child.image.src"
                       :alt="child.image.alt || child.title || 'Subcategoría'"
                       class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                      loading="lazy" decoding="async" />
+                      loading="lazy"
+                      decoding="async"
+                    />
                     <div v-else class="h-full w-full bg-muted/40" />
                   </div>
 
@@ -362,12 +395,16 @@ const bannerPills = computed(() => {
                       {{ child.title }}
                     </h3>
 
-                    <p v-if="child.description" class="mt-3 line-clamp-3 text-body-s leading-[1.6] text-foreground/72">
+                    <p
+                      v-if="child.description"
+                      class="mt-3 line-clamp-3 text-body-s leading-[1.6] text-foreground/72"
+                    >
                       {{ child.description }}
                     </p>
 
                     <span
-                      class="mt-5 inline-flex min-h-11 items-center justify-center self-start rounded-lg border border-border bg-background px-4 py-2.5 text-body-s-bold text-foreground transition group-hover:border-primary/25 group-hover:text-primary">
+                      class="mt-5 inline-flex min-h-11 items-center justify-center self-start rounded-lg border border-border bg-background px-4 py-2.5 text-body-s-bold text-foreground transition group-hover:border-primary/25 group-hover:text-primary"
+                    >
                       Ver subcategoría
                     </span>
                   </div>
@@ -376,36 +413,68 @@ const bannerPills = computed(() => {
             </div>
           </section>
 
-          <CategoryProductsGrid :products="products" eyebrow="Catálogo" title="Productos de esta categoría"
-            description="Explora opciones, formatos y acabados disponibles." :initial-limit="8" :load-more-step="8" />
-
-          <ContentSectionShell v-if="hasSections" theme="muted" eyebrow="Soluciones Gráficas"
+          <CategoryProductsGrid
+            :products="products"
+            eyebrow="Catálogo"
+            title="Productos de esta categoría"
+            description="Explora opciones, formatos y acabados disponibles."
+            :initial-limit="8"
+            :load-more-step="8"
+          />
+          <div v-if="hasDetailGallery" :class="sectionSpacingClass">
+            <CategoryDetailsMedia
+              eyebrow="Detalles y características"
+              title="Una visión más visual de la categoría"
+              :intro="category?.description"
+              :gallery="detailGallery"
+            />
+          </div>
+          <ContentSectionShell
+            v-if="hasSections"
+            theme="muted"
+            eyebrow="Soluciones Gráficas"
             title="Características, tipos, formatos y acabados"
-            description="Consulta la información clave de esta categoría en un formato más claro y fácil de comparar.">
+            description="Consulta la información clave de esta categoría en un formato más claro y fácil de comparar."
+          >
             <ContentSectionsRenderer :sections="sections" />
           </ContentSectionShell>
 
           <div v-if="hasProcessSteps" :class="sectionSpacingClass">
-            <ContentSectionShell id="como-trabajamos" eyebrow="Cómo realizamos tu pedido" :title="processTitle"
-              :description="processDescription" density="compact" intro-spacing="tight">
+            <ContentSectionShell
+              id="como-trabajamos"
+              eyebrow="Cómo realizamos tu pedido"
+              :title="processTitle"
+              :description="processDescription"
+              density="compact"
+              intro-spacing="tight"
+            >
               <ContentProcessSteps :steps="processSteps" :cta="processCta" />
             </ContentSectionShell>
           </div>
 
           <div v-if="hasFaqs" :class="sectionSpacingCompactClass">
-            <ContentSectionShell eyebrow="Ayuda y dudas comunes" title="Preguntas frecuentes"
+            <ContentSectionShell
+              eyebrow="Ayuda y dudas comunes"
+              title="Preguntas frecuentes"
               description="Respondemos las dudas más habituales sobre materiales, formatos, acabados y criterios de elección."
-              density="compact" intro-spacing="tight">
+              density="compact"
+              intro-spacing="tight"
+            >
               <FaqAccordion :items="faqs" />
             </ContentSectionShell>
           </div>
           <div :class="sectionSpacingCompactClass">
-            <CategoryCtaBanner eyebrow="Asesoramiento" :title="bannerTitle" :description="bannerDescription"
-              :pills="bannerPills" primary-label="Pedir presupuesto" primary-to="/contacto" secondary-label="Contactar"
-              secondary-to="/contacto" />
+            <CategoryCtaBanner
+              eyebrow="Asesoramiento"
+              :title="bannerTitle"
+              :description="bannerDescription"
+              :pills="bannerPills"
+              primary-label="Pedir presupuesto"
+              primary-to="/contacto"
+              secondary-label="Contactar"
+              secondary-to="/contacto"
+            />
           </div>
-
-
         </div>
       </div>
     </div>

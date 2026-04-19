@@ -1,0 +1,22 @@
+{
+    "adhesivos-personalizados": [
+      {
+        "src": "https://webcms.blob.core.windows.net/media/category/adhesivos%20imatges/detalles.webp",
+        "alt": "Vista general de adhesivos personalizados en aplicación real",
+        "caption": "Detalles y características",
+        "role": "primary"
+      },
+      {
+        "src": "https://webcms.blob.core.windows.net/media/category/adhesivos%20imatges/acabados.webp",
+        "alt": "Detalle de acabados y materiales de adhesivos personalizados",
+        "caption": "Materiales y acabados",
+        "role": "detail"
+      },
+      {
+        "src": "https://webcms.blob.core.windows.net/media/category/adhesivos%20imatges/tipos.webp",
+        "alt": "Tipos de adhesivos personalizados para distintas aplicaciones",
+        "caption": "Tipos y aplicaciones",
+        "role": "usage"
+      }
+    ]
+  }
