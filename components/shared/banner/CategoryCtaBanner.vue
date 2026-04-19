@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import AppButton from "@/components/shared/button/AppButton.vue";
 import AppChip from "@/components/shared/pills/AppChip.vue";
 
 withDefaults(
@@ -10,15 +9,11 @@ withDefaults(
     pills?: string[];
     primaryLabel: string;
     primaryTo: string | Record<string, unknown>;
-    secondaryLabel?: string;
-    secondaryTo?: string | Record<string, unknown> | null;
   }>(),
   {
-    eyebrow: "Categorías",
+    eyebrow: "Asesoramiento",
     description: "",
     pills: () => [],
-    secondaryLabel: "",
-    secondaryTo: null,
   }
 );
 </script>
@@ -26,7 +21,7 @@ withDefaults(
 <template>
   <section class="catalog-section">
     <div class="container-content">
-      <div class="catalog-panel-soft rounded-[28px]">
+      <div class="catalog-panel-soft rounded-[28px] px-6 py-6 sm:px-8 sm:py-8">
         <div class="max-w-3xl">
           <p v-if="eyebrow" class="section-eyebrow mb-0">
             {{ eyebrow }}
@@ -44,25 +39,19 @@ withDefaults(
           </p>
         </div>
 
-        <div v-if="pills.length" class="mt-6 flex flex-wrap gap-2">
+        <div v-if="pills.length" class="mt-5 flex flex-wrap gap-2">
           <AppChip v-for="pill in pills" :key="pill">
             {{ pill }}
           </AppChip>
         </div>
 
-        <div class="mt-6 flex flex-col gap-3 sm:flex-row">
-          <AppButton :to="primaryTo" variant="primary" size="md">
-            {{ primaryLabel }}
-          </AppButton>
-
-          <AppButton
-            v-if="secondaryLabel && secondaryTo"
-            :to="secondaryTo"
-            variant="outline"
-            size="md"
+        <div class="mt-6">
+          <NuxtLink
+            :to="primaryTo"
+            class="inline-flex min-h-11 items-center justify-center rounded-2xl bg-primary px-5 py-2.5 text-body-s-bold text-primary-foreground shadow-sm transition-all duration-200 hover:bg-primary/92 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           >
-            {{ secondaryLabel }}
-          </AppButton>
+            {{ primaryLabel }}
+          </NuxtLink>
         </div>
       </div>
     </div>

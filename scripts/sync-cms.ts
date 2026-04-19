@@ -887,18 +887,65 @@ function parseFaqs(value: unknown): Array<{ question: string; answer: string }> 
   const raw = str(value);
   if (!raw) return [];
 
-  const parsed = parseJsonLoose<Array<Record<string, unknown>>>(
-    normalizeSmartQuotes(extractJsonFragment(raw)),
-    [],
-  );
-  if (!Array.isArray(parsed)) return [];
+  let cleaned = normalizeSmartQuotes(raw)
+    .replace(/^Preguntas frecuentes\s*/i, "")
+    .trim();
 
-  return parsed
-    .map((item) => ({
-      question: str(item?.question ?? item?.q ?? item?.pregunta ?? item?.title) || "",
-      answer: normalizeMarkdown(item?.answer ?? item?.a ?? item?.respuesta ?? item?.text ?? ""),
-    }))
-    .filter((item) => item.question && item.answer);
+  cleaned = extractJsonFragment(cleaned);
+
+  // Intento 1: JSON normal
+  let parsed = parseJsonLoose<Array<Record<string, unknown>>>(cleaned, []);
+  if (Array.isArray(parsed) && parsed.length > 0) {
+    return parsed
+      .map((item) => ({
+        question: str(item?.question ?? item?.q ?? item?.pregunta ?? item?.title) || "",
+        answer: normalizeMarkdown(
+          item?.answer ?? item?.a ?? item?.respuesta ?? item?.text ?? ""
+        ),
+      }))
+      .filter((item) => item.question && item.answer);
+  }
+
+  // Reparaciones frecuentes del contenido pegado desde SharePoint
+  cleaned = cleaned
+    // comillas tipográficas -> normales
+    .replace(/[“”]/g, '"')
+    .replace(/[‘’]/g, "'")
+    // falta de coma entre question y answer
+    .replace(/"\s*[\r\n]+\s*"answer"/g, '", "answer"')
+    .replace(/"\s*"answer"/g, '", "answer"')
+    // falta de coma entre answer y siguiente objeto
+    .replace(/"}\s*[\r\n]+\s*{/g, '"}, {')
+    .replace(/"}\s*{/g, '"}, {')
+    // posibles saltos raros
+    .replace(/\r\n/g, "\n")
+    .trim();
+
+  // Intento 2: JSON reparado
+  parsed = parseJsonLoose<Array<Record<string, unknown>>>(cleaned, []);
+  if (Array.isArray(parsed) && parsed.length > 0) {
+    return parsed
+      .map((item) => ({
+        question: str(item?.question ?? item?.q ?? item?.pregunta ?? item?.title) || "",
+        answer: normalizeMarkdown(
+          item?.answer ?? item?.a ?? item?.respuesta ?? item?.text ?? ""
+        ),
+      }))
+      .filter((item) => item.question && item.answer);
+  }
+
+  // Intento 3: rescate por regex
+  const results: Array<{ question: string; answer: string }> = [];
+  const pairRegex =
+    /"question"\s*:\s*"([\s\S]*?)"\s*,?\s*"answer"\s*:\s*"([\s\S]*?)"/gi;
+
+  for (const match of cleaned.matchAll(pairRegex)) {
+    const question = str(match[1]) || "";
+    const answer = normalizeMarkdown(match[2] || "");
+    if (question && answer) results.push({ question, answer });
+  }
+
+  return results;
 }
 
 function parseFormFields(value: unknown): ProductDto["formFields"] {
@@ -1661,7 +1708,9 @@ const productSectionOrder = [
   const sections = buildSections(sectionSources, PRODUCT_SECTION_TITLES, productSectionOrder);
 
   const seo = buildProductSeo(fields, title, publicPath, imageSrc);
-
+  console.log("PRODUCT", slug);
+  console.log("FAQ RAW", fields[PRODUCT_FIELDS.faqsJson]);
+  console.log("FAQ PARSED", parseFaqs(fields[PRODUCT_FIELDS.faqsJson]));
   return {
     id: String(item.id || slug),
     updatedAt: str(item.lastModifiedDateTime),

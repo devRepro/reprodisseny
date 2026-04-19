@@ -10,10 +10,10 @@ import ContentSectionIntro from "@/components/marketing/content/ContentSectionIn
 import ContentSectionShell from "@/components/marketing/content/ContentSectionShell.vue";
 import ContentProcessSteps, {
   type ProcessStepItem,
-  type ProcessStepsCta,
 } from "@/components/marketing/content/ContentProcessSteps.vue";
 import CategoryCtaBanner from "@/components/shared/banner/CategoryCtaBanner.vue";
 import CategoryDetailsMedia from "@/components/marketing/category/CategoryDetailsMedia.vue";
+import { getCategoryKeywordPills } from "@/utils/relatedKeywordPills";
 
 type CategoryHowWeWork = {
   title?: string;
@@ -68,13 +68,6 @@ const fallbackProcessSteps: ProcessStepItem[] = [
   },
 ];
 
-const fallbackProcessCta: ProcessStepsCta = {
-  title: "¿Tienes dudas antes de elegir?",
-  description:
-    "Te ayudamos a definir materiales, formato, acabados y la solución más adecuada según el uso real de tu proyecto.",
-  buttonLabel: "Solicitar asesoramiento",
-  href: "/contacto",
-};
 
 function isAssetLike(value: unknown) {
   const s = String(value ?? "").trim();
@@ -170,6 +163,9 @@ const detailGallery = computed(() => {
 
   return items.filter((item) => String(item?.src || "").trim()).slice(0, 3);
 });
+const keywordPills = computed(() =>
+  getCategoryKeywordPills(category.value?.slug, products.value)
+);
 
 const hasDetailGallery = computed(() => detailGallery.value.length > 0);
 
@@ -218,11 +214,6 @@ const processSteps = computed<ProcessStepItem[]>(() => {
   return items.length ? items : fallbackProcessSteps;
 });
 
-const processCta = computed<ProcessStepsCta | null>(() => {
-  const cta = howWeWork.value?.cta;
-  if (cta?.title?.trim() || cta?.description?.trim()) return cta;
-  return fallbackProcessCta;
-});
 
 const hasProcessSteps = computed(() => processSteps.value.length > 0);
 
@@ -421,12 +412,12 @@ const bannerPills = computed(() => {
             :initial-limit="8"
             :load-more-step="8"
           />
-          <div v-if="hasDetailGallery" :class="sectionSpacingClass">
+          <div v-if="hasDetailGallery">
             <CategoryDetailsMedia
-              eyebrow="Detalles y características"
-              title="Una visión más visual de la categoría"
+              title="Ejemplos visuales de aplicación"
               :intro="category?.description"
               :gallery="detailGallery"
+              :product-pills="keywordPills"
             />
           </div>
           <ContentSectionShell
@@ -448,7 +439,7 @@ const bannerPills = computed(() => {
               density="compact"
               intro-spacing="tight"
             >
-              <ContentProcessSteps :steps="processSteps" :cta="processCta" />
+              <ContentProcessSteps :steps="processSteps" />
             </ContentSectionShell>
           </div>
 
@@ -471,8 +462,6 @@ const bannerPills = computed(() => {
               :pills="bannerPills"
               primary-label="Pedir presupuesto"
               primary-to="/contacto"
-              secondary-label="Contactar"
-              secondary-to="/contacto"
             />
           </div>
         </div>

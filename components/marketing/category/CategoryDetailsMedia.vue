@@ -1,5 +1,9 @@
 <script setup lang="ts">
 import { computed } from "vue";
+import { cn } from "@/lib/utils";
+import SectionHeading from "@/components/marketing/content/SectionHeading.vue";
+import ContentKeywordPills from "@/components/marketing/content/ContentKeywordPills.vue";
+import type { KeywordPillItem } from "@/utils/relatedKeywordPills";
 
 type GalleryItem = {
   src: string;
@@ -11,118 +15,104 @@ type GalleryItem = {
 const props = withDefaults(
   defineProps<{
     eyebrow?: string;
-    title: string;
+    title?: string;
     intro?: string;
     description?: string;
     gallery?: GalleryItem[];
+    productPills?: KeywordPillItem[];
     containerClass?: string;
   }>(),
   {
     eyebrow: "",
+    title: "",
     intro: "",
     description: "",
     gallery: () => [],
+    productPills: () => [],
     containerClass: "container-content",
   }
 );
 
 const normalizedGallery = computed(() =>
-  (props.gallery || []).filter((item) => String(item?.src || "").trim()).slice(0, 3)
+  (props.gallery || []).filter((item) => String(item?.src || "").trim()).slice(0, 1)
+);
+
+const normalizedPills = computed(() =>
+  (props.productPills || [])
+    .filter((item) => String(item?.label || "").trim() && String(item?.to || "").trim())
+    .slice(0, 3)
 );
 
 const primaryImage = computed(() => normalizedGallery.value[0] || null);
-const secondaryImages = computed(() => normalizedGallery.value.slice(1, 3));
-
-const hasGallery = computed(() => normalizedGallery.value.length > 0);
+const hasGallery = computed(() => !!primaryImage.value);
+const hasPills = computed(() => normalizedPills.value.length > 0);
+const hasHeading = computed(() => !!props.eyebrow || !!props.title);
 </script>
 
 <template>
-  <section :class="containerClass">
-    <div
-      class="overflow-hidden rounded-[32px] border border-border/70 bg-card shadow-[0_18px_50px_-36px_hsl(var(--foreground)/0.18)]"
-    >
-      <div class="grid gap-0 lg:grid-cols-12">
-        <div
-          class="flex flex-col justify-center px-6 py-7 sm:px-8 md:px-10 md:py-10 lg:col-span-5 lg:px-10 lg:py-12 xl:px-12"
-        >
-          <p
-            v-if="eyebrow"
-            class="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary/80"
-          >
-            {{ eyebrow }}
-          </p>
+  <section :class="cn('py-6 md:py-8', props.containerClass)">
+    <div class="grid items-start gap-y-8 lg:grid-cols-12 lg:gap-x-8 xl:gap-x-10">
+      <div class="lg:col-span-5">
+        <div class="max-w-[34rem]">
+          <SectionHeading
+            v-if="hasHeading"
+            as="h2"
+            size="compact"
+            align="left"
+            :title="title"
+            :eyebrow="eyebrow"
+            :line="true"
+          />
 
-          <h2
-            class="mt-3 text-[28px] font-semibold leading-[1.08] text-foreground md:text-[34px] xl:text-[38px]"
-          >
-            {{ title }}
-          </h2>
-
-          <div class="mt-5 h-px w-full max-w-[110px] bg-border" />
-
-          <p
-            v-if="intro"
-            class="mt-6 text-[15px] leading-[1.75] text-foreground/78 md:text-body"
-          >
-            {{ intro }}
-          </p>
-
-          <p v-if="description" class="mt-4 text-body-s leading-[1.7] text-foreground/64">
-            {{ description }}
-          </p>
-        </div>
-
-        <div
-          v-if="hasGallery"
-          class="border-t border-border/70 bg-muted/20 p-4 sm:p-5 lg:col-span-7 lg:border-t-0 lg:border-l lg:p-6"
-        >
-          <div class="grid gap-4 md:grid-cols-12">
-            <figure
-              v-if="primaryImage"
-              class="group overflow-hidden rounded-[24px] border border-border/70 bg-background md:col-span-12"
+          <div :class="hasHeading ? 'mt-4 space-y-4' : 'space-y-4'">
+            <p
+              v-if="intro"
+              class="max-w-[34ch] text-base leading-relaxed text-foreground/90 md:text-lg"
             >
-              <div class="aspect-[16/9] overflow-hidden bg-muted/25">
-                <img
-                  :src="primaryImage.src"
-                  :alt="primaryImage.alt || title"
-                  class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
+              {{ intro }}
+            </p>
 
-              <figcaption
-                v-if="primaryImage.caption"
-                class="px-4 py-3 text-body-s text-foreground/62"
-              >
-                {{ primaryImage.caption }}
-              </figcaption>
-            </figure>
-
-            <figure
-              v-for="image in secondaryImages"
-              :key="image.src"
-              class="group overflow-hidden rounded-[22px] border border-border/70 bg-background md:col-span-6"
+            <p
+              v-if="description"
+              class="max-w-[42ch] text-sm leading-relaxed text-muted-foreground"
             >
-              <div class="aspect-[16/10] overflow-hidden bg-muted/25">
-                <img
-                  :src="image.src"
-                  :alt="image.alt || title"
-                  class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
+              {{ description }}
+            </p>
+          </div>
 
-              <figcaption
-                v-if="image.caption"
-                class="px-4 py-3 text-body-s text-foreground/62"
-              >
-                {{ image.caption }}
-              </figcaption>
-            </figure>
+          <div v-if="hasPills" class="mt-4">
+            <ContentKeywordPills
+              :items="normalizedPills"
+              aria-label="Productos relacionados"
+            />
           </div>
         </div>
+      </div>
+
+      <div v-if="hasGallery" class="lg:col-span-7">
+        <article>
+          <figure class="group">
+            <div
+              class="overflow-hidden rounded-[26px] bg-muted/15 shadow-[0_18px_40px_-30px_hsl(var(--foreground)/0.2)]"
+            >
+              <div class="aspect-[16/9] overflow-hidden">
+                <NuxtImg
+                  :src="primaryImage!.src"
+                  :alt="primaryImage!.alt || title || intro || 'Imagen principal'"
+                  class="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+
+            <figcaption
+              v-if="primaryImage?.caption"
+              class="pt-2 text-body-s font-medium text-muted-foreground"
+            >
+              {{ primaryImage.caption }}
+            </figcaption>
+          </figure>
+        </article>
       </div>
     </div>
   </section>

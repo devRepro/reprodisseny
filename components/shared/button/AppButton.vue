@@ -134,9 +134,7 @@ const variantClass = computed(() => {
       ].join(" ");
 
     case "destructive":
-      return [
-        "rounded-2xl border border-transparent shadow-sm",
-      ].join(" ");
+      return ["rounded-2xl border border-transparent shadow-sm"].join(" ");
 
     default:
       return "";
