@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import AppButton from "@/components/shared/button/AppButton.vue";
-import ContentSectionIntro from "@/components/marketing/content/ContentSectionIntro.vue";
 import SectionHeading from "@/components/marketing/content/SectionHeading.vue";
-import { Phone, Mail, MapPin } from "lucide-vue-next";
+import ContactInfoBand from "@/components/marketing/ContactInfoBand.vue";
 
 definePageMeta({
   layout: "default",
@@ -14,9 +13,6 @@ type ThankYouKind = "contacto" | "presupuesto";
 const route = useRoute();
 
 const pageContainerClass = "container-content";
-const mutedBandClass =
-  "mt-16 border-y border-border/50 bg-muted/30 py-12 md:mt-20 md:py-16";
-const sectionSpacingClass = "py-16 md:py-20";
 
 const kind = computed<ThankYouKind>(() =>
   route.query.kind === "presupuesto" ? "presupuesto" : "contacto"
@@ -30,8 +26,8 @@ const pageTitle = computed(() =>
 
 const pageLead = computed(() =>
   kind.value === "presupuesto"
-    ? "Hemos recibido tu solicitud correctamente y ya está en manos de nuestro equipo."
-    : "Hemos recibido tu mensaje correctamente y ya está en manos de nuestro equipo."
+    ? "Hemos recibido tu solicitud correctamente y nuestro equipo la revisará lo antes posible."
+    : "Hemos recibido tu mensaje correctamente y nuestro equipo te responderá lo antes posible."
 );
 
 const seoTitle = computed(() =>
@@ -61,62 +57,13 @@ useHead({
     },
   ],
 });
-
-const projectImages = [
-  {
-    src: "/images/gracias/proyecto-1.jpg",
-    alt: "Proyecto de gráfica para evento corporativo",
-  },
-  {
-    src: "/images/gracias/proyecto-2.jpg",
-    alt: "Pieza gráfica impresa con acabado premium",
-  },
-  {
-    src: "/images/gracias/proyecto-3.jpg",
-    alt: "Packaging personalizado",
-  },
-  {
-    src: "/images/gracias/proyecto-4.jpg",
-    alt: "Proyecto de rotulación interior",
-  },
-];
-
-const contactItems = [
-  {
-    icon: Phone,
-    title: "Atención al cliente",
-    lines: [
-      "Puedes hablar con nosotros",
-      "lunes a jueves de 8:30 h a 18:00 h",
-      "viernes de 8:00 a 14:00 h",
-    ],
-  },
-  {
-    icon: Mail,
-    title: "Correo electrónico",
-    lines: [
-      "Si tienes cualquier duda,",
-      "escríbenos un email y te",
-      "responderemos en breve",
-    ],
-  },
-  {
-    icon: MapPin,
-    title: "Dirección postal",
-    lines: [
-      "Repro Disseny, SL",
-      "C/ Juan de Mena, 19",
-      "08035, Barcelona",
-    ],
-  },
-];
 </script>
 
 <template>
   <main class="min-h-screen bg-background">
-    <section :class="[pageContainerClass, 'pt-14 md:pt-20']">
+    <section :class="[pageContainerClass, 'pt-12 md:pt-16']">
       <div
-        class="mx-auto max-w-5xl rounded-[28px] bg-brand-bg-2 px-6 py-12 text-center md:px-12 md:py-16"
+        class="mx-auto max-w-4xl rounded-[28px] border border-border/50 bg-brand-bg-2 px-6 py-10 text-center md:px-10 md:py-14"
       >
         <SectionHeading
           as="h1"
@@ -126,11 +73,13 @@ const contactItems = [
           :ornament="false"
           :title="pageTitle"
           :subtitle="pageLead"
-          title-class="text-balance !text-[2.2rem] !leading-[1.08] md:!text-[4rem]"
-          subtitle-class="mx-auto max-w-4xl !text-base !leading-8 md:!text-[1.125rem] md:!leading-8"
+          title-class="text-balance !text-[2.2rem] !leading-[1.08] md:!text-[3rem]"
+          subtitle-class="mx-auto max-w-3xl !text-base !leading-7 md:!text-[1.125rem] md:!leading-8"
         />
 
-        <div class="mx-auto mt-6 max-w-4xl space-y-4 text-base leading-8 text-foreground">
+        <div
+          class="mx-auto mt-6 max-w-3xl space-y-3 text-base leading-7 text-foreground/85"
+        >
           <p>
             Te responderemos lo antes posible, normalmente en menos de 24 horas
             laborables.
@@ -139,153 +88,78 @@ const contactItems = [
           <p>
             Si tu consulta es urgente, puedes llamarnos directamente al
             <a
-              class="underline underline-offset-4 transition hover:text-primary"
               href="tel:+34932749890"
+              class="font-medium underline underline-offset-4 transition hover:text-primary"
             >
-              93 274 98 90
-            </a>
+              93 274 98 90 </a
+            >.
           </p>
+        </div>
+
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+          <AppButton to="/contacto"> Volver a contacto </AppButton>
+
+          <AppButton variant="secondary" to="/productos"> Ver productos </AppButton>
         </div>
       </div>
     </section>
 
-    <section :class="mutedBandClass">
-      <div
-        :class="[
-          pageContainerClass,
-          'grid items-center gap-8 md:grid-cols-[150px_minmax(0,1fr)] md:gap-10',
-        ]"
-      >
-        <div class="flex justify-center md:justify-start">
-          <div
-            class="flex h-[112px] w-[112px] flex-col items-center justify-center rounded-full bg-background text-center shadow-[0_8px_24px_rgba(15,23,42,0.08)] md:h-[128px] md:w-[128px]"
-          >
-            <span class="text-[2rem] font-semibold leading-none text-primary">
-              repro
-            </span>
-            <span class="mt-1 text-sm leading-none text-foreground">
-              disseny
-            </span>
-            <span
-              class="mt-3 text-[11px] uppercase tracking-[0.14em] text-muted-foreground"
-            >
-              Desde 1983
-            </span>
-          </div>
-        </div>
-
-        <div class="space-y-4 text-center md:text-left">
-          <ContentSectionIntro
-            title="Más de 40 años ayudando a empresas a comunicar mejor"
-            description="Desde 1983, en Reprodisseny te acompañamos en la producción de materiales gráficos con calidad, rigor y rapidez."
+    <section class="mt-16 border-y border-border/50 bg-muted/30 md:mt-20">
+      <div :class="[pageContainerClass, 'py-12 md:py-14']">
+        <div class="mx-auto max-w-3xl text-center">
+          <SectionHeading
+            as="h2"
+            size="compact"
+            align="center"
             :line="false"
-            max-width-class="max-w-4xl"
-            title-class="!text-[2.2rem] !leading-[1.05] md:!text-[3.5rem]"
-            description-class="!text-base !leading-8"
+            :ornament="false"
+            title="Más de 40 años ayudando a empresas a comunicar mejor"
+            subtitle="Desde 1983 acompañamos a empresas y profesionales en la producción de materiales gráficos con un servicio cercano, ágil y bien resuelto."
+            title-class="!text-[1.9rem] !leading-[1.08] md:!text-[2.4rem]"
+            subtitle-class="mx-auto max-w-2xl !text-base !leading-7 text-foreground/80"
           />
 
-          <div class="max-w-4xl space-y-4 text-base leading-8 text-foreground/90">
-            <p>No solo imprimimos.</p>
-
+          <div class="mt-5 space-y-3 text-base leading-7 text-foreground/85">
             <p>
-              Analizamos cada proyecto, te asesoramos en los aspectos técnicos y
-              cuidamos cada detalle para que el resultado final esté a la altura
-              de tu marca.
+              No solo imprimimos: revisamos cada proyecto, resolvemos dudas técnicas y
+              cuidamos los detalles para que el resultado final esté a la altura de tu
+              marca.
             </p>
           </div>
         </div>
       </div>
     </section>
 
-    <section :class="[pageContainerClass, sectionSpacingClass]">
-      <ContentSectionIntro
-        title="Algunos de nuestros últimos proyectos realizados para empresas de distintos sectores"
-        :line="false"
-        :centered="true"
-        max-width-class="max-w-5xl"
-        title-class="!text-[2.1rem] !leading-[1.08] md:!text-[3.25rem]"
-      />
-
-      <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-        <article
-          v-for="item in projectImages"
-          :key="item.src"
-          class="overflow-hidden rounded-[18px] bg-muted"
-        >
-          <NuxtImg
-            :src="item.src"
-            :alt="item.alt"
-            class="aspect-[1/1] h-full w-full object-cover"
-            loading="lazy"
-          />
-        </article>
-      </div>
-    </section>
-
-    <section class="relative overflow-hidden bg-slate-100">
-      <div class="absolute inset-0 opacity-100">
-        <div
-          class="h-full w-full bg-[linear-gradient(90deg,rgba(255,255,255,0.92)_0%,rgba(255,255,255,0.72)_45%,rgba(255,255,255,0.10)_100%)]"
-        />
-      </div>
-
-      <div :class="[pageContainerClass, 'relative py-12 md:py-16']">
-        <div class="max-w-3xl">
-          <ContentSectionIntro
-            title="¿Sabes cómo preparar tus archivos correctamente?"
+    <section class="border-b border-border/50 bg-brand-base-light/35">
+      <div
+        :class="[
+          pageContainerClass,
+          'flex flex-col gap-6 py-12 md:flex-row md:items-center md:justify-between md:gap-10 md:py-14',
+        ]"
+      >
+        <div class="max-w-2xl">
+          <SectionHeading
+            as="h2"
+            size="compact"
+            align="left"
             :line="false"
-            max-width-class="max-w-3xl"
-            title-class="!text-[2rem] !leading-[1.08] md:!text-[3rem]"
+            :ornament="false"
+            title="¿Sabes cómo preparar tus archivos correctamente?"
+            subtitle="Consulta nuestra guía rápida para revisar medidas, sangrado, resolución y aspectos clave antes de imprimir."
+            title-class="!text-[1.75rem] !leading-[1.08] md:!text-[2.2rem]"
+            subtitle-class="!text-base !leading-7 text-foreground/80"
           />
+        </div>
 
-          <div class="mt-6">
-            <AppButton to="/como-preparar-archivos-para-imprimir">
-              Ver la guía rápida
-            </AppButton>
-          </div>
+        <div class="shrink-0">
+          <AppButton to="/como-preparar-archivos"> Ver la guía rápida </AppButton>
         </div>
       </div>
     </section>
 
-    <section class="bg-primary py-12 text-primary-foreground md:py-16">
-      <div :class="pageContainerClass">
-        <SectionHeading
-          as="h2"
-          size="compact"
-          align="center"
-          theme="inverse"
-          :line="false"
-          :ornament="false"
-          title="Si lo prefieres, puedes hablar directamente con nosotros"
-          title-class="!text-[1.375rem] md:!text-[1.75rem]"
-        />
-
-        <div class="mt-10 grid gap-10 md:mt-14 md:grid-cols-3">
-          <article
-            v-for="item in contactItems"
-            :key="item.title"
-            class="text-center"
-          >
-            <div class="flex justify-center">
-              <div
-                class="flex h-12 w-12 items-center justify-center rounded-full border border-white/20"
-              >
-                <component :is="item.icon" class="h-5 w-5" />
-              </div>
-            </div>
-
-            <h3 class="mt-5 text-2xl font-semibold">
-              {{ item.title }}
-            </h3>
-
-            <div class="mt-5 space-y-1 text-base leading-7 text-primary-foreground/90">
-              <p v-for="line in item.lines" :key="line">
-                {{ line }}
-              </p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+    <ContactInfoBand
+      section-class="bg-brand-base-dark text-brand-ink-light py-20"
+      container-class="container-wide"
+    />
   </main>
 </template>

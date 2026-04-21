@@ -128,8 +128,8 @@ const heroProduct = computed(() => {
   const extraFields = Array.isArray((current as any).extraFields)
     ? (current as any).extraFields
     : Array.isArray(current.formFields)
-    ? current.formFields
-    : [];
+      ? current.formFields
+      : [];
 
   return {
     slug: current.slug,
@@ -246,9 +246,7 @@ useSeoMeta({
 });
 
 const productLabel = computed(() => product.value?.title || "este producto");
-const categoryLabel = computed(
-  () => category.value?.nav || category.value?.title || "su categoría"
-);
+const categoryLabel = computed(() => category.value?.nav || category.value?.title || "su categoría");
 
 const closingBannerTitle = computed(
   () => `¿Necesitas una solución a medida para ${productLabel.value.toLowerCase()}?`

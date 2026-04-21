@@ -470,7 +470,10 @@ const closingBannerPills = computed(() => {
             title="Características, tipos, formatos y acabados"
             description="Consulta la información clave de esta categoría en un formato más claro y fácil de comparar."
           >
-            <ContentSectionsRenderer :sections="sections" :details-media="detailsMedia" />
+            <ContentSectionsRenderer
+              :sections="sections"
+              :details-media="detailsMedia"
+            />
           </ContentSectionShell>
 
           <div v-if="hasProcessSteps" :class="sectionSpacingClass">
@@ -485,13 +488,6 @@ const closingBannerPills = computed(() => {
               <ContentProcessSteps :steps="processSteps" />
             </ContentSectionShell>
           </div>
-          <div :class="sectionSpacingCompactClass">
-            <GuideBanner
-              title="¿Tienes dudas con el archivo, el tamaño o el acabado?"
-              description="Consulta la guía rápida para preparar artes finales y evitar incidencias antes de imprimir."
-              :cta="{ label: 'Ver guía de archivos', to: '/como-preparar-archivos' }"
-            />
-          </div>
 
           <div v-if="hasFaqs" :class="sectionSpacingCompactClass">
             <ContentSectionShell
@@ -505,7 +501,15 @@ const closingBannerPills = computed(() => {
             </ContentSectionShell>
           </div>
 
-          <!--<div :class="sectionSpacingCompactClass">
+          <div :class="sectionSpacingCompactClass">
+            <GuideBanner
+              title="¿Tienes dudas con el archivo, el tamaño o el acabado?"
+              description="Consulta la guía rápida para preparar artes finales y evitar incidencias antes de imprimir."
+              :cta="{ label: 'Ver guía de archivos', to: '/como-preparar-archivos' }"
+            />
+          </div>
+
+          <div :class="sectionSpacingCompactClass">
             <SectionSplitBanner
               eyebrow="Asesoramiento"
               :title="bannerTitle"
@@ -515,19 +519,11 @@ const closingBannerPills = computed(() => {
               :pills="closingBannerPills"
               primary-label="Pedir presupuesto"
               primary-to="/contacto"
-              :secondary-label="
-                products.length
-                  ? 'Ver productos'
-                  : children.length
-                  ? 'Ver subcategorías'
-                  : ''
-              "
-              :secondary-to="
-                products.length ? '#productos' : children.length ? '#subcategorias' : null
-              "
+              :secondary-label="products.length ? 'Ver productos' : children.length ? 'Ver subcategorías' : ''"
+              :secondary-to="products.length ? '#productos' : children.length ? '#subcategorias' : null"
               image-position="right"
             />
-          </div>-->
+          </div>
         </div>
       </div>
     </div>

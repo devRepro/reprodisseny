@@ -14,9 +14,15 @@ const props = withDefaults(defineProps<Props>(), {
 </script>
 
 <template>
-  <section class="w-full border-b border-border/40 bg-brand-base-light">
+  <section class="page-header">
+    <div class="page-header__bg" aria-hidden="true">
+      <div class="page-header__glow page-header__glow--left" />
+      <div class="page-header__glow page-header__glow--right" />
+      <div class="page-header__mesh" />
+    </div>
+
     <div
-      class="container-wide flex flex-col items-center justify-center text-center"
+      class="container-wide page-header__content flex flex-col items-center justify-center text-center"
       :class="
         props.size === 'compact'
           ? 'min-h-[168px] gap-4 py-10 md:min-h-[184px] md:py-12'
@@ -44,3 +50,75 @@ const props = withDefaults(defineProps<Props>(), {
     </div>
   </section>
 </template>
+
+<style scoped>
+.page-header {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid hsl(var(--border) / 0.45);
+  background: linear-gradient(
+    180deg,
+    hsl(var(--brand-base-light)) 0%,
+    hsl(var(--brand-base-light) / 0.96) 58%,
+    hsl(var(--background)) 140%
+  );
+  box-shadow: inset 0 -1px 0 hsl(var(--foreground) / 0.03),
+    inset 0 -24px 40px -36px hsl(var(--brand-base-dark) / 0.18);
+}
+
+.page-header__bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.page-header__content {
+  position: relative;
+  z-index: 1;
+}
+
+.page-header__glow {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(50px);
+  opacity: 0.55;
+}
+
+.page-header__glow--left {
+  top: -48px;
+  left: -40px;
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, hsl(var(--brand-base) / 0.12) 0%, transparent 72%);
+}
+
+.page-header__glow--right {
+  right: -60px;
+  top: 16px;
+  width: 340px;
+  height: 340px;
+  background: radial-gradient(
+    circle,
+    hsl(var(--primary-foreground) / 0.65) 0%,
+    transparent 70%
+  );
+}
+
+.page-header__mesh {
+  position: absolute;
+  inset: 0;
+  opacity: 0.32;
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    hsl(var(--brand-base-dark) / 0.035) 50%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.55) 0%,
+    rgba(0, 0, 0, 0.18) 45%,
+    transparent 100%
+  );
+}
+</style>
