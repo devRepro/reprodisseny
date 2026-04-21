@@ -4,7 +4,7 @@
       <HomeImageStrip :images="stripImages" />
     </HomeHero>
 
-    <SectionMediaBanner
+    <!--<SectionMediaBanner
       title="Sant Jordi"
       description="Soluciones de impresión para campañas, materiales promocionales y acciones especiales."
       primary-label="Ver la guía rápida"
@@ -13,7 +13,7 @@
       image-name="sant-jordi-home-banner"
       image-alt="Banner de Sant Jordi para la home"
       :full-bleed="true"
-    />
+    />-->
 
     <MarketingProductCategoryGrid
       title="Ofrecemos una amplia gama de productos"

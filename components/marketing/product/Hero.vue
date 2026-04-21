@@ -125,7 +125,7 @@ const productNameForForm = computed(() => productTitle.value || "Producto");
 
 <template>
   <article
-    class="w-full rounded-[32px] border border-border/70 bg-[linear-gradient(180deg,hsl(var(--background))_0%,hsl(var(--accent)/0.38)_100%)] p-6 md:p-8 xl:p-10"
+    class="w-full"
     itemscope
     itemtype="https://schema.org/Product"
     :aria-label="
@@ -200,8 +200,8 @@ const productNameForForm = computed(() => productTitle.value || "Producto");
 
       <aside class="min-w-0 xl:sticky xl:top-24 xl:self-start">
         <div
-  class="overflow-hidden rounded-[28px] border border-border/70 bg-card shadow-[0_14px_36px_-26px_hsl(var(--foreground)/0.16)] xl:flex xl:h-[min(860px,calc(100dvh-7rem))] xl:flex-col"
->
+          class="overflow-hidden rounded-[28px] border border-border/70 bg-card shadow-[0_14px_36px_-26px_hsl(var(--foreground)/0.16)] xl:flex xl:h-[min(860px,calc(100dvh-7rem))] xl:flex-col"
+        >
           <LeadForm
             :producto="productNameForForm"
             :category-slug="categorySlug"

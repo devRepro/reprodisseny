@@ -1708,9 +1708,6 @@ const productSectionOrder = [
   const sections = buildSections(sectionSources, PRODUCT_SECTION_TITLES, productSectionOrder);
 
   const seo = buildProductSeo(fields, title, publicPath, imageSrc);
-  console.log("PRODUCT", slug);
-  console.log("FAQ RAW", fields[PRODUCT_FIELDS.faqsJson]);
-  console.log("FAQ PARSED", parseFaqs(fields[PRODUCT_FIELDS.faqsJson]));
   return {
     id: String(item.id || slug),
     updatedAt: str(item.lastModifiedDateTime),

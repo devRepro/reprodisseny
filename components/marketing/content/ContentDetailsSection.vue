@@ -41,6 +41,7 @@ const props = withDefaults(
     class?: string;
     headerClass?: string;
     contentClass?: string;
+    showHeader?: boolean;
   }>(),
   {
     section: null,
@@ -48,6 +49,7 @@ const props = withDefaults(
     class: "",
     headerClass: "",
     contentClass: "",
+    showHeader: true,
   }
 );
 
@@ -124,6 +126,7 @@ function isImage(b: ContentBlock): b is Extract<ContentBlock, { type: "image" }>
     :class="cn('space-y-8 md:space-y-10', props.class)"
   >
     <ContentSectionHeader
+      v-if="showHeader"
       :title="safeSection.title"
       :subtitle="safeSection.intro || ''"
       :eyebrow="eyebrow"

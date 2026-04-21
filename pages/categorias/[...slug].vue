@@ -12,7 +12,6 @@ import ContentProcessSteps, {
   type ProcessStepItem,
 } from "@/components/marketing/content/ContentProcessSteps.vue";
 import CategoryCtaBanner from "@/components/shared/banner/CategoryCtaBanner.vue";
-import CategoryDetailsMedia from "@/components/marketing/category/CategoryDetailsMedia.vue";
 import { getCategoryKeywordPills } from "@/utils/relatedKeywordPills";
 
 type CategoryHowWeWork = {
@@ -307,6 +306,32 @@ const bannerDescription = computed(() => {
     "Te orientamos sobre materiales, formatos, acabados y la solución más adecuada según el uso real de la pieza."
   );
 });
+const detailsMedia = computed(() => {
+  const primary = detailGallery.value[0];
+
+  const image = primary?.src
+    ? {
+        src: primary.src,
+        alt: primary.alt || category.value?.title || "Imagen de la categoría",
+        caption: primary.caption || undefined,
+      }
+    : null;
+
+  const pills = keywordPills.value
+    .map((item) => ({
+      label: String(item?.label || "").trim(),
+      to: String(item?.to || "").trim(),
+    }))
+    .filter((item) => item.label && item.to)
+    .slice(0, 6);
+
+  if (!image && !pills.length) return null;
+
+  return {
+    image,
+    pills,
+  };
+});
 
 const bannerPills = computed(() => {
   if (children.value.length) {
@@ -412,14 +437,6 @@ const bannerPills = computed(() => {
             :initial-limit="8"
             :load-more-step="8"
           />
-          <div v-if="hasDetailGallery">
-            <CategoryDetailsMedia
-              title="Ejemplos visuales de aplicación"
-              :intro="category?.description"
-              :gallery="detailGallery"
-              :product-pills="keywordPills"
-            />
-          </div>
           <ContentSectionShell
             v-if="hasSections"
             theme="muted"
@@ -427,7 +444,10 @@ const bannerPills = computed(() => {
             title="Características, tipos, formatos y acabados"
             description="Consulta la información clave de esta categoría en un formato más claro y fácil de comparar."
           >
-            <ContentSectionsRenderer :sections="sections" />
+            <ContentSectionsRenderer
+  :sections="sections"
+  :details-media="detailsMedia"
+/>
           </ContentSectionShell>
 
           <div v-if="hasProcessSteps" :class="sectionSpacingClass">

@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { computed } from "vue";
+import { useRoute } from "#imports";
 import PageContainer from "@/components/layout/PageContainer.vue";
-import { categoryHref } from "@/utils/categoryHref";
+import AppChip from "@/components/shared/pills/AppChip.vue";
 
 type CategoryItem = {
   slug: string;
@@ -27,6 +28,8 @@ const props = withDefaults(
   }
 );
 
+const route = useRoute();
+
 function normalizeSlug(value: string | null | undefined) {
   return String(value || "")
     .trim()
@@ -49,34 +52,53 @@ function getCategoryLabel(category: CategoryItem) {
 }
 
 function buildCategoryTo(category: CategoryItem | null) {
-  if (!category) return "/categorias";
-  return categoryHref(category);
+  return {
+    path: "/productos",
+    query: {
+      ...route.query,
+      category: category?.slug || undefined,
+      page: undefined,
+    },
+  };
 }
 </script>
 
 <template>
   <PageContainer>
-    <section class="pb-2">
-      <nav class="flex flex-wrap gap-3" aria-label="Categorías del catálogo">
-        <NuxtLink
-          :to="buildCategoryTo(null)"
-          class="catalog-chip"
-          :class="{ 'catalog-chip-active': !currentCategory }"
-          :aria-current="!currentCategory ? 'page' : undefined"
+    <section class="py-3 md:py-4">
+      <nav aria-label="Categorías del catálogo">
+        <ul
+          class="flex gap-2 overflow-x-auto pb-1 md:flex-wrap md:overflow-visible"
+          role="list"
         >
-          Todos
-        </NuxtLink>
+          <li class="shrink-0">
+            <AppChip
+              :to="buildCategoryTo(null)"
+              :active="!currentCategory"
+              :aria-current="!currentCategory ? 'page' : undefined"
+              class="whitespace-nowrap"
+            >
+              Todos
+            </AppChip>
+          </li>
 
-        <NuxtLink
-          v-for="category in safeCategories"
-          :key="category.slug"
-          :to="buildCategoryTo(category)"
-          class="catalog-chip"
-          :class="{ 'catalog-chip-active': currentCategory === category.slug }"
-          :aria-current="currentCategory === category.slug ? 'page' : undefined"
-        >
-          {{ getCategoryLabel(category) }}
-        </NuxtLink>
+          <li
+            v-for="category in safeCategories"
+            :key="category.slug"
+            class="shrink-0"
+          >
+            <AppChip
+              :to="buildCategoryTo(category)"
+              :active="currentCategory === category.slug"
+              :aria-current="
+                currentCategory === category.slug ? 'page' : undefined
+              "
+              class="whitespace-nowrap"
+            >
+              {{ getCategoryLabel(category) }}
+            </AppChip>
+          </li>
+        </ul>
       </nav>
     </section>
   </PageContainer>

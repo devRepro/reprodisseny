@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, ref, watchEffect } from "vue";
 import ContentTabs from "@/components/marketing/content/ContentTabs.vue";
 import ContentTypesGrid from "@/components/marketing/content/ContentTypesGrid.vue";
 import CategoryFormatsSection from "@/components/marketing/content/CategoryFormatsSection.vue";
 import ContentBulletCards from "@/components/marketing/content/ContentBulletCards.vue";
 import ContentDetailsSection from "@/components/marketing/content/ContentDetailsSection.vue";
-import CategoryShowcaseCta from "@/components/marketing/category/CategoryShowcaseCta.vue";
 import ContentFinishesSection from "@/components/marketing/content/ContentFinishesSection.vue";
+import ContentDetailsTabPanel from "@/components/marketing/content/ContentDetailsTabPanel.vue";
 
 type ContentBlock =
   | { type: "text"; text?: string; html?: boolean }
@@ -88,17 +88,27 @@ type TabItem = {
   disabled?: boolean;
 };
 
+type DetailsMediaItem = {
+  image?: {
+    src?: string;
+    alt?: string;
+    caption?: string;
+  } | null;
+  pills?: Array<{
+    label?: string;
+    to?: string;
+  }>;
+};
+
 const props = withDefaults(
   defineProps<{
     sections?: IncomingSection[];
-    showSectionNav?: boolean;
-    navOffset?: number;
+    detailsMedia?: DetailsMediaItem | null;
     featuredProduct?: Record<string, unknown> | null;
   }>(),
   {
     sections: () => [],
-    showSectionNav: false,
-    navOffset: 136,
+    detailsMedia: null,
     featuredProduct: null,
   }
 );
@@ -310,8 +320,8 @@ function getSectionKind(
   return "default";
 }
 
-const renderSections = computed<RenderSection[]>(() =>
-  safeSections.value.map((section, index) => {
+const renderSections = computed<RenderSection[]>(() => {
+  const entries = safeSections.value.map((section, index) => {
     const bulletItems = getBulletCardItems(section);
     const kind = getSectionKind(section, bulletItems);
 
@@ -327,8 +337,14 @@ const renderSections = computed<RenderSection[]>(() =>
           ? "Acabados"
           : "Información de la categoría",
     };
-  })
-);
+  });
+
+  return [...entries].sort((a, b) => {
+    if (a.kind === "details" && b.kind !== "details") return -1;
+    if (a.kind !== "details" && b.kind === "details") return 1;
+    return 0;
+  });
+});
 
 const tabItems = computed<TabItem[]>(() =>
   renderSections.value.map((entry) => ({
@@ -344,15 +360,22 @@ const renderSectionsById = computed<Record<string, RenderSection>>(() =>
   }, {} as Record<string, RenderSection>)
 );
 
+watchEffect(() => {
+  const ids = tabItems.value.map((item) => item.id);
+
+  if (!ids.length) {
+    activeTabId.value = "";
+    return;
+  }
+
+  if (!activeTabId.value || !ids.includes(activeTabId.value)) {
+    activeTabId.value = ids[0];
+  }
+});
+
 function getEntryByTabId(tabId?: string | null): RenderSection | null {
   if (!tabId) return null;
   return renderSectionsById.value[tabId] ?? null;
-}
-
-function getPanelEntries(item?: TabItem | null): RenderSection[] {
-  if (!item?.id) return [];
-  const entry = getEntryByTabId(item.id);
-  return entry ? [entry] : [];
 }
 </script>
 
@@ -367,61 +390,50 @@ function getPanelEntries(item?: TabItem | null): RenderSection[] {
       panel-class="min-w-0"
     >
       <template #panel="{ item }">
-        <template v-for="entry in getPanelEntries(item)" :key="entry.uid">
-          <template v-if="entry.kind === 'details'">
-            <ContentDetailsSection
-              :section="entry.section"
-              eyebrow="Información de la categoría"
-            />
-
-            <CategoryShowcaseCta
-              v-if="featuredProduct"
-              class="mt-4 md:mt-6"
-              :product="featuredProduct"
-              :highlights="[
-                'Ideal para packaging, retail y promociones.',
-                'Disponible en distintos materiales y acabados.',
-                'Solicita presupuesto desde la ficha del producto.',
-              ]"
-            />
-          </template>
+        <template v-if="getEntryByTabId(item?.id)">
+          <ContentDetailsTabPanel
+            v-if="getEntryByTabId(item?.id)?.kind === 'details'"
+            :section="getEntryByTabId(item?.id)?.section"
+            :details-media="detailsMedia"
+            :featured-product="featuredProduct"
+          />
 
           <ContentTypesGrid
-            v-else-if="entry.kind === 'types'"
-            :section-id="entry.section.id"
-            :title="entry.section.title"
-            :intro="entry.section.intro"
-            :items="entry.section.items || []"
+            v-else-if="getEntryByTabId(item?.id)?.kind === 'types'"
+            :section-id="getEntryByTabId(item?.id)?.section.id"
+            :title="getEntryByTabId(item?.id)?.section.title || ''"
+            :intro="getEntryByTabId(item?.id)?.section.intro"
+            :items="getEntryByTabId(item?.id)?.section.items || []"
           />
 
           <CategoryFormatsSection
-            v-else-if="entry.kind === 'formats'"
-            :section-id="entry.section.id"
-            :title="entry.section.title"
-            :data="entry.section.formatsData!"
+            v-else-if="getEntryByTabId(item?.id)?.kind === 'formats'"
+            :section-id="getEntryByTabId(item?.id)?.section.id"
+            :title="getEntryByTabId(item?.id)?.section.title || ''"
+            :data="getEntryByTabId(item?.id)?.section.formatsData!"
           />
 
           <ContentFinishesSection
-            v-else-if="entry.kind === 'finishes'"
-            :section-id="entry.section.id"
-            :title="entry.section.title"
-            :intro="entry.section.intro"
-            :items="entry.bulletItems"
+            v-else-if="getEntryByTabId(item?.id)?.kind === 'finishes'"
+            :section-id="getEntryByTabId(item?.id)?.section.id"
+            :title="getEntryByTabId(item?.id)?.section.title || ''"
+            :intro="getEntryByTabId(item?.id)?.section.intro"
+            :items="getEntryByTabId(item?.id)?.bulletItems || []"
           />
 
           <ContentBulletCards
-            v-else-if="entry.kind === 'uses'"
-            :section-id="entry.section.id"
-            :eyebrow="entry.eyebrow"
-            :title="entry.section.title"
-            :intro="entry.section.intro"
-            :items="entry.bulletItems"
+            v-else-if="getEntryByTabId(item?.id)?.kind === 'uses'"
+            :section-id="getEntryByTabId(item?.id)?.section.id"
+            :eyebrow="getEntryByTabId(item?.id)?.eyebrow"
+            :title="getEntryByTabId(item?.id)?.section.title || ''"
+            :intro="getEntryByTabId(item?.id)?.section.intro"
+            :items="getEntryByTabId(item?.id)?.bulletItems || []"
             :columns="4"
           />
 
           <ContentDetailsSection
             v-else
-            :section="entry.section"
+            :section="getEntryByTabId(item?.id)?.section"
             eyebrow="Información de la categoría"
           />
         </template>

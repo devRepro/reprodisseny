@@ -113,6 +113,7 @@ watch(isMobileSearchOpen, (isOpen) => {
 });
 
 const staticLinks = [
+  { to: "/productos", label: "Catálogo" },
   { to: "/sobre-nosotros", label: "Sobre nosotros" },
   { to: "/contacto", label: "Contacto" },
   { to: "/como-preparar-archivos", label: "Cómo preparar archivos" },
