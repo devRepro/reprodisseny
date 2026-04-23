@@ -32,51 +32,52 @@ type CatalogImage = {
 
 type CatalogBlock =
   | {
-      type: "text";
-      text?: string;
-      html?: boolean;
-    }
+    type: "text";
+    text?: string;
+    html?: boolean;
+  }
   | {
-      type: "bullets";
-      items?: string[];
-    }
+    type: "bullets";
+    items?: string[];
+    ordered?: boolean;
+  }
   | {
-      type: "image";
-      src?: string;
-      alt?: string;
-      width?: number;
-      height?: number;
-      caption?: string;
-    };
+    type: "image";
+    src?: string;
+    alt?: string;
+    width?: number;
+    height?: number;
+    caption?: string;
+  };
 
-    type CatalogTypeItem = {
-      title?: string;
-      description?: string;
-      features?: string[];
-      idealFor?: string;
-    };
+type CatalogTypeItem = {
+  title?: string;
+  description?: string;
+  features?: string[];
+  idealFor?: string;
+};
 
-    type CatalogFormatItem = {
-      title?: string;
-      description?: string;
-    };
-    
-    type CatalogFormatsData = {
-      intro?: string;
-      shapes?: CatalogFormatItem[];
-      deliveryFormats?: CatalogFormatItem[];
-    };
-    
-    type CatalogSection = {
-      id?: string;
-      key?: string;
-      title?: string;
-      body?: string;
-      intro?: string;
-      blocks?: CatalogBlock[];
-      items?: CatalogTypeItem[];
-      formatsData?: CatalogFormatsData;
-    };
+type CatalogFormatItem = {
+  title?: string;
+  description?: string;
+};
+
+type CatalogFormatsData = {
+  intro?: string;
+  shapes?: CatalogFormatItem[];
+  deliveryFormats?: CatalogFormatItem[];
+};
+
+type CatalogSection = {
+  id?: string;
+  key?: string;
+  title?: string;
+  body?: string;
+  intro?: string;
+  blocks?: CatalogBlock[];
+  items?: CatalogTypeItem[];
+  formatsData?: CatalogFormatsData;
+};
 
 type CatalogProductFormField = {
   label?: string;
@@ -94,6 +95,14 @@ type CatalogFaq = {
   a?: string;
   question?: string;
   answer?: string;
+};
+
+type CatalogProductSection = {
+  id?: string;
+  key?: string;
+  title?: string;
+  body?: string;
+  blocks?: CatalogBlock[];
 };
 
 type CatalogProduct = {
@@ -139,6 +148,13 @@ type CatalogCategory = {
   isPublished?: boolean;
   description?: string;
   bodyMd?: string;
+  detailsMd?: string;
+  materialsMd?: string;
+  finishesMd?: string;
+  formatsMd?: string;
+  typesMd?: string;
+  usesMd?: string;
+  howWeWork?: unknown;
   sections?: CatalogSection[];
   faqs?: CatalogFaq[];
   image?: CatalogImage | null;
@@ -225,52 +241,69 @@ export type CategoryDetailProductItem = {
   order: number;
 };
 
-export type CategoryDetailTabItem = {
-  id: string;
-  title: string;
-  blocks: CatalogBlock[];
-  text?: string;
-  html?: string;
-};
-
 export type CategoryDetailFaqItem = {
   q: string;
   a: string;
 };
 
-type CatalogProductSection = {
-  id?: string;
-  key?: string;
+type CategoryBulletCardItem = {
+  title: string;
+  description: string;
+};
+
+export type CategorySectionKind = "details" | "types" | "cards" | "default";
+
+export type CategoryCardItem = {
+  title: string;
+  description: string;
+  tags?: string[];
+  meta?: string;
+};
+
+export type CategoryCardGroup = {
+  id: string;
   title?: string;
-  body?: string;
-  blocks?: CatalogBlock[];
+  description?: string;
+  items: CategoryCardItem[];
+  columns?: 2 | 3 | 4;
 };
 
 export type CategoryDetailSectionItem = {
   id: string;
   key?: string;
+  kind: CategorySectionKind;
   title: string;
   intro?: string;
   blocks: CatalogBlock[];
-  text?: string;
-  html?: string;
   items?: {
     title: string;
     description: string;
     features?: string[];
     idealFor?: string;
   }[];
-  formatsData?: {
-    intro?: string;
-    shapes?: {
-      title: string;
-      description: string;
-    }[];
-    deliveryFormats?: {
-      title: string;
-      description: string;
-    }[];
-  };
+  cardGroups?: CategoryCardGroup[];
+};
+
+export type CategoryHowWeWorkStepItem = {
+  label?: string;
+  title: string;
+  description: string;
+};
+
+export type CategoryHowWeWorkCta = {
+  title: string;
+  description?: string;
+  buttonLabel?: string;
+  href?: string;
+};
+
+export type CategoryHowWeWorkDto = {
+  id?: string;
+  key?: string;
+  title?: string;
+  description?: string;
+  steps: CategoryHowWeWorkStepItem[];
+  cta?: CategoryHowWeWorkCta | null;
 };
 
 export type CategoryDetailPageDto = {
@@ -302,29 +335,6 @@ export type CategoryDetailPageDto = {
   };
   redirectTo?: string;
 };
-
-export type CategoryHowWeWorkStepItem = {
-  label?: string;
-  title: string;
-  description: string;
-};
-
-export type CategoryHowWeWorkCta = {
-  title: string;
-  description?: string;
-  buttonLabel?: string;
-  href?: string;
-};
-
-export type CategoryHowWeWorkDto = {
-  id?: string;
-  key?: string;
-  title?: string;
-  description?: string;
-  steps: CategoryHowWeWorkStepItem[];
-  cta?: CategoryHowWeWorkCta | null;
-};
-
 
 export type ProductDetailHreflangItem = {
   lang: string;
@@ -450,6 +460,14 @@ function normalizeSlug(value: unknown) {
   return normalizeComparable(value).replace(/^\/+|\/+$/g, "");
 }
 
+function normalizeComparableLabel(value: unknown) {
+  return String(value ?? "")
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
+}
+
 function getLastPathSegment(value: unknown) {
   const normalized = normalizeSlug(value);
   if (!normalized) return "";
@@ -468,9 +486,67 @@ function toBoundedInt(
   return Math.max(min, Math.min(safe, max));
 }
 
+function toSafePositiveInt(value: unknown, fallback: number) {
+  const n = Number(value);
+  return Number.isFinite(n) && n > 0 ? Math.floor(n) : fallback;
+}
+
+function normalizeQueryText(value: unknown) {
+  return String(value ?? "").trim().toLowerCase();
+}
+
 function getCatalogCategories(): CatalogCategory[] {
   const data = catalog as CatalogShape;
   return Array.isArray(data.categories) ? data.categories : [];
+}
+
+function createCategoryTextSection(
+  key: string,
+  title: string,
+  body: unknown
+): CatalogSection | null {
+  const text = String(body ?? "").trim();
+  if (!text) return null;
+
+  return {
+    id: key,
+    key,
+    title,
+    body: text,
+  };
+}
+
+function getMergedCategorySections(category: CatalogCategory): CatalogSection[] {
+  const baseSections = Array.isArray(category.sections)
+    ? category.sections.filter(Boolean)
+    : [];
+
+  const existingKeys = new Set(
+    baseSections.map((section) =>
+      String(section?.key || section?.id || "")
+        .trim()
+        .toLowerCase()
+    )
+  );
+
+  const extraSections = [
+    createCategoryTextSection("details", "Detalles", category.detailsMd),
+    createCategoryTextSection("materials", "Materiales", category.materialsMd),
+    createCategoryTextSection("types", "Tipos", category.typesMd),
+    createCategoryTextSection("finishes", "Acabados", category.finishesMd),
+    createCategoryTextSection("formats", "Formatos", category.formatsMd),
+    createCategoryTextSection("uses", "Aplicaciones", category.usesMd),
+  ].filter(
+    (section): section is CatalogSection =>
+      Boolean(section) &&
+      !existingKeys.has(
+        String(section.key || section.id || "")
+          .trim()
+          .toLowerCase()
+      )
+  );
+
+  return [...baseSections, ...extraSections];
 }
 
 function getCatalogProducts(): CatalogProduct[] {
@@ -620,11 +696,11 @@ function imageDtoOf(image: CatalogImage | null | undefined, fallbackAlt: string)
 function productImageDtoOf(
   image:
     | {
-        src?: string;
-        alt?: string;
-        width?: number;
-        height?: number;
-      }
+      src?: string;
+      alt?: string;
+      width?: number;
+      height?: number;
+    }
     | null
     | undefined,
   fallbackAlt: string
@@ -644,7 +720,6 @@ function getCategoryFaqs(category: CatalogCategory): CategoryDetailFaqItem[] {
     .map((faq) => {
       const q = String(faq?.q ?? faq?.question ?? "").trim();
       const a = String(faq?.a ?? faq?.answer ?? "").trim();
-
       return { q, a };
     })
     .filter((faq) => faq.q && faq.a);
@@ -655,7 +730,6 @@ function getProductFaqs(product: CatalogProduct): ProductDetailFaqItem[] {
     .map((faq) => {
       const q = String(faq?.q ?? faq?.question ?? "").trim();
       const a = String(faq?.a ?? faq?.answer ?? "").trim();
-
       return { q, a };
     })
     .filter((faq) => faq.q && faq.a);
@@ -671,9 +745,7 @@ function computeRobotsBase(
     return advanced ? `noindex,follow,${advanced}` : "noindex,follow";
   }
 
-  const override = String(overrideValue ?? "")
-    .trim()
-    .toUpperCase();
+  const override = String(overrideValue ?? "").trim().toUpperCase();
 
   const base =
     override === "NOINDEX" || override === "NOINDEX_FOLLOW"
@@ -760,7 +832,16 @@ function getDirectProductsOfCategory(
   const safeLimit = toBoundedInt(limit, 24, 1, 200);
 
   return getPublishedProducts()
-    .filter((product) => String(product.categorySlug || "") === String(category.slug))
+    .filter((product) => {
+      const primary = String(product.categorySlug || "").trim();
+      if (primary === String(category.slug)) return true;
+
+      const extras = Array.isArray(product.categorySlugs)
+        ? product.categorySlugs.map((s) => String(s || "").trim())
+        : [];
+
+      return extras.includes(String(category.slug));
+    })
     .sort(sortProducts)
     .slice(0, safeLimit)
     .map((product) => ({
@@ -769,52 +850,80 @@ function getDirectProductsOfCategory(
       title: product.title,
       description: product.description || product.shortDescription || "",
       image: productImageDtoOf(product.image, product.title),
-      order: Number.isFinite(product.order) ? Number(product.order) : DEFAULT_SORT_ORDER,
+      order: Number.isFinite(product.order)
+        ? Number(product.order)
+        : DEFAULT_SORT_ORDER,
     }));
 }
 
-function getCategorySections(category: CatalogCategory): CategoryDetailSectionItem[] {
-  return (Array.isArray(category?.sections) ? category.sections : [])
-    .map((section, index) => {
-      const title = String(section?.title || `Sección ${index + 1}`).trim();
-      const text = String(section?.body || "").trim();
-      const key = String(section?.key || "").trim();
-      const intro = String(section?.intro || "").trim();
-      const items = normalizeCategoryTypeItems(section?.items);
-      const formatsData = normalizeCategoryFormatsData(section?.formatsData);
+function stripInlineMarkdown(value: string) {
+  return String(value ?? "")
+    .replace(/\*\*(.*?)\*\*/g, "$1")
+    .replace(/__(.*?)__/g, "$1")
+    .replace(/`([^`]+)`/g, "$1")
+    .replace(/\[(.*?)\]\((.*?)\)/g, "$1")
+    .replace(/\s+/g, " ")
+    .trim();
+}
 
-      const rawBlocks = Array.isArray(section?.blocks)
-        ? section.blocks.filter(Boolean)
-        : [];
+function parseBulletCardItem(raw: string): CategoryBulletCardItem | null {
+  const normalized = String(raw ?? "")
+    .replace(/\s+/g, " ")
+    .trim();
 
-      const fallbackBlocks: CatalogBlock[] = text
-        ? [{ type: "text", text, html: false }]
-        : intro && !formatsData
-          ? [{ type: "text", text: intro, html: false }]
-          : [];
+  if (!normalized) return null;
 
-      const blocks = rawBlocks.length ? rawBlocks : fallbackBlocks;
+  const boldTitleWithDesc = normalized.match(/^\*\*(.+?)\*\*\s*:\s*(.+)$/);
+  if (boldTitleWithDesc) {
+    return {
+      title: stripInlineMarkdown(boldTitleWithDesc[1]),
+      description: stripInlineMarkdown(boldTitleWithDesc[2]),
+    };
+  }
 
-      return {
-        id: String(section?.id || `section-${index + 1}`),
-        ...(key ? { key } : {}),
-        title,
-        blocks,
-        ...(text ? { text } : {}),
-        ...(intro ? { intro } : {}),
-        ...(items.length ? { items } : {}),
-        ...(formatsData ? { formatsData } : {}),
-      };
-    })
+  const plainTitleWithDesc = normalized.match(/^([^:]{1,160})\s*:\s*(.+)$/);
+  if (plainTitleWithDesc) {
+    return {
+      title: stripInlineMarkdown(plainTitleWithDesc[1]),
+      description: stripInlineMarkdown(plainTitleWithDesc[2]),
+    };
+  }
+
+  return {
+    title: "",
+    description: stripInlineMarkdown(normalized),
+  };
+}
+
+function collectRawBulletItemsFromBlocks(blocks: CatalogBlock[]): string[] {
+  const fromBulletBlocks = blocks.flatMap((block) =>
+    block?.type === "bullets" && Array.isArray(block.items) ? block.items : []
+  );
+
+  if (fromBulletBlocks.length) return fromBulletBlocks;
+
+  const rawText = blocks
     .filter(
-      (section) =>
-        section.title &&
-        (
-          section.blocks.length > 0 ||
-          (section.items?.length ?? 0) > 0 ||
-          Boolean(section.formatsData)
-        )
-    );
+      (block): block is Extract<CatalogBlock, { type: "text" }> =>
+        block?.type === "text" && !block.html && Boolean(block.text)
+    )
+    .map((block) => String(block.text ?? ""))
+    .join("\n");
+
+  if (!rawText.trim()) return [];
+
+  return rawText
+    .replace(/\r\n/g, "\n")
+    .split("\n")
+    .map((line) => line.trim())
+    .filter((line) => /^[-*]\s+/.test(line))
+    .map((line) => line.replace(/^[-*]\s+/, "").trim());
+}
+
+function getBulletCardItemsFromBlocks(blocks: CatalogBlock[]): CategoryBulletCardItem[] {
+  return collectRawBulletItemsFromBlocks(blocks)
+    .map(parseBulletCardItem)
+    .filter((item): item is CategoryBulletCardItem => Boolean(item));
 }
 
 function normalizeCategoryTypeItems(
@@ -832,7 +941,6 @@ function normalizeCategoryTypeItems(
       if (!item || typeof item !== "object") return null;
 
       const raw = item as CatalogTypeItem;
-
       const title = String(raw.title ?? "").trim();
       const description = String(raw.description ?? "").trim();
 
@@ -907,6 +1015,268 @@ function normalizeCategoryFormatsData(
   };
 }
 
+
+
+function buildCardGroupsFromBulletItems(
+  groupId: string,
+  items: CategoryBulletCardItem[],
+  options?: {
+    groupTitle?: string;
+    groupDescription?: string;
+    columns?: 2 | 3 | 4;
+    metaPrefix?: string;
+  }
+): CategoryCardGroup[] {
+  if (!items.length) return [];
+
+  return [
+    {
+      id: groupId,
+      ...(options?.groupTitle ? { title: options.groupTitle } : {}),
+      ...(options?.groupDescription
+        ? { description: options.groupDescription }
+        : {}),
+      columns: options?.columns ?? 2,
+      items: items.map((item, index) => ({
+        title: item.title || `Elemento ${index + 1}`,
+        description: item.description,
+        ...(options?.metaPrefix
+          ? {
+              meta: `${options.metaPrefix} ${String(index + 1).padStart(2, "0")}`,
+            }
+          : {}),
+      })),
+    },
+  ];
+}
+
+type CategorySectionRole =
+  | "details"
+  | "types"
+  | "formats"
+  | "finishes"
+  | "uses"
+  | "default";
+
+function resolveCategorySectionRole(section: {
+  key?: string;
+  id?: string;
+  title?: string;
+}): CategorySectionRole {
+  const key = normalizeComparableLabel(section.key);
+  const id = normalizeComparableLabel(section.id);
+  const title = normalizeComparableLabel(section.title);
+
+  if (
+    key === "details" ||
+    key === "detalle" ||
+    key === "detalles" ||
+    id === "details" ||
+    id === "detalle" ||
+    id === "detalles" ||
+    title === "detalles" ||
+    title === "detalle" ||
+    title === "detalles y caracteristicas" ||
+    title.startsWith("detalles")
+  ) {
+    return "details";
+  }
+
+  if (
+    key === "types" ||
+    key === "type" ||
+    key === "tipos" ||
+    key === "tipo" ||
+    title === "tipos" ||
+    title === "tipo"
+  ) {
+    return "types";
+  }
+
+  if (
+    key === "formats" ||
+    key === "format" ||
+    key === "formatos" ||
+    key === "formato" ||
+    title.startsWith("format")
+  ) {
+    return "formats";
+  }
+
+  if (
+    key === "finishes" ||
+    key === "finish" ||
+    key === "acabados" ||
+    key === "acabado" ||
+    title.startsWith("acab")
+  ) {
+    return "finishes";
+  }
+
+  if (
+    key === "uses" ||
+    key === "use" ||
+    key === "aplicaciones" ||
+    key === "aplicacion" ||
+    title.startsWith("aplic")
+  ) {
+    return "uses";
+  }
+
+  return "default";
+}
+
+function buildCardGroupsFromFormatsData(
+  formatsData:
+    | {
+      intro?: string;
+      shapes?: { title: string; description: string }[];
+      deliveryFormats?: { title: string; description: string }[];
+    }
+    | undefined
+): CategoryCardGroup[] {
+  if (!formatsData) return [];
+
+  const groups: CategoryCardGroup[] = [];
+
+  if (Array.isArray(formatsData.shapes) && formatsData.shapes.length) {
+    groups.push({
+      id: "shapes",
+      title: "Formas disponibles",
+      description:
+        "Opciones de forma y corte según el tipo de pieza y el uso previsto.",
+      items: formatsData.shapes.map((item) => ({
+        title: item.title,
+        description: item.description,
+      })),
+      columns: 2,
+    });
+  }
+
+  if (
+    Array.isArray(formatsData.deliveryFormats) &&
+    formatsData.deliveryFormats.length
+  ) {
+    groups.push({
+      id: "delivery",
+      title: "Formatos y presentación",
+      description:
+        "Formatos habituales de presentación, suministro o entrega del material.",
+      items: formatsData.deliveryFormats.map((item) => ({
+        title: item.title,
+        description: item.description,
+      })),
+      columns: 2,
+    });
+  }
+
+  return groups;
+}
+
+
+
+function resolveCategorySectionKind(section: {
+  role: CategorySectionRole;
+  items?: unknown[];
+  cardGroups?: unknown[];
+}): CategorySectionKind {
+  if (section.role === "details") {
+    return "details";
+  }
+
+  if (
+    section.role === "types" &&
+    Array.isArray(section.items) &&
+    section.items.length > 0
+  ) {
+    return "types";
+  }
+
+  if (
+    (section.role === "formats" ||
+      section.role === "finishes" ||
+      section.role === "uses") &&
+    Array.isArray(section.cardGroups) &&
+    section.cardGroups.length > 0
+  ) {
+    return "cards";
+  }
+
+  return "default";
+}
+
+function getCategorySections(category: CatalogCategory): CategoryDetailSectionItem[] {
+  return getMergedCategorySections(category)
+    .map((section, index) => {
+      const id = String(section?.id || `section-${index + 1}`).trim();
+      const key = String(section?.key || "").trim() || undefined;
+      const title = String(section?.title || `Sección ${index + 1}`).trim();
+      const intro = String(section?.intro || "").trim() || undefined;
+      const text = String(section?.body || "").trim();
+
+      const role = resolveCategorySectionRole({ key, id, title });
+      const items = normalizeCategoryTypeItems(section?.items);
+      const formatsData = normalizeCategoryFormatsData(section?.formatsData);
+
+      const rawBlocks = Array.isArray(section?.blocks)
+        ? section.blocks.filter(Boolean)
+        : [];
+
+      const fallbackBlocks: CatalogBlock[] = text
+        ? [{ type: "text", text, html: false }]
+        : intro && (role === "default" || role === "details") && !items.length
+          ? [{ type: "text", text: intro, html: false }]
+          : [];
+
+      const blocks = rawBlocks.length ? rawBlocks : fallbackBlocks;
+      const bulletItems = getBulletCardItemsFromBlocks(blocks);
+
+      let cardGroups: CategoryCardGroup[] = [];
+
+      if (role === "formats") {
+        if (formatsData) {
+          cardGroups = buildCardGroupsFromFormatsData(formatsData);
+        } else if (bulletItems.length) {
+          cardGroups = buildCardGroupsFromBulletItems("formats", bulletItems, {
+            columns: 2,
+          });
+        }
+      } else if (role === "finishes") {
+        cardGroups = buildCardGroupsFromBulletItems("finishes", bulletItems, {
+          columns: 2,
+          metaPrefix: "Acabado",
+        });
+      } else if (role === "uses") {
+        cardGroups = buildCardGroupsFromBulletItems("uses", bulletItems, {
+          columns: 2,
+        });
+      }
+
+      const kind = resolveCategorySectionKind({
+        role,
+        items,
+        cardGroups,
+      });
+
+      const hasContent =
+        blocks.length > 0 || items.length > 0 || cardGroups.length > 0;
+
+      if (!id || !title || !hasContent) return null;
+
+      return {
+        id,
+        ...(key ? { key } : {}),
+        kind,
+        title,
+        ...(intro ? { intro } : {}),
+        blocks,
+        ...(items.length ? { items } : {}),
+        ...(cardGroups.length ? { cardGroups } : {}),
+      };
+    })
+    .filter((section): section is CategoryDetailSectionItem => Boolean(section));
+}
+
 function getProductSections(product: CatalogProduct): ProductDetailSectionItem[] {
   return (Array.isArray(product?.sections) ? product.sections : [])
     .map((section, index) => {
@@ -949,11 +1319,11 @@ export function getHomeCategories(limit = 8): HomeCategoryCardItem[] {
     href: categoryPathOf(category),
     image: category.image?.src
       ? {
-          src: category.image.src,
-          alt: category.image.alt || category.title,
-          width: Number(category.image.width) || FALLBACK_CARD_WIDTH,
-          height: Number(category.image.height) || FALLBACK_CARD_HEIGHT,
-        }
+        src: category.image.src,
+        alt: category.image.alt || category.title,
+        width: Number(category.image.width) || FALLBACK_CARD_WIDTH,
+        height: Number(category.image.height) || FALLBACK_CARD_HEIGHT,
+      }
       : null,
   }));
 }
@@ -1106,6 +1476,18 @@ function resolveCategoryByPathOrSlug(
   return { category, ...(redirectTo ? { redirectTo } : {}) };
 }
 
+function getCategoryHowWeWork(
+  category: CatalogCategory
+): CategoryHowWeWorkDto | null {
+  const dedicated = parseCategoryHowWeWork(category.howWeWork);
+  if (dedicated) return dedicated;
+
+  const legacyBody = String(category.bodyMd ?? "").trim();
+  if (!legacyBody.startsWith("{")) return null;
+
+  return parseCategoryHowWeWork(legacyBody);
+}
+
 export function getCategoryDetailByPath(
   requestedPathOrSlug: string,
   options: {
@@ -1121,8 +1503,6 @@ export function getCategoryDetailByPath(
 
   const canonicalPath = categoryPathOf(category);
   const trail = buildCategoryTrail(category, categories);
-  const sections = getCategorySections(category);
-  const faqs = getCategoryFaqs(category);
 
   return {
     slug: categoryPublicSlugOf(category),
@@ -1131,12 +1511,12 @@ export function getCategoryDetailByPath(
     nav: category.nav || category.title,
     description: category.description || "",
     bodyMd: category.bodyMd || "",
-    howWeWork: parseCategoryHowWeWork(category.bodyMd),
+    howWeWork: getCategoryHowWeWork(category),
     image: imageDtoOf(category.image, category.title),
     children: getDirectChildrenOf(category, categories, options.childLimit ?? 50),
     products: getDirectProductsOfCategory(category, options.productLimit ?? 24),
-    sections,
-    faqs,
+    sections: getCategorySections(category),
+    faqs: getCategoryFaqs(category),
     detailGallery: getCategoryDetailGalleryBySlug(categoryPublicSlugOf(category)),
     breadcrumbs: [
       { label: "Inicio", to: "/" },
@@ -1171,15 +1551,6 @@ function getCategoryBySlug(slug: string) {
       (item) => String(item.slug) === String(slug)
     ) || null
   );
-}
-
-function normalizeQueryText(value: unknown) {
-  return String(value ?? "").trim().toLowerCase();
-}
-
-function toSafePositiveInt(value: unknown, fallback: number) {
-  const n = Number(value);
-  return Number.isFinite(n) && n > 0 ? Math.floor(n) : fallback;
 }
 
 function getCategoryDescendantSlugs(
@@ -1227,21 +1598,21 @@ function parseCategoryHowWeWork(value: unknown): CategoryHowWeWorkDto | null {
 
     const steps = Array.isArray(parsed.steps)
       ? parsed.steps
-          .map((step) => {
-            const item = step as Record<string, unknown>;
-            const title = String(item.title ?? "").trim();
-            const description = String(item.description ?? "").trim();
-            const label = String(item.label ?? "").trim();
+        .map((step) => {
+          const item = step as Record<string, unknown>;
+          const title = String(item.title ?? "").trim();
+          const description = String(item.description ?? "").trim();
+          const label = String(item.label ?? "").trim();
 
-            if (!title || !description) return null;
+          if (!title || !description) return null;
 
-            return {
-              ...(label ? { label } : {}),
-              title,
-              description,
-            };
-          })
-          .filter(Boolean) as CategoryHowWeWorkStepItem[]
+          return {
+            ...(label ? { label } : {}),
+            title,
+            description,
+          };
+        })
+        .filter(Boolean) as CategoryHowWeWorkStepItem[]
       : [];
 
     const ctaRaw =
@@ -1251,22 +1622,22 @@ function parseCategoryHowWeWork(value: unknown): CategoryHowWeWorkDto | null {
 
     const cta =
       ctaRaw &&
-      (String(ctaRaw.title ?? "").trim() ||
-        String(ctaRaw.description ?? "").trim() ||
-        String(ctaRaw.buttonLabel ?? "").trim() ||
-        String(ctaRaw.href ?? "").trim())
+        (String(ctaRaw.title ?? "").trim() ||
+          String(ctaRaw.description ?? "").trim() ||
+          String(ctaRaw.buttonLabel ?? "").trim() ||
+          String(ctaRaw.href ?? "").trim())
         ? {
-            title: String(ctaRaw.title ?? "").trim(),
-            ...(String(ctaRaw.description ?? "").trim()
-              ? { description: String(ctaRaw.description).trim() }
-              : {}),
-            ...(String(ctaRaw.buttonLabel ?? "").trim()
-              ? { buttonLabel: String(ctaRaw.buttonLabel).trim() }
-              : {}),
-            ...(String(ctaRaw.href ?? "").trim()
-              ? { href: String(ctaRaw.href).trim() }
-              : {}),
-          }
+          title: String(ctaRaw.title ?? "").trim(),
+          ...(String(ctaRaw.description ?? "").trim()
+            ? { description: String(ctaRaw.description).trim() }
+            : {}),
+          ...(String(ctaRaw.buttonLabel ?? "").trim()
+            ? { buttonLabel: String(ctaRaw.buttonLabel).trim() }
+            : {}),
+          ...(String(ctaRaw.href ?? "").trim()
+            ? { href: String(ctaRaw.href).trim() }
+            : {}),
+        }
         : null;
 
     if (!steps.length) return null;
@@ -1287,6 +1658,7 @@ function parseCategoryHowWeWork(value: unknown): CategoryHowWeWorkDto | null {
     return null;
   }
 }
+
 function sortCategoryProducts(
   items: CategoryProductsListItem[],
   sort: "order" | "title" | "price",
@@ -1346,10 +1718,11 @@ export function getCategoryProductsBySlug(
     .filter((product) => {
       const primary = String(product.categorySlug || "").trim();
       if (allowedSlugs.has(primary)) return true;
-      // también comprobar el array categorySlugs generado por sync-cms
+
       const extras = Array.isArray(product.categorySlugs)
         ? product.categorySlugs.map((s) => String(s || "").trim())
         : [];
+
       return extras.some((s) => allowedSlugs.has(s));
     })
     .map((product) => ({
@@ -1437,17 +1810,15 @@ export function getProductDetailBySlug(
 
   const hreflang = Array.isArray(product?.seo?.hreflang)
     ? product.seo.hreflang
-        .filter((item): item is ProductDetailHreflangItem => {
-          return Boolean(item?.lang && item?.url);
-        })
-        .map((item) => ({
-          lang: String(item.lang),
-          url: String(item.url),
-        }))
+      .filter((item): item is ProductDetailHreflangItem => Boolean(item?.lang && item?.url))
+      .map((item) => ({
+        lang: String(item.lang),
+        url: String(item.url),
+      }))
     : [];
 
   const formFields = Array.isArray(product.formFields)
-  ? product.formFields.map((field) => ({
+    ? product.formFields.map((field) => ({
       label: String(field?.label || ""),
       name: String(field?.name || ""),
       type: String(field?.type || "text"),
@@ -1459,7 +1830,7 @@ export function getProductDetailBySlug(
       placeholder: field?.placeholder ? String(field.placeholder) : undefined,
       helpText: field?.helpText ? String(field.helpText) : undefined,
     }))
-  : [];
+    : [];
 
   return {
     slug: productPublicSlugOf(product),
@@ -1473,11 +1844,11 @@ export function getProductDetailBySlug(
     image: productImageDtoOf(product.image, product.title),
     category: parentCategory
       ? {
-          slug: categoryPublicSlugOf(parentCategory),
-          path: categoryPathOf(parentCategory),
-          title: parentCategory.title,
-          nav: parentCategory.nav || parentCategory.title,
-        }
+        slug: categoryPublicSlugOf(parentCategory),
+        path: categoryPathOf(parentCategory),
+        title: parentCategory.title,
+        nav: parentCategory.nav || parentCategory.title,
+      }
       : null,
     formFields,
     breadcrumbs: [
@@ -1489,11 +1860,11 @@ export function getProductDetailBySlug(
       })),
       ...(parentCategory
         ? [
-            {
-              label: parentCategory.nav || parentCategory.title,
-              to: categoryPathOf(parentCategory),
-            },
-          ]
+          {
+            label: parentCategory.nav || parentCategory.title,
+            to: categoryPathOf(parentCategory),
+          },
+        ]
         : []),
       { label: product.title },
     ],

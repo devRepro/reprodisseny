@@ -82,6 +82,13 @@ function normalizeSectionBlocks(section: IncomingSection): ContentBlock[] {
   return [];
 }
 
+function splitParagraphs(text?: string): string[] {
+  return String(text || "")
+    .split(/\n\s*\n/g)
+    .map((item) => item.trim())
+    .filter(Boolean);
+}
+
 const safeSection = computed<SafeSection | null>(() => {
   const section = props.section;
   if (!section) return null;
@@ -123,7 +130,7 @@ function isImage(b: ContentBlock): b is Extract<ContentBlock, { type: "image" }>
   <section
     v-if="safeSection"
     :id="safeSection.id"
-    :class="cn('space-y-8 md:space-y-10', props.class)"
+    :class="cn('space-y-6 md:space-y-8', props.class)"
   >
     <ContentSectionHeader
       v-if="showHeader"
@@ -136,22 +143,24 @@ function isImage(b: ContentBlock): b is Extract<ContentBlock, { type: "image" }>
       :class="cn('max-w-3xl', props.headerClass)"
     />
 
-    <div :class="cn('space-y-6 md:space-y-8', props.contentClass)">
+    <div :class="cn('space-y-4 md:space-y-5', props.contentClass)">
       <template
         v-for="(block, blockIndex) in safeSection.blocks"
         :key="`${safeSection.id}-${blockIndex}`"
       >
-        <div v-if="isPlainText(block)" class="max-w-[78ch]">
+        <div v-if="isPlainText(block)" class="max-w-[72ch] space-y-3">
           <p
-            class="whitespace-pre-line font-body text-[15px] leading-8 text-muted-foreground md:text-[16px]"
+            v-for="(paragraph, idx) in splitParagraphs(block.text)"
+            :key="`${safeSection.id}-${blockIndex}-p-${idx}`"
+            class="font-body text-[15px] leading-7 text-muted-foreground md:text-base"
           >
-            {{ block.text }}
+            {{ paragraph }}
           </p>
         </div>
 
         <div
           v-else-if="isHtmlText(block)"
-          class="prose prose-neutral max-w-none prose-headings:font-semibold prose-headings:tracking-[-0.03em] prose-headings:text-foreground prose-h2:mt-0 prose-h2:mb-5 prose-h2:border-t prose-h2:border-border/50 prose-h2:pt-8 prose-h2:text-[1.9rem] prose-h2:leading-[1.1] prose-h3:mt-10 prose-h3:mb-3 prose-h3:text-[1.35rem] prose-h3:leading-[1.16] prose-h4:mt-8 prose-h4:mb-2 prose-h4:text-[1.05rem] prose-h4:font-semibold prose-p:text-[15px] prose-p:leading-8 prose-p:text-muted-foreground prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-strong:font-semibold prose-strong:text-foreground prose-ul:mt-5 prose-ul:mb-6 prose-ol:mt-5 prose-ol:mb-6 prose-li:text-muted-foreground"
+          class="prose prose-neutral max-w-[72ch] prose-headings:font-semibold prose-headings:tracking-[-0.03em] prose-headings:text-foreground prose-h2:mt-0 prose-h2:mb-3 prose-h2:border-t prose-h2:border-border/50 prose-h2:pt-5 prose-h2:text-[1.7rem] prose-h2:leading-[1.12] prose-h3:mt-6 prose-h3:mb-2 prose-h3:text-[1.2rem] prose-h3:leading-[1.2] prose-h4:mt-5 prose-h4:mb-2 prose-h4:text-[1rem] prose-h4:font-semibold prose-p:my-3 prose-p:text-[15px] prose-p:leading-7 prose-p:text-muted-foreground prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-strong:font-semibold prose-strong:text-foreground prose-ul:my-4 prose-ol:my-4 prose-li:my-1 prose-li:text-muted-foreground"
           v-html="block.text"
         />
 

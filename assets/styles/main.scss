@@ -38,16 +38,13 @@
 
   .catalog-panel {
     @apply rounded-2xl border p-5;
-    background-color: hsl(var(--card));
-    color: hsl(var(--card-foreground));
-    border-color: hsl(var(--border));
+    
   }
 
   .catalog-panel-soft {
     @apply rounded-2xl border p-5;
     background-color: hsl(var(--accent));
-    color: hsl(var(--accent-foreground));
-    border-color: hsl(var(--border));
+
   }
 
   .catalog-toolbar {

@@ -123,7 +123,7 @@ if (!slug.value || isAssetLike(slug.value) || looksLikeProductPath(slug.value)) 
   });
 }
 
-const { data, status, error } = await useAsyncData<CategoryDetailPageDto | null>(
+const { data, status,pending, error } = await useAsyncData<CategoryDetailPageDto | null>(
   `cms:category:${slug.value}`,
   () =>
     $fetch(`/api/cms/category/${apiSlug.value}`, {
@@ -150,7 +150,6 @@ if (
     replace: true,
   });
 }
-
 const fetchError = computed(() => (error.value as any) || null);
 const category = computed(() => data.value as CategoryDetailPageDto | null);
 

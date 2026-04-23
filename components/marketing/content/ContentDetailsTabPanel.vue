@@ -66,7 +66,7 @@ const pills = computed(() =>
       <div
         class="grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.95fr)] lg:items-start lg:gap-10"
       >
-        <div class="min-w-0 space-y-6">
+        <div class="min-w-0 max-w-[680px] space-y-6 md:space-y-8">
           <ContentDetailsSection
             :section="section"
             eyebrow="Información de la categoría"
@@ -74,14 +74,21 @@ const pills = computed(() =>
             content-class="space-y-5 md:space-y-6"
           />
 
-          <div v-if="pills.length" class="flex flex-wrap gap-2">
-            <AppChip
-              v-for="pill in pills"
-              :key="`${pill.to}-${pill.label}`"
-              :to="pill.to"
-            >
-              {{ pill.label }}
-            </AppChip>
+          <div v-if="pills.length" class="space-y-3 pt-2">
+            <p class="text-label text-foreground/60">
+              Productos o soluciones relacionadas
+            </p>
+
+            <div class="flex flex-wrap gap-2">
+              <AppChip
+                v-for="pill in pills"
+                :key="`${pill.to}-${pill.label}`"
+                variant="pill"
+                :to="pill.to"
+              >
+                {{ pill.label }}
+              </AppChip>
+            </div>
           </div>
         </div>
 
