@@ -4,7 +4,7 @@ import type { ProductDetailDto } from "~/server/services/cms/catalog.service";
 import SiteBreadcrumbs from "@/components/shared/SiteBreadcrumbs.vue";
 import ProductHero from "@/components/marketing/product/Hero.vue";
 import GuideBanner from "@/components/marketing/GuideBanner.vue";
-import ProductSections from "@/components/marketing/product/ProductSections.vue";
+import ContentSectionsRenderer from "@/components/marketing/content/ContentSectionsRenderer.vue";
 import FaqAccordion from "@/components/shared/blocks/FaqAccordion.vue";
 import ContentSectionShell from "@/components/marketing/content/ContentSectionShell.vue";
 import SectionSplitBanner from "@/components/shared/banner/SectionSplitBanner.vue";
@@ -26,7 +26,11 @@ function safeDecode(value: unknown) {
 
 function isAssetLike(value: unknown) {
   const s = String(value ?? "").trim();
-  return /^(img|_nuxt)\//i.test(s) || /\.(jpg|jpeg|png|webp|avif|gif|svg|pdf)$/i.test(s);
+
+  return (
+    /^(img|_nuxt)\//i.test(s) ||
+    /\.(jpg|jpeg|png|webp|avif|gif|svg|pdf)$/i.test(s)
+  );
 }
 
 function toAbsoluteUrl(value?: string | null) {
@@ -43,7 +47,9 @@ function toAbsoluteUrl(value?: string | null) {
 
 const slug = computed(() =>
   safeDecode(
-    Array.isArray(route.params.slug) ? route.params.slug.join("/") : route.params.slug
+    Array.isArray(route.params.slug)
+      ? route.params.slug.join("/")
+      : route.params.slug
   ).trim()
 );
 
@@ -71,7 +77,10 @@ if (error.value) {
   throw createError({
     statusCode: err?.statusCode || err?.status || err?.response?.status || 404,
     statusMessage: "Producto no encontrado",
-    message: err?.data?.message || err?.message || "No hemos podido cargar el producto",
+    message:
+      err?.data?.message ||
+      err?.message ||
+      "No hemos podido cargar el producto",
   });
 }
 
@@ -109,7 +118,9 @@ const breadcrumbItems = computed(() =>
 );
 
 const sections = computed(() =>
-  Array.isArray(product.value?.sections) ? product.value.sections.filter(Boolean) : []
+  Array.isArray(product.value?.sections)
+    ? product.value.sections.filter(Boolean)
+    : []
 );
 
 const faqs = computed(() =>
@@ -128,8 +139,8 @@ const heroProduct = computed(() => {
   const extraFields = Array.isArray((current as any).extraFields)
     ? (current as any).extraFields
     : Array.isArray(current.formFields)
-    ? current.formFields
-    : [];
+      ? current.formFields
+      : [];
 
   return {
     slug: current.slug,
@@ -246,12 +257,14 @@ useSeoMeta({
 });
 
 const productLabel = computed(() => product.value?.title || "este producto");
+
 const categoryLabel = computed(
   () => category.value?.nav || category.value?.title || "su categoría"
 );
 
 const closingBannerTitle = computed(
-  () => `¿Necesitas una solución a medida para ${productLabel.value.toLowerCase()}?`
+  () =>
+    `¿Necesitas una solución a medida para ${productLabel.value.toLowerCase()}?`
 );
 
 const closingBannerDescription = computed(() => {
@@ -299,16 +312,16 @@ const closingBannerPills = computed(() => {
             <ProductHero :product="heroProduct" :category="category" />
           </section>
 
-          <section
+          <ContentSectionShell
             v-if="hasSections"
-            :class="pageContainerClass"
-            aria-label="Información del producto"
+            id="informacion-producto"
+            theme="muted"
+            eyebrow="Información del producto"
+            title="Detalles, beneficios y opciones"
+            description="Consulta la información clave de este producto en un formato claro y fácil de revisar."
           >
-            <ProductSections
-              :sections="sections"
-              :show-section-nav="sections.length > 1"
-            />
-          </section>
+            <ContentSectionsRenderer :sections="sections" />
+          </ContentSectionShell>
 
           <ContentSectionShell
             v-if="hasFaqs"

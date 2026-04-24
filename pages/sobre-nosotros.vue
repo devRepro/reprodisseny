@@ -2,9 +2,9 @@
 <script setup lang="ts">
 import ComparisonTable from "@/components/shared/blocks/ComparisonTable.vue";
 import EnvironmentSection from "@/components/shared/blocks/EnvironmentSection.vue";
-import CompanyTimeline from "@/components/shared/blocks/CompanyTimeline.vue";
 import CompanyValuesSection from "@/components/shared/CompanyValuesSection.vue";
 import ClientLogosBand from "@/components/marketing/ClientLogosBand.vue";
+import HeaderPage from "@/components/shared/hero/HeaderPage.vue";
 import {
   Sparkles,
   BadgeCheck,
@@ -21,16 +21,16 @@ type TimelineItem = {
   imageSrc: string;
   imageAlt: string;
   side: "left" | "right";
-  icon?: any;
 };
 
 const pageContainerClass = "container-content";
-const pageSectionSpaceClass = "py-12 md:py-16 lg:py-20";
-const sectionTitleClass =
-  "text-3xl font-semibold leading-tight text-foreground md:text-4xl";
-const sectionTitleInverseClass =
-  "text-3xl font-semibold leading-tight text-white md:text-4xl";
+const pageSectionClass = "py-12 md:py-16 lg:py-20";
 
+const timelineNumberClass =
+  "inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-primary/20 bg-accent text-sm font-semibold text-primary shadow-[0_10px_28px_-24px_hsl(var(--primary)/0.75)]";
+
+const timelineYearClass =
+  "inline-flex shrink-0 items-center rounded-full border border-primary bg-primary px-3.5 py-1.5 text-body-s-bold text-primary-foreground shadow-[0_10px_24px_-18px_hsl(var(--primary)/0.65)]";
 const timeline: TimelineItem[] = [
   {
     year: 1983,
@@ -213,71 +213,150 @@ const environmentItems = [
   "Utilizamos papeles con certificados FSC y PEFC.",
   "Ofrecemos la posibilidad de imprimir sobre papeles reciclados.",
 ];
+
+function paragraphs(value: string) {
+  return String(value || "")
+    .split(/\n{2,}/)
+    .map((item) => item.trim())
+    .filter(Boolean);
+}
+
+useSeoMeta({
+  title: "Sobre nosotros | Reprodisseny",
+  description:
+    "Más de 40 años evolucionando en la comunicación gráfica, la impresión digital, el gran formato y los proyectos personalizados en Barcelona.",
+});
 </script>
 
 <template>
   <main class="bg-background text-foreground">
-    <section class="bg-brand-base-light">
-      <div :class="pageContainerClass" class="py-10 md:py-14 lg:py-16">
-        <div class="mx-auto max-w-3xl text-center">
-          <h1
-            class="text-3xl font-semibold leading-tight text-brand-base-dark md:text-4xl"
-          >
-            Toda una vida imprimiendo
-          </h1>
+    <HeaderPage
+      eyebrow="Nuestra historia"
+      title="Más de 40 años evolucionando en la comunicación gráfica"
+      description="Desde nuestros inicios en Barcelona hasta la consolidación de un centro de producción preparado para impresión digital, gran formato y proyectos personalizados."
+      image-src="/img/ui/reprodisseny/juan_de_mena.webp"
+      image-alt="Instalaciones de Repro Disseny en Barcelona"
+    />
 
-          <p class="mt-4 text-base leading-7 text-foreground/75 md:text-lg md:leading-8">
-            Más de cuatro décadas evolucionando con la tecnología, la producción gráfica y
-            las necesidades reales de nuestros clientes.
+    <section
+      :class="pageSectionClass"
+      class="pt-8 md:pt-10 lg:pt-12"
+      aria-label="Cronología de Repro Disseny"
+    >
+      <div :class="pageContainerClass">
+        <div class="space-y-8 md:space-y-10 lg:space-y-12">
+          <article
+            v-for="(item, index) in timeline"
+            :key="`${item.year}-${item.title}`"
+            class="grid gap-6 md:grid-cols-2 md:items-center md:gap-10"
+          >
+            <div
+              class="hidden md:block"
+              :class="item.side === 'left' ? 'md:order-1' : 'md:order-2'"
+            >
+              <div
+                class="overflow-hidden rounded-[28px] border border-border/70 bg-card p-2 shadow-[0_18px_50px_-40px_hsl(var(--foreground)/0.22)]"
+              >
+                <img
+                  :src="item.imageSrc"
+                  :alt="item.imageAlt"
+                  width="640"
+                  height="420"
+                  class="aspect-[16/11] w-full rounded-[22px] object-cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </div>
+
+            <div :class="item.side === 'left' ? 'md:order-2' : 'md:order-1'">
+              <div
+                class="rounded-[28px] border border-border/70 bg-card p-6 shadow-[0_18px_50px_-44px_hsl(var(--foreground)/0.24)] transition-colors duration-300 hover:border-primary/25 md:p-7 lg:p-8"
+              >
+                <div
+                  class="mb-5 overflow-hidden rounded-2xl border border-border/70 bg-muted/30 md:hidden"
+                >
+                  <img
+                    :src="item.imageSrc"
+                    :alt="item.imageAlt"
+                    width="640"
+                    height="420"
+                    class="aspect-[16/10] w-full object-cover"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </div>
+
+                <header class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                  <div class="flex min-w-0 items-start gap-4">
+                    <span :class="timelineNumberClass" aria-label="Número de hito">
+                      {{ String(index + 1).padStart(2, "0") }}
+                    </span>
+
+                    <h2
+                      class="pt-0.5 text-2xl font-semibold leading-tight tracking-[-0.015em] text-foreground"
+                    >
+                      {{ item.title }}
+                    </h2>
+                  </div>
+
+                  <time :datetime="String(item.year)" :class="timelineYearClass">
+                    {{ item.year }}
+                  </time>
+                </header>
+
+                <div class="mt-5 space-y-4 text-base leading-7 text-foreground/72">
+                  <p
+                    v-for="paragraph in paragraphs(item.text)"
+                    :key="paragraph"
+                    class="mb-0"
+                  >
+                    {{ paragraph }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-brand-base-dark text-white">
+      <div :class="pageContainerClass" class="py-12 md:py-16 lg:py-20">
+        <div class="mx-auto max-w-3xl text-center">
+          <p class="mb-0 text-body-s-bold uppercase tracking-[0.18em] text-white/70">
+            Capacidad productiva
+          </p>
+
+          <h2 class="mt-3 text-3xl font-semibold leading-tight md:text-4xl">
+            Instalaciones, equipo y tecnología para proyectos exigentes
+          </h2>
+
+          <p class="mb-0 mt-4 text-base leading-7 text-white/78 md:text-lg md:leading-8">
+            Contamos con un centro de producción preparado para impresión digital,
+            gran formato, acabados, montaje y soluciones de comunicación visual.
           </p>
         </div>
       </div>
     </section>
 
-    <CompanyTimeline :items="timeline" />
-
-    <section class="bg-[#004F78]">
-      <div :class="pageContainerClass" class="py-12 md:py-16 lg:py-20">
-        <div class="flex flex-col items-center gap-8 md:gap-10">
-          <div class="max-w-3xl text-center">
-            <h2 class="text-3xl font-semibold leading-tight text-white md:text-4xl">
-              Algunos datos sobre nosotros
-            </h2>
-
-            <p class="mt-4 text-base leading-7 text-white/80 md:text-lg md:leading-8">
-              Instalaciones, equipo y capacidad productiva para abordar proyectos de
-              impresión, exposición y comunicación visual con solvencia.
-            </p>
-          </div>
-
-          <div
-            class="w-full max-w-[746px] overflow-hidden rounded-3xl bg-white/10 shadow-sm ring-1 ring-white/10"
-          >
-            <img
-              src="/img/ui/reprodisseny/juan_de_mena.webp"
-              alt="Instalaciones y equipo de Repro Disseny"
-              width="746"
-              height="416"
-              class="block h-auto w-full object-cover"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section :class="pageSectionSpaceClass">
+    <section :class="pageSectionClass">
       <div :class="pageContainerClass">
         <div class="flex flex-col gap-8 md:gap-10">
           <div class="max-w-3xl">
-            <h2 :class="sectionTitleClass">Lo que nos diferencia</h2>
+            <p class="mb-0 text-body-s-bold uppercase tracking-[0.18em] text-brand-base">
+              Diferencial
+            </p>
 
-            <p
-              class="mt-4 text-base leading-7 text-foreground/75 md:text-lg md:leading-8"
+            <h2
+              class="mt-3 text-3xl font-semibold leading-tight tracking-[-0.02em] text-foreground md:text-4xl"
             >
-              Combinamos la agilidad del entorno digital con el acompañamiento, el control
-              de calidad y la capacidad técnica de un equipo con experiencia.
+              Lo que nos diferencia
+            </h2>
+
+            <p class="mb-0 mt-4 text-base leading-7 text-foreground/75 md:text-lg md:leading-8">
+              Combinamos la agilidad del entorno digital con el acompañamiento, el
+              control de calidad y la capacidad técnica de un equipo con experiencia.
             </p>
           </div>
 

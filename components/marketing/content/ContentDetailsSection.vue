@@ -1,12 +1,22 @@
+<!-- components/marketing/content/ContentDetailsSection.vue -->
 <script setup lang="ts">
 import { computed } from "vue";
 import { cn } from "@/lib/utils";
 import { normalizeCmsMediaSrc } from "@/utils/cmsMedia";
 import ContentSectionHeader from "@/components/marketing/content/ContentSectionHeader.vue";
 
-type ContentBlock =
-  | { type: "text"; text?: string; html?: boolean; format?: "plain" | "html" }
-  | { type: "bullets"; items?: string[]; ordered?: boolean }
+type ContentEntry =
+  | {
+      type: "text";
+      text?: string;
+      html?: boolean;
+      format?: "plain" | "html";
+    }
+  | {
+      type: "bullets";
+      items?: string[];
+      ordered?: boolean;
+    }
   | {
       type: "image";
       src?: string;
@@ -21,17 +31,23 @@ type IncomingSection = {
   key?: string;
   title?: string;
   intro?: string;
-  blocks?: ContentBlock[];
-  content?: ContentBlock[];
+  body?: string;
   text?: string;
   html?: string;
+
+  /**
+   * Compatibilidad con el modelo anterior.
+   * La vista normaliza ambos campos a `content`.
+   */
+  blocks?: ContentEntry[];
+  content?: ContentEntry[];
 };
 
 type SafeSection = {
   id: string;
   title: string;
   intro?: string;
-  blocks: ContentBlock[];
+  content: ContentEntry[];
 };
 
 const props = withDefaults(
@@ -64,20 +80,40 @@ function makeAnchorId(value: string, fallback: string): string {
   return normalized || fallback;
 }
 
-function normalizeSectionBlocks(section: IncomingSection): ContentBlock[] {
-  if (Array.isArray(section.blocks) && section.blocks.length) {
-    return section.blocks.filter(Boolean) as ContentBlock[];
+function normalizeSectionContent(section: IncomingSection): ContentEntry[] {
+  if (Array.isArray(section.content) && section.content.length) {
+    return section.content.filter(Boolean) as ContentEntry[];
   }
 
-  if (Array.isArray(section.content) && section.content.length) {
-    return section.content.filter(Boolean) as ContentBlock[];
+  if (Array.isArray(section.blocks) && section.blocks.length) {
+    return section.blocks.filter(Boolean) as ContentEntry[];
   }
 
   const html = String(section.html ?? "").trim();
-  if (html) return [{ type: "text", text: html, html: true }];
 
-  const text = String(section.text ?? "").trim();
-  if (text) return [{ type: "text", text, html: false }];
+  if (html) {
+    return [
+      {
+        type: "text",
+        text: html,
+        html: true,
+        format: "html",
+      },
+    ];
+  }
+
+  const text = String(section.body ?? section.text ?? "").trim();
+
+  if (text) {
+    return [
+      {
+        type: "text",
+        text,
+        html: false,
+        format: "plain",
+      },
+    ];
+  }
 
   return [];
 }
@@ -95,34 +131,46 @@ const safeSection = computed<SafeSection | null>(() => {
 
   const title = String(section.title ?? "").trim();
   const intro = String(section.intro ?? "").trim() || undefined;
-  const blocks = normalizeSectionBlocks(section);
+  const content = normalizeSectionContent(section);
 
-  if (!title || !blocks.length) return null;
+  if (!title || !content.length) return null;
 
-  const rawId = String(section.id ?? section.key ?? "").trim();
+  const rawId = String(section.id ?? section.key ?? title).trim();
 
   return {
-    id: makeAnchorId(rawId || title, "seccion"),
+    id: makeAnchorId(rawId, "seccion"),
     title,
     ...(intro ? { intro } : {}),
-    blocks,
+    content,
   };
 });
 
-function isPlainText(b: ContentBlock): b is Extract<ContentBlock, { type: "text" }> {
-  return b?.type === "text" && !b.html && Boolean(b.text);
+function isPlainText(
+  entry: ContentEntry
+): entry is Extract<ContentEntry, { type: "text" }> {
+  return entry?.type === "text" && !entry.html && Boolean(entry.text);
 }
 
-function isHtmlText(b: ContentBlock): b is Extract<ContentBlock, { type: "text" }> {
-  return b?.type === "text" && !!b.html && Boolean(b.text);
+function isHtmlText(
+  entry: ContentEntry
+): entry is Extract<ContentEntry, { type: "text" }> {
+  return entry?.type === "text" && Boolean(entry.html) && Boolean(entry.text);
 }
 
-function isBullets(b: ContentBlock): b is Extract<ContentBlock, { type: "bullets" }> {
-  return b?.type === "bullets" && Array.isArray(b.items) && b.items.length > 0;
+function isBullets(
+  entry: ContentEntry
+): entry is Extract<ContentEntry, { type: "bullets" }> {
+  return (
+    entry?.type === "bullets" &&
+    Array.isArray(entry.items) &&
+    entry.items.length > 0
+  );
 }
 
-function isImage(b: ContentBlock): b is Extract<ContentBlock, { type: "image" }> {
-  return b?.type === "image" && Boolean(b.src);
+function isImage(
+  entry: ContentEntry
+): entry is Extract<ContentEntry, { type: "image" }> {
+  return entry?.type === "image" && Boolean(entry.src);
 }
 </script>
 
@@ -145,13 +193,13 @@ function isImage(b: ContentBlock): b is Extract<ContentBlock, { type: "image" }>
 
     <div :class="cn('space-y-4 md:space-y-5', props.contentClass)">
       <template
-        v-for="(block, blockIndex) in safeSection.blocks"
-        :key="`${safeSection.id}-${blockIndex}`"
+        v-for="(entry, entryIndex) in safeSection.content"
+        :key="`${safeSection.id}-${entryIndex}`"
       >
-        <div v-if="isPlainText(block)" class="max-w-[72ch] space-y-3">
+        <div v-if="isPlainText(entry)" class="max-w-[72ch] space-y-3">
           <p
-            v-for="(paragraph, idx) in splitParagraphs(block.text)"
-            :key="`${safeSection.id}-${blockIndex}-p-${idx}`"
+            v-for="(paragraph, idx) in splitParagraphs(entry.text)"
+            :key="`${safeSection.id}-${entryIndex}-p-${idx}`"
             class="font-body text-[15px] leading-7 text-muted-foreground md:text-base"
           >
             {{ paragraph }}
@@ -159,23 +207,24 @@ function isImage(b: ContentBlock): b is Extract<ContentBlock, { type: "image" }>
         </div>
 
         <div
-          v-else-if="isHtmlText(block)"
+          v-else-if="isHtmlText(entry)"
           class="prose prose-neutral max-w-[72ch] prose-headings:font-semibold prose-headings:tracking-[-0.03em] prose-headings:text-foreground prose-h2:mt-0 prose-h2:mb-3 prose-h2:border-t prose-h2:border-border/50 prose-h2:pt-5 prose-h2:text-[1.7rem] prose-h2:leading-[1.12] prose-h3:mt-6 prose-h3:mb-2 prose-h3:text-[1.2rem] prose-h3:leading-[1.2] prose-h4:mt-5 prose-h4:mb-2 prose-h4:text-[1rem] prose-h4:font-semibold prose-p:my-3 prose-p:text-[15px] prose-p:leading-7 prose-p:text-muted-foreground prose-a:text-primary prose-a:no-underline hover:prose-a:underline prose-strong:font-semibold prose-strong:text-foreground prose-ul:my-4 prose-ol:my-4 prose-li:my-1 prose-li:text-muted-foreground"
-          v-html="block.text"
+          v-html="entry.text"
         />
 
         <component
-          :is="block.ordered ? 'ol' : 'ul'"
-          v-else-if="isBullets(block)"
+          :is="entry.ordered ? 'ol' : 'ul'"
+          v-else-if="isBullets(entry)"
           class="grid gap-3 md:grid-cols-2"
         >
           <li
-            v-for="(item, itemIndex) in block.items"
-            :key="`${safeSection.id}-${blockIndex}-${itemIndex}`"
+            v-for="(item, itemIndex) in entry.items"
+            :key="`${safeSection.id}-${entryIndex}-${itemIndex}`"
             class="rounded-2xl border border-border/60 bg-card p-4 md:p-5"
           >
             <div class="flex items-start gap-3">
               <div class="mt-[7px] h-2 w-2 shrink-0 rounded-full bg-primary/70" />
+
               <p class="font-body text-sm leading-7 text-muted-foreground md:text-[15px]">
                 {{ item }}
               </p>
@@ -184,23 +233,23 @@ function isImage(b: ContentBlock): b is Extract<ContentBlock, { type: "image" }>
         </component>
 
         <figure
-          v-else-if="isImage(block)"
+          v-else-if="isImage(entry)"
           class="overflow-hidden rounded-3xl border border-border/60 bg-card"
         >
           <NuxtImg
-            :src="normalizeCmsMediaSrc(block.src) || block.src"
-            :alt="block.alt || safeSection.title"
-            :width="block.width || 1200"
-            :height="block.height || 800"
+            :src="normalizeCmsMediaSrc(entry.src) || entry.src"
+            :alt="entry.alt || safeSection.title"
+            :width="entry.width || 1200"
+            :height="entry.height || 800"
             class="h-auto w-full object-cover"
             loading="lazy"
           />
 
           <figcaption
-            v-if="block.caption"
+            v-if="entry.caption"
             class="border-t border-border/50 px-5 py-4 text-sm leading-7 text-muted-foreground"
           >
-            {{ block.caption }}
+            {{ entry.caption }}
           </figcaption>
         </figure>
       </template>

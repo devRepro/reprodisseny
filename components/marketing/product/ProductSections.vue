@@ -1,11 +1,21 @@
+<!-- components/marketing/product/ProductSections.vue -->
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed, ref, watchEffect } from "vue";
 import ContentTabs from "@/components/marketing/content/ContentTabs.vue";
 import ContentDetailsSection from "@/components/marketing/content/ContentDetailsSection.vue";
 
 type ProductBlock =
-  | { type: "text"; text?: string; html?: boolean }
-  | { type: "bullets"; items?: string[]; ordered?: boolean }
+  | {
+      type: "text";
+      text?: string;
+      html?: boolean;
+      format?: string;
+    }
+  | {
+      type: "bullets";
+      items?: string[];
+      ordered?: boolean;
+    }
   | {
       type: "image";
       src?: string;
@@ -15,15 +25,36 @@ type ProductBlock =
       caption?: string;
     };
 
+type ProductFormatsData = {
+  intro?: string;
+  shapes?: Array<{
+    title: string;
+    description: string;
+  }>;
+  deliveryFormats?: Array<{
+    title: string;
+    description: string;
+  }>;
+};
+
 type ProductSection = {
   id?: string;
   key?: string;
   title?: string;
   intro?: string;
-  blocks?: ProductBlock[];
-  content?: ProductBlock[];
+  body?: string;
   text?: string;
   html?: string;
+  blocks?: ProductBlock[];
+  content?: ProductBlock[];
+  items?: Array<Record<string, unknown>>;
+  formatsData?: ProductFormatsData;
+};
+
+type SafeProductSection = ProductSection & {
+  id: string;
+  title: string;
+  blocks: ProductBlock[];
 };
 
 type TabItem = {
@@ -55,15 +86,69 @@ function makeAnchorId(value: string, fallback: string): string {
   return normalized || fallback;
 }
 
+function hasFormatsData(section: ProductSection): boolean {
+  const data = section.formatsData;
+  if (!data || typeof data !== "object") return false;
+
+  return Boolean(
+    String(data.intro || "").trim() ||
+      data.shapes?.length ||
+      data.deliveryFormats?.length
+  );
+}
+
 function hasRenderableContent(section: ProductSection): boolean {
   if (Array.isArray(section.blocks) && section.blocks.length) return true;
   if (Array.isArray(section.content) && section.content.length) return true;
+  if (Array.isArray(section.items) && section.items.length) return true;
+  if (hasFormatsData(section)) return true;
+  if (String(section.body ?? "").trim()) return true;
   if (String(section.text ?? "").trim()) return true;
   if (String(section.html ?? "").trim()) return true;
+
   return false;
 }
 
-const safeSections = computed<ProductSection[]>(() =>
+function normalizeBlocks(section: ProductSection): ProductBlock[] {
+  const rawBlocks = Array.isArray(section.blocks)
+    ? section.blocks.filter(Boolean)
+    : [];
+
+  if (rawBlocks.length) return rawBlocks;
+
+  const contentBlocks = Array.isArray(section.content)
+    ? section.content.filter(Boolean)
+    : [];
+
+  if (contentBlocks.length) return contentBlocks;
+
+  const html = String(section.html ?? "").trim();
+  if (html) {
+    return [
+      {
+        type: "text",
+        text: html,
+        html: true,
+        format: "html",
+      },
+    ];
+  }
+
+  const text = String(section.body ?? section.text ?? "").trim();
+  if (text) {
+    return [
+      {
+        type: "text",
+        text,
+        html: false,
+      },
+    ];
+  }
+
+  return [];
+}
+
+const safeSections = computed<SafeProductSection[]>(() =>
   (props.sections || [])
     .filter((section): section is ProductSection =>
       Boolean(
@@ -75,29 +160,50 @@ const safeSections = computed<ProductSection[]>(() =>
     )
     .map((section, index) => {
       const rawId = String(section.id ?? section.key ?? section.title ?? "").trim();
+      const body = String(section.body ?? section.text ?? "").trim();
 
       return {
         ...section,
         id: makeAnchorId(rawId, `seccion-${index + 1}`),
+        title: String(section.title ?? `Sección ${index + 1}`).trim(),
+        blocks: normalizeBlocks(section),
+        ...(body ? { body, text: body } : {}),
       };
     })
 );
 
 const tabItems = computed<TabItem[]>(() =>
   safeSections.value.map((section) => ({
-    id: section.id as string,
-    label: String(section.title ?? ""),
+    id: section.id,
+    label: section.title,
   }))
 );
 
-const sectionsById = computed<Record<string, ProductSection>>(() =>
+const sectionsById = computed<Record<string, SafeProductSection>>(() =>
   safeSections.value.reduce((acc, section) => {
-    if (section.id) acc[section.id] = section;
+    acc[section.id] = section;
     return acc;
-  }, {} as Record<string, ProductSection>)
+  }, {} as Record<string, SafeProductSection>)
 );
 
-function getSectionByTabId(tabId?: string | null): ProductSection | null {
+watchEffect(() => {
+  const firstTabId = safeSections.value[0]?.id || "";
+
+  if (!firstTabId) {
+    activeTabId.value = "";
+    return;
+  }
+
+  const activeExists = safeSections.value.some(
+    (section) => section.id === activeTabId.value
+  );
+
+  if (!activeExists) {
+    activeTabId.value = firstTabId;
+  }
+});
+
+function getSectionByTabId(tabId?: string | null): SafeProductSection | null {
   if (!tabId) return null;
   return sectionsById.value[tabId] ?? null;
 }

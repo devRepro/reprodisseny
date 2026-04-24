@@ -1,6 +1,7 @@
 <!-- components/marketing/quote/QuoteHero.vue -->
 <script setup lang="ts">
 import SectionHeading from "@/components/marketing/content/SectionHeading.vue";
+import AppButton from "@/components/shared/button/AppButton.vue";
 
 const props = withDefaults(
   defineProps<{
@@ -24,25 +25,44 @@ const props = withDefaults(
 </script>
 
 <template>
-  <section class="relative isolate overflow-hidden bg-primary">
-    <div class="container-content py-16 lg:py-20">
+  <section class="relative isolate overflow-hidden bg-primary text-primary-foreground">
+    <div
+      aria-hidden="true"
+      class="pointer-events-none absolute inset-0 overflow-hidden"
+    >
+      <div
+        class="absolute -left-32 -top-32 h-96 w-96 rounded-full bg-primary-foreground/14 blur-3xl"
+      />
+
+      <div
+        class="absolute right-[-12rem] top-1/2 h-[30rem] w-[30rem] -translate-y-1/2 rounded-full bg-primary-foreground/10 blur-3xl"
+      />
+
+      <div
+        class="absolute bottom-[-14rem] left-1/3 h-96 w-96 rounded-full bg-background/10 blur-3xl"
+      />
+
+      <div
+        class="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,hsl(var(--primary-foreground)/0.10),transparent_32%),linear-gradient(135deg,hsl(var(--primary)/0)_0%,hsl(var(--primary-foreground)/0.08)_100%)]"
+      />
+    </div>
+
+    <div class="container-content relative py-16 lg:py-20">
       <div class="grid items-center gap-10 lg:grid-cols-[485px_1fr] lg:gap-20">
         <div class="w-full lg:w-[485px]">
-          <div class="overflow-hidden rounded-xl">
-            <NuxtImg
-              :src="props.imageSrc"
-              :alt="props.imageAlt"
-              width="485"
-              height="309"
-              format="webp"
-              class="aspect-[485/309] w-full object-cover"
-              loading="eager"
-              fetchpriority="high"
-            />
-          </div>
+          <NuxtImg
+            :src="props.imageSrc"
+            :alt="props.imageAlt"
+            width="485"
+            height="309"
+            format="webp"
+            class="aspect-[485/309] w-full rounded-[24px] object-cover"
+            loading="eager"
+            fetchpriority="high"
+          />
         </div>
 
-        <div class="text-white">
+        <div class="max-w-2xl text-primary-foreground">
           <SectionHeading
             as="h2"
             :title="props.title"
@@ -52,17 +72,21 @@ const props = withDefaults(
             class="w-full"
           />
 
-          <p class="mt-6 mb-0 whitespace-pre-line text-body text-white/90">
+          <p
+            class="mt-6 mb-0 whitespace-pre-line text-body leading-7 text-primary-foreground/88"
+          >
             {{ props.body }}
           </p>
 
           <div class="mt-8">
-            <NuxtLink
+            <AppButton
               :to="props.ctaTo"
-              class="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 font-semibold text-primary transition hover:brightness-95"
+              variant="secondary"
+              size="lg"
+              class="rounded-xl border-transparent bg-primary-foreground text-primary hover:bg-primary-foreground/92 focus-visible:ring-primary-foreground/50 focus-visible:ring-offset-primary"
             >
               {{ props.ctaLabel }}
-            </NuxtLink>
+            </AppButton>
           </div>
         </div>
       </div>

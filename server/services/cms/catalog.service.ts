@@ -356,8 +356,21 @@ export type ProductDetailSectionItem = {
   id: string;
   key?: string;
   title: string;
-  blocks: CatalogBlock[];
+  body?: string;
   text?: string;
+  blocks: CatalogBlock[];
+  items?: Array<Record<string, unknown>>;
+  formatsData?: {
+    intro?: string;
+    shapes?: Array<{
+      title: string;
+      description: string;
+    }>;
+    deliveryFormats?: Array<{
+      title: string;
+      description: string;
+    }>;
+  };
 };
 
 export type ProductDetailFaqItem = {
@@ -1281,28 +1294,47 @@ function getProductSections(product: CatalogProduct): ProductDetailSectionItem[]
   return (Array.isArray(product?.sections) ? product.sections : [])
     .map((section, index) => {
       const title = String(section?.title || `Sección ${index + 1}`).trim();
-      const text = String(section?.body || "").trim();
+      const body = String(section?.body || "").trim();
       const key = String(section?.key || "").trim();
 
       const rawBlocks = Array.isArray(section?.blocks)
         ? section.blocks.filter(Boolean)
         : [];
 
-      const fallbackBlocks: CatalogBlock[] = text
-        ? [{ type: "text", text, html: false }]
+      const fallbackBlocks: CatalogBlock[] = body
+        ? [{ type: "text", text: body, html: false }]
         : [];
 
       const blocks = rawBlocks.length ? rawBlocks : fallbackBlocks;
+
+      const items = Array.isArray(section?.items)
+        ? section.items.filter(Boolean)
+        : [];
+
+      const hasFormatsData =
+        section?.formatsData &&
+        typeof section.formatsData === "object";
+
+      const hasContent =
+        blocks.length > 0 ||
+        items.length > 0 ||
+        hasFormatsData;
 
       return {
         id: String(section?.id || `section-${index + 1}`),
         ...(key ? { key } : {}),
         title,
         blocks,
-        ...(text ? { text } : {}),
+        ...(body ? { body, text: body } : {}),
+        ...(items.length ? { items } : {}),
+        ...(hasFormatsData ? { formatsData: section.formatsData } : {}),
       };
     })
-    .filter((section) => section.title && section.blocks.length > 0);
+    .filter((section) => section.title && (
+      section.blocks.length > 0 ||
+      Boolean(section.items?.length) ||
+      Boolean(section.formatsData)
+    ));
 }
 
 export function getHomeCategories(limit = 8): HomeCategoryCardItem[] {
@@ -1831,7 +1863,22 @@ export function getProductDetailBySlug(
       helpText: field?.helpText ? String(field.helpText) : undefined,
     }))
     : [];
+    const sections = getProductSections(product);
 
+console.log("[PRODUCT DETAIL]", {
+  slug: product.slug,
+  title: product.title,
+  rawSections: product.sections?.length ?? 0,
+  mappedSections: sections.length,
+  sectionKeys: sections.map((section) => ({
+    id: section.id,
+    key: section.key,
+    title: section.title,
+    blocks: section.blocks?.length ?? 0,
+    items: section.items?.length ?? 0,
+    hasFormatsData: Boolean(section.formatsData),
+  })),
+});
   return {
     slug: productPublicSlugOf(product),
     path: canonicalPath,

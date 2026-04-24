@@ -21,10 +21,19 @@ const PayloadSchema = z.object({
 
   name: z.string().min(2).max(80),
   email: z.string().email().max(120),
-  phone: z.string().optional().nullable(),
+
+  phone: z
+    .string({
+      required_error: "El teléfono es obligatorio",
+      invalid_type_error: "El teléfono debe ser un texto",
+    })
+    .trim()
+    .min(1, "El teléfono es obligatorio")
+    .min(9, "Introduce un teléfono válido")
+    .max(30, "El teléfono es demasiado largo"),
+
   company: z.string().optional().nullable(),
 
-  // 👇 ya no obligatorio
   message: z.string().max(4000).optional().nullable(),
 
   categorySlug: z.string().min(1).max(120),
@@ -35,7 +44,7 @@ const PayloadSchema = z.object({
   sourceUrl: z.string().min(1).max(300),
   utm: z.record(z.any()).optional().nullable(),
   initialStatus: z.string().optional().nullable(),
-})
+});
 
 const FileKindSchema = z
   .enum(["design", "brief", "proof", "final", "other"])
@@ -160,21 +169,21 @@ export default defineEventHandler(async (event) => {
 
   try {
     const created = await createPriceRequest(event, {
-      name: p.name,
-      email: p.email,
-      phone: p.phone ?? undefined,
-      company: p.company ?? undefined,
-      message: p.message ?? "",
-      categorySlug: p.categorySlug,
-      product: p.product,
-      extras: p.extras,
-      consent: p.consent,
-      sourceUrl: p.sourceUrl,
-      utm: p.utm ?? null,
-      initialStatus: p.initialStatus || "Nova",
-      attachment,
-      fileKind,
-    })
+  name: p.name,
+  email: p.email,
+  phone: p.phone,
+  company: p.company ?? undefined,
+  message: p.message ?? "",
+  categorySlug: p.categorySlug,
+  product: p.product,
+  extras: p.extras,
+  consent: p.consent,
+  sourceUrl: p.sourceUrl,
+  utm: p.utm ?? null,
+  initialStatus: p.initialStatus || "Nova",
+  attachment,
+  fileKind,
+});
 
     return {
       ok: true,

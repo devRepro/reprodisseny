@@ -4,27 +4,17 @@
       <HomeImageStrip :images="stripImages" />
     </HomeHero>
 
-    <!--<SectionMediaBanner
-      title="Sant Jordi"
-      description="Soluciones de impresión para campañas, materiales promocionales y acciones especiales."
-      primary-label="Ver la guía rápida"
-      primary-to="/contacto"
-      base-path="/img/ui/banners/sant-jordi"
-      image-name="sant-jordi-home-banner"
-      image-alt="Banner de Sant Jordi para la home"
-      :full-bleed="true"
-    />-->
-
-    <MarketingProductCategoryGrid
-      title="Ofrecemos una amplia gama de productos"
+    <MarketingProductCategoryGrid title="Ofrecemos una amplia gama de productos"
       description="Explora las principales categorías y encuentra la solución que mejor encaja con tu proyecto."
-      :categories="safeHomeCategories"
-      :total-slots="8"
-      :pending="homeCategoriesPending"
-    />
+      :categories="safeHomeCategories" :total-slots="8" :pending="homeCategoriesPending" />
 
     <MarketingServicesGrid />
-    <MarketingProcessSection />
+   <MarketingProcessSection
+  section-class="bg-background pt-10 pb-8 md:pt-12 md:pb-10"
+  cta-label="Contacta con nosotros"
+  cta-to="/contacto"
+/>
+    
 
     <ClientLogosBand :logos="clientLogos" />
 
@@ -40,12 +30,11 @@ import HomeHero from "@/components/marketing/HomeHero.vue";
 import HomeImageStrip from "@/components/marketing/HomeImageStrip.vue";
 import MarketingProductCategoryGrid from "@/components/marketing/ProductCategoryGrid.vue";
 import MarketingProcessSection from "@/components/marketing/ProcessSection.vue";
-import SectionMediaBanner from "@/components/shared/banner/SectionMediaBanner.vue";
 import ClientLogosBand from "@/components/marketing/ClientLogosBand.vue";
 import GetFiles from "@/components/marketing/GetFiles.vue";
 import { useHomeCategoriesGrid } from "@/composables/useHomeCategoriesGrid";
 import { GoogleReviewsSection, MarketingServicesGrid } from "#components";
-
+import AppButton from "@/components/shared/button/AppButton.vue";
 definePageMeta({ layout: "home" });
 
 const {

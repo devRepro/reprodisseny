@@ -81,9 +81,13 @@ const skeletonCount = computed(() => {
 
       <div class="mt-10 md:mt-12">
         <ul
-          class="grid auto-rows-fr grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-4 xl:gap-8"
-        >
-          <li v-for="item in visibleItems" :key="item.id" class="h-full list-none">
+  class="-mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-4 sm:mx-0 sm:grid sm:auto-rows-fr sm:grid-cols-2 sm:gap-6 sm:overflow-visible sm:px-0 sm:pb-0 xl:grid-cols-4 xl:gap-8"
+>
+          <li
+  v-for="item in visibleItems"
+  :key="item.id"
+  class="min-w-[78vw] snap-start list-none sm:min-w-0"
+>
             <CatalogCard
               :href="item.href"
               :title="item.title"
@@ -95,11 +99,11 @@ const skeletonCount = computed(() => {
           </li>
 
           <li
-            v-for="n in skeletonCount"
-            :key="`home-category-skeleton-${n}`"
-            class="h-full list-none"
-            aria-hidden="true"
-          >
+  v-for="n in skeletonCount"
+  :key="`home-category-skeleton-${n}`"
+  class="min-w-[78vw] snap-start list-none sm:min-w-0"
+  aria-hidden="true"
+>
             <article
               class="h-full rounded-3xl border border-border/60 bg-card p-4 shadow-sm md:p-5"
             >

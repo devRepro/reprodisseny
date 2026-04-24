@@ -199,9 +199,7 @@ const productNameForForm = computed(() => productTitle.value || "Producto");
       </section>
 
       <aside class="min-w-0 xl:sticky xl:top-24 xl:self-start">
-        <div
-          class="overflow-hidden rounded-[28px] border border-border/70 bg-card shadow-[0_14px_36px_-26px_hsl(var(--foreground)/0.16)] xl:flex xl:h-[min(860px,calc(100dvh-7rem))] xl:flex-col"
-        >
+        <div class="product-lead-card">
           <LeadForm
             :producto="productNameForForm"
             :category-slug="categorySlug"

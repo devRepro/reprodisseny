@@ -245,7 +245,13 @@ const validationSchema = computed(() => {
     ),
     telefono: z.preprocess(
       emptyToUndefined,
-      z.string().regex(/^[\d\s\+\-]*$/, "Formato no válido").optional()
+      z.string({
+        required_error: "El teléfono es obligatorio",
+      })
+        .min(1, "El teléfono es obligatorio")
+        .min(9, "Introduce un teléfono válido")
+        .max(30, "El teléfono es demasiado largo")
+        .regex(/^[\d\s+\-()]*$/, "Formato no válido")
     ),
     empresa: z.preprocess(emptyToUndefined, z.string().optional()),
     comentario: z.preprocess(emptyToUndefined, z.string().max(4000).optional()),
@@ -380,7 +386,7 @@ const onSubmit = handleSubmit(
       {
         name: values.nombre.trim(),
         email: values.email.trim(),
-        phone: values.telefono?.trim() || null,
+        phone: values.telefono?.trim(),
         company: values.empresa?.trim() || null,
         message: values.comentario?.trim() || "Solicitud de presupuesto",
         categorySlug: props.categorySlug,
@@ -419,24 +425,13 @@ const onSubmit = handleSubmit(
 
 <template>
   <div class="flex h-full min-h-0 w-full min-w-0 flex-col">
-    <RequestSuccessState
-      v-if="success"
-      :product-name="producto"
-      primary-to="/productos"
-      class="h-full w-full flex-1"
-      @reset="handleResetSuccessState"
-    />
+    <RequestSuccessState v-if="success" :product-name="producto" primary-to="/productos" class="h-full w-full flex-1"
+      @reset="handleResetSuccessState" />
 
-    <form
-      v-else
-      @submit.prevent="onSubmit"
-      novalidate
-      class="relative flex min-h-0 flex-1 flex-col px-4 py-4 md:px-6 md:py-6"
-    >
+    <form v-else @submit.prevent="onSubmit" novalidate
+      class="product-lead-form">
       <div class="mb-4 shrink-0 space-y-1 md:mb-5">
-        <h3
-          class="text-[1.05rem] font-semibold tracking-tight text-foreground md:text-xl"
-        >
+        <h3 class="text-[1.05rem] font-semibold tracking-tight text-foreground md:text-xl">
           Configura tu solicitud
         </h3>
         <p class="text-sm leading-relaxed text-muted-foreground">
@@ -444,21 +439,13 @@ const onSubmit = handleSubmit(
         </p>
       </div>
 
-      <Alert
-        v-if="submissionErrorMessage"
-        variant="destructive"
-        class="mb-4 shrink-0 shadow-sm"
-      >
+      <Alert v-if="submissionErrorMessage" variant="destructive" class="mb-4 shrink-0 shadow-sm">
         <AlertCircle class="h-4 w-4" />
         <AlertTitle>No hemos podido enviar la solicitud</AlertTitle>
         <AlertDescription>{{ submissionErrorMessage }}</AlertDescription>
       </Alert>
 
-      <Alert
-        v-else-if="validationSummary.length"
-        variant="destructive"
-        class="mb-4 shrink-0 shadow-sm"
-      >
+      <Alert v-else-if="validationSummary.length" variant="destructive" class="mb-4 shrink-0 shadow-sm">
         <AlertCircle class="h-4 w-4" />
         <AlertTitle>Revisa los campos marcados</AlertTitle>
         <AlertDescription>
@@ -479,107 +466,65 @@ const onSubmit = handleSubmit(
                   Cantidad <span class="text-destructive">*</span>
                 </FormLabel>
                 <FormControl>
-                  <Input
-                    id="cantidad"
-                    v-bind="componentField"
-                    type="number"
-                    min="1"
-                    :class="[
-                      inputClass,
-                      errorMessage &&
-                        'border-destructive focus-visible:ring-destructive/15',
-                    ]"
-                  />
+                  <Input id="cantidad" v-bind="componentField" type="number" min="1" :class="[
+                    inputClass,
+                    errorMessage &&
+                    'border-destructive focus-visible:ring-destructive/15',
+                  ]" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             </FormField>
 
             <template v-for="field in normalizedExtraFields" :key="field.name">
-              <FormField
-                :name="field.name"
-                v-slot="{ componentField, value, handleChange, errorMessage }"
-              >
+              <FormField :name="field.name" v-slot="{ componentField, value, handleChange, errorMessage }">
                 <FormItem>
                   <FormLabel :class="labelClass">
                     {{ field.label }}
 
-                    <span
-                      v-if="field.kind === 'readonly'"
-                      class="ml-1 text-[11px] font-bold uppercase tracking-wider text-primary"
-                    >
+                    <span v-if="field.kind === 'readonly'"
+                      class="ml-1 text-[11px] font-bold uppercase tracking-wider text-primary">
                       (Incluido)
                     </span>
 
                     <span v-else-if="field.required" class="text-destructive">*</span>
 
-                    <span
-                      v-else
-                      class="ml-1 text-xs font-normal text-muted-foreground"
-                    >
+                    <span v-else class="ml-1 text-xs font-normal text-muted-foreground">
                       (Opcional)
                     </span>
                   </FormLabel>
 
                   <FormControl>
                     <div v-if="field.kind === 'readonly'" class="relative">
-                      <Input
-                        :id="field.name"
-                        v-bind="componentField"
-                        :value="String(value ?? field.initialValue)"
-                        readonly
-                        aria-readonly="true"
-                        :class="readonlyInputClass"
-                      />
+                      <Input :id="field.name" v-bind="componentField" :value="String(value ?? field.initialValue)"
+                        readonly aria-readonly="true" :class="readonlyInputClass" />
                       <span
-                        class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 rounded-full border border-primary/15 bg-primary/5 px-2.5 py-0.5 text-[11px] font-semibold text-primary"
-                      >
+                        class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 rounded-full border border-primary/15 bg-primary/5 px-2.5 py-0.5 text-[11px] font-semibold text-primary">
                         Fijo
                       </span>
                     </div>
 
-                    <Select
-                      v-else-if="field.kind === 'select'"
-                      :model-value="String(value ?? '')"
-                      @update:model-value="handleChange"
-                    >
-                      <SelectTrigger
-                        :id="field.name"
-                        :data-field-name="field.name"
-                        :class="[inputClass, errorMessage && 'border-destructive']"
-                      >
-                        <SelectValue
-                          :placeholder="field.placeholder || 'Selecciona...'"
-                        />
+                    <Select v-else-if="field.kind === 'select'" :model-value="String(value ?? '')"
+                      @update:model-value="handleChange">
+                      <SelectTrigger :id="field.name" :data-field-name="field.name"
+                        :class="[inputClass, errorMessage && 'border-destructive']">
+                        <SelectValue :placeholder="field.placeholder || 'Selecciona...'" />
                       </SelectTrigger>
 
                       <SelectContent>
-                        <SelectItem
-                          v-for="opt in field.normalizedOptions"
-                          :key="opt"
-                          :value="opt"
-                        >
+                        <SelectItem v-for="opt in field.normalizedOptions" :key="opt" :value="opt">
                           {{ opt }}
                         </SelectItem>
                       </SelectContent>
                     </Select>
 
-                    <Textarea
-                      v-else-if="field.type === 'textarea'"
-                      :id="field.name"
-                      v-bind="componentField"
+                    <Textarea v-else-if="field.type === 'textarea'" :id="field.name" v-bind="componentField"
                       :placeholder="field.placeholder || 'Escribe aquí...'"
-                      :class="[textareaClass, errorMessage && 'border-destructive']"
-                    />
+                      :class="[textareaClass, errorMessage && 'border-destructive']" />
 
-                    <Input
-                      v-else
-                      :id="field.name"
-                      v-bind="componentField"
-                      :type="field.type === 'number' ? 'number' : 'text'"
-                      :placeholder="field.placeholder || ''"
-                      :class="[inputClass, errorMessage && 'border-destructive']"
-                    />
+                    <Input v-else :id="field.name" v-bind="componentField"
+                      :type="field.type === 'number' ? 'number' : 'text'" :placeholder="field.placeholder || ''"
+                      :class="[inputClass, errorMessage && 'border-destructive']" />
                   </FormControl>
 
                   <FormMessage />
@@ -590,9 +535,7 @@ const onSubmit = handleSubmit(
 
           <section class="space-y-4 border-t border-border/60 pt-5">
             <div class="mb-1">
-              <h4
-                class="text-sm font-bold uppercase tracking-[0.08em] text-foreground/80"
-              >
+              <h4 class="text-sm font-bold uppercase tracking-[0.08em] text-foreground/80">
                 Datos de contacto
               </h4>
             </div>
@@ -603,12 +546,8 @@ const onSubmit = handleSubmit(
                   Nombre <span class="text-destructive">*</span>
                 </FormLabel>
                 <FormControl>
-                  <Input
-                    id="nombre"
-                    v-bind="componentField"
-                    placeholder="Tu nombre"
-                    :class="[inputClass, errorMessage && 'border-destructive']"
-                  />
+                  <Input id="nombre" v-bind="componentField" placeholder="Tu nombre"
+                    :class="[inputClass, errorMessage && 'border-destructive']" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -620,13 +559,8 @@ const onSubmit = handleSubmit(
                   Email <span class="text-destructive">*</span>
                 </FormLabel>
                 <FormControl>
-                  <Input
-                    id="email"
-                    v-bind="componentField"
-                    type="email"
-                    placeholder="tu@email.com"
-                    :class="[inputClass, errorMessage && 'border-destructive']"
-                  />
+                  <Input id="email" v-bind="componentField" type="email" placeholder="tu@email.com"
+                    :class="[inputClass, errorMessage && 'border-destructive']" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -634,15 +568,12 @@ const onSubmit = handleSubmit(
 
             <FormField name="telefono" v-slot="{ componentField, errorMessage }">
               <FormItem>
-                <FormLabel :class="labelClass">Teléfono</FormLabel>
+                <FormLabel :class="labelClass">
+                  Teléfono <span class="text-destructive">*</span>
+                </FormLabel>
                 <FormControl>
-                  <Input
-                    id="telefono"
-                    v-bind="componentField"
-                    type="tel"
-                    placeholder="+34 600 000 000"
-                    :class="[inputClass, errorMessage && 'border-destructive']"
-                  />
+                  <Input id="telefono" v-bind="componentField" type="tel" required autocomplete="tel"
+                    placeholder="+34 600 000 000" :class="[inputClass, errorMessage && 'border-destructive']" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -652,12 +583,8 @@ const onSubmit = handleSubmit(
               <FormItem>
                 <FormLabel :class="labelClass">Empresa</FormLabel>
                 <FormControl>
-                  <Input
-                    id="empresa"
-                    v-bind="componentField"
-                    placeholder="Opcional"
-                    :class="[inputClass, errorMessage && 'border-destructive']"
-                  />
+                  <Input id="empresa" v-bind="componentField" placeholder="Opcional"
+                    :class="[inputClass, errorMessage && 'border-destructive']" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -667,24 +594,15 @@ const onSubmit = handleSubmit(
               <FormItem>
                 <FormLabel :class="labelClass">Comentarios</FormLabel>
                 <FormControl>
-                  <Textarea
-                    id="comentario"
-                    v-bind="componentField"
-                    placeholder="Medidas, acabados, plazos..."
-                    :class="[textareaClass, errorMessage && 'border-destructive']"
-                  />
+                  <Textarea id="comentario" v-bind="componentField" placeholder="Medidas, acabados, plazos..."
+                    :class="[textareaClass, errorMessage && 'border-destructive']" />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             </FormField>
 
             <FormField name="website" v-slot="{ componentField }">
-              <input
-                v-bind="componentField"
-                class="absolute -z-10 opacity-0"
-                tabindex="-1"
-                autocomplete="off"
-              />
+              <input v-bind="componentField" class="absolute -z-10 opacity-0" tabindex="-1" autocomplete="off" />
             </FormField>
           </section>
         </div>
@@ -694,17 +612,14 @@ const onSubmit = handleSubmit(
         <div class="space-y-4">
           <div>
             <label
-              class="group flex cursor-pointer items-center justify-between gap-3 rounded-xl border border-dashed border-border/80 bg-muted/20 px-3 py-2.5 transition hover:border-primary/40 hover:bg-muted/40 focus-within:ring-2 focus-within:ring-primary/20"
-            >
+              class="group flex cursor-pointer items-center justify-between gap-3 rounded-xl border border-dashed border-border/80 bg-muted/20 px-3 py-2.5 transition hover:border-primary/40 hover:bg-muted/40 focus-within:ring-2 focus-within:ring-primary/20">
               <span
-                class="inline-flex h-8 shrink-0 items-center rounded-md border border-border/60 bg-background px-3 text-xs font-semibold text-foreground transition-colors group-hover:bg-background/80"
-              >
+                class="inline-flex h-8 shrink-0 items-center rounded-md border border-border/60 bg-background px-3 text-xs font-semibold text-foreground transition-colors group-hover:bg-background/80">
                 Adjuntar archivo
               </span>
 
               <span
-                class="min-w-0 flex-1 truncate text-right text-xs text-muted-foreground group-hover:text-foreground"
-              >
+                class="min-w-0 flex-1 truncate text-right text-xs text-muted-foreground group-hover:text-foreground">
                 {{
                   fileName !== "Ningún archivo seleccionado"
                     ? fileName
@@ -712,50 +627,32 @@ const onSubmit = handleSubmit(
                 }}
               </span>
 
-              <input
-                type="file"
-                class="sr-only"
-                accept=".pdf,.jpg,.jpeg,.png,.ai,.zip"
-                @change="onPickFile"
-              />
+              <input type="file" class="sr-only" accept=".pdf,.jpg,.jpeg,.png,.ai,.zip" @change="onPickFile" />
             </label>
           </div>
 
           <FormField name="privacy" v-slot="{ componentField, errorMessage }">
             <FormItem>
-              <div
-                :class="[
-                  'flex items-start gap-3 rounded-xl p-3 transition-colors',
-                  errorMessage
-                    ? 'bg-destructive/5 ring-1 ring-destructive/30'
-                    : 'bg-muted/30',
-                ]"
-              >
-                <input
-                  id="privacy"
-                  name="privacy"
-                  type="checkbox"
+              <div :class="[
+                'flex items-start gap-3 rounded-xl p-3 transition-colors',
+                errorMessage
+                  ? 'bg-destructive/5 ring-1 ring-destructive/30'
+                  : 'bg-muted/30',
+              ]">
+                <input id="privacy" name="privacy" type="checkbox"
                   class="mt-0.5 h-4 w-4 shrink-0 rounded border-border text-primary focus:ring-primary/20"
-                  :checked="componentField.modelValue === true"
-                  @change="
+                  :checked="componentField.modelValue === true" @change="
                     (e) =>
                       componentField.onChange(
                         (e.target as HTMLInputElement).checked
                       )
-                  "
-                />
+                  " />
 
                 <div class="min-w-0 flex-1">
-                  <label
-                    for="privacy"
-                    class="block cursor-pointer text-xs leading-tight text-foreground/80"
-                  >
+                  <label for="privacy" class="block cursor-pointer text-xs leading-tight text-foreground/80">
                     Acepto la
-                    <NuxtLink
-                      to="/politica-privacidad"
-                      target="_blank"
-                      class="font-semibold text-primary hover:underline"
-                    >
+                    <NuxtLink to="/politica-privacidad" target="_blank"
+                      class="font-semibold text-primary hover:underline">
                       política de privacidad
                     </NuxtLink>
                     y consiento el tratamiento de mis datos.
@@ -767,11 +664,8 @@ const onSubmit = handleSubmit(
             </FormItem>
           </FormField>
 
-          <Button
-            type="submit"
-            :disabled="isLoading"
-            class="h-12 w-full rounded-xl text-base font-semibold shadow-sm transition-all hover:shadow-md active:scale-[0.98]"
-          >
+          <Button type="submit" :disabled="isLoading"
+            class="h-12 w-full rounded-xl text-base font-semibold shadow-sm transition-all hover:shadow-md active:scale-[0.98]">
             <Loader2 v-if="isLoading" class="mr-2 h-5 w-5 animate-spin" />
             {{ isLoading ? "Procesando solicitud..." : "Solicitar presupuesto" }}
           </Button>
