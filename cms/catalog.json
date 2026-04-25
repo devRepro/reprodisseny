@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-24T06:46:19.745Z",
+  "generatedAt": "2026-04-25T06:14:36.683Z",
   "categories": [
     {
       "id": "12",
@@ -482,7 +482,7 @@
     },
     {
       "id": "10",
-      "updatedAt": "2026-04-15T08:56:28Z",
+      "updatedAt": "2026-04-25T05:27:05Z",
       "type": "subcategoria",
       "slug": "material-oficina",
       "path": "/categorias/publicidad-oficina/material-oficina",
@@ -558,6 +558,35 @@
               "idealFor": "Oficinas, accesos, señalización y espacios corporativos"
             }
           ]
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "body": "",
+          "blocks": [],
+          "formatsData": {
+            "intro": "Definimos el formato y el soporte según el uso previsto, el entorno profesional, la legibilidad necesaria y la imagen que debe transmitir cada pieza.",
+            "shapes": [
+              {
+                "title": "Medidas estándar o a medida",
+                "description": "Trabajamos formatos habituales y tamaños especiales según el uso, ya sea para oficina, recepción, identificación o documentación."
+              },
+              {
+                "title": "Papeles según el objetivo",
+                "description": "Disponemos de opciones más sobrias y corporativas para entornos profesionales, cuidando la legibilidad, la presencia y la coherencia con la imagen de marca."
+              },
+              {
+                "title": "Materiales especiales",
+                "description": "También utilizamos soportes más rígidos y estructurales para piezas de imagen, señalización o elementos como placas y letras corpóreas."
+              },
+              {
+                "title": "Formatos funcionales",
+                "description": "Adaptamos cada pieza a su uso real: blocs, talonarios, carpetas, archivadores, certificados, calendarios o material interno de oficina."
+              }
+            ],
+            "deliveryFormats": []
+          }
         },
         {
           "id": "applications",
@@ -1022,7 +1051,7 @@
     },
     {
       "id": "2",
-      "updatedAt": "2026-04-24T06:45:37Z",
+      "updatedAt": "2026-04-25T05:12:42Z",
       "type": "categoria",
       "slug": "adhesivos-personalizados",
       "path": "/categorias/adhesivos-personalizados",
@@ -1146,45 +1175,41 @@
           "body": "",
           "blocks": [],
           "formatsData": {
-            "intro": "En material para eventos y comunicación visual, la elección del formato depende de dónde se va a instalar, cuánto tiempo debe durar y qué sistema de montaje necesita la pieza.",
+            "intro": "En adhesivos personalizados, el formato depende de la superficie de aplicación, el tipo de uso, la durabilidad prevista y la forma final de la pieza. Podemos producir desde etiquetas pequeñas para producto hasta vinilos a medida para escaparates, packaging o señalización.",
             "shapes": [
               {
-                "title": "Soportes rígidos",
-                "description": "Cartón pluma, PVC, metacrilato, Dibond, nido de abeja u otros materiales según la necesidad. Son ideales para señalización, displays, piezas autoportantes y elementos que deben mantener su forma."
+                "title": "Adhesivos rectangulares o cuadrados",
+                "description": "Formato práctico para etiquetas de producto, packaging, códigos QR, identificación, promociones y comunicación corporativa."
               },
               {
-                "title": "Soportes flexibles",
-                "description": "Lona, textil, papel o vinilo adhesivo. Funcionan muy bien para gran formato enrollable, aplicaciones en pared o cristal y piezas que requieren transporte o montaje sencillo."
+                "title": "Pegatinas redondas u ovaladas",
+                "description": "Opción visual y versátil para cierres de packaging, campañas promocionales, eventos, regalos de marca y aplicaciones decorativas."
               },
               {
-                "title": "Formatos estándar o a medida",
-                "description": "Las piezas pueden producirse en tamaños convencionales o totalmente personalizados, adaptándose al espacio disponible, la distancia de lectura y el tipo de instalación."
+                "title": "Corte con forma personalizada",
+                "description": "Troquelamos el adhesivo siguiendo el contorno del diseño, el logotipo o una silueta específica para conseguir una pieza más reconocible y diferencial."
               },
               {
-                "title": "Corte y troquelado personalizado",
-                "description": "Permite crear piezas con formas especiales, displays, identificadores o elementos visuales adaptados al diseño y al uso final."
+                "title": "Vinilos para cristal, pared o escaparate",
+                "description": "Formatos a medida para señalización, decoración, campañas temporales o rotulación comercial sobre superficies lisas."
               }
             ],
             "deliveryFormats": [
               {
-                "title": "Listo para instalar",
-                "description": "Se puede preparar con sistemas como ojales, dobladillo, vaina o estructuras de exposición para facilitar un montaje rápido y seguro."
+                "title": "Adhesivos sueltos",
+                "description": "Indicados para reparto, acciones promocionales, packs comerciales o aplicaciones manuales de pocas unidades."
               },
               {
-                "title": "Interior o exterior",
-                "description": "La elección del soporte y la protección se adapta al entorno de uso, teniendo en cuenta factores como luz, humedad, roce y duración prevista."
+                "title": "En plancha",
+                "description": "Práctico para agrupar varias unidades en una misma hoja, facilitar la manipulación y mantener los adhesivos protegidos hasta su aplicación."
               },
               {
-                "title": "Laminado mate o brillo",
-                "description": "Mejora la presencia visual y añade protección, especialmente en piezas manipuladas o expuestas durante varios días."
+                "title": "En bobina",
+                "description": "Recomendado para etiquetado recurrente, packaging, producción o aplicaciones con dispensador, según el material, la cantidad y el uso previsto."
               },
               {
-                "title": "Soft touch y barniz selectivo",
-                "description": "Opciones pensadas para piezas corporativas o promocionales donde se busca una percepción más premium y un acabado más distintivo."
-              },
-              {
-                "title": "Refuerzos para uso intensivo",
-                "description": "Cuando el material debe soportar transporte, montaje, desmontaje o uso continuado, se contemplan soluciones de refuerzo según el soporte y la aplicación."
+                "title": "A medida",
+                "description": "Adaptamos tamaño, forma, presentación y acabado al soporte, al sistema de aplicación y al resultado visual que necesita el proyecto."
               }
             ]
           }

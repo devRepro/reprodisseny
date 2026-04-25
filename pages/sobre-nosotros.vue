@@ -239,8 +239,7 @@ useSeoMeta({
     />
 
     <section
-      :class="pageSectionClass"
-      class="pt-8 md:pt-10 lg:pt-12"
+      class="pt-8 pb-10 md:pt-10 md:pb-12 lg:pt-12 lg:pb-16"
       aria-label="Cronología de Repro Disseny"
     >
       <div :class="pageContainerClass">
@@ -287,7 +286,9 @@ useSeoMeta({
                   />
                 </div>
 
-                <header class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                <header
+                  class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between"
+                >
                   <div class="flex min-w-0 items-start gap-4">
                     <span :class="timelineNumberClass" aria-label="Número de hito">
                       {{ String(index + 1).padStart(2, "0") }}
@@ -321,26 +322,7 @@ useSeoMeta({
       </div>
     </section>
 
-    <section class="bg-brand-base-dark text-white">
-      <div :class="pageContainerClass" class="py-12 md:py-16 lg:py-20">
-        <div class="mx-auto max-w-3xl text-center">
-          <p class="mb-0 text-body-s-bold uppercase tracking-[0.18em] text-white/70">
-            Capacidad productiva
-          </p>
-
-          <h2 class="mt-3 text-3xl font-semibold leading-tight md:text-4xl">
-            Instalaciones, equipo y tecnología para proyectos exigentes
-          </h2>
-
-          <p class="mb-0 mt-4 text-base leading-7 text-white/78 md:text-lg md:leading-8">
-            Contamos con un centro de producción preparado para impresión digital,
-            gran formato, acabados, montaje y soluciones de comunicación visual.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section :class="pageSectionClass">
+    <section class="py-10 md:py-12 lg:py-16">
       <div :class="pageContainerClass">
         <div class="flex flex-col gap-8 md:gap-10">
           <div class="max-w-3xl">
@@ -354,9 +336,11 @@ useSeoMeta({
               Lo que nos diferencia
             </h2>
 
-            <p class="mb-0 mt-4 text-base leading-7 text-foreground/75 md:text-lg md:leading-8">
-              Combinamos la agilidad del entorno digital con el acompañamiento, el
-              control de calidad y la capacidad técnica de un equipo con experiencia.
+            <p
+              class="mb-0 mt-4 text-base leading-7 text-foreground/75 md:text-lg md:leading-8"
+            >
+              Combinamos la agilidad del entorno digital con el acompañamiento, el control
+              de calidad y la capacidad técnica de un equipo con experiencia.
             </p>
           </div>
 

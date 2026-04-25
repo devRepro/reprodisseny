@@ -1,22 +1,160 @@
 {
-    "adhesivos-personalizados": [
-      {
-        "src": "https://webcms.blob.core.windows.net/media/category/adhesivos%20imatges/detalles.webp",
-        "alt": "Vista general de adhesivos personalizados en aplicación real",
-        "caption": "",
-        "role": "primary"
-      },
-      {
-        "src": "https://webcms.blob.core.windows.net/media/category/adhesivos%20imatges/acabados.webp",
-        "alt": "Detalle de acabados y materiales de adhesivos personalizados",
-        "caption": "Materiales y acabados",
-        "role": "detail"
-      },
-      {
-        "src": "https://webcms.blob.core.windows.net/media/category/adhesivos%20imatges/tipos.webp",
-        "alt": "Tipos de adhesivos personalizados para distintas aplicaciones",
-        "caption": "Tipos y aplicaciones",
-        "role": "usage"
-      }
-    ]
-  }
+  "adhesivos-personalizados": [
+    {
+      "src": "https://webcms.blob.core.windows.net/media/category/adhesivos%20imatges/detalles.webp",
+      "alt": "Vista general de adhesivos personalizados en aplicación real",
+      "caption": "",
+      "role": "primary"
+    },
+    {
+      "src": "https://webcms.blob.core.windows.net/media/category/adhesivos%20imatges/acabados.webp",
+      "alt": "Detalle de acabados y materiales de adhesivos personalizados",
+      "caption": "Materiales y acabados",
+      "role": "detail"
+    },
+    {
+      "src": "https://webcms.blob.core.windows.net/media/category/adhesivos%20imatges/tipos.webp",
+      "alt": "Tipos de adhesivos personalizados para distintas aplicaciones",
+      "caption": "Tipos y aplicaciones",
+      "role": "usage"
+    }
+  ],
+  "eventos": [
+    {
+      "src": "https://webcms.blob.core.windows.net/media/category/eventos%20imatges/acabados.webp",
+      "alt": "Detalle de acabados y materiales de material impreso para eventos corporativos",
+      "caption": "Acabados",
+      "role": "detail"
+    },
+    {
+      "src": "https://webcms.blob.core.windows.net/media/category/eventos%20imatges/tipos.webp",
+      "alt": "Tipos de material impreso para eventos corporativos para distintas aplicaciones",
+      "caption": "Tipos y aplicaciones",
+      "role": "usage"
+    }
+  ],
+  "expositores": [
+    {
+      "src": "https://webcms.blob.core.windows.net/media/category/expositores%20imatges/acabados.webp",
+      "alt": "Detalle de acabados y materiales de expositores personalizados",
+      "caption": "Acabados",
+      "role": "detail"
+    },
+    {
+      "src": "https://webcms.blob.core.windows.net/media/category/expositores%20imatges/tipos.webp",
+      "alt": "Tipos de expositores personalizados para distintas aplicaciones",
+      "caption": "Tipos y aplicaciones",
+      "role": "usage"
+    }
+  ],
+  "hosteleria-restauracion": [
+    {
+      "src": "https://webcms.blob.core.windows.net/media/category/hosteleria%20imatges/acabados.webp",
+      "alt": "Detalle de acabados y materiales de material impreso para hostelería y restauración",
+      "caption": "Acabados",
+      "role": "detail"
+    },
+    {
+      "src": "https://webcms.blob.core.windows.net/media/category/hosteleria%20imatges/tipos.webp",
+      "alt": "Tipos de material impreso para hostelería y restauración para distintas aplicaciones",
+      "caption": "Tipos y aplicaciones",
+      "role": "usage"
+    }
+  ],
+  "libros-revistas-catalogos": [
+    {
+      "src": "https://webcms.blob.core.windows.net/media/category/publicaciones%20imatges/formatos_y_soportes.webp",
+      "alt": "Formatos y soportes para libros, revistas y catálogos",
+      "caption": "Formatos y soportes",
+      "role": "primary"
+    },
+    {
+      "src": "https://webcms.blob.core.windows.net/media/category/publicaciones%20imatges/acabados.webp",
+      "alt": "Detalle de acabados y materiales de libros, revistas y catálogos",
+      "caption": "Acabados",
+      "role": "detail"
+    },
+    {
+      "src": "https://webcms.blob.core.windows.net/media/category/publicaciones%20imatges/tipos.webp",
+      "alt": "Tipos de libros, revistas y catálogos para distintas aplicaciones",
+      "caption": "Tipos y aplicaciones",
+      "role": "usage"
+    }
+  ],
+  "packaging": [
+    {
+      "src": "https://webcms.blob.core.windows.net/media/category/packaging%20imatges/detalles.webp",
+      "alt": "Vista general de packaging a medida en aplicación real",
+      "caption": "",
+      "role": "primary"
+    },
+    {
+      "src": "https://webcms.blob.core.windows.net/media/category/packaging%20imatges/acabados.webp",
+      "alt": "Detalle de acabados y materiales de packaging a medida",
+      "caption": "Acabados",
+      "role": "detail"
+    }
+  ],
+  "material-oficina": [
+    {
+      "src": "https://webcms.blob.core.windows.net/media/category/publicidad%20y%20oficina%20imatges/oficina/formatos_y_soportes.webp",
+      "alt": "Formatos y soportes para material de oficina corporativo",
+      "caption": "Formatos y soportes",
+      "role": "primary"
+    },
+    {
+      "src": "https://webcms.blob.core.windows.net/media/category/publicidad%20y%20oficina%20imatges/oficina/acabados.webp",
+      "alt": "Detalle de acabados y materiales de material de oficina corporativo",
+      "caption": "Acabados",
+      "role": "detail"
+    }
+  ],
+  "material-publicitario": [
+    {
+      "src": "https://webcms.blob.core.windows.net/media/category/publicidad%20y%20oficina%20imatges/publicidad/acabados.webp",
+      "alt": "Detalle de acabados y materiales de material publicitario y punto de venta",
+      "caption": "Acabados",
+      "role": "detail"
+    },
+    {
+      "src": "https://webcms.blob.core.windows.net/media/category/publicidad%20y%20oficina%20imatges/publicidad/tipos.webp",
+      "alt": "Tipos de material publicitario y punto de venta para distintas aplicaciones",
+      "caption": "Tipos y aplicaciones",
+      "role": "usage"
+    }
+  ],
+  "material-flexible": [
+    {
+      "src": "https://webcms.blob.core.windows.net/media/category/gran%20formato%20imatges/flexible/detalles_y_caracteristicas.webp",
+      "alt": "Detalles y características de materiales flexibles de gran formato",
+      "caption": "Detalles y características",
+      "role": "primary"
+    },
+    {
+      "src": "https://webcms.blob.core.windows.net/media/category/gran%20formato%20imatges/flexible/acabados.webp",
+      "alt": "Detalle de acabados y materiales de materiales flexibles de gran formato",
+      "caption": "Acabados",
+      "role": "detail"
+    },
+    {
+      "src": "https://webcms.blob.core.windows.net/media/category/gran%20formato%20imatges/flexible/informacion_adicional.webp",
+      "alt": "Información adicional sobre materiales flexibles de gran formato",
+      "caption": "Información adicional",
+      "role": "usage"
+    }
+  ],
+  "material-rigido": [
+    {
+      "src": "https://webcms.blob.core.windows.net/media/category/gran%20formato%20imatges/rigido/detalles_y_caracteristicas.webp",
+      "alt": "Detalles y características de materiales rígidos de gran formato",
+      "caption": "Detalles y características",
+      "role": "primary"
+    },
+    {
+      "src": "https://webcms.blob.core.windows.net/media/category/gran%20formato%20imatges/rigido/acabados.webp",
+      "alt": "Detalle de acabados y materiales de materiales rígidos de gran formato",
+      "caption": "Acabados",
+      "role": "detail"
+    }
+  ]
+}
