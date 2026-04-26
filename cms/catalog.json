@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-25T06:14:36.683Z",
+  "generatedAt": "2026-04-26T17:57:00.867Z",
   "categories": [
     {
       "id": "12",
@@ -3662,7 +3662,7 @@
   "products": [
     {
       "id": "1",
-      "updatedAt": "2026-04-15T12:19:08Z",
+      "updatedAt": "2026-04-26T17:49:43Z",
       "type": "producto",
       "slug": "abanicos-personalizados",
       "path": "/productos/abanicos-personalizados",
@@ -3740,16 +3740,40 @@
           "id": "finishes",
           "key": "finishes",
           "title": "Acabados",
-          "body": "- Acabado mate: recomendado cuando habrá mucha luz o se harán fotos, ya que ayuda a reducir reflejos.\n- Acabado brillo: adecuado cuando se busca un color más vivo y un efecto visual más llamativo.\n- Preparación para entrega: opción de empaquetado por sets o preparación para packs de bienvenida y reparto.",
+          "body": "### Acabado mate\n\nRecomendado cuando habrá mucha luz o se harán fotos, ya que ayuda a reducir reflejos.\n\n### Acabado brillo\n\nAdecuado cuando se busca un color más vivo y un efecto visual más llamativo.\n\n### Preparación para entrega\n\nOpción de empaquetado por sets o preparación para packs de bienvenida y reparto.",
           "blocks": [
             {
-              "type": "bullets",
-              "items": [
-                "Acabado mate: recomendado cuando habrá mucha luz o se harán fotos, ya que ayuda a reducir reflejos.",
-                "Acabado brillo: adecuado cuando se busca un color más vivo y un efecto visual más llamativo.",
-                "Preparación para entrega: opción de empaquetado por sets o preparación para packs de bienvenida y reparto."
-              ],
-              "ordered": false
+              "type": "text",
+              "text": "<h3>Acabado mate</h3>",
+              "html": true,
+              "format": "html"
+            },
+            {
+              "type": "text",
+              "text": "Recomendado cuando habrá mucha luz o se harán fotos, ya que ayuda a reducir reflejos.",
+              "html": false
+            },
+            {
+              "type": "text",
+              "text": "<h3>Acabado brillo</h3>",
+              "html": true,
+              "format": "html"
+            },
+            {
+              "type": "text",
+              "text": "Adecuado cuando se busca un color más vivo y un efecto visual más llamativo.",
+              "html": false
+            },
+            {
+              "type": "text",
+              "text": "<h3>Preparación para entrega</h3>",
+              "html": true,
+              "format": "html"
+            },
+            {
+              "type": "text",
+              "text": "Opción de empaquetado por sets o preparación para packs de bienvenida y reparto.",
+              "html": false
             }
           ]
         },
@@ -4017,7 +4041,7 @@
     },
     {
       "id": "2",
-      "updatedAt": "2026-04-08T10:46:05Z",
+      "updatedAt": "2026-04-26T17:56:14Z",
       "type": "producto",
       "slug": "acreditaciones-personalizadas",
       "path": "/productos/acreditaciones-personalizadas",
@@ -4068,37 +4092,40 @@
           "id": "materials",
           "key": "materials",
           "title": "Materiales",
-          "body": "• Cartulina: opción práctica para eventos de corta duración con buena presencia.\n• Material sintético (tipo “papel plástico”): recomendado cuando habrá mucho uso o riesgo de humedad\roce.\n• PVC (si buscas máxima durabilidad): ideal para acreditaciones reutilizables o de larga vida (por ejemplo, personal interno o accesos recurrentes).\nImpresión",
+          "body": "### Cartulina\n\nOpción práctica para eventos de corta duración con buena presencia.\n\n### Material sintético\n\nTipo papel plástico, recomendado cuando habrá mucho uso o riesgo de humedad o roce.\n\n### PVC\n\nOpción de máxima durabilidad, ideal para acreditaciones reutilizables o de larga vida, como personal interno o accesos recurrentes.",
           "blocks": [
             {
-              "type": "bullets",
-              "items": [
-                "Cartulina: opción práctica para eventos de corta duración con buena presencia.",
-                "Material sintético (tipo “papel plástico”): recomendado cuando habrá mucho uso o riesgo de humedad\roce.",
-                "PVC (si buscas máxima durabilidad): ideal para acreditaciones reutilizables o de larga vida (por ejemplo, personal interno o accesos recurrentes)."
-              ],
-              "ordered": false
+              "type": "text",
+              "text": "<h3>Cartulina</h3>",
+              "html": true,
+              "format": "html"
             },
             {
               "type": "text",
-              "text": "Impresión",
+              "text": "Opción práctica para eventos de corta duración con buena presencia.",
               "html": false
-            }
-          ]
-        },
-        {
-          "id": "formats",
-          "key": "formats",
-          "title": "Formatos y soportes",
-          "body": "• Medidas estándar (tipo acreditación) o a medida, según diseño y uso.\n• Orientación vertical u horizontal.",
-          "blocks": [
+            },
             {
-              "type": "bullets",
-              "items": [
-                "Medidas estándar (tipo acreditación) o a medida, según diseño y uso.",
-                "Orientación vertical u horizontal."
-              ],
-              "ordered": false
+              "type": "text",
+              "text": "<h3>Material sintético</h3>",
+              "html": true,
+              "format": "html"
+            },
+            {
+              "type": "text",
+              "text": "Tipo papel plástico, recomendado cuando habrá mucho uso o riesgo de humedad o roce.",
+              "html": false
+            },
+            {
+              "type": "text",
+              "text": "<h3>PVC</h3>",
+              "html": true,
+              "format": "html"
+            },
+            {
+              "type": "text",
+              "text": "Opción de máxima durabilidad, ideal para acreditaciones reutilizables o de larga vida, como personal interno o accesos recurrentes.",
+              "html": false
             }
           ]
         },
