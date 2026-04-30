@@ -1,7 +1,5 @@
 import { readFile, stat } from "node:fs/promises";
 import { join } from "node:path";
-import { mapCategoryContent } from "~/shared/utils/cms/mapCategoryContent";
-import { mapProductContent } from "~/shared/utils/cms/mapProductContent";
 
 type CmsCatalog = {
   categories: any[];
@@ -123,45 +121,49 @@ function hydrateCategory(category: any) {
     ? `/categorias/${normSlug(category.slug)}`
     : category?.path || "";
 
-  category.path = normPath(category?.path || fallbackPath);
-
-  const content = mapCategoryContent(category);
-
-  category.bodyMd = content.bodyMd;
-  category.sections = content.sections;
-  category.tabs = content.tabs; // compatibilidad con la UI actual de categoría
-
-  return category;
+  return {
+    ...category,
+    path: normPath(category?.path || fallbackPath),
+    bodyMd: String(category?.bodyMd ?? category?.BodyMd ?? "").trim(),
+    sections: Array.isArray(category?.sections) ? category.sections : [],
+    faqs: Array.isArray(category?.faqs) ? category.faqs : [],
+  };
 }
 
 function normalizeProduct(product: any) {
   const primaryCategory = normCategorySlug(
-    firstNonEmpty(product, ["primaryCategory", "PrimaryCategory"], "")
+    firstNonEmpty(
+      product,
+      ["categorySlug", "CategorySlug", "primaryCategory", "PrimaryCategory"],
+      ""
+    )
   );
 
   const secondaryCategories = parseCategoriesValue(
-    firstNonEmpty(product, ["categories", "Categories"], [])
+    firstNonEmpty(product, ["categorySlugs", "CategorySlugs", "categories", "Categories"], [])
   ).filter((slug) => slug !== primaryCategory);
 
   const categorySlugs = uniqueStrings([primaryCategory, ...secondaryCategories]);
 
   return {
     ...product,
+    categorySlug: primaryCategory || product?.categorySlug || null,
     primaryCategory,
     categories: secondaryCategories,
     categorySlugs,
+    sections: Array.isArray(product?.sections) ? product.sections : [],
+    faqs: Array.isArray(product?.faqs) ? product.faqs : [],
   };
 }
 
 function hydrateProduct(product: any) {
   const normalized = normalizeProduct(product);
-  const content = mapProductContent(normalized);
 
   return {
     ...normalized,
-    bodyMd: content.bodyMd,
-    sections: content.sections,
-    faqs: content.faqs,
+    bodyMd: String(normalized?.bodyMd ?? normalized?.BodyMd ?? "").trim(),
+    sections: Array.isArray(normalized?.sections) ? normalized.sections : [],
+    faqs: Array.isArray(normalized?.faqs) ? normalized.faqs : [],
   };
 }
 

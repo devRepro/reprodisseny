@@ -1,4 +1,4 @@
-import { getProductDetailBySlug } from "~/server/services/cms/_catalog.service";
+import { getProductDetailBySlug } from "~/server/services/cms/catalog.service";
 
 export default defineEventHandler((event) => {
   const slug = getRouterParam(event, "slug") || "";

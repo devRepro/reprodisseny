@@ -315,8 +315,7 @@ const CATEGORY_FIELDS = {
 const PRODUCT_FIELDS = {
   title: "Title",
   slug: "Slug",
-  categorySlug: "PrimaryCategory",
-  legacyCategorySlug: "CategorySlug",
+  categorySlug: "CategorySlug",
   categories: "Categories",
   isFeatured: "IsFeatured",
   isPublished: "IsPublished",
@@ -457,57 +456,20 @@ function num(value: unknown): number | undefined {
 }
 
 
-function createMarkdownSection(
-  id: string,
-  title: string,
-  value: unknown,
-): MarkdownContentSection | null {
-  const body = structuredSectionToMarkdown(value);
-  if (!body) return null;
-
-  return {
-    id,
-    key: id,
-    title,
-    kind: id === "technical-specs" ? "technical-specs" : "markdown",
-    body,
-  };
-}
-
-function createTypesSection(
-  title: string,
-  value: unknown,
-): ContentSection | null {
-  const items = parseTypesMd(value);
-  if (items.length > 0) {
-    return {
-      id: "types",
-      key: "types",
-      title,
-      kind: "types",
-      items,
-    };
-  }
-
-  return createMarkdownSection("types", title, value);
-}
-
 function createBenefitsSection(
   title: string,
   value: unknown,
 ): ContentSection | null {
   const benefitsData = parseBenefitsMd(value);
-  if (benefitsData) {
-    return {
-      id: "benefits",
-      key: "benefits",
-      title,
-      kind: "benefits",
-      benefitsData,
-    };
-  }
+  if (!benefitsData) return null;
 
-  return createMarkdownSection("benefits", title, value);
+  return {
+    id: "benefits",
+    key: "benefits",
+    title,
+    kind: "benefits",
+    benefitsData,
+  };
 }
 
 function createMaterialsSection(
@@ -515,35 +477,15 @@ function createMaterialsSection(
   value: unknown,
 ): ContentSection | null {
   const materialsData = parseMaterialsMd(value);
-  if (materialsData) {
-    return {
-      id: "materials",
-      key: "materials",
-      title,
-      kind: "materials",
-      materialsData,
-    };
-  }
+  if (!materialsData) return null;
 
-  return createMarkdownSection("materials", title, value);
-}
-
-function createFormatsSection(
-  title: string,
-  value: unknown,
-): ContentSection | null {
-  const formatsData = parseFormatsMd(value);
-  if (formatsData) {
-    return {
-      id: "formats",
-      key: "formats",
-      title,
-      kind: "formats",
-      formatsData,
-    };
-  }
-
-  return createMarkdownSection("formats", title, value);
+  return {
+    id: "materials",
+    key: "materials",
+    title,
+    kind: "materials",
+    materialsData,
+  };
 }
 
 function createFinishesSection(
@@ -551,17 +493,15 @@ function createFinishesSection(
   value: unknown,
 ): ContentSection | null {
   const finishesData = parseFinishesMd(value);
-  if (finishesData) {
-    return {
-      id: "finishes",
-      key: "finishes",
-      title,
-      kind: "finishes",
-      finishesData,
-    };
-  }
+  if (!finishesData) return null;
 
-  return createMarkdownSection("finishes", title, value);
+  return {
+    id: "finishes",
+    key: "finishes",
+    title,
+    kind: "finishes",
+    finishesData,
+  };
 }
 
 function createApplicationsSection(
@@ -569,17 +509,15 @@ function createApplicationsSection(
   value: unknown,
 ): ContentSection | null {
   const applicationsData = parseApplicationsMd(value);
-  if (applicationsData) {
-    return {
-      id: "applications",
-      key: "applications",
-      title,
-      kind: "applications",
-      applicationsData,
-    };
-  }
+  if (!applicationsData) return null;
 
-  return createMarkdownSection("applications", title, value);
+  return {
+    id: "applications",
+    key: "applications",
+    title,
+    kind: "applications",
+    applicationsData,
+  };
 }
 
 function parsePositiveInt(value: unknown): number | undefined {
@@ -664,7 +602,6 @@ function normalizeMarkdown(value: unknown): string {
     .replace(/\/r/g, "\r")
     .replace(/([^\n])\s*(#{2,6})([^\s#])/g, "$1\n$2 $3")
     .replace(/(^|\n)(#{2,6})([^\s#])/g, "$1$2 $3")
-    .replace(/(^|\n)[\t ]*[•·][\t ]*/g, "$1- ")
     .replace(/\n{3,}/g, "\n\n")
     .trim();
 }
@@ -1280,10 +1217,7 @@ function buildCategorySections(
     editorialSections.map((section) => [section.id, section] as const),
   );
 
-  const typesSection = createTypesSection(
-    CATEGORY_SECTION_TITLES.types || "Tipos",
-    fields[CATEGORY_FIELDS.typesMd],
-  );
+  const typeItems = parseTypesMd(fields[CATEGORY_FIELDS.typesMd]);
 
   const formatsSection = createFormatsSection(
     CATEGORY_SECTION_TITLES.formats || "Formatos y soportes",
@@ -1302,11 +1236,20 @@ function buildCategorySections(
 
   const sections: ContentSection[] = [];
 
-  for (const id of fullCategorySectionOrder) {
-    if (id === "types") {
-      if (typesSection) sections.push(typesSection);
-      continue;
+for (const id of fullCategorySectionOrder) {
+  if (id === "types") {
+    if (typeItems.length > 0) {
+      sections.push({
+        id: "types",
+        key: "types",
+        title: CATEGORY_SECTION_TITLES.types || "Tipos",
+        kind: "types",
+        items: typeItems,
+      });
     }
+
+    continue;
+  }
 
     if (id === "formats") {
       if (formatsSection) sections.push(formatsSection);
@@ -1881,14 +1824,8 @@ function buildProduct(item: GraphItem<Record<string, unknown>>): ProductDto | nu
     fields[PRODUCT_FIELDS.slug];
 
   const rawPrimaryCategory =
-    pickField(fields, [
-      PRODUCT_FIELDS.categorySlug,
-      PRODUCT_FIELDS.legacyCategorySlug,
-      "PrimaryCategory",
-      "CategorySlug",
-    ]) ??
-    fields[PRODUCT_FIELDS.categorySlug] ??
-    fields[PRODUCT_FIELDS.legacyCategorySlug];
+    pickField(fields, ["CategorySlug", "PrimaryCategory"]) ??
+    fields[PRODUCT_FIELDS.categorySlug];
 
   const rawCategories =
     pickField(fields, ["Categories"]) ??
@@ -2140,10 +2077,7 @@ function assertRawProductFieldCoverage(
   const titleCount = countItemsWithField(productItems, PRODUCT_FIELDS.title);
   const slugCount = countItemsWithField(productItems, PRODUCT_FIELDS.slug);
   const pathCount = countItemsWithField(productItems, PRODUCT_FIELDS.path);
-  const primaryCategoryCount = Math.max(
-    countItemsWithField(productItems, PRODUCT_FIELDS.categorySlug),
-    countItemsWithField(productItems, PRODUCT_FIELDS.legacyCategorySlug),
-  );
+  const primaryCategoryCount = countItemsWithField(productItems, PRODUCT_FIELDS.categorySlug);
   const categoriesCount = countItemsWithField(productItems, PRODUCT_FIELDS.categories);
 
   console.log(
@@ -2154,7 +2088,7 @@ function assertRawProductFieldCoverage(
 
   if (primaryCategoryCount === 0) {
     throw new Error(
-      `No está llegando ningún campo de categoría de producto desde SharePoint (${PRODUCT_FIELDS.categorySlug} / ${PRODUCT_FIELDS.legacyCategorySlug}). Revisa el $select de productos y el nombre interno de la columna.`,
+      `El campo "${PRODUCT_FIELDS.categorySlug}" no está llegando desde SharePoint. Revisa el $select de productos y el nombre interno de la columna.`,
     );
   }
 

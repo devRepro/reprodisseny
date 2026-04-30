@@ -1,6 +1,6 @@
 import { createError, getRouterParam } from "h3";
 import { defineCachedEventHandler } from "nitropack/runtime";
-import { getCategoryDetailByPath } from "~/server/services/cms/_catalog.service";
+import { getCategoryDetailByPath } from "~/server/services/cms/catalog.service";
 
 function safeDecode(value: unknown) {
   try {

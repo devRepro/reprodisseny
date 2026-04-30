@@ -98,4 +98,4 @@ watch(
       </section>
     </div>
   </div>
-</template>~/server/services/cms/_catalog.service
+</template>~/server/services/cms/catalog.service

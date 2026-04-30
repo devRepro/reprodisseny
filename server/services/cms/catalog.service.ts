@@ -318,7 +318,7 @@ type CategoryBulletCardItem = {
   description: string;
 };
 
-export type CategorySectionKind = "details" | "types" | "cards" | "default";
+
 
 export type CategoryCardItem = {
   title: string;
@@ -720,23 +720,10 @@ function createCategoryTextSection(
     id: key,
     key,
     title,
+    kind: key === "technical-specs" ? "technical-specs" : "markdown",
     body: text,
   };
 }
-
-function createCategoryMaterialsSection(body: unknown): CatalogSection | null {
-  const materialsData = normalizeMaterialsData(body);
-  if (!materialsData) return null;
-
-  return {
-    id: "materials",
-    key: "materials",
-    title: "Materiales",
-    kind: "materials",
-    materialsData,
-  };
-}
-
 
 function createCategoryMaterialsSection(body: unknown): CatalogSection | null {
   const materialsData = normalizeMaterialsData(body);
@@ -1140,75 +1127,11 @@ function getDirectProductsOfCategory(
     }));
 }
 
-function stripInlineMarkdown(value: string) {
-  return String(value ?? "")
-    .replace(/\*\*(.*?)\*\*/g, "$1")
-    .replace(/__(.*?)__/g, "$1")
-    .replace(/`([^`]+)`/g, "$1")
-    .replace(/\[(.*?)\]\((.*?)\)/g, "$1")
-    .replace(/\s+/g, " ")
-    .trim();
-}
 
-function parseBulletCardItem(raw: string): CategoryBulletCardItem | null {
-  const normalized = String(raw ?? "")
-    .replace(/\s+/g, " ")
-    .trim();
 
-  if (!normalized) return null;
 
-  const boldTitleWithDesc = normalized.match(/^\*\*(.+?)\*\*\s*:\s*(.+)$/);
-  if (boldTitleWithDesc) {
-    return {
-      title: stripInlineMarkdown(boldTitleWithDesc[1]),
-      description: stripInlineMarkdown(boldTitleWithDesc[2]),
-    };
-  }
 
-  const plainTitleWithDesc = normalized.match(/^([^:]{1,160})\s*:\s*(.+)$/);
-  if (plainTitleWithDesc) {
-    return {
-      title: stripInlineMarkdown(plainTitleWithDesc[1]),
-      description: stripInlineMarkdown(plainTitleWithDesc[2]),
-    };
-  }
 
-  return {
-    title: "",
-    description: stripInlineMarkdown(normalized),
-  };
-}
-
-function collectRawBulletItemsFromBlocks(blocks: CatalogBlock[]): string[] {
-  const fromBulletBlocks = blocks.flatMap((block) =>
-    block?.type === "bullets" && Array.isArray(block.items) ? block.items : []
-  );
-
-  if (fromBulletBlocks.length) return fromBulletBlocks;
-
-  const rawText = blocks
-    .filter(
-      (block): block is Extract<CatalogBlock, { type: "text" }> =>
-        block?.type === "text" && !block.html && Boolean(block.text)
-    )
-    .map((block) => String(block.text ?? ""))
-    .join("\n");
-
-  if (!rawText.trim()) return [];
-
-  return rawText
-    .replace(/\r\n/g, "\n")
-    .split("\n")
-    .map((line) => line.trim())
-    .filter((line) => /^[-*]\s+/.test(line))
-    .map((line) => line.replace(/^[-*]\s+/, "").trim());
-}
-
-function getBulletCardItemsFromBlocks(blocks: CatalogBlock[]): CategoryBulletCardItem[] {
-  return collectRawBulletItemsFromBlocks(blocks)
-    .map(parseBulletCardItem)
-    .filter((item): item is CategoryBulletCardItem => Boolean(item));
-}
 
 function normalizeCategoryTypeItems(
   value: unknown
@@ -1255,205 +1178,51 @@ function normalizeCategoryTypeItems(
     );
 }
 
-function buildCardGroupsFromBulletItems(
-  groupId: string,
-  items: CategoryBulletCardItem[],
-  options?: {
-    groupTitle?: string;
-    groupDescription?: string;
-    columns?: 2 | 3 | 4;
-    metaPrefix?: string;
-  }
-): CategoryCardGroup[] {
-  if (!items.length) return [];
 
-  return [
-    {
-      id: groupId,
-      ...(options?.groupTitle ? { title: options.groupTitle } : {}),
-      ...(options?.groupDescription
-        ? { description: options.groupDescription }
-        : {}),
-      columns: options?.columns ?? 2,
-      items: items.map((item, index) => ({
-        title: item.title || `Elemento ${index + 1}`,
-        description: item.description,
-        ...(options?.metaPrefix
-          ? {
-              meta: `${options.metaPrefix} ${String(index + 1).padStart(2, "0")}`,
-            }
-          : {}),
-      })),
-    },
-  ];
-}
 
-type CategorySectionRole =
-  | "details"
-  | "types"
-  | "formats"
-  | "finishes"
-  | "uses"
-  | "default";
 
-function resolveCategorySectionRole(section: {
+function resolveCatalogSectionKind(section: {
+  kind?: CatalogContentSectionKind;
   key?: string;
   id?: string;
-  title?: string;
-}): CategorySectionRole {
-  const key = normalizeComparableLabel(section.key);
-  const id = normalizeComparableLabel(section.id);
-  const title = normalizeComparableLabel(section.title);
+  items?: unknown;
+  benefitsData?: unknown;
+  materialsData?: unknown;
+  formatsData?: unknown;
+  finishesData?: unknown;
+  applicationsData?: unknown;
+}): CatalogContentSectionKind {
+  if (section.kind) return section.kind;
 
-  if (
-    key === "details" ||
-    key === "detalle" ||
-    key === "detalles" ||
-    id === "details" ||
-    id === "detalle" ||
-    id === "detalles" ||
-    title === "detalles" ||
-    title === "detalle" ||
-    title === "detalles y caracteristicas" ||
-    title.startsWith("detalles")
-  ) {
-    return "details";
-  }
+  const key = String(section.key || section.id || "").trim();
 
-  if (
-    key === "types" ||
-    key === "type" ||
-    key === "tipos" ||
-    key === "tipo" ||
-    title === "tipos" ||
-    title === "tipo"
-  ) {
-    return "types";
-  }
+  if (key === "types" && Array.isArray(section.items)) return "types";
+  if (key === "benefits" || section.benefitsData) return "benefits";
+  if (key === "materials" || section.materialsData) return "materials";
+  if (key === "formats" || section.formatsData) return "formats";
+  if (key === "finishes" || section.finishesData) return "finishes";
+  if (key === "applications" || section.applicationsData) return "applications";
+  if (key === "technical-specs") return "technical-specs";
 
-  if (
-    key === "formats" ||
-    key === "format" ||
-    key === "formatos" ||
-    key === "formato" ||
-    title.startsWith("format")
-  ) {
-    return "formats";
-  }
-
-  if (
-    key === "finishes" ||
-    key === "finish" ||
-    key === "acabados" ||
-    key === "acabado" ||
-    title.startsWith("acab")
-  ) {
-    return "finishes";
-  }
-
-  if (
-    key === "uses" ||
-    key === "use" ||
-    key === "aplicaciones" ||
-    key === "aplicacion" ||
-    title.startsWith("aplic")
-  ) {
-    return "uses";
-  }
-
-  return "default";
-}
-
-function buildCardGroupsFromFormatsData(
-  formatsData:
-    | {
-      intro?: string;
-      shapes?: { title: string; description: string }[];
-      deliveryFormats?: { title: string; description: string }[];
-    }
-    | undefined
-): CategoryCardGroup[] {
-  if (!formatsData) return [];
-
-  const groups: CategoryCardGroup[] = [];
-
-  if (Array.isArray(formatsData.shapes) && formatsData.shapes.length) {
-    groups.push({
-      id: "shapes",
-      title: "Formas disponibles",
-      description:
-        "Opciones de forma y corte según el tipo de pieza y el uso previsto.",
-      items: formatsData.shapes.map((item) => ({
-        title: item.title,
-        description: item.description,
-      })),
-      columns: 2,
-    });
-  }
-
-  if (
-    Array.isArray(formatsData.deliveryFormats) &&
-    formatsData.deliveryFormats.length
-  ) {
-    groups.push({
-      id: "delivery",
-      title: "Formatos y presentación",
-      description:
-        "Formatos habituales de presentación, suministro o entrega del material.",
-      items: formatsData.deliveryFormats.map((item) => ({
-        title: item.title,
-        description: item.description,
-      })),
-      columns: 2,
-    });
-  }
-
-  return groups;
-}
-
-
-
-function resolveCategorySectionKind(section: {
-  role: CategorySectionRole;
-  items?: unknown[];
-  cardGroups?: unknown[];
-}): CategorySectionKind {
-  if (section.role === "details") {
-    return "details";
-  }
-
-  if (
-    section.role === "types" &&
-    Array.isArray(section.items) &&
-    section.items.length > 0
-  ) {
-    return "types";
-  }
-
-  if (
-    (section.role === "formats" ||
-      section.role === "finishes" ||
-      section.role === "uses") &&
-    Array.isArray(section.cardGroups) &&
-    section.cardGroups.length > 0
-  ) {
-    return "cards";
-  }
-
-  return "default";
+  return "markdown";
 }
 
 function getCategorySections(category: CatalogCategory): CategoryDetailSectionItem[] {
   return getMergedCategorySections(category)
     .map((section, index) => {
-      const id = String(section?.id || `section-${index + 1}`).trim();
-      const key = String(section?.key || "").trim() || undefined;
+      const id = String(section?.id || section?.key || `section-${index + 1}`).trim();
+      const key = String(section?.key || id).trim();
       const title = String(section?.title || `Sección ${index + 1}`).trim();
       const intro = String(section?.intro || "").trim() || undefined;
-      const text = String(section?.body || "").trim();
+      const body = String(section?.body || "").trim();
 
-      const role = resolveCategorySectionRole({ key, id, title });
       const items = normalizeCategoryTypeItems(section?.items);
+      const kind = resolveCatalogSectionKind(section);
+
+      const benefitsData =
+        section?.benefitsData && typeof section.benefitsData === "object"
+          ? normalizeBenefitsData(section.benefitsData)
+          : undefined;
 
       const materialsData =
         section?.materialsData && typeof section.materialsData === "object"
@@ -1475,37 +1244,11 @@ function getCategorySections(category: CatalogCategory): CategoryDetailSectionIt
           ? normalizeApplicationsData(section.applicationsData)
           : undefined;
 
-      const rawBlocks = Array.isArray(section?.blocks)
-        ? section.blocks.filter(Boolean)
-        : [];
-
-      const fallbackBlocks: CatalogBlock[] = text
-        ? [{ type: "text", text, html: false }]
-        : intro && (role === "default" || role === "details") && !items.length
-          ? [{ type: "text", text: intro, html: false }]
-          : [];
-
-      const blocks = rawBlocks.length ? rawBlocks : fallbackBlocks;
-      const bulletItems = getBulletCardItemsFromBlocks(blocks);
-
-      let cardGroups: CategoryCardGroup[] = [];
-
-      if (role === "uses" && bulletItems.length) {
-        cardGroups = buildCardGroupsFromBulletItems("uses", bulletItems, {
-          columns: 2,
-        });
-      }
-
-      const kind = resolveCategorySectionKind({
-        role,
-        items,
-        cardGroups,
-      });
-
       const hasContent =
-        blocks.length > 0 ||
+        Boolean(body) ||
+        Boolean(intro) ||
         items.length > 0 ||
-        cardGroups.length > 0 ||
+        Boolean(benefitsData?.benefits.length) ||
         Boolean(materialsData?.materials.length) ||
         Boolean(formatsData) ||
         Boolean(finishesData?.finishes.length) ||
@@ -1515,13 +1258,13 @@ function getCategorySections(category: CatalogCategory): CategoryDetailSectionIt
 
       return {
         id,
-        ...(key ? { key } : {}),
+        key,
         kind,
         title,
         ...(intro ? { intro } : {}),
-        blocks,
+        ...(body ? { body } : {}),
         ...(items.length ? { items } : {}),
-        ...(cardGroups.length ? { cardGroups } : {}),
+        ...(benefitsData ? { benefitsData } : {}),
         ...(materialsData ? { materialsData } : {}),
         ...(formatsData ? { formatsData } : {}),
         ...(finishesData ? { finishesData } : {}),
@@ -1543,10 +1286,10 @@ function createProductTextSection(
     id: key,
     key,
     title,
+    kind: key === "technical-specs" ? "technical-specs" : "markdown",
     body: text,
   };
 }
-
 function createProductBenefitsSection(body: unknown): CatalogProductSection | null {
   const benefitsData = normalizeBenefitsData(body);
   if (!benefitsData) return null;
@@ -1555,8 +1298,7 @@ function createProductBenefitsSection(body: unknown): CatalogProductSection | nu
     id: "benefits",
     key: "benefits",
     title: "Beneficios",
-    body: "",
-    blocks: [],
+    kind: "benefits",
     benefitsData,
   };
 }
@@ -1569,8 +1311,7 @@ function createProductMaterialsSection(body: unknown): CatalogProductSection | n
     id: "materials",
     key: "materials",
     title: "Materiales",
-    body: "",
-    blocks: [],
+    kind: "materials",
     materialsData,
   };
 }
@@ -1583,8 +1324,7 @@ function createProductFormatsSection(body: unknown): CatalogProductSection | nul
     id: "formats",
     key: "formats",
     title: "Formatos y soportes",
-    body: "",
-    blocks: [],
+    kind: "formats",
     formatsData,
   };
 }
@@ -1597,24 +1337,25 @@ function createProductFinishesSection(body: unknown): CatalogProductSection | nu
     id: "finishes",
     key: "finishes",
     title: "Acabados",
-    body: "",
-    blocks: [],
+    kind: "finishes",
     finishesData,
   };
 }
 
 function createProductApplicationsSection(body: unknown): CatalogProductSection | null {
   const applicationsData = normalizeApplicationsData(body);
-  if (!applicationsData) return null;
 
-  return {
-    id: "applications",
-    key: "applications",
-    title: "Aplicaciones",
-    body: "",
-    blocks: [],
-    applicationsData,
-  };
+  if (applicationsData) {
+    return {
+      id: "applications",
+      key: "applications",
+      title: "Aplicaciones",
+      kind: "applications",
+      applicationsData,
+    };
+  }
+
+  return createProductTextSection("applications", "Aplicaciones", body);
 }
 
 function getMergedProductSections(product: CatalogProduct): CatalogProductSection[] {
