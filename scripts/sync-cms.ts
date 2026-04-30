@@ -16,107 +16,126 @@ type GraphItem<T extends Record<string, unknown>> = {
   fields?: T;
 };
 
-  type ContentTypeItem = {
-    title: string;
-    description: string;
-    features?: string[];
-    idealFor?: string;
-  }; 
+type ContentTypeItem = {
+  title: string;
+  description: string;
+  features?: string[];
+  idealFor?: string;
+};
 
-  
 
-  type ContentNamedItem = {
-    title: string;
-    description: string;
-  };
-  
-  type ContentFormatsData = {
-    intro?: string;
-    shapes: ContentNamedItem[];
-    deliveryFormats: ContentNamedItem[];
-  };
-  
-  type ContentBenefitsData = {
-    intro?: string;
-    benefits: ContentNamedItem[];
-  };
-  
-  type ContentMaterialsData = {
-    intro?: string;
-    materials: ContentNamedItem[];
-  };
-  
-  type ContentFinishesData = {
-    intro?: string;
-    finishes: ContentNamedItem[];
-  };
-  
-  type ContentApplicationsData = {
-    intro?: string;
-    applications: ContentNamedItem[];
-  };
-  
-  
-  type ContentSectionKind =
-  | "markdown"
+
+type ContentNamedItem = {
+  title: string;
+  description: string;
+};
+
+type ContentFormatsData = {
+  intro?: string;
+  shapes: ContentNamedItem[];
+  deliveryFormats: ContentNamedItem[];
+};
+
+type ContentBenefitsData = {
+  intro?: string;
+  benefits: ContentNamedItem[];
+};
+
+type ContentMaterialsData = {
+  intro?: string;
+  materials: ContentNamedItem[];
+};
+
+type ContentFinishesData = {
+  intro?: string;
+  finishes: ContentNamedItem[];
+};
+
+type ContentApplicationsData = {
+  intro?: string;
+  applications: ContentNamedItem[];
+};
+
+
+type ContentFormat = "markdown" | "json";
+
+type ContentSectionKind =
+  | "details"
   | "types"
-  | "technical-specs"
   | "benefits"
   | "materials"
   | "formats"
   | "finishes"
+  | "technical-specs"
   | "applications";
 
-  type ContentSectionBase<K extends ContentSectionKind> = {
-  id: string;
-  key: string;
-  title: string;
+type BaseContentSection<K extends ContentSectionKind = ContentSectionKind> = {
+  id: K;
+  key: K;
   kind: K;
-};
-
-type MarkdownContentSection = {
-  id: string;
-  key: string;
   title: string;
-  kind: "markdown" | "technical-specs";
-  body: string;
+  contentFormat: ContentFormat;
 };
 
-type TypesContentSection = {
-  id: string;
-  key: string;
-  title: string;
-  kind: "types";
-  items: ContentTypeItem[];
-};
+type MarkdownContentSection<K extends ContentSectionKind = ContentSectionKind> =
+  BaseContentSection<K> & {
+    contentFormat: "markdown";
+    body: string;
+  };
+type TypesContentSection =
+  | (BaseContentSection<"types"> & {
+      contentFormat: "json";
+      items: ContentTypeItem[];
+    })
+  | MarkdownContentSection<"types">;
 
-type BenefitsContentSection = ContentSectionBase<"benefits"> & {
-  benefitsData: ContentBenefitsData;
-};
+type BenefitsContentSection =
+  | (BaseContentSection<"benefits"> & {
+      contentFormat: "json";
+      benefitsData: ContentBenefitsData;
+    })
+  | MarkdownContentSection<"benefits">;
 
-type MaterialsContentSection = ContentSectionBase<"materials"> & {
-  materialsData: ContentMaterialsData;
-};
+type MaterialsContentSection =
+  | (BaseContentSection<"materials"> & {
+      contentFormat: "json";
+      materialsData: ContentMaterialsData;
+    })
+  | MarkdownContentSection<"materials">;
 
-type FormatsContentSection = ContentSectionBase<"formats"> & {
-  formatsData: ContentFormatsData;
-};
+type FormatsContentSection =
+  | (BaseContentSection<"formats"> & {
+      contentFormat: "json";
+      formatsData: ContentFormatsData;
+    })
+  | MarkdownContentSection<"formats">;
 
-type FinishesContentSection = ContentSectionBase<"finishes"> & {
-  finishesData: ContentFinishesData;
-};
+type FinishesContentSection =
+  | (BaseContentSection<"finishes"> & {
+      contentFormat: "json";
+      finishesData: ContentFinishesData;
+    })
+  | MarkdownContentSection<"finishes">;
 
-type ApplicationsContentSection = ContentSectionBase<"applications"> & {
-  applicationsData: ContentApplicationsData;
-};
+type ApplicationsContentSection =
+  | (BaseContentSection<"applications"> & {
+      contentFormat: "json";
+      applicationsData: ContentApplicationsData;
+    })
+  | MarkdownContentSection<"applications">;
+
+type DetailsContentSection = MarkdownContentSection<"details">;
+
+type TechnicalSpecsContentSection = MarkdownContentSection<"technical-specs">;
 
 type ContentSection =
-  | MarkdownContentSection
+  | DetailsContentSection
   | TypesContentSection
   | BenefitsContentSection
   | MaterialsContentSection
   | FormatsContentSection
   | FinishesContentSection
+  | TechnicalSpecsContentSection
   | ApplicationsContentSection;
 
 type ImageDto = {
@@ -292,7 +311,7 @@ const CATEGORY_FIELDS = {
   typesMd: "TypesMd",
   formatsMd: "FormatsMd",
   finishesMd: "FinishesMd",
-  usesMd: "UsesMd",
+  usesMd: "UseMd",
   faqsJson: "FaqsJson",
   imageSrc: "ImageSrc",
   imageWidth: "ImageWidth",
@@ -375,7 +394,7 @@ const CATEGORY_SECTION_TITLES: Record<string, string> = {
   applications: "Aplicaciones",
 };
 
-const PRODUCT_SECTION_TITLES: Record<string, string> = {
+const PRODUCT_SECTION_TITLES = {
   details: "Detalles",
   benefits: "Beneficios",
   materials: "Materiales",
@@ -383,7 +402,9 @@ const PRODUCT_SECTION_TITLES: Record<string, string> = {
   finishes: "Acabados",
   "technical-specs": "Características técnicas",
   applications: "Aplicaciones",
-};
+} as const;
+
+type ProductSectionKind = keyof typeof PRODUCT_SECTION_TITLES;
 
 const CATEGORY_SECTION_ALIASES: Record<string, keyof typeof CATEGORY_SECTION_TITLES> = {
   detalle: "details",
@@ -407,11 +428,10 @@ const CATEGORY_SECTION_ALIASES: Record<string, keyof typeof CATEGORY_SECTION_TIT
   "usos-habituales": "applications",
 };
 
-const PRODUCT_SECTION_ALIASES: Record<string, keyof typeof PRODUCT_SECTION_TITLES> = {
+const PRODUCT_SECTION_ALIASES: Record<string, ProductSectionKind> = {
   detalle: "details",
   detalles: "details",
 
-  
   beneficio: "benefits",
   beneficios: "benefits",
 
@@ -421,6 +441,7 @@ const PRODUCT_SECTION_ALIASES: Record<string, keyof typeof PRODUCT_SECTION_TITLE
   formato: "formats",
   formatos: "formats",
   soportes: "formats",
+  "formatos-y-soportes": "formats",
 
   acabado: "finishes",
   acabados: "finishes",
@@ -428,10 +449,13 @@ const PRODUCT_SECTION_ALIASES: Record<string, keyof typeof PRODUCT_SECTION_TITLE
   caracteristicas: "technical-specs",
   "caracteristicas-tecnicas": "technical-specs",
   especificaciones: "technical-specs",
+  "especificaciones-tecnicas": "technical-specs",
   specs: "technical-specs",
 
   aplicacion: "applications",
   aplicaciones: "applications",
+  usos: "applications",
+  uso: "applications",
 };
 
 function str(value: unknown): string | undefined {
@@ -456,12 +480,11 @@ function num(value: unknown): number | undefined {
   return Number.isFinite(parsed) ? parsed : undefined;
 }
 
-
-function createMarkdownSection(
-  id: string,
+function createMarkdownSection<K extends ContentSectionKind>(
+  id: K,
   title: string,
   value: unknown,
-): MarkdownContentSection | null {
+): MarkdownContentSection<K> | null {
   const body = structuredSectionToMarkdown(value);
   if (!body) return null;
 
@@ -469,7 +492,8 @@ function createMarkdownSection(
     id,
     key: id,
     title,
-    kind: id === "technical-specs" ? "technical-specs" : "markdown",
+    kind: id,
+    contentFormat: "markdown",
     body,
   };
 }
@@ -479,12 +503,14 @@ function createTypesSection(
   value: unknown,
 ): ContentSection | null {
   const items = parseTypesMd(value);
+
   if (items.length > 0) {
     return {
       id: "types",
       key: "types",
       title,
       kind: "types",
+      contentFormat: "json",
       items,
     };
   }
@@ -497,12 +523,14 @@ function createBenefitsSection(
   value: unknown,
 ): ContentSection | null {
   const benefitsData = parseBenefitsMd(value);
+
   if (benefitsData) {
     return {
       id: "benefits",
       key: "benefits",
       title,
       kind: "benefits",
+      contentFormat: "json",
       benefitsData,
     };
   }
@@ -515,12 +543,14 @@ function createMaterialsSection(
   value: unknown,
 ): ContentSection | null {
   const materialsData = parseMaterialsMd(value);
+
   if (materialsData) {
     return {
       id: "materials",
       key: "materials",
       title,
       kind: "materials",
+      contentFormat: "json",
       materialsData,
     };
   }
@@ -533,12 +563,14 @@ function createFormatsSection(
   value: unknown,
 ): ContentSection | null {
   const formatsData = parseFormatsMd(value);
+
   if (formatsData) {
     return {
       id: "formats",
       key: "formats",
       title,
       kind: "formats",
+      contentFormat: "json",
       formatsData,
     };
   }
@@ -551,12 +583,14 @@ function createFinishesSection(
   value: unknown,
 ): ContentSection | null {
   const finishesData = parseFinishesMd(value);
+
   if (finishesData) {
     return {
       id: "finishes",
       key: "finishes",
       title,
       kind: "finishes",
+      contentFormat: "json",
       finishesData,
     };
   }
@@ -569,12 +603,14 @@ function createApplicationsSection(
   value: unknown,
 ): ContentSection | null {
   const applicationsData = parseApplicationsMd(value);
+
   if (applicationsData) {
     return {
       id: "applications",
       key: "applications",
       title,
       kind: "applications",
+      contentFormat: "json",
       applicationsData,
     };
   }
@@ -913,9 +949,9 @@ function objectToMarkdown(obj: Record<string, unknown>): string {
 
   const nestedArray =
     !text &&
-    bullets.length === 0 &&
-    Array.isArray(obj.items) &&
-    obj.items.some((item) => typeof item === "object" && item !== null)
+      bullets.length === 0 &&
+      Array.isArray(obj.items) &&
+      obj.items.some((item) => typeof item === "object" && item !== null)
       ? obj.items
       : null;
 
@@ -1022,8 +1058,8 @@ function sleep(ms: number): Promise<void> {
 function isRetryableGraphError(error: unknown): boolean {
   const statusCode = Number(
     (error as { statusCode?: number; status?: number })?.statusCode ||
-      (error as { statusCode?: number; status?: number })?.status ||
-      0,
+    (error as { statusCode?: number; status?: number })?.status ||
+    0,
   );
   return [429, 500, 502, 503, 504].includes(statusCode);
 }
@@ -1406,11 +1442,12 @@ function parseApplicationsMd(value: unknown): ContentApplicationsData | undefine
   return parseNamedContentData(value, "applications");
 }
 
-function buildSections(
-  sources: Record<string, string[]>,
+
+function buildSections<K extends ContentSectionKind>(
+  sources: Partial<Record<K, string[]>>,
   titles: Record<string, string>,
-  order: string[],
-  extraContent?: Record<string, { items?: ContentTypeItem[] }>
+  order: readonly K[],
+  extraContent?: Partial<Record<K, { items?: ContentTypeItem[] }>>,
 ): ContentSection[] {
   const sections: ContentSection[] = [];
 
@@ -1426,25 +1463,24 @@ function buildSections(
       continue;
     }
 
-    if (items.length > 0) {
+    if (id === "types" && items.length > 0) {
       sections.push({
-        id,
-        key: id,
+        id: "types",
+        key: "types",
         title: titles[id] || id,
         kind: "types",
+        contentFormat: "json",
         items,
       });
 
       continue;
     }
 
-    sections.push({
-      id,
-      key: id,
-      title: titles[id] || id,
-      kind: id === "technical-specs" ? "technical-specs" : "markdown",
-      body,
-    });
+    const markdownSection = createMarkdownSection(id, titles[id] || id, body);
+
+    if (markdownSection) {
+      sections.push(markdownSection);
+    }
   }
 
   return sections;
@@ -1930,69 +1966,69 @@ function buildProduct(item: GraphItem<Record<string, unknown>>): ProductDto | nu
     firstSentence(detailsMd || "") ||
     firstSentence(bodyMd || "");
 
-    const brand = str(fields[PRODUCT_FIELDS.brand]);
-    const priceValue = parsePrice(fields[PRODUCT_FIELDS.price]);
-    const currency = str(fields[PRODUCT_FIELDS.priceCurrency]) || "EUR";
-    const inStock = bool(fields[PRODUCT_FIELDS.inStock]);
-    
-    const sections = buildProductSections(fields, detailsMd, shortDescription);
-    
-    const seo = buildProductSeo(fields, title, publicPath, imageSrc);
-    
-    return {
-      id: String(item.id || slug),
-      updatedAt: str(item.lastModifiedDateTime),
-      type: "producto",
-      slug,
-      path: publicPath,
-      title,
-      categorySlug,
-      categorySlugs,
-      order: num(fields[PRODUCT_FIELDS.sortOrder]) ?? DEFAULT_SORT_ORDER,
-      isPublished: bool(fields[PRODUCT_FIELDS.isPublished]),
-      publishedAt: str(fields[PRODUCT_FIELDS.publishedAt]),
-      shortDescription,
-      description: shortDescription,
-      bodyMd: bodyMd || detailsMd || shortDescription,
-      sections,
-      faqs: parseFaqs(fields[PRODUCT_FIELDS.faqsJson]),
-      breadcrumbs: [],
-      image: {
-        src: imageSrc,
-        width: parseImageDimension(fields[PRODUCT_FIELDS.imageWidth]),
-        height: parseImageDimension(fields[PRODUCT_FIELDS.imageHeight]),
-        alt: str(fields[PRODUCT_FIELDS.imageAlt]) || title,
-      },
-      galleryImages: parseJsonLoose<unknown[]>(
-        fields[PRODUCT_FIELDS.galleryImagesJson],
-        [],
-      ),
-      sku: str(fields[PRODUCT_FIELDS.sku]),
-      mpn: str(fields[PRODUCT_FIELDS.mpn]),
-      gtin13: str(fields[PRODUCT_FIELDS.gtin13]),
-      brand,
-      price: priceValue,
-      priceCurrency: currency,
-      inStock,
-      ratingValue: num(fields[PRODUCT_FIELDS.ratingValue]),
-      reviewCount: num(fields[PRODUCT_FIELDS.reviewCount]),
-      attributes: parseJsonLoose<unknown[]>(
-        fields[PRODUCT_FIELDS.attributesJson],
-        [],
-      ),
-      variants: parseJsonLoose<unknown[]>(
-        fields[PRODUCT_FIELDS.variantsJson],
-        [],
-      ),
-      formFields: parseFormFields(fields[PRODUCT_FIELDS.formFieldsJson]),
-      legacySlugs: uniq(
-        parseStringList(fields[PRODUCT_FIELDS.legacySlugsJson])
-          .map((value) => normalizeSlug(value))
-          .filter(Boolean) as string[],
-      ),
-      seo,
-    };
-  }
+  const brand = str(fields[PRODUCT_FIELDS.brand]);
+  const priceValue = parsePrice(fields[PRODUCT_FIELDS.price]);
+  const currency = str(fields[PRODUCT_FIELDS.priceCurrency]) || "EUR";
+  const inStock = bool(fields[PRODUCT_FIELDS.inStock]);
+
+  const sections = buildProductSections(fields, detailsMd, shortDescription);
+
+  const seo = buildProductSeo(fields, title, publicPath, imageSrc);
+
+  return {
+    id: String(item.id || slug),
+    updatedAt: str(item.lastModifiedDateTime),
+    type: "producto",
+    slug,
+    path: publicPath,
+    title,
+    categorySlug,
+    categorySlugs,
+    order: num(fields[PRODUCT_FIELDS.sortOrder]) ?? DEFAULT_SORT_ORDER,
+    isPublished: bool(fields[PRODUCT_FIELDS.isPublished]),
+    publishedAt: str(fields[PRODUCT_FIELDS.publishedAt]),
+    shortDescription,
+    description: shortDescription,
+    bodyMd: bodyMd || detailsMd || shortDescription,
+    sections,
+    faqs: parseFaqs(fields[PRODUCT_FIELDS.faqsJson]),
+    breadcrumbs: [],
+    image: {
+      src: imageSrc,
+      width: parseImageDimension(fields[PRODUCT_FIELDS.imageWidth]),
+      height: parseImageDimension(fields[PRODUCT_FIELDS.imageHeight]),
+      alt: str(fields[PRODUCT_FIELDS.imageAlt]) || title,
+    },
+    galleryImages: parseJsonLoose<unknown[]>(
+      fields[PRODUCT_FIELDS.galleryImagesJson],
+      [],
+    ),
+    sku: str(fields[PRODUCT_FIELDS.sku]),
+    mpn: str(fields[PRODUCT_FIELDS.mpn]),
+    gtin13: str(fields[PRODUCT_FIELDS.gtin13]),
+    brand,
+    price: priceValue,
+    priceCurrency: currency,
+    inStock,
+    ratingValue: num(fields[PRODUCT_FIELDS.ratingValue]),
+    reviewCount: num(fields[PRODUCT_FIELDS.reviewCount]),
+    attributes: parseJsonLoose<unknown[]>(
+      fields[PRODUCT_FIELDS.attributesJson],
+      [],
+    ),
+    variants: parseJsonLoose<unknown[]>(
+      fields[PRODUCT_FIELDS.variantsJson],
+      [],
+    ),
+    formFields: parseFormFields(fields[PRODUCT_FIELDS.formFieldsJson]),
+    legacySlugs: uniq(
+      parseStringList(fields[PRODUCT_FIELDS.legacySlugsJson])
+        .map((value) => normalizeSlug(value))
+        .filter(Boolean) as string[],
+    ),
+    seo,
+  };
+}
 function buildCategoryBreadcrumbs(
   category: CategoryDto,
   categoriesBySlug: Map<string, CategoryDto>,

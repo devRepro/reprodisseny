@@ -91,6 +91,19 @@ type NormalizedApplicationsData = {
   intro?: string;
   applications: NormalizedNamedContentItem[];
 };
+
+type CatalogContentFormat = "markdown" | "json";
+
+type CatalogContentSectionKind =
+  | "details"
+  | "types"
+  | "benefits"
+  | "materials"
+  | "formats"
+  | "finishes"
+  | "applications"
+  | "technical-specs";
+
 type CatalogContentSectionKind =
   | "markdown"
   | "types"
@@ -106,6 +119,7 @@ type CatalogSection = {
   key?: string;
   title?: string;
   kind?: CatalogContentSectionKind;
+  contentFormat?: CatalogContentFormat;
   body?: string;
   intro?: string;
   items?: CatalogTypeItem[];
@@ -117,18 +131,7 @@ type CatalogSection = {
 };
 
 type CatalogProductSection = {
-  id?: string;
-  key?: string;
-  title?: string;
-  kind?: CatalogContentSectionKind;
-  body?: string;
-  intro?: string;
-  items?: Array<Record<string, unknown>>;
-  benefitsData?: CatalogBenefitsData;
-  materialsData?: CatalogMaterialsData;
-  formatsData?: CatalogFormatsData;
-  finishesData?: CatalogFinishesData;
-  applicationsData?: CatalogApplicationsData;
+  
 };
 
 type CatalogFinishesData = {
@@ -339,6 +342,7 @@ export type CategoryDetailSectionItem = {
   id: string;
   key?: string;
   kind: CatalogContentSectionKind;
+  contentFormat: CatalogContentFormat;
   title: string;
   intro?: string;
   body?: string;
@@ -427,6 +431,7 @@ export type ProductDetailSectionItem = {
   id: string;
   key?: string;
   kind: CatalogContentSectionKind;
+  contentFormat: CatalogContentFormat;
   title: string;
   intro?: string;
   body?: string;
@@ -784,23 +789,8 @@ function getSectionKey(section: { key?: string; id?: string }) {
 }
 
 function getMergedCategorySections(category: CatalogCategory): CatalogSection[] {
-  const structuredKeys = new Set(["materials", "formats", "finishes", "applications"]);
-
   const baseSections = Array.isArray(category.sections)
-    ? category.sections
-        .filter(Boolean)
-        .filter((section) => {
-          const key = getSectionKey(section);
-
-          if (!structuredKeys.has(key)) return true;
-
-          return Boolean(
-            section.materialsData ||
-              section.formatsData ||
-              section.finishesData ||
-              section.applicationsData
-          );
-        })
+    ? category.sections.filter(Boolean).filter(hasSectionContent)
     : [];
 
   const existingKeys = new Set(baseSections.map(getSectionKey));
@@ -951,6 +941,74 @@ function getProductLookupKeys(product: CatalogProduct) {
   if (internalSlugAsPath) keys.add(internalSlugAsPath);
 
   return keys;
+}
+
+function getProductSections(product: CatalogProduct): ProductDetailSectionItem[] {
+  return getMergedProductSections(product)
+    .map((section, index) => {
+      const id = String(section?.id || section?.key || `section-${index + 1}`).trim();
+      const key = String(section?.key || id).trim();
+      const title = String(section?.title || `Sección ${index + 1}`).trim();
+      const kind = resolveCatalogSectionKind(section);
+      const contentFormat = resolveSectionContentFormat(section);
+      const body = String(section?.body || "").trim();
+
+      const items = Array.isArray(section?.items)
+        ? section.items.filter(Boolean)
+        : [];
+
+      const benefitsData =
+        section?.benefitsData && typeof section.benefitsData === "object"
+          ? normalizeBenefitsData(section.benefitsData)
+          : undefined;
+
+      const materialsData =
+        section?.materialsData && typeof section.materialsData === "object"
+          ? normalizeMaterialsData(section.materialsData)
+          : undefined;
+
+      const formatsData =
+        section?.formatsData && typeof section.formatsData === "object"
+          ? normalizeFormatsData(section.formatsData)
+          : undefined;
+
+      const finishesData =
+        section?.finishesData && typeof section.finishesData === "object"
+          ? normalizeFinishesData(section.finishesData)
+          : undefined;
+
+      const applicationsData =
+        section?.applicationsData && typeof section.applicationsData === "object"
+          ? normalizeApplicationsData(section.applicationsData)
+          : undefined;
+
+      const hasContent =
+        Boolean(body) ||
+        items.length > 0 ||
+        Boolean(benefitsData?.benefits.length) ||
+        Boolean(materialsData?.materials.length) ||
+        Boolean(formatsData) ||
+        Boolean(finishesData?.finishes.length) ||
+        Boolean(applicationsData?.applications.length);
+
+      if (!id || !title || !hasContent) return null;
+
+      return {
+        id,
+        key,
+        kind,
+        title,
+        contentFormat,
+        ...(body ? { body, text: body } : {}),
+        ...(items.length ? { items } : {}),
+        ...(benefitsData ? { benefitsData } : {}),
+        ...(materialsData ? { materialsData } : {}),
+        ...(formatsData ? { formatsData } : {}),
+        ...(finishesData ? { finishesData } : {}),
+        ...(applicationsData ? { applicationsData } : {}),
+      };
+    })
+    .filter((section): section is ProductDetailSectionItem => Boolean(section));
 }
 
 function imageDtoOf(image: CatalogImage | null | undefined, fallbackAlt: string) {
@@ -1178,33 +1236,38 @@ function normalizeCategoryTypeItems(
     );
 }
 
-
+function isCatalogSectionKind(value: string): value is CatalogContentSectionKind {
+  return [
+    "details",
+    "types",
+    "benefits",
+    "materials",
+    "formats",
+    "finishes",
+    "applications",
+    "technical-specs",
+  ].includes(value);
+}
 
 
 function resolveCatalogSectionKind(section: {
-  kind?: CatalogContentSectionKind;
+  kind?: string;
   key?: string;
   id?: string;
-  items?: unknown;
-  benefitsData?: unknown;
-  materialsData?: unknown;
-  formatsData?: unknown;
-  finishesData?: unknown;
-  applicationsData?: unknown;
 }): CatalogContentSectionKind {
-  if (section.kind) return section.kind;
+  const kind = String(section.kind || "").trim();
+
+  if (isCatalogSectionKind(kind)) {
+    return kind;
+  }
 
   const key = String(section.key || section.id || "").trim();
 
-  if (key === "types" && Array.isArray(section.items)) return "types";
-  if (key === "benefits" || section.benefitsData) return "benefits";
-  if (key === "materials" || section.materialsData) return "materials";
-  if (key === "formats" || section.formatsData) return "formats";
-  if (key === "finishes" || section.finishesData) return "finishes";
-  if (key === "applications" || section.applicationsData) return "applications";
-  if (key === "technical-specs") return "technical-specs";
+  if (isCatalogSectionKind(key)) {
+    return key;
+  }
 
-  return "markdown";
+  return "details";
 }
 
 function getCategorySections(category: CatalogCategory): CategoryDetailSectionItem[] {
@@ -1358,25 +1421,25 @@ function createProductApplicationsSection(body: unknown): CatalogProductSection 
   return createProductTextSection("applications", "Aplicaciones", body);
 }
 
+function hasSectionContent(section: CatalogSection | CatalogProductSection) {
+  const body = String(section?.body ?? "").trim();
+  const intro = String(section?.intro ?? "").trim();
+
+  return Boolean(
+    body ||
+      intro ||
+      (Array.isArray(section.items) && section.items.length > 0) ||
+      section.benefitsData ||
+      section.materialsData ||
+      section.formatsData ||
+      section.finishesData ||
+      section.applicationsData
+  );
+}
+
 function getMergedProductSections(product: CatalogProduct): CatalogProductSection[] {
-  const structuredKeys = new Set(["benefits", "materials", "formats", "finishes", "applications"]);
-
   const baseSections = Array.isArray(product.sections)
-    ? product.sections
-        .filter(Boolean)
-        .filter((section) => {
-          const key = getSectionKey(section);
-
-          if (!structuredKeys.has(key)) return true;
-
-          return Boolean(
-            section.benefitsData ||
-              section.materialsData ||
-              section.formatsData ||
-              section.finishesData ||
-              section.applicationsData
-          );
-        })
+    ? product.sections.filter(Boolean).filter(hasSectionContent)
     : [];
 
   const existingKeys = new Set(baseSections.map(getSectionKey));
@@ -1401,79 +1464,31 @@ function getMergedProductSections(product: CatalogProduct): CatalogProductSectio
   return [...baseSections, ...extraSections];
 }
 
-function getProductSections(product: CatalogProduct): ProductDetailSectionItem[] {
-  return getMergedProductSections(product)
-    .map((section, index) => {
-      const id = String(section?.id || `section-${index + 1}`).trim();
-      const key = String(section?.key || "").trim();
-      const title = String(section?.title || `Sección ${index + 1}`).trim();
-      const body = String(section?.body || "").trim();
+function resolveSectionContentFormat(section: {
+  contentFormat?: string;
+  items?: unknown;
+  benefitsData?: unknown;
+  materialsData?: unknown;
+  formatsData?: unknown;
+  finishesData?: unknown;
+  applicationsData?: unknown;
+}): CatalogContentFormat {
+  if (section.contentFormat === "json" || section.contentFormat === "markdown") {
+    return section.contentFormat;
+  }
 
-      const rawBlocks = Array.isArray(section?.blocks)
-        ? section.blocks.filter(Boolean)
-        : [];
+  if (
+    section.items ||
+    section.benefitsData ||
+    section.materialsData ||
+    section.formatsData ||
+    section.finishesData ||
+    section.applicationsData
+  ) {
+    return "json";
+  }
 
-      const fallbackBlocks: CatalogBlock[] = body
-        ? [{ type: "text", text: body, html: false }]
-        : [];
-
-      const blocks = rawBlocks.length ? rawBlocks : fallbackBlocks;
-
-      const items = Array.isArray(section?.items)
-        ? section.items.filter(Boolean)
-        : [];
-
-      const benefitsData =
-        section?.benefitsData && typeof section.benefitsData === "object"
-          ? normalizeBenefitsData(section.benefitsData)
-          : undefined;
-
-      const materialsData =
-        section?.materialsData && typeof section.materialsData === "object"
-          ? normalizeMaterialsData(section.materialsData)
-          : undefined;
-
-      const formatsData =
-        section?.formatsData && typeof section.formatsData === "object"
-          ? normalizeFormatsData(section.formatsData)
-          : undefined;
-
-      const finishesData =
-        section?.finishesData && typeof section.finishesData === "object"
-          ? normalizeFinishesData(section.finishesData)
-          : undefined;
-
-      const applicationsData =
-        section?.applicationsData && typeof section.applicationsData === "object"
-          ? normalizeApplicationsData(section.applicationsData)
-          : undefined;
-
-      const hasContent =
-        blocks.length > 0 ||
-        items.length > 0 ||
-        Boolean(benefitsData?.benefits.length) ||
-        Boolean(materialsData?.materials.length) ||
-        Boolean(formatsData) ||
-        Boolean(finishesData?.finishes.length) ||
-        Boolean(applicationsData?.applications.length);
-
-      if (!id || !title || !hasContent) return null;
-
-      return {
-        id,
-        ...(key ? { key } : {}),
-        title,
-        blocks,
-        ...(body ? { body, text: body } : {}),
-        ...(items.length ? { items } : {}),
-        ...(benefitsData ? { benefitsData } : {}),
-        ...(materialsData ? { materialsData } : {}),
-        ...(formatsData ? { formatsData } : {}),
-        ...(finishesData ? { finishesData } : {}),
-        ...(applicationsData ? { applicationsData } : {}),
-      };
-    })
-    .filter((section): section is ProductDetailSectionItem => Boolean(section));
+  return "markdown";
 }
 
 export function getHomeCategories(limit = 8): HomeCategoryCardItem[] {
