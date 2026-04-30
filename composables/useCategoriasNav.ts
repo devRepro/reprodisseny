@@ -2,7 +2,7 @@ import { computed, watch } from "vue";
 import type {
   NavCategoryItem,
   NavProductItem,
-} from "~/server/services/cms/catalog.service";
+} from "~/server/services/cms/_catalog.service";
 
 export type ProductoNode = NavProductItem;
 export type CategoriaNode = NavCategoryItem;

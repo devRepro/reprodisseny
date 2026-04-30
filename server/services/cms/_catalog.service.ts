@@ -30,6 +30,26 @@ type CatalogImage = {
   height?: number;
 };
 
+type CatalogBlock =
+  | {
+    type: "text";
+    text?: string;
+    html?: boolean;
+  }
+  | {
+    type: "bullets";
+    items?: string[];
+    ordered?: boolean;
+  }
+  | {
+    type: "image";
+    src?: string;
+    alt?: string;
+    width?: number;
+    height?: number;
+    caption?: string;
+  };
+
 type CatalogTypeItem = {
   title?: string;
   description?: string;
@@ -49,16 +69,6 @@ type CatalogNamedContentItem = {
 type CatalogMaterialsData = {
   intro?: string;
   materials?: CatalogNamedContentItem[];
-};
-
-type CatalogBenefitsData = {
-  intro?: string;
-  benefits?: CatalogNamedContentItem[];
-};
-
-type CatalogApplicationsData = {
-  intro?: string;
-  applications?: CatalogNamedContentItem[];
 };
 
 type NormalizedNamedContentItem = {
@@ -82,55 +92,6 @@ type NormalizedFormatsData = {
   deliveryFormats?: NormalizedNamedContentItem[];
 };
 
-type NormalizedBenefitsData = {
-  intro?: string;
-  benefits: NormalizedNamedContentItem[];
-};
-
-type NormalizedApplicationsData = {
-  intro?: string;
-  applications: NormalizedNamedContentItem[];
-};
-type CatalogContentSectionKind =
-  | "markdown"
-  | "types"
-  | "benefits"
-  | "materials"
-  | "formats"
-  | "finishes"
-  | "applications"
-  | "technical-specs";
-
-type CatalogSection = {
-  id?: string;
-  key?: string;
-  title?: string;
-  kind?: CatalogContentSectionKind;
-  body?: string;
-  intro?: string;
-  items?: CatalogTypeItem[];
-  benefitsData?: CatalogBenefitsData;
-  materialsData?: CatalogMaterialsData;
-  formatsData?: CatalogFormatsData;
-  finishesData?: CatalogFinishesData;
-  applicationsData?: CatalogApplicationsData;
-};
-
-type CatalogProductSection = {
-  id?: string;
-  key?: string;
-  title?: string;
-  kind?: CatalogContentSectionKind;
-  body?: string;
-  intro?: string;
-  items?: Array<Record<string, unknown>>;
-  benefitsData?: CatalogBenefitsData;
-  materialsData?: CatalogMaterialsData;
-  formatsData?: CatalogFormatsData;
-  finishesData?: CatalogFinishesData;
-  applicationsData?: CatalogApplicationsData;
-};
-
 type CatalogFinishesData = {
   intro?: string;
   finishes?: CatalogNamedContentItem[];
@@ -142,7 +103,18 @@ type CatalogFormatsData = {
   deliveryFormats?: CatalogFormatItem[];
 };
 
-
+type CatalogSection = {
+  id?: string;
+  key?: string;
+  title?: string;
+  body?: string;
+  intro?: string;
+  blocks?: CatalogBlock[];
+  items?: CatalogTypeItem[];
+  formatsData?: CatalogFormatsData;
+  materialsData?: CatalogMaterialsData;
+  finishesData?: CatalogFinishesData;
+};
 
 type CatalogProductFormField = {
   label?: string;
@@ -162,6 +134,18 @@ type CatalogFaq = {
   answer?: string;
 };
 
+type CatalogProductSection = {
+  id?: string;
+  key?: string;
+  title?: string;
+  body?: string;
+  intro?: string;
+  blocks?: CatalogBlock[];
+  items?: Array<Record<string, unknown>>;
+  materialsData?: CatalogMaterialsData;
+  formatsData?: CatalogFormatsData;
+  finishesData?: CatalogFinishesData;
+};
 
 type CatalogProduct = {
   id?: string | number;
@@ -338,21 +322,20 @@ export type CategoryCardGroup = {
 export type CategoryDetailSectionItem = {
   id: string;
   key?: string;
-  kind: CatalogContentSectionKind;
+  kind: CategorySectionKind;
   title: string;
   intro?: string;
-  body?: string;
+  blocks: CatalogBlock[];
   items?: {
     title: string;
     description: string;
     features?: string[];
     idealFor?: string;
   }[];
-  benefitsData?: NormalizedBenefitsData;
+  cardGroups?: CategoryCardGroup[];
   materialsData?: NormalizedMaterialsData;
   formatsData?: NormalizedFormatsData;
   finishesData?: NormalizedFinishesData;
-  applicationsData?: NormalizedApplicationsData;
 };
 
 export type CategoryHowWeWorkStepItem = {
@@ -426,17 +409,14 @@ export type ProductDetailFormFieldItem = {
 export type ProductDetailSectionItem = {
   id: string;
   key?: string;
-  kind: CatalogContentSectionKind;
   title: string;
-  intro?: string;
   body?: string;
   text?: string;
+  blocks: CatalogBlock[];
   items?: Array<Record<string, unknown>>;
-  benefitsData?: NormalizedBenefitsData;
   materialsData?: NormalizedMaterialsData;
   formatsData?: NormalizedFormatsData;
   finishesData?: NormalizedFinishesData;
-  applicationsData?: NormalizedApplicationsData;
 };
 
 export type ProductDetailFaqItem = {
@@ -632,38 +612,6 @@ function normalizeFormatsData(value: unknown): NormalizedFormatsData | undefined
   };
 }
 
-function normalizeBenefitsData(value: unknown): NormalizedBenefitsData | undefined {
-  const raw = safeParseJsonObject(value);
-  if (!raw) return undefined;
-
-  const intro = String(raw.intro ?? "").trim();
-  const benefits = normalizeNamedContentItems(raw.benefits);
-
-  if (!benefits.length) return undefined;
-
-  return {
-    ...(intro ? { intro } : {}),
-    benefits,
-  };
-}
-
-function normalizeApplicationsData(
-  value: unknown
-): NormalizedApplicationsData | undefined {
-  const raw = safeParseJsonObject(value);
-  if (!raw) return undefined;
-
-  const intro = String(raw.intro ?? "").trim();
-  const applications = normalizeNamedContentItems(raw.applications);
-
-  if (!applications.length) return undefined;
-
-  return {
-    ...(intro ? { intro } : {}),
-    applications,
-  };
-}
-
 function normalizeSlug(value: unknown) {
   return normalizeComparable(value).replace(/^\/+|\/+$/g, "");
 }
@@ -732,21 +680,8 @@ function createCategoryMaterialsSection(body: unknown): CatalogSection | null {
     id: "materials",
     key: "materials",
     title: "Materiales",
-    kind: "materials",
-    materialsData,
-  };
-}
-
-
-function createCategoryMaterialsSection(body: unknown): CatalogSection | null {
-  const materialsData = normalizeMaterialsData(body);
-  if (!materialsData) return null;
-
-  return {
-    id: "materials",
-    key: "materials",
-    title: "Materiales",
-    kind: "materials",
+    body: "",
+    blocks: [],
     materialsData,
   };
 }
@@ -759,7 +694,8 @@ function createCategoryFormatsSection(body: unknown): CatalogSection | null {
     id: "formats",
     key: "formats",
     title: "Formatos y soportes",
-    kind: "formats",
+    body: "",
+    blocks: [],
     formatsData,
   };
 }
@@ -772,21 +708,9 @@ function createCategoryFinishesSection(body: unknown): CatalogSection | null {
     id: "finishes",
     key: "finishes",
     title: "Acabados",
-    kind: "finishes",
+    body: "",
+    blocks: [],
     finishesData,
-  };
-}
-
-function createCategoryApplicationsSection(body: unknown): CatalogSection | null {
-  const applicationsData = normalizeApplicationsData(body);
-  if (!applicationsData) return null;
-
-  return {
-    id: "applications",
-    key: "applications",
-    title: "Aplicaciones",
-    kind: "applications",
-    applicationsData,
   };
 }
 
@@ -797,7 +721,7 @@ function getSectionKey(section: { key?: string; id?: string }) {
 }
 
 function getMergedCategorySections(category: CatalogCategory): CatalogSection[] {
-  const structuredKeys = new Set(["materials", "formats", "finishes", "applications"]);
+  const structuredKeys = new Set(["materials", "formats", "finishes"]);
 
   const baseSections = Array.isArray(category.sections)
     ? category.sections
@@ -810,8 +734,7 @@ function getMergedCategorySections(category: CatalogCategory): CatalogSection[] 
           return Boolean(
             section.materialsData ||
               section.formatsData ||
-              section.finishesData ||
-              section.applicationsData
+              section.finishesData
           );
         })
     : [];
@@ -824,7 +747,7 @@ function getMergedCategorySections(category: CatalogCategory): CatalogSection[] 
     createCategoryMaterialsSection(category.materialsMd),
     createCategoryFormatsSection(category.formatsMd),
     createCategoryFinishesSection(category.finishesMd),
-    createCategoryApplicationsSection(category.usesMd),
+    createCategoryTextSection("uses", "Aplicaciones", category.usesMd),
   ].filter(
     (section): section is CatalogSection =>
       Boolean(section) && !existingKeys.has(getSectionKey(section))
@@ -1255,6 +1178,31 @@ function normalizeCategoryTypeItems(
     );
 }
 
+function normalizeFormatsData(
+  value: unknown
+): {
+  intro?: string;
+  shapes?: { title: string; description: string }[];
+  deliveryFormats?: { title: string; description: string }[];
+} | undefined {
+  const raw = safeParseJsonObject(value);
+  if (!raw) return undefined;
+
+  const intro = String(raw.intro ?? "").trim();
+  const shapes = normalizeNamedContentItems(raw.shapes);
+  const deliveryFormats = normalizeNamedContentItems(raw.deliveryFormats);
+
+  if (!intro && !shapes.length && !deliveryFormats.length) return undefined;
+
+  return {
+    ...(intro ? { intro } : {}),
+    ...(shapes.length ? { shapes } : {}),
+    ...(deliveryFormats.length ? { deliveryFormats } : {}),
+  };
+}
+
+
+
 function buildCardGroupsFromBulletItems(
   groupId: string,
   items: CategoryBulletCardItem[],
@@ -1470,11 +1418,6 @@ function getCategorySections(category: CatalogCategory): CategoryDetailSectionIt
           ? normalizeFinishesData(section.finishesData)
           : undefined;
 
-      const applicationsData =
-        section?.applicationsData && typeof section.applicationsData === "object"
-          ? normalizeApplicationsData(section.applicationsData)
-          : undefined;
-
       const rawBlocks = Array.isArray(section?.blocks)
         ? section.blocks.filter(Boolean)
         : [];
@@ -1508,8 +1451,7 @@ function getCategorySections(category: CatalogCategory): CategoryDetailSectionIt
         cardGroups.length > 0 ||
         Boolean(materialsData?.materials.length) ||
         Boolean(formatsData) ||
-        Boolean(finishesData?.finishes.length) ||
-        Boolean(applicationsData?.applications.length);
+        Boolean(finishesData?.finishes.length);
 
       if (!id || !title || !hasContent) return null;
 
@@ -1525,7 +1467,6 @@ function getCategorySections(category: CatalogCategory): CategoryDetailSectionIt
         ...(materialsData ? { materialsData } : {}),
         ...(formatsData ? { formatsData } : {}),
         ...(finishesData ? { finishesData } : {}),
-        ...(applicationsData ? { applicationsData } : {}),
       };
     })
     .filter((section): section is CategoryDetailSectionItem => Boolean(section));
@@ -1544,20 +1485,6 @@ function createProductTextSection(
     key,
     title,
     body: text,
-  };
-}
-
-function createProductBenefitsSection(body: unknown): CatalogProductSection | null {
-  const benefitsData = normalizeBenefitsData(body);
-  if (!benefitsData) return null;
-
-  return {
-    id: "benefits",
-    key: "benefits",
-    title: "Beneficios",
-    body: "",
-    blocks: [],
-    benefitsData,
   };
 }
 
@@ -1603,22 +1530,8 @@ function createProductFinishesSection(body: unknown): CatalogProductSection | nu
   };
 }
 
-function createProductApplicationsSection(body: unknown): CatalogProductSection | null {
-  const applicationsData = normalizeApplicationsData(body);
-  if (!applicationsData) return null;
-
-  return {
-    id: "applications",
-    key: "applications",
-    title: "Aplicaciones",
-    body: "",
-    blocks: [],
-    applicationsData,
-  };
-}
-
 function getMergedProductSections(product: CatalogProduct): CatalogProductSection[] {
-  const structuredKeys = new Set(["benefits", "materials", "formats", "finishes", "applications"]);
+  const structuredKeys = new Set(["materials", "formats", "finishes"]);
 
   const baseSections = Array.isArray(product.sections)
     ? product.sections
@@ -1629,11 +1542,9 @@ function getMergedProductSections(product: CatalogProduct): CatalogProductSectio
           if (!structuredKeys.has(key)) return true;
 
           return Boolean(
-            section.benefitsData ||
-              section.materialsData ||
+            section.materialsData ||
               section.formatsData ||
-              section.finishesData ||
-              section.applicationsData
+              section.finishesData
           );
         })
     : [];
@@ -1642,7 +1553,7 @@ function getMergedProductSections(product: CatalogProduct): CatalogProductSectio
 
   const extraSections = [
     createProductTextSection("details", "Detalles", product.detailsMd || product.bodyMd),
-    createProductBenefitsSection(product.benefitsMd),
+    createProductTextSection("benefits", "Beneficios", product.benefitsMd),
     createProductMaterialsSection(product.materialsMd),
     createProductFormatsSection(product.formatsMd),
     createProductFinishesSection(product.finishesMd),
@@ -1651,7 +1562,7 @@ function getMergedProductSections(product: CatalogProduct): CatalogProductSectio
       "Características técnicas",
       product.technicalSpecsMd
     ),
-    createProductApplicationsSection(product.applicationsMd),
+    createProductTextSection("applications", "Aplicaciones", product.applicationsMd),
   ].filter(
     (section): section is CatalogProductSection =>
       Boolean(section) && !existingKeys.has(getSectionKey(section))
@@ -1682,11 +1593,6 @@ function getProductSections(product: CatalogProduct): ProductDetailSectionItem[]
         ? section.items.filter(Boolean)
         : [];
 
-      const benefitsData =
-        section?.benefitsData && typeof section.benefitsData === "object"
-          ? normalizeBenefitsData(section.benefitsData)
-          : undefined;
-
       const materialsData =
         section?.materialsData && typeof section.materialsData === "object"
           ? normalizeMaterialsData(section.materialsData)
@@ -1702,19 +1608,12 @@ function getProductSections(product: CatalogProduct): ProductDetailSectionItem[]
           ? normalizeFinishesData(section.finishesData)
           : undefined;
 
-      const applicationsData =
-        section?.applicationsData && typeof section.applicationsData === "object"
-          ? normalizeApplicationsData(section.applicationsData)
-          : undefined;
-
       const hasContent =
         blocks.length > 0 ||
         items.length > 0 ||
-        Boolean(benefitsData?.benefits.length) ||
         Boolean(materialsData?.materials.length) ||
         Boolean(formatsData) ||
-        Boolean(finishesData?.finishes.length) ||
-        Boolean(applicationsData?.applications.length);
+        Boolean(finishesData?.finishes.length);
 
       if (!id || !title || !hasContent) return null;
 
@@ -1725,11 +1624,9 @@ function getProductSections(product: CatalogProduct): ProductDetailSectionItem[]
         blocks,
         ...(body ? { body, text: body } : {}),
         ...(items.length ? { items } : {}),
-        ...(benefitsData ? { benefitsData } : {}),
         ...(materialsData ? { materialsData } : {}),
         ...(formatsData ? { formatsData } : {}),
         ...(finishesData ? { finishesData } : {}),
-        ...(applicationsData ? { applicationsData } : {}),
       };
     })
     .filter((section): section is ProductDetailSectionItem => Boolean(section));

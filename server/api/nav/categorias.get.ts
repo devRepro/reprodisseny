@@ -2,7 +2,7 @@ import { getQuery } from "h3";
 import {
   getNavigationCategories,
   type NavCategoryItem,
-} from "~/server/services/cms/catalog.service";
+} from "~/server/services/cms/_catalog.service";
 
 type ReturnShape = {
   tree: NavCategoryItem[];

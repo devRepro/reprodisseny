@@ -255,4 +255,4 @@ const resolvedVariant = computed(() => variantForCards(sectionKey.value));
     :section="props.section"
     :header-mode="props.headerMode"
   />
-</template>
+</template>~/server/services/cms/_catalog.service

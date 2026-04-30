@@ -244,4 +244,4 @@ const groupDividerClass =
       </section>
     </div>
   </section>
-</template>
+</template>~/server/services/cms/_catalog.service

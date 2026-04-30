@@ -16,12 +16,6 @@ type GraphItem<T extends Record<string, unknown>> = {
   fields?: T;
 };
 
-type ContentBlock =
-  | { type: "text"; text: string; html: boolean; format?: "html" }
-  | { type: "bullets"; items: string[]; ordered?: boolean }
-  | { type: "image"; src: string; alt?: string; caption?: string; width?: number; height?: number };
-
-
   type ContentTypeItem = {
     title: string;
     description: string;
@@ -29,27 +23,101 @@ type ContentBlock =
     idealFor?: string;
   }; 
 
-  type ContentFormatItem = {
+  
+
+  type ContentNamedItem = {
     title: string;
     description: string;
   };
   
   type ContentFormatsData = {
     intro?: string;
-    shapes: ContentFormatItem[];
-    deliveryFormats: ContentFormatItem[];
+    shapes: ContentNamedItem[];
+    deliveryFormats: ContentNamedItem[];
   };
-
-  type ContentSection = {
-    id: string;
-    key: string;
-    title: string;
-    body: string;
-    blocks: ContentBlock[];
+  
+  type ContentBenefitsData = {
     intro?: string;
-    items?: ContentTypeItem[];
-    formatsData?: ContentFormatsData;
+    benefits: ContentNamedItem[];
   };
+  
+  type ContentMaterialsData = {
+    intro?: string;
+    materials: ContentNamedItem[];
+  };
+  
+  type ContentFinishesData = {
+    intro?: string;
+    finishes: ContentNamedItem[];
+  };
+  
+  type ContentApplicationsData = {
+    intro?: string;
+    applications: ContentNamedItem[];
+  };
+  
+  
+  type ContentSectionKind =
+  | "markdown"
+  | "types"
+  | "technical-specs"
+  | "benefits"
+  | "materials"
+  | "formats"
+  | "finishes"
+  | "applications";
+
+  type ContentSectionBase<K extends ContentSectionKind> = {
+  id: string;
+  key: string;
+  title: string;
+  kind: K;
+};
+
+type MarkdownContentSection = {
+  id: string;
+  key: string;
+  title: string;
+  kind: "markdown" | "technical-specs";
+  body: string;
+};
+
+type TypesContentSection = {
+  id: string;
+  key: string;
+  title: string;
+  kind: "types";
+  items: ContentTypeItem[];
+};
+
+type BenefitsContentSection = ContentSectionBase<"benefits"> & {
+  benefitsData: ContentBenefitsData;
+};
+
+type MaterialsContentSection = ContentSectionBase<"materials"> & {
+  materialsData: ContentMaterialsData;
+};
+
+type FormatsContentSection = ContentSectionBase<"formats"> & {
+  formatsData: ContentFormatsData;
+};
+
+type FinishesContentSection = ContentSectionBase<"finishes"> & {
+  finishesData: ContentFinishesData;
+};
+
+type ApplicationsContentSection = ContentSectionBase<"applications"> & {
+  applicationsData: ContentApplicationsData;
+};
+
+type ContentSection =
+  | MarkdownContentSection
+  | TypesContentSection
+  | BenefitsContentSection
+  | MaterialsContentSection
+  | FormatsContentSection
+  | FinishesContentSection
+  | ApplicationsContentSection;
 
 type ImageDto = {
   src?: string;
@@ -224,7 +292,7 @@ const CATEGORY_FIELDS = {
   typesMd: "TypesMd",
   formatsMd: "FormatsMd",
   finishesMd: "FinishesMd",
-  usesMd: "UseMd", // <- aquí
+  usesMd: "UsesMd",
   faqsJson: "FaqsJson",
   imageSrc: "ImageSrc",
   imageWidth: "ImageWidth",
@@ -246,7 +314,7 @@ const CATEGORY_FIELDS = {
 
 const PRODUCT_FIELDS = {
   title: "Title",
-  slug: "ProductSlug",
+  slug: "Slug",
   categorySlug: "CategorySlug",
   categories: "Categories",
   isFeatured: "IsFeatured",
@@ -385,6 +453,71 @@ function num(value: unknown): number | undefined {
 
   const parsed = Number(normalized);
   return Number.isFinite(parsed) ? parsed : undefined;
+}
+
+
+function createBenefitsSection(
+  title: string,
+  value: unknown,
+): ContentSection | null {
+  const benefitsData = parseBenefitsMd(value);
+  if (!benefitsData) return null;
+
+  return {
+    id: "benefits",
+    key: "benefits",
+    title,
+    kind: "benefits",
+    benefitsData,
+  };
+}
+
+function createMaterialsSection(
+  title: string,
+  value: unknown,
+): ContentSection | null {
+  const materialsData = parseMaterialsMd(value);
+  if (!materialsData) return null;
+
+  return {
+    id: "materials",
+    key: "materials",
+    title,
+    kind: "materials",
+    materialsData,
+  };
+}
+
+function createFinishesSection(
+  title: string,
+  value: unknown,
+): ContentSection | null {
+  const finishesData = parseFinishesMd(value);
+  if (!finishesData) return null;
+
+  return {
+    id: "finishes",
+    key: "finishes",
+    title,
+    kind: "finishes",
+    finishesData,
+  };
+}
+
+function createApplicationsSection(
+  title: string,
+  value: unknown,
+): ContentSection | null {
+  const applicationsData = parseApplicationsMd(value);
+  if (!applicationsData) return null;
+
+  return {
+    id: "applications",
+    key: "applications",
+    title,
+    kind: "applications",
+    applicationsData,
+  };
 }
 
 function parsePositiveInt(value: unknown): number | undefined {
@@ -1047,123 +1180,6 @@ function mergeSectionSources(
   return buckets;
 }
 
-function mdToBlocks(md: string): ContentBlock[] {
-  const text = normalizeMarkdown(md);
-  if (!text) return [];
-
-  const lines = text.split("\n");
-  const blocks: ContentBlock[] = [];
-  let paragraph: string[] = [];
-  let bullets: string[] = [];
-  let ordered = false;
-
-  const flushParagraph = (): void => {
-    if (paragraph.length === 0) return;
-    const textBlock = paragraph.join("\n").trim();
-    if (textBlock) blocks.push({ type: "text", text: textBlock, html: false });
-    paragraph = [];
-  };
-
-  const flushBullets = (): void => {
-    if (bullets.length === 0) return;
-    blocks.push({ type: "bullets", items: bullets.map((item) => item.trim()).filter(Boolean), ordered });
-    bullets = [];
-    ordered = false;
-  };
-
-  for (const line of lines) {
-    const trimmed = line.trim();
-
-    if (!trimmed) {
-      flushParagraph();
-      flushBullets();
-      continue;
-    }
-
-    if (/^!\[.*?\]\((.+?)\)$/.test(trimmed)) {
-      const match = trimmed.match(/^!\[(.*?)\]\((.+?)\)$/);
-      if (match) {
-        flushParagraph();
-        flushBullets();
-        const src = sanitizeImageSrc(match[2]);
-        if (src) blocks.push({ type: "image", src, alt: match[1] || "" });
-        continue;
-      }
-    }
-
-    if (/^##\s+/.test(trimmed) && !/^###/.test(trimmed)) {
-      flushParagraph();
-      flushBullets();
-      const heading = trimmed.replace(/^##\s+/, "").trim();
-      blocks.push({ type: "text", text: `<h2>${stripMdInline(heading)}</h2>`, html: true, format: "html" });
-      continue;
-    }
-
-    if (/^###\s+/.test(trimmed)) {
-      flushParagraph();
-      flushBullets();
-      const heading = trimmed.replace(/^###\s+/, "").trim();
-      blocks.push({ type: "text", text: `<h3>${stripMdInline(heading)}</h3>`, html: true, format: "html" });
-      continue;
-    }
-
-    if (/^\d+[.)]\s+/.test(trimmed)) {
-      flushParagraph();
-      if (bullets.length > 0 && !ordered) flushBullets();
-      ordered = true;
-      bullets.push(trimmed.replace(/^\d+[.)]\s+/, ""));
-      continue;
-    }
-
-    if (/^[-*•·]\s+/.test(trimmed)) {
-      flushParagraph();
-      if (bullets.length > 0 && ordered) flushBullets();
-      ordered = false;
-      bullets.push(trimmed.replace(/^[-*•·]\s+/, ""));
-      continue;
-    }
-
-    flushBullets();
-    paragraph.push(trimmed);
-  }
-
-  flushParagraph();
-  flushBullets();
-  return blocks;
-}
-
-function extractTypesData(value: unknown): { introMd: string; items: ContentTypeItem[] } {
-  const md = normalizeMarkdown(value);
-  if (!md) return { introMd: "", items: [] };
-
-  const matches = [...md.matchAll(/^###\s+(.+?)\s*$/gm)];
-  if (!matches.length) return { introMd: md, items: [] };
-
-  const items: ContentTypeItem[] = [];
-  const introMd = md.slice(0, matches[0].index).trim();
-
-  for (let index = 0; index < matches.length; index += 1) {
-    const current = matches[index]!;
-    const next = matches[index + 1];
-
-    const title = stripMdInline(current[1] || "").trim();
-    const start = (current.index ?? 0) + current[0].length;
-    const end = next?.index ?? md.length;
-
-    const description = md
-      .slice(start, end)
-      .trim()
-      .replace(/\n{2,}/g, "\n")
-      .replace(/\n/g, " ")
-      .trim();
-
-    if (title && description) {
-      items.push({ title, description });
-    }
-  }
-
-  return { introMd, items };
-}
 
 function buildCategorySections(
   fields: Record<string, unknown>,
@@ -1173,15 +1189,9 @@ function buildCategorySections(
 ): ContentSection[] {
   const editorialSectionEntries: Array<{ target: string; value?: string }> = [
     { target: "details", value: detailsMd || description },
-    { target: "finishes", value: str(fields[CATEGORY_FIELDS.finishesMd]) },
-    { target: "applications", value: str(fields[CATEGORY_FIELDS.usesMd]) },
   ];
 
-  const editorialSectionOrder = [
-    "details",
-    "finishes",
-    "applications",
-  ] as const;
+  const editorialSectionOrder = ["details"] as const;
 
   const fullCategorySectionOrder = [
     "details",
@@ -1208,36 +1218,51 @@ function buildCategorySections(
   );
 
   const typeItems = parseTypesMd(fields[CATEGORY_FIELDS.typesMd]);
-  const formatsData = parseFormatsMd(fields[CATEGORY_FIELDS.formatsMd]);
+
+  const formatsSection = createFormatsSection(
+    CATEGORY_SECTION_TITLES.formats || "Formatos y soportes",
+    fields[CATEGORY_FIELDS.formatsMd],
+  );
+
+  const finishesSection = createFinishesSection(
+    CATEGORY_SECTION_TITLES.finishes || "Acabados",
+    fields[CATEGORY_FIELDS.finishesMd],
+  );
+
+  const applicationsSection = createApplicationsSection(
+    CATEGORY_SECTION_TITLES.applications || "Aplicaciones",
+    fields[CATEGORY_FIELDS.usesMd],
+  );
 
   const sections: ContentSection[] = [];
 
-  for (const id of fullCategorySectionOrder) {
-    if (id === "types") {
-      if (typeItems.length > 0) {
-        sections.push({
-          id: "types",
-          key: "types",
-          title: CATEGORY_SECTION_TITLES.types || "Tipos",
-          body: "",
-          blocks: [],
-          items: typeItems,
-        });
-      }
+for (const id of fullCategorySectionOrder) {
+  if (id === "types") {
+    if (typeItems.length > 0) {
+      sections.push({
+        id: "types",
+        key: "types",
+        title: CATEGORY_SECTION_TITLES.types || "Tipos",
+        kind: "types",
+        items: typeItems,
+      });
+    }
+
+    continue;
+  }
+
+    if (id === "formats") {
+      if (formatsSection) sections.push(formatsSection);
       continue;
     }
 
-    if (id === "formats") {
-      if (formatsData) {
-        sections.push({
-          id: "formats",
-          key: "formats",
-          title: CATEGORY_SECTION_TITLES.formats || "Formatos y soportes",
-          body: "",
-          blocks: [],
-          formatsData,
-        });
-      }
+    if (id === "finishes") {
+      if (finishesSection) sections.push(finishesSection);
+      continue;
+    }
+
+    if (id === "applications") {
+      if (applicationsSection) sections.push(applicationsSection);
       continue;
     }
 
@@ -1248,35 +1273,80 @@ function buildCategorySections(
   return sections;
 }
 
-function parseFormatsMd(value: unknown): ContentFormatsData | undefined {
+function parseNamedContentItems(value: unknown): ContentNamedItem[] {
+  if (!Array.isArray(value)) return [];
+
+  return value
+    .map((item) => {
+      const record = (item ?? {}) as Record<string, unknown>;
+
+      const title = str(record.title) || "";
+      const description = str(record.description) || "";
+
+      if (!title || !description) return null;
+
+      return {
+        title,
+        description,
+      };
+    })
+    .filter((item): item is ContentNamedItem => Boolean(item));
+}
+
+function parseNamedContentData<K extends string>(
+  value: unknown,
+  collectionKey: K,
+): ({ intro?: string } & Record<K, ContentNamedItem[]>) | undefined {
   const parsed = parseJsonLoose<Record<string, unknown>>(value, {});
-  if (!parsed || typeof parsed !== "object") return undefined;
 
-  const toItems = (input: unknown): ContentFormatItem[] => {
-    if (!Array.isArray(input)) return [];
-
-    return input
-      .map((item) => {
-        const record = (item ?? {}) as Record<string, unknown>;
-        return {
-          title: str(record.title) || "",
-          description: str(record.description) || "",
-        };
-      })
-      .filter((item) => item.title && item.description);
-  };
+  if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
+    return undefined;
+  }
 
   const intro = str(parsed.intro);
-  const shapes = toItems(parsed.shapes);
-  const deliveryFormats = toItems(parsed.deliveryFormats);
+  const items = parseNamedContentItems(parsed[collectionKey]);
+
+  if (!items.length) return undefined;
+
+  return {
+    ...(intro ? { intro } : {}),
+    [collectionKey]: items,
+  } as { intro?: string } & Record<K, ContentNamedItem[]>;
+}
+
+function parseFormatsMd(value: unknown): ContentFormatsData | undefined {
+  const parsed = parseJsonLoose<Record<string, unknown>>(value, {});
+  if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
+    return undefined;
+  }
+
+  const intro = str(parsed.intro);
+  const shapes = parseNamedContentItems(parsed.shapes);
+  const deliveryFormats = parseNamedContentItems(parsed.deliveryFormats);
 
   if (!intro && !shapes.length && !deliveryFormats.length) return undefined;
 
   return {
-    intro,
+    ...(intro ? { intro } : {}),
     shapes,
     deliveryFormats,
   };
+}
+
+function parseBenefitsMd(value: unknown): ContentBenefitsData | undefined {
+  return parseNamedContentData(value, "benefits");
+}
+
+function parseMaterialsMd(value: unknown): ContentMaterialsData | undefined {
+  return parseNamedContentData(value, "materials");
+}
+
+function parseFinishesMd(value: unknown): ContentFinishesData | undefined {
+  return parseNamedContentData(value, "finishes");
+}
+
+function parseApplicationsMd(value: unknown): ContentApplicationsData | undefined {
+  return parseNamedContentData(value, "applications");
 }
 
 function buildSections(
@@ -1288,21 +1358,36 @@ function buildSections(
   const sections: ContentSection[] = [];
 
   for (const id of order) {
-    const parts = (sources[id] || []).map((part) => normalizeMarkdown(part)).filter(Boolean);
+    const parts = (sources[id] || [])
+      .map((part) => normalizeMarkdown(part))
+      .filter(Boolean);
+
     const body = parts.join("\n\n").trim();
-    const blocks = mdToBlocks(body);
-    const items = extraContent?.[id]?.items;
+    const items = extraContent?.[id]?.items?.filter(Boolean) ?? [];
 
-    // Crea la sección si tiene bloques normales o si tiene cards estructuradas
-    if (blocks.length === 0 && (!items || items.length === 0)) continue;
-
-    const section: ContentSection = { id, key: id, title: titles[id] || id, body, blocks };
-    
-    if (items && items.length > 0) {
-      section.items = items;
+    if (!body && items.length === 0) {
+      continue;
     }
-    
-    sections.push(section);
+
+    if (items.length > 0) {
+      sections.push({
+        id,
+        key: id,
+        title: titles[id] || id,
+        kind: "types",
+        items,
+      });
+
+      continue;
+    }
+
+    sections.push({
+      id,
+      key: id,
+      title: titles[id] || id,
+      kind: id === "technical-specs" ? "technical-specs" : "markdown",
+      body,
+    });
   }
 
   return sections;
@@ -1411,6 +1496,112 @@ function buildCategorySeo(
   };
 }
 
+
+
+
+function buildProductSections(
+  fields: Record<string, unknown>,
+  detailsMd?: string,
+  shortDescription?: string,
+): ContentSection[] {
+  const editorialSectionEntries: Array<{ target: string; value?: string }> = [
+    { target: "details", value: detailsMd || shortDescription },
+    {
+      target: "technical-specs",
+      value: str(fields[PRODUCT_FIELDS.technicalSpecsMd]),
+    },
+  ];
+
+  const editorialSectionOrder = [
+    "details",
+    "technical-specs",
+  ] as const;
+
+  const fullProductSectionOrder = [
+    "details",
+    "benefits",
+    "materials",
+    "formats",
+    "finishes",
+    "technical-specs",
+    "applications",
+  ] as const;
+
+  const editorialSectionSources = mergeSectionSources(
+    editorialSectionEntries,
+    PRODUCT_SECTION_ALIASES,
+    new Set<string>(editorialSectionOrder),
+  );
+
+  const editorialSections = buildSections(
+    editorialSectionSources,
+    PRODUCT_SECTION_TITLES,
+    [...editorialSectionOrder],
+  );
+
+  const editorialSectionsById = new Map(
+    editorialSections.map((section) => [section.id, section] as const),
+  );
+
+  const benefitsSection = createBenefitsSection(
+    PRODUCT_SECTION_TITLES.benefits || "Beneficios",
+    fields[PRODUCT_FIELDS.benefitsMd],
+  );
+
+  const materialsSection = createMaterialsSection(
+    PRODUCT_SECTION_TITLES.materials || "Materiales",
+    fields[PRODUCT_FIELDS.materialsMd],
+  );
+
+  const formatsSection = createFormatsSection(
+    PRODUCT_SECTION_TITLES.formats || "Formatos y soportes",
+    fields[PRODUCT_FIELDS.formatsMd],
+  );
+
+  const finishesSection = createFinishesSection(
+    PRODUCT_SECTION_TITLES.finishes || "Acabados",
+    fields[PRODUCT_FIELDS.finishesMd],
+  );
+
+  const applicationsSection = createApplicationsSection(
+    PRODUCT_SECTION_TITLES.applications || "Aplicaciones",
+    fields[PRODUCT_FIELDS.applicationsMd],
+  );
+
+  const sections: ContentSection[] = [];
+
+  for (const id of fullProductSectionOrder) {
+    if (id === "benefits") {
+      if (benefitsSection) sections.push(benefitsSection);
+      continue;
+    }
+
+    if (id === "materials") {
+      if (materialsSection) sections.push(materialsSection);
+      continue;
+    }
+
+    if (id === "formats") {
+      if (formatsSection) sections.push(formatsSection);
+      continue;
+    }
+
+    if (id === "finishes") {
+      if (finishesSection) sections.push(finishesSection);
+      continue;
+    }
+
+    if (id === "applications") {
+      if (applicationsSection) sections.push(applicationsSection);
+      continue;
+    }
+
+    const section = editorialSectionsById.get(id);
+    if (section) sections.push(section);
+  }
+
+  return sections;
+}
 function buildProductSeo(
   fields: Record<string, unknown>,
   title: string,
@@ -1676,84 +1867,69 @@ function buildProduct(item: GraphItem<Record<string, unknown>>): ProductDto | nu
     firstSentence(detailsMd || "") ||
     firstSentence(bodyMd || "");
 
-  const brand = str(fields[PRODUCT_FIELDS.brand]);
-  const priceValue = parsePrice(fields[PRODUCT_FIELDS.price]);
-  const currency = str(fields[PRODUCT_FIELDS.priceCurrency]) || "EUR";
-  const inStock = bool(fields[PRODUCT_FIELDS.inStock]);
-
-  const sectionEntries: Array<{ target: string; value?: string }> = [
-  { target: "details", value: detailsMd || shortDescription },
-  { target: "benefits", value: str(fields[PRODUCT_FIELDS.benefitsMd]) },
-  { target: "materials", value: str(fields[PRODUCT_FIELDS.materialsMd]) },
-  { target: "formats", value: str(fields[PRODUCT_FIELDS.formatsMd]) },
-  { target: "finishes", value: str(fields[PRODUCT_FIELDS.finishesMd]) },
-  { target: "technical-specs", value: str(fields[PRODUCT_FIELDS.technicalSpecsMd]) },
-  { target: "applications", value: str(fields[PRODUCT_FIELDS.applicationsMd]) },
-];
-
-const productSectionOrder = [
-  "details",
-  "benefits",
-  "materials",
-  "formats",
-  "finishes",
-  "technical-specs",
-  "applications",
-];
-  const sectionSources = mergeSectionSources(
-    sectionEntries,
-    PRODUCT_SECTION_ALIASES,
-    new Set(productSectionOrder),
-  );
-  const sections = buildSections(sectionSources, PRODUCT_SECTION_TITLES, productSectionOrder);
-
-  const seo = buildProductSeo(fields, title, publicPath, imageSrc);
-  return {
-    id: String(item.id || slug),
-    updatedAt: str(item.lastModifiedDateTime),
-    type: "producto",
-    slug,
-    path: publicPath,
-    title,
-    categorySlug,
-    categorySlugs,
-    order: num(fields[PRODUCT_FIELDS.sortOrder]) ?? DEFAULT_SORT_ORDER,
-    isPublished: bool(fields[PRODUCT_FIELDS.isPublished]),
-    publishedAt: str(fields[PRODUCT_FIELDS.publishedAt]),
-    shortDescription,
-    description: shortDescription,
-    bodyMd: bodyMd || detailsMd || shortDescription,
-    sections,
-    faqs: parseFaqs(fields[PRODUCT_FIELDS.faqsJson]),
-    breadcrumbs: [],
-    image: {
-      src: imageSrc,
-      width: parseImageDimension(fields[PRODUCT_FIELDS.imageWidth]),
-      height: parseImageDimension(fields[PRODUCT_FIELDS.imageHeight]),
-      alt: str(fields[PRODUCT_FIELDS.imageAlt]) || title,
-    },
-    galleryImages: parseJsonLoose<unknown[]>(fields[PRODUCT_FIELDS.galleryImagesJson], []),
-    sku: str(fields[PRODUCT_FIELDS.sku]),
-    mpn: str(fields[PRODUCT_FIELDS.mpn]),
-    gtin13: str(fields[PRODUCT_FIELDS.gtin13]),
-    brand,
-    price: priceValue,
-    priceCurrency: currency,
-    inStock,
-    ratingValue: num(fields[PRODUCT_FIELDS.ratingValue]),
-    reviewCount: num(fields[PRODUCT_FIELDS.reviewCount]),
-    attributes: parseJsonLoose<unknown[]>(fields[PRODUCT_FIELDS.attributesJson], []),
-    variants: parseJsonLoose<unknown[]>(fields[PRODUCT_FIELDS.variantsJson], []),
-    formFields: parseFormFields(fields[PRODUCT_FIELDS.formFieldsJson]),
-    legacySlugs: uniq(
-      parseStringList(fields[PRODUCT_FIELDS.legacySlugsJson])
-        .map((value) => normalizeSlug(value))
-        .filter(Boolean) as string[],
-    ),
-    seo,
-  };
-}
-
+    const brand = str(fields[PRODUCT_FIELDS.brand]);
+    const priceValue = parsePrice(fields[PRODUCT_FIELDS.price]);
+    const currency = str(fields[PRODUCT_FIELDS.priceCurrency]) || "EUR";
+    const inStock = bool(fields[PRODUCT_FIELDS.inStock]);
+    
+    const sections = buildProductSections(fields, detailsMd, shortDescription);
+    
+    const seo = buildProductSeo(fields, title, publicPath, imageSrc);
+    
+    return {
+      id: String(item.id || slug),
+      updatedAt: str(item.lastModifiedDateTime),
+      type: "producto",
+      slug,
+      path: publicPath,
+      title,
+      categorySlug,
+      categorySlugs,
+      order: num(fields[PRODUCT_FIELDS.sortOrder]) ?? DEFAULT_SORT_ORDER,
+      isPublished: bool(fields[PRODUCT_FIELDS.isPublished]),
+      publishedAt: str(fields[PRODUCT_FIELDS.publishedAt]),
+      shortDescription,
+      description: shortDescription,
+      bodyMd: bodyMd || detailsMd || shortDescription,
+      sections,
+      faqs: parseFaqs(fields[PRODUCT_FIELDS.faqsJson]),
+      breadcrumbs: [],
+      image: {
+        src: imageSrc,
+        width: parseImageDimension(fields[PRODUCT_FIELDS.imageWidth]),
+        height: parseImageDimension(fields[PRODUCT_FIELDS.imageHeight]),
+        alt: str(fields[PRODUCT_FIELDS.imageAlt]) || title,
+      },
+      galleryImages: parseJsonLoose<unknown[]>(
+        fields[PRODUCT_FIELDS.galleryImagesJson],
+        [],
+      ),
+      sku: str(fields[PRODUCT_FIELDS.sku]),
+      mpn: str(fields[PRODUCT_FIELDS.mpn]),
+      gtin13: str(fields[PRODUCT_FIELDS.gtin13]),
+      brand,
+      price: priceValue,
+      priceCurrency: currency,
+      inStock,
+      ratingValue: num(fields[PRODUCT_FIELDS.ratingValue]),
+      reviewCount: num(fields[PRODUCT_FIELDS.reviewCount]),
+      attributes: parseJsonLoose<unknown[]>(
+        fields[PRODUCT_FIELDS.attributesJson],
+        [],
+      ),
+      variants: parseJsonLoose<unknown[]>(
+        fields[PRODUCT_FIELDS.variantsJson],
+        [],
+      ),
+      formFields: parseFormFields(fields[PRODUCT_FIELDS.formFieldsJson]),
+      legacySlugs: uniq(
+        parseStringList(fields[PRODUCT_FIELDS.legacySlugsJson])
+          .map((value) => normalizeSlug(value))
+          .filter(Boolean) as string[],
+      ),
+      seo,
+    };
+  }
 function buildCategoryBreadcrumbs(
   category: CategoryDto,
   categoriesBySlug: Map<string, CategoryDto>,

@@ -1,6 +1,6 @@
 import { createError, getQuery, getRouterParam } from "h3";
 import { defineCachedEventHandler } from "nitropack/runtime";
-import { getCategoryProductsBySlug } from "~/server/services/cms/catalog.service";
+import { getCategoryProductsBySlug } from "~/server/services/cms/_catalog.service";
 
 function normalizeSort(value: unknown): "order" | "title" | "price" {
   const sort = String(value || "").trim().toLowerCase();

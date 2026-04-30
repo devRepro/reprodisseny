@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-26T17:57:00.867Z",
+  "generatedAt": "2026-04-28T16:37:41.319Z",
   "categories": [
     {
       "id": "12",
@@ -3662,7 +3662,7 @@
   "products": [
     {
       "id": "1",
-      "updatedAt": "2026-04-26T17:49:43Z",
+      "updatedAt": "2026-04-28T15:53:57Z",
       "type": "producto",
       "slug": "abanicos-personalizados",
       "path": "/productos/abanicos-personalizados",
@@ -3733,47 +3733,6 @@
                 "El formato se define según el uso, el presupuesto y el tipo de evento."
               ],
               "ordered": false
-            }
-          ]
-        },
-        {
-          "id": "finishes",
-          "key": "finishes",
-          "title": "Acabados",
-          "body": "### Acabado mate\n\nRecomendado cuando habrá mucha luz o se harán fotos, ya que ayuda a reducir reflejos.\n\n### Acabado brillo\n\nAdecuado cuando se busca un color más vivo y un efecto visual más llamativo.\n\n### Preparación para entrega\n\nOpción de empaquetado por sets o preparación para packs de bienvenida y reparto.",
-          "blocks": [
-            {
-              "type": "text",
-              "text": "<h3>Acabado mate</h3>",
-              "html": true,
-              "format": "html"
-            },
-            {
-              "type": "text",
-              "text": "Recomendado cuando habrá mucha luz o se harán fotos, ya que ayuda a reducir reflejos.",
-              "html": false
-            },
-            {
-              "type": "text",
-              "text": "<h3>Acabado brillo</h3>",
-              "html": true,
-              "format": "html"
-            },
-            {
-              "type": "text",
-              "text": "Adecuado cuando se busca un color más vivo y un efecto visual más llamativo.",
-              "html": false
-            },
-            {
-              "type": "text",
-              "text": "<h3>Preparación para entrega</h3>",
-              "html": true,
-              "format": "html"
-            },
-            {
-              "type": "text",
-              "text": "Opción de empaquetado por sets o preparación para packs de bienvenida y reparto.",
-              "html": false
             }
           ]
         },
@@ -4035,13 +3994,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/eventos/abanicos.webp"
       }
     },
     {
       "id": "2",
-      "updatedAt": "2026-04-26T17:56:14Z",
+      "updatedAt": "2026-04-28T12:21:45Z",
       "type": "producto",
       "slug": "acreditaciones-personalizadas",
       "path": "/productos/acreditaciones-personalizadas",
@@ -4126,34 +4085,6 @@
               "type": "text",
               "text": "Opción de máxima durabilidad, ideal para acreditaciones reutilizables o de larga vida, como personal interno o accesos recurrentes.",
               "html": false
-            }
-          ]
-        },
-        {
-          "id": "finishes",
-          "key": "finishes",
-          "title": "Acabados",
-          "body": "• Agujero\redondeo y troquel cuando el formato lo requiera (p. ej., para colgar o encajar en funda).\nAcabados recomendados\n• Laminado mate o brillo: protege frente a roces y mejora la presencia (muy útil si se manipulan mucho).\n• Soft touch / barniz selectivo (opcional): para eventos premium o acreditaciones VIP.",
-          "blocks": [
-            {
-              "type": "bullets",
-              "items": [
-                "Agujero\redondeo y troquel cuando el formato lo requiera (p. ej., para colgar o encajar en funda)."
-              ],
-              "ordered": false
-            },
-            {
-              "type": "text",
-              "text": "Acabados recomendados",
-              "html": false
-            },
-            {
-              "type": "bullets",
-              "items": [
-                "Laminado mate o brillo: protege frente a roces y mejora la presencia (muy útil si se manipulan mucho).",
-                "Soft touch / barniz selectivo (opcional): para eventos premium o acreditaciones VIP."
-              ],
-              "ordered": false
             }
           ]
         },
@@ -4475,13 +4406,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/eventos/acreditaciones.webp"
       }
     },
     {
       "id": "3",
-      "updatedAt": "2026-03-26T12:22:42Z",
+      "updatedAt": "2026-04-28T08:31:51Z",
       "type": "producto",
       "slug": "agendas-personalizadas",
       "path": "/productos/agendas-personalizadas",
@@ -4825,13 +4756,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/agendas-personalizadas.webp"
       }
     },
     {
       "id": "4",
-      "updatedAt": "2026-03-26T12:24:22Z",
+      "updatedAt": "2026-04-28T08:31:54Z",
       "type": "producto",
       "slug": "arbol-navidad-corporativo",
       "path": "/productos/arbol-navidad-corporativo",
@@ -5230,13 +5161,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/eventos/arbol-de-navidad.webp"
       }
     },
     {
       "id": "5",
-      "updatedAt": "2026-04-09T06:04:11Z",
+      "updatedAt": "2026-04-28T08:31:56Z",
       "type": "producto",
       "slug": "archivadores-personalizados",
       "path": "/productos/archivadores-personalizados",
@@ -5581,13 +5512,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/archivadores.webp"
       }
     },
     {
       "id": "7",
-      "updatedAt": "2026-03-26T14:17:34Z",
+      "updatedAt": "2026-04-28T13:53:11Z",
       "type": "producto",
       "slug": "banderola-lona-fachada",
       "path": "/productos/banderola-lona-fachada",
@@ -6254,7 +6185,7 @@
     },
     {
       "id": "8",
-      "updatedAt": "2026-03-27T09:07:41Z",
+      "updatedAt": "2026-04-28T12:38:08Z",
       "type": "producto",
       "slug": "banderolas-lineal-personalizadas",
       "path": "/productos/banderolas-lineal-personalizadas",
@@ -6291,32 +6222,6 @@
             {
               "type": "text",
               "text": "Más visibilidad en el lineal: destaca por encima del ruido visual de la estantería.\nMejora la conversión: ideal para empujar una referencia concreta (promo, lanzamiento, producto estrella).\nMensaje rápido: perfecto para claims cortos y directos (2x1, -20%, nuevo, recomendado).\nPersonalización por campaña y tienda: versiones por zona, idioma, categoría o tipo de punto de venta.\nFácil de instalar y cambiar: pensadas para rotación de campañas sin complicar la operativa.",
-              "html": false
-            }
-          ]
-        },
-        {
-          "id": "materials",
-          "key": "materials",
-          "title": "Materiales",
-          "body": "Soportes ligeros pero estables para mantener forma y buena lectura. \nOpciones más resistentes si la campaña dura más o habrá mucha manipulación. \nImpresión \nImpresión a todo color con buena definición para textos grandes, iconos y logos. \nSeries por campaña con variantes (precio, claim, color de familia, etc.).",
-          "blocks": [
-            {
-              "type": "text",
-              "text": "Soportes ligeros pero estables para mantener forma y buena lectura.\nOpciones más resistentes si la campaña dura más o habrá mucha manipulación.\nImpresión\nImpresión a todo color con buena definición para textos grandes, iconos y logos.\nSeries por campaña con variantes (precio, claim, color de familia, etc.).",
-              "html": false
-            }
-          ]
-        },
-        {
-          "id": "finishes",
-          "key": "finishes",
-          "title": "Acabados",
-          "body": "Corte recto o corte a medida/troquelado para formas llamativas. \nLaminado opcional si necesitas más resistencia al roce o limpieza. \nEsquinas redondeadas (opcional) para mejorar durabilidad. \nSistema de fijación \nPreparación según el lineal: rail, pinza, adhesivo, pestaña/encaje u otros sistemas habituales en PLV. \nSi nos dices el tipo de estantería o el sistema que usáis, lo adaptamos para que encaje perfecto.",
-          "blocks": [
-            {
-              "type": "text",
-              "text": "Corte recto o corte a medida/troquelado para formas llamativas.\nLaminado opcional si necesitas más resistencia al roce o limpieza.\nEsquinas redondeadas (opcional) para mejorar durabilidad.\nSistema de fijación\nPreparación según el lineal: rail, pinza, adhesivo, pestaña/encaje u otros sistemas habituales en PLV.\nSi nos dices el tipo de estantería o el sistema que usáis, lo adaptamos para que encaje perfecto.",
               "html": false
             }
           ]
@@ -7149,7 +7054,7 @@
     },
     {
       "id": "12",
-      "updatedAt": "2026-03-26T12:29:51Z",
+      "updatedAt": "2026-04-28T10:56:40Z",
       "type": "producto",
       "slug": "blocs-notas",
       "path": "/productos/bloc-notas",
@@ -7220,19 +7125,19 @@
       "faqs": [
         {
           "question": "¿Qué tamaño recomendáis para empresa?",
-          "answer": "A5 suele ser el más práctico: suficiente espacio y fácil de transportar. A4 si se usa en mesa o formación."
+          "answer": "El formato A5 suele ser el más práctico: ofrece suficiente espacio para escribir y es fácil de transportar. El A4 es recomendable si se usa en mesa, formación o reuniones con más contenido."
         },
         {
-          "question": "¿Se puede personalizar el interior con plantilla?",
-          "answer": "Sí. Es una de las opciones más útiles: agendas de reunión, to-do, planning semanal, checklists…"
+          "question": "¿Se puede personalizar el interior con una plantilla?",
+          "answer": "Sí. Es una de las opciones más útiles: agendas de reunión, listas de tareas, planificación semanal, checklists u otros contenidos adaptados a tu equipo."
         },
         {
           "question": "¿Se pueden hacer blocs para diferentes sedes o departamentos?",
-          "answer": "Sí, manteniendo el diseño base y adaptando cabeceras/datos."
+          "answer": "Sí. Podemos mantener un diseño base y adaptar cabeceras, datos, sedes, departamentos u otros elementos variables."
         },
         {
-          "question": "¿Hojas arrancables o bloc \"para guardar\"?",
-          "answer": "Lo habitual es encolado para arrancar hojas. Si buscas conservarlo como cuaderno, te proponemos el formato más adecuado."
+          "question": "¿Hojas arrancables o bloc para guardar?",
+          "answer": "Lo habitual es hacer blocs encolados para poder arrancar las hojas fácilmente. Si buscas conservarlo como cuaderno, te proponemos el formato más adecuado."
         }
       ],
       "breadcrumbs": [
@@ -7416,15 +7321,15 @@
                   "name": "¿Qué tamaño recomendáis para empresa?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "A5 suele ser el más práctico: suficiente espacio y fácil de transportar. A4 si se usa en mesa o formación."
+                    "text": "El formato A5 suele ser el más práctico: ofrece suficiente espacio para escribir y es fácil de transportar. El A4 es recomendable si se usa en mesa, formación o reuniones con más contenido."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "¿Se puede personalizar el interior con plantilla?",
+                  "name": "¿Se puede personalizar el interior con una plantilla?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí. Es una de las opciones más útiles: agendas de reunión, to-do, planning semanal, checklists…"
+                    "text": "Sí. Es una de las opciones más útiles: agendas de reunión, listas de tareas, planificación semanal, checklists u otros contenidos adaptados a tu equipo."
                   }
                 },
                 {
@@ -7432,15 +7337,15 @@
                   "name": "¿Se pueden hacer blocs para diferentes sedes o departamentos?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, manteniendo el diseño base y adaptando cabeceras/datos."
+                    "text": "Sí. Podemos mantener un diseño base y adaptar cabeceras, datos, sedes, departamentos u otros elementos variables."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "¿Hojas arrancables o bloc \"para guardar\"?",
+                  "name": "¿Hojas arrancables o bloc para guardar?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Lo habitual es encolado para arrancar hojas. Si buscas conservarlo como cuaderno, te proponemos el formato más adecuado."
+                    "text": "Lo habitual es hacer blocs encolados para poder arrancar las hojas fácilmente. Si buscas conservarlo como cuaderno, te proponemos el formato más adecuado."
                   }
                 }
               ]
@@ -7453,7 +7358,7 @@
     },
     {
       "id": "13",
-      "updatedAt": "2026-03-26T12:30:17Z",
+      "updatedAt": "2026-04-28T15:43:24Z",
       "type": "producto",
       "slug": "caballetes-publicitarios-personalizados",
       "path": "/productos/caballetes-publicitarios-personalizados",
@@ -7521,7 +7426,24 @@
           ]
         }
       ],
-      "faqs": [],
+      "faqs": [
+        {
+          "question": "¿Qué tamaño recomendáis?",
+          "answer": "Para entradas y calle, A1 suele dar muy buena visibilidad. Si el espacio es reducido, A2 funciona bien sin molestar el paso."
+        },
+        {
+          "question": "¿Sirven para exterior?",
+          "answer": "Sí, pero conviene escoger un modelo estable y valorar la exposición al viento. Si nos dices ubicación, te recomendamos la opción adecuada."
+        },
+        {
+          "question": "¿Se puede cambiar la gráfica fácilmente?",
+          "answer": "Depende del modelo. Los caballetes con marco portapóster/click permiten cambios muy rápidos. También podemos prepararte varias gráficas para rotación."
+        },
+        {
+          "question": "¿Podéis diseñar el cartel para que se lea rápido?",
+          "answer": "Sí: ajustamos jerarquía, tamaños y contraste para que el mensaje funcione a primera vista."
+        }
+      ],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -7682,6 +7604,43 @@
                   "item": "https://reprodisseny.com/productos/caballetes-publicitarios-personalizados"
                 }
               ]
+            },
+            {
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "¿Qué tamaño recomendáis?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Para entradas y calle, A1 suele dar muy buena visibilidad. Si el espacio es reducido, A2 funciona bien sin molestar el paso."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Sirven para exterior?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí, pero conviene escoger un modelo estable y valorar la exposición al viento. Si nos dices ubicación, te recomendamos la opción adecuada."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Se puede cambiar la gráfica fácilmente?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Depende del modelo. Los caballetes con marco portapóster/click permiten cambios muy rápidos. También podemos prepararte varias gráficas para rotación."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Podéis diseñar el cartel para que se lea rápido?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí: ajustamos jerarquía, tamaños y contraste para que el mensaje funcione a primera vista."
+                  }
+                }
+              ]
             }
           ]
         },
@@ -7691,7 +7650,7 @@
     },
     {
       "id": "140",
-      "updatedAt": "2026-04-07T09:38:26Z",
+      "updatedAt": "2026-04-28T14:16:15Z",
       "type": "producto",
       "slug": "caja-almohada",
       "path": "/productos/caja-almohada",
@@ -7976,13 +7935,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/packaging/caja almohada.webp"
       }
     },
     {
       "id": "138",
-      "updatedAt": "2026-04-07T09:29:36Z",
+      "updatedAt": "2026-04-28T14:18:17Z",
       "type": "producto",
       "slug": "caja-cerillas",
       "path": "/productos/caja-cerillas",
@@ -8296,13 +8255,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/packaging/caja cerillas.webp"
       }
     },
     {
       "id": "142",
-      "updatedAt": "2026-04-07T09:42:52Z",
+      "updatedAt": "2026-04-28T15:33:40Z",
       "type": "producto",
       "slug": "caja-cofre",
       "path": "/productos/caja-cofre",
@@ -8457,7 +8416,24 @@
           ]
         }
       ],
-      "faqs": [],
+      "faqs": [
+        {
+          "question": "¿En qué se diferencia de una caja estándar?",
+          "answer": "La caja estándar es más funcional y rápida. La caja cofre es rígida y premium: se nota en presencia, durabilidad y experiencia de entrega."
+        },
+        {
+          "question": "¿Se puede personalizar también por dentro?",
+          "answer": "Sí, y es uno de los puntos fuertes: un mensaje interior o un diseño corporativo eleva muchísimo el unboxing."
+        },
+        {
+          "question": "¿Conviene añadir separadores?",
+          "answer": "Si el pack lleva varios elementos, sí: mejora la presentación y evita que el contenido se mueva durante el transporte."
+        },
+        {
+          "question": "¿Qué acabado suele quedar más elegante?",
+          "answer": "Laminado mate o soft touch + un detalle de marca (barniz selectivo o stamping) suele ser una combinación muy efectiva."
+        }
+      ],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -8545,16 +8521,53 @@
                   "item": "https://reprodisseny.com/productos/caja-cofre"
                 }
               ]
+            },
+            {
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "¿En qué se diferencia de una caja estándar?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "La caja estándar es más funcional y rápida. La caja cofre es rígida y premium: se nota en presencia, durabilidad y experiencia de entrega."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Se puede personalizar también por dentro?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí, y es uno de los puntos fuertes: un mensaje interior o un diseño corporativo eleva muchísimo el unboxing."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Conviene añadir separadores?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Si el pack lleva varios elementos, sí: mejora la presentación y evita que el contenido se mueva durante el transporte."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Qué acabado suele quedar más elegante?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Laminado mate o soft touch + un detalle de marca (barniz selectivo o stamping) suele ser una combinación muy efectiva."
+                  }
+                }
+              ]
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/packaging/caja cofre.webp"
       }
     },
     {
       "id": "146",
-      "updatedAt": "2026-03-26T13:08:09Z",
+      "updatedAt": "2026-04-28T08:37:11Z",
       "type": "producto",
       "slug": "caja-envio",
       "path": "/productos/caja-envio",
@@ -8713,19 +8726,19 @@
       "faqs": [
         {
           "question": "¿Cómo sé qué tamaño necesito?",
-          "answer": "Lo ideal es partir del contenido (medidas y peso). Si nos indicas qué vas a enviar, te proponemos un tamaño que proteja bien y optimice el envío."
+          "answer": "Lo ideal es partir del contenido, teniendo en cuenta medidas y peso. Si nos indicas qué vas a enviar, te proponemos un tamaño que proteja bien el producto y optimice el envío."
         },
         {
           "question": "¿Se puede personalizar por dentro?",
-          "answer": "Sí, y es una mejora muy visible en experiencia: mensaje + QR + instrucciones de uso."
+          "answer": "Sí. Es una mejora muy visible en la experiencia de apertura: permite añadir mensaje, QR, instrucciones de uso u otros elementos de marca."
         },
         {
           "question": "¿Necesito separadores interiores?",
-          "answer": "Depende del contenido. Si hay varias piezas o elementos frágiles, recomendamos separadores/encajes para evitar movimiento."
+          "answer": "Depende del contenido. Si hay varias piezas o elementos frágiles, recomendamos usar separadores o encajes interiores para evitar movimiento durante el transporte."
         },
         {
           "question": "¿Se puede usar la caja como packaging de marca y no solo como transporte?",
-          "answer": "Sí. Se puede diseñar para que sea robusta y a la vez"
+          "answer": "Sí. Se puede diseñar para que sea robusta y, a la vez, presentable. Es una opción ideal para kits corporativos, regalos y envíos de marca."
         }
       ],
       "breadcrumbs": [
@@ -8824,7 +8837,7 @@
                   "name": "¿Cómo sé qué tamaño necesito?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Lo ideal es partir del contenido (medidas y peso). Si nos indicas qué vas a enviar, te proponemos un tamaño que proteja bien y optimice el envío."
+                    "text": "Lo ideal es partir del contenido, teniendo en cuenta medidas y peso. Si nos indicas qué vas a enviar, te proponemos un tamaño que proteja bien el producto y optimice el envío."
                   }
                 },
                 {
@@ -8832,7 +8845,7 @@
                   "name": "¿Se puede personalizar por dentro?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, y es una mejora muy visible en experiencia: mensaje + QR + instrucciones de uso."
+                    "text": "Sí. Es una mejora muy visible en la experiencia de apertura: permite añadir mensaje, QR, instrucciones de uso u otros elementos de marca."
                   }
                 },
                 {
@@ -8840,7 +8853,7 @@
                   "name": "¿Necesito separadores interiores?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Depende del contenido. Si hay varias piezas o elementos frágiles, recomendamos separadores/encajes para evitar movimiento."
+                    "text": "Depende del contenido. Si hay varias piezas o elementos frágiles, recomendamos usar separadores o encajes interiores para evitar movimiento durante el transporte."
                   }
                 },
                 {
@@ -8848,20 +8861,20 @@
                   "name": "¿Se puede usar la caja como packaging de marca y no solo como transporte?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí. Se puede diseñar para que sea robusta y a la vez"
+                    "text": "Sí. Se puede diseñar para que sea robusta y, a la vez, presentable. Es una opción ideal para kits corporativos, regalos y envíos de marca."
                   }
                 }
               ]
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/packaging/caja envio.webp"
       }
     },
     {
       "id": "145",
-      "updatedAt": "2026-03-26T12:47:06Z",
+      "updatedAt": "2026-04-28T08:46:37Z",
       "type": "producto",
       "slug": "caja-desplegable-tapa",
       "path": "/productos/caja-desplegable-tapa",
@@ -9031,7 +9044,24 @@
           ]
         }
       ],
-      "faqs": [],
+      "faqs": [
+        {
+          "question": "¿Qué ventaja tiene frente a una caja cofre rígida clásica?",
+          "answer": "La caja cofre rígida suele ocupar más espacio en almacén. La caja desplegable mantiene un aspecto premium, pero optimiza la logística al entregarse plegada."
+        },
+        {
+          "question": "¿Se puede imprimir por dentro?",
+          "answer": "Sí, y es muy recomendable. Un interior de marca con mensaje, QR o instrucciones mejora mucho la experiencia de apertura."
+        },
+        {
+          "question": "¿Conviene soft touch o laminado?",
+          "answer": "Para packaging premium, sí. Mejora la resistencia, el tacto y la calidad percibida."
+        },
+        {
+          "question": "¿Se pueden hacer interiores a medida?",
+          "answer": "Sí. Podemos hacer interiores a medida para que el contenido quede fijo y se presente de forma impecable, algo muy útil en envíos y kits de producto."
+        }
+      ],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -9119,16 +9149,53 @@
                   "item": "https://reprodisseny.com/productos/caja-desplegable-tapa"
                 }
               ]
+            },
+            {
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "¿Qué ventaja tiene frente a una caja cofre rígida clásica?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "La caja cofre rígida suele ocupar más espacio en almacén. La caja desplegable mantiene un aspecto premium, pero optimiza la logística al entregarse plegada."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Se puede imprimir por dentro?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí, y es muy recomendable. Un interior de marca con mensaje, QR o instrucciones mejora mucho la experiencia de apertura."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Conviene soft touch o laminado?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Para packaging premium, sí. Mejora la resistencia, el tacto y la calidad percibida."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Se pueden hacer interiores a medida?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí. Podemos hacer interiores a medida para que el contenido quede fijo y se presente de forma impecable, algo muy útil en envíos y kits de producto."
+                  }
+                }
+              ]
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/packaging/caja desplegable con tapa.webp"
       }
     },
     {
       "id": "136",
-      "updatedAt": "2026-04-07T09:24:29Z",
+      "updatedAt": "2026-04-28T14:17:46Z",
       "type": "producto",
       "slug": "caja-automontable",
       "path": "/productos/caja-automontable",
@@ -9426,13 +9493,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/packaging/caja pastel.webp"
       }
     },
     {
       "id": "139",
-      "updatedAt": "2026-04-07T09:35:49Z",
+      "updatedAt": "2026-04-28T14:19:19Z",
       "type": "producto",
       "slug": "caja-envolvente",
       "path": "/productos/caja-envolvente",
@@ -9595,7 +9662,7 @@
         },
         {
           "question": "¿Puedo reutilizar la caja y cambiar solo la envolvente por campañas?",
-          "answer": "Sí, es una de las ventajas principales: mantienes base y actualizas la"
+          "answer": "Sí, es una de las ventajas principales: mantienes base y actualizas la \"faja\" según campaña/temporada."
         },
         {
           "question": "¿Conviene laminar la envolvente?",
@@ -9710,7 +9777,7 @@
                   "name": "¿Puedo reutilizar la caja y cambiar solo la envolvente por campañas?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, es una de las ventajas principales: mantienes base y actualizas la"
+                    "text": "Sí, es una de las ventajas principales: mantienes base y actualizas la \"faja\" según campaña/temporada."
                   }
                 },
                 {
@@ -9733,13 +9800,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/packaging/caja con cierre envolvente.webp"
       }
     },
     {
       "id": "135",
-      "updatedAt": "2026-04-07T09:22:05Z",
+      "updatedAt": "2026-04-28T14:19:39Z",
       "type": "producto",
       "slug": "caja-estandar",
       "path": "/productos/caja-estandar",
@@ -9893,7 +9960,7 @@
         },
         {
           "question": "¿Conviene laminado?",
-          "answer": "Si la caja se manipula o envía, el laminado ayuda a que llegue impecable y se vea más"
+          "answer": "Si la caja se manipula o envía, el laminado ayuda a que llegue impecable y se vea más \"premium\"."
         },
         {
           "question": "¿Se puede preparar por campañas o por sedes?",
@@ -10012,7 +10079,7 @@
                   "name": "¿Conviene laminado?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Si la caja se manipula o envía, el laminado ayuda a que llegue impecable y se vea más"
+                    "text": "Si la caja se manipula o envía, el laminado ayuda a que llegue impecable y se vea más \"premium\"."
                   }
                 },
                 {
@@ -10027,13 +10094,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/packaging/caja estandar.webp"
       }
     },
     {
       "id": "137",
-      "updatedAt": "2026-04-07T09:27:01Z",
+      "updatedAt": "2026-04-28T14:20:08Z",
       "type": "producto",
       "slug": "caja-porta-botella",
       "path": "/productos/caja-porta-botella",
@@ -10333,13 +10400,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/packaging/caja para botella.webp"
       }
     },
     {
       "id": "143",
-      "updatedAt": "2026-04-07T09:44:56Z",
+      "updatedAt": "2026-04-28T14:20:48Z",
       "type": "producto",
       "slug": "caja-sobre-personalizada",
       "path": "/productos/caja-sobre-personalizada",
@@ -10496,7 +10563,7 @@
         },
         {
           "question": "¿Se puede cerrar con precinto o etiqueta?",
-          "answer": "Sí, es una opción muy usada para dar sensación de"
+          "answer": "Sí, es una opción muy usada para dar sensación de \"pack sellado\" y reforzar marca."
         }
       ],
       "breadcrumbs": [
@@ -10619,20 +10686,20 @@
                   "name": "¿Se puede cerrar con precinto o etiqueta?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, es una opción muy usada para dar sensación de"
+                    "text": "Sí, es una opción muy usada para dar sensación de \"pack sellado\" y reforzar marca."
                   }
                 }
               ]
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/packaging/caja sobre.webp"
       }
     },
     {
       "id": "14",
-      "updatedAt": "2026-03-26T12:30:30Z",
+      "updatedAt": "2026-04-28T10:58:04Z",
       "type": "producto",
       "slug": "cajas-de-luz-personalizadas",
       "path": "/productos/cajas-luz-personalizadas",
@@ -10704,19 +10771,19 @@
       "faqs": [
         {
           "question": "¿Qué diferencia hay entre una caja de luz y un panel impreso normal?",
-          "answer": "La retroiluminación aumenta la visibilidad, mejora la lectura y da un acabado más"
+          "answer": "La retroiluminación aumenta la visibilidad, mejora la lectura y aporta un acabado más premium que un panel impreso convencional."
         },
         {
           "question": "¿Se puede cambiar la gráfica?",
-          "answer": "Sí. Es una de las ventajas principales: puedes tener distintas gráficas para campañas y sustituirlas cuando lo necesites."
+          "answer": "Sí. Es una de sus principales ventajas: puedes tener distintas gráficas para campañas y sustituirlas cuando lo necesites."
         },
         {
           "question": "¿Es mejor una cara o doble cara?",
-          "answer": "Depende de la ubicación. Si hay tránsito en ambos sentidos, doble cara suele ser la opción más efectiva."
+          "answer": "Depende de la ubicación. Si hay tránsito en ambos sentidos, la doble cara suele ser la opción más efectiva."
         },
         {
           "question": "¿Qué necesitáis para presupuestarlo?",
-          "answer": "Medida aproximada, ubicación (pared/suelo/colgante), si la quieres a una o dos caras, y fecha de uso/entrega. Si ya tienes diseño, lo revisamos para asegurar buen resultado en backlit."
+          "answer": "Necesitamos la medida aproximada, la ubicación, si irá en pared, suelo o colgante, si la quieres a una o dos caras, y la fecha de uso o entrega. Si ya tienes diseño, lo revisamos para asegurar un buen resultado en backlit."
         }
       ],
       "breadcrumbs": [
@@ -10906,7 +10973,7 @@
                   "name": "¿Qué diferencia hay entre una caja de luz y un panel impreso normal?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "La retroiluminación aumenta la visibilidad, mejora la lectura y da un acabado más"
+                    "text": "La retroiluminación aumenta la visibilidad, mejora la lectura y aporta un acabado más premium que un panel impreso convencional."
                   }
                 },
                 {
@@ -10914,7 +10981,7 @@
                   "name": "¿Se puede cambiar la gráfica?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí. Es una de las ventajas principales: puedes tener distintas gráficas para campañas y sustituirlas cuando lo necesites."
+                    "text": "Sí. Es una de sus principales ventajas: puedes tener distintas gráficas para campañas y sustituirlas cuando lo necesites."
                   }
                 },
                 {
@@ -10922,7 +10989,7 @@
                   "name": "¿Es mejor una cara o doble cara?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Depende de la ubicación. Si hay tránsito en ambos sentidos, doble cara suele ser la opción más efectiva."
+                    "text": "Depende de la ubicación. Si hay tránsito en ambos sentidos, la doble cara suele ser la opción más efectiva."
                   }
                 },
                 {
@@ -10930,7 +10997,7 @@
                   "name": "¿Qué necesitáis para presupuestarlo?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Medida aproximada, ubicación (pared/suelo/colgante), si la quieres a una o dos caras, y fecha de uso/entrega. Si ya tienes diseño, lo revisamos para asegurar buen resultado en backlit."
+                    "text": "Necesitamos la medida aproximada, la ubicación, si irá en pared, suelo o colgante, si la quieres a una o dos caras, y la fecha de uso o entrega. Si ya tienes diseño, lo revisamos para asegurar un buen resultado en backlit."
                   }
                 }
               ]
@@ -10943,7 +11010,7 @@
     },
     {
       "id": "15",
-      "updatedAt": "2026-03-26T12:30:54Z",
+      "updatedAt": "2026-04-28T11:03:46Z",
       "type": "producto",
       "slug": "calendarios-personalizados",
       "path": "/productos/calendarios-personalizados",
@@ -11014,19 +11081,19 @@
       "faqs": [
         {
           "question": "¿Cuál funciona mejor como regalo corporativo?",
-          "answer": "El de pared por visibilidad, y el de sobremesa por uso diario en oficina. Para mucha distribución, el de bolsillo es muy efectivo."
+          "answer": "El calendario de pared funciona muy bien por visibilidad, mientras que el de sobremesa destaca por su uso diario en oficina. Para distribuciones amplias, el calendario de bolsillo es una opción muy efectiva."
         },
         {
           "question": "¿Se puede personalizar por sedes o equipos?",
-          "answer": "Sí, con un diseño base común y variantes de datos o imágenes."
+          "answer": "Sí. Podemos partir de un diseño base común y crear variantes por sede, equipo, datos de contacto, imágenes u otros elementos específicos."
         },
         {
           "question": "¿Mate o brillo?",
-          "answer": "Mate para un look más corporativo y menos reflejos; brillo para más intensidad de color."
+          "answer": "El acabado mate ofrece un aspecto más corporativo y reduce reflejos. El brillo aporta más intensidad de color y un resultado visual más llamativo."
         },
         {
           "question": "¿Podéis incluir festivos o fechas clave?",
-          "answer": "Sí, si nos indicas la zona y el tipo de calendario, podemos integrarlos en el diseño."
+          "answer": "Sí. Si nos indicas la zona y el tipo de calendario, podemos integrar festivos, campañas, eventos internos o fechas clave en el diseño."
         }
       ],
       "breadcrumbs": [
@@ -11221,7 +11288,7 @@
                   "name": "¿Cuál funciona mejor como regalo corporativo?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "El de pared por visibilidad, y el de sobremesa por uso diario en oficina. Para mucha distribución, el de bolsillo es muy efectivo."
+                    "text": "El calendario de pared funciona muy bien por visibilidad, mientras que el de sobremesa destaca por su uso diario en oficina. Para distribuciones amplias, el calendario de bolsillo es una opción muy efectiva."
                   }
                 },
                 {
@@ -11229,7 +11296,7 @@
                   "name": "¿Se puede personalizar por sedes o equipos?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, con un diseño base común y variantes de datos o imágenes."
+                    "text": "Sí. Podemos partir de un diseño base común y crear variantes por sede, equipo, datos de contacto, imágenes u otros elementos específicos."
                   }
                 },
                 {
@@ -11237,7 +11304,7 @@
                   "name": "¿Mate o brillo?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Mate para un look más corporativo y menos reflejos; brillo para más intensidad de color."
+                    "text": "El acabado mate ofrece un aspecto más corporativo y reduce reflejos. El brillo aporta más intensidad de color y un resultado visual más llamativo."
                   }
                 },
                 {
@@ -11245,7 +11312,7 @@
                   "name": "¿Podéis incluir festivos o fechas clave?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, si nos indicas la zona y el tipo de calendario, podemos integrarlos en el diseño."
+                    "text": "Sí. Si nos indicas la zona y el tipo de calendario, podemos integrar festivos, campañas, eventos internos o fechas clave en el diseño."
                   }
                 }
               ]
@@ -11258,7 +11325,7 @@
     },
     {
       "id": "16",
-      "updatedAt": "2026-03-26T12:31:49Z",
+      "updatedAt": "2026-04-28T11:04:09Z",
       "type": "producto",
       "slug": "carpetas-de-presentacion-personalizadas",
       "path": "/productos/carpetas-presentacion-personalizadas",
@@ -11329,19 +11396,19 @@
       "faqs": [
         {
           "question": "¿Con lomo o sin lomo?",
-          "answer": "Sin lomo para propuestas y documentación estándar. Con lomo si vas a incluir muchas hojas o un catálogo y quieres que cierre bien."
+          "answer": "Sin lomo para propuestas y documentación estándar. Con lomo si vas a incluir muchas hojas o un catálogo y quieres que la carpeta cierre bien."
         },
         {
-          "question": "¿Es recomendable laminado?",
-          "answer": "Sí, especialmente si se va a manipular mucho (ferias, visitas, uso comercial). Aumenta durabilidad y mejora presencia."
+          "question": "¿Es recomendable el laminado?",
+          "answer": "Sí, especialmente si se va a manipular mucho en ferias, visitas o uso comercial. Aumenta la durabilidad y mejora la presencia del acabado."
         },
         {
           "question": "¿Se puede incluir ranura para tarjeta?",
-          "answer": "Sí, es una de las opciones más habituales para carpetas comerciales."
+          "answer": "Sí. Es una de las opciones más habituales en carpetas comerciales y de presentación."
         },
         {
           "question": "¿Podéis hacer un pack completo de papelería corporativa?",
-          "answer": "Sí: carpeta + papel de carta + sobres + tarjetas de visita, todo con la misma línea gráfica."
+          "answer": "Sí. Podemos preparar carpeta, papel de carta, sobres y tarjetas de visita con la misma línea gráfica corporativa."
         }
       ],
       "breadcrumbs": [
@@ -11462,15 +11529,15 @@
                   "name": "¿Con lomo o sin lomo?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sin lomo para propuestas y documentación estándar. Con lomo si vas a incluir muchas hojas o un catálogo y quieres que cierre bien."
+                    "text": "Sin lomo para propuestas y documentación estándar. Con lomo si vas a incluir muchas hojas o un catálogo y quieres que la carpeta cierre bien."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "¿Es recomendable laminado?",
+                  "name": "¿Es recomendable el laminado?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, especialmente si se va a manipular mucho (ferias, visitas, uso comercial). Aumenta durabilidad y mejora presencia."
+                    "text": "Sí, especialmente si se va a manipular mucho en ferias, visitas o uso comercial. Aumenta la durabilidad y mejora la presencia del acabado."
                   }
                 },
                 {
@@ -11478,7 +11545,7 @@
                   "name": "¿Se puede incluir ranura para tarjeta?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, es una de las opciones más habituales para carpetas comerciales."
+                    "text": "Sí. Es una de las opciones más habituales en carpetas comerciales y de presentación."
                   }
                 },
                 {
@@ -11486,20 +11553,20 @@
                   "name": "¿Podéis hacer un pack completo de papelería corporativa?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí: carpeta + papel de carta + sobres + tarjetas de visita, todo con la misma línea gráfica."
+                    "text": "Sí. Podemos preparar carpeta, papel de carta, sobres y tarjetas de visita con la misma línea gráfica corporativa."
                   }
                 }
               ]
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/carpetas-de-presentacion.webp"
       }
     },
     {
       "id": "17",
-      "updatedAt": "2026-03-26T12:32:14Z",
+      "updatedAt": "2026-04-28T13:53:52Z",
       "type": "producto",
       "slug": "cartas-restaurante-personalizadas",
       "path": "/productos/cartas-restaurante-personalizadas",
@@ -11730,7 +11797,7 @@
     },
     {
       "id": "147",
-      "updatedAt": "2026-03-26T13:08:35Z",
+      "updatedAt": "2026-04-28T12:36:24Z",
       "type": "producto",
       "slug": "carteles-inmobiliaria-personalizados",
       "path": "/productos/carteles-inmobiliaria-personalizados",
@@ -11767,32 +11834,6 @@
             {
               "type": "text",
               "text": "Captación inmediata: teléfono, web y QR visibles para convertir miradas en contactos.\nMarca profesional y coherente: carteles homogéneos para todo tu parque de inmuebles.\nAdaptable a interior y exterior: materiales distintos según ubicación y duración.\nA una o dos caras: ideal para balcón/ventana (visibilidad desde ambos lados).\nPersonalización por inmueble: referencias, zonas, agentes, precios (si aplica) o variantes por oficina.\nMejor control y medición: QR y URLs específicas para saber qué ubicaciones funcionan mejor.",
-              "html": false
-            }
-          ]
-        },
-        {
-          "id": "materials",
-          "key": "materials",
-          "title": "Materiales",
-          "body": "Materiales (según ubicación) \nInterior (escaparate): opciones en papel o soportes ligeros para renovación frecuente. \nExterior: materiales más resistentes para intemperie y manipulación (según duración y exposición). \nSi lo necesitas, preparamos la opción adecuada para viento/sol/lluvia y para montajes repetidos.",
-          "blocks": [
-            {
-              "type": "text",
-              "text": "Materiales (según ubicación)\nInterior (escaparate): opciones en papel o soportes ligeros para renovación frecuente.\nExterior: materiales más resistentes para intemperie y manipulación (según duración y exposición).\nSi lo necesitas, preparamos la opción adecuada para viento/sol/lluvia y para montajes repetidos.",
-              "html": false
-            }
-          ]
-        },
-        {
-          "id": "formats",
-          "key": "formats",
-          "title": "Formatos y soportes",
-          "body": "Tamaños estándar (según uso): desde formatos de escaparate hasta carteles más grandes para balcón/valla. \nOrientación vertical u horizontal. \nUna o dos caras (muy recomendado en ventana/balcón).",
-          "blocks": [
-            {
-              "type": "text",
-              "text": "Tamaños estándar (según uso): desde formatos de escaparate hasta carteles más grandes para balcón/valla.\nOrientación vertical u horizontal.\nUna o dos caras (muy recomendado en ventana/balcón).",
               "html": false
             }
           ]
@@ -11836,15 +11877,15 @@
         },
         {
           "question": "¿Qué material recomendáis para exterior?",
-          "answer": "Depende de la duración y la exposición (sol/viento). Si nos dices dónde se colocará y cuánto tiempo, te proponemos el soporte más adecuado."
+          "answer": "Depende de la duración y la exposición, como sol o viento. Si nos dices dónde se colocará y durante cuánto tiempo, te proponemos el soporte más adecuado."
         },
         {
           "question": "¿Podéis hacer series para muchos inmuebles?",
-          "answer": "Sí, podemos producir lotes por oficinas y versiones por inmueble (ref, zona, QR, agente), manteniendo una misma línea gráfica."
+          "answer": "Sí, podemos producir lotes por oficinas y versiones por inmueble, por ejemplo con referencia, zona, QR o agente, manteniendo una misma línea gráfica."
         },
         {
           "question": "¿Podéis revisar el diseño para que se lea desde lejos?",
-          "answer": "Sí: ajustamos jerarquía, tamaños y contraste para mejorar lectura y conversión."
+          "answer": "Sí. Ajustamos jerarquía, tamaños y contraste para mejorar la lectura y la conversión."
         }
       ],
       "breadcrumbs": [
@@ -11963,7 +12004,7 @@
                   "name": "¿Qué material recomendáis para exterior?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Depende de la duración y la exposición (sol/viento). Si nos dices dónde se colocará y cuánto tiempo, te proponemos el soporte más adecuado."
+                    "text": "Depende de la duración y la exposición, como sol o viento. Si nos dices dónde se colocará y durante cuánto tiempo, te proponemos el soporte más adecuado."
                   }
                 },
                 {
@@ -11971,7 +12012,7 @@
                   "name": "¿Podéis hacer series para muchos inmuebles?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, podemos producir lotes por oficinas y versiones por inmueble (ref, zona, QR, agente), manteniendo una misma línea gráfica."
+                    "text": "Sí, podemos producir lotes por oficinas y versiones por inmueble, por ejemplo con referencia, zona, QR o agente, manteniendo una misma línea gráfica."
                   }
                 },
                 {
@@ -11979,20 +12020,20 @@
                   "name": "¿Podéis revisar el diseño para que se lea desde lejos?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí: ajustamos jerarquía, tamaños y contraste para mejorar lectura y conversión."
+                    "text": "Sí. Ajustamos jerarquía, tamaños y contraste para mejorar la lectura y la conversión."
                   }
                 }
               ]
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/carteles-inmobiliaria.webp"
       }
     },
     {
       "id": "20",
-      "updatedAt": "2026-03-26T12:32:33Z",
+      "updatedAt": "2026-04-28T11:04:35Z",
       "type": "producto",
       "slug": "carteles-personalizados-gran-formato",
       "path": "/productos/carteles-personalizados-gran-formato",
@@ -12063,19 +12104,19 @@
       "faqs": [
         {
           "question": "¿Qué tamaño necesito?",
-          "answer": "Depende de la distancia de lectura. Para escaparate o pared cercana, A3/A2 suele funcionar bien. Para captar atención a distancia, A1/A0 es más efectivo."
+          "answer": "Depende de la distancia de lectura. Para escaparate o pared cercana, los formatos A3 o A2 suelen funcionar bien. Para captar atención a más distancia, los formatos A1 o A0 son más efectivos."
         },
         {
           "question": "¿Mate o brillo?",
-          "answer": "En interiores con iluminación, el mate suele reducir reflejos y mejorar lectura. El brillo puede dar más viveza, pero refleja más."
+          "answer": "En interiores con iluminación, el acabado mate suele reducir reflejos y mejorar la lectura. El brillo puede aportar más viveza al color, pero también refleja más."
         },
         {
           "question": "¿Podéis imprimir series de carteles para varias tiendas o campañas?",
-          "answer": "Sí, podemos producir por lotes y versiones (idiomas, precios, ubicaciones) manteniendo coherencia de marca."
+          "answer": "Sí. Podemos producir por lotes y versiones, por ejemplo por idioma, precio, ubicación o campaña, manteniendo la coherencia de marca."
         },
         {
           "question": "¿Podéis revisar el archivo antes de imprimir?",
-          "answer": "Sí, revisamos medidas, sangrado y resolución para evitar problemas."
+          "answer": "Sí. Revisamos medidas, sangrado y resolución para evitar problemas antes de imprimir."
         }
       ],
       "breadcrumbs": [
@@ -12250,7 +12291,7 @@
                   "name": "¿Qué tamaño necesito?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Depende de la distancia de lectura. Para escaparate o pared cercana, A3/A2 suele funcionar bien. Para captar atención a distancia, A1/A0 es más efectivo."
+                    "text": "Depende de la distancia de lectura. Para escaparate o pared cercana, los formatos A3 o A2 suelen funcionar bien. Para captar atención a más distancia, los formatos A1 o A0 son más efectivos."
                   }
                 },
                 {
@@ -12258,7 +12299,7 @@
                   "name": "¿Mate o brillo?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "En interiores con iluminación, el mate suele reducir reflejos y mejorar lectura. El brillo puede dar más viveza, pero refleja más."
+                    "text": "En interiores con iluminación, el acabado mate suele reducir reflejos y mejorar la lectura. El brillo puede aportar más viveza al color, pero también refleja más."
                   }
                 },
                 {
@@ -12266,7 +12307,7 @@
                   "name": "¿Podéis imprimir series de carteles para varias tiendas o campañas?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, podemos producir por lotes y versiones (idiomas, precios, ubicaciones) manteniendo coherencia de marca."
+                    "text": "Sí. Podemos producir por lotes y versiones, por ejemplo por idioma, precio, ubicación o campaña, manteniendo la coherencia de marca."
                   }
                 },
                 {
@@ -12274,7 +12315,7 @@
                   "name": "¿Podéis revisar el archivo antes de imprimir?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, revisamos medidas, sangrado y resolución para evitar problemas."
+                    "text": "Sí. Revisamos medidas, sangrado y resolución para evitar problemas antes de imprimir."
                   }
                 }
               ]
@@ -12287,7 +12328,7 @@
     },
     {
       "id": "23",
-      "updatedAt": "2026-03-26T12:36:36Z",
+      "updatedAt": "2026-04-28T11:05:49Z",
       "type": "producto",
       "slug": "certificados-personalizados",
       "path": "/productos/certificados-personalizados",
@@ -12358,19 +12399,19 @@
       "faqs": [
         {
           "question": "¿Se pueden personalizar con nombres distintos?",
-          "answer": "Sí, con datos variables (listado), ideal para cursos y entregas masivas."
+          "answer": "Sí. Podemos trabajar con datos variables a partir de un listado, ideal para cursos, eventos, formaciones y entregas masivas."
         },
         {
           "question": "¿Podéis añadir numeración o QR para validación?",
-          "answer": "Sí. Es muy recomendable si necesitas control o verificación."
+          "answer": "Sí. Es una opción muy recomendable si necesitas control, trazabilidad o verificación del certificado."
         },
         {
-          "question": "¿Qué papel recomendáis para un certificado \"premium\"?",
-          "answer": "Papel con buen gramaje y, si quieres un plus: textura, relieve en seco o stamping."
+          "question": "¿Qué papel recomendáis para un certificado premium?",
+          "answer": "Recomendamos un papel de buen gramaje. Si quieres un acabado más premium, podemos valorar papeles con textura, relieve en seco o stamping."
         },
         {
           "question": "¿Podéis preparar un diseño corporativo que encaje con nuestra marca?",
-          "answer": "Sí: adaptamos tipografía, colores y composición para mantener coherencia de marca."
+          "answer": "Sí. Adaptamos tipografía, colores y composición para mantener la coherencia con tu identidad de marca."
         }
       ],
       "breadcrumbs": [
@@ -12542,7 +12583,7 @@
                   "name": "¿Se pueden personalizar con nombres distintos?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, con datos variables (listado), ideal para cursos y entregas masivas."
+                    "text": "Sí. Podemos trabajar con datos variables a partir de un listado, ideal para cursos, eventos, formaciones y entregas masivas."
                   }
                 },
                 {
@@ -12550,15 +12591,15 @@
                   "name": "¿Podéis añadir numeración o QR para validación?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí. Es muy recomendable si necesitas control o verificación."
+                    "text": "Sí. Es una opción muy recomendable si necesitas control, trazabilidad o verificación del certificado."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "¿Qué papel recomendáis para un certificado \"premium\"?",
+                  "name": "¿Qué papel recomendáis para un certificado premium?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Papel con buen gramaje y, si quieres un plus: textura, relieve en seco o stamping."
+                    "text": "Recomendamos un papel de buen gramaje. Si quieres un acabado más premium, podemos valorar papeles con textura, relieve en seco o stamping."
                   }
                 },
                 {
@@ -12566,7 +12607,7 @@
                   "name": "¿Podéis preparar un diseño corporativo que encaje con nuestra marca?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí: adaptamos tipografía, colores y composición para mantener coherencia de marca."
+                    "text": "Sí. Adaptamos tipografía, colores y composición para mantener la coherencia con tu identidad de marca."
                   }
                 }
               ]
@@ -12579,7 +12620,7 @@
     },
     {
       "id": "25",
-      "updatedAt": "2026-03-26T12:37:08Z",
+      "updatedAt": "2026-04-28T13:57:09Z",
       "type": "producto",
       "slug": "colgador-de-botellas-personalizado",
       "path": "/productos/colgador-de-botellas-personalizado",
@@ -12684,7 +12725,7 @@
         }
       ],
       "image": {
-        "src": "https://webcms.blob.core.windows.net/media/product/restauracion/colgador-puerta.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/restauracion/colgador-botella.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -12796,7 +12837,7 @@
               "@type": "Product",
               "name": "Colgador de botellas personalizado",
               "description": "Colgadores de botellas personalizados para promociones en tienda y hostelería. Troquelados, resistentes y con impresión a color. Ideales para ofertas, catas y lanzamientos. Solicita presupuesto.",
-              "image": "https://webcms.blob.core.windows.net/media/product/restauracion/colgador-puerta.webp",
+              "image": "https://webcms.blob.core.windows.net/media/product/restauracion/colgador-botella.webp",
               "url": "https://reprodisseny.com/productos/colgador-de-botellas-personalizado",
               "brand": {
                 "@type": "Organization",
@@ -12873,12 +12914,12 @@
           ]
         },
         "robotsOverride": "INHERIT",
-        "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/restauracion/colgador-puerta.webp"
+        "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/restauracion/colgador-botella.webp"
       }
     },
     {
       "id": "77",
-      "updatedAt": "2026-03-26T16:33:02Z",
+      "updatedAt": "2026-04-28T14:22:20Z",
       "type": "producto",
       "slug": "contenedores-de-reciclaje",
       "path": "/productos/contenedores-de-reciclaje",
@@ -13103,13 +13144,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/expositores/contenedor-reciclaje.webp"
       }
     },
     {
       "id": "28",
-      "updatedAt": "2026-03-26T12:38:10Z",
+      "updatedAt": "2026-04-28T11:07:21Z",
       "type": "producto",
       "slug": "cubos-publicitarios-personalizados",
       "path": "/productos/cubos-publicitarios-personalizados",
@@ -13180,11 +13221,11 @@
       "faqs": [
         {
           "question": "¿Se pueden hacer varios cubos con diseños distintos en la misma tirada?",
-          "answer": "Sí. Es habitual crear series (por producto, por campaña, por patrocinador o por zonas) manteniendo coherencia visual."
+          "answer": "Sí. Es habitual crear series por producto, campaña, patrocinador o zona, manteniendo una coherencia visual entre todas las piezas."
         },
         {
           "question": "¿Qué material recomendáis si el cubo se va a mover mucho?",
-          "answer": "Para uso repetido conviene un material más resistente (por ejemplo, rígidos tipo PVC) o una opción con buena rigidez y poco peso (como nido de abeja), según tamaño y uso."
+          "answer": "Para uso repetido conviene un material más resistente, como rígidos tipo PVC, o una opción con buena rigidez y poco peso, como cartón nido de abeja, según el tamaño y el uso previsto."
         },
         {
           "question": "¿Se pueden apilar?",
@@ -13192,7 +13233,7 @@
         },
         {
           "question": "¿Podéis prepararlos listos para evento?",
-          "answer": "Sí: podemos entregarlos pensados para montaje rápido, y si necesitas varios, incluso organizarlos por sets o zonas."
+          "answer": "Sí. Podemos entregarlos pensados para un montaje rápido y, si necesitas varias unidades, organizarlos por sets, zonas o referencias."
         }
       ],
       "breadcrumbs": [
@@ -13352,7 +13393,7 @@
                   "name": "¿Se pueden hacer varios cubos con diseños distintos en la misma tirada?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí. Es habitual crear series (por producto, por campaña, por patrocinador o por zonas) manteniendo coherencia visual."
+                    "text": "Sí. Es habitual crear series por producto, campaña, patrocinador o zona, manteniendo una coherencia visual entre todas las piezas."
                   }
                 },
                 {
@@ -13360,7 +13401,7 @@
                   "name": "¿Qué material recomendáis si el cubo se va a mover mucho?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Para uso repetido conviene un material más resistente (por ejemplo, rígidos tipo PVC) o una opción con buena rigidez y poco peso (como nido de abeja), según tamaño y uso."
+                    "text": "Para uso repetido conviene un material más resistente, como rígidos tipo PVC, o una opción con buena rigidez y poco peso, como cartón nido de abeja, según el tamaño y el uso previsto."
                   }
                 },
                 {
@@ -13376,7 +13417,7 @@
                   "name": "¿Podéis prepararlos listos para evento?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí: podemos entregarlos pensados para montaje rápido, y si necesitas varios, incluso organizarlos por sets o zonas."
+                    "text": "Sí. Podemos entregarlos pensados para un montaje rápido y, si necesitas varias unidades, organizarlos por sets, zonas o referencias."
                   }
                 }
               ]
@@ -13389,7 +13430,7 @@
     },
     {
       "id": "29",
-      "updatedAt": "2026-03-26T12:38:51Z",
+      "updatedAt": "2026-04-28T11:07:45Z",
       "type": "producto",
       "slug": "cubrealarmas-tiendas-retail",
       "path": "/productos/cubrealarmas-tiendas-retail",
@@ -13460,19 +13501,19 @@
       "faqs": [
         {
           "question": "¿Se adapta a cualquier arco de seguridad?",
-          "answer": "Sí. Lo ideal es trabajar con medidas o una foto del modelo para fabricar el cubrealarmas a medida y asegurar un ajuste limpio."
+          "answer": "Sí. Lo ideal es trabajar con las medidas o una foto del modelo para fabricar el cubrealarmas a medida y asegurar un ajuste limpio."
         },
         {
           "question": "¿Se puede imprimir por las dos caras?",
-          "answer": "Sí, y suele ser recomendable para que la comunicación funcione tanto en entrada como en salida."
+          "answer": "Sí, y suele ser recomendable para que la comunicación funcione tanto en la entrada como en la salida."
         },
         {
           "question": "¿Se puede reutilizar?",
-          "answer": "Depende del material y del sistema de montaje. Si buscas reutilización, te proponemos una opción más resistente y con acabados pensados para montaje/desmontaje."
+          "answer": "Depende del material y del sistema de montaje. Si buscas reutilización, te proponemos una opción más resistente y con acabados pensados para montaje y desmontaje."
         },
         {
           "question": "¿Podéis hacer versiones por tienda o por campaña?",
-          "answer": "Sí. Es muy habitual producir series con el mismo diseño base y variaciones de texto, precio o idioma."
+          "answer": "Sí. Es muy habitual producir series con el mismo diseño base y variaciones de texto, precio, idioma u otros elementos de campaña."
         }
       ],
       "breadcrumbs": [
@@ -13645,7 +13686,7 @@
                   "name": "¿Se adapta a cualquier arco de seguridad?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí. Lo ideal es trabajar con medidas o una foto del modelo para fabricar el cubrealarmas a medida y asegurar un ajuste limpio."
+                    "text": "Sí. Lo ideal es trabajar con las medidas o una foto del modelo para fabricar el cubrealarmas a medida y asegurar un ajuste limpio."
                   }
                 },
                 {
@@ -13653,7 +13694,7 @@
                   "name": "¿Se puede imprimir por las dos caras?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, y suele ser recomendable para que la comunicación funcione tanto en entrada como en salida."
+                    "text": "Sí, y suele ser recomendable para que la comunicación funcione tanto en la entrada como en la salida."
                   }
                 },
                 {
@@ -13661,7 +13702,7 @@
                   "name": "¿Se puede reutilizar?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Depende del material y del sistema de montaje. Si buscas reutilización, te proponemos una opción más resistente y con acabados pensados para montaje/desmontaje."
+                    "text": "Depende del material y del sistema de montaje. Si buscas reutilización, te proponemos una opción más resistente y con acabados pensados para montaje y desmontaje."
                   }
                 },
                 {
@@ -13669,7 +13710,7 @@
                   "name": "¿Podéis hacer versiones por tienda o por campaña?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí. Es muy habitual producir series con el mismo diseño base y variaciones de texto, precio o idioma."
+                    "text": "Sí. Es muy habitual producir series con el mismo diseño base y variaciones de texto, precio, idioma u otros elementos de campaña."
                   }
                 }
               ]
@@ -13682,7 +13723,7 @@
     },
     {
       "id": "30",
-      "updatedAt": "2026-03-26T12:39:13Z",
+      "updatedAt": "2026-04-28T11:08:08Z",
       "type": "producto",
       "slug": "cupones-promocionales",
       "path": "/productos/cupones-promocionales",
@@ -13753,19 +13794,19 @@
       "faqs": [
         {
           "question": "¿Podéis hacer cupones con códigos únicos para canje online?",
-          "answer": "Sí. Podemos generar e imprimir códigos variables y/o QR para validar en web, app o en punto de venta."
+          "answer": "Sí. Podemos generar e imprimir códigos variables y QR para validar en web, app o punto de venta."
         },
         {
           "question": "¿Qué conviene poner en el cupón para evitar confusiones?",
-          "answer": "Suele funcionar bien incluir: beneficio, validez, condición principal (mínimo de compra, producto, horario, etc.) y el método de canje (presentar cupón / escanear QR)."
+          "answer": "Suele funcionar bien incluir el beneficio, la validez, la condición principal, como mínimo de compra, producto u horario, y el método de canje, por ejemplo presentar el cupón o escanear un QR."
         },
         {
           "question": "¿El perforado es obligatorio?",
-          "answer": "No, pero es muy recomendable si necesitas control interno o quieres separar"
+          "answer": "No, pero es muy recomendable si necesitas control interno o quieres separar vale y resguardo de forma rápida."
         },
         {
           "question": "¿Se pueden hacer varias versiones dentro de la misma campaña?",
-          "answer": "Sí: por ejemplo, diferentes descuentos, mensajes o series por tienda/acción, manteniendo un diseño coherente."
+          "answer": "Sí. Podemos preparar diferentes descuentos, mensajes o series por tienda, acción o público objetivo, manteniendo un diseño coherente."
         }
       ],
       "breadcrumbs": [
@@ -13928,7 +13969,7 @@
                   "name": "¿Podéis hacer cupones con códigos únicos para canje online?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí. Podemos generar e imprimir códigos variables y/o QR para validar en web, app o en punto de venta."
+                    "text": "Sí. Podemos generar e imprimir códigos variables y QR para validar en web, app o punto de venta."
                   }
                 },
                 {
@@ -13936,7 +13977,7 @@
                   "name": "¿Qué conviene poner en el cupón para evitar confusiones?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Suele funcionar bien incluir: beneficio, validez, condición principal (mínimo de compra, producto, horario, etc.) y el método de canje (presentar cupón / escanear QR)."
+                    "text": "Suele funcionar bien incluir el beneficio, la validez, la condición principal, como mínimo de compra, producto u horario, y el método de canje, por ejemplo presentar el cupón o escanear un QR."
                   }
                 },
                 {
@@ -13944,7 +13985,7 @@
                   "name": "¿El perforado es obligatorio?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "No, pero es muy recomendable si necesitas control interno o quieres separar"
+                    "text": "No, pero es muy recomendable si necesitas control interno o quieres separar vale y resguardo de forma rápida."
                   }
                 },
                 {
@@ -13952,7 +13993,7 @@
                   "name": "¿Se pueden hacer varias versiones dentro de la misma campaña?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí: por ejemplo, diferentes descuentos, mensajes o series por tienda/acción, manteniendo un diseño coherente."
+                    "text": "Sí. Podemos preparar diferentes descuentos, mensajes o series por tienda, acción o público objetivo, manteniendo un diseño coherente."
                   }
                 }
               ]
@@ -13965,7 +14006,7 @@
     },
     {
       "id": "33",
-      "updatedAt": "2026-03-26T12:40:43Z",
+      "updatedAt": "2026-04-28T11:14:36Z",
       "type": "producto",
       "slug": "diplomas-personalizados",
       "path": "/productos/diplomas-personalizados",
@@ -14110,19 +14151,19 @@
       "faqs": [
         {
           "question": "¿Se pueden personalizar todos con nombres diferentes?",
-          "answer": "Sí. Podemos imprimir diplomas con datos variables (nombres, cargos, categorías, numeración…), ideal para formaciones y eventos con muchos asistentes."
+          "answer": "Sí. Podemos imprimir diplomas con datos variables, como nombres, cargos, categorías o numeración. Es ideal para formaciones, eventos y entregas con muchos asistentes."
         },
         {
           "question": "¿Cuál es el formato más recomendado?",
-          "answer": "Normalmente A4 por practicidad. Si buscas un efecto más ceremonial o más visible en fotos, A3 suele funcionar muy bien."
+          "answer": "Normalmente recomendamos A4 por practicidad. Si buscas un efecto más ceremonial o más visible en fotos, el formato A3 suele funcionar muy bien."
         },
         {
-          "question": "¿Qué papel queda más \"premium\"?",
-          "answer": "Los papeles con más gramaje y/o textura suelen dar mejor calidad percibida. La elección depende del estilo (corporativo sobrio vs. evento más festivo)."
+          "question": "¿Qué papel queda más premium?",
+          "answer": "Los papeles con más gramaje o textura suelen dar una mejor calidad percibida. La elección depende del estilo buscado, por ejemplo un acabado corporativo sobrio o un evento más festivo."
         },
         {
           "question": "¿Podéis incluir sello o firma?",
-          "answer": "Podemos imprimirlos integrados en el diseño. Si necesitas sello manual o firma real, también podemos recomendarte la opción más cómoda para la entrega."
+          "answer": "Sí. Podemos imprimir el sello o la firma integrados en el diseño. Si necesitas sello manual o firma real, también podemos recomendarte la opción más cómoda para la entrega."
         }
       ],
       "breadcrumbs": [
@@ -14294,7 +14335,7 @@
                   "name": "¿Se pueden personalizar todos con nombres diferentes?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí. Podemos imprimir diplomas con datos variables (nombres, cargos, categorías, numeración…), ideal para formaciones y eventos con muchos asistentes."
+                    "text": "Sí. Podemos imprimir diplomas con datos variables, como nombres, cargos, categorías o numeración. Es ideal para formaciones, eventos y entregas con muchos asistentes."
                   }
                 },
                 {
@@ -14302,15 +14343,15 @@
                   "name": "¿Cuál es el formato más recomendado?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Normalmente A4 por practicidad. Si buscas un efecto más ceremonial o más visible en fotos, A3 suele funcionar muy bien."
+                    "text": "Normalmente recomendamos A4 por practicidad. Si buscas un efecto más ceremonial o más visible en fotos, el formato A3 suele funcionar muy bien."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "¿Qué papel queda más \"premium\"?",
+                  "name": "¿Qué papel queda más premium?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Los papeles con más gramaje y/o textura suelen dar mejor calidad percibida. La elección depende del estilo (corporativo sobrio vs. evento más festivo)."
+                    "text": "Los papeles con más gramaje o textura suelen dar una mejor calidad percibida. La elección depende del estilo buscado, por ejemplo un acabado corporativo sobrio o un evento más festivo."
                   }
                 },
                 {
@@ -14318,7 +14359,7 @@
                   "name": "¿Podéis incluir sello o firma?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Podemos imprimirlos integrados en el diseño. Si necesitas sello manual o firma real, también podemos recomendarte la opción más cómoda para la entrega."
+                    "text": "Sí. Podemos imprimir el sello o la firma integrados en el diseño. Si necesitas sello manual o firma real, también podemos recomendarte la opción más cómoda para la entrega."
                   }
                 }
               ]
@@ -14331,7 +14372,7 @@
     },
     {
       "id": "34",
-      "updatedAt": "2026-03-26T12:41:17Z",
+      "updatedAt": "2026-04-28T15:15:46Z",
       "type": "producto",
       "slug": "tarjeta-habitacion-hotel",
       "path": "/productos/tarjeta-habitacion-hotel",
@@ -14402,7 +14443,7 @@
       "faqs": [
         {
           "question": "¿Qué tamaño es el más recomendado?",
-          "answer": "Depende de la cantidad de información. Si es"
+          "answer": "Depende de la cantidad de información. Si es \"lo esencial\", un formato tipo DL/A6 funciona muy bien; si incluyes más servicios o mapa, A5 suele ser más cómodo."
         },
         {
           "question": "¿Conviene plastificar?",
@@ -14593,7 +14634,7 @@
                   "name": "¿Qué tamaño es el más recomendado?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Depende de la cantidad de información. Si es"
+                    "text": "Depende de la cantidad de información. Si es \"lo esencial\", un formato tipo DL/A6 funciona muy bien; si incluyes más servicios o mapa, A5 suele ser más cómodo."
                   }
                 },
                 {
@@ -14630,7 +14671,7 @@
     },
     {
       "id": "36",
-      "updatedAt": "2026-03-26T12:41:56Z",
+      "updatedAt": "2026-04-28T14:23:00Z",
       "type": "producto",
       "slug": "displays-de-mesa-personalizados",
       "path": "/productos/displays-de-mesa-personalizados",
@@ -14702,7 +14743,7 @@
       "faqs": [
         {
           "question": "¿Qué formato funciona mejor en mostrador?",
-          "answer": "A4 o un formato en"
+          "answer": "A4 o un formato en \"L\" suele ser muy efectivo por visibilidad. En mesa, el tipo tienda (triangular) funciona muy bien."
         },
         {
           "question": "¿Conviene laminado?",
@@ -14927,7 +14968,7 @@
                   "name": "¿Qué formato funciona mejor en mostrador?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "A4 o un formato en"
+                    "text": "A4 o un formato en \"L\" suele ser muy efectivo por visibilidad. En mesa, el tipo tienda (triangular) funciona muy bien."
                   }
                 },
                 {
@@ -14964,7 +15005,7 @@
     },
     {
       "id": "38",
-      "updatedAt": "2026-03-26T12:42:52Z",
+      "updatedAt": "2026-04-28T14:23:34Z",
       "type": "producto",
       "slug": "dorsales-carrera",
       "path": "/productos/dorsales-carrera",
@@ -15340,7 +15381,7 @@
     },
     {
       "id": "26",
-      "updatedAt": "2026-04-07T11:34:03Z",
+      "updatedAt": "2026-04-28T14:03:24Z",
       "type": "producto",
       "slug": "cosida-tapa-blanda",
       "path": "/productos/cosida-tapa-blanda",
@@ -15410,20 +15451,20 @@
       ],
       "faqs": [
         {
-          "question": "¿Qué diferencia hay entre tapa blanda encolada y tapa blanda cosida?",
-          "answer": "La cosida suele ser más resistente y ofrece mejor apertura con el tiempo. La encolada es más eficiente en coste y va muy bien para catálogos menos exigentes."
+          "question": "¿Qué formato funciona mejor en mostrador?",
+          "answer": "A4 o un formato en \"L\" suele ser muy efectivo por visibilidad. En mesa, el tipo tienda (triangular) funciona muy bien."
         },
         {
-          "question": "¿Se puede imprimir el lomo?",
-          "answer": "Sí. Para ajustarlo bien necesitamos formato, número de páginas y tipo de papel."
+          "question": "¿Conviene laminado?",
+          "answer": "Si se manipula mucho o puede mancharse, sí. Mejora durabilidad y limpieza."
         },
         {
-          "question": "¿Cuándo conviene tapa dura en lugar de tapa blanda cosida?",
-          "answer": "Cuando buscas una presentación claramente premium —edición especial, regalo corporativo o libro institucional— y necesitas máxima protección y presencia. También es la opción adecuada si la publicación va a tener uso frecuente, incluye más páginas o quieres un salto de calidad respecto a la rústica encolada."
+          "question": "¿Se puede hacer doble cara?",
+          "answer": "Sí, y es lo más recomendable cuando el display se verá desde ambos lados (mesas, barras, islas)."
         },
         {
-          "question": "¿Se abre completamente en plano?",
-          "answer": "Mejor que una encolada, pero si necesitas apertura totalmente plana para uso intensivo (por ejemplo, recetarios), puede interesar Wire-O."
+          "question": "¿Podéis hacer varias versiones por producto o promo?",
+          "answer": "Sí. Podemos producir series manteniendo el diseño base y cambiando textos/precios/QR."
         }
       ],
       "breadcrumbs": [
@@ -15627,34 +15668,34 @@
               "mainEntity": [
                 {
                   "@type": "Question",
-                  "name": "¿Qué diferencia hay entre tapa blanda encolada y tapa blanda cosida?",
+                  "name": "¿Qué formato funciona mejor en mostrador?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "La cosida suele ser más resistente y ofrece mejor apertura con el tiempo. La encolada es más eficiente en coste y va muy bien para catálogos menos exigentes."
+                    "text": "A4 o un formato en \"L\" suele ser muy efectivo por visibilidad. En mesa, el tipo tienda (triangular) funciona muy bien."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "¿Se puede imprimir el lomo?",
+                  "name": "¿Conviene laminado?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí. Para ajustarlo bien necesitamos formato, número de páginas y tipo de papel."
+                    "text": "Si se manipula mucho o puede mancharse, sí. Mejora durabilidad y limpieza."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "¿Cuándo conviene tapa dura en lugar de tapa blanda cosida?",
+                  "name": "¿Se puede hacer doble cara?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Cuando buscas una presentación claramente premium —edición especial, regalo corporativo o libro institucional— y necesitas máxima protección y presencia. También es la opción adecuada si la publicación va a tener uso frecuente, incluye más páginas o quieres un salto de calidad respecto a la rústica encolada."
+                    "text": "Sí, y es lo más recomendable cuando el display se verá desde ambos lados (mesas, barras, islas)."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "¿Se abre completamente en plano?",
+                  "name": "¿Podéis hacer varias versiones por producto o promo?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Mejor que una encolada, pero si necesitas apertura totalmente plana para uso intensivo (por ejemplo, recetarios), puede interesar Wire-O."
+                    "text": "Sí. Podemos producir series manteniendo el diseño base y cambiando textos/precios/QR."
                   }
                 }
               ]
@@ -15667,7 +15708,7 @@
     },
     {
       "id": "106",
-      "updatedAt": "2026-03-26T13:57:40Z",
+      "updatedAt": "2026-04-28T14:24:38Z",
       "type": "producto",
       "slug": "encuadernacion-wire-o-oculto",
       "path": "/productos/encuadernacion-wire-o-oculto",
@@ -15986,7 +16027,7 @@
     },
     {
       "id": "27",
-      "updatedAt": "2026-03-26T12:37:53Z",
+      "updatedAt": "2026-04-28T11:06:54Z",
       "type": "producto",
       "slug": "encuadernacion-cosida-tapa-dura",
       "path": "/productos/encuadernacion-cosida-tapa-dura",
@@ -16057,19 +16098,19 @@
       "faqs": [
         {
           "question": "¿Qué diferencia hay entre cosido y encolado?",
-          "answer": "El cosido es más resistente y suele abrir mejor, especialmente con el paso del tiempo. El encolado funciona muy bien en tapa blanda, pero para un resultado premium y duradero, el cosido es la opción top."
+          "answer": "El cosido es más resistente y suele ofrecer una mejor apertura, especialmente con el paso del tiempo. El encolado funciona muy bien en tapa blanda, pero para un resultado premium y duradero, el cosido es la opción más recomendable."
         },
         {
           "question": "¿Es recomendable para catálogos?",
-          "answer": "Sí, cuando el catálogo es un objeto de marca (colecciones premium, lookbooks, ediciones especiales). Si es una publicación de uso más"
+          "answer": "Sí, cuando el catálogo se plantea como un objeto de marca, por ejemplo para colecciones premium, lookbooks o ediciones especiales. Si es una publicación más comercial o de actualización frecuente, puede encajar mejor una tapa blanda."
         },
         {
           "question": "¿Se puede personalizar la portada con acabados premium?",
-          "answer": "Sí, es donde más se nota la diferencia: stamping, relieve, barniz, soft touch…"
+          "answer": "Sí. En la portada es donde más se percibe la diferencia: stamping, relieve, barniz, soft touch u otros acabados especiales pueden elevar mucho la presentación."
         },
         {
           "question": "¿Qué necesitáis para presupuestar?",
-          "answer": "Formato, número de páginas, cantidad, tipo de papel interior y el acabado deseado en portada (si lo tienes claro)."
+          "answer": "Necesitamos el formato, el número de páginas, la cantidad, el tipo de papel interior y el acabado deseado en portada, si ya lo tienes claro."
         }
       ],
       "breadcrumbs": [
@@ -16276,7 +16317,7 @@
                   "name": "¿Qué diferencia hay entre cosido y encolado?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "El cosido es más resistente y suele abrir mejor, especialmente con el paso del tiempo. El encolado funciona muy bien en tapa blanda, pero para un resultado premium y duradero, el cosido es la opción top."
+                    "text": "El cosido es más resistente y suele ofrecer una mejor apertura, especialmente con el paso del tiempo. El encolado funciona muy bien en tapa blanda, pero para un resultado premium y duradero, el cosido es la opción más recomendable."
                   }
                 },
                 {
@@ -16284,7 +16325,7 @@
                   "name": "¿Es recomendable para catálogos?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, cuando el catálogo es un objeto de marca (colecciones premium, lookbooks, ediciones especiales). Si es una publicación de uso más"
+                    "text": "Sí, cuando el catálogo se plantea como un objeto de marca, por ejemplo para colecciones premium, lookbooks o ediciones especiales. Si es una publicación más comercial o de actualización frecuente, puede encajar mejor una tapa blanda."
                   }
                 },
                 {
@@ -16292,7 +16333,7 @@
                   "name": "¿Se puede personalizar la portada con acabados premium?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, es donde más se nota la diferencia: stamping, relieve, barniz, soft touch…"
+                    "text": "Sí. En la portada es donde más se percibe la diferencia: stamping, relieve, barniz, soft touch u otros acabados especiales pueden elevar mucho la presentación."
                   }
                 },
                 {
@@ -16300,7 +16341,7 @@
                   "name": "¿Qué necesitáis para presupuestar?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Formato, número de páginas, cantidad, tipo de papel interior y el acabado deseado en portada (si lo tienes claro)."
+                    "text": "Necesitamos el formato, el número de páginas, la cantidad, el tipo de papel interior y el acabado deseado en portada, si ya lo tienes claro."
                   }
                 }
               ]
@@ -16313,7 +16354,7 @@
     },
     {
       "id": "39",
-      "updatedAt": "2026-03-26T12:43:19Z",
+      "updatedAt": "2026-04-28T14:23:57Z",
       "type": "producto",
       "slug": "encuadernacion-encolada-tapa-blanda",
       "path": "/productos/encuadernacion-encolada-tapa-blanda",
@@ -16384,7 +16425,7 @@
       "faqs": [
         {
           "question": "¿En qué se diferencia del grapado?",
-          "answer": "El grapado es ideal para pocas páginas y es más ligero. La rústica encolada es mejor para más páginas, tiene lomo y un acabado más"
+          "answer": "El grapado es ideal para pocas páginas y es más ligero. La rústica encolada es mejor para más páginas, tiene lomo y un acabado más \"libro\"."
         },
         {
           "question": "¿Se puede imprimir el lomo?",
@@ -16603,7 +16644,7 @@
                   "name": "¿En qué se diferencia del grapado?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "El grapado es ideal para pocas páginas y es más ligero. La rústica encolada es mejor para más páginas, tiene lomo y un acabado más"
+                    "text": "El grapado es ideal para pocas páginas y es más ligero. La rústica encolada es mejor para más páginas, tiene lomo y un acabado más \"libro\"."
                   }
                 },
                 {
@@ -16640,7 +16681,7 @@
     },
     {
       "id": "107",
-      "updatedAt": "2026-03-26T13:58:01Z",
+      "updatedAt": "2026-04-28T14:24:19Z",
       "type": "producto",
       "slug": "encuadernacion-wire-o",
       "path": "/productos/encuadernacion-wire-o",
@@ -16967,7 +17008,7 @@
     },
     {
       "id": "40",
-      "updatedAt": "2026-03-26T12:43:50Z",
+      "updatedAt": "2026-04-28T14:25:03Z",
       "type": "producto",
       "slug": "encuadernado-con-grapas",
       "path": "/productos/encuadernado-con-grapas",
@@ -17038,7 +17079,7 @@
       "faqs": [
         {
           "question": "¿Cuándo conviene encuadernar con grapas y cuándo fresado?",
-          "answer": "Con grapas es ideal si el documento tiene pocas páginas y quieres un acabado ligero. Si sube mucho el número de páginas o buscas un aspecto"
+          "answer": "Con grapas es ideal si el documento tiene pocas páginas y quieres un acabado ligero. Si sube mucho el número de páginas o buscas un aspecto \"libro\", suele convenir encuadernación fresada."
         },
         {
           "question": "¿Por qué el número de páginas va de 4 en 4?",
@@ -17256,7 +17297,7 @@
                   "name": "¿Cuándo conviene encuadernar con grapas y cuándo fresado?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Con grapas es ideal si el documento tiene pocas páginas y quieres un acabado ligero. Si sube mucho el número de páginas o buscas un aspecto"
+                    "text": "Con grapas es ideal si el documento tiene pocas páginas y quieres un acabado ligero. Si sube mucho el número de páginas o buscas un aspecto \"libro\", suele convenir encuadernación fresada."
                   }
                 },
                 {
@@ -17293,7 +17334,7 @@
     },
     {
       "id": "41",
-      "updatedAt": "2026-03-26T12:44:05Z",
+      "updatedAt": "2026-04-28T14:25:26Z",
       "type": "producto",
       "slug": "enmarcados-personalizados",
       "path": "/productos/enmarcados-personalizados",
@@ -17617,7 +17658,7 @@
     },
     {
       "id": "42",
-      "updatedAt": "2026-03-26T12:44:30Z",
+      "updatedAt": "2026-04-28T14:25:47Z",
       "type": "producto",
       "slug": "entradas-personalizadas",
       "path": "/productos/entradas-personalizadas",
@@ -18326,7 +18367,7 @@
     },
     {
       "id": "44",
-      "updatedAt": "2026-03-26T13:05:54Z",
+      "updatedAt": "2026-04-28T14:26:52Z",
       "type": "producto",
       "slug": "etiquetas-colgantes",
       "path": "/productos/etiquetas-colgantes",
@@ -18927,7 +18968,7 @@
     },
     {
       "id": "45",
-      "updatedAt": "2026-03-26T13:11:43Z",
+      "updatedAt": "2026-04-28T14:28:05Z",
       "type": "producto",
       "slug": "expositores-de-mesa-personalizados",
       "path": "/productos/expositores-mesa-personalizados",
@@ -19215,7 +19256,7 @@
     },
     {
       "id": "46",
-      "updatedAt": "2026-03-26T13:14:45Z",
+      "updatedAt": "2026-04-28T14:28:32Z",
       "type": "producto",
       "slug": "expositores-suelo-personalizados",
       "path": "/productos/expositores-suelo-personalizados",
@@ -19286,7 +19327,7 @@
       "faqs": [
         {
           "question": "¿Qué diferencia hay entre un expositor de suelo y un tótem?",
-          "answer": "El tótem suele ser un formato específico de expositor de suelo (vertical y con presencia). En general,"
+          "answer": "El tótem suele ser un formato específico de expositor de suelo (vertical y con presencia). En general, \"expositor de suelo\" engloba más opciones: paneles, siluetas, módulos, etc."
         },
         {
           "question": "¿Es mejor una cara o doble cara?",
@@ -19466,7 +19507,7 @@
                   "name": "¿Qué diferencia hay entre un expositor de suelo y un tótem?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "El tótem suele ser un formato específico de expositor de suelo (vertical y con presencia). En general,"
+                    "text": "El tótem suele ser un formato específico de expositor de suelo (vertical y con presencia). En general, \"expositor de suelo\" engloba más opciones: paneles, siluetas, módulos, etc."
                   }
                 },
                 {
@@ -19503,7 +19544,7 @@
     },
     {
       "id": "141",
-      "updatedAt": "2026-04-07T09:40:43Z",
+      "updatedAt": "2026-04-28T14:28:59Z",
       "type": "producto",
       "slug": "faja-para-caja",
       "path": "/productos/faja-para-caja",
@@ -19804,13 +19845,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/packaging/faja para caja.webp"
       }
     },
     {
       "id": "47",
-      "updatedAt": "2026-03-26T13:25:29Z",
+      "updatedAt": "2026-04-28T14:29:20Z",
       "type": "producto",
       "slug": "figuras-arbol-navidad",
       "path": "/productos/figuras-arbol-navidad",
@@ -20182,7 +20223,7 @@
     },
     {
       "id": "48",
-      "updatedAt": "2026-03-26T13:40:43Z",
+      "updatedAt": "2026-04-28T14:29:40Z",
       "type": "producto",
       "slug": "flyers-con-forma-personalizados",
       "path": "/productos/flyers-con-forma-personalizados",
@@ -20265,7 +20306,7 @@
         },
         {
           "question": "¿Podéis revisar el diseño para que el troquel sea viable?",
-          "answer": "Sí, adaptamos contornos, márgenes y zonas de seguridad para que el corte sea limpio y el flyer no se"
+          "answer": "Sí, adaptamos contornos, márgenes y zonas de seguridad para que el corte sea limpio y el flyer no se \"rompa\" en detalles finos."
         }
       ],
       "breadcrumbs": [
@@ -20487,7 +20528,7 @@
                   "name": "¿Podéis revisar el diseño para que el troquel sea viable?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, adaptamos contornos, márgenes y zonas de seguridad para que el corte sea limpio y el flyer no se"
+                    "text": "Sí, adaptamos contornos, márgenes y zonas de seguridad para que el corte sea limpio y el flyer no se \"rompa\" en detalles finos."
                   }
                 }
               ]
@@ -20500,7 +20541,7 @@
     },
     {
       "id": "49",
-      "updatedAt": "2026-03-26T13:41:00Z",
+      "updatedAt": "2026-04-28T14:30:03Z",
       "type": "producto",
       "slug": "flyers-personalizados",
       "path": "/productos/flyers-personalizados",
@@ -20812,13 +20853,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/flyers.webp"
       }
     },
     {
       "id": "51",
-      "updatedAt": "2026-03-26T13:51:24Z",
+      "updatedAt": "2026-04-28T14:30:19Z",
       "type": "producto",
       "slug": "folletos-plegados-personalizados",
       "path": "/productos/folletos-plegados-personalizados",
@@ -20901,7 +20942,7 @@
         },
         {
           "question": "¿Podéis revisar el diseño para que el plegado encaje bien?",
-          "answer": "Sí: revisamos márgenes, sangrado y la"
+          "answer": "Sí: revisamos márgenes, sangrado y la \"cara interior\" del tríptico para que el cierre quede perfecto."
         }
       ],
       "breadcrumbs": [
@@ -21134,20 +21175,20 @@
                   "name": "¿Podéis revisar el diseño para que el plegado encaje bien?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí: revisamos márgenes, sangrado y la"
+                    "text": "Sí: revisamos márgenes, sangrado y la \"cara interior\" del tríptico para que el cierre quede perfecto."
                   }
                 }
               ]
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/folletos-plegados.webp"
       }
     },
     {
       "id": "53",
-      "updatedAt": "2026-03-26T14:50:12Z",
+      "updatedAt": "2026-04-28T14:30:47Z",
       "type": "producto",
       "slug": "fundas-sant-jordi",
       "path": "/productos/fundas-sant-jordi",
@@ -21278,7 +21319,7 @@
       "faqs": [
         {
           "question": "¿Mejor folding blanco o kraft?",
-          "answer": "Blanco si buscas una estética más corporativa y colores más"
+          "answer": "Blanco si buscas una estética más corporativa y colores más \"vivos\". Kraft si quieres un look natural y reforzar el mensaje ecológico."
         },
         {
           "question": "¿Se puede personalizar con mensaje y QR?",
@@ -21437,7 +21478,7 @@
                   "name": "¿Mejor folding blanco o kraft?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Blanco si buscas una estética más corporativa y colores más"
+                    "text": "Blanco si buscas una estética más corporativa y colores más \"vivos\". Kraft si quieres un look natural y reforzar el mensaje ecológico."
                   }
                 },
                 {
@@ -21468,13 +21509,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/eventos/fundas-sant-jordi.webp"
       }
     },
     {
       "id": "54",
-      "updatedAt": "2026-03-26T14:52:30Z",
+      "updatedAt": "2026-04-28T14:31:04Z",
       "type": "producto",
       "slug": "hojas-pegatinas-personalizadas",
       "path": "/productos/hojas-pegatinas-personalizadas",
@@ -21759,7 +21800,7 @@
     },
     {
       "id": "55",
-      "updatedAt": "2026-03-26T13:43:33Z",
+      "updatedAt": "2026-04-28T14:32:10Z",
       "type": "producto",
       "slug": "hojas-sueltas-archivadores",
       "path": "/productos/hojas-sueltas-archivadores",
@@ -22083,7 +22124,7 @@
     },
     {
       "id": "56",
-      "updatedAt": "2026-03-26T14:54:23Z",
+      "updatedAt": "2026-04-28T14:43:11Z",
       "type": "producto",
       "slug": "hule-personalizado",
       "path": "/productos/hule-personalizado",
@@ -22376,7 +22417,7 @@
     },
     {
       "id": "57",
-      "updatedAt": "2026-03-26T15:10:15Z",
+      "updatedAt": "2026-04-28T14:43:37Z",
       "type": "producto",
       "slug": "idenficador-maleta",
       "path": "/productos/idenficador-maleta",
@@ -22725,7 +22766,7 @@
     },
     {
       "id": "59",
-      "updatedAt": "2026-03-26T15:14:39Z",
+      "updatedAt": "2026-04-28T14:44:02Z",
       "type": "producto",
       "slug": "imanes-publicitarios",
       "path": "/productos/imanes-publicitarios",
@@ -23063,13 +23104,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/imanes-publicitarios.webp"
       }
     },
     {
       "id": "99",
-      "updatedAt": "2026-03-30T15:00:24Z",
+      "updatedAt": "2026-04-28T14:44:22Z",
       "type": "producto",
       "slug": "invitaciones-y-tarjetones-personalizados",
       "path": "/productos/invitaciones-y-tarjetones-personalizados",
@@ -23390,13 +23431,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/tarjetones-e-invitaciones.webp"
       }
     },
     {
       "id": "148",
-      "updatedAt": "2026-03-26T13:10:35Z",
+      "updatedAt": "2026-04-28T08:36:18Z",
       "type": "producto",
       "slug": "lamina-magnetica-impresa",
       "path": "/productos/lamina-magnetica-impresa",
@@ -23535,8 +23576,8 @@
       ],
       "faqs": [
         {
-          "question": "¿Es lo mismo que \"imanes publicitarios\"?",
-          "answer": "No. Los imanes publicitarios suelen ser piezas pequeñas (nevera). La lámina magnética impresa es un material de gran formato pensado para señalética y rotulación removible."
+          "question": "¿Es lo mismo que imanes publicitarios?",
+          "answer": "No. Los imanes publicitarios suelen ser piezas pequeñas para nevera. La lámina magnética impresa es un material de mayor formato pensado para señalética y rotulación removible."
         },
         {
           "question": "¿Sirve para cualquier coche?",
@@ -23544,7 +23585,7 @@
         },
         {
           "question": "¿Se puede usar en exterior?",
-          "answer": "Sí para usos temporales, pero depende de exposición y velocidad/viento (en vehículos) y del acabado protector. Te recomendamos laminado según caso."
+          "answer": "Sí, para usos temporales, aunque depende de la exposición, la velocidad o el viento en vehículos y del acabado protector. Te recomendamos laminado según el caso."
         },
         {
           "question": "¿Se puede hacer a medida?",
@@ -23654,10 +23695,10 @@
               "mainEntity": [
                 {
                   "@type": "Question",
-                  "name": "¿Es lo mismo que \"imanes publicitarios\"?",
+                  "name": "¿Es lo mismo que imanes publicitarios?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "No. Los imanes publicitarios suelen ser piezas pequeñas (nevera). La lámina magnética impresa es un material de gran formato pensado para señalética y rotulación removible."
+                    "text": "No. Los imanes publicitarios suelen ser piezas pequeñas para nevera. La lámina magnética impresa es un material de mayor formato pensado para señalética y rotulación removible."
                   }
                 },
                 {
@@ -23673,7 +23714,7 @@
                   "name": "¿Se puede usar en exterior?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí para usos temporales, pero depende de exposición y velocidad/viento (en vehículos) y del acabado protector. Te recomendamos laminado según caso."
+                    "text": "Sí, para usos temporales, aunque depende de la exposición, la velocidad o el viento en vehículos y del acabado protector. Te recomendamos laminado según el caso."
                   }
                 },
                 {
@@ -23688,13 +23729,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/imanes.webp"
       }
     },
     {
       "id": "60",
-      "updatedAt": "2026-03-26T15:18:11Z",
+      "updatedAt": "2026-04-28T14:44:48Z",
       "type": "producto",
       "slug": "lanyards-eventos-barcelona",
       "path": "/productos/lanyards-eventos-barcelona",
@@ -24047,13 +24088,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/eventos/lanyard.webp"
       }
     },
     {
       "id": "132",
-      "updatedAt": "2026-03-26T13:02:47Z",
+      "updatedAt": "2026-04-28T14:45:10Z",
       "type": "producto",
       "slug": "letras-corporeas-personalizadas",
       "path": "/productos/letras-corporeas-personalizadas",
@@ -24341,13 +24382,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/letras corporeas ok.webp"
       }
     },
     {
       "id": "129",
-      "updatedAt": "2026-04-07T09:06:10Z",
+      "updatedAt": "2026-04-28T14:45:32Z",
       "type": "producto",
       "slug": "libretas-personalizadas",
       "path": "/productos/libretas-personalizadas",
@@ -24418,7 +24459,7 @@
       "faqs": [
         {
           "question": "¿Libreta o bloc de notas?",
-          "answer": "El bloc suele ser arrancable y más"
+          "answer": "El bloc suele ser arrancable y más \"de mesa\". La libreta está pensada para guardar, transportar y usar durante más tiempo."
         },
         {
           "question": "¿Qué encuadernación recomendáis para uso diario?",
@@ -24539,7 +24580,7 @@
                   "name": "¿Libreta o bloc de notas?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "El bloc suele ser arrancable y más"
+                    "text": "El bloc suele ser arrancable y más \"de mesa\". La libreta está pensada para guardar, transportar y usar durante más tiempo."
                   }
                 },
                 {
@@ -24570,13 +24611,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/libretas.webp"
       }
     },
     {
       "id": "63",
-      "updatedAt": "2026-03-26T15:21:53Z",
+      "updatedAt": "2026-04-28T14:45:52Z",
       "type": "producto",
       "slug": "lona-publicitaria",
       "path": "/productos/lona-publicitaria",
@@ -24880,13 +24921,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/lona-publicitaria.webp"
       }
     },
     {
       "id": "65",
-      "updatedAt": "2026-03-26T15:27:46Z",
+      "updatedAt": "2026-04-28T14:46:12Z",
       "type": "producto",
       "slug": "manteles-individuales-personalizados",
       "path": "/productos/manteles-individuales-personalizados",
@@ -25117,7 +25158,7 @@
     },
     {
       "id": "68",
-      "updatedAt": "2026-03-26T16:16:28Z",
+      "updatedAt": "2026-04-28T14:46:34Z",
       "type": "producto",
       "slug": "marcos-click-system-personalizados",
       "path": "/productos/marcos-click-system-personalizados",
@@ -25407,13 +25448,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/expositores/marco-click-system.webp"
       }
     },
     {
       "id": "66",
-      "updatedAt": "2026-03-26T15:33:48Z",
+      "updatedAt": "2026-04-28T14:47:00Z",
       "type": "producto",
       "slug": "marcos-photocall-personalizados",
       "path": "/productos/marcos-photocall-personalizados",
@@ -25715,13 +25756,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/eventos/marcos-photocall.webp"
       }
     },
     {
       "id": "69",
-      "updatedAt": "2026-03-26T16:18:54Z",
+      "updatedAt": "2026-04-28T14:47:25Z",
       "type": "producto",
       "slug": "metacrilato-personalizado",
       "path": "/productos/metacrilato-personalizado",
@@ -25792,7 +25833,7 @@
       "faqs": [
         {
           "question": "¿Metacrilato transparente u opal?",
-          "answer": "Transparente si buscas efecto"
+          "answer": "Transparente si buscas efecto \"cristal\" y ligereza visual. Opal si quieres una base más uniforme y un acabado muy limpio (y si el diseño necesita más contraste)."
         },
         {
           "question": "¿Se puede hacer con separadores para efecto flotante?",
@@ -25995,7 +26036,7 @@
                   "name": "¿Metacrilato transparente u opal?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Transparente si buscas efecto"
+                    "text": "Transparente si buscas efecto \"cristal\" y ligereza visual. Opal si quieres una base más uniforme y un acabado muy limpio (y si el diseño necesita más contraste)."
                   }
                 },
                 {
@@ -26026,13 +26067,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/metacrilato.webp"
       }
     },
     {
       "id": "70",
-      "updatedAt": "2026-03-26T16:22:45Z",
+      "updatedAt": "2026-04-28T14:47:45Z",
       "type": "producto",
       "slug": "minutas-boda",
       "path": "/productos/minutas-boda",
@@ -26409,13 +26450,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/eventos/minutas-boda.webp"
       }
     },
     {
       "id": "72",
-      "updatedAt": "2026-03-26T16:27:54Z",
+      "updatedAt": "2026-04-28T14:48:56Z",
       "type": "producto",
       "slug": "nombres-sobremesa-personalizados",
       "path": "/productos/nombres-sobremesa-personalizados",
@@ -26777,13 +26818,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/eventos/nombres-sobremesa.webp"
       }
     },
     {
       "id": "21",
-      "updatedAt": "2026-03-26T12:35:38Z",
+      "updatedAt": "2026-04-28T11:04:59Z",
       "type": "producto",
       "slug": "panel-carton-compacto-personalizado",
       "path": "/productos/panel-carton-compacto-personalizado",
@@ -26854,15 +26895,15 @@
       "faqs": [
         {
           "question": "¿Cartón compacto o panel de foam?",
-          "answer": "El foam es más ligero; el cartón compacto suele dar más sensación de solidez y aguanta mejor como base de display o pieza estructural de interior."
+          "answer": "El panel de foam es más ligero. El cartón compacto suele ofrecer más sensación de solidez y funciona mejor como base de display o pieza estructural para interior."
         },
         {
           "question": "¿Se puede hacer con forma personalizada?",
-          "answer": "Sí, es uno de sus puntos fuertes: admite troquelado/corte a medida para piezas creativas o funcionales."
+          "answer": "Sí. Es uno de sus puntos fuertes: admite troquelado o corte a medida para crear piezas creativas, promocionales o funcionales."
         },
         {
           "question": "¿Es adecuado para exterior?",
-          "answer": "Está pensado principalmente para interior. Si necesitas exterior o humedad, te recomendaremos un soporte más adecuado."
+          "answer": "Está pensado principalmente para interior. Si necesitas usarlo en exterior o en zonas con humedad, te recomendaremos un soporte más adecuado."
         }
       ],
       "breadcrumbs": [
@@ -27052,7 +27093,7 @@
                   "name": "¿Cartón compacto o panel de foam?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "El foam es más ligero; el cartón compacto suele dar más sensación de solidez y aguanta mejor como base de display o pieza estructural de interior."
+                    "text": "El panel de foam es más ligero. El cartón compacto suele ofrecer más sensación de solidez y funciona mejor como base de display o pieza estructural para interior."
                   }
                 },
                 {
@@ -27060,7 +27101,7 @@
                   "name": "¿Se puede hacer con forma personalizada?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, es uno de sus puntos fuertes: admite troquelado/corte a medida para piezas creativas o funcionales."
+                    "text": "Sí. Es uno de sus puntos fuertes: admite troquelado o corte a medida para crear piezas creativas, promocionales o funcionales."
                   }
                 },
                 {
@@ -27068,7 +27109,7 @@
                   "name": "¿Es adecuado para exterior?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Está pensado principalmente para interior. Si necesitas exterior o humedad, te recomendaremos un soporte más adecuado."
+                    "text": "Está pensado principalmente para interior. Si necesitas usarlo en exterior o en zonas con humedad, te recomendaremos un soporte más adecuado."
                   }
                 }
               ]
@@ -27081,7 +27122,7 @@
     },
     {
       "id": "22",
-      "updatedAt": "2026-03-26T12:36:17Z",
+      "updatedAt": "2026-04-28T11:05:26Z",
       "type": "producto",
       "slug": "panel-carton-corrugado-personalizado",
       "path": "/productos/panel-carton-corrugado-personalizado",
@@ -27152,15 +27193,15 @@
       "faqs": [
         {
           "question": "¿Es reciclable?",
-          "answer": "Sí, es un soporte de base papel. Para mantenerlo totalmente reciclable, lo ideal es elegir acabados compatibles (sin laminados plásticos cuando no sean necesarios)."
+          "answer": "Sí. Es un soporte de base papel. Para mantenerlo totalmente reciclable, lo ideal es elegir acabados compatibles y evitar laminados plásticos cuando no sean necesarios."
         },
         {
           "question": "¿Es lo mismo que el cartón nido de abeja?",
-          "answer": "No. El corrugado (ondulado) es muy eficiente para campañas y PLV con coste contenido; el nido de abeja suele destacar en formatos muy grandes por su rigidez con muy poco peso."
+          "answer": "No. El cartón corrugado u ondulado es muy eficiente para campañas y PLV con coste contenido. El cartón nido de abeja suele destacar en formatos muy grandes por su rigidez y bajo peso."
         },
         {
           "question": "¿Se puede hacer con forma personalizada?",
-          "answer": "Sí, admite troquel/corte a medida para siluetas, flechas, formas de producto o piezas creativas."
+          "answer": "Sí. Admite troquelado o corte a medida para crear siluetas, flechas, formas de producto o piezas promocionales creativas."
         }
       ],
       "breadcrumbs": [
@@ -27351,7 +27392,7 @@
                   "name": "¿Es reciclable?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, es un soporte de base papel. Para mantenerlo totalmente reciclable, lo ideal es elegir acabados compatibles (sin laminados plásticos cuando no sean necesarios)."
+                    "text": "Sí. Es un soporte de base papel. Para mantenerlo totalmente reciclable, lo ideal es elegir acabados compatibles y evitar laminados plásticos cuando no sean necesarios."
                   }
                 },
                 {
@@ -27359,7 +27400,7 @@
                   "name": "¿Es lo mismo que el cartón nido de abeja?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "No. El corrugado (ondulado) es muy eficiente para campañas y PLV con coste contenido; el nido de abeja suele destacar en formatos muy grandes por su rigidez con muy poco peso."
+                    "text": "No. El cartón corrugado u ondulado es muy eficiente para campañas y PLV con coste contenido. El cartón nido de abeja suele destacar en formatos muy grandes por su rigidez y bajo peso."
                   }
                 },
                 {
@@ -27367,7 +27408,7 @@
                   "name": "¿Se puede hacer con forma personalizada?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, admite troquel/corte a medida para siluetas, flechas, formas de producto o piezas creativas."
+                    "text": "Sí. Admite troquelado o corte a medida para crear siluetas, flechas, formas de producto o piezas promocionales creativas."
                   }
                 }
               ]
@@ -27380,7 +27421,7 @@
     },
     {
       "id": "32",
-      "updatedAt": "2026-03-26T12:40:16Z",
+      "updatedAt": "2026-04-28T11:14:09Z",
       "type": "producto",
       "slug": "panel-dibond-personalizado",
       "path": "/productos/panel-dibond-personalizado",
@@ -27451,19 +27492,19 @@
       "faqs": [
         {
           "question": "¿Es adecuado para exterior?",
-          "answer": "Sí, es uno de los soportes más usados para exterior por su estabilidad y resistencia."
+          "answer": "Sí. Es uno de los soportes más usados en exterior por su estabilidad, resistencia y buen comportamiento en instalaciones de larga duración."
         },
         {
           "question": "¿Dibond o Forex?",
-          "answer": "Para exterior o instalaciones de larga duración, Dibond suele ser más estable y premium. Forex es muy versátil en interior y campañas, pero normalmente no ofrece el mismo comportamiento"
+          "answer": "Para exterior o instalaciones de larga duración, el Dibond suele ser más estable y premium. El Forex es muy versátil para interior y campañas temporales, pero normalmente no ofrece el mismo comportamiento a largo plazo en exterior."
         },
         {
           "question": "¿Se puede hacer con forma personalizada?",
-          "answer": "Sí, mediante corte a medida y mecanizado si lo necesitas."
+          "answer": "Sí. Podemos fabricarlo con corte a medida y mecanizado si el proyecto lo requiere."
         },
         {
           "question": "¿Qué grosor necesito?",
-          "answer": "Depende del tamaño y del montaje (atornillado, separadores, estructura). Con medidas y ubicación, te lo indicamos rápido."
+          "answer": "Depende del tamaño, la ubicación y el tipo de montaje, por ejemplo atornillado, con separadores o sobre estructura. Con las medidas y el lugar de instalación, te recomendamos el grosor más adecuado."
         }
       ],
       "breadcrumbs": [
@@ -27653,7 +27694,7 @@
                   "name": "¿Es adecuado para exterior?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, es uno de los soportes más usados para exterior por su estabilidad y resistencia."
+                    "text": "Sí. Es uno de los soportes más usados en exterior por su estabilidad, resistencia y buen comportamiento en instalaciones de larga duración."
                   }
                 },
                 {
@@ -27661,7 +27702,7 @@
                   "name": "¿Dibond o Forex?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Para exterior o instalaciones de larga duración, Dibond suele ser más estable y premium. Forex es muy versátil en interior y campañas, pero normalmente no ofrece el mismo comportamiento"
+                    "text": "Para exterior o instalaciones de larga duración, el Dibond suele ser más estable y premium. El Forex es muy versátil para interior y campañas temporales, pero normalmente no ofrece el mismo comportamiento a largo plazo en exterior."
                   }
                 },
                 {
@@ -27669,7 +27710,7 @@
                   "name": "¿Se puede hacer con forma personalizada?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, mediante corte a medida y mecanizado si lo necesitas."
+                    "text": "Sí. Podemos fabricarlo con corte a medida y mecanizado si el proyecto lo requiere."
                   }
                 },
                 {
@@ -27677,7 +27718,7 @@
                   "name": "¿Qué grosor necesito?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Depende del tamaño y del montaje (atornillado, separadores, estructura). Con medidas y ubicación, te lo indicamos rápido."
+                    "text": "Depende del tamaño, la ubicación y el tipo de montaje, por ejemplo atornillado, con separadores o sobre estructura. Con las medidas y el lugar de instalación, te recomendamos el grosor más adecuado."
                   }
                 }
               ]
@@ -27690,7 +27731,7 @@
     },
     {
       "id": "50",
-      "updatedAt": "2026-03-26T13:41:34Z",
+      "updatedAt": "2026-04-28T15:01:50Z",
       "type": "producto",
       "slug": "panel-foam-personalizado",
       "path": "/productos/panel-foam-personalizado",
@@ -27925,13 +27966,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/foam.webp"
       }
     },
     {
       "id": "52",
-      "updatedAt": "2026-03-26T14:47:29Z",
+      "updatedAt": "2026-04-28T15:03:04Z",
       "type": "producto",
       "slug": "panel-forex",
       "path": "/productos/panel-forex",
@@ -28002,7 +28043,7 @@
       "faqs": [
         {
           "question": "¿Forex o foam (cartón pluma)?",
-          "answer": "El foam es más ligero, pero el Forex suele ser más resistente y"
+          "answer": "El foam es más ligero, pero el Forex suele ser más resistente y \"de batalla\" para señalética y uso continuado en interior."
         },
         {
           "question": "¿Se puede usar en exterior?",
@@ -28206,7 +28247,7 @@
                   "name": "¿Forex o foam (cartón pluma)?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "El foam es más ligero, pero el Forex suele ser más resistente y"
+                    "text": "El foam es más ligero, pero el Forex suele ser más resistente y \"de batalla\" para señalética y uso continuado en interior."
                   }
                 },
                 {
@@ -28237,13 +28278,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/forex.webp"
       }
     },
     {
       "id": "71",
-      "updatedAt": "2026-04-08T10:18:11Z",
+      "updatedAt": "2026-04-28T15:04:18Z",
       "type": "producto",
       "slug": "panel-nido-de-abeja-personalizado",
       "path": "/productos/panel-nido-de-abeja-personalizado",
@@ -28537,13 +28578,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/nido-de-abeja.webp"
       }
     },
     {
       "id": "35",
-      "updatedAt": "2026-03-26T12:41:41Z",
+      "updatedAt": "2026-04-28T15:00:42Z",
       "type": "producto",
       "slug": "panel-dispa-personalizado",
       "path": "/productos/panel-dispa-personalizado",
@@ -28842,7 +28883,7 @@
     },
     {
       "id": "120",
-      "updatedAt": "2026-04-07T08:30:24Z",
+      "updatedAt": "2026-04-28T15:04:54Z",
       "type": "producto",
       "slug": "panel-ultraligero",
       "path": "/productos/panel-ultraligero",
@@ -28913,7 +28954,7 @@
       "faqs": [
         {
           "question": "¿En qué se diferencia del foam (cartón pluma)?",
-          "answer": "Suele ofrecer una sensación más"
+          "answer": "Suele ofrecer una sensación más \"rígida\" y resistente, manteniendo la ligereza, y con caras de PVC pensadas para impresión y manipulación."
         },
         {
           "question": "¿Se puede hacer con forma personalizada?",
@@ -29030,7 +29071,7 @@
                   "name": "¿En qué se diferencia del foam (cartón pluma)?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Suele ofrecer una sensación más"
+                    "text": "Suele ofrecer una sensación más \"rígida\" y resistente, manteniendo la ligereza, y con caras de PVC pensadas para impresión y manipulación."
                   }
                 },
                 {
@@ -29053,13 +29094,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/panel-ligero.webp"
       }
     },
     {
       "id": "64",
-      "updatedAt": "2026-03-26T15:24:53Z",
+      "updatedAt": "2026-04-28T15:05:17Z",
       "type": "producto",
       "slug": "paneles-madera",
       "path": "/productos/paneles-madera",
@@ -29130,7 +29171,7 @@
       "faqs": [
         {
           "question": "¿Qué elijo: MDF o contrachapado?",
-          "answer": "MDF si buscas un acabado uniforme (muy"
+          "answer": "MDF si buscas un acabado uniforme (muy \"limpio\" y perfecto para pintar o aplicar gráfica). Contrachapado si quieres que se vea la madera y la veta sea parte del diseño."
         },
         {
           "question": "¿Cuándo conviene 19 mm?",
@@ -29334,7 +29375,7 @@
                   "name": "¿Qué elijo: MDF o contrachapado?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "MDF si buscas un acabado uniforme (muy"
+                    "text": "MDF si buscas un acabado uniforme (muy \"limpio\" y perfecto para pintar o aplicar gráfica). Contrachapado si quieres que se vea la madera y la veta sea parte del diseño."
                   }
                 },
                 {
@@ -29365,13 +29406,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/madera.webp"
       }
     },
     {
       "id": "127",
-      "updatedAt": "2026-04-07T08:37:16Z",
+      "updatedAt": "2026-04-28T15:05:54Z",
       "type": "producto",
       "slug": "papel-de-carta",
       "path": "/productos/papel-de-carta",
@@ -29594,13 +29635,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/papel-carta.webp"
       }
     },
     {
       "id": "76",
-      "updatedAt": "2026-03-26T16:30:06Z",
+      "updatedAt": "2026-04-28T15:07:00Z",
       "type": "producto",
       "slug": "papel-de-pared-personalizado",
       "path": "/productos/papel-de-pared-personalizado",
@@ -29675,11 +29716,11 @@
         },
         {
           "question": "¿Cómo se calcula la cantidad?",
-          "answer": "Con las medidas de la pared (ancho x alto) y teniendo en cuenta puertas/ventanas si quieres que el diseño las"
+          "answer": "Con las medidas de la pared (ancho x alto) y teniendo en cuenta puertas/ventanas si quieres que el diseño las \"esquive\" o se adapte. Si nos envías un plano o fotos, lo ajustamos mejor."
         },
         {
           "question": "¿Es mejor mate o brillo?",
-          "answer": "En papel de pared casi siempre mate, porque evita reflejos y se ve más"
+          "answer": "En papel de pared casi siempre mate, porque evita reflejos y se ve más \"de interior\"."
         },
         {
           "question": "¿Sirve para zonas de mucho paso?",
@@ -29880,7 +29921,7 @@
                   "name": "¿Cómo se calcula la cantidad?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Con las medidas de la pared (ancho x alto) y teniendo en cuenta puertas/ventanas si quieres que el diseño las"
+                    "text": "Con las medidas de la pared (ancho x alto) y teniendo en cuenta puertas/ventanas si quieres que el diseño las \"esquive\" o se adapte. Si nos envías un plano o fotos, lo ajustamos mejor."
                   }
                 },
                 {
@@ -29888,7 +29929,7 @@
                   "name": "¿Es mejor mate o brillo?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "En papel de pared casi siempre mate, porque evita reflejos y se ve más"
+                    "text": "En papel de pared casi siempre mate, porque evita reflejos y se ve más \"de interior\"."
                   }
                 },
                 {
@@ -29903,13 +29944,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/papel-pared.webp"
       }
     },
     {
       "id": "78",
-      "updatedAt": "2026-03-26T16:35:36Z",
+      "updatedAt": "2026-04-28T10:40:27Z",
       "type": "producto",
       "slug": "pegatinas-personalizadas",
       "path": "/productos/pegatinas-personalizadas",
@@ -29922,17 +29963,33 @@
       "isPublished": true,
       "shortDescription": "Si necesitas pegatinas a medida para etiquetar productos, reforzar tu marca o lanzar una promoción, imprimimos tus pegatinas personalizadas en papel o plástico (blanco o transparente), con corte estándar o troquelado y colores vivos en cuatricromía.",
       "description": "Si necesitas pegatinas a medida para etiquetar productos, reforzar tu marca o lanzar una promoción, imprimimos tus pegatinas personalizadas en papel o plástico (blanco o transparente), con corte estándar o troquelado y colores vivos en cuatricromía.",
-      "bodyMd": "¿Qué son las pegatinas personalizadas y para qué se utilizan? \nTambién llamadas stickers, las pegatinas personalizadas impresas en plástico blanco, transparente o papel permiten configurar cualquier tamaño y adaptarse a todo tipo de aplicaciones. Se fabrican sobre un soporte adhesivo de tres capas (material superior, adhesivo y liner) y suelen incorporar cortes traseros para facilitar la separación.",
+      "bodyMd": "### ¿Qué son las pegatinas personalizadas y para qué se utilizan?\n\nLas pegatinas personalizadas, también conocidas como stickers, son adhesivos impresos a medida que permiten adaptar el tamaño, la forma, el material y el acabado según el uso previsto.\n\nSe fabrican sobre un soporte adhesivo compuesto por tres capas: el material superior imprimible, el adhesivo y el liner o papel soporte. Pueden producirse en papel, polipropileno blanco o polipropileno transparente, y son adecuadas tanto para aplicaciones promocionales como para packaging, identificación de productos, decoración o comunicación de marca.\n\nSegún el proyecto, pueden entregarse como unidades sueltas, en hojas o en bobina, con corte estándar o troquelado a medida.",
       "sections": [
         {
           "id": "details",
           "key": "details",
           "title": "Detalles",
-          "body": "¿Qué son las pegatinas personalizadas y para qué se utilizan? \nTambién llamadas stickers, las pegatinas personalizadas impresas en plástico blanco, transparente o papel permiten configurar cualquier tamaño y adaptarse a todo tipo de aplicaciones. Se fabrican sobre un soporte adhesivo de tres capas (material superior, adhesivo y liner) y suelen incorporar cortes traseros para facilitar la separación.",
+          "body": "### ¿Qué son las pegatinas personalizadas y para qué se utilizan?\n\nLas pegatinas personalizadas, también conocidas como stickers, son adhesivos impresos a medida que permiten adaptar el tamaño, la forma, el material y el acabado según el uso previsto.\n\nSe fabrican sobre un soporte adhesivo compuesto por tres capas: el material superior imprimible, el adhesivo y el liner o papel soporte. Pueden producirse en papel, polipropileno blanco o polipropileno transparente, y son adecuadas tanto para aplicaciones promocionales como para packaging, identificación de productos, decoración o comunicación de marca.\n\nSegún el proyecto, pueden entregarse como unidades sueltas, en hojas o en bobina, con corte estándar o troquelado a medida.",
           "blocks": [
             {
               "type": "text",
-              "text": "¿Qué son las pegatinas personalizadas y para qué se utilizan?\nTambién llamadas stickers, las pegatinas personalizadas impresas en plástico blanco, transparente o papel permiten configurar cualquier tamaño y adaptarse a todo tipo de aplicaciones. Se fabrican sobre un soporte adhesivo de tres capas (material superior, adhesivo y liner) y suelen incorporar cortes traseros para facilitar la separación.",
+              "text": "<h3>¿Qué son las pegatinas personalizadas y para qué se utilizan?</h3>",
+              "html": true,
+              "format": "html"
+            },
+            {
+              "type": "text",
+              "text": "Las pegatinas personalizadas, también conocidas como stickers, son adhesivos impresos a medida que permiten adaptar el tamaño, la forma, el material y el acabado según el uso previsto.",
+              "html": false
+            },
+            {
+              "type": "text",
+              "text": "Se fabrican sobre un soporte adhesivo compuesto por tres capas: el material superior imprimible, el adhesivo y el liner o papel soporte. Pueden producirse en papel, polipropileno blanco o polipropileno transparente, y son adecuadas tanto para aplicaciones promocionales como para packaging, identificación de productos, decoración o comunicación de marca.",
+              "html": false
+            },
+            {
+              "type": "text",
+              "text": "Según el proyecto, pueden entregarse como unidades sueltas, en hojas o en bobina, con corte estándar o troquelado a medida.",
               "html": false
             }
           ]
@@ -29941,38 +29998,25 @@
           "id": "benefits",
           "key": "benefits",
           "title": "Beneficios",
-          "body": "Personalización total de tamaño y forma.  \nCortes: cuadrados, redondos, ovalados o a medida.  \nColores intensos y buena definición.  \nPrácticas, resistentes y aptas para múltiples usos.  \nFáciles de aplicar y almacenar.",
+          "body": "### Ventajas de las pegatinas personalizadas\n\n- Personalización total de tamaño, forma, material y acabado.\n- Posibilidad de cortes cuadrados, redondos, ovalados o troquelados a medida.\n- Buena definición de impresión y colores intensos.\n- Formato práctico, versátil y fácil de aplicar.\n- Aptas para promociones, packaging, etiquetado, decoración y branding.\n- Fáciles de almacenar, transportar y repartir.",
           "blocks": [
             {
               "type": "text",
-              "text": "Personalización total de tamaño y forma.\nCortes: cuadrados, redondos, ovalados o a medida.\nColores intensos y buena definición.\nPrácticas, resistentes y aptas para múltiples usos.\nFáciles de aplicar y almacenar.",
-              "html": false
-            }
-          ]
-        },
-        {
-          "id": "materials",
-          "key": "materials",
-          "title": "Materiales",
-          "body": "Plástico transparente: Polipropileno transparente. \nPlástico blanco: Polipropileno blanco. \nPapel revestido: Papel autoadhesivo con acabado brillo. \nPapel no revestido: Papel autoadhesivo sin acabado.",
-          "blocks": [
+              "text": "<h3>Ventajas de las pegatinas personalizadas</h3>",
+              "html": true,
+              "format": "html"
+            },
             {
-              "type": "text",
-              "text": "Plástico transparente: Polipropileno transparente.\nPlástico blanco: Polipropileno blanco.\nPapel revestido: Papel autoadhesivo con acabado brillo.\nPapel no revestido: Papel autoadhesivo sin acabado.",
-              "html": false
-            }
-          ]
-        },
-        {
-          "id": "formats",
-          "key": "formats",
-          "title": "Formatos y soportes",
-          "body": "Podemos entregar tus pegatinas en el formato más práctico según el uso: unidades sueltas, en planchas/hojas o en bobina (si las vas a aplicar en serie o necesitas mayor agilidad en producción). El corte puede ser estándar o con troquel a medida para ajustarse a tu diseño.",
-          "blocks": [
-            {
-              "type": "text",
-              "text": "Podemos entregar tus pegatinas en el formato más práctico según el uso: unidades sueltas, en planchas/hojas o en bobina (si las vas a aplicar en serie o necesitas mayor agilidad en producción). El corte puede ser estándar o con troquel a medida para ajustarse a tu diseño.",
-              "html": false
+              "type": "bullets",
+              "items": [
+                "Personalización total de tamaño, forma, material y acabado.",
+                "Posibilidad de cortes cuadrados, redondos, ovalados o troquelados a medida.",
+                "Buena definición de impresión y colores intensos.",
+                "Formato práctico, versátil y fácil de aplicar.",
+                "Aptas para promociones, packaging, etiquetado, decoración y branding.",
+                "Fáciles de almacenar, transportar y repartir."
+              ],
+              "ordered": false
             }
           ]
         },
@@ -29980,12 +30024,25 @@
           "id": "applications",
           "key": "applications",
           "title": "Aplicaciones",
-          "body": "Decoración de portátiles, botellas, móviles y libretas.  \nIdentificación y clasificación (incluido uso doméstico y organizativo).  \nCorrección de pequeños errores en materiales ya impresos.  \nPublicidad, promociones y branding en general.",
+          "body": "### Usos habituales\n\n- Packaging, envases, bolsas, cajas y sobres.\n- Etiquetas para producto, marca, promociones o campañas temporales.\n- Decoración de portátiles, botellas, móviles, libretas y otros soportes.\n- Identificación y clasificación en entornos comerciales, profesionales o domésticos.\n- Corrección de pequeños errores en materiales ya impresos.\n- Stickers promocionales para eventos, ferias, tiendas y acciones de marketing.",
           "blocks": [
             {
               "type": "text",
-              "text": "Decoración de portátiles, botellas, móviles y libretas.\nIdentificación y clasificación (incluido uso doméstico y organizativo).\nCorrección de pequeños errores en materiales ya impresos.\nPublicidad, promociones y branding en general.",
-              "html": false
+              "text": "<h3>Usos habituales</h3>",
+              "html": true,
+              "format": "html"
+            },
+            {
+              "type": "bullets",
+              "items": [
+                "Packaging, envases, bolsas, cajas y sobres.",
+                "Etiquetas para producto, marca, promociones o campañas temporales.",
+                "Decoración de portátiles, botellas, móviles, libretas y otros soportes.",
+                "Identificación y clasificación en entornos comerciales, profesionales o domésticos.",
+                "Corrección de pequeños errores en materiales ya impresos.",
+                "Stickers promocionales para eventos, ferias, tiendas y acciones de marketing."
+              ],
+              "ordered": false
             }
           ]
         }
@@ -29993,7 +30050,7 @@
       "faqs": [
         {
           "question": "¿Cuál es el grosor de las pegatinas personalizadas?",
-          "answer": "Puede variar según fabricante. Valores orientativos: plástico transparente (25 micras), plástico blanco (22 micras), papel revestido (65 micras) y papel no revestido (148 micras)."
+          "answer": "El grosor puede variar según el material y el fabricante. Como referencia, el plástico transparente suele estar alrededor de 25 micras, el plástico blanco alrededor de 22 micras, el papel revestido alrededor de 65 micras y el papel no revestido alrededor de 148 micras."
         },
         {
           "question": "¿Se adhieren a cualquier superficie?",
@@ -30001,7 +30058,7 @@
         },
         {
           "question": "¿Puedo pedir forma personalizada?",
-          "answer": "Sí, hacemos cortes cuadrados, redondos, ovalados o a medida mediante troquelado."
+          "answer": "Sí. Hacemos cortes cuadrados, redondos, ovalados o a medida mediante troquelado."
         }
       ],
       "breadcrumbs": [
@@ -30104,10 +30161,38 @@
           }
         ],
         "keywords": [
-          "pegatinas individuales"
+          "pegatinas personalizadas",
+          "pegatinas a medida",
+          "stickers personalizados",
+          "etiquetas adhesivas personalizadas",
+          "pegatinas troqueladas",
+          "pegatinas transparentes",
+          "pegatinas de papel",
+          "pegatinas para packaging",
+          "impresión de pegatinas",
+          "pegatinas para marca"
         ],
         "searchTerms": [
-          "pegatinas individuales"
+          "pegatinas",
+          "pegatinas personalizadas",
+          "pegatinas a medida",
+          "stickers",
+          "stickers personalizados",
+          "etiquetas",
+          "etiquetas adhesivas",
+          "etiquetas personalizadas",
+          "adhesivos personalizados",
+          "pegatinas troqueladas",
+          "pegatinas redondas",
+          "pegatinas cuadradas",
+          "pegatinas transparentes",
+          "pegatinas blancas",
+          "pegatinas en papel",
+          "pegatinas en vinilo",
+          "pegatinas para packaging",
+          "pegatinas para productos",
+          "pegatinas para empresas",
+          "imprimir pegatinas"
         ],
         "schema": {
           "@context": "https://schema.org",
@@ -30115,14 +30200,32 @@
             {
               "@type": "Product",
               "name": "Pegatinas personalizadas",
-              "description": "Diseñamos e imprimimos etiquetas personalizadas para productos, envases y promociones. En rollo o en hojas, vinilo, papel, transparentes y troqueladas. Solicita presupuesto.",
+              "description": "Pegatinas personalizadas a medida en papel, polipropileno blanco o transparente, con corte estándar o troquelado. Indicadas para packaging, promociones, marca y etiquetado de productos.",
               "image": "https://webcms.blob.core.windows.net/media/product/adhesivos/pegatinas-individuales.webp",
               "url": "https://reprodisseny.com/productos/pegatinas-personalizadas",
               "brand": {
                 "@type": "Organization",
                 "name": "Reprodisseny"
               },
-              "sku": "01-ADHE-0001"
+              "sku": "01-ADHE-0001",
+              "category": "Pegatinas y adhesivos personalizados",
+              "additionalProperty": [
+                {
+                  "@type": "PropertyValue",
+                  "name": "Materiales",
+                  "value": "Papel autoadhesivo, polipropileno blanco y polipropileno transparente"
+                },
+                {
+                  "@type": "PropertyValue",
+                  "name": "Formatos",
+                  "value": "Unidades sueltas, hojas o formatos adaptados al proyecto"
+                },
+                {
+                  "@type": "PropertyValue",
+                  "name": "Corte",
+                  "value": "Recto, redondo, ovalado o troquelado a medida"
+                }
+              ]
             },
             {
               "@type": "BreadcrumbList",
@@ -30161,7 +30264,7 @@
                   "name": "¿Cuál es el grosor de las pegatinas personalizadas?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Puede variar según fabricante. Valores orientativos: plástico transparente (25 micras), plástico blanco (22 micras), papel revestido (65 micras) y papel no revestido (148 micras)."
+                    "text": "El grosor puede variar según el material y el fabricante. Como referencia, el plástico transparente suele estar alrededor de 25 micras, el plástico blanco alrededor de 22 micras, el papel revestido alrededor de 65 micras y el papel no revestido alrededor de 148 micras."
                   }
                 },
                 {
@@ -30177,7 +30280,7 @@
                   "name": "¿Puedo pedir forma personalizada?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, hacemos cortes cuadrados, redondos, ovalados o a medida mediante troquelado."
+                    "text": "Sí. Hacemos cortes cuadrados, redondos, ovalados o a medida mediante troquelado."
                   }
                 }
               ]
@@ -30190,7 +30293,7 @@
     },
     {
       "id": "79",
-      "updatedAt": "2026-03-26T16:38:26Z",
+      "updatedAt": "2026-04-28T15:07:21Z",
       "type": "producto",
       "slug": "photocall-personalizado",
       "path": "/productos/photocall-personalizado",
@@ -30476,13 +30579,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/expositores/photocall.webp"
       }
     },
     {
       "id": "126",
-      "updatedAt": "2026-04-07T08:35:49Z",
+      "updatedAt": "2026-04-28T15:08:01Z",
       "type": "producto",
       "slug": "pizarras-a-medida",
       "path": "/productos/pizarras-a-medida",
@@ -30705,13 +30808,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/pizarra.webp"
       }
     },
     {
       "id": "133",
-      "updatedAt": "2026-03-26T13:03:14Z",
+      "updatedAt": "2026-04-28T15:08:34Z",
       "type": "producto",
       "slug": "placa-direccion-personalizada",
       "path": "/productos/placa-direccion-personalizada",
@@ -30984,13 +31087,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/placa-dirección.webp"
       }
     },
     {
       "id": "83",
-      "updatedAt": "2026-03-26T16:57:03Z",
+      "updatedAt": "2026-04-28T15:08:56Z",
       "type": "producto",
       "slug": "portacuentas-personalizados",
       "path": "/productos/portacuentas-personalizados",
@@ -31284,13 +31387,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/restauracion/portacuentas.webp"
       }
     },
     {
       "id": "84",
-      "updatedAt": "2026-04-07T14:39:40Z",
+      "updatedAt": "2026-04-28T15:10:02Z",
       "type": "producto",
       "slug": "posavasos",
       "path": "/productos/posavasos",
@@ -31578,13 +31681,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/restauracion/posavasos.webp"
       }
     },
     {
       "id": "85",
-      "updatedAt": "2026-03-30T13:03:01Z",
+      "updatedAt": "2026-04-28T15:10:46Z",
       "type": "producto",
       "slug": "posters-personalizados",
       "path": "/productos/posters-personalizados",
@@ -31892,13 +31995,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/posters.webp"
       }
     },
     {
       "id": "86",
-      "updatedAt": "2026-03-30T13:08:04Z",
+      "updatedAt": "2026-04-28T15:11:07Z",
       "type": "producto",
       "slug": "premios-personalizados",
       "path": "/productos/premios-personalizados",
@@ -32270,13 +32373,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/eventos/premios-personalizados.webp"
       }
     },
     {
       "id": "87",
-      "updatedAt": "2026-03-30T13:10:50Z",
+      "updatedAt": "2026-04-28T15:11:35Z",
       "type": "producto",
       "slug": "puntos-de-libro-personalizados",
       "path": "/productos/puntos-de-libro-personalizados",
@@ -32583,13 +32686,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/puntos-libro.webp"
       }
     },
     {
       "id": "88",
-      "updatedAt": "2026-04-07T10:51:47Z",
+      "updatedAt": "2026-04-28T15:46:41Z",
       "type": "producto",
       "slug": "retoiluminados",
       "path": "/productos/retoiluminados",
@@ -32729,7 +32832,24 @@
           ]
         }
       ],
-      "faqs": [],
+      "faqs": [
+        {
+          "question": "¿Qué diferencia hay entre un retroiluminado y un póster normal?",
+          "answer": "El retroiluminado está pensado para trabajar con luz por detrás: el material y la impresión se ajustan para que el resultado se vea uniforme y con impacto cuando se ilumina."
+        },
+        {
+          "question": "¿Se puede cambiar la gráfica sin cambiar la caja de luz?",
+          "answer": "Sí, es una de las ventajas: puedes renovar campañas manteniendo la estructura."
+        },
+        {
+          "question": "¿Mate o brillo?",
+          "answer": "Depende del sistema y la ubicación. En general, el objetivo es evitar reflejos externos y conseguir buena uniformidad; te recomendamos la mejor opción según dónde vaya instalado."
+        },
+        {
+          "question": "¿Qué necesitáis para presupuestar?",
+          "answer": "Medida, tipo de soporte (caja de luz, rótulo, marco), si será interior/exterior y fecha."
+        }
+      ],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -32839,16 +32959,53 @@
                   "item": "https://reprodisseny.com/productos/retoiluminados"
                 }
               ]
+            },
+            {
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "¿Qué diferencia hay entre un retroiluminado y un póster normal?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "El retroiluminado está pensado para trabajar con luz por detrás: el material y la impresión se ajustan para que el resultado se vea uniforme y con impacto cuando se ilumina."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Se puede cambiar la gráfica sin cambiar la caja de luz?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí, es una de las ventajas: puedes renovar campañas manteniendo la estructura."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Mate o brillo?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Depende del sistema y la ubicación. En general, el objetivo es evitar reflejos externos y conseguir buena uniformidad; te recomendamos la mejor opción según dónde vaya instalado."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Qué necesitáis para presupuestar?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Medida, tipo de soporte (caja de luz, rótulo, marco), si será interior/exterior y fecha."
+                  }
+                }
+              ]
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/retroiluminados.webp"
       }
     },
     {
       "id": "89",
-      "updatedAt": "2026-03-30T14:14:00Z",
+      "updatedAt": "2026-04-28T15:12:04Z",
       "type": "producto",
       "slug": "roll-up-personalizado",
       "path": "/productos/roll-up-personalizado",
@@ -33122,13 +33279,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/expositores/roll-up.webp"
       }
     },
     {
       "id": "131",
-      "updatedAt": "2026-04-07T09:09:21Z",
+      "updatedAt": "2026-04-28T15:12:40Z",
       "type": "producto",
       "slug": "sellos-de-goma-personalizados",
       "path": "/productos/sellos-de-goma-personalizados",
@@ -33211,7 +33368,7 @@
         },
         {
           "question": "¿Qué tamaño necesito?",
-          "answer": "Depende del texto. Para datos fiscales completos, suele convenir un formato rectangular medio; para estados ("
+          "answer": "Depende del texto. Para datos fiscales completos, suele convenir un formato rectangular medio; para estados (\"pagado\"), uno más compacto."
         }
       ],
       "breadcrumbs": [
@@ -33344,20 +33501,20 @@
                   "name": "¿Qué tamaño necesito?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Depende del texto. Para datos fiscales completos, suele convenir un formato rectangular medio; para estados ("
+                    "text": "Depende del texto. Para datos fiscales completos, suele convenir un formato rectangular medio; para estados (\"pagado\"), uno más compacto."
                   }
                 }
               ]
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/sellos.webp"
       }
     },
     {
       "id": "128",
-      "updatedAt": "2026-04-07T08:38:38Z",
+      "updatedAt": "2026-04-28T15:13:14Z",
       "type": "producto",
       "slug": "sobres-personalizados",
       "path": "/productos/sobres-personalizados",
@@ -33580,13 +33737,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/sobres.webp"
       }
     },
     {
       "id": "92",
-      "updatedAt": "2026-03-30T14:16:02Z",
+      "updatedAt": "2026-04-28T15:14:38Z",
       "type": "producto",
       "slug": "stoppers-lineal-personalizados",
       "path": "/productos/stoppers-lineal-personalizados",
@@ -33657,7 +33814,7 @@
       "faqs": [
         {
           "question": "¿Qué diferencia hay entre un stopper y una tira de lineal?",
-          "answer": "El stopper sobresale hacia el pasillo para"
+          "answer": "El stopper sobresale hacia el pasillo para \"parar\" la mirada. La tira de lineal suele ir en el borde del estante y acompaña el recorrido."
         },
         {
           "question": "¿Se pueden hacer por campañas y cambiarlos rápido?",
@@ -33851,7 +34008,7 @@
                   "name": "¿Qué diferencia hay entre un stopper y una tira de lineal?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "El stopper sobresale hacia el pasillo para"
+                    "text": "El stopper sobresale hacia el pasillo para \"parar\" la mirada. La tira de lineal suele ir en el borde del estante y acompaña el recorrido."
                   }
                 },
                 {
@@ -33882,13 +34039,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/stoppers.webp"
       }
     },
     {
       "id": "93",
-      "updatedAt": "2026-03-30T14:48:22Z",
+      "updatedAt": "2026-04-28T15:14:38Z",
       "type": "producto",
       "slug": "tabletens-personalizados",
       "path": "/productos/tabletens-personalizados",
@@ -34250,13 +34407,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/eventos/tabletents.webp"
       }
     },
     {
       "id": "130",
-      "updatedAt": "2026-04-07T09:07:49Z",
+      "updatedAt": "2026-04-28T15:15:02Z",
       "type": "producto",
       "slug": "talonarios-autocopiativos-personalizados",
       "path": "/productos/talonarios-autocopiativos-personalizados",
@@ -34479,13 +34636,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/talonarios-autocopiativos.webp"
       }
     },
     {
       "id": "96",
-      "updatedAt": "2026-03-30T14:55:49Z",
+      "updatedAt": "2026-04-28T15:17:17Z",
       "type": "producto",
       "slug": "tarjetas-pvc-personalizadas",
       "path": "/productos/tarjetas-pvc-personalizadas",
@@ -34790,13 +34947,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/tarjetas-de-pvc.webp"
       }
     },
     {
       "id": "125",
-      "updatedAt": "2026-04-07T08:32:27Z",
+      "updatedAt": "2026-04-28T15:16:08Z",
       "type": "producto",
       "slug": "tarjetas-de-visita-personalizadas",
       "path": "/productos/tarjetas-de-visita-personalizadas",
@@ -35019,13 +35176,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/tarjetas-de-visita.webp"
       }
     },
     {
       "id": "95",
-      "updatedAt": "2026-03-30T14:53:26Z",
+      "updatedAt": "2026-04-28T15:16:40Z",
       "type": "producto",
       "slug": "tarjetas-postales-personalizadas",
       "path": "/productos/tarjetas-postales-personalizadas",
@@ -35323,13 +35480,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/tarjetas-postales.webp"
       }
     },
     {
       "id": "97",
-      "updatedAt": "2026-03-30T14:58:29Z",
+      "updatedAt": "2026-04-28T15:17:40Z",
       "type": "producto",
       "slug": "tarjetas-rasca",
       "path": "/productos/tarjetas-rasca",
@@ -35477,7 +35634,7 @@
       "faqs": [
         {
           "question": "¿Se pueden hacer premios diferentes dentro de la misma tirada?",
-          "answer": "Sí. Podemos preparar distintas combinaciones (premios,"
+          "answer": "Sí. Podemos preparar distintas combinaciones (premios, \"no premiado\", códigos) y organizarlo por series según la lógica de tu campaña."
         },
         {
           "question": "¿Podéis incluir códigos únicos para canje online?",
@@ -35670,7 +35827,7 @@
                   "name": "¿Se pueden hacer premios diferentes dentro de la misma tirada?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí. Podemos preparar distintas combinaciones (premios,"
+                    "text": "Sí. Podemos preparar distintas combinaciones (premios, \"no premiado\", códigos) y organizarlo por series según la lógica de tu campaña."
                   }
                 },
                 {
@@ -35701,13 +35858,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/eventos/tarjeta-rasca.webp"
       }
     },
     {
       "id": "100",
-      "updatedAt": "2026-03-30T15:03:49Z",
+      "updatedAt": "2026-04-28T15:18:46Z",
       "type": "producto",
       "slug": "tazas-personalizadas-empresa",
       "path": "/productos/tazas-personalizadas-empresa",
@@ -35977,13 +36134,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/tazas.webp"
       }
     },
     {
       "id": "102",
-      "updatedAt": "2026-03-30T15:11:47Z",
+      "updatedAt": "2026-04-28T15:20:12Z",
       "type": "producto",
       "slug": "textil-reposacabezas-personalizado",
       "path": "/productos/textil-reposacabezas-personalizado",
@@ -36324,16 +36481,16 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/eventos/textil-reposacabezas.webp"
       }
     },
     {
       "id": "103",
-      "updatedAt": "2026-03-30T15:13:51Z",
+      "updatedAt": "2026-04-28T15:19:17Z",
       "type": "producto",
       "slug": "tiras-de-lineal-personalizadas",
-      "path": "/productos/tiras-de-lineal.personalizadas",
+      "path": "/productos/tiras-de-lineal-personalizadas",
       "title": "Tiras de lineal personalizadas",
       "categorySlug": "material-publicitario",
       "categorySlugs": [
@@ -36401,7 +36558,7 @@
       "faqs": [
         {
           "question": "¿En qué se diferencia de un stopper o una banderola de lineal?",
-          "answer": "La tira va en el frontal y acompaña todo el estante; el stopper sobresale hacia el pasillo; la banderola actúa como señal vertical o"
+          "answer": "La tira va en el frontal y acompaña todo el estante; el stopper sobresale hacia el pasillo; la banderola actúa como señal vertical o \"bandera\" para destacar desde lejos."
         },
         {
           "question": "¿Se pueden hacer por módulos y campañas?",
@@ -36413,7 +36570,7 @@
         },
         {
           "question": "¿Podéis adaptar el diseño al rail?",
-          "answer": "Sí: ajustamos altura, márgenes y zona útil para que quede legible y no se"
+          "answer": "Sí: ajustamos altura, márgenes y zona útil para que quede legible y no se \"pierda\" en el sistema de sujeción."
         }
       ],
       "breadcrumbs": [
@@ -36435,7 +36592,7 @@
         },
         {
           "name": "Tiras de lineal personalizadas",
-          "url": "/productos/tiras-de-lineal.personalizadas"
+          "url": "/productos/tiras-de-lineal-personalizadas"
         }
       ],
       "image": {
@@ -36517,11 +36674,11 @@
       "seo": {
         "metaTitle": "Tiras de lineal personalizadas | PLV para estanterías y punto de venta",
         "metaDescription": "Tiras de lineal personalizadas para destacar categorías y promociones en estantería. Impresión a color, medidas a medida y fijación para rail/adhesivo. Solicita presupuesto.",
-        "canonical": "https://reprodisseny.com/productos/tiras-de-lineal.personalizadas",
+        "canonical": "https://reprodisseny.com/productos/tiras-de-lineal-personalizadas",
         "hreflang": [
           {
             "lang": "es-ES",
-            "url": "https://reprodisseny.com/productos/tiras-de-lineal.personalizadas"
+            "url": "https://reprodisseny.com/productos/tiras-de-lineal-personalizadas"
           },
           {
             "lang": "ca-ES",
@@ -36542,7 +36699,7 @@
               "name": "Tiras de lineal personalizadas",
               "description": "Tiras de lineal personalizadas para destacar categorías y promociones en estantería. Impresión a color, medidas a medida y fijación para rail/adhesivo. Solicita presupuesto.",
               "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/tira-lineal.webp",
-              "url": "https://reprodisseny.com/productos/tiras-de-lineal.personalizadas",
+              "url": "https://reprodisseny.com/productos/tiras-de-lineal-personalizadas",
               "brand": {
                 "@type": "Organization",
                 "name": "Reprodisseny"
@@ -36580,7 +36737,7 @@
                   "@type": "ListItem",
                   "position": 5,
                   "name": "Tiras de lineal personalizadas",
-                  "item": "https://reprodisseny.com/productos/tiras-de-lineal.personalizadas"
+                  "item": "https://reprodisseny.com/productos/tiras-de-lineal-personalizadas"
                 }
               ]
             },
@@ -36592,7 +36749,7 @@
                   "name": "¿En qué se diferencia de un stopper o una banderola de lineal?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "La tira va en el frontal y acompaña todo el estante; el stopper sobresale hacia el pasillo; la banderola actúa como señal vertical o"
+                    "text": "La tira va en el frontal y acompaña todo el estante; el stopper sobresale hacia el pasillo; la banderola actúa como señal vertical o \"bandera\" para destacar desde lejos."
                   }
                 },
                 {
@@ -36616,20 +36773,20 @@
                   "name": "¿Podéis adaptar el diseño al rail?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí: ajustamos altura, márgenes y zona útil para que quede legible y no se"
+                    "text": "Sí: ajustamos altura, márgenes y zona útil para que quede legible y no se \"pierda\" en el sistema de sujeción."
                   }
                 }
               ]
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/tira-lineal.webp"
       }
     },
     {
       "id": "104",
-      "updatedAt": "2026-03-30T15:15:41Z",
+      "updatedAt": "2026-04-28T15:21:19Z",
       "type": "producto",
       "slug": "totems-publicitarios-personalizados",
       "path": "/productos/totems-publicitarios-personalizados",
@@ -36920,7 +37077,7 @@
     },
     {
       "id": "144",
-      "updatedAt": "2026-04-07T11:07:10Z",
+      "updatedAt": "2026-04-28T15:25:23Z",
       "type": "producto",
       "slug": "urna",
       "path": "/productos/urna",
@@ -37093,7 +37250,7 @@
         },
         {
           "question": "¿Podéis incluir instrucciones y QR?",
-          "answer": "Sí, es muy recomendable:"
+          "answer": "Sí, es muy recomendable: \"participa aquí\" + QR al formulario o bases del sorteo."
         }
       ],
       "breadcrumbs": [
@@ -37216,20 +37373,20 @@
                   "name": "¿Podéis incluir instrucciones y QR?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, es muy recomendable:"
+                    "text": "Sí, es muy recomendable: \"participa aquí\" + QR al formulario o bases del sorteo."
                   }
                 }
               ]
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/packaging/urna.webp"
       }
     },
     {
       "id": "116",
-      "updatedAt": "2026-04-07T08:22:32Z",
+      "updatedAt": "2026-04-28T15:27:11Z",
       "type": "producto",
       "slug": "vinilo-de-corte",
       "path": "/productos/vinilo-de-corte",
@@ -37300,7 +37457,7 @@
       "faqs": [
         {
           "question": "¿Cuál es la diferencia entre vinilo de corte y vinilo impreso?",
-          "answer": "El vinilo de corte es color sólido y queda sin fondo (muy limpio). El vinilo impreso permite fotos, degradados y colores complejos, pero normalmente lleva"
+          "answer": "El vinilo de corte es color sólido y queda sin fondo (muy limpio). El vinilo impreso permite fotos, degradados y colores complejos, pero normalmente lleva \"fondo\" o base impresa."
         },
         {
           "question": "¿Se puede poner por dentro del cristal para que se vea desde fuera?",
@@ -37421,7 +37578,7 @@
                   "name": "¿Cuál es la diferencia entre vinilo de corte y vinilo impreso?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "El vinilo de corte es color sólido y queda sin fondo (muy limpio). El vinilo impreso permite fotos, degradados y colores complejos, pero normalmente lleva"
+                    "text": "El vinilo de corte es color sólido y queda sin fondo (muy limpio). El vinilo impreso permite fotos, degradados y colores complejos, pero normalmente lleva \"fondo\" o base impresa."
                   }
                 },
                 {
@@ -37452,13 +37609,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-de-corte.webp"
       }
     },
     {
       "id": "115",
-      "updatedAt": "2026-04-07T08:20:29Z",
+      "updatedAt": "2026-04-28T15:27:39Z",
       "type": "producto",
       "slug": "vinilo-para-cristal",
       "path": "/productos/vinilo-para-cristal",
@@ -37526,7 +37683,24 @@
           ]
         }
       ],
-      "faqs": [],
+      "faqs": [
+        {
+          "question": "¿Qué vinilo es mejor para escaparate: microperforado o transparente?",
+          "answer": "epende del objetivo: el microperforado permite ver desde dentro y es muy usado en escaparate; el transparente es ideal si quieres un diseño más"
+        },
+        {
+          "question": "¿Se puede hacer privacidad en mamparas sin oscurecer?",
+          "answer": "í, el vinilo al ácido da privacidad manteniendo la entrada de luz y queda muy elegante."
+        },
+        {
+          "question": "¿Removible o permanente?",
+          "answer": "emovible para campañas y promociones temporales; permanente para rotulación fija (marca, horarios, señalética)."
+        },
+        {
+          "question": "¿Podéis adaptarlo a medidas grandes?",
+          "answer": "í, se produce por paños y se planifica el montaje para que las uniones queden lo más discretas posible."
+        }
+      ],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -37624,16 +37798,53 @@
                   "item": "https://reprodisseny.com/productos/vinilo-para-cristal"
                 }
               ]
+            },
+            {
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "¿Qué vinilo es mejor para escaparate: microperforado o transparente?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "epende del objetivo: el microperforado permite ver desde dentro y es muy usado en escaparate; el transparente es ideal si quieres un diseño más"
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Se puede hacer privacidad en mamparas sin oscurecer?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "í, el vinilo al ácido da privacidad manteniendo la entrada de luz y queda muy elegante."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Removible o permanente?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "emovible para campañas y promociones temporales; permanente para rotulación fija (marca, horarios, señalética)."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Podéis adaptarlo a medidas grandes?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "í, se produce por paños y se planifica el montaje para que las uniones queden lo más discretas posible."
+                  }
+                }
+              ]
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-cristal.webp"
       }
     },
     {
       "id": "119",
-      "updatedAt": "2026-03-27T10:56:50Z",
+      "updatedAt": "2026-04-28T15:28:10Z",
       "type": "producto",
       "slug": "vinilo-pizarra",
       "path": "/productos/vinilo-pizarra",
@@ -37778,7 +37989,20 @@
           ]
         }
       ],
-      "faqs": [],
+      "faqs": [
+        {
+          "question": "¿Se puede poner sobre cualquier pared?",
+          "answer": "unciona mejor en superficies lisas. En paredes con textura (gotele) o pintura muy porosa, conviene valorar alternativas o hacer una prueba. También podemos aplacarlo sobre un panel sólido como forex, Dibon, plancha metálica y fijarla a cualquier pared."
+        },
+        {
+          "question": "¿Se puede hacer a medida para una zona concreta?",
+          "answer": "í, lo fabricamos a medida y también podemos troquelarlo con formas personalizadas."
+        },
+        {
+          "question": "¿Se puede quitar?",
+          "answer": "epende del adhesivo y del tiempo de uso. Si necesitas una solución temporal, lo planteamos con la opción más adecuada."
+        }
+      ],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -37876,16 +38100,45 @@
                   "item": "https://reprodisseny.com/productos/vinilo-pizarra"
                 }
               ]
+            },
+            {
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "¿Se puede poner sobre cualquier pared?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "unciona mejor en superficies lisas. En paredes con textura (gotele) o pintura muy porosa, conviene valorar alternativas o hacer una prueba. También podemos aplacarlo sobre un panel sólido como forex, Dibon, plancha metálica y fijarla a cualquier pared."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Se puede hacer a medida para una zona concreta?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "í, lo fabricamos a medida y también podemos troquelarlo con formas personalizadas."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Se puede quitar?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "epende del adhesivo y del tiempo de uso. Si necesitas una solución temporal, lo planteamos con la opción más adecuada."
+                  }
+                }
+              ]
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-pizarra.webp"
       }
     },
     {
       "id": "117",
-      "updatedAt": "2026-04-07T08:24:52Z",
+      "updatedAt": "2026-04-28T15:28:43Z",
       "type": "producto",
       "slug": "vinilo-suelo-personalizado",
       "path": "/productos/vinilo-suelo-personalizado",
@@ -37953,7 +38206,20 @@
           ]
         }
       ],
-      "faqs": [],
+      "faqs": [
+        {
+          "question": "¿Removible o permanente?",
+          "answer": "emovible para campañas temporales (rebajas, eventos). Permanente para señalización fija o campañas largas."
+        },
+        {
+          "question": "¿Cuánto dura un vinilo de suelo?",
+          "answer": "epende del tránsito, el tipo de suelo, la limpieza y el acabado protector. Si nos dices dónde irá y cuánto tiempo lo necesitas, te aconsejamos la opción más adecuada."
+        },
+        {
+          "question": "¿Se puede poner en exterior?",
+          "answer": "n algunos casos sí, pero depende del pavimento y de la exposición. Para exterior conviene definir ubicación y condiciones para elegir el material correcto."
+        }
+      ],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -38051,16 +38317,45 @@
                   "item": "https://reprodisseny.com/productos/vinilo-suelo-personalizado"
                 }
               ]
+            },
+            {
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "¿Removible o permanente?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "emovible para campañas temporales (rebajas, eventos). Permanente para señalización fija o campañas largas."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Cuánto dura un vinilo de suelo?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "epende del tránsito, el tipo de suelo, la limpieza y el acabado protector. Si nos dices dónde irá y cuánto tiempo lo necesitas, te aconsejamos la opción más adecuada."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Se puede poner en exterior?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "n algunos casos sí, pero depende del pavimento y de la exposición. Para exterior conviene definir ubicación y condiciones para elegir el material correcto."
+                  }
+                }
+              ]
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-para-suelo.webp"
       }
     },
     {
       "id": "118",
-      "updatedAt": "2026-04-07T08:28:34Z",
+      "updatedAt": "2026-04-28T15:29:36Z",
       "type": "producto",
       "slug": "vinilo-vehiculos-personalizado",
       "path": "/productos/vinilo-vehiculos-personalizado",
@@ -38229,13 +38524,13 @@
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-para-vehiculos.webp"
       }
     },
     {
       "id": "114",
-      "updatedAt": "2026-04-07T08:17:15Z",
+      "updatedAt": "2026-04-28T15:51:15Z",
       "type": "producto",
       "slug": "vinilos-superficies-planas",
       "path": "/productos/vinilos-superficies-planas",
@@ -38303,7 +38598,24 @@
           ]
         }
       ],
-      "faqs": [],
+      "faqs": [
+        {
+          "question": "¿Removible o permanente?",
+          "answer": "Si es una campaña temporal o puede cambiar, suele interesar removible. Para instalaciones de larga duración, permanente."
+        },
+        {
+          "question": "¿Mate o brillo?",
+          "answer": "En paredes interiores, el mate suele funcionar mejor porque reduce reflejos (especialmente con focos). El brillo puede aportar más intensidad, pero refleja más."
+        },
+        {
+          "question": "¿Se puede instalar sobre cualquier pared?",
+          "answer": "Funciona mejor en superficies lisas. En paredes con textura o pintura delicada, la adherencia y el acabado pueden variar; te recomendamos según el caso."
+        },
+        {
+          "question": "¿Podéis preparar vinilos por zonas o departamentos?",
+          "answer": "Sí, podemos producir series por salas, plantas, tiendas o sedes manteniendo el mismo diseño base."
+        }
+      ],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -38401,16 +38713,53 @@
                   "item": "https://reprodisseny.com/productos/vinilos-superficies-planas"
                 }
               ]
+            },
+            {
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "¿Removible o permanente?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Si es una campaña temporal o puede cambiar, suele interesar removible. Para instalaciones de larga duración, permanente."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Mate o brillo?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "En paredes interiores, el mate suele funcionar mejor porque reduce reflejos (especialmente con focos). El brillo puede aportar más intensidad, pero refleja más."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Se puede instalar sobre cualquier pared?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Funciona mejor en superficies lisas. En paredes con textura o pintura delicada, la adherencia y el acabado pueden variar; te recomendamos según el caso."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Podéis preparar vinilos por zonas o departamentos?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí, podemos producir series por salas, plantas, tiendas o sedes manteniendo el mismo diseño base."
+                  }
+                }
+              ]
             }
           ]
         },
-        "robotsOverride": "NOINDEX",
+        "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-para-superficies-planas.webp"
       }
     },
     {
       "id": "11",
-      "updatedAt": "2026-03-26T14:17:13Z",
+      "updatedAt": "2026-04-28T15:44:35Z",
       "type": "producto",
       "slug": "xbanner-personalizado",
       "path": "/productos/xbanner-personalizado",
@@ -38481,7 +38830,7 @@
       "faqs": [
         {
           "question": "¿Qué diferencia hay entre un X-Banner y un Roll Up?",
-          "answer": "El X-Banner es más ligero y económico y se basa en tensión por varillas; el Roll Up se enrolla en cassette y suele ser más"
+          "answer": "El X-Banner es más ligero y económico y se basa en tensión por varillas; el Roll Up se enrolla en cassette y suele ser más premium en presencia y durabilidad para uso intensivo."
         },
         {
           "question": "¿Se puede cambiar la gráfica?",
@@ -38604,7 +38953,7 @@
                   "name": "¿Qué diferencia hay entre un X-Banner y un Roll Up?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "El X-Banner es más ligero y económico y se basa en tensión por varillas; el Roll Up se enrolla en cassette y suele ser más"
+                    "text": "El X-Banner es más ligero y económico y se basa en tensión por varillas; el Roll Up se enrolla en cassette y suele ser más premium en presencia y durabilidad para uso intensivo."
                   }
                 },
                 {
