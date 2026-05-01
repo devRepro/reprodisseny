@@ -21,10 +21,9 @@ type DetailsMediaItem = {
   }>;
 };
 
-type CardItem = {
-  id?: string;
-  title?: string;
-  description?: string;
+type NormalizedCardItem = {
+  title: string;
+  description: string;
   meta?: string;
   tags?: string[];
 };
@@ -50,18 +49,30 @@ const sectionKey = computed(() =>
 );
 
 function normalizeSectionKey(value?: string) {
-  const key = String(value || "").trim().toLowerCase();
+  const key = String(value || "")
+    .trim()
+    .toLowerCase();
 
-  if (key === "applications") return "uses";
+  if (key === "uses") return "applications";
   return key;
 }
+
+const normalizedKey = computed(() => {
+  const kind = String(props.section?.kind || "")
+    .trim()
+    .toLowerCase();
+
+  return normalizeSectionKey(kind || sectionKey.value);
+});
 
 function eyebrowForCards(key?: string) {
   const value = normalizeSectionKey(key);
 
   if (value === "formats") return "Formatos y soportes";
   if (value === "finishes") return "Opciones de acabado";
-  if (value === "uses") return "Aplicaciones";
+  if (value === "applications") return "Aplicaciones";
+  if (value === "materials") return "Materiales";
+  if (value === "benefits") return "Beneficios";
 
   return "";
 }
@@ -83,17 +94,18 @@ const resolvedIntro = computed(() => {
 });
 
 const resolvedKind = computed(() => {
-  const explicitKind = String((props.section as { kind?: string })?.kind || "")
-    .trim()
-    .toLowerCase();
-
-  if (explicitKind) return explicitKind;
-
-  const key = normalizeSectionKey(sectionKey.value);
+  const key = normalizedKey.value;
 
   if (key === "details") return "details";
   if (key === "types") return "types";
-  if (key === "formats" || key === "finishes" || key === "uses") {
+
+  if (
+    key === "benefits" ||
+    key === "materials" ||
+    key === "formats" ||
+    key === "finishes" ||
+    key === "applications"
+  ) {
     return "cards";
   }
 
@@ -104,123 +116,190 @@ const resolvedTypeItems = computed(() =>
   Array.isArray(props.section?.items)
     ? props.section.items.filter(
         (item) =>
-          item &&
-          String(item.title || "").trim() &&
-          String(item.description || "").trim()
+          item && String(item.title || "").trim() && String(item.description || "").trim()
       )
     : []
 );
 
+function toCardItems(value: unknown, metaLabel?: string): NormalizedCardItem[] {
+  if (!Array.isArray(value)) return [];
+
+  return value
+    .map((item, index) => {
+      if (!item || typeof item !== "object") return null;
+
+      const record = item as Record<string, unknown>;
+      const title = String(record.title || "").trim();
+      const description = String(record.description || "").trim();
+
+      if (!title || !description) return null;
+
+      return {
+        title,
+        description,
+        ...(metaLabel
+          ? { meta: `${metaLabel} ${String(index + 1).padStart(2, "0")}` }
+          : {}),
+      };
+    })
+    .filter((item): item is NormalizedCardItem => Boolean(item));
+}
+
 function stripMarkdownStrong(value: string) {
-  return String(value || "").replace(/\*\*(.*?)\*\*/g, "$1").trim();
+  return String(value || "")
+    .replace(/\*\*(.*?)\*\*/g, "$1")
+    .trim();
 }
 
-function parseBulletToCardItem(
-  raw: string,
-  index: number,
-  metaLabel?: string
-): CardItem | null {
-  const text = String(raw || "").trim();
-  if (!text) return null;
+function parseBodyBulletItems(body: unknown, metaLabel?: string): NormalizedCardItem[] {
+  const raw = String(body || "").trim();
+  if (!raw) return [];
 
-  const normalized = stripMarkdownStrong(text);
-  const match = normalized.match(/^([^:]+):\s*(.+)$/);
+  return raw
+    .split(/\n+/)
+    .map((line) => line.trim())
+    .filter((line) => /^[-*]\s+/.test(line))
+    .map((line, index) => {
+      const clean = stripMarkdownStrong(line.replace(/^[-*]\s+/, ""));
+      const match = clean.match(/^([^:]+):\s*(.+)$/);
 
-  if (match) {
-    return {
-      id: `item-${index + 1}`,
-      title: match[1]?.trim() || "",
-      description: match[2]?.trim() || "",
-      ...(metaLabel
-        ? { meta: `${metaLabel} ${String(index + 1).padStart(2, "0")}` }
-        : {}),
-    };
-  }
+      if (match) {
+        return {
+          title: match[1]?.trim() || "",
+          description: match[2]?.trim() || "",
+          ...(metaLabel
+            ? { meta: `${metaLabel} ${String(index + 1).padStart(2, "0")}` }
+            : {}),
+        };
+      }
 
-  return {
-    id: `item-${index + 1}`,
-    description: normalized,
-    ...(metaLabel
-      ? { meta: `${metaLabel} ${String(index + 1).padStart(2, "0")}` }
-      : {}),
-  };
-}
-
-function blocksToCardGroups(section: CategoryDetailSectionItem): CategoryCardGroup[] {
-  const blocks = Array.isArray(section?.blocks) ? section.blocks : [];
-
-  const bulletBlock = blocks.find(
-    (block) =>
-      block &&
-      block.type === "bullets" &&
-      Array.isArray(block.items) &&
-      block.items.length
-  );
-
-  if (!bulletBlock || !Array.isArray(bulletBlock.items)) return [];
-
-  const normalizedKey = normalizeSectionKey(sectionKey.value);
-  const metaLabel = normalizedKey === "finishes" ? "Acabado" : undefined;
-
-  const items = bulletBlock.items
-    .map((item, index) =>
-      parseBulletToCardItem(String(item || ""), index, metaLabel)
-    )
-    .filter((item): item is CardItem => Boolean(item));
-
-  if (!items.length) return [];
-
-  return [
-    {
-      id: `${section.id}-group-1`,
-      columns: 2,
-      items,
-    },
-  ];
+      return {
+        title: "",
+        description: clean,
+        ...(metaLabel
+          ? { meta: `${metaLabel} ${String(index + 1).padStart(2, "0")}` }
+          : {}),
+      };
+    })
+    .filter((item) => item.title || item.description)
+    .map((item, index) => ({
+      title: item.title || `Opción ${index + 1}`,
+      description: item.description,
+      ...(item.meta ? { meta: item.meta } : {}),
+    }));
 }
 
 const resolvedCardGroups = computed<CategoryCardGroup[]>(() => {
-  const existing = Array.isArray(props.section?.cardGroups)
-    ? props.section.cardGroups
-        .map((group, groupIndex) => {
-          const id = String(group?.id || `group-${groupIndex + 1}`).trim();
-          const title = String(group?.title || "").trim() || undefined;
-          const description =
-            String(group?.description || "").trim() || undefined;
+  const section = props.section;
+  const key = normalizedKey.value;
 
-          const items = Array.isArray(group?.items)
-            ? group.items.filter(
-                (item) =>
-                  item &&
-                  String(item.title || "").trim() &&
-                  String(item.description || "").trim()
-              )
-            : [];
+  if (key === "benefits") {
+    const items = toCardItems(section.benefitsData?.benefits);
+    if (!items.length) return [];
 
-          if (!id || !items.length) return null;
+    return [
+      {
+        id: `${section.id}-benefits`,
+        items,
+        columns: 3,
+      },
+    ];
+  }
 
-          return {
-            ...group,
-            id,
-            ...(title ? { title } : {}),
-            ...(description ? { description } : {}),
-            items,
-          };
-        })
-        .filter((group): group is CategoryCardGroup => Boolean(group))
-    : [];
+  if (key === "materials") {
+    const items = toCardItems(section.materialsData?.materials);
+    if (!items.length) return [];
 
-  if (existing.length) return existing;
+    return [
+      {
+        id: `${section.id}-materials`,
+        items,
+        columns: 3,
+      },
+    ];
+  }
 
-  return blocksToCardGroups(props.section);
+  if (key === "formats") {
+    const shapes = toCardItems(section.formatsData?.shapes);
+    const deliveryFormats = toCardItems(section.formatsData?.deliveryFormats);
+
+    const groups: CategoryCardGroup[] = [];
+
+    if (shapes.length) {
+      groups.push({
+        id: `${section.id}-shapes`,
+        title: "Formatos",
+        items: shapes,
+        columns: 3,
+      });
+    }
+
+    if (deliveryFormats.length) {
+      groups.push({
+        id: `${section.id}-delivery-formats`,
+        title: "Entrega y presentación",
+        items: deliveryFormats,
+        columns: 3,
+      });
+    }
+
+    if (groups.length) return groups;
+
+    const fallbackItems = parseBodyBulletItems(section.body);
+    if (!fallbackItems.length) return [];
+
+    return [
+      {
+        id: `${section.id}-formats`,
+        items: fallbackItems,
+        columns: 3,
+      },
+    ];
+  }
+
+  if (key === "finishes") {
+    const items =
+      toCardItems(section.finishesData?.finishes, "Acabado").length > 0
+        ? toCardItems(section.finishesData?.finishes, "Acabado")
+        : parseBodyBulletItems(section.body, "Acabado");
+
+    if (!items.length) return [];
+
+    return [
+      {
+        id: `${section.id}-finishes`,
+        items,
+        columns: 2,
+      },
+    ];
+  }
+
+  if (key === "applications") {
+    const items =
+      toCardItems(section.applicationsData?.applications).length > 0
+        ? toCardItems(section.applicationsData?.applications)
+        : parseBodyBulletItems(section.body);
+
+    if (!items.length) return [];
+
+    return [
+      {
+        id: `${section.id}-applications`,
+        items,
+        columns: 2,
+      },
+    ];
+  }
+
+  return [];
 });
 
 const resolvedEyebrow = computed(() => {
   if (props.headerMode !== "default") return "";
-  return eyebrowForCards(sectionKey.value);
+  return eyebrowForCards(normalizedKey.value);
 });
 
-const resolvedVariant = computed(() => variantForCards(sectionKey.value));
+const resolvedVariant = computed(() => variantForCards(normalizedKey.value));
 </script>
 
 <template>
@@ -255,4 +334,4 @@ const resolvedVariant = computed(() => variantForCards(sectionKey.value));
     :section="props.section"
     :header-mode="props.headerMode"
   />
-</template>~/server/services/cms/catalog.service
+</template>

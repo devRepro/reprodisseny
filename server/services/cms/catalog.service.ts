@@ -92,8 +92,6 @@ type NormalizedApplicationsData = {
   applications: NormalizedNamedContentItem[];
 };
 
-type CatalogContentFormat = "markdown" | "json";
-
 type CatalogContentSectionKind =
   | "details"
   | "types"
@@ -104,35 +102,24 @@ type CatalogContentSectionKind =
   | "applications"
   | "technical-specs";
 
-type CatalogContentSectionKind =
-  | "markdown"
-  | "types"
-  | "benefits"
-  | "materials"
-  | "formats"
-  | "finishes"
-  | "applications"
-  | "technical-specs";
 
-type CatalogSection = {
-  id?: string;
-  key?: string;
-  title?: string;
-  kind?: CatalogContentSectionKind;
-  contentFormat?: CatalogContentFormat;
-  body?: string;
-  intro?: string;
-  items?: CatalogTypeItem[];
-  benefitsData?: CatalogBenefitsData;
-  materialsData?: CatalogMaterialsData;
-  formatsData?: CatalogFormatsData;
-  finishesData?: CatalogFinishesData;
-  applicationsData?: CatalogApplicationsData;
-};
-
-type CatalogProductSection = {
+  type CatalogSection = {
+    id?: string;
+    key?: string;
+    title?: string;
+    kind?: CatalogContentSectionKind;
+    contentFormat?: CatalogContentFormat;
+    body?: string;
+    intro?: string;
+    items?: CatalogTypeItem[];
+    benefitsData?: CatalogBenefitsData;
+    materialsData?: CatalogMaterialsData;
+    formatsData?: CatalogFormatsData;
+    finishesData?: CatalogFinishesData;
+    applicationsData?: CatalogApplicationsData;
+  };
   
-};
+  type CatalogProductSection = CatalogSection;
 
 type CatalogFinishesData = {
   intro?: string;
@@ -943,73 +930,7 @@ function getProductLookupKeys(product: CatalogProduct) {
   return keys;
 }
 
-function getProductSections(product: CatalogProduct): ProductDetailSectionItem[] {
-  return getMergedProductSections(product)
-    .map((section, index) => {
-      const id = String(section?.id || section?.key || `section-${index + 1}`).trim();
-      const key = String(section?.key || id).trim();
-      const title = String(section?.title || `Sección ${index + 1}`).trim();
-      const kind = resolveCatalogSectionKind(section);
-      const contentFormat = resolveSectionContentFormat(section);
-      const body = String(section?.body || "").trim();
 
-      const items = Array.isArray(section?.items)
-        ? section.items.filter(Boolean)
-        : [];
-
-      const benefitsData =
-        section?.benefitsData && typeof section.benefitsData === "object"
-          ? normalizeBenefitsData(section.benefitsData)
-          : undefined;
-
-      const materialsData =
-        section?.materialsData && typeof section.materialsData === "object"
-          ? normalizeMaterialsData(section.materialsData)
-          : undefined;
-
-      const formatsData =
-        section?.formatsData && typeof section.formatsData === "object"
-          ? normalizeFormatsData(section.formatsData)
-          : undefined;
-
-      const finishesData =
-        section?.finishesData && typeof section.finishesData === "object"
-          ? normalizeFinishesData(section.finishesData)
-          : undefined;
-
-      const applicationsData =
-        section?.applicationsData && typeof section.applicationsData === "object"
-          ? normalizeApplicationsData(section.applicationsData)
-          : undefined;
-
-      const hasContent =
-        Boolean(body) ||
-        items.length > 0 ||
-        Boolean(benefitsData?.benefits.length) ||
-        Boolean(materialsData?.materials.length) ||
-        Boolean(formatsData) ||
-        Boolean(finishesData?.finishes.length) ||
-        Boolean(applicationsData?.applications.length);
-
-      if (!id || !title || !hasContent) return null;
-
-      return {
-        id,
-        key,
-        kind,
-        title,
-        contentFormat,
-        ...(body ? { body, text: body } : {}),
-        ...(items.length ? { items } : {}),
-        ...(benefitsData ? { benefitsData } : {}),
-        ...(materialsData ? { materialsData } : {}),
-        ...(formatsData ? { formatsData } : {}),
-        ...(finishesData ? { finishesData } : {}),
-        ...(applicationsData ? { applicationsData } : {}),
-      };
-    })
-    .filter((section): section is ProductDetailSectionItem => Boolean(section));
-}
 
 function imageDtoOf(image: CatalogImage | null | undefined, fallbackAlt: string) {
   if (!image?.src) return null;
@@ -1249,7 +1170,6 @@ function isCatalogSectionKind(value: string): value is CatalogContentSectionKind
   ].includes(value);
 }
 
-
 function resolveCatalogSectionKind(section: {
   kind?: string;
   key?: string;
@@ -1307,6 +1227,16 @@ function getCategorySections(category: CatalogCategory): CategoryDetailSectionIt
           ? normalizeApplicationsData(section.applicationsData)
           : undefined;
 
+      const contentFormat = resolveSectionContentFormat({
+        contentFormat: section?.contentFormat,
+        items: items.length ? items : undefined,
+        benefitsData,
+        materialsData,
+        formatsData,
+        finishesData,
+        applicationsData,
+      });
+
       const hasContent =
         Boolean(body) ||
         Boolean(intro) ||
@@ -1323,6 +1253,7 @@ function getCategorySections(category: CatalogCategory): CategoryDetailSectionIt
         id,
         key,
         kind,
+        contentFormat,
         title,
         ...(intro ? { intro } : {}),
         ...(body ? { body } : {}),
@@ -1338,7 +1269,7 @@ function getCategorySections(category: CatalogCategory): CategoryDetailSectionIt
 }
 
 function createProductTextSection(
-  key: string,
+  key: CatalogContentSectionKind,
   title: string,
   body: unknown
 ): CatalogProductSection | null {
@@ -1349,10 +1280,12 @@ function createProductTextSection(
     id: key,
     key,
     title,
-    kind: key === "technical-specs" ? "technical-specs" : "markdown",
+    kind: key,
+    contentFormat: "markdown",
     body: text,
   };
 }
+
 function createProductBenefitsSection(body: unknown): CatalogProductSection | null {
   const benefitsData = normalizeBenefitsData(body);
   if (!benefitsData) return null;
@@ -1975,6 +1908,101 @@ function resolveProductBySlugOrPath(
   return { product, ...(redirectTo ? { redirectTo } : {}) };
 }
 
+type CatalogContentFormat = "markdown" | "json";
+
+type CatalogContentSectionKind =
+  | "details"
+  | "types"
+  | "benefits"
+  | "materials"
+  | "formats"
+  | "finishes"
+  | "applications"
+  | "technical-specs";
+
+type CatalogProductSection = CatalogSection;
+
+function getProductSections(product: CatalogProduct): ProductDetailSectionItem[] {
+  return getMergedProductSections(product)
+    .map((section, index) => {
+      const id = String(section?.id || section?.key || `section-${index + 1}`).trim();
+      const key = String(section?.key || id).trim();
+      const title = String(section?.title || `Sección ${index + 1}`).trim();
+      const intro = String(section?.intro || "").trim() || undefined;
+      const body = String(section?.body || "").trim();
+
+      const items = normalizeCategoryTypeItems(section?.items);
+      const kind = resolveCatalogSectionKind(section);
+
+      const benefitsData =
+        section?.benefitsData && typeof section.benefitsData === "object"
+          ? normalizeBenefitsData(section.benefitsData)
+          : undefined;
+
+      const materialsData =
+        section?.materialsData && typeof section.materialsData === "object"
+          ? normalizeMaterialsData(section.materialsData)
+          : undefined;
+
+      const formatsData =
+        section?.formatsData && typeof section.formatsData === "object"
+          ? normalizeFormatsData(section.formatsData)
+          : undefined;
+
+      const finishesData =
+        section?.finishesData && typeof section.finishesData === "object"
+          ? normalizeFinishesData(section.finishesData)
+          : undefined;
+
+      const applicationsData =
+        section?.applicationsData && typeof section.applicationsData === "object"
+          ? normalizeApplicationsData(section.applicationsData)
+          : undefined;
+
+      const contentFormat = resolveSectionContentFormat({
+        contentFormat: section?.contentFormat,
+        items: items.length ? items : undefined,
+        benefitsData,
+        materialsData,
+        formatsData,
+        finishesData,
+        applicationsData,
+      });
+
+      const hasContent =
+        Boolean(body) ||
+        Boolean(intro) ||
+        items.length > 0 ||
+        Boolean(benefitsData?.benefits.length) ||
+        Boolean(materialsData?.materials.length) ||
+        Boolean(formatsData) ||
+        Boolean(finishesData?.finishes.length) ||
+        Boolean(applicationsData?.applications.length);
+
+      if (!id || !title || !hasContent) return null;
+
+      return {
+        id,
+        key,
+        kind,
+        contentFormat,
+        title,
+        ...(intro ? { intro } : {}),
+        ...(body ? { body, text: body } : {}),
+        ...(items.length ? { items } : {}),
+        ...(benefitsData ? { benefitsData } : {}),
+        ...(materialsData ? { materialsData } : {}),
+        ...(formatsData ? { formatsData } : {}),
+        ...(finishesData ? { finishesData } : {}),
+        ...(applicationsData ? { applicationsData } : {}),
+      };
+    })
+    .filter((section): section is ProductDetailSectionItem => Boolean(section));
+}
+
+
+
+
 export function getProductDetailBySlug(
   requestedSlugOrPath: string
 ): ProductDetailDto | null {
@@ -2019,23 +2047,6 @@ export function getProductDetailBySlug(
     : [];
     const sections = getProductSections(product);
 
-
-    console.log("[PRODUCT DETAIL]", {
-      slug: product.slug,
-      title: product.title,
-      rawSections: product.sections?.length ?? 0,
-      mappedSections: sections.length,
-      sectionKeys: sections.map((section) => ({
-        id: section.id,
-        key: section.key,
-        title: section.title,
-        blocks: section.blocks?.length ?? 0,
-        items: section.items?.length ?? 0,
-        hasMaterialsData: Boolean(section.materialsData?.materials?.length),
-        hasFormatsData: Boolean(section.formatsData),
-        hasFinishesData: Boolean(section.finishesData?.finishes?.length),
-      })),
-    });
     return {
       slug: productPublicSlugOf(product),
       path: canonicalPath,
