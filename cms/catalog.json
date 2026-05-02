@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-02T15:47:51.634Z",
+  "generatedAt": "2026-05-02T19:12:37.322Z",
   "categories": [
     {
       "id": "12",
@@ -3296,7 +3296,7 @@
   "products": [
     {
       "id": "1",
-      "updatedAt": "2026-04-28T15:53:57Z",
+      "updatedAt": "2026-05-02T18:57:37Z",
       "type": "producto",
       "slug": "abanicos-personalizados",
       "path": "/productos/abanicos-personalizados",
@@ -3650,7 +3650,7 @@
     },
     {
       "id": "2",
-      "updatedAt": "2026-04-28T12:21:45Z",
+      "updatedAt": "2026-05-02T18:57:36Z",
       "type": "producto",
       "slug": "acreditaciones-personalizadas",
       "path": "/productos/acreditaciones-personalizadas",
@@ -4034,7 +4034,7 @@
     },
     {
       "id": "3",
-      "updatedAt": "2026-04-28T08:31:51Z",
+      "updatedAt": "2026-05-02T18:57:59Z",
       "type": "producto",
       "slug": "agendas-personalizadas",
       "path": "/productos/agendas-personalizadas",
@@ -4364,7 +4364,7 @@
     },
     {
       "id": "4",
-      "updatedAt": "2026-04-28T08:31:54Z",
+      "updatedAt": "2026-05-02T18:57:39Z",
       "type": "producto",
       "slug": "arbol-navidad-corporativo",
       "path": "/productos/arbol-navidad-corporativo",
@@ -4664,7 +4664,7 @@
     },
     {
       "id": "5",
-      "updatedAt": "2026-04-28T08:31:56Z",
+      "updatedAt": "2026-05-02T18:58:00Z",
       "type": "producto",
       "slug": "archivadores-personalizados",
       "path": "/productos/archivadores-personalizados",
@@ -4995,7 +4995,7 @@
     },
     {
       "id": "7",
-      "updatedAt": "2026-04-28T13:53:11Z",
+      "updatedAt": "2026-05-02T18:57:47Z",
       "type": "producto",
       "slug": "banderola-lona-fachada",
       "path": "/productos/banderola-lona-fachada",
@@ -5294,7 +5294,7 @@
     },
     {
       "id": "6",
-      "updatedAt": "2026-04-09T18:27:47Z",
+      "updatedAt": "2026-05-02T18:57:47Z",
       "type": "producto",
       "slug": "banderola-fachada-personalizada",
       "path": "/productos/banderola-fachada-personalizada",
@@ -5622,7 +5622,7 @@
     },
     {
       "id": "8",
-      "updatedAt": "2026-04-28T12:38:08Z",
+      "updatedAt": "2026-05-02T18:57:56Z",
       "type": "producto",
       "slug": "banderolas-lineal-personalizadas",
       "path": "/productos/banderolas-lineal-personalizadas",
@@ -5945,7 +5945,7 @@
     },
     {
       "id": "9",
-      "updatedAt": "2026-03-26T14:15:47Z",
+      "updatedAt": "2026-05-02T18:57:40Z",
       "type": "producto",
       "slug": "banderolas-personalizadas",
       "path": "/productos/banderolas-personalizadas",
@@ -6226,7 +6226,7 @@
     },
     {
       "id": "10",
-      "updatedAt": "2026-03-26T14:16:53Z",
+      "updatedAt": "2026-05-02T18:57:41Z",
       "type": "producto",
       "slug": "banner-golf-personalizado",
       "path": "/productos/banner-golf-personalizado",
@@ -6497,7 +6497,7 @@
     },
     {
       "id": "12",
-      "updatedAt": "2026-04-28T10:56:40Z",
+      "updatedAt": "2026-05-02T18:57:58Z",
       "type": "producto",
       "slug": "bloc-notas",
       "path": "/productos/bloc-notas",
@@ -6781,7 +6781,7 @@
     },
     {
       "id": "13",
-      "updatedAt": "2026-04-28T15:43:24Z",
+      "updatedAt": "2026-05-02T18:57:44Z",
       "type": "producto",
       "slug": "caballetes-publicitarios-personalizados",
       "path": "/productos/caballetes-publicitarios-personalizados",
@@ -7053,7 +7053,7 @@
     },
     {
       "id": "140",
-      "updatedAt": "2026-04-28T14:16:15Z",
+      "updatedAt": "2026-05-02T18:58:01Z",
       "type": "producto",
       "slug": "caja-almohada",
       "path": "/productos/caja-almohada",
@@ -7150,7 +7150,79 @@
       "inStock": false,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "name": "tamaño",
+          "label": "Tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "XS: 11 x 10",
+            "8 x 2",
+            "5 cm",
+            "S: 14 x 13 x 3",
+            "5 cm",
+            "M: 14 x 18",
+            "7 x 3",
+            "5 cm",
+            "L: 28 x 19 x 4",
+            "5 cm",
+            "XL: 32 x 35 x 7 cm"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "impresión",
+          "label": "Impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara",
+            "Cuatricromía 2 caras"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "material",
+          "label": "Material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Kraft 300 gr",
+            "Tecknocard 350 gr",
+            "Folding Simwhite 255 gr"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "plastificado",
+          "label": "Plastificado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "No",
+            "Mate 1 cara",
+            "Brillo 1 cara"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "cantidad",
+          "label": "Cantidad",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Caja almohada personalizada | Packaging corporativo para regalos y kits",
@@ -7252,7 +7324,7 @@
     },
     {
       "id": "138",
-      "updatedAt": "2026-04-28T14:18:17Z",
+      "updatedAt": "2026-05-02T18:58:02Z",
       "type": "producto",
       "slug": "caja-cerillas",
       "path": "/productos/caja-cerillas",
@@ -7349,7 +7421,75 @@
       "inStock": false,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "name": "ancho",
+          "label": "Ancho en cm",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "alto",
+          "label": "Alto en cm",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "fondo",
+          "label": "Fondo en cm",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "impresión",
+          "label": "Impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara",
+            "Cuatricromía 2 caras"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "material",
+          "label": "Material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Kraft 300 gr",
+            "Tecknocard 350 gr",
+            "Folding Simwhite 255 gr"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "plastificado",
+          "label": "Plastificado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "No",
+            "Mate 1 cara",
+            "Brillo 1 cara"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Caja cerilla personalizada | Packaging corporativo premium con cajón",
@@ -7650,7 +7790,7 @@
     },
     {
       "id": "146",
-      "updatedAt": "2026-04-28T08:37:11Z",
+      "updatedAt": "2026-05-02T18:58:03Z",
       "type": "producto",
       "slug": "caja-envio",
       "path": "/productos/caja-envio",
@@ -7755,7 +7895,57 @@
       "inStock": false,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "name": "tamaño",
+          "label": "Tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "S: 22.7 x 17 x 18 cm",
+            "M: 45.5 x 34 x 15 cm",
+            "45.5 x 34 x 30 cm"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "impresión",
+          "label": "Impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ],
+          "readonly": true
+        },
+        {
+          "name": "material",
+          "label": "Material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Microcanal E blanco 1700 micras",
+            "Microcanal E kraft 1700 micras"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "cantidad",
+          "label": "Cantidad",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Caja de envío personalizada | Packaging corporativo para envíos seguros",
@@ -7857,7 +8047,7 @@
     },
     {
       "id": "145",
-      "updatedAt": "2026-04-28T08:46:37Z",
+      "updatedAt": "2026-05-02T18:58:03Z",
       "type": "producto",
       "slug": "caja-desplegable-tapa",
       "path": "/productos/caja-desplegable-tapa",
@@ -7954,7 +8144,71 @@
       "inStock": false,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "name": "tamaño",
+          "label": "Tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "7 x 5 x 7 cm",
+            "9 x 6 x 9 cm",
+            "11 x 7.5 x 11 cm"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "impresión",
+          "label": "Impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara",
+            "Cuatricromía 2 caras"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "material",
+          "label": "Material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Kraft 300 gr",
+            "Tecknocard 350 gr",
+            "Folding Simwhite 255 gr"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "plastificado",
+          "label": "Plastificado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "No",
+            "Mate 1 cara",
+            "Brillo 1 cara"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "cantidad",
+          "label": "Cantidad",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Caja desplegable con tapa personalizada | Packaging corporativo premium",
@@ -8255,7 +8509,7 @@
     },
     {
       "id": "139",
-      "updatedAt": "2026-04-28T14:19:19Z",
+      "updatedAt": "2026-05-02T18:58:01Z",
       "type": "producto",
       "slug": "caja-envolvente",
       "path": "/productos/caja-envolvente",
@@ -8352,7 +8606,83 @@
       "inStock": false,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "name": "ancho",
+          "label": "Ancho en cm",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "alto",
+          "label": "Alto en cm",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "fondo",
+          "label": "Fondo en cm",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "impresión",
+          "label": "Impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara",
+            "Cuatricromía 2 caras"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "material",
+          "label": "Material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Kraft 300 gr",
+            "Tecknocard 350 gr",
+            "Folding Simwhite 255 gr"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "plastificado",
+          "label": "Plastificado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "No",
+            "Mate 1 cara",
+            "Brillo 1 cara"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "cantidad",
+          "label": "Cantidad",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Caja envolvente personalizada | Packaging corporativo premium para empresas",
@@ -8454,7 +8784,7 @@
     },
     {
       "id": "135",
-      "updatedAt": "2026-04-28T14:19:39Z",
+      "updatedAt": "2026-05-02T18:58:01Z",
       "type": "producto",
       "slug": "caja-estandar",
       "path": "/productos/caja-estandar",
@@ -8551,7 +8881,85 @@
       "inStock": false,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "name": "ancho",
+          "label": "Ancho en cm",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "alto",
+          "label": "Alto en cm",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "fondo",
+          "label": "Fondo en cm",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "impresión",
+          "label": "Impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara",
+            "Cuatricromía 2 caras"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "material",
+          "label": "Material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Kraft 300 gr",
+            "Tecknocard 350 gr",
+            "Folding Simwhite 255 gr"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "plastificado",
+          "label": "Plastificado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "No",
+            "Mate 1 cara",
+            "Mate 2 caras",
+            "Brillo 1 cara",
+            "Brillo 2 caras"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "cantidad",
+          "label": "Cantidad",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Caja estándar personalizada | Packaging corporativo para empresas y oficinas",
@@ -8653,7 +9061,7 @@
     },
     {
       "id": "137",
-      "updatedAt": "2026-04-28T14:20:08Z",
+      "updatedAt": "2026-05-02T18:58:03Z",
       "type": "producto",
       "slug": "caja-porta-botella",
       "path": "/productos/caja-porta-botella",
@@ -8750,7 +9158,83 @@
       "inStock": false,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "name": "ancho",
+          "label": "Ancho en cm",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "alto",
+          "label": "Alto en cm",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "fondo",
+          "label": "Fondo en cm",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "impresión",
+          "label": "Impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara",
+            "Cuatricromía 2 caras"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "material",
+          "label": "Material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Kraft 300 gr",
+            "Tecknocard 350 gr",
+            "Folding Simwhite 255 gr"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "plastificado",
+          "label": "Plastificado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "No",
+            "Mate 1 cara",
+            "Brillo 1 cara"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "cantidad",
+          "label": "Cantidad",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Caja porta botellas personalizada | Packaging corporativo para regalos y envíos",
@@ -8852,7 +9336,7 @@
     },
     {
       "id": "143",
-      "updatedAt": "2026-04-28T14:20:48Z",
+      "updatedAt": "2026-05-02T18:58:02Z",
       "type": "producto",
       "slug": "caja-sobre-personalizada",
       "path": "/productos/caja-sobre-personalizada",
@@ -8949,7 +9433,83 @@
       "inStock": false,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "name": "ancho",
+          "label": "Ancho en cm",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "alto",
+          "label": "Alto en cm",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "fondo",
+          "label": "Fondo en cm",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "impresión",
+          "label": "Impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara",
+            "Cuatricromía 2 caras"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "material",
+          "label": "Material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Kraft 300 gr",
+            "Tecknocard 350 gr",
+            "Folding Simwhite 255 gr"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "plastificado",
+          "label": "Plastificado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "No",
+            "Mate 1 cara",
+            "Brillo 1 cara"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "cantidad",
+          "label": "Cantidad",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Caja sobre personalizada | Packaging corporativo plano y elegante",
@@ -9051,7 +9611,7 @@
     },
     {
       "id": "14",
-      "updatedAt": "2026-04-28T10:58:04Z",
+      "updatedAt": "2026-05-02T18:57:42Z",
       "type": "producto",
       "slug": "cajas-luz-personalizadas",
       "path": "/productos/cajas-luz-personalizadas",
@@ -9342,7 +9902,7 @@
     },
     {
       "id": "15",
-      "updatedAt": "2026-04-28T11:03:46Z",
+      "updatedAt": "2026-05-02T18:57:59Z",
       "type": "producto",
       "slug": "calendarios-personalizados",
       "path": "/productos/calendarios-personalizados",
@@ -9637,7 +10197,7 @@
     },
     {
       "id": "16",
-      "updatedAt": "2026-04-28T11:04:09Z",
+      "updatedAt": "2026-05-02T18:57:58Z",
       "type": "producto",
       "slug": "carpetas-presentacion-personalizadas",
       "path": "/productos/carpetas-presentacion-personalizadas",
@@ -9741,7 +10301,79 @@
       "reviewCount": 0,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "name": "tamaño",
+          "label": "Tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Din A-5",
+            "Din A-4"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "impresión",
+          "label": "Impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara",
+            "Cuatricromía 2 caras"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "papel",
+          "label": "Papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado mate 350 gr.",
+            "Cartulina gráfica 350 gr."
+          ],
+          "readonly": false
+        },
+        {
+          "name": "solapa",
+          "label": "Solapa",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Si",
+            "No"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "lomo",
+          "label": "Lomo",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Si",
+            "No"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "cantidad",
+          "label": "Cantidad",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Carpetas de presentación personalizadas | Carpetas corporativas para empresas",
@@ -9858,7 +10490,7 @@
     },
     {
       "id": "17",
-      "updatedAt": "2026-04-28T13:53:52Z",
+      "updatedAt": "2026-05-02T18:57:51Z",
       "type": "producto",
       "slug": "cartas-restaurante-personalizadas",
       "path": "/productos/cartas-restaurante-personalizadas",
@@ -9958,7 +10590,69 @@
       "reviewCount": 0,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "name": "tamaño",
+          "label": "Tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Personalizado a demanda"
+          ],
+          "readonly": true
+        },
+        {
+          "name": "impresión",
+          "label": "Impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 2 caras"
+          ],
+          "readonly": true
+        },
+        {
+          "name": "material",
+          "label": "Material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado mate 170 gr",
+            "estucado mate 250 gr",
+            "estucado mate 350 gr"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "encuadernación",
+          "label": "Encuadernación",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Plegadas",
+            "Grapadas",
+            "Wire-O",
+            "Tapa dura"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "cantidad",
+          "label": "Cantidad",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Cartas de restaurante personalizadas | Menús impresos resistentes y profesionales",
@@ -10069,7 +10763,7 @@
     },
     {
       "id": "147",
-      "updatedAt": "2026-04-28T12:36:24Z",
+      "updatedAt": "2026-05-02T18:57:50Z",
       "type": "producto",
       "slug": "carteles-inmobiliaria-personalizados",
       "path": "/productos/carteles-inmobiliaria-personalizados",
@@ -10210,7 +10904,76 @@
       "reviewCount": 0,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "name": "tamaño",
+          "label": "Tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Personalizado a demanda"
+          ],
+          "readonly": true
+        },
+        {
+          "name": "impresión",
+          "label": "Impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara",
+            "Cuatricromía 2 caras"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "material",
+          "label": "Material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Polipropileno Alveolar 3 mm"
+          ],
+          "readonly": true
+        },
+        {
+          "name": "color",
+          "label": "Color",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Blanco"
+          ],
+          "readonly": true
+        },
+        {
+          "name": "fresado",
+          "label": "Fresado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Recto",
+            "a la forma"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "cantidad",
+          "label": "Cantidad",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Carteles de Inmobiliaria Personalizados | Se Vende / Se Alquila / Promociones",
@@ -10318,7 +11081,7 @@
     },
     {
       "id": "20",
-      "updatedAt": "2026-04-28T11:04:35Z",
+      "updatedAt": "2026-05-02T18:57:46Z",
       "type": "producto",
       "slug": "carteles-personalizados-gran-formato",
       "path": "/productos/carteles-personalizados-gran-formato",
@@ -10593,7 +11356,7 @@
     },
     {
       "id": "23",
-      "updatedAt": "2026-04-28T11:05:49Z",
+      "updatedAt": "2026-05-02T18:58:00Z",
       "type": "producto",
       "slug": "certificados-personalizados",
       "path": "/productos/certificados-personalizados",
@@ -10865,7 +11628,7 @@
     },
     {
       "id": "25",
-      "updatedAt": "2026-04-28T13:57:09Z",
+      "updatedAt": "2026-05-02T18:57:52Z",
       "type": "producto",
       "slug": "colgador-de-botellas-personalizado",
       "path": "/productos/colgador-de-botellas-personalizado",
@@ -10972,9 +11735,14 @@
           "type": "select",
           "required": true,
           "options": [
-            "10x20 cm"
+            "6",
+            "5x11",
+            "7 cm",
+            "6",
+            "5x14",
+            "7 cm"
           ],
-          "readonly": true
+          "readonly": false
         },
         {
           "name": "impresión",
@@ -10982,28 +11750,29 @@
           "type": "select",
           "required": true,
           "options": [
-            "2 caras"
+            "Cuatricromía 1 cara",
+            "Cuatricromía 2 caras"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "material",
+          "label": "Material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Folding 255 gr"
           ],
           "readonly": true
         },
         {
-          "name": "tintas",
-          "label": "Tintas",
+          "name": "forma",
+          "label": "Forma",
           "type": "select",
           "required": true,
           "options": [
-            "Cuatricromía"
-          ],
-          "readonly": true
-        },
-        {
-          "name": "papel",
-          "label": "Papel",
-          "type": "select",
-          "required": true,
-          "options": [
-            "Estucado mate 300 gr",
-            "Cartulina gráfica de 350 gr."
+            "Cuadrado",
+            "Rectangular"
           ],
           "readonly": false
         },
@@ -11144,7 +11913,7 @@
     },
     {
       "id": "77",
-      "updatedAt": "2026-04-28T14:22:20Z",
+      "updatedAt": "2026-05-02T18:57:43Z",
       "type": "producto",
       "slug": "contenedores-de-reciclaje",
       "path": "/productos/contenedores-de-reciclaje",
@@ -11244,7 +12013,65 @@
       "reviewCount": 0,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "name": "tamaño",
+          "label": "Tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "26x55x26 cm",
+            "34x75x34 cm"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "impresión",
+          "label": "Impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ],
+          "readonly": true
+        },
+        {
+          "name": "material",
+          "label": "Material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Microcanal E Blanco 1700 µ"
+          ],
+          "readonly": true
+        },
+        {
+          "name": "acabados",
+          "label": "Acabados",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Troquelado y hendidos automontables"
+          ],
+          "readonly": true
+        },
+        {
+          "name": "cantidad",
+          "label": "Cantidad",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Contenedores de Reciclaje Personalizados | Puntos de Recogida con Branding",
@@ -11355,7 +12182,7 @@
     },
     {
       "id": "28",
-      "updatedAt": "2026-04-28T11:07:21Z",
+      "updatedAt": "2026-05-02T18:57:40Z",
       "type": "producto",
       "slug": "cubos-publicitarios-personalizados",
       "path": "/productos/cubos-publicitarios-personalizados",
@@ -11615,7 +12442,7 @@
     },
     {
       "id": "29",
-      "updatedAt": "2026-04-28T11:07:45Z",
+      "updatedAt": "2026-05-02T18:57:42Z",
       "type": "producto",
       "slug": "cubrealarmas-tiendas-retail",
       "path": "/productos/cubrealarmas-tiendas-retail",
@@ -11888,7 +12715,7 @@
     },
     {
       "id": "30",
-      "updatedAt": "2026-04-28T11:08:08Z",
+      "updatedAt": "2026-05-02T18:57:38Z",
       "type": "producto",
       "slug": "cupones-promocionales",
       "path": "/productos/cupones-promocionales",
@@ -12151,7 +12978,7 @@
     },
     {
       "id": "33",
-      "updatedAt": "2026-04-28T11:14:36Z",
+      "updatedAt": "2026-05-02T18:57:35Z",
       "type": "producto",
       "slug": "diplomas-personalizados",
       "path": "/productos/diplomas-personalizados",
@@ -12423,7 +13250,7 @@
     },
     {
       "id": "34",
-      "updatedAt": "2026-04-28T15:15:46Z",
+      "updatedAt": "2026-05-02T18:57:51Z",
       "type": "producto",
       "slug": "tarjeta-habitacion-hotel",
       "path": "/productos/tarjeta-habitacion-hotel",
@@ -12702,7 +13529,7 @@
     },
     {
       "id": "36",
-      "updatedAt": "2026-04-28T14:23:00Z",
+      "updatedAt": "2026-05-02T18:57:41Z",
       "type": "producto",
       "slug": "displays-de-mesa-personalizados",
       "path": "/productos/displays-de-mesa-personalizados",
@@ -13016,7 +13843,7 @@
     },
     {
       "id": "38",
-      "updatedAt": "2026-04-28T14:23:34Z",
+      "updatedAt": "2026-05-02T18:57:37Z",
       "type": "producto",
       "slug": "dorsales-carrera",
       "path": "/productos/dorsales-carrera",
@@ -13284,7 +14111,7 @@
     },
     {
       "id": "26",
-      "updatedAt": "2026-04-28T14:03:24Z",
+      "updatedAt": "2026-05-02T18:57:54Z",
       "type": "producto",
       "slug": "cosida-tapa-blanda",
       "path": "/productos/cosida-tapa-blanda",
@@ -13591,7 +14418,7 @@
     },
     {
       "id": "106",
-      "updatedAt": "2026-04-28T14:24:38Z",
+      "updatedAt": "2026-05-02T18:57:54Z",
       "type": "producto",
       "slug": "encuadernacion-wire-o-oculto",
       "path": "/productos/encuadernacion-wire-o-oculto",
@@ -13778,6 +14605,14 @@
           "required": true,
           "options": [],
           "readonly": false
+        },
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
         }
       ],
       "legacySlugs": [],
@@ -13890,7 +14725,7 @@
     },
     {
       "id": "27",
-      "updatedAt": "2026-04-28T11:06:54Z",
+      "updatedAt": "2026-05-02T19:11:38Z",
       "type": "producto",
       "slug": "encuadernacion-cosida-tapa-dura",
       "path": "/productos/encuadernacion-cosida-tapa-dura",
@@ -13903,7 +14738,7 @@
       "isPublished": true,
       "shortDescription": "La encuadernación cosida con tapa dura es la opción más “editorial” y duradera para publicaciones que deben transmitir calidad desde el primer contacto. Ideal para libros premium, memorias corporativas y ediciones especiales, porque ofrece máxima resistencia, una mejor apertura y un acabado de portada que eleva la percepción de marca.",
       "description": "La encuadernación cosida con tapa dura es la opción más “editorial” y duradera para publicaciones que deben transmitir calidad desde el primer contacto. Ideal para libros premium, memorias corporativas y ediciones especiales, porque ofrece máxima resistencia, una mejor apertura y un acabado de portada que eleva la percepción de marca.",
-      "bodyMd": "¿Qué es la encuadernación cosida tapa dura y para qué se usa? \nEn este tipo de encuadernación, los pliegos se cosen (costura) para formar el bloque del libro y luego se montan con una cubierta rígida (tapa dura). El resultado es un libro sólido, pensado para durar y para un uso repetido, con una presencia excelente en mano y en estantería. Se utiliza en proyectos donde importa tanto el contenido como el objeto: ediciones conmemorativas, libros corporativos, catálogos premium y publicaciones institucionales.",
+      "bodyMd": "Formato y lomo \nFormatos habituales: A4, A5, cuadrado o a medida. \nLomo sólido y rotulable (título, logo, edición). \nInterior \nPapeles interiores según objetivo: más orientados a lectura (offset) o a imagen/foto (estucados mate/brillo). \nPosibilidad de imprimir a color o combinaciones más sobrias. \nTapa dura \nCartón rígido forrado con material de cubierta (papel, tela u opciones similares según el look buscado). \nPosibilidad de sobrecubierta (funda) si quieres un acabado aún más editorial. \nAcabados premium (muy recomendables en tapa dura) \nLaminado mate o brillo (si la cubierta lo requiere). \nSoft touch para un tacto premium. \nStamping (dorado/plata/metalizados) para títulos y logos. \nRelieve en seco (gofrado) para destacar marca sin tinta.\nBarniz selectivo para resaltar detalles en portada (según diseño).\nExtras \nGuardas (hojas interiores de unión) con opción de personalización. \nCinta marcapáginas (opcional) para un acabado más premium.",
       "sections": [
         {
           "id": "details",
@@ -13911,15 +14746,100 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es la encuadernación cosida tapa dura y para qué se usa? \nEn este tipo de encuadernación, los pliegos se cosen (costura) para formar el bloque del libro y luego se montan con una cubierta rígida (tapa dura). El resultado es un libro sólido, pensado para durar y para un uso repetido, con una presencia excelente en mano y en estantería. Se utiliza en proyectos donde importa tanto el contenido como el objeto: ediciones conmemorativas, libros corporativos, catálogos premium y publicaciones institucionales."
+          "body": "Formato y lomo \nFormatos habituales: A4, A5, cuadrado o a medida. \nLomo sólido y rotulable (título, logo, edición). \nInterior \nPapeles interiores según objetivo: más orientados a lectura (offset) o a imagen/foto (estucados mate/brillo). \nPosibilidad de imprimir a color o combinaciones más sobrias. \nTapa dura \nCartón rígido forrado con material de cubierta (papel, tela u opciones similares según el look buscado). \nPosibilidad de sobrecubierta (funda) si quieres un acabado aún más editorial. \nAcabados premium (muy recomendables en tapa dura) \nLaminado mate o brillo (si la cubierta lo requiere). \nSoft touch para un tacto premium. \nStamping (dorado/plata/metalizados) para títulos y logos. \nRelieve en seco (gofrado) para destacar marca sin tinta.\nBarniz selectivo para resaltar detalles en portada (según diseño).\nExtras \nGuardas (hojas interiores de unión) con opción de personalización. \nCinta marcapáginas (opcional) para un acabado más premium."
         },
         {
           "id": "benefits",
           "key": "benefits",
           "title": "Beneficios",
           "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "Máxima durabilidad: la costura aporta resistencia superior frente al uso y el paso del tiempo. \nMejor apertura: lectura más cómoda y páginas más estables (ideal para consulta). \nAcabado premium: tapa rígida con posibilidades de acabado de alta calidad. \nImagen corporativa potente: perfecto para memorias, libros de marca y regalos institucionales. \nGran presencia: se percibe como un producto “de valor” desde el primer momento."
+          "contentFormat": "json",
+          "benefitsData": {
+            "intro": "La encuadernación cosida tapa dura está pensada para publicaciones de alta presencia, uso continuado y larga vida útil.",
+            "benefits": [
+              {
+                "title": "Máxima durabilidad",
+                "description": "La costura aporta una resistencia superior frente al uso continuado y el paso del tiempo."
+              },
+              {
+                "title": "Mejor apertura",
+                "description": "Permite una lectura más cómoda y mantiene las páginas más estables, especialmente en publicaciones de consulta."
+              },
+              {
+                "title": "Acabado premium",
+                "description": "La tapa rígida ofrece una presencia más cuidada y permite acabados de alta calidad."
+              },
+              {
+                "title": "Imagen corporativa potente",
+                "description": "Es una opción ideal para memorias, libros de marca y regalos institucionales."
+              },
+              {
+                "title": "Gran presencia",
+                "description": "Se percibe como un producto de valor desde el primer momento."
+              }
+            ]
+          }
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "kind": "formats",
+          "contentFormat": "json",
+          "formatsData": {
+            "intro": "Definimos el formato, el lomo y la estructura del libro según el número de páginas, el tipo de papel y el uso previsto.",
+            "shapes": [
+              {
+                "title": "Formatos habituales",
+                "description": "A4, A5, cuadrado o formatos a medida según el proyecto editorial o corporativo."
+              },
+              {
+                "title": "Lomo sólido y rotulable",
+                "description": "Permite incluir título, logotipo, edición u otros elementos de identificación en el lomo."
+              },
+              {
+                "title": "Cubierta rígida",
+                "description": "La tapa dura se monta sobre cartón rígido forrado con material de cubierta, como papel, tela u opciones similares según el acabado buscado."
+              },
+              {
+                "title": "Sobrecubierta opcional",
+                "description": "Puede añadirse una funda exterior para conseguir un acabado más editorial y reforzar la presentación."
+              }
+            ],
+            "deliveryFormats": []
+          }
+        },
+        {
+          "id": "finishes",
+          "key": "finishes",
+          "title": "Acabados",
+          "kind": "finishes",
+          "contentFormat": "json",
+          "finishesData": {
+            "intro": "Los acabados premium refuerzan la percepción de calidad de la tapa dura y ayudan a destacar portada, título, marca o detalles gráficos.",
+            "finishes": [
+              {
+                "title": "Laminado mate o brillo",
+                "description": "Protege la cubierta y mejora la presencia final según el estilo visual buscado."
+              },
+              {
+                "title": "Soft touch",
+                "description": "Aporta un tacto más premium y una percepción más cuidada en mano."
+              },
+              {
+                "title": "Stamping",
+                "description": "Acabado dorado, plata o metalizado para destacar títulos, logotipos o detalles de portada."
+              },
+              {
+                "title": "Relieve en seco",
+                "description": "Permite destacar marca o elementos gráficos sin tinta, con un acabado elegante y sobrio."
+              },
+              {
+                "title": "Barniz selectivo",
+                "description": "Resalta zonas concretas de la portada, como logotipos, títulos o detalles visuales."
+              }
+            ]
+          }
         },
         {
           "id": "technical-specs",
@@ -13927,15 +14847,39 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Formato y lomo \nFormatos habituales: A4, A5, cuadrado o a medida. \nLomo sólido y rotulable (título, logo, edición). \nInterior \nPapeles interiores según objetivo: más orientados a lectura (offset) o a imagen/foto (estucados mate/brillo). \nPosibilidad de imprimir a color o combinaciones más sobrias. \nTapa dura \nCartón rígido forrado con material de cubierta (papel, tela u opciones similares según el look buscado). \nPosibilidad de sobrecubierta (funda) si quieres un acabado aún más editorial. \nAcabados premium (muy recomendables en tapa dura) \nLaminado mate o brillo (si la cubierta lo requiere). \nSoft touch para un tacto premium. \nStamping (dorado/plata/metalizados) para títulos y logos. \nRelieve en seco (gofrado) para destacar marca sin tinta.\nBarniz selectivo para resaltar detalles en portada (según diseño).\nExtras \nGuardas (hojas interiores de unión) con opción de personalización. \nCinta marcapáginas (opcional) para un acabado más premium."
+          "body": "### Interior\n\n- **Papeles interiores según objetivo:** offset para una lectura cómoda o estucados mate/brillo cuando la imagen y la fotografía tienen más peso.\n- **Impresión:** a todo color o con combinaciones más sobrias según el estilo de la publicación y la identidad visual.\n\n### Tapa dura\n\n- **Estructura:** pliegos cosidos para formar el bloque interior y cubierta rígida montada posteriormente.\n- **Material de cubierta:** cartón rígido forrado con papel, tela u otras opciones según el acabado buscado.\n- **Uso recomendado:** publicaciones de alta presencia, uso repetido y larga vida útil.\n\n### Extras\n\n- **Guardas personalizadas:** hojas interiores de unión con posibilidad de personalización.\n- **Cinta marcapáginas opcional:** aporta funcionalidad y refuerza la percepción premium del libro."
         },
         {
           "id": "applications",
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "Libros corporativos y memorias anuales de alta gama. \nEdiciones conmemorativas (aniversarios, historia de empresa, publicaciones institucionales). \nCatálogos premium (colecciones, producto de alto valor, lookbooks). \nLibros de fotografía y proyectos creativos. \nTesis, publicaciones académicas y documentos de referencia (cuando se busca durabilidad)."
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Es una solución adecuada para proyectos editoriales, corporativos e institucionales donde la presentación, la resistencia y la percepción de valor son importantes.",
+            "applications": [
+              {
+                "title": "Libros corporativos y memorias anuales de alta gama",
+                "description": "Publicaciones donde la presentación y la durabilidad forman parte del valor del proyecto."
+              },
+              {
+                "title": "Ediciones conmemorativas",
+                "description": "Aniversarios, historia de empresa y publicaciones institucionales con vocación de permanencia."
+              },
+              {
+                "title": "Catálogos premium",
+                "description": "Colecciones, producto de alto valor, lookbooks y publicaciones comerciales con una imagen más editorial."
+              },
+              {
+                "title": "Libros de fotografía y proyectos creativos",
+                "description": "Piezas donde la calidad visual, el soporte y la presencia física son especialmente relevantes."
+              },
+              {
+                "title": "Tesis, publicaciones académicas y documentos de referencia",
+                "description": "Recomendado cuando se busca una encuadernación duradera y resistente al uso."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
@@ -14197,7 +15141,7 @@
     },
     {
       "id": "39",
-      "updatedAt": "2026-04-28T14:23:57Z",
+      "updatedAt": "2026-05-02T18:57:53Z",
       "type": "producto",
       "slug": "encuadernacion-encolada-tapa-blanda",
       "path": "/productos/encuadernacion-encolada-tapa-blanda",
@@ -14504,7 +15448,7 @@
     },
     {
       "id": "107",
-      "updatedAt": "2026-04-28T14:24:19Z",
+      "updatedAt": "2026-05-02T18:57:53Z",
       "type": "producto",
       "slug": "encuadernacion-wire-o",
       "path": "/productos/encuadernacion-wire-o",
@@ -14811,7 +15755,7 @@
     },
     {
       "id": "40",
-      "updatedAt": "2026-05-02T15:44:43Z",
+      "updatedAt": "2026-05-02T18:57:53Z",
       "type": "producto",
       "slug": "encuadernado-con-grapas",
       "path": "/productos/encuadernado-con-grapas",
@@ -15117,7 +16061,7 @@
     },
     {
       "id": "41",
-      "updatedAt": "2026-04-28T14:25:26Z",
+      "updatedAt": "2026-05-02T18:57:50Z",
       "type": "producto",
       "slug": "enmarcados-personalizados",
       "path": "/productos/enmarcados-personalizados",
@@ -15421,7 +16365,7 @@
     },
     {
       "id": "42",
-      "updatedAt": "2026-04-28T14:25:47Z",
+      "updatedAt": "2026-05-02T18:57:38Z",
       "type": "producto",
       "slug": "entradas-personalizadas",
       "path": "/productos/entradas-personalizadas",
@@ -15708,7 +16652,7 @@
     },
     {
       "id": "43",
-      "updatedAt": "2026-04-19T20:24:13Z",
+      "updatedAt": "2026-05-02T18:57:34Z",
       "type": "producto",
       "slug": "etiquetas-adhesivas-en-bobina",
       "path": "/productos/etiquetas-adhesivas-en-bobina",
@@ -15992,7 +16936,7 @@
     },
     {
       "id": "44",
-      "updatedAt": "2026-04-28T14:26:52Z",
+      "updatedAt": "2026-05-02T18:57:55Z",
       "type": "producto",
       "slug": "etiquetas-colgantes",
       "path": "/productos/etiquetas-colgantes",
@@ -16285,7 +17229,7 @@
     },
     {
       "id": "37",
-      "updatedAt": "2026-04-19T20:23:26Z",
+      "updatedAt": "2026-05-02T18:57:35Z",
       "type": "producto",
       "slug": "etiquetas-doming",
       "path": "/productos/etiquetas-doming",
@@ -16553,7 +17497,7 @@
     },
     {
       "id": "45",
-      "updatedAt": "2026-04-28T14:28:05Z",
+      "updatedAt": "2026-05-02T18:57:42Z",
       "type": "producto",
       "slug": "expositores-mesa-personalizados",
       "path": "/productos/expositores-mesa-personalizados",
@@ -16821,7 +17765,7 @@
     },
     {
       "id": "46",
-      "updatedAt": "2026-04-28T14:28:32Z",
+      "updatedAt": "2026-05-02T18:57:42Z",
       "type": "producto",
       "slug": "expositores-suelo-personalizados",
       "path": "/productos/expositores-suelo-personalizados",
@@ -17089,7 +18033,7 @@
     },
     {
       "id": "141",
-      "updatedAt": "2026-04-28T14:28:59Z",
+      "updatedAt": "2026-05-02T18:58:02Z",
       "type": "producto",
       "slug": "faja-para-caja",
       "path": "/productos/faja-para-caja",
@@ -17186,7 +18130,85 @@
       "inStock": false,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "name": "ancho",
+          "label": "Ancho en cm",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "alto",
+          "label": "Alto en cm",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "fondo",
+          "label": "Fondo en cm",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "impresión",
+          "label": "Impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara",
+            "Cuatricromía 2 caras"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "material",
+          "label": "Material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Kraft 300 gr",
+            "Tecknocard 350 gr",
+            "Folding Simwhite 255 gr"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "plastificado",
+          "label": "Plastificado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "No",
+            "Mate 1 cara",
+            "Mate 2 caras",
+            "Brillo 1 cara",
+            "Brillo 2 caras"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "cantidad",
+          "label": "Cantidad",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Fajas para caja personalizadas | Sleeves para packaging corporativo y campañas",
@@ -17288,7 +18310,7 @@
     },
     {
       "id": "47",
-      "updatedAt": "2026-04-28T14:29:20Z",
+      "updatedAt": "2026-05-02T18:57:39Z",
       "type": "producto",
       "slug": "figuras-arbol-navidad",
       "path": "/productos/figuras-arbol-navidad",
@@ -17552,7 +18574,7 @@
     },
     {
       "id": "48",
-      "updatedAt": "2026-04-28T14:29:40Z",
+      "updatedAt": "2026-05-02T18:57:55Z",
       "type": "producto",
       "slug": "flyers-con-forma-personalizados",
       "path": "/productos/flyers-con-forma-personalizados",
@@ -17850,7 +18872,7 @@
     },
     {
       "id": "49",
-      "updatedAt": "2026-04-28T14:30:03Z",
+      "updatedAt": "2026-05-02T18:57:54Z",
       "type": "producto",
       "slug": "flyers-personalizados",
       "path": "/productos/flyers-personalizados",
@@ -18148,7 +19170,7 @@
     },
     {
       "id": "51",
-      "updatedAt": "2026-04-28T14:30:19Z",
+      "updatedAt": "2026-05-02T18:57:55Z",
       "type": "producto",
       "slug": "folletos-plegados-personalizados",
       "path": "/productos/folletos-plegados-personalizados",
@@ -18457,7 +19479,7 @@
     },
     {
       "id": "53",
-      "updatedAt": "2026-04-28T14:30:47Z",
+      "updatedAt": "2026-05-02T18:57:35Z",
       "type": "producto",
       "slug": "fundas-sant-jordi",
       "path": "/productos/fundas-sant-jordi",
@@ -18704,7 +19726,7 @@
     },
     {
       "id": "54",
-      "updatedAt": "2026-04-28T14:31:04Z",
+      "updatedAt": "2026-05-02T18:57:34Z",
       "type": "producto",
       "slug": "hojas-pegatinas-personalizadas",
       "path": "/productos/hojas-pegatinas-personalizadas",
@@ -18969,7 +19991,7 @@
     },
     {
       "id": "55",
-      "updatedAt": "2026-04-28T14:32:10Z",
+      "updatedAt": "2026-05-02T18:57:55Z",
       "type": "producto",
       "slug": "hojas-sueltas-archivadores",
       "path": "/productos/hojas-sueltas-archivadores",
@@ -19273,7 +20295,7 @@
     },
     {
       "id": "56",
-      "updatedAt": "2026-04-28T14:43:11Z",
+      "updatedAt": "2026-05-02T18:57:52Z",
       "type": "producto",
       "slug": "hule-personalizado",
       "path": "/productos/hule-personalizado",
@@ -19546,7 +20568,7 @@
     },
     {
       "id": "57",
-      "updatedAt": "2026-04-28T14:43:37Z",
+      "updatedAt": "2026-05-02T18:57:39Z",
       "type": "producto",
       "slug": "idenficador-maleta",
       "path": "/productos/idenficador-maleta",
@@ -19689,6 +20711,27 @@
           "required": false,
           "options": [],
           "readonly": false
+        },
+        {
+          "name": "material",
+          "label": "Material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Polipropileno",
+            "Cartulina gráfica"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "troquelado",
+          "label": "Troquelado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "A la forma"
+          ],
+          "readonly": true
         }
       ],
       "legacySlugs": [],
@@ -19801,7 +20844,7 @@
     },
     {
       "id": "59",
-      "updatedAt": "2026-04-28T14:44:02Z",
+      "updatedAt": "2026-05-02T18:57:48Z",
       "type": "producto",
       "slug": "imanes-publicitarios",
       "path": "/productos/imanes-publicitarios",
@@ -20125,7 +21168,7 @@
     },
     {
       "id": "99",
-      "updatedAt": "2026-04-28T14:44:22Z",
+      "updatedAt": "2026-05-02T18:57:54Z",
       "type": "producto",
       "slug": "invitaciones-y-tarjetones-personalizados",
       "path": "/productos/invitaciones-y-tarjetones-personalizados",
@@ -20641,7 +21684,7 @@
     },
     {
       "id": "60",
-      "updatedAt": "2026-04-28T14:44:48Z",
+      "updatedAt": "2026-05-02T18:57:36Z",
       "type": "producto",
       "slug": "lanyards-eventos-barcelona",
       "path": "/productos/lanyards-eventos-barcelona",
@@ -20905,7 +21948,7 @@
     },
     {
       "id": "132",
-      "updatedAt": "2026-04-28T14:45:10Z",
+      "updatedAt": "2026-05-02T18:58:01Z",
       "type": "producto",
       "slug": "letras-corporeas-personalizadas",
       "path": "/productos/letras-corporeas-personalizadas",
@@ -21006,7 +22049,65 @@
       "inStock": false,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "name": "tamaño",
+          "label": "Tamaño",
+          "type": "text",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "impresión",
+          "label": "Impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Con impresión",
+            "Sin impresión"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "material",
+          "label": "Material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Nido de abeja 16 mm",
+            "Nido de abeja 32 mm",
+            "PVC 10 mm"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "acabados",
+          "label": "Acabados",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cortado a la forma"
+          ],
+          "readonly": true
+        },
+        {
+          "name": "cantidad",
+          "label": "Cantidad",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Letras corpóreas personalizadas | Rótulos 3D para interior y exterior",
@@ -21114,7 +22215,7 @@
     },
     {
       "id": "129",
-      "updatedAt": "2026-04-28T14:45:32Z",
+      "updatedAt": "2026-05-02T18:57:59Z",
       "type": "producto",
       "slug": "libretas-personalizadas",
       "path": "/productos/libretas-personalizadas",
@@ -21215,7 +22316,91 @@
       "inStock": false,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "name": "tamaño",
+          "label": "Tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Din A-5",
+            "Din A-4"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "impresión",
+          "label": "Impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara",
+            "Cuatricromía 2 caras"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "papel cubiertas",
+          "label": "Papel cubiertas",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado mate 350 gr.",
+            "Cartulina gráfica 350 gr."
+          ],
+          "readonly": false
+        },
+        {
+          "name": "acabados cubierta",
+          "label": "Acabados cubierta",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Sin plastificar",
+            "Plastificado mate 2 caras",
+            "Plastificado brillo 2 caras"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "papel interior",
+          "label": "Papel interior",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Offset 80 gr.",
+            "Offset 90 gr.",
+            "Reciclado 80 gr."
+          ],
+          "readonly": false
+        },
+        {
+          "name": "encuadernación",
+          "label": "Encuadernación",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Wire-O"
+          ],
+          "readonly": true
+        },
+        {
+          "name": "cantidad",
+          "label": "Cantidad",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Libretas personalizadas | Libretas corporativas para oficina, eventos y marca",
@@ -21323,7 +22508,7 @@
     },
     {
       "id": "63",
-      "updatedAt": "2026-04-28T14:45:52Z",
+      "updatedAt": "2026-05-02T18:57:47Z",
       "type": "producto",
       "slug": "lona-publicitaria",
       "path": "/productos/lona-publicitaria",
@@ -21613,7 +22798,7 @@
     },
     {
       "id": "65",
-      "updatedAt": "2026-04-28T14:46:12Z",
+      "updatedAt": "2026-05-02T18:57:51Z",
       "type": "producto",
       "slug": "manteles-individuales-personalizados",
       "path": "/productos/manteles-individuales-personalizados",
@@ -21713,7 +22898,77 @@
       "reviewCount": 0,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "name": "tamaño",
+          "label": "Tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "29",
+            "7x42 cm",
+            "33x35 cm"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "impresión",
+          "label": "Impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "1 cara"
+          ],
+          "readonly": true
+        },
+        {
+          "name": "tintas",
+          "label": "Tintas",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía"
+          ],
+          "readonly": true
+        },
+        {
+          "name": "papel",
+          "label": "Papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Offset 90 gr",
+            "offset 100 gr"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "corte",
+          "label": "Corte",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Recto"
+          ],
+          "readonly": true
+        },
+        {
+          "name": "cantidad",
+          "label": "Cantidad",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Manteles individuales personalizados | Hostelería y restauración",
@@ -21824,7 +23079,7 @@
     },
     {
       "id": "68",
-      "updatedAt": "2026-04-28T14:46:34Z",
+      "updatedAt": "2026-05-02T18:57:44Z",
       "type": "producto",
       "slug": "marcos-click-system-personalizados",
       "path": "/productos/marcos-click-system-personalizados",
@@ -22100,7 +23355,7 @@
     },
     {
       "id": "66",
-      "updatedAt": "2026-04-28T14:47:00Z",
+      "updatedAt": "2026-05-02T18:57:37Z",
       "type": "producto",
       "slug": "marcos-photocall-personalizados",
       "path": "/productos/marcos-photocall-personalizados",
@@ -22201,7 +23456,77 @@
       "reviewCount": 0,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "name": "tamaño",
+          "label": "Tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "70 x 100 cm",
+            "100 x 100 cm",
+            "100 x 140 cm"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "impresión",
+          "label": "Impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "1 cara"
+          ],
+          "readonly": true
+        },
+        {
+          "name": "tintas",
+          "label": "Tintas",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía"
+          ],
+          "readonly": true
+        },
+        {
+          "name": "material",
+          "label": "Material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cartón pluma 10 mm"
+          ],
+          "readonly": true
+        },
+        {
+          "name": "Corte",
+          "label": "Corte ventana",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Recto",
+            "A la forma"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "cantidad",
+          "label": "Cantidad",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Marcos para Photocall Personalizados | Eventos y Empresas",
@@ -22312,7 +23637,7 @@
     },
     {
       "id": "69",
-      "updatedAt": "2026-04-28T14:47:25Z",
+      "updatedAt": "2026-05-02T18:57:50Z",
       "type": "producto",
       "slug": "metacrilato-personalizado",
       "path": "/productos/metacrilato-personalizado",
@@ -22420,12 +23745,10 @@
         {
           "name": "tamaño",
           "label": "Tamaño",
-          "type": "select",
+          "type": "text",
           "required": true,
-          "options": [
-            "Personalizado a demanda"
-          ],
-          "readonly": true
+          "options": [],
+          "readonly": false
         },
         {
           "name": "impresión",
@@ -22455,7 +23778,7 @@
           "required": true,
           "options": [
             "Transparente",
-            "blanco"
+            "Blanco"
           ],
           "readonly": false
         },
@@ -22603,7 +23926,7 @@
     },
     {
       "id": "70",
-      "updatedAt": "2026-04-28T14:47:45Z",
+      "updatedAt": "2026-05-02T18:57:38Z",
       "type": "producto",
       "slug": "minutas-boda",
       "path": "/productos/minutas-boda",
@@ -22887,7 +24210,7 @@
     },
     {
       "id": "72",
-      "updatedAt": "2026-04-28T14:48:56Z",
+      "updatedAt": "2026-05-02T18:57:37Z",
       "type": "producto",
       "slug": "nombres-sobremesa-personalizados",
       "path": "/productos/nombres-sobremesa-personalizados",
@@ -23159,7 +24482,7 @@
     },
     {
       "id": "21",
-      "updatedAt": "2026-04-28T11:04:59Z",
+      "updatedAt": "2026-05-02T18:57:49Z",
       "type": "producto",
       "slug": "panel-carton-compacto-personalizado",
       "path": "/productos/panel-carton-compacto-personalizado",
@@ -23437,7 +24760,7 @@
     },
     {
       "id": "22",
-      "updatedAt": "2026-04-28T11:05:26Z",
+      "updatedAt": "2026-05-02T18:57:49Z",
       "type": "producto",
       "slug": "panel-carton-corrugado-personalizado",
       "path": "/productos/panel-carton-corrugado-personalizado",
@@ -23716,7 +25039,7 @@
     },
     {
       "id": "32",
-      "updatedAt": "2026-04-28T11:14:09Z",
+      "updatedAt": "2026-05-02T18:57:49Z",
       "type": "producto",
       "slug": "panel-dibond-personalizado",
       "path": "/productos/panel-dibond-personalizado",
@@ -24006,7 +25329,7 @@
     },
     {
       "id": "50",
-      "updatedAt": "2026-04-28T15:01:50Z",
+      "updatedAt": "2026-05-02T18:57:49Z",
       "type": "producto",
       "slug": "panel-foam-personalizado",
       "path": "/productos/panel-foam-personalizado",
@@ -24110,7 +25433,78 @@
       "reviewCount": 0,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "name": "tamaño",
+          "label": "Tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Personalizado a demanda"
+          ],
+          "readonly": true
+        },
+        {
+          "name": "impresión",
+          "label": "Impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ],
+          "readonly": true
+        },
+        {
+          "name": "material",
+          "label": "Material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Foam 5 mm",
+            "Foam 10 mm"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "acabados",
+          "label": "Acabados",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Plastificado brillo",
+            "Plastificado mate",
+            "Plastificado velleda"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "corte",
+          "label": "Corte",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Recto",
+            "A la forma"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "cantidad",
+          "label": "Cantidad",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Panel de foam personalizado | Impresión en cartón pluma para interior",
@@ -24227,7 +25621,7 @@
     },
     {
       "id": "52",
-      "updatedAt": "2026-04-28T15:03:04Z",
+      "updatedAt": "2026-05-02T18:57:48Z",
       "type": "producto",
       "slug": "panel-forex",
       "path": "/productos/panel-forex",
@@ -24519,7 +25913,7 @@
     },
     {
       "id": "71",
-      "updatedAt": "2026-04-28T15:04:18Z",
+      "updatedAt": "2026-05-02T18:57:49Z",
       "type": "producto",
       "slug": "panel-nido-de-abeja-personalizado",
       "path": "/productos/panel-nido-de-abeja-personalizado",
@@ -24799,7 +26193,7 @@
     },
     {
       "id": "35",
-      "updatedAt": "2026-04-28T15:00:42Z",
+      "updatedAt": "2026-05-02T18:57:49Z",
       "type": "producto",
       "slug": "panel-dispa-personalizado",
       "path": "/productos/panel-dispa-personalizado",
@@ -25078,7 +26472,7 @@
     },
     {
       "id": "120",
-      "updatedAt": "2026-04-28T15:04:54Z",
+      "updatedAt": "2026-05-02T18:57:48Z",
       "type": "producto",
       "slug": "panel-ultraligero",
       "path": "/productos/panel-ultraligero",
@@ -25175,7 +26569,16 @@
       "inStock": false,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Panel ultraligero | Impresión en rígido sándwich a medida",
@@ -25275,7 +26678,7 @@
     },
     {
       "id": "64",
-      "updatedAt": "2026-04-28T15:05:17Z",
+      "updatedAt": "2026-05-02T18:57:50Z",
       "type": "producto",
       "slug": "paneles-madera",
       "path": "/productos/paneles-madera",
@@ -25567,7 +26970,7 @@
     },
     {
       "id": "127",
-      "updatedAt": "2026-04-28T15:05:54Z",
+      "updatedAt": "2026-05-02T18:57:58Z",
       "type": "producto",
       "slug": "papel-de-carta",
       "path": "/productos/papel-de-carta",
@@ -25668,7 +27071,58 @@
       "inStock": false,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "name": "tamaño",
+          "label": "Tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Din A-5",
+            "Din A-4"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "impresión",
+          "label": "Impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara",
+            "Cuatricromía 2 caras"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "papel",
+          "label": "Papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Offset 90 gr.",
+            "Offset 120 gr.",
+            "Reciclado 80 gr."
+          ],
+          "readonly": false
+        },
+        {
+          "name": "cantidad",
+          "label": "Cantidad",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Papel de carta personalizado | Papelería corporativa profesional",
@@ -25776,7 +27230,7 @@
     },
     {
       "id": "76",
-      "updatedAt": "2026-04-28T15:07:00Z",
+      "updatedAt": "2026-05-02T18:57:47Z",
       "type": "producto",
       "slug": "papel-de-pared-personalizado",
       "path": "/productos/papel-de-pared-personalizado",
@@ -26065,7 +27519,7 @@
     },
     {
       "id": "78",
-      "updatedAt": "2026-05-02T10:00:09Z",
+      "updatedAt": "2026-05-02T18:57:33Z",
       "type": "producto",
       "slug": "pegatinas-personalizadas",
       "path": "/productos/pegatinas-personalizadas",
@@ -26485,7 +27939,7 @@
     },
     {
       "id": "79",
-      "updatedAt": "2026-04-28T15:07:21Z",
+      "updatedAt": "2026-05-02T18:57:41Z",
       "type": "producto",
       "slug": "photocall-personalizado",
       "path": "/productos/photocall-personalizado",
@@ -26757,7 +28211,7 @@
     },
     {
       "id": "126",
-      "updatedAt": "2026-04-28T15:08:01Z",
+      "updatedAt": "2026-05-02T18:57:57Z",
       "type": "producto",
       "slug": "pizarras-a-medida",
       "path": "/productos/pizarras-a-medida",
@@ -26858,7 +28312,66 @@
       "inStock": false,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "name": "tamaño",
+          "label": "Tamaño",
+          "type": "text",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "impresión",
+          "label": "Impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Sin impresión",
+            "Cuatricromía 1 cara"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "material",
+          "label": "Material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Forex 5 mm",
+            "Dibon",
+            "Plancha metálica"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "acabado",
+          "label": "Acabado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Laminado Velleda blanco",
+            "Laminado transparente Velleda"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "cantidad",
+          "label": "Cantidad",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Pizarras personalizadas a medida | Superficie tipo Velleda para oficina",
@@ -26966,7 +28479,7 @@
     },
     {
       "id": "133",
-      "updatedAt": "2026-04-28T15:08:34Z",
+      "updatedAt": "2026-05-02T18:58:00Z",
       "type": "producto",
       "slug": "placa-direccion-personalizada",
       "path": "/productos/placa-direccion-personalizada",
@@ -27067,7 +28580,68 @@
       "inStock": false,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "name": "tamaño",
+          "label": "Tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Personalizado"
+          ],
+          "readonly": true
+        },
+        {
+          "name": "impresión",
+          "label": "Impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ],
+          "readonly": true
+        },
+        {
+          "name": "material",
+          "label": "Material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Forex",
+            "Dibond",
+            "Metacrilato"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "acabados",
+          "label": "Acabados",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Con agujeros",
+            "Sin agujeros",
+            "Cinta adhesiva doble cara"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "cantidad",
+          "label": "Cantidad",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Placa dirección personalizada | Señalética de oficinas y edificios",
@@ -27175,7 +28749,7 @@
     },
     {
       "id": "83",
-      "updatedAt": "2026-04-28T15:08:56Z",
+      "updatedAt": "2026-05-02T18:57:52Z",
       "type": "producto",
       "slug": "portacuentas-personalizados",
       "path": "/productos/portacuentas-personalizados",
@@ -27729,7 +29303,7 @@
     },
     {
       "id": "85",
-      "updatedAt": "2026-04-28T15:10:46Z",
+      "updatedAt": "2026-05-02T18:57:55Z",
       "type": "producto",
       "slug": "posters-personalizados",
       "path": "/productos/posters-personalizados",
@@ -28023,7 +29597,7 @@
     },
     {
       "id": "86",
-      "updatedAt": "2026-04-28T15:11:07Z",
+      "updatedAt": "2026-05-02T18:57:36Z",
       "type": "producto",
       "slug": "premios-personalizados",
       "path": "/productos/premios-personalizados",
@@ -28305,7 +29879,7 @@
     },
     {
       "id": "87",
-      "updatedAt": "2026-04-28T15:11:35Z",
+      "updatedAt": "2026-05-02T18:57:56Z",
       "type": "producto",
       "slug": "puntos-de-libro-personalizados",
       "path": "/productos/puntos-de-libro-personalizados",
@@ -28598,7 +30172,7 @@
     },
     {
       "id": "88",
-      "updatedAt": "2026-04-28T15:46:41Z",
+      "updatedAt": "2026-05-02T18:57:47Z",
       "type": "producto",
       "slug": "retoiluminados",
       "path": "/productos/retoiluminados",
@@ -28702,7 +30276,65 @@
       "reviewCount": 0,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "name": "tamaño",
+          "label": "Tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Personalizado a demanda"
+          ],
+          "readonly": true
+        },
+        {
+          "name": "impresión",
+          "label": "Impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ],
+          "readonly": true
+        },
+        {
+          "name": "material",
+          "label": "Material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Backlight",
+            "textil retroiluminable"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "corte",
+          "label": "Corte",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Recto"
+          ],
+          "readonly": true
+        },
+        {
+          "name": "cantidad",
+          "label": "Cantidad",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Retoiluminados | Repro Disseny",
@@ -28819,7 +30451,7 @@
     },
     {
       "id": "89",
-      "updatedAt": "2026-05-02T07:16:26Z",
+      "updatedAt": "2026-05-02T18:57:39Z",
       "type": "producto",
       "slug": "roll-up-personalizado",
       "path": "/productos/roll-up-personalizado",
@@ -29221,7 +30853,7 @@
     },
     {
       "id": "131",
-      "updatedAt": "2026-04-28T15:12:40Z",
+      "updatedAt": "2026-05-02T18:57:59Z",
       "type": "producto",
       "slug": "sellos-de-goma-personalizados",
       "path": "/productos/sellos-de-goma-personalizados",
@@ -29322,7 +30954,45 @@
       "inStock": false,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "name": "tamaño",
+          "label": "Tamaño",
+          "type": "text",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "color impresión",
+          "label": "Color impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Negro",
+            "Rojo",
+            "Verde",
+            "Azul"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "cantidad",
+          "label": "Cantidad",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Sellos de goma personalizados | Sellos automáticos para empresa y oficina",
@@ -29430,7 +31100,7 @@
     },
     {
       "id": "128",
-      "updatedAt": "2026-04-28T15:13:14Z",
+      "updatedAt": "2026-05-02T18:57:58Z",
       "type": "producto",
       "slug": "sobres-personalizados",
       "path": "/productos/sobres-personalizados",
@@ -29531,7 +31201,84 @@
       "inStock": false,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "name": "tamaño",
+          "label": "Tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "11x22",
+            "5 cm",
+            "C5 (16",
+            "2x22",
+            "9 cm)",
+            "C4 (22",
+            "9x32",
+            "4 cm)",
+            "B4 (25x35 cm)"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "impresión",
+          "label": "Impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ],
+          "readonly": true
+        },
+        {
+          "name": "papel",
+          "label": "Papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Offset 90 gr."
+          ],
+          "readonly": true
+        },
+        {
+          "name": "ventana",
+          "label": "Ventana",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Si",
+            "No"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "posición ventana",
+          "label": "Posición ventana",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Derecha",
+            "Izquierda"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "cantidad",
+          "label": "Cantidad",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Sobres personalizados | Sobres corporativos para empresas",
@@ -29639,7 +31386,7 @@
     },
     {
       "id": "92",
-      "updatedAt": "2026-04-28T15:14:38Z",
+      "updatedAt": "2026-05-02T18:57:56Z",
       "type": "producto",
       "slug": "stoppers-lineal-personalizados",
       "path": "/productos/stoppers-lineal-personalizados",
@@ -29921,7 +31668,7 @@
     },
     {
       "id": "93",
-      "updatedAt": "2026-04-28T15:14:38Z",
+      "updatedAt": "2026-05-02T18:57:38Z",
       "type": "producto",
       "slug": "tabletens-personalizados",
       "path": "/productos/tabletens-personalizados",
@@ -30194,7 +31941,7 @@
     },
     {
       "id": "130",
-      "updatedAt": "2026-04-28T15:15:02Z",
+      "updatedAt": "2026-05-02T18:57:59Z",
       "type": "producto",
       "slug": "talonarios-autocopiativos-personalizados",
       "path": "/productos/talonarios-autocopiativos-personalizados",
@@ -30295,7 +32042,79 @@
       "inStock": false,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "name": "tamaño",
+          "label": "Tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Din A-5",
+            "Din A-4"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "impresión",
+          "label": "Impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara",
+            "Cuatricromía 2 caras"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "papel",
+          "label": "Papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Autocopiativo 60 gr."
+          ],
+          "readonly": true
+        },
+        {
+          "name": "número de copias",
+          "label": "Número de copias",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Original+1",
+            "Original+2",
+            "Original+3"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "encuadernación",
+          "label": "Encuadernación",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Talonarios",
+            "Juegos sueltos"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "cantidad",
+          "label": "Cantidad",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Talonarios autocopiativos personalizados | Albaranes, pedidos y partes de trabajo",
@@ -30403,7 +32222,7 @@
     },
     {
       "id": "96",
-      "updatedAt": "2026-04-28T15:17:17Z",
+      "updatedAt": "2026-05-02T18:57:57Z",
       "type": "producto",
       "slug": "tarjetas-pvc-personalizadas",
       "path": "/productos/tarjetas-pvc-personalizadas",
@@ -30694,7 +32513,7 @@
     },
     {
       "id": "125",
-      "updatedAt": "2026-04-28T15:16:08Z",
+      "updatedAt": "2026-05-02T18:57:57Z",
       "type": "producto",
       "slug": "tarjetas-de-visita-personalizadas",
       "path": "/productos/tarjetas-de-visita-personalizadas",
@@ -30795,7 +32614,70 @@
       "inStock": false,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "name": "tamaño",
+          "label": "Tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "8",
+            "5x5",
+            "5 cm",
+            "9x5 cm"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "impresión",
+          "label": "Impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara",
+            "Cuatricromía 2 caras"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "papel",
+          "label": "Papel",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Estucado mate 350 gr."
+          ],
+          "readonly": true
+        },
+        {
+          "name": "acabado",
+          "label": "Acabado",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Sin plastificar",
+            "Plastificado mate 2 caras",
+            "Plastificado brillo 2 caras"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "cantidad",
+          "label": "Cantidad",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Tarjetas de visita personalizadas | Impresión profesional para empresas",
@@ -30903,7 +32785,7 @@
     },
     {
       "id": "95",
-      "updatedAt": "2026-04-28T15:16:40Z",
+      "updatedAt": "2026-05-02T18:57:55Z",
       "type": "producto",
       "slug": "tarjetas-postales-personalizadas",
       "path": "/productos/tarjetas-postales-personalizadas",
@@ -31187,7 +33069,7 @@
     },
     {
       "id": "97",
-      "updatedAt": "2026-04-28T15:17:40Z",
+      "updatedAt": "2026-05-02T18:57:57Z",
       "type": "producto",
       "slug": "tarjetas-rasca",
       "path": "/productos/tarjetas-rasca",
@@ -31469,7 +33351,7 @@
     },
     {
       "id": "100",
-      "updatedAt": "2026-04-28T15:18:46Z",
+      "updatedAt": "2026-05-02T18:58:00Z",
       "type": "producto",
       "slug": "tazas-personalizadas-empresa",
       "path": "/productos/tazas-personalizadas-empresa",
@@ -31725,7 +33607,7 @@
     },
     {
       "id": "102",
-      "updatedAt": "2026-04-28T15:20:12Z",
+      "updatedAt": "2026-05-02T18:57:38Z",
       "type": "producto",
       "slug": "textil-reposacabezas-personalizado",
       "path": "/productos/textil-reposacabezas-personalizado",
@@ -31979,7 +33861,7 @@
     },
     {
       "id": "103",
-      "updatedAt": "2026-04-28T15:19:17Z",
+      "updatedAt": "2026-05-02T18:57:57Z",
       "type": "producto",
       "slug": "tiras-de-lineal-personalizadas",
       "path": "/productos/tiras-de-lineal-personalizadas",
@@ -32258,7 +34140,7 @@
     },
     {
       "id": "104",
-      "updatedAt": "2026-04-28T15:21:19Z",
+      "updatedAt": "2026-05-02T18:57:40Z",
       "type": "producto",
       "slug": "totems-publicitarios-personalizados",
       "path": "/productos/totems-publicitarios-personalizados",
@@ -32529,7 +34411,7 @@
     },
     {
       "id": "144",
-      "updatedAt": "2026-04-28T15:25:23Z",
+      "updatedAt": "2026-05-02T18:58:03Z",
       "type": "producto",
       "slug": "urna",
       "path": "/productos/urna",
@@ -32626,7 +34508,55 @@
       "inStock": false,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "name": "tamaño",
+          "label": "Tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "36 x 23.8 x 24 cm"
+          ],
+          "readonly": true
+        },
+        {
+          "name": "impresión",
+          "label": "Impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ],
+          "readonly": true
+        },
+        {
+          "name": "material",
+          "label": "Material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Microcanal E blanco 1700 micras",
+            "Microcanal E kraft 1700 micras"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "cantidad",
+          "label": "Cantidad",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Caja urna personalizada | Urnas para sorteos, encuestas y captación",
@@ -32728,7 +34658,7 @@
     },
     {
       "id": "116",
-      "updatedAt": "2026-04-28T15:27:11Z",
+      "updatedAt": "2026-05-02T18:57:45Z",
       "type": "producto",
       "slug": "vinilo-de-corte",
       "path": "/productos/vinilo-de-corte",
@@ -32829,7 +34759,16 @@
       "inStock": false,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Vinilo de Corte Personalizado | Rotulación para Cristal, Pared y Vehículos",
@@ -32937,7 +34876,7 @@
     },
     {
       "id": "115",
-      "updatedAt": "2026-04-28T15:27:39Z",
+      "updatedAt": "2026-05-02T18:57:45Z",
       "type": "producto",
       "slug": "vinilo-para-cristal",
       "path": "/productos/vinilo-para-cristal",
@@ -33038,7 +34977,64 @@
       "inStock": false,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "name": "tamaño",
+          "label": "Tamaño",
+          "type": "select",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "impresión",
+          "label": "Impresión",
+          "type": "select",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "aplicación",
+          "label": "Aplicación",
+          "type": "select",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "material",
+          "label": "Material",
+          "type": "select",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "corte",
+          "label": "Corte",
+          "type": "select",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "cantidad",
+          "label": "Cantidad",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Vinilo para Cristal Personalizado | Escaparates, Oficinas y Señalización",
@@ -33146,7 +35142,7 @@
     },
     {
       "id": "119",
-      "updatedAt": "2026-04-28T15:28:10Z",
+      "updatedAt": "2026-05-02T18:57:46Z",
       "type": "producto",
       "slug": "vinilo-pizarra",
       "path": "/productos/vinilo-pizarra",
@@ -33235,7 +35231,16 @@
       "inStock": false,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Vinilo para Pizarra | Vinilo Adhesivo Escribible para Pared y Muebles",
@@ -33335,7 +35340,7 @@
     },
     {
       "id": "117",
-      "updatedAt": "2026-04-28T15:28:43Z",
+      "updatedAt": "2026-05-02T18:57:45Z",
       "type": "producto",
       "slug": "vinilo-suelo-personalizado",
       "path": "/productos/vinilo-suelo-personalizado",
@@ -33432,7 +35437,16 @@
       "inStock": false,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Vinilo para Suelo Personalizado | Señalización y Publicidad en Gran Formato",
@@ -33532,7 +35546,7 @@
     },
     {
       "id": "118",
-      "updatedAt": "2026-04-28T15:29:36Z",
+      "updatedAt": "2026-05-02T18:57:46Z",
       "type": "producto",
       "slug": "vinilo-vehiculos-personalizado",
       "path": "/productos/vinilo-vehiculos-personalizado",
@@ -33616,7 +35630,16 @@
       "inStock": false,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Vinilo para Vehículo Personalizado | Rotulación Profesional para Empresa",
@@ -33687,7 +35710,7 @@
     },
     {
       "id": "114",
-      "updatedAt": "2026-04-28T15:51:15Z",
+      "updatedAt": "2026-05-02T18:57:45Z",
       "type": "producto",
       "slug": "vinilos-superficies-planas",
       "path": "/productos/vinilos-superficies-planas",
@@ -33788,7 +35811,64 @@
       "inStock": false,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "name": "tamaño",
+          "label": "Tamaño",
+          "type": "select",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "impresión",
+          "label": "Impresión",
+          "type": "select",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "aplicación",
+          "label": "Aplicación",
+          "type": "select",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "material",
+          "label": "Material",
+          "type": "select",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "corte",
+          "label": "Corte",
+          "type": "select",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "cantidad",
+          "label": "Cantidad",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Vinilos para Pared y Superficies Planas | Gran Formato Personalizado",
@@ -33896,7 +35976,7 @@
     },
     {
       "id": "11",
-      "updatedAt": "2026-04-28T15:44:35Z",
+      "updatedAt": "2026-05-02T18:57:40Z",
       "type": "producto",
       "slug": "xbanner-personalizado",
       "path": "/productos/xbanner-personalizado",
@@ -33996,7 +36076,66 @@
       "reviewCount": 0,
       "attributes": [],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "name": "tamaño",
+          "label": "Tamaño",
+          "type": "select",
+          "required": true,
+          "options": [
+            "60x160 cm",
+            "80x180 cm",
+            "80x200 cm"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "impresión",
+          "label": "Impresión",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Cuatricromía 1 cara"
+          ],
+          "readonly": true
+        },
+        {
+          "name": "material",
+          "label": "Material",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Polipropileno 240 micras"
+          ],
+          "readonly": true
+        },
+        {
+          "name": "acabados",
+          "label": "Acabados",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Corte recto más ojales en las esquinas"
+          ],
+          "readonly": true
+        },
+        {
+          "name": "cantidad",
+          "label": "Cantidad",
+          "type": "number",
+          "required": true,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "X-Banner Personalizado | Expositor Ligero para Ferias y Promociones",
