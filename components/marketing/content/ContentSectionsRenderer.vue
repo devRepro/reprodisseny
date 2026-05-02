@@ -31,9 +31,7 @@ const props = withDefaults(
 
 const safeSections = computed(() =>
   (props.sections ?? []).filter(
-    (section) =>
-      String(section?.id || "").trim() &&
-      String(section?.title || "").trim()
+    (section) => String(section?.id || "").trim() && String(section?.title || "").trim()
   )
 );
 
@@ -57,25 +55,21 @@ watch(
 
 <template>
   <div v-if="safeSections.length" class="space-y-6 md:space-y-8">
-    <div
-      class="overflow-x-auto pb-1"
-      role="tablist"
-      aria-label="Información detallada"
-    >
+    <div class="overflow-x-auto pb-1" role="tablist" aria-label="Información detallada">
       <div class="flex min-w-max gap-2 md:gap-3">
         <AppChip
-  v-for="section in safeSections"
-  :id="`tab-${section.id}`"
-  :key="section.id"
-  variant="tab"
-  :active="activeTabId === section.id"
-  role="tab"
-  :aria-selected="activeTabId === section.id ? 'true' : 'false'"
-  :aria-controls="`panel-${section.id}`"
-  @click="activeTabId = section.id"
->
-  {{ section.title }}
-</AppChip>
+          v-for="section in safeSections"
+          :id="`tab-${section.id}`"
+          :key="section.id"
+          variant="tab"
+          :active="activeTabId === section.id"
+          role="tab"
+          :aria-selected="activeTabId === section.id ? 'true' : 'false'"
+          :aria-controls="`panel-${section.id}`"
+          @click="activeTabId = section.id"
+        >
+          {{ section.title }}
+        </AppChip>
       </div>
     </div>
 
@@ -98,4 +92,4 @@ watch(
       </section>
     </div>
   </div>
-</template>~/server/services/cms/catalog.service
+</template>

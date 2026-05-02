@@ -2,7 +2,7 @@
 <script setup lang="ts">
 import { computed, ref, watchEffect } from "vue";
 import ContentTabs from "@/components/marketing/content/ContentTabs.vue";
-import ContentDetailsSection from "@/components/marketing/content/ContentDetailsSection.vue";
+import ContentSectionsPanel from "@/components/marketing/content/ContentSectionsPanel.vue";
 
 type ProductBlock =
   | {
@@ -25,16 +25,16 @@ type ProductBlock =
       caption?: string;
     };
 
+type ProductCardItem = {
+  title?: string;
+  description?: string;
+  text?: string;
+};
+
 type ProductFormatsData = {
   intro?: string;
-  shapes?: Array<{
-    title: string;
-    description: string;
-  }>;
-  deliveryFormats?: Array<{
-    title: string;
-    description: string;
-  }>;
+  shapes?: ProductCardItem[];
+  deliveryFormats?: ProductCardItem[];
 };
 
 type ProductSection = {
@@ -47,7 +47,7 @@ type ProductSection = {
   html?: string;
   blocks?: ProductBlock[];
   content?: ProductBlock[];
-  items?: Array<Record<string, unknown>>;
+  items?: ProductCardItem[];
   formatsData?: ProductFormatsData;
 };
 
@@ -69,7 +69,7 @@ const props = withDefaults(
   }>(),
   {
     sections: () => [],
-    showSectionNav: false,
+    showSectionNav: true,
   }
 );
 
@@ -92,15 +92,33 @@ function hasFormatsData(section: ProductSection): boolean {
 
   return Boolean(
     String(data.intro || "").trim() ||
-      data.shapes?.length ||
-      data.deliveryFormats?.length
+      data.shapes?.some(
+        (item) =>
+          String(item?.title || "").trim() ||
+          String(item?.description || item?.text || "").trim()
+      ) ||
+      data.deliveryFormats?.some(
+        (item) =>
+          String(item?.title || "").trim() ||
+          String(item?.description || item?.text || "").trim()
+      )
+  );
+}
+
+function hasItems(section: ProductSection): boolean {
+  return Boolean(
+    section.items?.some(
+      (item) =>
+        String(item?.title || "").trim() ||
+        String(item?.description || item?.text || "").trim()
+    )
   );
 }
 
 function hasRenderableContent(section: ProductSection): boolean {
   if (Array.isArray(section.blocks) && section.blocks.length) return true;
   if (Array.isArray(section.content) && section.content.length) return true;
-  if (Array.isArray(section.items) && section.items.length) return true;
+  if (hasItems(section)) return true;
   if (hasFormatsData(section)) return true;
   if (String(section.body ?? "").trim()) return true;
   if (String(section.text ?? "").trim()) return true;
@@ -110,9 +128,7 @@ function hasRenderableContent(section: ProductSection): boolean {
 }
 
 function normalizeBlocks(section: ProductSection): ProductBlock[] {
-  const rawBlocks = Array.isArray(section.blocks)
-    ? section.blocks.filter(Boolean)
-    : [];
+  const rawBlocks = Array.isArray(section.blocks) ? section.blocks.filter(Boolean) : [];
 
   if (rawBlocks.length) return rawBlocks;
 
@@ -161,13 +177,25 @@ const safeSections = computed<SafeProductSection[]>(() =>
     .map((section, index) => {
       const rawId = String(section.id ?? section.key ?? section.title ?? "").trim();
       const body = String(section.body ?? section.text ?? "").trim();
+      const intro = String(section.intro ?? "").trim();
+
+      const items = Array.isArray(section.items)
+        ? section.items.filter(
+            (item) =>
+              item &&
+              (String(item.title || "").trim() ||
+                String(item.description || item.text || "").trim())
+          )
+        : [];
 
       return {
         ...section,
         id: makeAnchorId(rawId, `seccion-${index + 1}`),
         title: String(section.title ?? `Sección ${index + 1}`).trim(),
-        blocks: normalizeBlocks(section),
+        ...(intro ? { intro } : {}),
         ...(body ? { body, text: body } : {}),
+        blocks: normalizeBlocks(section),
+        ...(items.length ? { items } : {}),
       };
     })
 );
@@ -184,6 +212,14 @@ const sectionsById = computed<Record<string, SafeProductSection>>(() =>
     acc[section.id] = section;
     return acc;
   }, {} as Record<string, SafeProductSection>)
+);
+
+const tabLeadById = computed<Record<string, string>>(() =>
+  safeSections.value.reduce((acc, section) => {
+    const intro = String(section.intro ?? "").trim();
+    if (intro) acc[section.id] = intro;
+    return acc;
+  }, {} as Record<string, string>)
 );
 
 watchEffect(() => {
@@ -207,6 +243,11 @@ function getSectionByTabId(tabId?: string | null): SafeProductSection | null {
   if (!tabId) return null;
   return sectionsById.value[tabId] ?? null;
 }
+
+function getSectionLeadByTabId(tabId?: string | null): string {
+  if (!tabId) return "";
+  return tabLeadById.value[tabId] ?? "";
+}
 </script>
 
 <template>
@@ -217,24 +258,32 @@ function getSectionByTabId(tabId?: string | null): SafeProductSection | null {
       :items="tabItems"
       aria-label="Información del producto"
       :keep-mounted="true"
-      section-class="space-y-6 md:space-y-8"
+      section-class="space-y-0"
       panel-class="min-w-0"
     >
       <template #panel="{ item }">
-        <ContentDetailsSection
-          v-if="getSectionByTabId(item.id)"
-          :section="getSectionByTabId(item.id)"
-          eyebrow="Información del producto"
-        />
+        <div v-if="getSectionByTabId(item.id)" class="space-y-6 md:space-y-8">
+          <p
+            v-if="getSectionLeadByTabId(item.id)"
+            class="max-w-3xl text-base leading-8 text-muted-foreground"
+          >
+            {{ getSectionLeadByTabId(item.id) }}
+          </p>
+
+          <ContentSectionsPanel
+            :section="getSectionByTabId(item.id)"
+            header-mode="none"
+          />
+        </div>
       </template>
     </ContentTabs>
 
     <div v-else class="space-y-10 md:space-y-12">
-      <ContentDetailsSection
+      <ContentSectionsPanel
         v-for="section in safeSections"
         :key="section.id"
         :section="section"
-        eyebrow="Información del producto"
+        header-mode="default"
       />
     </div>
   </div>

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-01T18:34:17.875Z",
+  "generatedAt": "2026-05-02T15:47:51.634Z",
   "categories": [
     {
       "id": "12",
@@ -929,7 +929,7 @@
     },
     {
       "id": "2",
-      "updatedAt": "2026-04-25T05:12:42Z",
+      "updatedAt": "2026-05-02T06:59:43Z",
       "type": "categoria",
       "slug": "adhesivos-personalizados",
       "path": "/categorias/adhesivos-personalizados",
@@ -948,7 +948,7 @@
           "title": "Detalles y características",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "Los adhesivos personalizados son una solución práctica y rentable para mejorar la visibilidad de marca, identificar productos y reforzar la experiencia de compra.\nImprimimos pegatinas y etiquetas adhesivas para campañas promocionales, packaging, escaparates y señalización, adaptadas al uso, la superficie y la durabilidad que necesita cada aplicación.\n### Materiales y acabados\nTrabajamos con materiales adhesivos para interior y exterior, con opciones removibles o permanentes y acabados que ayudan a proteger la impresión frente al roce, la humedad y la exposición a la luz.\n### Asesoramiento personalizado\nTe ayudamos a elegir el material, el formato y el acabado más adecuados según el uso previsto, la superficie donde se aplicará y la durabilidad que requiere tu proyecto."
+          "body": "Los adhesivos personalizados son una solución práctica y rentable para mejorar la visibilidad de marca, identificar productos y reforzar la experiencia de compra. Imprimimos pegatinas y etiquetas adhesivas para campañas promocionales, packaging, escaparates y señalización, adaptadas al uso, la superficie y la durabilidad que necesita cada aplicación.\n\nTrabajamos con materiales adhesivos para interior y exterior, con opciones removibles o permanentes y acabados que ayudan a proteger la impresión frente al roce, la humedad y la exposición a la luz.\n\nTe ayudamos a elegir el material, el formato y el acabado más adecuados según el uso previsto, la superficie donde se aplicará y la durabilidad que requiere tu proyecto."
         },
         {
           "id": "types",
@@ -1070,16 +1070,56 @@
           "key": "finishes",
           "title": "Acabados",
           "kind": "finishes",
-          "contentFormat": "markdown",
-          "body": "- **Laminado mate o brillo**: aporta protección adicional y un acabado más profesional.\n- **Barniz selectivo**: resalta logotipos o zonas concretas para conseguir un efecto visual más premium.\n- **Acabado soft touch**: ofrece un tacto aterciopelado, ideal para packaging y piezas de marca con una presentación más cuidada.\n- **Refuerzo para exterior**: según el material y el uso, mejora la durabilidad en aplicaciones expuestas a condiciones más exigentes."
+          "contentFormat": "json",
+          "finishesData": {
+            "intro": "Los acabados ayudan a mejorar la protección, la presencia visual y la durabilidad del adhesivo según el material, la superficie y el uso previsto.",
+            "finishes": [
+              {
+                "title": "Laminado mate o brillo",
+                "description": "Aporta protección adicional frente al roce y mejora la presencia final con un acabado más sobrio o más llamativo según el efecto buscado."
+              },
+              {
+                "title": "Barniz selectivo",
+                "description": "Permite destacar logotipos, textos o zonas concretas del diseño para conseguir un resultado más visual y premium."
+              },
+              {
+                "title": "Acabado soft touch",
+                "description": "Ofrece un tacto aterciopelado y una percepción más cuidada, ideal para packaging, cosmética, marca corporativa y piezas de presentación."
+              },
+              {
+                "title": "Refuerzo para exterior",
+                "description": "Según el material y el uso, mejora la resistencia en aplicaciones expuestas a humedad, roce, luz o condiciones más exigentes."
+              }
+            ]
+          }
         },
         {
           "id": "applications",
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "- **Etiquetas para cosmética, alimentación, bebidas y ecommerce**: una solución práctica para identificar el producto, reforzar la marca y cuidar la presentación.\n- **Stickers para eventos, acciones promocionales y street marketing**: ideales para campañas de visibilidad, reparto y acciones de marca.\n- **Vinilos para escaparates, paredes y señalización**: pensados para la comunicación visual en tiendas, oficinas y espacios comerciales.\n- **Identificación de paquetes, cajas, carpetas y material corporativo**: útil para organización interna, etiquetado profesional e imagen de marca."
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Los adhesivos personalizados se adaptan a usos comerciales, promocionales, corporativos y de señalización, desde etiquetas de producto hasta vinilos para escaparates o materiales de marca.",
+            "applications": [
+              {
+                "title": "Etiquetas para cosmética, alimentación, bebidas y ecommerce",
+                "description": "Solución práctica para identificar productos, reforzar la marca y cuidar la presentación en packaging, envases y pedidos online."
+              },
+              {
+                "title": "Stickers para eventos, promociones y street marketing",
+                "description": "Ideales para acciones de visibilidad, reparto, campañas temporales, regalos de marca y materiales promocionales."
+              },
+              {
+                "title": "Vinilos para escaparates, paredes y señalización",
+                "description": "Pensados para comunicar promociones, decorar espacios, señalizar zonas o reforzar la identidad visual en tiendas, oficinas y espacios comerciales."
+              },
+              {
+                "title": "Identificación de paquetes, cajas, carpetas y material corporativo",
+                "description": "Útiles para organizar materiales, personalizar documentación, etiquetar envíos y mantener una imagen de marca coherente."
+              }
+            ]
+          }
         }
       ],
       "image": {
@@ -14771,7 +14811,7 @@
     },
     {
       "id": "40",
-      "updatedAt": "2026-04-28T14:25:03Z",
+      "updatedAt": "2026-05-02T15:44:43Z",
       "type": "producto",
       "slug": "encuadernado-con-grapas",
       "path": "/productos/encuadernado-con-grapas",
@@ -14784,7 +14824,7 @@
       "isPublished": true,
       "shortDescription": "El encuadernado con grapas (también llamado caballito) es una de las opciones más utilizadas para revistas, catálogos finos y folletos: es práctico, económico y ofrece un acabado limpio y profesional. En Repro Disseny producimos publicaciones grapadas con buena calidad de impresión, selección de papeles y opciones de cubierta para que el resultado se adapte a tu marca y al uso real.",
       "description": "El encuadernado con grapas (también llamado caballito) es una de las opciones más utilizadas para revistas, catálogos finos y folletos: es práctico, económico y ofrece un acabado limpio y profesional. En Repro Disseny producimos publicaciones grapadas con buena calidad de impresión, selección de papeles y opciones de cubierta para que el resultado se adapte a tu marca y al uso real.",
-      "bodyMd": "¿Qué es la encuadernación encolada tapa blanda y para qué se usa? \nEn este tipo de encuadernación, las páginas se agrupan en un bloque, se fresa el lomo y se unen a la cubierta mediante cola. El resultado es una publicación con lomo cuadrado, que se puede rotular (título, marca, edición) y que ofrece un aspecto “editorial”. Se utiliza en catálogos de producto, libros corporativos, memorias, manuales y revistas con un número de páginas medio/alto.",
+      "bodyMd": "**La encuadernación con grapa caballete** es un sistema en el que las hojas impresas se pliegan por la mitad y se unen en el lomo mediante grapas metálicas.\n\nEs una solución práctica, económica y muy habitual para publicaciones de pocas páginas, como **revistas**, **catálogos breves**, **programas de eventos**, **tarifas**, **boletines**, **dosieres comerciales** o **folletos multipágina**.\n\nEl resultado es una pieza ligera, fácil de abrir y cómoda de consultar, especialmente adecuada para materiales promocionales, publicaciones corporativas y documentos que deben repartirse o manipularse con facilidad.",
       "sections": [
         {
           "id": "details",
@@ -14792,7 +14832,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es la encuadernación encolada tapa blanda y para qué se usa? \nEn este tipo de encuadernación, las páginas se agrupan en un bloque, se fresa el lomo y se unen a la cubierta mediante cola. El resultado es una publicación con lomo cuadrado, que se puede rotular (título, marca, edición) y que ofrece un aspecto “editorial”. Se utiliza en catálogos de producto, libros corporativos, memorias, manuales y revistas con un número de páginas medio/alto."
+          "body": "**La encuadernación con grapa caballete** es un sistema en el que las hojas impresas se pliegan por la mitad y se unen en el lomo mediante grapas metálicas.\n\nEs una solución práctica, económica y muy habitual para publicaciones de pocas páginas, como **revistas**, **catálogos breves**, **programas de eventos**, **tarifas**, **boletines**, **dosieres comerciales** o **folletos multipágina**.\n\nEl resultado es una pieza ligera, fácil de abrir y cómoda de consultar, especialmente adecuada para materiales promocionales, publicaciones corporativas y documentos que deben repartirse o manipularse con facilidad."
         },
         {
           "id": "benefits",
@@ -14808,7 +14848,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Formato y lomo \nFormatos habituales: A4, A5, cuadrado o a medida. \nEl ancho del lomo depende del número de páginas y del papel (lo calculamos para que el diseño encaje perfecto). \nPapeles \nInterior: offset (mejor lectura) o estucado mate/brillo (mejor fotografía). \nCubierta: cartulina de mayor gramaje para aportar rigidez y presencia. \nImpresión \nA todo color o combinaciones más sobrias según tu identidad. \nPosibilidad de impresión a una o dos caras según el diseño. \nAcabados recomendados \nLaminado mate o brillo en cubierta: protege frente a roces y huellas. \nSoft touch (opcional): tacto premium para catálogos de marca. \nBarniz selectivo (opcional): resalta título o logo en portada. \nSolapas (opcional): aportan un acabado más editorial y funcional. \nUso y durabilidad \nAdecuada para publicaciones de uso comercial repetido (visitas, ferias, showroom). \nSi el documento debe abrir completamente en plano (por ejemplo, recetas o manual de consulta constante), puede interesar valorar Wire-O/espiral."
+          "body": "- **Formatos habituales:** A4, A5, cuadrado o medidas personalizadas según el diseño.\n- **Tipo de encuadernación:** grapa caballete, con las hojas plegadas y grapadas en el lomo.\n- **Número de páginas:** recomendado para publicaciones de pocas páginas o grosor reducido.\n- **Papel interior:** offset para mejor lectura o estucado mate/brillo cuando la imagen y la fotografía tienen más peso.\n- **Cubierta:** puede imprimirse en el mismo papel que el interior o en un gramaje superior para dar más presencia.\n- **Impresión:** a color o en blanco y negro, a una o dos caras según el diseño.\n- **Acabados opcionales:** plastificado mate o brillo en cubierta para proteger frente a roces y mejorar la presentación.\n- **Uso recomendado:** revistas, catálogos breves, programas, boletines, tarifas, folletos multipágina y documentación comercial ligera."
         },
         {
           "id": "applications",
@@ -14816,7 +14856,7 @@
           "title": "Aplicaciones",
           "kind": "applications",
           "contentFormat": "markdown",
-          "body": "Catálogos de producto (colecciones, tarifas, campañas, showrooms). \nLibros corporativos y memorias anuales. \nRevistas con más páginas (ediciones especiales, publicaciones de marca). \nManuales y guías (formación, procedimientos, documentación). \nLookbooks y portfolios (moda, diseño, fotografía)."
+          "body": "- **Revistas y boletines:** publicaciones corporativas, revistas de marca, boletines internos o contenidos periódicos de pocas páginas.\n- **Catálogos breves:** colecciones reducidas, tarifas, campañas comerciales, promociones o material para showrooms.\n- **Programas de eventos:** congresos, jornadas, ferias, actos culturales, actividades escolares o eventos corporativos.\n- **Dosieres comerciales:** presentaciones de empresa, propuestas, documentación para reuniones o material de apoyo para ventas.\n- **Manuales y guías sencillas:** instrucciones breves, documentación formativa ligera, guías de uso o procedimientos resumidos.\n- **Folletos multipágina:** piezas promocionales con más contenido que un díptico o tríptico, pero sin necesidad de encuadernación tipo libro."
         }
       ],
       "faqs": [
@@ -26025,7 +26065,7 @@
     },
     {
       "id": "78",
-      "updatedAt": "2026-04-28T10:40:27Z",
+      "updatedAt": "2026-05-02T10:00:09Z",
       "type": "producto",
       "slug": "pegatinas-personalizadas",
       "path": "/productos/pegatinas-personalizadas",
@@ -26038,7 +26078,7 @@
       "isPublished": true,
       "shortDescription": "Si necesitas pegatinas a medida para etiquetar productos, reforzar tu marca o lanzar una promoción, imprimimos tus pegatinas personalizadas en papel o plástico (blanco o transparente), con corte estándar o troquelado y colores vivos en cuatricromía.",
       "description": "Si necesitas pegatinas a medida para etiquetar productos, reforzar tu marca o lanzar una promoción, imprimimos tus pegatinas personalizadas en papel o plástico (blanco o transparente), con corte estándar o troquelado y colores vivos en cuatricromía.",
-      "bodyMd": "### ¿Qué son las pegatinas personalizadas y para qué se utilizan?\n\nLas pegatinas personalizadas, también conocidas como stickers, son adhesivos impresos a medida que permiten adaptar el tamaño, la forma, el material y el acabado según el uso previsto.\n\nSe fabrican sobre un soporte adhesivo compuesto por tres capas: el material superior imprimible, el adhesivo y el liner o papel soporte. Pueden producirse en papel, polipropileno blanco o polipropileno transparente, y son adecuadas tanto para aplicaciones promocionales como para packaging, identificación de productos, decoración o comunicación de marca.\n\nSegún el proyecto, pueden entregarse como unidades sueltas, en hojas o en bobina, con corte estándar o troquelado a medida.",
+      "bodyMd": "**Las pegatinas personalizadas**, también conocidas como stickers, son adhesivos impresos a medida que permiten adaptar el tamaño, la forma, el material y el acabado según el uso previsto.\n\nSe fabrican sobre un soporte adhesivo compuesto por tres capas:\n\n- **Material superior imprimible**, donde se aplica el diseño.\n- **Adhesivo**, adaptado al tipo de aplicación.\n- **Liner o papel soporte**, que protege la pegatina hasta su uso.\n\nPueden producirse en **papel**, **polipropileno blanco** o **polipropileno transparente**, y se utilizan en packaging, identificación de productos, decoración, promociones y comunicación de marca.\n\nSegún el proyecto, pueden entregarse como **unidades sueltas**, **en hojas** o **en bobina**, con corte estándar o troquelado a medida.",
       "sections": [
         {
           "id": "details",
@@ -26046,15 +26086,63 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "### ¿Qué son las pegatinas personalizadas y para qué se utilizan?\n\nLas pegatinas personalizadas, también conocidas como stickers, son adhesivos impresos a medida que permiten adaptar el tamaño, la forma, el material y el acabado según el uso previsto.\n\nSe fabrican sobre un soporte adhesivo compuesto por tres capas: el material superior imprimible, el adhesivo y el liner o papel soporte. Pueden producirse en papel, polipropileno blanco o polipropileno transparente, y son adecuadas tanto para aplicaciones promocionales como para packaging, identificación de productos, decoración o comunicación de marca.\n\nSegún el proyecto, pueden entregarse como unidades sueltas, en hojas o en bobina, con corte estándar o troquelado a medida."
+          "body": "**Las pegatinas personalizadas**, también conocidas como stickers, son adhesivos impresos a medida que permiten adaptar el tamaño, la forma, el material y el acabado según el uso previsto.\n\nSe fabrican sobre un soporte adhesivo compuesto por tres capas:\n\n- **Material superior imprimible**, donde se aplica el diseño.\n- **Adhesivo**, adaptado al tipo de aplicación.\n- **Liner o papel soporte**, que protege la pegatina hasta su uso.\n\nPueden producirse en **papel**, **polipropileno blanco** o **polipropileno transparente**, y se utilizan en packaging, identificación de productos, decoración, promociones y comunicación de marca.\n\nSegún el proyecto, pueden entregarse como **unidades sueltas**, **en hojas** o **en bobina**, con corte estándar o troquelado a medida."
         },
         {
           "id": "benefits",
           "key": "benefits",
           "title": "Beneficios",
           "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "### Ventajas de las pegatinas personalizadas\n\n- Personalización total de tamaño, forma, material y acabado.\n- Posibilidad de cortes cuadrados, redondos, ovalados o troquelados a medida.\n- Buena definición de impresión y colores intensos.\n- Formato práctico, versátil y fácil de aplicar.\n- Aptas para promociones, packaging, etiquetado, decoración y branding.\n- Fáciles de almacenar, transportar y repartir."
+          "contentFormat": "json",
+          "benefitsData": {
+            "intro": "Ventajas principales de las pegatinas personalizadas para proyectos de marca, packaging, promoción y comunicación visual.",
+            "benefits": [
+              {
+                "title": "Personalización total",
+                "description": "Adaptamos tamaño, forma, material y acabado para que la pegatina encaje con el diseño, el soporte y el uso previsto."
+              },
+              {
+                "title": "Versátiles y fáciles de aplicar",
+                "description": "Funcionan en packaging, eventos, producto, envíos, decoración, identificación y acciones promocionales."
+              },
+              {
+                "title": "Buena relación impacto-coste",
+                "description": "Permiten reforzar la marca con una pieza práctica, ligera, fácil de producir, repartir y almacenar."
+              },
+              {
+                "title": "Acabado profesional",
+                "description": "La impresión a medida, el corte y los acabados ayudan a conseguir una presencia más cuidada que una etiqueta genérica."
+              }
+            ]
+          }
+        },
+        {
+          "id": "materials",
+          "key": "materials",
+          "title": "Materiales",
+          "kind": "materials",
+          "contentFormat": "json",
+          "materialsData": {
+            "intro": "Seleccionamos el material según el uso, la superficie de aplicación, la duración prevista y el acabado visual que necesita la pieza.",
+            "materials": [
+              {
+                "title": "Papel adhesivo",
+                "description": "Opción práctica y económica para interior, promociones, packaging, cierres de bolsa, etiquetas de producto y campañas de corta duración."
+              },
+              {
+                "title": "Polipropileno blanco",
+                "description": "Material plástico con buena presencia y mayor resistencia que el papel, adecuado para stickers, producto y aplicaciones más exigentes."
+              },
+              {
+                "title": "Polipropileno transparente",
+                "description": "Recomendado cuando se busca un efecto más discreto, integración con el soporte o una estética limpia sobre cristal, envases o superficies claras."
+              },
+              {
+                "title": "Vinilo adhesivo",
+                "description": "Solución resistente para usos interiores o exteriores, señalización, escaparates, decoración y aplicaciones donde se necesita más durabilidad."
+              }
+            ]
+          }
         },
         {
           "id": "formats",
@@ -26063,29 +26151,61 @@
           "kind": "formats",
           "contentFormat": "json",
           "formatsData": {
-            "intro": "Podemos entregar tus pegatinas en el formato más práctico según el uso: unidades sueltas, hojas/planchas o bobina. El corte puede ser estándar o troquelado a medida para ajustarse al diseño, la forma de la marca o el tipo de aplicación.",
+            "intro": "Podemos entregar tus pegatinas en el formato más práctico según el uso: unidades sueltas, hojas o bobina. El corte puede ser estándar o troquelado a medida.",
             "shapes": [
               {
                 "title": "Corte estándar",
-                "description": "Formato cuadrado, rectangular, redondo u ovalado, adecuado para pegatinas sencillas y aplicaciones habituales."
+                "description": "Formato cuadrado, rectangular, redondo u ovalado, adecuado para pegatinas sencillas, etiquetas y aplicaciones habituales."
               },
               {
                 "title": "Troquelado a medida",
                 "description": "Corte personalizado siguiendo la silueta del diseño, el logotipo o una forma específica de la marca."
+              },
+              {
+                "title": "Medidas personalizadas",
+                "description": "Adaptamos el tamaño al diseño, al soporte donde se aplicará y a la distancia de lectura necesaria."
               }
             ],
             "deliveryFormats": [
               {
                 "title": "Unidades sueltas",
-                "description": "Recomendadas para repartir, vender, incluir en pedidos o usar como sticker promocional."
+                "description": "Recomendadas para repartir, vender, incluir en pedidos o utilizar como sticker promocional."
               },
               {
                 "title": "Hojas o planchas",
-                "description": "Permiten agrupar varias pegatinas en un mismo soporte y facilitan el almacenamiento o la manipulación."
+                "description": "Permiten agrupar varias pegatinas en un mismo soporte y facilitan el almacenamiento, la manipulación y la aplicación manual."
               },
               {
                 "title": "Bobina",
-                "description": "Indicada cuando las pegatinas se aplican en serie o se necesita mayor agilidad en procesos de producción, etiquetado o packaging."
+                "description": "Indicada cuando las pegatinas se aplican en serie o se necesita mayor agilidad en procesos de etiquetado y producción."
+              }
+            ]
+          }
+        },
+        {
+          "id": "finishes",
+          "key": "finishes",
+          "title": "Acabados",
+          "kind": "finishes",
+          "contentFormat": "json",
+          "finishesData": {
+            "intro": "Los acabados ayudan a mejorar la protección, la presencia visual y la durabilidad de la pegatina según el material y el uso previsto.",
+            "finishes": [
+              {
+                "title": "Laminado mate",
+                "description": "Reduce reflejos, aporta una apariencia más sobria y protege la impresión frente al roce."
+              },
+              {
+                "title": "Laminado brillo",
+                "description": "Realza los colores y consigue un resultado más llamativo para promociones, stickers y packaging."
+              },
+              {
+                "title": "Barniz selectivo",
+                "description": "Permite destacar logotipos, textos o zonas concretas para conseguir un efecto visual más premium."
+              },
+              {
+                "title": "Acabado resistente para exterior",
+                "description": "Recomendado cuando la pegatina estará expuesta a humedad, roce, luz o condiciones de uso más exigentes."
               }
             ]
           }
@@ -26095,8 +26215,28 @@
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "### Usos habituales\n\n- Packaging, envases, bolsas, cajas y sobres.\n- Etiquetas para producto, marca, promociones o campañas temporales.\n- Decoración de portátiles, botellas, móviles, libretas y otros soportes.\n- Identificación y clasificación en entornos comerciales, profesionales o domésticos.\n- Corrección de pequeños errores en materiales ya impresos.\n- Stickers promocionales para eventos, ferias, tiendas y acciones de marketing."
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Aplicaciones habituales de las pegatinas personalizadas en marca, packaging, promociones, eventos y señalización.",
+            "applications": [
+              {
+                "title": "Packaging y etiquetas de producto",
+                "description": "Solución práctica para identificar productos, reforzar la marca y cuidar la presentación en envases, bolsas, cajas y pedidos online."
+              },
+              {
+                "title": "Stickers promocionales y eventos",
+                "description": "Ideales para repartir en ferias, campañas, acciones de street marketing, regalos de marca y materiales promocionales."
+              },
+              {
+                "title": "Decoración e identificación",
+                "description": "Útiles para personalizar portátiles, botellas, libretas, carpetas, paquetes y otros soportes corporativos o comerciales."
+              },
+              {
+                "title": "Escaparates y señalización",
+                "description": "Permiten comunicar promociones, señalizar zonas, decorar espacios y reforzar la identidad visual en tiendas u oficinas."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
@@ -28679,7 +28819,7 @@
     },
     {
       "id": "89",
-      "updatedAt": "2026-04-28T15:12:04Z",
+      "updatedAt": "2026-05-02T07:16:26Z",
       "type": "producto",
       "slug": "roll-up-personalizado",
       "path": "/productos/roll-up-personalizado",
@@ -28707,8 +28847,126 @@
           "key": "benefits",
           "title": "Beneficios",
           "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "Montaje y recogida en segundos: ideal para ferias, eventos itinerantes y acciones puntuales. \nFácil de transportar: se entrega con bolsa para moverlo y guardarlo cómodamente. \nAlta visibilidad: formato vertical que destaca en entradas, pasillos y stands. \nImagen profesional: impresión nítida y soporte estable para reforzar tu marca. \nVersátil: sirve como promoción, señalética, photocall auxiliar o soporte informativo."
+          "contentFormat": "json",
+          "benefitsData": {
+            "intro": "Ventajas principales del roll up personalizado como expositor portátil para ferias, eventos, puntos de venta y comunicación corporativa.",
+            "benefits": [
+              {
+                "title": "Montaje y recogida rápidos",
+                "description": "Se monta y recoge en segundos, ideal para ferias, eventos itinerantes y acciones puntuales."
+              },
+              {
+                "title": "Fácil de transportar",
+                "description": "Se entrega con bolsa para moverlo, guardarlo y reutilizarlo cómodamente."
+              },
+              {
+                "title": "Alta visibilidad",
+                "description": "Su formato vertical destaca en entradas, pasillos, stands y zonas de paso."
+              },
+              {
+                "title": "Imagen profesional",
+                "description": "La impresión nítida y el soporte estable ayudan a reforzar la presencia de marca."
+              },
+              {
+                "title": "Uso versátil",
+                "description": "Sirve como soporte promocional, señalética, photocall auxiliar o elemento informativo."
+              }
+            ]
+          }
+        },
+        {
+          "id": "materials",
+          "key": "materials",
+          "title": "Materiales",
+          "kind": "materials",
+          "contentFormat": "json",
+          "materialsData": {
+            "intro": "El roll up combina una estructura enrollable con una gráfica impresa pensada para quedar plana, ofrecer buena calidad visual y facilitar el transporte.",
+            "materials": [
+              {
+                "title": "Estructura enrollable",
+                "description": "Sistema formado por cassette, mástil y perfil superior para mantener la gráfica tensada correctamente."
+              },
+              {
+                "title": "Soporte gráfico flexible",
+                "description": "Material de impresión pensado para que la gráfica quede plana, sin curvaturas y con buena calidad visual."
+              },
+              {
+                "title": "Estructura estándar o premium",
+                "description": "Puedes elegir una estructura estándar para usos habituales o una solución más premium para uso intensivo y mayor estabilidad."
+              },
+              {
+                "title": "Bolsa de transporte",
+                "description": "Facilita la movilidad, el almacenaje y la protección del expositor cuando no se utiliza."
+              }
+            ]
+          }
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "kind": "formats",
+          "contentFormat": "json",
+          "formatsData": {
+            "intro": "Los formatos se eligen según el espacio disponible, la distancia de lectura y la visibilidad que necesita el mensaje.",
+            "shapes": [
+              {
+                "title": "85 x 200 cm",
+                "description": "Formato estándar habitual por equilibrio entre visibilidad, facilidad de transporte y uso en eventos."
+              },
+              {
+                "title": "100 x 200 cm",
+                "description": "Opción con mayor presencia visual para stands, entradas o espacios donde se busca más impacto."
+              },
+              {
+                "title": "Otros formatos disponibles",
+                "description": "Se pueden valorar otros formatos según necesidad, tipo de estructura y uso previsto."
+              }
+            ],
+            "deliveryFormats": [
+              {
+                "title": "Roll up completo",
+                "description": "Incluye cassette, mástil, perfil superior, gráfica impresa y bolsa de transporte."
+              },
+              {
+                "title": "Opción doble cara",
+                "description": "Disponible según el tipo de estructura cuando se necesita visibilidad por ambos lados."
+              },
+              {
+                "title": "Gráfica de recambio",
+                "description": "Opción útil si ya tienes una estructura compatible y quieres actualizar el diseño."
+              }
+            ]
+          }
+        },
+        {
+          "id": "finishes",
+          "key": "finishes",
+          "title": "Acabados",
+          "kind": "finishes",
+          "contentFormat": "json",
+          "finishesData": {
+            "intro": "Los acabados se definen para mejorar la lectura, reducir reflejos y aumentar la durabilidad en montajes repetidos.",
+            "finishes": [
+              {
+                "title": "Acabado mate",
+                "description": "Recomendado si el roll up estará bajo focos o se fotografiará, porque ayuda a reducir reflejos."
+              },
+              {
+                "title": "Protección para uso repetido",
+                "description": "Adecuada cuando el expositor se montará y desmontará muchas veces en ferias, eventos o presentaciones."
+              },
+              {
+                "title": "Impresión a todo color",
+                "description": "Permite reproducir textos, logotipos y fotografías con buena definición."
+              },
+              {
+                "title": "Revisión de diseño",
+                "description": "Conviene preparar mensajes grandes y legibles a distancia para mejorar la lectura del expositor."
+              }
+            ]
+          }
         },
         {
           "id": "technical-specs",
@@ -28716,15 +28974,39 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Formatos habituales \nMedidas estándar (según necesidad): 85x200, 100x200 y otros formatos disponibles. \nOpción doble cara si necesitas visibilidad por ambos lados (según tipo de estructura). \nEstructuras\nEstructuras estándar (la opción más habitual) o soluciones más premium para uso intensivo y mejor estabilidad.\nComponentes: cassette + mástil + perfil superior para un tensado correcto. \nMaterial de impresión \nMateriales pensados para que la gráfica quede plana y sin curvaturas y mantenga buena calidad visual. \nOpción de elegir soportes con mejor comportamiento para eventos con focos o iluminación. \nImpresión \nImpresión a todo color con alta definición para textos, logos y fotografía. \nRecomendación de diseño: mensajes principales grandes y legibles a distancia. \nAcabados recomendados \nAcabado mate si el roll up estará bajo focos o se fotografiará (reduce reflejos). \nAcabados de protección si va a usarse repetidamente en montajes/desmontajes. \nTransporte \nIncluye bolsa de transporte para facilitar movilidad y almacenaje."
+          "body": "Medidas habituales: 85x200 cm, 100x200 cm y otros formatos disponibles bajo consulta.\n\nSistema: cassette enrollable, mástil y perfil superior para el tensado de la gráfica.\n\nOpciones: estructura estándar, estructura premium y opción doble cara según disponibilidad y uso previsto.\n\nImpresión: a todo color y alta definición para textos, logotipos y fotografías.\n\nDiseño recomendado: mensajes principales grandes, claros y legibles a distancia.\n\nArchivo recomendado: PDF final a tamaño real o proporcional, con imágenes en alta resolución, tipografías trazadas o incrustadas y margen de seguridad suficiente.\n\nUso recomendado: interior, ferias, congresos, recepciones, puntos de venta y eventos corporativos.\n\nTransporte: incluye bolsa de transporte para movilidad y almacenaje."
         },
         {
           "id": "applications",
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "Ferias y congresos: dentro del stand, entradas, zonas de registro o ponencias. \nEventos corporativos: presentaciones, formaciones, convenciones, showrooms. \nPunto de venta: promociones, lanzamientos, precios, campañas temporales. \nRecepciones y oficinas: señalización, servicios, marca y comunicación interna. \nHostelería: menús, eventos, horarios, ofertas y comunicación en sala."
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Usos habituales del roll up personalizado en eventos, comunicación corporativa, punto de venta y señalización temporal.",
+            "applications": [
+              {
+                "title": "Ferias y congresos",
+                "description": "Uso en stands, entradas, zonas de registro, ponencias y espacios donde se necesita visibilidad rápida."
+              },
+              {
+                "title": "Eventos corporativos",
+                "description": "Adecuado para presentaciones, formaciones, convenciones y showrooms."
+              },
+              {
+                "title": "Punto de venta",
+                "description": "Funciona para promociones, lanzamientos, precios, campañas temporales y comunicación comercial."
+              },
+              {
+                "title": "Recepciones y oficinas",
+                "description": "Útil para señalización, presentación de servicios, marca y comunicación interna."
+              },
+              {
+                "title": "Hostelería",
+                "description": "Puede utilizarse para menús, eventos, horarios, ofertas y comunicación en sala."
+              }
+            ]
+          }
         }
       ],
       "faqs": [

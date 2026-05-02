@@ -10,6 +10,14 @@ type CategoryTypeItem = {
   idealFor?: string;
 };
 
+type SafeTypeItem = {
+  id: string;
+  title: string;
+  description: string;
+  features: string[];
+  idealFor?: string;
+};
+
 const props = withDefaults(
   defineProps<{
     title?: string;
@@ -37,31 +45,69 @@ const props = withDefaults(
   }
 );
 
-const safeItems = computed(() =>
+function slugify(value: string, fallback = "tipo") {
+  const normalized = String(value || "")
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
+  return normalized || fallback;
+}
+
+const safeItems = computed<SafeTypeItem[]>(() =>
   Array.isArray(props.items)
-    ? props.items.filter(
-        (item) =>
-          item &&
-          String(item.title || "").trim() &&
-          String(item.description || "").trim()
-      )
+    ? props.items
+        .map((item, index) => {
+          const title = String(item?.title || "").trim();
+          const description = String(item?.description || "").trim();
+          const idealFor = String(item?.idealFor || "").trim() || undefined;
+
+          const features = Array.isArray(item?.features)
+            ? item.features.map((feature) => String(feature || "").trim()).filter(Boolean)
+            : [];
+
+          if (!title || !description) return null;
+
+          return {
+            id: `${slugify(title, "tipo")}-${index + 1}`,
+            title,
+            description,
+            features,
+            ...(idealFor ? { idealFor } : {}),
+          };
+        })
+        .filter((item): item is SafeTypeItem => Boolean(item))
     : []
 );
 
 const sectionStackClass = "space-y-8 md:space-y-10";
-const gridBaseClass = "grid auto-rows-fr gap-4 md:gap-5";
+
+const gridBaseClass = "grid auto-rows-fr gap-4 md:grid-cols-2 md:gap-5 xl:grid-cols-3";
+
 const cardBaseClass =
-  "h-full rounded-[24px] border border-border/70 bg-muted/55 p-5 md:p-6";
+  "group/card flex h-full flex-col rounded-3xl border border-border/60 bg-card p-5 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-primary/20 hover:shadow-md md:p-6";
+
+const titleClass =
+  "mb-0 text-lg font-semibold leading-tight tracking-tight text-foreground";
+
+const descriptionClass = "mb-0 text-body leading-[1.7] text-muted-foreground";
+
 const featureChipClass =
-  "inline-flex items-center rounded-full border border-primary/15 bg-primary/5 px-2.5 py-1 text-xs font-medium text-primary";
-const idealForBoxClass =
-  "mt-5 rounded-[18px] border border-border/60 bg-background/70 p-4";
+  "inline-flex items-center rounded-full border border-primary/15 bg-primary/5 px-3 py-1 text-body-s font-medium text-primary";
+
+const idealForBoxClass = "mt-5 rounded-2xl border border-primary/10 bg-accent/35 p-4";
+
+const idealForLabelClass = "mb-1 block text-body-s font-semibold text-foreground";
+
+const idealForTextClass = "mb-0 text-body-s leading-[1.6] text-muted-foreground";
 </script>
 
 <template>
   <section
     v-if="safeItems.length"
-    :id="sectionId"
+    :id="sectionId || undefined"
     :class="cn(sectionStackClass, props.class)"
   >
     <ContentSectionHeader
@@ -75,52 +121,37 @@ const idealForBoxClass =
       :class="cn('max-w-3xl', props.headerClass)"
     />
 
-    <div
-      :class="
-        cn(
-          gridBaseClass,
-          'md:grid-cols-2 xl:grid-cols-3',
-          props.gridClass
-        )
-      "
-    >
+    <div :class="cn(gridBaseClass, props.gridClass)">
       <article
         v-for="item in safeItems"
-        :key="item.title"
+        :key="item.id"
         :class="cn(cardBaseClass, props.cardClass)"
       >
         <div class="flex h-full flex-col">
           <div class="space-y-2.5">
-            <h3 class="section-title section-title--compact">
+            <h3 :class="titleClass">
               {{ item.title }}
             </h3>
 
-            <p class="mb-0 text-body text-muted-foreground">
+            <p :class="descriptionClass">
               {{ item.description }}
             </p>
           </div>
 
-          <div
-            v-if="item.features?.length"
-            class="mt-5 flex flex-wrap gap-2"
-          >
+          <div v-if="item.features.length" class="mt-5 flex flex-wrap gap-2">
             <span
               v-for="feature in item.features"
-              :key="feature"
+              :key="`${item.id}-${feature}`"
               :class="featureChipClass"
             >
               {{ feature }}
             </span>
           </div>
 
-          <div
-            v-if="item.idealFor"
-            :class="idealForBoxClass"
-          >
-            <span class="mb-1 block text-body-s font-semibold text-foreground">
-              Ideal para:
-            </span>
-            <p class="mb-0 text-body text-muted-foreground">
+          <div v-if="item.idealFor" :class="idealForBoxClass">
+            <span :class="idealForLabelClass"> Ideal para </span>
+
+            <p :class="idealForTextClass">
               {{ item.idealFor }}
             </p>
           </div>

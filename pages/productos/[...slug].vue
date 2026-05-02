@@ -27,10 +27,7 @@ function safeDecode(value: unknown) {
 function isAssetLike(value: unknown) {
   const s = String(value ?? "").trim();
 
-  return (
-    /^(img|_nuxt)\//i.test(s) ||
-    /\.(jpg|jpeg|png|webp|avif|gif|svg|pdf)$/i.test(s)
-  );
+  return /^(img|_nuxt)\//i.test(s) || /\.(jpg|jpeg|png|webp|avif|gif|svg|pdf)$/i.test(s);
 }
 
 function toAbsoluteUrl(value?: string | null) {
@@ -47,9 +44,7 @@ function toAbsoluteUrl(value?: string | null) {
 
 const slug = computed(() =>
   safeDecode(
-    Array.isArray(route.params.slug)
-      ? route.params.slug.join("/")
-      : route.params.slug
+    Array.isArray(route.params.slug) ? route.params.slug.join("/") : route.params.slug
   ).trim()
 );
 
@@ -77,10 +72,7 @@ if (error.value) {
   throw createError({
     statusCode: err?.statusCode || err?.status || err?.response?.status || 404,
     statusMessage: "Producto no encontrado",
-    message:
-      err?.data?.message ||
-      err?.message ||
-      "No hemos podido cargar el producto",
+    message: err?.data?.message || err?.message || "No hemos podido cargar el producto",
   });
 }
 
@@ -118,9 +110,7 @@ const breadcrumbItems = computed(() =>
 );
 
 const sections = computed(() =>
-  Array.isArray(product.value?.sections)
-    ? product.value.sections.filter(Boolean)
-    : []
+  Array.isArray(product.value?.sections) ? product.value.sections.filter(Boolean) : []
 );
 
 const faqs = computed(() =>
@@ -139,8 +129,8 @@ const heroProduct = computed(() => {
   const extraFields = Array.isArray((current as any).extraFields)
     ? (current as any).extraFields
     : Array.isArray(current.formFields)
-      ? current.formFields
-      : [];
+    ? current.formFields
+    : [];
 
   return {
     slug: current.slug,
@@ -263,8 +253,7 @@ const categoryLabel = computed(
 );
 
 const closingBannerTitle = computed(
-  () =>
-    `¿Necesitas una solución a medida para ${productLabel.value.toLowerCase()}?`
+  () => `¿Necesitas una solución a medida para ${productLabel.value.toLowerCase()}?`
 );
 
 const closingBannerDescription = computed(() => {
@@ -361,4 +350,4 @@ const closingBannerPills = computed(() => {
       </div>
     </template>
   </main>
-</template>~/server/services/cms/catalog.service
+</template>

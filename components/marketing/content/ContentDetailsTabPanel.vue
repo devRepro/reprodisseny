@@ -1,27 +1,20 @@
+<!-- components/marketing/content/ContentDetailsTabPanel.vue -->
 <script setup lang="ts">
 import { computed } from "vue";
+import { cn } from "@/lib/utils";
+import { normalizeCmsMediaSrc } from "@/utils/cmsMedia";
 import AppChip from "@/components/shared/pills/AppChip.vue";
 import CategoryShowcaseCta from "@/components/marketing/category/CategoryShowcaseCta.vue";
 import ContentDetailsSection from "@/components/marketing/content/ContentDetailsSection.vue";
 
-type ContentBlock =
-  | { type: "text"; text?: string; html?: boolean }
-  | { type: "bullets"; items?: string[]; ordered?: boolean }
-  | {
-      type: "image";
-      src?: string;
-      alt?: string;
-      width?: number;
-      height?: number;
-      caption?: string;
-    };
-
-type SafeSection = {
-  id: string;
+type DetailsSection = {
+  id?: string;
   key?: string;
-  title: string;
+  title?: string;
   intro?: string;
-  blocks: ContentBlock[];
+  body?: string;
+  text?: string;
+  html?: string;
 };
 
 type DetailsMediaItem = {
@@ -38,44 +31,67 @@ type DetailsMediaItem = {
 
 const props = withDefaults(
   defineProps<{
-    section: SafeSection;
+    section: DetailsSection;
     detailsMedia?: DetailsMediaItem | null;
     featuredProduct?: Record<string, unknown> | null;
+    headerMode?: "default" | "intro-only" | "none";
+    class?: string;
   }>(),
   {
     detailsMedia: null,
     featuredProduct: null,
+    headerMode: "default",
+    class: "",
   }
 );
 
 const leadImage = computed(() => {
   const image = props.detailsMedia?.image;
-  return image?.src ? image : null;
+  const src = normalizeCmsMediaSrc(image?.src || "");
+
+  if (!src) return null;
+
+  return {
+    src,
+    alt: image?.alt || props.section?.title || "",
+    caption: image?.caption || "",
+  };
 });
 
 const pills = computed(() =>
-  (props.detailsMedia?.pills || []).filter(
-    (item) => String(item?.label || "").trim() && String(item?.to || "").trim()
-  )
+  (props.detailsMedia?.pills || [])
+    .map((item) => ({
+      label: String(item?.label || "").trim(),
+      to: String(item?.to || "").trim(),
+    }))
+    .filter((item) => item.label && item.to)
+);
+
+const hasLeadImage = computed(() => Boolean(leadImage.value));
+
+const showDetailsHeader = computed(() => props.headerMode === "default");
+
+const layoutClass = computed(() =>
+  hasLeadImage.value
+    ? "grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(300px,420px)] lg:items-start lg:gap-10"
+    : "max-w-[760px]"
 );
 </script>
 
 <template>
-  <div class="space-y-8 md:space-y-10">
-    <section class="container-content" :aria-label="section.title">
-      <div
-        class="grid gap-8 lg:grid-cols-[minmax(0,1.05fr)_minmax(320px,0.95fr)] lg:items-start lg:gap-10"
-      >
-        <div class="min-w-0 max-w-[680px] space-y-6 md:space-y-8">
+  <div :class="cn('space-y-8 md:space-y-10', props.class)">
+    <section :aria-label="section.title || 'Detalle'" class="w-full">
+      <div :class="layoutClass">
+        <div class="min-w-0 space-y-6 md:space-y-8">
           <ContentDetailsSection
             :section="section"
-            eyebrow="Información de la categoría"
-            :show-header="false"
+            eyebrow="Información"
+            :show-header="showDetailsHeader"
             content-class="space-y-5 md:space-y-6"
           />
 
-          <div v-if="pills.length" class="space-y-3 pt-2">
-            <p class="text-label text-foreground/60">
+          <div v-if="pills.length" class="space-y-3 pt-1">
+            <p class="mb-0 text-label text-muted-foreground">
               Productos o soluciones relacionadas
             </p>
 
@@ -94,21 +110,21 @@ const pills = computed(() =>
 
         <figure
           v-if="leadImage"
-          class="overflow-hidden rounded-[28px] border border-border/70 bg-card shadow-[0_10px_30px_-24px_hsl(var(--foreground)/0.14)]"
+          class="overflow-hidden rounded-3xl border border-border/60 bg-card p-3 shadow-sm"
         >
-          <div class="aspect-[4/3] bg-muted/20">
-            <img
-              :src="leadImage.src"
-              :alt="leadImage.alt || section.title"
-              class="h-full w-full object-cover"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
+          <NuxtImg
+            :src="leadImage.src"
+            :alt="leadImage.alt"
+            width="840"
+            height="630"
+            sizes="(max-width: 1023px) 100vw, 420px"
+            class="aspect-[4/3] w-full rounded-[1.25rem] object-cover"
+            loading="lazy"
+          />
 
           <figcaption
             v-if="leadImage.caption"
-            class="px-4 py-3 text-body-s text-foreground/68"
+            class="px-2 pt-3 text-body-s leading-6 text-muted-foreground"
           >
             {{ leadImage.caption }}
           </figcaption>
@@ -118,7 +134,6 @@ const pills = computed(() =>
 
     <CategoryShowcaseCta
       v-if="featuredProduct"
-      class="container-content"
       :product="featuredProduct"
       :highlights="[
         'Ideal para packaging, retail y promociones.',
