@@ -206,21 +206,23 @@ export default defineNuxtConfig({
     },
 
     googleMaps: {
-      apiKey: process.env.GOOGLE_MAPS_API_KEY,
+      apiKey: process.env.NUXT_GOOGLE_MAPS_API_KEY || process.env.GOOGLE_MAPS_API_KEY || "",
     },
-
+    
     public: {
       baseURL: process.env.NUXT_PUBLIC_BASE_URL || "http://localhost:3000",
       mediaBaseUrl:
         process.env.NUXT_PUBLIC_MEDIA_BASE_URL ||
         "https://webcms.blob.core.windows.net/media",
-
+    
       googleMaps: {
-        placeId: process.env.GOOGLE_MAPS_PLACE_ID,
+        placeId:
+          process.env.NUXT_PUBLIC_GOOGLE_MAPS_PLACE_ID ||
+          process.env.GOOGLE_MAPS_PLACE_ID ||
+          "",
       },
     },
   },
-
   appConfig: {
     brand: { logoUrl: "/img/logo/reprodisseny.svg" },
   },
