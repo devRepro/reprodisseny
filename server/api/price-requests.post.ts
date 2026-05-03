@@ -54,15 +54,6 @@ const FileKindSchema = z
 export default defineEventHandler(async (event) => {
   const parts = await readMultipartFormData(event)
 
-  console.error(
-    "[PRICE REQUEST][API][PARTS]",
-    parts?.map((p) => ({
-      name: p.name,
-      filename: p.filename,
-      type: p.type,
-      size: p.data?.length,
-    }))
-  )
 
   if (!parts?.length) {
     throw createError({
