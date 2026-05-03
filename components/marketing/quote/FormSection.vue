@@ -4,7 +4,7 @@ import { useRoute } from "#imports";
 import { useForm } from "vee-validate";
 import { z } from "zod";
 import { toTypedSchema } from "@vee-validate/zod";
-import { Loader2, CheckCircle2 } from "lucide-vue-next";
+import { Loader2 } from "lucide-vue-next";
 
 import {
   FormField,
@@ -124,9 +124,12 @@ const onSubmit = handleSubmit(
     error.value = null;
     success.value = false;
 
-    // Honeypot
+    // Honeypot: respuesta silenciosa, sin crear solicitud real
     if (values.website && values.website.trim()) {
-      success.value = true;
+      await navigateTo({
+        path: "/gracias",
+        query: { kind: "presupuesto" },
+      });
       return;
     }
 
@@ -167,6 +170,11 @@ const onSubmit = handleSubmit(
     if (success.value) {
       resetForm();
       file.value = null;
+
+      await navigateTo({
+        path: "/gracias",
+        query: { kind: "presupuesto" },
+      });
     }
   },
   (ctx) => {

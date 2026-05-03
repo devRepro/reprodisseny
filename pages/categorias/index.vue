@@ -1,96 +1,89 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { useSeoMeta, useHead } from "#imports";
-
-import ContentSectionShell from "@/components/marketing/content/ContentSectionShell.vue";
-import CategoryChildrenGrid from "@/components/marketing/category/CategoryChildrenGrid.vue";
-import GuideBanner from "@/components/marketing/GuideBanner.vue";
+import MarketingProductCategoryGrid from "@/components/marketing/ProductCategoryGrid.vue";
 import { useHomeCategoriesGrid } from "@/composables/useHomeCategoriesGrid";
 
-const { categories, pending, error } = await useHomeCategoriesGrid(24);
+const pageContainerClass = "container-content";
 
-const canonical = computed(() => "https://reprodisseny.com/categorias");
+const {
+  categories: homeCategories,
+  pending: homeCategoriesPending,
+  error: homeCategoriesError,
+} = useHomeCategoriesGrid(24);
+
+const safeHomeCategories = computed(() => homeCategories.value ?? []);
 
 useSeoMeta({
-  title: "Categorías de producto | Reprodisseny",
+  title: "Categorías de impresión | Reprodisseny",
   description:
-    "Explora nuestras principales categorías de producto y encuentra la solución que mejor encaja con tu proyecto de impresión, comunicación visual o producción gráfica.",
-  ogTitle: "Categorías de producto | Reprodisseny",
-  ogDescription:
-    "Explora nuestras principales categorías de producto y encuentra la solución que mejor encaja con tu proyecto.",
-  robots: "index,follow",
+    "Explora nuestras familias de producto: adhesivos, gran formato, expositores, publicaciones, eventos, publicidad y oficina, hostelería y restauración.",
 });
-
-useHead(() => ({
-  link: [{ rel: "canonical", href: canonical.value }],
-}));
 </script>
 
 <template>
   <main class="min-h-screen bg-background">
-    <div v-if="pending" class="container-content py-16 md:py-20">
+    <section :class="[pageContainerClass, 'pt-12 pb-8 md:pt-16 md:pb-10']">
+      <div class="max-w-3xl">
+        <p
+          class="mb-5 text-body-s font-semibold uppercase tracking-[0.22em] text-primary"
+        >
+          Categorías
+        </p>
+
+        <h1 class="font-h1 text-balance text-foreground">
+          Explora nuestras familias de producto
+        </h1>
+
+        <p class="mt-5 max-w-2xl text-body leading-8 text-muted-foreground">
+          Accede a las principales líneas de soluciones y navega por familias para
+          encontrar el formato, soporte o servicio más adecuado para tu proyecto.
+        </p>
+      </div>
+    </section>
+
+    <MarketingProductCategoryGrid
+      title="Familias de producto"
+      description="Elige una categoría para ver productos, formatos y soluciones relacionadas."
+      :categories="safeHomeCategories"
+      :total-slots="24"
+      :pending="homeCategoriesPending"
+    />
+
+    <section v-if="homeCategoriesError" :class="[pageContainerClass, 'pb-8']">
       <div
-        class="flex min-h-[30vh] items-center justify-center rounded-[28px] border border-border/70 bg-card/70"
+        class="rounded-[28px] border border-red-100 bg-red-50 px-6 py-5 text-sm text-red-700"
       >
-        <div class="animate-pulse text-body text-muted-foreground">
-          Cargando categorías...
-        </div>
+        No se han podido cargar las categorías. Revisa el endpoint
+        <code>/api/home/categorias</code>.
       </div>
-    </div>
+    </section>
 
-    <template v-else>
-      <div class="pb-10 md:pb-14">
-        <div class="space-y-8 md:space-y-12">
-          <ContentSectionShell
-            eyebrow="Categorías"
-            title="Explora nuestras familias de producto"
-            description="Accede a las principales líneas de soluciones y navega por familias para encontrar el formato, soporte o servicio más adecuado para tu proyecto."
-          >
-            <CategoryChildrenGrid
-              :children="categories"
-              eyebrow=""
-              title=""
-              description=""
-              container-class=""
-            />
-          </ContentSectionShell>
+    <section :class="[pageContainerClass, 'pt-2 pb-14 md:pt-4 md:pb-20']">
+      <div
+        class="rounded-[28px] border border-border/70 bg-card px-6 py-8 md:px-8 md:py-10"
+      >
+        <p
+          class="mb-4 text-body-s font-semibold uppercase tracking-[0.22em] text-primary"
+        >
+          Catálogo completo
+        </p>
 
-          <section v-if="error" class="container-content">
-            <div class="rounded-[28px] border border-border/70 bg-card p-8 shadow-sm">
-              <h2 class="text-[28px] font-semibold leading-[1.2] text-foreground">
-                No pudimos cargar las categorías
-              </h2>
-              <p class="mt-3 max-w-[60ch] text-body text-foreground/72">
-                Ha ocurrido un problema al consultar las familias de producto.
-              </p>
-            </div>
-          </section>
+        <h2 class="font-h2 text-balance text-foreground">
+          ¿Prefieres buscar directamente entre todos los productos?
+        </h2>
 
-          <ContentSectionShell
-            eyebrow="Catálogo completo"
-            title="¿Prefieres buscar directamente entre todos los productos?"
-            description="Accede al catálogo completo con búsqueda, filtros y ordenación para comparar opciones rápidamente."
-          >
-            <NuxtLink
-              to="/productos"
-              class="inline-flex min-h-12 items-center justify-center rounded-lg bg-primary px-6 py-3 text-body-s-bold text-primary-foreground transition hover:opacity-90"
-            >
-              Ver catálogo de productos
-            </NuxtLink>
-          </ContentSectionShell>
+        <p class="mt-4 max-w-2xl text-body leading-7 text-muted-foreground">
+          También puedes consultar el catálogo completo y encontrar productos concretos
+          por nombre, familia o tipo de aplicación.
+        </p>
 
-          <section aria-label="Guía de preparación de archivos">
-            <GuideBanner
-              title="¿No estás seguro de qué solución necesitas?"
-              :cta="{ label: 'Hablar con un asesor', to: '/contacto' }"
-              base-path="/img/ui/banners/como-preparar-archivos"
-              :height="240"
-              :full-bleed="true"
-              :rounded="false"
-            />
-          </section>
-        </div>
+        <NuxtLink
+          to="/productos"
+          class="mt-6 inline-flex h-11 items-center justify-center rounded-2xl bg-primary px-5 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90"
+        >
+          Ver todos los productos
+        </NuxtLink>
       </div>
-    </template>
+    </section>
   </main>
 </template>

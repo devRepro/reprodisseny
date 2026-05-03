@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-03T17:44:13.702Z",
+  "generatedAt": "2026-05-03T19:05:35.902Z",
   "categories": [
     {
       "id": "12",
@@ -32575,7 +32575,7 @@
     },
     {
       "id": "96",
-      "updatedAt": "2026-05-03T09:16:45Z",
+      "updatedAt": "2026-05-03T18:57:47Z",
       "type": "producto",
       "slug": "tarjetas-pvc-personalizadas",
       "path": "/productos/tarjetas-pvc-personalizadas",
@@ -32664,7 +32664,7 @@
         }
       ],
       "image": {
-        "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/tarjetas-de-pvc.webp",
+        "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/tarjetasdepvc.webp",
         "width": 1200,
         "height": 1200,
         "alt": "alt descripció de la foto"
@@ -32776,7 +32776,7 @@
               "@type": "Product",
               "name": "Tarjetas de PVC personalizadas",
               "description": "Tarjetas de PVC personalizadas para fidelización, acceso y membresías. Resistentes, a todo color, con opciones de datos variables, QR/código de barras y acabados premium. Solicita presupuesto.",
-              "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/tarjetas-de-pvc.webp",
+              "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/tarjetasdepvc.webp",
               "url": "https://reprodisseny.com/productos/tarjetas-pvc-personalizadas",
               "brand": {
                 "@type": "Organization",
@@ -32859,7 +32859,7 @@
           ]
         },
         "robotsOverride": "INHERIT",
-        "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/tarjetas-de-pvc.webp"
+        "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/tarjetasdepvc.webp"
       }
     },
     {

@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import AppButton from "@/components/shared/button/AppButton.vue";
+import ThankYouPanel from "@/components/marketing/quote/ThankYouPanel.vue";
 import SectionHeading from "@/components/marketing/content/SectionHeading.vue";
 import ContactInfoBand from "@/components/marketing/ContactInfoBand.vue";
+import AppButton from "@/components/shared/button/AppButton.vue";
 
 definePageMeta({
   layout: "default",
@@ -18,18 +19,6 @@ const kind = computed<ThankYouKind>(() =>
   route.query.kind === "presupuesto" ? "presupuesto" : "contacto"
 );
 
-const pageTitle = computed(() =>
-  kind.value === "presupuesto"
-    ? "¡Gracias por solicitar tu presupuesto!"
-    : "¡Gracias por contactar con nosotros!"
-);
-
-const pageLead = computed(() =>
-  kind.value === "presupuesto"
-    ? "Hemos recibido tu solicitud correctamente y nuestro equipo la revisará lo antes posible."
-    : "Hemos recibido tu mensaje correctamente y nuestro equipo te responderá lo antes posible."
-);
-
 const seoTitle = computed(() =>
   kind.value === "presupuesto"
     ? "Solicitud recibida | Repro Disseny"
@@ -40,6 +29,14 @@ const seoDescription = computed(() =>
   kind.value === "presupuesto"
     ? "Hemos recibido tu solicitud de presupuesto y te responderemos lo antes posible."
     : "Hemos recibido tu mensaje y te responderemos lo antes posible."
+);
+
+const primaryLabel = computed(() =>
+  kind.value === "presupuesto" ? "Solicitar otro presupuesto" : "Volver al inicio"
+);
+
+const primaryTo = computed(() =>
+  kind.value === "presupuesto" ? "/pedir-presupuesto" : "/"
 );
 
 useSeoMeta({
@@ -61,50 +58,18 @@ useHead({
 
 <template>
   <main class="min-h-screen bg-background">
-    <section :class="[pageContainerClass, 'pt-12 md:pt-16']">
-      <div
-        class="mx-auto max-w-4xl rounded-[28px] border border-border/50 bg-brand-bg-2 px-6 py-10 text-center md:px-10 md:py-14"
-      >
-        <SectionHeading
-          as="h1"
-          size="hero"
-          align="center"
-          :line="false"
-          :ornament="false"
-          :title="pageTitle"
-          :subtitle="pageLead"
-          title-class="text-balance !text-[2.2rem] !leading-[1.08] md:!text-[3rem]"
-          subtitle-class="mx-auto max-w-3xl !text-base !leading-7 md:!text-[1.125rem] md:!leading-8"
-        />
-
-        <div
-          class="mx-auto mt-6 max-w-3xl space-y-3 text-base leading-7 text-foreground/85"
-        >
-          <p>
-            Te responderemos lo antes posible, normalmente en menos de 24 horas
-            laborables.
-          </p>
-
-          <p>
-            Si tu consulta es urgente, puedes llamarnos directamente al
-            <a
-              href="tel:+34932749890"
-              class="font-medium underline underline-offset-4 transition hover:text-primary"
-            >
-              93 274 98 90 </a
-            >.
-          </p>
-        </div>
-
-        <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
-          <AppButton to="/contacto"> Volver a contacto </AppButton>
-
-          <AppButton variant="secondary" to="/productos"> Ver productos </AppButton>
-        </div>
-      </div>
+    <section :class="[pageContainerClass, 'pt-10 pb-14 md:pt-14 md:pb-20']">
+      <ThankYouPanel
+        :kind="kind"
+        :primary-label="primaryLabel"
+        :primary-to="primaryTo"
+        secondary-label="Ver productos"
+        secondary-to="/productos"
+        heading-tag="h1"
+      />
     </section>
 
-    <section class="mt-16 border-y border-border/50 bg-muted/30 md:mt-20">
+    <section class="border-y border-border/50 bg-muted/30">
       <div :class="[pageContainerClass, 'py-12 md:py-14']">
         <div class="mx-auto max-w-3xl text-center">
           <SectionHeading
