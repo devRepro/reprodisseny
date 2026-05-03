@@ -307,6 +307,13 @@ export default defineNuxtConfig({
   },
 
   nitro: {
+    serverAssets: [
+      {
+        baseName: "cms",
+        dir: "./cms",
+      },
+    ],
+  
     prerender: {
       failOnError: false,
     },

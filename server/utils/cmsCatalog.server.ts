@@ -1,5 +1,6 @@
 import { readFile, stat } from "node:fs/promises";
 import { join } from "node:path";
+import catalogJson from "~/cms/catalog.json";
 
 type CmsCatalog = {
   categories: any[];
@@ -185,29 +186,45 @@ function prepareCatalog(raw: any): CmsCatalog {
 
   return out;
 }
-
 export async function getCmsCatalog(): Promise<CmsCatalog> {
   const isDev = process.env.NODE_ENV !== "production";
   const ttl = isDev ? DEV_TTL_MS : PROD_TTL_MS;
   const filePath = join(process.cwd(), "cms", "catalog.json");
 
   if (cache && Date.now() - cacheAt < ttl) {
+    if (!isDev) {
+      return cache;
+    }
+
     try {
       const st = await stat(filePath);
       if (st.mtimeMs <= cacheMtimeMs) return cache;
     } catch {
-      // seguimos y recargamos
+      return cache;
     }
   }
 
   try {
-    const st = await stat(filePath);
-    const raw = await readFile(filePath, "utf8");
-    const parsed = JSON.parse(raw);
+    let parsed: any;
+    let mtimeMs = Date.now();
+
+    if (isDev) {
+      try {
+        const st = await stat(filePath);
+        const raw = await readFile(filePath, "utf8");
+
+        parsed = JSON.parse(raw);
+        mtimeMs = st.mtimeMs;
+      } catch {
+        parsed = catalogJson;
+      }
+    } else {
+      parsed = catalogJson;
+    }
 
     cache = prepareCatalog(parsed);
     cacheAt = Date.now();
-    cacheMtimeMs = st.mtimeMs;
+    cacheMtimeMs = mtimeMs;
 
     return cache;
   } catch (e: any) {
