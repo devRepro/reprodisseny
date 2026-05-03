@@ -284,9 +284,9 @@
   },
   {
     "type": "producto",
-    "slug": "bloc-notas",
+    "slug": "blocs-notas",
     "title": "Blocs de notas personalizados",
-    "path": "/productos/bloc-notas",
+    "path": "/productos/blocs-notas",
     "keywords": [
       "bloc de notas"
     ],
@@ -388,9 +388,9 @@
   },
   {
     "type": "producto",
-    "slug": "cajas-luz-personalizadas",
+    "slug": "cajas-de-luz-personalizadas",
     "title": "Cajas de luz personalizadas (expositores retroiluminados)",
-    "path": "/productos/cajas-luz-personalizadas",
+    "path": "/productos/cajas-de-luz-personalizadas",
     "keywords": [
       "cajas de luz"
     ],
@@ -412,9 +412,9 @@
   },
   {
     "type": "producto",
-    "slug": "carpetas-presentacion-personalizadas",
+    "slug": "carpetas-de-presentacion-personalizadas",
     "title": "Carpetas de presentación personalizadas",
-    "path": "/productos/carpetas-presentacion-personalizadas",
+    "path": "/productos/carpetas-de-presentacion-personalizadas",
     "keywords": [
       "carpetas de presentación"
     ],
@@ -708,9 +708,9 @@
   },
   {
     "type": "producto",
-    "slug": "expositores-mesa-personalizados",
+    "slug": "expositores-de-mesa-personalizados",
     "title": "Expositores de mesa personalizados (displays de sobremesa)",
-    "path": "/productos/expositores-mesa-personalizados",
+    "path": "/productos/expositores-de-mesa-personalizados",
     "keywords": [
       "expositores de mesa"
     ],
