@@ -4,11 +4,10 @@
   "type": "module",
   "scripts": {
     "sync:cms": "tsx ./scripts/sync-cms.ts",
-    "build": "npm run && nuxt build",
+    "build": "nuxt build",
     "dev": "nuxt dev",
-    "generate": "npm run cms:sync && nuxt generate",
+    "generate": "npm run sync:cms && nuxt generate",
     "preview": "nuxt preview",
-    "vercel-build": "rm -rf .nuxt dist && nuxi generate",
     "postinstall": "nuxt prepare",
     "dev:clean": "rm -rf .nuxt .output node_modules/.cache && nuxi dev",
     "validate-md": "node scripts/validate-md-structure.js",
