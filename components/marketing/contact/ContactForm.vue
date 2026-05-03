@@ -81,7 +81,7 @@ const onSubmit = handleSubmit(async (values) => {
     nombre: values.nombre,
     email: values.email,
     telefono: values.telefono ?? null,
-    mensaje: values.consulta,
+    consulta: values.consulta,
     consent: values.consent,
     origen: "contact-page",
     utm: normalizeUtm(route.query as any),
@@ -100,17 +100,11 @@ const onSubmit = handleSubmit(async (values) => {
 
 <template>
   <div class="mx-auto w-full max-w-[550px]">
-    <form
-      @submit.prevent="onSubmit"
-      novalidate
-      class="flex flex-col gap-6"
-    >
+    <form @submit.prevent="onSubmit" novalidate class="flex flex-col gap-6">
       <div class="flex flex-col gap-5">
         <FormField v-slot="{ componentField, errorMessage }" name="nombre">
           <FormItem>
-            <FormLabel class="text-base font-normal text-gray-900">
-              Nombre
-            </FormLabel>
+            <FormLabel class="text-base font-normal text-gray-900"> Nombre </FormLabel>
             <FormControl>
               <Input
                 v-bind="componentField"
@@ -126,9 +120,7 @@ const onSubmit = handleSubmit(async (values) => {
 
         <FormField v-slot="{ componentField, errorMessage }" name="email">
           <FormItem>
-            <FormLabel class="text-base font-normal text-gray-900">
-              Email
-            </FormLabel>
+            <FormLabel class="text-base font-normal text-gray-900"> Email </FormLabel>
             <FormControl>
               <Input
                 v-bind="componentField"
@@ -166,9 +158,7 @@ const onSubmit = handleSubmit(async (values) => {
 
         <FormField v-slot="{ componentField, errorMessage }" name="consulta">
           <FormItem>
-            <FormLabel class="text-base font-normal text-gray-900">
-              Consulta
-            </FormLabel>
+            <FormLabel class="text-base font-normal text-gray-900"> Consulta </FormLabel>
             <FormControl>
               <Textarea
                 v-bind="componentField"
@@ -218,8 +208,8 @@ const onSubmit = handleSubmit(async (values) => {
                   rel="noopener noreferrer"
                   class="rounded px-0.5 text-[#0076B3] hover:underline focus:outline-none focus:ring-2 focus:ring-[#0076B3]/50"
                 >
-                  política de privacidad
-                </a>.
+                  política de privacidad </a
+                >.
               </label>
             </div>
 
@@ -241,7 +231,9 @@ const onSubmit = handleSubmit(async (values) => {
         v-if="error"
         class="rounded-lg border border-red-100 bg-red-50 p-3 animate-in fade-in"
       >
-        <p class="flex items-center justify-center gap-2 text-center text-sm font-medium text-red-600">
+        <p
+          class="flex items-center justify-center gap-2 text-center text-sm font-medium text-red-600"
+        >
           <span>⚠️</span> {{ error }}
         </p>
       </div>
