@@ -1,4 +1,4 @@
-/ server/api/ping.get.ts
+// server/api/ping.get.ts
 export default defineEventHandler(() => {
   return {
     ok: true,
