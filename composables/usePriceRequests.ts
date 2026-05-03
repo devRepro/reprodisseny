@@ -1,3 +1,14 @@
+// composables/usePriceRequests.ts
+import { ref } from "vue";
+
+type FileKind = "design" | "brief" | "proof" | "final" | "other";
+
+type SendPriceRequestOptions = {
+  endpoint?: string;
+  file?: File | null;
+  fileKind?: FileKind;
+};
+
 export function usePriceRequests() {
   const isLoading = ref(false);
   const success = ref(false);
@@ -6,7 +17,7 @@ export function usePriceRequests() {
 
   const sendPriceRequest = async (
     payload: CreatePriceRequestInput,
-    options: SendPriceRequestOptions = {}
+    options: SendPriceRequestOptions = {},
   ) => {
     const {
       endpoint = "/api/price-requests",
@@ -18,10 +29,11 @@ export function usePriceRequests() {
     success.value = false;
     error.value = null;
 
-    const loadingToast = notify.show("Enviando solicitud…");
+    notify.show("Enviando solicitud…");
 
     try {
       const formData = new FormData();
+
       formData.append("payload", JSON.stringify(payload));
 
       if (file) {
@@ -37,15 +49,40 @@ export function usePriceRequests() {
       success.value = true;
       return res;
     } catch (e: any) {
-      error.value = e?.data?.statusMessage || e?.message || "Error al enviar";
+      error.value =
+        e?.data?.statusMessage ||
+        e?.statusMessage ||
+        e?.data?.message ||
+        e?.message ||
+        "No se ha podido enviar la solicitud. Inténtalo de nuevo.";
+
       throw e;
     } finally {
       isLoading.value = false;
     }
   };
 
+  const createPriceRequest = async (
+    payload: CreatePriceRequestInput,
+    endpointOrOptions: string | SendPriceRequestOptions = "/api/price-requests",
+    file: File | null = null,
+    fileKind: FileKind = "design",
+  ) => {
+    const options: SendPriceRequestOptions =
+      typeof endpointOrOptions === "string"
+        ? {
+            endpoint: endpointOrOptions,
+            file,
+            fileKind,
+          }
+        : endpointOrOptions;
+
+    return sendPriceRequest(payload, options);
+  };
+
   return {
     sendPriceRequest,
+    createPriceRequest,
     isLoading,
     error,
     success,

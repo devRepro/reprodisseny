@@ -64,24 +64,36 @@ const sourceUrl = computed(() => {
   return String(url).slice(0, 300);
 });
 
+const emptyToNull = (v: unknown) => {
+  if (typeof v === "string" && v.trim() === "") return null;
+  return v;
+};
+
 const schema = toTypedSchema(
   z.object({
-    website: z.string().optional(), // honeypot
+    website: z.string().optional(),
 
     name: z.string().min(2, "Ingresa un nombre válido"),
-    email: z.string().email("Introduce un correo electrónico válido"),
-    phone: z
-      .string()
-      .regex(/^[\d\s\+\-]*$/, "Solo se permiten números y símbolos válidos")
-      .optional()
-      .nullable(),
 
-    productType: z.string().optional().nullable(),
-    message: z.string().max(4000).optional().nullable(),
+    email: z.string().email("Introduce un correo electrónico válido"),
+
+    phone: z.preprocess(
+      emptyToNull,
+      z
+        .string()
+        .regex(/^[\d\s\+\-]*$/, "Solo se permiten números y símbolos válidos")
+        .nullable()
+        .optional()
+    ),
+
+    productType: z.preprocess(emptyToNull, z.string().nullable().optional()),
+
+    message: z.preprocess(emptyToNull, z.string().max(4000).nullable().optional()),
+
     needAdvice: z.boolean().optional(),
 
-    consent: z.literal(true, {
-      errorMap: () => ({ message: "Es necesario aceptar la política de privacidad" }),
+    consent: z.boolean().refine((v) => v === true, {
+      message: "Es necesario aceptar la política de privacidad",
     }),
   })
 );
@@ -107,51 +119,63 @@ function onPickFile(e: Event) {
   file.value = input.files?.[0] || null;
 }
 
-const onSubmit = handleSubmit(async (values) => {
-  // Honeypot
-  if (values.website && values.website.trim()) {
-    success.value = true;
-    return;
+const onSubmit = handleSubmit(
+  async (values) => {
+    error.value = null;
+    success.value = false;
+
+    // Honeypot
+    if (values.website && values.website.trim()) {
+      success.value = true;
+      return;
+    }
+
+    const payload = {
+      website: values.website || null,
+
+      name: values.name.trim(),
+      email: values.email.trim(),
+      phone: values.phone?.trim() || null,
+      company: null,
+
+      message: (values.message || "").trim() || "Solicitud de presupuesto",
+
+      categorySlug: props.categorySlug || "presupuesto",
+
+      product: {
+        name: props.productName || "Presupuesto genérico",
+        slug: props.productSlug || null,
+        sku: null,
+        url: sourceUrl.value,
+      },
+
+      extras: {
+        productType: values.productType || null,
+        needAdvice: values.needAdvice === true,
+        fileName: file.value?.name || null,
+        page: "pedir-presupuesto",
+      },
+
+      consent: values.consent === true,
+      sourceUrl: sourceUrl.value,
+      utm: utm.value,
+      initialStatus: "Nova",
+    };
+
+    await createPriceRequest(payload, props.submitEndpoint, file.value, "design");
+
+    if (success.value) {
+      resetForm();
+      file.value = null;
+    }
+  },
+  (ctx) => {
+    const firstError = Object.values(ctx.errors)[0];
+
+    error.value =
+      firstError || "Revisa los campos obligatorios antes de enviar la solicitud.";
   }
-
-  const payload = {
-    website: values.website || null,
-
-    name: values.name.trim(),
-    email: values.email.trim(),
-    phone: values.phone?.trim() || null,
-    company: null,
-
-    // endpoint exige message min 1
-    message: (values.message || "").trim() || "Solicitud de presupuesto",
-
-    categorySlug: props.categorySlug!,
-    product: {
-      name: props.productName!,
-      slug: props.productSlug ?? null,
-      sku: null,
-      url: sourceUrl.value,
-    },
-
-    extras: {
-      productType: values.productType || null,
-      needAdvice: values.needAdvice === true,
-      fileName: file.value?.name || null,
-      page: "pedir-presupuesto",
-    },
-
-    consent: values.consent === true,
-    sourceUrl: sourceUrl.value,
-    utm: utm.value,
-  };
-
-  await createPriceRequest(payload, props.submitEndpoint);
-
-  if (success.value) {
-    resetForm();
-    file.value = null;
-  }
-});
+);
 </script>
 
 <template>
@@ -255,13 +279,18 @@ const onSubmit = handleSubmit(async (values) => {
             <FormLabel class="font-['Figtree'] text-base font-normal text-gray-900">
               Tipo de producto <span class="text-gray-400 text-sm ml-1">(Opcional)</span>
             </FormLabel>
+
             <FormControl>
-              <Select v-bind="componentField">
+              <Select
+                :model-value="componentField.modelValue || undefined"
+                @update:model-value="componentField.onChange"
+              >
                 <SelectTrigger
                   class="h-[43px] rounded-[10px] border-gray-300 shadow-sm focus:ring-2 focus:ring-[#0076B3]/20"
                 >
                   <SelectValue placeholder="Selecciona una opción" />
                 </SelectTrigger>
+
                 <SelectContent>
                   <SelectItem value="adhesivos">Adhesivos</SelectItem>
                   <SelectItem value="gran-formato">Gran Formato</SelectItem>
