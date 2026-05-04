@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-04T07:55:25.164Z",
+  "generatedAt": "2026-05-04T10:34:53.760Z",
   "categories": [
     {
       "id": "12",
@@ -3792,7 +3792,7 @@
     },
     {
       "id": "2",
-      "updatedAt": "2026-05-03T09:16:29Z",
+      "updatedAt": "2026-05-04T10:26:41Z",
       "type": "producto",
       "slug": "acreditaciones-personalizadas",
       "path": "/productos/acreditaciones-personalizadas",
@@ -3805,7 +3805,7 @@
       "isPublished": true,
       "shortDescription": "Las acreditaciones son clave para organizar accesos, identificar asistentes y reforzar la imagen del evento. Imprimimos acreditaciones personalizadas con materiales pensados para la duración y la manipulación, y opciones como datos variables, numeración o QR para un control más ágil.",
       "description": "Las acreditaciones son clave para organizar accesos, identificar asistentes y reforzar la imagen del evento. Imprimimos acreditaciones personalizadas con materiales pensados para la duración y la manipulación, y opciones como datos variables, numeración o QR para un control más ágil.",
-      "bodyMd": "¿Qué es una acreditación y para qué se usa?\nUna acreditación es una tarjeta de identificación para asistentes, ponentes, staff o proveedores. Normalmente incluye nombre, empresa, cargo, tipo de acceso (VIP, prensa, staff…), fecha y elementos de control como QR/código de barras o numeración.\nAdemás de ordenar el evento, ayuda a que todo el equipo y los asistentes se identifiquen rápidamente y mejora la sensación de profesionalidad desde el primer minuto.",
+      "bodyMd": "### ¿Qué es una acreditación y para qué se usa?\n\nUna acreditación personalizada es una tarjeta de identificación para asistentes, ponentes, staff, proveedores o invitados de un evento. Normalmente incluye nombre, empresa, cargo, tipo de acceso, fecha y elementos de control como QR, código de barras o numeración.\n\nAdemás de ordenar el evento, ayuda a que el equipo y los asistentes se identifiquen rápidamente, mejora la gestión de accesos y transmite una imagen más profesional desde el primer momento.",
       "sections": [
         {
           "id": "details",
@@ -3813,7 +3813,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es una acreditación y para qué se usa?\nUna acreditación es una tarjeta de identificación para asistentes, ponentes, staff o proveedores. Normalmente incluye nombre, empresa, cargo, tipo de acceso (VIP, prensa, staff…), fecha y elementos de control como QR/código de barras o numeración.\nAdemás de ordenar el evento, ayuda a que todo el equipo y los asistentes se identifiquen rápidamente y mejora la sensación de profesionalidad desde el primer minuto."
+          "body": "### ¿Qué es una acreditación y para qué se usa?\n\nUna acreditación personalizada es una tarjeta de identificación para asistentes, ponentes, staff, proveedores o invitados de un evento. Normalmente incluye nombre, empresa, cargo, tipo de acceso, fecha y elementos de control como QR, código de barras o numeración.\n\nAdemás de ordenar el evento, ayuda a que el equipo y los asistentes se identifiquen rápidamente, mejora la gestión de accesos y transmite una imagen más profesional desde el primer momento."
         },
         {
           "id": "benefits",
@@ -3821,15 +3821,31 @@
           "title": "Beneficios",
           "kind": "benefits",
           "contentFormat": "markdown",
-          "body": "- Control y organización: identificación rápida por roles (staff, ponente, invitado, expositor…).\n- Más fluidez en accesos: con QR/código o numeración para validación y check-in.\n- Imagen coherente de marca: acreditaciones alineadas con el diseño del evento, patrocinadores y señalética.\n- Personalización eficiente: impresión con datos variables para listas grandes (nombres/empresas/categorías).\n- Comodidad durante el evento: formatos pensados para llevar en cuello con lanyard o en funda/clip (según necesidad)."
+          "body": "Ventajas principales de las acreditaciones personalizadas para eventos, congresos, ferias, formaciones y controles de acceso.\n\n- **Control y organización:** permiten identificar rápidamente roles como staff, ponente, invitado, expositor, prensa o proveedor.\n- **Más fluidez en accesos:** pueden incorporar QR, código de barras o numeración para validación, check-in o control interno.\n- **Imagen coherente de marca:** se diseñan alineadas con la identidad del evento, patrocinadores, señalética y materiales corporativos.\n- **Personalización eficiente:** permiten imprimir datos variables para listas grandes, como nombres, empresas, cargos o categorías.\n- **Comodidad durante el evento:** se pueden preparar para llevar con lanyard, funda, clip u otros sistemas según la necesidad."
         },
         {
           "id": "materials",
           "key": "materials",
           "title": "Materiales",
           "kind": "materials",
-          "contentFormat": "markdown",
-          "body": "### Cartulina\n\nOpción práctica para eventos de corta duración con buena presencia.\n\n### Material sintético\n\nTipo papel plástico, recomendado cuando habrá mucho uso o riesgo de humedad o roce.\n\n### PVC\n\nOpción de máxima durabilidad, ideal para acreditaciones reutilizables o de larga vida, como personal interno o accesos recurrentes."
+          "contentFormat": "json",
+          "materialsData": {
+            "intro": "Seleccionamos el material de la acreditación según la duración del evento, la manipulación prevista, la resistencia necesaria y la imagen que se quiere transmitir.",
+            "materials": [
+              {
+                "title": "Cartulina",
+                "description": "Opción práctica para eventos de corta duración con buena presencia y coste ajustado."
+              },
+              {
+                "title": "Material sintético",
+                "description": "Tipo papel plástico, recomendado cuando habrá mucho uso, manipulación frecuente o riesgo de humedad o roce."
+              },
+              {
+                "title": "PVC",
+                "description": "Opción de máxima durabilidad, ideal para acreditaciones reutilizables o de larga vida, como personal interno, accesos recurrentes o eventos de varios días."
+              }
+            ]
+          }
         },
         {
           "id": "formats",
@@ -3856,11 +3872,15 @@
             "deliveryFormats": [
               {
                 "title": "Impresión personalizada",
-                "description": "Impresión a color con nombres, cargos, empresa, códigos, QR, numeración, patrocinadores o elementos gráficos del evento."
+                "description": "Impresión con nombres, cargos, empresa, códigos, QR, numeración, patrocinadores o elementos gráficos del evento."
               },
               {
                 "title": "Preparación para entrega",
                 "description": "Posibilidad de preparar las acreditaciones por grupos, asistentes, empresas, mesas, zonas o packs de bienvenida."
+              },
+              {
+                "title": "Versiones por rol",
+                "description": "Permite diferenciar visualmente asistentes, staff, ponentes, prensa, VIP, expositores o proveedores."
               }
             ]
           }
@@ -3872,10 +3892,11 @@
           "kind": "finishes",
           "contentFormat": "json",
           "finishesData": {
+            "intro": "Los acabados se eligen según la duración del evento, el sistema de sujeción, la manipulación prevista y la calidad percibida que se quiere transmitir.",
             "finishes": [
               {
                 "title": "Troquelado y perforado",
-                "description": "Agujero, redondeo o troquel según el formato y el uso (por ejemplo, para colgar o encajar en fundas)."
+                "description": "Agujero, redondeo de esquinas o troquel según el formato y el uso, por ejemplo para colgar con lanyard o encajar en fundas."
               },
               {
                 "title": "Laminado protector",
@@ -3883,7 +3904,11 @@
               },
               {
                 "title": "Acabados premium",
-                "description": "Opciones como soft touch o barniz selectivo para eventos VIP o cuando se busca una mayor calidad percibida."
+                "description": "Opciones como soft touch o barniz selectivo para eventos VIP, congresos corporativos o proyectos donde se busca una mayor calidad percibida."
+              },
+              {
+                "title": "Preparación para lanyard o funda",
+                "description": "Adaptación del formato para facilitar el uso durante el evento con cinta, funda, clip u otros sistemas de sujeción."
               }
             ]
           }
@@ -3894,7 +3919,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Formatos habituales\n\n- Color o 1 tinta, a una o dos caras (por ejemplo, datos delante y agenda/plano\normas detrás).\nPersonalización y control\n- Datos variables: nombre, empresa, cargo, categoría, etc.\n- QR / código de barras: check-in, descarga de entradas, agenda, mapas o validación.\n- Numeración: control interno o por lotes."
+          "body": "### Formato e impresión\n\n- **Formato tipo acreditación:** medidas estándar o formato a medida según el diseño, la visibilidad necesaria y el sistema de sujeción.\n- **Orientación vertical u horizontal:** se define según el contenido, el logotipo, la jerarquía visual y la forma de lectura durante el evento.\n- **Impresión a una o dos caras:** por ejemplo, datos principales en el frontal y agenda, plano, normas o información adicional en el reverso.\n- **Impresión a color o a una tinta:** según el diseño del evento, la identidad visual y el presupuesto disponible.\n\n### Personalización y control\n\n- **Datos variables:** nombre, empresa, cargo, categoría, tipo de acceso, mesa, zona o información específica de cada asistente.\n- **QR o código de barras:** útil para check-in, validación de entrada, descarga de agenda, acceso a mapas o control de asistencia.\n- **Numeración:** permite control interno, organización por lotes, gestión de accesos o trazabilidad durante el evento.\n- **Versiones por rol:** posibilidad de diferenciar visualmente staff, ponentes, prensa, VIP, expositores, invitados o proveedores.\n\n### Preparación y entrega\n\n- **Preparación por grupos:** las acreditaciones pueden organizarse por empresa, mesa, zona, categoría, listado o pack de bienvenida.\n- **Sistemas de sujeción:** compatibles con lanyard, funda, clip o perforado según el uso previsto.\n- **Archivo recomendado:** base gráfica en PDF con medidas correctas, márgenes de seguridad y listado de datos variables revisado."
         },
         {
           "id": "applications",
@@ -3902,7 +3927,7 @@
           "title": "Aplicaciones",
           "kind": "applications",
           "contentFormat": "markdown",
-          "body": "- Ferias y congresos: asistentes, expositores, ponentes, prensa y organización.\n- Eventos corporativos y formaciones: convenciones internas, entregas, presentaciones.\n- Eventos culturales y deportivos: festivales, competiciones, zonas de acceso y staff.\n- Acciones de marca y activaciones: control de acceso, equipos itinerantes, promotores."
+          "body": "Aplicaciones habituales de las acreditaciones personalizadas en eventos, ferias, congresos, formaciones y acciones de marca.\n\n- **Ferias y congresos:** identificación de asistentes, expositores, ponentes, prensa, staff y organización.\n- **Eventos corporativos y formaciones:** convenciones internas, presentaciones, entregas, jornadas, cursos y encuentros de empresa.\n- **Eventos culturales y deportivos:** festivales, competiciones, zonas de acceso, personal técnico, staff y participantes.\n- **Acciones de marca y activaciones:** control de acceso, identificación de equipos itinerantes, promotores, invitados o zonas reservadas.\n- **Control interno:** acreditaciones para proveedores, personal temporal, visitas, accesos por zonas o equipos de trabajo."
         }
       ],
       "faqs": [
@@ -8020,7 +8045,7 @@
     },
     {
       "id": "146",
-      "updatedAt": "2026-05-04T07:26:00Z",
+      "updatedAt": "2026-05-04T09:46:06Z",
       "type": "producto",
       "slug": "caja-envio",
       "path": "/productos/caja-envio",
@@ -8033,7 +8058,7 @@
       "isPublished": true,
       "shortDescription": "La caja de envío es la clave para que tu paquete llegue perfecto y con buena imagen: protege el contenido, reduce incidencias y refuerza tu marca desde el primer contacto. En Repro Disseny fabricamos cajas de envío corporativas resistentes, con medidas ajustadas al producto y opciones de personalización para que tu packaging sea seguro, eficiente y profesional.",
       "description": "La caja de envío es la clave para que tu paquete llegue perfecto y con buena imagen: protege el contenido, reduce incidencias y refuerza tu marca desde el primer contacto. En Repro Disseny fabricamos cajas de envío corporativas resistentes, con medidas ajustadas al producto y opciones de personalización para que tu packaging sea seguro, eficiente y profesional.",
-      "bodyMd": "¿Qué es una caja de envío y para qué se usa?\nUna caja de envío es un embalaje pensado específicamente para transporte: debe soportar manipulación, apilado y movimientos durante la entrega. Se utiliza para envíos a clientes, partners y sedes, y también para kits corporativos (welcome packs, formación, eventos) cuando el packaging debe ser funcional y robusto, sin renunciar al branding.",
+      "bodyMd": "### ¿Qué es una caja de envío y para qué se usa?\n\nUna caja de envío personalizada es un embalaje pensado específicamente para transportar productos, documentación, kits corporativos o materiales promocionales de forma segura. Debe soportar manipulación, apilado y movimientos durante la entrega, protegiendo el contenido hasta que llega al destinatario.\n\nSe utiliza en envíos a clientes, partners, sedes, equipos internos o asistentes a eventos. También es una solución muy útil para welcome packs, kits de formación, campañas comerciales y packaging corporativo cuando se busca una caja funcional, robusta y alineada con la imagen de marca.",
       "sections": [
         {
           "id": "details",
@@ -8041,7 +8066,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es una caja de envío y para qué se usa?\nUna caja de envío es un embalaje pensado específicamente para transporte: debe soportar manipulación, apilado y movimientos durante la entrega. Se utiliza para envíos a clientes, partners y sedes, y también para kits corporativos (welcome packs, formación, eventos) cuando el packaging debe ser funcional y robusto, sin renunciar al branding."
+          "body": "### ¿Qué es una caja de envío y para qué se usa?\n\nUna caja de envío personalizada es un embalaje pensado específicamente para transportar productos, documentación, kits corporativos o materiales promocionales de forma segura. Debe soportar manipulación, apilado y movimientos durante la entrega, protegiendo el contenido hasta que llega al destinatario.\n\nSe utiliza en envíos a clientes, partners, sedes, equipos internos o asistentes a eventos. También es una solución muy útil para welcome packs, kits de formación, campañas comerciales y packaging corporativo cuando se busca una caja funcional, robusta y alineada con la imagen de marca."
         },
         {
           "id": "benefits",
@@ -8049,7 +8074,45 @@
           "title": "Beneficios",
           "kind": "benefits",
           "contentFormat": "markdown",
-          "body": "- Protección real en transporte: reduce golpes, roces y deterioro del contenido.\n- Menos incidencias y devoluciones: una caja adecuada ayuda a evitar roturas y reclamaciones.\n- Ahorro logístico: medidas ajustadas = menos “aire”, menos relleno y envíos más eficientes.\n- Imagen de marca desde el primer momento: caja personalizada para un unboxing corporativo más cuidado.\n- Versátil: válida para envíos de producto, documentación, kits y packs por campañas."
+          "body": "Ventajas principales de las cajas de envío personalizadas para transporte, packaging corporativo, ecommerce y kits de empresa.\n\n- **Protección real en transporte:** reduce golpes, roces y deterioro del contenido durante la manipulación y la entrega.\n- **Menos incidencias y devoluciones:** una caja adecuada ayuda a evitar roturas, reclamaciones y reposiciones innecesarias.\n- **Ahorro logístico:** las medidas ajustadas reducen el aire interior, el relleno necesario y mejoran la eficiencia del envío.\n- **Imagen de marca desde el primer momento:** una caja personalizada permite crear una experiencia de unboxing corporativo más cuidada.\n- **Versátil:** válida para envíos de producto, documentación, kits corporativos y packs de campaña."
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "kind": "formats",
+          "contentFormat": "json",
+          "formatsData": {
+            "intro": "Definimos el formato de la caja según el contenido, el volumen del envío, la presentación deseada y las necesidades logísticas.",
+            "shapes": [
+              {
+                "title": "Caja estándar de envío",
+                "description": "Solución práctica para transportar producto, documentación, muestras o materiales corporativos con buena protección."
+              },
+              {
+                "title": "Caja a medida",
+                "description": "Permite ajustar dimensiones al contenido para reducir huecos, mejorar protección y optimizar costes de transporte."
+              },
+              {
+                "title": "Caja para kit corporativo",
+                "description": "Pensada para welcome packs, eventos, formaciones o campañas donde el contenido debe presentarse de forma organizada."
+              }
+            ],
+            "deliveryFormats": [
+              {
+                "title": "Caja plegada",
+                "description": "Formato cómodo para almacenamiento y montaje previo al envío."
+              },
+              {
+                "title": "Caja con interior organizado",
+                "description": "Puede incorporar separadores, encajes o interiores para mejorar presentación y seguridad."
+              },
+              {
+                "title": "Variantes por campaña",
+                "description": "Permite adaptar diseño, mensaje o contenido según acción comercial, sede, evento o tipo de destinatario."
+              }
+            ]
+          }
         },
         {
           "id": "finishes",
@@ -8085,7 +8148,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Medidas\n- Medidas estándar o a medida según el contenido (recomendable para optimizar protección y coste de envío).\n- Diseño orientado a minimizar huecos y movimiento interior.\nMaterial y resistencia\n- Cartón con resistencia adecuada al peso y al tipo de transporte (según contenido y distancia).\n- Posibilidad de reforzar estructura si el envío es pesado o delicado.\nCierre\n- Cierre por solapas (clásico de envío) con opción de:\n\to precinto/cinta personalizada,\n\to etiqueta de cierre,\n\to O soluciones específicas según el pack.\nPersonalización\n- Impresión exterior (logo, marca, mensajes de manipulación si aplica).\n- Opción de impresión interior (mensaje de bienvenida, instrucciones, QR) para mejorar unboxing.\n- Variantes por campaña, sede o tipo de kit (misma caja, mensajes distintos).\nProtección interior (opcional)\n- Separadores, interiores o encajes para que el contenido no se mueva.\n- Recomendación práctica: si el pack incluye varios elementos, un interior organizado mejora presentación y seguridad."
+          "body": "### Medidas y estructura\n\n- **Medidas estándar o a medida:** se definen según el contenido, el volumen del pack y las necesidades de protección.\n- **Optimización del espacio interior:** una caja bien ajustada reduce huecos, movimiento del contenido y necesidad de relleno adicional.\n- **Diseño orientado al transporte:** la estructura debe facilitar manipulación, apilado, almacenamiento y preparación del envío.\n\n### Material y resistencia\n\n- **Cartón adecuado al uso:** seleccionamos la resistencia según el peso, el tipo de contenido, la distancia de transporte y la manipulación prevista.\n- **Refuerzo estructural:** posibilidad de valorar soluciones más resistentes cuando el envío es pesado, delicado o contiene varios elementos.\n- **Protección del contenido:** se puede combinar la caja con interiores, separadores o sistemas de fijación para evitar movimientos durante el transporte.\n\n### Cierre y manipulación\n\n- **Cierre por solapas:** opción habitual para cajas de envío, práctica para preparación, transporte y apertura.\n- **Precinto o cinta personalizada:** permite reforzar el cierre y añadir presencia de marca al embalaje.\n- **Etiqueta de cierre:** solución útil para mejorar presentación, seguridad o identificación del envío.\n- **Soluciones específicas:** se pueden valorar otros sistemas de cierre según el tipo de pack, contenido o proceso logístico.\n\n### Personalización\n\n- **Impresión exterior:** logotipo, marca, mensajes corporativos, instrucciones de manipulación o elementos gráficos de campaña.\n- **Impresión interior:** mensaje de bienvenida, instrucciones, QR, contenido promocional o información complementaria para mejorar la experiencia de unboxing.\n- **Variantes por campaña:** posibilidad de mantener una misma estructura de caja y adaptar mensajes según sede, campaña, cliente o tipo de kit.\n\n### Protección interior\n\n- **Separadores e interiores:** ayudan a organizar el contenido y evitar desplazamientos dentro de la caja.\n- **Encajes a medida:** recomendables cuando el pack incluye varios elementos o productos delicados.\n- **Presentación cuidada:** un interior organizado mejora la seguridad del envío y la percepción de calidad al abrir la caja."
         },
         {
           "id": "applications",
@@ -8093,7 +8156,7 @@
           "title": "Aplicaciones",
           "kind": "applications",
           "contentFormat": "markdown",
-          "body": "- Envíos corporativos a clientes y partners (muestras, kits, regalos).\n- Welcome packs y onboarding (envíos a domicilio o a sedes).\n- Kits de formación (manuales, materiales, acreditaciones).\n- Eventos: envío previo de acreditaciones, merchandising, welcome kit.\n- Envíos internos entre oficinas o delegaciones (documentación, material, packs)."
+          "body": "Aplicaciones habituales de las cajas de envío personalizadas en empresas, ecommerce, eventos, formación y comunicación corporativa.\n\n- **Envíos corporativos a clientes y partners:** muestras, regalos, documentación, materiales comerciales o packs personalizados.\n- **Welcome packs y onboarding:** envíos a domicilio, sedes u oficinas con material de bienvenida para nuevos empleados o colaboradores.\n- **Kits de formación:** cajas para manuales, materiales impresos, acreditaciones, merchandising o documentación de cursos.\n- **Eventos y campañas:** envío previo de acreditaciones, welcome kits, regalos promocionales o material para asistentes.\n- **Envíos internos entre oficinas:** documentación, material corporativo, packs por departamento o comunicaciones entre delegaciones."
         }
       ],
       "faqs": [
@@ -10564,7 +10627,7 @@
     },
     {
       "id": "16",
-      "updatedAt": "2026-05-03T09:16:47Z",
+      "updatedAt": "2026-05-04T09:32:47Z",
       "type": "producto",
       "slug": "carpetas-de-presentacion-personalizadas",
       "path": "/productos/carpetas-de-presentacion-personalizadas",
@@ -10577,7 +10640,7 @@
       "isPublished": true,
       "shortDescription": "Las carpetas de presentación son un básico cuando quieres entregar presupuestos, propuestas o documentación con una imagen cuidada y profesional. En Repro Disseny imprimimos carpetas corporativas personalizadas con diferentes formatos, solapas y acabados, para que tu marca destaque desde el primer momento y la documentación llegue ordenada.",
       "description": "Las carpetas de presentación son un básico cuando quieres entregar presupuestos, propuestas o documentación con una imagen cuidada y profesional. En Repro Disseny imprimimos carpetas corporativas personalizadas con diferentes formatos, solapas y acabados, para que tu marca destaque desde el primer momento y la documentación llegue ordenada.",
-      "bodyMd": "¿Qué es una carpeta de presentación y para qué se usa? \nUna carpeta de presentación es una carpeta impresa (normalmente con solapas) diseñada para contener documentos A4, catálogos, contratos o dossieres. Se utiliza en visitas comerciales, ferias, entregas a clientes y presentaciones internas para reforzar la imagen de marca y mejorar la organización de la documentación.",
+      "bodyMd": "### ¿Qué es una carpeta de presentación y para qué se usa?\n\nUna carpeta de presentación es una carpeta impresa, normalmente con solapas, diseñada para contener documentos A4, catálogos, contratos o dossieres.\n\nSe utiliza en visitas comerciales, ferias, entregas a clientes y presentaciones internas para reforzar la imagen de marca y mejorar la organización de la documentación.",
       "sections": [
         {
           "id": "details",
@@ -10585,7 +10648,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es una carpeta de presentación y para qué se usa? \nUna carpeta de presentación es una carpeta impresa (normalmente con solapas) diseñada para contener documentos A4, catálogos, contratos o dossieres. Se utiliza en visitas comerciales, ferias, entregas a clientes y presentaciones internas para reforzar la imagen de marca y mejorar la organización de la documentación."
+          "body": "### ¿Qué es una carpeta de presentación y para qué se usa?\n\nUna carpeta de presentación es una carpeta impresa, normalmente con solapas, diseñada para contener documentos A4, catálogos, contratos o dossieres.\n\nSe utiliza en visitas comerciales, ferias, entregas a clientes y presentaciones internas para reforzar la imagen de marca y mejorar la organización de la documentación."
         },
         {
           "id": "benefits",
@@ -10593,7 +10656,97 @@
           "title": "Beneficios",
           "kind": "benefits",
           "contentFormat": "markdown",
-          "body": "Mejora la calidad percibida: transmite profesionalidad y confianza en propuestas y entregas. \nDocumentación ordenada: evita hojas sueltas y mejora la experiencia del cliente. \nBranding coherente: alineada con tarjetas, papel de carta y sobres. \nOpciones funcionales: solapas, lomo, ranura para tarjeta, cierres… según uso. \nIdeal para ventas y ferias: perfecta para entregar catálogos, tarifas o presentaciones."
+          "body": "Ventajas principales de las carpetas de presentación personalizadas para propuestas comerciales, ferias, visitas a clientes y documentación corporativa.\n\n- **Mejora la calidad percibida:** transmite profesionalidad y confianza en propuestas, entregas y presentaciones comerciales.\n- **Documentación ordenada:** evita hojas sueltas y mejora la experiencia del cliente al recibir contratos, catálogos, tarifas o dossieres.\n- **Branding coherente:** permite mantener una imagen alineada con tarjetas, papel de carta, sobres y otros materiales corporativos.\n- **Opciones funcionales:** solapas, lomo, ranura para tarjeta, cierres u otros recursos según el uso previsto.\n- **Ideal para ventas y ferias:** perfecta para entregar catálogos, tarifas, presentaciones o documentación comercial en un formato cuidado."
+        },
+        {
+          "id": "materials",
+          "key": "materials",
+          "title": "Materiales",
+          "kind": "materials",
+          "contentFormat": "json",
+          "materialsData": {
+            "intro": "Seleccionamos el soporte según la rigidez, la presencia visual y el nivel de calidad que debe transmitir la carpeta.",
+            "materials": [
+              {
+                "title": "Cartulina de alto gramaje",
+                "description": "Aporta rigidez, presencia y una sensación más profesional en propuestas, ferias y entregas comerciales."
+              },
+              {
+                "title": "Soportes mate",
+                "description": "Opción sobria y elegante para carpetas corporativas, documentación institucional y presentaciones comerciales."
+              },
+              {
+                "title": "Papeles con textura",
+                "description": "Recomendados cuando se busca un acabado más premium, diferencial o alineado con una identidad visual más cuidada."
+              }
+            ]
+          }
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "kind": "formats",
+          "contentFormat": "json",
+          "formatsData": {
+            "intro": "Definimos el formato y la estructura de la carpeta según el tipo de documentación, el volumen de papel y el uso previsto.",
+            "shapes": [
+              {
+                "title": "Carpeta para A4",
+                "description": "Formato más habitual para propuestas comerciales, contratos, catálogos, tarifas y documentación corporativa."
+              },
+              {
+                "title": "Formato a medida",
+                "description": "Opción adecuada cuando la documentación, el diseño o el tipo de entrega requieren una medida específica."
+              },
+              {
+                "title": "Con o sin lomo",
+                "description": "La opción con lomo es recomendable si la carpeta debe contener mucho papel, catálogos o documentación más voluminosa."
+              }
+            ],
+            "deliveryFormats": [
+              {
+                "title": "Con solapas interiores",
+                "description": "Solución habitual para sujetar documentos y mejorar la presentación de la entrega."
+              },
+              {
+                "title": "Con ranura para tarjeta",
+                "description": "Muy útil en visitas comerciales, ferias y propuestas donde se quiere incluir una tarjeta de contacto."
+              },
+              {
+                "title": "Con cierres o sistemas especiales",
+                "description": "Posibilidad de valorar cierres u otros sistemas funcionales cuando el proyecto lo requiere."
+              }
+            ]
+          }
+        },
+        {
+          "id": "finishes",
+          "key": "finishes",
+          "title": "Acabados",
+          "kind": "finishes",
+          "contentFormat": "json",
+          "finishesData": {
+            "intro": "Los acabados ayudan a proteger la carpeta, mejorar la durabilidad y elevar la calidad percibida de la presentación.",
+            "finishes": [
+              {
+                "title": "Laminado mate o brillo",
+                "description": "Protege frente a roces y mejora la durabilidad. El mate suele aportar una presencia más elegante y corporativa."
+              },
+              {
+                "title": "Soft touch",
+                "description": "Aporta un tacto premium y una percepción más cuidada en mano."
+              },
+              {
+                "title": "Barniz selectivo",
+                "description": "Permite resaltar logotipos, títulos o detalles gráficos concretos."
+              },
+              {
+                "title": "Stamping metalizado",
+                "description": "Acabado dorado, plata u otros metalizados, ideal para una carpeta corporativa premium."
+              }
+            ]
+          }
         },
         {
           "id": "technical-specs",
@@ -10601,7 +10754,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Formatos habituales \nCarpeta para A4 (la más común), con opciones a medida según contenido. \nCon o sin lomo (recomendable si llevarás mucho papel o catálogos). \nEstructura \nSolapas interiores para sujetar documentación. \nHendido profesional para un plegado limpio y resistente. \nOpcional: ranura para tarjeta (muy útil en visitas comerciales). \nPosibilidad de cierres o sistemas especiales si lo requiere el proyecto. \nPapeles y soportes \nCartulinas de alto gramaje para aportar rigidez y presencia. \nOpciones mate o con textura si buscas un acabado más premium. \nImpresión \nImpresión a todo color a una o dos caras (según diseño). \nSeries por sede/departamento manteniendo coherencia visual. \nAcabados recomendados \nLaminado mate o brillo: protege de roces y mejora la durabilidad (mate suele ser más elegante). \nSoft touch: tacto premium. \nBarniz selectivo: resalta logo o detalles. \nStamping (metalizados): ideal para un acabado corporativo premium."
+          "body": "Estructura\n\n- **Solapas interiores:** ayudan a sujetar la documentación y evitar que las hojas queden sueltas.\n- **Hendido profesional:** permite un plegado limpio, resistente y más cómodo de manipular.\n- **Ranura para tarjeta:** opción muy útil en visitas comerciales, ferias y entregas a clientes.\n- **Sistemas especiales:** posibilidad de cierres u otros recursos funcionales si el proyecto lo requiere.\n\nImpresión\n\n- **Impresión a todo color:** disponible a una o dos caras según el diseño y el nivel de presencia buscado.\n- **Coherencia visual:** posibilidad de preparar series por sede, departamento, campaña o equipo comercial manteniendo la misma línea gráfica.\n- **Archivo recomendado:** PDF final con medidas correctas, sangrado, márgenes de seguridad y tipografías trazadas o incrustadas."
         },
         {
           "id": "applications",
@@ -10609,7 +10762,7 @@
           "title": "Aplicaciones",
           "kind": "applications",
           "contentFormat": "markdown",
-          "body": "Propuestas comerciales y presupuestos \nContratos y documentación legal \nFerias y visitas comerciales (carpeta + dossier + tarjeta) \nPresentaciones corporativas (memorias, catálogos, tarifas) \nFormación y documentación interna (manuales, onboarding, procedimientos)."
+          "body": "Aplicaciones habituales de las carpetas de presentación personalizadas en ventas, ferias, documentación corporativa y comunicación interna.\n\n- **Propuestas comerciales y presupuestos:** presentación cuidada de ofertas, tarifas, proyectos y documentación para clientes.\n- **Contratos y documentación legal:** entrega ordenada de documentos importantes con una imagen profesional.\n- **Ferias y visitas comerciales:** carpeta con dossier, catálogo, tarifa, ficha de producto o tarjeta de visita.\n- **Presentaciones corporativas:** memorias, catálogos, tarifas, documentación institucional o materiales de empresa.\n- **Formación y documentación interna:** manuales, onboarding, procedimientos y documentación para equipos."
         }
       ],
       "faqs": [
@@ -15077,7 +15230,7 @@
     },
     {
       "id": "27",
-      "updatedAt": "2026-05-04T06:58:58Z",
+      "updatedAt": "2026-05-04T08:52:27Z",
       "type": "producto",
       "slug": "encuadernacion-cosida-tapa-dura",
       "path": "/productos/encuadernacion-cosida-tapa-dura",
@@ -15090,7 +15243,7 @@
       "isPublished": true,
       "shortDescription": "La encuadernación cosida con tapa dura es la opción más “editorial” y duradera para publicaciones que deben transmitir calidad desde el primer contacto. Ideal para libros premium, memorias corporativas y ediciones especiales, porque ofrece máxima resistencia, una mejor apertura y un acabado de portada que eleva la percepción de marca.",
       "description": "La encuadernación cosida con tapa dura es la opción más “editorial” y duradera para publicaciones que deben transmitir calidad desde el primer contacto. Ideal para libros premium, memorias corporativas y ediciones especiales, porque ofrece máxima resistencia, una mejor apertura y un acabado de portada que eleva la percepción de marca.",
-      "bodyMd": "Formato y lomo \nFormatos habituales: A4, A5, cuadrado o a medida. \nLomo sólido y rotulable (título, logo, edición). \nInterior \nPapeles interiores según objetivo: más orientados a lectura (offset) o a imagen/foto (estucados mate/brillo). \nPosibilidad de imprimir a color o combinaciones más sobrias. \nTapa dura \nCartón rígido forrado con material de cubierta (papel, tela u opciones similares según el look buscado). \nPosibilidad de sobrecubierta (funda) si quieres un acabado aún más editorial. \nAcabados premium (muy recomendables en tapa dura) \nLaminado mate o brillo (si la cubierta lo requiere). \nSoft touch para un tacto premium. \nStamping (dorado/plata/metalizados) para títulos y logos. \nRelieve en seco (gofrado) para destacar marca sin tinta.\nBarniz selectivo para resaltar detalles en portada (según diseño).\nExtras \nGuardas (hojas interiores de unión) con opción de personalización. \nCinta marcapáginas (opcional) para un acabado más premium.",
+      "bodyMd": "### ¿Qué es la encuadernación cosida tapa dura y para qué se usa?\n\nLa encuadernación cosida tapa dura es una solución editorial de alta calidad para libros, memorias corporativas, catálogos premium y publicaciones que necesitan una presentación cuidada y una larga vida útil.\n\nA diferencia de otras encuadernaciones más sencillas, combina cuadernillos cosidos con una cubierta rígida, lo que aporta resistencia, buena apertura y una percepción de producto más sólida. Es especialmente recomendable cuando la publicación debe conservarse, consultarse con frecuencia o representar la imagen de una marca, institución o proyecto editorial.",
       "sections": [
         {
           "id": "details",
@@ -15098,7 +15251,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "Formato y lomo \nFormatos habituales: A4, A5, cuadrado o a medida. \nLomo sólido y rotulable (título, logo, edición). \nInterior \nPapeles interiores según objetivo: más orientados a lectura (offset) o a imagen/foto (estucados mate/brillo). \nPosibilidad de imprimir a color o combinaciones más sobrias. \nTapa dura \nCartón rígido forrado con material de cubierta (papel, tela u opciones similares según el look buscado). \nPosibilidad de sobrecubierta (funda) si quieres un acabado aún más editorial. \nAcabados premium (muy recomendables en tapa dura) \nLaminado mate o brillo (si la cubierta lo requiere). \nSoft touch para un tacto premium. \nStamping (dorado/plata/metalizados) para títulos y logos. \nRelieve en seco (gofrado) para destacar marca sin tinta.\nBarniz selectivo para resaltar detalles en portada (según diseño).\nExtras \nGuardas (hojas interiores de unión) con opción de personalización. \nCinta marcapáginas (opcional) para un acabado más premium."
+          "body": "### ¿Qué es la encuadernación cosida tapa dura y para qué se usa?\n\nLa encuadernación cosida tapa dura es una solución editorial de alta calidad para libros, memorias corporativas, catálogos premium y publicaciones que necesitan una presentación cuidada y una larga vida útil.\n\nA diferencia de otras encuadernaciones más sencillas, combina cuadernillos cosidos con una cubierta rígida, lo que aporta resistencia, buena apertura y una percepción de producto más sólida. Es especialmente recomendable cuando la publicación debe conservarse, consultarse con frecuencia o representar la imagen de una marca, institución o proyecto editorial."
         },
         {
           "id": "benefits",
@@ -15106,7 +15259,7 @@
           "title": "Beneficios",
           "kind": "benefits",
           "contentFormat": "markdown",
-          "body": "La encuadernación cosida tapa dura está pensada para publicaciones de alta presencia, uso continuado y larga vida útil.\n\n- **Máxima durabilidad:** la costura aporta una resistencia superior frente al uso continuado y el paso del tiempo.\n- **Mejor apertura:** permite una lectura más cómoda y mantiene las páginas más estables, especialmente en publicaciones de consulta.\n- **Acabado premium:** la tapa rígida ofrece una presencia más cuidada y permite acabados de alta calidad.\n- **Imagen corporativa potente:** es una opción ideal para memorias, libros de marca y regalos institucionales.\n- **Gran presencia:** se percibe como un producto de valor desde el primer momento."
+          "body": "La encuadernación cosida tapa dura está pensada para publicaciones de alta presencia, uso continuado y larga vida útil.\n\n- **Máxima durabilidad:** la costura aporta una resistencia superior frente al uso continuado y el paso del tiempo.\n- **Mejor apertura:** permite una lectura más cómoda y mantiene las páginas más estables, especialmente en publicaciones de consulta.\n- **Acabado premium:** la tapa rígida ofrece una presencia más cuidada y permite acabados de alta calidad.\n- **Imagen corporativa potente:** es ideal para memorias corporativas, libros de marca, publicaciones institucionales y regalos de empresa.\n- **Gran valor percibido:** se presenta como una pieza editorial sólida, cuidada y de alta calidad desde el primer momento."
         },
         {
           "id": "formats",
@@ -15115,26 +15268,43 @@
           "kind": "formats",
           "contentFormat": "json",
           "formatsData": {
-            "intro": "Definimos el formato, el lomo y la estructura del libro según el número de páginas, el tipo de papel y el uso previsto.",
+            "intro": "Definimos el formato, el lomo y la estructura del libro según el número de páginas, el tipo de papel, el uso previsto y la presencia visual que se quiere conseguir.",
             "shapes": [
               {
-                "title": "Formatos habituales",
-                "description": "A4, A5, cuadrado o formatos a medida según el proyecto editorial o corporativo."
+                "title": "A4",
+                "description": "Formato habitual para memorias corporativas, informes, catálogos institucionales y publicaciones con contenido visual o documental."
               },
               {
+                "title": "A5",
+                "description": "Opción más compacta y manejable, adecuada para libros, manuales, guías, publicaciones internas y ediciones corporativas."
+              },
+              {
+                "title": "Formato cuadrado",
+                "description": "Muy utilizado en proyectos creativos, fotografía, marca, lookbooks y publicaciones con una composición visual más cuidada."
+              },
+              {
+                "title": "Formato a medida",
+                "description": "Permite adaptar la publicación al diseño, al objetivo editorial y a la experiencia de uso que se quiere conseguir."
+              }
+            ],
+            "deliveryFormats": [
+              {
                 "title": "Lomo sólido y rotulable",
-                "description": "Permite incluir título, logotipo, edición u otros elementos de identificación en el lomo."
+                "description": "Permite incluir título, logotipo, edición u otros elementos de identificación en el lomo de la publicación."
               },
               {
                 "title": "Cubierta rígida",
-                "description": "La tapa dura se monta sobre cartón rígido forrado con material de cubierta, como papel, tela u opciones similares según el acabado buscado."
+                "description": "La tapa dura se monta sobre cartón rígido forrado con papel, tela u otros materiales de cubierta según el acabado buscado."
               },
               {
                 "title": "Sobrecubierta opcional",
-                "description": "Puede añadirse una funda exterior para conseguir un acabado más editorial y reforzar la presentación."
+                "description": "Puede añadirse una funda exterior para conseguir un acabado más editorial, proteger la cubierta y reforzar la presentación."
+              },
+              {
+                "title": "Guardas personalizadas",
+                "description": "Hojas interiores de unión entre el bloque y la cubierta, con posibilidad de personalización para mejorar la experiencia visual del libro."
               }
-            ],
-            "deliveryFormats": []
+            ]
           }
         },
         {
@@ -15148,11 +15318,11 @@
             "finishes": [
               {
                 "title": "Laminado mate o brillo",
-                "description": "Protege la cubierta y mejora la presencia final según el estilo visual buscado."
+                "description": "Protege la cubierta y mejora la presencia final según se busque un acabado más sobrio, elegante o llamativo."
               },
               {
                 "title": "Soft touch",
-                "description": "Aporta un tacto más premium y una percepción más cuidada en mano."
+                "description": "Aporta un tacto más premium y una percepción más cuidada en mano, especialmente en publicaciones corporativas de alta gama."
               },
               {
                 "title": "Stamping",
@@ -15160,11 +15330,15 @@
               },
               {
                 "title": "Relieve en seco",
-                "description": "Permite destacar marca o elementos gráficos sin tinta, con un acabado elegante y sobrio."
+                "description": "Permite destacar marca o elementos gráficos sin tinta, con un acabado elegante, sobrio y de alta calidad."
               },
               {
                 "title": "Barniz selectivo",
-                "description": "Resalta zonas concretas de la portada, como logotipos, títulos o detalles visuales."
+                "description": "Resalta zonas concretas de la portada, como logotipos, títulos, imágenes o detalles visuales."
+              },
+              {
+                "title": "Cinta marcapáginas",
+                "description": "Extra opcional que mejora la experiencia de uso y refuerza la sensación editorial de la publicación."
               }
             ]
           }
@@ -15175,7 +15349,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "### Interior\n\n- **Papeles interiores según objetivo:** offset para una lectura cómoda o estucados mate/brillo cuando la imagen y la fotografía tienen más peso.\n- **Impresión:** a todo color o con combinaciones más sobrias según el estilo de la publicación y la identidad visual.\n\n### Tapa dura\n\n- **Estructura:** pliegos cosidos para formar el bloque interior y cubierta rígida montada posteriormente.\n- **Material de cubierta:** cartón rígido forrado con papel, tela u otras opciones según el acabado buscado.\n- **Uso recomendado:** publicaciones de alta presencia, uso repetido y larga vida útil.\n\n### Extras\n\n- **Guardas personalizadas:** hojas interiores de unión con posibilidad de personalización.\n- **Cinta marcapáginas opcional:** aporta funcionalidad y refuerza la percepción premium del libro."
+          "body": "Encuadernación y lomo\n\n- **Sistema de encuadernación:** cuadernillos cosidos y unidos a una tapa rígida para mejorar resistencia, apertura y durabilidad.\n- **Lomo sólido:** permite una buena presencia visual y puede prepararse para incluir título, logotipo, edición o referencia de la publicación.\n- **Apertura cómoda:** adecuada para publicaciones de consulta, libros corporativos, memorias y documentos que se van a utilizar durante mucho tiempo.\n\nInterior\n\n- **Papeles interiores:** selección según objetivo del proyecto, desde papeles offset orientados a lectura hasta estucados mate o brillo para imagen y fotografía.\n- **Impresión interior:** posibilidad de imprimir a todo color, en blanco y negro o con combinaciones más sobrias según el tipo de publicación.\n- **Número de páginas:** se define en función del contenido, el gramaje del papel y el grosor final deseado.\n\nTapa dura\n\n- **Cubierta rígida:** cartón forrado con papel, tela u otros materiales de cubierta según el acabado buscado.\n- **Mayor protección:** la tapa rígida ayuda a proteger el interior y mejora la conservación de la publicación.\n- **Sobrecubierta opcional:** puede añadirse una funda exterior si se busca un acabado más editorial o una presentación más premium.\n\nProducción y preparación\n\n- **Formato final:** se define según el uso, el diseño, el número de páginas y la presencia que se quiera conseguir.\n- **Diseño recomendado:** conviene prever lomo, márgenes, sangrado, guardas y zonas de seguridad desde la fase de maquetación.\n- **Archivo recomendado:** PDF final revisado, con imágenes en alta resolución, tipografías trazadas o incrustadas y medidas correctamente preparadas."
         },
         {
           "id": "applications",
@@ -15183,7 +15357,7 @@
           "title": "Aplicaciones",
           "kind": "applications",
           "contentFormat": "markdown",
-          "body": "Es una solución adecuada para proyectos editoriales, corporativos e institucionales donde la presentación, la resistencia y la percepción de valor son importantes.\n\n- **Libros corporativos y memorias anuales de alta gama:** publicaciones donde la presentación y la durabilidad forman parte del valor del proyecto.\n- **Ediciones conmemorativas:** aniversarios, historia de empresa y publicaciones institucionales con vocación de permanencia.\n- **Catálogos premium:** colecciones, producto de alto valor, lookbooks y publicaciones comerciales con una imagen más editorial.\n- **Libros de fotografía y proyectos creativos:** piezas donde la calidad visual, el soporte y la presencia física son especialmente relevantes.\n- **Tesis, publicaciones académicas y documentos de referencia:** recomendado cuando se busca una encuadernación duradera y resistente al uso."
+          "body": "Es una solución adecuada para proyectos editoriales, corporativos e institucionales donde la presentación, la resistencia y la percepción de valor son importantes.\n\n- **Libros corporativos y memorias anuales de alta gama:** publicaciones donde la presentación y la durabilidad forman parte del valor del proyecto.\n- **Ediciones conmemorativas:** aniversarios, historia de empresa y publicaciones institucionales con vocación de permanencia.\n- **Catálogos premium:** colecciones, producto de alto valor, lookbooks y publicaciones comerciales con una imagen más editorial.\n- **Libros de fotografía y proyectos creativos:** piezas donde la calidad visual, el soporte y la presencia física son especialmente relevantes.\n- **Tesis, publicaciones académicas y documentos de referencia:** recomendable cuando se busca una encuadernación resistente, duradera y cómoda de consultar."
         }
       ],
       "faqs": [
@@ -16954,7 +17128,7 @@
     },
     {
       "id": "43",
-      "updatedAt": "2026-05-03T09:16:28Z",
+      "updatedAt": "2026-05-04T09:25:11Z",
       "type": "producto",
       "slug": "etiquetas-adhesivas-en-bobina",
       "path": "/productos/etiquetas-adhesivas-en-bobina",
@@ -16967,7 +17141,7 @@
       "isPublished": true,
       "shortDescription": "Las etiquetas en bobina (o en rollo) son la opción ideal cuando necesitas etiquetar productos de forma ágil y repetitiva. Imprimimos tus etiquetas adhesivas personalizadas en papel o polipropileno (blanco o transparente), con el troquel que necesites y opciones de adhesivo según superficie y uso.",
       "description": "Las etiquetas en bobina (o en rollo) son la opción ideal cuando necesitas etiquetar productos de forma ágil y repetitiva. Imprimimos tus etiquetas adhesivas personalizadas en papel o polipropileno (blanco o transparente), con el troquel que necesites y opciones de adhesivo según superficie y uso.",
-      "bodyMd": "¿Qué son las etiquetas adhesivas en bobina y para qué se utilizan? \nLas etiquetas adhesivas en bobina son una solución práctica para etiquetar envases, tarros, botes, botellas, paquetes y productos de todo tipo. Al presentarse en rollo, facilitan una colocación rápida y ordenada, ideal para tiradas medias y grandes volúmenes.  \nEn Repro Disseny imprimimos tus pegatinas personalizadas en bobina con materiales resistentes y acabados pensados para el día a día. Además, si necesitas aplicarlas de forma manual o con dispensador, el formato en rollo ayuda a mejorar el ritmo de trabajo y la productividad.",
+      "bodyMd": "### ¿Qué son las etiquetas adhesivas en bobina y para qué se utilizan?\n\nLas etiquetas adhesivas en bobina son una solución práctica para etiquetar envases, tarros, botes, botellas, paquetes y productos de todo tipo. Al presentarse en rollo, facilitan una colocación rápida, ordenada y eficiente, especialmente en tiradas medias, grandes volúmenes o procesos repetitivos de etiquetado.\n\nEn Repro Disseny imprimimos etiquetas personalizadas en bobina con materiales, adhesivos y acabados adaptados al uso previsto. Pueden aplicarse de forma manual, con dispensador o en procesos de producción, ayudando a mejorar el ritmo de trabajo y la presentación final del producto.",
       "sections": [
         {
           "id": "details",
@@ -16975,7 +17149,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué son las etiquetas adhesivas en bobina y para qué se utilizan? \nLas etiquetas adhesivas en bobina son una solución práctica para etiquetar envases, tarros, botes, botellas, paquetes y productos de todo tipo. Al presentarse en rollo, facilitan una colocación rápida y ordenada, ideal para tiradas medias y grandes volúmenes.  \nEn Repro Disseny imprimimos tus pegatinas personalizadas en bobina con materiales resistentes y acabados pensados para el día a día. Además, si necesitas aplicarlas de forma manual o con dispensador, el formato en rollo ayuda a mejorar el ritmo de trabajo y la productividad."
+          "body": "### ¿Qué son las etiquetas adhesivas en bobina y para qué se utilizan?\n\nLas etiquetas adhesivas en bobina son una solución práctica para etiquetar envases, tarros, botes, botellas, paquetes y productos de todo tipo. Al presentarse en rollo, facilitan una colocación rápida, ordenada y eficiente, especialmente en tiradas medias, grandes volúmenes o procesos repetitivos de etiquetado.\n\nEn Repro Disseny imprimimos etiquetas personalizadas en bobina con materiales, adhesivos y acabados adaptados al uso previsto. Pueden aplicarse de forma manual, con dispensador o en procesos de producción, ayudando a mejorar el ritmo de trabajo y la presentación final del producto."
         },
         {
           "id": "benefits",
@@ -16983,7 +17157,105 @@
           "title": "Beneficios",
           "kind": "benefits",
           "contentFormat": "markdown",
-          "body": "Aplicación rápida y continua: se despegan con facilidad del soporte y se colocan con agilidad.  \nMás productividad: puedes definir anchos y presentación para adaptarlas a procesos de etiquetado.  \nMás presencia de marca: una etiqueta bien diseñada suele ser lo primero que capta la atención.  \nLegibilidad y claridad: cuidamos tamaños, tipografías y detalles para que la información se lea bien.  \nAdhesivo a medida: removible, permanente o superagarre, según superficie y necesidad.  \nMateriales duraderos: opción en polipropileno para mayor resistencia y uso en entornos exigentes."
+          "body": "Ventajas principales de las etiquetas adhesivas en bobina para packaging, producto, promociones y procesos de etiquetado continuado.\n\n- **Aplicación rápida y continua:** se despegan con facilidad del soporte y permiten etiquetar productos de forma ágil y ordenada.\n- **Más productividad:** el formato en rollo ayuda a trabajar mejor en tiradas medias, grandes volúmenes o procesos repetitivos.\n- **Mejor presencia de marca:** una etiqueta bien diseñada refuerza la imagen del producto y suele ser uno de los primeros elementos que capta la atención.\n- **Legibilidad y claridad:** cuidamos tamaños, tipografías y acabados para que la información importante se lea correctamente.\n- **Adhesivo a medida:** podemos valorar adhesivo removible, permanente o de mayor agarre según la superficie y la necesidad del proyecto.\n- **Materiales duraderos:** opciones como el polipropileno permiten mejorar la resistencia en productos, envases o entornos más exigentes."
+        },
+        {
+          "id": "materials",
+          "key": "materials",
+          "title": "Materiales",
+          "kind": "materials",
+          "contentFormat": "json",
+          "materialsData": {
+            "intro": "Seleccionamos el material de la etiqueta según el tipo de producto, la superficie de aplicación, la resistencia necesaria y el acabado visual buscado.",
+            "materials": [
+              {
+                "title": "Polipropileno transparente",
+                "description": "Material plástico transparente, ideal para botellas, tarros, cristal, envases transparentes o aplicaciones donde se busca un efecto más integrado."
+              },
+              {
+                "title": "Polipropileno blanco",
+                "description": "Material plástico blanco con buena presencia y mayor resistencia que el papel, adecuado para producto, packaging y usos más exigentes."
+              },
+              {
+                "title": "Papel revestido",
+                "description": "Papel autoadhesivo con acabado brillo, indicado para etiquetas de producto, promociones, packaging y aplicaciones interiores con buena presencia visual."
+              },
+              {
+                "title": "Papel no revestido",
+                "description": "Papel autoadhesivo sin acabado, recomendable para una estética más natural o cuando se necesita escribir a mano sobre la etiqueta."
+              }
+            ]
+          }
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "kind": "formats",
+          "contentFormat": "json",
+          "formatsData": {
+            "intro": "Definimos la forma, el tamaño y la presentación de la bobina para que las etiquetas sean cómodas de aplicar según el proceso de trabajo.",
+            "shapes": [
+              {
+                "title": "Cuadradas o rectangulares",
+                "description": "Formato habitual para etiquetas de producto, packaging, información técnica, precios, referencias o identificación general."
+              },
+              {
+                "title": "Redondas u ovaladas",
+                "description": "Muy utilizadas en tarros, botes, botellas, cierres, promociones y diseños con una presencia más visual."
+              },
+              {
+                "title": "Troquel a medida",
+                "description": "Corte personalizado siguiendo la silueta del diseño, el logotipo o una forma específica de la marca."
+              },
+              {
+                "title": "Medidas personalizadas",
+                "description": "Adaptamos el tamaño al envase, al diseño, a la información necesaria y a la distancia de lectura."
+              }
+            ],
+            "deliveryFormats": [
+              {
+                "title": "Bobina completa",
+                "description": "Presentación en rollo para facilitar la aplicación manual, con dispensador o en procesos de etiquetado continuado."
+              },
+              {
+                "title": "Rollos cortados",
+                "description": "Opción útil cuando se necesitan anchos concretos, varias referencias o una manipulación más cómoda."
+              },
+              {
+                "title": "Presentación para dispensador",
+                "description": "Si las etiquetas se aplican con dispensador o en línea de producción, se puede preparar la bobina teniendo en cuenta el sentido de salida y el proceso de aplicación."
+              }
+            ]
+          }
+        },
+        {
+          "id": "finishes",
+          "key": "finishes",
+          "title": "Acabados",
+          "kind": "finishes",
+          "contentFormat": "json",
+          "finishesData": {
+            "intro": "Los acabados ayudan a mejorar la legibilidad, la protección y la presencia visual de las etiquetas adhesivas en bobina según el material y el uso previsto.",
+            "finishes": [
+              {
+                "title": "Reserva selectiva de blanco",
+                "description": "Recomendada en etiquetas transparentes para evitar que los colores se pierdan sobre el fondo y mejorar la lectura."
+              },
+              {
+                "title": "Laminado mate",
+                "description": "Reduce reflejos, aporta una apariencia más sobria y mejora la protección frente al roce."
+              },
+              {
+                "title": "Laminado brillo",
+                "description": "Realza los colores y consigue un acabado más llamativo para producto, packaging y promociones."
+              },
+              {
+                "title": "Acabado resistente",
+                "description": "Adecuado cuando la etiqueta estará expuesta a humedad, manipulación frecuente, roce o condiciones de uso más exigentes."
+              }
+            ]
+          }
         },
         {
           "id": "technical-specs",
@@ -16991,7 +17263,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Plástico transparente: Polipropileno transparente (ideal para botellas, tarros o superficies transparentes).  \nPlástico blanco: Polipropileno blanco.  \nPapel revestido: Papel autoadhesivo con acabado brillo.  \nPapel no revestido: Papel autoadhesivo sin acabado (recomendable si necesitas escribir a mano).  \nNota útil: en etiquetas transparentes, se puede aplicar reserva selectiva de blanco para evitar que el color “se pierda” por el fondo y mejorar la lectura.\n## Formatos y presentación  \n\nPara que tus etiquetas en rollo sean cómodas de aplicar, definimos contigo:\nForma de la etiqueta: cuadrada, redonda, ovalada o troquel a medida según tu diseño. \nTamaño y distribución: en función de la medida final, calculamos cuántas etiquetas caben por rollo.  \nAncho de bobina: puedes elegir rollo completo o rollos cortados (según las necesidades de manipulado).  \nTipo de adhesivo: removible, permanente o superagarre, según el material y la superficie final.\nSi vas a aplicar las etiquetas con dispensador o en línea de producción, indícanoslo y lo tendremos en cuenta para optimizar la presentación del rollo."
+          "body": "Producción en bobina\n\n- **Presentación en rollo:** las etiquetas se entregan en bobina para facilitar la aplicación manual, con dispensador o en procesos de etiquetado.\n- **Distribución optimizada:** calculamos la disposición de las etiquetas según tamaño, forma, cantidad y necesidades de manipulado.\n- **Ancho de bobina:** puede adaptarse según el uso previsto, el tipo de dispensador o el proceso de aplicación.\n\nAdhesivo y aplicación\n\n- **Adhesivo removible:** recomendable cuando la etiqueta debe retirarse con más facilidad o utilizarse en campañas temporales.\n- **Adhesivo permanente:** opción habitual para etiquetado de producto, packaging y aplicaciones donde se busca una fijación estable.\n- **Adhesivo de mayor agarre:** indicado para superficies más exigentes o aplicaciones donde se necesita una fijación reforzada.\n- **Superficie de aplicación:** conviene validar material y adhesivo en cristal, plástico, cartón tratado, superficies curvas o envases con humedad.\n\nPreparación del archivo\n\n- **Formato recomendado:** PDF final con medidas correctas, sangrado y margen de seguridad suficiente.\n- **Línea de corte:** en etiquetas troqueladas, es importante indicar claramente la forma final de corte.\n- **Legibilidad:** recomendamos cuidar tamaño mínimo de textos, contraste y jerarquía visual para que la información se lea bien.\n- **Aplicación en producción:** si las etiquetas se aplicarán con dispensador o línea automática, conviene indicarlo antes de producir para optimizar la presentación del rollo."
         },
         {
           "id": "applications",
@@ -16999,7 +17271,7 @@
           "title": "Aplicaciones",
           "kind": "applications",
           "contentFormat": "markdown",
-          "body": "Etiquetas para alimentación (envases, tarros, envasados).  \nEtiquetas para productos de limpieza.  \nEtiquetas para botellas y cristal (incluida opción transparente).  \nEtiquetado general de paquetes y packaging.  \nPromociones y re-etiquetado (por ejemplo: cambios de precio, unidades limitadas, “próximo a caducar”)."
+          "body": "Aplicaciones habituales de las etiquetas adhesivas en bobina para producto, packaging, promociones y procesos de identificación.\n\n- **Alimentación y bebidas:** etiquetas para envases, tarros, botes, botellas, productos envasados y packaging alimentario.\n- **Cosmética y productos de cuidado:** etiquetas para frascos, tubos, tarros, muestras, packs promocionales y líneas de producto.\n- **Productos de limpieza:** etiquetado para botellas, bidones, envases técnicos y productos que necesitan información clara y resistente.\n- **Botellas, cristal y envases transparentes:** opción de etiquetas transparentes o con reserva de blanco para mejorar la lectura sobre el fondo.\n- **Packaging y paquetería:** identificación de paquetes, cajas, bolsas, sobres, referencias, lotes o información logística.\n- **Promociones y re-etiquetado:** cambios de precio, unidades limitadas, campañas temporales, etiquetas de “próximo a caducar” o mensajes promocionales."
         }
       ],
       "faqs": [
@@ -20034,7 +20306,7 @@
     },
     {
       "id": "54",
-      "updatedAt": "2026-05-04T07:29:31Z",
+      "updatedAt": "2026-05-04T08:02:40Z",
       "type": "producto",
       "slug": "hojas-pegatinas-personalizadas",
       "path": "/productos/hojas-pegatinas-personalizadas",
@@ -20063,7 +20335,7 @@
           "title": "Beneficios",
           "kind": "benefits",
           "contentFormat": "markdown",
-          "body": "Total personalización del tamaño y la forma. \nPosibilidad de precorte en formas cuadradas, redondas, ovaladas o a medida. \nColores intensos y bien definidos gracias a la cuatricromía. \nPrácticas, fáciles de distribuir y almacenar. \nAptas para pequeñas, medianas y grandes tiradas."
+          "body": "Ventajas principales de las hojas con pegatinas personalizadas para agrupar varios diseños, facilitar la aplicación y optimizar pequeñas producciones adhesivas.\n\n- **Personalización de tamaño y forma:** permite crear pegatinas cuadradas, redondas, ovaladas o con corte a medida según el diseño.\n- **Aplicación cómoda:** al entregarse en hoja, son fáciles de almacenar, repartir, separar y aplicar manualmente.\n- **Variedad en una misma producción:** pueden agruparse diferentes diseños, tamaños o formas dentro de una misma hoja.\n- **Buena calidad visual:** ofrecen colores intensos, buena definición y una presentación cuidada para marca, packaging o promociones.\n- **Solución práctica y versátil:** adecuadas para etiquetado, cierres, correcciones, campañas promocionales y stickers corporativos."
         },
         {
           "id": "materials",
@@ -22338,7 +22610,7 @@
     },
     {
       "id": "132",
-      "updatedAt": "2026-05-04T07:54:35Z",
+      "updatedAt": "2026-05-04T08:01:49Z",
       "type": "producto",
       "slug": "letras-corporeas-personalizadas",
       "path": "/productos/letras-corporeas-personalizadas",
@@ -27355,7 +27627,7 @@
     },
     {
       "id": "127",
-      "updatedAt": "2026-05-03T09:16:46Z",
+      "updatedAt": "2026-05-04T10:31:15Z",
       "type": "producto",
       "slug": "papel-de-carta",
       "path": "/productos/papel-de-carta",
@@ -27368,7 +27640,7 @@
       "isPublished": true,
       "shortDescription": "El papel de carta sigue siendo un básico en empresa: presupuestos, cartas, contratos, comunicaciones internas o documentación oficial. En Repro Disseny imprimimos papel de carta personalizado con tu identidad corporativa, cuidando el papel y la impresión para que el resultado sea profesional, legible y coherente con tu marca.",
       "description": "El papel de carta sigue siendo un básico en empresa: presupuestos, cartas, contratos, comunicaciones internas o documentación oficial. En Repro Disseny imprimimos papel de carta personalizado con tu identidad corporativa, cuidando el papel y la impresión para que el resultado sea profesional, legible y coherente con tu marca.",
-      "bodyMd": "¿Qué es el papel de carta y para qué se usa? \nEl papel de carta (o hoja membretada) es una hoja impresa con los datos e identidad de la empresa: logotipo, dirección, datos fiscales, web, teléfono y/o elementos gráficos corporativos. Se utiliza para documentación que debe transmitir formalidad y consistencia: comunicaciones a clientes, proveedores, administraciones o uso interno.",
+      "bodyMd": "### ¿Qué es el papel de carta y para qué se usa?\n\nEl papel de carta, también llamado hoja membretada, es una hoja impresa con los datos e identidad visual de la empresa: logotipo, dirección, datos fiscales, web, teléfono u otros elementos gráficos corporativos.\n\nSe utiliza para documentación que debe transmitir formalidad, confianza y consistencia visual: comunicaciones a clientes, proveedores, administraciones o documentación interna.",
       "sections": [
         {
           "id": "details",
@@ -27376,7 +27648,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es el papel de carta y para qué se usa? \nEl papel de carta (o hoja membretada) es una hoja impresa con los datos e identidad de la empresa: logotipo, dirección, datos fiscales, web, teléfono y/o elementos gráficos corporativos. Se utiliza para documentación que debe transmitir formalidad y consistencia: comunicaciones a clientes, proveedores, administraciones o uso interno."
+          "body": "### ¿Qué es el papel de carta y para qué se usa?\n\nEl papel de carta, también llamado hoja membretada, es una hoja impresa con los datos e identidad visual de la empresa: logotipo, dirección, datos fiscales, web, teléfono u otros elementos gráficos corporativos.\n\nSe utiliza para documentación que debe transmitir formalidad, confianza y consistencia visual: comunicaciones a clientes, proveedores, administraciones o documentación interna."
         },
         {
           "id": "benefits",
@@ -27384,7 +27656,69 @@
           "title": "Beneficios",
           "kind": "benefits",
           "contentFormat": "markdown",
-          "body": "Imagen corporativa sólida: todo lo que envías queda alineado con tu marca. \nProfesionalidad y confianza: ideal para documentación formal (presupuestos, contratos, cartas). \nLegible y práctico: elección de papel adecuada para impresión y escritura. \nCoherencia con el resto de papelería: fácil de combinar con sobres, carpetas y tarjetas. \nVersiones por sede/departamento: si lo necesitas, podemos diferenciar datos sin perder el diseño base."
+          "body": "Ventajas principales del papel de carta personalizado para comunicaciones corporativas, documentación formal y papelería de empresa.\n\n- **Imagen corporativa sólida:** todo lo que envías queda alineado con tu marca y transmite una imagen más profesional.\n- **Profesionalidad y confianza:** ideal para documentación formal como presupuestos, contratos, cartas o comunicaciones administrativas.\n- **Legible y práctico:** permite elegir un papel adecuado para impresión, escritura y uso diario en oficina.\n- **Coherencia con el resto de papelería:** fácil de combinar con sobres, carpetas, tarjetas y otros materiales corporativos.\n- **Versiones por sede o departamento:** permite diferenciar datos, idioma o marca sin perder el diseño base."
+        },
+        {
+          "id": "materials",
+          "key": "materials",
+          "title": "Materiales",
+          "kind": "materials",
+          "contentFormat": "json",
+          "materialsData": {
+            "intro": "Seleccionamos el papel según el uso diario, la calidad percibida, la escritura posterior y la imagen que debe transmitir la empresa.",
+            "materials": [
+              {
+                "title": "Papel de oficina de calidad",
+                "description": "Opción práctica para comunicaciones habituales, impresión interna y documentación corporativa de uso diario."
+              },
+              {
+                "title": "Papel con más cuerpo",
+                "description": "Recomendado cuando se busca una sensación más cuidada en presupuestos, propuestas, contratos o documentación de presentación."
+              },
+              {
+                "title": "Papel reciclado",
+                "description": "Alternativa adecuada para marcas que quieren reforzar una imagen más sostenible o responsable."
+              }
+            ]
+          }
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "kind": "formats",
+          "contentFormat": "json",
+          "formatsData": {
+            "intro": "Definimos el formato del papel de carta según el tipo de documento, el uso previsto y la coherencia con el resto de papelería corporativa.",
+            "shapes": [
+              {
+                "title": "A4",
+                "description": "Formato estándar para cartas, presupuestos, contratos, comunicaciones administrativas y documentación corporativa."
+              },
+              {
+                "title": "A5",
+                "description": "Opción práctica para notas, comunicaciones breves, documentos internos o piezas de menor formato."
+              },
+              {
+                "title": "Formato a medida",
+                "description": "Permite adaptar la hoja al diseño, al sistema documental o a necesidades corporativas concretas."
+              }
+            ],
+            "deliveryFormats": [
+              {
+                "title": "Hoja principal",
+                "description": "Versión completa con logotipo, datos corporativos y elementos gráficos principales."
+              },
+              {
+                "title": "Segunda hoja",
+                "description": "Versión más limpia para documentos largos, anexos, contratos o comunicaciones con varias páginas."
+              },
+              {
+                "title": "Versiones por sede o departamento",
+                "description": "Permite adaptar datos, idioma o marca manteniendo una misma estructura visual."
+              }
+            ]
+          }
         },
         {
           "id": "technical-specs",
@@ -27392,7 +27726,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Formatos habituales \nA4 (el estándar) y A5 (notas, comunicaciones breves), además de formatos a medida si lo requieres. \nPapeles recomendados \nPapel de oficina de calidad para un uso diario eficiente. \nOpciones con más cuerpo si buscas una sensación más premium o documentos de presentación. \nOpciones recicladas si tu marca prioriza un enfoque más sostenible. \nImpresión \n1 tinta (corporativo sobrio y eficiente) o a todo color (si tu identidad lo requiere). \nImpresión a una cara (lo más habitual) o a doble cara si necesitas información adicional. \nDiseño y preparación \nMárgenes y “zona de escritura” pensados para que el documento sea cómodo de usar. \nPosibilidad de incluir elementos como pie legal, datos bancarios, referencias o QR (si aporta valor). \nSeries \nProducción de series por departamento, sede, marca o idioma, manteniendo coherencia visual."
+          "body": "### Formatos habituales\n\n- **A4:** formato estándar para cartas, presupuestos, contratos, comunicaciones administrativas y documentación corporativa.\n- **A5:** opción útil para notas, comunicaciones breves, documentos internos o piezas de menor formato.\n- **Formatos a medida:** posibilidad de adaptar el tamaño si el proyecto, el diseño o el sistema documental lo requiere.\n\n### Papeles recomendados\n\n- **Papel de oficina de calidad:** opción práctica para uso diario, impresión interna y documentación recurrente.\n- **Papeles con más cuerpo:** recomendables cuando se busca una sensación más premium o una presentación más cuidada.\n- **Opciones recicladas:** adecuadas si la marca prioriza una comunicación más sostenible o responsable.\n\n### Impresión\n\n- **Impresión a una tinta:** solución sobria y eficiente para papelería corporativa de uso habitual.\n- **Impresión a todo color:** recomendable cuando la identidad visual requiere logotipos, elementos gráficos o colores corporativos.\n- **Impresión a una o dos caras:** la impresión a una cara es la más habitual, aunque se puede valorar doble cara si necesitas información adicional.\n\n### Diseño y preparación\n\n- **Zona de escritura:** el diseño debe respetar márgenes y espacios libres para que el documento sea cómodo de usar.\n- **Datos corporativos:** posibilidad de incluir pie legal, datos fiscales, datos bancarios, referencias, QR o información complementaria.\n- **Archivo recomendado:** PDF final con medidas correctas, sangrado si aplica, márgenes de seguridad y logotipos en buena resolución.\n\n### Series y versiones\n\n- **Versiones por departamento:** se pueden adaptar datos o referencias manteniendo una misma línea visual.\n- **Versiones por sede o marca:** útil para empresas con varias ubicaciones, divisiones, idiomas o líneas corporativas.\n- **Coherencia visual:** el diseño puede alinearse con sobres, carpetas, tarjetas y otros materiales de papelería corporativa."
         },
         {
           "id": "applications",
@@ -27400,7 +27734,7 @@
           "title": "Aplicaciones",
           "kind": "applications",
           "contentFormat": "markdown",
-          "body": "Presupuestos y propuestas comerciales \nContratos y documentación legal \nComunicaciones a clientes/proveedores \nDocumentación administrativa (altas, certificados, notificaciones) \nUso interno (procedimientos, circulares, documentación de RRHH)"
+          "body": "Aplicaciones habituales del papel de carta personalizado en comunicaciones comerciales, documentación administrativa y uso corporativo.\n\n- **Presupuestos y propuestas comerciales:** presentación más cuidada de ofertas, proyectos, tarifas y documentación para clientes.\n- **Contratos y documentación legal:** soporte profesional para documentos formales que requieren una imagen corporativa clara.\n- **Comunicaciones a clientes y proveedores:** cartas, avisos, notificaciones, comunicaciones comerciales o documentación de seguimiento.\n- **Documentación administrativa:** altas, certificados, informes, comunicaciones oficiales, justificantes o documentación interna.\n- **Uso interno:** procedimientos, circulares, documentación de recursos humanos, comunicaciones entre departamentos o sedes."
         }
       ],
       "faqs": [
@@ -27615,7 +27949,7 @@
     },
     {
       "id": "76",
-      "updatedAt": "2026-05-03T09:16:37Z",
+      "updatedAt": "2026-05-04T10:02:34Z",
       "type": "producto",
       "slug": "papel-de-pared-personalizado",
       "path": "/productos/papel-de-pared-personalizado",
@@ -27628,7 +27962,7 @@
       "isPublished": true,
       "shortDescription": "El papel de pared es una solución muy efectiva para vestir espacios con identidad: crea ambiente, refuerza marca y transforma paredes sin necesidad de obras. En Repro Disseny imprimimos papel de pared personalizado en gran formato para oficinas, retail y espacios corporativos, con diseños a medida, buena reproducción de color y acabados pensados para un resultado limpio y profesional.",
       "description": "El papel de pared es una solución muy efectiva para vestir espacios con identidad: crea ambiente, refuerza marca y transforma paredes sin necesidad de obras. En Repro Disseny imprimimos papel de pared personalizado en gran formato para oficinas, retail y espacios corporativos, con diseños a medida, buena reproducción de color y acabados pensados para un resultado limpio y profesional.",
-      "bodyMd": "¿Qué es el papel de pared y para qué se usa? \nEl papel de pared personalizado es un revestimiento impreso diseñado para cubrir paredes interiores con una gráfica decorativa o corporativa: patrones, imágenes, ilustraciones, branding, mensajes o ambientes temáticos. \nSe utiliza para decoración comercial, ambientación de marca, proyectos corporativos (recepciones, salas, pasillos) y espacios que necesitan un impacto visual diferencial sin reformas.",
+      "bodyMd": "### ¿Qué es el papel de pared personalizado y para qué se usa?\n\nEl papel de pared personalizado es un revestimiento impreso diseñado para cubrir paredes interiores con una gráfica decorativa o corporativa: patrones, imágenes, ilustraciones, branding, mensajes o ambientes temáticos.\n\nSe utiliza en decoración comercial, ambientación de marca, proyectos corporativos, recepciones, salas, pasillos y espacios que necesitan un impacto visual diferencial sin hacer reformas.",
       "sections": [
         {
           "id": "details",
@@ -27636,7 +27970,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es el papel de pared y para qué se usa? \nEl papel de pared personalizado es un revestimiento impreso diseñado para cubrir paredes interiores con una gráfica decorativa o corporativa: patrones, imágenes, ilustraciones, branding, mensajes o ambientes temáticos. \nSe utiliza para decoración comercial, ambientación de marca, proyectos corporativos (recepciones, salas, pasillos) y espacios que necesitan un impacto visual diferencial sin reformas."
+          "body": "### ¿Qué es el papel de pared personalizado y para qué se usa?\n\nEl papel de pared personalizado es un revestimiento impreso diseñado para cubrir paredes interiores con una gráfica decorativa o corporativa: patrones, imágenes, ilustraciones, branding, mensajes o ambientes temáticos.\n\nSe utiliza en decoración comercial, ambientación de marca, proyectos corporativos, recepciones, salas, pasillos y espacios que necesitan un impacto visual diferencial sin hacer reformas."
         },
         {
           "id": "benefits",
@@ -27645,6 +27979,72 @@
           "kind": "benefits",
           "contentFormat": "markdown",
           "body": "Transforma el espacio sin obras: gran impacto con instalación rápida. \nBranding en gran formato: crea identidad en recepciones, salas y puntos clave. \nDiseño totalmente a medida: patrones, fotos, ilustración, mensajes, señalética suave. \nAcabado elegante: el mate funciona muy bien en paredes (evita reflejos). \nIdeal para proyectos por zonas: se puede aplicar por paredes completas o zonas concretas."
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "kind": "formats",
+          "contentFormat": "json",
+          "formatsData": {
+            "intro": "Definimos el formato del papel de pared según las medidas reales del espacio, el tipo de diseño y el impacto visual que se quiere conseguir.",
+            "shapes": [
+              {
+                "title": "Pared completa",
+                "description": "Opción recomendada cuando se busca una transformación visual de alto impacto en recepciones, salas, tiendas o zonas corporativas."
+              },
+              {
+                "title": "Zona destacada",
+                "description": "Solución adecuada para aplicar gráfica solo en una pared, franja, área de marca, fondo decorativo o punto focal del espacio."
+              },
+              {
+                "title": "Diseño a medida",
+                "description": "Adaptamos patrones, fotografías, ilustraciones, mensajes o elementos corporativos a las dimensiones reales de la pared."
+              }
+            ],
+            "deliveryFormats": [
+              {
+                "title": "Producción por paños",
+                "description": "El diseño se divide en paneles para cubrir la superficie prevista y facilitar la instalación."
+              },
+              {
+                "title": "Versiones por sala o sede",
+                "description": "Permite crear variantes manteniendo una misma línea visual para diferentes espacios, sedes o zonas."
+              },
+              {
+                "title": "Preparación para instalación",
+                "description": "Se revisan medidas, uniones y elementos de la pared para que el diseño encaje correctamente."
+              }
+            ]
+          }
+        },
+        {
+          "id": "finishes",
+          "key": "finishes",
+          "title": "Acabados",
+          "kind": "finishes",
+          "contentFormat": "json",
+          "finishesData": {
+            "intro": "Los acabados se eligen según el uso del espacio, la exposición al roce, la frecuencia de limpieza y el efecto visual deseado.",
+            "finishes": [
+              {
+                "title": "Acabado mate",
+                "description": "Recomendado para paredes interiores porque reduce reflejos, mejora la lectura y aporta una presencia más elegante."
+              },
+              {
+                "title": "Mayor resistencia al roce",
+                "description": "Adecuado para zonas de paso, espacios comerciales o paredes expuestas a contacto frecuente."
+              },
+              {
+                "title": "Acabado corporativo",
+                "description": "Permite integrar logotipos, claims, patrones de marca, ilustraciones o mensajes visuales dentro del espacio."
+              },
+              {
+                "title": "Ambientación decorativa",
+                "description": "Pensado para crear fondos visuales, murales, patrones o ambientes temáticos sin necesidad de reformas."
+              }
+            ]
+          }
         },
         {
           "id": "technical-specs",
@@ -27660,7 +28060,7 @@
           "title": "Aplicaciones",
           "kind": "applications",
           "contentFormat": "markdown",
-          "body": "Oficinas y corporativo: recepción, salas de reunión, pasillos, valores de marca. \nRetail: paredes de tienda, corners, probadores, campañas estacionales. \nHostelería y hoteles: halls, habitaciones, restaurantes, zonas de paso. \nCentros y entidades: espacios informativos, áreas infantiles, zonas comunes. \nEventos y stands: ambientación temporal y fondos de marca en interior."
+          "body": "Aplicaciones habituales del papel de pared personalizado en oficinas, retail, hostelería, centros, eventos y espacios corporativos.\n\n- **Oficinas y espacios corporativos:** recepción, salas de reunión, pasillos, zonas comunes, valores de marca y ambientes de trabajo.\n- **Retail y showrooms:** paredes de tienda, corners de marca, probadores, campañas estacionales y zonas de producto destacado.\n- **Hostelería y hoteles:** halls, habitaciones, restaurantes, zonas de paso y espacios donde se busca una ambientación diferenciada.\n- **Centros y entidades:** espacios informativos, áreas infantiles, zonas comunes, salas de espera o entornos de atención al público.\n- **Eventos y stands:** ambientación temporal, fondos de marca, photocalls interiores y espacios efímeros con identidad visual."
         }
       ],
       "faqs": [
@@ -27904,7 +28304,7 @@
     },
     {
       "id": "78",
-      "updatedAt": "2026-05-04T07:23:50Z",
+      "updatedAt": "2026-05-04T09:20:12Z",
       "type": "producto",
       "slug": "pegatinas-personalizadas",
       "path": "/productos/pegatinas-personalizadas",
@@ -27933,7 +28333,7 @@
           "title": "Beneficios",
           "kind": "benefits",
           "contentFormat": "markdown",
-          "body": "Ventajas principales de las pegatinas personalizadas para proyectos de marca, packaging, promoción y comunicación visual.\n\n- **Personalización total:** adaptamos tamaño, forma, material y acabado para que la pegatina encaje con el diseño, el soporte y el uso previsto.\n- **Versátiles y fáciles de aplicar:** funcionan en packaging, eventos, producto, envíos, decoración, identificación y acciones promocionales.\n- **Buena relación impacto-coste:** permiten reforzar la marca con una pieza práctica, ligera, fácil de producir, repartir y almacenar.\n- **Acabado profesional:** la impresión a medida, el corte y los acabados ayudan a conseguir una presencia más cuidada que una etiqueta genérica."
+          "body": "Ventajas principales de las pegatinas personalizadas para proyectos de marca, packaging, promoción y comunicación visual.\n\n- **Personalización total:** adaptamos tamaño, forma, material y acabado para que la pegatina encaje con el diseño, el soporte y el uso previsto.\n- **Versátiles y fáciles de aplicar:** funcionan en packaging, eventos, producto, envíos, decoración, identificación y acciones promocionales.\n- **Buena relación impacto-coste:** permiten reforzar la marca con una pieza práctica, ligera, fácil de producir, repartir y almacenar.\n- **Acabado profesional:** la impresión a medida, el corte y los acabados ayudan a conseguir una presencia más cuidada que una etiqueta genérica.\n- **Adaptables a diferentes usos:** pueden producirse como pegatinas individuales, en hoja o en bobina según la aplicación, la cantidad y la forma de uso."
         },
         {
           "id": "materials",
@@ -28023,6 +28423,10 @@
                 "description": "Permite destacar logotipos, textos o zonas concretas para conseguir un efecto visual más premium."
               },
               {
+                "title": "Adhesivo permanente o removible",
+                "description": "Se elige según la superficie, la duración prevista y si la pegatina deberá retirarse sin dejar residuos."
+              },
+              {
                 "title": "Acabado resistente para exterior",
                 "description": "Recomendado cuando la pegatina estará expuesta a humedad, roce, luz o condiciones de uso más exigentes."
               }
@@ -28035,7 +28439,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Formato y corte\n\n- Pegatinas en formato individual, en hoja o en bobina según el uso y la forma de aplicación.\n- Corte recto, redondo, ovalado, con esquinas redondeadas o troquelado con forma personalizada.\n- Posibilidad de adaptar el tamaño al diseño, al packaging o al soporte donde se aplicará.\n\nMateriales\n\n- Papel adhesivo para usos promocionales, etiquetado interior y aplicaciones de corta o media duración.\n- Vinilo blanco para mayor resistencia, mejor presencia y aplicaciones más exigentes.\n- Vinilo transparente cuando se busca integrar la gráfica sobre el soporte o conservar parte del fondo visible.\n\nAcabados\n\n- Impresión a todo color con buena definición para logotipos, textos, ilustraciones y diseños promocionales.\n- Opción de acabado mate o brillo según el estilo visual y el tipo de proyecto.\n- Adhesivo permanente o removible según la superficie, la duración prevista y la necesidad de retirada posterior.\n\nUso recomendado\n\n- Para packaging, producto, promociones, eventos, decoración, señalización ligera y comunicación de marca.\n- En aplicaciones exteriores, superficies especiales o usos de larga duración, conviene validar material, adhesivo y acabado antes de producir."
+          "body": "Producción y corte\n\n- **Impresión a medida:** producción a todo color para logotipos, textos, ilustraciones, fotografías y diseños promocionales.\n- **Corte preparado:** el archivo puede adaptarse a corte estándar o troquelado personalizado según la forma de la pegatina.\n- **Medidas personalizadas:** definimos el tamaño según el diseño, el soporte donde se aplicará y la distancia de lectura.\n\nPreparación del archivo\n\n- **Formato recomendado:** PDF final con medidas correctas, sangrado y margen de seguridad suficiente.\n- **Textos y logotipos:** conviene trabajar con tipografías trazadas o incrustadas y logotipos en buena resolución.\n- **Troquel:** si la pegatina tiene forma personalizada, es recomendable indicar claramente la línea de corte.\n\nAplicación\n\n- **Superficies habituales:** packaging, cartón, papel, cristal, plástico, metal, bolsas, sobres, cajas y soportes promocionales.\n- **Validación previa:** en superficies especiales, curvas, rugosas o con tratamientos, conviene validar material y adhesivo antes de producir.\n- **Uso exterior:** para humedad, roce, sol o larga duración, recomendamos elegir materiales y acabados más resistentes."
         },
         {
           "id": "applications",
@@ -28043,7 +28447,7 @@
           "title": "Aplicaciones",
           "kind": "applications",
           "contentFormat": "markdown",
-          "body": "Aplicaciones habituales de las pegatinas personalizadas en marca, packaging, promociones, eventos y señalización.\n\n- **Packaging y etiquetas de producto:** solución práctica para identificar productos, reforzar la marca y cuidar la presentación en envases, bolsas, cajas y pedidos online.\n- **Stickers promocionales y eventos:** ideales para repartir en ferias, campañas, acciones de street marketing, regalos de marca y materiales promocionales.\n- **Decoración e identificación:** útiles para personalizar portátiles, botellas, libretas, carpetas, paquetes y otros soportes corporativos o comerciales.\n- **Escaparates y señalización:** permiten comunicar promociones, señalizar zonas, decorar espacios y reforzar la identidad visual en tiendas u oficinas."
+          "body": "Aplicaciones habituales de las pegatinas personalizadas en marca, packaging, promociones, eventos y señalización.\n\n- **Packaging y etiquetas de producto:** solución práctica para identificar productos, reforzar la marca y cuidar la presentación en envases, bolsas, cajas y pedidos online.\n- **Stickers promocionales y eventos:** ideales para repartir en ferias, campañas, acciones de street marketing, regalos de marca y materiales promocionales.\n- **Decoración e identificación:** útiles para personalizar portátiles, botellas, libretas, carpetas, paquetes y otros soportes corporativos o comerciales.\n- **Escaparates y señalización ligera:** permiten comunicar promociones, señalizar zonas, decorar espacios y reforzar la identidad visual en tiendas u oficinas.\n- **Correcciones y actualizaciones:** pueden utilizarse para modificar datos, cubrir errores o añadir información sobre materiales ya impresos."
         }
       ],
       "faqs": [
@@ -30785,7 +31189,7 @@
     },
     {
       "id": "89",
-      "updatedAt": "2026-05-04T07:24:14Z",
+      "updatedAt": "2026-05-04T08:13:00Z",
       "type": "producto",
       "slug": "roll-up-personalizado",
       "path": "/productos/roll-up-personalizado",
@@ -30798,7 +31202,7 @@
       "isPublished": true,
       "shortDescription": "El Roll Up es el expositor más práctico cuando necesitas visibilidad inmediata: se monta en segundos, se transporta fácil y funciona perfecto en ferias, eventos, recepciones y puntos de venta. En Repro Disseny imprimimos roll ups personalizados con materiales y acabados pensados para que el resultado se vea profesional y aguante montaje/desmontaje.",
       "description": "El Roll Up es el expositor más práctico cuando necesitas visibilidad inmediata: se monta en segundos, se transporta fácil y funciona perfecto en ferias, eventos, recepciones y puntos de venta. En Repro Disseny imprimimos roll ups personalizados con materiales y acabados pensados para que el resultado se vea profesional y aguante montaje/desmontaje.",
-      "bodyMd": "¿Qué es un Roll Up y para qué se usa? \nUn Roll Up es un expositor enrollable compuesto por una estructura con base (cassette), una gráfica impresa que se enrolla dentro y un mástil que la mantiene tensada. Se utiliza para comunicar mensajes comerciales, branding, promociones o señalización, tanto en espacios corporativos como en eventos.",
+      "bodyMd": "### ¿Qué es un roll up y para qué se usa?\n\nUn roll up personalizado es un expositor enrollable compuesto por una base tipo cassette, una gráfica impresa que se guarda en el interior y un mástil que mantiene la pieza tensada durante el uso.\n\nSe utiliza para comunicar mensajes comerciales, branding, promociones, lanzamientos o señalización temporal en ferias, congresos, recepciones, puntos de venta, eventos corporativos y espacios de atención al público.\n\nEs una solución práctica cuando se necesita visibilidad, montaje rápido y una presentación profesional sin recurrir a estructuras complejas.",
       "sections": [
         {
           "id": "details",
@@ -30806,7 +31210,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es un Roll Up y para qué se usa? \nUn Roll Up es un expositor enrollable compuesto por una estructura con base (cassette), una gráfica impresa que se enrolla dentro y un mástil que la mantiene tensada. Se utiliza para comunicar mensajes comerciales, branding, promociones o señalización, tanto en espacios corporativos como en eventos."
+          "body": "### ¿Qué es un roll up y para qué se usa?\n\nUn roll up personalizado es un expositor enrollable compuesto por una base tipo cassette, una gráfica impresa que se guarda en el interior y un mástil que mantiene la pieza tensada durante el uso.\n\nSe utiliza para comunicar mensajes comerciales, branding, promociones, lanzamientos o señalización temporal en ferias, congresos, recepciones, puntos de venta, eventos corporativos y espacios de atención al público.\n\nEs una solución práctica cuando se necesita visibilidad, montaje rápido y una presentación profesional sin recurrir a estructuras complejas."
         },
         {
           "id": "benefits",
@@ -30859,7 +31263,7 @@
               },
               {
                 "title": "100 x 200 cm",
-                "description": "Opción con mayor presencia visual para stands, entradas o espacios donde se busca más impacto."
+                "description": "Opción con mayor presencia visual para stands, entradas, recepciones o espacios donde se busca más impacto."
               },
               {
                 "title": "Otros formatos disponibles",
@@ -30877,7 +31281,7 @@
               },
               {
                 "title": "Gráfica de recambio",
-                "description": "Opción útil si ya tienes una estructura compatible y quieres actualizar el diseño."
+                "description": "Opción útil si ya tienes una estructura compatible y quieres actualizar el diseño sin cambiar todo el expositor."
               }
             ]
           }
@@ -30916,7 +31320,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Medidas habituales: 85x200 cm, 100x200 cm y otros formatos disponibles bajo consulta.\n\nSistema: cassette enrollable, mástil y perfil superior para el tensado de la gráfica.\n\nOpciones: estructura estándar, estructura premium y opción doble cara según disponibilidad y uso previsto.\n\nImpresión: a todo color y alta definición para textos, logotipos y fotografías.\n\nDiseño recomendado: mensajes principales grandes, claros y legibles a distancia.\n\nArchivo recomendado: PDF final a tamaño real o proporcional, con imágenes en alta resolución, tipografías trazadas o incrustadas y margen de seguridad suficiente.\n\nUso recomendado: interior, ferias, congresos, recepciones, puntos de venta y eventos corporativos.\n\nTransporte: incluye bolsa de transporte para movilidad y almacenaje."
+          "body": "Estructura y medidas\n\n- **Medidas habituales:** 85 x 200 cm, 100 x 200 cm y otros formatos disponibles bajo consulta.\n- **Sistema:** cassette enrollable, mástil trasero y perfil superior para mantener la gráfica tensada.\n- **Opciones de estructura:** estructura estándar, estructura premium y opción doble cara según disponibilidad y uso previsto.\n\nImpresión y diseño\n\n- **Impresión:** a todo color y alta definición para textos, logotipos, fotografías y mensajes promocionales.\n- **Diseño recomendado:** mensajes principales grandes, claros y legibles a distancia.\n- **Archivo recomendado:** PDF final a tamaño real o proporcional, con imágenes en alta resolución, tipografías trazadas o incrustadas y margen de seguridad suficiente.\n\nUso y transporte\n\n- **Uso recomendado:** interior, ferias, congresos, recepciones, puntos de venta y eventos corporativos.\n- **Transporte:** incluye bolsa de transporte para movilidad, almacenaje y reutilización."
         },
         {
           "id": "applications",
@@ -30924,7 +31328,7 @@
           "title": "Aplicaciones",
           "kind": "applications",
           "contentFormat": "markdown",
-          "body": "Usos habituales del roll up personalizado en eventos, comunicación corporativa, punto de venta y señalización temporal.\n\n- **Ferias y congresos:** uso en stands, entradas, zonas de registro, ponencias y espacios donde se necesita visibilidad rápida.\n- **Eventos corporativos:** adecuado para presentaciones, formaciones, convenciones y showrooms.\n- **Punto de venta:** funciona para promociones, lanzamientos, precios, campañas temporales y comunicación comercial.\n- **Recepciones y oficinas:** útil para señalización, presentación de servicios, marca y comunicación interna.\n- **Hostelería:** puede utilizarse para menús, eventos, horarios, ofertas y comunicación en sala."
+          "body": "Usos habituales del roll up personalizado en eventos, comunicación corporativa, punto de venta y señalización temporal.\n\n- **Ferias y congresos:** uso en stands, entradas, zonas de registro, ponencias y espacios donde se necesita visibilidad rápida.\n- **Eventos corporativos:** adecuado para presentaciones, formaciones, convenciones, showrooms y jornadas internas.\n- **Punto de venta:** funciona para promociones, lanzamientos, precios, campañas temporales y comunicación comercial.\n- **Recepciones y oficinas:** útil para señalización, presentación de servicios, marca y comunicación interna.\n- **Hostelería:** puede utilizarse para menús, eventos, horarios, ofertas y comunicación en sala."
         }
       ],
       "faqs": [
@@ -31386,7 +31790,7 @@
     },
     {
       "id": "128",
-      "updatedAt": "2026-05-03T09:16:46Z",
+      "updatedAt": "2026-05-04T10:18:18Z",
       "type": "producto",
       "slug": "sobres-personalizados",
       "path": "/productos/sobres-personalizados",
@@ -31399,7 +31803,7 @@
       "isPublished": true,
       "shortDescription": "Los sobres corporativos son una parte clave de la imagen de empresa: acompañan presupuestos, contratos y comunicaciones y transmiten profesionalidad desde el primer contacto. En Repro Disseny imprimimos sobres personalizados con tu identidad visual, en distintos formatos y opciones (con ventana, sin ventana, cierre adhesivo), para que todo lo que envíes vaya alineado con tu marca.",
       "description": "Los sobres corporativos son una parte clave de la imagen de empresa: acompañan presupuestos, contratos y comunicaciones y transmiten profesionalidad desde el primer contacto. En Repro Disseny imprimimos sobres personalizados con tu identidad visual, en distintos formatos y opciones (con ventana, sin ventana, cierre adhesivo), para que todo lo que envíes vaya alineado con tu marca.",
-      "bodyMd": "¿Qué son los sobres personalizados y para qué se usan? \nUn sobre personalizado es un sobre impreso con el diseño corporativo de la empresa (logo, dirección, datos de contacto, web, etc.). Se utiliza para enviar documentación comercial o administrativa y para reforzar la coherencia de marca en comunicaciones con clientes, proveedores y organismos.",
+      "bodyMd": "### ¿Qué son los sobres personalizados y para qué se usan?\n\nUn sobre personalizado es un sobre impreso con el diseño corporativo de la empresa: logotipo, dirección, datos de contacto, web u otros elementos de marca.\n\nSe utiliza para enviar documentación comercial, administrativa o corporativa y para reforzar la coherencia visual en comunicaciones con clientes, proveedores, organismos y equipos internos.",
       "sections": [
         {
           "id": "details",
@@ -31407,7 +31811,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué son los sobres personalizados y para qué se usan? \nUn sobre personalizado es un sobre impreso con el diseño corporativo de la empresa (logo, dirección, datos de contacto, web, etc.). Se utiliza para enviar documentación comercial o administrativa y para reforzar la coherencia de marca en comunicaciones con clientes, proveedores y organismos."
+          "body": "### ¿Qué son los sobres personalizados y para qué se usan?\n\nUn sobre personalizado es un sobre impreso con el diseño corporativo de la empresa: logotipo, dirección, datos de contacto, web u otros elementos de marca.\n\nSe utiliza para enviar documentación comercial, administrativa o corporativa y para reforzar la coherencia visual en comunicaciones con clientes, proveedores, organismos y equipos internos."
         },
         {
           "id": "benefits",
@@ -31415,7 +31819,101 @@
           "title": "Beneficios",
           "kind": "benefits",
           "contentFormat": "markdown",
-          "body": "Imagen profesional y coherente: refuerza tu marca incluso antes de abrir el sobre. \nMejor percepción de calidad: transmite orden y confianza en comunicaciones formales. \nAhorra tiempo: con datos impresos evitas sellos y etiquetas en envíos frecuentes. \nOpciones por uso real: con/sin ventana, distintos formatos y tipos de cierre. \nVersiones por sede o departamento: misma estética, datos adaptados si lo necesitas."
+          "body": "Ventajas principales de los sobres personalizados para comunicaciones corporativas, administrativas y comerciales.\n\n- **Imagen profesional y coherente:** refuerzan tu marca incluso antes de abrir el sobre.\n- **Mejor percepción de calidad:** transmiten orden y confianza en comunicaciones formales.\n- **Ahorro de tiempo:** con los datos impresos evitas sellos, etiquetas o rotulaciones manuales en envíos frecuentes.\n- **Opciones según el uso:** disponibles con o sin ventana, en distintos formatos y con diferentes tipos de cierre.\n- **Versiones por sede o departamento:** permiten mantener una misma estética adaptando datos, idioma o marca si lo necesitas."
+        },
+        {
+          "id": "materials",
+          "key": "materials",
+          "title": "Materiales",
+          "kind": "materials",
+          "contentFormat": "json",
+          "materialsData": {
+            "intro": "Seleccionamos el papel del sobre según el tipo de comunicación, la frecuencia de uso y la imagen que debe transmitir la empresa.",
+            "materials": [
+              {
+                "title": "Papel estándar",
+                "description": "Opción práctica para sobres corporativos de uso habitual, facturación, comunicaciones administrativas y envíos recurrentes."
+              },
+              {
+                "title": "Papel de mayor calidad",
+                "description": "Recomendado cuando se busca una presentación más cuidada en propuestas, contratos o comunicaciones comerciales."
+              },
+              {
+                "title": "Papel corporativo",
+                "description": "Permite mantener coherencia visual con papel de carta, carpetas, tarjetas y otros materiales de identidad corporativa."
+              }
+            ]
+          }
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "kind": "formats",
+          "contentFormat": "json",
+          "formatsData": {
+            "intro": "Elegimos el formato del sobre según el tipo de documento, la forma de envío y si la documentación debe ir doblada o sin doblar.",
+            "shapes": [
+              {
+                "title": "DL / americano",
+                "description": "Formato habitual para hojas A4 dobladas en tres, ideal para cartas, facturas y comunicaciones corporativas."
+              },
+              {
+                "title": "C5",
+                "description": "Adecuado para enviar hojas A4 dobladas a la mitad, documentación comercial o comunicaciones con más presencia."
+              },
+              {
+                "title": "C4",
+                "description": "Recomendado para enviar hojas A4 sin doblar, contratos, dossiers, propuestas o documentación importante."
+              },
+              {
+                "title": "Otros formatos",
+                "description": "Se pueden valorar otros tamaños según el tipo de envío, la documentación y la imagen corporativa buscada."
+              }
+            ],
+            "deliveryFormats": [
+              {
+                "title": "Con ventana",
+                "description": "Agiliza envíos cuando el documento interior ya muestra la dirección del destinatario."
+              },
+              {
+                "title": "Sin ventana",
+                "description": "Más versátil para distintos usos y con una presentación exterior más limpia."
+              },
+              {
+                "title": "Versiones por sede o departamento",
+                "description": "Permite mantener una estética común adaptando datos, dirección, idioma o marca según necesidad."
+              }
+            ]
+          }
+        },
+        {
+          "id": "finishes",
+          "key": "finishes",
+          "title": "Acabados",
+          "kind": "finishes",
+          "contentFormat": "json",
+          "finishesData": {
+            "intro": "Las opciones de acabado y cierre se eligen según la frecuencia de uso, el tipo de envío y la presentación buscada.",
+            "finishes": [
+              {
+                "title": "Cierre autoadhesivo",
+                "description": "Práctico para envíos frecuentes, manipulación rápida y comunicaciones administrativas."
+              },
+              {
+                "title": "Cierre engomado",
+                "description": "Opción clásica para correspondencia corporativa y usos generales."
+              },
+              {
+                "title": "Impresión sobria",
+                "description": "Ideal para comunicaciones formales con logotipo, dirección y datos corporativos."
+              },
+              {
+                "title": "Impresión a color",
+                "description": "Recomendada cuando se quiere reforzar la presencia de marca o mantener una identidad visual más reconocible."
+              }
+            ]
+          }
         },
         {
           "id": "technical-specs",
@@ -31423,7 +31921,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Formatos habituales \nDL (americano): ideal para hojas A4 dobladas en tres (cartas y comunicaciones). \nC5: para A4 doblado a la mitad (documentación más cómoda). \nC4: para enviar A4 sin doblar (contratos, dossiers, presentaciones). \nOtros formatos disponibles según necesidad. \nCon o sin ventana \nCon ventana: agiliza envíos con documentos que ya incluyen dirección. \nSin ventana: más versátil para distintos tipos de envío y estética más limpia. \nImpresión \n1 tinta (corporativo sobrio y eficiente) o a todo color (si tu marca lo requiere). \nNormalmente a una cara, con posibilidad de impresión adicional según proyecto. \nPapel y cierre \nSobres con papeles estándar o de mayor calidad según imagen buscada. \nTipos de cierre: autoadhesivo, engomado u otras opciones según uso. \nSeries y versiones \nProducción por lotes con variantes por sede, departamento, marca o idioma manteniendo coherencia visual."
+          "body": "### Impresión\n\n- **Impresión a una tinta:** opción sobria y eficiente para sobres corporativos con logotipo, dirección y datos de contacto.\n- **Impresión a todo color:** recomendable cuando la marca requiere más presencia visual o elementos gráficos corporativos.\n- **Impresión habitual a una cara:** suficiente para la mayoría de comunicaciones, con posibilidad de valorar impresión adicional según proyecto.\n\n### Con o sin ventana\n\n- **Sobre con ventana:** agiliza envíos cuando el documento interior ya incluye la dirección visible.\n- **Sobre sin ventana:** opción más versátil para distintos tipos de envío y con una estética más limpia.\n- **Elección según uso:** conviene definir si se utilizará para cartas, facturas, contratos, mailings o documentación interna.\n\n### Papel y cierre\n\n- **Papeles estándar:** adecuados para comunicaciones corporativas habituales, facturación y envíos administrativos.\n- **Papeles de mayor calidad:** recomendables cuando se busca una imagen más cuidada o una comunicación más premium.\n- **Tipos de cierre:** autoadhesivo, engomado u otras opciones según frecuencia de uso, manipulación y tipo de envío.\n\n### Series y versiones\n\n- **Producción por lotes:** posibilidad de imprimir sobres para distintas necesidades manteniendo coherencia visual.\n- **Variantes por sede o departamento:** se pueden adaptar datos, dirección, marca o idioma según la estructura de la empresa.\n- **Archivo recomendado:** PDF final con medidas correctas, márgenes de seguridad y logotipos en buena resolución."
         },
         {
           "id": "applications",
@@ -31431,7 +31929,7 @@
           "title": "Aplicaciones",
           "kind": "applications",
           "contentFormat": "markdown",
-          "body": "Envío de presupuestos y propuestas \nContratos y documentación legal \nFacturas y comunicaciones administrativas \nMailings corporativos (invitaciones, campañas, postales) \nDocumentación interna (mensajería entre sedes, RRHH, etc.)"
+          "body": "Aplicaciones habituales de los sobres personalizados en comunicaciones comerciales, administrativas y corporativas.\n\n- **Envío de presupuestos y propuestas:** presentación más cuidada para ofertas comerciales, documentación de venta o comunicaciones con clientes.\n- **Contratos y documentación legal:** solución profesional para documentos importantes que requieren una entrega formal.\n- **Facturas y comunicaciones administrativas:** útil para envíos recurrentes, comunicaciones oficiales, documentación contable o correspondencia corporativa.\n- **Mailings corporativos:** invitaciones, campañas, postales, comunicaciones comerciales o acciones de fidelización.\n- **Documentación interna:** mensajería entre sedes, comunicaciones de recursos humanos, documentación interna o envíos entre departamentos."
         }
       ],
       "faqs": [
@@ -32222,7 +32720,7 @@
     },
     {
       "id": "130",
-      "updatedAt": "2026-05-03T09:16:47Z",
+      "updatedAt": "2026-05-04T10:33:48Z",
       "type": "producto",
       "slug": "talonarios-autocopiativos-personalizados",
       "path": "/productos/talonarios-autocopiativos-personalizados",
@@ -32235,7 +32733,7 @@
       "isPublished": true,
       "shortDescription": "Los talonarios autocopiativos siguen siendo imprescindibles en muchos negocios: permiten generar copias al instante sin impresora, con un formato ordenado y profesional. En Repro Disseny imprimimos autocopiativos personalizados para albaranes, pedidos, presupuestos, partes de trabajo o facturas, con opciones de numeración, perforado y configuraciones de copias según tu operativa.",
       "description": "Los talonarios autocopiativos siguen siendo imprescindibles en muchos negocios: permiten generar copias al instante sin impresora, con un formato ordenado y profesional. En Repro Disseny imprimimos autocopiativos personalizados para albaranes, pedidos, presupuestos, partes de trabajo o facturas, con opciones de numeración, perforado y configuraciones de copias según tu operativa.",
-      "bodyMd": "¿Qué es un talonario autocopiativo y para qué se usa? \nUn talonario autocopiativo es un bloc de formularios que genera una o varias copias al escribir (normalmente con papel autocopiativo NCR). Se utiliza para entregar una copia al cliente y conservar otra para administración, almacén o técnico, agilizando procesos en campo, repartos, talleres, hostelería o empresas de servicios.",
+      "bodyMd": "### ¿Qué es un talonario autocopiativo y para qué se usa?\n\nUn talonario autocopiativo es un bloc de formularios que genera una o varias copias al escribir, normalmente con papel autocopiativo NCR.\n\nSe utiliza para entregar una copia al cliente y conservar otra para administración, almacén o técnico, agilizando procesos en campo, repartos, talleres, hostelería o empresas de servicios.",
       "sections": [
         {
           "id": "details",
@@ -32243,7 +32741,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es un talonario autocopiativo y para qué se usa? \nUn talonario autocopiativo es un bloc de formularios que genera una o varias copias al escribir (normalmente con papel autocopiativo NCR). Se utiliza para entregar una copia al cliente y conservar otra para administración, almacén o técnico, agilizando procesos en campo, repartos, talleres, hostelería o empresas de servicios."
+          "body": "### ¿Qué es un talonario autocopiativo y para qué se usa?\n\nUn talonario autocopiativo es un bloc de formularios que genera una o varias copias al escribir, normalmente con papel autocopiativo NCR.\n\nSe utiliza para entregar una copia al cliente y conservar otra para administración, almacén o técnico, agilizando procesos en campo, repartos, talleres, hostelería o empresas de servicios."
         },
         {
           "id": "benefits",
@@ -32251,7 +32749,105 @@
           "title": "Beneficios",
           "kind": "benefits",
           "contentFormat": "markdown",
-          "body": "Copias instantáneas: 2 o 3 copias (o más, según necesidad) sin impresora ni fotocopias. \nOperativa más rápida y ordenada: ideal para trabajos en ruta, almacén o mostrador. \nImagen profesional: documentos con tu marca y datos, listos para entregar. \nControl y trazabilidad: numeración y series para seguimiento interno. \nPersonalización completa: campos, tablas, condiciones, firmas y checklists adaptados a tu negocio."
+          "body": "Ventajas principales de los talonarios autocopiativos personalizados para albaranes, partes de trabajo, pedidos y documentación operativa.\n\n- **Copias instantáneas:** permiten generar 2 o 3 copias, o más según necesidad, sin impresora ni fotocopias.\n- **Operativa más rápida y ordenada:** ideales para trabajos en ruta, almacén, mostrador, entregas o servicios técnicos.\n- **Imagen profesional:** documentos personalizados con tu marca, datos corporativos y campos preparados para entregar al cliente.\n- **Control y trazabilidad:** numeración y series para facilitar el seguimiento interno de pedidos, entregas, partes o autorizaciones.\n- **Personalización completa:** campos, tablas, condiciones, firmas y checklists adaptados a la operativa de tu negocio."
+        },
+        {
+          "id": "materials",
+          "key": "materials",
+          "title": "Materiales",
+          "kind": "materials",
+          "contentFormat": "json",
+          "materialsData": {
+            "intro": "El material se define según el número de copias necesarias, la frecuencia de uso y la resistencia que debe tener el talonario.",
+            "materials": [
+              {
+                "title": "Papel autocopiativo NCR",
+                "description": "Permite generar copias al escribir sin necesidad de papel carbón, impresora o fotocopias."
+              },
+              {
+                "title": "Copias por colores",
+                "description": "Ayudan a identificar rápidamente el destino de cada copia: cliente, administración, almacén, técnico u otro departamento."
+              },
+              {
+                "title": "Tapa de cartulina",
+                "description": "Opción recomendable para proteger el bloc y mejorar la resistencia durante el uso diario."
+              }
+            ]
+          }
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "kind": "formats",
+          "contentFormat": "json",
+          "formatsData": {
+            "intro": "Definimos el formato del talonario según el tipo de formulario, la cantidad de campos, la forma de uso y la operativa diaria.",
+            "shapes": [
+              {
+                "title": "A4",
+                "description": "Formato amplio para formularios con muchas líneas, tablas, condiciones, observaciones o información detallada."
+              },
+              {
+                "title": "A5",
+                "description": "Formato práctico para albaranes, partes de trabajo, pedidos y documentos operativos de uso frecuente."
+              },
+              {
+                "title": "Formato a medida",
+                "description": "Permite adaptar el talonario al tipo de documento, al espacio de escritura y al modo de trabajo de la empresa."
+              },
+              {
+                "title": "Vertical u horizontal",
+                "description": "La orientación se define según la estructura del formulario, las tablas, los campos y la comodidad de uso."
+              }
+            ],
+            "deliveryFormats": [
+              {
+                "title": "Duplicado",
+                "description": "Original más una copia, adecuado para entregar una copia al cliente y conservar otra internamente."
+              },
+              {
+                "title": "Triplicado",
+                "description": "Original más dos copias, útil cuando intervienen cliente, administración, almacén o técnico."
+              },
+              {
+                "title": "Series por sede o departamento",
+                "description": "Permite diferenciar formularios por delegación, equipo, técnico, almacén o tipo de documento manteniendo coherencia visual."
+              }
+            ]
+          }
+        },
+        {
+          "id": "finishes",
+          "key": "finishes",
+          "title": "Acabados",
+          "kind": "finishes",
+          "contentFormat": "json",
+          "finishesData": {
+            "intro": "Los acabados ayudan a mejorar el uso diario del talonario, el control interno y la separación limpia de cada juego.",
+            "finishes": [
+              {
+                "title": "Numeración correlativa",
+                "description": "Muy recomendable para seguimiento interno, archivo, control administrativo y trazabilidad de documentos."
+              },
+              {
+                "title": "Perforado para arrancado",
+                "description": "Facilita separar cada juego de forma limpia sin deteriorar el resto del talonario."
+              },
+              {
+                "title": "Talón o resguardo",
+                "description": "Opción útil cuando necesitas conservar una parte del documento para control interno."
+              },
+              {
+                "title": "Encolado en bloc",
+                "description": "Mantiene los juegos agrupados y facilita el uso en mostrador, ruta, taller o almacén."
+              },
+              {
+                "title": "Grapado opcional",
+                "description": "Puede valorarse según formato, número de hojas y forma de uso del talonario."
+              }
+            ]
+          }
         },
         {
           "id": "technical-specs",
@@ -32259,7 +32855,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Número de copias \nDuplicado (2 copias): original + copia. \nTriplicado (3 copias): original + 2 copias (muy útil cuando intervienen cliente + administración + almacén/técnico). \nPosibilidad de organizar las copias por colores (según configuración) para identificar cada destino. \nFormato \nFormatos habituales: A4, A5, o a medida según tu operativa. \nOrientación vertical u horizontal según el tipo de tabla o campos. \nDiseño del formulario \nPersonalización de campos: datos de cliente, referencia, cantidades, IVA, condiciones, firma, observaciones, checklist, etc. \nPosibilidad de incluir pie legal, condiciones o instrucciones. \nNumeración y control \nNumeración correlativa por talonario o por juego (muy recomendable). \nSeries por sede, departamento o tipo de documento (si lo necesitas). \nPerforado \nPerforado para arrancado limpio. \nOpción de talón\resguardo si necesitas dividir copia para control interno. \nEncuadernación \nEncolado en bloc y opción de grapado según formato y uso. \nPosibilidad de incluir tapa (cartulina) para mayor resistencia en uso diario."
+          "body": "### Número de copias\n\n- **Duplicado:** original más una copia, adecuado cuando se necesita entregar una copia al cliente y conservar otra internamente.\n- **Triplicado:** original más dos copias, útil cuando intervienen cliente, administración, almacén o técnico.\n- **Copias por colores:** posibilidad de organizar las copias por color para identificar fácilmente cada destino o departamento.\n\n### Diseño del formulario\n\n- **Campos personalizados:** datos de cliente, referencia, cantidades, IVA, condiciones, firma, observaciones, checklist u otros campos operativos.\n- **Tablas y apartados:** estructura adaptada al tipo de documento, ya sea albarán, parte de trabajo, pedido, presupuesto o control interno.\n- **Información adicional:** posibilidad de incluir pie legal, condiciones, instrucciones, datos corporativos o mensajes específicos.\n\n### Numeración y control\n\n- **Numeración correlativa:** recomendable para mejorar trazabilidad, archivo y control interno.\n- **Series por documento:** posibilidad de crear series por sede, departamento, técnico, almacén o tipo de formulario.\n- **Control por talonario o por juego:** la numeración puede plantearse según la forma de uso y el seguimiento necesario.\n\n### Perforado y arrancado\n\n- **Perforado para arrancado limpio:** facilita separar cada juego sin deteriorar el documento.\n- **Talón o resguardo:** opción útil cuando necesitas conservar una parte del documento para control interno.\n- **Preparación para uso diario:** el acabado debe facilitar escritura, separación de copias y manipulación frecuente.\n\n### Encuadernación\n\n- **Encolado en bloc:** sistema habitual para mantener los juegos agrupados y facilitar el uso en mostrador, ruta o taller.\n- **Grapado opcional:** puede valorarse según formato, número de hojas y tipo de uso.\n- **Tapa de cartulina:** opción recomendable para aportar resistencia y proteger el talonario en uso diario."
         },
         {
           "id": "applications",
@@ -32267,7 +32863,7 @@
           "title": "Aplicaciones",
           "kind": "applications",
           "contentFormat": "markdown",
-          "body": "Albaranes de entrega y recepción \nPedidos y órdenes de compra \nPartes de trabajo (SAT, mantenimiento, instalaciones) \nPresupuestos y autorizaciones de servicio \nFacturas simplificadas y tickets (según uso) \nHojas de caja y control interno"
+          "body": "Aplicaciones habituales de los talonarios autocopiativos personalizados en empresas de servicios, logística, comercio, talleres y administración.\n\n- **Albaranes de entrega y recepción:** documentación práctica para dejar constancia de entregas, recogidas, recepciones o conformidades.\n- **Pedidos y órdenes de compra:** formularios preparados para registrar referencias, cantidades, precios, condiciones y datos del cliente.\n- **Partes de trabajo:** útiles para SAT, mantenimiento, instalaciones, reparaciones, servicios técnicos o trabajos en ruta.\n- **Presupuestos y autorizaciones de servicio:** documentos firmables para validar trabajos, importes, condiciones o intervenciones.\n- **Facturas simplificadas y tickets:** opción práctica para ciertos usos de mostrador, servicios o ventas rápidas, según necesidad.\n- **Hojas de caja y control interno:** formularios para arqueos, movimientos, incidencias, inventario o seguimiento administrativo."
         }
       ],
       "faqs": [
@@ -36285,7 +36881,7 @@
     },
     {
       "id": "11",
-      "updatedAt": "2026-05-04T07:27:38Z",
+      "updatedAt": "2026-05-04T09:21:23Z",
       "type": "producto",
       "slug": "xbanner-personalizado",
       "path": "/productos/xbanner-personalizado",
@@ -36322,7 +36918,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Formato y estructura\n\n- Expositor ligero con sistema de varillas en forma de X.\n- Pensado para gráfica flexible tensada mediante ojales en las esquinas.\n- Formato vertical habitual para comunicación promocional, señalización temporal y eventos.\n\nGráfica\n\n- Impresión a todo color sobre soporte flexible adecuado para el sistema.\n- La gráfica se entrega preparada con los acabados necesarios para su montaje.\n- Posibilidad de sustituir la gráfica si se mantiene el mismo formato y estructura.\n\nMontaje y transporte\n\n- Montaje sencillo, sin herramientas complejas.\n- Estructura ligera y fácil de transportar.\n- Recomendado para interiores, ferias, congresos, puntos de venta y acciones temporales.\n\nUso recomendado\n\n- Ideal cuando se busca una solución económica, ligera y reutilizable.\n- Para exterior o zonas con viento, conviene valorar soportes más estables como roll ups específicos, lonas con estructura o displays reforzados."
+          "body": "Estructura\n\n- **Sistema ligero:** expositor formado por una estructura de varillas en forma de X que mantiene la gráfica tensada.\n- **Soporte estable para interior:** pensado para espacios interiores, ferias, congresos, puntos de venta y acciones promocionales temporales.\n- **Gráfica intercambiable:** permite sustituir la gráfica si se mantiene el mismo formato y sistema de fijación.\n\nGráfica\n\n- **Impresión a todo color:** adecuada para mensajes promocionales, branding, señalización temporal, ofertas y comunicación visual.\n- **Acabado preparado para montaje:** la gráfica se entrega con los acabados necesarios para fijarse correctamente a la estructura.\n- **Diseño recomendado:** mensajes claros, jerarquía visual sencilla y elementos principales legibles a distancia.\n\nMontaje y transporte\n\n- **Montaje sencillo:** se instala rápidamente sin herramientas complejas.\n- **Fácil de mover y almacenar:** estructura ligera, práctica para eventos itinerantes o campañas de corta duración.\n- **Uso reutilizable:** puede utilizarse en distintas acciones si el mensaje sigue siendo válido o si se actualiza la gráfica.\n\nUso recomendado\n\n- **Interior y eventos temporales:** recomendado para ferias, promociones, recepciones, puntos de venta, presentaciones y campañas puntuales.\n- **Limitación en exterior:** para zonas con viento, uso prolongado o espacios exteriores, conviene valorar soportes más estables como roll ups específicos, lonas con estructura o displays reforzados."
         },
         {
           "id": "applications",
@@ -36330,7 +36926,7 @@
           "title": "Aplicaciones",
           "kind": "applications",
           "contentFormat": "markdown",
-          "body": "Ferias y congresos: dentro del stand, zonas de paso, acceso o puntos de registro. \nPunto de venta: ofertas, campañas, lanzamientos y promociones temporales. \nEventos corporativos: señalización de salas, formaciones, presentaciones, recepciones. \nHostelería: menús, eventos especiales, horarios, promociones en sala o terraza. \nCentros y entidades: puntos de información, campañas institucionales, orientación al público."
+          "body": "Usos habituales del X-Banner personalizado en ferias, eventos, punto de venta, hostelería y comunicación temporal.\n\n- **Ferias y congresos:** dentro del stand, zonas de paso, accesos, puntos de registro o espacios de información.\n- **Punto de venta:** ofertas, campañas, lanzamientos, promociones temporales y comunicación comercial en tienda.\n- **Eventos corporativos:** señalización de salas, formaciones, presentaciones, recepciones y jornadas internas.\n- **Hostelería:** menús, eventos especiales, horarios, promociones en sala o comunicación en terraza.\n- **Centros y entidades:** puntos de información, campañas institucionales, orientación al público y señalización temporal."
         }
       ],
       "faqs": [
