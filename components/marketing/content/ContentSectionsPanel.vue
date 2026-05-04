@@ -103,6 +103,15 @@ function normalizeSectionKey(value?: string) {
   if (key === "tipos") return "types";
   if (key === "detalles") return "details";
 
+  if (key === "technical-specs") return "technical-specs";
+  if (key === "technicalspecs") return "technical-specs";
+  if (key === "technical") return "technical-specs";
+  if (key === "specs") return "technical-specs";
+  if (key === "caracteristicas") return "technical-specs";
+  if (key === "caracteristicas-tecnicas") return "technical-specs";
+  if (key === "especificaciones") return "technical-specs";
+  if (key === "especificaciones-tecnicas") return "technical-specs";
+
   return key;
 }
 
@@ -155,6 +164,7 @@ const resolvedKind = computed(() => {
 
   if (key === "details") return "details";
   if (key === "types") return "types";
+  if (key === "technical-specs") return "technical-specs";
 
   if (
     key === "benefits" ||
@@ -401,19 +411,25 @@ const shouldShowDetailsHeader = computed(() => props.headerMode === "default");
   />
 
   <ContentCardsSection
-    v-else-if="resolvedKind === 'cards' && resolvedCardGroups.length"
-    :section-id="props.section.id"
-    :title="resolvedTitle"
-    :intro="resolvedIntro"
-    :eyebrow="resolvedEyebrow"
-    :groups="resolvedCardGroups"
-    :variant="resolvedVariant"
-    :show-header="props.headerMode === 'default'"
-  />
+  v-else-if="resolvedKind === 'cards' && resolvedCardGroups.length"
+  :section-id="props.section.id"
+  :title="resolvedTitle"
+  :intro="resolvedIntro"
+  :eyebrow="resolvedEyebrow"
+  :groups="resolvedCardGroups"
+  :variant="resolvedVariant"
+  :show-header="props.headerMode === 'default'"
+/>
 
-  <ContentDetailsSection
-    v-else
-    :section="props.section"
-    :show-header="shouldShowDetailsHeader"
-  />
+<ContentDetailsSection
+  v-else-if="resolvedKind === 'technical-specs'"
+  :section="props.section"
+  :show-header="shouldShowDetailsHeader"
+/>
+
+<ContentDetailsSection
+  v-else
+  :section="props.section"
+  :show-header="shouldShowDetailsHeader"
+/>
 </template>

@@ -5,8 +5,9 @@ import { cn } from "@/lib/utils";
 import ContentSectionHeader from "@/components/marketing/content/ContentSectionHeader.vue";
 
 type IncomingSection = {
-  id?: string;
+   id?: string;
   key?: string;
+  kind?: string;
   title?: string;
   intro?: string;
   body?: string;
@@ -79,6 +80,43 @@ function makeAnchorId(value: string, fallback: string): string {
   return normalized || fallback;
 }
 
+
+const TECHNICAL_SECTION_KEYS = new Set([
+  "technical-specs",
+  "technicalSpecs",
+  "technicalspecs",
+  "technical",
+  "specs",
+  "caracteristicas",
+  "caracteristicas-tecnicas",
+  "especificaciones",
+  "especificaciones-tecnicas",
+]);
+
+function normalizeSectionKey(value?: string) {
+  return String(value || "")
+    .trim()
+    .toLowerCase();
+}
+
+function isTechnicalSectionValue(section?: IncomingSection | null) {
+  if (!section) return false;
+
+  const id = normalizeSectionKey(section.id);
+  const key = normalizeSectionKey(section.key);
+  const kind = normalizeSectionKey(section.kind);
+
+  return (
+    TECHNICAL_SECTION_KEYS.has(id) ||
+    TECHNICAL_SECTION_KEYS.has(key) ||
+    TECHNICAL_SECTION_KEYS.has(kind)
+  );
+}
+
+const isTechnicalSection = computed(() =>
+  isTechnicalSectionValue(props.section)
+);
+
 function parseInlineMarkdown(value: string): InlineToken[] {
   const text = String(value || "");
   const tokens: InlineToken[] = [];
@@ -116,13 +154,17 @@ function parseInlineMarkdown(value: string): InlineToken[] {
 }
 
 function parseMarkdownBlocks(value: string): MarkdownBlock[] {
-  const raw = String(value || "").trim();
+  const raw = String(value || "")
+  .replace(/\r\n/g, "\n")
+  .replace(/\r/g, "\n")
+  .replace(/^(#{1,6})([^\s#])/gm, "$1 $2")
+  .replace(/^\s*[•·]\s+/gm, "- ")
+  .trim();
   if (!raw) return [];
 
   const lines = raw
-    .replace(/\r\n/g, "\n")
-    .split("\n")
-    .map((line) => line.trim());
+  .split("\n")
+  .map((line) => line.trim());
 
   const blocks: MarkdownBlock[] = [];
   let paragraphLines: string[] = [];
@@ -164,7 +206,7 @@ function parseMarkdownBlocks(value: string): MarkdownBlock[] {
 
     const h3Match = line.match(/^###\s+(.+)$/);
     const h4Match = line.match(/^####\s+(.+)$/);
-    const unorderedMatch = line.match(/^[-*]\s+(.+)$/);
+    const unorderedMatch = line.match(/^[-*•·]\s+(.+)$/);
     const orderedMatch = line.match(/^\d+\.\s+(.+)$/);
 
     if (h3Match || h4Match) {
@@ -263,8 +305,26 @@ const listItemClass =
       :class="cn('max-w-3xl', props.headerClass)"
     />
 
-    <div :class="cn('space-y-5 md:space-y-6', props.contentClass)">
-      <div v-if="safeSection.html" :class="proseClass" v-html="safeSection.html" />
+    <div
+  :class="
+    cn(
+      'product-tab-richtext space-y-5 md:space-y-6',
+      isTechnicalSection && 'product-tab-richtext--technical',
+      props.contentClass
+    )
+  "
+>
+      <div
+  v-if="safeSection.html"
+  :class="
+    cn(
+      proseClass,
+      'product-tab-richtext',
+      isTechnicalSection && 'product-tab-richtext--technical'
+    )
+  "
+  v-html="safeSection.html"
+/>
 
       <template v-else>
         <template
