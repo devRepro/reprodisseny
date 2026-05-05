@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-05T13:24:51.296Z",
+  "generatedAt": "2026-05-05T13:41:53.628Z",
   "categories": [
     {
       "id": "12",
@@ -12895,11 +12895,11 @@
     },
     {
       "id": "28",
-      "updatedAt": "2026-05-05T11:40:21Z",
+      "updatedAt": "2026-05-05T13:32:10Z",
       "type": "producto",
       "slug": "cubos-publicitarios-personalizados",
       "path": "/productos/cubos-publicitarios-personalizados",
-      "title": "Cubos",
+      "title": "Cubos publicitarios personalizados para eventos y punto de venta",
       "categorySlug": "expositores",
       "categorySlugs": [
         "expositores"
@@ -12908,7 +12908,7 @@
       "isPublished": true,
       "shortDescription": "Los cubos personalizados son una solución muy versátil para destacar marca en espacios físicos: funcionan como expositor, elemento decorativo, señalética o incluso como apoyo en zona de foto. En Repro Disseny producimos cubos publicitarios con impresión a todo color y materiales pensados para que queden estables, vistosos y listos para montar.",
       "description": "Los cubos personalizados son una solución muy versátil para destacar marca en espacios físicos: funcionan como expositor, elemento decorativo, señalética o incluso como apoyo en zona de foto. En Repro Disseny producimos cubos publicitarios con impresión a todo color y materiales pensados para que queden estables, vistosos y listos para montar.",
-      "bodyMd": "¿Qué es un cubo publicitario y para qué se usa? \nUn cubo publicitario es un expositor tridimensional con caras imprimibles (una o varias) que se coloca en suelo, mostrador o dentro de un stand para comunicar mensajes, reforzar branding o crear composición de producto. Es especialmente útil cuando quieres salir del “formato plano” y ganar impacto con una pieza 3D que llama la atención desde distintos ángulos.",
+      "bodyMd": "## ¿Qué es un cubo publicitario y para qué se usa?\n\nUn cubo publicitario es una pieza tridimensional con caras imprimibles que se utiliza para comunicar marca, producto o mensajes promocionales desde varios ángulos. Puede colocarse en suelo, mostrador, escaparate, stand o zona de paso, funcionando como expositor, elemento decorativo, señalética o apoyo visual para campañas.\n\nA diferencia de un cartel plano, el cubo aporta volumen, presencia y mayor visibilidad en el espacio. Es especialmente útil cuando necesitas crear una composición llamativa, destacar un producto, reforzar una promoción o generar un punto visual dentro de un evento, feria, tienda o acción de marca.\n\nEn Repro Disseny producimos cubos publicitarios personalizados en Barcelona con impresión a todo color, materiales ligeros y acabados pensados para que la pieza quede estable, vistosa y lista para montar.",
       "sections": [
         {
           "id": "details",
@@ -12916,7 +12916,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es un cubo publicitario y para qué se usa? \nUn cubo publicitario es un expositor tridimensional con caras imprimibles (una o varias) que se coloca en suelo, mostrador o dentro de un stand para comunicar mensajes, reforzar branding o crear composición de producto. Es especialmente útil cuando quieres salir del “formato plano” y ganar impacto con una pieza 3D que llama la atención desde distintos ángulos."
+          "body": "## ¿Qué es un cubo publicitario y para qué se usa?\n\nUn cubo publicitario es una pieza tridimensional con caras imprimibles que se utiliza para comunicar marca, producto o mensajes promocionales desde varios ángulos. Puede colocarse en suelo, mostrador, escaparate, stand o zona de paso, funcionando como expositor, elemento decorativo, señalética o apoyo visual para campañas.\n\nA diferencia de un cartel plano, el cubo aporta volumen, presencia y mayor visibilidad en el espacio. Es especialmente útil cuando necesitas crear una composición llamativa, destacar un producto, reforzar una promoción o generar un punto visual dentro de un evento, feria, tienda o acción de marca.\n\nEn Repro Disseny producimos cubos publicitarios personalizados en Barcelona con impresión a todo color, materiales ligeros y acabados pensados para que la pieza quede estable, vistosa y lista para montar."
         },
         {
           "id": "benefits",
@@ -12924,7 +12924,7 @@
           "title": "Beneficios",
           "kind": "benefits",
           "contentFormat": "markdown",
-          "body": "Impacto 3D inmediato: destaca más que un cartel y se ve desde varios puntos de vista. \nMuy versátil: sirve como expositor de producto, señalética, decoración o elemento de campaña. \nBranding por todas las caras: permite integrar logo, mensajes, patrocinadores o creatividad completa. \nCombinable y modular: varios cubos juntos crean composiciones (torres, escalones, corners, photocall creativo). \nFácil de mover y recolocar: ideal para ferias, eventos itinerantes o campañas en tienda."
+          "body": "- **Impacto 3D inmediato:** destaca más que un cartel plano y se percibe desde varios puntos de vista.\n- **Branding por varias caras:** permite integrar logotipos, mensajes, campañas, patrocinadores o creatividad completa en diferentes lados del cubo.\n- **Muy versátil:** funciona como expositor, señalética, decoración, soporte de producto o elemento de campaña.\n- **Combinable y modular:** varios cubos juntos pueden crear torres, escalones, corners, photocalls creativos o composiciones promocionales.\n- **Ligero y fácil de mover:** ideal para ferias, eventos itinerantes, acciones temporales y cambios de ubicación dentro de tienda.\n- **Buena presencia en foto y vídeo:** aporta volumen y ayuda a crear espacios de marca más visuales para eventos, redes sociales y campañas."
         },
         {
           "id": "technical-specs",
@@ -12932,7 +12932,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Formatos y medidas \nTamaños estándar o a medida (desde cubos de sobremesa hasta cubos de suelo). \nPosibilidad de diseñar cubos como módulos para apilar o componer. \nMateriales (según uso y durabilidad) \nCartón / microcanal: opción ligera y práctica para campañas temporales y eventos. \nNido de abeja: ideal para piezas grandes con buena rigidez y poco peso. \nPVC/Forex u otros rígidos: más resistente, recomendado si se va a reutilizar o habrá mucha manipulación. \nOpción de elegir el material según si el cubo será decorativo, expositor, señalética o de uso intensivo. \nImpresión \nImpresión a todo color para máxima visibilidad de marca. \nPersonalización por caras: misma gráfica en todas o diseños diferentes (promoción + logo + QR, etc.). \nPosibilidad de incluir QR (catálogo, landing, redes, registro, promo). \nMontaje y estructura \nCubos plegables/automontables (según material) para transporte cómodo.\nOpciones con refuerzo interno si se requiere mayor estabilidad. \nPreparación “lista para montar” para eventos con tiempos ajustados. \nAcabados recomendados \nMate si habrá focos o fotos (reduce reflejos). \nLaminado/protección si se va a manipular mucho o estará en zona de roce. \nOpciones de corte a medida si quieres esquinas redondeadas o diseño especial."
+          "body": "## Formatos y medidas\n\n- Tamaños estándar disponibles: 32 × 32 × 32 cm y 40 × 40 × 40 cm.\n- Posibilidad de estudiar medidas especiales según campaña, espacio disponible y uso previsto.\n- Formato cúbico pensado para colocación en suelo, mostrador, escaparate, stand o zona de paso.\n- Varios cubos pueden combinarse para crear composiciones modulares, torres o estructuras promocionales.\n\n## Material\n\n- Producción estándar en cartón microcanal estucado mate de 1,6 mm.\n- Material ligero, práctico y adecuado para campañas temporales, eventos, ferias y acciones en punto de venta.\n- Buena relación entre presencia visual, facilidad de transporte y montaje.\n- Para usos más exigentes o repetidos, se puede valorar una solución específica según tamaño, manipulación y duración prevista.\n\n## Impresión\n\n- Impresión personalizada a todo color.\n- Preparación gráfica para aprovechar una o varias caras del cubo.\n- Posibilidad de trabajar cada cara con el mismo diseño o con mensajes diferentes según campaña.\n- Recomendación práctica: para mejorar la lectura, conviene usar mensajes cortos, logotipos claros y buen contraste.\n\n## Montaje y uso\n\n- Pieza pensada para montaje sencillo y uso temporal en espacios comerciales o eventos.\n- Fácil de mover, recolocar y combinar con otros elementos de comunicación.\n- Adecuado para interior y eventos controlados; si se plantea uso exterior, conviene revisar ubicación, duración y condiciones.\n\n## Acabados\n\n- Corte y plegado adaptados al formato del cubo.\n- Acabado mate del soporte para una presencia limpia y profesional.\n- Preparación lista para montaje según el sistema definido."
         },
         {
           "id": "applications",
@@ -12940,7 +12940,7 @@
           "title": "Aplicaciones",
           "kind": "applications",
           "contentFormat": "markdown",
-          "body": "Ferias y congresos: stands, zonas de bienvenida, señalización y exposición de producto. \nRetail y punto de venta: promociones, lanzamientos, campañas estacionales, corners de marca. \nEventos corporativos: escenografía, apoyo visual en ponencias, zonas de networking. \nAcciones de marca: activaciones, dinámicas, sorteos, espacios “instagrameables”. \nHostelería y hoteles: señalización temporal, promociones y ambientación de eventos."
+          "body": "- **Eventos y ferias:** cubos para stands, zonas de registro, puntos informativos, photocalls, escenarios o espacios de patrocinadores.\n- **Escaparates y retail:** piezas 3D para destacar promociones, novedades, campañas de temporada o mensajes de marca.\n- **Punto de venta:** apoyo visual para producto, corners promocionales, señalización de zonas o comunicación junto a displays.\n- **Activaciones de marca:** street marketing, lanzamientos, sampling, acciones temporales y campañas promocionales.\n- **Eventos corporativos:** decoración de marca, señalética, apoyo en presentaciones, family days, convenciones y zonas de bienvenida.\n- **Composiciones modulares:** varios cubos combinados para crear estructuras visuales, torres, fondos fotográficos o mensajes secuenciales."
         }
       ],
       "faqs": [
@@ -12975,7 +12975,7 @@
           "url": "/categorias/expositores"
         },
         {
-          "name": "Cubos",
+          "name": "Cubos publicitarios personalizados para eventos y punto de venta",
           "url": "/productos/cubos-publicitarios-personalizados"
         }
       ],
@@ -13023,7 +13023,7 @@
           "type": "select",
           "required": false,
           "options": [
-            "Cartón microcanal estucado mate - 1.6 mm."
+            "Cartón microcanal estucado mate 1,6 mm"
           ],
           "readonly": true
         },
@@ -13046,8 +13046,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Cubos | Repro Disseny",
-        "metaDescription": "Cubos personalizadas con calidad profesional en Cataluña.",
+        "metaTitle": "Cubos publicitarios personalizados | Expositores 3D en Barcelona",
+        "metaDescription": "Cubos publicitarios personalizados para eventos, ferias, escaparates y punto de venta. Expositores 3D impresos, ligeros y a medida en Barcelona.",
         "canonical": "https://reprodisseny.com/productos/cubos-publicitarios-personalizados",
         "hreflang": [
           {
@@ -13056,18 +13056,46 @@
           }
         ],
         "keywords": [
-          "cubos"
+          "cubos publicitarios personalizados",
+          "cubos personalizados",
+          "expositores 3D personalizados",
+          "cubos promocionales",
+          "cubos para eventos",
+          "cubos para ferias",
+          "cubos para escaparates",
+          "cubos para punto de venta",
+          "expositor cúbico personalizado",
+          "cubos publicitarios Barcelona",
+          "decoración publicitaria 3D",
+          "elementos promocionales 3D"
         ],
         "searchTerms": [
-          "cubos"
+          "cubos publicitarios",
+          "cubos personalizados",
+          "cubos publicitarios personalizados",
+          "cubos promocionales",
+          "cubos para eventos",
+          "cubos para ferias",
+          "cubos para escaparate",
+          "cubos para tienda",
+          "cubos punto de venta",
+          "expositor cubo",
+          "expositor cúbico",
+          "expositor 3d",
+          "expositores 3d personalizados",
+          "decoración para eventos",
+          "elemento publicitario 3d",
+          "cubos impresos",
+          "cubos de cartón personalizados",
+          "cubos publicitarios barcelona"
         ],
         "schema": {
           "@context": "https://schema.org",
           "@graph": [
             {
               "@type": "Product",
-              "name": "Cubos",
-              "description": "Cubos personalizadas con calidad profesional en Cataluña.",
+              "name": "Cubos publicitarios personalizados para eventos y punto de venta",
+              "description": "Cubos publicitarios personalizados para eventos, ferias, escaparates y punto de venta. Expositores 3D impresos, ligeros y a medida en Barcelona.",
               "image": "https://webcms.blob.core.windows.net/media/product/expositores/cubos.webp",
               "url": "https://reprodisseny.com/productos/cubos-publicitarios-personalizados",
               "brand": {
@@ -13100,7 +13128,7 @@
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Cubos",
+                  "name": "Cubos publicitarios personalizados para eventos y punto de venta",
                   "item": "https://reprodisseny.com/productos/cubos-publicitarios-personalizados"
                 }
               ]
@@ -30994,7 +31022,7 @@
     },
     {
       "id": "84",
-      "updatedAt": "2026-05-05T11:48:08Z",
+      "updatedAt": "2026-05-05T13:40:56Z",
       "type": "producto",
       "slug": "posavasos",
       "path": "/productos/posavasos",
@@ -31005,9 +31033,9 @@
       ],
       "order": 9999,
       "isPublished": true,
-      "shortDescription": "Los posavasos son un soporte pequeño, pero muy potente en hostelería: están siempre sobre la mesa o la barra, en el momento exacto de consumo. En Repro Disseny producimos posavasos personalizados para restaurantes, bares, cafeterías y eventos, pensados para reforzar marca, comunicar promociones o dirigir a un QR (carta, reservas, redes o reseñas).",
-      "description": "Los posavasos son un soporte pequeño, pero muy potente en hostelería: están siempre sobre la mesa o la barra, en el momento exacto de consumo. En Repro Disseny producimos posavasos personalizados para restaurantes, bares, cafeterías y eventos, pensados para reforzar marca, comunicar promociones o dirigir a un QR (carta, reservas, redes o reseñas).",
-      "bodyMd": "¿Qué es un posavasos y para qué se usa?\nUn posavasos es una pieza (normalmente de cartón absorbente o soporte rígido) que se coloca bajo vasos y copas para proteger la superficie y evitar manchas. Personalizado, además, funciona como una mini “valla publicitaria” en mesa: puede llevar logo, mensaje, promoción, patrocinio o llamadas a la acción.",
+      "shortDescription": "Posavasos personalizados para bares, restaurantes, cafeterías, hoteles, eventos y marcas de bebidas. Un soporte pequeño pero muy visible en mesa y barra, ideal para reforzar marca, comunicar promociones, añadir códigos QR y crear campañas por temporada o punto de consumo.",
+      "description": "Posavasos personalizados para bares, restaurantes, cafeterías, hoteles, eventos y marcas de bebidas. Un soporte pequeño pero muy visible en mesa y barra, ideal para reforzar marca, comunicar promociones, añadir códigos QR y crear campañas por temporada o punto de consumo.",
+      "bodyMd": "## ¿Qué es un posavasos y para qué se usa?\n\nUn posavasos es una pieza, normalmente de cartón absorbente o soporte rígido, que se coloca bajo vasos y copas para proteger la superficie y evitar manchas en mesa o barra.\n\nCuando está personalizado, además de cumplir una función práctica, funciona como una pequeña pieza publicitaria en el momento exacto de consumo. Puede llevar logotipo, mensaje de marca, promoción, patrocinio, código QR o una llamada a la acción.\n\nEn Repro Disseny producimos posavasos personalizados para bares, restaurantes, cafeterías, hoteles, eventos y marcas de bebidas en Barcelona, adaptando el formato, el material y la impresión según el uso real: campañas temporales, promociones, carta digital, reservas, redes sociales o activaciones en punto de consumo.",
       "sections": [
         {
           "id": "details",
@@ -31015,7 +31043,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es un posavasos y para qué se usa?\nUn posavasos es una pieza (normalmente de cartón absorbente o soporte rígido) que se coloca bajo vasos y copas para proteger la superficie y evitar manchas. Personalizado, además, funciona como una mini “valla publicitaria” en mesa: puede llevar logo, mensaje, promoción, patrocinio o llamadas a la acción."
+          "body": "## ¿Qué es un posavasos y para qué se usa?\n\nUn posavasos es una pieza, normalmente de cartón absorbente o soporte rígido, que se coloca bajo vasos y copas para proteger la superficie y evitar manchas en mesa o barra.\n\nCuando está personalizado, además de cumplir una función práctica, funciona como una pequeña pieza publicitaria en el momento exacto de consumo. Puede llevar logotipo, mensaje de marca, promoción, patrocinio, código QR o una llamada a la acción.\n\nEn Repro Disseny producimos posavasos personalizados para bares, restaurantes, cafeterías, hoteles, eventos y marcas de bebidas en Barcelona, adaptando el formato, el material y la impresión según el uso real: campañas temporales, promociones, carta digital, reservas, redes sociales o activaciones en punto de consumo."
         },
         {
           "id": "benefits",
@@ -31023,7 +31051,7 @@
           "title": "Beneficios",
           "kind": "benefits",
           "contentFormat": "markdown",
-          "body": "Branding continuo en mesa/barra: tu marca está visible durante toda la consumición.\nSoporte ideal para promociones: happy hour, postres, cócteles, menú, eventos.\nPerfecto para QR: carta digital, reservas, WiFi, reseñas o redes sociales.\nAlta distribución: se usan muchos, se renuevan y rotan fácilmente.\nPersonalización total: formatos, materiales y diseños por temporada o campaña."
+          "body": "- **Branding continuo en mesa y barra:** tu marca permanece visible durante toda la consumición.\n- **Soporte ideal para promociones:** perfecto para happy hour, postres, cócteles, menús especiales, eventos o campañas de temporada.\n- **Muy útil para códigos QR:** permite enlazar a carta digital, reservas, WiFi, reseñas, redes sociales o promociones.\n- **Alta distribución:** se utilizan muchas unidades, se renuevan fácilmente y pueden rotar por local, temporada o campaña.\n- **Personalización total:** puedes adaptar formato, material, diseño, mensaje y creatividad según la acción comercial.\n- **Coste eficiente por impacto:** es una pieza pequeña, práctica y muy presente en el momento de consumo."
         },
         {
           "id": "technical-specs",
@@ -31031,7 +31059,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Formatos habituales\nRedondo y cuadrado (los más comunes), y formatos a medida si buscas diferenciación.\nOpción de esquinas redondeadas para mejor tacto y durabilidad.\nMateriales\nCartón adecuado para hostelería, con buena resistencia y comportamiento en mesa/barra.\nOpción de soportes más rígidos si buscas un acabado más premium o mayor durabilidad.\nImpresión\nImpresión a todo color, a una o dos caras (doble cara muy útil para promo + QR/condiciones).\nSeries por temporada (verano, Navidad), por evento o por campaña.\nAcabados opcionales\nAcabados pensados para mantener buena presencia en uso real.\nPosibilidad de preparar versiones con QR o códigos promocionales para medir resultados.\nRecomendación de contenido\nMensaje corto + beneficio (promo) + CTA claro (QR, reserva, redes, reseña).\nTipografías grandes y contraste alto (se consulta “de un vistazo”)."
+          "body": "## Formatos habituales\n\n- Formato redondo y cuadrado, los más comunes en hostelería.\n- Posibilidad de formatos a medida si buscas una pieza más diferenciada.\n- Opción de esquinas redondeadas para mejorar el tacto, la durabilidad y la presentación.\n- Medidas adaptables según uso: mesa, barra, evento, catering o acción promocional.\n\n## Materiales\n\n- Cartón adecuado para hostelería, con buen comportamiento en mesa y barra.\n- Soportes pensados para resistir el uso real durante la consumición.\n- Opción de materiales más rígidos si buscas un acabado más premium o mayor durabilidad.\n- Selección del soporte según cantidad, presupuesto, duración de campaña y tipo de local.\n\n## Impresión\n\n- Impresión personalizada a todo color.\n- Posibilidad de impresión a una o dos caras.\n- La doble cara es muy útil para combinar marca o promoción en una cara y QR, condiciones o llamada a la acción en la otra.\n- Producción de series por temporada, evento, campaña, local o marca de bebida.\n\n## Acabados opcionales\n\n- Acabados pensados para mantener buena presencia durante el uso real en mesa o barra.\n- Preparación de versiones con QR, códigos promocionales, redes sociales o llamadas a reseñas.\n- Posibilidad de trabajar varios diseños dentro de una misma línea visual para campañas, bebidas o zonas distintas.\n- Revisión del archivo para asegurar contraste, legibilidad y correcto escaneo de códigos QR.\n\n## Recomendación de contenido\n\n- Mensaje corto, beneficio claro y llamada a la acción directa.\n- QR con tamaño suficiente, buen contraste y zona libre alrededor.\n- Tipografías grandes y legibles, pensadas para consultarse de un vistazo.\n- Evitar exceso de texto: el posavasos funciona mejor con una idea principal y una acción clara."
         },
         {
           "id": "applications",
@@ -31039,25 +31067,29 @@
           "title": "Aplicaciones",
           "kind": "applications",
           "contentFormat": "markdown",
-          "body": "Bares y cafeterías: promociones de bebidas, combos, especialidades, eventos.\nRestaurantes: sugerencias, postres, carta de vinos, reservas o QR a menú.\nHoteles: bar, lounge, eventos y comunicación de servicios.\nEventos y caterings: patrocinadores, marca del evento, activaciones.\nMarcas de bebidas: acciones en punto de consumo, lanzamientos y campañas."
+          "body": "- **Bares y cafeterías:** promociones de bebidas, combos, especialidades, eventos, redes sociales o QR a carta.\n- **Restaurantes:** sugerencias, postres, carta de vinos, reservas, menú digital o campañas por temporada.\n- **Hoteles:** bar, lounge, habitaciones, eventos internos y comunicación de servicios.\n- **Eventos y caterings:** marca del evento, patrocinadores, activaciones, señalización de bebida o mensajes promocionales.\n- **Marcas de bebidas:** acciones en punto de consumo, lanzamientos, promociones, sampling y campañas en hostelería.\n- **Campañas con QR:** reseñas, reservas, WiFi, redes sociales, carta digital, sorteos o códigos promocionales."
         }
       ],
       "faqs": [
         {
-          "question": "¿Mejor a una o dos caras?",
-          "answer": "Dos caras suele ser más rentable: una cara para marca/promo y otra para QR, condiciones o campaña."
+          "question": "¿Es mejor imprimir los posavasos a una o dos caras?",
+          "answer": "Depende del objetivo. Dos caras suele ser muy útil: una cara puede reforzar marca o promoción y la otra puede incluir QR, condiciones, redes sociales o llamada a la acción."
         },
         {
-          "question": "¿Se pueden hacer por temporadas o eventos?",
-          "answer": "Sí, es lo habitual. Podemos hacer series por campañas y cambios rápidos de diseño."
+          "question": "¿Se pueden hacer posavasos con QR?",
+          "answer": "Sí. Podemos preparar posavasos con QR para carta digital, reservas, WiFi, reseñas, redes sociales, promociones o códigos de campaña. Es importante que el QR tenga buen tamaño y contraste para escanearse fácilmente."
         },
         {
-          "question": "¿El QR funciona bien en posavasos?",
-          "answer": "Sí, siempre que se prepare con tamaño y contraste adecuados. Te lo ajustamos para que se escanee fácil."
+          "question": "¿Qué formatos de posavasos son los más habituales?",
+          "answer": "Los formatos más habituales son redondo y cuadrado, aunque también se pueden plantear formatos a medida o esquinas redondeadas si buscas una presentación más diferenciada."
         },
         {
-          "question": "¿Qué cantidad conviene?",
-          "answer": "Depende del ritmo del local y del tipo de servicio. Si nos dices consumo aproximado o número de mesas, te orientamos."
+          "question": "¿Se pueden hacer diseños por temporada o evento?",
+          "answer": "Sí. Es muy habitual crear series para verano, Navidad, promociones, lanzamientos, eventos, marcas de bebida o campañas concretas de hostelería."
+        },
+        {
+          "question": "¿Qué necesitáis para preparar el presupuesto?",
+          "answer": "Necesitamos formato, cantidad, si irá a una o dos caras, tipo de material deseado, número de diseños y uso previsto: bar, restaurante, hotel, evento, catering o campaña promocional."
         }
       ],
       "breadcrumbs": [
@@ -31082,7 +31114,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/restauracion/posavasos.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Posavasos personalizados para hostelería, eventos y promociones de marca"
+        "alt": "Posavasos personalizados para bares, restaurantes, eventos y promociones"
       },
       "galleryImages": [],
       "sku": "01-HORE-0011",
@@ -31141,8 +31173,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Posavasos | Repro Disseny",
-        "metaDescription": "Posavasos personalizadas con calidad profesional en Cataluña.",
+        "metaTitle": "Posavasos personalizados | Hostelería y eventos en Barcelona",
+        "metaDescription": "Posavasos personalizados para bares, restaurantes, hoteles, eventos y marcas. Ideales para branding, promociones, QR y campañas en mesa o barra.",
         "canonical": "https://reprodisseny.com/productos/posavasos",
         "hreflang": [
           {
@@ -31151,10 +31183,43 @@
           }
         ],
         "keywords": [
-          "posavasos"
+          "posavasos personalizados",
+          "posavasos para bares",
+          "posavasos para restaurantes",
+          "posavasos hostelería",
+          "posavasos con logo",
+          "posavasos con QR",
+          "posavasos publicitarios",
+          "posavasos para eventos",
+          "posavasos para hoteles",
+          "posavasos para cafeterías",
+          "posavasos para marcas de bebidas",
+          "posavasos personalizados Barcelona",
+          "posavasos promocionales",
+          "posavasos impresos"
         ],
         "searchTerms": [
-          "posavasos"
+          "posavasos",
+          "posavasos personalizados",
+          "posavasos con logo",
+          "posavasos con qr",
+          "posavasos bar",
+          "posavasos bares",
+          "posavasos restaurante",
+          "posavasos restaurantes",
+          "posavasos cafetería",
+          "posavasos hotel",
+          "posavasos hostelería",
+          "posavasos eventos",
+          "posavasos publicitarios",
+          "posavasos promocionales",
+          "posavasos para bebidas",
+          "posavasos marcas de bebidas",
+          "posavasos para carta qr",
+          "posavasos para reseñas",
+          "posavasos para promociones",
+          "posavasos personalizados barcelona",
+          "imprimir posavasos"
         ],
         "schema": {
           "@context": "https://schema.org",
@@ -31162,7 +31227,7 @@
             {
               "@type": "Product",
               "name": "Posavasos",
-              "description": "Posavasos personalizadas con calidad profesional en Cataluña.",
+              "description": "Posavasos personalizados para bares, restaurantes, hoteles, eventos y marcas. Ideales para branding, promociones, QR y campañas en mesa o barra.",
               "image": "https://webcms.blob.core.windows.net/media/product/restauracion/posavasos.webp",
               "url": "https://reprodisseny.com/productos/posavasos",
               "brand": {
@@ -31205,34 +31270,42 @@
               "mainEntity": [
                 {
                   "@type": "Question",
-                  "name": "¿Mejor a una o dos caras?",
+                  "name": "¿Es mejor imprimir los posavasos a una o dos caras?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Dos caras suele ser más rentable: una cara para marca/promo y otra para QR, condiciones o campaña."
+                    "text": "Depende del objetivo. Dos caras suele ser muy útil: una cara puede reforzar marca o promoción y la otra puede incluir QR, condiciones, redes sociales o llamada a la acción."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "¿Se pueden hacer por temporadas o eventos?",
+                  "name": "¿Se pueden hacer posavasos con QR?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, es lo habitual. Podemos hacer series por campañas y cambios rápidos de diseño."
+                    "text": "Sí. Podemos preparar posavasos con QR para carta digital, reservas, WiFi, reseñas, redes sociales, promociones o códigos de campaña. Es importante que el QR tenga buen tamaño y contraste para escanearse fácilmente."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "¿El QR funciona bien en posavasos?",
+                  "name": "¿Qué formatos de posavasos son los más habituales?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, siempre que se prepare con tamaño y contraste adecuados. Te lo ajustamos para que se escanee fácil."
+                    "text": "Los formatos más habituales son redondo y cuadrado, aunque también se pueden plantear formatos a medida o esquinas redondeadas si buscas una presentación más diferenciada."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "¿Qué cantidad conviene?",
+                  "name": "¿Se pueden hacer diseños por temporada o evento?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Depende del ritmo del local y del tipo de servicio. Si nos dices consumo aproximado o número de mesas, te orientamos."
+                    "text": "Sí. Es muy habitual crear series para verano, Navidad, promociones, lanzamientos, eventos, marcas de bebida o campañas concretas de hostelería."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Qué necesitáis para preparar el presupuesto?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Necesitamos formato, cantidad, si irá a una o dos caras, tipo de material deseado, número de diseños y uso previsto: bar, restaurante, hotel, evento, catering o campaña promocional."
                   }
                 }
               ]
