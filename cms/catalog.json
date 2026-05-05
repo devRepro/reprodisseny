@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-05-05T09:10:31.326Z",
+  "generatedAt": "2026-05-05T13:24:51.296Z",
   "categories": [
     {
       "id": "12",
-      "updatedAt": "2026-05-03T07:25:01Z",
+      "updatedAt": "2026-05-05T12:54:47Z",
       "type": "subcategoria",
       "slug": "material-flexible",
       "path": "/categorias/gran-formato/material-flexible",
@@ -150,7 +150,7 @@
         "src": "https://webcms.blob.core.windows.net/media/category/gran-formato-flexible.webp",
         "width": 2400,
         "height": 1200,
-        "alt": "Imatge subcategoria material flexible"
+        "alt": "Impresión en gran formato flexible: vinilos, lonas, textil y soportes para empresas"
       },
       "faqs": [
         {
@@ -292,7 +292,7 @@
     },
     {
       "id": "13",
-      "updatedAt": "2026-05-03T07:27:36Z",
+      "updatedAt": "2026-05-05T12:55:33Z",
       "type": "subcategoria",
       "slug": "material-rigido",
       "path": "/categorias/gran-formato/material-rigido",
@@ -419,7 +419,7 @@
         "src": "https://webcms.blob.core.windows.net/media/category/gran-formato.webp",
         "width": 2400,
         "height": 1200,
-        "alt": "Material rígido para impresión en gran formato"
+        "alt": "aterial publicitario impreso para campañas, promociones y punto de venta"
       },
       "faqs": [
         {
@@ -3438,7 +3438,7 @@
   "products": [
     {
       "id": "1",
-      "updatedAt": "2026-05-04T11:28:37Z",
+      "updatedAt": "2026-05-05T11:35:35Z",
       "type": "producto",
       "slug": "abanicos-personalizados",
       "path": "/productos/abanicos-personalizados",
@@ -3596,7 +3596,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/eventos/abanicos.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Abanicos personalizados impresos para bodas, ferias y eventos de verano"
       },
       "galleryImages": [],
       "sku": "01-EVEN-0010",
@@ -3675,10 +3675,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/abanicos-personalizados"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/abanicos"
           }
         ],
         "keywords": [
@@ -3792,7 +3788,7 @@
     },
     {
       "id": "2",
-      "updatedAt": "2026-05-04T10:26:41Z",
+      "updatedAt": "2026-05-05T11:35:36Z",
       "type": "producto",
       "slug": "acreditaciones-personalizadas",
       "path": "/productos/acreditaciones-personalizadas",
@@ -3978,7 +3974,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/eventos/acreditaciones.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Acreditaciones personalizadas impresas para congresos, ferias y eventos corporativos"
       },
       "galleryImages": [],
       "sku": "01-EVEN-0003",
@@ -4082,10 +4078,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/acreditaciones-personalizadas"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/acreditaciones"
           }
         ],
         "keywords": [
@@ -4199,7 +4191,7 @@
     },
     {
       "id": "3",
-      "updatedAt": "2026-05-04T10:39:23Z",
+      "updatedAt": "2026-05-05T11:35:57Z",
       "type": "producto",
       "slug": "agendas-personalizadas",
       "path": "/productos/agendas-personalizadas",
@@ -4377,7 +4369,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/agendas-personalizadas.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Agendas personalizadas para empresas, equipos y regalos corporativos"
       },
       "galleryImages": [],
       "sku": "01-OFICI-0024",
@@ -4483,10 +4475,6 @@
         "hreflang": [
           {
             "lang": "es-ES",
-            "url": "https://reprodisseny.com/productos/agendas-personalizadas"
-          },
-          {
-            "lang": "ca-ES",
             "url": "https://reprodisseny.com/productos/agendas-personalizadas"
           }
         ],
@@ -4607,7 +4595,7 @@
     },
     {
       "id": "4",
-      "updatedAt": "2026-05-04T11:01:38Z",
+      "updatedAt": "2026-05-05T11:36:35Z",
       "type": "producto",
       "slug": "arbol-navidad-corporativo",
       "path": "/productos/arbol-navidad-corporativo",
@@ -4794,7 +4782,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/eventos/arbol-de-navidad.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "alt descripció de la fotoÁrbol de Navidad corporativo impreso para escaparates, oficinas y campañas de marca"
       },
       "galleryImages": [],
       "sku": "01-EVEN-0017",
@@ -4874,10 +4862,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/arbol-navidad-corporativo"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/arbol-navidad"
           }
         ],
         "keywords": [
@@ -4997,7 +4981,7 @@
     },
     {
       "id": "5",
-      "updatedAt": "2026-05-03T09:16:48Z",
+      "updatedAt": "2026-05-05T11:36:36Z",
       "type": "producto",
       "slug": "archivadores-personalizados",
       "path": "/productos/archivadores-personalizados",
@@ -5097,7 +5081,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/archivadores.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "alt descripció de la fotoArchivadores personalizados impresos para documentación corporativa y organización de oficina"
       },
       "galleryImages": [],
       "sku": "01-OFICI-0028",
@@ -5203,10 +5187,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/archivadores-personalizados"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/archivadores"
           }
         ],
         "keywords": [
@@ -5326,7 +5306,7 @@
     },
     {
       "id": "7",
-      "updatedAt": "2026-05-03T09:16:39Z",
+      "updatedAt": "2026-05-05T11:38:04Z",
       "type": "producto",
       "slug": "banderola-lona-fachada",
       "path": "/productos/banderola-lona-fachada",
@@ -5517,10 +5497,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/banderola-lona-fachada"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/banderola-lona"
           }
         ],
         "keywords": [
@@ -5624,7 +5600,7 @@
     },
     {
       "id": "6",
-      "updatedAt": "2026-05-03T09:16:38Z",
+      "updatedAt": "2026-05-05T11:36:50Z",
       "type": "producto",
       "slug": "banderola-fachada-personalizada",
       "path": "/productos/banderola-fachada-personalizada",
@@ -5724,7 +5700,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/banderola-luminosa-para-fachada.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Banderola luminosa personalizada para fachada, rótulos comerciales y visibilidad exterior"
       },
       "galleryImages": [],
       "sku": "01-GRFO-0008",
@@ -5829,10 +5805,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/banderola-fachada-personalizada"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/banderola-fachada"
           }
         ],
         "keywords": [
@@ -5952,7 +5924,7 @@
     },
     {
       "id": "8",
-      "updatedAt": "2026-05-05T08:47:38Z",
+      "updatedAt": "2026-05-05T11:37:21Z",
       "type": "producto",
       "slug": "banderolas-lineal-personalizadas",
       "path": "/productos/banderolas-lineal-personalizadas",
@@ -6106,7 +6078,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/banderolas-lineal.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Banderola de lona impresa para fachadas, campañas exteriores y comunicación comercial"
       },
       "galleryImages": [],
       "sku": "01-OFICI-0011",
@@ -6177,10 +6149,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/banderolas-lineal-personalizadas"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/banderolas-lineal"
           }
         ],
         "keywords": [
@@ -6284,7 +6252,7 @@
     },
     {
       "id": "9",
-      "updatedAt": "2026-05-03T09:16:34Z",
+      "updatedAt": "2026-05-05T11:37:30Z",
       "type": "producto",
       "slug": "banderolas-personalizadas",
       "path": "/productos/banderolas-personalizadas",
@@ -6372,7 +6340,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/expositores/banderolas.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Banderolas de lineal personalizadas para promociones, retail y punto de venta"
       },
       "galleryImages": [],
       "sku": "01-EXPO-0006",
@@ -6464,10 +6432,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/banderolas-personalizadas"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/banderolas"
           }
         ],
         "keywords": [
@@ -6565,19 +6529,19 @@
     },
     {
       "id": "10",
-      "updatedAt": "2026-05-03T09:16:34Z",
+      "updatedAt": "2026-05-05T13:16:35Z",
       "type": "producto",
       "slug": "banner-golf-personalizado",
       "path": "/productos/banner-golf-personalizado",
-      "title": "Banner Golf personalizado (expositor exterior)",
+      "title": "Banner Golf personalizado para eventos deportivos y exterior",
       "categorySlug": "expositores",
       "categorySlugs": [
         "expositores"
       ],
       "order": 9999,
       "isPublished": true,
-      "shortDescription": "El Banner Golf es un expositor pensado para exterior: se instala rápido, resiste bien en espacios abiertos y ofrece mucha visibilidad con un formato ligero y fácil de transportar. En Repro Disseny producimos banners golf personalizados para eventos deportivos, ferias, activaciones y señalización, con impresión de calidad y acabados listos para uso.",
-      "description": "El Banner Golf es un expositor pensado para exterior: se instala rápido, resiste bien en espacios abiertos y ofrece mucha visibilidad con un formato ligero y fácil de transportar. En Repro Disseny producimos banners golf personalizados para eventos deportivos, ferias, activaciones y señalización, con impresión de calidad y acabados listos para uso.",
+      "shortDescription": "Banner Golf personalizado para eventos deportivos, patrocinadores, ferias y señalización exterior. Un expositor textil ligero, visible y fácil de montar, pensado para campañas al aire libre, recorridos, accesos y zonas de paso.",
+      "description": "Banner Golf personalizado para eventos deportivos, patrocinadores, ferias y señalización exterior. Un expositor textil ligero, visible y fácil de montar, pensado para campañas al aire libre, recorridos, accesos y zonas de paso.",
       "bodyMd": "¿Qué es un Banner Golf y para qué se usa?\nUn Banner Golf es un expositor flexible con forma ovalada o similar, montado sobre una estructura que mantiene la gráfica tensada. Se usa sobre todo en exterior para señalización, patrocinio y branding en zonas de paso: recorridos deportivos, accesos, photocalls de meta, áreas de sponsors o activaciones de marca.",
       "sections": [
         {
@@ -6594,7 +6558,7 @@
           "title": "Beneficios",
           "kind": "benefits",
           "contentFormat": "markdown",
-          "body": "Muy visible en exterior: formato bajo y ancho, perfecto para zonas de paso y recorridos. \nInstalación rápida: se monta y se recoge en pocos minutos. \nFácil de transportar: ligero y pensado para campañas itinerantes o varios puntos de instalación. \nIdeal para patrocinadores: permite repetir logos y mensajes en diferentes ubicaciones. \nVersátil: funciona para señalización (entrada/salida/parking) o comunicación de marca."
+          "body": "- **Alta visibilidad en exterior:** formato bajo y ancho, ideal para zonas de paso, recorridos deportivos, accesos y espacios abiertos.\n- **Montaje rápido:** se instala y se recoge en pocos minutos, sin necesidad de estructuras complejas.\n- **Fácil de transportar:** ligero, plegable y pensado para campañas itinerantes o eventos en diferentes ubicaciones.\n- **Muy útil para patrocinadores:** permite repetir logos, mensajes o marcas en varios puntos del evento.\n- **Comunicación clara a distancia:** funciona muy bien para indicaciones, zonas de entrada/salida, parking, recorridos o áreas de sponsors.\n- **Formato versátil:** adecuado para eventos deportivos, ferias, activaciones de marca, street marketing y acciones corporativas al aire libre."
         },
         {
           "id": "technical-specs",
@@ -6602,7 +6566,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Formatos y medidas \nFormas habituales: ovalada / elíptica, con tamaños estándar o a medida según visibilidad y espacio. \nDiseño optimizado para lectura rápida: mensajes cortos, buen contraste y logos claros. \nImpresión \nImpresión a todo color con buena definición para logos, iconos y tipografías. \nPosibilidad de una o dos caras (muy recomendable si se verá desde ambos sentidos). \nMaterial y estructura \nMaterial flexible pensado para exterior. \nEstructura que mantiene la gráfica tensada y estable (según sistema y ubicación). \nSujeción y estabilidad \nOpciones de fijación/estabilidad según terreno (césped, tierra, asfalto) y exposición. \nRecomendación práctica: en exterior conviene definir dónde irá y si habrá viento para ajustar el sistema. \nAcabados \nRefuerzos en perímetro y puntos de anclaje (cuando aplica) para mejorar durabilidad en montaje/desmontaje. \nAcabado mate si habrá mucho sol o se fotografiará (reduce reflejos)."
+          "body": "## Formatos y medidas\n\n- Formas habituales: ovalada o elíptica, con estructura flexible para mantener la gráfica tensada.\n- Medidas estándar o a medida según visibilidad, distancia de lectura y espacio disponible.\n- Diseño recomendado con mensajes cortos, buen contraste, logotipos claros y jerarquía visual sencilla.\n\n## Impresión\n\n- Impresión personalizada a todo color sobre material textil flexible.\n- Buena definición para logotipos, iconos, textos y elementos gráficos de marca.\n- Posibilidad de impresión a una o dos caras según el uso y la visibilidad necesaria.\n- La impresión a doble cara es recomendable cuando el Banner Golf se verá desde ambos sentidos.\n\n## Material y estructura\n\n- Material textil flexible pensado para uso en exterior y eventos.\n- Estructura ligera que mantiene la gráfica tensada y facilita el montaje.\n- Sistema transportable, adecuado para campañas itinerantes, eventos deportivos y acciones temporales.\n\n## Sujeción y estabilidad\n\n- Opciones de fijación o estabilidad según el terreno: césped, tierra, arena, pavimento o asfalto.\n- En exterior conviene definir la ubicación exacta y la exposición al viento para recomendar el sistema más adecuado.\n- Para eventos con mucho tránsito, se recomienda planificar bien la colocación para maximizar visibilidad y seguridad.\n\n## Acabados\n\n- Refuerzos en perímetro y puntos de anclaje cuando el sistema lo requiere.\n- Acabados pensados para montaje, desmontaje, transporte y reutilización en varios eventos.\n- Acabado mate recomendado si el banner estará expuesto a mucho sol o aparecerá en fotografías, ya que ayuda a reducir reflejos."
         },
         {
           "id": "applications",
@@ -6610,25 +6574,29 @@
           "title": "Aplicaciones",
           "kind": "applications",
           "contentFormat": "markdown",
-          "body": "Eventos deportivos: carreras, triatlón, ciclismo, torneos, golf, etc. \nFerias y exterior: accesos, zonas de registro, señalización y orientación. \nActivaciones de marca: street marketing, promociones en exterior, sampling. \nEventos corporativos al aire libre: family days, jornadas, actividades outdoor. \nZonas de patrocinio: recorridos, meta/salida, podio o áreas de prensa."
+          "body": "- **Eventos deportivos:** carreras, triatlones, ciclismo, torneos de golf, pádel, fútbol, running y competiciones al aire libre.\n- **Patrocinios y branding:** visibilidad de marcas en recorridos, zonas de meta, salida, podio, área de prensa o espacios de sponsors.\n- **Ferias y eventos exteriores:** accesos, zonas de registro, áreas informativas, señalización provisional y orientación de visitantes.\n- **Activaciones de marca:** street marketing, promociones en exterior, sampling, lanzamientos de producto y campañas temporales.\n- **Eventos corporativos outdoor:** family days, jornadas de empresa, convenciones al aire libre y acciones de comunicación interna.\n- **Señalización temporal:** entrada, salida, parking, recorridos, puntos de información o zonas restringidas."
         }
       ],
       "faqs": [
         {
-          "question": "¿Es adecuado para exterior con viento?",
-          "answer": "Sí, aunque la estabilidad depende del terreno y del nivel de exposición al viento. Si nos indicas dónde se va a colocar, te recomendaremos la opción de soporte o sujeción más segura."
+          "question": "¿El Banner Golf es adecuado para exterior?",
+          "answer": "Sí. Está pensado para eventos y campañas al aire libre, aunque la estabilidad depende del terreno, la ubicación y la exposición al viento. Si nos indicas dónde se colocará, te recomendaremos la opción de fijación más adecuada."
         },
         {
-          "question": "¿Es mejor imprimir el banner a una o dos caras?",
-          "answer": "Si el banner va a verse desde ambos sentidos, por ejemplo en recorridos, accesos o zonas de paso, la impresión a doble cara suele ser la opción más efectiva."
+          "question": "¿Es mejor imprimir el Banner Golf a una o dos caras?",
+          "answer": "Si se verá desde ambos sentidos, por ejemplo en recorridos deportivos, accesos o zonas de paso, la impresión a doble cara suele ser la opción más efectiva para aprovechar mejor la visibilidad."
         },
         {
           "question": "¿Se puede reutilizar en varios eventos?",
-          "answer": "Sí. Está pensado para montajes repetidos, aunque para alargar su vida útil conviene cuidar el transporte, el desmontaje y el almacenaje entre usos."
+          "answer": "Sí. Es un sistema ligero y transportable, pensado para montajes temporales y uso en diferentes ubicaciones. Para alargar su vida útil conviene cuidar el transporte, el desmontaje y el almacenaje."
+        },
+        {
+          "question": "¿Qué información necesitáis para preparar el presupuesto?",
+          "answer": "Necesitamos la medida aproximada, cantidad, si irá a una o dos caras, tipo de evento, ubicación de instalación y si estará expuesto al viento. Con esos datos podemos recomendar formato, material y sistema de sujeción."
         },
         {
           "question": "¿Podéis adaptar el diseño para que se lea bien a distancia?",
-          "answer": "Sí. Podemos revisar la jerarquía visual, el contraste, el tamaño de los textos y la composición para que la marca y el mensaje se identifiquen rápidamente."
+          "answer": "Sí. Podemos revisar el diseño, jerarquía visual, contraste, tamaño de textos y composición para que los logos y mensajes se identifiquen rápidamente en exterior."
         }
       ],
       "breadcrumbs": [
@@ -6645,7 +6613,7 @@
           "url": "/categorias/expositores"
         },
         {
-          "name": "Banner Golf personalizado (expositor exterior)",
+          "name": "Banner Golf personalizado para eventos deportivos y exterior",
           "url": "/productos/banner-golf-personalizado"
         }
       ],
@@ -6653,7 +6621,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/expositores/banner-golf.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Banner Golf personalizado para eventos deportivos y señalización exterior"
       },
       "galleryImages": [],
       "sku": "01-EXPO-0007",
@@ -6728,32 +6696,51 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Banner Golf | Repro Disseny",
-        "metaDescription": "Banner Golf personalizadas con calidad profesional en Cataluña.",
+        "metaTitle": "Banner Golf personalizado en Barcelona | Repro Disseny",
+        "metaDescription": "Banner Golf personalizado para eventos deportivos, patrocinadores y señalización exterior en Barcelona. Ligero, visible, transportable y fácil de montar.",
         "canonical": "https://reprodisseny.com/productos/banner-golf-personalizado",
         "hreflang": [
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/banner-golf-personalizado"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/banner-golf"
           }
         ],
         "keywords": [
-          "banner golf"
+          "banner golf personalizado",
+          "banner golf Barcelona",
+          "banner golf para eventos",
+          "expositor exterior personalizado",
+          "banner deportivo personalizado",
+          "banner para patrocinadores",
+          "banner textil exterior",
+          "señalización exterior para eventos",
+          "expositor para eventos deportivos",
+          "banner ovalado personalizado"
         ],
         "searchTerms": [
-          "banner golf"
+          "banner golf",
+          "banner golf personalizado",
+          "banner golf barcelona",
+          "banner golf para eventos deportivos",
+          "banner patrocinadores evento",
+          "expositor exterior eventos",
+          "expositor deportivo exterior",
+          "banner ovalado",
+          "banner textil exterior",
+          "banner para carreras",
+          "banner para torneos de golf",
+          "señalización exterior eventos",
+          "publicidad exterior para eventos",
+          "soporte publicitario deportivo",
+          "banner para meta y salida"
         ],
         "schema": {
           "@context": "https://schema.org",
           "@graph": [
             {
               "@type": "Product",
-              "name": "Banner Golf personalizado (expositor exterior)",
-              "description": "Banner Golf personalizadas con calidad profesional en Cataluña.",
+              "name": "Banner Golf personalizado para eventos deportivos y exterior",
+              "description": "Banner Golf personalizado para eventos deportivos, patrocinadores y señalización exterior en Barcelona. Ligero, visible, transportable y fácil de montar.",
               "image": "https://webcms.blob.core.windows.net/media/product/expositores/banner-golf.webp",
               "url": "https://reprodisseny.com/productos/banner-golf-personalizado",
               "brand": {
@@ -6786,7 +6773,7 @@
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Banner Golf personalizado (expositor exterior)",
+                  "name": "Banner Golf personalizado para eventos deportivos y exterior",
                   "item": "https://reprodisseny.com/productos/banner-golf-personalizado"
                 }
               ]
@@ -6796,18 +6783,18 @@
               "mainEntity": [
                 {
                   "@type": "Question",
-                  "name": "¿Es adecuado para exterior con viento?",
+                  "name": "¿El Banner Golf es adecuado para exterior?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, aunque la estabilidad depende del terreno y del nivel de exposición al viento. Si nos indicas dónde se va a colocar, te recomendaremos la opción de soporte o sujeción más segura."
+                    "text": "Sí. Está pensado para eventos y campañas al aire libre, aunque la estabilidad depende del terreno, la ubicación y la exposición al viento. Si nos indicas dónde se colocará, te recomendaremos la opción de fijación más adecuada."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "¿Es mejor imprimir el banner a una o dos caras?",
+                  "name": "¿Es mejor imprimir el Banner Golf a una o dos caras?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Si el banner va a verse desde ambos sentidos, por ejemplo en recorridos, accesos o zonas de paso, la impresión a doble cara suele ser la opción más efectiva."
+                    "text": "Si se verá desde ambos sentidos, por ejemplo en recorridos deportivos, accesos o zonas de paso, la impresión a doble cara suele ser la opción más efectiva para aprovechar mejor la visibilidad."
                   }
                 },
                 {
@@ -6815,7 +6802,15 @@
                   "name": "¿Se puede reutilizar en varios eventos?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí. Está pensado para montajes repetidos, aunque para alargar su vida útil conviene cuidar el transporte, el desmontaje y el almacenaje entre usos."
+                    "text": "Sí. Es un sistema ligero y transportable, pensado para montajes temporales y uso en diferentes ubicaciones. Para alargar su vida útil conviene cuidar el transporte, el desmontaje y el almacenaje."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Qué información necesitáis para preparar el presupuesto?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Necesitamos la medida aproximada, cantidad, si irá a una o dos caras, tipo de evento, ubicación de instalación y si estará expuesto al viento. Con esos datos podemos recomendar formato, material y sistema de sujeción."
                   }
                 },
                 {
@@ -6823,7 +6818,7 @@
                   "name": "¿Podéis adaptar el diseño para que se lea bien a distancia?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí. Podemos revisar la jerarquía visual, el contraste, el tamaño de los textos y la composición para que la marca y el mensaje se identifiquen rápidamente."
+                    "text": "Sí. Podemos revisar el diseño, jerarquía visual, contraste, tamaño de textos y composición para que los logos y mensajes se identifiquen rápidamente en exterior."
                   }
                 }
               ]
@@ -6836,7 +6831,7 @@
     },
     {
       "id": "12",
-      "updatedAt": "2026-05-04T10:46:12Z",
+      "updatedAt": "2026-05-05T11:38:15Z",
       "type": "producto",
       "slug": "blocs-notas",
       "path": "/productos/blocs-notas",
@@ -7002,7 +6997,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/bloc-notas.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Blocs de notas personalizados para oficinas, reuniones y merchandising corporativo"
       },
       "galleryImages": [],
       "sku": "01-OFICI-0021",
@@ -7087,10 +7082,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/blocs-notas"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/bloc-notas"
           }
         ],
         "keywords": [
@@ -7194,7 +7185,7 @@
     },
     {
       "id": "13",
-      "updatedAt": "2026-05-03T09:16:36Z",
+      "updatedAt": "2026-05-05T11:38:24Z",
       "type": "producto",
       "slug": "caballetes-publicitarios-personalizados",
       "path": "/productos/caballetes-publicitarios-personalizados",
@@ -7282,7 +7273,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/expositores/caballetes.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Caballetes publicitarios personalizados para tiendas, restaurantes y promociones exteriores"
       },
       "galleryImages": [],
       "sku": "01-EXPO-0015",
@@ -7364,10 +7355,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/caballetes-publicitarios-personalizados"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/caballetes"
           }
         ],
         "keywords": [
@@ -7465,7 +7452,7 @@
     },
     {
       "id": "140",
-      "updatedAt": "2026-05-03T09:16:49Z",
+      "updatedAt": "2026-05-05T11:19:28Z",
       "type": "producto",
       "slug": "caja-almohada",
       "path": "/productos/caja-almohada",
@@ -7553,7 +7540,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/packaging/caja almohada.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Caja almohada"
+        "alt": "Caja almohada personalizada para packaging pequeño, regalos y promociones"
       },
       "galleryImages": [],
       "brand": "Repro Disseny",
@@ -7731,7 +7718,7 @@
     },
     {
       "id": "138",
-      "updatedAt": "2026-05-03T09:16:50Z",
+      "updatedAt": "2026-05-05T11:19:10Z",
       "type": "producto",
       "slug": "caja-cerillas",
       "path": "/productos/caja-cerillas",
@@ -7819,7 +7806,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/packaging/caja cerillas.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Caja cerillas (funda + cajón)"
+        "alt": "Caja cerillas personalizada con funda y cajón para packaging creativo y regalos"
       },
       "galleryImages": [],
       "brand": "Repro Disseny",
@@ -8014,7 +8001,7 @@
     },
     {
       "id": "142",
-      "updatedAt": "2026-05-03T09:16:50Z",
+      "updatedAt": "2026-05-05T11:19:48Z",
       "type": "producto",
       "slug": "caja-cofre",
       "path": "/productos/caja-cofre",
@@ -8102,7 +8089,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/packaging/caja cofre.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Caja cofre"
+        "alt": "Caja cofre personalizada para packaging premium, regalos y presentación de marca"
       },
       "galleryImages": [],
       "brand": "Repro Disseny",
@@ -8288,7 +8275,7 @@
     },
     {
       "id": "146",
-      "updatedAt": "2026-05-04T09:46:06Z",
+      "updatedAt": "2026-05-05T11:20:18Z",
       "type": "producto",
       "slug": "caja-envio",
       "path": "/productos/caja-envio",
@@ -8442,7 +8429,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/packaging/caja envio.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Caja de envío"
+        "alt": "Caja de envío personalizada para ecommerce, packaging y logística de marca"
       },
       "galleryImages": [],
       "brand": "Repro Disseny",
@@ -8604,7 +8591,7 @@
     },
     {
       "id": "145",
-      "updatedAt": "2026-05-03T09:16:51Z",
+      "updatedAt": "2026-05-05T11:20:12Z",
       "type": "producto",
       "slug": "caja-desplegable-tapa",
       "path": "/productos/caja-desplegable-tapa",
@@ -8692,7 +8679,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/packaging/caja desplegable con tapa.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Caja desplegable con tapa"
+        "alt": "Caja desplegable con tapa personalizada para packaging premium y presentación de producto"
       },
       "galleryImages": [],
       "brand": "Repro Disseny",
@@ -8868,7 +8855,7 @@
     },
     {
       "id": "136",
-      "updatedAt": "2026-05-03T09:16:49Z",
+      "updatedAt": "2026-05-05T11:18:55Z",
       "type": "producto",
       "slug": "caja-automontable",
       "path": "/productos/caja-automontable",
@@ -8956,7 +8943,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/packaging/caja pastel.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Caja dulces mini"
+        "alt": "Caja dulces mini personalizada para packaging promocional, regalos y producto"
       },
       "galleryImages": [],
       "brand": "Repro Disseny",
@@ -9151,7 +9138,7 @@
     },
     {
       "id": "139",
-      "updatedAt": "2026-05-03T09:16:50Z",
+      "updatedAt": "2026-05-05T11:19:19Z",
       "type": "producto",
       "slug": "caja-envolvente",
       "path": "/productos/caja-envolvente",
@@ -9239,7 +9226,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/packaging/caja con cierre envolvente.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Caja envolvente"
+        "alt": "Caja envolvente personalizada para packaging, producto y presentación comercial"
       },
       "galleryImages": [],
       "brand": "Repro Disseny",
@@ -9434,7 +9421,7 @@
     },
     {
       "id": "135",
-      "updatedAt": "2026-05-03T09:16:51Z",
+      "updatedAt": "2026-05-05T11:18:48Z",
       "type": "producto",
       "slug": "caja-estandar",
       "path": "/productos/caja-estandar",
@@ -9522,7 +9509,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/packaging/caja estandar.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Caja estándar"
+        "alt": "Caja estándar personalizada para packaging, producto y presentación de marca"
       },
       "galleryImages": [],
       "brand": "Repro Disseny",
@@ -9719,7 +9706,7 @@
     },
     {
       "id": "137",
-      "updatedAt": "2026-05-03T09:16:51Z",
+      "updatedAt": "2026-05-05T11:19:04Z",
       "type": "producto",
       "slug": "caja-porta-botella",
       "path": "/productos/caja-porta-botella",
@@ -9807,7 +9794,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/packaging/caja para botella.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Caja porta botella"
+        "alt": "Caja porta botella personalizada para packaging, regalos y presentación de producto"
       },
       "galleryImages": [],
       "brand": "Repro Disseny",
@@ -10002,7 +9989,7 @@
     },
     {
       "id": "143",
-      "updatedAt": "2026-05-03T09:16:51Z",
+      "updatedAt": "2026-05-05T11:19:57Z",
       "type": "producto",
       "slug": "caja-sobre-personalizada",
       "path": "/productos/caja-sobre-personalizada",
@@ -10090,7 +10077,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/packaging/caja sobre.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Caja sobre personalizada"
+        "alt": "Caja sobre personalizada para packaging plano, ecommerce y documentación promocional"
       },
       "galleryImages": [],
       "brand": "Repro Disseny",
@@ -10285,7 +10272,7 @@
     },
     {
       "id": "14",
-      "updatedAt": "2026-05-03T09:16:34Z",
+      "updatedAt": "2026-05-05T11:38:33Z",
       "type": "producto",
       "slug": "cajas-de-luz-personalizadas",
       "path": "/productos/cajas-de-luz-personalizadas",
@@ -10374,7 +10361,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/expositores/cajas-de-luz.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Cajas de luz personalizadas con gráfica retroiluminada para retail y escaparates"
       },
       "galleryImages": [],
       "sku": "01-EXPO-0010",
@@ -10475,10 +10462,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/cajas-de-luz-personalizadas"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/cajas-luz"
           }
         ],
         "keywords": [
@@ -10576,7 +10559,7 @@
     },
     {
       "id": "15",
-      "updatedAt": "2026-05-03T09:16:48Z",
+      "updatedAt": "2026-05-05T11:38:52Z",
       "type": "producto",
       "slug": "calendarios-personalizados",
       "path": "/productos/calendarios-personalizados",
@@ -10668,7 +10651,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/calendarios.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Calendarios personalizados impresos para empresas, oficinas y regalos corporativos"
       },
       "galleryImages": [],
       "sku": "01-OFICI-0025",
@@ -10763,10 +10746,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/calendarios-personalizados"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/calendarios"
           }
         ],
         "keywords": [
@@ -10870,7 +10849,7 @@
     },
     {
       "id": "16",
-      "updatedAt": "2026-05-04T09:32:47Z",
+      "updatedAt": "2026-05-05T11:39:00Z",
       "type": "producto",
       "slug": "carpetas-de-presentacion-personalizadas",
       "path": "/productos/carpetas-de-presentacion-personalizadas",
@@ -11052,7 +11031,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/carpetas-de-presentacion.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Carpetas de presentación personalizadas para propuestas comerciales y documentación corporativa"
       },
       "galleryImages": [],
       "sku": "01-OFICI-0020",
@@ -11146,10 +11125,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/carpetas-de-presentacion-personalizadas"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/carpetas-presentacion"
           }
         ],
         "keywords": [
@@ -11253,7 +11228,7 @@
     },
     {
       "id": "17",
-      "updatedAt": "2026-05-03T09:16:41Z",
+      "updatedAt": "2026-05-05T11:39:09Z",
       "type": "producto",
       "slug": "cartas-restaurante-personalizadas",
       "path": "/productos/cartas-restaurante-personalizadas",
@@ -11341,7 +11316,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/restauracion/cartas-restaurante.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Cartas de restaurante personalizadas impresas para hostelería, bares y restaurantes"
       },
       "galleryImages": [],
       "sku": "01-HORE-0005",
@@ -11425,10 +11400,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/cartas-restaurante-personalizadas"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/carta-restaurane"
           }
         ],
         "keywords": [
@@ -11526,7 +11497,7 @@
     },
     {
       "id": "147",
-      "updatedAt": "2026-05-03T09:16:41Z",
+      "updatedAt": "2026-05-05T11:20:24Z",
       "type": "producto",
       "slug": "carteles-inmobiliaria-personalizados",
       "path": "/productos/carteles-inmobiliaria-personalizados",
@@ -11656,7 +11627,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/carteles-inmobiliaria.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Carteles inmobiliaria personalizados para venta, alquiler y señalización exterior"
       },
       "galleryImages": [],
       "brand": "Repro Disseny",
@@ -11844,7 +11815,7 @@
     },
     {
       "id": "20",
-      "updatedAt": "2026-05-03T09:16:37Z",
+      "updatedAt": "2026-05-05T11:39:21Z",
       "type": "producto",
       "slug": "carteles-personalizados-gran-formato",
       "path": "/productos/carteles-personalizados-gran-formato",
@@ -11936,7 +11907,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/carteles.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Carteles personalizados de gran formato para escaparates, campañas y comunicación visual"
       },
       "galleryImages": [],
       "sku": "01-GRFO-0002",
@@ -12011,10 +11982,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/carteles-personalizados-gran-formato"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/carteles"
           }
         ],
         "keywords": [
@@ -12118,7 +12085,7 @@
     },
     {
       "id": "23",
-      "updatedAt": "2026-05-03T09:16:49Z",
+      "updatedAt": "2026-05-05T11:39:42Z",
       "type": "producto",
       "slug": "certificados-personalizados",
       "path": "/productos/certificados-personalizados",
@@ -12210,7 +12177,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/certificados.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Certificados personalizados impresos para formación, eventos y reconocimiento corporativo"
       },
       "galleryImages": [],
       "sku": "01-OFICI-0030",
@@ -12283,10 +12250,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/certificados-personalizados"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/certificados"
           }
         ],
         "keywords": [
@@ -12390,7 +12353,7 @@
     },
     {
       "id": "25",
-      "updatedAt": "2026-05-03T09:16:42Z",
+      "updatedAt": "2026-05-05T11:39:51Z",
       "type": "producto",
       "slug": "colgador-de-botellas-personalizado",
       "path": "/productos/colgador-de-botellas-personalizado",
@@ -12478,7 +12441,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/restauracion/colgador-botella.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Colgador de botellas personalizado para promociones, packaging y hostelería"
       },
       "galleryImages": [],
       "sku": "01-HORE-0002",
@@ -12570,10 +12533,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/colgador-de-botellas-personalizado"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/colgador-puerta"
           }
         ],
         "keywords": [
@@ -12671,7 +12630,7 @@
     },
     {
       "id": "77",
-      "updatedAt": "2026-05-03T09:16:35Z",
+      "updatedAt": "2026-05-05T11:47:04Z",
       "type": "producto",
       "slug": "contenedores-de-reciclaje",
       "path": "/productos/contenedores-de-reciclaje",
@@ -12759,7 +12718,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/expositores/contenedor-reciclaje.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Contenedores de reciclaje personalizados para oficinas, eventos y espacios corporativos"
       },
       "galleryImages": [],
       "sku": "01-EXPO-0017",
@@ -12839,10 +12798,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/contenedores-de-reciclaje"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/papeleras-personalizadas"
           }
         ],
         "keywords": [
@@ -12940,7 +12895,7 @@
     },
     {
       "id": "28",
-      "updatedAt": "2026-05-03T09:16:34Z",
+      "updatedAt": "2026-05-05T11:40:21Z",
       "type": "producto",
       "slug": "cubos-publicitarios-personalizados",
       "path": "/productos/cubos-publicitarios-personalizados",
@@ -13028,7 +12983,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/expositores/cubos.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Cubos publicitarios personalizados para eventos, escaparates y campañas promocionales"
       },
       "galleryImages": [],
       "sku": "01-EXPO-0005",
@@ -13098,10 +13053,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/cubos-publicitarios-personalizados"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/cubos"
           }
         ],
         "keywords": [
@@ -13199,7 +13150,7 @@
     },
     {
       "id": "29",
-      "updatedAt": "2026-05-03T09:16:35Z",
+      "updatedAt": "2026-05-05T11:40:28Z",
       "type": "producto",
       "slug": "cubrealarmas-tiendas-retail",
       "path": "/productos/cubrealarmas-tiendas-retail",
@@ -13287,7 +13238,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/expositores/cubre-alarmas.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Cubrealarmas personalizados para tiendas, retail y campañas de punto de venta"
       },
       "galleryImages": [],
       "sku": "01-EXPO-0011",
@@ -13367,10 +13318,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/cubrealarmas-tiendas-retail"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/cubrealarmas"
           }
         ],
         "keywords": [
@@ -13468,7 +13415,7 @@
     },
     {
       "id": "30",
-      "updatedAt": "2026-05-03T09:16:31Z",
+      "updatedAt": "2026-05-05T11:40:38Z",
       "type": "producto",
       "slug": "cupones-promocionales",
       "path": "/productos/cupones-promocionales",
@@ -13556,7 +13503,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/eventos/cupones-promocionales.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Cupones promocionales personalizados para campañas, fidelización y acciones comerciales"
       },
       "galleryImages": [],
       "sku": "01-EVEN-0011",
@@ -13626,10 +13573,6 @@
         "hreflang": [
           {
             "lang": "es-ES",
-            "url": "https://reprodisseny.com/productos/cupones-promocionales"
-          },
-          {
-            "lang": "ca-ES",
             "url": "https://reprodisseny.com/productos/cupones-promocionales"
           }
         ],
@@ -13728,7 +13671,7 @@
     },
     {
       "id": "33",
-      "updatedAt": "2026-05-04T11:44:46Z",
+      "updatedAt": "2026-05-05T11:40:52Z",
       "type": "producto",
       "slug": "diplomas-personalizados",
       "path": "/productos/diplomas-personalizados",
@@ -13914,7 +13857,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/eventos/diplomas.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Diplomas personalizados impresos para eventos, formación y ceremonias corporativas"
       },
       "galleryImages": [],
       "sku": "01-EVEN-0002",
@@ -13997,10 +13940,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/diplomas-personalizados"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/diplomas"
           }
         ],
         "keywords": [
@@ -14098,7 +14037,7 @@
     },
     {
       "id": "34",
-      "updatedAt": "2026-05-03T09:16:41Z",
+      "updatedAt": "2026-05-05T11:41:00Z",
       "type": "producto",
       "slug": "tarjeta-habitacion-hotel",
       "path": "/productos/tarjeta-habitacion-hotel",
@@ -14186,7 +14125,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/restauracion/diptico-tarjeta%20habitacion.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Díptico tarjeta de habitación personalizado para hoteles, eventos y servicios de alojamiento"
       },
       "galleryImages": [],
       "sku": "01-HORE-0001",
@@ -14275,10 +14214,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/tarjeta-habitacion-hotel"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/diptico-habitacion"
           }
         ],
         "keywords": [
@@ -14376,7 +14311,7 @@
     },
     {
       "id": "36",
-      "updatedAt": "2026-05-03T09:16:34Z",
+      "updatedAt": "2026-05-05T11:41:16Z",
       "type": "producto",
       "slug": "displays-de-mesa-personalizados",
       "path": "/productos/displays-de-mesa-personalizados",
@@ -14469,7 +14404,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/expositores/display.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Displays de mesa personalizados para mostradores, promociones y punto de venta"
       },
       "galleryImages": [],
       "sku": "01-EXPO-0008",
@@ -14583,10 +14518,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/displays-de-mesa-personalizados"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/displays"
           }
         ],
         "keywords": [
@@ -14690,7 +14621,7 @@
     },
     {
       "id": "38",
-      "updatedAt": "2026-05-04T10:58:45Z",
+      "updatedAt": "2026-05-05T11:41:31Z",
       "type": "producto",
       "slug": "dorsales-carrera",
       "path": "/productos/dorsales-carrera",
@@ -14872,7 +14803,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/eventos/dorsal-carreras.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Dorsales de carrera personalizados para eventos deportivos, carreras y competiciones"
       },
       "galleryImages": [],
       "sku": "01-EVEN-0006",
@@ -14950,10 +14881,6 @@
         "hreflang": [
           {
             "lang": "es-ES",
-            "url": "https://reprodisseny.com/productos/dorsales-carrera"
-          },
-          {
-            "lang": "ca-ES",
             "url": "https://reprodisseny.com/productos/dorsales-carrera"
           }
         ],
@@ -15052,7 +14979,7 @@
     },
     {
       "id": "26",
-      "updatedAt": "2026-05-03T09:16:42Z",
+      "updatedAt": "2026-05-05T11:40:03Z",
       "type": "producto",
       "slug": "cosida-tapa-blanda",
       "path": "/productos/cosida-tapa-blanda",
@@ -15140,7 +15067,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicaciones/encuadernacion-cosida-tapa-blanda.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Encuadernación cosida en tapa blanda para libros, catálogos y publicaciones corporativas"
       },
       "galleryImages": [],
       "sku": "01-PUBLI-0003",
@@ -15257,10 +15184,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/cosida-tapa-blanda"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/cosida-tapa-blanda"
           }
         ],
         "keywords": [
@@ -15358,7 +15281,7 @@
     },
     {
       "id": "106",
-      "updatedAt": "2026-05-03T09:16:44Z",
+      "updatedAt": "2026-05-05T11:59:16Z",
       "type": "producto",
       "slug": "encuadernacion-wire-o-oculto",
       "path": "/productos/encuadernacion-wire-o-oculto",
@@ -15446,7 +15369,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicaciones/encuadernacion-wire-oculto.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Encuadernación Wire-O oculto para catálogos, dosieres y publicaciones premium"
       },
       "galleryImages": [],
       "sku": "01-PUBLI-0005",
@@ -15564,10 +15487,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/encuadernacion-wire-o-oculto"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/wire-o-oculto"
           }
         ],
         "keywords": [
@@ -15665,7 +15584,7 @@
     },
     {
       "id": "27",
-      "updatedAt": "2026-05-04T08:52:27Z",
+      "updatedAt": "2026-05-05T11:40:14Z",
       "type": "producto",
       "slug": "encuadernacion-cosida-tapa-dura",
       "path": "/productos/encuadernacion-cosida-tapa-dura",
@@ -15835,7 +15754,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicaciones/encuadernacion-cosida-tapa-dura.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Encuadernación cosida en tapa dura para libros premium, memorias y publicaciones corporativas"
       },
       "galleryImages": [],
       "sku": "01-PUBLI-0004",
@@ -15952,10 +15871,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/encuadernacion-cosida-tapa-dura"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/cosida-tapa-dura"
           }
         ],
         "keywords": [
@@ -16053,7 +15968,7 @@
     },
     {
       "id": "39",
-      "updatedAt": "2026-05-03T09:16:42Z",
+      "updatedAt": "2026-05-05T11:41:39Z",
       "type": "producto",
       "slug": "encuadernacion-encolada-tapa-blanda",
       "path": "/productos/encuadernacion-encolada-tapa-blanda",
@@ -16141,7 +16056,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicaciones/encuadernacion-encolado-tapa-blanda.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Encuadernación encolada en tapa blanda para catálogos, libros y manuales corporativos"
       },
       "galleryImages": [],
       "sku": "01-PUBLI-0002",
@@ -16258,10 +16173,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/encuadernacion-encolada-tapa-blanda"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/encolada-tapa-blanda"
           }
         ],
         "keywords": [
@@ -16359,7 +16270,7 @@
     },
     {
       "id": "107",
-      "updatedAt": "2026-05-03T09:16:43Z",
+      "updatedAt": "2026-05-05T11:58:56Z",
       "type": "producto",
       "slug": "encuadernacion-wire-o",
       "path": "/productos/encuadernacion-wire-o",
@@ -16447,7 +16358,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicaciones/encuadernacion-wire-o.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Encuadernación Wire-O personalizada para manuales, agendas y catálogos corporativos"
       },
       "galleryImages": [],
       "sku": "01-PUBLI-0005",
@@ -16565,10 +16476,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/encuadernacion-wire-o"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/wire-o"
           }
         ],
         "keywords": [
@@ -16666,7 +16573,7 @@
     },
     {
       "id": "40",
-      "updatedAt": "2026-05-03T09:16:42Z",
+      "updatedAt": "2026-05-05T11:41:47Z",
       "type": "producto",
       "slug": "encuadernado-con-grapas",
       "path": "/productos/encuadernado-con-grapas",
@@ -16754,7 +16661,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicaciones/encuadernado-grapas.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Encuadernado con grapas para revistas, folletos, catálogos y publicaciones comerciales"
       },
       "galleryImages": [],
       "sku": "01-PUBLI-0001",
@@ -16871,10 +16778,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/encuadernado-con-grapas"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/encuadernado-grapas"
           }
         ],
         "keywords": [
@@ -16972,7 +16875,7 @@
     },
     {
       "id": "41",
-      "updatedAt": "2026-05-03T09:16:41Z",
+      "updatedAt": "2026-05-05T11:41:55Z",
       "type": "producto",
       "slug": "enmarcados-personalizados",
       "path": "/productos/enmarcados-personalizados",
@@ -17064,7 +16967,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/enmarcados.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Enmarcados personalizados con impresión para decoración, señalética y espacios corporativos"
       },
       "galleryImages": [],
       "sku": "01-GRFO-0020",
@@ -17169,10 +17072,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/enmarcados-personalizados"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/enmarcados"
           }
         ],
         "keywords": [
@@ -17276,7 +17175,7 @@
     },
     {
       "id": "42",
-      "updatedAt": "2026-05-04T11:46:50Z",
+      "updatedAt": "2026-05-05T11:42:03Z",
       "type": "producto",
       "slug": "entradas-personalizadas",
       "path": "/productos/entradas-personalizadas",
@@ -17462,7 +17361,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/eventos/entradas.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Entradas personalizadas impresas para eventos, espectáculos y control de accesos"
       },
       "galleryImages": [],
       "sku": "01-EVEN-0012",
@@ -17560,10 +17459,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/entradas-personalizadas"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/entradas"
           }
         ],
         "keywords": [
@@ -17661,7 +17556,7 @@
     },
     {
       "id": "43",
-      "updatedAt": "2026-05-04T09:25:11Z",
+      "updatedAt": "2026-05-05T11:42:12Z",
       "type": "producto",
       "slug": "etiquetas-adhesivas-en-bobina",
       "path": "/productos/etiquetas-adhesivas-en-bobina",
@@ -17851,7 +17746,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/adhesivos/etiquetas-bobina.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Etiquetas adhesivas en bobina personalizadas para packaging, producto y etiquetado"
       },
       "galleryImages": [],
       "sku": "01-ADHE-0003",
@@ -17934,10 +17829,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/etiquetas-adhesivas-en-bobina"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/etiqueta-bobina"
           }
         ],
         "keywords": [
@@ -18043,7 +17934,7 @@
     },
     {
       "id": "44",
-      "updatedAt": "2026-05-03T09:16:45Z",
+      "updatedAt": "2026-05-05T11:42:19Z",
       "type": "producto",
       "slug": "etiquetas-colgantes",
       "path": "/productos/etiquetas-colgantes",
@@ -18135,7 +18026,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/etiquetas-colgantes.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Etiquetas colgantes personalizadas para producto, moda, packaging y retail"
       },
       "galleryImages": [],
       "sku": "01-OFICI-0008",
@@ -18226,10 +18117,6 @@
         "hreflang": [
           {
             "lang": "es-ES",
-            "url": "https://reprodisseny.com/productos/etiquetas-colgantes"
-          },
-          {
-            "lang": "ca-ES",
             "url": "https://reprodisseny.com/productos/etiquetas-colgantes"
           }
         ],
@@ -18334,7 +18221,7 @@
     },
     {
       "id": "37",
-      "updatedAt": "2026-05-05T09:09:45Z",
+      "updatedAt": "2026-05-05T11:41:23Z",
       "type": "producto",
       "slug": "etiquetas-doming",
       "path": "/productos/etiquetas-doming",
@@ -18422,7 +18309,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/adhesivos/doming.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Etiquetas Doming personalizadas con volumen para marca, producto y acabados premium"
       },
       "galleryImages": [],
       "sku": "01-ADHE-0005",
@@ -18501,10 +18388,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/etiquetas-doming"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/doming"
           }
         ],
         "keywords": [
@@ -18602,7 +18485,7 @@
     },
     {
       "id": "45",
-      "updatedAt": "2026-05-03T09:16:35Z",
+      "updatedAt": "2026-05-05T11:42:25Z",
       "type": "producto",
       "slug": "expositores-de-mesa-personalizados",
       "path": "/productos/expositores-de-mesa-personalizados",
@@ -18690,7 +18573,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/expositores/expositor-mesa.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Expositores de mesa personalizados para mostradores, promociones y venta de producto"
       },
       "galleryImages": [],
       "sku": "01-EXPO-0012",
@@ -18769,10 +18652,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/expositores-de-mesa-personalizados"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/expositores-mesa"
           }
         ],
         "keywords": [
@@ -18870,7 +18749,7 @@
     },
     {
       "id": "46",
-      "updatedAt": "2026-05-03T09:16:35Z",
+      "updatedAt": "2026-05-05T11:42:36Z",
       "type": "producto",
       "slug": "expositores-suelo-personalizados",
       "path": "/productos/expositores-suelo-personalizados",
@@ -18958,7 +18837,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/expositores/expositor-suelo.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Expositores de suelo personalizados para retail, ferias y campañas promocionales"
       },
       "galleryImages": [],
       "sku": "01-EXPO-0013",
@@ -19037,10 +18916,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/expositores-suelo-personalizados"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/expositores-suelo"
           }
         ],
         "keywords": [
@@ -19138,7 +19013,7 @@
     },
     {
       "id": "141",
-      "updatedAt": "2026-05-03T09:16:51Z",
+      "updatedAt": "2026-05-05T11:19:40Z",
       "type": "producto",
       "slug": "faja-para-caja",
       "path": "/productos/faja-para-caja",
@@ -19226,7 +19101,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/packaging/faja para caja.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Faja para caja"
+        "alt": "Faja para caja personalizada para packaging, presentación de producto y branding"
       },
       "galleryImages": [],
       "brand": "Repro Disseny",
@@ -19423,7 +19298,7 @@
     },
     {
       "id": "47",
-      "updatedAt": "2026-05-04T11:49:44Z",
+      "updatedAt": "2026-05-05T11:42:44Z",
       "type": "producto",
       "slug": "figuras-arbol-navidad",
       "path": "/productos/figuras-arbol-navidad",
@@ -19617,7 +19492,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/eventos/figuras-arbol-de-navidad.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Figuras de árbol de Navidad personalizadas para branding, escaparates y campañas festivas"
       },
       "galleryImages": [],
       "sku": "01-EVEN-0018",
@@ -19691,10 +19566,6 @@
         "hreflang": [
           {
             "lang": "es-ES",
-            "url": "https://reprodisseny.com/productos/figuras-arbol-navidad"
-          },
-          {
-            "lang": "ca-ES",
             "url": "https://reprodisseny.com/productos/figuras-arbol-navidad"
           }
         ],
@@ -19793,7 +19664,7 @@
     },
     {
       "id": "48",
-      "updatedAt": "2026-05-03T09:16:44Z",
+      "updatedAt": "2026-05-05T11:42:51Z",
       "type": "producto",
       "slug": "flyers-con-forma-personalizados",
       "path": "/productos/flyers-con-forma-personalizados",
@@ -19885,7 +19756,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/flyers-con-forma.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Flyers troquelados con forma personalizada para campañas, promociones y publicidad creativa"
       },
       "galleryImages": [],
       "sku": "01-OFICI-0003",
@@ -19984,10 +19855,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/flyers-con-forma-personalizados"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/flyers-forma"
           }
         ],
         "keywords": [
@@ -20091,7 +19958,7 @@
     },
     {
       "id": "49",
-      "updatedAt": "2026-05-04T10:48:33Z",
+      "updatedAt": "2026-05-05T11:43:03Z",
       "type": "producto",
       "slug": "flyers-personalizados",
       "path": "/productos/flyers-personalizados",
@@ -20281,7 +20148,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/flyers.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Flyers personalizados impresos para campañas comerciales, promociones y reparto publicitario"
       },
       "galleryImages": [],
       "sku": "01-OFICI-0002",
@@ -20380,10 +20247,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/flyers-personalizados"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/flyers"
           }
         ],
         "keywords": [
@@ -20487,7 +20350,7 @@
     },
     {
       "id": "51",
-      "updatedAt": "2026-05-04T10:53:54Z",
+      "updatedAt": "2026-05-05T11:43:19Z",
       "type": "producto",
       "slug": "folletos-plegados-personalizados",
       "path": "/productos/folletos-plegados-personalizados",
@@ -20677,7 +20540,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/folletos-plegados.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Folletos plegados personalizados para comunicación comercial, ferias y presentaciones"
       },
       "galleryImages": [],
       "sku": "01-OFICI-0006",
@@ -20787,10 +20650,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/folletos-plegados-personalizados"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/folletos-plegados"
           }
         ],
         "keywords": [
@@ -20894,7 +20753,7 @@
     },
     {
       "id": "53",
-      "updatedAt": "2026-05-04T12:00:16Z",
+      "updatedAt": "2026-05-05T11:43:33Z",
       "type": "producto",
       "slug": "fundas-sant-jordi",
       "path": "/productos/fundas-sant-jordi",
@@ -21076,7 +20935,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/eventos/fundas-sant-jordi.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Funda para rosa de Sant Jordi personalizada para campañas, regalos y acciones de marca"
       },
       "galleryImages": [],
       "sku": "01-EVEN-0001",
@@ -21133,10 +20992,6 @@
         "hreflang": [
           {
             "lang": "es-ES",
-            "url": "https://reprodisseny.com/productos/fundas-sant-jordi"
-          },
-          {
-            "lang": "ca-ES",
             "url": "https://reprodisseny.com/productos/fundas-sant-jordi"
           }
         ],
@@ -21235,7 +21090,7 @@
     },
     {
       "id": "54",
-      "updatedAt": "2026-05-04T08:02:40Z",
+      "updatedAt": "2026-05-05T11:43:38Z",
       "type": "producto",
       "slug": "hojas-pegatinas-personalizadas",
       "path": "/productos/hojas-pegatinas-personalizadas",
@@ -21423,10 +21278,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/hojas-pegatinas-personalizadas"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/hoja-pegatina"
           }
         ],
         "keywords": [
@@ -21528,7 +21379,7 @@
     },
     {
       "id": "55",
-      "updatedAt": "2026-05-03T09:16:43Z",
+      "updatedAt": "2026-05-05T11:43:47Z",
       "type": "producto",
       "slug": "hojas-sueltas-archivadores",
       "path": "/productos/hojas-sueltas-archivadores",
@@ -21616,7 +21467,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicaciones/hojas-sueltas-para-archivadores.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Hojas sueltas para archivadores impresas para documentación, manuales y formación"
       },
       "galleryImages": [],
       "sku": "01-PUBLI-0007",
@@ -21731,10 +21582,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/hojas-sueltas-archivadores"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/hojas-archivadores"
           }
         ],
         "keywords": [
@@ -21832,7 +21679,7 @@
     },
     {
       "id": "56",
-      "updatedAt": "2026-05-03T09:16:41Z",
+      "updatedAt": "2026-05-05T11:43:54Z",
       "type": "producto",
       "slug": "hule-personalizado",
       "path": "/productos/hule-personalizado",
@@ -21920,7 +21767,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/restauracion/hule-personalizado.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Hule personalizado lavable para mesas de hostelería, restaurantes y eventos"
       },
       "galleryImages": [],
       "sku": "01-HORE-0004",
@@ -22003,10 +21850,6 @@
         "hreflang": [
           {
             "lang": "es-ES",
-            "url": "https://reprodisseny.com/productos/hule-personalizado"
-          },
-          {
-            "lang": "ca-ES",
             "url": "https://reprodisseny.com/productos/hule-personalizado"
           }
         ],
@@ -22105,7 +21948,7 @@
     },
     {
       "id": "57",
-      "updatedAt": "2026-05-04T11:55:06Z",
+      "updatedAt": "2026-05-05T11:44:01Z",
       "type": "producto",
       "slug": "idenficador-maleta",
       "path": "/productos/idenficador-maleta",
@@ -22287,7 +22130,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/restauracion/identificador-maleta.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Identificador de maleta personalizado para eventos, viajes y regalos promocionales"
       },
       "galleryImages": [],
       "sku": "01-EVEN-0016",
@@ -22376,10 +22219,6 @@
         "hreflang": [
           {
             "lang": "es-ES",
-            "url": "https://reprodisseny.com/productos/idenficador-maleta"
-          },
-          {
-            "lang": "ca-ES",
             "url": "https://reprodisseny.com/productos/idenficador-maleta"
           }
         ],
@@ -22478,7 +22317,7 @@
     },
     {
       "id": "59",
-      "updatedAt": "2026-05-03T09:16:38Z",
+      "updatedAt": "2026-05-05T11:44:09Z",
       "type": "producto",
       "slug": "imanes-publicitarios",
       "path": "/productos/imanes-publicitarios",
@@ -22570,7 +22409,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/imanes-publicitarios.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Imanes publicitarios personalizados para promociones, campañas y recordatorio de marca"
       },
       "galleryImages": [],
       "sku": "01-OFICI-0012",
@@ -22695,10 +22534,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/imanes-publicitarios"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/imanes"
           }
         ],
         "keywords": [
@@ -22802,7 +22637,7 @@
     },
     {
       "id": "99",
-      "updatedAt": "2026-05-03T09:16:43Z",
+      "updatedAt": "2026-05-05T12:10:06Z",
       "type": "producto",
       "slug": "invitaciones-y-tarjetones-personalizados",
       "path": "/productos/invitaciones-y-tarjetones-personalizados",
@@ -22894,7 +22729,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/tarjetones-e-invitaciones.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Invitaciones y tarjetones personalizados para eventos, celebraciones y comunicación premium"
       },
       "galleryImages": [],
       "sku": "01-OFICI-0001",
@@ -23002,10 +22837,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/invitaciones-y-tarjetones-personalizados"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/tarjetones-invitaciones"
           }
         ],
         "keywords": [
@@ -23109,7 +22940,7 @@
     },
     {
       "id": "148",
-      "updatedAt": "2026-05-03T09:16:51Z",
+      "updatedAt": "2026-05-05T11:52:55Z",
       "type": "producto",
       "slug": "lamina-magnetica-impresa",
       "path": "/productos/lamina-magnetica-impresa",
@@ -23201,7 +23032,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/imanes.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Lámina magnética impresa"
+        "alt": "Lámina magnética impresa para vehículos, superficies metálicas y campañas temporales"
       },
       "galleryImages": [],
       "brand": "Repro Disseny",
@@ -23370,7 +23201,7 @@
     },
     {
       "id": "60",
-      "updatedAt": "2026-05-04T12:03:24Z",
+      "updatedAt": "2026-05-05T11:44:19Z",
       "type": "producto",
       "slug": "lanyards-eventos-barcelona",
       "path": "/productos/lanyards-eventos-barcelona",
@@ -23560,7 +23391,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/eventos/lanyard.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Lanyards personalizados para ferias, congresos y eventos corporativos"
       },
       "galleryImages": [],
       "sku": "01-EVEN-0004",
@@ -23634,10 +23465,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/lanyards-eventos-barcelona"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/lanyards"
           }
         ],
         "keywords": [
@@ -23735,7 +23562,7 @@
     },
     {
       "id": "132",
-      "updatedAt": "2026-05-04T08:01:49Z",
+      "updatedAt": "2026-05-05T11:55:39Z",
       "type": "producto",
       "slug": "letras-corporeas-personalizadas",
       "path": "/productos/letras-corporeas-personalizadas",
@@ -23827,7 +23654,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/letras corporeas ok.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Letras corporeas"
+        "alt": "Letras corpóreas personalizadas para rótulos, oficinas y señalización corporativa"
       },
       "galleryImages": [],
       "brand": "Repro Disseny",
@@ -24002,7 +23829,7 @@
     },
     {
       "id": "129",
-      "updatedAt": "2026-05-04T10:43:49Z",
+      "updatedAt": "2026-05-05T11:56:08Z",
       "type": "producto",
       "slug": "libretas-personalizadas",
       "path": "/productos/libretas-personalizadas",
@@ -24176,7 +24003,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/libretas.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Libretas"
+        "alt": "Libretas personalizadas para empresas, eventos y regalos corporativos"
       },
       "galleryImages": [],
       "brand": "Repro Disseny",
@@ -24377,7 +24204,7 @@
     },
     {
       "id": "63",
-      "updatedAt": "2026-05-03T09:16:38Z",
+      "updatedAt": "2026-05-05T11:44:29Z",
       "type": "producto",
       "slug": "lona-publicitaria",
       "path": "/productos/lona-publicitaria",
@@ -24469,7 +24296,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/lona-publicitaria.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Lona publicitaria impresa para fachadas, eventos y comunicación exterior"
       },
       "galleryImages": [],
       "sku": "01-GRFO-0004",
@@ -24559,10 +24386,6 @@
         "hreflang": [
           {
             "lang": "es-ES",
-            "url": "https://reprodisseny.com/productos/lona-publicitaria"
-          },
-          {
-            "lang": "ca-ES",
             "url": "https://reprodisseny.com/productos/lona-publicitaria"
           }
         ],
@@ -24667,7 +24490,7 @@
     },
     {
       "id": "65",
-      "updatedAt": "2026-05-03T09:16:41Z",
+      "updatedAt": "2026-05-05T11:44:43Z",
       "type": "producto",
       "slug": "manteles-individuales-personalizados",
       "path": "/productos/manteles-individuales-personalizados",
@@ -24755,7 +24578,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/restauracion/mantel-individual.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Manteles individuales personalizados para restaurantes, hoteles y promociones de mesa"
       },
       "galleryImages": [],
       "sku": "01-HORE-0003",
@@ -24846,10 +24669,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/manteles-individuales-personalizados"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/manteles-individuales-de-mesa"
           }
         ],
         "keywords": [
@@ -24947,7 +24766,7 @@
     },
     {
       "id": "68",
-      "updatedAt": "2026-05-03T09:16:35Z",
+      "updatedAt": "2026-05-05T11:44:57Z",
       "type": "producto",
       "slug": "marcos-click-system-personalizados",
       "path": "/productos/marcos-click-system-personalizados",
@@ -25035,7 +24854,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/expositores/marco-click-system.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Marcos Click System personalizados para pósters, cartelería y cambio rápido de gráfica"
       },
       "galleryImages": [],
       "sku": "01-EXPO-0014",
@@ -25119,10 +24938,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/marcos-click-system-personalizados"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/marcos-system"
           }
         ],
         "keywords": [
@@ -25220,7 +25035,7 @@
     },
     {
       "id": "66",
-      "updatedAt": "2026-05-04T12:07:15Z",
+      "updatedAt": "2026-05-05T11:44:50Z",
       "type": "producto",
       "slug": "marcos-photocall-personalizados",
       "path": "/productos/marcos-photocall-personalizados",
@@ -25383,7 +25198,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/eventos/marcos-photocall.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Marcos para photocall personalizados para eventos, bodas y campañas de marca"
       },
       "galleryImages": [],
       "sku": "01-EVEN-0008",
@@ -25476,10 +25291,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/marcos-photocall-personalizados"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/marcos-hotocall"
           }
         ],
         "keywords": [
@@ -25577,7 +25388,7 @@
     },
     {
       "id": "69",
-      "updatedAt": "2026-05-03T09:16:40Z",
+      "updatedAt": "2026-05-05T11:45:03Z",
       "type": "producto",
       "slug": "metacrilato-personalizado",
       "path": "/productos/metacrilato-personalizado",
@@ -25669,7 +25480,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/metacrilato.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Panel de metacrilato personalizado para placas, señalética y comunicación premium"
       },
       "galleryImages": [],
       "sku": "01-GRFO-0017",
@@ -25759,10 +25570,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/metacrilato-personalizado"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/metacrilato"
           }
         ],
         "keywords": [
@@ -25866,7 +25673,7 @@
     },
     {
       "id": "70",
-      "updatedAt": "2026-05-04T11:57:18Z",
+      "updatedAt": "2026-05-05T11:45:13Z",
       "type": "producto",
       "slug": "minutas-boda",
       "path": "/productos/minutas-boda",
@@ -26154,10 +25961,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/minutas-boda"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/minutas-boda"
           }
         ],
         "keywords": [
@@ -26255,7 +26058,7 @@
     },
     {
       "id": "72",
-      "updatedAt": "2026-05-04T11:53:56Z",
+      "updatedAt": "2026-05-05T11:46:09Z",
       "type": "producto",
       "slug": "nombres-sobremesa-personalizados",
       "path": "/productos/nombres-sobremesa-personalizados",
@@ -26413,7 +26216,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/eventos/nombres-sobremesa.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Nombres de sobremesa personalizados para bodas, eventos y mesas corporativas"
       },
       "galleryImages": [],
       "sku": "01-EVEN-0007",
@@ -26496,10 +26299,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/nombres-sobremesa-personalizados"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/nombres-sobremesa"
           }
         ],
         "keywords": [
@@ -26597,7 +26396,7 @@
     },
     {
       "id": "21",
-      "updatedAt": "2026-05-03T09:16:40Z",
+      "updatedAt": "2026-05-05T11:39:30Z",
       "type": "producto",
       "slug": "panel-carton-compacto-personalizado",
       "path": "/productos/panel-carton-compacto-personalizado",
@@ -26685,7 +26484,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/carton-compacto.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Panel de cartón compacto impreso para displays, señalética y comunicación temporal"
       },
       "galleryImages": [],
       "sku": "01-GRFO-0015",
@@ -26776,10 +26575,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/panel-carton-compacto-personalizado"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/carton-compacto"
           }
         ],
         "keywords": [
@@ -26875,7 +26670,7 @@
     },
     {
       "id": "22",
-      "updatedAt": "2026-05-03T09:16:40Z",
+      "updatedAt": "2026-05-05T11:39:36Z",
       "type": "producto",
       "slug": "panel-carton-corrugado-personalizado",
       "path": "/productos/panel-carton-corrugado-personalizado",
@@ -26963,7 +26758,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/carton-corrugado.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Panel de cartón corrugado personalizado para campañas, retail y soportes promocionales"
       },
       "galleryImages": [],
       "sku": "01-GRFO-0016",
@@ -27055,10 +26850,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/panel-carton-corrugado-personalizado"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/carton-corrugado"
           }
         ],
         "keywords": [
@@ -27154,7 +26945,7 @@
     },
     {
       "id": "32",
-      "updatedAt": "2026-05-03T09:16:39Z",
+      "updatedAt": "2026-05-05T11:40:44Z",
       "type": "producto",
       "slug": "panel-dibond-personalizado",
       "path": "/productos/panel-dibond-personalizado",
@@ -27246,7 +27037,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/dibond.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Panel de Dibond personalizado para señalética exterior, placas y comunicación premium"
       },
       "galleryImages": [],
       "sku": "01-GRFO-0012",
@@ -27337,10 +27128,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/panel-dibond-personalizado"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/dibon"
           }
         ],
         "keywords": [
@@ -27444,7 +27231,7 @@
     },
     {
       "id": "50",
-      "updatedAt": "2026-05-03T09:16:39Z",
+      "updatedAt": "2026-05-05T11:43:13Z",
       "type": "producto",
       "slug": "panel-foam-personalizado",
       "path": "/productos/panel-foam-personalizado",
@@ -27536,7 +27323,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/foam.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Panel de foam personalizado para cartelería ligera, presentaciones y señalética interior"
       },
       "galleryImages": [],
       "sku": "01-GRFO-0010",
@@ -27629,10 +27416,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/panel-foam-personalizado"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/foam"
           }
         ],
         "keywords": [
@@ -27736,7 +27519,7 @@
     },
     {
       "id": "52",
-      "updatedAt": "2026-05-03T09:16:40Z",
+      "updatedAt": "2026-05-05T11:43:27Z",
       "type": "producto",
       "slug": "panel-forex",
       "path": "/productos/panel-forex",
@@ -27828,7 +27611,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/forex.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Panel de Forex personalizado para cartelería rígida, señalética y punto de venta"
       },
       "galleryImages": [],
       "sku": "01-GRFO-0011",
@@ -27921,10 +27704,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/panel-forex"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/forex"
           }
         ],
         "keywords": [
@@ -28028,7 +27807,7 @@
     },
     {
       "id": "71",
-      "updatedAt": "2026-05-03T09:16:39Z",
+      "updatedAt": "2026-05-05T11:45:22Z",
       "type": "producto",
       "slug": "panel-nido-de-abeja-personalizado",
       "path": "/productos/panel-nido-de-abeja-personalizado",
@@ -28117,7 +27896,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/nido-de-abeja.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Panel de nido de abeja personalizado para displays ligeros, expositores y cartelería"
       },
       "galleryImages": [],
       "sku": "01-GRFO-0013",
@@ -28209,10 +27988,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/panel-nido-de-abeja-personalizado"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/nido-abeja"
           }
         ],
         "keywords": [
@@ -28308,7 +28083,7 @@
     },
     {
       "id": "35",
-      "updatedAt": "2026-05-03T09:16:40Z",
+      "updatedAt": "2026-05-05T11:41:08Z",
       "type": "producto",
       "slug": "panel-dispa-personalizado",
       "path": "/productos/panel-dispa-personalizado",
@@ -28396,7 +28171,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/dispa.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Panel Dispa personalizado para cartelería ligera, eventos y señalética interior"
       },
       "galleryImages": [],
       "sku": "01-GRFO-0014",
@@ -28487,10 +28262,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/panel-dispa-personalizado"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/dispa"
           }
         ],
         "keywords": [
@@ -28586,7 +28357,7 @@
     },
     {
       "id": "120",
-      "updatedAt": "2026-05-03T09:16:39Z",
+      "updatedAt": "2026-05-05T11:57:21Z",
       "type": "producto",
       "slug": "panel-ultraligero",
       "path": "/productos/panel-ultraligero",
@@ -28674,7 +28445,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/panel-ligero.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Panel ligero"
+        "alt": "Panel ligero rígido ultraligero para cartelería, eventos y señalética interior"
       },
       "galleryImages": [],
       "brand": "Repro Disseny",
@@ -28792,7 +28563,7 @@
     },
     {
       "id": "64",
-      "updatedAt": "2026-05-03T09:16:40Z",
+      "updatedAt": "2026-05-05T11:44:36Z",
       "type": "producto",
       "slug": "paneles-madera",
       "path": "/productos/paneles-madera",
@@ -28884,7 +28655,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/madera.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Paneles de madera personalizados para decoración, señalética e interiorismo corporativo"
       },
       "galleryImages": [],
       "sku": "01-GRFO-0018",
@@ -28977,10 +28748,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/paneles-madera"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/madera"
           }
         ],
         "keywords": [
@@ -29084,7 +28851,7 @@
     },
     {
       "id": "127",
-      "updatedAt": "2026-05-04T10:31:15Z",
+      "updatedAt": "2026-05-05T11:56:37Z",
       "type": "producto",
       "slug": "papel-de-carta",
       "path": "/productos/papel-de-carta",
@@ -29238,7 +29005,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/papel-carta.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Papel de carta"
+        "alt": "Papel de carta personalizado con membrete para empresas y comunicación corporativa"
       },
       "galleryImages": [],
       "brand": "Repro Disseny",
@@ -29406,7 +29173,7 @@
     },
     {
       "id": "76",
-      "updatedAt": "2026-05-04T10:02:34Z",
+      "updatedAt": "2026-05-05T11:46:46Z",
       "type": "producto",
       "slug": "papel-de-pared-personalizado",
       "path": "/productos/papel-de-pared-personalizado",
@@ -29564,7 +29331,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/papel-pared.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Papel de pared personalizado para decoración corporativa, oficinas y espacios comerciales"
       },
       "galleryImages": [],
       "sku": "01-GRFO-0003",
@@ -29654,10 +29421,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/papel-de-pared-personalizado"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/papel-pared"
           }
         ],
         "keywords": [
@@ -29761,7 +29524,7 @@
     },
     {
       "id": "78",
-      "updatedAt": "2026-05-04T09:20:12Z",
+      "updatedAt": "2026-05-05T11:47:16Z",
       "type": "producto",
       "slug": "pegatinas-personalizadas",
       "path": "/productos/pegatinas-personalizadas",
@@ -29943,7 +29706,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/adhesivos/pegatinas-individuales.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Pegatinas personalizadas en papel o vinilo para packaging, promociones y marca"
       },
       "galleryImages": [],
       "sku": "01-ADHE-0001",
@@ -30014,10 +29777,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/pegatinas-personalizadas"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/pegatinas"
           }
         ],
         "keywords": [
@@ -30153,7 +29912,7 @@
     },
     {
       "id": "79",
-      "updatedAt": "2026-05-03T09:16:33Z",
+      "updatedAt": "2026-05-05T11:47:28Z",
       "type": "producto",
       "slug": "photocall-personalizado",
       "path": "/productos/photocall-personalizado",
@@ -30241,7 +30000,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/expositores/photocall.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Photocall personalizado impreso para eventos, presentaciones y campañas de marca"
       },
       "galleryImages": [],
       "sku": "01-EXPO-0004",
@@ -30324,10 +30083,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/photocall-personalizado"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/photocalls"
           }
         ],
         "keywords": [
@@ -30425,7 +30180,7 @@
     },
     {
       "id": "126",
-      "updatedAt": "2026-05-03T09:16:46Z",
+      "updatedAt": "2026-05-05T11:56:49Z",
       "type": "producto",
       "slug": "pizarras-a-medida",
       "path": "/productos/pizarras-a-medida",
@@ -30517,7 +30272,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/pizarra.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Pizarra"
+        "alt": "Pizarras personalizadas a medida tipo Velleda para oficinas, formación y espacios comerciales"
       },
       "galleryImages": [],
       "brand": "Repro Disseny",
@@ -30693,7 +30448,7 @@
     },
     {
       "id": "133",
-      "updatedAt": "2026-05-03T09:16:49Z",
+      "updatedAt": "2026-05-05T11:54:58Z",
       "type": "producto",
       "slug": "placa-direccion-personalizada",
       "path": "/productos/placa-direccion-personalizada",
@@ -30785,7 +30540,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/placa-dirección.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Placa de dirección"
+        "alt": "Placa de dirección personalizada para despachos, oficinas y señalización interior"
       },
       "galleryImages": [],
       "brand": "Repro Disseny",
@@ -30963,7 +30718,7 @@
     },
     {
       "id": "83",
-      "updatedAt": "2026-05-03T09:16:42Z",
+      "updatedAt": "2026-05-05T11:47:37Z",
       "type": "producto",
       "slug": "portacuentas-personalizados",
       "path": "/productos/portacuentas-personalizados",
@@ -31051,7 +30806,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/restauracion/portacuentas.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Portacuentas personalizados para restaurantes, hoteles y presentación de la cuenta"
       },
       "galleryImages": [],
       "sku": "01-HORE-0010",
@@ -31142,10 +30897,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/portacuentas-personalizados"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/portacuentas"
           }
         ],
         "keywords": [
@@ -31243,7 +30994,7 @@
     },
     {
       "id": "84",
-      "updatedAt": "2026-05-03T09:16:52Z",
+      "updatedAt": "2026-05-05T11:48:08Z",
       "type": "producto",
       "slug": "posavasos",
       "path": "/productos/posavasos",
@@ -31331,7 +31082,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/restauracion/posavasos.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Posavasos personalizados para hostelería, eventos y promociones de marca"
       },
       "galleryImages": [],
       "sku": "01-HORE-0011",
@@ -31396,10 +31147,6 @@
         "hreflang": [
           {
             "lang": "es-ES",
-            "url": "https://reprodisseny.com/productos/posavasos"
-          },
-          {
-            "lang": "ca-ES",
             "url": "https://reprodisseny.com/productos/posavasos"
           }
         ],
@@ -31498,7 +31245,7 @@
     },
     {
       "id": "85",
-      "updatedAt": "2026-05-03T09:16:45Z",
+      "updatedAt": "2026-05-05T11:48:25Z",
       "type": "producto",
       "slug": "posters-personalizados",
       "path": "/productos/posters-personalizados",
@@ -31590,7 +31337,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/posters.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Pósters personalizados impresos para campañas, escaparates y decoración comercial"
       },
       "galleryImages": [],
       "sku": "01-OFICI-0004",
@@ -31685,10 +31432,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/posters-personalizados"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/posters"
           }
         ],
         "keywords": [
@@ -31792,7 +31535,7 @@
     },
     {
       "id": "86",
-      "updatedAt": "2026-05-03T09:16:30Z",
+      "updatedAt": "2026-05-05T11:48:50Z",
       "type": "producto",
       "slug": "premios-personalizados",
       "path": "/productos/premios-personalizados",
@@ -31880,7 +31623,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/eventos/premios-personalizados.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Premios personalizados para eventos, reconocimientos y acciones corporativas"
       },
       "galleryImages": [],
       "sku": "01-EVEN-0005",
@@ -31972,10 +31715,6 @@
         "hreflang": [
           {
             "lang": "es-ES",
-            "url": "https://reprodisseny.com/productos/premios-personalizados"
-          },
-          {
-            "lang": "ca-ES",
             "url": "https://reprodisseny.com/productos/premios-personalizados"
           }
         ],
@@ -32074,7 +31813,7 @@
     },
     {
       "id": "87",
-      "updatedAt": "2026-05-03T09:16:45Z",
+      "updatedAt": "2026-05-05T11:49:01Z",
       "type": "producto",
       "slug": "puntos-de-libro-personalizados",
       "path": "/productos/puntos-de-libro-personalizados",
@@ -32166,7 +31905,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/puntos-libro.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Puntos de libro personalizados para campañas, editoriales y regalos promocionales"
       },
       "galleryImages": [],
       "sku": "01-OFICI-0009",
@@ -32260,10 +31999,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/puntos-de-libro-personalizados"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/puntos-libro"
           }
         ],
         "keywords": [
@@ -32367,11 +32102,11 @@
     },
     {
       "id": "88",
-      "updatedAt": "2026-05-03T09:16:38Z",
+      "updatedAt": "2026-05-05T13:24:22Z",
       "type": "producto",
-      "slug": "retoiluminados",
-      "path": "/productos/retoiluminados",
-      "title": "Retoiluminados",
+      "slug": "retroiluminados",
+      "path": "/productos/retroiluminados",
+      "title": "Retroiluminados personalizados para cajas de luz y señalética",
       "categorySlug": "material-rigido",
       "categorySlugs": [
         "material-rigido"
@@ -32380,7 +32115,7 @@
       "isPublished": true,
       "shortDescription": "Los retroiluminados son la opción perfecta cuando buscas máxima visibilidad: la luz desde atrás hace que la gráfica destaque más y se lea mejor incluso en espacios muy cargados (retail, ferias, centros comerciales o exteriores). En Repro Disseny imprimimos gráficas retroiluminadas (backlit) a medida para cajas de luz, rótulos y displays, cuidando el material y la impresión para conseguir una iluminación uniforme y un acabado profesional.",
       "description": "Los retroiluminados son la opción perfecta cuando buscas máxima visibilidad: la luz desde atrás hace que la gráfica destaque más y se lea mejor incluso en espacios muy cargados (retail, ferias, centros comerciales o exteriores). En Repro Disseny imprimimos gráficas retroiluminadas (backlit) a medida para cajas de luz, rótulos y displays, cuidando el material y la impresión para conseguir una iluminación uniforme y un acabado profesional.",
-      "bodyMd": "Un retroiluminado (o gráfica backlit) es una impresión realizada sobre un material traslúcido diseñada para colocarse en un soporte con luz por detrás (LED u otro sistema). Al iluminarse, los colores ganan presencia y el mensaje se percibe con mayor impacto. Se utiliza sobre todo en cajas de luz, rótulos, escaparates y stands cuando necesitas que tu comunicación destaque de verdad.",
+      "bodyMd": "## ¿Qué es un retroiluminado o gráfica backlit?\n\nUn retroiluminado, también llamado gráfica backlit, es una impresión realizada sobre un material traslúcido diseñada para colocarse en un soporte con luz por detrás, normalmente LED u otro sistema de iluminación.\n\nCuando la gráfica se ilumina, los colores ganan presencia, el mensaje se lee con más fuerza y la comunicación destaca mucho más que en un soporte sin luz. Por eso es una solución muy utilizada en cajas de luz, rótulos, escaparates, stands, centros comerciales y espacios donde la marca necesita llamar la atención.\n\nEn Repro Disseny imprimimos retroiluminados personalizados en Barcelona para campañas, señalética, promociones, retail, hostelería y espacios corporativos, cuidando el material, la densidad de impresión y el acabado para conseguir una iluminación uniforme y profesional.",
       "sections": [
         {
           "id": "details",
@@ -32388,7 +32123,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "Un retroiluminado (o gráfica backlit) es una impresión realizada sobre un material traslúcido diseñada para colocarse en un soporte con luz por detrás (LED u otro sistema). Al iluminarse, los colores ganan presencia y el mensaje se percibe con mayor impacto. Se utiliza sobre todo en cajas de luz, rótulos, escaparates y stands cuando necesitas que tu comunicación destaque de verdad."
+          "body": "## ¿Qué es un retroiluminado o gráfica backlit?\n\nUn retroiluminado, también llamado gráfica backlit, es una impresión realizada sobre un material traslúcido diseñada para colocarse en un soporte con luz por detrás, normalmente LED u otro sistema de iluminación.\n\nCuando la gráfica se ilumina, los colores ganan presencia, el mensaje se lee con más fuerza y la comunicación destaca mucho más que en un soporte sin luz. Por eso es una solución muy utilizada en cajas de luz, rótulos, escaparates, stands, centros comerciales y espacios donde la marca necesita llamar la atención.\n\nEn Repro Disseny imprimimos retroiluminados personalizados en Barcelona para campañas, señalética, promociones, retail, hostelería y espacios corporativos, cuidando el material, la densidad de impresión y el acabado para conseguir una iluminación uniforme y profesional."
         },
         {
           "id": "benefits",
@@ -32396,7 +32131,7 @@
           "title": "Beneficios",
           "kind": "benefits",
           "contentFormat": "markdown",
-          "body": "- Impacto superior: la gráfica iluminada capta atención mucho más rápido que un soporte sin luz. \n- Colores vivos y más legibilidad: ideal para promociones, branding y mensajes cortos. \n- Acabado premium: mejora la percepción de marca en retail, ferias y espacios corporativos. \n- Perfecto para campañas por temporadas: puedes cambiar la gráfica manteniendo la estructura de luz. \n- Funciona muy bien en foto/vídeo: cuando está bien preparado, el resultado es limpio y profesional."
+          "body": "- **Impacto visual superior:** la gráfica iluminada capta la atención mucho más rápido que un soporte sin luz.\n- **Colores vivos y mejor legibilidad:** ideal para promociones, branding, señalética y mensajes cortos que deben leerse con rapidez.\n- **Acabado premium:** mejora la percepción de marca en tiendas, ferias, showrooms, recepciones y espacios corporativos.\n- **Perfecto para campañas por temporadas:** puedes renovar la gráfica manteniendo la misma estructura de luz.\n- **Muy efectivo en retail y escaparates:** ayuda a destacar productos, promociones y mensajes comerciales en zonas con mucha competencia visual.\n- **Buen resultado en foto y vídeo:** cuando el archivo y la impresión están bien preparados, el acabado se ve limpio, uniforme y profesional."
         },
         {
           "id": "technical-specs",
@@ -32404,7 +32139,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Material backlit \n- Soporte traslúcido diseñado para que la luz se distribuya de forma uniforme y no “queme” los blancos ni apague los colores. \n- Elección del material según sistema: caja de luz, rótulo, marco textil, etc. \nImpresión orientada a iluminación \n- Ajuste de densidades para que, al encender la luz, el diseño mantenga contraste y fidelidad. \n- Recomendación práctica: en retroiluminados conviene trabajar con fondos y degradados bien controlados para evitar cambios visibles con la luz. \nFormatos y medidas \n- Tamaños estándar o a medida, incluyendo producción por paños si el formato es muy grande. \n- Preparación pensando en el encaje dentro del sistema (marco, guías, perfiles). \nAcabados de instalación (según sistema) \n- Preparación para marcos o cajas de luz (corte exacto). \n- Opciones tipo vaina/velcro o sistemas de tensado si el soporte lo requiere. \nUna cara o doble cara \n- Habitualmente una cara (la luz viene de detrás). \n- Si el sistema es doble cara (por ejemplo, colgante), se plantea la configuración adecuada."
+          "body": "## Material backlit\n\n- Soporte traslúcido diseñado para que la luz se distribuya de forma uniforme.\n- Material pensado para evitar que la iluminación “queme” los blancos o apague los colores.\n- Elección del soporte según el sistema de instalación: caja de luz, rótulo, marco textil, display o estructura existente.\n- Opciones como backlight o textil retroiluminable según el acabado, el tamaño y el tipo de montaje.\n\n## Impresión orientada a iluminación\n\n- Impresión a todo color preparada para trabajar con luz trasera.\n- Ajuste de densidades para mantener contraste, intensidad y fidelidad cuando la gráfica está iluminada.\n- Revisión del diseño para evitar zonas demasiado oscuras, degradados problemáticos o fondos que puedan verse irregulares con la luz.\n- Recomendación práctica: en retroiluminados conviene trabajar con fondos, degradados y masas de color bien controladas para conseguir un resultado uniforme.\n\n## Formatos y medidas\n\n- Tamaños estándar o producción a medida según la caja de luz, rótulo, marco o estructura.\n- Posibilidad de producir piezas grandes por paños cuando el formato lo requiere.\n- Preparación del archivo pensando en el encaje real dentro del sistema: marco, guías, perfiles, tensado o zona visible.\n- Corte recto y ajuste de medidas para facilitar la instalación.\n\n## Acabados de instalación\n\n- Preparación para marcos, perfiles o cajas de luz mediante corte exacto.\n- Opciones tipo vaina, velcro o sistemas de tensado si el soporte lo requiere.\n- Acabados definidos según si la pieza será fija, sustituible por campañas o reutilizable.\n- Validación previa del sistema de colocación para evitar holguras, sombras o tensiones incorrectas.\n\n## Una cara o doble cara\n\n- Lo habitual es impresión a una cara, ya que la luz viene desde la parte posterior.\n- En sistemas colgantes o estructuras visibles por ambos lados, se puede plantear una configuración específica.\n- Si el soporte es doble cara, conviene revisar el sistema antes de producir para definir material, opacidad e iluminación."
         },
         {
           "id": "applications",
@@ -32412,7 +32147,7 @@
           "title": "Aplicaciones",
           "kind": "applications",
           "contentFormat": "markdown",
-          "body": "- Cajas de luz en tiendas, centros comerciales y escaparates. \n- Rótulos luminosos e identificación de marca en interiores. \n- tands y ferias: paneles retroiluminados para destacar frente a otros expositores. \n- Hostelería y ocio: cartelería iluminada para menús, eventos o promociones. \n- Showrooms y recepciones: comunicación de marca con alto impacto."
+          "body": "- **Cajas de luz:** gráficas para tiendas, centros comerciales, escaparates, mostradores y espacios promocionales.\n- **Rótulos luminosos:** identificación de marca, señalética interior y comunicación corporativa con luz trasera.\n- **Stands y ferias:** paneles retroiluminados para destacar frente a otros expositores y reforzar la presencia de marca.\n- **Hostelería y ocio:** cartelería iluminada para menús, eventos, promociones, zonas de recepción o comunicación interior.\n- **Showrooms y recepciones:** mensajes de marca, imágenes corporativas y elementos visuales de alto impacto.\n- **Campañas temporales:** promociones estacionales, lanzamientos de producto, rebajas, activaciones y acciones comerciales."
         }
       ],
       "faqs": [
@@ -32451,15 +32186,15 @@
           "url": "/categorias/gran-formato/material-rigido"
         },
         {
-          "name": "Retoiluminados",
-          "url": "/productos/retoiluminados"
+          "name": "Retroiluminados personalizados para cajas de luz y señalética",
+          "url": "/productos/retroiluminados"
         }
       ],
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/retroiluminados.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Gráficas retroiluminadas personalizadas para cajas de luz, escaparates y señalética"
       },
       "galleryImages": [],
       "sku": "01-GRFO-0006",
@@ -32532,34 +32267,54 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Retoiluminados | Repro Disseny",
-        "metaDescription": "Retoiluminados personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/retoiluminados",
+        "metaTitle": "Retroiluminados personalizados | Gráficas backlit en Barcelona",
+        "metaDescription": "Gráficas retroiluminadas personalizadas para cajas de luz, rótulos, escaparates y displays. Impresión backlit a medida en Barcelona.",
+        "canonical": "https://reprodisseny.com/productos/retroiluminados",
         "hreflang": [
           {
             "lang": "es-ES",
-            "url": "https://reprodisseny.com/productos/retoiluminados"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/retoiluminados"
+            "url": "https://reprodisseny.com/productos/retroiluminados"
           }
         ],
         "keywords": [
-          "retoiluminados"
+          "retroiluminados personalizados",
+          "gráficas retroiluminadas",
+          "gráficas backlit",
+          "impresión backlit",
+          "retroiluminados Barcelona",
+          "cajas de luz personalizadas",
+          "gráficas para cajas de luz",
+          "rótulos retroiluminados",
+          "display retroiluminado",
+          "cartelería retroiluminada",
+          "señalética luminosa",
+          "textil retroiluminable"
         ],
         "searchTerms": [
-          "retoiluminados"
+          "retroiluminados",
+          "retroiluminado",
+          "gráfica retroiluminada",
+          "gráficas backlit",
+          "backlight",
+          "impresión backlit",
+          "caja de luz",
+          "cajas de luz",
+          "rótulo retroiluminado",
+          "display retroiluminado",
+          "cartel retroiluminado",
+          "señalética luminosa",
+          "retroiluminados barcelona",
+          "gráficas para caja de luz"
         ],
         "schema": {
           "@context": "https://schema.org",
           "@graph": [
             {
               "@type": "Product",
-              "name": "Retoiluminados",
-              "description": "Retoiluminados personalizadas con calidad profesional en Cataluña.",
+              "name": "Retroiluminados personalizados para cajas de luz y señalética",
+              "description": "Gráficas retroiluminadas personalizadas para cajas de luz, rótulos, escaparates y displays. Impresión backlit a medida en Barcelona.",
               "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/retroiluminados.webp",
-              "url": "https://reprodisseny.com/productos/retoiluminados",
+              "url": "https://reprodisseny.com/productos/retroiluminados",
               "brand": {
                 "@type": "Organization",
                 "name": "Reprodisseny"
@@ -32596,8 +32351,8 @@
                 {
                   "@type": "ListItem",
                   "position": 5,
-                  "name": "Retoiluminados",
-                  "item": "https://reprodisseny.com/productos/retoiluminados"
+                  "name": "Retroiluminados personalizados para cajas de luz y señalética",
+                  "item": "https://reprodisseny.com/productos/retroiluminados"
                 }
               ]
             },
@@ -32646,7 +32401,7 @@
     },
     {
       "id": "89",
-      "updatedAt": "2026-05-04T08:13:00Z",
+      "updatedAt": "2026-05-05T12:12:21Z",
       "type": "producto",
       "slug": "roll-up-personalizado",
       "path": "/productos/roll-up-personalizado",
@@ -32828,7 +32583,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/expositores/roll-up.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Roll up personalizado impreso para ferias, eventos y presentaciones corporativas"
       },
       "galleryImages": [],
       "sku": "01-EXPO-0001",
@@ -32899,10 +32654,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/roll-up-personalizado"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/roll-ups"
           }
         ],
         "keywords": [
@@ -33000,7 +32751,7 @@
     },
     {
       "id": "131",
-      "updatedAt": "2026-05-03T09:16:48Z",
+      "updatedAt": "2026-05-05T11:55:40Z",
       "type": "producto",
       "slug": "sellos-de-goma-personalizados",
       "path": "/productos/sellos-de-goma-personalizados",
@@ -33092,7 +32843,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/sellos.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Sellos"
+        "alt": "Sellos de goma personalizados para oficina, documentación y gestión administrativa"
       },
       "galleryImages": [],
       "brand": "Repro Disseny",
@@ -33247,7 +32998,7 @@
     },
     {
       "id": "128",
-      "updatedAt": "2026-05-04T10:18:18Z",
+      "updatedAt": "2026-05-05T11:56:20Z",
       "type": "producto",
       "slug": "sobres-personalizados",
       "path": "/productos/sobres-personalizados",
@@ -33433,7 +33184,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/sobres.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Sobres"
+        "alt": "Sobres personalizados para papelería corporativa, envíos y comunicación de empresa"
       },
       "galleryImages": [],
       "brand": "Repro Disseny",
@@ -33622,7 +33373,7 @@
     },
     {
       "id": "92",
-      "updatedAt": "2026-05-03T09:16:45Z",
+      "updatedAt": "2026-05-05T12:12:11Z",
       "type": "producto",
       "slug": "stoppers-lineal-personalizados",
       "path": "/productos/stoppers-lineal-personalizados",
@@ -33714,7 +33465,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/stoppers.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Stoppers personalizados para lineal, promociones en tienda y punto de venta"
       },
       "galleryImages": [],
       "sku": "01-OFICI-00010",
@@ -33797,10 +33548,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/stoppers-lineal-personalizados"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/stoppers"
           }
         ],
         "keywords": [
@@ -33904,7 +33651,7 @@
     },
     {
       "id": "93",
-      "updatedAt": "2026-05-03T09:16:31Z",
+      "updatedAt": "2026-05-05T12:12:02Z",
       "type": "producto",
       "slug": "tabletens-personalizados",
       "path": "/productos/tabletens-personalizados",
@@ -33993,7 +33740,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/eventos/tabletents.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Tabletens personalizados de sobremesa para eventos, restaurantes y comunicación comercial"
       },
       "galleryImages": [],
       "sku": "01-EVEN-0014",
@@ -34076,10 +33823,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/tabletens-personalizados"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/tabletents"
           }
         ],
         "keywords": [
@@ -34177,7 +33920,7 @@
     },
     {
       "id": "130",
-      "updatedAt": "2026-05-04T10:33:48Z",
+      "updatedAt": "2026-05-05T12:51:05Z",
       "type": "producto",
       "slug": "talonarios-autocopiativos-personalizados",
       "path": "/productos/talonarios-autocopiativos-personalizados",
@@ -34367,7 +34110,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/talonarios-autocopiativos.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Talonarios autocopiativos"
+        "alt": "Talonarios autocopiativos personalizados para pedidos, albaranes y documentación comercial"
       },
       "galleryImages": [],
       "brand": "Repro Disseny",
@@ -34556,7 +34299,7 @@
     },
     {
       "id": "96",
-      "updatedAt": "2026-05-03T18:57:47Z",
+      "updatedAt": "2026-05-05T12:11:41Z",
       "type": "producto",
       "slug": "tarjetas-pvc-personalizadas",
       "path": "/productos/tarjetas-pvc-personalizadas",
@@ -34648,7 +34391,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/tarjetasdepvc.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Tarjetas de PVC personalizadas para fidelización, acreditación y acceso"
       },
       "galleryImages": [],
       "sku": "01-OFICI-0013",
@@ -34738,10 +34481,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/tarjetas-pvc-personalizadas"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/tarjetas-pvc"
           }
         ],
         "keywords": [
@@ -34845,7 +34584,7 @@
     },
     {
       "id": "125",
-      "updatedAt": "2026-05-04T10:50:51Z",
+      "updatedAt": "2026-05-05T11:57:07Z",
       "type": "producto",
       "slug": "tarjetas-de-visita-personalizadas",
       "path": "/productos/tarjetas-de-visita-personalizadas",
@@ -35039,7 +34778,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/tarjetas-de-visita.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Tarjetas de visita"
+        "alt": "Tarjetas de visita personalizadas para imagen corporativa y presentación profesional"
       },
       "galleryImages": [],
       "brand": "Repro Disseny",
@@ -35217,7 +34956,7 @@
     },
     {
       "id": "95",
-      "updatedAt": "2026-05-03T09:16:44Z",
+      "updatedAt": "2026-05-05T12:12:00Z",
       "type": "producto",
       "slug": "tarjetas-postales-personalizadas",
       "path": "/productos/tarjetas-postales-personalizadas",
@@ -35309,7 +35048,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/tarjetas-postales.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Tarjetas postales personalizadas para campañas, invitaciones y comunicación de marca"
       },
       "galleryImages": [],
       "sku": "01-OFICI-0007",
@@ -35393,10 +35132,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/tarjetas-postales-personalizadas"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/tarjetas-postales"
           }
         ],
         "keywords": [
@@ -35500,7 +35235,7 @@
     },
     {
       "id": "97",
-      "updatedAt": "2026-05-03T09:16:30Z",
+      "updatedAt": "2026-05-05T12:10:45Z",
       "type": "producto",
       "slug": "tarjetas-rasca",
       "path": "/productos/tarjetas-rasca",
@@ -35589,7 +35324,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/eventos/tarjeta-rasca.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Tarjetas rasca personalizadas para promociones, sorteos y campañas comerciales"
       },
       "galleryImages": [],
       "sku": "01-EVEN-0009",
@@ -35706,10 +35441,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/tarjetas-rasca"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/tarjetas-rasca"
           }
         ],
         "keywords": [
@@ -35807,7 +35538,7 @@
     },
     {
       "id": "100",
-      "updatedAt": "2026-05-03T09:16:48Z",
+      "updatedAt": "2026-05-05T12:00:18Z",
       "type": "producto",
       "slug": "tazas-personalizadas-empresa",
       "path": "/productos/tazas-personalizadas-empresa",
@@ -35899,7 +35630,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/tazas.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Tazas personalizadas corporativas para regalos de empresa, oficinas y merchandising"
       },
       "galleryImages": [],
       "sku": "01-OFICI-0027",
@@ -35956,10 +35687,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/tazas-personalizadas-empresa"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/tazas"
           }
         ],
         "keywords": [
@@ -36063,7 +35790,7 @@
     },
     {
       "id": "102",
-      "updatedAt": "2026-05-03T09:16:32Z",
+      "updatedAt": "2026-05-05T12:00:03Z",
       "type": "producto",
       "slug": "textil-reposacabezas-personalizado",
       "path": "/productos/textil-reposacabezas-personalizado",
@@ -36151,7 +35878,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/eventos/textil-reposacabezas.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Textil reposacabezas personalizado para transporte, eventos y comunicación de marca"
       },
       "galleryImages": [],
       "sku": "01-EVEN-0015",
@@ -36216,10 +35943,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/textil-reposacabezas-personalizado"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/textil-cabezas"
           }
         ],
         "keywords": [
@@ -36317,7 +36040,7 @@
     },
     {
       "id": "103",
-      "updatedAt": "2026-05-03T09:16:45Z",
+      "updatedAt": "2026-05-05T11:59:41Z",
       "type": "producto",
       "slug": "tiras-de-lineal-personalizadas",
       "path": "/productos/tiras-de-lineal-personalizadas",
@@ -36409,7 +36132,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/tira-lineal.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Tiras de lineal personalizadas para promociones, retail y señalización de producto"
       },
       "galleryImages": [],
       "sku": "01-OFICI-0014",
@@ -36489,10 +36212,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/tiras-de-lineal-personalizadas"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/tiras-lineal"
           }
         ],
         "keywords": [
@@ -36596,7 +36315,7 @@
     },
     {
       "id": "104",
-      "updatedAt": "2026-05-03T09:16:33Z",
+      "updatedAt": "2026-05-05T11:59:28Z",
       "type": "producto",
       "slug": "totems-publicitarios-personalizados",
       "path": "/productos/totems-publicitarios-personalizados",
@@ -36684,7 +36403,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/expositores/totem.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Tótems publicitarios personalizados para ferias, retail y comunicación de gran formato"
       },
       "galleryImages": [],
       "sku": "01-EXPO-0003",
@@ -36766,10 +36485,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/totems-publicitarios-personalizados"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/totems"
           }
         ],
         "keywords": [
@@ -36867,7 +36582,7 @@
     },
     {
       "id": "144",
-      "updatedAt": "2026-05-03T09:16:51Z",
+      "updatedAt": "2026-05-05T11:20:04Z",
       "type": "producto",
       "slug": "urna",
       "path": "/productos/urna",
@@ -36955,7 +36670,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/packaging/urna.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Urna"
+        "alt": "Urna personalizada de cartón para sorteos, eventos y campañas promocionales"
       },
       "galleryImages": [],
       "brand": "Repro Disseny",
@@ -37114,7 +36829,7 @@
     },
     {
       "id": "116",
-      "updatedAt": "2026-05-03T09:16:36Z",
+      "updatedAt": "2026-05-05T11:58:20Z",
       "type": "producto",
       "slug": "vinilo-de-corte",
       "path": "/productos/vinilo-de-corte",
@@ -37206,7 +36921,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-de-corte.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Vinilo de corte"
+        "alt": "Vinilo de corte personalizado para rótulos, escaparates y señalización corporativa"
       },
       "galleryImages": [],
       "brand": "Repro Disseny",
@@ -37332,7 +37047,7 @@
     },
     {
       "id": "115",
-      "updatedAt": "2026-05-05T08:49:36Z",
+      "updatedAt": "2026-05-05T11:58:28Z",
       "type": "producto",
       "slug": "vinilo-para-cristal",
       "path": "/productos/vinilo-para-cristal",
@@ -37424,7 +37139,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-cristal.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Vinilo para cristal"
+        "alt": "Vinilo para cristal personalizado para escaparates, oficinas y campañas temporales"
       },
       "galleryImages": [],
       "brand": "Repro Disseny",
@@ -37598,7 +37313,7 @@
     },
     {
       "id": "119",
-      "updatedAt": "2026-05-05T08:51:45Z",
+      "updatedAt": "2026-05-05T11:57:38Z",
       "type": "producto",
       "slug": "vinilo-pizarra",
       "path": "/productos/vinilo-pizarra",
@@ -37690,7 +37405,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-pizarra.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Vinilo pizarra"
+        "alt": "Vinilo para pizarra escribible personalizado para oficinas, tiendas y espacios educativos"
       },
       "galleryImages": [],
       "brand": "Repro Disseny",
@@ -37816,7 +37531,7 @@
     },
     {
       "id": "117",
-      "updatedAt": "2026-05-05T08:50:07Z",
+      "updatedAt": "2026-05-05T11:58:10Z",
       "type": "producto",
       "slug": "vinilo-suelo-personalizado",
       "path": "/productos/vinilo-suelo-personalizado",
@@ -37908,7 +37623,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-para-suelo.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Vinilo para suelo"
+        "alt": "Vinilo para suelo personalizado para señalización, campañas y recorridos comerciales"
       },
       "galleryImages": [],
       "brand": "Repro Disseny",
@@ -38034,7 +37749,7 @@
     },
     {
       "id": "118",
-      "updatedAt": "2026-05-05T08:51:20Z",
+      "updatedAt": "2026-05-05T11:57:56Z",
       "type": "producto",
       "slug": "vinilo-vehiculos-personalizado",
       "path": "/productos/vinilo-vehiculos-personalizado",
@@ -38126,7 +37841,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-para-vehiculos.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Vinilo para vehículos"
+        "alt": "Vinilo para vehículos personalizado para rotulación, branding y flotas corporativas"
       },
       "galleryImages": [],
       "brand": "Repro Disseny",
@@ -38252,7 +37967,7 @@
     },
     {
       "id": "114",
-      "updatedAt": "2026-05-03T09:16:36Z",
+      "updatedAt": "2026-05-05T11:58:55Z",
       "type": "producto",
       "slug": "vinilos-superficies-planas",
       "path": "/productos/vinilos-superficies-planas",
@@ -38344,7 +38059,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-para-superficies-planas.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Vinilos para superficies planas"
+        "alt": "Vinilos para pared y superficies planas personalizados para decoración y señalización"
       },
       "galleryImages": [],
       "brand": "Repro Disseny",
@@ -38518,7 +38233,7 @@
     },
     {
       "id": "11",
-      "updatedAt": "2026-05-04T09:21:23Z",
+      "updatedAt": "2026-05-05T11:37:47Z",
       "type": "producto",
       "slug": "xbanner-personalizado",
       "path": "/productos/xbanner-personalizado",
@@ -38606,7 +38321,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/expositores/xbanner.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "X-Banner personalizado con gráfica impresa para ferias, tiendas y presentaciones"
       },
       "galleryImages": [],
       "sku": "01-EXPO-0002",
@@ -38687,10 +38402,6 @@
           {
             "lang": "es-ES",
             "url": "https://reprodisseny.com/productos/xbanner-personalizado"
-          },
-          {
-            "lang": "ca-ES",
-            "url": "https://reprodisseny.com/productos/banner"
           }
         ],
         "keywords": [
