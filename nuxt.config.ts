@@ -1,13 +1,63 @@
 // nuxt.config.ts
-import { defineNuxtConfig } from "nuxt/config"
+import { defineNuxtConfig } from "nuxt/config";
 
-const siteUrl = process.env.NUXT_PUBLIC_SITE_URL || "http://localhost:3000"
+const siteUrl = process.env.NUXT_PUBLIC_SITE_URL || "https://reprodisseny.com";
 
 export default defineNuxtConfig({
-    experimental: {
-  payloadExtraction: process.env.NODE_ENV === "production",
-  appManifest: false,
-},
+  experimental: {
+    payloadExtraction: process.env.NODE_ENV === "production",
+    appManifest: false,
+  },
+
+  /**
+   * SEO base config.
+   * Este valor alimenta sitemap, robots, canonicals auxiliares, OG y módulos SEO.
+   */
+  site: {
+    url: siteUrl,
+    name: "Repro Disseny",
+    description:
+      "Impresión profesional en Cataluña: gran formato, PLV, vinilos, calendarios, packaging y material corporativo con asesoramiento experto.",
+    defaultLocale: "es",
+    trailingSlash: false,
+    indexable: process.env.NODE_ENV === "production",
+  },
+
+  /**
+   * Sitemap dinámico.
+   * Usa las rutas reales generadas desde cms/routes.json mediante:
+   * server/api/__sitemap__/urls.ts
+   */
+  sitemap: {
+    sources: ["/api/__sitemap__/urls"],
+    exclude: [
+      "/admin",
+      "/admin/**",
+      "/api",
+      "/api/**",
+      "/panel",
+      "/panel/**",
+      "/gracias",
+    ],
+  },
+
+  /**
+   * Robots.
+   * No bloqueamos recursos públicos, CSS, JS ni _nuxt.
+   * Solo bloqueamos zonas internas o sin valor SEO.
+   */
+  robots: {
+    disallow: [
+      "/admin",
+      "/admin/",
+      "/api",
+      "/api/",
+      "/panel",
+      "/panel/",
+      "/gracias",
+    ],
+    sitemap: `${siteUrl}/sitemap.xml`,
+  },
 
   runtimeConfig: {
     mail: {
@@ -67,15 +117,13 @@ export default defineNuxtConfig({
             "",
 
           libraryName:
-            process.env.CRM_ATTACHMENTS_LIBRARY_NAME ||
-            "AssetsProducts",
+            process.env.CRM_ATTACHMENTS_LIBRARY_NAME || "AssetsProducts",
 
           baseFolder:
-            process.env.CRM_ATTACHMENTS_BASE_FOLDER ||
-            "price-requests",
+            process.env.CRM_ATTACHMENTS_BASE_FOLDER || "price-requests",
 
           maxFileBytes: Number(
-            process.env.CRM_ATTACHMENTS_MAX_FILE_BYTES || 26214400
+            process.env.CRM_ATTACHMENTS_MAX_FILE_BYTES || 26214400,
           ),
 
           allowedMimeTypes: (
@@ -183,14 +231,14 @@ export default defineNuxtConfig({
         process.env.PR_ATTRIBUTES_FIELD ||
         "",
 
-      requestKeyField:
-        process.env.CRM_PR_REQUEST_KEY_FIELD || "RequestKey",
+      requestKeyField: process.env.CRM_PR_REQUEST_KEY_FIELD || "RequestKey",
 
       hasAttachmentField:
         process.env.CRM_PR_HAS_ATTACHMENT_FIELD || "HasAttachment",
 
       primaryFileDriveItemIdField:
-        process.env.CRM_PR_PRIMARY_FILE_DRIVE_ITEM_ID_FIELD || "PrimaryFileDriveItemId",
+        process.env.CRM_PR_PRIMARY_FILE_DRIVE_ITEM_ID_FIELD ||
+        "PrimaryFileDriveItemId",
 
       primaryFileWebUrlField:
         process.env.CRM_PR_PRIMARY_FILE_WEB_URL_FIELD || "PrimaryFileWebUrl",
@@ -199,22 +247,27 @@ export default defineNuxtConfig({
         process.env.CRM_PR_PRIMARY_FILE_NAME_FIELD || "PrimaryFileName",
 
       primaryFileMimeTypeField:
-        process.env.CRM_PR_PRIMARY_FILE_MIME_TYPE_FIELD || "PrimaryFileMimeType",
+        process.env.CRM_PR_PRIMARY_FILE_MIME_TYPE_FIELD ||
+        "PrimaryFileMimeType",
 
       primaryFileSizeField:
         process.env.CRM_PR_PRIMARY_FILE_SIZE_FIELD || "PrimaryFileSize",
     },
 
     googleMaps: {
-      apiKey: process.env.NUXT_GOOGLE_MAPS_API_KEY || process.env.GOOGLE_MAPS_API_KEY || "",
+      apiKey:
+        process.env.NUXT_GOOGLE_MAPS_API_KEY ||
+        process.env.GOOGLE_MAPS_API_KEY ||
+        "",
     },
-    
+
     public: {
-      baseURL: process.env.NUXT_PUBLIC_BASE_URL || "http://localhost:3000",
+      baseURL: process.env.NUXT_PUBLIC_BASE_URL || siteUrl,
+      siteUrl,
       mediaBaseUrl:
         process.env.NUXT_PUBLIC_MEDIA_BASE_URL ||
         "https://webcms.blob.core.windows.net/media",
-    
+
       googleMaps: {
         placeId:
           process.env.NUXT_PUBLIC_GOOGLE_MAPS_PLACE_ID ||
@@ -223,6 +276,7 @@ export default defineNuxtConfig({
       },
     },
   },
+
   appConfig: {
     brand: { logoUrl: "/img/logo/reprodisseny.svg" },
   },
@@ -244,14 +298,11 @@ export default defineNuxtConfig({
 
   css: ["@/assets/styles/main.scss"],
 
-
   image: {
     provider: "ipx",
     domains: ["webcms.blob.core.windows.net"],
   },
 
-
-  
   shadcn: {
     prefix: "",
     componentDir: "components/ui",
@@ -260,20 +311,26 @@ export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: { lang: "es" },
-      titleTemplate: "%s · Reprodisseny",
+      titleTemplate: "%s · Repro Disseny",
       title: "Impresión profesional en Cataluña",
       meta: [
         { name: "viewport", content: "width=device-width, initial-scale=1" },
         {
           name: "description",
           content:
-            "Impresión profesional en Cataluña: gran formato, PLV, vinilos, calendarios y más, con asesoramiento experto.",
+            "Impresión profesional en Cataluña: gran formato, PLV, vinilos, calendarios, packaging y material corporativo con asesoramiento experto.",
         },
-        { property: "og:site_name", content: "Reprodisseny" },
+        { property: "og:site_name", content: "Repro Disseny" },
         { property: "og:type", content: "website" },
-        { property: "og:image", content: `${siteUrl}/img/logo/reprodisseny.svg` },
+        {
+          property: "og:image",
+          content: `${siteUrl}/img/logo/reprodisseny.svg`,
+        },
         { name: "twitter:card", content: "summary_large_image" },
-        { name: "twitter:image", content: `${siteUrl}/img/logo/reprodisseny.svg` },
+        {
+          name: "twitter:image",
+          content: `${siteUrl}/img/logo/reprodisseny.svg`,
+        },
         { name: "theme-color", content: "#111827" },
         { name: "format-detection", content: "telephone=no" },
       ],
@@ -300,10 +357,18 @@ export default defineNuxtConfig({
 
   routeRules: {
     "/categorias/**": { isr: 600 },
-    "/api/categorias/**": { swr: 300 },
     "/productos/**": { isr: 600 },
-    "/api/productos/**": { swr: 300 },
-    "/img/logo.svg": { redirect: { to: "/img/logo/reprodisseny.svg", statusCode: 301 } },
+  
+    "/api/**": {
+      swr: 300,
+      robots: false,
+    },
+  
+    "/admin": { robots: false },
+    "/admin/**": { robots: false },
+    "/panel": { robots: false },
+    "/panel/**": { robots: false },
+    "/gracias": { robots: false },
   },
 
   nitro: {
@@ -313,7 +378,7 @@ export default defineNuxtConfig({
         dir: "./cms",
       },
     ],
-  
+
     prerender: {
       failOnError: false,
     },
@@ -321,4 +386,4 @@ export default defineNuxtConfig({
 
   compatibilityDate: "2025-06-01",
   devtools: { enabled: false },
-})
+});

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-05T17:15:54.683Z",
+  "generatedAt": "2026-05-05T17:41:25.273Z",
   "categories": [
     {
       "id": "12",
@@ -861,7 +861,7 @@
     },
     {
       "id": "11",
-      "updatedAt": "2026-05-05T17:14:57Z",
+      "updatedAt": "2026-05-05T17:37:09Z",
       "type": "subcategoria",
       "slug": "material-publicitario",
       "path": "/categorias/publicidad-oficina/material-publicitario",
@@ -1026,31 +1026,34 @@
           }
         ],
         "keywords": [
-          "publicidad impresa",
           "material publicitario impreso",
-          "papelería corporativa",
-          "material de oficina personalizado",
           "flyers personalizados",
           "folletos plegados",
-          "tarjetas de visita personalizadas",
-          "carpetas corporativas",
+          "posters personalizados",
           "displays de mesa",
-          "material para punto de venta"
+          "stoppers de lineal",
+          "banderolas de lineal",
+          "tarjetas promocionales",
+          "material para punto de venta",
+          "publicidad impresa para empresas"
         ],
         "searchTerms": [
-          "imprenta publicidad barcelona",
-          "publicidad impresa barcelona",
           "material publicitario",
-          "material oficina personalizado",
-          "papelería corporativa",
+          "publicidad impresa",
           "flyers personalizados",
           "folletos personalizados",
-          "tarjetas de visita personalizadas",
-          "carpetas de presentación",
+          "folletos plegados",
+          "posters personalizados",
           "displays punto de venta",
+          "displays de mesa",
           "stoppers lineal",
-          "sellos de goma",
-          "talonarios autocopiativos"
+          "banderolas lineal",
+          "tarjetas rasca",
+          "tarjetas pvc personalizadas",
+          "imanes publicitarios",
+          "puntos de libro personalizados",
+          "material promocional para empresas",
+          "imprenta publicidad barcelona"
         ],
         "schema": {
           "@context": "https://schema.org",
@@ -2740,7 +2743,7 @@
     },
     {
       "id": "9",
-      "updatedAt": "2026-05-05T16:53:47Z",
+      "updatedAt": "2026-05-05T17:36:29Z",
       "type": "categoria",
       "slug": "publicidad-oficina",
       "path": "/categorias/publicidad-oficina",
@@ -2937,10 +2940,31 @@
           }
         ],
         "keywords": [
-          "\"impresión de revistas\""
+          "publicidad impresa",
+          "material publicitario impreso",
+          "papelería corporativa",
+          "material de oficina personalizado",
+          "flyers personalizados",
+          "folletos plegados",
+          "tarjetas de visita personalizadas",
+          "carpetas corporativas",
+          "displays de mesa",
+          "material para punto de venta"
         ],
         "searchTerms": [
-          "\"libros personalizados\""
+          "imprenta publicidad barcelona",
+          "publicidad impresa barcelona",
+          "material publicitario",
+          "material oficina personalizado",
+          "papelería corporativa",
+          "flyers personalizados",
+          "folletos personalizados",
+          "tarjetas de visita personalizadas",
+          "carpetas de presentación",
+          "displays punto de venta",
+          "stoppers lineal",
+          "sellos de goma",
+          "talonarios autocopiativos"
         ],
         "schema": {
           "@context": "https://schema.org",
@@ -11475,7 +11499,7 @@
     },
     {
       "id": "17",
-      "updatedAt": "2026-05-05T16:14:59Z",
+      "updatedAt": "2026-05-05T17:40:28Z",
       "type": "producto",
       "slug": "cartas-restaurante-personalizadas",
       "path": "/productos/cartas-restaurante-personalizadas",
@@ -11641,7 +11665,7 @@
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Cartas de restaurante personalizadas | Repro Disseny",
-        "metaDescription": "Flyers con forma troquelados para publicidad y eventos. Corte a medida, impresión a color y acabados profesionales.",
+        "metaDescription": "Cartas de restaurante personalizadas para bares, restaurantes y hoteles. Impresión profesional con acabados resistentes y formatos a medida. Pide presupuesto.",
         "canonical": "https://reprodisseny.com/productos/cartas-restaurante-personalizadas",
         "hreflang": [
           {
@@ -11661,7 +11685,7 @@
             {
               "@type": "Product",
               "name": "Cartas de restaurante personalizadas",
-              "description": "Flyers con forma troquelados para publicidad y eventos. Corte a medida, impresión a color y acabados profesionales.",
+              "description": "Cartas de restaurante personalizadas para bares, restaurantes y hoteles. Impresión profesional con acabados resistentes y formatos a medida. Pide presupuesto.",
               "image": "https://webcms.blob.core.windows.net/media/product/restauracion/cartas-restaurante.webp",
               "url": "https://reprodisseny.com/productos/cartas-restaurante-personalizadas",
               "brand": {
