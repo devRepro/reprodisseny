@@ -359,16 +359,21 @@ export default defineNuxtConfig({
     "/categorias/**": { isr: 600 },
     "/productos/**": { isr: 600 },
   
+    // APIs: no cache global. Solo fuera de robots/sitemap.
     "/api/**": {
-      swr: 300,
       robots: false,
     },
   
+    // Zonas internas / sin valor SEO
     "/admin": { robots: false },
     "/admin/**": { robots: false },
     "/panel": { robots: false },
     "/panel/**": { robots: false },
     "/gracias": { robots: false },
+  
+    "/img/logo.svg": {
+      redirect: { to: "/img/logo/reprodisseny.svg", statusCode: 301 },
+    },
   },
 
   nitro: {
