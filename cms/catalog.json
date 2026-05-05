@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-04T12:57:06.725Z",
+  "generatedAt": "2026-05-05T09:10:31.326Z",
   "categories": [
     {
       "id": "12",
@@ -5952,7 +5952,7 @@
     },
     {
       "id": "8",
-      "updatedAt": "2026-05-04T07:51:26Z",
+      "updatedAt": "2026-05-05T08:47:38Z",
       "type": "producto",
       "slug": "banderolas-lineal-personalizadas",
       "path": "/productos/banderolas-lineal-personalizadas",
@@ -6028,6 +6028,7 @@
           "kind": "finishes",
           "contentFormat": "json",
           "finishesData": {
+            "intro": "Acabados disponibles para adaptar la banderola al uso en punto de venta, lineal o campaña promocional.",
             "finishes": [
               {
                 "title": "Corte a medida o troquelado",
@@ -18333,7 +18334,7 @@
     },
     {
       "id": "37",
-      "updatedAt": "2026-05-03T09:16:29Z",
+      "updatedAt": "2026-05-05T09:09:45Z",
       "type": "producto",
       "slug": "etiquetas-doming",
       "path": "/productos/etiquetas-doming",
@@ -18346,7 +18347,7 @@
       "isPublished": true,
       "shortDescription": "Las etiquetas doming (gota de resina) aportan un acabado 3D brillante y táctil que eleva la percepción de marca desde el primer vistazo. Son ideales para logos, identificaciones y personalización de producto cuando buscas un resultado premium y resistente.",
       "description": "Las etiquetas doming (gota de resina) aportan un acabado 3D brillante y táctil que eleva la percepción de marca desde el primer vistazo. Son ideales para logos, identificaciones y personalización de producto cuando buscas un resultado premium y resistente.",
-      "bodyMd": "Las etiquetas adhesivas con gota de resina (doming) son adhesivos que incorporan una capa transparente de resina de poliuretano en forma de cúpula. Ese volumen aporta más brillo, profundidad y presencia, destacando logotipos y gráficos de forma muy visible.  \nSe utilizan en multitud de soportes para branding, identificación, personalización o señalización, especialmente cuando se quiere un acabado superior a una etiqueta convencional.",
+      "bodyMd": "### ¿Qué son las etiquetas adhesivas doming?\n\nLas etiquetas adhesivas con gota de resina, también conocidas como etiquetas doming, son adhesivos que incorporan una capa transparente de resina de poliuretano en forma de cúpula. Ese volumen aporta más brillo, profundidad y presencia, destacando logotipos y gráficos de forma muy visible.\n\nSe utilizan en multitud de soportes para branding, identificación, personalización o señalización, especialmente cuando se quiere un acabado superior a una etiqueta convencional. Son una buena opción para marcas que buscan una etiqueta resistente, con tacto premium y mayor impacto visual que una pegatina plana.",
       "sections": [
         {
           "id": "details",
@@ -18354,7 +18355,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "Las etiquetas adhesivas con gota de resina (doming) son adhesivos que incorporan una capa transparente de resina de poliuretano en forma de cúpula. Ese volumen aporta más brillo, profundidad y presencia, destacando logotipos y gráficos de forma muy visible.  \nSe utilizan en multitud de soportes para branding, identificación, personalización o señalización, especialmente cuando se quiere un acabado superior a una etiqueta convencional."
+          "body": "### ¿Qué son las etiquetas adhesivas doming?\n\nLas etiquetas adhesivas con gota de resina, también conocidas como etiquetas doming, son adhesivos que incorporan una capa transparente de resina de poliuretano en forma de cúpula. Ese volumen aporta más brillo, profundidad y presencia, destacando logotipos y gráficos de forma muy visible.\n\nSe utilizan en multitud de soportes para branding, identificación, personalización o señalización, especialmente cuando se quiere un acabado superior a una etiqueta convencional. Son una buena opción para marcas que buscan una etiqueta resistente, con tacto premium y mayor impacto visual que una pegatina plana."
         },
         {
           "id": "benefits",
@@ -18362,7 +18363,7 @@
           "title": "Beneficios",
           "kind": "benefits",
           "contentFormat": "markdown",
-          "body": "Alta resistencia: la resina protege frente a abrasión, tracción y agentes químicos.  \nDurabilidad: una vez solidificada, mantiene su forma sin retraerse ni deformarse.  \nAcabado premium: mejora la nitidez y añade un tacto atractivo y profesional.  \nVisibilidad mejorada: el efecto cúpula ayuda a resaltar el logotipo y elementos de marca.  \nDiferenciación real: aporta un resultado tridimensional y más “premium” que una etiqueta plana."
+          "body": "- **Alta resistencia:** la resina protege frente a abrasión, tracción y agentes químicos.\n- **Durabilidad:** una vez solidificada, mantiene su forma sin retraerse ni deformarse.\n- **Acabado premium:** mejora la nitidez y añade un tacto atractivo y profesional.\n- **Visibilidad mejorada:** el efecto cúpula ayuda a resaltar el logotipo y los elementos de marca.\n- **Diferenciación real:** aporta un resultado tridimensional y más premium que una etiqueta plana."
         },
         {
           "id": "technical-specs",
@@ -18370,7 +18371,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Para asegurar un doming perfecto (bonito y duradero), hay algunas consideraciones importantes: \nCantidad mínima: a partir de 50 unidades.  \nTamaño disponible: desde 11 mm hasta 300 mm.  \nImpresión: a una cara en cuatricromía.  \nCorte: puede ser recto o con forma.  \nLimitaciones de troquel: en doming no se admiten troqueles interiores y los ángulos deben respetar un radio mínimo de 4 mm (para que la resina asiente correctamente).  \nResina: capa aproximada de 2 mm de poliuretano transparente (efecto cúpula).  \nConsejo práctico: si el diseño tiene esquinas muy marcadas, conviene redondearlas para que el acabado sea más limpio y duradero."
+          "body": "### Producción\n\n- **Cantidad mínima:** a partir de 50 unidades.\n- **Tamaño disponible:** desde 11 mm hasta 300 mm.\n- **Impresión:** a una cara en cuatricromía.\n- **Corte:** puede ser recto o con forma.\n\n### Resina y acabado\n\n- **Tipo de resina:** capa aproximada de 2 mm de poliuretano transparente con efecto cúpula.\n- **Aspecto final:** acabado brillante, con volumen, profundidad visual y tacto tridimensional.\n- **Durabilidad:** la resina queda solidificada y ayuda a proteger la impresión frente al uso, el roce y agentes externos.\n\n### Limitaciones técnicas\n\n- **Troqueles interiores:** en doming no se admiten troqueles interiores.\n- **Ángulos y esquinas:** los ángulos deben respetar un radio mínimo de 4 mm para que la resina asiente correctamente.\n- **Diseños con esquinas marcadas:** conviene redondearlas para conseguir un acabado más limpio, estable y duradero."
         },
         {
           "id": "applications",
@@ -18378,7 +18379,7 @@
           "title": "Aplicaciones",
           "kind": "applications",
           "contentFormat": "markdown",
-          "body": "Merchandising y artículos promocionales: gadgets, insignias, piezas personalizadas.  \nElectrónica: identificación de equipos, placas frontales o componentes.  \nAutomoción: logotipos y señalización en piezas y accesorios.  \nIndustrial y maquinaria: placas identificativas y etiquetado robusto, incluso en exteriores.  \nBranding en producto y packaging especial: cuando el acabado debe “hablar” de calidad."
+          "body": "- **Merchandising y artículos promocionales:** ideal para gadgets, insignias, piezas personalizadas y regalos de marca.\n- **Electrónica:** útil para identificación de equipos, placas frontales, componentes y elementos técnicos.\n- **Automoción:** recomendado para logotipos, señalización en piezas, accesorios y elementos identificativos.\n- **Industria y maquinaria:** adecuado para placas identificativas y etiquetado robusto, incluso en exteriores.\n- **Branding en producto y packaging especial:** perfecto cuando el acabado debe transmitir calidad y reforzar la percepción de marca."
         }
       ],
       "faqs": [
@@ -37331,7 +37332,7 @@
     },
     {
       "id": "115",
-      "updatedAt": "2026-05-03T09:16:36Z",
+      "updatedAt": "2026-05-05T08:49:36Z",
       "type": "producto",
       "slug": "vinilo-para-cristal",
       "path": "/productos/vinilo-para-cristal",
@@ -37382,19 +37383,19 @@
       "faqs": [
         {
           "question": "¿Qué vinilo es mejor para escaparate: microperforado o transparente?",
-          "answer": "epende del objetivo: el microperforado permite ver desde dentro y es muy usado en escaparate; el transparente es ideal si quieres un diseño más"
+          "answer": "Depende del objetivo: el microperforado permite ver desde dentro y es muy usado en escaparates; el transparente es ideal si quieres un diseño más limpio, con máxima entrada de luz o gráfica aplicada directamente sobre el cristal."
         },
         {
           "question": "¿Se puede hacer privacidad en mamparas sin oscurecer?",
-          "answer": "í, el vinilo al ácido da privacidad manteniendo la entrada de luz y queda muy elegante."
+          "answer": "Sí, el vinilo al ácido da privacidad manteniendo la entrada de luz y ofrece un acabado elegante para oficinas, salas de reunión, clínicas o espacios comerciales."
         },
         {
           "question": "¿Removible o permanente?",
-          "answer": "emovible para campañas y promociones temporales; permanente para rotulación fija (marca, horarios, señalética)."
+          "answer": "Removible para campañas, promociones temporales o cambios frecuentes; permanente para rotulación fija, marca, horarios, señalética o aplicaciones de larga duración."
         },
         {
           "question": "¿Podéis adaptarlo a medidas grandes?",
-          "answer": "í, se produce por paños y se planifica el montaje para que las uniones queden lo más discretas posible."
+          "answer": "Sí, se produce por paños y se planifica el montaje para que las uniones queden lo más discretas posible, especialmente en escaparates, cristaleras y superficies amplias."
         }
       ],
       "breadcrumbs": [
@@ -37560,7 +37561,7 @@
                   "name": "¿Qué vinilo es mejor para escaparate: microperforado o transparente?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "epende del objetivo: el microperforado permite ver desde dentro y es muy usado en escaparate; el transparente es ideal si quieres un diseño más"
+                    "text": "Depende del objetivo: el microperforado permite ver desde dentro y es muy usado en escaparates; el transparente es ideal si quieres un diseño más limpio, con máxima entrada de luz o gráfica aplicada directamente sobre el cristal."
                   }
                 },
                 {
@@ -37568,7 +37569,7 @@
                   "name": "¿Se puede hacer privacidad en mamparas sin oscurecer?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "í, el vinilo al ácido da privacidad manteniendo la entrada de luz y queda muy elegante."
+                    "text": "Sí, el vinilo al ácido da privacidad manteniendo la entrada de luz y ofrece un acabado elegante para oficinas, salas de reunión, clínicas o espacios comerciales."
                   }
                 },
                 {
@@ -37576,7 +37577,7 @@
                   "name": "¿Removible o permanente?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "emovible para campañas y promociones temporales; permanente para rotulación fija (marca, horarios, señalética)."
+                    "text": "Removible para campañas, promociones temporales o cambios frecuentes; permanente para rotulación fija, marca, horarios, señalética o aplicaciones de larga duración."
                   }
                 },
                 {
@@ -37584,7 +37585,7 @@
                   "name": "¿Podéis adaptarlo a medidas grandes?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "í, se produce por paños y se planifica el montaje para que las uniones queden lo más discretas posible."
+                    "text": "Sí, se produce por paños y se planifica el montaje para que las uniones queden lo más discretas posible, especialmente en escaparates, cristaleras y superficies amplias."
                   }
                 }
               ]
@@ -37597,7 +37598,7 @@
     },
     {
       "id": "119",
-      "updatedAt": "2026-05-04T07:51:59Z",
+      "updatedAt": "2026-05-05T08:51:45Z",
       "type": "producto",
       "slug": "vinilo-pizarra",
       "path": "/productos/vinilo-pizarra",
@@ -37648,15 +37649,19 @@
       "faqs": [
         {
           "question": "¿Se puede poner sobre cualquier pared?",
-          "answer": "unciona mejor en superficies lisas. En paredes con textura (gotele) o pintura muy porosa, conviene valorar alternativas o hacer una prueba. También podemos aplacarlo sobre un panel sólido como forex, Dibon, plancha metálica y fijarla a cualquier pared."
+          "answer": "Funciona mejor en superficies lisas. En paredes con textura, gotelé o pintura muy porosa, conviene valorar alternativas o hacer una prueba. También podemos aplacarlo sobre un panel sólido como Forex, Dibond o plancha metálica y fijarlo a cualquier pared."
+        },
+        {
+          "question": "¿Se escribe con tiza o con rotulador?",
+          "answer": "Depende del material elegido. Podemos plantearlo para uso con tiza tradicional o con rotuladores tipo pizarra, según el acabado, la frecuencia de uso y la facilidad de limpieza que necesites."
         },
         {
           "question": "¿Se puede hacer a medida para una zona concreta?",
-          "answer": "í, lo fabricamos a medida y también podemos troquelarlo con formas personalizadas."
+          "answer": "Sí, lo fabricamos a medida y también podemos troquelarlo con formas personalizadas."
         },
         {
           "question": "¿Se puede quitar?",
-          "answer": "epende del adhesivo y del tiempo de uso. Si necesitas una solución temporal, lo planteamos con la opción más adecuada."
+          "answer": "Depende del adhesivo, la superficie y el tiempo de uso. Si necesitas una solución temporal, lo planteamos con la opción más adecuada."
         }
       ],
       "breadcrumbs": [
@@ -37774,7 +37779,15 @@
                   "name": "¿Se puede poner sobre cualquier pared?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "unciona mejor en superficies lisas. En paredes con textura (gotele) o pintura muy porosa, conviene valorar alternativas o hacer una prueba. También podemos aplacarlo sobre un panel sólido como forex, Dibon, plancha metálica y fijarla a cualquier pared."
+                    "text": "Funciona mejor en superficies lisas. En paredes con textura, gotelé o pintura muy porosa, conviene valorar alternativas o hacer una prueba. También podemos aplacarlo sobre un panel sólido como Forex, Dibond o plancha metálica y fijarlo a cualquier pared."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Se escribe con tiza o con rotulador?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Depende del material elegido. Podemos plantearlo para uso con tiza tradicional o con rotuladores tipo pizarra, según el acabado, la frecuencia de uso y la facilidad de limpieza que necesites."
                   }
                 },
                 {
@@ -37782,7 +37795,7 @@
                   "name": "¿Se puede hacer a medida para una zona concreta?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "í, lo fabricamos a medida y también podemos troquelarlo con formas personalizadas."
+                    "text": "Sí, lo fabricamos a medida y también podemos troquelarlo con formas personalizadas."
                   }
                 },
                 {
@@ -37790,7 +37803,7 @@
                   "name": "¿Se puede quitar?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "epende del adhesivo y del tiempo de uso. Si necesitas una solución temporal, lo planteamos con la opción más adecuada."
+                    "text": "Depende del adhesivo, la superficie y el tiempo de uso. Si necesitas una solución temporal, lo planteamos con la opción más adecuada."
                   }
                 }
               ]
@@ -37803,7 +37816,7 @@
     },
     {
       "id": "117",
-      "updatedAt": "2026-05-03T09:16:37Z",
+      "updatedAt": "2026-05-05T08:50:07Z",
       "type": "producto",
       "slug": "vinilo-suelo-personalizado",
       "path": "/productos/vinilo-suelo-personalizado",
@@ -37853,16 +37866,20 @@
       ],
       "faqs": [
         {
+          "question": "¿Es antideslizante?",
+          "answer": "Sí, puede producirse con laminado antideslizante específico para suelo. Es especialmente recomendable en tiendas, ferias, señalización interior, pasillos y zonas de tránsito."
+        },
+        {
           "question": "¿Removible o permanente?",
-          "answer": "emovible para campañas temporales (rebajas, eventos). Permanente para señalización fija o campañas largas."
+          "answer": "Removible para campañas temporales, rebajas o eventos. Permanente para señalización fija, recorridos comerciales o campañas de larga duración."
         },
         {
           "question": "¿Cuánto dura un vinilo de suelo?",
-          "answer": "epende del tránsito, el tipo de suelo, la limpieza y el acabado protector. Si nos dices dónde irá y cuánto tiempo lo necesitas, te aconsejamos la opción más adecuada."
+          "answer": "Depende del tránsito, el tipo de suelo, la limpieza y el acabado protector. Si nos dices dónde irá y cuánto tiempo lo necesitas, te aconsejamos la opción más adecuada."
         },
         {
           "question": "¿Se puede poner en exterior?",
-          "answer": "n algunos casos sí, pero depende del pavimento y de la exposición. Para exterior conviene definir ubicación y condiciones para elegir el material correcto."
+          "answer": "En algunos casos sí, pero depende del pavimento y de la exposición. Para exterior conviene definir ubicación, duración prevista y condiciones de uso para elegir el material correcto."
         }
       ],
       "breadcrumbs": [
@@ -37977,10 +37994,18 @@
               "mainEntity": [
                 {
                   "@type": "Question",
+                  "name": "¿Es antideslizante?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí, puede producirse con laminado antideslizante específico para suelo. Es especialmente recomendable en tiendas, ferias, señalización interior, pasillos y zonas de tránsito."
+                  }
+                },
+                {
+                  "@type": "Question",
                   "name": "¿Removible o permanente?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "emovible para campañas temporales (rebajas, eventos). Permanente para señalización fija o campañas largas."
+                    "text": "Removible para campañas temporales, rebajas o eventos. Permanente para señalización fija, recorridos comerciales o campañas de larga duración."
                   }
                 },
                 {
@@ -37988,7 +38013,7 @@
                   "name": "¿Cuánto dura un vinilo de suelo?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "epende del tránsito, el tipo de suelo, la limpieza y el acabado protector. Si nos dices dónde irá y cuánto tiempo lo necesitas, te aconsejamos la opción más adecuada."
+                    "text": "Depende del tránsito, el tipo de suelo, la limpieza y el acabado protector. Si nos dices dónde irá y cuánto tiempo lo necesitas, te aconsejamos la opción más adecuada."
                   }
                 },
                 {
@@ -37996,7 +38021,7 @@
                   "name": "¿Se puede poner en exterior?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "n algunos casos sí, pero depende del pavimento y de la exposición. Para exterior conviene definir ubicación y condiciones para elegir el material correcto."
+                    "text": "En algunos casos sí, pero depende del pavimento y de la exposición. Para exterior conviene definir ubicación, duración prevista y condiciones de uso para elegir el material correcto."
                   }
                 }
               ]
@@ -38009,7 +38034,7 @@
     },
     {
       "id": "118",
-      "updatedAt": "2026-05-03T09:16:37Z",
+      "updatedAt": "2026-05-05T08:51:20Z",
       "type": "producto",
       "slug": "vinilo-vehiculos-personalizado",
       "path": "/productos/vinilo-vehiculos-personalizado",
@@ -38057,7 +38082,24 @@
           "body": "Rotulación corporativa: logo, web, teléfono, servicios y claim. \nFlotas comerciales: furgonetas, turismos, camiones y vehículos de reparto. \nCampañas temporales: promociones estacionales, lanzamientos, eventos. \nServicios técnicos: identificación rápida (zonas, equipos, numeración, horarios). \nVehículos de eventos: apoyo a campañas, roadshows y activaciones de marca."
         }
       ],
-      "faqs": [],
+      "faqs": [
+        {
+          "question": "¿Qué opción es mejor: vinilo de corte o vinilo impreso?",
+          "answer": "El vinilo de corte es ideal para logos, textos y formas simples con un acabado limpio. El vinilo impreso es mejor para creatividades con color, imágenes, degradados o fondos completos."
+        },
+        {
+          "question": "¿Cuánto dura una rotulación?",
+          "answer": "Depende del material, el laminado, la exposición al sol, los lavados y las condiciones de uso. Con materiales adecuados y laminado protector, la rotulación está pensada para durar en exterior. Si nos dices el uso y si el vehículo duerme en interior o exterior, te orientamos con la opción más adecuada."
+        },
+        {
+          "question": "¿Se puede retirar sin dañar la pintura?",
+          "answer": "Para campañas temporales se pueden usar soluciones removibles, pero la retirada depende del tiempo de uso, la superficie, el estado de la pintura y las condiciones de aplicación. Te recomendamos la opción más segura según tu caso."
+        },
+        {
+          "question": "¿Podéis adaptar el diseño a distintos modelos de vehículo?",
+          "answer": "Sí. Podemos preparar el arte final por zonas y ajustarlo a diferentes modelos de vehículo, especialmente si se trata de una flota con coches, furgonetas o vehículos de medidas distintas."
+        }
+      ],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -38162,6 +38204,43 @@
                   "position": 5,
                   "name": "Vinilo para vehículos personalizado (rotulación y branding)",
                   "item": "https://reprodisseny.com/productos/vinilo-vehiculos-personalizado"
+                }
+              ]
+            },
+            {
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "¿Qué opción es mejor: vinilo de corte o vinilo impreso?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "El vinilo de corte es ideal para logos, textos y formas simples con un acabado limpio. El vinilo impreso es mejor para creatividades con color, imágenes, degradados o fondos completos."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Cuánto dura una rotulación?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Depende del material, el laminado, la exposición al sol, los lavados y las condiciones de uso. Con materiales adecuados y laminado protector, la rotulación está pensada para durar en exterior. Si nos dices el uso y si el vehículo duerme en interior o exterior, te orientamos con la opción más adecuada."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Se puede retirar sin dañar la pintura?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Para campañas temporales se pueden usar soluciones removibles, pero la retirada depende del tiempo de uso, la superficie, el estado de la pintura y las condiciones de aplicación. Te recomendamos la opción más segura según tu caso."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Podéis adaptar el diseño a distintos modelos de vehículo?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí. Podemos preparar el arte final por zonas y ajustarlo a diferentes modelos de vehículo, especialmente si se trata de una flota con coches, furgonetas o vehículos de medidas distintas."
+                  }
                 }
               ]
             }

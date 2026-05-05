@@ -285,115 +285,172 @@
     filter: blur(8px);
   }
 
-  /* =========================================================
+   /* =========================================================
    PRODUCT TABS / RICH TEXT
    Contenido editorial renderizado desde Markdown en fichas.
    ========================================================= */
 
-.product-tab-richtext {
-  @apply max-w-3xl text-body text-muted-foreground;
-  line-height: 1.75;
-}
+  .product-tab-richtext {
+    @apply max-w-3xl text-body text-muted-foreground;
+    line-height: 1.75;
+  }
 
-.product-tab-richtext > :first-child {
-  margin-top: 0;
-}
+  .product-tab-richtext > :first-child {
+    margin-top: 0;
+  }
 
-.product-tab-richtext > :last-child {
-  margin-bottom: 0;
-}
+  .product-tab-richtext > :last-child {
+    margin-bottom: 0;
+  }
 
-.product-tab-richtext p {
-  @apply text-body text-muted-foreground;
-  margin-bottom: 1.25rem;
-  line-height: 1.75;
-}
+  .product-tab-richtext p {
+    @apply text-body text-muted-foreground;
+    margin-bottom: 1.25rem;
+    line-height: 1.75;
+  }
 
-.product-tab-richtext h2,
-.product-tab-richtext h3,
-.product-tab-richtext h4 {
-  @apply text-foreground;
-  margin-top: 2rem;
-  margin-bottom: 0.85rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-}
+  .product-tab-richtext h2,
+  .product-tab-richtext h3,
+  .product-tab-richtext h4 {
+    @apply text-foreground;
+    margin-top: 2rem;
+    margin-bottom: 0.85rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
 
-.product-tab-richtext h2 {
-  font-size: var(--font-h3);
-  line-height: var(--line-h3);
-}
+  .product-tab-richtext h2 {
+    font-size: var(--font-h3);
+    line-height: var(--line-h3);
+  }
 
-.product-tab-richtext h3,
-.product-tab-richtext h4 {
-  font-size: var(--font-h4);
-  line-height: var(--line-h4);
-}
+  .product-tab-richtext h3,
+  .product-tab-richtext h4 {
+    font-size: var(--font-h4);
+    line-height: var(--line-h4);
+  }
 
-.product-tab-richtext ul,
-.product-tab-richtext ol {
-  @apply pl-0;
-  margin-top: 1.15rem;
-  margin-bottom: 1.5rem;
-}
+  .product-tab-richtext ul,
+  .product-tab-richtext ol {
+    @apply pl-0;
+    margin-top: 1.15rem;
+    margin-bottom: 1.5rem;
+  }
 
-.product-tab-richtext ul {
-  @apply space-y-3;
-}
+  .product-tab-richtext ul {
+    @apply space-y-3;
+  }
 
-.product-tab-richtext ol {
-  @apply space-y-3;
-  counter-reset: product-tab-counter;
-}
+  .product-tab-richtext ol {
+    @apply space-y-3;
+    counter-reset: product-tab-counter;
+  }
 
-.product-tab-richtext li {
-  @apply relative list-none text-body text-muted-foreground;
-  padding-left: 1.35rem;
-  line-height: 1.75;
-}
+  .product-tab-richtext li {
+    @apply relative list-none text-body text-muted-foreground;
+    line-height: 1.75;
+  }
 
-.product-tab-richtext ul > li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.72em;
-  width: 0.38rem;
-  height: 0.38rem;
-  border-radius: 9999px;
-  background: hsl(var(--primary));
-  opacity: 0.72;
-}
+  /*
+   * Listas HTML normales dentro de richtext.
+   * Se excluyen las listas renderizadas manualmente por ContentDetailsSection.vue
+   * para evitar doble bullet.
+   */
+  .product-tab-richtext ul:not(.product-tab-list) > li {
+    padding-left: 1.35rem;
+  }
 
-.product-tab-richtext ol > li {
-  counter-increment: product-tab-counter;
-  padding-left: 2rem;
-}
+  .product-tab-richtext ul:not(.product-tab-list) > li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.72em;
+    width: 0.38rem;
+    height: 0.38rem;
+    border-radius: 9999px;
+    background: hsl(var(--primary));
+    opacity: 0.72;
+  }
 
-.product-tab-richtext ol > li::before {
-  content: counter(product-tab-counter);
-  position: absolute;
-  left: 0;
-  top: 0.15rem;
-  display: inline-flex;
-  width: 1.25rem;
-  height: 1.25rem;
-  align-items: center;
-  justify-content: center;
-  border-radius: 9999px;
-  background: hsl(var(--primary) / 0.1);
-  color: hsl(var(--primary));
-  font-size: var(--font-label-s);
-  line-height: 1;
-  font-weight: 700;
-}
+  .product-tab-richtext ol:not(.product-tab-list) > li {
+    counter-increment: product-tab-counter;
+    padding-left: 2rem;
+  }
 
-.product-tab-richtext strong {
-  @apply font-semibold text-foreground;
-}
+  .product-tab-richtext ol:not(.product-tab-list) > li::before {
+    content: counter(product-tab-counter);
+    position: absolute;
+    left: 0;
+    top: 0.15rem;
+    display: inline-flex;
+    width: 1.25rem;
+    height: 1.25rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background: hsl(var(--primary) / 0.1);
+    color: hsl(var(--primary));
+    font-size: var(--font-label-s);
+    line-height: 1;
+    font-weight: 700;
+  }
 
-.product-tab-richtext li p {
-  margin-bottom: 0;
-}
+  /*
+   * Listas renderizadas manualmente por ContentDetailsSection.vue.
+   * El bullet/number lo pinta el propio componente, no el CSS global.
+   */
+  .product-tab-richtext .product-tab-list {
+    @apply list-none pl-0;
+    margin-left: 0;
+  }
+
+  .product-tab-richtext .product-tab-list > .product-tab-list__item {
+    @apply list-none p-0;
+    margin-left: 0;
+  }
+
+  .product-tab-richtext .product-tab-list > .product-tab-list__item::before {
+    content: none;
+    display: none;
+  }
+
+  .product-tab-richtext .product-tab-list > .product-tab-list__item::marker {
+    content: "";
+  }
+
+  .product-tab-richtext strong {
+    @apply font-semibold text-foreground;
+  }
+
+  .product-tab-richtext li p {
+    margin-bottom: 0;
+  }
+
+  /**
+   * Variante para características técnicas.
+   * Sirve para que líneas como:
+   *
+   * Formato de hoja
+   *
+   * - Punto técnico
+   *
+   * se vean como subtítulos, aunque no lleven ### en Markdown.
+   */
+  .product-tab-richtext--technical p:has(+ ul),
+  .product-tab-richtext--technical p:has(+ ol) {
+    @apply text-foreground;
+    margin-top: 1.75rem;
+    margin-bottom: 0.85rem;
+    font-size: var(--font-h4);
+    line-height: var(--line-h4);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .product-tab-richtext--technical > p:first-child:has(+ ul),
+  .product-tab-richtext--technical > p:first-child:has(+ ol) {
+    margin-top: 0;
+  }
 
 /**
  * Variante para características técnicas.

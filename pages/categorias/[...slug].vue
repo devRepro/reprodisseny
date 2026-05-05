@@ -552,4 +552,3 @@ const closingBannerPills = computed(() => {
     </div>
   </main>
 </template>
-~/server/services/cms/catalog.service

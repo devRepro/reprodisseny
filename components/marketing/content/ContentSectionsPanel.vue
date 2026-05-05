@@ -34,6 +34,7 @@ type SectionInput = {
   body?: string;
   text?: string;
   html?: string;
+  contentFormat?: string;
 
   items?: Array<{
     title?: string;
@@ -41,15 +42,19 @@ type SectionInput = {
     text?: string;
     meta?: string;
     tags?: string[];
+    features?: string[];
+    idealFor?: string;
   }>;
 
   cardGroups?: CategoryCardGroup[];
 
   benefitsData?: {
+    intro?: string;
     benefits?: unknown[];
   } | null;
 
   materialsData?: {
+    intro?: string;
     materials?: unknown[];
   } | null;
 
@@ -60,10 +65,12 @@ type SectionInput = {
   } | null;
 
   finishesData?: {
+    intro?: string;
     finishes?: unknown[];
   } | null;
 
   applicationsData?: {
+    intro?: string;
     applications?: unknown[];
   } | null;
 };
@@ -96,6 +103,7 @@ function normalizeSectionKey(value?: string) {
   if (key === "uses") return "applications";
   if (key === "use") return "applications";
   if (key === "aplicaciones") return "applications";
+
   if (key === "acabados") return "finishes";
   if (key === "formatos") return "formats";
   if (key === "materiales") return "materials";
@@ -144,11 +152,57 @@ const resolvedTitle = computed(() =>
   props.headerMode === "default" ? String(props.section.title || "").trim() : ""
 );
 
+function parseJsonObject(value: unknown): Record<string, unknown> | null {
+  const raw = String(value || "").trim();
+
+  if (!raw || !raw.startsWith("{")) return null;
+
+  try {
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === "object" && !Array.isArray(parsed)
+      ? (parsed as Record<string, unknown>)
+      : null;
+  } catch {
+    return null;
+  }
+}
+
+const parsedBodyData = computed(() =>
+  parseJsonObject(props.section?.body || props.section?.text)
+);
+
+function introFromKnownData(section: SectionInput, key: string) {
+  if (key === "benefits") {
+    return String(section.benefitsData?.intro || "").trim();
+  }
+
+  if (key === "materials") {
+    return String(section.materialsData?.intro || "").trim();
+  }
+
+  if (key === "formats") {
+    return String(section.formatsData?.intro || "").trim();
+  }
+
+  if (key === "finishes") {
+    return String(section.finishesData?.intro || "").trim();
+  }
+
+  if (key === "applications") {
+    return String(section.applicationsData?.intro || "").trim();
+  }
+
+  return "";
+}
+
 const resolvedIntro = computed(() => {
   if (props.headerMode === "none") return undefined;
 
-  const intro = String(props.section?.intro || "").trim();
-  return intro || undefined;
+  const sectionIntro = String(props.section?.intro || "").trim();
+  const dataIntro = introFromKnownData(props.section, normalizedKey.value);
+  const jsonIntro = String(parsedBodyData.value?.intro || "").trim();
+
+  return sectionIntro || dataIntro || jsonIntro || undefined;
 });
 
 const hasExistingCardGroups = computed(() =>
@@ -205,6 +259,15 @@ function stripMarkdownStrong(value: string) {
     .trim();
 }
 
+function normalizeMarkdownLine(value: string) {
+  return stripMarkdownStrong(
+    String(value || "")
+      .replace(/^[-*•·]\s+/, "")
+      .replace(/^\d+\.\s+/, "")
+      .trim()
+  );
+}
+
 function toCardItems(value: unknown, metaLabel?: string): NormalizedCardItem[] {
   if (!Array.isArray(value)) return [];
 
@@ -213,10 +276,20 @@ function toCardItems(value: unknown, metaLabel?: string): NormalizedCardItem[] {
       if (!item || typeof item !== "object") return null;
 
       const record = item as Record<string, unknown>;
-      const title = stripMarkdownStrong(String(record.title || "").trim());
-      const description = stripMarkdownStrong(
-        String(record.description || record.text || "").trim()
+
+      const title = stripMarkdownStrong(
+        String(record.title || record.name || record.label || "").trim()
       );
+
+      const description = stripMarkdownStrong(
+        String(record.description || record.text || record.body || "").trim()
+      );
+
+      const tags = Array.isArray(record.tags)
+        ? record.tags.map((tag) => String(tag || "").trim()).filter(Boolean)
+        : Array.isArray(record.features)
+          ? record.features.map((tag) => String(tag || "").trim()).filter(Boolean)
+          : [];
 
       if (!title || !description) return null;
 
@@ -226,47 +299,66 @@ function toCardItems(value: unknown, metaLabel?: string): NormalizedCardItem[] {
         ...(metaLabel
           ? { meta: `${metaLabel} ${String(index + 1).padStart(2, "0")}` }
           : {}),
+        ...(tags.length ? { tags } : {}),
       };
     })
     .filter((item): item is NormalizedCardItem => Boolean(item));
 }
 
+function toCardItemsFromJsonKey(key: string, metaLabel?: string): NormalizedCardItem[] {
+  return toCardItems(parsedBodyData.value?.[key], metaLabel);
+}
+
 function parseBodyBulletItems(body: unknown, metaLabel?: string): NormalizedCardItem[] {
   const raw = String(body || "").trim();
-  if (!raw) return [];
 
-  return raw
-    .split(/\n+/)
+  if (!raw || raw.startsWith("{")) return [];
+
+  const lines = raw
+    .replace(/\r\n/g, "\n")
+    .replace(/\r/g, "\n")
+    .split("\n")
     .map((line) => line.trim())
-    .filter((line) => /^[-*]\s+/.test(line))
-    .map((line, index) => {
-      const clean = stripMarkdownStrong(line.replace(/^[-*]\s+/, ""));
-      const match = clean.match(/^([^:]+):\s*(.+)$/);
+    .filter(Boolean)
+    .filter((line) => !/^#{1,6}\s+/.test(line));
 
-      if (match) {
-        return {
-          title: match[1]?.trim() || "",
-          description: match[2]?.trim() || "",
-          ...(metaLabel
-            ? { meta: `${metaLabel} ${String(index + 1).padStart(2, "0")}` }
-            : {}),
-        };
-      }
+  if (!lines.length) return [];
+
+  const bulletLines = lines.filter((line) => /^[-*•·]\s+/.test(line));
+
+  /*
+   * Si hay bullets Markdown, usamos solo bullets.
+   * Si no hay bullets, aceptamos líneas tipo:
+   * Título: descripción
+   * porque muchos productos actuales vienen así desde SharePoint.
+   */
+  const candidateLines = bulletLines.length
+    ? bulletLines
+    : lines.filter((line) => /^.{2,90}:\s+.+/.test(normalizeMarkdownLine(line)));
+
+  return candidateLines
+    .map((line, index) => {
+      const original = String(line || "").trim();
+      const withoutBullet = original.replace(/^[-*•·]\s+/, "").trim();
+
+      const strongMatch = withoutBullet.match(/^\*\*([^*]+)\*\*:?\s*(.+)$/);
+      const clean = normalizeMarkdownLine(original);
+      const colonMatch = clean.match(/^([^:]{2,90}):\s*(.+)$/);
+
+      const title = String(strongMatch?.[1] || colonMatch?.[1] || "").trim();
+      const description = String(strongMatch?.[2] || colonMatch?.[2] || clean).trim();
+
+      if (!description) return null;
 
       return {
-        title: "",
-        description: clean,
+        title: title || `Opción ${index + 1}`,
+        description,
         ...(metaLabel
           ? { meta: `${metaLabel} ${String(index + 1).padStart(2, "0")}` }
           : {}),
       };
     })
-    .filter((item) => item.title || item.description)
-    .map((item, index) => ({
-      title: item.title || `Opción ${index + 1}`,
-      description: item.description,
-      ...(item.meta ? { meta: item.meta } : {}),
-    }));
+    .filter((item): item is NormalizedCardItem => Boolean(item));
 }
 
 const resolvedCardGroups = computed<CategoryCardGroup[]>(() => {
@@ -282,7 +374,16 @@ const resolvedCardGroups = computed<CategoryCardGroup[]>(() => {
   if (existingGroups.length) return existingGroups;
 
   if (key === "benefits") {
-    const items = toCardItems(section.benefitsData?.benefits);
+    const benefitsDataItems = toCardItems(section.benefitsData?.benefits);
+    const jsonItems = toCardItemsFromJsonKey("benefits");
+    const markdownItems = parseBodyBulletItems(section.body || section.text);
+
+    const items = benefitsDataItems.length
+      ? benefitsDataItems
+      : jsonItems.length
+        ? jsonItems
+        : markdownItems;
+
     if (!items.length) return [];
 
     return [
@@ -295,7 +396,16 @@ const resolvedCardGroups = computed<CategoryCardGroup[]>(() => {
   }
 
   if (key === "materials") {
-    const items = toCardItems(section.materialsData?.materials);
+    const materialItems = toCardItems(section.materialsData?.materials);
+    const jsonItems = toCardItemsFromJsonKey("materials");
+    const markdownItems = parseBodyBulletItems(section.body || section.text, "Material");
+
+    const items = materialItems.length
+      ? materialItems
+      : jsonItems.length
+        ? jsonItems
+        : markdownItems;
+
     if (!items.length) return [];
 
     return [
@@ -308,8 +418,16 @@ const resolvedCardGroups = computed<CategoryCardGroup[]>(() => {
   }
 
   if (key === "formats") {
-    const shapes = toCardItems(section.formatsData?.shapes);
-    const deliveryFormats = toCardItems(section.formatsData?.deliveryFormats);
+    const shapesDataItems = toCardItems(section.formatsData?.shapes);
+    const deliveryDataItems = toCardItems(section.formatsData?.deliveryFormats);
+
+    const shapes = shapesDataItems.length
+      ? shapesDataItems
+      : toCardItemsFromJsonKey("shapes");
+
+    const deliveryFormats = deliveryDataItems.length
+      ? deliveryDataItems
+      : toCardItemsFromJsonKey("deliveryFormats");
 
     const groups: CategoryCardGroup[] = [];
 
@@ -333,7 +451,7 @@ const resolvedCardGroups = computed<CategoryCardGroup[]>(() => {
 
     if (groups.length) return groups;
 
-    const fallbackItems = parseBodyBulletItems(section.body);
+    const fallbackItems = parseBodyBulletItems(section.body || section.text);
     if (!fallbackItems.length) return [];
 
     return [
@@ -347,9 +465,14 @@ const resolvedCardGroups = computed<CategoryCardGroup[]>(() => {
 
   if (key === "finishes") {
     const finishItems = toCardItems(section.finishesData?.finishes, "Acabado");
+    const jsonItems = toCardItemsFromJsonKey("finishes", "Acabado");
+    const markdownItems = parseBodyBulletItems(section.body || section.text, "Acabado");
+
     const items = finishItems.length
       ? finishItems
-      : parseBodyBulletItems(section.body, "Acabado");
+      : jsonItems.length
+        ? jsonItems
+        : markdownItems;
 
     if (!items.length) return [];
 
@@ -364,9 +487,14 @@ const resolvedCardGroups = computed<CategoryCardGroup[]>(() => {
 
   if (key === "applications") {
     const applicationItems = toCardItems(section.applicationsData?.applications);
+    const jsonItems = toCardItemsFromJsonKey("applications");
+    const markdownItems = parseBodyBulletItems(section.body || section.text);
+
     const items = applicationItems.length
       ? applicationItems
-      : parseBodyBulletItems(section.body);
+      : jsonItems.length
+        ? jsonItems
+        : markdownItems;
 
     if (!items.length) return [];
 
@@ -411,25 +539,25 @@ const shouldShowDetailsHeader = computed(() => props.headerMode === "default");
   />
 
   <ContentCardsSection
-  v-else-if="resolvedKind === 'cards' && resolvedCardGroups.length"
-  :section-id="props.section.id"
-  :title="resolvedTitle"
-  :intro="resolvedIntro"
-  :eyebrow="resolvedEyebrow"
-  :groups="resolvedCardGroups"
-  :variant="resolvedVariant"
-  :show-header="props.headerMode === 'default'"
-/>
+    v-else-if="resolvedKind === 'cards' && resolvedCardGroups.length"
+    :section-id="props.section.id"
+    :title="resolvedTitle"
+    :intro="resolvedIntro"
+    :eyebrow="resolvedEyebrow"
+    :groups="resolvedCardGroups"
+    :variant="resolvedVariant"
+    :show-header="props.headerMode === 'default'"
+  />
 
-<ContentDetailsSection
-  v-else-if="resolvedKind === 'technical-specs'"
-  :section="props.section"
-  :show-header="shouldShowDetailsHeader"
-/>
+  <ContentDetailsSection
+    v-else-if="resolvedKind === 'technical-specs'"
+    :section="props.section"
+    :show-header="shouldShowDetailsHeader"
+  />
 
-<ContentDetailsSection
-  v-else
-  :section="props.section"
-  :show-header="shouldShowDetailsHeader"
-/>
+  <ContentDetailsSection
+    v-else
+    :section="props.section"
+    :show-header="shouldShowDetailsHeader"
+  />
 </template>

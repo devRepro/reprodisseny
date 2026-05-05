@@ -75,17 +75,33 @@ const imgAlt = computed(
 const imgWidth = computed(() => props.category?.image?.width || undefined);
 const imgHeight = computed(() => props.category?.image?.height || undefined);
 
+const isLowResolutionImage = computed(() => {
+  const width = Number(imgWidth.value || 0);
+  return width > 0 && width < 900;
+});
+
+const mediaWrapperClass = computed(() =>
+  cn(
+    "relative mx-auto w-full",
+    isLowResolutionImage.value ? "max-w-[420px]" : "max-w-[520px]"
+  )
+);
+
 const primaryCta = computed<HeroCta | null>(() => {
   const to = String(props.primaryCta?.to || "").trim();
   const label = String(props.primaryCta?.label || "").trim();
+
   if (!to || !label) return null;
+
   return { to, label };
 });
 
 const secondaryCta = computed<HeroCta | null>(() => {
   const to = String(props.secondaryCta?.to || "").trim();
   const label = String(props.secondaryCta?.label || "").trim();
+
   if (!to || !label) return null;
+
   return { to, label };
 });
 </script>
@@ -94,59 +110,56 @@ const secondaryCta = computed<HeroCta | null>(() => {
   <header
     :class="
       cn(
-        'relative w-full overflow-hidden',
-        'bg-[linear-gradient(180deg,hsl(var(--brand-base-light)/0.42)_0%,hsl(var(--background))_58%,hsl(var(--background))_100%)]',
-        'pt-6 md:pt-8 lg:pt-10',
-        'pb-8 md:pb-10 lg:pb-12',
+        'relative w-full overflow-hidden bg-background',
+        'pt-6 pb-10 md:pt-8 md:pb-12 lg:pt-10 lg:pb-16',
         props.class
       )
     "
   >
-    <div aria-hidden="true" class="pointer-events-none absolute inset-0">
-      <div
-        class="absolute inset-0 bg-[radial-gradient(circle_at_10%_18%,hsl(var(--brand-base-light)/0.95)_0%,transparent_36%)]"
-      />
-      <div
-        class="absolute right-[-6%] top-[8%] h-[320px] w-[320px] rounded-full bg-[hsl(var(--brand-bg-2)/0.48)] blur-3xl md:h-[420px] md:w-[420px]"
-      />
-      <div
-        class="absolute inset-x-0 bottom-0 h-px bg-[linear-gradient(90deg,transparent,hsl(var(--border)),transparent)]"
-      />
-    </div>
+    <div
+      aria-hidden="true"
+      class="pointer-events-none absolute inset-x-0 top-0 h-[360px] bg-[linear-gradient(180deg,hsl(var(--brand-base-light)/0.48)_0%,hsl(var(--background))_72%)]"
+    />
+
+    <div
+      aria-hidden="true"
+      class="pointer-events-none absolute left-0 top-16 hidden h-72 w-72 rounded-full bg-[hsl(var(--brand-base-light)/0.55)] blur-3xl lg:block"
+    />
 
     <div :class="cn('container-content relative z-10', props.containerClass)">
       <div
-        class="grid items-center gap-10 lg:grid-cols-[minmax(0,1.08fr)_minmax(380px,0.92fr)] lg:gap-12"
+        class="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(340px,0.72fr)] lg:gap-14"
       >
         <div class="min-w-0">
           <p
-            class="mb-4 inline-flex w-fit items-center rounded-full border border-primary/15 bg-background/80 px-3 py-1.5 text-label text-primary shadow-sm backdrop-blur"
+            class="mb-5 inline-flex w-fit items-center gap-2 text-label-s font-semibold uppercase tracking-[0.22em] text-primary/80"
           >
+            <span class="h-1.5 w-1.5 rounded-full bg-primary" aria-hidden="true" />
             {{ kicker }}
           </p>
 
           <h1
-            class="max-w-[16ch] text-[clamp(2.2rem,4vw,4.2rem)] font-bold leading-[1.02] tracking-[-0.02em] text-foreground"
+            class="max-w-[14ch] text-balance text-[clamp(2.35rem,1.55rem+3vw,4.6rem)] font-semibold leading-[1.02] tracking-[-0.055em] text-foreground"
           >
             {{ title }}
           </h1>
 
           <p
             v-if="description"
-            class="mt-5 max-w-[64ch] text-body text-foreground/82 md:text-[18px] md:leading-[1.7]"
+            class="mt-6 max-w-[62ch] text-pretty text-[17px] leading-8 text-foreground/74 md:text-[18px]"
           >
             {{ description }}
           </p>
 
           <ul
             v-if="highlights.length"
-            class="mt-6 flex flex-wrap gap-2.5"
+            class="mt-7 flex flex-wrap gap-2.5"
             aria-label="Puntos destacados de la categoría"
           >
             <li
               v-for="item in highlights"
               :key="item"
-              class="inline-flex items-center rounded-full border border-border bg-background/88 px-3 py-1.5 text-body-xs text-foreground/80 shadow-sm"
+              class="inline-flex items-center rounded-full border border-border bg-card px-3 py-1.5 text-body-s text-foreground/76"
             >
               {{ item }}
             </li>
@@ -154,12 +167,12 @@ const secondaryCta = computed<HeroCta | null>(() => {
 
           <div
             v-if="(showPrimaryCta && primaryCta) || (showSecondaryCta && secondaryCta)"
-            class="mt-8 flex flex-wrap items-center gap-3"
+            class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center"
           >
             <NuxtLink
               v-if="showPrimaryCta && primaryCta"
               :to="primaryCta.to"
-              class="inline-flex min-h-12 items-center justify-center rounded-xl bg-primary px-5 py-3 text-body-s-bold text-primary-foreground shadow-[0_10px_24px_-14px_hsl(var(--primary)/0.55)] transition hover:translate-y-[-1px] hover:opacity-95"
+              class="inline-flex min-h-12 items-center justify-center rounded-xl bg-primary px-5 py-3 text-body-s-bold text-primary-foreground transition hover:bg-brand-base-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:ring-offset-2"
             >
               {{ primaryCta.label }}
             </NuxtLink>
@@ -167,43 +180,40 @@ const secondaryCta = computed<HeroCta | null>(() => {
             <NuxtLink
               v-if="showSecondaryCta && secondaryCta"
               :to="secondaryCta.to"
-              class="inline-flex min-h-12 items-center justify-center rounded-xl border border-border bg-background/90 px-5 py-3 text-body-s-bold text-foreground transition hover:border-primary/25 hover:bg-background hover:text-primary"
+              class="inline-flex min-h-12 items-center justify-center rounded-xl border border-border bg-background px-5 py-3 text-body-s-bold text-foreground transition hover:border-primary/25 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:ring-offset-2"
             >
               {{ secondaryCta.label }}
             </NuxtLink>
           </div>
         </div>
 
-        <div v-if="imgSrc" class="relative min-w-0">
-          <div
-            aria-hidden="true"
-            class="absolute inset-x-10 bottom-[-14px] top-8 rounded-[34px] bg-[linear-gradient(135deg,hsl(var(--brand-base-light)/0.95)_0%,hsl(var(--brand-bg-2)/0.7)_48%,hsl(var(--background))_100%)] blur-2xl"
-          />
+        <div v-if="imgSrc" class="relative min-w-0 lg:justify-self-end">
+          <figure :class="mediaWrapperClass">
+            <div
+              class="relative overflow-hidden rounded-[28px] border border-border/70 bg-card"
+            >
+              <img
+                :src="imgSrc"
+                :alt="imgAlt"
+                :width="imgWidth"
+                :height="imgHeight"
+                class="aspect-[4/3] w-full object-cover"
+                loading="eager"
+                decoding="async"
+                fetchpriority="high"
+              />
 
-          <div
-            aria-hidden="true"
-            class="absolute -right-3 -top-3 hidden h-full w-full rounded-[32px] border border-primary/10 bg-background/50 lg:block"
-          />
+              <div
+                aria-hidden="true"
+                class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/30"
+              />
+            </div>
 
-          <div
-            class="relative overflow-hidden rounded-[28px] border border-border/70 bg-card shadow-[0_20px_55px_-28px_hsl(var(--foreground)/0.22)]"
-          >
             <div
               aria-hidden="true"
-              class="absolute inset-x-0 top-0 z-[1] h-24 bg-[linear-gradient(180deg,hsl(var(--foreground)/0.06)_0%,transparent_100%)]"
+              class="absolute -bottom-4 left-8 right-8 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"
             />
-
-            <img
-              :src="imgSrc"
-              :alt="imgAlt"
-              :width="imgWidth"
-              :height="imgHeight"
-              class="aspect-[4/3] w-full object-cover md:aspect-[5/4] lg:aspect-[4/3]"
-              loading="eager"
-              decoding="async"
-              fetchpriority="high"
-            />
-          </div>
+          </figure>
         </div>
       </div>
     </div>

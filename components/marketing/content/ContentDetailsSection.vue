@@ -282,10 +282,11 @@ const heading3Class =
 const heading4Class =
   "mb-0 mt-1 max-w-[72ch] text-base font-semibold leading-tight tracking-tight text-foreground md:text-lg";
 
-const listClass = "mb-0 grid max-w-[72ch] gap-3";
+const listClass =
+  "product-tab-list mb-0 grid max-w-[72ch] list-none gap-3 pl-0";
 
 const listItemClass =
-  "flex gap-3 font-body text-[15px] leading-7 text-muted-foreground md:text-base";
+  "product-tab-list__item flex list-none gap-3 font-body text-[15px] leading-7 text-muted-foreground marker:content-none before:content-none md:text-base";
 </script>
 
 <template>
@@ -389,48 +390,48 @@ const listItemClass =
           </p>
 
           <component
-            :is="block.ordered ? 'ol' : 'ul'"
-            v-else-if="block.type === 'list'"
-            :class="listClass"
-          >
-            <li
-              v-for="(item, itemIndex) in block.items"
-              :key="`${blockIndex}-${itemIndex}`"
-              :class="listItemClass"
-            >
-              <span
-                v-if="!block.ordered"
-                class="mt-[0.72em] h-1.5 w-1.5 shrink-0 rounded-full bg-primary/70"
-                aria-hidden="true"
-              />
+  :is="block.ordered ? 'ol' : 'ul'"
+  v-else-if="block.type === 'list'"
+  :class="listClass"
+>
+  <li
+    v-for="(item, itemIndex) in block.items"
+    :key="`${blockIndex}-${itemIndex}`"
+    :class="listItemClass"
+  >
+    <span
+      v-if="!block.ordered"
+      class="mt-[0.72em] h-1.5 w-1.5 shrink-0 rounded-full bg-primary/70"
+      aria-hidden="true"
+    />
 
-              <span
-                v-else
-                class="mt-[0.12em] inline-flex h-6 min-w-6 shrink-0 items-center justify-center rounded-full border border-primary/15 bg-primary/5 px-2 text-xs font-semibold text-primary"
-                aria-hidden="true"
-              >
-                {{ itemIndex + 1 }}
-              </span>
+    <span
+      v-else
+      class="mt-[0.12em] inline-flex h-6 min-w-6 shrink-0 items-center justify-center rounded-full border border-primary/15 bg-primary/5 px-2 text-xs font-semibold text-primary"
+      aria-hidden="true"
+    >
+      {{ itemIndex + 1 }}
+    </span>
 
-              <span>
-                <template
-                  v-for="(token, tokenIndex) in parseInlineMarkdown(item)"
-                  :key="`${blockIndex}-${itemIndex}-${tokenIndex}`"
-                >
-                  <strong
-                    v-if="token.type === 'strong'"
-                    class="font-semibold text-foreground"
-                  >
-                    {{ token.value }}
-                  </strong>
+    <span class="min-w-0">
+      <template
+        v-for="(token, tokenIndex) in parseInlineMarkdown(item)"
+        :key="`${blockIndex}-${itemIndex}-${tokenIndex}`"
+      >
+        <strong
+          v-if="token.type === 'strong'"
+          class="font-semibold text-foreground"
+        >
+          {{ token.value }}
+        </strong>
 
-                  <template v-else>
-                    {{ token.value }}
-                  </template>
-                </template>
-              </span>
-            </li>
-          </component>
+        <template v-else>
+          {{ token.value }}
+        </template>
+      </template>
+    </span>
+  </li>
+</component>
         </template>
       </template>
     </div>
