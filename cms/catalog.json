@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-05-05T13:41:53.628Z",
+  "generatedAt": "2026-05-05T17:15:54.683Z",
   "categories": [
     {
       "id": "12",
-      "updatedAt": "2026-05-05T12:54:47Z",
+      "updatedAt": "2026-05-05T16:59:37Z",
       "type": "subcategoria",
       "slug": "material-flexible",
       "path": "/categorias/gran-formato/material-flexible",
@@ -200,8 +200,30 @@
             "url": "https://reprodisseny.com/categorias/gran-formato/material-flexible"
           }
         ],
-        "keywords": [],
-        "searchTerms": [],
+        "keywords": [
+          "impresión gran formato flexible",
+          "vinilos personalizados",
+          "lonas publicitarias",
+          "vinilo para cristal",
+          "vinilo para suelo",
+          "vinilo para vehículos",
+          "papel de pared personalizado",
+          "retroiluminados backlight"
+        ],
+        "searchTerms": [
+          "gran formato flexible",
+          "vinilos personalizados",
+          "impresión vinilo barcelona",
+          "vinilo para pared",
+          "vinilo para cristal",
+          "vinilo de corte",
+          "vinilo para suelo",
+          "vinilo vehículos",
+          "lona publicitaria",
+          "lámina magnética impresa",
+          "papel de pared personalizado",
+          "retroiluminados"
+        ],
         "schema": {
           "@context": "https://schema.org",
           "@graph": [
@@ -292,7 +314,7 @@
     },
     {
       "id": "13",
-      "updatedAt": "2026-05-05T12:55:33Z",
+      "updatedAt": "2026-05-05T17:00:29Z",
       "type": "subcategoria",
       "slug": "material-rigido",
       "path": "/categorias/gran-formato/material-rigido",
@@ -419,7 +441,7 @@
         "src": "https://webcms.blob.core.windows.net/media/category/gran-formato.webp",
         "width": 2400,
         "height": 1200,
-        "alt": "aterial publicitario impreso para campañas, promociones y punto de venta"
+        "alt": "Material publicitario impreso para campañas, promociones y punto de venta"
       },
       "faqs": [
         {
@@ -465,8 +487,30 @@
             "url": "https://reprodisseny.com/categorias/gran-formato/material-rigido"
           }
         ],
-        "keywords": [],
-        "searchTerms": [],
+        "keywords": [
+          "impresión gran formato rígido",
+          "panel forex personalizado",
+          "panel dibond personalizado",
+          "metacrilato personalizado",
+          "panel foam personalizado",
+          "cartón pluma personalizado",
+          "carteles rígidos",
+          "señalética rígida"
+        ],
+        "searchTerms": [
+          "gran formato rígido",
+          "panel forex",
+          "panel dibond",
+          "metacrilato personalizado",
+          "panel foam",
+          "panel dispa",
+          "panel nido de abeja",
+          "carteles rígidos",
+          "carteles inmobiliaria",
+          "impresión sobre rígidos",
+          "señalética rígida",
+          "paneles personalizados"
+        ],
         "schema": {
           "@context": "https://schema.org",
           "@graph": [
@@ -549,7 +593,7 @@
     },
     {
       "id": "10",
-      "updatedAt": "2026-05-03T07:27:43Z",
+      "updatedAt": "2026-05-05T17:15:35Z",
       "type": "subcategoria",
       "slug": "material-oficina",
       "path": "/categorias/publicidad-oficina/material-oficina",
@@ -703,8 +747,30 @@
             "url": "https://reprodisseny.com/categorias/publicidad-oficina/material-oficina"
           }
         ],
-        "keywords": [],
-        "searchTerms": [],
+        "keywords": [
+          "papelería corporativa",
+          "material de oficina personalizado",
+          "tarjetas de visita personalizadas",
+          "sobres personalizados",
+          "papel de carta personalizado",
+          "carpetas corporativas",
+          "sellos de goma personalizados",
+          "talonarios autocopiativos"
+        ],
+        "searchTerms": [
+          "papelería corporativa",
+          "material oficina personalizado",
+          "tarjetas visita personalizadas",
+          "sobres personalizados",
+          "papel de carta personalizado",
+          "carpetas de presentación",
+          "talonarios autocopiativos",
+          "sellos de goma",
+          "libretas personalizadas",
+          "archivadores personalizados",
+          "certificados personalizados",
+          "imprenta oficina barcelona"
+        ],
         "schema": {
           "@context": "https://schema.org",
           "@graph": [
@@ -795,7 +861,7 @@
     },
     {
       "id": "11",
-      "updatedAt": "2026-05-03T07:28:18Z",
+      "updatedAt": "2026-05-05T17:14:57Z",
       "type": "subcategoria",
       "slug": "material-publicitario",
       "path": "/categorias/publicidad-oficina/material-publicitario",
@@ -909,7 +975,7 @@
         "src": "https://webcms.blob.core.windows.net/media/category/publicidad.webp",
         "width": 2400,
         "height": 1200,
-        "alt": "Alt imatege"
+        "alt": "Material publicitario impreso para campañas, promociones y punto de venta"
       },
       "faqs": [
         {
@@ -959,8 +1025,33 @@
             "url": "https://reprodisseny.com/categorias/publicidad-oficina/material-publicitario"
           }
         ],
-        "keywords": [],
-        "searchTerms": [],
+        "keywords": [
+          "publicidad impresa",
+          "material publicitario impreso",
+          "papelería corporativa",
+          "material de oficina personalizado",
+          "flyers personalizados",
+          "folletos plegados",
+          "tarjetas de visita personalizadas",
+          "carpetas corporativas",
+          "displays de mesa",
+          "material para punto de venta"
+        ],
+        "searchTerms": [
+          "imprenta publicidad barcelona",
+          "publicidad impresa barcelona",
+          "material publicitario",
+          "material oficina personalizado",
+          "papelería corporativa",
+          "flyers personalizados",
+          "folletos personalizados",
+          "tarjetas de visita personalizadas",
+          "carpetas de presentación",
+          "displays punto de venta",
+          "stoppers lineal",
+          "sellos de goma",
+          "talonarios autocopiativos"
+        ],
         "schema": {
           "@context": "https://schema.org",
           "@graph": [
@@ -1051,7 +1142,7 @@
     },
     {
       "id": "2",
-      "updatedAt": "2026-05-03T07:30:19Z",
+      "updatedAt": "2026-05-05T16:39:35Z",
       "type": "categoria",
       "slug": "adhesivos-personalizados",
       "path": "/categorias/adhesivos-personalizados",
@@ -1301,13 +1392,29 @@
           }
         ],
         "keywords": [
-          "Adhesivos personalizados para empresas",
-          "Etiquetas adhesivas en Cataluña",
-          "Impresión de pegatinas promocionales",
-          "Adhesivos para packaging",
-          "Etiquetas autoadhesivas de calidad"
+          "adhesivos personalizados",
+          "pegatinas personalizadas",
+          "etiquetas adhesivas personalizadas",
+          "vinilos adhesivos personalizados",
+          "adhesivos para packaging",
+          "stickers personalizados para empresas",
+          "impresión de adhesivos en Barcelona",
+          "etiquetas autoadhesivas"
         ],
-        "searchTerms": [],
+        "searchTerms": [
+          "adhesivos personalizados",
+          "pegatinas personalizadas",
+          "etiquetas adhesivas",
+          "etiquetas adhesivas personalizadas",
+          "stickers personalizados",
+          "adhesivos para empresas",
+          "adhesivos para packaging",
+          "vinilos adhesivos",
+          "imprenta adhesivos barcelona",
+          "pegatinas con logo",
+          "etiquetas para productos",
+          "adhesivos promocionales"
+        ],
         "schema": {
           "@context": "https://schema.org",
           "@graph": [
@@ -2024,7 +2131,7 @@
     },
     {
       "id": "7",
-      "updatedAt": "2026-05-03T07:30:58Z",
+      "updatedAt": "2026-05-05T16:54:06Z",
       "type": "categoria",
       "slug": "libros-revistas-catalogos",
       "path": "/categorias/libros-revistas-catalogos",
@@ -2207,19 +2314,34 @@
           }
         ],
         "keywords": [
-          "Impresión de libros personalizados",
-          "Editoriales en Cataluña",
-          "Publicación de libros para empresas",
-          "Servicios de autoedición",
-          "Imprenta de libros corporativos",
-          "Impresión de revistas en Barcelona",
-          "Diseño de catálogos para empresas",
-          "Catálogos de productos personalizados",
-          "Servicios de impresión de revistas",
-          "Catálogos corporativos de alta calidad"
+          "impresión de libros personalizados",
+          "impresión de revistas",
+          "catálogos corporativos",
+          "catálogos de productos",
+          "encuadernación para empresas",
+          "libros corporativos",
+          "revistas personalizadas",
+          "catálogos comerciales",
+          "memorias corporativas",
+          "publicaciones impresas"
         ],
         "searchTerms": [
-          "impresión de libros, revistas y catálogos en barcelona | repro disseny"
+          "impresión de libros",
+          "libros personalizados",
+          "impresión de revistas",
+          "revistas personalizadas",
+          "catálogos corporativos",
+          "catálogos de productos",
+          "catálogos comerciales",
+          "imprimir catálogo empresa",
+          "encuadernación tapa blanda",
+          "encuadernación tapa dura",
+          "encuadernación wire-o",
+          "libros empresa",
+          "memorias corporativas",
+          "revistas para empresas",
+          "imprenta libros barcelona",
+          "imprenta catálogos barcelona"
         ],
         "schema": {
           "@context": "https://schema.org",
@@ -2618,7 +2740,7 @@
     },
     {
       "id": "9",
-      "updatedAt": "2026-05-03T07:30:42Z",
+      "updatedAt": "2026-05-05T16:53:47Z",
       "type": "categoria",
       "slug": "publicidad-oficina",
       "path": "/categorias/publicidad-oficina",
@@ -2815,14 +2937,10 @@
           }
         ],
         "keywords": [
-          "publicidad impresa barcelona",
-          "material oficina personalizado",
-          "papelería corporativa",
-          "impresión flyers cataluña"
+          "\"impresión de revistas\""
         ],
         "searchTerms": [
-          "imprenta publicidad barcelona",
-          "material oficina empresas"
+          "\"libros personalizados\""
         ],
         "schema": {
           "@context": "https://schema.org",
@@ -2916,7 +3034,7 @@
     },
     {
       "id": "6",
-      "updatedAt": "2026-05-03T07:31:22Z",
+      "updatedAt": "2026-05-05T16:40:00Z",
       "type": "categoria",
       "slug": "hosteleria-restauracion",
       "path": "/categorias/hosteleria-restauracion",
@@ -3100,8 +3218,30 @@
             "url": "https://reprodisseny.com/categorias/hosteleria-restauracion"
           }
         ],
-        "keywords": [],
-        "searchTerms": [],
+        "keywords": [
+          "impresión para hostelería",
+          "cartas de restaurante personalizadas",
+          "menús personalizados",
+          "manteles individuales personalizados",
+          "posavasos personalizados",
+          "material gráfico para restaurantes",
+          "impresión para hoteles",
+          "portacuentas personalizados"
+        ],
+        "searchTerms": [
+          "impresión hostelería",
+          "imprenta para restaurantes",
+          "cartas restaurante personalizadas",
+          "menús restaurante personalizados",
+          "manteles individuales personalizados",
+          "posavasos personalizados",
+          "portacuentas personalizados",
+          "tarjetas habitación hotel",
+          "material impreso para hoteles",
+          "material gráfico para bares",
+          "cartas para bar",
+          "imprenta hostelería barcelona"
+        ],
         "schema": {
           "@context": "https://schema.org",
           "@graph": [
@@ -3194,7 +3334,7 @@
     },
     {
       "id": "8",
-      "updatedAt": "2026-05-03T07:01:54Z",
+      "updatedAt": "2026-05-05T17:12:46Z",
       "type": "categoria",
       "slug": "packaging",
       "path": "/categorias/packaging",
@@ -3343,14 +3483,33 @@
           }
         ],
         "keywords": [
-          "Diseño de envases personalizados",
-          "Cajas impresas para productos",
-          "Etiquetas y sleeves para packaging",
-          "Soluciones de embalaje sostenible",
-          "Packaging creativo para marcas"
+          "packaging personalizado",
+          "cajas personalizadas",
+          "cajas impresas para productos",
+          "packaging para empresas",
+          "cajas de cartón personalizadas",
+          "caja automontable",
+          "caja de envío personalizada",
+          "fajas para packaging",
+          "etiquetas para packaging",
+          "packaging corporativo"
         ],
         "searchTerms": [
-          "packaging personalizado para productos y marcas | repro disseny"
+          "packaging personalizado",
+          "cajas personalizadas",
+          "cajas impresas",
+          "cajas para producto",
+          "cajas de cartón personalizadas",
+          "caja automontable",
+          "caja estándar",
+          "caja de envío",
+          "caja cofre",
+          "caja almohada",
+          "caja porta botella",
+          "faja para caja",
+          "packaging para ecommerce",
+          "packaging para regalos corporativos",
+          "imprenta packaging barcelona"
         ],
         "schema": {
           "@context": "https://schema.org",
@@ -4191,7 +4350,7 @@
     },
     {
       "id": "3",
-      "updatedAt": "2026-05-05T11:35:57Z",
+      "updatedAt": "2026-05-05T15:56:58Z",
       "type": "producto",
       "slug": "agendas-personalizadas",
       "path": "/productos/agendas-personalizadas",
@@ -4469,8 +4628,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Agendas personalizadas | Agendas corporativas para equipos, clientes y eventos",
-        "metaDescription": "Agendas personalizadas para empresa: formatos A5/A4, tapa blanda o dura, encuadernación Wire-O o cosida/encolada y opción de interior personalizado. Ideal para regalos corporativos. Solicita presupuesto.",
+        "metaTitle": "Agendas personalizadas para empresa",
+        "metaDescription": "Agendas personalizadas para empresa: A5/A4, tapa blanda o dura y encuadernación a medida. Ideal para equipos y regalos corporativos.",
         "canonical": "https://reprodisseny.com/productos/agendas-personalizadas",
         "hreflang": [
           {
@@ -4490,7 +4649,7 @@
             {
               "@type": "Product",
               "name": "Agendas personalizadas",
-              "description": "Agendas personalizadas para empresa: formatos A5/A4, tapa blanda o dura, encuadernación Wire-O o cosida/encolada y opción de interior personalizado. Ideal para regalos corporativos. Solicita presupuesto.",
+              "description": "Agendas personalizadas para empresa: A5/A4, tapa blanda o dura y encuadernación a medida. Ideal para equipos y regalos corporativos.",
               "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/agendas-personalizadas.webp",
               "url": "https://reprodisseny.com/productos/agendas-personalizadas",
               "brand": {
@@ -4595,7 +4754,7 @@
     },
     {
       "id": "4",
-      "updatedAt": "2026-05-05T11:36:35Z",
+      "updatedAt": "2026-05-05T14:59:41Z",
       "type": "producto",
       "slug": "arbol-navidad-corporativo",
       "path": "/productos/arbol-navidad-corporativo",
@@ -4782,7 +4941,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/eventos/arbol-de-navidad.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la fotoÁrbol de Navidad corporativo impreso para escaparates, oficinas y campañas de marca"
+        "alt": "Árbol de Navidad corporativo impreso en nido de abeja para escaparates y oficinas"
       },
       "galleryImages": [],
       "sku": "01-EVEN-0017",
@@ -4981,7 +5140,7 @@
     },
     {
       "id": "5",
-      "updatedAt": "2026-05-05T11:36:36Z",
+      "updatedAt": "2026-05-05T15:58:17Z",
       "type": "producto",
       "slug": "archivadores-personalizados",
       "path": "/productos/archivadores-personalizados",
@@ -5081,7 +5240,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/archivadores.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la fotoArchivadores personalizados impresos para documentación corporativa y organización de oficina"
+        "alt": "Archivadores personalizados para documentación corporativa y organización de oficina"
       },
       "galleryImages": [],
       "sku": "01-OFICI-0028",
@@ -5180,8 +5339,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Archivadores personalizados | Archivadores corporativos para oficina y documentación",
-        "metaDescription": "Archivadores personalizados para empresas: archivadores de palanca o anillas, lomo personalizable, alta resistencia y opciones de etiquetado. Ideales para administración, formación y catálogo técnico. Solicita presupuesto.",
+        "metaTitle": "Archivadores personalizados para oficina | Repro Disseny",
+        "metaDescription": "Archivadores personalizados para empresas, documentación y formación. Lomo personalizable, alta resistencia y acabados profesionales. Pide presupuesto.",
         "canonical": "https://reprodisseny.com/productos/archivadores-personalizados",
         "hreflang": [
           {
@@ -5201,7 +5360,7 @@
             {
               "@type": "Product",
               "name": "Archivadores personalizados",
-              "description": "Archivadores personalizados para empresas: archivadores de palanca o anillas, lomo personalizable, alta resistencia y opciones de etiquetado. Ideales para administración, formación y catálogo técnico. Solicita presupuesto.",
+              "description": "Archivadores personalizados para empresas, documentación y formación. Lomo personalizable, alta resistencia y acabados profesionales. Pide presupuesto.",
               "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/archivadores.webp",
               "url": "https://reprodisseny.com/productos/archivadores-personalizados",
               "brand": {
@@ -5306,7 +5465,7 @@
     },
     {
       "id": "7",
-      "updatedAt": "2026-05-05T11:38:04Z",
+      "updatedAt": "2026-05-05T15:00:15Z",
       "type": "producto",
       "slug": "banderola-lona-fachada",
       "path": "/productos/banderola-lona-fachada",
@@ -5398,7 +5557,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/banderola-para-fachada-de-lona.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Banderola de lona personalizada para fachada exterior e identificación de negocio"
       },
       "galleryImages": [],
       "sku": "01-GRFO-0007",
@@ -5924,7 +6083,7 @@
     },
     {
       "id": "8",
-      "updatedAt": "2026-05-05T11:37:21Z",
+      "updatedAt": "2026-05-05T15:24:05Z",
       "type": "producto",
       "slug": "banderolas-lineal-personalizadas",
       "path": "/productos/banderolas-lineal-personalizadas",
@@ -6142,7 +6301,7 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Banderolas de lineal personalizadas | Visibilidad en estantería y punto de venta",
+        "metaTitle": "Banderolas de lineal personalizadas | Retail",
         "metaDescription": "Banderolas de lineal personalizadas para destacar promociones y lanzamientos en estanterías. Impresión a color, corte a medida y sistemas de fijación. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/banderolas-lineal-personalizadas",
         "hreflang": [
@@ -6831,7 +6990,7 @@
     },
     {
       "id": "12",
-      "updatedAt": "2026-05-05T11:38:15Z",
+      "updatedAt": "2026-05-05T16:18:47Z",
       "type": "producto",
       "slug": "blocs-notas",
       "path": "/productos/blocs-notas",
@@ -7075,7 +7234,7 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Blocs de notas personalizados | Papelería corporativa para oficina y eventos",
+        "metaTitle": "Blocs de notas personalizados",
         "metaDescription": "Blocs de notas personalizados para empresas: A4/A5/A6, encolados o con tapa, impresión a 1 tinta o color y opción de hojas interiores personalizadas. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/blocs-notas",
         "hreflang": [
@@ -7185,7 +7344,7 @@
     },
     {
       "id": "13",
-      "updatedAt": "2026-05-05T11:38:24Z",
+      "updatedAt": "2026-05-05T15:24:15Z",
       "type": "producto",
       "slug": "caballetes-publicitarios-personalizados",
       "path": "/productos/caballetes-publicitarios-personalizados",
@@ -7348,7 +7507,7 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Caballetes Publicitarios Personalizados | Señalización de Calle y Punto de Venta",
+        "metaTitle": "Caballetes publicitarios personalizados",
         "metaDescription": "Caballetes publicitarios para exterior e interior: doble cara, estables y fáciles de mover. Ideales para promociones, menús y señalización. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/caballetes-publicitarios-personalizados",
         "hreflang": [
@@ -7452,7 +7611,7 @@
     },
     {
       "id": "140",
-      "updatedAt": "2026-05-05T11:19:28Z",
+      "updatedAt": "2026-05-05T16:02:57Z",
       "type": "producto",
       "slug": "caja-almohada",
       "path": "/productos/caja-almohada",
@@ -7620,7 +7779,7 @@
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Caja almohada personalizada | Packaging corporativo para regalos y kits",
-        "metaDescription": "Caja almohada personalizada para regalos corporativos y packs pequeños. Automontable, ligera y con impresión a color. Ideal para welcome packs, merchandising y detalles. Solicita presupuesto.",
+        "metaDescription": "Caja almohada personalizada para regalos corporativos y packs pequeños. Automontable, ligera y con impresión a color.",
         "canonical": "https://reprodisseny.com/productos/caja-almohada",
         "hreflang": [
           {
@@ -7636,7 +7795,7 @@
             {
               "@type": "Product",
               "name": "Caja almohada",
-              "description": "Caja almohada personalizada para regalos corporativos y packs pequeños. Automontable, ligera y con impresión a color. Ideal para welcome packs, merchandising y detalles. Solicita presupuesto.",
+              "description": "Caja almohada personalizada para regalos corporativos y packs pequeños. Automontable, ligera y con impresión a color.",
               "image": "https://webcms.blob.core.windows.net/media/product/packaging/caja almohada.webp",
               "url": "https://reprodisseny.com/productos/caja-almohada",
               "brand": {
@@ -7718,7 +7877,7 @@
     },
     {
       "id": "138",
-      "updatedAt": "2026-05-05T11:19:10Z",
+      "updatedAt": "2026-05-05T15:57:12Z",
       "type": "producto",
       "slug": "caja-cerillas",
       "path": "/productos/caja-cerillas",
@@ -7903,7 +8062,7 @@
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Caja cerilla personalizada | Packaging corporativo premium con cajón",
-        "metaDescription": "Caja cerilla personalizada (funda + cajón) para regalos corporativos y kits. Presentación premium, impresión exterior/interior y opción de acabados (laminado, soft touch, stamping). Solicita presupuesto.",
+        "metaDescription": "Caja cerilla personalizada con funda y cajón para regalos corporativos y kits. Packaging premium con impresión y acabados a medida.",
         "canonical": "https://reprodisseny.com/productos/caja-cerillas",
         "hreflang": [
           {
@@ -7919,7 +8078,7 @@
             {
               "@type": "Product",
               "name": "Caja cerillas (funda + cajón)",
-              "description": "Caja cerilla personalizada (funda + cajón) para regalos corporativos y kits. Presentación premium, impresión exterior/interior y opción de acabados (laminado, soft touch, stamping). Solicita presupuesto.",
+              "description": "Caja cerilla personalizada con funda y cajón para regalos corporativos y kits. Packaging premium con impresión y acabados a medida.",
               "image": "https://webcms.blob.core.windows.net/media/product/packaging/caja cerillas.webp",
               "url": "https://reprodisseny.com/productos/caja-cerillas",
               "brand": {
@@ -8001,7 +8160,7 @@
     },
     {
       "id": "142",
-      "updatedAt": "2026-05-05T11:19:48Z",
+      "updatedAt": "2026-05-05T16:47:20Z",
       "type": "producto",
       "slug": "caja-cofre",
       "path": "/productos/caja-cofre",
@@ -8176,8 +8335,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Caja cofre personalizada | Packaging corporativo premium para regalos y kits",
-        "metaDescription": "Caja cofre personalizada para empresas: packaging rígido premium con tapa, alta presencia y opción de impresión interior/exterior y acabados (laminado, soft touch, stamping). Ideal para regalos y welcome packs. Solicita presupuesto.",
+        "metaTitle": "Caja cofre personalizada | Packaging premium",
+        "metaDescription": "Caja cofre personalizada para regalos corporativos y welcome packs. Packaging rígido premium con impresión y acabados a medida. Pide presupuesto.",
         "canonical": "https://reprodisseny.com/productos/caja-cofre",
         "hreflang": [
           {
@@ -8185,15 +8344,37 @@
             "url": "https://reprodisseny.com/productos/caja-cofre"
           }
         ],
-        "keywords": [],
-        "searchTerms": [],
+        "keywords": [
+          "caja cofre personalizada",
+          "caja premium personalizada",
+          "packaging regalo corporativo",
+          "caja rígida tipo cofre",
+          "caja para welcome pack",
+          "caja regalo empresa",
+          "packaging premium",
+          "caja de presentación"
+        ],
+        "searchTerms": [
+          "caja cofre",
+          "caja cofre personalizada",
+          "caja premium",
+          "caja regalo corporativo",
+          "caja welcome pack",
+          "caja presentación",
+          "packaging premium",
+          "caja rígida personalizada",
+          "caja regalo empresa",
+          "caja para producto premium",
+          "caja corporativa",
+          "caja tipo cofre"
+        ],
         "schema": {
           "@context": "https://schema.org",
           "@graph": [
             {
               "@type": "Product",
               "name": "Caja cofre",
-              "description": "Caja cofre personalizada para empresas: packaging rígido premium con tapa, alta presencia y opción de impresión interior/exterior y acabados (laminado, soft touch, stamping). Ideal para regalos y welcome packs. Solicita presupuesto.",
+              "description": "Caja cofre personalizada para regalos corporativos y welcome packs. Packaging rígido premium con impresión y acabados a medida. Pide presupuesto.",
               "image": "https://webcms.blob.core.windows.net/media/product/packaging/caja cofre.webp",
               "url": "https://reprodisseny.com/productos/caja-cofre",
               "brand": {
@@ -8275,7 +8456,7 @@
     },
     {
       "id": "146",
-      "updatedAt": "2026-05-05T11:20:18Z",
+      "updatedAt": "2026-05-05T16:47:50Z",
       "type": "producto",
       "slug": "caja-envio",
       "path": "/productos/caja-envio",
@@ -8493,7 +8674,7 @@
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Caja de envío personalizada | Packaging corporativo para envíos seguros",
-        "metaDescription": "Caja de envío personalizada para empresas: resistente, segura y preparada para transporte. Medidas a medida, impresión exterior/interior y opciones de cierre y protección. Solicita presupuesto.",
+        "metaDescription": "Caja de envío personalizada para empresas. Packaging resistente para transporte, con medidas a medida e impresión interior/exterior.",
         "canonical": "https://reprodisseny.com/productos/caja-envio",
         "hreflang": [
           {
@@ -8501,15 +8682,37 @@
             "url": "https://reprodisseny.com/productos/caja-envio"
           }
         ],
-        "keywords": [],
-        "searchTerms": [],
+        "keywords": [
+          "caja de envío personalizada",
+          "packaging ecommerce",
+          "caja para ecommerce",
+          "caja postal personalizada",
+          "caja mailing personalizada",
+          "caja de cartón para envíos",
+          "caja logística personalizada",
+          "packaging envío"
+        ],
+        "searchTerms": [
+          "caja de envío",
+          "caja envío personalizada",
+          "packaging ecommerce",
+          "caja ecommerce",
+          "caja postal personalizada",
+          "caja para envíos",
+          "caja mailing",
+          "caja cartón envío",
+          "packaging envío",
+          "caja logística",
+          "caja con logo envío",
+          "caja para tienda online"
+        ],
         "schema": {
           "@context": "https://schema.org",
           "@graph": [
             {
               "@type": "Product",
               "name": "Caja de envío",
-              "description": "Caja de envío personalizada para empresas: resistente, segura y preparada para transporte. Medidas a medida, impresión exterior/interior y opciones de cierre y protección. Solicita presupuesto.",
+              "description": "Caja de envío personalizada para empresas. Packaging resistente para transporte, con medidas a medida e impresión interior/exterior.",
               "image": "https://webcms.blob.core.windows.net/media/product/packaging/caja envio.webp",
               "url": "https://reprodisseny.com/productos/caja-envio",
               "brand": {
@@ -8591,7 +8794,7 @@
     },
     {
       "id": "145",
-      "updatedAt": "2026-05-05T11:20:12Z",
+      "updatedAt": "2026-05-05T15:59:08Z",
       "type": "producto",
       "slug": "caja-desplegable-tapa",
       "path": "/productos/caja-desplegable-tapa",
@@ -8757,7 +8960,7 @@
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Caja desplegable con tapa personalizada | Packaging corporativo premium",
-        "metaDescription": "Caja desplegable con tapa personalizada para regalos corporativos y kits premium. Rígida, plegable para logística, impresión exterior/interior y acabados (laminado, soft touch, stamping). Solicita presupuesto.",
+        "metaDescription": "Caja desplegable con tapa para regalos corporativos y kits premium. Rígida, plegable, personalizable y con acabados a medida.",
         "canonical": "https://reprodisseny.com/productos/caja-desplegable-tapa",
         "hreflang": [
           {
@@ -8773,7 +8976,7 @@
             {
               "@type": "Product",
               "name": "Caja desplegable con tapa",
-              "description": "Caja desplegable con tapa personalizada para regalos corporativos y kits premium. Rígida, plegable para logística, impresión exterior/interior y acabados (laminado, soft touch, stamping). Solicita presupuesto.",
+              "description": "Caja desplegable con tapa para regalos corporativos y kits premium. Rígida, plegable, personalizable y con acabados a medida.",
               "image": "https://webcms.blob.core.windows.net/media/product/packaging/caja desplegable con tapa.webp",
               "url": "https://reprodisseny.com/productos/caja-desplegable-tapa",
               "brand": {
@@ -9138,7 +9341,7 @@
     },
     {
       "id": "139",
-      "updatedAt": "2026-05-05T11:19:19Z",
+      "updatedAt": "2026-05-05T15:58:39Z",
       "type": "producto",
       "slug": "caja-envolvente",
       "path": "/productos/caja-envolvente",
@@ -9323,7 +9526,7 @@
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Caja envolvente personalizada | Packaging corporativo premium para empresas",
-        "metaDescription": "Caja envolvente personalizada para packs corporativos: estuche con “faja” que envuelve la caja, acabado premium, impresión exterior/interior y opción de cierre. Ideal para welcome packs y regalos. Solicita presupuesto.",
+        "metaDescription": "Caja envolvente personalizada para packs corporativos y regalos. Packaging premium con impresión interior/exterior y acabados a medida.",
         "canonical": "https://reprodisseny.com/productos/caja-envolvente",
         "hreflang": [
           {
@@ -9339,7 +9542,7 @@
             {
               "@type": "Product",
               "name": "Caja envolvente",
-              "description": "Caja envolvente personalizada para packs corporativos: estuche con “faja” que envuelve la caja, acabado premium, impresión exterior/interior y opción de cierre. Ideal para welcome packs y regalos. Solicita presupuesto.",
+              "description": "Caja envolvente personalizada para packs corporativos y regalos. Packaging premium con impresión interior/exterior y acabados a medida.",
               "image": "https://webcms.blob.core.windows.net/media/product/packaging/caja con cierre envolvente.webp",
               "url": "https://reprodisseny.com/productos/caja-envolvente",
               "brand": {
@@ -9421,7 +9624,7 @@
     },
     {
       "id": "135",
-      "updatedAt": "2026-05-05T11:18:48Z",
+      "updatedAt": "2026-05-05T16:47:09Z",
       "type": "producto",
       "slug": "caja-estandar",
       "path": "/productos/caja-estandar",
@@ -9607,8 +9810,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Caja estándar personalizada | Packaging corporativo para empresas y oficinas",
-        "metaDescription": "Caja estándar personalizada para packaging corporativo: envíos, kits de bienvenida y documentación. Medidas estándar o a medida, impresión exterior/interior y acabados. Solicita presupuesto.",
+        "metaTitle": "Caja estándar personalizada para envíos",
+        "metaDescription": "Caja estándar personalizada para envíos, kits y documentación. Medidas estándar o a medida, impresión y acabados profesionales.",
         "canonical": "https://reprodisseny.com/productos/caja-estandar",
         "hreflang": [
           {
@@ -9616,15 +9819,37 @@
             "url": "https://reprodisseny.com/productos/caja-estandar"
           }
         ],
-        "keywords": [],
-        "searchTerms": [],
+        "keywords": [
+          "caja estándar personalizada",
+          "caja packaging personalizada",
+          "caja folding personalizada",
+          "caja impresa a medida",
+          "caja para producto",
+          "packaging corporativo",
+          "caja de cartón personalizada",
+          "cajas impresas"
+        ],
+        "searchTerms": [
+          "caja estándar",
+          "caja estándar personalizada",
+          "caja packaging",
+          "caja personalizada",
+          "caja folding",
+          "caja impresa",
+          "caja para producto",
+          "caja de cartón personalizada",
+          "packaging personalizado",
+          "cajas para empresa",
+          "cajas impresas",
+          "caja a medida"
+        ],
         "schema": {
           "@context": "https://schema.org",
           "@graph": [
             {
               "@type": "Product",
               "name": "Caja estándar",
-              "description": "Caja estándar personalizada para packaging corporativo: envíos, kits de bienvenida y documentación. Medidas estándar o a medida, impresión exterior/interior y acabados. Solicita presupuesto.",
+              "description": "Caja estándar personalizada para envíos, kits y documentación. Medidas estándar o a medida, impresión y acabados profesionales.",
               "image": "https://webcms.blob.core.windows.net/media/product/packaging/caja estandar.webp",
               "url": "https://reprodisseny.com/productos/caja-estandar",
               "brand": {
@@ -9706,7 +9931,7 @@
     },
     {
       "id": "137",
-      "updatedAt": "2026-05-05T11:19:04Z",
+      "updatedAt": "2026-05-05T16:19:04Z",
       "type": "producto",
       "slug": "caja-porta-botella",
       "path": "/productos/caja-porta-botella",
@@ -9890,8 +10115,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Caja porta botellas personalizada | Packaging corporativo para regalos y envíos",
-        "metaDescription": "Caja porta botellas personalizada para empresa: 1 o varias botellas, con asa o sin asa, cartón resistente y acabados premium. Ideal para regalos corporativos y packs. Solicita presupuesto.",
+        "metaTitle": "Caja porta botellas personalizada",
+        "metaDescription": "Caja porta botellas personalizada para regalos corporativos y packs. Cartón resistente, asa opcional e impresión a medida.",
         "canonical": "https://reprodisseny.com/productos/caja-porta-botella",
         "hreflang": [
           {
@@ -9907,7 +10132,7 @@
             {
               "@type": "Product",
               "name": "Caja porta botella",
-              "description": "Caja porta botellas personalizada para empresa: 1 o varias botellas, con asa o sin asa, cartón resistente y acabados premium. Ideal para regalos corporativos y packs. Solicita presupuesto.",
+              "description": "Caja porta botellas personalizada para regalos corporativos y packs. Cartón resistente, asa opcional e impresión a medida.",
               "image": "https://webcms.blob.core.windows.net/media/product/packaging/caja para botella.webp",
               "url": "https://reprodisseny.com/productos/caja-porta-botella",
               "brand": {
@@ -9989,7 +10214,7 @@
     },
     {
       "id": "143",
-      "updatedAt": "2026-05-05T11:19:57Z",
+      "updatedAt": "2026-05-05T16:47:36Z",
       "type": "producto",
       "slug": "caja-sobre-personalizada",
       "path": "/productos/caja-sobre-personalizada",
@@ -10182,8 +10407,30 @@
             "url": "https://reprodisseny.com/productos/caja-sobre-personalizada"
           }
         ],
-        "keywords": [],
-        "searchTerms": [],
+        "keywords": [
+          "caja sobre personalizada",
+          "packaging tipo sobre",
+          "caja plana personalizada",
+          "sobre rígido personalizado",
+          "caja para documentos",
+          "packaging para envío",
+          "caja mailing personalizada",
+          "caja corporativa"
+        ],
+        "searchTerms": [
+          "caja sobre",
+          "caja sobre personalizada",
+          "packaging tipo sobre",
+          "caja plana personalizada",
+          "sobre rígido",
+          "caja para documentos",
+          "caja mailing",
+          "packaging envío",
+          "caja corporativa",
+          "caja postal personalizada",
+          "sobre packaging",
+          "caja fina personalizada"
+        ],
         "schema": {
           "@context": "https://schema.org",
           "@graph": [
@@ -10849,7 +11096,7 @@
     },
     {
       "id": "16",
-      "updatedAt": "2026-05-05T11:39:00Z",
+      "updatedAt": "2026-05-05T15:31:21Z",
       "type": "producto",
       "slug": "carpetas-de-presentacion-personalizadas",
       "path": "/productos/carpetas-de-presentacion-personalizadas",
@@ -11118,7 +11365,7 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Carpetas de presentación personalizadas | Carpetas corporativas para empresas",
+        "metaTitle": "Carpetas de presentación personalizadas",
         "metaDescription": "Carpetas de presentación personalizadas para propuestas y documentación. Con solapas, hendido, opción lomo y acabados premium (laminado, barniz, stamping). Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/carpetas-de-presentacion-personalizadas",
         "hreflang": [
@@ -11228,7 +11475,7 @@
     },
     {
       "id": "17",
-      "updatedAt": "2026-05-05T11:39:09Z",
+      "updatedAt": "2026-05-05T16:14:59Z",
       "type": "producto",
       "slug": "cartas-restaurante-personalizadas",
       "path": "/productos/cartas-restaurante-personalizadas",
@@ -11393,8 +11640,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Cartas de restaurante personalizadas | Menús impresos resistentes y profesionales",
-        "metaDescription": "Cartas de restaurante personalizadas: impresión profesional, acabados resistentes (plastificado/laminado), formatos a medida y opción QR. Ideales para sala y terraza. Solicita presupuesto.",
+        "metaTitle": "Cartas de restaurante personalizadas | Repro Disseny",
+        "metaDescription": "Flyers con forma troquelados para publicidad y eventos. Corte a medida, impresión a color y acabados profesionales.",
         "canonical": "https://reprodisseny.com/productos/cartas-restaurante-personalizadas",
         "hreflang": [
           {
@@ -11414,7 +11661,7 @@
             {
               "@type": "Product",
               "name": "Cartas de restaurante personalizadas",
-              "description": "Cartas de restaurante personalizadas: impresión profesional, acabados resistentes (plastificado/laminado), formatos a medida y opción QR. Ideales para sala y terraza. Solicita presupuesto.",
+              "description": "Flyers con forma troquelados para publicidad y eventos. Corte a medida, impresión a color y acabados profesionales.",
               "image": "https://webcms.blob.core.windows.net/media/product/restauracion/cartas-restaurante.webp",
               "url": "https://reprodisseny.com/productos/cartas-restaurante-personalizadas",
               "brand": {
@@ -11497,7 +11744,7 @@
     },
     {
       "id": "147",
-      "updatedAt": "2026-05-05T11:20:24Z",
+      "updatedAt": "2026-05-05T16:48:03Z",
       "type": "producto",
       "slug": "carteles-inmobiliaria-personalizados",
       "path": "/productos/carteles-inmobiliaria-personalizados",
@@ -11710,7 +11957,7 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Carteles de Inmobiliaria Personalizados | Se Vende / Se Alquila / Promociones",
+        "metaTitle": "Carteles inmobiliarios personalizados",
         "metaDescription": "Carteles inmobiliarios personalizados para escaparate y exterior: “Se vende”, “Se alquila”, promociones y obra nueva. A una o dos caras, con QR y fijación. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/carteles-inmobiliaria-personalizados",
         "hreflang": [
@@ -11719,8 +11966,30 @@
             "url": "https://reprodisseny.com/productos/carteles-inmobiliaria-personalizados"
           }
         ],
-        "keywords": [],
-        "searchTerms": [],
+        "keywords": [
+          "carteles inmobiliaria personalizados",
+          "cartel se vende",
+          "cartel se alquila",
+          "carteles para inmobiliarias",
+          "cartel forex inmobiliaria",
+          "cartel exterior inmobiliaria",
+          "cartelería inmobiliaria",
+          "panel inmobiliario personalizado"
+        ],
+        "searchTerms": [
+          "carteles inmobiliaria",
+          "cartel se vende",
+          "cartel se alquila",
+          "carteles inmobiliaria personalizados",
+          "cartel inmobiliaria forex",
+          "cartel exterior inmobiliaria",
+          "cartelería inmobiliaria",
+          "panel inmobiliaria",
+          "cartel para balcón",
+          "cartel para agencia inmobiliaria",
+          "cartel vivienda",
+          "cartel inmueble"
+        ],
         "schema": {
           "@context": "https://schema.org",
           "@graph": [
@@ -12085,7 +12354,7 @@
     },
     {
       "id": "23",
-      "updatedAt": "2026-05-05T11:39:42Z",
+      "updatedAt": "2026-05-05T15:31:57Z",
       "type": "producto",
       "slug": "certificados-personalizados",
       "path": "/productos/certificados-personalizados",
@@ -12243,7 +12512,7 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Certificados personalizados | Impresión profesional para empresas y formación",
+        "metaTitle": "Certificados personalizados para empresas",
         "metaDescription": "Certificados personalizados para cursos, eventos y empresas. Papeles premium, impresión a color, numeración, datos variables y acabados (sellos, stamping, relieve). Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/certificados-personalizados",
         "hreflang": [
@@ -12353,7 +12622,7 @@
     },
     {
       "id": "25",
-      "updatedAt": "2026-05-05T11:39:51Z",
+      "updatedAt": "2026-05-05T15:36:01Z",
       "type": "producto",
       "slug": "colgador-de-botellas-personalizado",
       "path": "/productos/colgador-de-botellas-personalizado",
@@ -12526,7 +12795,7 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Colgador de botellas personalizado | Promoción y branding en punto de venta",
+        "metaTitle": "colgador-de-botellas-personalizado",
         "metaDescription": "Colgadores de botellas personalizados para promociones en tienda y hostelería. Troquelados, resistentes y con impresión a color. Ideales para ofertas, catas y lanzamientos. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/colgador-de-botellas-personalizado",
         "hreflang": [
@@ -14065,7 +14334,7 @@
     },
     {
       "id": "34",
-      "updatedAt": "2026-05-05T11:41:00Z",
+      "updatedAt": "2026-05-05T15:29:34Z",
       "type": "producto",
       "slug": "tarjeta-habitacion-hotel",
       "path": "/productos/tarjeta-habitacion-hotel",
@@ -14235,7 +14504,7 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Díptico Tarjeta de Habitación | Hoteles y Apartamentos | Impresión Profesional",
+        "metaTitle": "Tarjetas de habitación para hoteles",
         "metaDescription": "Díptico tarjeta de habitación para hoteles: info WiFi, horarios y servicios con diseño corporativo. Papel resistente, plastificado opcional y QR. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/tarjeta-habitacion-hotel",
         "hreflang": [
@@ -15006,310 +15275,8 @@
       }
     },
     {
-      "id": "26",
-      "updatedAt": "2026-05-05T11:40:03Z",
-      "type": "producto",
-      "slug": "cosida-tapa-blanda",
-      "path": "/productos/cosida-tapa-blanda",
-      "title": "Encuadernación  cosida tapa blanda",
-      "categorySlug": "libros-revistas-catalogos",
-      "categorySlugs": [
-        "libros-revistas-catalogos"
-      ],
-      "order": 9999,
-      "isPublished": true,
-      "shortDescription": "La encuadernación cosida con tapa blanda es la opción ideal cuando buscas un acabado tipo libro, pero con más resistencia y mejor apertura que una rústica encolada. En Repro Disseny producimos catálogos, revistas y libros con tapa blanda y cosido, cuidando papeles y acabados para conseguir una publicación duradera y profesional.",
-      "description": "La encuadernación cosida con tapa blanda es la opción ideal cuando buscas un acabado tipo libro, pero con más resistencia y mejor apertura que una rústica encolada. En Repro Disseny producimos catálogos, revistas y libros con tapa blanda y cosido, cuidando papeles y acabados para conseguir una publicación duradera y profesional.",
-      "bodyMd": "¿Qué es la encuadernación cosida tapa blanda y para qué se usa?\nEn esta encuadernación, los pliegos interiores se cosen para formar el bloque del libro y después se montan con una cubierta flexible (tapa blanda). El resultado es una publicación con lomo, de aspecto editorial, pensada para aguantar mejor el uso repetido y abrir de forma más cómoda que una encuadernación solo encolada. Es muy habitual en catálogos de marca, libros corporativos, manuales y ediciones con un número de páginas medio/alto.",
-      "sections": [
-        {
-          "id": "details",
-          "key": "details",
-          "title": "Detalles",
-          "kind": "details",
-          "contentFormat": "markdown",
-          "body": "¿Qué es la encuadernación cosida tapa blanda y para qué se usa?\nEn esta encuadernación, los pliegos interiores se cosen para formar el bloque del libro y después se montan con una cubierta flexible (tapa blanda). El resultado es una publicación con lomo, de aspecto editorial, pensada para aguantar mejor el uso repetido y abrir de forma más cómoda que una encuadernación solo encolada. Es muy habitual en catálogos de marca, libros corporativos, manuales y ediciones con un número de páginas medio/alto."
-        },
-        {
-          "id": "benefits",
-          "key": "benefits",
-          "title": "Beneficios",
-          "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "Más durabilidad: el cosido aporta mayor resistencia al uso y al paso del tiempo.\nMejor apertura y lectura: se maneja mejor en consulta que una tapa blanda solo encolada.\nAcabado editorial con lomo: ideal para identificar en estantería (título, marca, edición).\nImagen de marca más premium: perfecta para catálogos comerciales y publicaciones corporativas.\nVersátil en acabados: permite laminados y detalles de portada para elevar la calidad percibida."
-        },
-        {
-          "id": "technical-specs",
-          "key": "technical-specs",
-          "title": "Características técnicas",
-          "kind": "technical-specs",
-          "contentFormat": "markdown",
-          "body": "Formato y lomo\nFormatos habituales: A4, A5, cuadrado o a medida.\nLomo imprimible (título, logo, edición). El lomo se calcula según páginas y papel.\nInterior\nPapeles interiores según objetivo:\nOffset: lectura cómoda y aspecto más editorial.\nEstucado mate/brillo: mejor reproducción de imagen y fotografía.\nCubierta (tapa blanda)\nCartulina de mayor gramaje para aportar presencia y resistencia.\nOpción de solapas si buscas un acabado más editorial y funcional.\nAcabados recomendados\nLaminado mate o brillo en cubierta (protección frente a roces).\nSoft touch (opcional) para tacto premium.\nBarniz selectivo (opcional) para destacar logotipo o titular."
-        },
-        {
-          "id": "applications",
-          "key": "applications",
-          "title": "Aplicaciones",
-          "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "Catálogos de producto (colecciones, tarifas, campañas) con uso recurrente.\nRevistas corporativas o de marca con muchas páginas.\nLibros corporativos y memorias (cuando no necesitas tapa dura).\nManuales y guías que se consultan a menudo (formación, procesos).\nLookbooks y portfolios (moda, diseño, fotografía) con acabado profesional."
-        }
-      ],
-      "faqs": [
-        {
-          "question": "¿Qué formato funciona mejor en mostrador?",
-          "answer": "A4 o un formato en \"L\" suele ser muy efectivo por visibilidad. En mesa, el tipo tienda (triangular) funciona muy bien."
-        },
-        {
-          "question": "¿Conviene laminado?",
-          "answer": "Si se manipula mucho o puede mancharse, sí. Mejora durabilidad y limpieza."
-        },
-        {
-          "question": "¿Se puede hacer doble cara?",
-          "answer": "Sí, y es lo más recomendable cuando el display se verá desde ambos lados (mesas, barras, islas)."
-        },
-        {
-          "question": "¿Podéis hacer varias versiones por producto o promo?",
-          "answer": "Sí. Podemos producir series manteniendo el diseño base y cambiando textos/precios/QR."
-        }
-      ],
-      "breadcrumbs": [
-        {
-          "name": "Inicio",
-          "url": "/"
-        },
-        {
-          "name": "Categorías",
-          "url": "/categorias"
-        },
-        {
-          "name": "Publicaciones",
-          "url": "/categorias/libros-revistas-catalogos"
-        },
-        {
-          "name": "Encuadernación  cosida tapa blanda",
-          "url": "/productos/cosida-tapa-blanda"
-        }
-      ],
-      "image": {
-        "src": "https://webcms.blob.core.windows.net/media/product/publicaciones/encuadernacion-cosida-tapa-blanda.webp",
-        "width": 1200,
-        "height": 1200,
-        "alt": "Encuadernación cosida en tapa blanda para libros, catálogos y publicaciones corporativas"
-      },
-      "galleryImages": [],
-      "sku": "01-PUBLI-0003",
-      "brand": "Reprodisseny",
-      "price": 0,
-      "priceCurrency": "EUR",
-      "inStock": true,
-      "ratingValue": 0,
-      "reviewCount": 0,
-      "attributes": [],
-      "variants": [],
-      "formFields": [
-        {
-          "name": "tamano",
-          "label": "Tamaño",
-          "type": "select",
-          "required": false,
-          "options": [
-            "16x23.17x24",
-            "Din A-5",
-            "Din A-4",
-            "personalizado"
-          ],
-          "readonly": false
-        },
-        {
-          "name": "impresion",
-          "label": "Impresión",
-          "type": "select",
-          "required": false,
-          "options": [
-            "Cuatricromía 2 caras"
-          ],
-          "readonly": true
-        },
-        {
-          "name": "paginas",
-          "label": "Páginas",
-          "type": "number",
-          "required": false,
-          "options": [],
-          "readonly": false
-        },
-        {
-          "name": "papel_cubierta",
-          "label": "Papel cubierta",
-          "type": "select",
-          "required": false,
-          "options": [
-            "Estucado mate",
-            "Estucado brillo",
-            "Offset",
-            "Especial"
-          ],
-          "readonly": false
-        },
-        {
-          "name": "papel_interior",
-          "label": "Papel interior",
-          "type": "select",
-          "required": false,
-          "options": [
-            "Estucado mate",
-            "Estucado brillo",
-            "Offset",
-            "Reciclado"
-          ],
-          "readonly": false
-        },
-        {
-          "name": "acabados_cubierta",
-          "label": "Acabados cubierta",
-          "type": "select",
-          "required": false,
-          "options": [
-            "Plastificado brillo",
-            "Plastificado mate"
-          ],
-          "readonly": false
-        },
-        {
-          "name": "encuadernacion",
-          "label": "Encuadernación",
-          "type": "select",
-          "required": false,
-          "options": [
-            "Rústica cosida"
-          ],
-          "readonly": true
-        },
-        {
-          "name": "cantidad",
-          "label": "Cantidad",
-          "type": "number",
-          "required": false,
-          "options": [],
-          "readonly": false
-        },
-        {
-          "name": "observaciones",
-          "label": "Observaciones",
-          "type": "text",
-          "required": false,
-          "options": [],
-          "readonly": false
-        }
-      ],
-      "legacySlugs": [],
-      "seo": {
-        "metaTitle": "Encuadernación  cosida tapa blanda | Repro Disseny",
-        "metaDescription": "Encuadernación  cosida tapa blanda personalizadas con calidad profesional en Cataluña.",
-        "canonical": "https://reprodisseny.com/productos/cosida-tapa-blanda",
-        "hreflang": [
-          {
-            "lang": "es-ES",
-            "url": "https://reprodisseny.com/productos/cosida-tapa-blanda"
-          }
-        ],
-        "keywords": [
-          "encuadernación  cosida tapa blanda"
-        ],
-        "searchTerms": [
-          "encuadernación  cosida tapa blanda"
-        ],
-        "schema": {
-          "@context": "https://schema.org",
-          "@graph": [
-            {
-              "@type": "Product",
-              "name": "Encuadernación  cosida tapa blanda",
-              "description": "Encuadernación  cosida tapa blanda personalizadas con calidad profesional en Cataluña.",
-              "image": "https://webcms.blob.core.windows.net/media/product/publicaciones/encuadernacion-cosida-tapa-blanda.webp",
-              "url": "https://reprodisseny.com/productos/cosida-tapa-blanda",
-              "brand": {
-                "@type": "Organization",
-                "name": "Reprodisseny"
-              },
-              "sku": "01-PUBLI-0003"
-            },
-            {
-              "@type": "BreadcrumbList",
-              "itemListElement": [
-                {
-                  "@type": "ListItem",
-                  "position": 1,
-                  "name": "Inicio",
-                  "item": "https://reprodisseny.com/"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 2,
-                  "name": "Categorías",
-                  "item": "https://reprodisseny.com/categorias"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 3,
-                  "name": "Publicaciones",
-                  "item": "https://reprodisseny.com/categorias/libros-revistas-catalogos"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 4,
-                  "name": "Encuadernación  cosida tapa blanda",
-                  "item": "https://reprodisseny.com/productos/cosida-tapa-blanda"
-                }
-              ]
-            },
-            {
-              "@type": "FAQPage",
-              "mainEntity": [
-                {
-                  "@type": "Question",
-                  "name": "¿Qué formato funciona mejor en mostrador?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "A4 o un formato en \"L\" suele ser muy efectivo por visibilidad. En mesa, el tipo tienda (triangular) funciona muy bien."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Conviene laminado?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Si se manipula mucho o puede mancharse, sí. Mejora durabilidad y limpieza."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Se puede hacer doble cara?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí, y es lo más recomendable cuando el display se verá desde ambos lados (mesas, barras, islas)."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Podéis hacer varias versiones por producto o promo?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Podemos producir series manteniendo el diseño base y cambiando textos/precios/QR."
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        "robotsOverride": "INHERIT",
-        "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/publicaciones/encuadernacion-cosida-tapa-blanda.webp"
-      }
-    },
-    {
       "id": "106",
-      "updatedAt": "2026-05-05T11:59:16Z",
+      "updatedAt": "2026-05-05T15:49:10Z",
       "type": "producto",
       "slug": "encuadernacion-wire-o-oculto",
       "path": "/productos/encuadernacion-wire-o-oculto",
@@ -15509,7 +15476,7 @@
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Encuadernación Wire-O oculto | Apertura 360º con acabado más premium",
-        "metaDescription": "Encuadernación Wire-O oculto para catálogos, dossiers y presentaciones: apertura 360º, páginas en plano y espiral oculta en la tapa. Más estética y profesional. Solicita presupuesto.",
+        "metaDescription": "Encuadernación Wire-O oculto para catálogos y presentaciones. Apertura 360º con espiral oculta y acabado más premium.",
         "canonical": "https://reprodisseny.com/productos/encuadernacion-wire-o-oculto",
         "hreflang": [
           {
@@ -15529,7 +15496,7 @@
             {
               "@type": "Product",
               "name": "Encuadernación  Wire O Oculto",
-              "description": "Encuadernación Wire-O oculto para catálogos, dossiers y presentaciones: apertura 360º, páginas en plano y espiral oculta en la tapa. Más estética y profesional. Solicita presupuesto.",
+              "description": "Encuadernación Wire-O oculto para catálogos y presentaciones. Apertura 360º con espiral oculta y acabado más premium.",
               "image": "https://webcms.blob.core.windows.net/media/product/publicaciones/encuadernacion-wire-oculto.webp",
               "url": "https://reprodisseny.com/productos/encuadernacion-wire-o-oculto",
               "brand": {
@@ -15608,6 +15575,348 @@
         },
         "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/publicaciones/encuadernacion-wire-oculto.webp"
+      }
+    },
+    {
+      "id": "26",
+      "updatedAt": "2026-05-05T14:06:46Z",
+      "type": "producto",
+      "slug": "cosida-tapa-blanda",
+      "path": "/productos/cosida-tapa-blanda",
+      "title": "Encuadernación cosida tapa blanda",
+      "categorySlug": "libros-revistas-catalogos",
+      "categorySlugs": [
+        "libros-revistas-catalogos"
+      ],
+      "order": 9999,
+      "isPublished": true,
+      "shortDescription": "Encuadernación cosida con tapa blanda para libros, catálogos, revistas corporativas, manuales y publicaciones profesionales. Una solución editorial con lomo, buena apertura y más resistencia que una encuadernación solo encolada.",
+      "description": "Encuadernación cosida con tapa blanda para libros, catálogos, revistas corporativas, manuales y publicaciones profesionales. Una solución editorial con lomo, buena apertura y más resistencia que una encuadernación solo encolada.",
+      "bodyMd": "## ¿Qué es la encuadernación cosida con tapa blanda?\n\nEn la encuadernación cosida con tapa blanda, los pliegos interiores se cosen para formar el bloque del libro y después se montan con una cubierta flexible. El resultado es una publicación con lomo, aspecto editorial y mayor resistencia al uso que una encuadernación solo encolada.\n\nEs una opción muy adecuada cuando necesitas una publicación duradera, cómoda de consultar y con buena presencia, pero sin llegar al coste o rigidez de una tapa dura. La apertura suele ser más cómoda, el bloque interior queda más estable y el producto transmite una imagen más cuidada.\n\nEn Repro Disseny producimos encuadernación cosida con tapa blanda para catálogos de marca, libros corporativos, revistas, manuales, lookbooks, memorias y publicaciones profesionales en Barcelona, cuidando el papel interior, la cubierta, el lomo y los acabados de portada.",
+      "sections": [
+        {
+          "id": "details",
+          "key": "details",
+          "title": "Detalles",
+          "kind": "details",
+          "contentFormat": "markdown",
+          "body": "## ¿Qué es la encuadernación cosida con tapa blanda?\n\nEn la encuadernación cosida con tapa blanda, los pliegos interiores se cosen para formar el bloque del libro y después se montan con una cubierta flexible. El resultado es una publicación con lomo, aspecto editorial y mayor resistencia al uso que una encuadernación solo encolada.\n\nEs una opción muy adecuada cuando necesitas una publicación duradera, cómoda de consultar y con buena presencia, pero sin llegar al coste o rigidez de una tapa dura. La apertura suele ser más cómoda, el bloque interior queda más estable y el producto transmite una imagen más cuidada.\n\nEn Repro Disseny producimos encuadernación cosida con tapa blanda para catálogos de marca, libros corporativos, revistas, manuales, lookbooks, memorias y publicaciones profesionales en Barcelona, cuidando el papel interior, la cubierta, el lomo y los acabados de portada."
+        },
+        {
+          "id": "benefits",
+          "key": "benefits",
+          "title": "Beneficios",
+          "kind": "benefits",
+          "contentFormat": "markdown",
+          "body": "- **Más durabilidad:** el cosido aporta mayor resistencia al uso repetido y al paso del tiempo.\n- **Mejor apertura y lectura:** se maneja mejor en consulta que una tapa blanda solo encolada.\n- **Acabado editorial con lomo:** permite identificar la publicación en estantería con título, marca o edición.\n- **Imagen de marca más premium:** ideal para catálogos comerciales, libros corporativos, memorias y publicaciones de empresa.\n- **Buena solución para muchas páginas:** funciona muy bien en publicaciones de número medio o alto de páginas.\n- **Versátil en acabados:** permite laminados, papeles especiales y detalles de portada para elevar la calidad percibida."
+        },
+        {
+          "id": "technical-specs",
+          "key": "technical-specs",
+          "title": "Características técnicas",
+          "kind": "technical-specs",
+          "contentFormat": "markdown",
+          "body": "## Formato y lomo\n\n- Formatos habituales: A4, A5, cuadrado o medidas personalizadas.\n- Lomo imprimible con título, logotipo, colección o edición.\n- El ancho del lomo se calcula según número de páginas, tipo de papel y gramaje.\n- Recomendable para publicaciones con un número medio o alto de páginas.\n\n## Interior\n\n- Papeles interiores orientados a lectura o a reproducción de imagen según el objetivo de la publicación.\n- **Offset:** lectura cómoda, tacto natural y aspecto más editorial.\n- **Estucado mate:** buena reproducción de imagen con acabado sobrio y profesional.\n- **Estucado brillo:** mayor viveza de color para publicaciones muy visuales.\n- Posibilidad de ajustar gramaje según uso, número de páginas y presencia deseada.\n\n## Cubierta de tapa blanda\n\n- Cubierta flexible en cartulina de mayor gramaje para aportar presencia y resistencia.\n- Posibilidad de imprimir cubierta, contracubierta, lomo y solapas.\n- Opción de solapas si buscas un acabado más editorial y funcional.\n- La cubierta se puede adaptar al estilo de marca, colección o campaña.\n\n## Acabados recomendados\n\n- Laminado mate o brillo en cubierta para proteger frente a roces y manipulación.\n- Soft touch opcional para un tacto más premium.\n- Barniz selectivo opcional para destacar logotipo, título o detalles gráficos.\n- Revisión de portada, lomo y márgenes para asegurar una correcta producción.\n\n## Preparación del archivo\n\n- Archivo final preferiblemente en PDF de alta calidad.\n- Interior preparado a tamaño final, con sangrado si hay fondos o imágenes a corte.\n- Cubierta preparada con lomo calculado según páginas y papel.\n- Si hay solapas, deben incluirse en el desarrollo completo de cubierta."
+        },
+        {
+          "id": "applications",
+          "key": "applications",
+          "title": "Aplicaciones",
+          "kind": "applications",
+          "contentFormat": "markdown",
+          "body": "- **Catálogos de producto:** colecciones, tarifas, campañas, catálogos comerciales y publicaciones con uso recurrente.\n- **Revistas corporativas o de marca:** publicaciones con muchas páginas y una presentación más editorial.\n- **Libros corporativos y memorias:** proyectos de empresa, aniversarios, informes, memorias y publicaciones institucionales cuando no necesitas tapa dura.\n- **Manuales y guías:** documentación de formación, procesos, instrucciones o contenidos que se consultan a menudo.\n- **Lookbooks y portfolios:** moda, diseño, fotografía, arquitectura, interiorismo y proyectos visuales con acabado profesional.\n- **Publicaciones editoriales:** libros, dossiers o ediciones especiales que necesitan una encuadernación resistente y cuidada."
+        }
+      ],
+      "faqs": [
+        {
+          "question": "¿Qué diferencia hay entre encuadernación cosida y encuadernación encolada?",
+          "answer": "En la encuadernación cosida, los pliegos interiores se unen mediante hilo antes de montar la cubierta. Esto aporta más resistencia y mejor apertura que una encuadernación solo encolada."
+        },
+        {
+          "question": "¿Cuándo conviene elegir tapa blanda cosida?",
+          "answer": "Es recomendable para libros, catálogos, revistas corporativas, manuales o publicaciones con uso frecuente, especialmente cuando buscas durabilidad, buena apertura y acabado editorial sin llegar a tapa dura."
+        },
+        {
+          "question": "¿Se puede imprimir el lomo?",
+          "answer": "Sí. El lomo puede llevar título, logotipo, colección o edición. El ancho se calcula según el número de páginas, el papel y el gramaje."
+        },
+        {
+          "question": "¿Qué acabados recomendáis para la cubierta?",
+          "answer": "Normalmente recomendamos laminado mate o brillo para proteger la cubierta. Si buscas un acabado más premium, se puede valorar soft touch o barniz selectivo."
+        },
+        {
+          "question": "¿Qué necesitáis para preparar el presupuesto?",
+          "answer": "Necesitamos formato, número de páginas, cantidad, tipo de papel interior, gramaje, acabado de cubierta, si llevará solapas y si el lomo debe ir impreso."
+        }
+      ],
+      "breadcrumbs": [
+        {
+          "name": "Inicio",
+          "url": "/"
+        },
+        {
+          "name": "Categorías",
+          "url": "/categorias"
+        },
+        {
+          "name": "Publicaciones",
+          "url": "/categorias/libros-revistas-catalogos"
+        },
+        {
+          "name": "Encuadernación cosida tapa blanda",
+          "url": "/productos/cosida-tapa-blanda"
+        }
+      ],
+      "image": {
+        "src": "https://webcms.blob.core.windows.net/media/product/publicaciones/encuadernacion-cosida-tapa-blanda.webp",
+        "width": 1200,
+        "height": 1200,
+        "alt": "Encuadernación cosida en tapa blanda para libros, catálogos y publicaciones corporativas"
+      },
+      "galleryImages": [],
+      "sku": "01-PUBLI-0003",
+      "brand": "Reprodisseny",
+      "price": 0,
+      "priceCurrency": "EUR",
+      "inStock": true,
+      "ratingValue": 0,
+      "reviewCount": 0,
+      "attributes": [],
+      "variants": [],
+      "formFields": [
+        {
+          "name": "tamano",
+          "label": "Tamaño",
+          "type": "select",
+          "required": false,
+          "options": [
+            "16x23.17x24",
+            "Din A-5",
+            "Din A-4",
+            "personalizado"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "impresion",
+          "label": "Impresión",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Cuatricromía 2 caras"
+          ],
+          "readonly": true
+        },
+        {
+          "name": "paginas",
+          "label": "Páginas",
+          "type": "number",
+          "required": false,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "papel_cubierta",
+          "label": "Papel cubierta",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Estucado mate",
+            "Estucado brillo",
+            "Offset",
+            "Especial"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "papel_interior",
+          "label": "Papel interior",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Estucado mate",
+            "Estucado brillo",
+            "Offset",
+            "Reciclado"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "acabados_cubierta",
+          "label": "Acabados cubierta",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Plastificado brillo",
+            "Plastificado mate"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "encuadernacion",
+          "label": "Encuadernación",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Rústica cosida"
+          ],
+          "readonly": true
+        },
+        {
+          "name": "cantidad",
+          "label": "Cantidad",
+          "type": "number",
+          "required": false,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
+      "legacySlugs": [],
+      "seo": {
+        "metaTitle": "Encuadernación cosida tapa blanda | Libros y catálogos",
+        "metaDescription": "Encuadernación cosida con tapa blanda para libros, catálogos, revistas y publicaciones corporativas. Más resistencia, mejor apertura y acabado editorial.",
+        "canonical": "https://reprodisseny.com/productos/cosida-tapa-blanda",
+        "hreflang": [
+          {
+            "lang": "es-ES",
+            "url": "https://reprodisseny.com/productos/cosida-tapa-blanda"
+          }
+        ],
+        "keywords": [
+          "encuadernación cosida tapa blanda",
+          "encuadernación cosida con tapa blanda",
+          "libros cosidos tapa blanda",
+          "catálogos cosidos tapa blanda",
+          "revistas corporativas encuadernadas",
+          "libros corporativos tapa blanda",
+          "catálogos editoriales",
+          "encuadernación rústica cosida",
+          "publicaciones corporativas",
+          "impresión de libros tapa blanda",
+          "encuadernación editorial",
+          "encuadernación cosida Barcelona"
+        ],
+        "searchTerms": [
+          "encuadernación cosida",
+          "encuadernación cosida tapa blanda",
+          "cosida tapa blanda",
+          "rústica cosida",
+          "libros cosidos",
+          "libros tapa blanda",
+          "catálogos cosidos",
+          "catálogos tapa blanda",
+          "revistas corporativas",
+          "libro corporativo",
+          "manual cosido",
+          "lookbook tapa blanda",
+          "portfolio encuadernado",
+          "publicación editorial",
+          "impresión libros tapa blanda",
+          "encuadernación editorial",
+          "encuadernación con lomo",
+          "encuadernación cosida barcelona"
+        ],
+        "schema": {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Product",
+              "name": "Encuadernación cosida tapa blanda",
+              "description": "Encuadernación cosida con tapa blanda para libros, catálogos, revistas y publicaciones corporativas. Más resistencia, mejor apertura y acabado editorial.",
+              "image": "https://webcms.blob.core.windows.net/media/product/publicaciones/encuadernacion-cosida-tapa-blanda.webp",
+              "url": "https://reprodisseny.com/productos/cosida-tapa-blanda",
+              "brand": {
+                "@type": "Organization",
+                "name": "Reprodisseny"
+              },
+              "sku": "01-PUBLI-0003"
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Inicio",
+                  "item": "https://reprodisseny.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Publicaciones",
+                  "item": "https://reprodisseny.com/categorias/libros-revistas-catalogos"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 4,
+                  "name": "Encuadernación cosida tapa blanda",
+                  "item": "https://reprodisseny.com/productos/cosida-tapa-blanda"
+                }
+              ]
+            },
+            {
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "¿Qué diferencia hay entre encuadernación cosida y encuadernación encolada?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "En la encuadernación cosida, los pliegos interiores se unen mediante hilo antes de montar la cubierta. Esto aporta más resistencia y mejor apertura que una encuadernación solo encolada."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Cuándo conviene elegir tapa blanda cosida?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Es recomendable para libros, catálogos, revistas corporativas, manuales o publicaciones con uso frecuente, especialmente cuando buscas durabilidad, buena apertura y acabado editorial sin llegar a tapa dura."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Se puede imprimir el lomo?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí. El lomo puede llevar título, logotipo, colección o edición. El ancho se calcula según el número de páginas, el papel y el gramaje."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Qué acabados recomendáis para la cubierta?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Normalmente recomendamos laminado mate o brillo para proteger la cubierta. Si buscas un acabado más premium, se puede valorar soft touch o barniz selectivo."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Qué necesitáis para preparar el presupuesto?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Necesitamos formato, número de páginas, cantidad, tipo de papel interior, gramaje, acabado de cubierta, si llevará solapas y si el lomo debe ir impreso."
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "robotsOverride": "INHERIT",
+        "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/publicaciones/encuadernacion-cosida-tapa-blanda.webp"
       }
     },
     {
@@ -15996,7 +16305,7 @@
     },
     {
       "id": "39",
-      "updatedAt": "2026-05-05T11:41:39Z",
+      "updatedAt": "2026-05-05T15:32:18Z",
       "type": "producto",
       "slug": "encuadernacion-encolada-tapa-blanda",
       "path": "/productos/encuadernacion-encolada-tapa-blanda",
@@ -16194,7 +16503,7 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Encuadernación encolada tapa blanda | Rústica fresada para catálogos y libros",
+        "metaTitle": "Encuadernación encolada tapa blanda",
         "metaDescription": "Encuadernación encolada tapa blanda (rústica fresada) para libros, catálogos y revistas. Acabado profesional, lomo impreso y opciones de papel y laminado. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/encuadernacion-encolada-tapa-blanda",
         "hreflang": [
@@ -16298,7 +16607,7 @@
     },
     {
       "id": "107",
-      "updatedAt": "2026-05-05T11:58:56Z",
+      "updatedAt": "2026-05-05T16:19:28Z",
       "type": "producto",
       "slug": "encuadernacion-wire-o",
       "path": "/productos/encuadernacion-wire-o",
@@ -16497,7 +16806,7 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Encuadernación Wire-O | Manuales, catálogos y presentaciones que abren en plano",
+        "metaTitle": "Encuadernación Wire-O personalizada",
         "metaDescription": "Encuadernación Wire-O (doble espiral metálica) para manuales, dossiers y catálogos. Apertura 360º, páginas en plano y acabados profesionales. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/encuadernacion-wire-o",
         "hreflang": [
@@ -16903,7 +17212,7 @@
     },
     {
       "id": "41",
-      "updatedAt": "2026-05-05T11:41:55Z",
+      "updatedAt": "2026-05-05T16:02:01Z",
       "type": "producto",
       "slug": "enmarcados-personalizados",
       "path": "/productos/enmarcados-personalizados",
@@ -17094,7 +17403,7 @@
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Enmarcados personalizados | Impresión y enmarcado listo para colgar",
-        "metaDescription": "Enmarcados personalizados para oficinas, retail y eventos: impresión de alta calidad con marco a medida (aluminio o madera), opciones de protección y acabados premium. Solicita presupuesto.",
+        "metaDescription": "Enmarcados personalizados para oficinas, retail y eventos. Impresión de alta calidad con marco a medida y acabados premium.",
         "canonical": "https://reprodisseny.com/productos/enmarcados-personalizados",
         "hreflang": [
           {
@@ -17114,7 +17423,7 @@
             {
               "@type": "Product",
               "name": "Enmarcados personalizados (impresión + marco)",
-              "description": "Enmarcados personalizados para oficinas, retail y eventos: impresión de alta calidad con marco a medida (aluminio o madera), opciones de protección y acabados premium. Solicita presupuesto.",
+              "description": "Enmarcados personalizados para oficinas, retail y eventos. Impresión de alta calidad con marco a medida y acabados premium.",
               "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/enmarcados.webp",
               "url": "https://reprodisseny.com/productos/enmarcados-personalizados",
               "brand": {
@@ -19041,7 +19350,7 @@
     },
     {
       "id": "141",
-      "updatedAt": "2026-05-05T11:19:40Z",
+      "updatedAt": "2026-05-05T15:29:51Z",
       "type": "producto",
       "slug": "faja-para-caja",
       "path": "/productos/faja-para-caja",
@@ -19227,7 +19536,7 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Fajas para caja personalizadas | Sleeves para packaging corporativo y campañas",
+        "metaTitle": "Fajas para cajas personalizadas | Sleeves",
         "metaDescription": "Fajas para caja personalizadas (sleeves) para branding y campañas. Impresión a color, medidas a medida, acabados premium y opción de QR o datos variables. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/faja-para-caja",
         "hreflang": [
@@ -19326,7 +19635,7 @@
     },
     {
       "id": "47",
-      "updatedAt": "2026-05-05T11:42:44Z",
+      "updatedAt": "2026-05-05T15:30:06Z",
       "type": "producto",
       "slug": "figuras-arbol-navidad",
       "path": "/productos/figuras-arbol-navidad",
@@ -19588,7 +19897,7 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Figuras Árbol de Navidad Personalizadas | Branding Corporativo en Gran Formato",
+        "metaTitle": "Figuras de Navidad corporativas",
         "metaDescription": "Figuras árbol de Navidad personalizadas troqueladas o cortadas a la forma. Ideales para decoración corporativa y branding en campañas navideñas. Pide presupuesto.",
         "canonical": "https://reprodisseny.com/productos/figuras-arbol-navidad",
         "hreflang": [
@@ -19692,7 +20001,7 @@
     },
     {
       "id": "48",
-      "updatedAt": "2026-05-05T11:42:51Z",
+      "updatedAt": "2026-05-05T15:30:14Z",
       "type": "producto",
       "slug": "flyers-con-forma-personalizados",
       "path": "/productos/flyers-con-forma-personalizados",
@@ -19876,7 +20185,7 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Flyers con forma personalizados | Flyers troquelados para campañas con impacto",
+        "metaTitle": "Flyers con forma personalizados | Troquelados",
         "metaDescription": "Flyers con forma (troquelados) para publicidad y eventos. Corte a medida, impresión a color y acabados profesionales para destacar en reparto y punto de venta. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/flyers-con-forma-personalizados",
         "hreflang": [
@@ -20378,7 +20687,7 @@
     },
     {
       "id": "51",
-      "updatedAt": "2026-05-05T11:43:19Z",
+      "updatedAt": "2026-05-05T15:42:21Z",
       "type": "producto",
       "slug": "folletos-plegados-personalizados",
       "path": "/productos/folletos-plegados-personalizados",
@@ -20671,7 +20980,7 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Folletos plegados personalizados | Dípticos, trípticos y más para publicidad",
+        "metaTitle": "Folletos plegados personalizados",
         "metaDescription": "Folletos plegados personalizados (dípticos, trípticos, cuadrípticos). Formatos A4/A5/DL, impresión a color, hendidos profesionales y acabados opcionales. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/folletos-plegados-personalizados",
         "hreflang": [
@@ -20781,7 +21090,7 @@
     },
     {
       "id": "53",
-      "updatedAt": "2026-05-05T11:43:33Z",
+      "updatedAt": "2026-05-05T15:34:23Z",
       "type": "producto",
       "slug": "fundas-sant-jordi",
       "path": "/productos/fundas-sant-jordi",
@@ -21014,7 +21323,7 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Funda de Sant Jordi personalizada | Packaging ecológico para rosas con tu marca",
+        "metaTitle": "Fundas de Sant Jordi personalizadas para rosas",
         "metaDescription": "Funda de Sant Jordi personalizada para rosas: folding blanco o kraft 100% ecológico, impresión a color y diseño corporativo. Ideal para empresas y entidades. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/fundas-sant-jordi",
         "hreflang": [
@@ -21407,11 +21716,11 @@
     },
     {
       "id": "55",
-      "updatedAt": "2026-05-05T11:43:47Z",
+      "updatedAt": "2026-05-05T13:55:40Z",
       "type": "producto",
       "slug": "hojas-sueltas-archivadores",
       "path": "/productos/hojas-sueltas-archivadores",
-      "title": "Hojas sueltas para archivadores",
+      "title": "Hojas sueltas para archivadores, manuales y documentación",
       "categorySlug": "libros-revistas-catalogos",
       "categorySlugs": [
         "libros-revistas-catalogos"
@@ -21420,7 +21729,7 @@
       "isPublished": true,
       "shortDescription": "Las hojas sueltas para archivadores son la solución más flexible cuando necesitas documentación que se actualiza: manuales, procedimientos, tarifas, formación o catálogos por fichas. En Repro Disseny imprimimos hojas sueltas con perforado para archivador, distintos papeles y opciones de acabado, para que el material sea práctico, ordenado y fácil de mantener al día.",
       "description": "Las hojas sueltas para archivadores son la solución más flexible cuando necesitas documentación que se actualiza: manuales, procedimientos, tarifas, formación o catálogos por fichas. En Repro Disseny imprimimos hojas sueltas con perforado para archivador, distintos papeles y opciones de acabado, para que el material sea práctico, ordenado y fácil de mantener al día.",
-      "bodyMd": "¿Qué son las hojas sueltas para archivadores y para qué se usan? \nSon páginas impresas diseñadas para guardarse en carpetas y archivadores (anillas o palanca), normalmente con taladros (2 o 4, según el sistema). Se utilizan cuando el contenido cambia o se amplía con frecuencia, porque permiten añadir, sustituir o reordenar hojas sin reimprimir todo el documento.",
+      "bodyMd": "## ¿Qué son las hojas sueltas para archivadores y para qué se usan?\n\nLas hojas sueltas para archivadores son páginas impresas diseñadas para guardarse en carpetas de anillas, archivadores de palanca o sistemas de documentación modular. Normalmente se preparan con perforado de 2 o 4 taladros, según el tipo de archivador.\n\nSe utilizan cuando el contenido cambia, se amplía o necesita reorganizarse con frecuencia. Permiten añadir, sustituir o reordenar hojas sin tener que reimprimir todo el documento, lo que las convierte en una solución muy práctica para manuales, procedimientos, tarifas, documentación técnica, formación y catálogos por fichas.\n\nEn Repro Disseny imprimimos hojas sueltas para archivadores en Barcelona con diferentes papeles, gramajes, impresión a una o dos caras, perforado y opciones de presentación como separadores, portadas o juegos completos por archivador.",
       "sections": [
         {
           "id": "details",
@@ -21428,7 +21737,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué son las hojas sueltas para archivadores y para qué se usan? \nSon páginas impresas diseñadas para guardarse en carpetas y archivadores (anillas o palanca), normalmente con taladros (2 o 4, según el sistema). Se utilizan cuando el contenido cambia o se amplía con frecuencia, porque permiten añadir, sustituir o reordenar hojas sin reimprimir todo el documento."
+          "body": "## ¿Qué son las hojas sueltas para archivadores y para qué se usan?\n\nLas hojas sueltas para archivadores son páginas impresas diseñadas para guardarse en carpetas de anillas, archivadores de palanca o sistemas de documentación modular. Normalmente se preparan con perforado de 2 o 4 taladros, según el tipo de archivador.\n\nSe utilizan cuando el contenido cambia, se amplía o necesita reorganizarse con frecuencia. Permiten añadir, sustituir o reordenar hojas sin tener que reimprimir todo el documento, lo que las convierte en una solución muy práctica para manuales, procedimientos, tarifas, documentación técnica, formación y catálogos por fichas.\n\nEn Repro Disseny imprimimos hojas sueltas para archivadores en Barcelona con diferentes papeles, gramajes, impresión a una o dos caras, perforado y opciones de presentación como separadores, portadas o juegos completos por archivador."
         },
         {
           "id": "benefits",
@@ -21444,7 +21753,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Formato \nFormatos habituales: A4 (el más común) y A5, o a medida según tu archivador. \nImpresión \nBlanco y negro o a todo color, a una o dos caras. \nPosibilidad de imprimir por lotes (por secciones o versiones) para facilitar reposiciones. \nPapel \nPapeles orientados a lectura (offset) o con más presencia si el documento es comercial. \nOpciones de mayor gramaje para hojas que se manipulan mucho (portadas internas, índices, fichas de uso intensivo). \nPerforado \nPerforación 2 taladros o 4 taladros (según el archivador). \nPosibilidad de margen de encuadernación para que el contenido no “caiga” en la zona de anillas. \nExtras útiles \nSeparadores (con pestañas) para organizar por secciones. \nPortadas y contraportadas para una presentación más sólida. \nOpción de preparar juegos completos (pack por archivador) o reposiciones por secciones."
+          "body": "## Formato\n\n- Formatos habituales: A4, el más común para archivadores, y A5 para documentación compacta.\n- Posibilidad de adaptar la medida según el tipo de archivador, carpeta o sistema de presentación.\n- Preparación por hojas individuales, juegos completos o reposiciones por secciones.\n\n## Impresión\n\n- Impresión en blanco y negro o a todo color.\n- Posibilidad de impresión a una o dos caras según el tipo de documento.\n- Producción por lotes, secciones o versiones para facilitar reposiciones y actualizaciones.\n- Revisión de márgenes para asegurar que el contenido queda correctamente visible después del perforado.\n\n## Papel\n\n- Papeles orientados a lectura, como offset, para manuales, procedimientos y documentación de consulta.\n- Papeles con más presencia para documentación comercial, tarifas, fichas de producto o dossieres.\n- Opciones de mayor gramaje para hojas que se manipulan mucho, como índices, fichas de uso intensivo, portadas internas o separadores.\n\n## Perforado\n\n- Perforación de 2 taladros o 4 taladros según el archivador.\n- Posibilidad de margen de encuadernación para evitar que el texto quede demasiado cerca de las anillas.\n- Preparación adaptada a carpetas de anillas, archivadores de palanca y sistemas estándar de oficina.\n\n## Extras útiles\n\n- Separadores con pestañas para organizar por secciones, capítulos, familias de producto o departamentos.\n- Portadas y contraportadas para una presentación más sólida.\n- Opción de preparar juegos completos por archivador.\n- Reposiciones por secciones para actualizar solo las páginas necesarias."
         },
         {
           "id": "applications",
@@ -21452,25 +21761,29 @@
           "title": "Aplicaciones",
           "kind": "applications",
           "contentFormat": "markdown",
-          "body": "Manuales y procedimientos (ISO, PRL, calidad, onboarding). \nDocumentación técnica: fichas de producto, instrucciones, mantenimiento. \nTarifas y catálogos actualizables: fichas por familia, temporada o gama. \nFormación y cursos: temarios por módulos y materiales de aula. \nDossieres comerciales: propuestas por cliente con hojas personalizadas."
+          "body": "- **Manuales y procedimientos:** documentación ISO, PRL, calidad, onboarding, instrucciones internas y procesos corporativos.\n- **Documentación técnica:** fichas de producto, instrucciones, mantenimiento, especificaciones, recambios o documentación de soporte.\n- **Tarifas y catálogos actualizables:** fichas por familia, temporada, gama, referencia o versión de producto.\n- **Formación y cursos:** temarios por módulos, materiales de aula, dossiers formativos y documentación para alumnos.\n- **Dossieres comerciales:** propuestas por cliente, presentaciones por proyecto y hojas personalizadas según necesidad.\n- **Documentación interna:** protocolos, manuales de uso, documentación administrativa y materiales de consulta frecuente."
         }
       ],
       "faqs": [
         {
           "question": "¿2 o 4 taladros?",
-          "answer": "Depende del archivador. Si nos dices el modelo (carpeta de anillas o palanca) te lo dejamos preparado."
+          "answer": "Depende del archivador. Si nos indicas el modelo o el sistema que utilizas, como carpeta de anillas o archivador de palanca, preparamos las hojas con el perforado adecuado."
         },
         {
           "question": "¿Se puede dejar margen para que no se tape el texto con las anillas?",
-          "answer": "Sí. Ajustamos el diseño con margen de encuadernación para que todo se lea bien."
+          "answer": "Sí. Ajustamos el diseño con margen de encuadernación para que el contenido no quede demasiado cerca de la zona de anillas y se lea correctamente."
         },
         {
           "question": "¿Podéis hacer reposiciones por secciones?",
-          "answer": "Sí, es lo más habitual: imprimimos solo las páginas nuevas o actualizadas."
+          "answer": "Sí. Es lo más habitual en documentación actualizable: imprimimos solo las páginas nuevas o modificadas para sustituirlas dentro del archivador."
         },
         {
           "question": "¿Podéis añadir separadores con pestañas?",
-          "answer": "Sí, para organización por capítulos, familias de producto o departamentos."
+          "answer": "Sí. Podemos preparar separadores para organizar la documentación por capítulos, familias de producto, departamentos, módulos o secciones."
+        },
+        {
+          "question": "¿Qué necesitáis para preparar el presupuesto?",
+          "answer": "Necesitamos formato, número de páginas, cantidad de juegos, impresión a una o dos caras, tipo de papel, perforado necesario y si quieres añadir separadores, portadas o reposiciones por secciones."
         }
       ],
       "breadcrumbs": [
@@ -21487,7 +21800,7 @@
           "url": "/categorias/libros-revistas-catalogos"
         },
         {
-          "name": "Hojas sueltas para archivadores",
+          "name": "Hojas sueltas para archivadores, manuales y documentación",
           "url": "/productos/hojas-sueltas-archivadores"
         }
       ],
@@ -21495,7 +21808,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicaciones/hojas-sueltas-para-archivadores.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Hojas sueltas para archivadores impresas para documentación, manuales y formación"
+        "alt": "Hojas sueltas para archivadores impresas con perforado para manuales, tarifas y documentación"
       },
       "galleryImages": [],
       "sku": "01-PUBLI-0007",
@@ -21603,8 +21916,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Hojas sueltas para archivadores | Impresión y perforado para carpetas y dosieres",
-        "metaDescription": "Hojas sueltas impresas para archivadores: taladros 2/4, papel a medida, impresión a color o B/N y opción de separadores. Ideal para manuales, documentación y catálogos actualizables. Solicita presupuesto.",
+        "metaTitle": "Hojas sueltas para archivadores | Impresión y perforado",
+        "metaDescription": "Hojas sueltas impresas para archivadores, manuales, tarifas y documentación actualizable. Impresión A4/A5, 1 o 2 caras, papel a medida y perforado.",
         "canonical": "https://reprodisseny.com/productos/hojas-sueltas-archivadores",
         "hreflang": [
           {
@@ -21613,18 +21926,49 @@
           }
         ],
         "keywords": [
-          "holas sueltas para archivadores"
+          "hojas sueltas para archivadores",
+          "hojas perforadas para archivador",
+          "impresión hojas sueltas",
+          "impresión para carpetas de anillas",
+          "documentación para archivadores",
+          "manuales para archivadores",
+          "tarifas actualizables impresas",
+          "catálogos actualizables",
+          "hojas con taladros",
+          "hojas A4 perforadas",
+          "separadores para archivadores",
+          "documentación técnica impresa",
+          "hojas sueltas impresas Barcelona"
         ],
         "searchTerms": [
-          "holas sueltas para archivadores"
+          "hojas sueltas",
+          "hojas sueltas archivador",
+          "hojas sueltas para archivadores",
+          "hojas perforadas",
+          "hojas con taladros",
+          "hojas 2 taladros",
+          "hojas 4 taladros",
+          "imprimir hojas sueltas",
+          "impresión hojas sueltas",
+          "carpeta de anillas",
+          "archivador de palanca",
+          "documentación actualizable",
+          "manuales para archivador",
+          "manuales impresos",
+          "tarifas actualizables",
+          "catálogos por fichas",
+          "separadores con pestañas",
+          "documentación técnica impresa",
+          "dossieres comerciales",
+          "hojas A4 perforadas"
         ],
         "schema": {
           "@context": "https://schema.org",
           "@graph": [
             {
               "@type": "Product",
-              "name": "Hojas sueltas para archivadores",
-              "description": "Hojas sueltas impresas para archivadores: taladros 2/4, papel a medida, impresión a color o B/N y opción de separadores. Ideal para manuales, documentación y catálogos actualizables. Solicita presupuesto.",
+              "name": "Hojas sueltas para archivadores, manuales y documentación",
+              "description": "Hojas sueltas impresas para archivadores, manuales, tarifas y documentación actualizable. Impresión A4/A5, 1 o 2 caras, papel a medida y perforado.",
               "image": "https://webcms.blob.core.windows.net/media/product/publicaciones/hojas-sueltas-para-archivadores.webp",
               "url": "https://reprodisseny.com/productos/hojas-sueltas-archivadores",
               "brand": {
@@ -21657,7 +22001,7 @@
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Hojas sueltas para archivadores",
+                  "name": "Hojas sueltas para archivadores, manuales y documentación",
                   "item": "https://reprodisseny.com/productos/hojas-sueltas-archivadores"
                 }
               ]
@@ -21670,7 +22014,7 @@
                   "name": "¿2 o 4 taladros?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Depende del archivador. Si nos dices el modelo (carpeta de anillas o palanca) te lo dejamos preparado."
+                    "text": "Depende del archivador. Si nos indicas el modelo o el sistema que utilizas, como carpeta de anillas o archivador de palanca, preparamos las hojas con el perforado adecuado."
                   }
                 },
                 {
@@ -21678,7 +22022,7 @@
                   "name": "¿Se puede dejar margen para que no se tape el texto con las anillas?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí. Ajustamos el diseño con margen de encuadernación para que todo se lea bien."
+                    "text": "Sí. Ajustamos el diseño con margen de encuadernación para que el contenido no quede demasiado cerca de la zona de anillas y se lea correctamente."
                   }
                 },
                 {
@@ -21686,7 +22030,7 @@
                   "name": "¿Podéis hacer reposiciones por secciones?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, es lo más habitual: imprimimos solo las páginas nuevas o actualizadas."
+                    "text": "Sí. Es lo más habitual en documentación actualizable: imprimimos solo las páginas nuevas o modificadas para sustituirlas dentro del archivador."
                   }
                 },
                 {
@@ -21694,7 +22038,15 @@
                   "name": "¿Podéis añadir separadores con pestañas?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, para organización por capítulos, familias de producto o departamentos."
+                    "text": "Sí. Podemos preparar separadores para organizar la documentación por capítulos, familias de producto, departamentos, módulos o secciones."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Qué necesitáis para preparar el presupuesto?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Necesitamos formato, número de páginas, cantidad de juegos, impresión a una o dos caras, tipo de papel, perforado necesario y si quieres añadir separadores, portadas o reposiciones por secciones."
                   }
                 }
               ]
@@ -21976,10 +22328,10 @@
     },
     {
       "id": "57",
-      "updatedAt": "2026-05-05T11:44:01Z",
+      "updatedAt": "2026-05-05T15:17:25Z",
       "type": "producto",
-      "slug": "idenficador-maleta",
-      "path": "/productos/idenficador-maleta",
+      "slug": "identificador-maleta",
+      "path": "/productos/identificador-maleta",
       "title": "Identificador de maleta",
       "categorySlug": "eventos",
       "categorySlugs": [
@@ -22121,19 +22473,19 @@
       "faqs": [
         {
           "question": "¿Se pueden personalizar con un nombre distinto en cada uno?",
-          "answer": "Sí, con datos variables (nombre, equipo, número, etc.), ideal para grupos."
+          "answer": "Sí, podemos imprimir datos variables como nombre, equipo, número o categoría. Es ideal para grupos, eventos o identificadores personalizados."
         },
         {
           "question": "¿Qué acabado recomendáis para que duren más?",
-          "answer": "Normalmente laminado + esquinas redondeadas, especialmente si habrá mucho viaje y manipulación."
+          "answer": "Normalmente recomendamos laminado y esquinas redondeadas, especialmente si tendrán mucho viaje, roce o manipulación."
         },
         {
           "question": "¿Podéis hacer versiones por equipos o categorías?",
-          "answer": "Sí, podemos crear variantes por color/diseño para diferenciar departamentos, equipos o grupos."
+          "answer": "Sí, podemos crear variantes por color, diseño o texto para diferenciar departamentos, equipos, categorías o grupos."
         },
         {
           "question": "¿Qué necesitáis para presupuestar?",
-          "answer": "Cantidad, tamaño aproximado, si irá con datos variables (listado) y el sistema de sujeción (cordón/brida/cinta) si lo tienes definido."
+          "answer": "Necesitamos cantidad, tamaño aproximado, si llevará datos variables y el sistema de sujeción previsto, como cordón, brida o cinta."
         }
       ],
       "breadcrumbs": [
@@ -22151,7 +22503,7 @@
         },
         {
           "name": "Identificador de maleta",
-          "url": "/productos/idenficador-maleta"
+          "url": "/productos/identificador-maleta"
         }
       ],
       "image": {
@@ -22239,22 +22591,45 @@
           "readonly": true
         }
       ],
-      "legacySlugs": [],
+      "legacySlugs": [
+        "idenficador-maleta"
+      ],
       "seo": {
-        "metaTitle": "Identificador de maleta personalizado | Viajes, eventos y branding corporativo",
-        "metaDescription": "Identificadores de maleta personalizados para viajes, congresos y eventos. Resistentes, con troquel y opciones de laminado, datos variables y QR. Solicita presupuesto.",
-        "canonical": "https://reprodisseny.com/productos/idenficador-maleta",
+        "metaTitle": "Identificador de maleta personalizado | Repro Disseny",
+        "metaDescription": "Identificadores de maleta personalizados para viajes, congresos y eventos. Resistentes, con troquel, laminado, datos variables y QR. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/identificador-maleta",
         "hreflang": [
           {
             "lang": "es-ES",
-            "url": "https://reprodisseny.com/productos/idenficador-maleta"
+            "url": "https://reprodisseny.com/productos/identificador-maleta"
           }
         ],
         "keywords": [
-          "identificador de maleta"
+          "identificador de maleta",
+          "identificador de equipaje personalizado",
+          "tag de equipaje personalizado",
+          "etiqueta de maleta personalizada",
+          "identificadores para eventos",
+          "identificadores de viaje corporativo",
+          "tags de equipaje para congresos",
+          "identificador de maleta con QR"
         ],
         "searchTerms": [
-          "identificador de maleta"
+          "identificador de maleta",
+          "identificadores de maleta personalizados",
+          "identificador de equipaje",
+          "identificador de equipaje personalizado",
+          "tag de equipaje",
+          "tags de equipaje personalizados",
+          "etiqueta para maleta",
+          "etiquetas de maleta personalizadas",
+          "identificador de viaje",
+          "identificadores para viajes de empresa",
+          "identificadores para congresos",
+          "identificadores para eventos",
+          "tags de maleta con logo",
+          "identificador de maleta con QR",
+          "identificador de maleta para grupos"
         ],
         "schema": {
           "@context": "https://schema.org",
@@ -22262,9 +22637,9 @@
             {
               "@type": "Product",
               "name": "Identificador de maleta",
-              "description": "Identificadores de maleta personalizados para viajes, congresos y eventos. Resistentes, con troquel y opciones de laminado, datos variables y QR. Solicita presupuesto.",
+              "description": "Identificadores de maleta personalizados para viajes, congresos y eventos. Resistentes, con troquel, laminado, datos variables y QR. Solicita presupuesto.",
               "image": "https://webcms.blob.core.windows.net/media/product/restauracion/identificador-maleta.webp",
-              "url": "https://reprodisseny.com/productos/idenficador-maleta",
+              "url": "https://reprodisseny.com/productos/identificador-maleta",
               "brand": {
                 "@type": "Organization",
                 "name": "Reprodisseny"
@@ -22296,7 +22671,7 @@
                   "@type": "ListItem",
                   "position": 4,
                   "name": "Identificador de maleta",
-                  "item": "https://reprodisseny.com/productos/idenficador-maleta"
+                  "item": "https://reprodisseny.com/productos/identificador-maleta"
                 }
               ]
             },
@@ -22308,7 +22683,7 @@
                   "name": "¿Se pueden personalizar con un nombre distinto en cada uno?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, con datos variables (nombre, equipo, número, etc.), ideal para grupos."
+                    "text": "Sí, podemos imprimir datos variables como nombre, equipo, número o categoría. Es ideal para grupos, eventos o identificadores personalizados."
                   }
                 },
                 {
@@ -22316,7 +22691,7 @@
                   "name": "¿Qué acabado recomendáis para que duren más?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Normalmente laminado + esquinas redondeadas, especialmente si habrá mucho viaje y manipulación."
+                    "text": "Normalmente recomendamos laminado y esquinas redondeadas, especialmente si tendrán mucho viaje, roce o manipulación."
                   }
                 },
                 {
@@ -22324,7 +22699,7 @@
                   "name": "¿Podéis hacer versiones por equipos o categorías?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, podemos crear variantes por color/diseño para diferenciar departamentos, equipos o grupos."
+                    "text": "Sí, podemos crear variantes por color, diseño o texto para diferenciar departamentos, equipos, categorías o grupos."
                   }
                 },
                 {
@@ -22332,7 +22707,7 @@
                   "name": "¿Qué necesitáis para presupuestar?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Cantidad, tamaño aproximado, si irá con datos variables (listado) y el sistema de sujeción (cordón/brida/cinta) si lo tienes definido."
+                    "text": "Necesitamos cantidad, tamaño aproximado, si llevará datos variables y el sistema de sujeción previsto, como cordón, brida o cinta."
                   }
                 }
               ]
@@ -22665,7 +23040,7 @@
     },
     {
       "id": "99",
-      "updatedAt": "2026-05-05T12:10:06Z",
+      "updatedAt": "2026-05-05T16:02:15Z",
       "type": "producto",
       "slug": "invitaciones-y-tarjetones-personalizados",
       "path": "/productos/invitaciones-y-tarjetones-personalizados",
@@ -22859,7 +23234,7 @@
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Invitaciones y tarjetones personalizados | Publicidad y eventos",
-        "metaDescription": "Invitaciones y tarjetones personalizados para eventos, aperturas y campañas. Papeles premium, impresión a color, acabados (laminado, barniz, stamping) y datos variables. Solicita presupuesto.",
+        "metaDescription": "Invitaciones y tarjetones personalizados para eventos, aperturas y campañas. Papeles premium, acabados y datos variables.",
         "canonical": "https://reprodisseny.com/productos/invitaciones-y-tarjetones-personalizados",
         "hreflang": [
           {
@@ -22879,7 +23254,7 @@
             {
               "@type": "Product",
               "name": "Invitaciones y tarjetones personalizados",
-              "description": "Invitaciones y tarjetones personalizados para eventos, aperturas y campañas. Papeles premium, impresión a color, acabados (laminado, barniz, stamping) y datos variables. Solicita presupuesto.",
+              "description": "Invitaciones y tarjetones personalizados para eventos, aperturas y campañas. Papeles premium, acabados y datos variables.",
               "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/tarjetones-e-invitaciones.webp",
               "url": "https://reprodisseny.com/productos/invitaciones-y-tarjetones-personalizados",
               "brand": {
@@ -22968,7 +23343,7 @@
     },
     {
       "id": "148",
-      "updatedAt": "2026-05-05T11:52:55Z",
+      "updatedAt": "2026-05-05T16:48:16Z",
       "type": "producto",
       "slug": "lamina-magnetica-impresa",
       "path": "/productos/lamina-magnetica-impresa",
@@ -23133,8 +23508,30 @@
             "url": "https://reprodisseny.com/productos/lamina-magnetica-impresa"
           }
         ],
-        "keywords": [],
-        "searchTerms": [],
+        "keywords": [
+          "lámina magnética impresa",
+          "imán flexible personalizado",
+          "rotulación magnética",
+          "imán para vehículos",
+          "lámina imantada personalizada",
+          "cartel magnético",
+          "imanes grandes personalizados",
+          "material magnético impreso"
+        ],
+        "searchTerms": [
+          "lámina magnética",
+          "lámina magnética impresa",
+          "imán flexible",
+          "imán personalizado vehículo",
+          "rotulación magnética",
+          "cartel magnético",
+          "lámina imantada",
+          "imanes grandes",
+          "imán para coche",
+          "imán para furgoneta",
+          "material magnético impreso",
+          "imán removible"
+        ],
         "schema": {
           "@context": "https://schema.org",
           "@graph": [
@@ -23590,7 +23987,7 @@
     },
     {
       "id": "132",
-      "updatedAt": "2026-05-05T11:55:39Z",
+      "updatedAt": "2026-05-05T15:48:42Z",
       "type": "producto",
       "slug": "letras-corporeas-personalizadas",
       "path": "/productos/letras-corporeas-personalizadas",
@@ -23753,7 +24150,7 @@
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Letras corpóreas personalizadas | Rótulos 3D para interior y exterior",
-        "metaDescription": "Letras corpóreas personalizadas para rótulos y decoración: PVC, metacrilato, madera, Dibond y más. Corte y fresado a medida, opciones con separadores y montaje. Solicita presupuesto.",
+        "metaDescription": "Letras corpóreas personalizadas para rótulos y decoración. PVC, metacrilato, madera o Dibond con corte/fresado a medida.",
         "canonical": "https://reprodisseny.com/productos/letras-corporeas-personalizadas",
         "hreflang": [
           {
@@ -23769,7 +24166,7 @@
             {
               "@type": "Product",
               "name": "Letras corpóreas personalizadas",
-              "description": "Letras corpóreas personalizadas para rótulos y decoración: PVC, metacrilato, madera, Dibond y más. Corte y fresado a medida, opciones con separadores y montaje. Solicita presupuesto.",
+              "description": "Letras corpóreas personalizadas para rótulos y decoración. PVC, metacrilato, madera o Dibond con corte/fresado a medida.",
               "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/letras corporeas ok.webp",
               "url": "https://reprodisseny.com/productos/letras-corporeas-personalizadas",
               "brand": {
@@ -23857,7 +24254,7 @@
     },
     {
       "id": "129",
-      "updatedAt": "2026-05-05T11:56:08Z",
+      "updatedAt": "2026-05-05T15:32:38Z",
       "type": "producto",
       "slug": "libretas-personalizadas",
       "path": "/productos/libretas-personalizadas",
@@ -24127,7 +24524,7 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Libretas personalizadas | Libretas corporativas para oficina, eventos y marca",
+        "metaTitle": "Libretas personalizadas para empresa",
         "metaDescription": "Libretas personalizadas para empresas: A4/A5/A6, tapa blanda o dura, encuadernación Wire-O/espiral o cosida/encolada. Opciones de papel, acabados premium y personalización. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/libretas-personalizadas",
         "hreflang": [
@@ -24232,7 +24629,7 @@
     },
     {
       "id": "63",
-      "updatedAt": "2026-05-05T11:44:29Z",
+      "updatedAt": "2026-05-05T15:22:35Z",
       "type": "producto",
       "slug": "lona-publicitaria",
       "path": "/productos/lona-publicitaria",
@@ -24408,7 +24805,7 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Lona publicitaria personalizada | Impresión en gran formato para exterior e interior",
+        "metaTitle": "Lona publicitaria personalizada | Gran formato",
         "metaDescription": "Lona publicitaria personalizada para fachadas, vallas y eventos. Impresión a color, medidas a medida y acabados con ojales, vaina o refuerzo perimetral. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/lona-publicitaria",
         "hreflang": [
@@ -24518,7 +24915,7 @@
     },
     {
       "id": "65",
-      "updatedAt": "2026-05-05T11:44:43Z",
+      "updatedAt": "2026-05-05T15:57:22Z",
       "type": "producto",
       "slug": "manteles-individuales-personalizados",
       "path": "/productos/manteles-individuales-personalizados",
@@ -24690,8 +25087,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Manteles individuales personalizados | Hostelería y restauración",
-        "metaDescription": "Manteles individuales personalizados para restaurantes y eventos: papel, opciones resistentes, impresión a color y diseños a medida. Ideales para carta rápida, promociones y marca. Solicita presupuesto.",
+        "metaTitle": "manteles-individuales-personalizados",
+        "metaDescription": "Manteles individuales personalizados para restaurantes y eventos. Impresión a color, papeles resistentes y diseños a medida. Pide presupuesto.",
         "canonical": "https://reprodisseny.com/productos/manteles-individuales-personalizados",
         "hreflang": [
           {
@@ -24711,7 +25108,7 @@
             {
               "@type": "Product",
               "name": "Manteles individuales de mesa personalizados",
-              "description": "Manteles individuales personalizados para restaurantes y eventos: papel, opciones resistentes, impresión a color y diseños a medida. Ideales para carta rápida, promociones y marca. Solicita presupuesto.",
+              "description": "Manteles individuales personalizados para restaurantes y eventos. Impresión a color, papeles resistentes y diseños a medida. Pide presupuesto.",
               "image": "https://webcms.blob.core.windows.net/media/product/restauracion/mantel-individual.webp",
               "url": "https://reprodisseny.com/productos/manteles-individuales-personalizados",
               "brand": {
@@ -25701,7 +26098,7 @@
     },
     {
       "id": "70",
-      "updatedAt": "2026-05-05T11:45:13Z",
+      "updatedAt": "2026-05-05T15:00:32Z",
       "type": "producto",
       "slug": "minutas-boda",
       "path": "/productos/minutas-boda",
@@ -25896,7 +26293,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/eventos/minutas-boda.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "alt descripció de la foto"
+        "alt": "Minutas de boda impresas con diseño personalizado para eventos y celebraciones"
       },
       "galleryImages": [],
       "sku": "01-EVEN-0013",
@@ -26424,7 +26821,7 @@
     },
     {
       "id": "21",
-      "updatedAt": "2026-05-05T11:39:30Z",
+      "updatedAt": "2026-05-05T15:23:30Z",
       "type": "producto",
       "slug": "panel-carton-compacto-personalizado",
       "path": "/productos/panel-carton-compacto-personalizado",
@@ -26596,7 +26993,7 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Panel de cartón compacto personalizado | Rígido y reciclable para PLV y señalética",
+        "metaTitle": "Panel de cartón compacto personalizado | PLV",
         "metaDescription": "Panel de cartón compacto impreso a medida para displays, cartelería y PLV en interior. Muy rígido, corte a medida y opción una o dos caras. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/panel-carton-compacto-personalizado",
         "hreflang": [
@@ -27835,7 +28232,7 @@
     },
     {
       "id": "71",
-      "updatedAt": "2026-05-05T11:45:22Z",
+      "updatedAt": "2026-05-05T15:48:30Z",
       "type": "producto",
       "slug": "panel-nido-de-abeja-personalizado",
       "path": "/productos/panel-nido-de-abeja-personalizado",
@@ -28010,7 +28407,7 @@
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Panel de nido de abeja personalizado | Rígido ligero y reciclable",
-        "metaDescription": "Panel de nido de abeja impreso a medida: rígido, muy ligero y reciclable. Ideal para gran formato interior, eventos y campañas. Corte a medida, una o dos caras. Solicita presupuesto.",
+        "metaDescription": "Panel nido de abeja impreso a medida. Rígido, ligero y reciclable para gran formato interior, eventos y campañas.",
         "canonical": "https://reprodisseny.com/productos/panel-nido-de-abeja-personalizado",
         "hreflang": [
           {
@@ -28030,7 +28427,7 @@
             {
               "@type": "Product",
               "name": "Panel de nido de abeja",
-              "description": "Panel de nido de abeja impreso a medida: rígido, muy ligero y reciclable. Ideal para gran formato interior, eventos y campañas. Corte a medida, una o dos caras. Solicita presupuesto.",
+              "description": "Panel nido de abeja impreso a medida. Rígido, ligero y reciclable para gran formato interior, eventos y campañas.",
               "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/nido-de-abeja.webp",
               "url": "https://reprodisseny.com/productos/panel-nido-de-abeja-personalizado",
               "brand": {
@@ -28591,7 +28988,7 @@
     },
     {
       "id": "64",
-      "updatedAt": "2026-05-05T11:44:36Z",
+      "updatedAt": "2026-05-05T15:33:00Z",
       "type": "producto",
       "slug": "paneles-madera",
       "path": "/productos/paneles-madera",
@@ -28769,7 +29166,7 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Paneles de madera personalizados | MDF 10 mm, MDF 19 mm y Contrachapado 10 mm",
+        "metaTitle": "Paneles de madera personalizados",
         "metaDescription": "Paneles de madera a medida para rotulación, decoración y señalética: MDF 10 mm, MDF 19 mm y contrachapado 10 mm. Corte y fresado, impresión y acabados. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/paneles-madera",
         "hreflang": [
@@ -29201,7 +29598,7 @@
     },
     {
       "id": "76",
-      "updatedAt": "2026-05-05T11:46:46Z",
+      "updatedAt": "2026-05-05T15:36:26Z",
       "type": "producto",
       "slug": "papel-de-pared-personalizado",
       "path": "/productos/papel-de-pared-personalizado",
@@ -29442,7 +29839,7 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Papel de Pared Personalizado | Decoración y Branding en Gran Formato",
+        "metaTitle": "papel-de-pared-personalizado",
         "metaDescription": "Papel de pared personalizado para oficinas, tiendas y espacios comerciales. Diseños a medida, impresión de gran formato y acabados mate. Ideal para branding y decoración sin obras. Pide presupuesto.",
         "canonical": "https://reprodisseny.com/productos/papel-de-pared-personalizado",
         "hreflang": [
@@ -29552,7 +29949,7 @@
     },
     {
       "id": "78",
-      "updatedAt": "2026-05-05T11:47:16Z",
+      "updatedAt": "2026-05-05T15:42:12Z",
       "type": "producto",
       "slug": "pegatinas-personalizadas",
       "path": "/productos/pegatinas-personalizadas",
@@ -29798,7 +30195,7 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Pegatinas Personalizadas | Impresión de Etiquetas y Pegatinas a Medida Forma",
+        "metaTitle": "Pegatinas personalizadas a medida",
         "metaDescription": "Diseñamos e imprimimos etiquetas personalizadas para productos, envases y promociones. En rollo o en hojas, vinilo, papel, transparentes y troqueladas. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/pegatinas-personalizadas",
         "hreflang": [
@@ -30746,7 +31143,7 @@
     },
     {
       "id": "83",
-      "updatedAt": "2026-05-05T11:47:37Z",
+      "updatedAt": "2026-05-05T15:22:53Z",
       "type": "producto",
       "slug": "portacuentas-personalizados",
       "path": "/productos/portacuentas-personalizados",
@@ -30918,7 +31315,7 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Portacuentas personalizados | Restaurantes, bares y hoteles | Impresión profesional",
+        "metaTitle": "Portacuentas personalizados para hostelería",
         "metaDescription": "Portacuentas personalizados para hostelería: imagen premium, materiales resistentes y acabados lavables. Con bolsillo, inserto, QR o personalización. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/portacuentas-personalizados",
         "hreflang": [
@@ -33993,7 +34390,7 @@
     },
     {
       "id": "130",
-      "updatedAt": "2026-05-05T12:51:05Z",
+      "updatedAt": "2026-05-05T15:23:15Z",
       "type": "producto",
       "slug": "talonarios-autocopiativos-personalizados",
       "path": "/productos/talonarios-autocopiativos-personalizados",
@@ -34267,7 +34664,7 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Talonarios autocopiativos personalizados | Albaranes, pedidos y partes de trabajo",
+        "metaTitle": "Talonarios autocopiativos personalizados",
         "metaDescription": "Talonarios autocopiativos personalizados para empresa: 2 o 3 copias, numeración, perforado y formatos a medida. Ideales para albaranes, presupuestos y partes. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/talonarios-autocopiativos-personalizados",
         "hreflang": [
@@ -34372,7 +34769,7 @@
     },
     {
       "id": "96",
-      "updatedAt": "2026-05-05T12:11:41Z",
+      "updatedAt": "2026-05-05T16:19:41Z",
       "type": "producto",
       "slug": "tarjetas-pvc-personalizadas",
       "path": "/productos/tarjetas-pvc-personalizadas",
@@ -34547,8 +34944,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Tarjetas de PVC personalizadas | Tarjetas resistentes para empresa y promociones",
-        "metaDescription": "Tarjetas de PVC personalizadas para fidelización, acceso y membresías. Resistentes, a todo color, con opciones de datos variables, QR/código de barras y acabados premium. Solicita presupuesto.",
+        "metaTitle": "Tarjetas PVC personalizadas",
+        "metaDescription": "Tarjetas PVC personalizadas para fidelización, acceso y promociones. Resistentes, a todo color, con QR o datos variables.",
         "canonical": "https://reprodisseny.com/productos/tarjetas-pvc-personalizadas",
         "hreflang": [
           {
@@ -34568,7 +34965,7 @@
             {
               "@type": "Product",
               "name": "Tarjetas de PVC personalizadas",
-              "description": "Tarjetas de PVC personalizadas para fidelización, acceso y membresías. Resistentes, a todo color, con opciones de datos variables, QR/código de barras y acabados premium. Solicita presupuesto.",
+              "description": "Tarjetas PVC personalizadas para fidelización, acceso y promociones. Resistentes, a todo color, con QR o datos variables.",
               "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/tarjetasdepvc.webp",
               "url": "https://reprodisseny.com/productos/tarjetas-pvc-personalizadas",
               "brand": {
@@ -34657,7 +35054,7 @@
     },
     {
       "id": "125",
-      "updatedAt": "2026-05-05T11:57:07Z",
+      "updatedAt": "2026-05-05T16:46:54Z",
       "type": "producto",
       "slug": "tarjetas-de-visita-personalizadas",
       "path": "/productos/tarjetas-de-visita-personalizadas",
@@ -34933,8 +35330,30 @@
             "url": "https://reprodisseny.com/productos/tarjetas-de-visita-personalizadas"
           }
         ],
-        "keywords": [],
-        "searchTerms": [],
+        "keywords": [
+          "tarjetas de visita personalizadas",
+          "tarjetas corporativas",
+          "tarjetas de empresa",
+          "tarjetas de visita premium",
+          "tarjetas con laminado",
+          "tarjetas comerciales",
+          "impresión tarjetas visita Barcelona",
+          "tarjetas profesionales"
+        ],
+        "searchTerms": [
+          "tarjetas de visita",
+          "tarjetas visita personalizadas",
+          "tarjetas empresa",
+          "tarjetas corporativas",
+          "tarjetas comerciales",
+          "tarjetas visita premium",
+          "imprimir tarjetas visita",
+          "tarjetas con logo",
+          "tarjetas profesionales",
+          "tarjetas visita barcelona",
+          "tarjetas mate",
+          "tarjetas con laminado"
+        ],
         "schema": {
           "@context": "https://schema.org",
           "@graph": [
@@ -36655,7 +37074,7 @@
     },
     {
       "id": "144",
-      "updatedAt": "2026-05-05T11:20:04Z",
+      "updatedAt": "2026-05-05T15:48:06Z",
       "type": "producto",
       "slug": "urna",
       "path": "/productos/urna",
@@ -36804,7 +37223,7 @@
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Caja urna personalizada | Urnas para sorteos, encuestas y captación",
-        "metaDescription": "Caja urna personalizada para empresas y eventos: ideal para sorteos, votaciones y recogida de tarjetas. Automontable, con ventana opcional y branding a medida. Solicita presupuesto.",
+        "metaDescription": "Urna personalizada para sorteos, votaciones y recogida de tarjetas. Caja automontable con ventana opcional y branding a medida.",
         "canonical": "https://reprodisseny.com/productos/urna",
         "hreflang": [
           {
@@ -36820,7 +37239,7 @@
             {
               "@type": "Product",
               "name": "Urna",
-              "description": "Caja urna personalizada para empresas y eventos: ideal para sorteos, votaciones y recogida de tarjetas. Automontable, con ventana opcional y branding a medida. Solicita presupuesto.",
+              "description": "Urna personalizada para sorteos, votaciones y recogida de tarjetas. Caja automontable con ventana opcional y branding a medida.",
               "image": "https://webcms.blob.core.windows.net/media/product/packaging/urna.webp",
               "url": "https://reprodisseny.com/productos/urna",
               "brand": {
@@ -37120,7 +37539,7 @@
     },
     {
       "id": "115",
-      "updatedAt": "2026-05-05T11:58:28Z",
+      "updatedAt": "2026-05-05T16:46:25Z",
       "type": "producto",
       "slug": "vinilo-para-cristal",
       "path": "/productos/vinilo-para-cristal",
@@ -37290,8 +37709,30 @@
             "url": "https://reprodisseny.com/productos/vinilo-para-cristal"
           }
         ],
-        "keywords": [],
-        "searchTerms": [],
+        "keywords": [
+          "vinilo para cristal",
+          "vinilo escaparate personalizado",
+          "vinilo ácido personalizado",
+          "vinilo transparente personalizado",
+          "vinilo para ventanas",
+          "rotulación de cristales",
+          "vinilo para oficinas",
+          "vinilo para escaparates"
+        ],
+        "searchTerms": [
+          "vinilo para cristal",
+          "vinilo escaparate",
+          "vinilo ácido",
+          "vinilo transparente",
+          "vinilo para ventanas",
+          "rotulación cristales",
+          "vinilo cristal personalizado",
+          "vinilo oficinas cristal",
+          "vinilo para escaparate tienda",
+          "vinilo efecto ácido",
+          "vinilos para mamparas",
+          "impresión vinilo cristal"
+        ],
         "schema": {
           "@context": "https://schema.org",
           "@graph": [
@@ -37386,7 +37827,7 @@
     },
     {
       "id": "119",
-      "updatedAt": "2026-05-05T11:57:38Z",
+      "updatedAt": "2026-05-05T15:48:17Z",
       "type": "producto",
       "slug": "vinilo-pizarra",
       "path": "/productos/vinilo-pizarra",
@@ -37500,7 +37941,7 @@
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Vinilo para Pizarra | Vinilo Adhesivo Escribible para Pared y Muebles",
-        "metaDescription": "Vinilo para pizarra adhesivo y escribible: ideal para oficinas, tiendas y hostelería. Corte a medida, instalación en superficies planas y opción de pared completa. Pide presupuesto.",
+        "metaDescription": "Vinilo pizarra adhesivo y escribible para oficinas, tiendas y hostelería. Corte a medida e instalación en superficies planas.",
         "canonical": "https://reprodisseny.com/productos/vinilo-pizarra",
         "hreflang": [
           {
@@ -37516,7 +37957,7 @@
             {
               "@type": "Product",
               "name": "Vinilo para pizarra (escribible)",
-              "description": "Vinilo para pizarra adhesivo y escribible: ideal para oficinas, tiendas y hostelería. Corte a medida, instalación en superficies planas y opción de pared completa. Pide presupuesto.",
+              "description": "Vinilo pizarra adhesivo y escribible para oficinas, tiendas y hostelería. Corte a medida e instalación en superficies planas.",
               "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-pizarra.webp",
               "url": "https://reprodisseny.com/productos/vinilo-pizarra",
               "brand": {
@@ -37604,7 +38045,7 @@
     },
     {
       "id": "117",
-      "updatedAt": "2026-05-05T11:58:10Z",
+      "updatedAt": "2026-05-05T16:46:39Z",
       "type": "producto",
       "slug": "vinilo-suelo-personalizado",
       "path": "/productos/vinilo-suelo-personalizado",
@@ -37717,8 +38158,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Vinilo para Suelo Personalizado | Señalización y Publicidad en Gran Formato",
-        "metaDescription": "Vinilo para suelo a medida para señalización y campañas: opciones antideslizantes, laminado protector y adhesivo removible o permanente. Ideal para retail, eventos y oficinas. Pide presupuesto.",
+        "metaTitle": "Vinilo para suelo personalizado",
+        "metaDescription": "Vinilo para suelo personalizado para señalización y campañas. Opciones antideslizantes, laminado protector y adhesivo a medida.",
         "canonical": "https://reprodisseny.com/productos/vinilo-suelo-personalizado",
         "hreflang": [
           {
@@ -37726,15 +38167,37 @@
             "url": "https://reprodisseny.com/productos/vinilo-suelo-personalizado"
           }
         ],
-        "keywords": [],
-        "searchTerms": [],
+        "keywords": [
+          "vinilo para suelo personalizado",
+          "adhesivo de suelo",
+          "señalización de suelo",
+          "vinilo antideslizante",
+          "pegatinas para suelo",
+          "vinilo suelo para campañas",
+          "rotulación de suelo",
+          "vinilo promocional suelo"
+        ],
+        "searchTerms": [
+          "vinilo para suelo",
+          "vinilo suelo personalizado",
+          "adhesivo para suelo",
+          "pegatinas suelo",
+          "señalización suelo",
+          "vinilo antideslizante",
+          "vinilo suelo campañas",
+          "rotulación suelo",
+          "vinilo suelo tienda",
+          "adhesivo suelo personalizado",
+          "vinilo para eventos",
+          "vinilo direccional suelo"
+        ],
         "schema": {
           "@context": "https://schema.org",
           "@graph": [
             {
               "@type": "Product",
               "name": "Vinilo para suelo personalizado (señalización y campañas)",
-              "description": "Vinilo para suelo a medida para señalización y campañas: opciones antideslizantes, laminado protector y adhesivo removible o permanente. Ideal para retail, eventos y oficinas. Pide presupuesto.",
+              "description": "Vinilo para suelo personalizado para señalización y campañas. Opciones antideslizantes, laminado protector y adhesivo a medida.",
               "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-para-suelo.webp",
               "url": "https://reprodisseny.com/productos/vinilo-suelo-personalizado",
               "brand": {
@@ -37822,7 +38285,7 @@
     },
     {
       "id": "118",
-      "updatedAt": "2026-05-05T11:57:56Z",
+      "updatedAt": "2026-05-05T15:49:25Z",
       "type": "producto",
       "slug": "vinilo-vehiculos-personalizado",
       "path": "/productos/vinilo-vehiculos-personalizado",
@@ -37936,7 +38399,7 @@
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Vinilo para Vehículo Personalizado | Rotulación Profesional para Empresa",
-        "metaDescription": "Vinilo para vehículo a medida: rotulación comercial, logos y campañas. Opciones removible o permanente, impresión a color, laminado protector y corte a la forma. Solicita presupuesto.",
+        "metaDescription": "Vinilo para vehículos personalizado para rotulación comercial y campañas. Impresión a color, laminado protector y corte a medida.",
         "canonical": "https://reprodisseny.com/productos/vinilo-vehiculos-personalizado",
         "hreflang": [
           {
@@ -37952,7 +38415,7 @@
             {
               "@type": "Product",
               "name": "Vinilo para vehículos personalizado (rotulación y branding)",
-              "description": "Vinilo para vehículo a medida: rotulación comercial, logos y campañas. Opciones removible o permanente, impresión a color, laminado protector y corte a la forma. Solicita presupuesto.",
+              "description": "Vinilo para vehículos personalizado para rotulación comercial y campañas. Impresión a color, laminado protector y corte a medida.",
               "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-para-vehiculos.webp",
               "url": "https://reprodisseny.com/productos/vinilo-vehiculos-personalizado",
               "brand": {
@@ -38040,7 +38503,7 @@
     },
     {
       "id": "114",
-      "updatedAt": "2026-05-05T11:58:55Z",
+      "updatedAt": "2026-05-05T16:45:53Z",
       "type": "producto",
       "slug": "vinilos-superficies-planas",
       "path": "/productos/vinilos-superficies-planas",
@@ -38210,8 +38673,30 @@
             "url": "https://reprodisseny.com/productos/vinilos-superficies-planas"
           }
         ],
-        "keywords": [],
-        "searchTerms": [],
+        "keywords": [
+          "vinilos para pared",
+          "vinilos superficies planas",
+          "vinilos decorativos personalizados",
+          "vinilo adhesivo personalizado",
+          "rotulación de paredes",
+          "vinilo para oficinas",
+          "vinilos para retail",
+          "vinilo interior personalizado"
+        ],
+        "searchTerms": [
+          "vinilos para pared",
+          "vinilos superficies planas",
+          "vinilo adhesivo pared",
+          "vinilo personalizado pared",
+          "vinilo para oficina",
+          "vinilo para tienda",
+          "rotulación pared",
+          "vinilos decorativos empresas",
+          "vinilo para superficies lisas",
+          "vinilo interior personalizado",
+          "impresión vinilo pared",
+          "vinilo corporativo"
+        ],
         "schema": {
           "@context": "https://schema.org",
           "@graph": [
