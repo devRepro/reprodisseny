@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { Linkedin, Instagram } from "lucide-vue-next";
+import LinkedinIcon from "@/components/shared/icons/social/LinkedinIcon.vue";
+import InstagramIcon from "@/components/shared/icons/social/InstagramIcon.vue";
 
 type LinkItem = { label: string; to: string };
 
@@ -26,11 +27,14 @@ const props = withDefaults(
     menuRight: () => [
       { label: "Expositores", to: "/categorias/expositores" },
       { label: "Eventos", to: "/categorias/eventos" },
-      { label: "Hoteles y restaurantes", to: "/categorias/hosteleria-restauracion" },
+      {
+        label: "Hoteles y restaurantes",
+        to: "/categorias/hosteleria-restauracion",
+      },
       { label: "Packaging", to: "/categorias/packaging" },
     ],
-    linkedinUrl: "#",
-    instagramUrl: "#",
+    linkedinUrl: "https://www.linkedin.com/company/repro-disseny-s.l",
+    instagramUrl: "https://www.instagram.com/reprodissenybcn/",
   }
 );
 </script>
@@ -45,17 +49,17 @@ const props = withDefaults(
           <SharedLogo variant="negative" class="h-8 w-auto" />
 
           <p class="mt-5 max-w-[34ch] text-body-s leading-[1.7] text-white/78">
-            {{ description }}
+            {{ props.description }}
           </p>
         </section>
 
         <nav aria-label="Categorías del sitio" class="min-w-0">
           <div class="grid grid-cols-1 gap-8 sm:grid-cols-2">
             <ul class="space-y-3">
-              <li v-for="item in menuLeft" :key="item.to">
+              <li v-for="item in props.menuLeft" :key="item.to">
                 <NuxtLink
                   :to="item.to"
-                  class="text-body-s leading-[1.6] text-white/82 transition hover:text-white hover:underline underline-offset-4"
+                  class="text-body-s leading-[1.6] text-white/82 underline-offset-4 transition hover:text-white hover:underline"
                 >
                   {{ item.label }}
                 </NuxtLink>
@@ -63,10 +67,10 @@ const props = withDefaults(
             </ul>
 
             <ul class="space-y-3">
-              <li v-for="item in menuRight" :key="item.to">
+              <li v-for="item in props.menuRight" :key="item.to">
                 <NuxtLink
                   :to="item.to"
-                  class="text-body-s leading-[1.6] text-white/82 transition hover:text-white hover:underline underline-offset-4"
+                  class="text-body-s leading-[1.6] text-white/82 underline-offset-4 transition hover:text-white hover:underline"
                 >
                   {{ item.label }}
                 </NuxtLink>
@@ -88,34 +92,41 @@ const props = withDefaults(
             <p>
               <a
                 href="mailto:comercial@reprodisseny.com"
-                class="transition hover:text-white hover:underline underline-offset-4"
+                class="underline-offset-4 transition hover:text-white hover:underline"
               >
                 comercial@reprodisseny.com
               </a>
             </p>
           </div>
 
-          <div class="mt-5 flex items-center gap-4">
+          <nav
+            aria-label="Redes sociales"
+            class="mt-5 flex items-center gap-4"
+          >
             <a
               :href="props.linkedinUrl"
-              aria-label="LinkedIn"
-              class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/82 transition hover:border-white/30 hover:text-white"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn de Reprodisseny"
+              class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/82 transition hover:border-white/30 hover:bg-white/[0.08] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
             >
-              <Linkedin class="h-5 w-5" :stroke-width="1.75" />
+              <LinkedinIcon class="h-5 w-5" />
             </a>
 
             <a
               :href="props.instagramUrl"
-              aria-label="Instagram"
-              class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/82 transition hover:border-white/30 hover:text-white"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram de Reprodisseny"
+              class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/82 transition hover:border-white/30 hover:bg-white/[0.08] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
             >
-              <Instagram class="h-5 w-5" :stroke-width="1.75" />
+              <InstagramIcon class="h-5 w-5" />
             </a>
-          </div>
+          </nav>
         </address>
       </div>
 
-      <div class="mt-10 border-t border-white/12 pt-5">
+      <div class="mt-10 border-t border-white/10 pt-5">
         <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
           <p class="text-[13px] leading-5 text-white/56">
             © {{ new Date().getFullYear() }} Reprodisseny
@@ -123,7 +134,7 @@ const props = withDefaults(
 
           <NuxtLink
             to="/politica-privacidad"
-            class="text-[13px] leading-5 text-white/72 transition hover:text-white hover:underline underline-offset-4"
+            class="text-[13px] leading-5 text-white/72 underline-offset-4 transition hover:text-white hover:underline"
           >
             Aviso legal
           </NuxtLink>
