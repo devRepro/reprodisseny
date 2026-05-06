@@ -3,16 +3,27 @@ import { defineNuxtConfig } from "nuxt/config";
 
 const siteUrl = process.env.NUXT_PUBLIC_SITE_URL || "https://reprodisseny.com";
 
+const siteEnv =
+  process.env.NUXT_SITE_ENV ||
+  process.env.VERCEL_ENV ||
+  process.env.NODE_ENV;
+
+const isIndexable = siteEnv === "production";
+
+const usercentricsSettingsId =
+  process.env.NUXT_PUBLIC_USERCENTRICS_SETTINGS_ID || "";
+
+const gtmId = process.env.NUXT_PUBLIC_GTM_ID || "";
+
+const googleSiteVerification =
+  process.env.NUXT_PUBLIC_GOOGLE_SITE_VERIFICATION || "";
+
 export default defineNuxtConfig({
   experimental: {
     payloadExtraction: process.env.NODE_ENV === "production",
     appManifest: false,
   },
 
-  /**
-   * SEO base config.
-   * Este valor alimenta sitemap, robots, canonicals auxiliares, OG y módulos SEO.
-   */
   site: {
     url: siteUrl,
     name: "Repro Disseny",
@@ -20,14 +31,9 @@ export default defineNuxtConfig({
       "Impresión profesional en Cataluña: gran formato, PLV, vinilos, calendarios, packaging y material corporativo con asesoramiento experto.",
     defaultLocale: "es",
     trailingSlash: false,
-    indexable: process.env.NODE_ENV === "production",
+    indexable: isIndexable,
   },
 
-  /**
-   * Sitemap dinámico.
-   * Usa las rutas reales generadas desde cms/routes.json mediante:
-   * server/api/__sitemap__/urls.ts
-   */
   sitemap: {
     sources: ["/api/__sitemap__/urls"],
     exclude: [
@@ -41,19 +47,17 @@ export default defineNuxtConfig({
     ],
   },
 
-  /**
-   * Robots.
-   * No bloqueamos recursos públicos, CSS, JS ni _nuxt.
-   * Solo bloqueamos zonas internas o sin valor SEO.
-   */
   robots: {
     disallow: [
       "/admin",
       "/admin/",
+      "/admin/**",
       "/api",
       "/api/",
+      "/api/**",
       "/panel",
       "/panel/",
+      "/panel/**",
       "/gracias",
     ],
     sitemap: `${siteUrl}/sitemap.xml`,
@@ -268,6 +272,10 @@ export default defineNuxtConfig({
         process.env.NUXT_PUBLIC_MEDIA_BASE_URL ||
         "https://webcms.blob.core.windows.net/media",
 
+      usercentricsSettingsId,
+      gtmId,
+      googleSiteVerification,
+
       googleMaps: {
         placeId:
           process.env.NUXT_PUBLIC_GOOGLE_MAPS_PLACE_ID ||
@@ -282,19 +290,16 @@ export default defineNuxtConfig({
   },
 
   modules: [
+    "@nuxtjs/sitemap",
+    "@nuxtjs/robots",
     "@nuxt/content",
     "@nuxt/image",
     "@nuxtjs/tailwindcss",
     "@nuxtjs/color-mode",
     "@nuxt/icon",
-    "@nuxtjs/seo",
     "vue-sonner/nuxt",
     "shadcn-nuxt",
   ],
-
-  ogImage: {
-    enabled: false,
-  },
 
   css: ["@/assets/styles/main.scss"],
 
@@ -313,8 +318,94 @@ export default defineNuxtConfig({
       htmlAttrs: { lang: "es" },
       titleTemplate: "%s · Repro Disseny",
       title: "Impresión profesional en Cataluña",
+
+      script: [
+        {
+          "data-usercentrics": "ignore",
+          type: "text/javascript",
+          innerHTML: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('consent', 'default', {
+              ad_personalization: 'denied',
+              ad_storage: 'denied',
+              ad_user_data: 'denied',
+              analytics_storage: 'denied',
+              functionality_storage: 'denied',
+              personalization_storage: 'denied',
+              security_storage: 'granted',
+              wait_for_update: 500
+            });
+            gtag('set', 'ads_data_redaction', true);
+            gtag('set', 'url_passthrough', false);
+          `,
+        },
+
+        ...(usercentricsSettingsId
+          ? [
+              {
+                src: "https://web.cmp.usercentrics.eu/modules/autoblocker.js",
+                type: "text/javascript",
+              },
+              {
+                id: "usercentrics-cmp",
+                src: "https://web.cmp.usercentrics.eu/ui/loader.js",
+                "data-settings-id": usercentricsSettingsId,
+                type: "text/javascript",
+                async: true,
+              },
+            ]
+          : []),
+
+        ...(gtmId
+          ? [
+              {
+                type: "text/javascript",
+                innerHTML: `
+                  (function(w,d,s,l,i){
+                    w[l]=w[l]||[];
+                    w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+                    var f=d.getElementsByTagName(s)[0],
+                    j=d.createElement(s),
+                    dl=l!='dataLayer'?'&l='+l:'';
+                    j.async=true;
+                    j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+                    f.parentNode.insertBefore(j,f);
+                  })(window,document,'script','dataLayer','${gtmId}');
+                `,
+              },
+            ]
+          : []),
+      ],
+
+      noscript: [
+        ...(gtmId
+          ? [
+              {
+                tagPosition: "bodyOpen",
+                innerHTML: `
+                  <iframe src="https://www.googletagmanager.com/ns.html?id=${gtmId}"
+                    height="0"
+                    width="0"
+                    style="display:none;visibility:hidden"></iframe>
+                `,
+              },
+            ]
+          : []),
+      ],
+
       meta: [
         { name: "viewport", content: "width=device-width, initial-scale=1" },
+
+        ...(googleSiteVerification
+          ? [
+              {
+                name: "google-site-verification",
+                content: googleSiteVerification,
+              },
+            ]
+          : []),
+
         {
           name: "description",
           content:
@@ -324,16 +415,17 @@ export default defineNuxtConfig({
         { property: "og:type", content: "website" },
         {
           property: "og:image",
-          content: `${siteUrl}/img/logo/reprodisseny.svg`,
+          content: `${siteUrl}/img/ui/reprodisseny-og.webp`,
         },
         { name: "twitter:card", content: "summary_large_image" },
         {
           name: "twitter:image",
-          content: `${siteUrl}/img/logo/reprodisseny.svg`,
+          content: `${siteUrl}/img/ui/reprodisseny-og.webp`,
         },
         { name: "theme-color", content: "#111827" },
         { name: "format-detection", content: "telephone=no" },
       ],
+
       link: [
         {
           rel: "icon",
@@ -348,29 +440,33 @@ export default defineNuxtConfig({
         },
       ],
     },
+
     pageTransition: { name: "fade", mode: "out-in" },
     layoutTransition: { name: "slide", mode: "out-in" },
   },
 
   tailwindcss: { configPath: "tailwind.config.ts", exposeConfig: true },
-  colorMode: { preference: "light", fallback: "light", classSuffix: "" },
+
+  colorMode: {
+    preference: "light",
+    fallback: "light",
+    classSuffix: "",
+  },
 
   routeRules: {
     "/categorias/**": { isr: 600 },
     "/productos/**": { isr: 600 },
-  
-    // APIs: no cache global. Solo fuera de robots/sitemap.
+
     "/api/**": {
       robots: false,
     },
-  
-    // Zonas internas / sin valor SEO
+
     "/admin": { robots: false },
     "/admin/**": { robots: false },
     "/panel": { robots: false },
     "/panel/**": { robots: false },
     "/gracias": { robots: false },
-  
+
     "/img/logo.svg": {
       redirect: { to: "/img/logo/reprodisseny.svg", statusCode: 301 },
     },
@@ -386,9 +482,13 @@ export default defineNuxtConfig({
 
     prerender: {
       failOnError: false,
+       routes: ["/robots.txt", "/sitemap.xml"],
     },
   },
 
   compatibilityDate: "2025-06-01",
-  devtools: { enabled: false },
+
+  devtools: {
+    enabled: false,
+  },
 });
