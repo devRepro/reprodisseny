@@ -1,7 +1,10 @@
 // nuxt.config.ts
 import { defineNuxtConfig } from "nuxt/config";
 
-const siteUrl = process.env.NUXT_PUBLIC_SITE_URL || "https://reprodisseny.com";
+const siteUrl =
+  process.env.NUXT_SITE_URL ||
+  process.env.NUXT_PUBLIC_SITE_URL ||
+  "https://reprodisseny.com";
 
 const siteEnv =
   process.env.NUXT_SITE_ENV ||
@@ -331,11 +334,12 @@ app: {
     ],
 
     script: [
-      ...(gtmId
-        ? [
-            {
-              id: "google-consent-default",
-              innerHTML: `
+  ...(gtmId
+    ? [
+        {
+          id: "google-consent-default",
+          tagPriority: "critical",
+          innerHTML: `
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('consent', 'default', {
@@ -348,37 +352,39 @@ gtag('consent', 'default', {
   security_storage: 'granted',
   wait_for_update: 2000
 });
-              `.trim(),
-            },
-          ]
-        : []),
+          `.trim(),
+        },
+      ]
+    : []),
 
-      ...(usercentricsSettingsId
-        ? [
-            {
-              id: "usercentrics-cmp",
-              src: "https://web.cmp.usercentrics.eu/ui/loader.js",
-              "data-settings-id": usercentricsSettingsId,
-              async: true,
-            },
-          ]
-        : []),
+  ...(usercentricsSettingsId
+    ? [
+        {
+          id: "usercentrics-cmp",
+          tagPriority: "high",
+          src: "https://web.cmp.usercentrics.eu/ui/loader.js",
+          "data-settings-id": usercentricsSettingsId,
+          async: true,
+        },
+      ]
+    : []),
 
-      ...(gtmId
-        ? [
-            {
-              id: "gtm-script",
-              innerHTML: `
+  ...(gtmId
+    ? [
+        {
+          id: "gtm-script",
+          tagPriority: "low",
+          innerHTML: `
 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','${gtmId}');
-              `.trim(),
-            },
-          ]
-        : []),
-    ],
+          `.trim(),
+        },
+      ]
+    : []),
+],
   },
 },
 
@@ -416,11 +422,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         dir: "./cms",
       },
     ],
-
-    prerender: {
-      failOnError: false,
-       routes: ["/robots.txt", "/sitemap.xml"],
-    },
   },
 
   compatibilityDate: "2025-06-01",
