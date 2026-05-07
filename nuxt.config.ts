@@ -313,137 +313,74 @@ export default defineNuxtConfig({
     componentDir: "components/ui",
   },
 
-  app: {
-    head: {
-      htmlAttrs: { lang: "es" },
-      titleTemplate: "%s · Repro Disseny",
-      title: "Impresión profesional en Cataluña",
-
-      script: [
-        {
-          "data-usercentrics": "ignore",
-          type: "text/javascript",
-          innerHTML: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('consent', 'default', {
-              ad_personalization: 'denied',
-              ad_storage: 'denied',
-              ad_user_data: 'denied',
-              analytics_storage: 'denied',
-              functionality_storage: 'denied',
-              personalization_storage: 'denied',
-              security_storage: 'granted',
-              wait_for_update: 500
-            });
-            gtag('set', 'ads_data_redaction', true);
-            gtag('set', 'url_passthrough', false);
-          `,
-        },
-
-        ...(usercentricsSettingsId
-          ? [
-              {
-                src: "https://web.cmp.usercentrics.eu/modules/autoblocker.js",
-                type: "text/javascript",
-              },
-              {
-                id: "usercentrics-cmp",
-                src: "https://web.cmp.usercentrics.eu/ui/loader.js",
-                "data-settings-id": usercentricsSettingsId,
-                type: "text/javascript",
-                async: true,
-              },
-            ]
-          : []),
-
-        ...(gtmId
-          ? [
-              {
-                type: "text/javascript",
-                innerHTML: `
-                  (function(w,d,s,l,i){
-                    w[l]=w[l]||[];
-                    w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
-                    var f=d.getElementsByTagName(s)[0],
-                    j=d.createElement(s),
-                    dl=l!='dataLayer'?'&l='+l:'';
-                    j.async=true;
-                    j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-                    f.parentNode.insertBefore(j,f);
-                  })(window,document,'script','dataLayer','${gtmId}');
-                `,
-              },
-            ]
-          : []),
-      ],
-
-      noscript: [
-        ...(gtmId
-          ? [
-              {
-                tagPosition: "bodyOpen",
-                innerHTML: `
-                  <iframe src="https://www.googletagmanager.com/ns.html?id=${gtmId}"
-                    height="0"
-                    width="0"
-                    style="display:none;visibility:hidden"></iframe>
-                `,
-              },
-            ]
-          : []),
-      ],
-
-      meta: [
-        { name: "viewport", content: "width=device-width, initial-scale=1" },
-
-        ...(googleSiteVerification
-          ? [
-              {
-                name: "google-site-verification",
-                content: googleSiteVerification,
-              },
-            ]
-          : []),
-
-        {
-          name: "description",
-          content:
-            "Impresión profesional en Cataluña: gran formato, PLV, vinilos, calendarios, packaging y material corporativo con asesoramiento experto.",
-        },
-        { property: "og:site_name", content: "Repro Disseny" },
-        { property: "og:type", content: "website" },
-        {
-          property: "og:image",
-          content: `${siteUrl}/img/ui/reprodisseny-og.webp`,
-        },
-        { name: "twitter:card", content: "summary_large_image" },
-        {
-          name: "twitter:image",
-          content: `${siteUrl}/img/ui/reprodisseny-og.webp`,
-        },
-        { name: "theme-color", content: "#111827" },
-        { name: "format-detection", content: "telephone=no" },
-      ],
-
-      link: [
-        {
-          rel: "icon",
-          type: "image/png",
-          sizes: "32x32",
-          href: "/img/logo/favicon-32x32.ico",
-        },
-        {
-          rel: "apple-touch-icon",
-          sizes: "180x180",
-          href: "/img/logo/apple-touch-icon.png",
-        },
-      ],
+app: {
+  head: {
+    htmlAttrs: {
+      lang: "es",
     },
 
-    pageTransition: { name: "fade", mode: "out-in" },
-    layoutTransition: { name: "slide", mode: "out-in" },
+    title: "Impresión profesional en Cataluña",
+    titleTemplate: "%s · Repro Disseny",
+
+    meta: [
+      // tus metas actuales
+    ],
+
+    link: [
+      // tus links actuales
+    ],
+
+    script: [
+      ...(gtmId
+        ? [
+            {
+              id: "google-consent-default",
+              innerHTML: `
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent', 'default', {
+  ad_storage: 'denied',
+  ad_user_data: 'denied',
+  ad_personalization: 'denied',
+  analytics_storage: 'denied',
+  functionality_storage: 'denied',
+  personalization_storage: 'denied',
+  security_storage: 'granted',
+  wait_for_update: 2000
+});
+              `.trim(),
+            },
+          ]
+        : []),
+
+      ...(usercentricsSettingsId
+        ? [
+            {
+              id: "usercentrics-cmp",
+              src: "https://web.cmp.usercentrics.eu/ui/loader.js",
+              "data-settings-id": usercentricsSettingsId,
+              async: true,
+            },
+          ]
+        : []),
+
+      ...(gtmId
+        ? [
+            {
+              id: "gtm-script",
+              innerHTML: `
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${gtmId}');
+              `.trim(),
+            },
+          ]
+        : []),
+    ],
   },
+},
 
   tailwindcss: { configPath: "tailwind.config.ts", exposeConfig: true },
 
