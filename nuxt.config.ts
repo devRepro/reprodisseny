@@ -268,24 +268,29 @@ export default defineNuxtConfig({
         "",
     },
 
-    public: {
-      baseURL: process.env.NUXT_PUBLIC_BASE_URL || siteUrl,
-      siteUrl,
-      mediaBaseUrl:
-        process.env.NUXT_PUBLIC_MEDIA_BASE_URL ||
-        "https://webcms.blob.core.windows.net/media",
+   public: {
+  baseURL: process.env.NUXT_PUBLIC_BASE_URL || siteUrl,
+  siteUrl,
 
-      usercentricsSettingsId,
-      gtmId,
-      googleSiteVerification,
+  mediaBaseUrl:
+    process.env.NUXT_PUBLIC_MEDIA_BASE_URL ||
+    "https://webcms.blob.core.windows.net/media",
 
-      googleMaps: {
-        placeId:
-          process.env.NUXT_PUBLIC_GOOGLE_MAPS_PLACE_ID ||
-          process.env.GOOGLE_MAPS_PLACE_ID ||
-          "",
-      },
-    },
+  mediaBlobOrigin:
+    process.env.NUXT_PUBLIC_MEDIA_BLOB_ORIGIN ||
+    "https://webcms.blob.core.windows.net",
+
+  usercentricsSettingsId,
+  gtmId,
+  googleSiteVerification,
+
+  googleMaps: {
+    placeId:
+      process.env.NUXT_PUBLIC_GOOGLE_MAPS_PLACE_ID ||
+      process.env.GOOGLE_MAPS_PLACE_ID ||
+      "",
+  },
+},
   },
 
   appConfig: {
@@ -316,30 +321,30 @@ export default defineNuxtConfig({
     componentDir: "components/ui",
   },
 
-app: {
-  head: {
-    htmlAttrs: {
-      lang: "es",
-    },
+  app: {
+    head: {
+      htmlAttrs: {
+        lang: "es",
+      },
 
-    title: "Impresión profesional en Cataluña",
-    titleTemplate: "%s · Repro Disseny",
+      title: "Impresión profesional en Cataluña",
+      titleTemplate: "%s · Repro Disseny",
 
-    meta: [
-      // tus metas actuales
-    ],
+      meta: [
+        // tus metas actuales
+      ],
 
-    link: [
-      // tus links actuales
-    ],
+      link: [
+        // tus links actuales
+      ],
 
-    script: [
-  ...(gtmId
-    ? [
-        {
-          id: "google-consent-default",
-          tagPriority: "critical",
-          innerHTML: `
+      script: [
+        ...(gtmId
+          ? [
+            {
+              id: "google-consent-default",
+              tagPriority: "critical",
+              innerHTML: `
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('consent', 'default', {
@@ -353,40 +358,40 @@ gtag('consent', 'default', {
   wait_for_update: 2000
 });
           `.trim(),
-        },
-      ]
-    : []),
+            },
+          ]
+          : []),
 
-  ...(usercentricsSettingsId
-    ? [
-        {
-          id: "usercentrics-cmp",
-          tagPriority: "high",
-          src: "https://web.cmp.usercentrics.eu/ui/loader.js",
-          "data-settings-id": usercentricsSettingsId,
-          async: true,
-        },
-      ]
-    : []),
+        ...(usercentricsSettingsId
+          ? [
+            {
+              id: "usercentrics-cmp",
+              tagPriority: "high",
+              src: "https://web.cmp.usercentrics.eu/ui/loader.js",
+              "data-settings-id": usercentricsSettingsId,
+              async: true,
+            },
+          ]
+          : []),
 
-  ...(gtmId
-    ? [
-        {
-          id: "gtm-script",
-          tagPriority: "low",
-          innerHTML: `
+        ...(gtmId
+          ? [
+            {
+              id: "gtm-script",
+              tagPriority: "low",
+              innerHTML: `
 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','${gtmId}');
           `.trim(),
-        },
-      ]
-    : []),
-],
+            },
+          ]
+          : []),
+      ],
+    },
   },
-},
 
   tailwindcss: { configPath: "tailwind.config.ts", exposeConfig: true },
 
