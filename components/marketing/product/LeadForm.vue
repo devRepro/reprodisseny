@@ -382,28 +382,64 @@ const onSubmit = handleSubmit(
       extras.fileName = file.value.name;
     }
 
-    const response = await sendPriceRequest(
-      {
-        name: values.nombre.trim(),
-        email: values.email.trim(),
-        phone: values.telefono?.trim(),
-        company: values.empresa?.trim() || null,
-        message: values.comentario?.trim() || "Solicitud de presupuesto",
-        categorySlug: props.categorySlug,
-        product: {
-          name: props.producto,
-          slug: slug || null,
-          sku: props.productData?.sku ?? null,
-          url: props.productData?.path || sourceUrl.value,
-        },
-        extras,
-        consent: true,
-        sourceUrl: sourceUrl.value,
-        utm: utm.value,
-        initialStatus: "Nova",
-      },
-      { file: file.value, fileKind: "design" }
-    );
+   const response = await sendPriceRequest(
+  {
+    name: values.nombre.trim(),
+    email: values.email.trim(),
+    phone: values.telefono?.trim(),
+    company: values.empresa?.trim() || null,
+    message: values.comentario?.trim() || "Solicitud de presupuesto",
+    categorySlug: props.categorySlug,
+    product: {
+      name: props.producto,
+      slug: slug || null,
+      sku: props.productData?.sku ?? null,
+      url: props.productData?.path || sourceUrl.value,
+    },
+    extras,
+    consent: true,
+    sourceUrl: sourceUrl.value,
+    utm: utm.value,
+    initialStatus: "Nova",
+  },
+  { file: file.value, fileKind: "design" }
+);
+
+const result = response as {
+  ok?: boolean;
+  duplicated?: boolean;
+  itemId?: string | number | null;
+  requestKey?: string | null;
+  reference?: string | null;
+  requestId?: string | null;
+  id?: string | number | null;
+} | null;
+
+if (!error.value && result?.ok) {
+  submittedEmail.value = values.email.trim();
+  submittedReference.value =
+    result.reference ||
+    result.requestId ||
+    (result.id ? String(result.id) : null) ||
+    (result.itemId ? String(result.itemId) : null);
+
+  if (!result.duplicated) {
+    pushDataLayer({
+      event: "generate_lead",
+      form_name: "price_request",
+      lead_type: "quote_request",
+      page_path: window.location.pathname,
+      category_slug: props.categorySlug,
+      product_slug: slug || undefined,
+      product_name: props.producto,
+      quantity: values.cantidad,
+      transaction_id: result.itemId ? String(result.itemId) : undefined,
+    });
+  }
+
+  success.value = true;
+  emit("success");
+}
 
     if (!error.value) {
       submittedEmail.value = values.email.trim();
