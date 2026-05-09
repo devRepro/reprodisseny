@@ -30,17 +30,14 @@ const props = withDefaults(
     children: () => [],
     eyebrow: "Subcategorías",
     title: "Explora esta línea de soluciones",
-    description:
-      "Accede directamente a las subcategorías relacionadas con esta área.",
+    description: "Accede directamente a las subcategorías relacionadas con esta área.",
     containerClass: "container-content",
   }
 );
 
 const visibleChildren = computed(() =>
   (props.children ?? []).filter(
-    (item) =>
-      Boolean(item?.title || item?.name) &&
-      Boolean(item?.path || item?.slug)
+    (item) => Boolean(item?.title || item?.name) && Boolean(item?.path || item?.slug)
   )
 );
 
@@ -85,7 +82,6 @@ const gridClass = computed(() => {
               :image="child.image"
               cta-label="Ver subcategoría"
               fallback-label="Subcategoría"
-              image-sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 25vw"
             />
           </li>
         </ul>

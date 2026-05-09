@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { ArrowRight } from "lucide-vue-next";
+import CmsImage from "@/components/shared/blocks/CmsImage.vue";
 import { normalizeCmsMediaSrc } from "@/utils/cmsMedia";
 
 type CardMedia =
@@ -22,7 +23,6 @@ const props = withDefaults(
     image?: CardMedia;
     ctaLabel?: string;
     imageAspectClass?: string;
-    imageSizes?: string;
     fallbackLabel?: string;
     badge?: string | null;
   }>(),
@@ -31,7 +31,6 @@ const props = withDefaults(
     image: null,
     ctaLabel: "Ver más",
     imageAspectClass: "aspect-[4/3]",
-    imageSizes: "(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 25vw",
     fallbackLabel: "Sin imagen",
     badge: "",
   }
@@ -70,15 +69,13 @@ const linkAriaLabel = computed(() => `${props.ctaLabel}: ${props.title}`);
     >
       <div class="overflow-hidden rounded-[1.25rem] border border-border/40 bg-muted/30">
         <div :class="['relative w-full overflow-hidden', imageAspectClass]">
-          <NuxtImg
+          <CmsImage
             v-if="hasMedia"
-            :src="media.src!"
+            :src="media.src"
             :alt="media.alt"
             :width="media.width || undefined"
             :height="media.height || undefined"
-            :sizes="imageSizes"
             class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
-            loading="lazy"
           />
 
           <div
@@ -99,7 +96,9 @@ const linkAriaLabel = computed(() => `${props.ctaLabel}: ${props.title}`);
             {{ badge }}
           </p>
 
-          <h3 class="text-balance text-lg font-semibold leading-tight text-foreground md:text-xl">
+          <h3
+            class="text-balance text-lg font-semibold leading-tight text-foreground md:text-xl"
+          >
             {{ title }}
           </h3>
 

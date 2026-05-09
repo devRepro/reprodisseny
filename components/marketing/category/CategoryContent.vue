@@ -2,6 +2,7 @@
 import { computed } from "vue";
 import { cn } from "@/lib/utils";
 import { normalizeCmsMediaSrc } from "@/utils/cmsMedia";
+import CmsImage from "@/components/shared/blocks/CmsImage.vue";
 import CategoryProductsGrid from "@/components/marketing/category/CategoryProductsGrid.vue";
 import CategoryFaq from "@/components/marketing/category/CategoryFaq.vue";
 import ContentSectionIntro from "@/components/marketing/content/ContentSectionIntro.vue";
@@ -174,11 +175,14 @@ const safeProducts = computed<SafeProduct[]>(() =>
     .map((item) => {
       const title = String(item?.title ?? "").trim();
       const to = String(item?.to ?? item?.path ?? "").trim();
+
       const rawImageSrc =
         String(item?.imageSrc ?? item?.image?.src ?? "").trim() || undefined;
+
       const imageSrc = rawImageSrc
         ? normalizeCmsMediaSrc(rawImageSrc) || rawImageSrc
         : undefined;
+
       const imageAlt =
         String(item?.imageAlt ?? item?.image?.alt ?? title).trim() || title;
 
@@ -261,10 +265,7 @@ const navItems = computed<NavItem[]>(() => {
                   v-for="(block, index) in section.blocks"
                   :key="`${section.id}-${index}`"
                 >
-                  <div
-                    v-if="block.type === 'text' && block.text"
-                    class="max-w-none"
-                  >
+                  <div v-if="block.type === 'text' && block.text" class="max-w-none">
                     <div
                       v-if="block.html"
                       class="prose prose-slate max-w-none text-foreground/80"
@@ -298,14 +299,14 @@ const navItems = computed<NavItem[]>(() => {
                     v-else-if="block.type === 'image' && block.src"
                     class="overflow-hidden rounded-2xl border border-border/60 bg-background"
                   >
-                    <NuxtImg
-                      :src="normalizeCmsMediaSrc(block.src) || block.src"
+                    <CmsImage
+                      :src="block.src"
                       :alt="block.alt || section.title"
                       :width="block.width || 1200"
                       :height="block.height || 800"
                       class="h-auto w-full object-cover"
-                      loading="lazy"
                     />
+
                     <figcaption
                       v-if="block.caption"
                       class="px-4 py-3 text-body-s text-foreground/70"
@@ -347,11 +348,7 @@ const navItems = computed<NavItem[]>(() => {
             {{ props.faqTitle }}
           </h2>
 
-          <CategoryFaq
-            :items="safeFaqs"
-            :title="faqTitle"
-            :subtitle="faqSubtitle"
-          />
+          <CategoryFaq :items="safeFaqs" :title="faqTitle" :subtitle="faqSubtitle" />
         </section>
       </div>
     </div>

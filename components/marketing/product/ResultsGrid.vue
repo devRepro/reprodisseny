@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { normalizeCmsMediaSrc } from "@/utils/cmsMedia";
+import CmsImage from "@/components/shared/blocks/CmsImage.vue";
 
 type ProductImage =
   | string
@@ -148,15 +149,15 @@ function buildPageLocation(targetPage: number) {
           class="flex h-full flex-col focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:ring-offset-2"
         >
           <div class="aspect-[4/3] overflow-hidden bg-muted/25">
-            <NuxtImg
+            <CmsImage
               v-if="getImageSrc(product)"
               :src="getImageSrc(product)"
               :alt="getImageAlt(product)"
               width="640"
               height="480"
               class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-              loading="lazy"
             />
+
             <div v-else class="h-full w-full bg-muted/40" />
           </div>
 

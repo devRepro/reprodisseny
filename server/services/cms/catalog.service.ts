@@ -1,9 +1,12 @@
 import catalog from "~/cms/catalog.json";
+import { normalizeCmsMediaSrc } from "~/utils/cmsMedia";
 
 import {
   getCategoryDetailGalleryBySlug,
   type CategoryDetailMediaItemDto,
 } from "./category-detail-gallery-registry";
+
+type CatalogContentFormat = "markdown" | "json";
 
 type CatalogSeoHreflang = {
   lang?: string;
@@ -701,7 +704,7 @@ function getCatalogCategories(): CatalogCategory[] {
 }
 
 function createCategoryTextSection(
-  key: string,
+  key: CatalogContentSectionKind,
   title: string,
   body: unknown
 ): CatalogSection | null {
@@ -712,7 +715,8 @@ function createCategoryTextSection(
     id: key,
     key,
     title,
-    kind: key === "technical-specs" ? "technical-specs" : "markdown",
+    kind: key,
+    contentFormat: "markdown",
     body: text,
   };
 }
@@ -932,36 +936,86 @@ function getProductLookupKeys(product: CatalogProduct) {
 
 
 
+const GALLERY_MEDIA_URL_KEYS = new Set([
+  "src",
+  "url",
+  "imageSrc",
+  "thumbnailSrc",
+  "thumbSrc",
+  "posterSrc",
+  "mobileSrc",
+  "desktopSrc",
+]);
+
+function normalizeGalleryMediaObject<T>(value: T): T {
+  if (Array.isArray(value)) {
+    return value.map((item) => normalizeGalleryMediaObject(item)) as T;
+  }
+
+  if (!value || typeof value !== "object") {
+    return value;
+  }
+
+  const record = value as Record<string, unknown>;
+  const out: Record<string, unknown> = { ...record };
+
+  for (const [key, currentValue] of Object.entries(record)) {
+    if (typeof currentValue === "string" && GALLERY_MEDIA_URL_KEYS.has(key)) {
+      out[key] = normalizeCmsMediaSrc(currentValue);
+      continue;
+    }
+
+    if (currentValue && typeof currentValue === "object") {
+      out[key] = normalizeGalleryMediaObject(currentValue);
+    }
+  }
+
+  return out as T;
+}
+
+function normalizeDetailGalleryItems(
+  items: CategoryDetailMediaItemDto[] | undefined
+): CategoryDetailMediaItemDto[] {
+  return (Array.isArray(items) ? items : []).map((item) =>
+    normalizeGalleryMediaObject(item)
+  );
+}
+
+
 function imageDtoOf(image: CatalogImage | null | undefined, fallbackAlt: string) {
-  if (!image?.src) return null;
+  const src = normalizeCmsMediaSrc(image?.src);
+
+  if (!src) return null;
 
   return {
-    src: image.src,
-    alt: image.alt || fallbackAlt,
-    width: image.width,
-    height: image.height,
+    src,
+    alt: String(image?.alt || fallbackAlt || "").trim(),
+    width: image?.width,
+    height: image?.height,
   };
 }
 
 function productImageDtoOf(
   image:
     | {
-      src?: string;
-      alt?: string;
-      width?: number;
-      height?: number;
-    }
+        src?: string;
+        alt?: string;
+        width?: number;
+        height?: number;
+      }
     | null
     | undefined,
   fallbackAlt: string
 ) {
-  if (!image?.src) return null;
+  const src = normalizeCmsMediaSrc(image?.src);
+
+  if (!src) return null;
 
   return {
-    src: image.src,
-    alt: image.alt || fallbackAlt,
-    width: image.width,
-    height: image.height,
+    src,
+    alt: String(image?.alt || fallbackAlt || "").trim(),
+    width: image?.width,
+    height: image?.height,
   };
 }
 
@@ -1431,20 +1485,24 @@ export function getHomeCategories(limit = 8): HomeCategoryCardItem[] {
   const featured = all.filter((item) => item.featured);
   const rest = all.filter((item) => !item.featured);
 
-  return [...featured, ...rest].slice(0, safeLimit).map((category) => ({
-    id: String(category.id ?? category.slug),
-    title: category.title,
-    slug: categoryPublicSlugOf(category),
-    href: categoryPathOf(category),
-    image: category.image?.src
-      ? {
-        src: category.image.src,
-        alt: category.image.alt || category.title,
-        width: Number(category.image.width) || FALLBACK_CARD_WIDTH,
-        height: Number(category.image.height) || FALLBACK_CARD_HEIGHT,
-      }
-      : null,
-  }));
+  return [...featured, ...rest].slice(0, safeLimit).map((category) => {
+    const image = imageDtoOf(category.image, category.title);
+
+    return {
+      id: String(category.id ?? category.slug),
+      title: category.title,
+      slug: categoryPublicSlugOf(category),
+      href: categoryPathOf(category),
+      image: image
+        ? {
+            src: image.src,
+            alt: image.alt,
+            width: Number(image.width) || FALLBACK_CARD_WIDTH,
+            height: Number(image.height) || FALLBACK_CARD_HEIGHT,
+          }
+        : null,
+    };
+  });
 }
 
 function toNavProductItem(product: CatalogProduct): NavProductItem {
@@ -1636,7 +1694,9 @@ export function getCategoryDetailByPath(
     products: getDirectProductsOfCategory(category, options.productLimit ?? 24),
     sections: getCategorySections(category),
     faqs: getCategoryFaqs(category),
-    detailGallery: getCategoryDetailGalleryBySlug(categoryPublicSlugOf(category)),
+    detailGallery: normalizeDetailGalleryItems(
+      getCategoryDetailGalleryBySlug(categoryPublicSlugOf(category))
+    ),
     breadcrumbs: [
       { label: "Inicio", to: "/" },
       { label: "Categorías", to: "/categorias" },
@@ -1657,7 +1717,10 @@ export function getCategoryDetailByPath(
         category?.description ||
         "",
       canonical: category?.seo?.canonical || canonicalPath,
-      image: category?.seo?.ogImageSrc || category.image?.src || undefined,
+      image:
+        normalizeCmsMediaSrc(category?.seo?.ogImageSrc) ||
+        normalizeCmsMediaSrc(category.image?.src) ||
+        undefined,
       robots: computeCategoryRobots(category),
     },
     ...(resolved.redirectTo ? { redirectTo: resolved.redirectTo } : {}),
@@ -1908,19 +1971,6 @@ function resolveProductBySlugOrPath(
   return { product, ...(redirectTo ? { redirectTo } : {}) };
 }
 
-type CatalogContentFormat = "markdown" | "json";
-
-type CatalogContentSectionKind =
-  | "details"
-  | "types"
-  | "benefits"
-  | "materials"
-  | "formats"
-  | "finishes"
-  | "applications"
-  | "technical-specs";
-
-type CatalogProductSection = CatalogSection;
 
 function getProductSections(product: CatalogProduct): ProductDetailSectionItem[] {
   return getMergedProductSections(product)
@@ -2095,7 +2145,10 @@ export function getProductDetailBySlug(
           product.description ||
           "",
         canonical: product?.seo?.canonical || canonicalPath,
-        image: product?.seo?.ogImageSrc || product.image?.src || undefined,
+        image:
+          normalizeCmsMediaSrc(product?.seo?.ogImageSrc) ||
+          normalizeCmsMediaSrc(product.image?.src) ||
+          undefined,
         robots: computeProductRobots(product),
         hreflang,
         schema: product?.seo?.schema,

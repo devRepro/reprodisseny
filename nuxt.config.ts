@@ -20,6 +20,22 @@ const gtmId = process.env.NUXT_PUBLIC_GTM_ID || "";
 
 const googleSiteVerification =
   process.env.NUXT_PUBLIC_GOOGLE_SITE_VERIFICATION || "";
+const mediaBaseUrl =
+  process.env.NUXT_PUBLIC_MEDIA_BASE_URL ||
+  "https://media.reprodisseny.com/media";
+
+const mediaBlobOrigin =
+  process.env.NUXT_PUBLIC_MEDIA_BLOB_ORIGIN ||
+  "https://webcms.blob.core.windows.net";
+
+const mediaCdnOrigin = (() => {
+  try {
+    return new URL(mediaBaseUrl).origin;
+  } catch {
+    return "https://media.reprodisseny.com";
+  }
+})();
+
 
 export default defineNuxtConfig({
   experimental: {
@@ -268,29 +284,24 @@ export default defineNuxtConfig({
         "",
     },
 
-   public: {
-  baseURL: process.env.NUXT_PUBLIC_BASE_URL || siteUrl,
-  siteUrl,
-
-  mediaBaseUrl:
-    process.env.NUXT_PUBLIC_MEDIA_BASE_URL ||
-    "https://webcms.blob.core.windows.net/media",
-
-  mediaBlobOrigin:
-    process.env.NUXT_PUBLIC_MEDIA_BLOB_ORIGIN ||
-    "https://webcms.blob.core.windows.net",
-
-  usercentricsSettingsId,
-  gtmId,
-  googleSiteVerification,
-
-  googleMaps: {
-    placeId:
-      process.env.NUXT_PUBLIC_GOOGLE_MAPS_PLACE_ID ||
-      process.env.GOOGLE_MAPS_PLACE_ID ||
-      "",
-  },
-},
+    public: {
+      baseURL: process.env.NUXT_PUBLIC_BASE_URL || siteUrl,
+      siteUrl,
+    
+      mediaBaseUrl,
+      mediaBlobOrigin,
+    
+      usercentricsSettingsId,
+      gtmId,
+      googleSiteVerification,
+    
+      googleMaps: {
+        placeId:
+          process.env.NUXT_PUBLIC_GOOGLE_MAPS_PLACE_ID ||
+          process.env.GOOGLE_MAPS_PLACE_ID ||
+          "",
+      },
+    },
   },
 
   appConfig: {
@@ -313,7 +324,10 @@ export default defineNuxtConfig({
 
   image: {
     provider: "ipx",
-    domains: ["webcms.blob.core.windows.net"],
+    domains: [
+      "media.reprodisseny.com",
+      "webcms.blob.core.windows.net",
+    ],
   },
 
   shadcn: {
@@ -335,7 +349,15 @@ export default defineNuxtConfig({
       ],
 
       link: [
-        // tus links actuales
+        {
+          rel: "preconnect",
+          href: mediaCdnOrigin,
+          crossorigin: "",
+        },
+        {
+          rel: "dns-prefetch",
+          href: mediaCdnOrigin,
+        },
       ],
 
       script: [

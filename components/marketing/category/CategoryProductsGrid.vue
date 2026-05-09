@@ -118,7 +118,6 @@ function loadMore() {
             "
             cta-label="Ver producto"
             fallback-label="Producto"
-            image-sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 25vw"
           />
         </li>
       </ul>

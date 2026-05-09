@@ -1,15 +1,20 @@
 <!-- components/marketing/category/CategoryBlocks.vue -->
 <script setup lang="ts">
-import { computed } from "vue"
-import type { Block } from "~/utils/_categoryRail"
-import { isHtmlTextBlock } from "~/utils/_categoryRail"
+import { computed } from "vue";
+import type { Block } from "~/utils/_categoryRail";
+import { isHtmlTextBlock } from "~/utils/_categoryRail";
+import CmsImage from "@/components/shared/blocks/CmsImage.vue";
 
-const props = defineProps<{ blocks: Block[] }>()
+const props = defineProps<{ blocks: Block[] }>();
 
-const safeBlocks = computed(() => props.blocks || [])
+const safeBlocks = computed(() => props.blocks || []);
 
 function hasItems(block: Block) {
-  return block?.type === "bullets" && Array.isArray((block as any).items) && (block as any).items.length > 0
+  return (
+    block?.type === "bullets" &&
+    Array.isArray((block as any).items) &&
+    (block as any).items.length > 0
+  );
 }
 </script>
 
@@ -24,20 +29,16 @@ function hasItems(block: Block) {
       />
 
       <!-- Texto normal -->
-      <div
-        v-else-if="b.type === 'text'"
-        class="max-w-[72ch]"
-      >
-        <p class="mb-0 whitespace-pre-line text-body text-foreground/82 md:text-[18px] md:leading-[1.72]">
+      <div v-else-if="b.type === 'text'" class="max-w-[72ch]">
+        <p
+          class="mb-0 whitespace-pre-line text-body text-foreground/82 md:text-[18px] md:leading-[1.72]"
+        >
           {{ (b as any).text }}
         </p>
       </div>
 
       <!-- Lista editorial, no cards -->
-      <div
-        v-else-if="b.type === 'bullets' && hasItems(b)"
-        class="max-w-[78ch]"
-      >
+      <div v-else-if="b.type === 'bullets' && hasItems(b)" class="max-w-[78ch]">
         <ul class="space-y-4 md:space-y-5">
           <li
             v-for="(it, j) in (b as any).items || []"
@@ -61,17 +62,17 @@ function hasItems(block: Block) {
         class="overflow-hidden rounded-[24px] border border-border/70 bg-card shadow-sm"
       >
         <div class="relative">
-          <NuxtImg
+          <CmsImage
             :src="(b as any).src"
             :alt="(b as any).alt || ''"
-            :width="(b as any).width"
-            :height="(b as any).height"
+            :width="(b as any).width || undefined"
+            :height="(b as any).height || undefined"
             class="h-auto w-full object-cover"
-            loading="lazy"
-            format="webp"
-            quality="80"
           />
-          <div class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/5" />
+
+          <div
+            class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/5"
+          />
         </div>
 
         <figcaption

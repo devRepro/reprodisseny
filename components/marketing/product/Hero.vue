@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, ref, watch } from "vue";
 import { normalizeCmsMediaSrc } from "@/utils/cmsMedia";
+import CmsImage from "@/components/shared/blocks/CmsImage.vue";
 import LeadForm from "@/components/marketing/product/LeadForm.vue";
 
 type HeroImage =
@@ -170,16 +171,13 @@ const productNameForForm = computed(() => productTitle.value || "Producto");
             v-if="hasImage"
             class="mt-6 overflow-hidden rounded-[28px] border border-border/70 bg-card shadow-[0_10px_30px_-24px_hsl(var(--foreground)/0.16)] md:mt-8"
           >
-            <NuxtImg
+            <CmsImage
               :src="currentImgSrc"
               :alt="imgAlt"
               class="aspect-[16/11] w-full object-cover"
-              sizes="(max-width: 1024px) 100vw, (max-width: 1440px) 58vw, 760px"
               width="760"
               height="522"
-              densities="x1 x2"
-              fetchpriority="high"
-              preload
+              eager
               @error="onImageError"
             />
 

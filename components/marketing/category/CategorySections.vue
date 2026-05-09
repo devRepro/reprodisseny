@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref, onMounted, onBeforeUnmount } from "vue";
-import { normalizeCmsMediaSrc } from "@/utils/cmsMedia";
+import CmsImage from "@/components/shared/blocks/CmsImage.vue";
 import ContentTypesGrid from "@/components/marketing/content/ContentTypesGrid.vue";
 
 type CategoryBlock =
@@ -61,6 +61,7 @@ function makeAnchorId(value: string, fallback: string): string {
     .replace(/[\u0300-\u036f]/g, "")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
+
   return normalized || fallback;
 }
 
@@ -222,6 +223,7 @@ function isImage(b: CategoryBlock): b is Extract<CategoryBlock, { type: "image" 
                 {{ String(sectionIdx + 1).padStart(2, "0") }}
               </span>
             </div>
+
             <h2 class="text-xl font-bold tracking-tight text-foreground md:text-2xl">
               {{ section.title }}
             </h2>
@@ -265,6 +267,7 @@ function isImage(b: CategoryBlock): b is Extract<CategoryBlock, { type: "image" 
                       {{ String(itemIndex + 1).padStart(2, "0") }}.
                     </span>
                   </div>
+
                   <span class="text-sm leading-relaxed text-foreground/80 md:text-base">
                     {{ item }}
                   </span>
@@ -275,14 +278,14 @@ function isImage(b: CategoryBlock): b is Extract<CategoryBlock, { type: "image" 
                 v-else-if="isImage(block)"
                 class="group relative overflow-hidden rounded-2xl border border-border/40 bg-muted/10"
               >
-                <NuxtImg
-                  :src="normalizeCmsMediaSrc((block as any).src) || (block as any).src"
+                <CmsImage
+                  :src="(block as any).src"
                   :alt="(block as any).alt || section.title"
                   :width="(block as any).width || 1200"
                   :height="(block as any).height || 800"
                   class="h-auto w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  loading="lazy"
                 />
+
                 <figcaption
                   v-if="(block as any).caption"
                   class="absolute bottom-0 left-0 right-0 border-t border-border/20 bg-background/80 px-4 py-3 text-sm text-foreground/70 backdrop-blur-md"
@@ -302,6 +305,7 @@ function isImage(b: CategoryBlock): b is Extract<CategoryBlock, { type: "image" 
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
 .no-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;

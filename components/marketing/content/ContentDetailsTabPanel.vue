@@ -3,6 +3,7 @@
 import { computed } from "vue";
 import { cn } from "@/lib/utils";
 import { normalizeCmsMediaSrc } from "@/utils/cmsMedia";
+import CmsImage from "@/components/shared/blocks/CmsImage.vue";
 import AppChip from "@/components/shared/pills/AppChip.vue";
 import CategoryShowcaseCta from "@/components/marketing/category/CategoryShowcaseCta.vue";
 import ContentDetailsSection from "@/components/marketing/content/ContentDetailsSection.vue";
@@ -112,14 +113,12 @@ const layoutClass = computed(() =>
           v-if="leadImage"
           class="overflow-hidden rounded-3xl border border-border/60 bg-card p-3 shadow-sm"
         >
-          <NuxtImg
+          <CmsImage
             :src="leadImage.src"
             :alt="leadImage.alt"
             width="840"
             height="630"
-            sizes="(max-width: 1023px) 100vw, 420px"
             class="aspect-[4/3] w-full rounded-[1.25rem] object-cover"
-            loading="lazy"
           />
 
           <figcaption
