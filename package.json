@@ -18,7 +18,10 @@
     "refresh:types": "npx nuxi prepare",
     "reinstall:prepare": "rm -rf node_modules .nuxt && npm i && npx nuxi prepare",
     "generate:products": "node scripts/create-product-files.js",
-    "validate:products": "node scripts/validate-products.js"
+    "validate:products": "node scripts/validate-products.js",
+    "git:check-clean": "git diff --quiet && git diff --cached --quiet",
+    "git:publish-next": "git checkout main && git pull --ff-only origin main && git merge work/next && git push origin main",
+    "git:back-to-next": "git checkout work/next && git merge main && git push origin work/next"
   },
   "dependencies": {
     "@fontsource/figtree": "^5.2.10",
