@@ -46,6 +46,9 @@ const toCat = (category: Partial<CategoriaNode> | null | undefined) =>
 const toProd = (product: any) =>
   product?.path || (product?.slug ? `/productos/${product.slug}` : "/productos");
 
+const productLabelOf = (product: any) =>
+  product?.title || product?.nav || product?.slug || "Producto";
+
 const childrenOf = (category: CategoriaNode | null | undefined) =>
   Array.isArray(category?.children) ? category.children : [];
 
@@ -69,16 +72,6 @@ const imageSrcOf = (item: any) => {
   }
 
   return item.image?.src || item.imageSrc || "";
-};
-
-const imageAltOf = (item: any) => {
-  if (!item) return "";
-
-  if (typeof item.image === "object" && item.image?.alt) {
-    return item.image.alt;
-  }
-
-  return item.title || item.nav || item.slug || "";
 };
 
 const isCategoryActive = (category: Partial<CategoriaNode> | null | undefined) => {
@@ -193,7 +186,8 @@ const menuInnerClass = (category: CategoriaNode) =>
                           <CmsImage
                             v-if="imageSrcOf(sub)"
                             :src="imageSrcOf(sub)"
-                            :alt="imageAltOf(sub)"
+                            alt=""
+                            aria-hidden="true"
                             width="36"
                             height="36"
                             class="h-9 w-9 shrink-0 rounded-full border border-border object-cover"
@@ -220,24 +214,27 @@ const menuInnerClass = (category: CategoriaNode) =>
                               <CmsImage
                                 v-if="imageSrcOf(prod)"
                                 :src="imageSrcOf(prod)"
-                                :alt="imageAltOf(prod)"
+                                alt=""
+                                aria-hidden="true"
                                 width="32"
                                 height="32"
                                 class="h-8 w-8 shrink-0 rounded-full border border-border object-cover"
                               />
 
                               <span class="min-w-0 truncate text-foreground/88">
-                                {{ prod.title }}
+                                {{ productLabelOf(prod) }}
                               </span>
                             </NuxtLink>
                           </MenubarItem>
 
-                          <NuxtLink
-                            :to="toCat(sub)"
-                            class="mt-3 inline-flex w-fit items-center text-sm font-semibold text-primary hover:underline"
-                          >
-                            Ver subcategoría →
-                          </NuxtLink>
+                          <MenubarItem as-child>
+                            <NuxtLink
+                              :to="toCat(sub)"
+                              class="mt-3 inline-flex w-fit cursor-pointer items-center text-sm font-semibold text-primary hover:underline"
+                            >
+                              Ver subcategoría →
+                            </NuxtLink>
+                          </MenubarItem>
                         </div>
 
                         <div
@@ -260,7 +257,8 @@ const menuInnerClass = (category: CategoriaNode) =>
                         <CmsImage
                           v-if="imageSrcOf(cat)"
                           :src="imageSrcOf(cat)"
-                          :alt="imageAltOf(cat)"
+                          alt=""
+                          aria-hidden="true"
                           width="36"
                           height="36"
                           class="h-9 w-9 shrink-0 rounded-full border border-border object-cover"
@@ -287,24 +285,27 @@ const menuInnerClass = (category: CategoriaNode) =>
                             <CmsImage
                               v-if="imageSrcOf(prod)"
                               :src="imageSrcOf(prod)"
-                              :alt="imageAltOf(prod)"
+                              alt=""
+                              aria-hidden="true"
                               width="32"
                               height="32"
                               class="h-8 w-8 shrink-0 rounded-full border border-border object-cover"
                             />
 
                             <span class="min-w-0 truncate text-foreground/88">
-                              {{ prod.title }}
+                              {{ productLabelOf(prod) }}
                             </span>
                           </NuxtLink>
                         </MenubarItem>
 
-                        <NuxtLink
-                          :to="toCat(cat)"
-                          class="mt-3 inline-flex w-fit items-center text-sm font-semibold text-primary hover:underline"
-                        >
-                          Ver categoría →
-                        </NuxtLink>
+                        <MenubarItem as-child>
+                          <NuxtLink
+                            :to="toCat(cat)"
+                            class="mt-3 inline-flex w-fit cursor-pointer items-center text-sm font-semibold text-primary hover:underline"
+                          >
+                            Ver categoría →
+                          </NuxtLink>
+                        </MenubarItem>
                       </div>
                     </div>
                   </template>
