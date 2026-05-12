@@ -104,7 +104,7 @@ function scrollToQuote() {
           <p>Copyright © Repro Disseny</p>
 
           <div class="flex gap-4">
-            <NuxtLink to="/aviso-legal" class="hover:text-white"> Aviso legal </NuxtLink>
+            <NuxtLink to="/politica-privacidad" class="hover:text-white"> Aviso legal </NuxtLink>
 
             <NuxtLink to="/politica-privacidad" class="hover:text-white">
               Privacidad
