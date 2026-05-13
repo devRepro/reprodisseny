@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-13T12:15:54.978Z",
+  "generatedAt": "2026-05-13T12:35:49.556Z",
   "categories": [
     {
       "id": "12",
@@ -16033,7 +16033,7 @@
     },
     {
       "id": "26",
-      "updatedAt": "2026-05-13T12:15:00Z",
+      "updatedAt": "2026-05-13T12:35:31Z",
       "type": "producto",
       "slug": "cosida-tapa-blanda",
       "path": "/productos/cosida-tapa-blanda",
@@ -16061,8 +16061,112 @@
           "key": "benefits",
           "title": "Beneficios",
           "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "- **Más durabilidad:** el cosido aporta mayor resistencia al uso repetido y al paso del tiempo.\n- **Mejor apertura y lectura:** se maneja mejor en consulta que una tapa blanda solo encolada.\n- **Acabado editorial con lomo:** permite identificar la publicación en estantería con título, marca o edición.\n- **Imagen de marca más premium:** ideal para catálogos comerciales, libros corporativos, memorias y publicaciones de empresa.\n- **Buena solución para muchas páginas:** funciona muy bien en publicaciones de número medio o alto de páginas.\n- **Versátil en acabados:** permite laminados, papeles especiales y detalles de portada para elevar la calidad percibida."
+          "contentFormat": "json",
+          "benefitsData": {
+            "benefits": [
+              {
+                "title": "Más durabilidad",
+                "description": "El cosido aporta mayor resistencia al uso repetido y al paso del tiempo, especialmente en publicaciones que se consultan a menudo."
+              },
+              {
+                "title": "Mejor apertura y lectura",
+                "description": "La publicación se maneja mejor que una tapa blanda solo encolada y resulta más cómoda para catálogos, libros y manuales."
+              },
+              {
+                "title": "Acabado editorial con lomo",
+                "description": "Permite identificar la publicación en estantería con título, logotipo, colección o edición."
+              },
+              {
+                "title": "Imagen de marca más premium",
+                "description": "Ideal para catálogos comerciales, libros corporativos, memorias y publicaciones de empresa con una presentación cuidada."
+              },
+              {
+                "title": "Buena opción para muchas páginas",
+                "description": "Funciona especialmente bien en publicaciones de número medio o alto de páginas donde se busca estabilidad y resistencia."
+              },
+              {
+                "title": "Versátil en acabados",
+                "description": "Permite trabajar con laminados, papeles interiores, cubiertas especiales y detalles de portada para elevar la calidad percibida."
+              }
+            ]
+          }
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "kind": "formats",
+          "contentFormat": "json",
+          "formatsData": {
+            "intro": "Adaptamos el formato, el lomo y la estructura de la publicación al número de páginas, al tipo de papel y al uso previsto.",
+            "shapes": [
+              {
+                "title": "Formato A4",
+                "description": "Adecuado para catálogos comerciales, memorias, manuales técnicos y publicaciones con mucho contenido visual o informativo."
+              },
+              {
+                "title": "Formato A5",
+                "description": "Opción práctica y manejable para guías, libros corporativos, programas, manuales y publicaciones de consulta frecuente."
+              },
+              {
+                "title": "Formato cuadrado",
+                "description": "Formato visual y diferencial para lookbooks, catálogos de marca, fotografía, diseño o publicaciones con una imagen más creativa."
+              },
+              {
+                "title": "Medidas personalizadas",
+                "description": "Producción adaptada al diseño, colección, campaña o necesidades concretas de presentación."
+              }
+            ],
+            "deliveryFormats": [
+              {
+                "title": "Lomo imprimible",
+                "description": "El lomo puede incluir título, logotipo, colección, número de edición o información identificativa de la publicación."
+              },
+              {
+                "title": "Cubierta con o sin solapas",
+                "description": "La cubierta puede prepararse en tapa blanda estándar o con solapas para conseguir un acabado más editorial."
+              },
+              {
+                "title": "Lomo calculado a medida",
+                "description": "El ancho del lomo se calcula según el número de páginas, el tipo de papel y el gramaje seleccionado."
+              }
+            ]
+          }
+        },
+        {
+          "id": "finishes",
+          "key": "finishes",
+          "title": "Acabados",
+          "kind": "finishes",
+          "contentFormat": "json",
+          "finishesData": {
+            "finishes": [
+              {
+                "title": "Laminado mate",
+                "description": "Protege la cubierta frente a roces y manipulación, con un acabado elegante y sin exceso de brillo."
+              },
+              {
+                "title": "Laminado brillo",
+                "description": "Refuerza la viveza del color y aporta una presencia más llamativa a la portada."
+              },
+              {
+                "title": "Soft touch",
+                "description": "Acabado de tacto suave para publicaciones de imagen premium, presentaciones corporativas o catálogos especiales."
+              },
+              {
+                "title": "Barniz selectivo",
+                "description": "Permite destacar logotipos, títulos, imágenes o detalles concretos de la cubierta."
+              },
+              {
+                "title": "Solapas",
+                "description": "Aportan un acabado más editorial y permiten incluir información adicional sobre la marca, colección o publicación."
+              },
+              {
+                "title": "Revisión de portada y lomo",
+                "description": "Revisamos portada, contraportada, lomo, márgenes y desarrollo de cubierta antes de producir."
+              }
+            ]
+          }
         },
         {
           "id": "technical-specs",
@@ -16077,8 +16181,35 @@
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "- **Catálogos de producto:** colecciones, tarifas, campañas, catálogos comerciales y publicaciones con uso recurrente.\n- **Revistas corporativas o de marca:** publicaciones con muchas páginas y una presentación más editorial.\n- **Libros corporativos y memorias:** proyectos de empresa, aniversarios, informes, memorias y publicaciones institucionales cuando no necesitas tapa dura.\n- **Manuales y guías:** documentación de formación, procesos, instrucciones o contenidos que se consultan a menudo.\n- **Lookbooks y portfolios:** moda, diseño, fotografía, arquitectura, interiorismo y proyectos visuales con acabado profesional.\n- **Publicaciones editoriales:** libros, dossiers o ediciones especiales que necesitan una encuadernación resistente y cuidada."
+          "contentFormat": "json",
+          "applicationsData": {
+            "applications": [
+              {
+                "title": "Catálogos de producto",
+                "description": "Colecciones, tarifas, campañas comerciales y publicaciones con uso recurrente."
+              },
+              {
+                "title": "Revistas corporativas o de marca",
+                "description": "Publicaciones con muchas páginas y una presentación más editorial que una revista grapada."
+              },
+              {
+                "title": "Libros corporativos y memorias",
+                "description": "Proyectos de empresa, aniversarios, informes, memorias y publicaciones institucionales cuando no necesitas tapa dura."
+              },
+              {
+                "title": "Manuales y guías",
+                "description": "Documentación de formación, procesos, instrucciones o contenidos que se consultan a menudo."
+              },
+              {
+                "title": "Lookbooks y portfolios",
+                "description": "Moda, diseño, fotografía, arquitectura, interiorismo y proyectos visuales con acabado profesional."
+              },
+              {
+                "title": "Publicaciones editoriales",
+                "description": "Libros, dossiers o ediciones especiales que necesitan una encuadernación resistente y cuidada."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
