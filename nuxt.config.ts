@@ -1,5 +1,6 @@
 // nuxt.config.ts
 import { defineNuxtConfig } from "nuxt/config";
+import { redirectRouteRules } from "./redirect-rules.generated";
 
 const siteUrl =
   process.env.NUXT_SITE_URL ||
@@ -424,6 +425,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   },
 
   routeRules: {
+     ...redirectRouteRules,
     "/categorias/**": { isr: 600 },
     "/productos/**": { isr: 600 },
 

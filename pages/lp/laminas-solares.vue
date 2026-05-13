@@ -18,7 +18,7 @@ definePageMeta({
 });
 
 useSeoMeta({
-  title: "Láminas solares para cristales en Barcelona · Repro Disseny",
+  title: "Láminas solares para cristales en Barcelona",
   description:
     "Instalación de láminas de protección solar para ventanas en oficinas, comercios, hoteles y viviendas de Barcelona. Reduce calor, reflejos y radiación UV sin obras.",
   ogTitle: "Láminas de protección solar en Barcelona",
@@ -263,7 +263,7 @@ function scrollToQuote() {
   <main class="landing-solar-page bg-background text-foreground">
     <LandingHeroCard
       :title="`Láminas de protección\nsolar en Barcelona`"
-      :description="`Instalamos láminas de protección solar para ventanas,\nen oficinas, comercios, hoteles y viviendas.\nPreparación propia e instalación profesional.`"
+      :description="`Instalamos láminas de protección solar para ventanas,\n en oficinas, comercios, hoteles y viviendas.\n Preparación propia e instalación profesional.`"
       :image-src="heroImage.src"
       :image-alt="heroImage.alt"
       @primary="scrollToQuote"

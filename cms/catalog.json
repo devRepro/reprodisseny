@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-13T06:39:24.100Z",
+  "generatedAt": "2026-05-13T12:15:54.978Z",
   "categories": [
     {
       "id": "12",
@@ -16033,7 +16033,7 @@
     },
     {
       "id": "26",
-      "updatedAt": "2026-05-05T14:06:46Z",
+      "updatedAt": "2026-05-13T12:15:00Z",
       "type": "producto",
       "slug": "cosida-tapa-blanda",
       "path": "/productos/cosida-tapa-blanda",
@@ -16046,7 +16046,7 @@
       "isPublished": true,
       "shortDescription": "Encuadernación cosida con tapa blanda para libros, catálogos, revistas corporativas, manuales y publicaciones profesionales. Una solución editorial con lomo, buena apertura y más resistencia que una encuadernación solo encolada.",
       "description": "Encuadernación cosida con tapa blanda para libros, catálogos, revistas corporativas, manuales y publicaciones profesionales. Una solución editorial con lomo, buena apertura y más resistencia que una encuadernación solo encolada.",
-      "bodyMd": "## ¿Qué es la encuadernación cosida con tapa blanda?\n\nEn la encuadernación cosida con tapa blanda, los pliegos interiores se cosen para formar el bloque del libro y después se montan con una cubierta flexible. El resultado es una publicación con lomo, aspecto editorial y mayor resistencia al uso que una encuadernación solo encolada.\n\nEs una opción muy adecuada cuando necesitas una publicación duradera, cómoda de consultar y con buena presencia, pero sin llegar al coste o rigidez de una tapa dura. La apertura suele ser más cómoda, el bloque interior queda más estable y el producto transmite una imagen más cuidada.\n\nEn Repro Disseny producimos encuadernación cosida con tapa blanda para catálogos de marca, libros corporativos, revistas, manuales, lookbooks, memorias y publicaciones profesionales en Barcelona, cuidando el papel interior, la cubierta, el lomo y los acabados de portada.",
+      "bodyMd": "La encuadernación cosida con tapa blanda es una solución editorial para publicaciones con lomo, cubierta flexible y una presencia más cuidada que una encuadernación básica.\n\nEn este tipo de encuadernación, los pliegos interiores se cosen para formar el bloque del libro y después se montan con una cubierta de tapa blanda. El resultado es una publicación resistente, cómoda de consultar y con buen comportamiento en el uso continuado.\n\nEs una opción muy adecuada para catálogos de marca, libros corporativos, revistas, manuales, lookbooks, memorias y publicaciones profesionales que necesitan durabilidad, buena apertura y una imagen editorial cuidada, sin llegar al coste o rigidez de una tapa dura.\n\nEn Repro Disseny producimos encuadernación cosida con tapa blanda en Barcelona, cuidando el papel interior, la cubierta, el cálculo del lomo, las solapas si son necesarias y los acabados de portada.",
       "sections": [
         {
           "id": "details",
@@ -16054,7 +16054,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "## ¿Qué es la encuadernación cosida con tapa blanda?\n\nEn la encuadernación cosida con tapa blanda, los pliegos interiores se cosen para formar el bloque del libro y después se montan con una cubierta flexible. El resultado es una publicación con lomo, aspecto editorial y mayor resistencia al uso que una encuadernación solo encolada.\n\nEs una opción muy adecuada cuando necesitas una publicación duradera, cómoda de consultar y con buena presencia, pero sin llegar al coste o rigidez de una tapa dura. La apertura suele ser más cómoda, el bloque interior queda más estable y el producto transmite una imagen más cuidada.\n\nEn Repro Disseny producimos encuadernación cosida con tapa blanda para catálogos de marca, libros corporativos, revistas, manuales, lookbooks, memorias y publicaciones profesionales en Barcelona, cuidando el papel interior, la cubierta, el lomo y los acabados de portada."
+          "body": "La encuadernación cosida con tapa blanda es una solución editorial para publicaciones con lomo, cubierta flexible y una presencia más cuidada que una encuadernación básica.\n\nEn este tipo de encuadernación, los pliegos interiores se cosen para formar el bloque del libro y después se montan con una cubierta de tapa blanda. El resultado es una publicación resistente, cómoda de consultar y con buen comportamiento en el uso continuado.\n\nEs una opción muy adecuada para catálogos de marca, libros corporativos, revistas, manuales, lookbooks, memorias y publicaciones profesionales que necesitan durabilidad, buena apertura y una imagen editorial cuidada, sin llegar al coste o rigidez de una tapa dura.\n\nEn Repro Disseny producimos encuadernación cosida con tapa blanda en Barcelona, cuidando el papel interior, la cubierta, el cálculo del lomo, las solapas si son necesarias y los acabados de portada."
         },
         {
           "id": "benefits",
@@ -16070,7 +16070,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "## Formato y lomo\n\n- Formatos habituales: A4, A5, cuadrado o medidas personalizadas.\n- Lomo imprimible con título, logotipo, colección o edición.\n- El ancho del lomo se calcula según número de páginas, tipo de papel y gramaje.\n- Recomendable para publicaciones con un número medio o alto de páginas.\n\n## Interior\n\n- Papeles interiores orientados a lectura o a reproducción de imagen según el objetivo de la publicación.\n- **Offset:** lectura cómoda, tacto natural y aspecto más editorial.\n- **Estucado mate:** buena reproducción de imagen con acabado sobrio y profesional.\n- **Estucado brillo:** mayor viveza de color para publicaciones muy visuales.\n- Posibilidad de ajustar gramaje según uso, número de páginas y presencia deseada.\n\n## Cubierta de tapa blanda\n\n- Cubierta flexible en cartulina de mayor gramaje para aportar presencia y resistencia.\n- Posibilidad de imprimir cubierta, contracubierta, lomo y solapas.\n- Opción de solapas si buscas un acabado más editorial y funcional.\n- La cubierta se puede adaptar al estilo de marca, colección o campaña.\n\n## Acabados recomendados\n\n- Laminado mate o brillo en cubierta para proteger frente a roces y manipulación.\n- Soft touch opcional para un tacto más premium.\n- Barniz selectivo opcional para destacar logotipo, título o detalles gráficos.\n- Revisión de portada, lomo y márgenes para asegurar una correcta producción.\n\n## Preparación del archivo\n\n- Archivo final preferiblemente en PDF de alta calidad.\n- Interior preparado a tamaño final, con sangrado si hay fondos o imágenes a corte.\n- Cubierta preparada con lomo calculado según páginas y papel.\n- Si hay solapas, deben incluirse en el desarrollo completo de cubierta."
+          "body": "Formato y lomo\n\nFormatos habituales: A4, A5, cuadrado o medidas personalizadas.\nLomo imprimible con título, logotipo, colección o edición.\nEl ancho del lomo se calcula según el número de páginas, el tipo de papel y el gramaje.\nRecomendable para publicaciones con un número medio o alto de páginas.\n\nInterior\n\nPapeles interiores orientados a lectura o a reproducción de imagen, según el objetivo de la publicación.\nPapel offset: lectura cómoda, tacto natural y aspecto editorial.\nEstucado mate: buena reproducción de imagen con acabado sobrio y profesional.\nEstucado brillo: mayor viveza de color para publicaciones muy visuales.\nPosibilidad de ajustar el gramaje según uso, número de páginas y presencia deseada.\n\nCubierta de tapa blanda\n\nCubierta flexible en cartulina de mayor gramaje para aportar presencia y resistencia.\nPosibilidad de imprimir cubierta, contracubierta, lomo y solapas.\nOpción de solapas para un acabado más editorial y funcional.\nLa cubierta se puede adaptar al estilo de marca, colección o campaña.\n\nAcabados recomendados\n\nLaminado mate o brillo en cubierta para proteger frente a roces y manipulación.\nSoft touch opcional para un tacto más premium.\nBarniz selectivo opcional para destacar logotipo, título o detalles gráficos.\nRevisión de portada, lomo y márgenes para asegurar una correcta producción.\n\nPreparación del archivo\n\nArchivo final preferiblemente en PDF de alta calidad.\nInterior preparado a tamaño final, con sangrado si hay fondos o imágenes a corte.\nCubierta preparada con el lomo calculado según páginas y papel.\nSi hay solapas, deben incluirse en el desarrollo completo de la cubierta."
         },
         {
           "id": "applications",
@@ -28398,7 +28398,7 @@
     },
     {
       "id": "52",
-      "updatedAt": "2026-05-05T11:43:27Z",
+      "updatedAt": "2026-05-13T12:11:40Z",
       "type": "producto",
       "slug": "panel-forex",
       "path": "/productos/panel-forex",
@@ -28411,7 +28411,7 @@
       "isPublished": true,
       "shortDescription": "El panel de Forex (PVC espumado) es uno de los soportes rígidos más versátiles para comunicación visual: tiene buena presencia, es ligero y aguanta bien el uso en cartelería, señalización y expositores. En Repro Disseny imprimimos Forex a medida con alta calidad, opción a una o dos caras y corte recto o a la forma para dejar la pieza lista para instalar.",
       "description": "El panel de Forex (PVC espumado) es uno de los soportes rígidos más versátiles para comunicación visual: tiene buena presencia, es ligero y aguanta bien el uso en cartelería, señalización y expositores. En Repro Disseny imprimimos Forex a medida con alta calidad, opción a una o dos caras y corte recto o a la forma para dejar la pieza lista para instalar.",
-      "bodyMd": "¿Qué es un panel de Forex y para qué se usa? \nUn panel de Forex es un soporte rígido de PVC espumado, muy utilizado en artes gráficas por su equilibrio entre rigidez, ligereza y resistencia. Se usa sobre todo para cartelería rígida, señalética, PLV y paneles informativos, tanto en interior como en aplicaciones puntuales en exterior (según ubicación y duración).",
+      "bodyMd": "Un panel de Forex es un soporte rígido de PVC espumado, muy utilizado en comunicación visual por su equilibrio entre rigidez, ligereza y resistencia.\n\nEs una buena opción para piezas que necesitan presencia, estabilidad y un acabado profesional sin usar materiales pesados.\n\nSe utiliza sobre todo para cartelería rígida, señalética, PLV, paneles informativos, displays, rótulos temporales y comunicación en punto de venta.\n\nPuede usarse en interior y también en aplicaciones puntuales de exterior, siempre valorando la ubicación, la exposición al sol, la humedad y la duración prevista del proyecto.",
       "sections": [
         {
           "id": "details",
@@ -28419,7 +28419,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es un panel de Forex y para qué se usa? \nUn panel de Forex es un soporte rígido de PVC espumado, muy utilizado en artes gráficas por su equilibrio entre rigidez, ligereza y resistencia. Se usa sobre todo para cartelería rígida, señalética, PLV y paneles informativos, tanto en interior como en aplicaciones puntuales en exterior (según ubicación y duración)."
+          "body": "Un panel de Forex es un soporte rígido de PVC espumado, muy utilizado en comunicación visual por su equilibrio entre rigidez, ligereza y resistencia.\n\nEs una buena opción para piezas que necesitan presencia, estabilidad y un acabado profesional sin usar materiales pesados.\n\nSe utiliza sobre todo para cartelería rígida, señalética, PLV, paneles informativos, displays, rótulos temporales y comunicación en punto de venta.\n\nPuede usarse en interior y también en aplicaciones puntuales de exterior, siempre valorando la ubicación, la exposición al sol, la humedad y la duración prevista del proyecto."
         },
         {
           "id": "benefits",
@@ -28427,7 +28427,23 @@
           "title": "Beneficios",
           "kind": "benefits",
           "contentFormat": "markdown",
-          "body": "Soporte rígido y ligero: fácil de manipular, transportar e instalar. \nAcabado profesional: ideal para señalética corporativa y cartelería cuidada. \nVersátil: funciona para paneles, displays, rótulos temporales y comunicación en punto de venta. \nA medida: tamaños, grosores y corte al contorno según el diseño. \nBuena resistencia: aguanta bien la manipulación y el día a día en interior (y usos específicos en exterior)."
+          "body": "- **Soporte rígido y ligero:** fácil de manipular, transportar e instalar.\n- **Acabado profesional:** ideal para señalética corporativa, cartelería cuidada y comunicación en punto de venta.\n- **Versátil:** funciona para paneles, displays, rótulos temporales y PLV.\n- **A medida:** disponible en diferentes tamaños, grosores y opciones de corte.\n- **Buena resistencia:** adecuado para uso interior y aplicaciones puntuales en exterior según ubicación."
+        },
+        {
+          "id": "materials",
+          "key": "materials",
+          "title": "Materiales",
+          "kind": "materials",
+          "contentFormat": "markdown",
+          "body": "## Materiales disponibles\n\n- **PVC espumado 3 mm:** recomendado para piezas pequeñas, cartelería ligera y señalética interior.\n- **PVC espumado 5 mm:** opción equilibrada para la mayoría de paneles, carteles y aplicaciones corporativas.\n- **PVC espumado 10 mm:** indicado para piezas grandes o cuando se busca más rigidez y presencia visual."
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "kind": "formats",
+          "contentFormat": "markdown",
+          "body": "## Formatos y medidas\n\nTrabajamos el panel de Forex en formatos estándar o totalmente a medida, según el uso, el diseño y el sistema de montaje.\n\n### Opciones habituales\n\n- **Formato personalizado:** adaptado a la medida exacta del proyecto.\n- **Impresión a una cara:** para carteles, señales y paneles de pared.\n- **Impresión a dos caras:** útil cuando la pieza se verá desde ambos sentidos.\n- **Corte recto:** recomendado para paneles informativos, carteles y señalética.\n- **Corte a la forma:** ideal para flechas, siluetas, displays o piezas promocionales."
         },
         {
           "id": "technical-specs",
@@ -28586,7 +28602,12 @@
           }
         ],
         "keywords": [
-          "forex"
+          "forex",
+          "panel forex",
+          "pvc espumado",
+          "cartelería rígida",
+          "señalética interior",
+          "panel pvc"
         ],
         "searchTerms": [
           "forex"
@@ -35223,7 +35244,7 @@
     },
     {
       "id": "96",
-      "updatedAt": "2026-05-05T16:19:41Z",
+      "updatedAt": "2026-05-13T11:58:33Z",
       "type": "producto",
       "slug": "tarjetas-pvc-personalizadas",
       "path": "/productos/tarjetas-pvc-personalizadas",
@@ -35252,7 +35273,15 @@
           "title": "Beneficios",
           "kind": "benefits",
           "contentFormat": "markdown",
-          "body": "Muy resistente y duradera: aguanta uso diario, roces y manipulación continua. \nImagen premium: transmite calidad y profesionalidad en mano. \nIdeal para operativa: acceso, control, membresías o programas de fidelización. \nPersonalización avanzada: numeración, datos variables, QR y códigos para lectura/validación. \nApta para campañas y largo recorrido: no se dobla ni se deteriora como el papel."
+          "body": "- **Muy resistente y duradera:** aguanta uso diario, roces y manipulación continua.\n- **Imagen premium:** transmite calidad y profesionalidad en mano.\n- **Ideal para operativa:** acceso, control, membresías o programas de fidelización.\n- **Personalización avanzada:** numeración, datos variables, QR y códigos para lectura o validación.\n- **Apta para campañas de largo recorrido:** no se dobla ni se deteriora como una tarjeta de papel."
+        },
+        {
+          "id": "materials",
+          "key": "materials",
+          "title": "Materiales",
+          "kind": "materials",
+          "contentFormat": "markdown",
+          "body": "- **PVC 660 micras:** soporte rígido, resistente y adecuado para tarjetas de uso frecuente.\n- **Acabado plástico:** pensado para manipulación continua y mayor durabilidad que una tarjeta de cartulina."
         },
         {
           "id": "technical-specs",
@@ -35408,7 +35437,12 @@
           }
         ],
         "keywords": [
-          "tarjetas de pvc"
+          "tarjetas de pvc",
+          "tarjetas pvc personalizadas",
+          "tarjetas de socio",
+          "tarjetas fidelización",
+          "tarjetas regalo",
+          "tarjetas con QR"
         ],
         "searchTerms": [
           "tarjetas de pvc"
