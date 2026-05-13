@@ -135,12 +135,13 @@ export default defineEventHandler(async (event) => {
       }
     : null
 
-  console.error("[PRICE REQUEST][API][NORMALIZED PAYLOAD]", {
+  if (import.meta.dev) {
+  console.info("[PRICE REQUEST][API][NORMALIZED PAYLOAD]", {
     name: p.name,
-    email: p.email,
-    phone: p.phone,
-    company: p.company,
-    message: p.message,
+    email: p.email ? "[redacted]" : null,
+    phone: p.phone ? "[redacted]" : null,
+    company: p.company ? "[redacted]" : null,
+    message: p.message ? "[redacted]" : null,
     categorySlug: p.categorySlug,
     product: p.product,
     extras: p.extras,
@@ -157,6 +158,7 @@ export default defineEventHandler(async (event) => {
       : null,
     fileKind,
   })
+}
 
   try {
     const created = await createPriceRequest(event, {

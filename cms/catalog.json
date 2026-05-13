@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-05-05T17:41:25.273Z",
+  "generatedAt": "2026-05-13T06:39:24.100Z",
   "categories": [
     {
       "id": "12",
-      "updatedAt": "2026-05-05T16:59:37Z",
+      "updatedAt": "2026-05-13T06:37:51Z",
       "type": "subcategoria",
       "slug": "material-flexible",
       "path": "/categorias/gran-formato/material-flexible",
@@ -142,8 +142,35 @@
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "- Escaparates y retail: vinilos de cristal, campañas promocionales, rotulación temporal.\n- Señalética: indicaciones, normas, zonas, direccionales.\n- Ferias y eventos: fondos, cartelería grande, materiales ligeros para transporte.\n- Fachadas: banderolas y lonas para máxima visibilidad.\n- Decoración corporativa: papel de pared, vinilos de pared y gráficos de marca.\n- Vehículos: rotulación parcial o completa."
+          "contentFormat": "json",
+          "applicationsData": {
+            "applications": [
+              {
+                "title": "Escaparates y retail",
+                "description": "vinilos de cristal, campañas promocionales, rotulación temporal."
+              },
+              {
+                "title": "Señalética",
+                "description": "indicaciones, normas, zonas, direccionales."
+              },
+              {
+                "title": "Ferias y eventos",
+                "description": "fondos, cartelería grande, materiales ligeros para transporte."
+              },
+              {
+                "title": "Fachadas",
+                "description": "banderolas y lonas para máxima visibilidad."
+              },
+              {
+                "title": "Decoración corporativa",
+                "description": "papel de pared, vinilos de pared y gráficos de marca."
+              },
+              {
+                "title": "Vehículos",
+                "description": "rotulación parcial o completa."
+              }
+            ]
+          }
         }
       ],
       "image": {
@@ -314,7 +341,7 @@
     },
     {
       "id": "13",
-      "updatedAt": "2026-05-05T17:00:29Z",
+      "updatedAt": "2026-05-13T06:37:59Z",
       "type": "subcategoria",
       "slug": "material-rigido",
       "path": "/categorias/gran-formato/material-rigido",
@@ -433,8 +460,27 @@
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "- Escaparates y punto de venta: comunicación estable, displays y cartelería de alto impacto.\n- Señalética: indicaciones, normas, zonas, precios, direccionales.\n- Ferias y eventos: piezas con equilibrio entre rigidez/ligereza para transporte y montaje.\n- Cartelería inmobiliaria: carteles grandes pensados para máxima legibilidad."
+          "contentFormat": "json",
+          "applicationsData": {
+            "applications": [
+              {
+                "title": "Escaparates y punto de venta",
+                "description": "comunicación estable, displays y cartelería de alto impacto."
+              },
+              {
+                "title": "Señalética",
+                "description": "indicaciones, normas, zonas, precios, direccionales."
+              },
+              {
+                "title": "Ferias y eventos",
+                "description": "piezas con equilibrio entre rigidez/ligereza para transporte y montaje."
+              },
+              {
+                "title": "Cartelería inmobiliaria",
+                "description": "carteles grandes pensados para máxima legibilidad."
+              }
+            ]
+          }
         }
       ],
       "image": {
@@ -593,7 +639,7 @@
     },
     {
       "id": "10",
-      "updatedAt": "2026-05-05T17:15:35Z",
+      "updatedAt": "2026-05-13T06:37:32Z",
       "type": "subcategoria",
       "slug": "material-oficina",
       "path": "/categorias/publicidad-oficina/material-oficina",
@@ -689,8 +735,23 @@
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "- Imagen corporativa sólida: papelería alineada (tarjetas, sobres, carpetas, certificados) para dar consistencia a tu marca.\n- Gestión y operativa: talonarios autocopiativos, sellos, archivadores, calendarios y material interno.\n- Señalización y presencia: placa de dirección y letras corpóreas para reforzar la visibilidad del negocio."
+          "contentFormat": "json",
+          "applicationsData": {
+            "applications": [
+              {
+                "title": "Imagen corporativa sólida",
+                "description": "papelería alineada (tarjetas, sobres, carpetas, certificados) para dar consistencia a tu marca."
+              },
+              {
+                "title": "Gestión y operativa",
+                "description": "talonarios autocopiativos, sellos, archivadores, calendarios y material interno."
+              },
+              {
+                "title": "Señalización y presencia",
+                "description": "placa de dirección y letras corpóreas para reforzar la visibilidad del negocio."
+              }
+            ]
+          }
         }
       ],
       "image": {
@@ -861,7 +922,7 @@
     },
     {
       "id": "11",
-      "updatedAt": "2026-05-05T17:37:09Z",
+      "updatedAt": "2026-05-13T06:37:42Z",
       "type": "subcategoria",
       "slug": "material-publicitario",
       "path": "/categorias/publicidad-oficina/material-publicitario",
@@ -1145,7 +1206,7 @@
     },
     {
       "id": "2",
-      "updatedAt": "2026-05-05T16:39:35Z",
+      "updatedAt": "2026-05-13T06:36:14Z",
       "type": "categoria",
       "slug": "adhesivos-personalizados",
       "path": "/categorias/adhesivos-personalizados",
@@ -1502,7 +1563,7 @@
     },
     {
       "id": "5",
-      "updatedAt": "2026-04-15T08:51:37Z",
+      "updatedAt": "2026-05-13T06:36:47Z",
       "type": "categoria",
       "slug": "gran-formato",
       "path": "/categorias/gran-formato",
@@ -1654,8 +1715,35 @@
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "## Usos habituales\n- Escaparates y retail: vinilos de cristal, campañas promocionales y rotulación temporal.\n- Señalética: indicaciones, normas, zonas, precios, direccionales.\n- Ferias y eventos: fondos, cartelería grande, rigidez/ligereza según transporte.\n- Fachadas: banderolas y lonas para máxima visibilidad.\n- Decoración corporativa: papel de pared, vinilos de pared y gráficos de marca.\n- Vehículos: rotulación parcial o completa con vinilo para vehículo."
+          "contentFormat": "json",
+          "applicationsData": {
+            "applications": [
+              {
+                "title": "Escaparates y retail",
+                "description": "vinilos de cristal, campañas promocionales y rotulación temporal."
+              },
+              {
+                "title": "Señalética",
+                "description": "indicaciones, normas, zonas, precios, direccionales."
+              },
+              {
+                "title": "Ferias y eventos",
+                "description": "fondos, cartelería grande, rigidez/ligereza según transporte."
+              },
+              {
+                "title": "Fachadas",
+                "description": "banderolas y lonas para máxima visibilidad."
+              },
+              {
+                "title": "Decoración corporativa",
+                "description": "papel de pared, vinilos de pared y gráficos de marca."
+              },
+              {
+                "title": "Vehículos",
+                "description": "rotulación parcial o completa con vinilo para vehículo."
+              }
+            ]
+          }
         }
       ],
       "image": {
@@ -1816,7 +1904,7 @@
     },
     {
       "id": "4",
-      "updatedAt": "2026-04-15T08:50:38Z",
+      "updatedAt": "2026-05-13T06:36:37Z",
       "type": "categoria",
       "slug": "expositores",
       "path": "/categorias/expositores",
@@ -1962,8 +2050,31 @@
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "- Ferias y congresos: señalización de stand, promociones, lanzamientos.\n- Punto de venta: comunicación de campañas, ofertas, novedades.\n- Eventos y photocalls: fondos de marca, patrocinadores, prensa.\n- Señalética interna: dirección, normas, itinerarios, información.\n- Campañas estacionales: Navidad, rebajas, promociones temporales."
+          "contentFormat": "json",
+          "applicationsData": {
+            "applications": [
+              {
+                "title": "Ferias y congresos",
+                "description": "señalización de stand, promociones, lanzamientos."
+              },
+              {
+                "title": "Punto de venta",
+                "description": "comunicación de campañas, ofertas, novedades."
+              },
+              {
+                "title": "Eventos y photocalls",
+                "description": "fondos de marca, patrocinadores, prensa."
+              },
+              {
+                "title": "Señalética interna",
+                "description": "dirección, normas, itinerarios, información."
+              },
+              {
+                "title": "Campañas estacionales",
+                "description": "Navidad, rebajas, promociones temporales."
+              }
+            ]
+          }
         }
       ],
       "image": {
@@ -2134,7 +2245,7 @@
     },
     {
       "id": "7",
-      "updatedAt": "2026-05-05T16:54:06Z",
+      "updatedAt": "2026-05-13T06:37:07Z",
       "type": "categoria",
       "slug": "libros-revistas-catalogos",
       "path": "/categorias/libros-revistas-catalogos",
@@ -2258,8 +2369,19 @@
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "- Catálogos de producto (colecciones, tarifas, campañas) \n- Revistas corporativas o internas (comunicación, cultura de empresa) \n- Memorias anuales y documentación institucional \n- Manuales de uso y formación \n- Lookbooks y portfolios para marcas creativas \n- Presentaciones comerciales y dossiers de ventas"
+          "contentFormat": "json",
+          "applicationsData": {
+            "applications": [
+              {
+                "title": "Catálogos de producto",
+                "description": "colecciones, tarifas, campañas."
+              },
+              {
+                "title": "Revistas corporativas o internas",
+                "description": "comunicación, cultura de empresa."
+              }
+            ]
+          }
         }
       ],
       "image": {
@@ -2438,7 +2560,7 @@
     },
     {
       "id": "3",
-      "updatedAt": "2026-05-03T07:13:29Z",
+      "updatedAt": "2026-05-13T06:36:28Z",
       "type": "categoria",
       "slug": "eventos",
       "path": "/categorias/eventos",
@@ -2583,8 +2705,31 @@
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "- Ferias y congresos: stands, photocall, señalización y material promocional.\n- Eventos corporativos: presentaciones, formaciones, convenciones internas.\n- Puntos de venta e inauguraciones: vinilos, carteles, displays y promociones.\n- Eventos culturales/deportivos: entradas, acreditaciones, programas, cartelería.\n- Acciones de marca: campañas temporales, activaciones y street marketing."
+          "contentFormat": "json",
+          "applicationsData": {
+            "applications": [
+              {
+                "title": "Ferias y congresos",
+                "description": "stands, photocall, señalización y material promocional."
+              },
+              {
+                "title": "Eventos corporativos",
+                "description": "presentaciones, formaciones, convenciones internas."
+              },
+              {
+                "title": "Puntos de venta e inauguraciones",
+                "description": "vinilos, carteles, displays y promociones."
+              },
+              {
+                "title": "Eventos culturales/deportivos",
+                "description": "entradas, acreditaciones, programas, cartelería."
+              },
+              {
+                "title": "Acciones de marca",
+                "description": "campañas temporales, activaciones y street marketing."
+              }
+            ]
+          }
         }
       ],
       "image": {
@@ -2743,7 +2888,7 @@
     },
     {
       "id": "9",
-      "updatedAt": "2026-05-05T17:36:29Z",
+      "updatedAt": "2026-05-13T06:37:23Z",
       "type": "categoria",
       "slug": "publicidad-oficina",
       "path": "/categorias/publicidad-oficina",
@@ -3058,7 +3203,7 @@
     },
     {
       "id": "6",
-      "updatedAt": "2026-05-05T16:40:00Z",
+      "updatedAt": "2026-05-13T06:36:59Z",
       "type": "categoria",
       "slug": "hosteleria-restauracion",
       "path": "/categorias/hosteleria-restauracion",
@@ -3185,7 +3330,7 @@
           "title": "Aplicaciones",
           "kind": "applications",
           "contentFormat": "markdown",
-          "body": "- Hoteles y alojamientos: información de habitación (wifi, horarios, servicios, QR), señal de “no molestar”, comunicación de promociones y servicios.\n- Restaurantes y bares: cartas claras y resistentes, comunicación de menús del día, sugerencias y campañas en mesa/barra.\n- Mejorar la experiencia del cliente: coherencia visual y sensación de orden y calidad en cada punto de contacto.\n- Ventas y upselling: tabletents y colgadores de botellas para destacar recomendaciones y promociones.\n- Eventos: minutas de boda para presentación cuidada y organización del servicio."
+          "body": "{\n  \"intro\": \"\",\n  \"applications\": [\n    {\n      \"title\": \"Hoteles y alojamientos\",\n      \"description\": \"información de habitación (wifi, horarios, servicios, QR), señal de “no molestar”, comunicación de promociones y servicios.\"\n    },\n    {\n      \"title\": \"Restaurantes y bares\",\n      \"description\": \"cartas claras y resistentes, comunicación de menús del día, sugerencias y campañas en mesa/barra.\"\n    },\n    {\n      \"title\": \"Mejorar la experiencia del cliente\",\n      \"description\": \"coherencia visual y sensación de orden y calidad en cada punto de contacto.\"\n    },\n    {\n      \"title\": \"Ventas y upselling\",\n      \"description\": \"tabletents y colgadores de botellas para destacar recomendaciones y promociones.\"\n    },\n    {\n      \"title\": \"Eventos\",\n      \"description\": \"minutas de boda para presentación cuidada y organización del servicio.\"\n    }\n  ]\n}"
         }
       ],
       "image": {
@@ -3358,7 +3503,7 @@
     },
     {
       "id": "8",
-      "updatedAt": "2026-05-05T17:12:46Z",
+      "updatedAt": "2026-05-13T06:37:14Z",
       "type": "categoria",
       "slug": "packaging",
       "path": "/categorias/packaging",
@@ -3619,6 +3764,291 @@
     }
   ],
   "products": [
+    {
+      "id": "157",
+      "updatedAt": "2026-05-13T05:51:59Z",
+      "type": "producto",
+      "slug": "colgador-puerta-personalizado",
+      "path": "/productos/colgador-puerta-personalizado",
+      "title": "Colgador de puerta personalizado",
+      "categorySlug": "hosteleria-restauracion",
+      "categorySlugs": [
+        "hosteleria-restauracion"
+      ],
+      "order": 100,
+      "isPublished": true,
+      "shortDescription": "El colgador de puerta es una pieza sencilla, pero clave en la operativa diaria: ayuda a coordinar limpieza, descanso y servicios sin molestar al huésped. En Repro Disseny imprimimos colgadores personalizados para hoteles, hostales y apartamentos, con troquel preciso, materiales resistentes y opción de plastificado para que duren y se vean profesionales.",
+      "description": "El colgador de puerta es una pieza sencilla, pero clave en la operativa diaria: ayuda a coordinar limpieza, descanso y servicios sin molestar al huésped. En Repro Disseny imprimimos colgadores personalizados para hoteles, hostales y apartamentos, con troquel preciso, materiales resistentes y opción de plastificado para que duren y se vean profesionales.",
+      "bodyMd": "### ¿Qué es un colgador de puerta y para qué se usa?\n\nUn colgador de puerta es una tarjeta troquelada que se cuelga en el pomo para comunicar mensajes como “No molestar”, “Hacer la habitación”, “Por favor, pasar más tarde” o avisos de servicio como lavandería, room service o mantenimiento.\n\nSe utiliza para mejorar la experiencia del huésped y facilitar la coordinación entre recepción, housekeeping y mantenimiento.",
+      "sections": [
+        {
+          "id": "details",
+          "key": "details",
+          "title": "Detalles",
+          "kind": "details",
+          "contentFormat": "markdown",
+          "body": "### ¿Qué es un colgador de puerta y para qué se usa?\n\nUn colgador de puerta es una tarjeta troquelada que se cuelga en el pomo para comunicar mensajes como “No molestar”, “Hacer la habitación”, “Por favor, pasar más tarde” o avisos de servicio como lavandería, room service o mantenimiento.\n\nSe utiliza para mejorar la experiencia del huésped y facilitar la coordinación entre recepción, housekeeping y mantenimiento."
+        },
+        {
+          "id": "benefits",
+          "key": "benefits",
+          "title": "Beneficios",
+          "kind": "benefits",
+          "contentFormat": "json",
+          "benefitsData": {
+            "intro": "Los colgadores de puerta ayudan a mejorar la comunicación con el huésped, ordenar la operativa interna y reforzar la imagen del alojamiento.",
+            "benefits": [
+              {
+                "title": "Mejora la experiencia del huésped",
+                "description": "Permite una comunicación clara sin interrupciones durante la estancia."
+              },
+              {
+                "title": "Optimiza la operativa de limpieza",
+                "description": "Ayuda a reducir incidencias, organizar prioridades y coordinar mejor el trabajo de housekeeping."
+              },
+              {
+                "title": "Imagen de marca cuidada",
+                "description": "Refuerza la coherencia visual del alojamiento en todos los detalles de comunicación."
+              },
+              {
+                "title": "Durabilidad",
+                "description": "Puede fabricarse con materiales y acabados pensados para un uso repetido."
+              },
+              {
+                "title": "Más servicios con menos fricción",
+                "description": "Permite añadir códigos QR para solicitar amenities, late check-out, room service, incidencias o contacto con recepción."
+              }
+            ]
+          }
+        },
+        {
+          "id": "technical-specs",
+          "key": "technical-specs",
+          "title": "Características técnicas",
+          "kind": "technical-specs",
+          "contentFormat": "markdown",
+          "body": "### Formato y troquel\n\n- Troquel específico para colgar en pomo, con ventana o corte adaptado al uso real.\n- Posibilidad de formas personalizadas, redondeos, siluetas o iconos si buscas un acabado diferencial.\n\n### Material\n\n- Cartulinas de buen gramaje para conseguir una sensación más sólida y una mejor durabilidad.\n- Opción de material más resistente si habrá mucha rotación, manipulación o uso continuado.\n\n### Impresión\n\n- Impresión a todo color o con diseños más sobrios y corporativos.\n- Normalmente se producen a dos caras, por ejemplo: “No molestar” por un lado y “Hacer la habitación” por el otro.\n- Posibilidad de preparar versiones por idioma si el alojamiento lo necesita.\n\n### Acabados recomendados\n\n- Plastificado o laminado mate/brillo para mejorar la resistencia al roce y facilitar la limpieza.\n- Recomendación práctica: el acabado mate suele ser el más cómodo de leer y reduce reflejos.\n- Esquinas redondeadas para mejorar la durabilidad y evitar que los bordes se deterioren con facilidad.\n\n### Extras útiles\n\n- Código QR a WhatsApp, recepción, solicitud de amenities, incidencias, guía del hotel o encuesta.\n- Iconografía clara para facilitar la lectura rápida, especialmente en tareas de housekeeping."
+        },
+        {
+          "id": "applications",
+          "key": "applications",
+          "title": "Aplicaciones",
+          "kind": "applications",
+          "contentFormat": "markdown",
+          "body": "{\n  \"intro\": \"Los colgadores de puerta son especialmente útiles en alojamientos, resorts, apartamentos turísticos y eventos donde es necesario comunicar instrucciones de forma rápida y visible.\",\n  \"applications\": [\n    {\n      \"title\": \"Hoteles, hostales y apartamentos turísticos\",\n      \"description\": \"Para mensajes como “No molestar”, “Limpieza”, “Cambio de toallas” o instrucciones para housekeeping.\"\n    },\n    {\n      \"title\": \"Resorts\",\n      \"description\": \"Para controlar servicios por horarios, zonas o tipos de estancia.\"\n    },\n    {\n      \"title\": \"Alojamientos con enfoque sostenible\",\n      \"description\": \"Para comunicar mensajes de reutilización de toallas, ahorro energético o reducción de consumos.\"\n    },\n    {\n      \"title\": \"Eventos y grupos\",\n      \"description\": \"Para indicar instrucciones específicas por estancia, fecha, habitación o grupo.\"\n    }\n  ]\n}"
+        }
+      ],
+      "faqs": [
+        {
+          "question": "¿Se pueden hacer a doble cara con \"No molestar / Hacer la habitación\"?",
+          "answer": "Sí. Es el formato más habitual y el que mejor funciona en la operativa diaria de hoteles, hostales y apartamentos turísticos."
+        },
+        {
+          "question": "¿Conviene plastificarlos?",
+          "answer": "Sí, especialmente si se reutilizan, se manipulan a diario o quieres que se puedan limpiar fácilmente. El plastificado aumenta la durabilidad y protege mejor la impresión."
+        },
+        {
+          "question": "¿Podéis hacerlos en varios idiomas?",
+          "answer": "Sí. Podemos producir versiones por idioma manteniendo el mismo diseño, estilo gráfico e imagen de marca."
+        },
+        {
+          "question": "¿Se puede añadir un código QR para servicios o contacto?",
+          "answer": "Sí. Podemos añadir QR a WhatsApp, recepción, solicitud de amenities, room service, incidencias, guía del hotel o encuestas, cuidando el tamaño y el contraste para que se escanee correctamente."
+        }
+      ],
+      "breadcrumbs": [
+        {
+          "name": "Inicio",
+          "url": "/"
+        },
+        {
+          "name": "Categorías",
+          "url": "/categorias"
+        },
+        {
+          "name": "Hostelería y restauración",
+          "url": "/categorias/hosteleria-restauracion"
+        },
+        {
+          "name": "Colgador de puerta personalizado",
+          "url": "/productos/colgador-puerta-personalizado"
+        }
+      ],
+      "image": {
+        "src": "https://webcms.blob.core.windows.net/media/product/restauracion/colgador-puerta.webp",
+        "width": 1200,
+        "height": 1200,
+        "alt": "Colgador de puerta personalizado para hotel impreso a doble cara con troquel para pomo"
+      },
+      "galleryImages": [],
+      "brand": "Repro Disseny",
+      "price": 0,
+      "priceCurrency": "EUR",
+      "inStock": false,
+      "attributes": [],
+      "variants": [],
+      "formFields": [],
+      "legacySlugs": [],
+      "seo": {
+        "metaTitle": "Colgador de puerta personalizado | Hotel, apartamentos y alojamientos",
+        "metaDescription": "Colgadores de puerta para hoteles: “No molestar / Hacer la habitación”, avisos y servicios. Troquelados, resistentes y con opción plastificado. Añade QR. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/colgador-puerta-personalizado",
+        "hreflang": [
+          {
+            "lang": "es-ES",
+            "url": "https://reprodisseny.com/productos/colgador-puerta-personalizado"
+          }
+        ],
+        "keywords": [
+          "colgador de puerta personalizado",
+          "colgadores de puerta para hoteles",
+          "colgador no molestar",
+          "colgador hacer la habitación",
+          "colgadores para habitaciones de hotel",
+          "colgadores de puerta impresos",
+          "door hanger personalizado",
+          "tarjetas colgador de puerta",
+          "colgadores plastificados",
+          "colgadores con QR",
+          "cartelería para hoteles",
+          "material gráfico para hoteles"
+        ],
+        "searchTerms": [
+          "colgador puerta hotel",
+          "colgadores puerta personalizados",
+          "colgador no molestar hotel",
+          "colgador hacer habitacion",
+          "colgadores para hoteles",
+          "colgadores habitaciones hotel",
+          "imprimir colgadores puerta",
+          "colgador puerta plastificado",
+          "colgador puerta con qr",
+          "door hanger hotel",
+          "tarjeta colgador pomo puerta",
+          "cartel no molestar personalizado",
+          "colgadores housekeeping",
+          "colgadores apartamentos turisticos",
+          "material hotel personalizado"
+        ],
+        "schema": {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Product",
+              "name": "Colgador de puerta personalizado",
+              "description": "Colgadores de puerta personalizados para hoteles, hostales, apartamentos turísticos y alojamientos. Troquelados, resistentes, a doble cara y con opción plastificada o QR.",
+              "image": "https://webcms.blob.core.windows.net/media/product/restauracion/colgador-puerta.webp",
+              "url": "https://reprodisseny.com/productos/colgador-puerta-personalizado",
+              "brand": {
+                "@type": "Organization",
+                "name": "Repro Disseny"
+              },
+              "category": "Publicidad y oficina",
+              "manufacturer": {
+                "@type": "Organization",
+                "name": "Repro Disseny",
+                "url": "https://reprodisseny.com"
+              },
+              "additionalProperty": [
+                {
+                  "@type": "PropertyValue",
+                  "name": "Uso recomendado",
+                  "value": "Hoteles, hostales, apartamentos turísticos, resorts, eventos y alojamientos turísticos"
+                },
+                {
+                  "@type": "PropertyValue",
+                  "name": "Formato",
+                  "value": "Colgador troquelado para pomo de puerta"
+                },
+                {
+                  "@type": "PropertyValue",
+                  "name": "Impresión",
+                  "value": "A todo color, normalmente a doble cara"
+                },
+                {
+                  "@type": "PropertyValue",
+                  "name": "Acabado",
+                  "value": "Opción de plastificado mate o brillo y esquinas redondeadas"
+                },
+                {
+                  "@type": "PropertyValue",
+                  "name": "Extras",
+                  "value": "Posibilidad de añadir código QR, iconografía, versiones por idioma y formas personalizadas"
+                }
+              ]
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Inicio",
+                  "item": "https://reprodisseny.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Hostelería y restauración",
+                  "item": "https://reprodisseny.com/categorias/hosteleria-restauracion"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 4,
+                  "name": "Colgador de puerta personalizado",
+                  "item": "https://reprodisseny.com/productos/colgador-puerta-personalizado"
+                }
+              ]
+            },
+            {
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "¿Se pueden hacer a doble cara con \"No molestar / Hacer la habitación\"?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí. Es el formato más habitual y el que mejor funciona en la operativa diaria de hoteles, hostales y apartamentos turísticos."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Conviene plastificarlos?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí, especialmente si se reutilizan, se manipulan a diario o quieres que se puedan limpiar fácilmente. El plastificado aumenta la durabilidad y protege mejor la impresión."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Podéis hacerlos en varios idiomas?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí. Podemos producir versiones por idioma manteniendo el mismo diseño, estilo gráfico e imagen de marca."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Se puede añadir un código QR para servicios o contacto?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí. Podemos añadir QR a WhatsApp, recepción, solicitud de amenities, room service, incidencias, guía del hotel o encuestas, cuidando el tamaño y el contraste para que se escanee correctamente."
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "robotsOverride": "INHERIT",
+        "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/restauracion/colgador-puerta.webp"
+      }
+    },
     {
       "id": "1",
       "updatedAt": "2026-05-05T11:35:35Z",
@@ -11499,7 +11929,7 @@
     },
     {
       "id": "17",
-      "updatedAt": "2026-05-05T17:40:28Z",
+      "updatedAt": "2026-05-12T09:39:18Z",
       "type": "producto",
       "slug": "cartas-restaurante-personalizadas",
       "path": "/productos/cartas-restaurante-personalizadas",
@@ -11536,7 +11966,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Formatos habituales \nA4 / A5, cuadradas o a medida según estilo y cantidad de contenido. \nCarta simple, díptico, tríptico o multipágina (tipo libreto). \nOpción de portacarta con hojas intercambiables si cambias precios/temporada con frecuencia. \nPapeles y soportes (según imagen y uso) \nPapeles con buen cuerpo para una sensación más “premium”. \nOpciones mate recomendadas para lectura cómoda (menos reflejos). \nAlternativas más resistentes cuando se prevé mucha manipulación. \nAcabados recomendados \nPlastificado/laminado mate o brillo: protege frente a roces y facilita limpieza (muy recomendable en hostelería). \nSoft touch (opcional): tacto premium para restaurantes de gama media/alta. \nEsquinas redondeadas: mejor durabilidad en uso diario. \nBarniz selectivo (opcional): resalta logo o detalles de portada. \nImpresión \nImpresión a todo color con buena reproducción para fotografía y marca.\nPosibilidad de varias versiones: idiomas, carta de vinos, carta de postres, menú del día, etc. Extras útiles \nQR a carta digital, reservas, alérgenos ampliados o encuestas. \nIconos de alérgenos y símbolos (picante, vegano, sin gluten…) para lectura rápida."
+          "body": "Formatos habituales \nA4 / A5, cuadradas o a medida según estilo y cantidad de contenido.\nCarta simple, díptico, tríptico o multipágina (tipo libreto). \nOpción de portacarta con hojas intercambiables si cambias precios/temporada con frecuencia. \nPapeles y soportes (según imagen y uso) \nPapeles con buen cuerpo para una sensación más “premium”. \nOpciones mate recomendadas para lectura cómoda (menos reflejos). \nAlternativas más resistentes cuando se prevé mucha manipulación. \nAcabados recomendados \nPlastificado/laminado mate o brillo: protege frente a roces y facilita limpieza (muy recomendable en hostelería). \nSoft touch (opcional): tacto premium para restaurantes de gama media/alta. \nEsquinas redondeadas: mejor durabilidad en uso diario. \nBarniz selectivo (opcional): resalta logo o detalles de portada. \nImpresión \nImpresión a todo color con buena reproducción para fotografía y marca.\nPosibilidad de varias versiones: idiomas, carta de vinos, carta de postres, menú del día, etc. Extras útiles \nQR a carta digital, reservas, alérgenos ampliados o encuestas. \nIconos de alérgenos y símbolos (picante, vegano, sin gluten…) para lectura rápida."
         },
         {
           "id": "applications",

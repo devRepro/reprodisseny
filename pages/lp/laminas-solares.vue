@@ -119,20 +119,24 @@ const problems: LandingPainPoint[] = [
 
 const stats: StatItem[] = [
   {
-    value: "Hasta un 80% de",
-    label: "energía solar rechazada",
+    value: "Hasta 80%",
+    label: "Energía solar rechazada",
+    note: "Ayuda a reducir la entrada de calor en cristales expuestos.",
   },
   {
-    value: "99% de",
-    label: "bloqueo UV",
+    value: "99%",
+    label: "Protección UV",
+    note: "Protege mobiliario, pavimentos y tejidos frente a la radiación solar.",
   },
   {
-    value: "Instalación",
-    label: "en 1 día",
+    value: "1 día",
+    label: "Instalación habitual",
+    note: "La mayoría de trabajos se completan sin interrumpir la actividad.",
   },
   {
     value: "Sin obras",
-    label: "ni residuos",
+    label: "Aplicación limpia",
+    note: "La lámina se instala directamente sobre el cristal, sin residuos.",
   },
 ];
 

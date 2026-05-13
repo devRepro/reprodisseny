@@ -38,15 +38,27 @@ const safeItems = computed(() =>
     <article
       v-for="item in safeItems"
       :key="`${item.value}-${item.label}`"
-      class="rounded-[10px] border border-primary/20 bg-white/[.92] px-5 py-4 text-center shadow-[0_12px_28px_-22px_rgba(0,0,0,.42)]"
+      class="group relative flex min-h-[150px] flex-col rounded-2xl border border-primary/15 bg-white/90 p-5 text-left shadow-[0_16px_40px_-32px_rgba(15,23,42,.5)] transition duration-300 hover:-translate-y-0.5 hover:border-primary/25 hover:bg-white md:p-6"
     >
-      <p class="text-[clamp(1.05rem,2vw,1.45rem)] font-semibold leading-tight tracking-[-0.02em] text-primary">
+      <div
+        class="absolute inset-x-5 top-0 h-px bg-gradient-to-r from-primary/35 via-primary/10 to-transparent"
+        aria-hidden="true"
+      />
+
+      <p
+        class="text-[clamp(1.75rem,2.6vw,2.45rem)] font-semibold leading-none tracking-[-0.045em] text-primary"
+      >
         {{ item.value }}
       </p>
-      <p class="mt-1 text-[13px] font-semibold leading-5 text-foreground/75">
+
+      <p class="mt-3 text-[15px] font-semibold leading-5 text-foreground">
         {{ item.label }}
       </p>
-      <p v-if="item.note" class="mt-1.5 text-[11px] leading-4 text-muted-foreground">
+
+      <p
+        v-if="item.note"
+        class="mt-auto pt-5 text-[13px] leading-5 text-foreground/62"
+      >
         {{ item.note }}
       </p>
     </article>
