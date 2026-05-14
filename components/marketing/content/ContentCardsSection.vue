@@ -2,7 +2,22 @@
 import { computed } from "vue";
 import { cn } from "@/lib/utils";
 import ContentSectionHeader from "@/components/marketing/content/ContentSectionHeader.vue";
-import type { CategoryCardGroup } from "~/server/services/cms/catalog.service";
+type CardItemInput = {
+  id?: string | number | null;
+  title?: string | null;
+  description?: string | null;
+  text?: string | null;
+  meta?: string | null;
+  tags?: unknown[] | null;
+};
+
+type CardGroupInput = {
+  id?: string | number | null;
+  title?: string | null;
+  description?: string | null;
+  columns?: unknown;
+  items?: CardItemInput[] | null;
+};
 
 type NormalizedCardItem = {
   id: string;
@@ -26,7 +41,7 @@ const props = withDefaults(
     title?: string;
     intro?: string;
     eyebrow?: string;
-    groups?: CategoryCardGroup[];
+    groups?: CardGroupInput[];
     showHeader?: boolean;
     variant?: "default" | "feature";
     class?: string;
@@ -67,7 +82,6 @@ function normalizeColumns(value: unknown): 2 | 3 | 4 {
   if (value === 3) return 3;
   return 2;
 }
-
 const normalizedGroups = computed<NormalizedCardGroup[]>(() =>
   (props.groups || [])
     .map((group, groupIndex) => {
@@ -78,26 +92,24 @@ const normalizedGroups = computed<NormalizedCardGroup[]>(() =>
 
       const items = Array.isArray(group?.items)
         ? group.items
-            .map((item, itemIndex) => {
-              const record = item as {
-                id?: string;
-                title?: string;
-                description?: string;
-                text?: string;
-                meta?: string;
-                tags?: unknown[];
-              };
-
+            .map((record, itemIndex) => {
               const itemTitle = String(record?.title || "").trim();
+
               const itemDescription = String(
                 record?.description || record?.text || ""
               ).trim();
+
               const itemMeta = String(record?.meta || "").trim() || undefined;
+
               const itemTags = Array.isArray(record?.tags)
-                ? record.tags.map((tag) => String(tag || "").trim()).filter(Boolean)
+                ? record.tags
+                    .map((tag) => String(tag || "").trim())
+                    .filter(Boolean)
                 : [];
 
-              if (!itemTitle && !itemDescription) return null;
+              if (!itemTitle && !itemDescription) {
+                return null;
+              }
 
               return {
                 id:
@@ -112,7 +124,9 @@ const normalizedGroups = computed<NormalizedCardGroup[]>(() =>
             .filter((item): item is NormalizedCardItem => Boolean(item))
         : [];
 
-      if (!id || !items.length) return null;
+      if (!id || !items.length) {
+        return null;
+      }
 
       return {
         id,
@@ -126,6 +140,11 @@ const normalizedGroups = computed<NormalizedCardGroup[]>(() =>
 );
 
 const hasContent = computed(() => normalizedGroups.value.length > 0);
+
+const standaloneIntro = computed(() => {
+  if (props.showHeader) return "";
+  return String(props.intro || "").trim();
+});
 
 function gridClassFor(columns: 2 | 3 | 4, count: number) {
   if (count <= 1) return "grid-cols-1";
@@ -154,7 +173,7 @@ const cardBaseClass = computed(() =>
     "hover:-translate-y-1 hover:border-primary/20 hover:shadow-md",
     "focus-within:border-primary/20 focus-within:shadow-md",
     props.variant === "feature" &&
-      "bg-[hsl(var(--brand-base-light)/0.16)] border-primary/10",
+      "border-primary/10 bg-[hsl(var(--brand-base-light)/0.16)]",
     props.cardClass
   )
 );
@@ -196,6 +215,13 @@ const groupDividerClass =
       :class="cn('max-w-3xl', props.headerClass)"
     />
 
+    <p
+      v-if="standaloneIntro"
+      class="mb-0 max-w-3xl text-body leading-[1.75] text-muted-foreground"
+    >
+      {{ standaloneIntro }}
+    </p>
+
     <div class="space-y-8 md:space-y-10">
       <section
         v-for="group in normalizedGroups"
@@ -224,7 +250,7 @@ const groupDividerClass =
           >
             <div class="flex h-full flex-col gap-3">
               <p v-if="item.meta || variant === 'feature'" :class="metaClass">
-                {{ item.meta || `Opción ${String(index + 1).padStart(2, "0")}` }}
+                {{ item.meta || `Opción ${String(index + 1).padStart(2, '0')}` }}
               </p>
 
               <div class="space-y-2">

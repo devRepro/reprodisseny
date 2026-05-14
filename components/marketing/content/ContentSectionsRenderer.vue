@@ -1,8 +1,24 @@
 <script setup lang="ts">
 import { computed, ref, watch } from "vue";
-import type { CategoryDetailSectionItem } from "~/server/services/cms/catalog.service";
-import AppChip from "@/components/shared/pills/AppChip.vue";
+import type {
+  CategoryDetailSectionItem,
+  ProductDetailSectionItem,
+} from "~/server/services/cms/catalog.service";
+
+import ContentTabs from "@/components/marketing/content/ContentTabs.vue";
 import ContentSectionsPanel from "@/components/marketing/content/ContentSectionsPanel.vue";
+
+type DetailSectionItem = CategoryDetailSectionItem | ProductDetailSectionItem;
+
+type CanonicalSectionId =
+  | "details"
+  | "benefits"
+  | "types"
+  | "formats"
+  | "materials"
+  | "finishes"
+  | "applications"
+  | "technical-specs";
 
 type DetailsMediaItem = {
   image?: {
@@ -18,7 +34,7 @@ type DetailsMediaItem = {
 
 const props = withDefaults(
   defineProps<{
-    sections?: CategoryDetailSectionItem[];
+    sections?: DetailSectionItem[];
     detailsMedia?: DetailsMediaItem | null;
     featuredProduct?: Record<string, unknown> | null;
   }>(),
@@ -29,17 +45,186 @@ const props = withDefaults(
   }
 );
 
-const safeSections = computed(() =>
-  (props.sections ?? []).filter(
-    (section) => String(section?.id || "").trim() && String(section?.title || "").trim()
+const SECTION_ORDER: CanonicalSectionId[] = [
+  "details",
+  "benefits",
+  "types",
+  "formats",
+  "materials",
+  "finishes",
+  "applications",
+  "technical-specs",
+];
+
+const SECTION_FALLBACK_LABELS: Record<CanonicalSectionId, string> = {
+  details: "Detalles",
+  benefits: "Beneficios",
+  types: "Tipos",
+  formats: "Formatos y soportes",
+  materials: "Materiales",
+  finishes: "Acabados",
+  applications: "Aplicaciones",
+  "technical-specs": "Características técnicas",
+};
+
+/**
+ * Aliases defensivos.
+ *
+ * Lo ideal es que catalog.service.ts ya entregue estos ids normalizados.
+ * Esto evita que producto y categoría rendericen distinto por pequeñas diferencias
+ * entre nombres de columnas, ids heredados o datos antiguos de SharePoint.
+ */
+const SECTION_ALIASES: Record<string, CanonicalSectionId> = {
+  details: "details",
+  detail: "details",
+  detalles: "details",
+  detailsmd: "details",
+  bodymd: "details",
+  description: "details",
+  descripcion: "details",
+
+  benefits: "benefits",
+  benefit: "benefits",
+  beneficios: "benefits",
+  benefitsdata: "benefits",
+  benefitsmd: "benefits",
+
+  types: "types",
+  type: "types",
+  tipos: "types",
+  typesmd: "types",
+  typesdata: "types",
+
+  formats: "formats",
+  format: "formats",
+  formatos: "formats",
+  soportes: "formats",
+  formatsmd: "formats",
+  formatsdata: "formats",
+  "formatos-y-soportes": "formats",
+
+  materials: "materials",
+  material: "materials",
+  materiales: "materials",
+  materialsmd: "materials",
+  materialsdata: "materials",
+
+  finishes: "finishes",
+  finish: "finishes",
+  acabados: "finishes",
+  finishesmd: "finishes",
+  finishesdata: "finishes",
+
+  applications: "applications",
+  application: "applications",
+  aplicaciones: "applications",
+  uses: "applications",
+  use: "applications",
+  usos: "applications",
+  usesmd: "applications",
+  applicationsmd: "applications",
+  applicationsdata: "applications",
+
+  "technical-specs": "technical-specs",
+  technicalspecs: "technical-specs",
+  technicalspecsmd: "technical-specs",
+  technicalspecsdata: "technical-specs",
+  caracteristicastecnicas: "technical-specs",
+  "caracteristicas-tecnicas": "technical-specs",
+};
+
+function normalizeLookupKey(value: unknown) {
+  return String(value ?? "")
+    .trim()
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/\p{Diacritic}/gu, "")
+    .replace(/[_\s]+/g, "-")
+    .replace(/[^a-z0-9-]/g, "");
+}
+
+function getCanonicalSectionId(section: DetailSectionItem) {
+  const source = section as Record<string, unknown>;
+
+  const rawKind = normalizeLookupKey(source.kind);
+  const rawId = normalizeLookupKey(source.id);
+
+  return SECTION_ALIASES[rawKind] ?? SECTION_ALIASES[rawId] ?? rawId;
+}
+
+function getSectionOrder(id: string) {
+  const index = SECTION_ORDER.indexOf(id as CanonicalSectionId);
+  return index === -1 ? SECTION_ORDER.length : index;
+}
+
+function normalizeSection(section: DetailSectionItem): DetailSectionItem | null {
+  const source = section as Record<string, unknown>;
+  const id = getCanonicalSectionId(section);
+
+  if (!id) return null;
+
+  const fallbackTitle =
+    SECTION_FALLBACK_LABELS[id as CanonicalSectionId] ?? String(source.title ?? "");
+
+  const title = String(source.title || fallbackTitle).trim();
+
+  if (!title) return null;
+
+  return {
+    ...section,
+    id,
+    kind: id,
+    title,
+  } as DetailSectionItem;
+}
+
+const safeSections = computed<DetailSectionItem[]>(() => {
+  const sectionsByCanonicalId = new Map<string, DetailSectionItem>();
+
+  for (const section of props.sections ?? []) {
+    const normalizedSection = normalizeSection(section);
+
+    if (!normalizedSection) continue;
+
+    /**
+     * Evita tabs duplicadas.
+     * Si desde el servicio llegan dos secciones equivalentes, nos quedamos con la primera.
+     * La fusión real de datos debería hacerse en catalog.service.ts.
+     */
+    if (!sectionsByCanonicalId.has(normalizedSection.id)) {
+      sectionsByCanonicalId.set(normalizedSection.id, normalizedSection);
+    }
+  }
+
+  return Array.from(sectionsByCanonicalId.values()).sort(
+    (a, b) => getSectionOrder(a.id) - getSectionOrder(b.id)
+  );
+});
+
+const tabItems = computed(() =>
+  safeSections.value.map((section) => ({
+    id: section.id,
+    label: section.title,
+  }))
+);
+
+const sectionsById = computed(() =>
+  safeSections.value.reduce(
+    (acc, section) => {
+      acc[section.id] = section;
+      return acc;
+    },
+    {} as Record<string, DetailSectionItem>
   )
 );
 
 const activeTabId = ref("");
 
 watch(
-  () => safeSections.value.map((section) => section.id),
-  (ids) => {
+  () => safeSections.value.map((section) => section.id).join("|"),
+  () => {
+    const ids = safeSections.value.map((section) => section.id);
+
     if (!ids.length) {
       activeTabId.value = "";
       return;
@@ -54,42 +239,23 @@ watch(
 </script>
 
 <template>
-  <div v-if="safeSections.length" class="space-y-6 md:space-y-8">
-    <div class="overflow-x-auto pb-1" role="tablist" aria-label="Información detallada">
-      <div class="flex min-w-max gap-2 md:gap-3">
-        <AppChip
-          v-for="section in safeSections"
-          :id="`tab-${section.id}`"
-          :key="section.id"
-          variant="tab"
-          :active="activeTabId === section.id"
-          role="tab"
-          :aria-selected="activeTabId === section.id ? 'true' : 'false'"
-          :aria-controls="`panel-${section.id}`"
-          @click="activeTabId = section.id"
-        >
-          {{ section.title }}
-        </AppChip>
-      </div>
-    </div>
-
-    <div class="relative">
-      <section
-        v-for="section in safeSections"
-        :id="`panel-${section.id}`"
-        :key="section.id"
-        role="tabpanel"
-        :aria-labelledby="`tab-${section.id}`"
-        v-show="activeTabId === section.id"
-        class="min-w-0"
-      >
-        <ContentSectionsPanel
-          :section="section"
-          :details-media="detailsMedia"
-          :featured-product="featuredProduct"
-          header-mode="none"
-        />
-      </section>
-    </div>
-  </div>
+  <ContentTabs
+    v-if="safeSections.length"
+    v-model="activeTabId"
+    :items="tabItems"
+    aria-label="Información detallada"
+    :keep-mounted="true"
+    section-class="space-y-0"
+    panel-class="min-w-0"
+  >
+    <template #panel="{ item }">
+      <ContentSectionsPanel
+        v-if="sectionsById[item.id]"
+        :section="sectionsById[item.id]"
+        :details-media="detailsMedia"
+        :featured-product="featuredProduct"
+        header-mode="none"
+      />
+    </template>
+  </ContentTabs>
 </template>

@@ -6,7 +6,7 @@ import {
   type CategoryDetailMediaItemDto,
 } from "./category-detail-gallery-registry";
 
-type CatalogContentFormat = "markdown" | "json";
+export type CatalogContentFormat = "markdown" | "json";
 
 type CatalogSeoHreflang = {
   lang?: string;
@@ -95,7 +95,7 @@ type NormalizedApplicationsData = {
   applications: NormalizedNamedContentItem[];
 };
 
-type CatalogContentSectionKind =
+export type CatalogContentSectionKind =
   | "details"
   | "types"
   | "benefits"
@@ -722,55 +722,73 @@ function createCategoryTextSection(
 }
 
 function createCategoryMaterialsSection(body: unknown): CatalogSection | null {
-  const materialsData = normalizeMaterialsData(body);
-  if (!materialsData) return null;
+  const materialsData = normalizeMaterialsData(body)
 
-  return {
-    id: "materials",
-    key: "materials",
-    title: "Materiales",
-    kind: "materials",
-    materialsData,
-  };
+  if (materialsData) {
+    return {
+      id: "materials",
+      key: "materials",
+      title: "Materiales",
+      kind: "materials",
+      contentFormat: "json",
+      materialsData,
+    }
+  }
+
+  return createCategoryTextSection("materials", "Materiales", body)
 }
 
 function createCategoryFormatsSection(body: unknown): CatalogSection | null {
-  const formatsData = normalizeFormatsData(body);
-  if (!formatsData) return null;
+  const formatsData = normalizeFormatsData(body)
 
-  return {
-    id: "formats",
-    key: "formats",
-    title: "Formatos y soportes",
-    kind: "formats",
-    formatsData,
-  };
+  if (formatsData) {
+    return {
+      id: "formats",
+      key: "formats",
+      title: "Formatos y soportes",
+      kind: "formats",
+      contentFormat: "json",
+      formatsData,
+    }
+  }
+
+  return createCategoryTextSection("formats", "Formatos y soportes", body)
 }
 
 function createCategoryFinishesSection(body: unknown): CatalogSection | null {
-  const finishesData = normalizeFinishesData(body);
-  if (!finishesData) return null;
+  const finishesData = normalizeFinishesData(body)
 
-  return {
-    id: "finishes",
-    key: "finishes",
-    title: "Acabados",
-    kind: "finishes",
-    finishesData,
-  };
+  if (finishesData) {
+    return {
+      id: "finishes",
+      key: "finishes",
+      title: "Acabados",
+      kind: "finishes",
+      contentFormat: "json",
+      finishesData,
+    }
+  }
+
+  return createCategoryTextSection("finishes", "Acabados", body)
 }
 
-function createCategoryApplicationsSection(body: unknown): CatalogSection | null {
-  const applicationsData = normalizeApplicationsData(body);
-  if (!applicationsData) return null;
+function createCategoryApplicationsSection(
+  body: unknown
+): CatalogSection | null {
+  const applicationsData = normalizeApplicationsData(body)
 
-  return {
-    id: "applications",
-    key: "applications",
-    title: "Aplicaciones",
-    kind: "applications",
-    applicationsData,
-  };
+  if (applicationsData) {
+    return {
+      id: "applications",
+      key: "applications",
+      title: "Aplicaciones",
+      kind: "applications",
+      contentFormat: "json",
+      applicationsData,
+    }
+  }
+
+  return createCategoryTextSection("applications", "Aplicaciones", body)
 }
 
 function getSectionKey(section: { key?: string; id?: string }) {
@@ -1340,60 +1358,86 @@ function createProductTextSection(
   };
 }
 
-function createProductBenefitsSection(body: unknown): CatalogProductSection | null {
-  const benefitsData = normalizeBenefitsData(body);
-  if (!benefitsData) return null;
+function createProductBenefitsSection(
+  body: unknown
+): CatalogProductSection | null {
+  const benefitsData = normalizeBenefitsData(body)
 
-  return {
-    id: "benefits",
-    key: "benefits",
-    title: "Beneficios",
-    kind: "benefits",
-    benefitsData,
-  };
+  if (benefitsData) {
+    return {
+      id: "benefits",
+      key: "benefits",
+      title: "Beneficios",
+      kind: "benefits",
+      contentFormat: "json",
+      benefitsData,
+    }
+  }
+
+  return createProductTextSection("benefits", "Beneficios", body)
 }
 
-function createProductMaterialsSection(body: unknown): CatalogProductSection | null {
-  const materialsData = normalizeMaterialsData(body);
-  if (!materialsData) return null;
+function createProductMaterialsSection(
+  body: unknown
+): CatalogProductSection | null {
+  const materialsData = normalizeMaterialsData(body)
 
-  return {
-    id: "materials",
-    key: "materials",
-    title: "Materiales",
-    kind: "materials",
-    materialsData,
-  };
+  if (materialsData) {
+    return {
+      id: "materials",
+      key: "materials",
+      title: "Materiales",
+      kind: "materials",
+      contentFormat: "json",
+      materialsData,
+    }
+  }
+
+  return createProductTextSection("materials", "Materiales", body)
 }
 
-function createProductFormatsSection(body: unknown): CatalogProductSection | null {
-  const formatsData = normalizeFormatsData(body);
-  if (!formatsData) return null;
+function createProductFormatsSection(
+  body: unknown
+): CatalogProductSection | null {
+  const formatsData = normalizeFormatsData(body)
 
-  return {
-    id: "formats",
-    key: "formats",
-    title: "Formatos y soportes",
-    kind: "formats",
-    formatsData,
-  };
+  if (formatsData) {
+    return {
+      id: "formats",
+      key: "formats",
+      title: "Formatos y soportes",
+      kind: "formats",
+      contentFormat: "json",
+      formatsData,
+    }
+  }
+
+  return createProductTextSection("formats", "Formatos y soportes", body)
 }
 
-function createProductFinishesSection(body: unknown): CatalogProductSection | null {
-  const finishesData = normalizeFinishesData(body);
-  if (!finishesData) return null;
+function createProductFinishesSection(
+  body: unknown
+): CatalogProductSection | null {
+  const finishesData = normalizeFinishesData(body)
 
-  return {
-    id: "finishes",
-    key: "finishes",
-    title: "Acabados",
-    kind: "finishes",
-    finishesData,
-  };
+  if (finishesData) {
+    return {
+      id: "finishes",
+      key: "finishes",
+      title: "Acabados",
+      kind: "finishes",
+      contentFormat: "json",
+      finishesData,
+    }
+  }
+
+  return createProductTextSection("finishes", "Acabados", body)
 }
 
-function createProductApplicationsSection(body: unknown): CatalogProductSection | null {
-  const applicationsData = normalizeApplicationsData(body);
+function createProductApplicationsSection(
+  body: unknown
+): CatalogProductSection | null {
+  const applicationsData = normalizeApplicationsData(body)
 
   if (applicationsData) {
     return {
@@ -1401,11 +1445,12 @@ function createProductApplicationsSection(body: unknown): CatalogProductSection 
       key: "applications",
       title: "Aplicaciones",
       kind: "applications",
+      contentFormat: "json",
       applicationsData,
-    };
+    }
   }
 
-  return createProductTextSection("applications", "Aplicaciones", body);
+  return createProductTextSection("applications", "Aplicaciones", body)
 }
 
 function hasSectionContent(section: CatalogSection | CatalogProductSection) {
