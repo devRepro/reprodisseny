@@ -5,7 +5,7 @@
     </HomeHero>
    <SolarProtectionHeroBanner
   title="Láminas solares para cristales"
-  image-src="/img/banners/sala_Reunions.webp"
+  image-src="/img/banners/sala_reunions.webp"
   :bullets="[
     'Reduce calor y reflejos sin obras',
     'Instalación profesional en Barcelona',
