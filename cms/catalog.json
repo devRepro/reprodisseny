@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-15T05:11:44.141Z",
+  "generatedAt": "2026-05-15T11:54:56.986Z",
   "categories": [
     {
       "id": "12",
@@ -11929,7 +11929,7 @@
     },
     {
       "id": "17",
-      "updatedAt": "2026-05-12T09:39:18Z",
+      "updatedAt": "2026-05-15T10:14:17Z",
       "type": "producto",
       "slug": "cartas-restaurante-personalizadas",
       "path": "/productos/cartas-restaurante-personalizadas",
@@ -11940,9 +11940,9 @@
       ],
       "order": 9999,
       "isPublished": true,
-      "shortDescription": "Una buena carta de restaurante no solo informa: vende, ordena la experiencia y refuerza la imagen del local. En Repro Disseny imprimimos cartas personalizadas con materiales y acabados pensados para el ritmo real de sala: resistencia a la manipulación, fácil limpieza (si se requiere) y una presentación profesional acorde con tu marca.",
-      "description": "Una buena carta de restaurante no solo informa: vende, ordena la experiencia y refuerza la imagen del local. En Repro Disseny imprimimos cartas personalizadas con materiales y acabados pensados para el ritmo real de sala: resistencia a la manipulación, fácil limpieza (si se requiere) y una presentación profesional acorde con tu marca.",
-      "bodyMd": "¿Qué es una carta de restaurante y para qué se usa? \nLa carta es el documento principal donde presentas tu oferta: platos, bebidas, vinos, menús, alérgenos y propuestas especiales. Puede ser una carta fija o una base con insertos cambiables. Su objetivo es que el cliente entienda rápido lo que ofreces y que el equipo pueda trabajar con un soporte cómodo y duradero.",
+      "shortDescription": "Una buena carta de restaurante no solo informa: vende, ordena la experiencia y refuerza la imagen del local. En Repro Disseny imprimimos cartas personalizadas con materiales y acabados pensados para el ritmo real de sala: resistencia a la manipulación, fácil limpieza cuando se requiere y una presentación profesional acorde con tu marca.",
+      "description": "Una buena carta de restaurante no solo informa: vende, ordena la experiencia y refuerza la imagen del local. En Repro Disseny imprimimos cartas personalizadas con materiales y acabados pensados para el ritmo real de sala: resistencia a la manipulación, fácil limpieza cuando se requiere y una presentación profesional acorde con tu marca.",
+      "bodyMd": "### ¿Qué es una carta de restaurante y para qué se usa?\n\nLa carta de restaurante es el soporte principal donde presentas la oferta del local: platos, bebidas, vinos, menús, alérgenos y propuestas especiales. Puede ser una carta fija, un menú temporal o una base con insertos cambiables según la temporada, los precios o el tipo de servicio.\n\nSu objetivo es que el cliente entienda rápido lo que ofreces, tome decisiones con facilidad y perciba una imagen cuidada del establecimiento. Una carta bien diseñada también ayuda al equipo de sala, porque organiza mejor la información y facilita el servicio diario.\n\nEn Repro Disseny imprimimos cartas personalizadas para restaurantes, bares, cafeterías, hoteles y caterings, adaptando formato, papel, acabado y resistencia al uso real de cada negocio.",
       "sections": [
         {
           "id": "details",
@@ -11950,15 +11950,141 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es una carta de restaurante y para qué se usa? \nLa carta es el documento principal donde presentas tu oferta: platos, bebidas, vinos, menús, alérgenos y propuestas especiales. Puede ser una carta fija o una base con insertos cambiables. Su objetivo es que el cliente entienda rápido lo que ofreces y que el equipo pueda trabajar con un soporte cómodo y duradero."
+          "body": "### ¿Qué es una carta de restaurante y para qué se usa?\n\nLa carta de restaurante es el soporte principal donde presentas la oferta del local: platos, bebidas, vinos, menús, alérgenos y propuestas especiales. Puede ser una carta fija, un menú temporal o una base con insertos cambiables según la temporada, los precios o el tipo de servicio.\n\nSu objetivo es que el cliente entienda rápido lo que ofreces, tome decisiones con facilidad y perciba una imagen cuidada del establecimiento. Una carta bien diseñada también ayuda al equipo de sala, porque organiza mejor la información y facilita el servicio diario.\n\nEn Repro Disseny imprimimos cartas personalizadas para restaurantes, bares, cafeterías, hoteles y caterings, adaptando formato, papel, acabado y resistencia al uso real de cada negocio."
         },
         {
           "id": "benefits",
           "key": "benefits",
           "title": "Beneficios",
           "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "Mejor imagen de marca: una carta cuidada eleva la calidad percibida del restaurante. \nMás ventas por orden y claridad: una estructura bien presentada facilita la decisión (y el upselling). \nResistencia al uso diario: opciones de acabados para aguantar manos, roces y servicio intensivo. \nFácil de actualizar: formatos que permiten renovar por temporada o cambiar precios con agilidad. \nExperiencia más completa: posibilidad de integrar QR (carta digital, idiomas, reservas, reseñas)."
+          "contentFormat": "json",
+          "benefitsData": {
+            "intro": "Una carta de restaurante bien producida mejora la presentación del local, facilita la lectura y ayuda a vender mejor la oferta.",
+            "benefits": [
+              {
+                "title": "Mejor imagen de marca",
+                "description": "Una carta cuidada eleva la calidad percibida del restaurante y transmite una imagen más profesional desde el primer contacto."
+              },
+              {
+                "title": "Más ventas por orden y claridad",
+                "description": "Una estructura bien presentada facilita la decisión del cliente y ayuda a destacar platos, menús, bebidas o propuestas con mayor margen."
+              },
+              {
+                "title": "Resistencia al uso diario",
+                "description": "Materiales y acabados pensados para aguantar manipulación, roces, servicio intensivo y limpieza cuando el uso lo requiere."
+              },
+              {
+                "title": "Fácil de actualizar",
+                "description": "Formatos fijos o sistemas con insertos intercambiables para renovar precios, platos o temporadas con más agilidad."
+              },
+              {
+                "title": "Experiencia más completa",
+                "description": "La carta impresa puede combinarse con códigos QR para carta digital, idiomas, alérgenos ampliados, reservas o reseñas."
+              }
+            ]
+          }
+        },
+        {
+          "id": "materials",
+          "key": "materials",
+          "title": "Materiales",
+          "kind": "materials",
+          "contentFormat": "json",
+          "materialsData": {
+            "intro": "Elegimos el soporte según la imagen del local, la intensidad de uso y la necesidad de resistencia o limpieza.",
+            "materials": [
+              {
+                "title": "Papeles con buen cuerpo",
+                "description": "Aportan una sensación más premium y una mejor presencia en mesa, especialmente en restaurantes de gama media o alta."
+              },
+              {
+                "title": "Papeles y acabados mate",
+                "description": "Recomendados para una lectura cómoda, con menos reflejos y una estética más sobria."
+              },
+              {
+                "title": "Soportes resistentes",
+                "description": "Adecuados cuando la carta tendrá mucha manipulación, uso intensivo o necesidad de limpieza frecuente."
+              },
+              {
+                "title": "Portacartas e insertos",
+                "description": "Solución práctica para cartas que cambian con frecuencia, menús de temporada o actualizaciones de precios."
+              }
+            ]
+          }
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "kind": "formats",
+          "contentFormat": "json",
+          "formatsData": {
+            "intro": "Adaptamos el formato de la carta al tipo de local, la cantidad de contenido, la frecuencia de actualización y la experiencia que quieres ofrecer en mesa.",
+            "shapes": [
+              {
+                "title": "A4, A5 o formato a medida",
+                "description": "Formatos habituales o personalizados según el estilo del restaurante, el volumen de información y la comodidad de lectura."
+              },
+              {
+                "title": "Carta simple, díptico o tríptico",
+                "description": "Soluciones prácticas para cartas compactas, menús del día, cartas de bebidas o propuestas con secciones bien diferenciadas."
+              },
+              {
+                "title": "Multipágina tipo libreto",
+                "description": "Recomendado cuando hay mucha oferta, carta de vinos, fotografías, idiomas o una presentación más editorial."
+              },
+              {
+                "title": "Sistema con hojas intercambiables",
+                "description": "Opción útil si cambias precios, platos o temporadas con frecuencia y necesitas actualizar solo algunas páginas."
+              }
+            ],
+            "deliveryFormats": [
+              {
+                "title": "Carta fija impresa",
+                "description": "Una solución limpia y sólida cuando la oferta es estable y se busca una presentación cuidada."
+              },
+              {
+                "title": "Insertos o recambios",
+                "description": "Páginas preparadas para portacartas, fundas o sistemas intercambiables."
+              },
+              {
+                "title": "Versiones por idioma o servicio",
+                "description": "Podemos producir cartas por idioma, carta de vinos, carta de postres, menú del día o room service manteniendo la misma línea visual."
+              }
+            ]
+          }
+        },
+        {
+          "id": "finishes",
+          "key": "finishes",
+          "title": "Acabados",
+          "kind": "finishes",
+          "contentFormat": "json",
+          "finishesData": {
+            "intro": "Los acabados mejoran la durabilidad, la limpieza y la percepción visual de la carta.",
+            "finishes": [
+              {
+                "title": "Plastificado o laminado mate",
+                "description": "Protege frente a roces y facilita la limpieza, con una lectura cómoda y menos reflejos."
+              },
+              {
+                "title": "Plastificado o laminado brillo",
+                "description": "Aporta más intensidad visual y protección, adecuado cuando se busca un acabado más llamativo."
+              },
+              {
+                "title": "Soft touch",
+                "description": "Acabado de tacto aterciopelado para una percepción más premium, ideal en restaurantes con una imagen más cuidada."
+              },
+              {
+                "title": "Esquinas redondeadas",
+                "description": "Mejoran la durabilidad en uso diario y reducen el desgaste en las zonas más expuestas."
+              },
+              {
+                "title": "Barniz selectivo",
+                "description": "Permite destacar logotipo, portada o detalles concretos para dar más presencia al diseño."
+              }
+            ]
+          }
         },
         {
           "id": "technical-specs",
@@ -11966,33 +12092,57 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Formatos habituales \nA4 / A5, cuadradas o a medida según estilo y cantidad de contenido.\nCarta simple, díptico, tríptico o multipágina (tipo libreto). \nOpción de portacarta con hojas intercambiables si cambias precios/temporada con frecuencia. \nPapeles y soportes (según imagen y uso) \nPapeles con buen cuerpo para una sensación más “premium”. \nOpciones mate recomendadas para lectura cómoda (menos reflejos). \nAlternativas más resistentes cuando se prevé mucha manipulación. \nAcabados recomendados \nPlastificado/laminado mate o brillo: protege frente a roces y facilita limpieza (muy recomendable en hostelería). \nSoft touch (opcional): tacto premium para restaurantes de gama media/alta. \nEsquinas redondeadas: mejor durabilidad en uso diario. \nBarniz selectivo (opcional): resalta logo o detalles de portada. \nImpresión \nImpresión a todo color con buena reproducción para fotografía y marca.\nPosibilidad de varias versiones: idiomas, carta de vinos, carta de postres, menú del día, etc. Extras útiles \nQR a carta digital, reservas, alérgenos ampliados o encuestas. \nIconos de alérgenos y símbolos (picante, vegano, sin gluten…) para lectura rápida."
+          "body": "## Formatos habituales\n\n- A4, A5, cuadradas o a medida según el estilo del local y la cantidad de contenido.\n- Carta simple, díptico, tríptico o multipágina tipo libreto.\n- Opción de portacarta con hojas intercambiables si cambias precios, platos o temporadas con frecuencia.\n\n## Papeles y soportes\n\n- Papeles con buen cuerpo para una sensación más premium.\n- Opciones mate recomendadas para una lectura cómoda y con menos reflejos.\n- Alternativas más resistentes cuando se prevé mucha manipulación o uso intensivo.\n\n## Acabados recomendados\n\n- Plastificado o laminado mate/brillo para proteger frente a roces y facilitar limpieza.\n- Soft touch opcional para un tacto más premium.\n- Esquinas redondeadas para mejorar la durabilidad en uso diario.\n- Barniz selectivo opcional para resaltar logotipo o detalles de portada.\n\n## Impresión\n\n- Impresión a todo color con buena reproducción para fotografía, marca y diseño gráfico.\n- Posibilidad de varias versiones: idiomas, carta de vinos, carta de postres, menú del día, room service o eventos.\n\n## Extras útiles\n\n- QR a carta digital, reservas, alérgenos ampliados, encuestas o reseñas.\n- Iconos de alérgenos y símbolos como picante, vegano o sin gluten para facilitar la lectura."
         },
         {
           "id": "applications",
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "Restaurantes y bares: carta general, postres, bebidas, menús especiales. \nCafeterías: desayunos, meriendas, carta rápida, combos. \nTerrazas: cartas más resistentes para exterior. \nHoteles: carta de restaurante, room service, bufé y eventos. \nEventos y caterings: cartas temporales, menús cerrados y propuestas por servicio."
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Las cartas personalizadas se adaptan a diferentes tipos de negocio, momentos de consumo y necesidades de comunicación en hostelería.",
+            "applications": [
+              {
+                "title": "Restaurantes y bares",
+                "description": "Carta general, carta de postres, carta de bebidas, carta de vinos, menús especiales y propuestas de temporada."
+              },
+              {
+                "title": "Cafeterías",
+                "description": "Cartas de desayunos, meriendas, carta rápida, combos, promociones y productos destacados."
+              },
+              {
+                "title": "Terrazas",
+                "description": "Cartas más resistentes para exterior o zonas de alta manipulación, con acabados que facilitan la limpieza."
+              },
+              {
+                "title": "Hoteles",
+                "description": "Carta de restaurante, room service, buffet, eventos, cartas por idioma y materiales para distintos espacios del hotel."
+              },
+              {
+                "title": "Eventos y caterings",
+                "description": "Cartas temporales, menús cerrados, propuestas por servicio, menús de gala, bodas, congresos y eventos corporativos."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
         {
           "question": "¿Qué acabado es mejor para uso intensivo?",
-          "answer": "Normalmente laminado/plastificado (mejor si mate para evitar reflejos) y, si se manipula mucho, esquinas redondeadas."
+          "answer": "Normalmente recomendamos laminado o plastificado, especialmente en acabado mate para evitar reflejos. Si la carta se manipula mucho, también conviene valorar esquinas redondeadas."
         },
         {
           "question": "¿Carta fija o con hojas intercambiables?",
-          "answer": "Si cambias precios o platos a menudo, conviene un sistema con portacarta/insertos. Si la carta es estable, una carta impresa definitiva queda más limpia y sólida."
+          "answer": "Si cambias precios o platos a menudo, conviene un sistema con portacarta o insertos. Si la carta es estable, una carta impresa definitiva queda más limpia, sólida y profesional."
         },
         {
           "question": "¿Podéis hacerla en varios idiomas?",
-          "answer": "Sí, podemos preparar versiones por idioma manteniendo la misma estética."
+          "answer": "Sí, podemos preparar versiones por idioma manteniendo la misma estética y estructura visual."
         },
         {
-          "question": "¿Se puede combinar carta impresa + QR?",
-          "answer": "Sí, es muy habitual: carta física para la experiencia en mesa y QR para ampliar información o tener versión en otros idiomas."
+          "question": "¿Se puede combinar carta impresa y QR?",
+          "answer": "Sí. Es muy habitual combinar carta física para la experiencia en mesa y QR para ampliar información, mostrar otros idiomas, alérgenos, reservas o reseñas."
         }
       ],
       "breadcrumbs": [
@@ -12107,7 +12257,22 @@
           "cartas de restaurante"
         ],
         "searchTerms": [
-          "cartas de restaurante"
+          "cartas de restaurante",
+          "cartas de restaurante personalizadas",
+          "cartas para bares",
+          "cartas para restaurantes",
+          "cartas para hoteles",
+          "menús personalizados",
+          "menús para restaurantes",
+          "cartas plastificadas",
+          "cartas laminadas",
+          "cartas resistentes para hostelería",
+          "cartas con QR",
+          "cartas multidioma",
+          "cartas de vinos",
+          "cartas de postres",
+          "room service hotel",
+          "portacartas con hojas intercambiables"
         ],
         "schema": {
           "@context": "https://schema.org",
@@ -12115,14 +12280,15 @@
             {
               "@type": "Product",
               "name": "Cartas de restaurante personalizadas",
-              "description": "Cartas de restaurante personalizadas para bares, restaurantes y hoteles. Impresión profesional con acabados resistentes y formatos a medida. Pide presupuesto.",
+              "description": "Cartas de restaurante personalizadas para bares, restaurantes y hoteles. Impresión profesional con acabados resistentes y formatos a medida.",
               "image": "https://webcms.blob.core.windows.net/media/product/restauracion/cartas-restaurante.webp",
               "url": "https://reprodisseny.com/productos/cartas-restaurante-personalizadas",
               "brand": {
                 "@type": "Organization",
                 "name": "Reprodisseny"
               },
-              "sku": "01-HORE-0005"
+              "sku": "01-HORE-0005",
+              "category": "Material publicitario para hostelería"
             },
             {
               "@type": "BreadcrumbList",
@@ -12161,7 +12327,7 @@
                   "name": "¿Qué acabado es mejor para uso intensivo?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Normalmente laminado/plastificado (mejor si mate para evitar reflejos) y, si se manipula mucho, esquinas redondeadas."
+                    "text": "Normalmente recomendamos laminado o plastificado, especialmente en acabado mate para evitar reflejos. Si la carta se manipula mucho, también conviene valorar esquinas redondeadas."
                   }
                 },
                 {
@@ -12169,7 +12335,7 @@
                   "name": "¿Carta fija o con hojas intercambiables?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Si cambias precios o platos a menudo, conviene un sistema con portacarta/insertos. Si la carta es estable, una carta impresa definitiva queda más limpia y sólida."
+                    "text": "Si cambias precios o platos a menudo, conviene un sistema con portacarta o insertos. Si la carta es estable, una carta impresa definitiva queda más limpia, sólida y profesional."
                   }
                 },
                 {
@@ -12177,15 +12343,15 @@
                   "name": "¿Podéis hacerla en varios idiomas?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, podemos preparar versiones por idioma manteniendo la misma estética."
+                    "text": "Sí, podemos preparar versiones por idioma manteniendo la misma estética y estructura visual."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "¿Se puede combinar carta impresa + QR?",
+                  "name": "¿Se puede combinar carta impresa y QR?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, es muy habitual: carta física para la experiencia en mesa y QR para ampliar información o tener versión en otros idiomas."
+                    "text": "Sí. Es muy habitual combinar carta física para la experiencia en mesa y QR para ampliar información, mostrar otros idiomas, alérgenos, reservas o reseñas."
                   }
                 }
               ]

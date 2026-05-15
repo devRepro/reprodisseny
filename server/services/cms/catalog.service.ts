@@ -448,7 +448,6 @@ export type ProductDetailDto = {
   title: string;
   shortDescription?: string;
   description?: string;
-  bodyMd?: string;
   sections: ProductDetailSectionItem[];
   faqs: ProductDetailFaqItem[];
   image: {
@@ -814,19 +813,21 @@ function getMergedCategorySections(category: CatalogCategory): CatalogSection[] 
   const existingKeys = new Set(baseSections.map(getSectionKey));
 
   const extraSections = [
-    createCategoryTextSection("details", "Detalles", category.detailsMd),
-    createCategoryTextSection("types", "Tipos", category.typesMd),
-    createCategoryMaterialsSection(category.materialsMd),
-    createCategoryFormatsSection(category.formatsMd),
-    createCategoryFinishesSection(category.finishesMd),
-    createCategoryApplicationsSection(category.usesMd),
-  ].filter(
-    (section): section is CatalogSection =>
-      Boolean(section) && !existingKeys.has(getSectionKey(section))
-  );
-
-  return [...baseSections, ...extraSections];
-}
+  createProductTextSection("details", "Detalles", product.detailsMd),
+  createProductBenefitsSection(product.benefitsMd),
+  createProductFormatsSection(product.formatsMd),
+  createProductMaterialsSection(product.materialsMd),
+  createProductFinishesSection(product.finishesMd),
+  createProductApplicationsSection(product.applicationsMd),
+  createProductTextSection(
+    "technical-specs",
+    "Características técnicas",
+    product.technicalSpecsMd
+  ),
+].filter(
+  (section): section is CatalogProductSection =>
+    Boolean(section) && !existingKeys.has(getSectionKey(section))
+);
 
 function getCatalogProducts(): CatalogProduct[] {
   const data = catalog as CatalogShape;
@@ -1271,6 +1272,41 @@ function resolveCatalogSectionKind(section: {
   return "details";
 }
 
+const CATALOG_SECTION_ORDER: Record<CatalogContentSectionKind, number> = {
+  details: 10,
+  benefits: 20,
+  types: 30,
+  formats: 40,
+  materials: 50,
+  finishes: 60,
+  applications: 70,
+  "technical-specs": 80,
+};
+
+function getCatalogSectionOrder(section: {
+  kind?: string;
+  key?: string;
+  id?: string;
+}) {
+  const raw = String(section.kind || section.key || section.id || "").trim();
+
+  return isCatalogSectionKind(raw)
+    ? CATALOG_SECTION_ORDER[raw]
+    : 999;
+}
+
+function sortCatalogSections<T extends { kind?: string; key?: string; id?: string }>(
+  sections: T[]
+): T[] {
+  return sections
+    .map((section, index) => ({ section, index }))
+    .sort((a, b) => {
+      const diff = getCatalogSectionOrder(a.section) - getCatalogSectionOrder(b.section);
+      return diff || a.index - b.index;
+    })
+    .map(({ section }) => section);
+}
+
 function getCategorySections(category: CatalogCategory): CategoryDetailSectionItem[] {
   return getMergedCategorySections(category)
     .map((section, index) => {
@@ -1502,7 +1538,7 @@ function getMergedProductSections(product: CatalogProduct): CatalogProductSectio
       Boolean(section) && !existingKeys.has(getSectionKey(section))
   );
 
-  return [...baseSections, ...extraSections];
+  return sortCatalogSections([...baseSections, ...extraSections]);
 }
 
 function resolveSectionContentFormat(section: {
@@ -2157,7 +2193,6 @@ export function getProductDetailBySlug(
       title: product.title,
       shortDescription: product.shortDescription || "",
       description: product.description || product.shortDescription || "",
-      bodyMd: product.bodyMd || "",
       sections,
       faqs: getProductFaqs(product),
       image: productImageDtoOf(product.image, product.title),
