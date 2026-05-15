@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { computed } from "vue";
 import type {
   ContentSectionHeaderMode,
   DetailsMediaItem,
@@ -11,9 +12,25 @@ import ContentDetailsTabPanel from "@/components/marketing/content/ContentDetail
 import ContentCardsSection from "@/components/marketing/content/ContentCardsSection.vue";
 import ContentFinishesSection from "@/components/marketing/content/ContentFinishesSection.vue";
 import ContentFormatsSection from "@/components/marketing/content/ContentFormatsSection.vue";
-import type { CategoryCardGroup } from "@/components/marketing/content/ContentCardsSection.types";
 
 import { useResolvedContentSection } from "~/composables/content/useResolvedContentSection";
+
+type RichTypeSourceItem = {
+  title?: unknown;
+  description?: unknown;
+  text?: unknown;
+  features?: unknown;
+  tags?: unknown;
+  idealFor?: unknown;
+  meta?: unknown;
+};
+
+type RichTypeItem = {
+  title: string;
+  description: string;
+  features?: string[];
+  idealFor?: string;
+};
 
 const props = withDefaults(
   defineProps<{
@@ -47,7 +64,55 @@ const {
   headerMode: () => props.headerMode,
 });
 
+const isTypesSection = computed(() => {
+  const sectionKey = String(key.value || "").trim();
+  const sectionKind = String(kind.value || "").trim();
+  const sectionId = String(props.section?.id || "").trim();
 
+  return sectionKey === "types" || sectionKind === "types" || sectionId === "types";
+});
+
+function normalizeText(value: unknown) {
+  return String(value ?? "").trim();
+}
+
+function normalizeTags(value: unknown) {
+  if (!Array.isArray(value)) return [];
+
+  return value
+    .map((item) => normalizeText(item))
+    .filter(Boolean);
+}
+
+const typeItems = computed<RichTypeItem[]>(() => {
+  const rawItems = Array.isArray(props.section?.items) ? props.section.items : [];
+
+  return rawItems
+    .map((item) => {
+      if (!item || typeof item !== "object") return null;
+
+      const source = item as RichTypeSourceItem;
+
+      const title = normalizeText(source.title);
+      const description = normalizeText(source.description || source.text);
+
+      if (!title || !description) return null;
+
+      const features = normalizeTags(
+        Array.isArray(source.features) ? source.features : source.tags
+      );
+
+      const idealFor = normalizeText(source.idealFor || source.meta);
+
+      return {
+        title,
+        description,
+        ...(features.length ? { features } : {}),
+        ...(idealFor ? { idealFor } : {}),
+      };
+    })
+    .filter((item): item is RichTypeItem => Boolean(item));
+});
 </script>
 
 <template>
@@ -57,6 +122,16 @@ const {
     :details-media="props.detailsMedia"
     :featured-product="props.featuredProduct"
     :header-mode="props.headerMode"
+  />
+
+  <ContentTypesGrid
+    v-else-if="isTypesSection && typeItems.length"
+    :section-id="props.section.id"
+    :title="title"
+    :intro="intro"
+    :items="typeItems"
+    :eyebrow="eyebrow || 'Soluciones disponibles'"
+    :show-header="props.headerMode === 'default'"
   />
 
   <ContentFormatsSection
@@ -82,6 +157,7 @@ const {
     :title="title"
     :intro="intro"
     :items="simpleGridItems"
+    :eyebrow="eyebrow"
     :show-header="props.headerMode === 'default'"
   />
 

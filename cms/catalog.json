@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-14T06:26:49.899Z",
+  "generatedAt": "2026-05-15T05:11:44.141Z",
   "categories": [
     {
       "id": "12",
@@ -1206,7 +1206,7 @@
     },
     {
       "id": "2",
-      "updatedAt": "2026-05-13T06:36:14Z",
+      "updatedAt": "2026-05-15T05:10:33Z",
       "type": "categoria",
       "slug": "adhesivos-personalizados",
       "path": "/categorias/adhesivos-personalizados",
@@ -1217,7 +1217,7 @@
       "featured": false,
       "isPublished": true,
       "description": "Diseñamos e imprimimos adhesivos personalizados para marcas y empresas: etiquetas de producto, pegatinas promocionales, vinilos para escaparates, soluciones para packaging y elementos de señalización. Te ayudamos a elegir el material, la forma y el acabado más adecuados para conseguir un resultado resistente, profesional y con colores fieles.",
-      "bodyMd": "{\n  \"id\": \"how-we-work\",\n  \"key\": \"howWeWork\",\n  \"title\": \"Cómo trabajamos\",\n  \"description\": \"Te acompañamos desde la definición del adhesivo y la revisión del archivo hasta la producción y la entrega final.\",\n  \"steps\": [\n    {\n      \"label\": \"01\",\n      \"title\": \"Analizamos la aplicación y las medidas\",\n      \"description\": \"Nos indicas qué necesitas, dónde se aplicará, las dimensiones, las cantidades y la duración prevista.\"\n    },\n    {\n      \"label\": \"02\",\n      \"title\": \"Revisamos el diseño y preparamos el archivo\",\n      \"description\": \"Comprobamos la legibilidad, los márgenes, los cortes y la correcta preparación para impresión, o te ayudamos a adaptar el diseño si lo necesitas.\"\n    },\n    {\n      \"label\": \"03\",\n      \"title\": \"Definimos el material y el acabado más adecuados\",\n      \"description\": \"Te recomendamos el adhesivo, el formato y el acabado según la superficie, el uso previsto y el resultado visual que quieres conseguir.\"\n    },\n    {\n      \"label\": \"04\",\n      \"title\": \"Imprimimos y entregamos listo para aplicar\",\n      \"description\": \"Producimos las piezas con buena definición, consistencia de color y acabados profesionales para que lleguen preparadas para su colocación.\"\n    }\n  ],\n  \"cta\": {\n    \"title\": \"¿No tienes claro qué adhesivo elegir?\",\n    \"description\": \"Cuéntanos si es para producto, escaparate, packaging, señalización o promoción, en qué superficie se aplicará y cuánto tiempo debe durar. Te recomendaremos la opción más adecuada y te prepararemos presupuesto sin compromiso.\"\n  }\n}",
+      "bodyMd": "{\n  \"id\": \"how-we-work\",\n  \"key\": \"howWeWork\",\n  \"title\": \"Cómo trabajamos tus adhesivos personalizados\",\n  \"description\": \"Te acompañamos desde la definición del adhesivo y la revisión del archivo hasta la producción y la entrega final.\",\n  \"steps\": [\n    {\n      \"label\": \"01\",\n      \"title\": \"Analizamos la aplicación y las medidas\",\n      \"description\": \"Nos indicas qué necesitas, dónde se aplicará, las dimensiones, las cantidades y la duración prevista.\"\n    },\n    {\n      \"label\": \"02\",\n      \"title\": \"Revisamos el diseño y preparamos el archivo\",\n      \"description\": \"Comprobamos la legibilidad, los márgenes, los cortes y la correcta preparación para impresión, o te ayudamos a adaptar el diseño si lo necesitas.\"\n    },\n    {\n      \"label\": \"03\",\n      \"title\": \"Definimos el material y el acabado más adecuados\",\n      \"description\": \"Te recomendamos el adhesivo, el formato y el acabado según la superficie, el uso previsto y el resultado visual que quieres conseguir.\"\n    },\n    {\n      \"label\": \"04\",\n      \"title\": \"Imprimimos y entregamos listo para aplicar\",\n      \"description\": \"Producimos las piezas con buena definición, consistencia de color y acabados profesionales para que lleguen preparadas para su colocación.\"\n    }\n  ],\n  \"cta\": {\n    \"title\": \"¿No tienes claro qué adhesivo elegir?\",\n    \"description\": \"Cuéntanos si es para producto, escaparate, packaging, señalización o promoción, en qué superficie se aplicará y cuánto tiempo debe durar. Te recomendaremos la opción más adecuada y te prepararemos presupuesto sin compromiso.\",\n    \"label\": \"Pedir presupuesto\",\n    \"href\": \"#presupuesto\"\n  }\n}",
       "sections": [
         {
           "id": "details",
@@ -1238,14 +1238,14 @@
               "title": "Pegatinas en papel",
               "description": "Adhesivo personalizado económico para uso interior, promociones, etiquetas y packaging con buena calidad de impresión.",
               "features": [
-                "Ecológico",
                 "Económico",
+                "Uso interior",
                 "Packaging"
               ],
               "idealFor": "Campañas, etiquetado y promociones"
             },
             {
-              "title": "Vinilo (PVC)",
+              "title": "Vinilo adhesivo",
               "description": "Adhesivo de vinilo versátil y duradero para superficies lisas, rotulación, branding y señalización.",
               "features": [
                 "Duradero",

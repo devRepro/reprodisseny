@@ -3,18 +3,29 @@
     <HomeHero>
       <HomeImageStrip :images="stripImages" />
     </HomeHero>
-
+   <SolarProtectionHeroBanner
+  title="Láminas de protección solar"
+  image-src="/img/banners/sala_reunions.webp"
+  image-alt="Sala de reuniones con ventanas protegidas con láminas solares"
+  :bullets="[
+    'Reduce el calor',
+    'Protege de los rayos UV',
+    'Instalación profesional en Barcelona',
+  ]"
+  primary-label="Solicitar presupuesto"
+  primary-to="/lp/laminas-solares#quote-form"
+  secondary-label="Te respondemos en menos de 24h laborales"
+  secondary-to="/lp/laminas-solares#quote-form"
+  section-class="mt-6 md:mt-8"
+/>
     <MarketingProductCategoryGrid title="Ofrecemos una amplia gama de productos"
       description="Explora las principales categorías y encuentra la solución que mejor encaja con tu proyecto."
       :categories="safeHomeCategories" :total-slots="8" :pending="homeCategoriesPending" />
 
     <MarketingServicesGrid />
-   <MarketingProcessSection
-  section-class="bg-background pt-10 pb-8 md:pt-12 md:pb-10"
-  cta-label="Contacta con nosotros"
-  cta-to="/contacto"
-/>
-    
+    <MarketingProcessSection section-class="bg-background pt-10 pb-8 md:pt-12 md:pb-10"
+      cta-label="Contacta con nosotros" cta-to="/contacto" />
+
 
     <ClientLogosBand :logos="clientLogos" />
 
@@ -34,6 +45,7 @@ import ClientLogosBand from "@/components/marketing/ClientLogosBand.vue";
 import GetFiles from "@/components/marketing/GetFiles.vue";
 import { useHomeCategoriesGrid } from "@/composables/useHomeCategoriesGrid";
 import { GoogleReviewsSection, MarketingServicesGrid } from "#components";
+import SolarProtectionHeroBanner from "@/components/shared/banner/SolarProtectionHeroBanner.vue";
 import AppButton from "@/components/shared/button/AppButton.vue";
 definePageMeta({ layout: "home" });
 

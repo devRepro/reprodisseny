@@ -40,14 +40,25 @@ type CatalogTypeItem = {
   idealFor?: string;
 };
 
-type CatalogFormatItem = {
-  title?: string;
-  description?: string;
-};
 type CatalogNamedContentItem = {
   title?: string;
   description?: string;
+  text?: string;
+  features?: unknown[];
+  tags?: unknown[];
+  idealFor?: unknown;
+  meta?: unknown;
 };
+
+type CatalogFormatItem = CatalogNamedContentItem;
+
+type NormalizedNamedContentItem = {
+  title: string;
+  description: string;
+  features?: string[];
+  idealFor?: string;
+};
+
 
 type CatalogMaterialsData = {
   intro?: string;
@@ -64,10 +75,7 @@ type CatalogApplicationsData = {
   applications?: CatalogNamedContentItem[];
 };
 
-type NormalizedNamedContentItem = {
-  title: string;
-  description: string;
-};
+
 
 type NormalizedMaterialsData = {
   intro?: string;
@@ -336,12 +344,7 @@ export type CategoryDetailSectionItem = {
   title: string;
   intro?: string;
   body?: string;
-  items?: {
-    title: string;
-    description: string;
-    features?: string[];
-    idealFor?: string;
-  }[];
+  items?: NormalizedNamedContentItem[];
   benefitsData?: NormalizedBenefitsData;
   materialsData?: NormalizedMaterialsData;
   formatsData?: NormalizedFormatsData;
@@ -426,7 +429,7 @@ export type ProductDetailSectionItem = {
   intro?: string;
   body?: string;
   text?: string;
-  items?: Array<Record<string, unknown>>;
+  items?: NormalizedNamedContentItem[];
   benefitsData?: NormalizedBenefitsData;
   materialsData?: NormalizedMaterialsData;
   formatsData?: NormalizedFormatsData;
@@ -550,34 +553,40 @@ function safeParseJsonObject(value: unknown): Record<string, unknown> | null {
   }
 }
 
-function normalizeNamedContentItems(
-  value: unknown
-): Array<{ title: string; description: string }> {
+function normalizeNamedContentItems(value: unknown): NormalizedNamedContentItem[] {
   if (!Array.isArray(value)) return [];
 
   return value
     .map((item) => {
       if (!item || typeof item !== "object") return null;
 
-      const record = item as Record<string, unknown>;
+      const record = item as CatalogNamedContentItem;
+
       const title = String(record.title ?? "").trim();
-      const description = String(record.description ?? "").trim();
+      const description = String(record.description ?? record.text ?? "").trim();
 
       if (!title || !description) return null;
+
+      const rawFeatures = Array.isArray(record.features)
+        ? record.features
+        : Array.isArray(record.tags)
+          ? record.tags
+          : [];
+
+      const features = rawFeatures
+        .map((feature) => String(feature ?? "").trim())
+        .filter(Boolean);
+
+      const idealFor = String(record.idealFor ?? record.meta ?? "").trim();
 
       return {
         title,
         description,
+        ...(features.length ? { features } : {}),
+        ...(idealFor ? { idealFor } : {}),
       };
     })
-    .filter(
-      (
-        item
-      ): item is {
-        title: string;
-        description: string;
-      } => Boolean(item)
-    );
+    .filter((item): item is NormalizedNamedContentItem => Boolean(item));
 }
 
 function normalizeMaterialsData(value: unknown): NormalizedMaterialsData | undefined {

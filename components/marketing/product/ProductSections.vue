@@ -29,7 +29,11 @@ type ProductCardItem = {
   title?: string;
   description?: string;
   text?: string;
-};
+  features?: string[];
+  tags?: string[];
+  idealFor?: string;
+  meta?: string;
+};;
 
 type ProductFormatsData = {
   intro?: string;
