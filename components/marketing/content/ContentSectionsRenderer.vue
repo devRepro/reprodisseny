@@ -32,16 +32,26 @@ type DetailsMediaItem = {
   }>;
 };
 
+type GalleryImage = {
+  src?: string;
+  alt?: string;
+  caption?: string;
+  width?: number | null;
+  height?: number | null;
+};
+
 const props = withDefaults(
   defineProps<{
     sections?: DetailSectionItem[];
     detailsMedia?: DetailsMediaItem | null;
     featuredProduct?: Record<string, unknown> | null;
+    galleryImages?: GalleryImage[];
   }>(),
   {
     sections: () => [],
     detailsMedia: null,
     featuredProduct: null,
+    galleryImages: () => [],
   }
 );
 
@@ -67,13 +77,6 @@ const SECTION_FALLBACK_LABELS: Record<CanonicalSectionId, string> = {
   "technical-specs": "Características técnicas",
 };
 
-/**
- * Aliases defensivos.
- *
- * Lo ideal es que catalog.service.ts ya entregue estos ids normalizados.
- * Esto evita que producto y categoría rendericen distinto por pequeñas diferencias
- * entre nombres de columnas, ids heredados o datos antiguos de SharePoint.
- */
 const SECTION_ALIASES: Record<string, CanonicalSectionId> = {
   details: "details",
   detail: "details",
@@ -143,13 +146,21 @@ function normalizeLookupKey(value: unknown) {
     .replace(/[^a-z0-9-]/g, "");
 }
 
-function getCanonicalSectionId(section: DetailSectionItem) {
+function getCanonicalSectionId(section: DetailSectionItem): string {
   const source = section as Record<string, unknown>;
 
   const rawKind = normalizeLookupKey(source.kind);
   const rawId = normalizeLookupKey(source.id);
+  const rawKey = normalizeLookupKey(source.key);
 
-  return SECTION_ALIASES[rawKind] ?? SECTION_ALIASES[rawId] ?? rawId;
+  return (
+    SECTION_ALIASES[rawKind] ??
+    SECTION_ALIASES[rawId] ??
+    SECTION_ALIASES[rawKey] ??
+    rawKind ??
+    rawId ??
+    rawKey
+  );
 }
 
 function getSectionOrder(id: string) {
@@ -173,6 +184,7 @@ function normalizeSection(section: DetailSectionItem): DetailSectionItem | null 
   return {
     ...section,
     id,
+    key: id,
     kind: id,
     title,
   } as DetailSectionItem;
@@ -186,11 +198,6 @@ const safeSections = computed<DetailSectionItem[]>(() => {
 
     if (!normalizedSection) continue;
 
-    /**
-     * Evita tabs duplicadas.
-     * Si desde el servicio llegan dos secciones equivalentes, nos quedamos con la primera.
-     * La fusión real de datos debería hacerse en catalog.service.ts.
-     */
     if (!sectionsByCanonicalId.has(normalizedSection.id)) {
       sectionsByCanonicalId.set(normalizedSection.id, normalizedSection);
     }
@@ -201,6 +208,10 @@ const safeSections = computed<DetailSectionItem[]>(() => {
   );
 });
 
+const safeGalleryImages = computed(() =>
+  (props.galleryImages ?? []).filter((image) => String(image?.src || "").trim())
+);
+
 const tabItems = computed(() =>
   safeSections.value.map((section) => ({
     id: section.id,
@@ -209,13 +220,10 @@ const tabItems = computed(() =>
 );
 
 const sectionsById = computed(() =>
-  safeSections.value.reduce(
-    (acc, section) => {
-      acc[section.id] = section;
-      return acc;
-    },
-    {} as Record<string, DetailSectionItem>
-  )
+  safeSections.value.reduce((acc, section) => {
+    acc[section.id] = section;
+    return acc;
+  }, {} as Record<string, DetailSectionItem>)
 );
 
 const activeTabId = ref("");
@@ -239,6 +247,10 @@ watch(
 </script>
 
 <template>
+  <pre class="mb-4 rounded-xl bg-black p-4 text-xs text-white">
+galleryImages: {{ safeGalleryImages }}
+</pre
+  >
   <ContentTabs
     v-if="safeSections.length"
     v-model="activeTabId"
@@ -254,6 +266,7 @@ watch(
         :section="sectionsById[item.id]"
         :details-media="detailsMedia"
         :featured-product="featuredProduct"
+        :gallery-images="safeGalleryImages"
         header-mode="none"
       />
     </template>

@@ -76,7 +76,6 @@ type CatalogApplicationsData = {
 };
 
 
-
 type NormalizedMaterialsData = {
   intro?: string;
   materials: NormalizedNamedContentItem[];
@@ -142,7 +141,6 @@ type CatalogFormatsData = {
   shapes?: CatalogFormatItem[];
   deliveryFormats?: CatalogFormatItem[];
 };
-
 
 
 type CatalogProductFormField = {
@@ -217,11 +215,10 @@ type CatalogCategory = {
   description?: string;
   bodyMd?: string;
   detailsMd?: string;
-  materialsMd?: string;
-  finishesMd?: string;
   formatsMd?: string;
   typesMd?: string;
   usesMd?: string;
+  finishesMd?: string;
   howWeWork?: unknown;
   sections?: CatalogSection[];
   faqs?: CatalogFaq[];
@@ -313,13 +310,6 @@ export type CategoryDetailFaqItem = {
   q: string;
   a: string;
 };
-
-type CategoryBulletCardItem = {
-  title: string;
-  description: string;
-};
-
-
 
 export type CategoryCardItem = {
   title: string;
@@ -671,14 +661,6 @@ function normalizeSlug(value: unknown) {
   return normalizeComparable(value).replace(/^\/+|\/+$/g, "");
 }
 
-function normalizeComparableLabel(value: unknown) {
-  return String(value ?? "")
-    .trim()
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "");
-}
-
 function getLastPathSegment(value: unknown) {
   const normalized = normalizeSlug(value);
   if (!normalized) return "";
@@ -727,23 +709,6 @@ function createCategoryTextSection(
     contentFormat: "markdown",
     body: text,
   };
-}
-
-function createCategoryMaterialsSection(body: unknown): CatalogSection | null {
-  const materialsData = normalizeMaterialsData(body)
-
-  if (materialsData) {
-    return {
-      id: "materials",
-      key: "materials",
-      title: "Materiales",
-      kind: "materials",
-      contentFormat: "json",
-      materialsData,
-    }
-  }
-
-  return createCategoryTextSection("materials", "Materiales", body)
 }
 
 function createCategoryFormatsSection(body: unknown): CatalogSection | null {
@@ -804,7 +769,6 @@ function getSectionKey(section: { key?: string; id?: string }) {
     .trim()
     .toLowerCase();
 }
-
 function getMergedCategorySections(category: CatalogCategory): CatalogSection[] {
   const baseSections = Array.isArray(category.sections)
     ? category.sections.filter(Boolean).filter(hasSectionContent)
@@ -813,21 +777,18 @@ function getMergedCategorySections(category: CatalogCategory): CatalogSection[] 
   const existingKeys = new Set(baseSections.map(getSectionKey));
 
   const extraSections = [
-  createProductTextSection("details", "Detalles", product.detailsMd),
-  createProductBenefitsSection(product.benefitsMd),
-  createProductFormatsSection(product.formatsMd),
-  createProductMaterialsSection(product.materialsMd),
-  createProductFinishesSection(product.finishesMd),
-  createProductApplicationsSection(product.applicationsMd),
-  createProductTextSection(
-    "technical-specs",
-    "Características técnicas",
-    product.technicalSpecsMd
-  ),
-].filter(
-  (section): section is CatalogProductSection =>
-    Boolean(section) && !existingKeys.has(getSectionKey(section))
-);
+    createCategoryTextSection("details", "Detalles", category.detailsMd),
+    createCategoryTextSection("types", "Tipos", category.typesMd),
+    createCategoryFormatsSection(category.formatsMd),
+    createCategoryFinishesSection(category.finishesMd),
+    createCategoryApplicationsSection(category.usesMd),
+  ].filter((section): section is CatalogSection => {
+    if (!section) return false;
+    return !existingKeys.has(getSectionKey(section));
+  });
+
+  return sortCatalogSections([...baseSections, ...extraSections]);
+}
 
 function getCatalogProducts(): CatalogProduct[] {
   const data = catalog as CatalogShape;
@@ -961,7 +922,6 @@ function getProductLookupKeys(product: CatalogProduct) {
 
   return keys;
 }
-
 
 
 const GALLERY_MEDIA_URL_KEYS = new Set([
@@ -1189,11 +1149,6 @@ function getDirectProductsOfCategory(
 }
 
 
-
-
-
-
-
 function normalizeCategoryTypeItems(
   value: unknown
 ): {
@@ -1307,83 +1262,6 @@ function sortCatalogSections<T extends { kind?: string; key?: string; id?: strin
     .map(({ section }) => section);
 }
 
-function getCategorySections(category: CatalogCategory): CategoryDetailSectionItem[] {
-  return getMergedCategorySections(category)
-    .map((section, index) => {
-      const id = String(section?.id || section?.key || `section-${index + 1}`).trim();
-      const key = String(section?.key || id).trim();
-      const title = String(section?.title || `Sección ${index + 1}`).trim();
-      const intro = String(section?.intro || "").trim() || undefined;
-      const body = String(section?.body || "").trim();
-
-      const items = normalizeCategoryTypeItems(section?.items);
-      const kind = resolveCatalogSectionKind(section);
-
-      const benefitsData =
-        section?.benefitsData && typeof section.benefitsData === "object"
-          ? normalizeBenefitsData(section.benefitsData)
-          : undefined;
-
-      const materialsData =
-        section?.materialsData && typeof section.materialsData === "object"
-          ? normalizeMaterialsData(section.materialsData)
-          : undefined;
-
-      const formatsData =
-        section?.formatsData && typeof section.formatsData === "object"
-          ? normalizeFormatsData(section.formatsData)
-          : undefined;
-
-      const finishesData =
-        section?.finishesData && typeof section.finishesData === "object"
-          ? normalizeFinishesData(section.finishesData)
-          : undefined;
-
-      const applicationsData =
-        section?.applicationsData && typeof section.applicationsData === "object"
-          ? normalizeApplicationsData(section.applicationsData)
-          : undefined;
-
-      const contentFormat = resolveSectionContentFormat({
-        contentFormat: section?.contentFormat,
-        items: items.length ? items : undefined,
-        benefitsData,
-        materialsData,
-        formatsData,
-        finishesData,
-        applicationsData,
-      });
-
-      const hasContent =
-        Boolean(body) ||
-        Boolean(intro) ||
-        items.length > 0 ||
-        Boolean(benefitsData?.benefits.length) ||
-        Boolean(materialsData?.materials.length) ||
-        Boolean(formatsData) ||
-        Boolean(finishesData?.finishes.length) ||
-        Boolean(applicationsData?.applications.length);
-
-      if (!id || !title || !hasContent) return null;
-
-      return {
-        id,
-        key,
-        kind,
-        contentFormat,
-        title,
-        ...(intro ? { intro } : {}),
-        ...(body ? { body } : {}),
-        ...(items.length ? { items } : {}),
-        ...(benefitsData ? { benefitsData } : {}),
-        ...(materialsData ? { materialsData } : {}),
-        ...(formatsData ? { formatsData } : {}),
-        ...(finishesData ? { finishesData } : {}),
-        ...(applicationsData ? { applicationsData } : {}),
-      };
-    })
-    .filter((section): section is CategoryDetailSectionItem => Boolean(section));
-}
 
 function createProductTextSection(
   key: CatalogContentSectionKind,
@@ -1533,10 +1411,10 @@ function getMergedProductSections(product: CatalogProduct): CatalogProductSectio
       product.technicalSpecsMd
     ),
     createProductApplicationsSection(product.applicationsMd),
-  ].filter(
-    (section): section is CatalogProductSection =>
-      Boolean(section) && !existingKeys.has(getSectionKey(section))
-  );
+  ].filter((section): section is CatalogProductSection => {
+    if (!section) return false;
+    return !existingKeys.has(getSectionKey(section));
+  });
 
   return sortCatalogSections([...baseSections, ...extraSections]);
 }
@@ -1567,6 +1445,86 @@ function resolveSectionContentFormat(section: {
 
   return "markdown";
 }
+
+
+function getCategorySections(category: CatalogCategory): CategoryDetailSectionItem[] {
+  return getMergedCategorySections(category)
+    .map<CategoryDetailSectionItem | null>((section, index) => {
+      const id = String(section?.id || section?.key || `section-${index + 1}`).trim();
+      const key = String(section?.key || id).trim();
+      const title = String(section?.title || `Sección ${index + 1}`).trim();
+      const intro = String(section?.intro || "").trim() || undefined;
+      const body = String(section?.body || "").trim();
+
+      const items = normalizeCategoryTypeItems(section?.items);
+      const kind = resolveCatalogSectionKind(section);
+
+      const benefitsData =
+        section?.benefitsData && typeof section.benefitsData === "object"
+          ? normalizeBenefitsData(section.benefitsData)
+          : undefined;
+
+      const materialsData =
+        section?.materialsData && typeof section.materialsData === "object"
+          ? normalizeMaterialsData(section.materialsData)
+          : undefined;
+
+      const formatsData =
+        section?.formatsData && typeof section.formatsData === "object"
+          ? normalizeFormatsData(section.formatsData)
+          : undefined;
+
+      const finishesData =
+        section?.finishesData && typeof section.finishesData === "object"
+          ? normalizeFinishesData(section.finishesData)
+          : undefined;
+
+      const applicationsData =
+        section?.applicationsData && typeof section.applicationsData === "object"
+          ? normalizeApplicationsData(section.applicationsData)
+          : undefined;
+
+      const contentFormat = resolveSectionContentFormat({
+        contentFormat: section?.contentFormat,
+        items: items.length ? items : undefined,
+        benefitsData,
+        materialsData,
+        formatsData,
+        finishesData,
+        applicationsData,
+      });
+
+      const hasContent =
+        Boolean(body) ||
+        Boolean(intro) ||
+        items.length > 0 ||
+        Boolean(benefitsData?.benefits.length) ||
+        Boolean(materialsData?.materials.length) ||
+        Boolean(formatsData) ||
+        Boolean(finishesData?.finishes.length) ||
+        Boolean(applicationsData?.applications.length);
+
+      if (!id || !title || !hasContent) return null;
+
+      return {
+        id,
+        key,
+        kind,
+        contentFormat,
+        title,
+        ...(intro ? { intro } : {}),
+        ...(body ? { body } : {}),
+        ...(items.length ? { items } : {}),
+        ...(benefitsData ? { benefitsData } : {}),
+        ...(materialsData ? { materialsData } : {}),
+        ...(formatsData ? { formatsData } : {}),
+        ...(finishesData ? { finishesData } : {}),
+        ...(applicationsData ? { applicationsData } : {}),
+      };
+    })
+    .filter((section): section is CategoryDetailSectionItem => section !== null);
+}
+
 
 export function getHomeCategories(limit = 8): HomeCategoryCardItem[] {
   const safeLimit = toBoundedInt(limit, 8, 1, 12);
@@ -1777,7 +1735,7 @@ export function getCategoryDetailByPath(
     title: category.title,
     nav: category.nav || category.title,
     description: category.description || "",
-    bodyMd: category.bodyMd || "",
+    bodyMd: category.detailsMd || "",
     howWeWork: getCategoryHowWeWork(category),
     image: imageDtoOf(category.image, category.title),
     children: getDirectChildrenOf(category, categories, options.childLimit ?? 50),
@@ -2064,7 +2022,7 @@ function resolveProductBySlugOrPath(
 
 function getProductSections(product: CatalogProduct): ProductDetailSectionItem[] {
   return getMergedProductSections(product)
-    .map((section, index) => {
+    .map<ProductDetailSectionItem | null>((section, index) => {
       const id = String(section?.id || section?.key || `section-${index + 1}`).trim();
       const key = String(section?.key || id).trim();
       const title = String(section?.title || `Sección ${index + 1}`).trim();
@@ -2137,10 +2095,8 @@ function getProductSections(product: CatalogProduct): ProductDetailSectionItem[]
         ...(applicationsData ? { applicationsData } : {}),
       };
     })
-    .filter((section): section is ProductDetailSectionItem => Boolean(section));
+    .filter((section): section is ProductDetailSectionItem => section !== null);
 }
-
-
 
 
 export function getProductDetailBySlug(

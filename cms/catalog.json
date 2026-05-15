@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-15T11:54:56.986Z",
+  "generatedAt": "2026-05-15T17:44:33.142Z",
   "categories": [
     {
       "id": "12",
@@ -1206,7 +1206,7 @@
     },
     {
       "id": "2",
-      "updatedAt": "2026-05-15T05:10:33Z",
+      "updatedAt": "2026-05-15T17:11:36Z",
       "type": "categoria",
       "slug": "adhesivos-personalizados",
       "path": "/categorias/adhesivos-personalizados",
@@ -1425,9 +1425,19 @@
       ],
       "galleryImages": [
         {
-          "src": "https://webcms.blob.core.windows.net/media/category/adhesivos%20imatges/detalles.webp",
+          "src": "https://media.reprodisseny.com/media/category/adhesivos%20imatges/detalles.webp",
           "alt": "Adhesivos personalizados aplicados en packaging y superficies comerciales",
-          "caption": "Ejemplo visual de aplicación de adhesivos personalizados"
+          "caption": "Aplicaciones de adhesivos personalizados en packaging y comunicación de marca"
+        },
+        {
+          "src": "https://media.reprodisseny.com/media/category/adhesivos%20imatges/acabados.webp",
+          "alt": "Acabados para adhesivos personalizados con diferentes materiales y efectos de impresión",
+          "caption": "Acabados disponibles para adhesivos personalizados"
+        },
+        {
+          "src": "https://media.reprodisseny.com/media/category/adhesivos%20imatges/tipos.webp",
+          "alt": "Tipos de adhesivos personalizados en papel, vinilo y materiales especiales",
+          "caption": "Tipos de adhesivos según uso, material y formato"
         }
       ],
       "breadcrumbs": [
@@ -4051,7 +4061,7 @@
     },
     {
       "id": "1",
-      "updatedAt": "2026-05-05T11:35:35Z",
+      "updatedAt": "2026-05-15T15:33:27Z",
       "type": "producto",
       "slug": "abanicos-personalizados",
       "path": "/productos/abanicos-personalizados",
@@ -4079,8 +4089,56 @@
           "key": "benefits",
           "title": "Beneficios",
           "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "- Utilidad real: mejora el confort del asistente en exteriores, carpas, terrazas o eventos con mucha gente.\n- Alta visibilidad de marca: tu logo y mensajes se ven durante todo el evento y aparecen en fotos y contenido social.\n- Recuerdo memorable: funciona como un obsequio práctico y refuerza la experiencia del evento sin complicaciones.\n- Personalización por público: permite crear versiones para invitados, staff, VIP, patrocinadores o distintas zonas del evento.\n- Fácil de repartir: es ligero, cómodo y perfecto para packs de bienvenida o entrega en accesos."
+          "contentFormat": "json",
+          "benefitsData": {
+            "intro": "Ventajas principales para mejorar la experiencia, la visibilidad de marca y la operativa del evento.",
+            "benefits": [
+              {
+                "title": "Utilidad real",
+                "description": "Mejora el confort del asistente en exteriores, carpas, terrazas o eventos con mucha gente."
+              },
+              {
+                "title": "Alta visibilidad de marca",
+                "description": "Tu logo y mensajes se ven durante todo el evento y aparecen en fotos y contenido social."
+              },
+              {
+                "title": "Recuerdo memorable",
+                "description": "Funciona como un obsequio práctico y refuerza la experiencia del evento sin complicaciones."
+              },
+              {
+                "title": "Personalización por público",
+                "description": "Permite crear versiones para invitados, staff, VIP, patrocinadores o distintas zonas del evento."
+              },
+              {
+                "title": "Fácil de repartir",
+                "description": "Es ligero, cómodo y perfecto para packs de bienvenida o entrega en accesos."
+              }
+            ]
+          }
+        },
+        {
+          "id": "materials",
+          "key": "materials",
+          "title": "Materiales",
+          "kind": "materials",
+          "contentFormat": "json",
+          "materialsData": {
+            "intro": "Seleccionamos el soporte del abanico según el formato elegido, la duración del evento y la percepción de calidad que se quiere transmitir.",
+            "materials": [
+              {
+                "title": "Cartulina gráfica",
+                "description": "Opción versátil para pai pai y abanicos promocionales con buena presencia y coste ajustado."
+              },
+              {
+                "title": "Papel con buen cuerpo",
+                "description": "Adecuado para abanicos ligeros que deben mantener la forma durante el uso sin resultar incómodos."
+              },
+              {
+                "title": "Varillas o mango",
+                "description": "Elemento de agarre según el modelo elegido, pensado para facilitar el uso y mejorar la experiencia del asistente."
+              }
+            ]
+          }
         },
         {
           "id": "formats",
@@ -4158,7 +4216,7 @@
           "title": "Aplicaciones",
           "kind": "applications",
           "contentFormat": "markdown",
-          "body": "- Bodas y celebraciones: aporta un detalle útil y elegante para invitados en ceremonias y recepciones al aire libre.\n- Ferias y eventos corporativos: refuerza la visibilidad de marca y mejora la experiencia del asistente en espacios concurridos.\n- Acciones promocionales: funciona como soporte publicitario práctico en campañas de verano, street marketing y reparto promocional.\n- Hostelería y terrazas: ayuda a mejorar el confort en eventos, restaurantes y espacios expuestos al calor.\n- Eventos segmentados: permite crear versiones específicas para invitados, staff, patrocinadores o distintas zonas del evento."
+          "body": "\"intro\":\"Aplicaciones habituales en eventos, empresas, campañas y acciones promocionales.\",\"applications\":[{\"title\":\"Bodas y celebraciones\",\"description\":\"Aporta un detalle útil y elegante para invitados en ceremonias y recepciones al aire libre.\"},{\"title\":\"Ferias y eventos corporativos\",\"description\":\"Refuerza la visibilidad de marca y mejora la experiencia del asistente en espacios concurridos.\"},{\"title\":\"Acciones promocionales\",\"description\":\"Funciona como soporte publicitario práctico en campañas de verano, street marketing y reparto promocional.\"},{\"title\":\"Hostelería y terrazas\",\"description\":\"Ayuda a mejorar el confort en eventos, restaurantes y espacios expuestos al calor.\"},{\"title\":\"Eventos segmentados\",\"description\":\"Permite crear versiones específicas para invitados, staff, patrocinadores o distintas zonas del evento.\"}]}"
         }
       ],
       "faqs": [
@@ -4401,7 +4459,7 @@
     },
     {
       "id": "2",
-      "updatedAt": "2026-05-05T11:35:36Z",
+      "updatedAt": "2026-05-15T15:35:29Z",
       "type": "producto",
       "slug": "acreditaciones-personalizadas",
       "path": "/productos/acreditaciones-personalizadas",
@@ -4429,8 +4487,32 @@
           "key": "benefits",
           "title": "Beneficios",
           "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "Ventajas principales de las acreditaciones personalizadas para eventos, congresos, ferias, formaciones y controles de acceso.\n\n- **Control y organización:** permiten identificar rápidamente roles como staff, ponente, invitado, expositor, prensa o proveedor.\n- **Más fluidez en accesos:** pueden incorporar QR, código de barras o numeración para validación, check-in o control interno.\n- **Imagen coherente de marca:** se diseñan alineadas con la identidad del evento, patrocinadores, señalética y materiales corporativos.\n- **Personalización eficiente:** permiten imprimir datos variables para listas grandes, como nombres, empresas, cargos o categorías.\n- **Comodidad durante el evento:** se pueden preparar para llevar con lanyard, funda, clip u otros sistemas según la necesidad."
+          "contentFormat": "json",
+          "benefitsData": {
+            "intro": "Ventajas principales de las acreditaciones personalizadas para eventos, congresos, ferias, formaciones y controles de acceso.",
+            "benefits": [
+              {
+                "title": "Control y organización",
+                "description": "Permiten identificar rápidamente roles como staff, ponente, invitado, expositor, prensa o proveedor."
+              },
+              {
+                "title": "Más fluidez en accesos",
+                "description": "Pueden incorporar QR, código de barras o numeración para validación, check-in o control interno."
+              },
+              {
+                "title": "Imagen coherente de marca",
+                "description": "Se diseñan alineadas con la identidad del evento, patrocinadores, señalética y materiales corporativos."
+              },
+              {
+                "title": "Personalización eficiente",
+                "description": "Permiten imprimir datos variables para listas grandes, como nombres, empresas, cargos o categorías."
+              },
+              {
+                "title": "Comodidad durante el evento",
+                "description": "Se pueden preparar para llevar con lanyard, funda, clip u otros sistemas según la necesidad."
+              }
+            ]
+          }
         },
         {
           "id": "materials",
@@ -4535,8 +4617,32 @@
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "Aplicaciones habituales de las acreditaciones personalizadas en eventos, ferias, congresos, formaciones y acciones de marca.\n\n- **Ferias y congresos:** identificación de asistentes, expositores, ponentes, prensa, staff y organización.\n- **Eventos corporativos y formaciones:** convenciones internas, presentaciones, entregas, jornadas, cursos y encuentros de empresa.\n- **Eventos culturales y deportivos:** festivales, competiciones, zonas de acceso, personal técnico, staff y participantes.\n- **Acciones de marca y activaciones:** control de acceso, identificación de equipos itinerantes, promotores, invitados o zonas reservadas.\n- **Control interno:** acreditaciones para proveedores, personal temporal, visitas, accesos por zonas o equipos de trabajo."
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Aplicaciones habituales de las acreditaciones personalizadas en eventos, ferias, congresos, formaciones y acciones de marca.",
+            "applications": [
+              {
+                "title": "Ferias y congresos",
+                "description": "Identificación de asistentes, expositores, ponentes, prensa, staff y organización."
+              },
+              {
+                "title": "Eventos corporativos y formaciones",
+                "description": "Convenciones internas, presentaciones, entregas, jornadas, cursos y encuentros de empresa."
+              },
+              {
+                "title": "Eventos culturales y deportivos",
+                "description": "Festivales, competiciones, zonas de acceso, personal técnico, staff y participantes."
+              },
+              {
+                "title": "Acciones de marca y activaciones",
+                "description": "Control de acceso, identificación de equipos itinerantes, promotores, invitados o zonas reservadas."
+              },
+              {
+                "title": "Control interno",
+                "description": "Acreditaciones para proveedores, personal temporal, visitas, accesos por zonas o equipos de trabajo."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
@@ -5208,7 +5314,7 @@
     },
     {
       "id": "4",
-      "updatedAt": "2026-05-05T14:59:41Z",
+      "updatedAt": "2026-05-15T15:37:24Z",
       "type": "producto",
       "slug": "arbol-navidad-corporativo",
       "path": "/productos/arbol-navidad-corporativo",
@@ -5237,8 +5343,32 @@
           "key": "benefits",
           "title": "Beneficios",
           "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "- Montaje rápido y sin herramientas: sistema automontable en dos piezas (encaje).\n- Impacto visual en poco espacio: ideal para entradas, escaparates, recepciones o stands.\n- Ligero y fácil de transportar: se entrega plano y ocupa poco en almacenaje.\n- Personalizable al 100%: diseño, forma, mensajes, colores, patrocinadores, QR, etc.\n- Solución más sostenible: el nido de abeja es un material ligero y reciclable, perfecto para campañas estacionales."
+          "contentFormat": "json",
+          "benefitsData": {
+            "intro": "Ventajas principales para mejorar la experiencia, la visibilidad de marca y la operativa del evento.",
+            "benefits": [
+              {
+                "title": "Montaje rápido y sin herramientas",
+                "description": "Sistema automontable en dos piezas (encaje)."
+              },
+              {
+                "title": "Impacto visual en poco espacio",
+                "description": "Ideal para entradas, escaparates, recepciones o stands."
+              },
+              {
+                "title": "Ligero y fácil de transportar",
+                "description": "Se entrega plano y ocupa poco en almacenaje."
+              },
+              {
+                "title": "Personalizable al 100%",
+                "description": "Diseño, forma, mensajes, colores, patrocinadores, QR, etc."
+              },
+              {
+                "title": "Solución más sostenible",
+                "description": "El nido de abeja es un material ligero y reciclable, perfecto para campañas estacionales."
+              }
+            ]
+          }
         },
         {
           "id": "materials",
@@ -5343,8 +5473,32 @@
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "Aplicaciones habituales del árbol de Navidad impreso en campañas comerciales, espacios corporativos, eventos, hostelería y activaciones de marca.\n\n- **Tiendas y centros comerciales:** escaparates, pasillos, zonas de caja, puntos promocionales o campañas navideñas.\n- **Empresas y oficinas:** recepciones, salas comunes, eventos internos, felicitaciones corporativas y decoración de temporada.\n- **Ferias y eventos:** decoración de stand, photocall navideño, puntos de bienvenida o espacios promocionales.\n- **Hostelería:** hoteles, restaurantes, espacios de celebración, entradas, zonas de paso y puntos de atención al cliente.\n- **Activaciones de marca:** acciones con foto, QR a sorteo, landing promocional, catálogo, redes sociales o campaña especial de Navidad."
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Aplicaciones habituales del árbol de Navidad impreso en campañas comerciales, espacios corporativos, eventos, hostelería y activaciones de marca.",
+            "applications": [
+              {
+                "title": "Tiendas y centros comerciales",
+                "description": "Escaparates, pasillos, zonas de caja, puntos promocionales o campañas navideñas."
+              },
+              {
+                "title": "Empresas y oficinas",
+                "description": "Recepciones, salas comunes, eventos internos, felicitaciones corporativas y decoración de temporada."
+              },
+              {
+                "title": "Ferias y eventos",
+                "description": "Decoración de stand, photocall navideño, puntos de bienvenida o espacios promocionales."
+              },
+              {
+                "title": "Hostelería",
+                "description": "Hoteles, restaurantes, espacios de celebración, entradas, zonas de paso y puntos de atención al cliente."
+              },
+              {
+                "title": "Activaciones de marca",
+                "description": "Acciones con foto, QR a sorteo, landing promocional, catálogo, redes sociales o campaña especial de Navidad."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
@@ -11550,7 +11704,7 @@
     },
     {
       "id": "16",
-      "updatedAt": "2026-05-05T15:31:21Z",
+      "updatedAt": "2026-05-15T15:45:47Z",
       "type": "producto",
       "slug": "carpetas-de-presentacion-personalizadas",
       "path": "/productos/carpetas-de-presentacion-personalizadas",
@@ -11563,7 +11717,7 @@
       "isPublished": true,
       "shortDescription": "Las carpetas de presentación son un básico cuando quieres entregar presupuestos, propuestas o documentación con una imagen cuidada y profesional. En Repro Disseny imprimimos carpetas corporativas personalizadas con diferentes formatos, solapas y acabados, para que tu marca destaque desde el primer momento y la documentación llegue ordenada.",
       "description": "Las carpetas de presentación son un básico cuando quieres entregar presupuestos, propuestas o documentación con una imagen cuidada y profesional. En Repro Disseny imprimimos carpetas corporativas personalizadas con diferentes formatos, solapas y acabados, para que tu marca destaque desde el primer momento y la documentación llegue ordenada.",
-      "bodyMd": "### ¿Qué es una carpeta de presentación y para qué se usa?\n\nUna carpeta de presentación es una carpeta impresa, normalmente con solapas, diseñada para contener documentos A4, catálogos, contratos o dossieres.\n\nSe utiliza en visitas comerciales, ferias, entregas a clientes y presentaciones internas para reforzar la imagen de marca y mejorar la organización de la documentación.",
+      "bodyMd": "### ¿Qué es un cupón promocional y para qué se usa?\n\nUn cupón promocional es una pieza impresa (tipo tarjeta, vale o ticket) que da derecho a un beneficio: un descuento, una consumición, un regalo, un upgrade o una ventaja por participar. Puede incluir código, fecha de validez, condiciones básicas y elementos de control como numeración o QR/código de barras.\n\nEs especialmente útil cuando necesitas una acción medible: entregas el cupón, el usuario lo canjea y tú puedes controlar qué se ha utilizado, dónde y cuándo.",
       "sections": [
         {
           "id": "details",
@@ -11571,7 +11725,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "### ¿Qué es una carpeta de presentación y para qué se usa?\n\nUna carpeta de presentación es una carpeta impresa, normalmente con solapas, diseñada para contener documentos A4, catálogos, contratos o dossieres.\n\nSe utiliza en visitas comerciales, ferias, entregas a clientes y presentaciones internas para reforzar la imagen de marca y mejorar la organización de la documentación."
+          "body": "### ¿Qué es un cupón promocional y para qué se usa?\n\nUn cupón promocional es una pieza impresa (tipo tarjeta, vale o ticket) que da derecho a un beneficio: un descuento, una consumición, un regalo, un upgrade o una ventaja por participar. Puede incluir código, fecha de validez, condiciones básicas y elementos de control como numeración o QR/código de barras.\n\nEs especialmente útil cuando necesitas una acción medible: entregas el cupón, el usuario lo canjea y tú puedes controlar qué se ha utilizado, dónde y cuándo."
         },
         {
           "id": "benefits",
@@ -11579,7 +11733,7 @@
           "title": "Beneficios",
           "kind": "benefits",
           "contentFormat": "markdown",
-          "body": "Ventajas principales de las carpetas de presentación personalizadas para propuestas comerciales, ferias, visitas a clientes y documentación corporativa.\n\n- **Mejora la calidad percibida:** transmite profesionalidad y confianza en propuestas, entregas y presentaciones comerciales.\n- **Documentación ordenada:** evita hojas sueltas y mejora la experiencia del cliente al recibir contratos, catálogos, tarifas o dossieres.\n- **Branding coherente:** permite mantener una imagen alineada con tarjetas, papel de carta, sobres y otros materiales corporativos.\n- **Opciones funcionales:** solapas, lomo, ranura para tarjeta, cierres u otros recursos según el uso previsto.\n- **Ideal para ventas y ferias:** perfecta para entregar catálogos, tarifas, presentaciones o documentación comercial en un formato cuidado."
+          "body": "{\"intro\":\"Ventajas principales para mejorar la experiencia, la visibilidad de marca y la operativa del evento.\",\"benefits\":[{\"title\":\"Acción inmediata y medible\",\"description\":\"El cupón convierte la atención en un paso claro (canjear, comprar, registrarse).\"},{\"title\":\"Control de canje\",\"description\":\"Con numeración o códigos únicos puedes validar premios/descuentos y evitar duplicidades.\"},{\"title\":\"Versátil para cualquier canal\",\"description\":\"Funciona en eventos, punto de venta, envíos, street marketing o como inserto en packaging.\"},{\"title\":\"Impulsa repetición y fidelización\",\"description\":\"Ideal para “vuelve y gana”, segunda compra, invitación a probar o incentivo post-evento.\"},{\"title\":\"Fácil de explicar\",\"description\":\"Una mecánica simple (presentar cupón / escanear QR) reduce fricción y aumenta conversiones.\"}]}"
         },
         {
           "id": "materials",
@@ -11588,19 +11742,19 @@
           "kind": "materials",
           "contentFormat": "json",
           "materialsData": {
-            "intro": "Seleccionamos el soporte según la rigidez, la presencia visual y el nivel de calidad que debe transmitir la carpeta.",
+            "intro": "Elegimos el soporte del cupón según la forma de reparto, la duración de la promoción y el nivel de resistencia necesario durante el canje.",
             "materials": [
               {
-                "title": "Cartulina de alto gramaje",
-                "description": "Aporta rigidez, presencia y una sensación más profesional en propuestas, ferias y entregas comerciales."
+                "title": "Papel con buen cuerpo",
+                "description": "Opción práctica para campañas de volumen, reparto masivo o inserciones promocionales."
               },
               {
-                "title": "Soportes mate",
-                "description": "Opción sobria y elegante para carpetas corporativas, documentación institucional y presentaciones comerciales."
+                "title": "Cartulina",
+                "description": "Aporta más presencia y resistencia cuando el cupón debe manipularse, guardarse o entregarse como vale."
               },
               {
-                "title": "Papeles con textura",
-                "description": "Recomendados cuando se busca un acabado más premium, diferencial o alineado con una identidad visual más cuidada."
+                "title": "Soporte resistente",
+                "description": "Recomendado para exterior, eventos de varios días o promociones con mayor manipulación."
               }
             ]
           }
@@ -11612,33 +11766,33 @@
           "kind": "formats",
           "contentFormat": "json",
           "formatsData": {
-            "intro": "Definimos el formato y la estructura de la carpeta según el tipo de documentación, el volumen de papel y el uso previsto.",
+            "intro": "Definimos el formato del cupón según la mecánica de la promoción, la información necesaria y el sistema de control del canje.",
             "shapes": [
               {
-                "title": "Carpeta para A4",
-                "description": "Formato más habitual para propuestas comerciales, contratos, catálogos, tarifas y documentación corporativa."
+                "title": "Formato ticket",
+                "description": "Práctico para vales, consumiciones, sorteos, descuentos rápidos y promociones de gran volumen."
+              },
+              {
+                "title": "A6 o DL",
+                "description": "Formatos compactos con más espacio para condiciones, QR, instrucciones o mensajes de campaña."
               },
               {
                 "title": "Formato a medida",
-                "description": "Opción adecuada cuando la documentación, el diseño o el tipo de entrega requieren una medida específica."
-              },
-              {
-                "title": "Con o sin lomo",
-                "description": "La opción con lomo es recomendable si la carpeta debe contener mucho papel, catálogos o documentación más voluminosa."
+                "description": "Permite adaptar tamaño, orientación y diseño a la mecánica promocional o al soporte de entrega."
               }
             ],
             "deliveryFormats": [
               {
-                "title": "Con solapas interiores",
-                "description": "Solución habitual para sujetar documentos y mejorar la presentación de la entrega."
+                "title": "Cupón simple",
+                "description": "Pieza individual para entregar, presentar y canjear de forma rápida."
               },
               {
-                "title": "Con ranura para tarjeta",
-                "description": "Muy útil en visitas comerciales, ferias y propuestas donde se quiere incluir una tarjeta de contacto."
+                "title": "Cupón con talón desprendible",
+                "description": "Útil para combinar canje, control interno, sorteo o resguardo en una misma pieza."
               },
               {
-                "title": "Con cierres o sistemas especiales",
-                "description": "Posibilidad de valorar cierres u otros sistemas funcionales cuando el proyecto lo requiere."
+                "title": "Series numeradas o con código",
+                "description": "Permiten controlar lotes, tiendas, días, zonas o tipos de premio/descuento."
               }
             ]
           }
@@ -11650,23 +11804,23 @@
           "kind": "finishes",
           "contentFormat": "json",
           "finishesData": {
-            "intro": "Los acabados ayudan a proteger la carpeta, mejorar la durabilidad y elevar la calidad percibida de la presentación.",
+            "intro": "Los acabados se eligen según la manipulación prevista, la seguridad del canje y la imagen final de la promoción.",
             "finishes": [
               {
+                "title": "Numeración correlativa",
+                "description": "Facilita el control de canje, la trazabilidad por lotes y la validación interna."
+              },
+              {
+                "title": "Códigos únicos o QR",
+                "description": "Permiten enlazar el cupón con una landing, formulario, condiciones o sistema de validación."
+              },
+              {
+                "title": "Perforado para talón",
+                "description": "Permite separar resguardo, cupón o matriz de forma limpia durante la acción."
+              },
+              {
                 "title": "Laminado mate o brillo",
-                "description": "Protege frente a roces y mejora la durabilidad. El mate suele aportar una presencia más elegante y corporativa."
-              },
-              {
-                "title": "Soft touch",
-                "description": "Aporta un tacto premium y una percepción más cuidada en mano."
-              },
-              {
-                "title": "Barniz selectivo",
-                "description": "Permite resaltar logotipos, títulos o detalles gráficos concretos."
-              },
-              {
-                "title": "Stamping metalizado",
-                "description": "Acabado dorado, plata u otros metalizados, ideal para una carpeta corporativa premium."
+                "description": "Aporta más resistencia y mejora la presencia cuando el cupón debe manipularse o conservarse."
               }
             ]
           }
@@ -11677,15 +11831,39 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Estructura\n\n- **Solapas interiores:** ayudan a sujetar la documentación y evitar que las hojas queden sueltas.\n- **Hendido profesional:** permite un plegado limpio, resistente y más cómodo de manipular.\n- **Ranura para tarjeta:** opción muy útil en visitas comerciales, ferias y entregas a clientes.\n- **Sistemas especiales:** posibilidad de cierres u otros recursos funcionales si el proyecto lo requiere.\n\nImpresión\n\n- **Impresión a todo color:** disponible a una o dos caras según el diseño y el nivel de presencia buscado.\n- **Coherencia visual:** posibilidad de preparar series por sede, departamento, campaña o equipo comercial manteniendo la misma línea gráfica.\n- **Archivo recomendado:** PDF final con medidas correctas, sangrado, márgenes de seguridad y tipografías trazadas o incrustadas."
+          "body": "### Formatos y medidas\n- Tamaños estándar tipo ticket, A6, DL o tarjeta (o a medida según mecánica y cantidad de texto).\n\nImpresión a una o dos caras: el reverso es útil para condiciones, instrucciones o QR a bases completas.\n\n### Materiales recomendados\n- Cartulinas con buen cuerpo para una entrega cuidada y una manipulación cómoda.\n\nOpciones más resistentes si se van a repartir en exterior o en grandes cantidades.\n\n### Control y personalización\n- Numeración correlativa por series o lotes.\n\nCódigos únicos (alfanuméricos) para canje y validación.\n\nQR / código de barras para lectura rápida en móvil o TPV.\n\nDatos variables si necesitas versiones por tienda, zona, día, patrocinador o tipo de público.\n\n### Perforado y talones\n- Perforado para talón desprendible: muy útil cuando necesitas un control interno (guardar un talón, entregar otro) o combinar canje + sorteo.\n\nPosibilidad de incluir “cupón + resguardo” en la misma pieza.\n\n### Acabados y extras útiles\n- Acabado mate recomendado cuando habrá mucha luz o se van a fotografiar (reduce reflejos).\n\nLaminado mate o brillo si necesitas más resistencia al roce y una presencia más “premium”."
         },
         {
           "id": "applications",
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "Aplicaciones habituales de las carpetas de presentación personalizadas en ventas, ferias, documentación corporativa y comunicación interna.\n\n- **Propuestas comerciales y presupuestos:** presentación cuidada de ofertas, tarifas, proyectos y documentación para clientes.\n- **Contratos y documentación legal:** entrega ordenada de documentos importantes con una imagen profesional.\n- **Ferias y visitas comerciales:** carpeta con dossier, catálogo, tarifa, ficha de producto o tarjeta de visita.\n- **Presentaciones corporativas:** memorias, catálogos, tarifas, documentación institucional o materiales de empresa.\n- **Formación y documentación interna:** manuales, onboarding, procedimientos y documentación para equipos."
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Aplicaciones habituales en eventos, empresas, campañas y acciones promocionales.",
+            "applications": [
+              {
+                "title": "Ferias y congresos",
+                "description": "Cupones de descuento para captar leads (canje tras registro o visita al stand)."
+              },
+              {
+                "title": "Eventos corporativos",
+                "description": "Vales para consumición, regalo, sorteo o dinámicas internas (gamificación)."
+              },
+              {
+                "title": "Punto de venta",
+                "description": "Promociones ligadas a compra, cupones por ticket, campañas por tiendas o franjas horarias."
+              },
+              {
+                "title": "Acciones de marca y street marketing",
+                "description": "Cupones con QR a landing, descarga o canje online."
+              },
+              {
+                "title": "Hostelería en eventos",
+                "description": "Vales de bebida/comida, upgrades o packs especiales para asistentes."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
@@ -14332,7 +14510,7 @@
     },
     {
       "id": "30",
-      "updatedAt": "2026-05-05T11:40:38Z",
+      "updatedAt": "2026-05-15T16:44:39Z",
       "type": "producto",
       "slug": "cupones-promocionales",
       "path": "/productos/cupones-promocionales",
@@ -14345,7 +14523,7 @@
       "isPublished": true,
       "shortDescription": "Los cupones promocionales son una herramienta directa para activar ventas y participación: permiten ofrecer descuentos, regalos, beneficios exclusivos o acceso a una promoción con una mecánica muy fácil de entender. En Repro Disseny imprimimos cupones personalizados para eventos, ferias y campañas de marca, con opciones de códigos únicos, QR, numeración y perforado para que el canje sea rápido y controlado.",
       "description": "Los cupones promocionales son una herramienta directa para activar ventas y participación: permiten ofrecer descuentos, regalos, beneficios exclusivos o acceso a una promoción con una mecánica muy fácil de entender. En Repro Disseny imprimimos cupones personalizados para eventos, ferias y campañas de marca, con opciones de códigos únicos, QR, numeración y perforado para que el canje sea rápido y controlado.",
-      "bodyMd": "¿Qué es un cupón promocional y para qué se usa?\nUn cupón promocional es una pieza impresa (tipo tarjeta, vale o ticket) que da derecho a un beneficio: un descuento, una consumición, un regalo, un upgrade o una ventaja por participar. Puede incluir código, fecha de validez, condiciones básicas y elementos de control como numeración o QR/código de barras.\nEs especialmente útil cuando necesitas una acción medible: entregas el cupón, el usuario lo canjea y tú puedes controlar qué se ha utilizado, dónde y cuándo.",
+      "bodyMd": "### ¿Qué es un cupón promocional y para qué se usa?\n\nUn cupón promocional es una pieza impresa —tipo tarjeta, vale o ticket— que da derecho a un beneficio: un descuento, una consumición, un regalo, un upgrade o una ventaja por participar.\n\nPuede incluir código, fecha de validez, condiciones básicas y elementos de control como numeración, QR o código de barras.\n\nEs especialmente útil cuando necesitas una acción medible: entregas el cupón, el usuario lo canjea y puedes controlar qué se ha utilizado, dónde y cuándo.",
       "sections": [
         {
           "id": "details",
@@ -14353,15 +14531,129 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es un cupón promocional y para qué se usa?\nUn cupón promocional es una pieza impresa (tipo tarjeta, vale o ticket) que da derecho a un beneficio: un descuento, una consumición, un regalo, un upgrade o una ventaja por participar. Puede incluir código, fecha de validez, condiciones básicas y elementos de control como numeración o QR/código de barras.\nEs especialmente útil cuando necesitas una acción medible: entregas el cupón, el usuario lo canjea y tú puedes controlar qué se ha utilizado, dónde y cuándo."
+          "body": "### ¿Qué es un cupón promocional y para qué se usa?\n\nUn cupón promocional es una pieza impresa —tipo tarjeta, vale o ticket— que da derecho a un beneficio: un descuento, una consumición, un regalo, un upgrade o una ventaja por participar.\n\nPuede incluir código, fecha de validez, condiciones básicas y elementos de control como numeración, QR o código de barras.\n\nEs especialmente útil cuando necesitas una acción medible: entregas el cupón, el usuario lo canjea y puedes controlar qué se ha utilizado, dónde y cuándo."
         },
         {
           "id": "benefits",
           "key": "benefits",
           "title": "Beneficios",
           "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "Acción inmediata y medible: el cupón convierte la atención en un paso claro (canjear, comprar, registrarse).\nControl de canje: con numeración o códigos únicos puedes validar premios/descuentos y evitar duplicidades.\nVersátil para cualquier canal: funciona en eventos, punto de venta, envíos, street marketing o como inserto en packaging.\nImpulsa repetición y fidelización: ideal para “vuelve y gana”, segunda compra, invitación a probar o incentivo post-evento.\nFácil de explicar: una mecánica simple (presentar cupón / escanear QR) reduce fricción y aumenta conversiones."
+          "contentFormat": "json",
+          "benefitsData": {
+            "intro": "Ventajas principales de los cupones promocionales para campañas, eventos, ferias, retail y acciones de fidelización.",
+            "benefits": [
+              {
+                "title": "Acción inmediata y medible",
+                "description": "El cupón convierte la atención en un paso claro: canjear, comprar, registrarse o participar en una promoción."
+              },
+              {
+                "title": "Control de canje",
+                "description": "Con numeración, códigos únicos o QR puedes validar descuentos, premios o ventajas y evitar duplicidades."
+              },
+              {
+                "title": "Versátil para cualquier canal",
+                "description": "Funciona en eventos, punto de venta, envíos, street marketing, packaging o campañas comerciales."
+              },
+              {
+                "title": "Impulsa repetición y fidelización",
+                "description": "Ideal para campañas tipo vuelve y gana, segunda compra, invitación a probar o incentivo post-evento."
+              },
+              {
+                "title": "Fácil de explicar",
+                "description": "Una mecánica simple —presentar el cupón o escanear un QR— reduce fricción y aumenta la participación."
+              }
+            ]
+          }
+        },
+        {
+          "id": "materials",
+          "key": "materials",
+          "title": "Materiales",
+          "kind": "materials",
+          "contentFormat": "json",
+          "materialsData": {
+            "intro": "Elegimos el soporte del cupón según la forma de reparto, la duración de la promoción y el nivel de resistencia necesario durante el canje.",
+            "materials": [
+              {
+                "title": "Papel con buen cuerpo",
+                "description": "Opción práctica para campañas de volumen, reparto masivo o inserciones promocionales."
+              },
+              {
+                "title": "Cartulina",
+                "description": "Aporta más presencia y resistencia cuando el cupón debe manipularse, guardarse o entregarse como vale."
+              },
+              {
+                "title": "Soporte resistente",
+                "description": "Recomendado para exterior, eventos de varios días o promociones con mayor manipulación."
+              }
+            ]
+          }
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "kind": "formats",
+          "contentFormat": "json",
+          "formatsData": {
+            "intro": "Definimos el formato del cupón según la mecánica de la promoción, la información necesaria y el sistema de control del canje.",
+            "shapes": [
+              {
+                "title": "Formato ticket",
+                "description": "Práctico para vales, consumiciones, sorteos, descuentos rápidos y promociones de gran volumen."
+              },
+              {
+                "title": "A6 o DL",
+                "description": "Formatos compactos con más espacio para condiciones, QR, instrucciones o mensajes de campaña."
+              },
+              {
+                "title": "Formato a medida",
+                "description": "Permite adaptar tamaño, orientación y diseño a la mecánica promocional o al soporte de entrega."
+              }
+            ],
+            "deliveryFormats": [
+              {
+                "title": "Cupón simple",
+                "description": "Pieza individual para entregar, presentar y canjear de forma rápida."
+              },
+              {
+                "title": "Cupón con talón desprendible",
+                "description": "Útil para combinar canje, control interno, sorteo o resguardo en una misma pieza."
+              },
+              {
+                "title": "Series numeradas o con código",
+                "description": "Permiten controlar lotes, tiendas, días, zonas o tipos de premio/descuento."
+              }
+            ]
+          }
+        },
+        {
+          "id": "finishes",
+          "key": "finishes",
+          "title": "Acabados",
+          "kind": "finishes",
+          "contentFormat": "json",
+          "finishesData": {
+            "intro": "Los acabados se eligen según la manipulación prevista, la seguridad del canje y la imagen final de la promoción.",
+            "finishes": [
+              {
+                "title": "Numeración correlativa",
+                "description": "Facilita el control de canje, la trazabilidad por lotes y la validación interna."
+              },
+              {
+                "title": "Códigos únicos o QR",
+                "description": "Permiten enlazar el cupón con una landing, formulario, condiciones o sistema de validación."
+              },
+              {
+                "title": "Perforado para talón",
+                "description": "Permite separar resguardo, cupón o matriz de forma limpia durante la acción."
+              },
+              {
+                "title": "Laminado mate o brillo",
+                "description": "Aporta más resistencia y mejora la presencia cuando el cupón debe manipularse o conservarse."
+              }
+            ]
+          }
         },
         {
           "id": "technical-specs",
@@ -14369,15 +14661,39 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Formatos y medidas\nTamaños estándar tipo ticket, A6, DL o tarjeta (o a medida según mecánica y cantidad de texto).\nImpresión a una o dos caras: el reverso es útil para condiciones, instrucciones o QR a bases completas.\nMateriales recomendados\nCartulinas con buen cuerpo para una entrega cuidada y una manipulación cómoda.\nOpciones más resistentes si se van a repartir en exterior o en grandes cantidades.\nControl y personalización\nNumeración correlativa por series o lotes.\nCódigos únicos (alfanuméricos) para canje y validación.\nQR / código de barras para lectura rápida en móvil o TPV.\nDatos variables si necesitas versiones por tienda, zona, día, patrocinador o tipo de público.\nPerforado y talones\nPerforado para talón desprendible: muy útil cuando necesitas un control interno (guardar un talón, entregar otro) o combinar canje + sorteo.\nPosibilidad de incluir “cupón + resguardo” en la misma pieza.\nAcabados y extras útiles\nAcabado mate recomendado cuando habrá mucha luz o se van a fotografiar (reduce reflejos).\nLaminado mate o brillo si necesitas más resistencia al roce y una presencia más “premium”."
+          "body": "### Formatos y medidas\n\n- Tamaños estándar tipo ticket, A6, DL o tarjeta.\n- Medidas a medida según la mecánica de la promoción y la cantidad de texto.\n- Formato horizontal o vertical según diseño, zona de canje y espacio para condiciones.\n\n### Impresión\n\n- Impresión a una o dos caras.\n- El reverso es útil para condiciones, instrucciones, QR o bases resumidas de la promoción.\n- Posibilidad de preparar varias versiones dentro de una misma campaña.\n\n### Materiales recomendados\n\n- Papel o cartulina con buen cuerpo para una entrega cuidada.\n- Soportes más resistentes si se van a repartir en exterior, ferias o eventos de varios días.\n- Opciones con más presencia cuando el cupón funciona como vale, invitación o pieza promocional premium.\n\n### Control y personalización\n\n- Numeración correlativa por series o lotes.\n- Códigos únicos alfanuméricos para canje y validación.\n- QR o código de barras para lectura rápida en móvil, web, app o TPV.\n- Datos variables para versiones por tienda, zona, día, patrocinador o tipo de público.\n\n### Perforado y talones\n\n- Perforado para talón desprendible.\n- Útil cuando necesitas control interno, resguardo, sorteo o comprobante de canje.\n- Posibilidad de incluir cupón y matriz en una misma pieza.\n\n### Acabados y extras útiles\n\n- Acabado mate recomendado cuando habrá mucha luz o se van a fotografiar.\n- Laminado mate o brillo si necesitas más resistencia al roce.\n- Acabados especiales según campaña, manipulación y duración prevista."
         },
         {
           "id": "applications",
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "Ferias y congresos: cupones de descuento para captar leads (canje tras registro o visita al stand).\nEventos corporativos: vales para consumición, regalo, sorteo o dinámicas internas (gamificación).\nPunto de venta: promociones ligadas a compra, cupones por ticket, campañas por tiendas o franjas horarias.\nAcciones de marca y street marketing: cupones con QR a landing, descarga o canje online.\nHostelería en eventos: vales de bebida/comida, upgrades o packs especiales para asistentes."
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Aplicaciones habituales de los cupones promocionales en eventos, empresas, campañas comerciales y acciones de marca.",
+            "applications": [
+              {
+                "title": "Ferias y congresos",
+                "description": "Cupones de descuento, ventajas o regalos para captar leads tras registro, visita al stand o participación en una acción."
+              },
+              {
+                "title": "Eventos corporativos",
+                "description": "Vales para consumición, regalos, sorteos, dinámicas internas, gamificación o control de beneficios para asistentes."
+              },
+              {
+                "title": "Punto de venta",
+                "description": "Promociones ligadas a compra, cupones por ticket, campañas por tienda, franjas horarias o lanzamientos de producto."
+              },
+              {
+                "title": "Street marketing y acciones de marca",
+                "description": "Cupones con QR a landing, descarga, formulario, sorteo o canje online."
+              },
+              {
+                "title": "Hostelería y eventos",
+                "description": "Vales de bebida, comida, upgrades, packs especiales o beneficios exclusivos para asistentes."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
@@ -30721,7 +31037,7 @@
     },
     {
       "id": "78",
-      "updatedAt": "2026-05-05T15:42:12Z",
+      "updatedAt": "2026-05-15T17:16:58Z",
       "type": "producto",
       "slug": "pegatinas-personalizadas",
       "path": "/productos/pegatinas-personalizadas",
@@ -30905,7 +31221,23 @@
         "height": 1200,
         "alt": "Pegatinas personalizadas en papel o vinilo para packaging, promociones y marca"
       },
-      "galleryImages": [],
+      "galleryImages": [
+        {
+          "src": "https://media.reprodisseny.com/media/category/adhesivos%20imatges/detalles.webp",
+          "alt": "Pegatinas personalizadas aplicadas en packaging y superficies comerciales",
+          "caption": "Pegatinas personalizadas para packaging, promociones y marca"
+        },
+        {
+          "src": "https://media.reprodisseny.com/media/category/adhesivos%20imatges/acabados.webp",
+          "alt": "Acabados para pegatinas personalizadas con diferentes materiales y efectos de impresión",
+          "caption": "Acabados disponibles para mejorar presencia y resistencia"
+        },
+        {
+          "src": "https://media.reprodisseny.com/media/category/adhesivos%20imatges/tipos.webp",
+          "alt": "Tipos de pegatinas personalizadas en papel, vinilo y materiales especiales",
+          "caption": "Tipos de pegatinas según material, uso y formato"
+        }
+      ],
       "sku": "01-ADHE-0001",
       "brand": "Reprodisseny",
       "price": 0,

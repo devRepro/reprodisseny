@@ -1,13 +1,21 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import type { ProductDetailDto } from "~/server/services/cms/catalog.service";
+
 import SiteBreadcrumbs from "@/components/shared/SiteBreadcrumbs.vue";
 import ProductHero from "@/components/marketing/product/Hero.vue";
 import GuideBanner from "@/components/marketing/GuideBanner.vue";
 import ContentSectionsRenderer from "@/components/marketing/content/ContentSectionsRenderer.vue";
 import FaqAccordion from "@/components/shared/blocks/FaqAccordion.vue";
 import ContentSectionShell from "@/components/marketing/content/ContentSectionShell.vue";
-import SectionSplitBanner from "@/components/shared/banner/SectionSplitBanner.vue";
+
+type GalleryImage = {
+  src?: string;
+  alt?: string;
+  caption?: string;
+  width?: number | null;
+  height?: number | null;
+};
 
 const route = useRoute();
 const config = useRuntimeConfig();
@@ -40,6 +48,25 @@ function toAbsoluteUrl(value?: string | null) {
   } catch {
     return undefined;
   }
+}
+
+function normalizeGalleryImages(value: unknown): GalleryImage[] {
+  if (!Array.isArray(value)) return [];
+
+  return value
+    .filter((image) => image && typeof image === "object")
+    .map((image) => {
+      const source = image as GalleryImage;
+
+      return {
+        src: String(source.src || "").trim(),
+        alt: String(source.alt || "").trim(),
+        caption: String(source.caption || "").trim(),
+        width: typeof source.width === "number" ? source.width : null,
+        height: typeof source.height === "number" ? source.height : null,
+      };
+    })
+    .filter((image) => image.src);
 }
 
 const slug = computed(() =>
@@ -111,6 +138,12 @@ const breadcrumbItems = computed(() =>
 
 const sections = computed(() =>
   Array.isArray(product.value?.sections) ? product.value.sections.filter(Boolean) : []
+);
+
+const galleryImages = computed<GalleryImage[]>(() =>
+  normalizeGalleryImages(
+    (product.value as ProductDetailDto & { galleryImages?: unknown })?.galleryImages
+  )
 );
 
 const faqs = computed(() =>
@@ -245,37 +278,6 @@ useSeoMeta({
     "Detalles de producto",
   twitterImage: () => ogImageUrl.value,
 });
-
-const productLabel = computed(() => product.value?.title || "este producto");
-
-const categoryLabel = computed(
-  () => category.value?.nav || category.value?.title || "su categoría"
-);
-
-const closingBannerTitle = computed(
-  () => `¿Necesitas una solución a medida para ${productLabel.value.toLowerCase()}?`
-);
-
-const closingBannerDescription = computed(() => {
-  return (
-    product.value?.shortDescription ||
-    product.value?.description ||
-    `Te ayudamos a validar medidas, materiales, acabados y la mejor opción de producción para ${productLabel.value.toLowerCase()}.`
-  );
-});
-
-const closingBannerPills = computed(() => {
-  const items = [
-    categoryLabel.value,
-    "Asesoramiento técnico",
-    "Producción a medida",
-    "Presupuesto personalizado",
-  ]
-    .map((item) => String(item || "").trim())
-    .filter(Boolean);
-
-  return Array.from(new Set(items)).slice(0, 4);
-});
 </script>
 
 <template>
@@ -309,7 +311,10 @@ const closingBannerPills = computed(() => {
             title="Detalles, beneficios y opciones"
             description="Consulta la información clave de este producto en un formato claro y fácil de revisar."
           >
-            <ContentSectionsRenderer :sections="sections" />
+            <ContentSectionsRenderer
+              :sections="sections"
+              :gallery-images="galleryImages"
+            />
           </ContentSectionShell>
 
           <ContentSectionShell
@@ -332,20 +337,6 @@ const closingBannerPills = computed(() => {
               :rounded="false"
             />
           </section>
-
-          <SectionSplitBanner
-            eyebrow="Proyecto a medida"
-            :title="closingBannerTitle"
-            :description="closingBannerDescription"
-            :image-src="heroImage"
-            :image-alt="product.title || closingBannerTitle"
-            :pills="closingBannerPills"
-            primary-label="Contactar con un asesor"
-            primary-to="/contacto"
-            :secondary-label="category?.path ? 'Ver categoría' : ''"
-            :secondary-to="category?.path || null"
-            image-position="right"
-          />
         </div>
       </div>
     </template>

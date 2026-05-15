@@ -21,6 +21,14 @@ type CategoryHowWeWork = {
   steps?: ProcessStepItem[];
 };
 
+type GalleryImage = {
+  src?: string;
+  alt?: string;
+  caption?: string;
+  width?: number | null;
+  height?: number | null;
+};
+
 const route = useRoute();
 const config = useRuntimeConfig();
 const nuxtApp = useNuxtApp();
@@ -38,6 +46,25 @@ function safeDecode(value: unknown) {
   } catch {
     return String(value ?? "");
   }
+}
+
+function normalizeGalleryImages(value: unknown): GalleryImage[] {
+  if (!Array.isArray(value)) return [];
+
+  return value
+    .filter((image) => image && typeof image === "object")
+    .map((image) => {
+      const source = image as GalleryImage;
+
+      return {
+        src: String(source.src || "").trim(),
+        alt: String(source.alt || "").trim(),
+        caption: String(source.caption || "").trim(),
+        width: typeof source.width === "number" ? source.width : null,
+        height: typeof source.height === "number" ? source.height : null,
+      };
+    })
+    .filter((image) => image.src);
 }
 
 const fallbackProcessSteps: ProcessStepItem[] = [
@@ -111,6 +138,7 @@ const slugParts = computed(() => {
 });
 
 const slug = computed(() => slugParts.value.join("/"));
+
 const apiSlug = computed(() =>
   slugParts.value.map((part) => encodeURIComponent(part)).join("/")
 );
@@ -123,23 +151,24 @@ if (!slug.value || isAssetLike(slug.value) || looksLikeProductPath(slug.value)) 
   });
 }
 
-const { data, status,pending, error } = await useAsyncData<CategoryDetailPageDto | null>(
-  `cms:category:${slug.value}`,
-  () =>
-    $fetch(`/api/cms/category/${apiSlug.value}`, {
-      query: {
-        includeProducts: 1,
-        productLimit: 24,
-        includeChildren: 1,
-        childLimit: 50,
-      },
-    }),
-  {
-    server: true,
-    watch: [slug],
-    default: () => null,
-  }
-);
+const { data, status, pending, error } =
+  await useAsyncData<CategoryDetailPageDto | null>(
+    `cms:category:${slug.value}`,
+    () =>
+      $fetch(`/api/cms/category/${apiSlug.value}`, {
+        query: {
+          includeProducts: 1,
+          productLimit: 24,
+          includeChildren: 1,
+          childLimit: 50,
+        },
+      }),
+    {
+      server: true,
+      watch: [slug],
+      default: () => null,
+    }
+  );
 
 if (
   data.value?.redirectTo &&
@@ -150,6 +179,7 @@ if (
     replace: true,
   });
 }
+
 const fetchError = computed(() => (error.value as any) || null);
 const category = computed(() => data.value as CategoryDetailPageDto | null);
 
@@ -161,12 +191,19 @@ const products = computed(() =>
   Array.isArray(category.value?.products) ? category.value.products : []
 );
 
-const detailGallery = computed(() => {
-  const items = Array.isArray(category.value?.detailGallery)
-    ? category.value.detailGallery
-    : [];
+const detailGallery = computed<GalleryImage[]>(() => {
+  const items = normalizeGalleryImages((category.value as any)?.detailGallery);
+  return items.slice(0, 3);
+});
 
-  return items.filter((item) => String(item?.src || "").trim()).slice(0, 3);
+const galleryImages = computed<GalleryImage[]>(() => {
+  const fromGalleryImages = normalizeGalleryImages(
+    (category.value as any)?.galleryImages
+  );
+
+  if (fromGalleryImages.length) return fromGalleryImages;
+
+  return detailGallery.value;
 });
 
 const keywordPills = computed(() =>
@@ -174,6 +211,7 @@ const keywordPills = computed(() =>
 );
 
 const isPending = computed(() => status.value === "pending");
+
 const showNotFound = computed(() => {
   return !isPending.value && !nuxtApp.isHydrating && !category.value;
 });
@@ -196,6 +234,7 @@ const howWeWork = computed<CategoryHowWeWork | null>(() => {
   const value = category.value as
     | (CategoryDetailPageDto & { howWeWork?: CategoryHowWeWork })
     | null;
+
   return value?.howWeWork ?? null;
 });
 
@@ -308,7 +347,7 @@ const bannerDescription = computed(() => {
 });
 
 const detailsMedia = computed(() => {
-  const primary = detailGallery.value[0];
+  const primary = detailGallery.value[0] || galleryImages.value[0];
 
   const image = primary?.src
     ? {
@@ -335,7 +374,11 @@ const detailsMedia = computed(() => {
 });
 
 const closingBannerImage = computed(() => {
-  const image = detailGallery.value[1] || detailGallery.value[0];
+  const image =
+    detailGallery.value[1] ||
+    galleryImages.value[1] ||
+    detailGallery.value[0] ||
+    galleryImages.value[0];
 
   if (image?.src) {
     return {
@@ -469,7 +512,11 @@ const closingBannerPills = computed(() => {
             title="Características, tipos, formatos y acabados"
             description="Consulta la información clave de esta categoría en un formato más claro y fácil de comparar."
           >
-            <ContentSectionsRenderer :sections="sections" :details-media="detailsMedia" />
+            <ContentSectionsRenderer
+              :sections="sections"
+              :details-media="detailsMedia"
+              :gallery-images="galleryImages"
+            />
           </ContentSectionShell>
 
           <div v-if="hasProcessSteps" :class="sectionSpacingClass">
@@ -484,6 +531,7 @@ const closingBannerPills = computed(() => {
               <ContentProcessSteps :steps="processSteps" />
             </ContentSectionShell>
           </div>
+
           <div :class="sectionSpacingCompactClass">
             <GuideBanner
               title="¿Tienes dudas con el archivo, el tamaño o el acabado?"
