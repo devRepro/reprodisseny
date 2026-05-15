@@ -26,3 +26,5 @@ logs
 
 /imports/*
 !.gitkeep
+.vercel
+.env*.local

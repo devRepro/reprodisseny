@@ -1,9 +1,13 @@
-// server/routes/error/notfound.get.ts
-// Redirige URLs antiguas indexadas como /error/notfound?aspxerrorpath=/ruta-antigua
-// Archivo generado desde: Copia de URL antigues a destino.xlsx
+import { createError, getQuery, getRequestURL, sendRedirect } from "h3";
 
-const legacyNotFoundRedirects: Record<string, string> = {
+// Redirige URLs antiguas indexadas como:
+// /error/notfound?aspxerrorpath=/ruta-antigua
+//
+// Origen: URL antigues a destino.xlsx
+
+const LEGACY_NOT_FOUND_REDIRECTS = {
   "/Orders/GetOrderItemProofFiles": "/",
+  "/adevinta-estrena-nuevas-oficines": "/",
   "/adevinta-estrena-nuevas-oficinas": "/",
   "/ca/manual-para-hacer-un-buen-flyer": "/como-preparar-archivos",
   "/ca/producte/acreditacions": "/productos/acreditaciones-personalizadas",
@@ -48,24 +52,89 @@ const legacyNotFoundRedirects: Record<string, string> = {
   "/producto/vinilos-de-escaparate": "/productos/vinilo-para-cristal",
   "/productos/banderolas-lineal": "/productos/banderolas-lineal-personalizadas",
   "/productos/banderolas-lineal-personalizadas": "/productos/banderolas-lineal-personalizadas",
-};
+} as const satisfies Record<string, string>;
 
-function normalizePath(value: unknown) {
-  const path = String(value ?? "").trim();
-  if (!path) return "";
-  const decoded = decodeURIComponent(path);
-  const withSlash = decoded.startsWith("/") ? decoded : `/${decoded}`;
-  return withSlash !== "/" ? withSlash.replace(/\/+$/, "") : "/";
+function safeDecodeURIComponent(value: string) {
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    return value;
+  }
+}
+
+function normalizeLegacyPath(value: unknown) {
+  const rawValue = Array.isArray(value) ? value[0] : value;
+
+  if (!rawValue) {
+    return "";
+  }
+
+  let path = String(rawValue).trim();
+
+  if (!path) {
+    return "";
+  }
+
+  path = safeDecodeURIComponent(path);
+
+  try {
+    if (/^https?:\/\//i.test(path)) {
+      path = new URL(path).pathname;
+    }
+  } catch {
+    // Seguimos normalizando como path.
+  }
+
+  path = path.split("#")[0] ?? "";
+  path = path.split("?")[0] ?? "";
+
+  if (!path.startsWith("/")) {
+    path = `/${path}`;
+  }
+
+  path = path.replace(/\/{2,}/g, "/");
+
+  if (path.length > 1) {
+    path = path.replace(/\/+$/, "");
+  }
+
+  return path;
+}
+
+function isSafeInternalDestination(destination: string) {
+  return destination.startsWith("/") && !destination.startsWith("//");
 }
 
 export default defineEventHandler((event) => {
-  const query = getQuery(event);
-  const legacyPath = normalizePath(query.aspxerrorpath);
-  const destination = legacyNotFoundRedirects[legacyPath];
+  const url = getRequestURL(event);
 
-  if (destination) {
+  // Solo interceptamos esta URL antigua.
+  // El resto de la web no se toca.
+  if (url.pathname !== "/error/notfound") {
+    return;
+  }
+
+  const query = getQuery(event);
+  const legacyPath = normalizeLegacyPath(query.aspxerrorpath);
+
+  if (!legacyPath) {
+    throw createError({
+      statusCode: 410,
+      statusMessage: "Gone",
+    });
+  }
+
+  const destination =
+    LEGACY_NOT_FOUND_REDIRECTS[
+      legacyPath as keyof typeof LEGACY_NOT_FOUND_REDIRECTS
+    ];
+
+  if (destination && isSafeInternalDestination(destination)) {
     return sendRedirect(event, destination, 301);
   }
 
-  return sendRedirect(event, "/", 301);
+  throw createError({
+    statusCode: 410,
+    statusMessage: "Gone",
+  });
 });
