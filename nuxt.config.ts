@@ -338,28 +338,57 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      htmlAttrs: {
-        lang: "es",
+    htmlAttrs: {
+      lang: "es",
+    },
+
+    title: "Impresión profesional en Cataluña",
+    titleTemplate: "%s · Repro Disseny",
+
+    meta: [
+      {
+        name: "theme-color",
+        content: "#0076B3",
       },
-
-      title: "Impresión profesional en Cataluña",
-      titleTemplate: "%s · Repro Disseny",
-
-      meta: [
-        // tus metas actuales
-      ],
-
-      link: [
-        {
-          rel: "preconnect",
-          href: mediaCdnOrigin,
-          crossorigin: "",
-        },
-        {
-          rel: "dns-prefetch",
-          href: mediaCdnOrigin,
-        },
-      ],
+      ...(googleSiteVerification
+        ? [
+            {
+              name: "google-site-verification",
+              content: googleSiteVerification,
+            },
+          ]
+        : []),
+    ],
+link: [
+  {
+    rel: "icon",
+    type: "image/svg+xml",
+    href: "/favicon.svg?v=2",
+  },
+  {
+    rel: "icon",
+    href: "/favicon.ico?v=2",
+    sizes: "any",
+  },
+  {
+    rel: "apple-touch-icon",
+    href: "/apple-touch-icon.png?v=2",
+    sizes: "180x180",
+  },
+  {
+    rel: "manifest",
+    href: "/site.webmanifest",
+  },
+  {
+    rel: "preconnect",
+    href: mediaCdnOrigin,
+    crossorigin: "",
+  },
+  {
+    rel: "dns-prefetch",
+    href: mediaCdnOrigin,
+  },
+],
 
       script: [
         ...(gtmId

@@ -18,17 +18,19 @@ const props = withDefaults(
     heightClass?: string;
     imagePosition?: string;
     sectionClass?: string;
+    eager?: boolean;
   }>(),
   {
     imageAlt: "",
     bullets: () => [],
     primaryLabel: "Solicitar presupuesto",
-    primaryTo: "#presupuesto",
+    primaryTo: "/lp/laminas-solares#quote-form",
     secondaryLabel: "Te respondemos en menos de 24h laborales",
-    secondaryTo: "#presupuesto",
+    secondaryTo: "/lp/laminas-solares#quote-form",
     heightClass: "h-auto lg:h-[300px]",
     imagePosition: "center center",
     sectionClass: "",
+    eager: false,
   }
 );
 
@@ -49,8 +51,10 @@ const displayBullets = computed(() =>
     .filter(Boolean)
 );
 
+const resolvedSecondaryTo = computed(() => props.secondaryTo || null);
+
 const hasSecondaryAction = computed(() =>
-  Boolean(props.secondaryLabel?.trim() && props.secondaryTo)
+  Boolean(props.secondaryLabel?.trim() && resolvedSecondaryTo.value)
 );
 </script>
 
@@ -74,9 +78,9 @@ const hasSecondaryAction = computed(() =>
           :alt="resolvedImageAlt"
           class="absolute inset-0 h-full w-full object-cover"
           :style="{ objectPosition: imagePosition }"
-          loading="eager"
+          :loading="eager ? 'eager' : 'lazy'"
           decoding="async"
-          fetchpriority="high"
+          :fetchpriority="eager ? 'high' : 'auto'"
         />
       </div>
 
@@ -85,11 +89,11 @@ const hasSecondaryAction = computed(() =>
       >
         <div class="w-full max-w-[680px]">
           <div class="space-y-5">
-            <h1
+            <h2
               class="text-balance text-[32px] font-bold leading-[1.12] tracking-tight text-white md:text-[36px]"
             >
               {{ title }}
-            </h1>
+            </h2>
 
             <ul
               v-if="displayBullets.length"
@@ -111,7 +115,7 @@ const hasSecondaryAction = computed(() =>
             </ul>
           </div>
 
-          <div class="mt-7 flex flex-col gap-4 sm:flex-row sm:items-center sm:flex-wrap">
+          <div class="mt-7 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
             <NuxtLink
               :to="primaryTo"
               class="inline-flex min-h-12 items-center justify-center rounded-lg bg-[#ffbd2e] px-5 py-2.5 text-[18px] font-semibold leading-none text-[#111827] shadow-sm transition hover:bg-[#ffc94f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#075b7b] md:text-[20px]"
@@ -121,7 +125,7 @@ const hasSecondaryAction = computed(() =>
 
             <NuxtLink
               v-if="hasSecondaryAction"
-              :to="secondaryTo!"
+              :to="resolvedSecondaryTo"
               class="text-[16px] font-medium leading-snug text-white/90 underline underline-offset-4 transition hover:text-white md:text-[18px]"
             >
               {{ secondaryLabel }}

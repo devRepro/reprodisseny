@@ -33,33 +33,33 @@ import AppButton from "@/components/shared/button/AppButton.vue";
         <div
           class="mt-3 flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between lg:gap-10"
         >
-          <div class="max-w-4xl">
-            <h1
-              class="text-balance text-[clamp(2.35rem,7vw,4.65rem)] font-extrabold leading-[1.02] tracking-tight text-foreground"
-            >
-              <span class="block">Tu imprenta digital de confianza</span>
-              <span class="block">en Barcelona</span>
-            </h1>
+          <div class="max-w-5xl lg:flex-1">
+  <h1
+    class="text-balance text-[clamp(2.35rem,6vw,4.35rem)] font-extrabold leading-[1.02] tracking-tight text-foreground"
+  >
+    <span class="block lg:whitespace-nowrap">Tu imprenta digital</span>
+    <span class="block lg:whitespace-nowrap">de confianza en Barcelona</span>
+  </h1>
 
-            <p
-              class="mt-5 max-w-2xl text-body leading-7 text-foreground/75 sm:text-lg sm:leading-8 lg:mt-6"
-            >
-              Convertimos tus necesidades en materiales de comunicación
-              corporativa, comercial y marketing. Producimos tus proyectos
-              profesionalmente, acompañándote, con calidad y rapidez.
-            </p>
+  <p
+    class="mt-5 max-w-2xl text-body leading-7 text-foreground/75 sm:text-lg sm:leading-8 lg:mt-6"
+  >
+    Convertimos tus necesidades en materiales de comunicación
+    corporativa, comercial y marketing. Producimos tus proyectos
+    profesionalmente, acompañándote, con calidad y rapidez.
+  </p>
 
-            <div class="mt-7 lg:mt-8">
-              <AppButton
-                to="/contacto"
-                variant="primary"
-                size="lg"
-                class="w-full sm:w-auto"
-              >
-                Contacta con un experto
-              </AppButton>
-            </div>
-          </div>
+  <div class="mt-7 lg:mt-8">
+    <AppButton
+      to="/contacto"
+      variant="primary"
+      size="lg"
+      class="w-full sm:w-auto"
+    >
+      Contacta con un experto
+    </AppButton>
+  </div>
+</div>
 
           <div class="hidden shrink-0 lg:block lg:pt-1">
             <div

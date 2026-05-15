@@ -4,19 +4,14 @@
       <HomeImageStrip :images="stripImages" />
     </HomeHero>
    <SolarProtectionHeroBanner
-  title="Láminas de protección solar"
-  image-src="/img/banners/sala_reunions.webp"
-  image-alt="Sala de reuniones con ventanas protegidas con láminas solares"
+  title="Láminas solares para cristales"
+  image-src="/img/banners/sala_Reunions.webp"
   :bullets="[
-    'Reduce el calor',
-    'Protege de los rayos UV',
+    'Reduce calor y reflejos sin obras',
     'Instalación profesional en Barcelona',
+    'Presupuesto en menos de 24 h laborales',
   ]"
-  primary-label="Solicitar presupuesto"
   primary-to="/lp/laminas-solares#quote-form"
-  secondary-label="Te respondemos en menos de 24h laborales"
-  secondary-to="/lp/laminas-solares#quote-form"
-  section-class="mt-6 md:mt-8"
 />
     <MarketingProductCategoryGrid title="Ofrecemos una amplia gama de productos"
       description="Explora las principales categorías y encuentra la solución que mejor encaja con tu proyecto."
