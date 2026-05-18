@@ -120,7 +120,7 @@ const isTechnicalSection = computed(() =>
 function parseInlineMarkdown(value: string): InlineToken[] {
   const text = String(value || "");
   const tokens: InlineToken[] = [];
-  const regex = /\*\*(.*?)\*\*/g;
+  const regex = /(\*\*|__)(.*?)\1/g;
 
   let lastIndex = 0;
   let match: RegExpExecArray | null;
@@ -133,10 +133,10 @@ function parseInlineMarkdown(value: string): InlineToken[] {
       });
     }
 
-    if (match[1]) {
+    if (match[2]) {
       tokens.push({
         type: "strong",
-        value: match[1],
+        value: match[2],
       });
     }
 
@@ -155,16 +155,15 @@ function parseInlineMarkdown(value: string): InlineToken[] {
 
 function parseMarkdownBlocks(value: string): MarkdownBlock[] {
   const raw = String(value || "")
-  .replace(/\r\n/g, "\n")
-  .replace(/\r/g, "\n")
-  .replace(/^(#{1,6})([^\s#])/gm, "$1 $2")
-  .replace(/^\s*[•·]\s+/gm, "- ")
-  .trim();
+    .replace(/\r\n/g, "\n")
+    .replace(/\r/g, "\n")
+    .replace(/^(#{1,6})([^\s#])/gm, "$1 $2")
+    .replace(/^\s*[•·]\s+/gm, "- ")
+    .trim();
+
   if (!raw) return [];
 
-  const lines = raw
-  .split("\n")
-  .map((line) => line.trim());
+  const lines = raw.split("\n").map((line) => line.trim());
 
   const blocks: MarkdownBlock[] = [];
   let paragraphLines: string[] = [];
@@ -204,19 +203,23 @@ function parseMarkdownBlocks(value: string): MarkdownBlock[] {
       continue;
     }
 
-    const h3Match = line.match(/^###\s+(.+)$/);
-    const h4Match = line.match(/^####\s+(.+)$/);
+    const headingMatch = line.match(/^(#{1,6})\s+(.+)$/);
     const unorderedMatch = line.match(/^[-*•·]\s+(.+)$/);
     const orderedMatch = line.match(/^\d+\.\s+(.+)$/);
 
-    if (h3Match || h4Match) {
+    if (headingMatch) {
       flushParagraph();
       flushList();
 
+      const markdownLevel = headingMatch[1].length;
+      const headingText = headingMatch[2].trim();
+
       blocks.push({
         type: "heading",
-        level: h3Match ? 3 : 4,
-        text: h3Match?.[1] || h4Match?.[1] || "",
+        // Dentro de una tab ya existe un título superior de sección.
+        // Por eso normalizamos #, ## y ### como h3, y ####+ como h4.
+        level: markdownLevel <= 3 ? 3 : 4,
+        text: headingText,
       });
 
       continue;
@@ -233,7 +236,7 @@ function parseMarkdownBlocks(value: string): MarkdownBlock[] {
       }
 
       currentListOrdered = ordered;
-      listItems.push(itemText);
+      listItems.push(itemText.trim());
       continue;
     }
 

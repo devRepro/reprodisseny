@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-18T10:35:25.644Z",
+  "generatedAt": "2026-05-18T13:38:52.484Z",
   "categories": [
     {
       "id": "12",
@@ -4061,7 +4061,7 @@
     },
     {
       "id": "1",
-      "updatedAt": "2026-05-15T15:33:27Z",
+      "updatedAt": "2026-05-18T12:35:04Z",
       "type": "producto",
       "slug": "abanicos-personalizados",
       "path": "/productos/abanicos-personalizados",
@@ -4215,8 +4215,32 @@
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "\"intro\":\"Aplicaciones habituales en eventos, empresas, campañas y acciones promocionales.\",\"applications\":[{\"title\":\"Bodas y celebraciones\",\"description\":\"Aporta un detalle útil y elegante para invitados en ceremonias y recepciones al aire libre.\"},{\"title\":\"Ferias y eventos corporativos\",\"description\":\"Refuerza la visibilidad de marca y mejora la experiencia del asistente en espacios concurridos.\"},{\"title\":\"Acciones promocionales\",\"description\":\"Funciona como soporte publicitario práctico en campañas de verano, street marketing y reparto promocional.\"},{\"title\":\"Hostelería y terrazas\",\"description\":\"Ayuda a mejorar el confort en eventos, restaurantes y espacios expuestos al calor.\"},{\"title\":\"Eventos segmentados\",\"description\":\"Permite crear versiones específicas para invitados, staff, patrocinadores o distintas zonas del evento.\"}]}"
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Aplicaciones habituales en eventos, empresas, campañas y acciones promocionales.",
+            "applications": [
+              {
+                "title": "Bodas y celebraciones",
+                "description": "Aporta un detalle útil y elegante para invitados en ceremonias y recepciones al aire libre."
+              },
+              {
+                "title": "Ferias y eventos corporativos",
+                "description": "Refuerza la visibilidad de marca y mejora la experiencia del asistente en espacios concurridos."
+              },
+              {
+                "title": "Acciones promocionales",
+                "description": "Funciona como soporte publicitario práctico en campañas de verano, street marketing y reparto promocional."
+              },
+              {
+                "title": "Hostelería y terrazas",
+                "description": "Ayuda a mejorar el confort en eventos, restaurantes y espacios expuestos al calor."
+              },
+              {
+                "title": "Eventos segmentados",
+                "description": "Permite crear versiones específicas para invitados, staff, patrocinadores o distintas zonas del evento."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
@@ -29011,7 +29035,7 @@
     },
     {
       "id": "52",
-      "updatedAt": "2026-05-13T12:11:40Z",
+      "updatedAt": "2026-05-18T13:31:25Z",
       "type": "producto",
       "slug": "panel-forex",
       "path": "/productos/panel-forex",
@@ -29024,7 +29048,7 @@
       "isPublished": true,
       "shortDescription": "El panel de Forex (PVC espumado) es uno de los soportes rígidos más versátiles para comunicación visual: tiene buena presencia, es ligero y aguanta bien el uso en cartelería, señalización y expositores. En Repro Disseny imprimimos Forex a medida con alta calidad, opción a una o dos caras y corte recto o a la forma para dejar la pieza lista para instalar.",
       "description": "El panel de Forex (PVC espumado) es uno de los soportes rígidos más versátiles para comunicación visual: tiene buena presencia, es ligero y aguanta bien el uso en cartelería, señalización y expositores. En Repro Disseny imprimimos Forex a medida con alta calidad, opción a una o dos caras y corte recto o a la forma para dejar la pieza lista para instalar.",
-      "bodyMd": "Un panel de Forex es un soporte rígido de PVC espumado, muy utilizado en comunicación visual por su equilibrio entre rigidez, ligereza y resistencia.\n\nEs una buena opción para piezas que necesitan presencia, estabilidad y un acabado profesional sin usar materiales pesados.\n\nSe utiliza sobre todo para cartelería rígida, señalética, PLV, paneles informativos, displays, rótulos temporales y comunicación en punto de venta.\n\nPuede usarse en interior y también en aplicaciones puntuales de exterior, siempre valorando la ubicación, la exposición al sol, la humedad y la duración prevista del proyecto.",
+      "bodyMd": "## Qué es un panel de Forex\n\nUn **panel de Forex** es un soporte rígido de **PVC espumado**, muy utilizado en comunicación visual por su equilibrio entre **rigidez, ligereza y resistencia**.\n\nEs una buena opción para piezas que necesitan **presencia, estabilidad y un acabado profesional**, sin recurrir a materiales pesados o difíciles de manipular.\n\n## Principales ventajas\n\n- **Ligero y fácil de manipular:** facilita el transporte, la instalación y el montaje.\n- **Buena rigidez:** mantiene una presencia sólida en cartelería, señalética y comunicación visual.\n- **Acabado profesional:** ofrece una superficie adecuada para impresión directa con buena calidad visual.\n- **Versátil:** se adapta a múltiples usos en interior y a aplicaciones puntuales en exterior.\n- **Personalizable:** puede producirse a medida y con diferentes acabados según el proyecto.\n\n## Usos habituales\n\nEl panel de Forex se utiliza sobre todo para **cartelería rígida, señalética, PLV, paneles informativos, displays, rótulos temporales y comunicación en punto de venta**.\n\nTambién es una solución habitual para **tiendas, oficinas, ferias, eventos, campañas promocionales y espacios donde se necesita una comunicación visual estable y ligera**.\n\n## Uso en interior y exterior\n\nEl Forex funciona muy bien en **interior**, donde ofrece una solución ligera, estable y con buena presencia visual.\n\nTambién puede utilizarse en **aplicaciones puntuales de exterior**, siempre valorando la ubicación, la exposición al sol, la humedad y la duración prevista del proyecto.\n\nPara usos exteriores prolongados o más exigentes, conviene revisar el **grosor, el acabado y el sistema de fijación** más adecuados antes de producir la pieza.",
       "sections": [
         {
           "id": "details",
@@ -29032,31 +29056,124 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "Un panel de Forex es un soporte rígido de PVC espumado, muy utilizado en comunicación visual por su equilibrio entre rigidez, ligereza y resistencia.\n\nEs una buena opción para piezas que necesitan presencia, estabilidad y un acabado profesional sin usar materiales pesados.\n\nSe utiliza sobre todo para cartelería rígida, señalética, PLV, paneles informativos, displays, rótulos temporales y comunicación en punto de venta.\n\nPuede usarse en interior y también en aplicaciones puntuales de exterior, siempre valorando la ubicación, la exposición al sol, la humedad y la duración prevista del proyecto."
+          "body": "## Qué es un panel de Forex\n\nUn **panel de Forex** es un soporte rígido de **PVC espumado**, muy utilizado en comunicación visual por su equilibrio entre **rigidez, ligereza y resistencia**.\n\nEs una buena opción para piezas que necesitan **presencia, estabilidad y un acabado profesional**, sin recurrir a materiales pesados o difíciles de manipular.\n\n## Principales ventajas\n\n- **Ligero y fácil de manipular:** facilita el transporte, la instalación y el montaje.\n- **Buena rigidez:** mantiene una presencia sólida en cartelería, señalética y comunicación visual.\n- **Acabado profesional:** ofrece una superficie adecuada para impresión directa con buena calidad visual.\n- **Versátil:** se adapta a múltiples usos en interior y a aplicaciones puntuales en exterior.\n- **Personalizable:** puede producirse a medida y con diferentes acabados según el proyecto.\n\n## Usos habituales\n\nEl panel de Forex se utiliza sobre todo para **cartelería rígida, señalética, PLV, paneles informativos, displays, rótulos temporales y comunicación en punto de venta**.\n\nTambién es una solución habitual para **tiendas, oficinas, ferias, eventos, campañas promocionales y espacios donde se necesita una comunicación visual estable y ligera**.\n\n## Uso en interior y exterior\n\nEl Forex funciona muy bien en **interior**, donde ofrece una solución ligera, estable y con buena presencia visual.\n\nTambién puede utilizarse en **aplicaciones puntuales de exterior**, siempre valorando la ubicación, la exposición al sol, la humedad y la duración prevista del proyecto.\n\nPara usos exteriores prolongados o más exigentes, conviene revisar el **grosor, el acabado y el sistema de fijación** más adecuados antes de producir la pieza."
         },
         {
           "id": "benefits",
           "key": "benefits",
           "title": "Beneficios",
           "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "- **Soporte rígido y ligero:** fácil de manipular, transportar e instalar.\n- **Acabado profesional:** ideal para señalética corporativa, cartelería cuidada y comunicación en punto de venta.\n- **Versátil:** funciona para paneles, displays, rótulos temporales y PLV.\n- **A medida:** disponible en diferentes tamaños, grosores y opciones de corte.\n- **Buena resistencia:** adecuado para uso interior y aplicaciones puntuales en exterior según ubicación."
+          "contentFormat": "json",
+          "benefitsData": {
+            "intro": "Ventajas principales del panel de Forex para señalética, cartelería rígida, PLV y comunicación corporativa.",
+            "benefits": [
+              {
+                "title": "Soporte rígido y ligero",
+                "description": "Fácil de manipular, transportar e instalar, incluso en piezas de tamaño medio o grande."
+              },
+              {
+                "title": "Acabado profesional",
+                "description": "Ofrece una presencia cuidada para señalética corporativa, cartelería y comunicación en punto de venta."
+              },
+              {
+                "title": "Muy versátil",
+                "description": "Funciona para paneles, displays, rótulos temporales, PLV, carteles informativos y piezas promocionales."
+              },
+              {
+                "title": "Producción a medida",
+                "description": "Disponible en diferentes tamaños, grosores, impresión a una o dos caras y opciones de corte."
+              },
+              {
+                "title": "Buena resistencia",
+                "description": "Adecuado para interior y para aplicaciones puntuales de exterior, siempre valorando ubicación y duración."
+              }
+            ]
+          }
         },
         {
           "id": "materials",
           "key": "materials",
           "title": "Materiales",
           "kind": "materials",
-          "contentFormat": "markdown",
-          "body": "## Materiales disponibles\n\n- **PVC espumado 3 mm:** recomendado para piezas pequeñas, cartelería ligera y señalética interior.\n- **PVC espumado 5 mm:** opción equilibrada para la mayoría de paneles, carteles y aplicaciones corporativas.\n- **PVC espumado 10 mm:** indicado para piezas grandes o cuando se busca más rigidez y presencia visual."
+          "contentFormat": "json",
+          "materialsData": {
+            "intro": "Seleccionamos el grosor del PVC espumado según el tamaño de la pieza, la rigidez necesaria y el sistema de instalación.",
+            "materials": [
+              {
+                "title": "PVC espumado 3 mm",
+                "description": "Recomendado para piezas pequeñas, cartelería ligera, señalética interior y aplicaciones con poca manipulación."
+              },
+              {
+                "title": "PVC espumado 5 mm",
+                "description": "Opción equilibrada para la mayoría de paneles, carteles, señalética corporativa y piezas de comunicación visual."
+              },
+              {
+                "title": "PVC espumado 10 mm",
+                "description": "Indicado para piezas grandes o cuando se busca más rigidez, presencia visual y estabilidad estructural."
+              }
+            ]
+          }
         },
         {
           "id": "formats",
           "key": "formats",
           "title": "Formatos y soportes",
           "kind": "formats",
-          "contentFormat": "markdown",
-          "body": "## Formatos y medidas\n\nTrabajamos el panel de Forex en formatos estándar o totalmente a medida, según el uso, el diseño y el sistema de montaje.\n\n### Opciones habituales\n\n- **Formato personalizado:** adaptado a la medida exacta del proyecto.\n- **Impresión a una cara:** para carteles, señales y paneles de pared.\n- **Impresión a dos caras:** útil cuando la pieza se verá desde ambos sentidos.\n- **Corte recto:** recomendado para paneles informativos, carteles y señalética.\n- **Corte a la forma:** ideal para flechas, siluetas, displays o piezas promocionales."
+          "contentFormat": "json",
+          "formatsData": {
+            "intro": "Trabajamos el panel de Forex en formatos estándar o totalmente a medida, según el diseño, el uso y el sistema de montaje.",
+            "shapes": [
+              {
+                "title": "Formato personalizado",
+                "description": "Adaptamos el panel a la medida exacta del proyecto, desde piezas pequeñas hasta cartelería de mayor formato."
+              },
+              {
+                "title": "Impresión a una cara",
+                "description": "Recomendada para carteles, señales, paneles informativos y piezas que se verán instaladas sobre pared o soporte fijo."
+              },
+              {
+                "title": "Impresión a dos caras",
+                "description": "Útil cuando la pieza se verá desde ambos sentidos, por ejemplo en señalética suspendida, displays o soportes exentos."
+              },
+              {
+                "title": "Corte recto",
+                "description": "Adecuado para paneles informativos, cartelería corporativa, placas, señalética y comunicación limpia de lectura rápida."
+              },
+              {
+                "title": "Corte a la forma",
+                "description": "Ideal para flechas, siluetas, displays, piezas promocionales o formatos especiales con mayor impacto visual."
+              }
+            ],
+            "deliveryFormats": []
+          }
+        },
+        {
+          "id": "finishes",
+          "key": "finishes",
+          "title": "Acabados",
+          "kind": "finishes",
+          "contentFormat": "json",
+          "finishesData": {
+            "intro": "Los acabados ayudan a adaptar el panel de Forex al uso, la instalación y la durabilidad que necesita cada proyecto.",
+            "finishes": [
+              {
+                "title": "Laminado mate o brillo",
+                "description": "Mejora la presencia visual y añade protección frente al roce o la manipulación."
+              },
+              {
+                "title": "Corte a medida",
+                "description": "Permite ajustar el panel al formato final, con corte recto o siluetas personalizadas según el diseño."
+              },
+              {
+                "title": "Taladros y preparaciones",
+                "description": "Se pueden valorar taladros, ranuras o preparaciones para colgar y fijar, según el sistema de montaje."
+              },
+              {
+                "title": "Impresión a doble cara",
+                "description": "Recomendada cuando la pieza debe verse desde ambos lados o funcionar como señalética suspendida."
+              }
+            ]
+          }
         },
         {
           "id": "technical-specs",
@@ -29064,15 +29181,39 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Medidas y grosores \nFormatos estándar o totalmente a medida. \nDisponible en varios grosores para ajustar rigidez según tamaño y uso. \nImpresión \nImpresión a todo color con buena definición para textos, logos y fotografía. \nOpción a una o dos caras (muy útil si el panel se verá desde ambos sentidos). \nCorte y mecanizados \nCorte recto o corte a medida (siluetas, flechas, formas de producto). \nPosibilidad de taladros, ranuras o preparaciones para colgar/fijar (según montaje). \nAcabados recomendados \nAcabado mate si habrá focos o quieres menos reflejos. \nProtección extra (si aplica) para piezas que se manipulan mucho o se usan en campañas intensivas. \nMontaje e instalación \nPuede ir pegado a pared, atornillado, colgado, en peana/soporte o integrado en un expositor (según proyecto). \nSi nos dices dónde irá, te recomendamos el sistema más limpio y estable."
+          "body": "## Especificaciones técnicas del panel de Forex\n\n### Medidas y grosores\n\n- **Formatos estándar o totalmente a medida**, según el uso, la ubicación y el diseño de la pieza.\n- Disponible en **varios grosores**, para ajustar la rigidez del panel según el tamaño, la distancia de visualización y el sistema de montaje.\n- Podemos ayudarte a elegir el grosor adecuado si el panel irá colgado, atornillado, apoyado o integrado en un expositor.\n\n### Impresión\n\n- **Impresión a todo color** con buena definición para textos, logotipos, gráficos e imágenes.\n- Opción de impresión a **una o dos caras**, especialmente útil si el panel se verá desde ambos sentidos.\n- Recomendado para piezas donde se necesita buena presencia visual, lectura clara y acabado profesional.\n\n### Corte y mecanizados\n\n- **Corte recto** para formatos estándar, carteles, placas y paneles informativos.\n- **Corte a medida** para siluetas, flechas, formas de producto, rótulos especiales o piezas promocionales.\n- Posibilidad de preparar **taladros, ranuras o sistemas de fijación**, según el tipo de montaje previsto.\n\n### Acabados recomendados\n\n- **Acabado mate** si la pieza estará bajo focos, en escaparates o en zonas donde se quieran reducir reflejos.\n- **Protección extra**, cuando aplique, para paneles que se manipulen con frecuencia o se utilicen en campañas intensivas.\n- Acabados adaptados al uso final: señalética, PLV, cartelería, eventos o comunicación en punto de venta.\n\n### Montaje e instalación\n\nEl panel de Forex puede instalarse de diferentes formas según el proyecto:\n\n- Pegado sobre pared o superficie lisa.\n- Atornillado.\n- Colgado.\n- Montado sobre peana o soporte.\n- Integrado en expositores, displays o estructuras de PLV.\n\nSi nos indicas **dónde se colocará, durante cuánto tiempo y cómo se verá**, te recomendaremos el grosor, el acabado y el sistema de montaje más adecuado."
         },
         {
           "id": "applications",
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "Señalética interior: direcciones, normativa, zonas, pictogramas, información. \nRetail y punto de venta: campañas, promociones, precios, corners y PLV. \nFerias y eventos: paneles de stand, cartelería rígida, fondos, indicaciones. \nOficinas y corporativo: recepción, salas, comunicación interna y branding. \nExposiciones y centros: paneles informativos, soportes visuales y señalización."
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Aplicaciones habituales del panel de Forex en señalética, retail, eventos, oficinas y comunicación visual.",
+            "applications": [
+              {
+                "title": "Señalética interior",
+                "description": "Direcciones, normativa, zonas, pictogramas, información corporativa y señalización funcional."
+              },
+              {
+                "title": "Retail y punto de venta",
+                "description": "Campañas, promociones, precios, corners, PLV y comunicación estable en tienda."
+              },
+              {
+                "title": "Ferias y eventos",
+                "description": "Paneles de stand, cartelería rígida, fondos, indicaciones y piezas fáciles de transportar."
+              },
+              {
+                "title": "Oficinas y corporativo",
+                "description": "Recepción, salas, comunicación interna, branding, paneles informativos y soportes visuales."
+              },
+              {
+                "title": "Exposiciones y centros",
+                "description": "Paneles explicativos, soportes visuales, cartelería informativa y señalización para recorridos."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
@@ -31037,7 +31178,7 @@
     },
     {
       "id": "78",
-      "updatedAt": "2026-05-18T10:33:45Z",
+      "updatedAt": "2026-05-18T11:04:06Z",
       "type": "producto",
       "slug": "pegatinas-personalizadas",
       "path": "/productos/pegatinas-personalizadas",
@@ -31269,7 +31410,32 @@
       "inStock": true,
       "ratingValue": 0,
       "reviewCount": 0,
-      "attributes": [],
+      "attributes": [
+        {
+          "key": "materiales",
+          "label": "Papel, PP blanco o transparente",
+          "value": "Papel, polipropileno blanco o transparente",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "corte",
+          "label": "Corte estándar o troquelado",
+          "value": "Corte estándar o troquelado a medida",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "presentacion",
+          "label": "Sueltas, en plancha o bobina",
+          "value": "Entrega en unidades sueltas, hojas/planchas o bobina",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "archivo",
+          "label": "Revisión básica de archivo",
+          "value": "Revisión básica antes de producción",
+          "placement": "hero-pills"
+        }
+      ],
       "variants": [],
       "formFields": [
         {

@@ -12,6 +12,7 @@ import ContentDetailsTabPanel from "@/components/marketing/content/ContentDetail
 import ContentCardsSection from "@/components/marketing/content/ContentCardsSection.vue";
 import ContentFinishesSection from "@/components/marketing/content/ContentFinishesSection.vue";
 import ContentFormatsSection from "@/components/marketing/content/ContentFormatsSection.vue";
+import ContentApplicationsSection from "@/components/marketing/content/ContentApplicationsSection.vue";
 
 import { useResolvedContentSection } from "~/composables/content/useResolvedContentSection";
 
@@ -32,27 +33,17 @@ type RichTypeItem = {
   idealFor?: string;
 };
 
-type GalleryImage = {
-  src?: string;
-  alt?: string;
-  caption?: string;
-  width?: number | null;
-  height?: number | null;
-};
-
 const props = withDefaults(
   defineProps<{
     section: SectionInput;
     detailsMedia?: DetailsMediaItem | null;
     featuredProduct?: Record<string, unknown> | null;
     headerMode?: ContentSectionHeaderMode;
-    galleryImages?: GalleryImage[];
   }>(),
   {
     detailsMedia: null,
     featuredProduct: null,
     headerMode: "default",
-    galleryImages: () => [],
   }
 );
 
@@ -80,6 +71,18 @@ const isTypesSection = computed(() => {
   const sectionId = String(props.section?.id || "").trim();
 
   return sectionKey === "types" || sectionKind === "types" || sectionId === "types";
+});
+
+const isApplicationsSection = computed(() => {
+  const sectionKey = String(key.value || "").trim();
+  const sectionKind = String(kind.value || "").trim();
+  const sectionId = String(props.section?.id || "").trim();
+
+  return (
+    sectionKey === "applications" ||
+    sectionKind === "applications" ||
+    sectionId === "applications"
+  );
 });
 
 function normalizeText(value: unknown) {
@@ -121,91 +124,10 @@ const typeItems = computed<RichTypeItem[]>(() => {
     })
     .filter((item): item is RichTypeItem => Boolean(item));
 });
-
-function normalizeForMatch(value: unknown) {
-  return String(value || "")
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "");
-}
-
-const sectionKeyForImage = computed(() => {
-  const sectionId = String(props.section?.id || "").trim();
-
-  return String(key.value || kind.value || sectionId || "")
-    .trim()
-    .toLowerCase();
-});
-
-function getImageScoreForSection(image: GalleryImage, sectionKey: string) {
-  const haystack = normalizeForMatch(
-    `${image.src || ""} ${image.alt || ""} ${image.caption || ""}`
-  );
-
-  if (["details", "applications"].includes(sectionKey)) {
-    if (haystack.includes("detalles")) return 10;
-    if (haystack.includes("aplicacion")) return 8;
-    if (haystack.includes("packaging")) return 6;
-  }
-
-  if (["types", "materials", "formats"].includes(sectionKey)) {
-    if (haystack.includes("tipos")) return 10;
-    if (haystack.includes("material")) return 8;
-    if (haystack.includes("papel")) return 6;
-    if (haystack.includes("vinilo")) return 6;
-  }
-
-  if (sectionKey === "finishes") {
-    if (haystack.includes("acabados")) return 10;
-    if (haystack.includes("acabado")) return 8;
-    if (haystack.includes("laminado")) return 6;
-  }
-
-  return 0;
-}
-
-const contextualImage = computed(() => {
-  const images = (props.galleryImages ?? []).filter((image) =>
-    String(image?.src || "").trim()
-  );
-
-  if (!images.length) return null;
-
-  const currentSectionKey = sectionKeyForImage.value;
-
-  /**
-   * Si la sección details ya recibe detailsMedia con imagen propia,
-   * evitamos duplicar imagen.
-   */
-  if (
-    currentSectionKey === "details" &&
-    String(props.detailsMedia?.image?.src || "").trim()
-  ) {
-    return null;
-  }
-
-  const ranked = images
-    .map((image) => ({
-      image,
-      score: getImageScoreForSection(image, currentSectionKey),
-    }))
-    .filter((item) => item.score > 0)
-    .sort((a, b) => b.score - a.score);
-
-  return ranked[0]?.image ?? null;
-});
-
-const hasContextualImage = computed(() => Boolean(contextualImage.value?.src));
-
-const panelLayoutClass = computed(() =>
-  hasContextualImage.value
-    ? "grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(280px,360px)] lg:items-start"
-    : "grid gap-8"
-);
 </script>
 
 <template>
-  <div :class="panelLayoutClass">
+  <div class="grid gap-8">
     <div class="min-w-0">
       <ContentDetailsTabPanel
         v-if="kind === 'details'"
@@ -242,6 +164,12 @@ const panelLayoutClass = computed(() =>
         :show-header="props.headerMode === 'default'"
       />
 
+      <ContentApplicationsSection
+        v-else-if="isApplicationsSection"
+        :section="props.section"
+        :show-header="props.headerMode === 'default'"
+      />
+
       <ContentTypesGrid
         v-else-if="shouldUseSimpleGrid && simpleGridItems.length"
         :section-id="props.section.id"
@@ -269,26 +197,5 @@ const panelLayoutClass = computed(() =>
         :show-header="shouldShowDetailsHeader"
       />
     </div>
-
-    <aside
-      v-if="contextualImage?.src"
-      class="overflow-hidden rounded-2xl border border-border/70 bg-card shadow-sm"
-    >
-      <NuxtImg
-        :src="contextualImage.src"
-        :alt="contextualImage.alt || title || 'Imagen del producto'"
-        class="aspect-[4/3] w-full object-cover"
-        sizes="sm:100vw md:50vw lg:360px"
-        loading="lazy"
-        format="webp"
-      />
-
-      <p
-        v-if="contextualImage.caption"
-        class="px-4 py-3 text-sm leading-relaxed text-muted-foreground"
-      >
-        {{ contextualImage.caption }}
-      </p>
-    </aside>
   </div>
 </template>
