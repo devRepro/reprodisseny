@@ -181,6 +181,7 @@ const heroProduct = computed(() => {
           height: current.image.height ?? null,
         }
       : null,
+    galleryImages: galleryImages.value,
     formFields: Array.isArray(current.formFields) ? current.formFields : [],
     extraFields,
     categorySlug: current.category?.slug || "",
@@ -312,9 +313,9 @@ useSeoMeta({
             description="Consulta la información clave de este producto en un formato claro y fácil de revisar."
           >
             <ContentSectionsRenderer
-              :sections="sections"
-              :gallery-images="galleryImages"
-            />
+  :sections="sections"
+  variant="product"
+/>
           </ContentSectionShell>
 
           <ContentSectionShell

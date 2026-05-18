@@ -33,6 +33,16 @@ type CatalogImage = {
   height?: number;
 };
 
+type CatalogGalleryImage = {
+  src?: string | null;
+  url?: string | null;
+  imageSrc?: string | null;
+  alt?: string | null;
+  caption?: string | null;
+  width?: number | null;
+  height?: number | null;
+};
+
 type CatalogTypeItem = {
   title?: string;
   description?: string;
@@ -197,6 +207,10 @@ type CatalogProduct = {
     width?: number;
     height?: number;
   } | null;
+  galleryImages?: CatalogGalleryImage[];
+  gallery?: CatalogGalleryImage[];
+  images?: CatalogGalleryImage[];
+  media?: CatalogGalleryImage[];
 };
 
 type CatalogCategory = {
@@ -446,6 +460,8 @@ export type ProductDetailDto = {
     width?: number;
     height?: number;
   } | null;
+  imageSrc?: string | null;
+galleryImages: ProductDetailGalleryImageItem[];
   category: {
     slug: string;
     path: string;
@@ -1005,6 +1021,53 @@ function productImageDtoOf(
     width: image?.width,
     height: image?.height,
   };
+}
+
+
+function toCatalogGalleryArray(value: unknown): CatalogGalleryImage[] {
+  return Array.isArray(value) ? (value as CatalogGalleryImage[]) : [];
+}
+
+function normalizeProductGalleryImages(
+  product: CatalogProduct,
+  primaryImageSrc?: string | null
+): ProductDetailGalleryImageItem[] {
+  const rawItems = [
+    ...toCatalogGalleryArray(product.galleryImages),
+    ...toCatalogGalleryArray(product.gallery),
+    ...toCatalogGalleryArray(product.images),
+    ...toCatalogGalleryArray(product.media),
+  ];
+
+  const seen = new Set<string>();
+
+  if (primaryImageSrc) {
+    seen.add(primaryImageSrc);
+  }
+
+  return rawItems
+    .map((item) => {
+      const src = normalizeCmsMediaSrc(
+        item?.src || item?.url || item?.imageSrc || ""
+      );
+
+      if (!src || seen.has(src)) {
+        return null;
+      }
+
+      seen.add(src);
+
+      return {
+        src,
+        alt: String(item?.alt || product.title || "Producto").trim(),
+        ...(String(item?.caption || "").trim()
+          ? { caption: String(item.caption).trim() }
+          : {}),
+        ...(typeof item?.width === "number" ? { width: item.width } : {}),
+        ...(typeof item?.height === "number" ? { height: item.height } : {}),
+      };
+    })
+    .filter((item): item is ProductDetailGalleryImageItem => Boolean(item));
 }
 
 function getCategoryFaqs(category: CatalogCategory): CategoryDetailFaqItem[] {
@@ -2098,7 +2161,6 @@ function getProductSections(product: CatalogProduct): ProductDetailSectionItem[]
     .filter((section): section is ProductDetailSectionItem => section !== null);
 }
 
-
 export function getProductDetailBySlug(
   requestedSlugOrPath: string
 ): ProductDetailDto | null {
@@ -2120,84 +2182,91 @@ export function getProductDetailBySlug(
 
   const hreflang = Array.isArray(product?.seo?.hreflang)
     ? product.seo.hreflang
-      .filter((item): item is ProductDetailHreflangItem => Boolean(item?.lang && item?.url))
-      .map((item) => ({
-        lang: String(item.lang),
-        url: String(item.url),
-      }))
+        .filter((item): item is ProductDetailHreflangItem =>
+          Boolean(item?.lang && item?.url)
+        )
+        .map((item) => ({
+          lang: String(item.lang),
+          url: String(item.url),
+        }))
     : [];
 
   const formFields = Array.isArray(product.formFields)
     ? product.formFields.map((field) => ({
-      label: String(field?.label || ""),
-      name: String(field?.name || ""),
-      type: String(field?.type || "text"),
-      required: Boolean(field?.required),
-      options: Array.isArray(field?.options)
-        ? field.options.map((opt) => String(opt))
-        : [],
-      readonly: Boolean(field?.readonly),
-      placeholder: field?.placeholder ? String(field.placeholder) : undefined,
-      helpText: field?.helpText ? String(field.helpText) : undefined,
-    }))
+        label: String(field?.label || ""),
+        name: String(field?.name || ""),
+        type: String(field?.type || "text"),
+        required: Boolean(field?.required),
+        options: Array.isArray(field?.options)
+          ? field.options.map((opt) => String(opt))
+          : [],
+        readonly: Boolean(field?.readonly),
+        placeholder: field?.placeholder ? String(field.placeholder) : undefined,
+        helpText: field?.helpText ? String(field.helpText) : undefined,
+      }))
     : [];
-    const sections = getProductSections(product);
 
-    return {
-      slug: productPublicSlugOf(product),
-      path: canonicalPath,
-      title: product.title,
-      shortDescription: product.shortDescription || "",
-      description: product.description || product.shortDescription || "",
-      sections,
-      faqs: getProductFaqs(product),
-      image: productImageDtoOf(product.image, product.title),
-      category: parentCategory
-        ? {
-            slug: categoryPublicSlugOf(parentCategory),
-            path: categoryPathOf(parentCategory),
-            title: parentCategory.title,
-            nav: parentCategory.nav || parentCategory.title,
-          }
-        : null,
-      formFields,
-      breadcrumbs: [
-        { label: "Inicio", to: "/" },
-        { label: "Categorías", to: "/categorias" },
-        ...categoryTrail.map((item) => ({
-          label: item.nav || item.title,
-          to: categoryPathOf(item),
-        })),
-        ...(parentCategory
-          ? [
-              {
-                label: parentCategory.nav || parentCategory.title,
-                to: categoryPathOf(parentCategory),
-              },
-            ]
-          : []),
-        { label: product.title },
-      ],
-      seo: {
-        title:
-          product?.seo?.metaTitle ||
-          product?.seo?.title ||
-          `${product.title} | Reprodisseny`,
-        description:
-          product?.seo?.metaDescription ||
-          product?.seo?.description ||
-          product.shortDescription ||
-          product.description ||
-          "",
-        canonical: product?.seo?.canonical || canonicalPath,
-        image:
-          normalizeCmsMediaSrc(product?.seo?.ogImageSrc) ||
-          normalizeCmsMediaSrc(product.image?.src) ||
-          undefined,
-        robots: computeProductRobots(product),
-        hreflang,
-        schema: product?.seo?.schema,
-      },
-      ...(resolved.redirectTo ? { redirectTo: resolved.redirectTo } : {}),
-    };
+  const sections = getProductSections(product);
+  const productImage = productImageDtoOf(product.image, product.title);
+  const galleryImages = normalizeProductGalleryImages(product, productImage?.src);
+
+  return {
+    slug: productPublicSlugOf(product),
+    path: canonicalPath,
+    title: product.title,
+    shortDescription: product.shortDescription || "",
+    description: product.description || product.shortDescription || "",
+    sections,
+    faqs: getProductFaqs(product),
+    image: productImage,
+    imageSrc: productImage?.src || null,
+    galleryImages,
+    category: parentCategory
+      ? {
+          slug: categoryPublicSlugOf(parentCategory),
+          path: categoryPathOf(parentCategory),
+          title: parentCategory.title,
+          nav: parentCategory.nav || parentCategory.title,
+        }
+      : null,
+    formFields,
+    breadcrumbs: [
+      { label: "Inicio", to: "/" },
+      { label: "Categorías", to: "/categorias" },
+      ...categoryTrail.map((item) => ({
+        label: item.nav || item.title,
+        to: categoryPathOf(item),
+      })),
+      ...(parentCategory
+        ? [
+            {
+              label: parentCategory.nav || parentCategory.title,
+              to: categoryPathOf(parentCategory),
+            },
+          ]
+        : []),
+      { label: product.title },
+    ],
+    seo: {
+      title:
+        product?.seo?.metaTitle ||
+        product?.seo?.title ||
+        `${product.title} | Reprodisseny`,
+      description:
+        product?.seo?.metaDescription ||
+        product?.seo?.description ||
+        product.shortDescription ||
+        product.description ||
+        "",
+      canonical: product?.seo?.canonical || canonicalPath,
+      image:
+        normalizeCmsMediaSrc(product?.seo?.ogImageSrc) ||
+        normalizeCmsMediaSrc(product.image?.src) ||
+        undefined,
+      robots: computeProductRobots(product),
+      hreflang,
+      schema: product?.seo?.schema,
+    },
+    ...(resolved.redirectTo ? { redirectTo: resolved.redirectTo } : {}),
+  };
 }

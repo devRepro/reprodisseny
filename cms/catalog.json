@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-15T17:44:33.142Z",
+  "generatedAt": "2026-05-18T10:35:25.644Z",
   "categories": [
     {
       "id": "12",
@@ -31037,7 +31037,7 @@
     },
     {
       "id": "78",
-      "updatedAt": "2026-05-15T17:16:58Z",
+      "updatedAt": "2026-05-18T10:33:45Z",
       "type": "producto",
       "slug": "pegatinas-personalizadas",
       "path": "/productos/pegatinas-personalizadas",
@@ -31179,8 +31179,32 @@
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "Aplicaciones habituales de las pegatinas personalizadas en marca, packaging, promociones, eventos y señalización.\n\n- **Packaging y etiquetas de producto:** solución práctica para identificar productos, reforzar la marca y cuidar la presentación en envases, bolsas, cajas y pedidos online.\n- **Stickers promocionales y eventos:** ideales para repartir en ferias, campañas, acciones de street marketing, regalos de marca y materiales promocionales.\n- **Decoración e identificación:** útiles para personalizar portátiles, botellas, libretas, carpetas, paquetes y otros soportes corporativos o comerciales.\n- **Escaparates y señalización ligera:** permiten comunicar promociones, señalizar zonas, decorar espacios y reforzar la identidad visual en tiendas u oficinas.\n- **Correcciones y actualizaciones:** pueden utilizarse para modificar datos, cubrir errores o añadir información sobre materiales ya impresos."
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Aplicaciones habituales de las pegatinas personalizadas en marca, packaging, promociones, eventos y señalización.",
+            "applications": [
+              {
+                "title": "Packaging y etiquetas de producto",
+                "description": "Solución práctica para identificar productos, reforzar la marca y cuidar la presentación en envases, bolsas, cajas y pedidos online."
+              },
+              {
+                "title": "Stickers promocionales y eventos",
+                "description": "Ideales para repartir en ferias, campañas, acciones de street marketing, regalos de marca y materiales promocionales."
+              },
+              {
+                "title": "Decoración e identificación",
+                "description": "Útiles para personalizar portátiles, botellas, libretas, carpetas, paquetes y otros soportes corporativos o comerciales."
+              },
+              {
+                "title": "Escaparates y señalización ligera",
+                "description": "Permiten comunicar promociones, señalizar zonas, decorar espacios y reforzar la identidad visual en tiendas u oficinas."
+              },
+              {
+                "title": "Correcciones y actualizaciones",
+                "description": "Pueden utilizarse para modificar datos, cubrir errores o añadir información sobre materiales ya impresos."
+              }
+            ]
+          }
         }
       ],
       "faqs": [

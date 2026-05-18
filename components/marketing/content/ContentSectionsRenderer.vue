@@ -10,6 +10,8 @@ import ContentSectionsPanel from "@/components/marketing/content/ContentSections
 
 type DetailSectionItem = CategoryDetailSectionItem | ProductDetailSectionItem;
 
+type ContentSectionsVariant = "product" | "category";
+
 type CanonicalSectionId =
   | "details"
   | "benefits"
@@ -32,30 +34,42 @@ type DetailsMediaItem = {
   }>;
 };
 
-type GalleryImage = {
-  src?: string;
-  alt?: string;
-  caption?: string;
-  width?: number | null;
-  height?: number | null;
-};
-
 const props = withDefaults(
   defineProps<{
     sections?: DetailSectionItem[];
+    variant?: ContentSectionsVariant;
     detailsMedia?: DetailsMediaItem | null;
     featuredProduct?: Record<string, unknown> | null;
-    galleryImages?: GalleryImage[];
   }>(),
   {
     sections: () => [],
+    variant: "product",
     detailsMedia: null,
     featuredProduct: null,
-    galleryImages: () => [],
   }
 );
 
-const SECTION_ORDER: CanonicalSectionId[] = [
+/**
+ * Producto:
+ * - La galería vive solo en el hero.
+ * - No se pintan imágenes dentro de tabs.
+ * - No mostramos "benefits" ni "types" como tabs de producto.
+ */
+const PRODUCT_SECTION_ORDER: CanonicalSectionId[] = [
+  "details",
+  "formats",
+  "materials",
+  "finishes",
+  "applications",
+  "technical-specs",
+];
+
+/**
+ * Categoría:
+ * - Puede conservar imagen SOLO en "details".
+ * - Puede conservar "benefits" y "types" si aportan estructura.
+ */
+const CATEGORY_SECTION_ORDER: CanonicalSectionId[] = [
   "details",
   "benefits",
   "types",
@@ -136,6 +150,12 @@ const SECTION_ALIASES: Record<string, CanonicalSectionId> = {
   "caracteristicas-tecnicas": "technical-specs",
 };
 
+const activeSectionOrder = computed<CanonicalSectionId[]>(() =>
+  props.variant === "category" ? CATEGORY_SECTION_ORDER : PRODUCT_SECTION_ORDER
+);
+
+const allowedSectionIds = computed(() => new Set(activeSectionOrder.value));
+
 function normalizeLookupKey(value: unknown) {
   return String(value ?? "")
     .trim()
@@ -146,7 +166,7 @@ function normalizeLookupKey(value: unknown) {
     .replace(/[^a-z0-9-]/g, "");
 }
 
-function getCanonicalSectionId(section: DetailSectionItem): string {
+function getCanonicalSectionId(section: DetailSectionItem): CanonicalSectionId | null {
   const source = section as Record<string, unknown>;
 
   const rawKind = normalizeLookupKey(source.kind);
@@ -157,15 +177,30 @@ function getCanonicalSectionId(section: DetailSectionItem): string {
     SECTION_ALIASES[rawKind] ??
     SECTION_ALIASES[rawId] ??
     SECTION_ALIASES[rawKey] ??
-    rawKind ??
-    rawId ??
-    rawKey
+    null
   );
 }
 
-function getSectionOrder(id: string) {
-  const index = SECTION_ORDER.indexOf(id as CanonicalSectionId);
-  return index === -1 ? SECTION_ORDER.length : index;
+function getSectionOrder(id: CanonicalSectionId) {
+  const index = activeSectionOrder.value.indexOf(id);
+  return index === -1 ? activeSectionOrder.value.length : index;
+}
+
+function hasRenderableContent(section: DetailSectionItem) {
+  const source = section as Record<string, unknown>;
+
+  if (String(source.body ?? "").trim()) return true;
+
+  if (Array.isArray(source.items) && source.items.length) return true;
+
+  if (source.benefitsData && typeof source.benefitsData === "object") return true;
+  if (source.formatsData && typeof source.formatsData === "object") return true;
+  if (source.materialsData && typeof source.materialsData === "object") return true;
+  if (source.finishesData && typeof source.finishesData === "object") return true;
+  if (source.applicationsData && typeof source.applicationsData === "object") return true;
+  if (source.technicalSpecsData && typeof source.technicalSpecsData === "object") return true;
+
+  return false;
 }
 
 function normalizeSection(section: DetailSectionItem): DetailSectionItem | null {
@@ -174,10 +209,15 @@ function normalizeSection(section: DetailSectionItem): DetailSectionItem | null 
 
   if (!id) return null;
 
-  const fallbackTitle =
-    SECTION_FALLBACK_LABELS[id as CanonicalSectionId] ?? String(source.title ?? "");
+  if (!allowedSectionIds.value.has(id)) {
+    return null;
+  }
 
-  const title = String(source.title || fallbackTitle).trim();
+  if (!hasRenderableContent(section)) {
+    return null;
+  }
+
+  const title = String(source.title || SECTION_FALLBACK_LABELS[id]).trim();
 
   if (!title) return null;
 
@@ -191,26 +231,26 @@ function normalizeSection(section: DetailSectionItem): DetailSectionItem | null 
 }
 
 const safeSections = computed<DetailSectionItem[]>(() => {
-  const sectionsByCanonicalId = new Map<string, DetailSectionItem>();
+  const sectionsByCanonicalId = new Map<CanonicalSectionId, DetailSectionItem>();
 
   for (const section of props.sections ?? []) {
     const normalizedSection = normalizeSection(section);
 
     if (!normalizedSection) continue;
 
-    if (!sectionsByCanonicalId.has(normalizedSection.id)) {
-      sectionsByCanonicalId.set(normalizedSection.id, normalizedSection);
+    const id = normalizedSection.id as CanonicalSectionId;
+
+    if (!sectionsByCanonicalId.has(id)) {
+      sectionsByCanonicalId.set(id, normalizedSection);
     }
   }
 
   return Array.from(sectionsByCanonicalId.values()).sort(
-    (a, b) => getSectionOrder(a.id) - getSectionOrder(b.id)
+    (a, b) =>
+      getSectionOrder(a.id as CanonicalSectionId) -
+      getSectionOrder(b.id as CanonicalSectionId)
   );
 });
-
-const safeGalleryImages = computed(() =>
-  (props.galleryImages ?? []).filter((image) => String(image?.src || "").trim())
-);
 
 const tabItems = computed(() =>
   safeSections.value.map((section) => ({
@@ -225,6 +265,13 @@ const sectionsById = computed(() =>
     return acc;
   }, {} as Record<string, DetailSectionItem>)
 );
+
+function getPanelDetailsMedia(sectionId: string) {
+  if (props.variant !== "category") return null;
+  if (sectionId !== "details") return null;
+
+  return props.detailsMedia;
+}
 
 const activeTabId = ref("");
 
@@ -247,10 +294,6 @@ watch(
 </script>
 
 <template>
-  <pre class="mb-4 rounded-xl bg-black p-4 text-xs text-white">
-galleryImages: {{ safeGalleryImages }}
-</pre
-  >
   <ContentTabs
     v-if="safeSections.length"
     v-model="activeTabId"
@@ -264,9 +307,8 @@ galleryImages: {{ safeGalleryImages }}
       <ContentSectionsPanel
         v-if="sectionsById[item.id]"
         :section="sectionsById[item.id]"
-        :details-media="detailsMedia"
+        :details-media="getPanelDetailsMedia(item.id)"
         :featured-product="featuredProduct"
-        :gallery-images="safeGalleryImages"
         header-mode="none"
       />
     </template>

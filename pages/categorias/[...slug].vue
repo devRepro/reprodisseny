@@ -513,10 +513,11 @@ const closingBannerPills = computed(() => {
             description="Consulta la información clave de esta categoría en un formato más claro y fácil de comparar."
           >
             <ContentSectionsRenderer
-              :sections="sections"
-              :details-media="detailsMedia"
-              :gallery-images="galleryImages"
-            />
+  :sections="sections"
+  variant="category"
+  :details-media="detailsMedia"
+  :featured-product="featuredProduct"
+/>
           </ContentSectionShell>
 
           <div v-if="hasProcessSteps" :class="sectionSpacingClass">

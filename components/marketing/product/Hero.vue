@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { computed, ref, watch } from "vue";
-import { normalizeCmsMediaSrc } from "@/utils/cmsMedia";
-import CmsImage from "@/components/shared/blocks/CmsImage.vue";
+import { computed, watchEffect } from "vue";
+import ProductHeroGallery from "@/components/marketing/product/ProductHeroGallery.vue";
 import LeadForm from "@/components/marketing/product/LeadForm.vue";
 
 type HeroImage =
@@ -9,6 +8,7 @@ type HeroImage =
   | {
       src?: string | null;
       alt?: string | null;
+      caption?: string | null;
       width?: number | null;
       height?: number | null;
     }
@@ -24,6 +24,9 @@ type HeroProduct = {
   bodyMd?: string;
   imageSrc?: string | null;
   image?: HeroImage;
+  gallery?: HeroImage[];
+  galleryImages?: HeroImage[];
+  images?: HeroImage[];
   formFields?: any[];
   extraFields?: any[];
   categorySlug?: string;
@@ -56,35 +59,6 @@ const supportItems = [
   "Respuesta rápida",
 ];
 
-const rawImageSrc = computed(() => {
-  return (
-    props.product?.imageSrc ||
-    (typeof props.product?.image === "string"
-      ? props.product.image
-      : props.product?.image?.src) ||
-    ""
-  );
-});
-
-const resolvedImgSrc = computed(() => {
-  return normalizeCmsMediaSrc(rawImageSrc.value) || FALLBACK;
-});
-
-const currentImgSrc = ref(FALLBACK);
-
-watch(
-  resolvedImgSrc,
-  (value) => {
-    currentImgSrc.value = value || FALLBACK;
-  },
-  { immediate: true }
-);
-
-function onImageError() {
-  if (currentImgSrc.value !== FALLBACK) {
-    currentImgSrc.value = FALLBACK;
-  }
-}
 
 const imgAlt = computed(() => {
   const image = props.product?.image;
@@ -104,6 +78,23 @@ const productDesc = computed(() => {
   );
 });
 
+
+function toHeroImageArray(value: unknown): HeroImage[] {
+  return Array.isArray(value) ? (value as HeroImage[]) : [];
+}
+
+const primaryImage = computed<HeroImage>(() => {
+  return props.product?.imageSrc || props.product?.image || null;
+});
+
+const galleryImages = computed<HeroImage[]>(() => {
+  return [
+    ...toHeroImageArray(props.product?.gallery),
+    ...toHeroImageArray(props.product?.galleryImages),
+    ...toHeroImageArray(props.product?.images),
+  ];
+});
+
 const categorySlug = computed(() => {
   return props.category?.slug || props.product?.categorySlug || "";
 });
@@ -120,8 +111,22 @@ const extraFields = computed(() => {
   return Array.isArray(props.product?.formFields) ? props.product?.formFields : [];
 });
 
-const hasImage = computed(() => Boolean(currentImgSrc.value));
+
 const productNameForForm = computed(() => productTitle.value || "Producto");
+
+watchEffect(() => {
+  if (!import.meta.dev) return;
+
+  console.log("[ProductHeroGallery input]", {
+    productTitle: productTitle.value,
+    productKeys: Object.keys(props.product ?? {}),
+    primaryImage: primaryImage.value,
+    gallery: props.product?.gallery,
+    galleryImages: props.product?.galleryImages,
+    images: props.product?.images,
+    computedGalleryImages: galleryImages.value,
+  });
+});
 </script>
 
 <template>
@@ -167,22 +172,13 @@ const productNameForForm = computed(() => productTitle.value || "Producto");
             </p>
           </header>
 
-          <figure
-            v-if="hasImage"
-            class="mt-6 overflow-hidden rounded-[28px] border border-border/70 bg-card shadow-[0_10px_30px_-24px_hsl(var(--foreground)/0.16)] md:mt-8"
-          >
-            <CmsImage
-              :src="currentImgSrc"
-              :alt="imgAlt"
-              class="aspect-[16/11] w-full object-cover"
-              width="760"
-              height="522"
-              eager
-              @error="onImageError"
-            />
-
-            <meta itemprop="image" :content="currentImgSrc" />
-          </figure>
+          <ProductHeroGallery
+  class="mt-6 md:mt-8"
+  :primary-image="primaryImage"
+  :images="galleryImages"
+  :alt="imgAlt"
+  :fallback="FALLBACK"
+/>
 
           <ul class="mt-5 flex flex-wrap gap-2">
             <li
