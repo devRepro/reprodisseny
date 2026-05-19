@@ -123,23 +123,23 @@ export type CatalogContentSectionKind =
   | "technical-specs";
 
 
-  type CatalogSection = {
-    id?: string;
-    key?: string;
-    title?: string;
-    kind?: CatalogContentSectionKind;
-    contentFormat?: CatalogContentFormat;
-    body?: string;
-    intro?: string;
-    items?: CatalogTypeItem[];
-    benefitsData?: CatalogBenefitsData;
-    materialsData?: CatalogMaterialsData;
-    formatsData?: CatalogFormatsData;
-    finishesData?: CatalogFinishesData;
-    applicationsData?: CatalogApplicationsData;
-  };
-  
-  type CatalogProductSection = CatalogSection;
+type CatalogSection = {
+  id?: string;
+  key?: string;
+  title?: string;
+  kind?: CatalogContentSectionKind;
+  contentFormat?: CatalogContentFormat;
+  body?: string;
+  intro?: string;
+  items?: CatalogTypeItem[];
+  benefitsData?: CatalogBenefitsData;
+  materialsData?: CatalogMaterialsData;
+  formatsData?: CatalogFormatsData;
+  finishesData?: CatalogFinishesData;
+  applicationsData?: CatalogApplicationsData;
+};
+
+type CatalogProductSection = CatalogSection;
 
 type CatalogFinishesData = {
   intro?: string;
@@ -187,6 +187,11 @@ type CatalogProduct = {
   description?: string;
   shortDescription?: string;
   bodyMd?: string;
+
+   attributes?: unknown;
+  attributesJson?: unknown;
+  AttributesJson?: unknown;
+  AttributesJSON?: unknown;
 
   detailsMd?: string;
   benefitsMd?: string;
@@ -289,6 +294,14 @@ export type NavCategoryItem = {
 export type BreadcrumbItem = {
   label: string;
   to?: string;
+};
+
+export type ProductAttributeDto = {
+  label: string;
+  icon?: string | null;
+  tone?: "brand" | "neutral" | "success" | "warning" | null;
+  to?: string | null;
+  href?: string | null;
 };
 
 export type CategoryDetailChildItem = {
@@ -461,7 +474,8 @@ export type ProductDetailDto = {
     height?: number;
   } | null;
   imageSrc?: string | null;
-galleryImages: ProductDetailGalleryImageItem[];
+  galleryImages: ProductDetailGalleryImageItem[];
+  attributes?: ProductAttributeDto[];
   category: {
     slug: string;
     path: string;
@@ -557,6 +571,78 @@ function safeParseJsonObject(value: unknown): Record<string, unknown> | null {
     return null;
   }
 }
+
+function parseJsonArray(value: unknown): unknown[] {
+  if (Array.isArray(value)) return value;
+
+  if (typeof value !== "string") return [];
+
+  const trimmed = value.trim();
+  if (!trimmed) return [];
+
+  try {
+    const parsed = JSON.parse(trimmed);
+    return Array.isArray(parsed) ? parsed : [];
+  } catch {
+    return [];
+  }
+}
+
+type RawProductAttribute = {
+  key?: unknown;
+  label?: unknown;
+  value?: unknown;
+  placement?: unknown;
+  icon?: unknown;
+  tone?: unknown;
+  to?: unknown;
+  href?: unknown;
+};
+
+function normalizeProductAttributes(
+  product: CatalogProduct & Record<string, unknown>,
+  placement = "hero-pills"
+): ProductAttributeDto[] {
+  const raw = parseJsonArray(
+    product.attributesJson ??
+    product.AttributesJson ??
+    product.AttributesJSON ??
+    product.attributes
+  );
+
+  return raw
+    .map((item) => {
+      if (!item || typeof item !== "object") return null;
+
+      const record = item as RawProductAttribute;
+
+      const itemPlacement = String(record.placement ?? "").trim();
+      if (placement && itemPlacement && itemPlacement !== placement) {
+        return null;
+      }
+
+      const label = String(record.label ?? record.value ?? record.key ?? "").trim();
+
+      if (!label) return null;
+
+      const tone = String(record.tone ?? "neutral").trim();
+
+      return {
+        label,
+        icon: record.icon ? String(record.icon) : null,
+        tone: ["brand", "neutral", "success", "warning"].includes(tone)
+          ? (tone as ProductAttributeDto["tone"])
+          : "neutral",
+        to: record.to ? String(record.to) : null,
+        href: record.href ? String(record.href) : null,
+      };
+    })
+    .filter((item): item is ProductAttributeDto => Boolean(item))
+    .slice(0, 4);
+}
+
+
+
 
 function normalizeNamedContentItems(value: unknown): NormalizedNamedContentItem[] {
   if (!Array.isArray(value)) return [];
@@ -1002,11 +1088,11 @@ function imageDtoOf(image: CatalogImage | null | undefined, fallbackAlt: string)
 function productImageDtoOf(
   image:
     | {
-        src?: string;
-        alt?: string;
-        width?: number;
-        height?: number;
-      }
+      src?: string;
+      alt?: string;
+      width?: number;
+      height?: number;
+    }
     | null
     | undefined,
   fallbackAlt: string
@@ -1445,13 +1531,13 @@ function hasSectionContent(section: CatalogSection | CatalogProductSection) {
 
   return Boolean(
     body ||
-      intro ||
-      (Array.isArray(section.items) && section.items.length > 0) ||
-      section.benefitsData ||
-      section.materialsData ||
-      section.formatsData ||
-      section.finishesData ||
-      section.applicationsData
+    intro ||
+    (Array.isArray(section.items) && section.items.length > 0) ||
+    section.benefitsData ||
+    section.materialsData ||
+    section.formatsData ||
+    section.finishesData ||
+    section.applicationsData
   );
 }
 
@@ -1606,11 +1692,11 @@ export function getHomeCategories(limit = 8): HomeCategoryCardItem[] {
       href: categoryPathOf(category),
       image: image
         ? {
-            src: image.src,
-            alt: image.alt,
-            width: Number(image.width) || FALLBACK_CARD_WIDTH,
-            height: Number(image.height) || FALLBACK_CARD_HEIGHT,
-          }
+          src: image.src,
+          alt: image.alt,
+          width: Number(image.width) || FALLBACK_CARD_WIDTH,
+          height: Number(image.height) || FALLBACK_CARD_HEIGHT,
+        }
         : null,
     };
   });
@@ -2182,30 +2268,33 @@ export function getProductDetailBySlug(
 
   const hreflang = Array.isArray(product?.seo?.hreflang)
     ? product.seo.hreflang
-        .filter((item): item is ProductDetailHreflangItem =>
-          Boolean(item?.lang && item?.url)
-        )
-        .map((item) => ({
-          lang: String(item.lang),
-          url: String(item.url),
-        }))
+      .filter((item): item is ProductDetailHreflangItem =>
+        Boolean(item?.lang && item?.url)
+      )
+      .map((item) => ({
+        lang: String(item.lang),
+        url: String(item.url),
+      }))
     : [];
 
   const formFields = Array.isArray(product.formFields)
     ? product.formFields.map((field) => ({
-        label: String(field?.label || ""),
-        name: String(field?.name || ""),
-        type: String(field?.type || "text"),
-        required: Boolean(field?.required),
-        options: Array.isArray(field?.options)
-          ? field.options.map((opt) => String(opt))
-          : [],
-        readonly: Boolean(field?.readonly),
-        placeholder: field?.placeholder ? String(field.placeholder) : undefined,
-        helpText: field?.helpText ? String(field.helpText) : undefined,
-      }))
+      label: String(field?.label || ""),
+      name: String(field?.name || ""),
+      type: String(field?.type || "text"),
+      required: Boolean(field?.required),
+      options: Array.isArray(field?.options)
+        ? field.options.map((opt) => String(opt))
+        : [],
+      readonly: Boolean(field?.readonly),
+      placeholder: field?.placeholder ? String(field.placeholder) : undefined,
+      helpText: field?.helpText ? String(field.helpText) : undefined,
+    }))
     : [];
 
+  const attributes = normalizeProductAttributes(
+  product as CatalogProduct & Record<string, unknown>
+);
   const sections = getProductSections(product);
   const productImage = productImageDtoOf(product.image, product.title);
   const galleryImages = normalizeProductGalleryImages(product, productImage?.src);
@@ -2221,13 +2310,14 @@ export function getProductDetailBySlug(
     image: productImage,
     imageSrc: productImage?.src || null,
     galleryImages,
+    attributes,
     category: parentCategory
       ? {
-          slug: categoryPublicSlugOf(parentCategory),
-          path: categoryPathOf(parentCategory),
-          title: parentCategory.title,
-          nav: parentCategory.nav || parentCategory.title,
-        }
+        slug: categoryPublicSlugOf(parentCategory),
+        path: categoryPathOf(parentCategory),
+        title: parentCategory.title,
+        nav: parentCategory.nav || parentCategory.title,
+      }
       : null,
     formFields,
     breadcrumbs: [
@@ -2239,11 +2329,11 @@ export function getProductDetailBySlug(
       })),
       ...(parentCategory
         ? [
-            {
-              label: parentCategory.nav || parentCategory.title,
-              to: categoryPathOf(parentCategory),
-            },
-          ]
+          {
+            label: parentCategory.nav || parentCategory.title,
+            to: categoryPathOf(parentCategory),
+          },
+        ]
         : []),
       { label: product.title },
     ],

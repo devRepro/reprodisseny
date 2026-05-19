@@ -95,7 +95,33 @@
     color: hsl(var(--primary));
     font-weight: 700;
   }
+   .product-attribute-list {
+    @apply mt-5 flex flex-wrap items-center gap-2.5;
+  }
 
+  .product-attribute-chip {
+    @apply inline-flex min-h-10 max-w-full items-center gap-2 rounded-full border px-3.5 py-2 text-label shadow-sm;
+    background:
+      linear-gradient(
+        180deg,
+        hsl(var(--card)) 0%,
+        hsl(var(--accent) / 0.62) 100%
+      );
+    color: hsl(var(--foreground) / 0.78);
+    border-color: hsl(var(--primary) / 0.16);
+    box-shadow:
+      0 12px 28px -24px hsl(var(--foreground) / 0.32),
+      inset 0 1px 0 hsl(var(--brand-white) / 0.72);
+  }
+
+  .product-attribute-chip__icon {
+    @apply size-4 shrink-0;
+    color: hsl(var(--primary));
+  }
+
+  .product-attribute-chip__label {
+    @apply truncate;
+  }
   .product-form-scroll-shell {
     @apply relative min-h-0 flex-1;
   }

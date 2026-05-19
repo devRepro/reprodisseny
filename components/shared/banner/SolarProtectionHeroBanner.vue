@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import { Check } from "lucide-vue-next";
+import type { RouteLocationRaw } from "vue-router";
 import { normalizeCmsMediaSrc } from "@/utils/cmsMedia";
+import AppButton from "@/components/shared/button/AppButton.vue";
 
-type LinkTarget = string | Record<string, unknown>;
+type LinkTarget = string | RouteLocationRaw;
 
 const props = withDefaults(
   defineProps<{
@@ -61,7 +63,7 @@ const hasSecondaryAction = computed(() =>
 <template>
   <section
     :class="[
-      'relative left-1/2 right-1/2 -mx-[50vw] w-screen overflow-hidden bg-[#075b7b]',
+      'relative left-1/2 right-1/2 -mx-[50vw] w-screen overflow-hidden bg-primary text-primary-foreground',
       sectionClass,
     ]"
   >
@@ -85,19 +87,19 @@ const hasSecondaryAction = computed(() =>
       </div>
 
       <div
-        class="flex bg-[#075b7b] px-6 py-8 text-white sm:px-10 lg:h-full lg:items-center lg:px-14 lg:py-0 xl:px-16"
+        class="flex bg-primary px-6 py-8 text-primary-foreground sm:px-10 lg:h-full lg:items-center lg:px-14 lg:py-0 xl:px-16"
       >
         <div class="w-full max-w-[680px]">
           <div class="space-y-5">
             <h2
-              class="text-balance text-[32px] font-bold leading-[1.12] tracking-tight text-white md:text-[36px]"
+              class="text-balance text-[32px] font-bold leading-[1.12] tracking-tight text-primary-foreground md:text-[36px]"
             >
               {{ title }}
             </h2>
 
             <ul
               v-if="displayBullets.length"
-              class="space-y-2.5 text-[18px] font-medium leading-snug text-white/95 md:text-[20px]"
+              class="space-y-2.5 text-[18px] font-medium leading-snug text-primary-foreground/95 md:text-[20px]"
             >
               <li
                 v-for="bullet in displayBullets"
@@ -105,7 +107,7 @@ const hasSecondaryAction = computed(() =>
                 class="flex items-start gap-2.5"
               >
                 <Check
-                  class="mt-0.5 h-5 w-5 shrink-0 text-white"
+                  class="mt-0.5 h-5 w-5 shrink-0 text-primary-foreground"
                   stroke-width="3"
                   aria-hidden="true"
                 />
@@ -116,20 +118,25 @@ const hasSecondaryAction = computed(() =>
           </div>
 
           <div class="mt-7 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
-            <NuxtLink
+            <AppButton
               :to="primaryTo"
-              class="inline-flex min-h-12 items-center justify-center rounded-lg bg-[#ffbd2e] px-5 py-2.5 text-[18px] font-semibold leading-none text-[#111827] shadow-sm transition hover:bg-[#ffc94f] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#075b7b] md:text-[20px]"
+              variant="secondary"
+              size="lg"
+              arrow
+              class="rounded-xl bg-[hsl(var(--brand-yellow))] text-foreground hover:bg-[hsl(var(--brand-yellow)/0.88)]"
             >
               {{ primaryLabel }}
-            </NuxtLink>
+            </AppButton>
 
-            <NuxtLink
+            <AppButton
               v-if="hasSecondaryAction"
               :to="resolvedSecondaryTo"
-              class="text-[16px] font-medium leading-snug text-white/90 underline underline-offset-4 transition hover:text-white md:text-[18px]"
+              variant="link"
+              size="lg"
+              class="text-primary-foreground/90 underline underline-offset-4 hover:text-primary-foreground"
             >
               {{ secondaryLabel }}
-            </NuxtLink>
+            </AppButton>
           </div>
         </div>
       </div>

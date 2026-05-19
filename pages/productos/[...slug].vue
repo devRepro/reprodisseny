@@ -182,6 +182,7 @@ const heroProduct = computed(() => {
         }
       : null,
     galleryImages: galleryImages.value,
+     attributes: Array.isArray(current.attributes) ? current.attributes : [],
     formFields: Array.isArray(current.formFields) ? current.formFields : [],
     extraFields,
     categorySlug: current.category?.slug || "",

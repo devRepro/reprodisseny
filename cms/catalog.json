@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-18T13:38:52.484Z",
+  "generatedAt": "2026-05-19T08:39:02.000Z",
   "categories": [
     {
       "id": "12",
@@ -29035,7 +29035,7 @@
     },
     {
       "id": "52",
-      "updatedAt": "2026-05-18T13:31:25Z",
+      "updatedAt": "2026-05-19T08:37:31Z",
       "type": "producto",
       "slug": "panel-forex",
       "path": "/productos/panel-forex",
@@ -29270,7 +29270,23 @@
       "inStock": true,
       "ratingValue": 0,
       "reviewCount": 0,
-      "attributes": [],
+      "attributes": [
+        {
+          "label": "PVC espumado ligero",
+          "icon": "layers",
+          "tone": "brand"
+        },
+        {
+          "label": "Corte a medida",
+          "icon": "scissors",
+          "tone": "neutral"
+        },
+        {
+          "label": "Interior y exterior puntual",
+          "icon": "shield",
+          "tone": "neutral"
+        }
+      ],
       "variants": [],
       "formFields": [
         {

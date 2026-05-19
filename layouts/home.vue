@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import SiteHeader from "@/components/layout/SiteHeader.vue";
 import SiteFooter from "@/components/shared/footer/SiteFooter.vue";
+import SolarFilmPromo from "@/components/marketing/promo/SolarFilmPromo.vue";
 import { useCategoriasNav } from "~/composables/useCategoriasNav";
 
 const { tree: menuTree, pending: menuPending, error: menuError } = await useCategoriasNav(
@@ -25,5 +26,6 @@ const { tree: menuTree, pending: menuPending, error: menuError } = await useCate
     </main>
 
     <SiteFooter />
+    <SolarFilmPromo />
   </div>
 </template>

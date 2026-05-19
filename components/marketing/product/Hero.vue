@@ -1,19 +1,27 @@
 <script setup lang="ts">
 import { computed, watchEffect } from "vue";
 import ProductHeroGallery from "@/components/marketing/product/ProductHeroGallery.vue";
+import ProductAttributePills from "@/components/shared/pills/ProductAttributePills.vue";
 import LeadForm from "@/components/marketing/product/LeadForm.vue";
 
 type HeroImage =
   | string
   | {
-      src?: string | null;
-      alt?: string | null;
-      caption?: string | null;
-      width?: number | null;
-      height?: number | null;
-    }
+    src?: string | null;
+    alt?: string | null;
+    caption?: string | null;
+    width?: number | null;
+    height?: number | null;
+  }
   | null
   | undefined;
+
+
+type HeroProductAttribute = {
+  label: string;
+  icon?: string | null;
+  tone?: string | null;
+};
 
 type HeroProduct = {
   slug?: string;
@@ -27,6 +35,7 @@ type HeroProduct = {
   gallery?: HeroImage[];
   galleryImages?: HeroImage[];
   images?: HeroImage[];
+  attributes?: HeroProductAttribute[];
   formFields?: any[];
   extraFields?: any[];
   categorySlug?: string;
@@ -53,12 +62,6 @@ const props = defineProps<{
 
 const FALLBACK = "/img/placeholders/producto.webp";
 
-const supportItems = [
-  "Asesoramiento técnico",
-  "Revisión básica de archivo",
-  "Respuesta rápida",
-];
-
 
 const imgAlt = computed(() => {
   const image = props.product?.image;
@@ -78,6 +81,21 @@ const productDesc = computed(() => {
   );
 });
 
+
+const attributePills = computed<HeroProductAttribute[]>(() => {
+  const raw = Array.isArray(props.product?.attributes)
+    ? props.product.attributes
+    : [];
+
+  return raw
+    .map((item) => ({
+      label: String(item?.label || "").trim(),
+      icon: item?.icon ? String(item.icon) : null,
+      tone: item?.tone ? String(item.tone) : "neutral",
+    }))
+    .filter((item) => item.label)
+    .slice(0, 4);
+});
 
 function toHeroImageArray(value: unknown): HeroImage[] {
   return Array.isArray(value) ? (value as HeroImage[]) : [];
@@ -118,89 +136,58 @@ watchEffect(() => {
   if (!import.meta.dev) return;
 
   console.log("[ProductHeroGallery input]", {
-    productTitle: productTitle.value,
-    productKeys: Object.keys(props.product ?? {}),
-    primaryImage: primaryImage.value,
-    gallery: props.product?.gallery,
-    galleryImages: props.product?.galleryImages,
-    images: props.product?.images,
-    computedGalleryImages: galleryImages.value,
-  });
+  productTitle: productTitle.value,
+  productKeys: Object.keys(props.product ?? {}),
+  attributes: props.product?.attributes,
+  primaryImage: primaryImage.value,
+  gallery: props.product?.gallery,
+  galleryImages: props.product?.galleryImages,
+  images: props.product?.images,
+  computedGalleryImages: galleryImages.value,
+});
 });
 </script>
 
 <template>
-  <article
-    class="w-full"
-    itemscope
-    itemtype="https://schema.org/Product"
-    :aria-label="
-      productTitle ? `Página del producto ${productTitle}` : 'Página de producto'
-    "
-  >
+  <article class="w-full" itemscope itemtype="https://schema.org/Product" :aria-label="productTitle ? `Página del producto ${productTitle}` : 'Página de producto'
+    ">
     <meta v-if="product?.sku" itemprop="sku" :content="String(product.sku)" />
     <meta v-if="productTitle" itemprop="name" :content="productTitle" />
     <meta v-if="productDesc" itemprop="description" :content="productDesc" />
 
     <div
-      class="grid items-start gap-8 lg:gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(380px,430px)] xl:gap-12 2xl:grid-cols-[minmax(0,1fr)_minmax(400px,450px)]"
-    >
+      class="grid items-start gap-8 lg:gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(380px,430px)] xl:gap-12 2xl:grid-cols-[minmax(0,1fr)_minmax(400px,450px)]">
       <section class="min-w-0">
         <div class="max-w-3xl">
           <header class="space-y-4 md:space-y-5">
-            <p
-              v-if="category?.title || category?.nav"
-              class="inline-flex w-fit items-center rounded-full border border-primary/15 bg-primary/5 px-3 py-1.5 text-label text-primary"
-            >
+            <p v-if="category?.title || category?.nav"
+              class="inline-flex w-fit items-center rounded-full border border-primary/15 bg-primary/5 px-3 py-1.5 text-label text-primary">
               {{ category?.nav || category?.title }}
             </p>
 
             <h1
               class="text-[clamp(2.1rem,3.6vw,3.9rem)] leading-[1.02] tracking-tight text-foreground [overflow-wrap:anywhere]"
-              :title="productTitle"
-              itemprop="name"
-            >
+              :title="productTitle" itemprop="name">
               {{ productTitle }}
             </h1>
 
-            <p
-              v-if="productDesc"
-              class="max-w-[68ch] text-body text-foreground/78 md:text-[18px] md:leading-[1.68]"
-              itemprop="description"
-            >
+            <p v-if="productDesc" class="max-w-[68ch] text-body text-foreground/78 md:text-[18px] md:leading-[1.68]"
+              itemprop="description">
               {{ productDesc }}
             </p>
           </header>
 
-          <ProductHeroGallery
-  class="mt-6 md:mt-8"
-  :primary-image="primaryImage"
-  :images="galleryImages"
-  :alt="imgAlt"
-  :fallback="FALLBACK"
-/>
+          <ProductHeroGallery class="mt-6 md:mt-8" :primary-image="primaryImage" :images="galleryImages" :alt="imgAlt"
+            :fallback="FALLBACK" />
 
-          <ul class="mt-5 flex flex-wrap gap-2">
-            <li
-              v-for="item in supportItems"
-              :key="item"
-              class="inline-flex items-center rounded-full border border-border/70 bg-background/80 px-3 py-2 text-body-s text-muted-foreground"
-            >
-              {{ item }}
-            </li>
-          </ul>
+          <ProductAttributePills v-if="attributePills.length" :items="attributePills" />
         </div>
       </section>
 
       <aside class="min-w-0 xl:sticky xl:top-24 xl:self-start">
         <div class="product-lead-card">
-          <LeadForm
-            :producto="productNameForForm"
-            :category-slug="categorySlug"
-            :extra-fields="extraFields"
-            :product-data="product"
-            class="w-full xl:min-h-0 xl:flex-1"
-          />
+          <LeadForm :producto="productNameForForm" :category-slug="categorySlug" :extra-fields="extraFields"
+            :product-data="product" class="w-full xl:min-h-0 xl:flex-1" />
         </div>
       </aside>
     </div>
