@@ -239,6 +239,8 @@ type CatalogCategory = {
   usesMd?: string;
   finishesMd?: string;
   howWeWork?: unknown;
+  relatedProductsJson?: unknown;
+  RelatedProductsJson?: unknown;
   sections?: CatalogSection[];
   faqs?: CatalogFaq[];
   image?: CatalogImage | null;
@@ -294,6 +296,12 @@ export type NavCategoryItem = {
 export type BreadcrumbItem = {
   label: string;
   to?: string;
+};
+
+export type KeywordPillItem = {
+  label: string;
+  to: string;
+  ariaLabel?: string;
 };
 
 export type ProductAttributeDto = {
@@ -407,6 +415,7 @@ export type CategoryDetailPageDto = {
   } | null;
   children: CategoryDetailChildItem[];
   detailGallery?: CategoryDetailMediaItemDto[];
+  keywordPills: KeywordPillItem[];
   products: CategoryDetailProductItem[];
   sections: CategoryDetailSectionItem[];
   faqs: CategoryDetailFaqItem[];
@@ -1025,6 +1034,104 @@ function getProductLookupKeys(product: CatalogProduct) {
   return keys;
 }
 
+type RelatedProductReference = {
+  label?: string;
+  productSlug: string;
+};
+
+function normalizeRelatedProductReferences(value: unknown): RelatedProductReference[] {
+  const rawItems = parseJsonArray(value);
+  const seen = new Set<string>();
+
+  return rawItems
+    .map((item) => {
+      if (!item || typeof item !== "object" || Array.isArray(item)) return null;
+
+      const record = item as Record<string, unknown>;
+
+      const rawProductSlug = String(
+        record.productSlug ?? record.slug ?? record.path ?? ""
+      ).trim();
+
+      const productSlug = normalizeSlug(rawProductSlug);
+      if (!productSlug || seen.has(productSlug)) return null;
+
+      const label = String(record.label ?? "").trim();
+
+      seen.add(productSlug);
+
+      return {
+        productSlug,
+        ...(label ? { label } : {}),
+      };
+    })
+    .filter((item): item is RelatedProductReference => Boolean(item))
+    .slice(0, 3);
+}
+
+function getRelatedProductLookupCandidates(value: string): string[] {
+  const candidates = new Set<string>();
+
+  const normalized = normalizeSlug(value);
+  const lastSegment = getLastPathSegment(value);
+  const productPath = normalizeProductPath(value);
+
+  if (normalized) candidates.add(normalized);
+  if (lastSegment) candidates.add(lastSegment);
+  if (productPath) candidates.add(productPath);
+
+  return [...candidates];
+}
+
+function resolveCategoryKeywordPills(
+  category: CatalogCategory,
+  products: CatalogProduct[]
+): KeywordPillItem[] {
+  const refs = normalizeRelatedProductReferences(
+    category.relatedProductsJson ?? category.RelatedProductsJson
+  );
+
+  if (!refs.length || !products.length) return [];
+
+  const productIndex = new Map<string, CatalogProduct>();
+
+  for (const product of products) {
+    for (const key of getProductLookupKeys(product)) {
+      productIndex.set(key, product);
+    }
+  }
+
+  const seenPaths = new Set<string>();
+
+  return refs
+    .reduce<KeywordPillItem[]>((acc, ref) => {
+      let product: CatalogProduct | undefined;
+
+      for (const key of getRelatedProductLookupCandidates(ref.productSlug)) {
+        product = productIndex.get(key);
+        if (product) break;
+      }
+
+      if (!product) return acc;
+
+      const to = productPathOf(product);
+      if (!to || seenPaths.has(to)) return acc;
+
+      const label = String(ref.label || product.title || "").trim();
+      if (!label) return acc;
+
+      seenPaths.add(to);
+
+      acc.push({
+        label,
+        to,
+        ariaLabel: `Ver ${label}`,
+      });
+
+      return acc;
+    }, [])
+    .slice(0, 3);
+}
 
 const GALLERY_MEDIA_URL_KEYS = new Set([
   "src",
@@ -1878,6 +1985,9 @@ export function getCategoryDetailByPath(
   const canonicalPath = categoryPathOf(category);
   const trail = buildCategoryTrail(category, categories);
 
+  const publishedProducts = getPublishedProducts();
+  const keywordPills = resolveCategoryKeywordPills(category, publishedProducts);
+
   return {
     slug: categoryPublicSlugOf(category),
     path: canonicalPath,
@@ -1894,6 +2004,7 @@ export function getCategoryDetailByPath(
     detailGallery: normalizeDetailGalleryItems(
       getCategoryDetailGalleryBySlug(categoryPublicSlugOf(category))
     ),
+    keywordPills,
     breadcrumbs: [
       { label: "Inicio", to: "/" },
       { label: "Categorías", to: "/categorias" },

@@ -17,6 +17,6 @@ const { tree, pending, error } = await useCategoriasNav({
       <slot />
     </div>
     <SiteFooter />
-    <SolarFilmPromo />
+    <!--<SolarFilmPromo />-->
   </div>
 </template>

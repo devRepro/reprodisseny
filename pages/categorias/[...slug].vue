@@ -205,9 +205,7 @@ const galleryImages = computed<GalleryImage[]>(() => {
   return detailGallery.value;
 });
 
-const keywordPills = computed(() =>
-  getCategoryKeywordPills(category.value?.slug, products.value)
-);
+const keywordPills = computed(() => category.value?.keywordPills ?? []);
 
 const isPending = computed(() => status.value === "pending");
 
@@ -350,17 +348,24 @@ const detailsMedia = computed(() => {
 
   const image = primary?.src
     ? {
-      src: primary.src,
-      alt: primary.alt || category.value?.title || "Imagen de la categoría",
-      caption: primary.caption || undefined,
-    }
+        src: primary.src,
+        alt: primary.alt || category.value?.title || "Imagen de la categoría",
+        caption: primary.caption || undefined,
+      }
     : null;
 
-  const pills = keywordPills.value
-    .map((item) => ({
-      label: String(item?.label || "").trim(),
-      to: String(item?.to || "").trim(),
-    }))
+  const pills = (keywordPills.value || [])
+    .map((item) => {
+      const label = String(item?.label || "").trim();
+      const to = String(item?.to || "").trim();
+      const ariaLabel = String(item?.ariaLabel || "").trim();
+
+      return {
+        label,
+        to,
+        ariaLabel: ariaLabel || `Ver ${label}`,
+      };
+    })
     .filter((item) => item.label && item.to)
     .slice(0, 6);
 

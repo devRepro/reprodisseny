@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-19T08:39:02.000Z",
+  "generatedAt": "2026-05-20T12:36:04.214Z",
   "categories": [
     {
       "id": "12",
@@ -198,6 +198,7 @@
         }
       ],
       "galleryImages": [],
+      "relatedProductsJson": [],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -341,7 +342,7 @@
     },
     {
       "id": "13",
-      "updatedAt": "2026-05-13T06:37:59Z",
+      "updatedAt": "2026-05-19T08:45:00Z",
       "type": "subcategoria",
       "slug": "material-rigido",
       "path": "/categorias/gran-formato/material-rigido",
@@ -484,7 +485,7 @@
         }
       ],
       "image": {
-        "src": "https://webcms.blob.core.windows.net/media/category/gran-formato.webp",
+        "src": "https://webcms.blob.core.windows.net/media/category/gran-formato-rigidos.webp",
         "width": 2400,
         "height": 1200,
         "alt": "Material publicitario impreso para campañas, promociones y punto de venta"
@@ -504,6 +505,7 @@
         }
       ],
       "galleryImages": [],
+      "relatedProductsJson": [],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -565,7 +567,7 @@
               "name": "Impresión en Materiales Rígidos - Gran Formato",
               "description": "Impresión gran formato rígido en Barcelona: foam/panel ligero, Forex, Dibond, cartón, metacrilato y madera. Para señalética, displays y ferias. Pide presupuesto.",
               "url": "https://reprodisseny.com/categorias/gran-formato/material-rigido",
-              "image": "https://webcms.blob.core.windows.net/media/category/gran-formato.webp",
+              "image": "https://webcms.blob.core.windows.net/media/category/gran-formato-rigidos.webp",
               "inLanguage": "es-ES",
               "publisher": {
                 "@type": "Organization",
@@ -634,7 +636,7 @@
           ]
         },
         "robotsOverride": "INHERIT",
-        "ogImageSrc": "https://webcms.blob.core.windows.net/media/category/gran-formato.webp"
+        "ogImageSrc": "https://webcms.blob.core.windows.net/media/category/gran-formato-rigidos.webp"
       }
     },
     {
@@ -779,6 +781,7 @@
         }
       ],
       "galleryImages": [],
+      "relatedProductsJson": [],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -1057,6 +1060,7 @@
         }
       ],
       "galleryImages": [],
+      "relatedProductsJson": [],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -1206,7 +1210,7 @@
     },
     {
       "id": "2",
-      "updatedAt": "2026-05-15T17:11:36Z",
+      "updatedAt": "2026-05-20T11:53:50Z",
       "type": "categoria",
       "slug": "adhesivos-personalizados",
       "path": "/categorias/adhesivos-personalizados",
@@ -1438,6 +1442,20 @@
           "src": "https://media.reprodisseny.com/media/category/adhesivos%20imatges/tipos.webp",
           "alt": "Tipos de adhesivos personalizados en papel, vinilo y materiales especiales",
           "caption": "Tipos de adhesivos según uso, material y formato"
+        }
+      ],
+      "relatedProductsJson": [
+        {
+          "label": "Etiquetas en bobina",
+          "productSlug": "etiquetas-adhesivas-en-bobina"
+        },
+        {
+          "label": "Hojas con pegatinas",
+          "productSlug": "hojas-pegatinas-personalizadas"
+        },
+        {
+          "label": "Pegatinas personalizadas",
+          "productSlug": "pegatinas-personalizadas"
         }
       ],
       "breadcrumbs": [
@@ -1785,6 +1803,7 @@
         }
       ],
       "galleryImages": [],
+      "relatedProductsJson": [],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -2120,6 +2139,7 @@
         }
       ],
       "galleryImages": [],
+      "relatedProductsJson": [],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -2423,6 +2443,7 @@
         }
       ],
       "galleryImages": [],
+      "relatedProductsJson": [],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -2771,6 +2792,7 @@
         }
       ],
       "galleryImages": [],
+      "relatedProductsJson": [],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -3069,6 +3091,7 @@
         }
       ],
       "galleryImages": [],
+      "relatedProductsJson": [],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -3372,6 +3395,7 @@
         }
       ],
       "galleryImages": [],
+      "relatedProductsJson": [],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -3636,6 +3660,7 @@
         }
       ],
       "galleryImages": [],
+      "relatedProductsJson": [],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -21386,7 +21411,7 @@
     },
     {
       "id": "49",
-      "updatedAt": "2026-05-05T11:43:03Z",
+      "updatedAt": "2026-05-20T07:32:01Z",
       "type": "producto",
       "slug": "flyers-personalizados",
       "path": "/productos/flyers-personalizados",
@@ -21408,14 +21433,6 @@
           "kind": "details",
           "contentFormat": "markdown",
           "body": "### ¿Qué es un flyer y para qué se usa?\n\nUn flyer personalizado es un folleto de una sola hoja, normalmente impreso a una o dos caras, diseñado para comunicar un mensaje breve: promoción, evento, apertura, descuento, lanzamiento o información de servicio.\n\nSe utiliza cuando necesitas difusión rápida y masiva, con un mensaje claro y una llamada a la acción concreta, como visitar una tienda, reservar, escanear un QR, llamar o acceder a una landing promocional."
-        },
-        {
-          "id": "benefits",
-          "key": "benefits",
-          "title": "Beneficios",
-          "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "Ventajas principales de los flyers personalizados para campañas locales, promociones, eventos, aperturas y acciones comerciales.\n\n- **Alcance rápido y económico:** ideal para campañas de difusión masiva con un coste ajustado por unidad.\n- **Mensaje directo:** perfecto para comunicar ofertas, eventos, aperturas, descuentos, lanzamientos o servicios concretos.\n- **Fácil de distribuir:** se puede usar en buzoneo, reparto en calle, mostrador, ferias, bolsas o packaging.\n- **Campañas medibles:** permite incluir QR, códigos promocionales, URL específicas o llamadas a la acción para rastrear resultados.\n- **Muy versátil:** disponible en distintos formatos, papeles y acabados según presupuesto, canal de distribución y objetivo de campaña."
         },
         {
           "id": "materials",
@@ -21529,7 +21546,7 @@
           "title": "Aplicaciones",
           "kind": "applications",
           "contentFormat": "markdown",
-          "body": "Aplicaciones habituales de los flyers personalizados en campañas locales, eventos, punto de venta, street marketing y packaging.\n\n- **Buzoneo y reparto:** campañas locales para comercios, servicios, hostelería, academias, centros deportivos o negocios de proximidad.\n- **Eventos:** invitaciones, programas breves, información de acceso, promociones en feria o comunicación para asistentes.\n- **Punto de venta:** ofertas, lanzamientos de producto, descuentos por tiempo limitado, promociones en mostrador o acciones en tienda.\n- **Acciones de marca:** street marketing, sampling, inauguraciones, openings, campañas de temporada y activaciones promocionales.\n- **Inserto en packaging:** cupones, recomendaciones, instrucciones, mensajes de fidelización o tarjetas de “gracias por tu compra”."
+          "body": "{\n  \"intro\": \"Aplicaciones habituales de los flyers personalizados en campañas locales, eventos, punto de venta, street marketing y packaging.\",\n  \"applications\": [\n    {\n      \"title\": \"Buzoneo y reparto\",\n      \"description\": \"Campañas locales para comercios, servicios, hostelería, academias, centros deportivos o negocios de proximidad.\"\n    },\n    {\n      \"title\": \"Eventos\",\n      \"description\": \"Invitaciones, programas breves, información de acceso, promociones en feria o comunicación para asistentes.\"\n    },\n    {\n      \"title\": \"Punto de venta\",\n      \"description\": \"Ofertas, lanzamientos de producto, descuentos por tiempo limitado, promociones en mostrador o acciones en tienda.\"\n    },\n    {\n      \"title\": \"Acciones de marca\",\n      \"description\": \"Street marketing, sampling, inauguraciones, openings, campañas de temporada y activaciones promocionales.\"\n    },\n    {\n      \"title\": \"Inserto en packaging\",\n      \"description\": \"Cupones, recomendaciones, instrucciones, mensajes de fidelización o tarjetas de “gracias por tu compra”.\"\n    }\n  ]\n}"
         }
       ],
       "faqs": [
@@ -21586,7 +21603,32 @@
       "inStock": true,
       "ratingValue": 0,
       "reviewCount": 0,
-      "attributes": [],
+      "attributes": [
+        {
+          "key": "alcance-rapido-economico",
+          "label": "Alcance rápido y económico",
+          "placement": "hero-pills",
+          "tone": "brand"
+        },
+        {
+          "key": "mensaje-directo",
+          "label": "Mensaje directo",
+          "placement": "hero-pills",
+          "tone": "neutral"
+        },
+        {
+          "key": "facil-de-distribuir",
+          "label": "Fácil de distribuir",
+          "placement": "hero-pills",
+          "tone": "brand"
+        },
+        {
+          "key": "campanas-medibles",
+          "label": "Campañas medibles",
+          "placement": "hero-pills",
+          "tone": "success"
+        }
+      ],
       "variants": [],
       "formFields": [
         {
@@ -21678,10 +21720,41 @@
           }
         ],
         "keywords": [
-          "flyers"
+          "flyers personalizados",
+          "flyers publicitarios",
+          "impresión de flyers",
+          "folletos publicitarios",
+          "flyers para campañas",
+          "flyers para eventos",
+          "flyers para buzoneo",
+          "flyers para promociones",
+          "flyers A6 personalizados",
+          "flyers A5 personalizados",
+          "flyers para punto de venta",
+          "impresión flyers Barcelona"
         ],
         "searchTerms": [
-          "flyers"
+          "flyers",
+          "flyer",
+          "flyers personalizados",
+          "flyer personalizado",
+          "flyers publicitarios",
+          "folletos",
+          "folletos publicitarios",
+          "imprimir flyers",
+          "impresion flyers",
+          "flyers barcelona",
+          "flyers a6",
+          "flyers a5",
+          "flyers dl",
+          "flyers para buzoneo",
+          "flyers para repartir",
+          "flyers para eventos",
+          "flyers promociones",
+          "flyers con qr",
+          "flyers para tienda",
+          "flyers para packaging",
+          "flyers para street marketing"
         ],
         "schema": {
           "@context": "https://schema.org",
@@ -29477,15 +29550,14 @@
     },
     {
       "id": "71",
-      "updatedAt": "2026-05-05T15:48:30Z",
+      "updatedAt": "2026-05-19T08:39:39Z",
       "type": "producto",
       "slug": "panel-nido-de-abeja-personalizado",
       "path": "/productos/panel-nido-de-abeja-personalizado",
       "title": "Panel de nido de abeja",
       "categorySlug": "material-rigido",
       "categorySlugs": [
-        "material-rigido",
-        "hosteleria-restauracion"
+        "material-rigido"
       ],
       "order": 9999,
       "isPublished": true,
@@ -33881,305 +33953,6 @@
       }
     },
     {
-      "id": "88",
-      "updatedAt": "2026-05-05T13:24:22Z",
-      "type": "producto",
-      "slug": "retroiluminados",
-      "path": "/productos/retroiluminados",
-      "title": "Retroiluminados personalizados para cajas de luz y señalética",
-      "categorySlug": "material-rigido",
-      "categorySlugs": [
-        "material-rigido"
-      ],
-      "order": 9999,
-      "isPublished": true,
-      "shortDescription": "Los retroiluminados son la opción perfecta cuando buscas máxima visibilidad: la luz desde atrás hace que la gráfica destaque más y se lea mejor incluso en espacios muy cargados (retail, ferias, centros comerciales o exteriores). En Repro Disseny imprimimos gráficas retroiluminadas (backlit) a medida para cajas de luz, rótulos y displays, cuidando el material y la impresión para conseguir una iluminación uniforme y un acabado profesional.",
-      "description": "Los retroiluminados son la opción perfecta cuando buscas máxima visibilidad: la luz desde atrás hace que la gráfica destaque más y se lea mejor incluso en espacios muy cargados (retail, ferias, centros comerciales o exteriores). En Repro Disseny imprimimos gráficas retroiluminadas (backlit) a medida para cajas de luz, rótulos y displays, cuidando el material y la impresión para conseguir una iluminación uniforme y un acabado profesional.",
-      "bodyMd": "## ¿Qué es un retroiluminado o gráfica backlit?\n\nUn retroiluminado, también llamado gráfica backlit, es una impresión realizada sobre un material traslúcido diseñada para colocarse en un soporte con luz por detrás, normalmente LED u otro sistema de iluminación.\n\nCuando la gráfica se ilumina, los colores ganan presencia, el mensaje se lee con más fuerza y la comunicación destaca mucho más que en un soporte sin luz. Por eso es una solución muy utilizada en cajas de luz, rótulos, escaparates, stands, centros comerciales y espacios donde la marca necesita llamar la atención.\n\nEn Repro Disseny imprimimos retroiluminados personalizados en Barcelona para campañas, señalética, promociones, retail, hostelería y espacios corporativos, cuidando el material, la densidad de impresión y el acabado para conseguir una iluminación uniforme y profesional.",
-      "sections": [
-        {
-          "id": "details",
-          "key": "details",
-          "title": "Detalles",
-          "kind": "details",
-          "contentFormat": "markdown",
-          "body": "## ¿Qué es un retroiluminado o gráfica backlit?\n\nUn retroiluminado, también llamado gráfica backlit, es una impresión realizada sobre un material traslúcido diseñada para colocarse en un soporte con luz por detrás, normalmente LED u otro sistema de iluminación.\n\nCuando la gráfica se ilumina, los colores ganan presencia, el mensaje se lee con más fuerza y la comunicación destaca mucho más que en un soporte sin luz. Por eso es una solución muy utilizada en cajas de luz, rótulos, escaparates, stands, centros comerciales y espacios donde la marca necesita llamar la atención.\n\nEn Repro Disseny imprimimos retroiluminados personalizados en Barcelona para campañas, señalética, promociones, retail, hostelería y espacios corporativos, cuidando el material, la densidad de impresión y el acabado para conseguir una iluminación uniforme y profesional."
-        },
-        {
-          "id": "benefits",
-          "key": "benefits",
-          "title": "Beneficios",
-          "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "- **Impacto visual superior:** la gráfica iluminada capta la atención mucho más rápido que un soporte sin luz.\n- **Colores vivos y mejor legibilidad:** ideal para promociones, branding, señalética y mensajes cortos que deben leerse con rapidez.\n- **Acabado premium:** mejora la percepción de marca en tiendas, ferias, showrooms, recepciones y espacios corporativos.\n- **Perfecto para campañas por temporadas:** puedes renovar la gráfica manteniendo la misma estructura de luz.\n- **Muy efectivo en retail y escaparates:** ayuda a destacar productos, promociones y mensajes comerciales en zonas con mucha competencia visual.\n- **Buen resultado en foto y vídeo:** cuando el archivo y la impresión están bien preparados, el acabado se ve limpio, uniforme y profesional."
-        },
-        {
-          "id": "technical-specs",
-          "key": "technical-specs",
-          "title": "Características técnicas",
-          "kind": "technical-specs",
-          "contentFormat": "markdown",
-          "body": "## Material backlit\n\n- Soporte traslúcido diseñado para que la luz se distribuya de forma uniforme.\n- Material pensado para evitar que la iluminación “queme” los blancos o apague los colores.\n- Elección del soporte según el sistema de instalación: caja de luz, rótulo, marco textil, display o estructura existente.\n- Opciones como backlight o textil retroiluminable según el acabado, el tamaño y el tipo de montaje.\n\n## Impresión orientada a iluminación\n\n- Impresión a todo color preparada para trabajar con luz trasera.\n- Ajuste de densidades para mantener contraste, intensidad y fidelidad cuando la gráfica está iluminada.\n- Revisión del diseño para evitar zonas demasiado oscuras, degradados problemáticos o fondos que puedan verse irregulares con la luz.\n- Recomendación práctica: en retroiluminados conviene trabajar con fondos, degradados y masas de color bien controladas para conseguir un resultado uniforme.\n\n## Formatos y medidas\n\n- Tamaños estándar o producción a medida según la caja de luz, rótulo, marco o estructura.\n- Posibilidad de producir piezas grandes por paños cuando el formato lo requiere.\n- Preparación del archivo pensando en el encaje real dentro del sistema: marco, guías, perfiles, tensado o zona visible.\n- Corte recto y ajuste de medidas para facilitar la instalación.\n\n## Acabados de instalación\n\n- Preparación para marcos, perfiles o cajas de luz mediante corte exacto.\n- Opciones tipo vaina, velcro o sistemas de tensado si el soporte lo requiere.\n- Acabados definidos según si la pieza será fija, sustituible por campañas o reutilizable.\n- Validación previa del sistema de colocación para evitar holguras, sombras o tensiones incorrectas.\n\n## Una cara o doble cara\n\n- Lo habitual es impresión a una cara, ya que la luz viene desde la parte posterior.\n- En sistemas colgantes o estructuras visibles por ambos lados, se puede plantear una configuración específica.\n- Si el soporte es doble cara, conviene revisar el sistema antes de producir para definir material, opacidad e iluminación."
-        },
-        {
-          "id": "applications",
-          "key": "applications",
-          "title": "Aplicaciones",
-          "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "- **Cajas de luz:** gráficas para tiendas, centros comerciales, escaparates, mostradores y espacios promocionales.\n- **Rótulos luminosos:** identificación de marca, señalética interior y comunicación corporativa con luz trasera.\n- **Stands y ferias:** paneles retroiluminados para destacar frente a otros expositores y reforzar la presencia de marca.\n- **Hostelería y ocio:** cartelería iluminada para menús, eventos, promociones, zonas de recepción o comunicación interior.\n- **Showrooms y recepciones:** mensajes de marca, imágenes corporativas y elementos visuales de alto impacto.\n- **Campañas temporales:** promociones estacionales, lanzamientos de producto, rebajas, activaciones y acciones comerciales."
-        }
-      ],
-      "faqs": [
-        {
-          "question": "¿Qué diferencia hay entre un retroiluminado y un póster normal?",
-          "answer": "El retroiluminado está pensado para trabajar con luz por detrás: el material y la impresión se ajustan para que el resultado se vea uniforme y con impacto cuando se ilumina."
-        },
-        {
-          "question": "¿Se puede cambiar la gráfica sin cambiar la caja de luz?",
-          "answer": "Sí, es una de las ventajas: puedes renovar campañas manteniendo la estructura."
-        },
-        {
-          "question": "¿Mate o brillo?",
-          "answer": "Depende del sistema y la ubicación. En general, el objetivo es evitar reflejos externos y conseguir buena uniformidad; te recomendamos la mejor opción según dónde vaya instalado."
-        },
-        {
-          "question": "¿Qué necesitáis para presupuestar?",
-          "answer": "Medida, tipo de soporte (caja de luz, rótulo, marco), si será interior/exterior y fecha."
-        }
-      ],
-      "breadcrumbs": [
-        {
-          "name": "Inicio",
-          "url": "/"
-        },
-        {
-          "name": "Categorías",
-          "url": "/categorias"
-        },
-        {
-          "name": "Gran Formato",
-          "url": "/categorias/gran-formato"
-        },
-        {
-          "name": "Materiales Rígidos",
-          "url": "/categorias/gran-formato/material-rigido"
-        },
-        {
-          "name": "Retroiluminados personalizados para cajas de luz y señalética",
-          "url": "/productos/retroiluminados"
-        }
-      ],
-      "image": {
-        "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/retroiluminados.webp",
-        "width": 1200,
-        "height": 1200,
-        "alt": "Gráficas retroiluminadas personalizadas para cajas de luz, escaparates y señalética"
-      },
-      "galleryImages": [],
-      "sku": "01-GRFO-0006",
-      "brand": "Reprodisseny",
-      "price": 0,
-      "priceCurrency": "EUR",
-      "inStock": true,
-      "ratingValue": 0,
-      "reviewCount": 0,
-      "attributes": [],
-      "variants": [],
-      "formFields": [
-        {
-          "name": "tamano",
-          "label": "Tamaño",
-          "type": "select",
-          "required": false,
-          "options": [
-            "Personalizado a demanda"
-          ],
-          "readonly": true
-        },
-        {
-          "name": "impresion",
-          "label": "Impresión",
-          "type": "select",
-          "required": false,
-          "options": [
-            "Cuatricromía 1 cara"
-          ],
-          "readonly": true
-        },
-        {
-          "name": "material",
-          "label": "Material",
-          "type": "select",
-          "required": false,
-          "options": [
-            "Backlight",
-            "textil retroiluminable"
-          ],
-          "readonly": false
-        },
-        {
-          "name": "corte",
-          "label": "Corte",
-          "type": "select",
-          "required": false,
-          "options": [
-            "Recto"
-          ],
-          "readonly": true
-        },
-        {
-          "name": "cantidad",
-          "label": "Cantidad",
-          "type": "number",
-          "required": false,
-          "options": [],
-          "readonly": false
-        },
-        {
-          "name": "observaciones",
-          "label": "Observaciones",
-          "type": "text",
-          "required": false,
-          "options": [],
-          "readonly": false
-        }
-      ],
-      "legacySlugs": [],
-      "seo": {
-        "metaTitle": "Retroiluminados personalizados | Gráficas backlit en Barcelona",
-        "metaDescription": "Gráficas retroiluminadas personalizadas para cajas de luz, rótulos, escaparates y displays. Impresión backlit a medida en Barcelona.",
-        "canonical": "https://reprodisseny.com/productos/retroiluminados",
-        "hreflang": [
-          {
-            "lang": "es-ES",
-            "url": "https://reprodisseny.com/productos/retroiluminados"
-          }
-        ],
-        "keywords": [
-          "retroiluminados personalizados",
-          "gráficas retroiluminadas",
-          "gráficas backlit",
-          "impresión backlit",
-          "retroiluminados Barcelona",
-          "cajas de luz personalizadas",
-          "gráficas para cajas de luz",
-          "rótulos retroiluminados",
-          "display retroiluminado",
-          "cartelería retroiluminada",
-          "señalética luminosa",
-          "textil retroiluminable"
-        ],
-        "searchTerms": [
-          "retroiluminados",
-          "retroiluminado",
-          "gráfica retroiluminada",
-          "gráficas backlit",
-          "backlight",
-          "impresión backlit",
-          "caja de luz",
-          "cajas de luz",
-          "rótulo retroiluminado",
-          "display retroiluminado",
-          "cartel retroiluminado",
-          "señalética luminosa",
-          "retroiluminados barcelona",
-          "gráficas para caja de luz"
-        ],
-        "schema": {
-          "@context": "https://schema.org",
-          "@graph": [
-            {
-              "@type": "Product",
-              "name": "Retroiluminados personalizados para cajas de luz y señalética",
-              "description": "Gráficas retroiluminadas personalizadas para cajas de luz, rótulos, escaparates y displays. Impresión backlit a medida en Barcelona.",
-              "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/retroiluminados.webp",
-              "url": "https://reprodisseny.com/productos/retroiluminados",
-              "brand": {
-                "@type": "Organization",
-                "name": "Reprodisseny"
-              },
-              "sku": "01-GRFO-0006"
-            },
-            {
-              "@type": "BreadcrumbList",
-              "itemListElement": [
-                {
-                  "@type": "ListItem",
-                  "position": 1,
-                  "name": "Inicio",
-                  "item": "https://reprodisseny.com/"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 2,
-                  "name": "Categorías",
-                  "item": "https://reprodisseny.com/categorias"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 3,
-                  "name": "Gran Formato",
-                  "item": "https://reprodisseny.com/categorias/gran-formato"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 4,
-                  "name": "Materiales Rígidos",
-                  "item": "https://reprodisseny.com/categorias/gran-formato/material-rigido"
-                },
-                {
-                  "@type": "ListItem",
-                  "position": 5,
-                  "name": "Retroiluminados personalizados para cajas de luz y señalética",
-                  "item": "https://reprodisseny.com/productos/retroiluminados"
-                }
-              ]
-            },
-            {
-              "@type": "FAQPage",
-              "mainEntity": [
-                {
-                  "@type": "Question",
-                  "name": "¿Qué diferencia hay entre un retroiluminado y un póster normal?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "El retroiluminado está pensado para trabajar con luz por detrás: el material y la impresión se ajustan para que el resultado se vea uniforme y con impacto cuando se ilumina."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Se puede cambiar la gráfica sin cambiar la caja de luz?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí, es una de las ventajas: puedes renovar campañas manteniendo la estructura."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Mate o brillo?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Depende del sistema y la ubicación. En general, el objetivo es evitar reflejos externos y conseguir buena uniformidad; te recomendamos la mejor opción según dónde vaya instalado."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Qué necesitáis para presupuestar?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Medida, tipo de soporte (caja de luz, rótulo, marco), si será interior/exterior y fecha."
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        "robotsOverride": "INHERIT",
-        "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/retroiluminados.webp"
-      }
-    },
-    {
       "id": "89",
       "updatedAt": "2026-05-05T12:12:21Z",
       "type": "producto",
@@ -36079,7 +35852,7 @@
     },
     {
       "id": "96",
-      "updatedAt": "2026-05-13T11:58:33Z",
+      "updatedAt": "2026-05-20T07:12:14Z",
       "type": "producto",
       "slug": "tarjetas-pvc-personalizadas",
       "path": "/productos/tarjetas-pvc-personalizadas",
@@ -36092,7 +35865,7 @@
       "isPublished": true,
       "shortDescription": "Tarjetas de PVC personalizadas para fidelización, acceso y membresías. Resistentes, a todo color, con opciones de datos variables, QR/código de barras y acabados premium. Solicita presupuesto.",
       "description": "Tarjetas de PVC personalizadas para fidelización, acceso y membresías. Resistentes, a todo color, con opciones de datos variables, QR/código de barras y acabados premium. Solicita presupuesto.",
-      "bodyMd": "¿Qué es una tarjeta de PVC y para qué se usa? \nUna tarjeta de PVC es una tarjeta de plástico rígido, pensada para uso repetido y manipulación frecuente. Se utiliza como soporte de marca y herramienta operativa: tarjetas de socio, fidelización, acceso, identificación, tarjetas regalo o tarjetas promocionales que deben durar más que una tarjeta de cartulina.",
+      "bodyMd": "## Qué es una tarjeta de PVC y para qué se usa\n\nUna tarjeta de PVC es una tarjeta de plástico rígido, pensada para uso repetido y manipulación frecuente.\n\nSe utiliza como soporte de marca y herramienta operativa: tarjetas de socio, fidelización, acceso, identificación, tarjetas regalo o tarjetas promocionales que deben durar más que una tarjeta de cartulina.",
       "sections": [
         {
           "id": "details",
@@ -36100,23 +35873,68 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es una tarjeta de PVC y para qué se usa? \nUna tarjeta de PVC es una tarjeta de plástico rígido, pensada para uso repetido y manipulación frecuente. Se utiliza como soporte de marca y herramienta operativa: tarjetas de socio, fidelización, acceso, identificación, tarjetas regalo o tarjetas promocionales que deben durar más que una tarjeta de cartulina."
-        },
-        {
-          "id": "benefits",
-          "key": "benefits",
-          "title": "Beneficios",
-          "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "- **Muy resistente y duradera:** aguanta uso diario, roces y manipulación continua.\n- **Imagen premium:** transmite calidad y profesionalidad en mano.\n- **Ideal para operativa:** acceso, control, membresías o programas de fidelización.\n- **Personalización avanzada:** numeración, datos variables, QR y códigos para lectura o validación.\n- **Apta para campañas de largo recorrido:** no se dobla ni se deteriora como una tarjeta de papel."
+          "body": "## Qué es una tarjeta de PVC y para qué se usa\n\nUna tarjeta de PVC es una tarjeta de plástico rígido, pensada para uso repetido y manipulación frecuente.\n\nSe utiliza como soporte de marca y herramienta operativa: tarjetas de socio, fidelización, acceso, identificación, tarjetas regalo o tarjetas promocionales que deben durar más que una tarjeta de cartulina."
         },
         {
           "id": "materials",
           "key": "materials",
           "title": "Materiales",
           "kind": "materials",
-          "contentFormat": "markdown",
-          "body": "- **PVC 660 micras:** soporte rígido, resistente y adecuado para tarjetas de uso frecuente.\n- **Acabado plástico:** pensado para manipulación continua y mayor durabilidad que una tarjeta de cartulina."
+          "contentFormat": "json",
+          "materialsData": {
+            "intro": "Material pensado para tarjetas rígidas, resistentes y adecuadas para uso repetido.",
+            "materials": [
+              {
+                "title": "PVC 660 micras",
+                "description": "Soporte rígido, resistente y adecuado para tarjetas de uso frecuente."
+              },
+              {
+                "title": "Acabado plástico",
+                "description": "Pensado para manipulación continua y mayor durabilidad que una tarjeta de cartulina."
+              }
+            ]
+          }
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "kind": "formats",
+          "contentFormat": "json",
+          "formatsData": {
+            "intro": "Formato estándar tipo tarjeta, similar a tarjeta bancaria, y opciones a medida según proyecto.",
+            "shapes": [
+              {
+                "title": "Formato estándar tipo tarjeta",
+                "description": "Formato estándar similar a una tarjeta bancaria, pensado para tarjetas de socio, fidelización, acceso, identificación, regalo o promoción."
+              },
+              {
+                "title": "Opciones a medida",
+                "description": "Opciones a medida según proyecto cuando la tarjeta necesita adaptarse a un uso, una campaña o una función concreta."
+              }
+            ],
+            "deliveryFormats": []
+          }
+        },
+        {
+          "id": "finishes",
+          "key": "finishes",
+          "title": "Acabados",
+          "kind": "finishes",
+          "contentFormat": "json",
+          "finishesData": {
+            "intro": "Opciones de acabado para mejorar la presencia de la tarjeta según estilo y uso.",
+            "finishes": [
+              {
+                "title": "Acabado mate o brillo",
+                "description": "Opciones de acabado para mejorar la presencia según el estilo de la tarjeta y el uso previsto."
+              },
+              {
+                "title": "Perforación funcional",
+                "description": "Posibilidad de incorporar perforación para colgar si se usa como tarjeta o credencial en eventos, según formato."
+              }
+            ]
+          }
         },
         {
           "id": "technical-specs",
@@ -36124,15 +35942,39 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Formato \nFormato estándar tipo tarjeta (similar a tarjeta bancaria) y opciones a medida según proyecto. \nImpresión \nImpresión a todo color a una o dos caras. \nDiseño con buena legibilidad para datos, iconos y marca. \nPersonalización y control \nNumeración correlativa (por series o unidades). \nDatos variables: nombre, ID, sede, nivel de socio, etc. \nQR / código de barras para validación, canje, accesos o lectura con app/TPV. \nOpciones de diferenciación por colores (categorías, niveles, roles). \nAcabados (según necesidad) \nOpciones de acabado para mejorar la presencia (mate o brillo) según estilo y uso. \nPosibilidad de incorporar elementos funcionales (por ejemplo, perforación para colgar si se usa como tarjeta/credencial en eventos, según formato)."
+          "body": "## Formato\n\nFormato estándar tipo tarjeta, similar a tarjeta bancaria, y opciones a medida según proyecto.\n\n## Impresión\n\nImpresión a todo color a una o dos caras.\n\nDiseño con buena legibilidad para datos, iconos y marca.\n\n## Personalización y control\n\n- Numeración correlativa por series o unidades.\n- Datos variables: nombre, ID, sede, nivel de socio, etc.\n- QR o código de barras para validación, canje, accesos o lectura con app o TPV.\n- Opciones de diferenciación por colores: categorías, niveles o roles.\n\n## Acabados según necesidad\n\n- Opciones de acabado para mejorar la presencia, mate o brillo, según estilo y uso.\n- Posibilidad de incorporar elementos funcionales, por ejemplo perforación para colgar si se usa como tarjeta o credencial en eventos, según formato."
         },
         {
           "id": "applications",
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "Fidelización: tarjetas de puntos, club, descuentos y programas “cliente frecuente”. \nAcceso e identificación: staff, socios, invitados VIP, tarjetas internas. \nTarjetas regalo: retail, estética, hostelería y servicios. \nMembresías: gimnasios, centros, asociaciones, academias. \nPromociones: tarjetas con código/QR para canje y campañas medibles."
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Aplicaciones habituales para tarjetas de PVC en fidelización, acceso, identificación, regalo, membresías y promociones.",
+            "applications": [
+              {
+                "title": "Fidelización",
+                "description": "Tarjetas de puntos, club, descuentos y programas de cliente frecuente."
+              },
+              {
+                "title": "Acceso e identificación",
+                "description": "Tarjetas para staff, socios, invitados VIP y uso interno."
+              },
+              {
+                "title": "Tarjetas regalo",
+                "description": "Tarjetas regalo para retail, estética, hostelería y servicios."
+              },
+              {
+                "title": "Membresías",
+                "description": "Tarjetas para gimnasios, centros, asociaciones y academias."
+              },
+              {
+                "title": "Promociones",
+                "description": "Tarjetas con código o QR para canje y campañas medibles."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
@@ -36272,15 +36114,42 @@
           }
         ],
         "keywords": [
-          "tarjetas de pvc",
-          "tarjetas pvc personalizadas",
-          "tarjetas de socio",
-          "tarjetas fidelización",
-          "tarjetas regalo",
-          "tarjetas con QR"
+          "tarjetas PVC personalizadas",
+          "tarjetas de PVC personalizadas",
+          "tarjetas plásticas personalizadas",
+          "tarjetas de fidelización PVC",
+          "tarjetas de socio personalizadas",
+          "tarjetas regalo PVC",
+          "tarjetas de acceso personalizadas",
+          "tarjetas identificativas PVC",
+          "tarjetas con QR personalizadas",
+          "tarjetas PVC impresas",
+          "tarjetas PVC para empresas",
+          "impresión tarjetas PVC Barcelona"
         ],
         "searchTerms": [
-          "tarjetas de pvc"
+          "tarjetas pvc",
+          "tarjeta pvc",
+          "tarjetas de pvc",
+          "tarjeta plastico",
+          "tarjetas plasticas",
+          "tarjetas plastico personalizadas",
+          "tarjeta socio",
+          "tarjetas socio",
+          "tarjeta fidelizacion",
+          "tarjetas fidelizacion",
+          "tarjeta regalo",
+          "tarjetas regalo",
+          "tarjeta acceso",
+          "tarjetas acceso",
+          "tarjeta identificacion",
+          "tarjetas identificacion",
+          "tarjetas con qr",
+          "tarjeta con codigo",
+          "tarjetas numeradas",
+          "tarjetas datos variables",
+          "tarjetas pvc 660 micras",
+          "tarjetas pvc barcelona"
         ],
         "schema": {
           "@context": "https://schema.org",
@@ -36377,7 +36246,7 @@
     },
     {
       "id": "125",
-      "updatedAt": "2026-05-05T16:46:54Z",
+      "updatedAt": "2026-05-20T07:22:35Z",
       "type": "producto",
       "slug": "tarjetas-de-visita-personalizadas",
       "path": "/productos/tarjetas-de-visita-personalizadas",
@@ -36399,14 +36268,6 @@
           "kind": "details",
           "contentFormat": "markdown",
           "body": "### ¿Qué es una tarjeta de visita y para qué se usa?\n\nLa tarjeta de visita personalizada es una pieza de papelería corporativa que concentra los datos esenciales de contacto: nombre, cargo, empresa, teléfono, email, web y redes sociales si aplica.\n\nSe utiliza en reuniones, ferias, visitas comerciales, eventos y acciones de networking. Funciona como recordatorio físico de la conversación y ayuda a convertir un contacto inicial en una oportunidad comercial."
-        },
-        {
-          "id": "benefits",
-          "key": "benefits",
-          "title": "Beneficios",
-          "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "Ventajas principales de las tarjetas de visita personalizadas para reuniones, ferias, networking y comunicación corporativa.\n\n- **Primera impresión profesional:** transmite seriedad, confianza y coherencia de marca desde el primer contacto.\n- **Contacto inmediato:** reúne los datos clave en un formato práctico, fácil de entregar y conservar.\n- **Diferenciación:** los papeles y acabados ayudan a elevar la calidad percibida y a destacar frente a una tarjeta estándar.\n- **Personalización por equipo:** permite adaptar nombres, cargos, teléfonos, sedes o departamentos manteniendo el mismo diseño corporativo.\n- **Campañas medibles:** puede incorporar un QR hacia vCard, LinkedIn, web, portfolio, Google Maps o formulario de contacto."
         },
         {
           "id": "materials",
@@ -36578,7 +36439,32 @@
       "price": 0,
       "priceCurrency": "EUR",
       "inStock": false,
-      "attributes": [],
+      "attributes": [
+        {
+          "key": "primera-impresion-profesional",
+          "label": "Primera impresión profesional",
+          "placement": "hero-pills",
+          "tone": "brand"
+        },
+        {
+          "key": "contacto-inmediato",
+          "label": "Contacto inmediato",
+          "placement": "hero-pills",
+          "tone": "neutral"
+        },
+        {
+          "key": "diferenciacion",
+          "label": "Diferenciación",
+          "placement": "hero-pills",
+          "tone": "brand"
+        },
+        {
+          "key": "personalizacion-por-equipo",
+          "label": "Personalización por equipo",
+          "placement": "hero-pills",
+          "tone": "success"
+        }
+      ],
       "variants": [],
       "formFields": [
         {

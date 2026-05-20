@@ -65,7 +65,9 @@ const safeItems = computed<SafeTypeItem[]>(() =>
           const idealFor = String(item?.idealFor || "").trim() || undefined;
 
           const features = Array.isArray(item?.features)
-            ? item.features.map((feature) => String(feature || "").trim()).filter(Boolean)
+            ? item.features
+                .map((feature) => String(feature || "").trim())
+                .filter(Boolean)
             : [];
 
           if (!title || !description) return null;
@@ -84,24 +86,41 @@ const safeItems = computed<SafeTypeItem[]>(() =>
 
 const sectionStackClass = "space-y-8 md:space-y-10";
 
-const gridBaseClass = "grid auto-rows-fr gap-4 md:grid-cols-2 md:gap-5 xl:grid-cols-3";
+const gridBaseClass =
+  "grid auto-rows-fr gap-4 md:grid-cols-2 md:gap-5 xl:grid-cols-3";
 
+/**
+ * Card neutra.
+ * El azul ya lo usa la tab activa; aquí evitamos repetir primary en todo.
+ */
 const cardBaseClass =
-  "group/card flex h-full flex-col rounded-3xl border border-border/60 bg-card p-5 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-primary/20 hover:shadow-md md:p-6";
+  "group/card flex h-full flex-col rounded-3xl border border-border/70 bg-card p-5 shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-foreground/15 hover:shadow-md md:p-6";
 
 const titleClass =
   "mb-0 text-lg font-semibold leading-tight tracking-tight text-foreground";
 
-const descriptionClass = "mb-0 text-body leading-[1.7] text-muted-foreground";
+const descriptionClass =
+  "mb-0 text-body leading-[1.7] text-muted-foreground";
 
+/**
+ * Chips/features en gris neutro.
+ * Antes estaban en azul y competían con la navegación activa.
+ */
 const featureChipClass =
-  "inline-flex items-center rounded-full border border-primary/15 bg-primary/5 px-3 py-1 text-body-s font-medium text-primary";
+  "inline-flex items-center rounded-full border border-border/80 bg-secondary/60 px-3 py-1 text-body-s font-medium text-foreground/75 transition group-hover/card:border-foreground/20 group-hover/card:bg-secondary";
 
-const idealForBoxClass = "mt-5 rounded-2xl border border-primary/10 bg-accent/35 p-4";
+/**
+ * Bloque de recomendación en crema de marca.
+ * Usa --brand-bg-2 definido en main.scss.
+ */
+const idealForBoxClass =
+  "mt-5 rounded-2xl border border-[hsl(var(--brand-bg-2))] bg-[hsl(var(--brand-bg-2)/0.62)] p-4";
 
-const idealForLabelClass = "mb-1 block text-body-s font-semibold text-foreground";
+const idealForLabelClass =
+  "mb-1 block text-body-s font-semibold text-foreground";
 
-const idealForTextClass = "mb-0 text-body-s leading-[1.6] text-muted-foreground";
+const idealForTextClass =
+  "mb-0 text-body-s leading-[1.6] text-muted-foreground";
 </script>
 
 <template>
@@ -149,7 +168,9 @@ const idealForTextClass = "mb-0 text-body-s leading-[1.6] text-muted-foreground"
           </div>
 
           <div v-if="item.idealFor" :class="idealForBoxClass">
-            <span :class="idealForLabelClass"> Ideal para </span>
+            <span :class="idealForLabelClass">
+              Ideal para
+            </span>
 
             <p :class="idealForTextClass">
               {{ item.idealFor }}

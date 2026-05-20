@@ -26,6 +26,6 @@ const { tree: menuTree, pending: menuPending, error: menuError } = await useCate
     </main>
 
     <SiteFooter />
-    <SolarFilmPromo />
+    <!--<SolarFilmPromo />-->
   </div>
 </template>

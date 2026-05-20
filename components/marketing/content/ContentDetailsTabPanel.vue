@@ -3,6 +3,7 @@
 import { computed } from "vue";
 import { cn } from "@/lib/utils";
 import { normalizeCmsMediaSrc } from "@/utils/cmsMedia";
+
 import CmsImage from "@/components/shared/blocks/CmsImage.vue";
 import AppChip from "@/components/shared/pills/AppChip.vue";
 import CategoryShowcaseCta from "@/components/marketing/category/CategoryShowcaseCta.vue";
@@ -27,6 +28,7 @@ type DetailsMediaItem = {
   pills?: Array<{
     label?: string;
     to?: string;
+    ariaLabel?: string;
   }>;
 };
 
@@ -54,17 +56,24 @@ const leadImage = computed(() => {
 
   return {
     src,
-    alt: image?.alt || props.section?.title || "",
-    caption: image?.caption || "",
+    alt: String(image?.alt || props.section?.title || "").trim(),
+    caption: String(image?.caption || "").trim(),
   };
 });
 
 const pills = computed(() =>
   (props.detailsMedia?.pills || [])
-    .map((item) => ({
-      label: String(item?.label || "").trim(),
-      to: String(item?.to || "").trim(),
-    }))
+    .map((item) => {
+      const label = String(item?.label || "").trim();
+      const to = String(item?.to || "").trim();
+      const ariaLabel = String(item?.ariaLabel || "").trim();
+
+      return {
+        label,
+        to,
+        ariaLabel: ariaLabel || `Ver ${label}`,
+      };
+    })
     .filter((item) => item.label && item.to)
 );
 
@@ -91,22 +100,34 @@ const layoutClass = computed(() =>
             content-class="space-y-5 md:space-y-6"
           />
 
-          <div v-if="pills.length" class="space-y-3 pt-1">
-            <p class="mb-0 text-label text-muted-foreground">
-              Productos o soluciones relacionadas
-            </p>
+          <aside
+            v-if="pills.length"
+            class="max-w-3xl rounded-3xl border border-border/70 bg-card/85 p-4 shadow-sm sm:p-5"
+            aria-label="Productos o soluciones relacionadas"
+          >
+            <div class="mb-3 flex items-center gap-3">
+              <span
+                class="h-px w-8 shrink-0 bg-foreground/25"
+                aria-hidden="true"
+              />
+
+              <p class="mb-0 text-sm font-semibold tracking-wide text-foreground">
+                Productos o soluciones relacionadas
+              </p>
+            </div>
 
             <div class="flex flex-wrap gap-2">
               <AppChip
                 v-for="pill in pills"
                 :key="`${pill.to}-${pill.label}`"
-                variant="pill"
+                variant="related"
                 :to="pill.to"
+                :aria-label="pill.ariaLabel"
               >
                 {{ pill.label }}
               </AppChip>
             </div>
-          </div>
+          </aside>
         </div>
 
         <figure

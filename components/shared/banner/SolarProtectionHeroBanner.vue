@@ -27,9 +27,12 @@ const props = withDefaults(
     bullets: () => [],
     primaryLabel: "Solicitar presupuesto",
     primaryTo: "/lp/laminas-solares#quote-form",
-    secondaryLabel: "Te respondemos en menos de 24h laborales",
+    secondaryLabel: "Respuesta en menos de 24h laborales",
     secondaryTo: "/lp/laminas-solares#quote-form",
-    heightClass: "h-auto lg:h-[300px]",
+
+    // Banner secundario: no debe competir con el hero principal de la home.
+    heightClass: "h-auto lg:h-[356px]",
+
     imagePosition: "center center",
     sectionClass: "",
     eager: false,
@@ -63,17 +66,12 @@ const hasSecondaryAction = computed(() =>
 <template>
   <section
     :class="[
-      'relative left-1/2 right-1/2 -mx-[50vw] w-screen overflow-hidden bg-primary text-primary-foreground',
+      'relative left-1/2 right-1/2 -mx-[50vw] w-screen overflow-hidden bg-[hsl(var(--brand-base-dark))] text-primary-foreground',
       sectionClass,
     ]"
   >
-    <div
-      :class="[
-        'grid lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]',
-        heightClass,
-      ]"
-    >
-      <div class="relative h-[220px] overflow-hidden bg-muted sm:h-[260px] lg:h-full">
+    <div :class="['grid lg:grid-cols-[42%_58%]', heightClass]">
+      <div class="relative h-[250px] overflow-hidden bg-muted sm:h-[310px] lg:h-full">
         <img
           v-if="resolvedImageSrc"
           :src="resolvedImageSrc"
@@ -84,31 +82,36 @@ const hasSecondaryAction = computed(() =>
           decoding="async"
           :fetchpriority="eager ? 'high' : 'auto'"
         />
+
+        <div
+          aria-hidden="true"
+          class="absolute inset-y-0 right-0 hidden w-20 bg-gradient-to-l from-[hsl(var(--brand-base-dark))] to-transparent lg:block"
+        />
       </div>
 
       <div
-        class="flex bg-primary px-6 py-8 text-primary-foreground sm:px-10 lg:h-full lg:items-center lg:px-14 lg:py-0 xl:px-16"
+        class="flex bg-[hsl(var(--brand-base-dark))] px-6 py-9 text-primary-foreground sm:px-10 lg:h-full lg:items-center lg:px-12 lg:py-0 xl:pl-14 xl:pr-20"
       >
-        <div class="w-full max-w-[680px]">
+        <div class="w-full max-w-[720px]">
           <div class="space-y-5">
             <h2
-              class="text-balance text-[32px] font-bold leading-[1.12] tracking-tight text-primary-foreground md:text-[36px]"
+              class="m-0 max-w-3xl text-balance text-[clamp(2rem,3.1vw,2.55rem)] font-bold leading-[1.08] tracking-[-0.035em] text-primary-foreground"
             >
               {{ title }}
             </h2>
 
             <ul
               v-if="displayBullets.length"
-              class="space-y-2.5 text-[18px] font-medium leading-snug text-primary-foreground/95 md:text-[20px]"
+              class="space-y-2.5 text-[clamp(1.05rem,1.45vw,1.22rem)] font-medium leading-relaxed text-primary-foreground/95"
             >
               <li
                 v-for="bullet in displayBullets"
                 :key="bullet"
-                class="flex items-start gap-2.5"
+                class="flex items-start gap-3"
               >
                 <Check
-                  class="mt-0.5 h-5 w-5 shrink-0 text-primary-foreground"
-                  stroke-width="3"
+                  class="mt-[0.24em] size-5 shrink-0 text-primary-foreground/95"
+                  stroke-width="2.8"
                   aria-hidden="true"
                 />
 
@@ -122,8 +125,7 @@ const hasSecondaryAction = computed(() =>
               :to="primaryTo"
               variant="secondary"
               size="lg"
-              arrow
-              class="rounded-xl bg-[hsl(var(--brand-yellow))] text-foreground hover:bg-[hsl(var(--brand-yellow)/0.88)]"
+              class="!h-12 !rounded-[9px] !bg-[hsl(var(--brand-yellow))] !px-5 !text-[17px] !font-semibold !leading-none !text-foreground shadow-none hover:!bg-[hsl(var(--brand-yellow)/0.9)] focus-visible:!ring-2 focus-visible:!ring-primary-foreground/45"
             >
               {{ primaryLabel }}
             </AppButton>
@@ -133,7 +135,7 @@ const hasSecondaryAction = computed(() =>
               :to="resolvedSecondaryTo"
               variant="link"
               size="lg"
-              class="text-primary-foreground/90 underline underline-offset-4 hover:text-primary-foreground"
+              class="!h-auto !px-0 !text-sm !font-medium !leading-none text-primary-foreground/78 underline underline-offset-[4px] hover:text-primary-foreground"
             >
               {{ secondaryLabel }}
             </AppButton>

@@ -4,7 +4,7 @@ defineOptions({ inheritAttrs: false });
 import { computed, useAttrs } from "vue";
 import { cn } from "@/lib/utils";
 
-type AppChipVariant = "pill" | "tab";
+type AppChipVariant = "pill" | "tab" | "related";
 
 const props = withDefaults(
   defineProps<{
@@ -57,14 +57,29 @@ const tabClass = computed(() =>
   )
 );
 
+const relatedClass = computed(() =>
+  cn(
+    "min-h-9 rounded-full border px-4 py-2 text-body-s font-medium shadow-sm",
+    props.active
+      ? "border-foreground/25 bg-foreground text-background"
+      : "border-border/80 bg-secondary/70 text-foreground/80 hover:border-foreground/25 hover:bg-foreground hover:text-background"
+  )
+);
+
+
+
 const chipClass = computed(() =>
   cn(
     baseClass.value,
-    props.variant === "tab" ? tabClass.value : pillClass.value,
+    props.variant === "tab"
+      ? tabClass.value
+      : props.variant === "related"
+        ? relatedClass.value
+        : pillClass.value,
     props.disabled ? "pointer-events-none opacity-50" : "",
     props.class
   )
-);
+)
 
 const externalRel = computed(() => {
   if (props.rel) return props.rel;

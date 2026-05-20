@@ -7,7 +7,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="space-y-5 md:space-y-6">
+  <div class="space-y-4 md:space-y-5">
     <!-- Móvil: scroll horizontal elegante -->
     <div class="md:hidden">
       <ScrollArea class="-mx-6 w-[calc(100%+3rem)]">
@@ -15,7 +15,7 @@ defineProps<{
           <article
             v-for="img in images"
             :key="`${img.src}-${img.alt}`"
-            class="w-[84%] max-w-[22rem] shrink-0 snap-start overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-black/5"
+            class="w-[84%] max-w-[22rem] shrink-0 snap-start overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5"
           >
             <img
               :src="img.src"
@@ -36,7 +36,7 @@ defineProps<{
       <article
         v-for="img in images"
         :key="`${img.src}-${img.alt}`"
-        class="group overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-black/5"
+        class="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5"
       >
         <img
           :src="img.src"
@@ -48,11 +48,16 @@ defineProps<{
       </article>
     </div>
 
-    <p class="max-w-3xl text-sm leading-6 text-sky-900 md:text-base md:leading-7">
-      <span class="font-semibold">Servicio integral</span>: diseño, impresión, instalación
-      y logística,
-      <span class="font-semibold">con un único interlocutor</span>
-      y acompañamiento durante todo el proceso.
+    <p
+      class="max-w-6xl text-sm italic leading-7 text-primary md:text-base md:leading-7"
+    >
+      <span class="mr-1 font-semibold not-italic" aria-hidden="true">→</span>
+      Si necesitas un
+      <span class="font-semibold not-italic">servicio integral</span>,
+      no te preocupes, nosotros nos encargamos de todo el proceso:
+      <span class="font-semibold not-italic">
+        diseño, impresión, instalación y logística.
+      </span>
     </p>
   </div>
 </template>

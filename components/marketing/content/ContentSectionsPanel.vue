@@ -33,6 +33,17 @@ type RichTypeItem = {
   idealFor?: string;
 };
 
+const TECHNICAL_SECTION_KEYS = new Set([
+  "technical-specs",
+  "technicalspecs",
+  "technical",
+  "specs",
+  "caracteristicas",
+  "caracteristicas-tecnicas",
+  "especificaciones",
+  "especificaciones-tecnicas",
+]);
+
 const props = withDefaults(
   defineProps<{
     section: SectionInput;
@@ -65,25 +76,45 @@ const {
   headerMode: () => props.headerMode,
 });
 
-const isTypesSection = computed(() => {
-  const sectionKey = String(key.value || "").trim();
-  const sectionKind = String(kind.value || "").trim();
-  const sectionId = String(props.section?.id || "").trim();
+function normalizeSectionKey(value: unknown) {
+  return String(value ?? "")
+    .trim()
+    .toLowerCase();
+}
 
-  return sectionKey === "types" || sectionKind === "types" || sectionId === "types";
-});
+const sectionKey = computed(() => normalizeSectionKey(key.value));
+const sectionKind = computed(() => normalizeSectionKey(kind.value));
+const sectionId = computed(() => normalizeSectionKey(props.section?.id));
 
-const isApplicationsSection = computed(() => {
-  const sectionKey = String(key.value || "").trim();
-  const sectionKind = String(kind.value || "").trim();
-  const sectionId = String(props.section?.id || "").trim();
-
+function matchesSection(target: string) {
   return (
-    sectionKey === "applications" ||
-    sectionKind === "applications" ||
-    sectionId === "applications"
+    sectionKey.value === target ||
+    sectionKind.value === target ||
+    sectionId.value === target
+  );
+}
+
+const isTechnicalSpecsSection = computed(() => {
+  return (
+    TECHNICAL_SECTION_KEYS.has(sectionKey.value) ||
+    TECHNICAL_SECTION_KEYS.has(sectionKind.value) ||
+    TECHNICAL_SECTION_KEYS.has(sectionId.value)
   );
 });
+
+const isDetailsSection = computed(() => {
+  if (isTechnicalSpecsSection.value) return false;
+
+  return matchesSection("details");
+});
+
+const isTypesSection = computed(() => matchesSection("types"));
+
+const isFormatsSection = computed(() => matchesSection("formats"));
+
+const isFinishesSection = computed(() => matchesSection("finishes"));
+
+const isApplicationsSection = computed(() => matchesSection("applications"));
 
 function normalizeText(value: unknown) {
   return String(value ?? "").trim();
@@ -104,10 +135,10 @@ const typeItems = computed<RichTypeItem[]>(() => {
 
       const source = item as RichTypeSourceItem;
 
-      const title = normalizeText(source.title);
+      const itemTitle = normalizeText(source.title);
       const description = normalizeText(source.description || source.text);
 
-      if (!title || !description) return null;
+      if (!itemTitle || !description) return null;
 
       const features = normalizeTags(
         Array.isArray(source.features) ? source.features : source.tags
@@ -116,7 +147,7 @@ const typeItems = computed<RichTypeItem[]>(() => {
       const idealFor = normalizeText(source.idealFor || source.meta);
 
       return {
-        title,
+        title: itemTitle,
         description,
         ...(features.length ? { features } : {}),
         ...(idealFor ? { idealFor } : {}),
@@ -129,8 +160,14 @@ const typeItems = computed<RichTypeItem[]>(() => {
 <template>
   <div class="grid gap-8">
     <div class="min-w-0">
+      <ContentDetailsSection
+        v-if="isTechnicalSpecsSection"
+        :section="props.section"
+        :show-header="shouldShowDetailsHeader"
+      />
+
       <ContentDetailsTabPanel
-        v-if="kind === 'details'"
+        v-else-if="isDetailsSection"
         :section="props.section"
         :details-media="props.detailsMedia"
         :featured-product="props.featuredProduct"
@@ -148,7 +185,7 @@ const typeItems = computed<RichTypeItem[]>(() => {
       />
 
       <ContentFormatsSection
-        v-else-if="key === 'formats' && formatsData"
+        v-else-if="isFormatsSection && formatsData"
         :section-id="props.section.id"
         :title="title"
         :data="formatsData"
@@ -156,7 +193,7 @@ const typeItems = computed<RichTypeItem[]>(() => {
       />
 
       <ContentFinishesSection
-        v-else-if="key === 'finishes' && finishesItems.length"
+        v-else-if="isFinishesSection && finishesItems.length"
         :section-id="props.section.id"
         :title="title"
         :intro="intro"

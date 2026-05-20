@@ -145,6 +145,11 @@ type ImageDto = {
   alt?: string;
 };
 
+type RelatedProductReference = {
+  label?: string;
+  productSlug: string;
+};
+
 type SeoDto = {
   metaTitle?: string;
   metaDescription?: string;
@@ -178,6 +183,7 @@ type CategoryDto = {
   image: ImageDto;
   faqs: Array<{ question: string; answer: string }>;
   galleryImages: unknown[];
+  relatedProductsJson: RelatedProductReference[];
   breadcrumbs: Array<{ name: string; url: string }>;
   legacySlugs: string[];
   seo: SeoDto;
@@ -318,6 +324,7 @@ const CATEGORY_FIELDS = {
   imageHeight: "ImageHeight",
   imageAlt: "ImageAlt",
   galleryImagesJson: "GalleryImagesJson",
+  relatedProductsJson: "RelatedProductsJson",
   ogImageSrc: "OgImageSrc",
   metaTitle: "MetaTitle",
   metaDescription: "MetaDescription",
@@ -1212,6 +1219,33 @@ function parseFormFields(value: unknown): ProductDto["formFields"] {
   });
 }
 
+function parseRelatedProductsJson(value: unknown): RelatedProductReference[] {
+  const parsed = parseJsonLoose<unknown[]>(value, []);
+  if (!Array.isArray(parsed)) return [];
+
+  const seen = new Set<string>();
+
+  return parsed
+    .map((item) => {
+      if (!item || typeof item !== "object" || Array.isArray(item)) return null;
+
+      const record = item as Record<string, unknown>;
+      const productSlug = normalizeSlug(record.productSlug ?? record.slug);
+      if (!productSlug || seen.has(productSlug)) return null;
+
+      const label = str(record.label);
+      seen.add(productSlug);
+
+      return {
+        ...(label ? { label } : {}),
+        productSlug,
+      };
+    })
+    .filter((item): item is RelatedProductReference => Boolean(item))
+    .slice(0, 3);
+}
+
+
 function canonicalSectionId(value: string, aliases: Record<string, string>): string {
   const normalized = slugify(value);
   return aliases[normalized] || normalized;
@@ -1898,6 +1932,9 @@ function buildCategory(item: GraphItem<Record<string, unknown>>): CategoryDto | 
     },
     faqs: parseFaqs(fields[CATEGORY_FIELDS.faqsJson]),
     galleryImages: parseJsonLoose<unknown[]>(fields[CATEGORY_FIELDS.galleryImagesJson], []),
+    relatedProductsJson: parseRelatedProductsJson(
+  fields[CATEGORY_FIELDS.relatedProductsJson]
+),
     breadcrumbs: [],
     legacySlugs: uniq(
       parseStringList(fields[CATEGORY_FIELDS.legacySlugsJson])
