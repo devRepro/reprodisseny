@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-21T05:32:28.620Z",
+  "generatedAt": "2026-05-21T07:51:31.177Z",
   "categories": [
     {
       "id": "12",
@@ -15096,7 +15096,7 @@
     },
     {
       "id": "33",
-      "updatedAt": "2026-05-05T11:40:52Z",
+      "updatedAt": "2026-05-21T06:45:55Z",
       "type": "producto",
       "slug": "diplomas-personalizados",
       "path": "/productos/diplomas-personalizados",
@@ -15118,14 +15118,6 @@
           "kind": "details",
           "contentFormat": "markdown",
           "body": "### ¿Qué es un diploma personalizado y para qué se usa?\n\nUn diploma impreso personalizado es una pieza de reconocimiento para acreditar asistencia, superación, participación, premio o mérito. Suele incluir nombre, entidad organizadora, fecha, firma, sello y, si aplica, número de registro, código o QR de validación.\n\nEn eventos, formaciones, cursos y entregas corporativas funciona como un elemento de valor: refuerza la percepción de profesionalidad, crea recuerdo y aporta formalidad al acto de entrega."
-        },
-        {
-          "id": "benefits",
-          "key": "benefits",
-          "title": "Beneficios",
-          "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "Ventajas principales de los diplomas personalizados para formaciones, eventos, premios, graduaciones y reconocimientos corporativos.\n\n- **Imagen más profesional del evento:** un buen papel y una impresión cuidada elevan la percepción del acto y de la organización.\n- **Personalización total:** permite incluir nombres, cargos, fechas, centros, categorías, numeración o datos variables, ideal para entregas con muchos asistentes.\n- **Lectura clara y elegante:** tipografías, composición y jerarquía visual pensadas para que el diploma se entienda a primera vista.\n- **Acabados que marcan la diferencia:** opciones premium para ceremonias, galas, graduaciones, premios o reconocimientos corporativos.\n- **Entrega lista para usar:** posibilidad de preparar formatos y packs pensados para facilitar la entrega, por ejemplo con carpetas, fundas o presentación cuidada."
         },
         {
           "id": "materials",
@@ -15292,7 +15284,33 @@
       "inStock": true,
       "ratingValue": 0,
       "reviewCount": 0,
-      "attributes": [],
+      "attributes": [
+        {
+          "key": "imagen-mas-profesional-del-evento",
+          "label": "Imagen más profesional del evento",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "personalizacion-total",
+          "label": "Personalización total",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "lectura-clara-y-elegante",
+          "label": "Lectura clara y elegante",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "acabados-que-marcan-la-diferencia",
+          "label": "Acabados que marcan la diferencia",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "entrega-lista-para-usar",
+          "label": "Entrega lista para usar",
+          "placement": "hero-pills"
+        }
+      ],
       "variants": [],
       "formFields": [
         {
@@ -16046,7 +16064,7 @@
     },
     {
       "id": "38",
-      "updatedAt": "2026-05-05T11:41:31Z",
+      "updatedAt": "2026-05-21T06:46:59Z",
       "type": "producto",
       "slug": "dorsales-carrera",
       "path": "/productos/dorsales-carrera",
@@ -16068,14 +16086,6 @@
           "kind": "details",
           "contentFormat": "markdown",
           "body": "### ¿Qué es un dorsal de carrera y para qué se usa?\n\nUn dorsal de carrera personalizado es el identificador que lleva cada participante durante una prueba deportiva, como running, trail, ciclismo, triatlón, caminatas o carreras solidarias.\n\nNormalmente incluye número, nombre, categoría, logo del evento y patrocinadores, y puede incorporar elementos de control como QR, código de barras o numeración para check-in, clasificación o validación.\n\nAdemás de organizar la competición, el dorsal aporta imagen de marca y visibilidad en fotos, vídeos y cobertura del evento."
-        },
-        {
-          "id": "benefits",
-          "key": "benefits",
-          "title": "Beneficios",
-          "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "Ventajas principales de los dorsales personalizados para carreras, eventos deportivos, pruebas populares y competiciones al aire libre.\n\n- **Identificación clara y rápida:** números legibles a distancia para organización, voluntarios, jueces y público.\n- **Control más ágil:** posibilidad de incorporar QR, código de barras y numeración correlativa para check-in, clasificación o gestión de participantes.\n- **Más visibilidad para patrocinadores:** integración de logotipos y mensajes con buena calidad de impresión durante toda la prueba.\n- **Resistencia para exterior:** materiales y acabados pensados para pruebas al aire libre, sudor, roce, humedad o uso intensivo.\n- **Personalización eficiente:** ideal para tiradas grandes con datos variables como nombres, clubes, categorías, cajones u oleadas de salida."
         },
         {
           "id": "materials",
@@ -16184,8 +16194,32 @@
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "Aplicaciones habituales de los dorsales personalizados en carreras populares, pruebas deportivas, eventos escolares y competiciones con control de participantes.\n\n- **Carreras populares:** dorsales para 5K, 10K, media maratón, maratón, caminatas y pruebas urbanas.\n- **Trail running y montaña:** pruebas al aire libre donde se requiere buena legibilidad y mayor resistencia.\n- **Ciclismo y triatlón:** marchas ciclistas, BTT, triatlones, duatlones y pruebas multideporte.\n- **Eventos escolares y solidarios:** carreras de colegios, entidades, fundaciones, asociaciones y eventos participativos.\n- **Competiciones por etapas o ligas:** dorsales para varias pruebas, series, categorías, cajones de salida o identificaciones recurrentes."
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Aplicaciones habituales de los dorsales personalizados en carreras populares, pruebas deportivas, eventos escolares y competiciones con control de participantes.",
+            "applications": [
+              {
+                "title": "Carreras populares",
+                "description": "dorsales para 5K, 10K, media maratón, maratón, caminatas y pruebas urbanas."
+              },
+              {
+                "title": "Trail running y montaña",
+                "description": "pruebas al aire libre donde se requiere buena legibilidad y mayor resistencia."
+              },
+              {
+                "title": "Ciclismo y triatlón",
+                "description": "marchas ciclistas, BTT, triatlones, duatlones y pruebas multideporte."
+              },
+              {
+                "title": "Eventos escolares y solidarios",
+                "description": "carreras de colegios, entidades, fundaciones, asociaciones y eventos participativos."
+              },
+              {
+                "title": "Competiciones por etapas o ligas",
+                "description": "dorsales para varias pruebas, series, categorías, cajones de salida o identificaciones recurrentes."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
@@ -16238,7 +16272,33 @@
       "inStock": true,
       "ratingValue": 0,
       "reviewCount": 0,
-      "attributes": [],
+      "attributes": [
+        {
+          "key": "identificacion-clara-y-rapida",
+          "label": "Identificación clara y rápida",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "control-mas-agil",
+          "label": "Control más ágil",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "mas-visibilidad-para-patrocinadores",
+          "label": "Más visibilidad para patrocinadores",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "resistencia-para-exterior",
+          "label": "Resistencia para exterior",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "personalizacion-eficiente",
+          "label": "Personalización eficiente",
+          "placement": "hero-pills"
+        }
+      ],
       "variants": [],
       "formFields": [
         {
@@ -16404,7 +16464,7 @@
     },
     {
       "id": "106",
-      "updatedAt": "2026-05-05T15:49:10Z",
+      "updatedAt": "2026-05-21T05:53:16Z",
       "type": "producto",
       "slug": "encuadernacion-wire-o-oculto",
       "path": "/productos/encuadernacion-wire-o-oculto",
@@ -16417,7 +16477,7 @@
       "isPublished": true,
       "shortDescription": "La encuadernación Wire-O oculto combina lo mejor de dos mundos: la comodidad del Wire-O (abre en plano y gira 360º) con un acabado más elegante, ya que la espiral queda oculta por la tapa. Es una opción ideal para catálogos, dossiers y presentaciones donde importa tanto la funcionalidad como la calidad percibida.",
       "description": "La encuadernación Wire-O oculto combina lo mejor de dos mundos: la comodidad del Wire-O (abre en plano y gira 360º) con un acabado más elegante, ya que la espiral queda oculta por la tapa. Es una opción ideal para catálogos, dossiers y presentaciones donde importa tanto la funcionalidad como la calidad percibida.",
-      "bodyMd": "¿Qué es la encuadernación Wire-O oculto y para qué se usa? \nEs una variante del Wire-O en la que la doble espiral metálica no queda visible por fuera: se integra mediante una tapa diseñada para cubrir el lomo, ofreciendo un aspecto más limpio y “editorial”. Se utiliza cuando necesitas un documento práctico para consulta, pero con una presentación más premium: catálogos de marca, portfolios, propuestas comerciales, documentación corporativa o material formativo de alta calidad.",
+      "bodyMd": "## ¿Qué es la encuadernación Wire-O oculto y para qué se usa?\n\nLa encuadernación Wire-O oculto es una variante del Wire-O tradicional en la que la doble espiral metálica no queda visible por fuera. La encuadernación se integra con una cubierta diseñada para cubrir el lomo, ofreciendo un acabado más limpio, elegante y editorial.\n\nEs una opción indicada cuando necesitas un documento práctico para consulta, pero con una presentación más cuidada y premium. Mantiene la apertura cómoda del Wire-O, pero mejora la percepción visual del documento en mano, sobre una mesa o en una presentación comercial.\n\nSe utiliza habitualmente en catálogos de marca, portfolios, propuestas comerciales, documentación corporativa, manuales formativos y materiales de presentación donde la funcionalidad debe ir acompañada de una imagen profesional.",
       "sections": [
         {
           "id": "details",
@@ -16425,7 +16485,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es la encuadernación Wire-O oculto y para qué se usa? \nEs una variante del Wire-O en la que la doble espiral metálica no queda visible por fuera: se integra mediante una tapa diseñada para cubrir el lomo, ofreciendo un aspecto más limpio y “editorial”. Se utiliza cuando necesitas un documento práctico para consulta, pero con una presentación más premium: catálogos de marca, portfolios, propuestas comerciales, documentación corporativa o material formativo de alta calidad."
+          "body": "## ¿Qué es la encuadernación Wire-O oculto y para qué se usa?\n\nLa encuadernación Wire-O oculto es una variante del Wire-O tradicional en la que la doble espiral metálica no queda visible por fuera. La encuadernación se integra con una cubierta diseñada para cubrir el lomo, ofreciendo un acabado más limpio, elegante y editorial.\n\nEs una opción indicada cuando necesitas un documento práctico para consulta, pero con una presentación más cuidada y premium. Mantiene la apertura cómoda del Wire-O, pero mejora la percepción visual del documento en mano, sobre una mesa o en una presentación comercial.\n\nSe utiliza habitualmente en catálogos de marca, portfolios, propuestas comerciales, documentación corporativa, manuales formativos y materiales de presentación donde la funcionalidad debe ir acompañada de una imagen profesional."
         },
         {
           "id": "benefits",
@@ -16441,33 +16501,57 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Formato \nHabituales: A4, A5, apaisado o a medida según el contenido. \nWire-O y perforado \nPerforado alineado + doble espiral metálica, con diámetro ajustado al grosor del documento. \nTapa para ocultar la espiral \nCubierta diseñada para cubrir el lomo y dejar el Wire-O “escondido” en la parte trasera. \nAporta una estética más limpia y una sensación más “libro” sin perder apertura 360º. \nPapeles \nInterior: offset (lectura) o estucado mate/brillo (imagen) según objetivo. \nCubierta: cartulina de mayor gramaje para rigidez y presencia. \nAcabados recomendados \nLaminado mate o brillo en cubierta para proteger y mejorar calidad percibida. \nSoft touch (opcional) para un tacto más premium. \nEsquinas redondeadas (opcional) si el uso será intensivo."
+          "body": "## Formato\n\nFormatos habituales: A4, A5, apaisado o medidas personalizadas según el contenido, el número de páginas y el tipo de uso previsto.\n\n## Wire-O y perforado\n\nEl documento se realiza con perforado alineado y doble espiral metálica Wire-O. El diámetro de la espiral se ajusta al grosor final del documento para garantizar una apertura cómoda y un buen comportamiento en el uso diario.\n\n## Tapa para ocultar la espiral\n\nLa cubierta se diseña para cubrir el lomo y dejar el Wire-O oculto en la parte trasera. Esto aporta una estética más limpia y una sensación más cercana a un libro o dossier editorial, sin perder la apertura 360º característica del Wire-O.\n\n## Papeles interiores\n\n- Offset: recomendado para lectura, escritura o documentación técnica.\n- Estucado mate: adecuado para catálogos, portfolios y documentación visual con acabado sobrio.\n- Estucado brillo: indicado cuando se busca mayor viveza de imagen o impacto visual.\n\n## Cubierta\n\nLa cubierta se realiza normalmente en cartulina de mayor gramaje para mejorar rigidez, presencia y protección del documento.\n\n## Acabados recomendados\n\n- Laminado mate o brillo en cubierta para proteger frente al roce y mejorar la calidad percibida.\n- Soft touch opcional para un tacto más premium.\n- Esquinas redondeadas opcionales si el documento tendrá un uso intensivo.\n\n## Datos necesarios para presupuesto\n\nPara preparar el presupuesto necesitamos formato, número de páginas, cantidad, tipo de papel interior, acabado de cubierta y si se requiere laminado, soft touch o esquinas redondeadas."
         },
         {
           "id": "applications",
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "Catálogos de producto y tarifas de consulta (con acabado de marca). \nDossiers comerciales y propuestas para clientes. \nPortfolios y presentaciones creativas (arquitectura, diseño, fotografía). \nManual corporativo o formativo con uso recurrente pero imagen premium. \nDocumentación interna de alta calidad (procedimientos, guías, onboarding)."
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Aplicaciones habituales para documentos que necesitan consulta cómoda, apertura completa y una presentación más cuidada que el Wire-O convencional.",
+            "applications": [
+              {
+                "title": "Catálogos de producto y tarifas",
+                "description": "Solución práctica para documentos de consulta frecuente que deben mantener una imagen de marca cuidada."
+              },
+              {
+                "title": "Dossiers comerciales y propuestas",
+                "description": "Permite entregar documentación clara, manejable y con una presencia más profesional en reuniones con clientes."
+              },
+              {
+                "title": "Portfolios creativos",
+                "description": "Formato adecuado para mostrar trabajos visuales con buena apertura, lectura cómoda y una estética más cuidada."
+              },
+              {
+                "title": "Manuales corporativos y formativos",
+                "description": "Mantiene la funcionalidad del Wire-O en documentos de uso recurrente, pero con una presentación más sólida y corporativa."
+              },
+              {
+                "title": "Documentación interna de alta calidad",
+                "description": "Útil para empresas que quieren entregar documentación interna resistente, ordenada y con una imagen más cuidada."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
         {
           "question": "¿En qué se diferencia del Wire-O normal?",
-          "answer": "La funcionalidad es la misma (abre 360º), pero en Wire-O oculto la espiral queda tapada por la cubierta, con un acabado más elegante."
+          "answer": "La funcionalidad es muy similar, ya que mantiene la apertura 360º, pero en el Wire-O oculto la espiral queda cubierta por la tapa. El resultado es una presentación más elegante, limpia y profesional."
         },
         {
-          "question": "¿Cuándo merece la pena elegirlo?",
-          "answer": "Cuando el documento es parte de tu imagen de marca (catálogo, dossier, portfolio) y quieres un acabado más premium sin renunciar a la comodidad."
+          "question": "¿Cuándo merece la pena elegir Wire-O oculto?",
+          "answer": "Merece la pena cuando el documento forma parte de tu imagen de marca, como un catálogo, dossier, portfolio o propuesta comercial, y quieres un acabado más premium sin renunciar a la comodidad de uso."
         },
         {
-          "question": "¿Se abre igual de bien?",
-          "answer": "Sí. Mantiene la apertura en plano y la posibilidad de girar páginas completamente."
+          "question": "¿Se abre igual de bien que un Wire-O tradicional?",
+          "answer": "Sí. Conserva la apertura en plano y permite girar las páginas completamente, por lo que sigue siendo una encuadernación muy cómoda para consulta frecuente."
         },
         {
-          "question": "¿Qué necesitáis para presupuestar?",
-          "answer": "Formato, número de páginas, cantidad, tipo de papel y si quieres laminado/soft touch en cubierta."
+          "question": "¿Qué necesitáis para preparar un presupuesto?",
+          "answer": "Necesitamos saber el formato, número de páginas, cantidad, tipo de papel, acabado de cubierta y si quieres opciones como laminado, soft touch o esquinas redondeadas."
         }
       ],
       "breadcrumbs": [
@@ -16502,7 +16586,36 @@
       "inStock": true,
       "ratingValue": 0,
       "reviewCount": 0,
-      "attributes": [],
+      "attributes": [
+        {
+          "key": "apertura-360",
+          "label": "Apertura 360º",
+          "placement": "hero-pills",
+          "icon": "RotateCw",
+          "tone": "brand"
+        },
+        {
+          "key": "espiral-oculta",
+          "label": "Espiral oculta",
+          "placement": "hero-pills",
+          "icon": "EyeOff",
+          "tone": "brand"
+        },
+        {
+          "key": "acabado-premium",
+          "label": "Acabado premium",
+          "placement": "hero-pills",
+          "icon": "Sparkles",
+          "tone": "success"
+        },
+        {
+          "key": "presentacion-profesional",
+          "label": "Ideal para presentaciones",
+          "placement": "hero-pills",
+          "icon": "BriefcaseBusiness",
+          "tone": "brand"
+        }
+      ],
       "variants": [],
       "formFields": [
         {
@@ -16613,10 +16726,56 @@
           }
         ],
         "keywords": [
-          "encuadernación  wire o oculto"
+          "encuadernación wire-o oculto",
+          "encuadernacion wire-o oculto",
+          "wire-o oculto",
+          "wire-o escondido",
+          "encuadernación espiral oculta",
+          "encuadernacion espiral oculta",
+          "encuadernación wire-o premium",
+          "encuadernacion wire-o premium",
+          "wire-o con tapa",
+          "wire-o con cubierta",
+          "encuadernación para catálogos",
+          "encuadernación para dossiers",
+          "encuadernación para portfolios",
+          "encuadernación corporativa",
+          "encuadernación de manuales",
+          "catálogos wire-o",
+          "dossiers wire-o",
+          "portfolios wire-o",
+          "espiral metálica oculta",
+          "doble espiral oculta",
+          "encuadernación para propuestas comerciales",
+          "encuadernación premium Barcelona",
+          "imprenta encuadernación wire-o",
+          "wire-o para manuales corporativos"
         ],
         "searchTerms": [
-          "encuadernación  wire o oculto"
+          "encuadernación wire-o oculto",
+          "encuadernacion wire-o oculto",
+          "wire-o oculto",
+          "wire-o escondido",
+          "encuadernación espiral oculta",
+          "encuadernacion espiral oculta",
+          "encuadernación wire-o premium",
+          "encuadernacion wire-o premium",
+          "wire-o con tapa",
+          "wire-o con cubierta",
+          "encuadernación para catálogos",
+          "encuadernación para dossiers",
+          "encuadernación para portfolios",
+          "encuadernación corporativa",
+          "encuadernación de manuales",
+          "catálogos wire-o",
+          "dossiers wire-o",
+          "portfolios wire-o",
+          "espiral metálica oculta",
+          "doble espiral oculta",
+          "encuadernación para propuestas comerciales",
+          "encuadernación premium Barcelona",
+          "imprenta encuadernación wire-o",
+          "wire-o para manuales corporativos"
         ],
         "schema": {
           "@context": "https://schema.org",
@@ -16670,31 +16829,31 @@
                   "name": "¿En qué se diferencia del Wire-O normal?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "La funcionalidad es la misma (abre 360º), pero en Wire-O oculto la espiral queda tapada por la cubierta, con un acabado más elegante."
+                    "text": "La funcionalidad es muy similar, ya que mantiene la apertura 360º, pero en el Wire-O oculto la espiral queda cubierta por la tapa. El resultado es una presentación más elegante, limpia y profesional."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "¿Cuándo merece la pena elegirlo?",
+                  "name": "¿Cuándo merece la pena elegir Wire-O oculto?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Cuando el documento es parte de tu imagen de marca (catálogo, dossier, portfolio) y quieres un acabado más premium sin renunciar a la comodidad."
+                    "text": "Merece la pena cuando el documento forma parte de tu imagen de marca, como un catálogo, dossier, portfolio o propuesta comercial, y quieres un acabado más premium sin renunciar a la comodidad de uso."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "¿Se abre igual de bien?",
+                  "name": "¿Se abre igual de bien que un Wire-O tradicional?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí. Mantiene la apertura en plano y la posibilidad de girar páginas completamente."
+                    "text": "Sí. Conserva la apertura en plano y permite girar las páginas completamente, por lo que sigue siendo una encuadernación muy cómoda para consulta frecuente."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "¿Qué necesitáis para presupuestar?",
+                  "name": "¿Qué necesitáis para preparar un presupuesto?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Formato, número de páginas, cantidad, tipo de papel y si quieres laminado/soft touch en cubierta."
+                    "text": "Necesitamos saber el formato, número de páginas, cantidad, tipo de papel, acabado de cubierta y si quieres opciones como laminado, soft touch o esquinas redondeadas."
                   }
                 }
               ]
@@ -18771,7 +18930,7 @@
     },
     {
       "id": "42",
-      "updatedAt": "2026-05-05T11:42:03Z",
+      "updatedAt": "2026-05-21T06:56:47Z",
       "type": "producto",
       "slug": "entradas-personalizadas",
       "path": "/productos/entradas-personalizadas",
@@ -18791,14 +18950,6 @@
           "key": "details",
           "title": "Detalles",
           "kind": "details",
-          "contentFormat": "markdown",
-          "body": "### ¿Qué es una entrada personalizada y para qué se usa?\n\nUna entrada impresa personalizada es el documento que acredita el acceso a un evento, como un concierto, gala, feria, congreso, festival, teatro, sorteo o actividad corporativa.\n\nSuele incluir datos del evento, zona o sector, fecha y hora, condiciones básicas y elementos de control como numeración, talón desprendible, código QR o código de barras.\n\nAdemás de gestionar el acceso, la entrada ayuda a proyectar una imagen cuidada y coherente con la identidad visual del evento."
-        },
-        {
-          "id": "benefits",
-          "key": "benefits",
-          "title": "Beneficios",
-          "kind": "benefits",
           "contentFormat": "markdown",
           "body": "### ¿Qué es una entrada personalizada y para qué se usa?\n\nUna entrada impresa personalizada es el documento que acredita el acceso a un evento, como un concierto, gala, feria, congreso, festival, teatro, sorteo o actividad corporativa.\n\nSuele incluir datos del evento, zona o sector, fecha y hora, condiciones básicas y elementos de control como numeración, talón desprendible, código QR o código de barras.\n\nAdemás de gestionar el acceso, la entrada ayuda a proyectar una imagen cuidada y coherente con la identidad visual del evento."
         },
@@ -18913,8 +19064,31 @@
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "- Conciertos, festivales y teatro: entradas por sesión, zona o asiento.\n- Ferias y congresos: pases de día, invitaciones, accesos por áreas.\n- Eventos corporativos: cenas, galas, convenciones y presentaciones.\n- Eventos deportivos: acceso a grada, control de participantes o acompañantes.\n- Sorteos y promociones: tickets numerados para rifas, premios o control de participación."
+          "contentFormat": "json",
+          "applicationsData": {
+            "applications": [
+              {
+                "title": "Conciertos, festivales y teatro",
+                "description": "entradas por sesión, zona o asiento."
+              },
+              {
+                "title": "Ferias y congresos",
+                "description": "pases de día, invitaciones, accesos por áreas."
+              },
+              {
+                "title": "Eventos corporativos",
+                "description": "cenas, galas, convenciones y presentaciones."
+              },
+              {
+                "title": "Eventos deportivos",
+                "description": "acceso a grada, control de participantes o acompañantes."
+              },
+              {
+                "title": "Sorteos y promociones",
+                "description": "tickets numerados para rifas, premios o control de participación."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
@@ -19152,7 +19326,7 @@
     },
     {
       "id": "43",
-      "updatedAt": "2026-05-05T11:42:12Z",
+      "updatedAt": "2026-05-21T07:46:33Z",
       "type": "producto",
       "slug": "etiquetas-adhesivas-en-bobina",
       "path": "/productos/etiquetas-adhesivas-en-bobina",
@@ -19174,14 +19348,6 @@
           "kind": "details",
           "contentFormat": "markdown",
           "body": "### ¿Qué son las etiquetas adhesivas en bobina y para qué se utilizan?\n\nLas etiquetas adhesivas en bobina son una solución práctica para etiquetar envases, tarros, botes, botellas, paquetes y productos de todo tipo. Al presentarse en rollo, facilitan una colocación rápida, ordenada y eficiente, especialmente en tiradas medias, grandes volúmenes o procesos repetitivos de etiquetado.\n\nEn Repro Disseny imprimimos etiquetas personalizadas en bobina con materiales, adhesivos y acabados adaptados al uso previsto. Pueden aplicarse de forma manual, con dispensador o en procesos de producción, ayudando a mejorar el ritmo de trabajo y la presentación final del producto."
-        },
-        {
-          "id": "benefits",
-          "key": "benefits",
-          "title": "Beneficios",
-          "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "Ventajas principales de las etiquetas adhesivas en bobina para packaging, producto, promociones y procesos de etiquetado continuado.\n\n- **Aplicación rápida y continua:** se despegan con facilidad del soporte y permiten etiquetar productos de forma ágil y ordenada.\n- **Más productividad:** el formato en rollo ayuda a trabajar mejor en tiradas medias, grandes volúmenes o procesos repetitivos.\n- **Mejor presencia de marca:** una etiqueta bien diseñada refuerza la imagen del producto y suele ser uno de los primeros elementos que capta la atención.\n- **Legibilidad y claridad:** cuidamos tamaños, tipografías y acabados para que la información importante se lea correctamente.\n- **Adhesivo a medida:** podemos valorar adhesivo removible, permanente o de mayor agarre según la superficie y la necesidad del proyecto.\n- **Materiales duraderos:** opciones como el polipropileno permiten mejorar la resistencia en productos, envases o entornos más exigentes."
         },
         {
           "id": "materials",
@@ -19294,8 +19460,36 @@
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "Aplicaciones habituales de las etiquetas adhesivas en bobina para producto, packaging, promociones y procesos de identificación.\n\n- **Alimentación y bebidas:** etiquetas para envases, tarros, botes, botellas, productos envasados y packaging alimentario.\n- **Cosmética y productos de cuidado:** etiquetas para frascos, tubos, tarros, muestras, packs promocionales y líneas de producto.\n- **Productos de limpieza:** etiquetado para botellas, bidones, envases técnicos y productos que necesitan información clara y resistente.\n- **Botellas, cristal y envases transparentes:** opción de etiquetas transparentes o con reserva de blanco para mejorar la lectura sobre el fondo.\n- **Packaging y paquetería:** identificación de paquetes, cajas, bolsas, sobres, referencias, lotes o información logística.\n- **Promociones y re-etiquetado:** cambios de precio, unidades limitadas, campañas temporales, etiquetas de “próximo a caducar” o mensajes promocionales."
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Aplicaciones habituales de las etiquetas adhesivas en bobina para producto, packaging, promociones y procesos de identificación.",
+            "applications": [
+              {
+                "title": "Alimentación y bebidas",
+                "description": "Etiquetas para envases, tarros, botes, botellas, productos envasados y packaging alimentario."
+              },
+              {
+                "title": "Cosmética y productos de cuidado",
+                "description": "Etiquetas para frascos, tubos, tarros, muestras, packs promocionales y líneas de producto."
+              },
+              {
+                "title": "Productos de limpieza",
+                "description": "Etiquetado para botellas, bidones, envases técnicos y productos que necesitan información clara y resistente."
+              },
+              {
+                "title": "Botellas, cristal y envases transparentes",
+                "description": "Opción de etiquetas transparentes o con reserva de blanco para mejorar la lectura sobre el fondo."
+              },
+              {
+                "title": "Packaging y paquetería",
+                "description": "Identificación de paquetes, cajas, bolsas, sobres, referencias, lotes o información logística."
+              },
+              {
+                "title": "Promociones y re-etiquetado",
+                "description": "Cambios de precio, unidades limitadas, campañas temporales, etiquetas de próximo a caducar o mensajes promocionales."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
@@ -19352,7 +19546,38 @@
       "inStock": true,
       "ratingValue": 0,
       "reviewCount": 0,
-      "attributes": [],
+      "attributes": [
+        {
+          "key": "bobina-rollo",
+          "label": "En bobina o rollo",
+          "value": "Presentación en rollo para aplicación manual, con dispensador o en procesos de etiquetado",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "papel-polipropileno",
+          "label": "Papel o polipropileno",
+          "value": "Papel revestido, papel no revestido, polipropileno blanco o transparente",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "adhesivo-segun-uso",
+          "label": "Adhesivo según uso",
+          "value": "Removible, permanente o de mayor agarre según superficie y aplicación",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "troquel-a-medida",
+          "label": "Troquel a medida",
+          "value": "Corte personalizado siguiendo diseño, logotipo o forma de marca",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "aplicacion-agil",
+          "label": "Aplicación ágil",
+          "value": "Pensadas para tiradas medias, grandes volúmenes o procesos repetitivos",
+          "placement": "hero-pills"
+        }
+      ],
       "variants": [],
       "formFields": [
         {
@@ -19428,10 +19653,44 @@
           }
         ],
         "keywords": [
-          "etiquetas en bobina"
+          "etiquetas en bobina",
+          "etiquetas adhesivas en bobina",
+          "etiquetas en rollo",
+          "etiquetas adhesivas personalizadas",
+          "etiquetas para producto",
+          "etiquetas para packaging",
+          "etiquetas para envases",
+          "etiquetas para botellas",
+          "etiquetas transparentes",
+          "etiquetas de polipropileno",
+          "etiquetas de papel",
+          "etiquetas troqueladas",
+          "etiquetas para alimentación",
+          "etiquetas para cosmética",
+          "etiquetas con adhesivo permanente",
+          "etiquetas removibles"
         ],
         "searchTerms": [
-          "etiquetas en bobina"
+          "etiquetas en bobina",
+          "etiquetas adhesivas en bobina",
+          "etiquetas en rollo",
+          "etiquetas personalizadas en rollo",
+          "imprimir etiquetas en bobina",
+          "etiquetas para envases",
+          "etiquetas para tarros",
+          "etiquetas para botes",
+          "etiquetas para botellas",
+          "etiquetas para packaging",
+          "etiquetas para alimentación",
+          "etiquetas para bebidas",
+          "etiquetas para cosmética",
+          "etiquetas transparentes en bobina",
+          "etiquetas blancas en bobina",
+          "etiquetas papel en bobina",
+          "etiquetas polipropileno",
+          "etiquetas troqueladas en bobina",
+          "bobinas de etiquetas adhesivas",
+          "etiquetas para dispensador"
         ],
         "schema": {
           "@context": "https://schema.org",
@@ -19817,7 +20076,7 @@
     },
     {
       "id": "37",
-      "updatedAt": "2026-05-05T11:41:23Z",
+      "updatedAt": "2026-05-21T07:42:03Z",
       "type": "producto",
       "slug": "etiquetas-doming",
       "path": "/productos/etiquetas-doming",
@@ -19841,12 +20100,82 @@
           "body": "### ¿Qué son las etiquetas adhesivas doming?\n\nLas etiquetas adhesivas con gota de resina, también conocidas como etiquetas doming, son adhesivos que incorporan una capa transparente de resina de poliuretano en forma de cúpula. Ese volumen aporta más brillo, profundidad y presencia, destacando logotipos y gráficos de forma muy visible.\n\nSe utilizan en multitud de soportes para branding, identificación, personalización o señalización, especialmente cuando se quiere un acabado superior a una etiqueta convencional. Son una buena opción para marcas que buscan una etiqueta resistente, con tacto premium y mayor impacto visual que una pegatina plana."
         },
         {
-          "id": "benefits",
-          "key": "benefits",
-          "title": "Beneficios",
-          "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "- **Alta resistencia:** la resina protege frente a abrasión, tracción y agentes químicos.\n- **Durabilidad:** una vez solidificada, mantiene su forma sin retraerse ni deformarse.\n- **Acabado premium:** mejora la nitidez y añade un tacto atractivo y profesional.\n- **Visibilidad mejorada:** el efecto cúpula ayuda a resaltar el logotipo y los elementos de marca.\n- **Diferenciación real:** aporta un resultado tridimensional y más premium que una etiqueta plana."
+          "id": "materials",
+          "key": "materials",
+          "title": "Materiales",
+          "kind": "materials",
+          "contentFormat": "json",
+          "materialsData": {
+            "intro": "Material principal indicado para las etiquetas doming según la información técnica actual del producto.",
+            "materials": [
+              {
+                "title": "Resina de poliuretano transparente",
+                "description": "Capa aproximada de 2 mm con efecto cúpula, volumen, profundidad visual y tacto tridimensional."
+              }
+            ]
+          }
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "kind": "formats",
+          "contentFormat": "json",
+          "formatsData": {
+            "intro": "Formatos y condiciones de producción indicados para las etiquetas doming personalizadas.",
+            "shapes": [
+              {
+                "title": "Desde 11 mm hasta 300 mm",
+                "description": "Tamaño disponible indicado para la producción de etiquetas doming."
+              },
+              {
+                "title": "Corte recto",
+                "description": "Opción de corte disponible cuando la etiqueta requiere una forma simple."
+              },
+              {
+                "title": "Corte con forma",
+                "description": "Opción de corte disponible para adaptar la etiqueta a la silueta del diseño, respetando las limitaciones técnicas del doming."
+              }
+            ],
+            "deliveryFormats": [
+              {
+                "title": "A partir de 50 unidades",
+                "description": "Cantidad mínima indicada para solicitar etiquetas doming."
+              },
+              {
+                "title": "Impresión a una cara",
+                "description": "Producción indicada a una cara en cuatricromía."
+              }
+            ]
+          }
+        },
+        {
+          "id": "finishes",
+          "key": "finishes",
+          "title": "Acabados",
+          "kind": "finishes",
+          "contentFormat": "json",
+          "finishesData": {
+            "intro": "Acabados indicados para conseguir el efecto doming, mejorar la presencia visual y proteger la impresión.",
+            "finishes": [
+              {
+                "title": "Gota de resina",
+                "description": "Capa aproximada de 2 mm de poliuretano transparente con efecto cúpula."
+              },
+              {
+                "title": "Acabado brillante",
+                "description": "Aspecto final brillante, con volumen y mayor profundidad visual."
+              },
+              {
+                "title": "Tacto tridimensional",
+                "description": "La resina aporta relieve y una sensación táctil más premium que una etiqueta plana."
+              },
+              {
+                "title": "Protección de la impresión",
+                "description": "La resina solidificada ayuda a proteger frente al uso, el roce y agentes externos."
+              }
+            ]
+          }
         },
         {
           "id": "technical-specs",
@@ -19861,8 +20190,32 @@
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "- **Merchandising y artículos promocionales:** ideal para gadgets, insignias, piezas personalizadas y regalos de marca.\n- **Electrónica:** útil para identificación de equipos, placas frontales, componentes y elementos técnicos.\n- **Automoción:** recomendado para logotipos, señalización en piezas, accesorios y elementos identificativos.\n- **Industria y maquinaria:** adecuado para placas identificativas y etiquetado robusto, incluso en exteriores.\n- **Branding en producto y packaging especial:** perfecto cuando el acabado debe transmitir calidad y reforzar la percepción de marca."
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Aplicaciones indicadas para etiquetas doming con acabado de gota de resina.",
+            "applications": [
+              {
+                "title": "Merchandising y artículos promocionales",
+                "description": "Ideal para gadgets, insignias, piezas personalizadas y regalos de marca."
+              },
+              {
+                "title": "Electrónica",
+                "description": "Útil para identificación de equipos, placas frontales, componentes y elementos técnicos."
+              },
+              {
+                "title": "Automoción",
+                "description": "Recomendado para logotipos, señalización en piezas, accesorios y elementos identificativos."
+              },
+              {
+                "title": "Industria y maquinaria",
+                "description": "Adecuado para placas identificativas y etiquetado robusto, incluso en exteriores."
+              },
+              {
+                "title": "Branding en producto y packaging especial",
+                "description": "Perfecto cuando el acabado debe transmitir calidad y reforzar la percepción de marca."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
@@ -19915,7 +20268,38 @@
       "inStock": true,
       "ratingValue": 0,
       "reviewCount": 0,
-      "attributes": [],
+      "attributes": [
+        {
+          "key": "alta-resistencia",
+          "label": "Alta resistencia",
+          "value": "Protege frente a abrasión, tracción y agentes químicos",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "efecto-3d",
+          "label": "Efecto 3D brillante",
+          "value": "Gota de resina con volumen, profundidad visual y tacto tridimensional",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "acabado-premium",
+          "label": "Acabado premium",
+          "value": "Mejora la nitidez y añade un tacto atractivo y profesional",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "corte-forma",
+          "label": "Corte recto o con forma",
+          "value": "Corte recto o con forma, sin troqueles interiores",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "desde-50-unidades",
+          "label": "Desde 50 unidades",
+          "value": "Cantidad mínima indicada para producción",
+          "placement": "hero-pills"
+        }
+      ],
       "variants": [],
       "formFields": [
         {
@@ -19987,10 +20371,43 @@
           }
         ],
         "keywords": [
-          "doming ( gota resina )"
+          "etiquetas doming",
+          "etiquetas doming personalizadas",
+          "doming gota de resina",
+          "etiquetas con gota de resina",
+          "etiquetas efecto 3D",
+          "etiquetas adhesivas doming",
+          "pegatinas doming",
+          "adhesivos doming",
+          "etiquetas de resina",
+          "etiquetas premium",
+          "etiquetas resistentes",
+          "etiquetas con volumen",
+          "etiquetas para branding",
+          "etiquetas para producto",
+          "doming Barcelona"
         ],
         "searchTerms": [
-          "doming ( gota resina )"
+          "doming",
+          "gota de resina",
+          "etiquetas doming",
+          "etiquetas doming personalizadas",
+          "pegatinas doming",
+          "adhesivos doming",
+          "etiquetas con resina",
+          "etiquetas con gota de resina",
+          "etiquetas efecto 3D",
+          "etiquetas 3D personalizadas",
+          "etiquetas con volumen",
+          "etiquetas brillantes",
+          "etiquetas de resina poliuretano",
+          "etiquetas para electrónica",
+          "etiquetas para automoción",
+          "etiquetas para maquinaria",
+          "etiquetas para branding",
+          "etiquetas para packaging especial",
+          "imprimir etiquetas doming",
+          "etiquetas doming Barcelona"
         ],
         "schema": {
           "@context": "https://schema.org",
@@ -20894,7 +21311,7 @@
     },
     {
       "id": "47",
-      "updatedAt": "2026-05-05T15:30:06Z",
+      "updatedAt": "2026-05-21T06:59:26Z",
       "type": "producto",
       "slug": "figuras-arbol-navidad",
       "path": "/productos/figuras-arbol-navidad",
@@ -20916,14 +21333,6 @@
           "kind": "details",
           "contentFormat": "markdown",
           "body": "### ¿Qué son las figuras árbol de Navidad y para qué se usan?\n\nLas figuras árbol de Navidad personalizadas son piezas con forma de árbol u otras siluetas navideñas, impresas y producidas en soportes rígidos o semirrígidos, con corte a medida para conseguir el contorno exacto del diseño.\n\nSe utilizan para ambientar espacios y, sobre todo, para reforzar la presencia de marca en campañas navideñas. La figura funciona como un soporte publicitario elegante y estacional, ideal para comunicar promociones, valores de marca, mensajes corporativos o acciones especiales de Navidad."
-        },
-        {
-          "id": "benefits",
-          "key": "benefits",
-          "title": "Beneficios",
-          "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "Ventajas principales de las figuras árbol de Navidad personalizadas para campañas estacionales, retail, oficinas, eventos y acciones de marca.\n\n- **Branding muy visible:** piezas grandes, llamativas y perfectas para zonas de paso, escaparates, recepciones o puntos promocionales.\n- **Personalización total:** desde un árbol clásico hasta siluetas corporativas con mensaje, claim, QR, patrocinadores o gráfica de campaña.\n- **Acabado profesional:** corte limpio a la forma, buena reproducción de color y presencia visual propia de una campaña cuidada.\n- **Fáciles de colocar:** según el formato, pueden ir autoportantes, colgadas, apoyadas o fijadas en pared o escaparate.\n- **Reutilizables según material y uso:** pueden plantearse para montar, desmontar y guardar para próximas campañas navideñas."
         },
         {
           "id": "materials",
@@ -21044,8 +21453,31 @@
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "- Escaparates y retail: decoración + promoción (rebajas, packs regalo, horarios especiales).\n- Oficinas y recepciones: imagen corporativa navideña para clientes y equipo.\n- Centros comerciales: puntos de foto y señalización estacional.\n- Eventos y stands: ambientación temática o photocall navideño.\n- Hostelería y hoteles: entradas, halls, zonas comunes y eventos de empresa."
+          "contentFormat": "json",
+          "applicationsData": {
+            "applications": [
+              {
+                "title": "Escaparates y retail",
+                "description": "decoración + promoción (rebajas, packs regalo, horarios especiales)."
+              },
+              {
+                "title": "Oficinas y recepciones",
+                "description": "imagen corporativa navideña para clientes y equipo."
+              },
+              {
+                "title": "Centros comerciales",
+                "description": "puntos de foto y señalización estacional."
+              },
+              {
+                "title": "Eventos y stands",
+                "description": "ambientación temática o photocall navideño."
+              },
+              {
+                "title": "Hostelería y hoteles",
+                "description": "entradas, halls, zonas comunes y eventos de empresa."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
@@ -21098,7 +21530,33 @@
       "inStock": true,
       "ratingValue": 0,
       "reviewCount": 0,
-      "attributes": [],
+      "attributes": [
+        {
+          "key": "branding-muy-visible",
+          "label": "Branding muy visible",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "personalizacion-total",
+          "label": "Personalización total",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "acabado-profesional",
+          "label": "Acabado profesional",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "faciles-de-colocar",
+          "label": "Fáciles de colocar",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "reutilizables-segun-material-y-uso",
+          "label": "Reutilizables según material y uso",
+          "placement": "hero-pills"
+        }
+      ],
       "variants": [],
       "formFields": [
         {
@@ -21994,7 +22452,7 @@
     },
     {
       "id": "51",
-      "updatedAt": "2026-05-05T15:42:21Z",
+      "updatedAt": "2026-05-21T06:44:51Z",
       "type": "producto",
       "slug": "folletos-plegados-personalizados",
       "path": "/productos/folletos-plegados-personalizados",
@@ -22016,14 +22474,6 @@
           "kind": "details",
           "contentFormat": "markdown",
           "body": "### ¿Qué es un folleto plegado y para qué se usa?\n\nUn folleto plegado personalizado es una hoja impresa que se dobla con uno o varios pliegues para crear diferentes secciones o caras.\n\nSe utiliza para presentar servicios, catálogos breves, menús, programas de eventos, promociones o información corporativa, porque permite contar más contenido sin perder claridad. Cada cara funciona como un capítulo con su propio mensaje, facilitando una lectura ordenada y guiada."
-        },
-        {
-          "id": "benefits",
-          "key": "benefits",
-          "title": "Beneficios",
-          "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "Ventajas principales de los folletos plegados personalizados para comunicación comercial, servicios, eventos y presentación corporativa.\n\n- **Más espacio sin saturar:** ideal para explicar servicios, precios, ventajas, pasos, menús o información corporativa de forma ordenada.\n- **Lectura guiada:** la estructura por secciones ayuda a organizar portada, contenido principal, detalles y llamada a la acción.\n- **Imagen profesional:** funciona muy bien para entregar en mano, colocar en recepción, repartir en ferias o incluir en acciones comerciales.\n- **Versátil por tipo de pliegue:** permite adaptar el formato al contenido mediante dípticos, trípticos, cuadrípticos o pliegues especiales.\n- **Campañas medibles:** puede incorporar QR, URL específica o código promocional para conectar el folleto con una landing o acción digital."
         },
         {
           "id": "materials",
@@ -22136,8 +22586,31 @@
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "Publicidad local: comercios, servicios, clínicas, academias, inmobiliarias. \nHostelería: cartas plegadas, menús del día, promociones, eventos. \nFerias y eventos: programa, agenda, mapa, información de stand. \nCorporativo: dossier breve de servicios, presentación comercial, onboarding. \nCampañas: lanzamientos, promociones estacionales, acciones con varios mensajes."
+          "contentFormat": "json",
+          "applicationsData": {
+            "applications": [
+              {
+                "title": "Publicidad local",
+                "description": "comercios, servicios, clínicas, academias, inmobiliarias."
+              },
+              {
+                "title": "Hostelería",
+                "description": "cartas plegadas, menús del día, promociones, eventos."
+              },
+              {
+                "title": "Ferias y eventos",
+                "description": "programa, agenda, mapa, información de stand."
+              },
+              {
+                "title": "Corporativo",
+                "description": "dossier breve de servicios, presentación comercial, onboarding."
+              },
+              {
+                "title": "Campañas",
+                "description": "lanzamientos, promociones estacionales, acciones con varios mensajes."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
@@ -22194,7 +22667,35 @@
       "inStock": true,
       "ratingValue": 0,
       "reviewCount": 0,
-      "attributes": [],
+      "attributes": {
+        "intro": "Aplicaciones habituales de los talonarios autocopiativos personalizados en empresas de servicios, logística, comercio, talleres y administración.",
+        "applications": [
+          {
+            "title": "Albaranes de entrega y recepción",
+            "description": "documentación práctica para dejar constancia de entregas, recogidas, recepciones o conformidades."
+          },
+          {
+            "title": "Pedidos y órdenes de compra",
+            "description": "formularios preparados para registrar referencias, cantidades, precios, condiciones y datos del cliente."
+          },
+          {
+            "title": "Partes de trabajo",
+            "description": "útiles para SAT, mantenimiento, instalaciones, reparaciones, servicios técnicos o trabajos en ruta."
+          },
+          {
+            "title": "Presupuestos y autorizaciones de servicio",
+            "description": "documentos firmables para validar trabajos, importes, condiciones o intervenciones."
+          },
+          {
+            "title": "Facturas simplificadas y tickets",
+            "description": "opción práctica para ciertos usos de mostrador, servicios o ventas rápidas, según necesidad."
+          },
+          {
+            "title": "Hojas de caja y control interno",
+            "description": "formularios para arqueos, movimientos, incidencias, inventario o seguimiento administrativo."
+          }
+        ]
+      },
       "variants": [],
       "formFields": [
         {
@@ -22397,7 +22898,7 @@
     },
     {
       "id": "53",
-      "updatedAt": "2026-05-05T15:34:23Z",
+      "updatedAt": "2026-05-21T06:58:24Z",
       "type": "producto",
       "slug": "fundas-sant-jordi",
       "path": "/productos/fundas-sant-jordi",
@@ -22535,8 +23036,32 @@
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "Aplicaciones habituales de las fundas de Sant Jordi personalizadas en empresas, comercios, entidades, ayuntamientos y acciones culturales.\n\n- **Empresas:** regalo a empleados, clientes y partners en recepciones, oficinas, tiendas o eventos corporativos.\n- **Asociaciones y entidades:** acciones de calle, campañas culturales, participación ciudadana y comunicación institucional.\n- **Ayuntamientos y centros:** reparto institucional, promoción de actividades, campañas culturales y acciones vinculadas al libro y la rosa.\n- **Comercios:** detalle por compra, fidelización, acción en punto de venta o campaña especial de Sant Jordi.\n- **Eventos de Sant Jordi:** stands, ferias, firmas, actividades culturales y espacios promocionales vinculados a la celebración."
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Aplicaciones habituales de las fundas de Sant Jordi personalizadas en empresas, comercios, entidades, ayuntamientos y acciones culturales.",
+            "applications": [
+              {
+                "title": "Empresas",
+                "description": "regalo a empleados, clientes y partners en recepciones, oficinas, tiendas o eventos corporativos."
+              },
+              {
+                "title": "Asociaciones y entidades",
+                "description": "acciones de calle, campañas culturales, participación ciudadana y comunicación institucional."
+              },
+              {
+                "title": "Ayuntamientos y centros",
+                "description": "reparto institucional, promoción de actividades, campañas culturales y acciones vinculadas al libro y la rosa."
+              },
+              {
+                "title": "Comercios",
+                "description": "detalle por compra, fidelización, acción en punto de venta o campaña especial de Sant Jordi."
+              },
+              {
+                "title": "Eventos de Sant Jordi",
+                "description": "stands, ferias, firmas, actividades culturales y espacios promocionales vinculados a la celebración."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
@@ -22589,7 +23114,33 @@
       "inStock": true,
       "ratingValue": 0,
       "reviewCount": 0,
-      "attributes": [],
+      "attributes": [
+        {
+          "key": "branding-masivo-en-un-dia",
+          "label": "Branding masivo en un día",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "alta-viralizacion",
+          "label": "Alta viralización",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "imagen-cuidada-y-coherente",
+          "label": "Imagen cuidada y coherente",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "opcion-sostenible",
+          "label": "Opción sostenible",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "personalizacion-total",
+          "label": "Personalización total",
+          "placement": "hero-pills"
+        }
+      ],
       "variants": [],
       "formFields": [
         {
@@ -22734,7 +23285,7 @@
     },
     {
       "id": "54",
-      "updatedAt": "2026-05-05T11:43:38Z",
+      "updatedAt": "2026-05-21T07:49:27Z",
       "type": "producto",
       "slug": "hojas-pegatinas-personalizadas",
       "path": "/productos/hojas-pegatinas-personalizadas",
@@ -22756,14 +23307,6 @@
           "kind": "details",
           "contentFormat": "markdown",
           "body": "¿Qué son las hojas con pegatinas y para qué se utilizan? \nLas hojas con pegatinas impresas en plástico blanco, transparente o papel permiten configurar cualquier tamaño y adaptarse a múltiples necesidades. Gracias a la impresión en cuatricromía, los colores son brillantes y definidos, lo que garantiza una presentación profesional.  \nEstas hojas se fabrican a partir de un soporte adhesivo compuesto por tres capas: el material superior, el adhesivo y el liner. Su uso es rápido, práctico y fácil de almacenar incluso cuando no se han consumido todas las pegatinas."
-        },
-        {
-          "id": "benefits",
-          "key": "benefits",
-          "title": "Beneficios",
-          "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "Ventajas principales de las hojas con pegatinas personalizadas para agrupar varios diseños, facilitar la aplicación y optimizar pequeñas producciones adhesivas.\n\n- **Personalización de tamaño y forma:** permite crear pegatinas cuadradas, redondas, ovaladas o con corte a medida según el diseño.\n- **Aplicación cómoda:** al entregarse en hoja, son fáciles de almacenar, repartir, separar y aplicar manualmente.\n- **Variedad en una misma producción:** pueden agruparse diferentes diseños, tamaños o formas dentro de una misma hoja.\n- **Buena calidad visual:** ofrecen colores intensos, buena definición y una presentación cuidada para marca, packaging o promociones.\n- **Solución práctica y versátil:** adecuadas para etiquetado, cierres, correcciones, campañas promocionales y stickers corporativos."
         },
         {
           "id": "materials",
@@ -22794,6 +23337,80 @@
           }
         },
         {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "kind": "formats",
+          "contentFormat": "json",
+          "formatsData": {
+            "intro": "Formatos indicados para hojas con pegatinas personalizadas según el tamaño, la forma y la aplicación manual prevista.",
+            "shapes": [
+              {
+                "title": "Formato DIN A4 habitual",
+                "description": "Formato habitual de hoja indicado en las FAQ: 21 x 29,7 cm."
+              },
+              {
+                "title": "Formato adaptable",
+                "description": "La hoja puede adaptarse al tamaño necesario, la cantidad de pegatinas por hoja y las necesidades del proyecto."
+              },
+              {
+                "title": "Una o varias formas",
+                "description": "Posibilidad de incluir una o varias formas en la misma hoja según el diseño y el uso previsto."
+              },
+              {
+                "title": "Corte personalizado",
+                "description": "Corte recto, redondo, ovalado, con esquinas redondeadas o con forma personalizada."
+              }
+            ],
+            "deliveryFormats": [
+              {
+                "title": "Pegatinas agrupadas en hojas",
+                "description": "Entrega en hojas para facilitar almacenamiento, reparto y aplicación manual."
+              },
+              {
+                "title": "Pegatinas precortadas",
+                "description": "Las pegatinas se entregan precortadas para facilitar su separación y aplicación."
+              },
+              {
+                "title": "Distribución según medida",
+                "description": "La cantidad por hoja depende del tamaño de cada pegatina y de la distribución ideal del diseño."
+              }
+            ]
+          }
+        },
+        {
+          "id": "finishes",
+          "key": "finishes",
+          "title": "Acabados",
+          "kind": "finishes",
+          "contentFormat": "json",
+          "finishesData": {
+            "intro": "Acabados y preparación indicados para hojas con pegatinas personalizadas según material, uso y forma de aplicación.",
+            "finishes": [
+              {
+                "title": "Impresión a todo color",
+                "description": "Impresión en cuatricromía sobre papel adhesivo o soporte plástico."
+              },
+              {
+                "title": "Acabado brillo",
+                "description": "Acabado indicado cuando se busca una presentación más llamativa según el material elegido."
+              },
+              {
+                "title": "Acabado más natural",
+                "description": "Acabado más sobrio o natural según el material elegido."
+              },
+              {
+                "title": "Precorte",
+                "description": "Preparación con corte para separar y aplicar cada pegatina de forma cómoda."
+              },
+              {
+                "title": "Material plástico para usos exigentes",
+                "description": "Para exteriores, humedad o usos intensivos, conviene valorar materiales plásticos o vinilos más resistentes."
+              }
+            ]
+          }
+        },
+        {
           "id": "technical-specs",
           "key": "technical-specs",
           "title": "Características técnicas",
@@ -22806,8 +23423,28 @@
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "Aplicaciones habituales de las hojas con pegatinas personalizadas para packaging, promociones, identificación y comunicación de marca.\n\n- **Etiquetado de productos:** útiles para identificar referencias, variantes, ingredientes, promociones o información complementaria.\n- **Cierre de bolsas, sobres o cajas:** permiten reforzar la imagen corporativa y mejorar la presentación del packaging o los envíos.\n- **Corrección rápida de materiales ya impresos:** solución práctica para actualizar datos, tapar errores o añadir información sin repetir toda la producción.\n- **Publicidad y promociones:** recomendadas para eventos, campañas comerciales, fidelización, acciones promocionales y reparto de stickers."
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Aplicaciones habituales de las hojas con pegatinas personalizadas para packaging, promociones, identificación y comunicación de marca.",
+            "applications": [
+              {
+                "title": "Etiquetado de productos",
+                "description": "Útiles para identificar referencias, variantes, ingredientes, promociones o información complementaria."
+              },
+              {
+                "title": "Cierre de bolsas, sobres o cajas",
+                "description": "Permiten reforzar la imagen corporativa y mejorar la presentación del packaging o los envíos."
+              },
+              {
+                "title": "Corrección rápida de materiales ya impresos",
+                "description": "Solución práctica para actualizar datos, tapar errores o añadir información sin repetir toda la producción."
+              },
+              {
+                "title": "Publicidad y promociones",
+                "description": "Recomendadas para eventos, campañas comerciales, fidelización, acciones promocionales y reparto de stickers."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
@@ -22860,7 +23497,38 @@
       "inStock": true,
       "ratingValue": 0,
       "reviewCount": 0,
-      "attributes": [],
+      "attributes": [
+        {
+          "key": "hojas-agrupadas",
+          "label": "Pegatinas en hoja",
+          "value": "Pegatinas agrupadas en hojas para almacenamiento, reparto y aplicación manual",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "varias-formas",
+          "label": "Varias formas",
+          "value": "Corte recto, redondo, ovalado, esquinas redondeadas o forma personalizada",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "papel-plastico",
+          "label": "Papel o plástico",
+          "value": "Papel adhesivo, plástico blanco o plástico transparente",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "precortadas",
+          "label": "Precortadas",
+          "value": "Se entregan precortadas para facilitar su separación y aplicación",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "varios-disenos",
+          "label": "Varios diseños por hoja",
+          "value": "Permite agrupar diferentes diseños, tamaños o formas en una misma hoja",
+          "placement": "hero-pills"
+        }
+      ],
       "variants": [],
       "formFields": [
         {
@@ -22925,14 +23593,43 @@
           }
         ],
         "keywords": [
+          "hojas con pegatinas personalizadas",
+          "hojas de pegatinas",
           "pegatinas personalizadas",
+          "pegatinas en hoja",
           "hojas de adhesivos",
+          "stickers en hoja",
+          "etiquetas adhesivas en hoja",
+          "pegatinas precortadas",
+          "pegatinas troqueladas",
+          "pegatinas de papel",
+          "pegatinas de plástico",
+          "pegatinas transparentes",
+          "pegatinas para packaging",
+          "pegatinas promocionales",
           "vinilo impreso"
         ],
         "searchTerms": [
           "hojas con pegatinas personalizadas",
-          "imprimir pegatinas en Cataluña",
-          "etiquetas en vinilo"
+          "hojas de pegatinas",
+          "pegatinas en hoja",
+          "pegatinas personalizadas en hoja",
+          "stickers en hoja",
+          "hojas de adhesivos",
+          "etiquetas en hoja",
+          "etiquetas adhesivas en hoja",
+          "pegatinas precortadas",
+          "pegatinas troqueladas en hoja",
+          "pegatinas redondas en hoja",
+          "pegatinas cuadradas en hoja",
+          "pegatinas transparentes en hoja",
+          "pegatinas de papel",
+          "pegatinas de plástico",
+          "pegatinas para packaging",
+          "pegatinas para sobres",
+          "pegatinas para cajas",
+          "imprimir pegatinas en hoja",
+          "imprimir pegatinas en Cataluña"
         ],
         "schema": {
           "@context": "https://schema.org",
@@ -23635,7 +24332,7 @@
     },
     {
       "id": "57",
-      "updatedAt": "2026-05-05T15:17:25Z",
+      "updatedAt": "2026-05-21T07:00:35Z",
       "type": "producto",
       "slug": "identificador-maleta",
       "path": "/productos/identificador-maleta",
@@ -23657,14 +24354,6 @@
           "kind": "details",
           "contentFormat": "markdown",
           "body": "¿Qué es un identificador de maleta y para qué se usa?\nUn identificador de maleta es una tarjeta (o pieza rígida) que se fija al equipaje para mostrar datos básicos de identificación: nombre, empresa/grupo, teléfono o referencia. Se utiliza en viajes corporativos, congresos, eventos deportivos, excursiones y desplazamientos en grupo para reconocer maletas rápidamente y minimizar confusiones o extravíos."
-        },
-        {
-          "id": "benefits",
-          "key": "benefits",
-          "title": "Beneficios",
-          "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "- Identificación inmediata del equipaje: reduce pérdidas y confusiones en grupos.\n- Más orden en logística: útil para eventos con traslados, check-in de hotel o autocares.\n- Branding visible: tu marca viaja con el grupo (ideal para empresas y organizadores).\n- Personalización por persona: nombres, departamentos, equipos, numeración o colores por categoría.\n- Resistencia: materiales y acabados pensados para roce, golpes y manipulación."
         },
         {
           "id": "materials",
@@ -23773,8 +24462,31 @@
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "- Viajes corporativos: convenciones, incentivos, roadshows y desplazamientos de equipo.\n- Congresos y ferias: grupos, expositores y staff con logística de equipaje.\n- Eventos deportivos: clubs, torneos, competiciones y viajes de equipo.\n- Agencias y grupos turísticos: excursiones, viajes organizados, grupos escolares.\n- Hoteles: grupos y MICE (identificación rápida en entradas/lobby)."
+          "contentFormat": "json",
+          "applicationsData": {
+            "applications": [
+              {
+                "title": "Viajes corporativos",
+                "description": "convenciones, incentivos, roadshows y desplazamientos de equipo."
+              },
+              {
+                "title": "Congresos y ferias",
+                "description": "grupos, expositores y staff con logística de equipaje."
+              },
+              {
+                "title": "Eventos deportivos",
+                "description": "clubs, torneos, competiciones y viajes de equipo."
+              },
+              {
+                "title": "Agencias y grupos turísticos",
+                "description": "excursiones, viajes organizados, grupos escolares."
+              },
+              {
+                "title": "Hoteles",
+                "description": "grupos y MICE (identificación rápida en entradas/lobby)."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
@@ -23827,7 +24539,33 @@
       "inStock": true,
       "ratingValue": 0,
       "reviewCount": 0,
-      "attributes": [],
+      "attributes": [
+        {
+          "key": "identificacion-inmediata-del-equipaje",
+          "label": "Identificación inmediata del equipaje",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "mas-orden-en-logistica",
+          "label": "Más orden en logística",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "branding-visible",
+          "label": "Branding visible",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "personalizacion-por-persona",
+          "label": "Personalización por persona",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "resistencia",
+          "label": "Resistencia",
+          "placement": "hero-pills"
+        }
+      ],
       "variants": [],
       "formFields": [
         {
@@ -24933,7 +25671,7 @@
     },
     {
       "id": "60",
-      "updatedAt": "2026-05-05T11:44:19Z",
+      "updatedAt": "2026-05-21T06:57:47Z",
       "type": "producto",
       "slug": "lanyards-eventos-barcelona",
       "path": "/productos/lanyards-eventos-barcelona",
@@ -24955,14 +25693,6 @@
           "kind": "details",
           "contentFormat": "markdown",
           "body": "### ¿Qué es un lanyard y para qué se usa?\n\nUn lanyard personalizado es una cinta, normalmente para llevar al cuello, que permite colgar una acreditación, tarjeta, llave o identificador.\n\nEn eventos funciona como elemento de identificación visible, ayuda a diferenciar roles como VIP, prensa, staff, ponentes o expositores, y aporta coherencia visual con el resto del material gráfico del evento."
-        },
-        {
-          "id": "benefits",
-          "key": "benefits",
-          "title": "Beneficios",
-          "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "Ventajas principales de los lanyards personalizados para eventos, ferias, congresos, acreditaciones y control de accesos.\n\n- **Identificación inmediata:** facilita reconocer asistentes, organización, staff, ponentes y perfiles especiales durante el evento.\n- **Mejor control de accesos:** combinado con acreditaciones, QR o códigos, ayuda a agilizar check-in y acceso a zonas restringidas.\n- **Marca presente todo el tiempo:** el logotipo, los colores y el diseño del evento permanecen visibles durante toda la jornada y también en fotos.\n- **Comodidad y seguridad:** existen opciones de cierre, hebilla y accesorios para que el lanyard sea práctico durante varias horas de uso.\n- **Personalización por roles:** permite diferenciar staff, VIP, prensa, ponentes, expositores o asistentes mediante colores, diseños o mensajes distintos."
         },
         {
           "id": "materials",
@@ -25079,8 +25809,32 @@
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "Aplicaciones habituales de los lanyards personalizados en ferias, congresos, eventos corporativos, cultura, deporte y activaciones de marca.\n\n- **Ferias y congresos:** acreditaciones para asistentes, expositores, ponentes, prensa, organización y visitantes profesionales.\n- **Eventos corporativos:** convenciones internas, formaciones, presentaciones de marca, jornadas de empresa y encuentros con clientes.\n- **Eventos culturales y deportivos:** organización, prensa, backstage, staff técnico, voluntarios, accesos y zonas restringidas.\n- **Acciones de marca y activaciones:** promotores, equipos itinerantes, campañas comerciales, acceso a zonas y personal de apoyo.\n- **Centros y entidades:** identificación de personal, visitantes, proveedores, alumnos, equipos temporales o participantes."
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Aplicaciones habituales de los lanyards personalizados en ferias, congresos, eventos corporativos, cultura, deporte y activaciones de marca.",
+            "applications": [
+              {
+                "title": "Ferias y congresos",
+                "description": "acreditaciones para asistentes, expositores, ponentes, prensa, organización y visitantes profesionales."
+              },
+              {
+                "title": "Eventos corporativos",
+                "description": "convenciones internas, formaciones, presentaciones de marca, jornadas de empresa y encuentros con clientes."
+              },
+              {
+                "title": "Eventos culturales y deportivos",
+                "description": "organización, prensa, backstage, staff técnico, voluntarios, accesos y zonas restringidas."
+              },
+              {
+                "title": "Acciones de marca y activaciones",
+                "description": "promotores, equipos itinerantes, campañas comerciales, acceso a zonas y personal de apoyo."
+              },
+              {
+                "title": "Centros y entidades",
+                "description": "identificación de personal, visitantes, proveedores, alumnos, equipos temporales o participantes."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
@@ -25133,7 +25887,33 @@
       "inStock": true,
       "ratingValue": 0,
       "reviewCount": 0,
-      "attributes": [],
+      "attributes": [
+        {
+          "key": "identificacion-inmediata",
+          "label": "Identificación inmediata",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "mejor-control-de-accesos",
+          "label": "Mejor control de accesos",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "marca-presente-todo-el-tiempo",
+          "label": "Marca presente todo el tiempo",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "comodidad-y-seguridad",
+          "label": "Comodidad y seguridad",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "personalizacion-por-roles",
+          "label": "Personalización por roles",
+          "placement": "hero-pills"
+        }
+      ],
       "variants": [],
       "formFields": [
         {
@@ -27405,7 +28185,7 @@
     },
     {
       "id": "70",
-      "updatedAt": "2026-05-05T15:00:32Z",
+      "updatedAt": "2026-05-21T07:01:10Z",
       "type": "producto",
       "slug": "minutas-boda",
       "path": "/productos/minutas-boda",
@@ -27428,14 +28208,6 @@
           "kind": "details",
           "contentFormat": "markdown",
           "body": "### ¿Qué es una minuta de boda y para qué se usa?\n\nUna minuta de boda personalizada es la tarjeta o cartel de mesa donde se presenta el menú del banquete: entrantes, plato principal, postre, bebidas u otras opciones del servicio.\n\nTambién puede incluir horarios, agradecimientos, nombres de los novios, sello, ilustraciones, número de mesa o detalles personalizados. Además de informar, la minuta funciona como elemento decorativo y ayuda a crear una papelería de boda coherente con invitaciones, seating plan, meseros y resto de piezas del evento."
-        },
-        {
-          "id": "benefits",
-          "key": "benefits",
-          "title": "Beneficios",
-          "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "Ventajas principales de las minutas de boda personalizadas para cuidar la presentación del banquete, organizar el menú y reforzar la estética del evento.\n\n- **Eleva la presentación del banquete:** es un detalle pequeño que mejora la percepción del conjunto y aporta una sensación más cuidada en la mesa.\n- **Coherencia estética:** permite integrar tipografías, colores, ilustraciones y estilo visual con el resto de la papelería de boda.\n- **Mejor organización en sala:** presenta el menú de forma clara y ordenada para invitados, wedding planner, catering y equipo de sala.\n- **Personalización a medida:** permite crear versiones por menú adulto, infantil, vegano, alérgenos, mesa o incluso invitado.\n- **Muy fotogénicas:** los papeles y acabados pueden elegirse para que la pieza encaje bien en fotos, vídeo y decoración de mesa."
         },
         {
           "id": "materials",
@@ -27610,7 +28382,33 @@
       "inStock": true,
       "ratingValue": 0,
       "reviewCount": 0,
-      "attributes": [],
+      "attributes": [
+        {
+          "key": "eleva-la-presentacion-del-banquete",
+          "label": "Eleva la presentación del banquete",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "coherencia-estetica",
+          "label": "Coherencia estética",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "mejor-organizacion-en-sala",
+          "label": "Mejor organización en sala",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "personalizacion-a-medida",
+          "label": "Personalización a medida",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "muy-fotogenicas",
+          "label": "Muy fotogénicas",
+          "placement": "hero-pills"
+        }
+      ],
       "variants": [],
       "formFields": [
         {
@@ -31409,7 +32207,7 @@
     },
     {
       "id": "78",
-      "updatedAt": "2026-05-21T05:31:47Z",
+      "updatedAt": "2026-05-21T07:50:18Z",
       "type": "producto",
       "slug": "pegatinas-personalizadas",
       "path": "/productos/pegatinas-personalizadas",
@@ -31648,6 +32446,18 @@
           "key": "archivo",
           "label": "Revisión básica de archivo",
           "value": "Revisión básica antes de producción",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "personalizacion-total",
+          "label": "Personalización total",
+          "value": "Tamaño, forma, material y acabado adaptados al uso previsto",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "versatiles",
+          "label": "Versátiles y fáciles de aplicar",
+          "value": "Para packaging, eventos, producto, envíos, decoración e identificación",
           "placement": "hero-pills"
         }
       ],
@@ -34081,7 +34891,7 @@
     },
     {
       "id": "89",
-      "updatedAt": "2026-05-05T12:12:21Z",
+      "updatedAt": "2026-05-21T06:18:47Z",
       "type": "producto",
       "slug": "roll-up-personalizado",
       "path": "/productos/roll-up-personalizado",
@@ -34103,14 +34913,6 @@
           "kind": "details",
           "contentFormat": "markdown",
           "body": "### ¿Qué es un roll up y para qué se usa?\n\nUn roll up personalizado es un expositor enrollable compuesto por una base tipo cassette, una gráfica impresa que se guarda en el interior y un mástil que mantiene la pieza tensada durante el uso.\n\nSe utiliza para comunicar mensajes comerciales, branding, promociones, lanzamientos o señalización temporal en ferias, congresos, recepciones, puntos de venta, eventos corporativos y espacios de atención al público.\n\nEs una solución práctica cuando se necesita visibilidad, montaje rápido y una presentación profesional sin recurrir a estructuras complejas."
-        },
-        {
-          "id": "benefits",
-          "key": "benefits",
-          "title": "Beneficios",
-          "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "Ventajas principales del roll up personalizado como expositor portátil para ferias, eventos, puntos de venta y comunicación corporativa.\n\n- **Montaje y recogida rápidos:** se monta y recoge en segundos, ideal para ferias, eventos itinerantes y acciones puntuales.\n- **Fácil de transportar:** se entrega con bolsa para moverlo, guardarlo y reutilizarlo cómodamente.\n- **Alta visibilidad:** su formato vertical destaca en entradas, pasillos, stands y zonas de paso.\n- **Imagen profesional:** la impresión nítida y el soporte estable ayudan a reforzar la presencia de marca.\n- **Uso versátil:** sirve como soporte promocional, señalética, photocall auxiliar o elemento informativo."
         },
         {
           "id": "materials",
@@ -34219,8 +35021,32 @@
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "Usos habituales del roll up personalizado en eventos, comunicación corporativa, punto de venta y señalización temporal.\n\n- **Ferias y congresos:** uso en stands, entradas, zonas de registro, ponencias y espacios donde se necesita visibilidad rápida.\n- **Eventos corporativos:** adecuado para presentaciones, formaciones, convenciones, showrooms y jornadas internas.\n- **Punto de venta:** funciona para promociones, lanzamientos, precios, campañas temporales y comunicación comercial.\n- **Recepciones y oficinas:** útil para señalización, presentación de servicios, marca y comunicación interna.\n- **Hostelería:** puede utilizarse para menús, eventos, horarios, ofertas y comunicación en sala."
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Usos habituales del roll up personalizado en eventos, comunicación corporativa, punto de venta y señalización temporal.",
+            "applications": [
+              {
+                "title": "Ferias y congresos",
+                "description": "uso en stands, entradas, zonas de registro, ponencias y espacios donde se necesita visibilidad rápida."
+              },
+              {
+                "title": "Eventos corporativos",
+                "description": "adecuado para presentaciones, formaciones, convenciones, showrooms y jornadas internas."
+              },
+              {
+                "title": "Punto de venta",
+                "description": "funciona para promociones, lanzamientos, precios, campañas temporales y comunicación comercial."
+              },
+              {
+                "title": "Recepciones y oficinas",
+                "description": "útil para señalización, presentación de servicios, marca y comunicación interna."
+              },
+              {
+                "title": "Hostelería",
+                "description": "puede utilizarse para menús, eventos, horarios, ofertas y comunicación en sala."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
@@ -34273,7 +35099,33 @@
       "inStock": true,
       "ratingValue": 0,
       "reviewCount": 0,
-      "attributes": [],
+      "attributes": [
+        {
+          "key": "montaje-y-recogida-rapidos",
+          "label": "Montaje y recogida rápidos",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "facil-de-transportar",
+          "label": "Fácil de transportar",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "alta-visibilidad",
+          "label": "Alta visibilidad",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "imagen-profesional",
+          "label": "Imagen profesional",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "uso-versatil",
+          "label": "Uso versátil",
+          "placement": "hero-pills"
+        }
+      ],
       "variants": [],
       "formFields": [
         {
@@ -34678,7 +35530,7 @@
     },
     {
       "id": "128",
-      "updatedAt": "2026-05-05T11:56:20Z",
+      "updatedAt": "2026-05-21T06:20:34Z",
       "type": "producto",
       "slug": "sobres-personalizados",
       "path": "/productos/sobres-personalizados",
@@ -34816,8 +35668,32 @@
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "Aplicaciones habituales de los sobres personalizados en comunicaciones comerciales, administrativas y corporativas.\n\n- **Envío de presupuestos y propuestas:** presentación más cuidada para ofertas comerciales, documentación de venta o comunicaciones con clientes.\n- **Contratos y documentación legal:** solución profesional para documentos importantes que requieren una entrega formal.\n- **Facturas y comunicaciones administrativas:** útil para envíos recurrentes, comunicaciones oficiales, documentación contable o correspondencia corporativa.\n- **Mailings corporativos:** invitaciones, campañas, postales, comunicaciones comerciales o acciones de fidelización.\n- **Documentación interna:** mensajería entre sedes, comunicaciones de recursos humanos, documentación interna o envíos entre departamentos."
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Aplicaciones habituales de los sobres personalizados en comunicaciones comerciales, administrativas y corporativas.",
+            "applications": [
+              {
+                "title": "Envío de presupuestos y propuestas",
+                "description": "presentación más cuidada para ofertas comerciales, documentación de venta o comunicaciones con clientes."
+              },
+              {
+                "title": "Contratos y documentación legal",
+                "description": "solución profesional para documentos importantes que requieren una entrega formal."
+              },
+              {
+                "title": "Facturas y comunicaciones administrativas",
+                "description": "útil para envíos recurrentes, comunicaciones oficiales, documentación contable o correspondencia corporativa."
+              },
+              {
+                "title": "Mailings corporativos",
+                "description": "invitaciones, campañas, postales, comunicaciones comerciales o acciones de fidelización."
+              },
+              {
+                "title": "Documentación interna",
+                "description": "mensajería entre sedes, comunicaciones de recursos humanos, documentación interna o envíos entre departamentos."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
@@ -34871,7 +35747,33 @@
       "price": 0,
       "priceCurrency": "EUR",
       "inStock": false,
-      "attributes": [],
+      "attributes": [
+        {
+          "key": "imagen-profesional-y-coherente",
+          "label": "Imagen profesional y coherente",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "mejor-percepcion-de-calidad",
+          "label": "Mejor percepción de calidad",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "ahorro-de-tiempo",
+          "label": "Ahorro de tiempo",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "opciones-segun-el-uso",
+          "label": "Opciones según el uso",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "versiones-por-sede-o-departamento",
+          "label": "Versiones por sede o departamento",
+          "placement": "hero-pills"
+        }
+      ],
       "variants": [],
       "formFields": [
         {
@@ -35600,7 +36502,7 @@
     },
     {
       "id": "130",
-      "updatedAt": "2026-05-05T15:23:15Z",
+      "updatedAt": "2026-05-21T06:43:49Z",
       "type": "producto",
       "slug": "talonarios-autocopiativos-personalizados",
       "path": "/productos/talonarios-autocopiativos-personalizados",
@@ -35622,14 +36524,6 @@
           "kind": "details",
           "contentFormat": "markdown",
           "body": "### ¿Qué es un talonario autocopiativo y para qué se usa?\n\nUn talonario autocopiativo es un bloc de formularios que genera una o varias copias al escribir, normalmente con papel autocopiativo NCR.\n\nSe utiliza para entregar una copia al cliente y conservar otra para administración, almacén o técnico, agilizando procesos en campo, repartos, talleres, hostelería o empresas de servicios."
-        },
-        {
-          "id": "benefits",
-          "key": "benefits",
-          "title": "Beneficios",
-          "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "Ventajas principales de los talonarios autocopiativos personalizados para albaranes, partes de trabajo, pedidos y documentación operativa.\n\n- **Copias instantáneas:** permiten generar 2 o 3 copias, o más según necesidad, sin impresora ni fotocopias.\n- **Operativa más rápida y ordenada:** ideales para trabajos en ruta, almacén, mostrador, entregas o servicios técnicos.\n- **Imagen profesional:** documentos personalizados con tu marca, datos corporativos y campos preparados para entregar al cliente.\n- **Control y trazabilidad:** numeración y series para facilitar el seguimiento interno de pedidos, entregas, partes o autorizaciones.\n- **Personalización completa:** campos, tablas, condiciones, firmas y checklists adaptados a la operativa de tu negocio."
         },
         {
           "id": "materials",
@@ -35742,8 +36636,36 @@
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "Aplicaciones habituales de los talonarios autocopiativos personalizados en empresas de servicios, logística, comercio, talleres y administración.\n\n- **Albaranes de entrega y recepción:** documentación práctica para dejar constancia de entregas, recogidas, recepciones o conformidades.\n- **Pedidos y órdenes de compra:** formularios preparados para registrar referencias, cantidades, precios, condiciones y datos del cliente.\n- **Partes de trabajo:** útiles para SAT, mantenimiento, instalaciones, reparaciones, servicios técnicos o trabajos en ruta.\n- **Presupuestos y autorizaciones de servicio:** documentos firmables para validar trabajos, importes, condiciones o intervenciones.\n- **Facturas simplificadas y tickets:** opción práctica para ciertos usos de mostrador, servicios o ventas rápidas, según necesidad.\n- **Hojas de caja y control interno:** formularios para arqueos, movimientos, incidencias, inventario o seguimiento administrativo."
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Aplicaciones habituales de los talonarios autocopiativos personalizados en empresas de servicios, logística, comercio, talleres y administración.",
+            "applications": [
+              {
+                "title": "Albaranes de entrega y recepción",
+                "description": "documentación práctica para dejar constancia de entregas, recogidas, recepciones o conformidades."
+              },
+              {
+                "title": "Pedidos y órdenes de compra",
+                "description": "formularios preparados para registrar referencias, cantidades, precios, condiciones y datos del cliente."
+              },
+              {
+                "title": "Partes de trabajo",
+                "description": "útiles para SAT, mantenimiento, instalaciones, reparaciones, servicios técnicos o trabajos en ruta."
+              },
+              {
+                "title": "Presupuestos y autorizaciones de servicio",
+                "description": "documentos firmables para validar trabajos, importes, condiciones o intervenciones."
+              },
+              {
+                "title": "Facturas simplificadas y tickets",
+                "description": "opción práctica para ciertos usos de mostrador, servicios o ventas rápidas, según necesidad."
+              },
+              {
+                "title": "Hojas de caja y control interno",
+                "description": "formularios para arqueos, movimientos, incidencias, inventario o seguimiento administrativo."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
@@ -35797,7 +36719,33 @@
       "price": 0,
       "priceCurrency": "EUR",
       "inStock": false,
-      "attributes": [],
+      "attributes": [
+        {
+          "key": "copias-instantaneas",
+          "label": "Copias instantáneas",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "operativa-mas-rapida-y-ordenada",
+          "label": "Operativa más rápida y ordenada",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "imagen-profesional",
+          "label": "Imagen profesional",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "control-y-trazabilidad",
+          "label": "Control y trazabilidad",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "personalizacion-completa",
+          "label": "Personalización completa",
+          "placement": "hero-pills"
+        }
+      ],
       "variants": [],
       "formFields": [
         {
@@ -36373,7 +37321,7 @@
     },
     {
       "id": "125",
-      "updatedAt": "2026-05-20T07:22:35Z",
+      "updatedAt": "2026-05-21T06:19:54Z",
       "type": "producto",
       "slug": "tarjetas-de-visita-personalizadas",
       "path": "/productos/tarjetas-de-visita-personalizadas",
@@ -36511,8 +37459,32 @@
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "Aplicaciones habituales de las tarjetas de visita personalizadas en empresas, profesionales, ferias, networking y eventos corporativos.\n\n- **Empresas y pymes:** tarjetas para comerciales, dirección, atención al cliente, retail, administración o equipos de soporte.\n- **Profesionales independientes:** arquitectura, consultoría, salud, formación, legal, diseño, servicios técnicos y otros perfiles profesionales.\n- **Ferias y networking:** captación de contactos, visitas a stand, reuniones comerciales y acciones de relación profesional.\n- **Franquicias y grupos:** tarjetas homogéneas por marca con variantes por sede, departamento, idioma o responsable.\n- **Eventos corporativos:** complemento práctico en welcome packs, acreditaciones ligeras, presentaciones o reuniones comerciales."
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Aplicaciones habituales de las tarjetas de visita personalizadas en empresas, profesionales, ferias, networking y eventos corporativos.",
+            "applications": [
+              {
+                "title": "Empresas y pymes",
+                "description": "tarjetas para comerciales, dirección, atención al cliente, retail, administración o equipos de soporte."
+              },
+              {
+                "title": "Profesionales independientes",
+                "description": "arquitectura, consultoría, salud, formación, legal, diseño, servicios técnicos y otros perfiles profesionales."
+              },
+              {
+                "title": "Ferias y networking",
+                "description": "captación de contactos, visitas a stand, reuniones comerciales y acciones de relación profesional."
+              },
+              {
+                "title": "Franquicias y grupos",
+                "description": "tarjetas homogéneas por marca con variantes por sede, departamento, idioma o responsable."
+              },
+              {
+                "title": "Eventos corporativos",
+                "description": "complemento práctico en welcome packs, acreditaciones ligeras, presentaciones o reuniones comerciales."
+              }
+            ]
+          }
         }
       ],
       "faqs": [

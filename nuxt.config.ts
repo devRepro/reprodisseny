@@ -454,24 +454,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   },
 
   routeRules: {
-     ...redirectRouteRules,
-    "/categorias/**": { isr: 600 },
-    "/productos/**": { isr: 600 },
+  "/categorias/**": { isr: 600 },
+  "/productos/**": { isr: 600 },
 
-    "/api/**": {
-      robots: false,
-    },
+  "/api/**": { robots: false },
 
-    "/admin": { robots: false },
-    "/admin/**": { robots: false },
-    "/panel": { robots: false },
-    "/panel/**": { robots: false },
-    "/gracias": { robots: false },
+  "/admin": { robots: false },
+  "/admin/**": { robots: false },
+  "/panel": { robots: false },
+  "/panel/**": { robots: false },
+  "/gracias": { robots: false },
 
-    "/img/logo.svg": {
-      redirect: { to: "/img/logo/reprodisseny.svg", statusCode: 301 },
-    },
+  "/img/logo.svg": {
+    redirect: { to: "/img/logo/reprodisseny.svg", statusCode: 301 },
   },
+
+  ...redirectRouteRules,
+},
 
   nitro: {
     serverAssets: [

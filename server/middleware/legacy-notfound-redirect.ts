@@ -1,58 +1,56 @@
 import { createError, getQuery, getRequestURL, sendRedirect } from "h3";
+import { redirectRouteRules } from "../../redirect-rules.generated";
 
-// Redirige URLs antiguas indexadas como:
-// /error/notfound?aspxerrorpath=/ruta-antigua
-//
-// Origen: URL antigues a destino.xlsx
+/**
+ * Limpieza SEO de URLs legacy para Google Search Console.
+ *
+ * Responsabilidades:
+ * - Resolver /error/notfound?aspxerrorpath=/ruta-antigua.
+ * - Devolver 410 Gone para endpoints/descargas/feed legacy sin equivalente real.
+ * - Canonicalizar hosts legacy hacia https://reprodisseny.com.
+ * - Redirigir ?ver=... de WordPress en la home hacia la home limpia.
+ *
+ * Mantener los 301 con equivalente real en redirect-rules.generated.ts.
+ */
 
-const LEGACY_NOT_FOUND_REDIRECTS = {
-  "/Orders/GetOrderItemProofFiles": "/",
-  "/adevinta-estrena-nuevas-oficines": "/",
-  "/adevinta-estrena-nuevas-oficinas": "/",
-  "/ca/manual-para-hacer-un-buen-flyer": "/como-preparar-archivos",
-  "/ca/producte/acreditacions": "/productos/acreditaciones-personalizadas",
-  "/ca/producte/estovalles-individuals": "/productos/manteles-individuales-personalizados",
-  "/ca/producte/penjador-dampolles": "/productos/colgador-de-botellas-personalizado",
-  "/ca/producte/samarretes": "/categorias/eventos",
-  "/categorias/adhesivos-personalizados": "/categorias/adhesivos-personalizados",
-  "/estrenamos-una-mesa-de-corte-digital-esko": "/productos/flyers-con-forma-personalizados",
-  "/expositores-publicitarios": "/categorias/expositores",
-  "/productfileupload": "/",
-  "/producto/agenda": "/productos/agendas-personalizadas",
-  "/producto/backlights": "/productos/cajas-de-luz-personalizadas",
-  "/producto/banderas": "/productos/banderolas-personalizadas",
-  "/producto/bloc-autocopiativo": "/productos/talonarios-autocopiativos-personalizados",
-  "/producto/bloc-de-notas": "/productos/blocs-notas",
-  "/producto/calendarios": "/productos/calendarios-personalizados",
-  "/producto/carpetas": "/productos/carpetas-de-presentacion-personalizadas",
-  "/producto/carta-de-restaurante": "/productos/cartas-restaurante-personalizadas",
-  "/producto/display-de-mesa-con-peana": "/productos/displays-de-mesa-personalizados",
-  "/producto/etiquetas-adhesivas-de-papel": "/categorias/adhesivos-personalizados",
-  "/producto/etiquetas-adhesivas-en-bobina": "/productos/etiquetas-adhesivas-en-bobina",
-  "/producto/identificadores-maleta": "/productos/identificador-maleta",
-  "/producto/imanes": "/productos/imanes-publicitarios",
-  "/producto/imanes-para-vehiculos": "/productos/lamina-magnetica-impresa",
-  "/producto/lanyard": "/productos/lanyards-eventos-barcelona",
-  "/producto/libretas": "/productos/libretas-personalizadas",
-  "/producto/libros-bajo-demanda": "/categorias/libros-revistas-catalogos",
-  "/producto/manteles-individuales": "/productos/manteles-individuales-personalizados",
-  "/producto/minutas": "/categorias/publicidad-oficina/material-oficina",
-  "/producto/mostradores": "/categorias/expositores",
-  "/producto/paneles-de-pvc": "/categorias/gran-formato/material-rigido",
-  "/producto/photocalls": "/productos/photocall-personalizado",
-  "/producto/poming": "/productos/colgador-puerta-personalizado",
-  "/producto/posavasos": "/productos/posavasos",
-  "/producto/puntos-de-libro": "/productos/puntos-de-libro-personalizados",
-  "/producto/sobres-y-bolsas": "/productos/sobres-personalizados",
-  "/producto/tesis-doctoral": "/categorias/libros-revistas-catalogos",
-  "/producto/totem": "/productos/totems-publicitarios-personalizados",
-  "/producto/vinilo-al-acido": "/productos/vinilo-para-cristal",
-  "/producto/vinilos-adhesivos": "/categorias/adhesivos-personalizados",
-  "/producto/vinilos-de-corte": "/productos/vinilo-de-corte",
-  "/producto/vinilos-de-escaparate": "/productos/vinilo-para-cristal",
-  "/productos/banderolas-lineal": "/productos/banderolas-lineal-personalizadas",
-  "/productos/banderolas-lineal-personalizadas": "/productos/banderolas-lineal-personalizadas",
-} as const satisfies Record<string, string>;
+const CANONICAL_ORIGIN = "https://reprodisseny.com";
+const LEGACY_HOSTS = new Set([
+  "www.reprodisseny.com",
+  "demo.reprodisseny.com",
+  "blog.reprodisseny.com",
+  "calendarios.reprodisseny.com",
+]);
+
+const LEGACY_GONE_PREFIXES = [
+  "/assets/Download/",
+  "/DefaultCaptcha/",
+  "/Cart/",
+  "/author/",
+  "/tag/",
+] as const;
+
+const LEGACY_GONE_PATHS = new Set([
+  "/Content/404.html",
+  "/Orders/GetOrderItemProofFiles",
+  "/feed",
+  "/productfileupload",
+  "/savedforlater",
+  "/settings",
+  "/blog",
+  "/page/escoles",
+  "/adevinta-estrena-nuevas-oficinas",
+  "/adevinta-estrena-nuevas-oficines",
+  "/web2print-corporativa-adevinta",
+]);
+
+type RedirectRule = {
+  redirect?: {
+    to?: string;
+    statusCode?: number;
+  };
+};
+
+const routeRules = redirectRouteRules as unknown as Record<string, RedirectRule>;
 
 function safeDecodeURIComponent(value: string) {
   try {
@@ -65,15 +63,11 @@ function safeDecodeURIComponent(value: string) {
 function normalizeLegacyPath(value: unknown) {
   const rawValue = Array.isArray(value) ? value[0] : value;
 
-  if (!rawValue) {
-    return "";
-  }
+  if (!rawValue) return "";
 
   let path = String(rawValue).trim();
 
-  if (!path) {
-    return "";
-  }
+  if (!path) return "";
 
   path = safeDecodeURIComponent(path);
 
@@ -105,36 +99,98 @@ function isSafeInternalDestination(destination: string) {
   return destination.startsWith("/") && !destination.startsWith("//");
 }
 
+function getMappedRedirect(path: string) {
+  const rule = routeRules[path];
+  const destination = rule?.redirect?.to;
+
+  if (!destination) return null;
+  if (!isSafeInternalDestination(destination)) return null;
+  if (destination === path) return null;
+
+  return destination;
+}
+
+function isLegacyGonePath(path: string) {
+  if (LEGACY_GONE_PATHS.has(path)) return true;
+
+  return LEGACY_GONE_PREFIXES.some((prefix) => path.startsWith(prefix));
+}
+
+function isCurrentCatalogPath(path: string) {
+  return path.startsWith("/productos/") || path.startsWith("/categorias/");
+}
+
+function resolveLegacyRootQuery(url: URL) {
+  const version = url.searchParams.get("ver");
+  if (url.pathname === "/" && version) return "/";
+
+  const productCategory = url.searchParams.get("product_cat");
+  if (productCategory === "gran-formato") return "/categorias/gran-formato";
+
+  return null;
+}
+
+function redirectToCanonical(event: Parameters<typeof sendRedirect>[0], path: string, statusCode = 301) {
+  return sendRedirect(event, `${CANONICAL_ORIGIN}${path}`, statusCode);
+}
+
 export default defineEventHandler((event) => {
   const url = getRequestURL(event);
+  const currentPath = normalizeLegacyPath(url.pathname);
+  const isLegacyHost = LEGACY_HOSTS.has(url.hostname);
 
-  // Solo interceptamos esta URL antigua.
-  // El resto de la web no se toca.
-  if (url.pathname !== "/error/notfound") {
-    return;
+  const rootQueryDestination = resolveLegacyRootQuery(url);
+  if (rootQueryDestination) {
+    return isLegacyHost
+      ? redirectToCanonical(event, rootQueryDestination, 301)
+      : sendRedirect(event, rootQueryDestination, 301);
   }
 
-  const query = getQuery(event);
-  const legacyPath = normalizeLegacyPath(query.aspxerrorpath);
-
-  if (!legacyPath) {
+  if (isLegacyGonePath(currentPath)) {
     throw createError({
       statusCode: 410,
       statusMessage: "Gone",
     });
   }
 
-  const destination =
-    LEGACY_NOT_FOUND_REDIRECTS[
-      legacyPath as keyof typeof LEGACY_NOT_FOUND_REDIRECTS
-    ];
+  if (currentPath === "/error/notfound") {
+    const query = getQuery(event);
+    const legacyPath = normalizeLegacyPath(query.aspxerrorpath);
 
-  if (destination && isSafeInternalDestination(destination)) {
-    return sendRedirect(event, destination, 301);
+    if (!legacyPath || isLegacyGonePath(legacyPath)) {
+      throw createError({
+        statusCode: 410,
+        statusMessage: "Gone",
+      });
+    }
+
+    const destination = getMappedRedirect(legacyPath);
+
+    if (destination) {
+      return isLegacyHost
+        ? redirectToCanonical(event, destination, 301)
+        : sendRedirect(event, destination, 301);
+    }
+
+    if (isCurrentCatalogPath(legacyPath)) {
+      return isLegacyHost
+        ? redirectToCanonical(event, legacyPath, 301)
+        : sendRedirect(event, legacyPath, 301);
+    }
+
+    throw createError({
+      statusCode: 410,
+      statusMessage: "Gone",
+    });
   }
 
-  throw createError({
-    statusCode: 410,
-    statusMessage: "Gone",
-  });
+  const mappedDestination = getMappedRedirect(currentPath);
+
+  if (isLegacyHost) {
+    if (mappedDestination) {
+      return redirectToCanonical(event, mappedDestination, 301);
+    }
+
+    return redirectToCanonical(event, currentPath === "/" ? "/" : currentPath, 301);
+  }
 });
