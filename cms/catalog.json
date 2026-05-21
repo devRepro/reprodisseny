@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-05-20T12:36:04.214Z",
+  "generatedAt": "2026-05-21T05:32:28.620Z",
   "categories": [
     {
       "id": "12",
-      "updatedAt": "2026-05-13T06:37:51Z",
+      "updatedAt": "2026-05-20T13:23:26Z",
       "type": "subcategoria",
       "slug": "material-flexible",
       "path": "/categorias/gran-formato/material-flexible",
@@ -198,7 +198,20 @@
         }
       ],
       "galleryImages": [],
-      "relatedProductsJson": [],
+      "relatedProductsJson": [
+        {
+          "label": "Lona publicitaria",
+          "productSlug": "lona-publicitaria"
+        },
+        {
+          "label": "Vinilo para cristal",
+          "productSlug": "vinilo-para-cristal"
+        },
+        {
+          "label": "Vinilo de corte",
+          "productSlug": "vinilo-de-corte"
+        }
+      ],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -342,7 +355,7 @@
     },
     {
       "id": "13",
-      "updatedAt": "2026-05-19T08:45:00Z",
+      "updatedAt": "2026-05-20T13:23:53Z",
       "type": "subcategoria",
       "slug": "material-rigido",
       "path": "/categorias/gran-formato/material-rigido",
@@ -505,7 +518,20 @@
         }
       ],
       "galleryImages": [],
-      "relatedProductsJson": [],
+      "relatedProductsJson": [
+        {
+          "label": "Panel de Forex",
+          "productSlug": "panel-forex"
+        },
+        {
+          "label": "Panel Dibond",
+          "productSlug": "panel-dibond-personalizado"
+        },
+        {
+          "label": "Metacrilato",
+          "productSlug": "metacrilato-personalizado"
+        }
+      ],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -641,7 +667,7 @@
     },
     {
       "id": "10",
-      "updatedAt": "2026-05-13T06:37:32Z",
+      "updatedAt": "2026-05-20T13:28:29Z",
       "type": "subcategoria",
       "slug": "material-oficina",
       "path": "/categorias/publicidad-oficina/material-oficina",
@@ -781,7 +807,20 @@
         }
       ],
       "galleryImages": [],
-      "relatedProductsJson": [],
+      "relatedProductsJson": [
+        {
+          "label": "Tarjetas de visita",
+          "productSlug": "tarjetas-de-visita-personalizadas"
+        },
+        {
+          "label": "Carpetas de presentación",
+          "productSlug": "carpetas-de-presentacion-personalizadas"
+        },
+        {
+          "label": "Blocs de notas",
+          "productSlug": "blocs-notas"
+        }
+      ],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -925,7 +964,7 @@
     },
     {
       "id": "11",
-      "updatedAt": "2026-05-13T06:37:42Z",
+      "updatedAt": "2026-05-20T13:28:08Z",
       "type": "subcategoria",
       "slug": "material-publicitario",
       "path": "/categorias/publicidad-oficina/material-publicitario",
@@ -1060,7 +1099,20 @@
         }
       ],
       "galleryImages": [],
-      "relatedProductsJson": [],
+      "relatedProductsJson": [
+        {
+          "label": "Flyers personalizados",
+          "productSlug": "flyers-personalizados"
+        },
+        {
+          "label": "Tarjetas de visita",
+          "productSlug": "tarjetas-de-visita-personalizadas"
+        },
+        {
+          "label": "Carpetas de presentación",
+          "productSlug": "carpetas-de-presentacion-personalizadas"
+        }
+      ],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -1591,7 +1643,7 @@
     },
     {
       "id": "5",
-      "updatedAt": "2026-05-13T06:36:47Z",
+      "updatedAt": "2026-05-20T13:22:59Z",
       "type": "categoria",
       "slug": "gran-formato",
       "path": "/categorias/gran-formato",
@@ -1803,7 +1855,20 @@
         }
       ],
       "galleryImages": [],
-      "relatedProductsJson": [],
+      "relatedProductsJson": [
+        {
+          "label": "Etiquetas en bobina",
+          "productSlug": "etiquetas-adhesivas-en-bobina"
+        },
+        {
+          "label": "Hojas con pegatinas",
+          "productSlug": "hojas-pegatinas-personalizadas"
+        },
+        {
+          "label": "Pegatinas personalizadas",
+          "productSlug": "pegatinas-personalizadas"
+        }
+      ],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -1933,7 +1998,7 @@
     },
     {
       "id": "4",
-      "updatedAt": "2026-05-13T06:36:37Z",
+      "updatedAt": "2026-05-20T13:27:13Z",
       "type": "categoria",
       "slug": "expositores",
       "path": "/categorias/expositores",
@@ -2139,7 +2204,20 @@
         }
       ],
       "galleryImages": [],
-      "relatedProductsJson": [],
+      "relatedProductsJson": [
+        {
+          "label": "Roll Up",
+          "productSlug": "roll-up-personalizado"
+        },
+        {
+          "label": "Photocall",
+          "productSlug": "photocall-personalizado"
+        },
+        {
+          "label": "Expositores de mesa",
+          "productSlug": "expositores-de-mesa-personalizados"
+        }
+      ],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -2275,7 +2353,7 @@
     },
     {
       "id": "7",
-      "updatedAt": "2026-05-13T06:37:07Z",
+      "updatedAt": "2026-05-20T13:27:24Z",
       "type": "categoria",
       "slug": "libros-revistas-catalogos",
       "path": "/categorias/libros-revistas-catalogos",
@@ -2443,7 +2521,20 @@
         }
       ],
       "galleryImages": [],
-      "relatedProductsJson": [],
+      "relatedProductsJson": [
+        {
+          "label": "Encuadernado con grapas",
+          "productSlug": "encuadernado-con-grapas"
+        },
+        {
+          "label": "Encolada tapa blanda",
+          "productSlug": "encuadernacion-encolada-tapa-blanda"
+        },
+        {
+          "label": "Wire-O",
+          "productSlug": "encuadernacion-wire-o"
+        }
+      ],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -2591,7 +2682,7 @@
     },
     {
       "id": "3",
-      "updatedAt": "2026-05-13T06:36:28Z",
+      "updatedAt": "2026-05-20T13:27:55Z",
       "type": "categoria",
       "slug": "eventos",
       "path": "/categorias/eventos",
@@ -2792,7 +2883,20 @@
         }
       ],
       "galleryImages": [],
-      "relatedProductsJson": [],
+      "relatedProductsJson": [
+        {
+          "label": "Acreditaciones",
+          "productSlug": "acreditaciones-personalizadas"
+        },
+        {
+          "label": "Lanyards",
+          "productSlug": "lanyards-eventos-barcelona"
+        },
+        {
+          "label": "Entradas",
+          "productSlug": "entradas-personalizadas"
+        }
+      ],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -2920,7 +3024,7 @@
     },
     {
       "id": "9",
-      "updatedAt": "2026-05-13T06:37:23Z",
+      "updatedAt": "2026-05-20T13:28:46Z",
       "type": "categoria",
       "slug": "publicidad-oficina",
       "path": "/categorias/publicidad-oficina",
@@ -3091,7 +3195,20 @@
         }
       ],
       "galleryImages": [],
-      "relatedProductsJson": [],
+      "relatedProductsJson": [
+        {
+          "label": "Flyers personalizados",
+          "productSlug": "flyers-personalizados"
+        },
+        {
+          "label": "Folletos plegados",
+          "productSlug": "folletos-plegados-personalizados"
+        },
+        {
+          "label": "Stoppers de lineal",
+          "productSlug": "stoppers-lineal-personalizados"
+        }
+      ],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -3236,7 +3353,7 @@
     },
     {
       "id": "6",
-      "updatedAt": "2026-05-13T06:36:59Z",
+      "updatedAt": "2026-05-20T13:28:57Z",
       "type": "categoria",
       "slug": "hosteleria-restauracion",
       "path": "/categorias/hosteleria-restauracion",
@@ -3395,7 +3512,20 @@
         }
       ],
       "galleryImages": [],
-      "relatedProductsJson": [],
+      "relatedProductsJson": [
+        {
+          "label": "Cartas de restaurante",
+          "productSlug": "cartas-restaurante-personalizadas"
+        },
+        {
+          "label": "Posavasos",
+          "productSlug": "posavasos"
+        },
+        {
+          "label": "Manteles individuales",
+          "productSlug": "manteles-individuales-personalizados"
+        }
+      ],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -3537,7 +3667,7 @@
     },
     {
       "id": "8",
-      "updatedAt": "2026-05-13T06:37:14Z",
+      "updatedAt": "2026-05-20T13:29:12Z",
       "type": "categoria",
       "slug": "packaging",
       "path": "/categorias/packaging",
@@ -3660,7 +3790,20 @@
         }
       ],
       "galleryImages": [],
-      "relatedProductsJson": [],
+      "relatedProductsJson": [
+        {
+          "label": "Caja de envío",
+          "productSlug": "caja-envio"
+        },
+        {
+          "label": "Caja desplegable con tapa",
+          "productSlug": "caja-desplegable-tapa"
+        },
+        {
+          "label": "Caja envolvente",
+          "productSlug": "caja-envolvente"
+        }
+      ],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -31266,7 +31409,7 @@
     },
     {
       "id": "78",
-      "updatedAt": "2026-05-18T11:04:06Z",
+      "updatedAt": "2026-05-21T05:31:47Z",
       "type": "producto",
       "slug": "pegatinas-personalizadas",
       "path": "/productos/pegatinas-personalizadas",
@@ -31474,23 +31617,7 @@
         "height": 1200,
         "alt": "Pegatinas personalizadas en papel o vinilo para packaging, promociones y marca"
       },
-      "galleryImages": [
-        {
-          "src": "https://media.reprodisseny.com/media/category/adhesivos%20imatges/detalles.webp",
-          "alt": "Pegatinas personalizadas aplicadas en packaging y superficies comerciales",
-          "caption": "Pegatinas personalizadas para packaging, promociones y marca"
-        },
-        {
-          "src": "https://media.reprodisseny.com/media/category/adhesivos%20imatges/acabados.webp",
-          "alt": "Acabados para pegatinas personalizadas con diferentes materiales y efectos de impresión",
-          "caption": "Acabados disponibles para mejorar presencia y resistencia"
-        },
-        {
-          "src": "https://media.reprodisseny.com/media/category/adhesivos%20imatges/tipos.webp",
-          "alt": "Tipos de pegatinas personalizadas en papel, vinilo y materiales especiales",
-          "caption": "Tipos de pegatinas según material, uso y formato"
-        }
-      ],
+      "galleryImages": [],
       "sku": "01-ADHE-0001",
       "brand": "Reprodisseny",
       "price": 0,
