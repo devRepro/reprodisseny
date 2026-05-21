@@ -2,6 +2,7 @@
 import { computed } from "vue";
 import { normalizeCmsMediaSrc } from "@/utils/cmsMedia";
 import CmsImage from "@/components/shared/blocks/CmsImage.vue";
+import AppButton from "@/components/shared/button/AppButton.vue";
 
 type ProductImage =
   | string
@@ -12,17 +13,30 @@ type ProductImage =
   | null
   | undefined;
 
+type ProductAttribute = {
+  key?: string;
+  label?: string;
+  value?: string;
+  icon?: string;
+  tone?: string;
+};
+
 type ProductItem = {
   id?: string | number;
   slug?: string;
   path?: string;
+  href?: string;
   title?: string;
   description?: string;
+  shortDescription?: string;
   excerpt?: string;
   summary?: string;
   image?: ProductImage;
   categoryTitle?: string;
+  categoryLabel?: string;
   categoryName?: string;
+  tags?: string[];
+  attributes?: ProductAttribute[];
 };
 
 const props = withDefaults(
@@ -59,7 +73,7 @@ const safeProducts = computed(() =>
 );
 
 function getProductHref(product: ProductItem) {
-  const directPath = String(product?.path || "").trim();
+  const directPath = String(product?.href || product?.path || "").trim();
   if (directPath) return directPath;
 
   const slug = String(product?.slug || "").trim();
@@ -74,6 +88,7 @@ function getProductTitle(product: ProductItem) {
 
 function getProductDescription(product: ProductItem) {
   return (
+    String(product?.shortDescription || "").trim() ||
     String(product?.description || "").trim() ||
     String(product?.excerpt || "").trim() ||
     String(product?.summary || "").trim()
@@ -82,9 +97,32 @@ function getProductDescription(product: ProductItem) {
 
 function getProductCategory(product: ProductItem) {
   return (
+    String(product?.categoryLabel || "").trim() ||
     String(product?.categoryTitle || "").trim() ||
     String(product?.categoryName || "").trim()
   );
+}
+
+function getProductTags(product: ProductItem) {
+  const tagCandidates = [
+    ...(Array.isArray(product?.tags) ? product.tags : []),
+    ...(Array.isArray(product?.attributes)
+      ? product.attributes.map((attribute) => attribute?.label || attribute?.value)
+      : []),
+  ];
+
+  const seen = new Set<string>();
+
+  return tagCandidates
+    .map((tag) => String(tag || "").trim())
+    .filter(Boolean)
+    .filter((tag) => {
+      const key = tag.toLowerCase();
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    })
+    .slice(0, 3);
 }
 
 function getImageSrc(product: ProductItem) {
@@ -138,17 +176,17 @@ function buildPageLocation(targetPage: number) {
 
 <template>
   <div class="space-y-8">
-    <div class="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
+    <div class="grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
       <article
         v-for="product in safeProducts"
         :key="product.id || product.slug || product.path || getProductTitle(product)"
-        class="group flex h-full flex-col overflow-hidden rounded-[28px] border border-border/70 bg-card shadow-[0_10px_30px_-24px_hsl(var(--foreground)/0.14)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:shadow-[0_18px_40px_-26px_hsl(var(--foreground)/0.18)]"
+        class="group flex h-full flex-col overflow-hidden rounded-2xl border border-border/70 bg-card shadow-sm transition duration-300 hover:-translate-y-0.5 hover:border-primary/25 hover:shadow-md"
       >
         <NuxtLink
           :to="getProductHref(product)"
-          class="flex h-full flex-col focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:ring-offset-2"
+          class="block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:ring-offset-2"
         >
-          <div class="aspect-[4/3] overflow-hidden bg-muted/25">
+          <div class="relative aspect-[4/3] overflow-hidden bg-muted/25">
             <CmsImage
               v-if="getImageSrc(product)"
               :src="getImageSrc(product)"
@@ -159,34 +197,49 @@ function buildPageLocation(targetPage: number) {
             />
 
             <div v-else class="h-full w-full bg-muted/40" />
-          </div>
 
-          <div class="flex flex-1 flex-col px-5 py-5">
-            <p
-              v-if="getProductCategory(product)"
-              class="text-xs font-semibold uppercase tracking-[0.14em] text-primary/75"
-            >
-              {{ getProductCategory(product) }}
-            </p>
-
-            <h3 class="mt-2 text-[20px] font-semibold leading-[1.25] text-foreground">
-              {{ getProductTitle(product) }}
-            </h3>
-
-            <p
-              v-if="getProductDescription(product)"
-              class="mt-3 line-clamp-3 text-body-s leading-[1.6] text-foreground/72"
-            >
-              {{ getProductDescription(product) }}
-            </p>
-
-            <span
-              class="mt-5 inline-flex min-h-11 items-center justify-center self-start rounded-lg border border-border bg-background px-4 py-2.5 text-body-s-bold text-foreground transition group-hover:border-primary/25 group-hover:text-primary"
-            >
-              Ver producto
-            </span>
+            <div v-if="getProductCategory(product)" class="absolute left-4 top-4">
+              <span
+                class="inline-flex items-center rounded-full border border-white/50 bg-white/90 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-primary shadow-sm backdrop-blur"
+              >
+                {{ getProductCategory(product) }}
+              </span>
+            </div>
           </div>
         </NuxtLink>
+
+        <div class="flex flex-1 flex-col p-5 md:p-6">
+          <NuxtLink :to="getProductHref(product)" class="group/title">
+            <h3
+              class="text-[20px] font-semibold leading-tight text-foreground transition group-hover/title:text-primary"
+            >
+              {{ getProductTitle(product) }}
+            </h3>
+          </NuxtLink>
+
+          <p
+            v-if="getProductDescription(product)"
+            class="mt-3 line-clamp-3 text-body-s leading-[1.6] text-foreground/72"
+          >
+            {{ getProductDescription(product) }}
+          </p>
+
+          <div v-if="getProductTags(product).length" class="mt-4 flex flex-wrap gap-2">
+            <span
+              v-for="tag in getProductTags(product)"
+              :key="tag"
+              class="inline-flex items-center rounded-full border border-border/70 bg-background px-2.5 py-1 text-xs font-medium text-foreground/65"
+            >
+              {{ tag }}
+            </span>
+          </div>
+
+          <div class="mt-auto pt-6">
+            <AppButton :to="getProductHref(product)" variant="outline" size="sm" arrow>
+              Ver producto
+            </AppButton>
+          </div>
+        </div>
       </article>
     </div>
 
@@ -195,13 +248,14 @@ function buildPageLocation(targetPage: number) {
       class="flex flex-wrap items-center justify-center gap-2 pt-2"
       aria-label="Paginación de productos"
     >
-      <NuxtLink
+      <AppButton
         v-if="safePage > 1"
         :to="buildPageLocation(safePage - 1)"
-        class="inline-flex min-h-11 items-center justify-center rounded-lg border border-border bg-background px-4 py-2 text-sm font-medium text-foreground transition hover:border-primary/25 hover:text-primary"
+        variant="outline"
+        size="sm"
       >
         Anterior
-      </NuxtLink>
+      </AppButton>
 
       <template v-for="(p, index) in paginationPages" :key="`page-${p}`">
         <span
@@ -214,7 +268,7 @@ function buildPageLocation(targetPage: number) {
 
         <NuxtLink
           :to="buildPageLocation(p)"
-          class="inline-flex min-h-11 min-w-11 items-center justify-center rounded-lg border px-4 py-2 text-sm font-medium transition"
+          class="inline-flex min-h-9 min-w-9 items-center justify-center rounded-2xl border px-3 py-2 text-sm font-semibold transition"
           :class="
             p === safePage
               ? 'border-primary bg-primary text-primary-foreground'
@@ -226,13 +280,14 @@ function buildPageLocation(targetPage: number) {
         </NuxtLink>
       </template>
 
-      <NuxtLink
+      <AppButton
         v-if="safePage < safeTotalPages"
         :to="buildPageLocation(safePage + 1)"
-        class="inline-flex min-h-11 items-center justify-center rounded-lg border border-border bg-background px-4 py-2 text-sm font-medium text-foreground transition hover:border-primary/25 hover:text-primary"
+        variant="outline"
+        size="sm"
       >
         Siguiente
-      </NuxtLink>
+      </AppButton>
     </nav>
   </div>
 </template>

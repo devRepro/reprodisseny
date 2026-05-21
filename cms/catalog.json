@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-21T07:51:31.177Z",
+  "generatedAt": "2026-05-21T13:28:12.141Z",
   "categories": [
     {
       "id": "12",
@@ -7790,14 +7790,15 @@
     },
     {
       "id": "12",
-      "updatedAt": "2026-05-05T16:18:47Z",
+      "updatedAt": "2026-05-21T08:08:46Z",
       "type": "producto",
       "slug": "blocs-notas",
       "path": "/productos/blocs-notas",
       "title": "Blocs de notas personalizados",
       "categorySlug": "material-oficina",
       "categorySlugs": [
-        "material-oficina"
+        "material-oficina",
+        "hosteleria-restauracion"
       ],
       "order": 9999,
       "isPublished": true,
@@ -11319,7 +11320,7 @@
     },
     {
       "id": "14",
-      "updatedAt": "2026-05-05T11:38:33Z",
+      "updatedAt": "2026-05-21T13:26:58Z",
       "type": "producto",
       "slug": "cajas-de-luz-personalizadas",
       "path": "/productos/cajas-de-luz-personalizadas",
@@ -11333,7 +11334,7 @@
       "isPublished": true,
       "shortDescription": "Las cajas de luz son uno de los expositores con mayor impacto visual: la retroiluminación hace que tu gráfica destaque incluso en entornos muy cargados (ferias, centros comerciales, escaparates o recepciones). En Repro Disseny producimos cajas de luz personalizadas con impresión backlit y sistemas pensados para un montaje limpio y un cambio de gráfica rápido.",
       "description": "Las cajas de luz son uno de los expositores con mayor impacto visual: la retroiluminación hace que tu gráfica destaque incluso en entornos muy cargados (ferias, centros comerciales, escaparates o recepciones). En Repro Disseny producimos cajas de luz personalizadas con impresión backlit y sistemas pensados para un montaje limpio y un cambio de gráfica rápido.",
-      "bodyMd": "¿Qué es una caja de luz y para qué se usa? \nUna caja de luz (o lightbox) es un expositor con iluminación interna (normalmente LED) que proyecta luz de forma uniforme a través de una gráfica impresa en material traslúcido. Se usa para branding, campañas, promociones y señalización, porque consigue una visibilidad superior y mejora la percepción de calidad de la marca.",
+      "bodyMd": "### ¿Qué es una caja de luz y para qué se usa?\n\nUna caja de luz, también conocida como lightbox, es un expositor con iluminación interna que proyecta luz de forma uniforme a través de una gráfica impresa en material traslúcido. Se utiliza para destacar marcas, campañas, promociones y mensajes de señalización con mucha más visibilidad que un panel impreso convencional.\n\nEs una solución especialmente eficaz en ferias, escaparates, puntos de venta, recepciones, showrooms y zonas de paso, porque combina comunicación gráfica, iluminación y presencia visual en una sola pieza.\n\n### Comunicación iluminada para destacar en espacios con competencia visual\n\nLa principal ventaja de una caja de luz es que la gráfica no depende solo de la iluminación ambiente. Al estar retroiluminada, mejora la lectura del mensaje, aumenta el contraste y aporta una percepción más premium al espacio.\n\nAdemás, muchos sistemas permiten cambiar la gráfica, lo que convierte la caja de luz en una solución reutilizable para campañas, promociones temporales, lanzamientos o comunicación corporativa que se renueva durante el año.",
       "sections": [
         {
           "id": "details",
@@ -11341,15 +11342,53 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es una caja de luz y para qué se usa? \nUna caja de luz (o lightbox) es un expositor con iluminación interna (normalmente LED) que proyecta luz de forma uniforme a través de una gráfica impresa en material traslúcido. Se usa para branding, campañas, promociones y señalización, porque consigue una visibilidad superior y mejora la percepción de calidad de la marca."
+          "body": "### ¿Qué es una caja de luz y para qué se usa?\n\nUna caja de luz, también conocida como lightbox, es un expositor con iluminación interna que proyecta luz de forma uniforme a través de una gráfica impresa en material traslúcido. Se utiliza para destacar marcas, campañas, promociones y mensajes de señalización con mucha más visibilidad que un panel impreso convencional.\n\nEs una solución especialmente eficaz en ferias, escaparates, puntos de venta, recepciones, showrooms y zonas de paso, porque combina comunicación gráfica, iluminación y presencia visual en una sola pieza.\n\n### Comunicación iluminada para destacar en espacios con competencia visual\n\nLa principal ventaja de una caja de luz es que la gráfica no depende solo de la iluminación ambiente. Al estar retroiluminada, mejora la lectura del mensaje, aumenta el contraste y aporta una percepción más premium al espacio.\n\nAdemás, muchos sistemas permiten cambiar la gráfica, lo que convierte la caja de luz en una solución reutilizable para campañas, promociones temporales, lanzamientos o comunicación corporativa que se renueva durante el año."
         },
         {
-          "id": "benefits",
-          "key": "benefits",
-          "title": "Beneficios",
-          "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "Máximo impacto visual: la gráfica iluminada destaca más que un soporte convencional. \nMás legibilidad: ideal para mensajes cortos, promociones y marcas en espacios con mucha competencia visual. \nImagen premium: eleva la calidad percibida en stands, escaparates y zonas corporativas. \nCambio de gráfica rápido: perfecto para campañas estacionales o promociones que se renuevan. \nVersátil: opciones de pared, suelo, colgante o sobremesa según el espacio."
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "kind": "formats",
+          "contentFormat": "json",
+          "formatsData": {
+            "intro": "Configuramos la caja de luz según ubicación, distancia de lectura, sentido de paso y tipo de campaña.",
+            "shapes": [
+              {
+                "title": "Caja de luz de pared",
+                "description": "Formato limpio y estable para comunicación fija en recepciones, pasillos, showrooms, escaparates o paredes de stand."
+              },
+              {
+                "title": "Caja de luz autoportante",
+                "description": "Solución de suelo para puntos de paso donde interesa ganar visibilidad sin depender de una pared o estructura existente."
+              },
+              {
+                "title": "Caja de luz colgante",
+                "description": "Formato pensado para destacar desde mayor distancia en espacios amplios, pasillos, ferias o grandes superficies."
+              },
+              {
+                "title": "Caja de luz de sobremesa",
+                "description": "Formato compacto para mostradores, recepciones o comunicación directa en puntos de atención."
+              }
+            ],
+            "deliveryFormats": [
+              {
+                "title": "Una cara",
+                "description": "Recomendada cuando la caja de luz va colocada contra una pared o solo necesita comunicar hacia un sentido de paso."
+              },
+              {
+                "title": "Doble cara",
+                "description": "Permite ver la gráfica desde ambos lados, por lo que es más efectiva en pasillos, entradas, islas comerciales o zonas de circulación."
+              },
+              {
+                "title": "Tamaño estándar o a medida",
+                "description": "Podemos adaptar medidas, orientación y proporción según el espacio disponible, la distancia de lectura y el tipo de mensaje."
+              },
+              {
+                "title": "Gráfica intercambiable",
+                "description": "Permite sustituir la impresión para renovar campañas, promociones o mensajes sin cambiar toda la estructura."
+              }
+            ]
+          }
         },
         {
           "id": "technical-specs",
@@ -11357,33 +11396,57 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Formatos y medidas \nTamaños estándar o a medida según ubicación y distancia de lectura. \nConfiguración vertical u horizontal. \nTipos de caja de luz \nDe pared: comunicación estable y limpia en recepciones, pasillos o stands. \nDe suelo / autoportante: para puntos de paso y promociones con alta visibilidad. \nColgantes (según espacio): para destacar desde lejos en ferias o grandes superficies. \nSobremesa: ideal en mostrador para promociones y comunicación directa. \nUna cara o doble cara \nUna cara si va pegada a pared o orientada a un único sentido de paso. \nDoble cara si se verá desde ambos lados (pasillos, entradas, islas). \nGráfica e impresión \nImpresión en material backlit (traslúcido) para que la luz se vea uniforme y los colores mantengan impacto. \nOpción de preparar varias gráficas para cambiar por campañas o temporadas. \nEstructura y montaje \nSistemas pensados para un montaje rápido y un acabado profesional (marco/estructura, fijación y tensado según modelo). \nPreparación para instalación (si va a pared o en estructura de stand).\nAcabados recomendados \nRecomendación práctica: evitar diseños con textos demasiado pequeños; en caja de luz funciona muy bien una jerarquía clara, contraste y mensajes directos. \nPosibilidad de proteger y preparar la pieza para uso intensivo si va a viajar o montarse/desmontarse con frecuencia."
+          "body": "### Gráfica e impresión\n\n- Impresión en material backlit o traslúcido para conseguir una iluminación uniforme.\n- Preparación de color pensada para que la gráfica mantenga contraste e impacto al estar retroiluminada.\n- Posibilidad de producir varias gráficas para campañas, temporadas, promociones o mensajes alternativos.\n- Recomendable evitar textos demasiado pequeños: en caja de luz funciona mejor una jerarquía clara, buen contraste y mensajes directos.\n\n### Iluminación y estructura\n\n- Iluminación interna, normalmente mediante sistema LED.\n- Estructura o marco según modelo, tamaño y sistema de instalación.\n- Opciones de una cara o doble cara según la visibilidad necesaria.\n- Configuración vertical u horizontal según el espacio disponible y la distancia de lectura.\n\n### Montaje e instalación\n\n- Sistemas pensados para un montaje limpio y un acabado profesional.\n- Posibilidad de instalación en pared, suelo, colgante o sobremesa según proyecto.\n- Preparación para integración en stands, escaparates, recepciones o espacios comerciales.\n- En proyectos de feria o eventos, conviene indicar si la pieza viajará, se montará varias veces o tendrá uso intensivo.\n\n### Información necesaria para presupuestar\n\n- Medida aproximada o espacio disponible.\n- Ubicación: pared, suelo, colgante, sobremesa o estructura de stand.\n- Uso a una cara o doble cara.\n- Tipo de gráfica: campaña puntual, comunicación fija o gráfica intercambiable.\n- Fecha de entrega o evento.\n- Diseño disponible, boceto o necesidad de adaptación gráfica."
         },
         {
           "id": "applications",
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "Ferias y congresos: paredes de stand, corners de marca y fondos de alta visibilidad. \nRetail y punto de venta: escaparates, lineales, lanzamientos y promociones. \nCentros comerciales: señalización de campañas y comunicación en pasillos. \nEmpresas y oficinas: recepción, showroom, salas de reunión y comunicación corporativa. \nHostelería y ocio: entradas, cartelería de eventos, menús especiales o campañas."
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Aplicaciones habituales de las cajas de luz según el espacio, la visibilidad necesaria y el tipo de comunicación.",
+            "applications": [
+              {
+                "title": "Ferias y congresos",
+                "description": "Cajas de luz para paredes de stand, corners de marca, fondos gráficos y elementos de alta visibilidad dentro del espacio expositivo."
+              },
+              {
+                "title": "Retail y punto de venta",
+                "description": "Solución luminosa para escaparates, lineales, promociones, lanzamientos y campañas que necesitan destacar frente a otros estímulos visuales."
+              },
+              {
+                "title": "Centros comerciales",
+                "description": "Comunicación retroiluminada para pasillos, accesos, islas comerciales y campañas temporales con alta exposición al tráfico de personas."
+              },
+              {
+                "title": "Empresas y oficinas",
+                "description": "Cajas de luz para reforzar imagen de marca en recepciones, showrooms, salas de reunión o espacios corporativos."
+              },
+              {
+                "title": "Hostelería y ocio",
+                "description": "Comunicación luminosa para entradas, cartelería de eventos, menús especiales, campañas internas o zonas de atención al cliente."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
         {
           "question": "¿Qué diferencia hay entre una caja de luz y un panel impreso normal?",
-          "answer": "La retroiluminación aumenta la visibilidad, mejora la lectura y aporta un acabado más premium que un panel impreso convencional."
+          "answer": "La retroiluminación aumenta la visibilidad, mejora la lectura del mensaje y aporta un acabado más premium que un panel impreso convencional."
         },
         {
           "question": "¿Se puede cambiar la gráfica?",
-          "answer": "Sí. Es una de sus principales ventajas: puedes tener distintas gráficas para campañas y sustituirlas cuando lo necesites."
+          "answer": "Sí. Es una de sus principales ventajas. Puedes preparar distintas gráficas para campañas, promociones o temporadas y sustituirlas cuando lo necesites."
         },
         {
-          "question": "¿Es mejor una cara o doble cara?",
-          "answer": "Depende de la ubicación. Si hay tránsito en ambos sentidos, la doble cara suele ser la opción más efectiva."
+          "question": "¿Es mejor una caja de luz a una cara o a doble cara?",
+          "answer": "Depende de la ubicación. Si va contra una pared, normalmente basta con una cara. Si estará en un pasillo, entrada, isla o zona con tránsito en ambos sentidos, la doble cara suele ser más efectiva."
         },
         {
-          "question": "¿Qué necesitáis para presupuestarlo?",
-          "answer": "Necesitamos la medida aproximada, la ubicación, si irá en pared, suelo o colgante, si la quieres a una o dos caras, y la fecha de uso o entrega. Si ya tienes diseño, lo revisamos para asegurar un buen resultado en backlit."
+          "question": "¿Qué necesitáis para presupuestarla?",
+          "answer": "Necesitamos la medida aproximada, la ubicación, si irá en pared, suelo, colgante o sobremesa, si la quieres a una o dos caras y la fecha de uso o entrega. Si ya tienes diseño, lo revisamos para asegurar un buen resultado en backlit."
         }
       ],
       "breadcrumbs": [
@@ -11418,7 +11481,36 @@
       "inStock": true,
       "ratingValue": 0,
       "reviewCount": 0,
-      "attributes": [],
+      "attributes": [
+        {
+          "key": "high-impact",
+          "label": "Alto impacto visual",
+          "placement": "hero-pills",
+          "icon": "Sparkles",
+          "tone": "brand"
+        },
+        {
+          "key": "led-lighting",
+          "label": "Iluminación LED",
+          "placement": "hero-pills",
+          "icon": "Lightbulb",
+          "tone": "success"
+        },
+        {
+          "key": "changeable-graphic",
+          "label": "Gráfica intercambiable",
+          "placement": "hero-pills",
+          "icon": "RefreshCw",
+          "tone": "brand"
+        },
+        {
+          "key": "custom-size",
+          "label": "A medida",
+          "placement": "hero-pills",
+          "icon": "Ruler",
+          "tone": "neutral"
+        }
+      ],
       "variants": [],
       "formFields": [
         {
@@ -11503,7 +11595,7 @@
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Cajas de Luz Personalizadas | Expositores Retroiluminados para Marcas",
-        "metaDescription": "Cajas de luz personalizadas para ferias, retail y espacios corporativos. Lightboxes LED a una o dos caras, con gráfica backlit y cambio rápido. Solicita presupuesto.",
+        "metaDescription": "Cajas de luz personalizadas para ferias, retail y espacios corporativos. Lightboxes LED a una o dos caras, gráfica backlit y cambio rápido.",
         "canonical": "https://reprodisseny.com/productos/cajas-de-luz-personalizadas",
         "hreflang": [
           {
@@ -11512,10 +11604,48 @@
           }
         ],
         "keywords": [
-          "cajas de luz"
+          "caja de luz",
+          "cajas de luz",
+          "caja de luz personalizada",
+          "cajas de luz personalizadas",
+          "lightbox personalizado",
+          "lightbox publicitario",
+          "panel retroiluminado",
+          "panel luminoso",
+          "expositor luminoso",
+          "cartel luminoso",
+          "cartel retroiluminado",
+          "caja de luz led",
+          "caja de luz para stand",
+          "caja de luz para feria",
+          "caja de luz para escaparate",
+          "caja de luz para retail",
+          "caja de luz doble cara",
+          "gráfica backlit",
+          "impresión backlit",
+          "cartelería retroiluminada"
         ],
         "searchTerms": [
-          "cajas de luz"
+          "caja de luz personalizada",
+          "cajas de luz para empresas",
+          "caja de luz led personalizada",
+          "lightbox personalizado para stand",
+          "caja de luz para feria",
+          "caja de luz para congreso",
+          "caja de luz para escaparate",
+          "caja de luz para retail",
+          "caja de luz para punto de venta",
+          "panel retroiluminado personalizado",
+          "panel luminoso para stand",
+          "cartel luminoso personalizado",
+          "cartel retroiluminado para tienda",
+          "expositor luminoso personalizado",
+          "caja de luz doble cara",
+          "caja de luz una cara",
+          "gráfica backlit para caja de luz",
+          "impresión backlit personalizada",
+          "cajas de luz para centros comerciales",
+          "caja de luz Barcelona"
         ],
         "schema": {
           "@context": "https://schema.org",
@@ -11523,7 +11653,7 @@
             {
               "@type": "Product",
               "name": "Cajas de luz personalizadas (expositores retroiluminados)",
-              "description": "Cajas de luz personalizadas para ferias, retail y espacios corporativos. Lightboxes LED a una o dos caras, con gráfica backlit y cambio rápido. Solicita presupuesto.",
+              "description": "Cajas de luz personalizadas para ferias, retail y espacios corporativos. Lightboxes LED a una o dos caras, gráfica backlit y cambio rápido.",
               "image": "https://webcms.blob.core.windows.net/media/product/expositores/cajas-de-luz.webp",
               "url": "https://reprodisseny.com/productos/cajas-de-luz-personalizadas",
               "brand": {
@@ -11569,7 +11699,7 @@
                   "name": "¿Qué diferencia hay entre una caja de luz y un panel impreso normal?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "La retroiluminación aumenta la visibilidad, mejora la lectura y aporta un acabado más premium que un panel impreso convencional."
+                    "text": "La retroiluminación aumenta la visibilidad, mejora la lectura del mensaje y aporta un acabado más premium que un panel impreso convencional."
                   }
                 },
                 {
@@ -11577,23 +11707,23 @@
                   "name": "¿Se puede cambiar la gráfica?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí. Es una de sus principales ventajas: puedes tener distintas gráficas para campañas y sustituirlas cuando lo necesites."
+                    "text": "Sí. Es una de sus principales ventajas. Puedes preparar distintas gráficas para campañas, promociones o temporadas y sustituirlas cuando lo necesites."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "¿Es mejor una cara o doble cara?",
+                  "name": "¿Es mejor una caja de luz a una cara o a doble cara?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Depende de la ubicación. Si hay tránsito en ambos sentidos, la doble cara suele ser la opción más efectiva."
+                    "text": "Depende de la ubicación. Si va contra una pared, normalmente basta con una cara. Si estará en un pasillo, entrada, isla o zona con tránsito en ambos sentidos, la doble cara suele ser más efectiva."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "¿Qué necesitáis para presupuestarlo?",
+                  "name": "¿Qué necesitáis para presupuestarla?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Necesitamos la medida aproximada, la ubicación, si irá en pared, suelo o colgante, si la quieres a una o dos caras, y la fecha de uso o entrega. Si ya tienes diseño, lo revisamos para asegurar un buen resultado en backlit."
+                    "text": "Necesitamos la medida aproximada, la ubicación, si irá en pared, suelo, colgante o sobremesa, si la quieres a una o dos caras y la fecha de uso o entrega. Si ya tienes diseño, lo revisamos para asegurar un buen resultado en backlit."
                   }
                 }
               ]
@@ -24063,7 +24193,7 @@
     },
     {
       "id": "56",
-      "updatedAt": "2026-05-05T11:43:54Z",
+      "updatedAt": "2026-05-21T13:27:33Z",
       "type": "producto",
       "slug": "hule-personalizado",
       "path": "/productos/hule-personalizado",
@@ -24076,7 +24206,7 @@
       "isPublished": true,
       "shortDescription": "El hule personalizado es la opción perfecta cuando necesitas un mantel lavable, impermeable y resistente para el uso diario. En Repro Disseny producimos hules a medida para hostelería, terrazas y eventos, con impresión cuidada para que tu mesa tenga un acabado profesional y sea fácil de mantener.",
       "description": "El hule personalizado es la opción perfecta cuando necesitas un mantel lavable, impermeable y resistente para el uso diario. En Repro Disseny producimos hules a medida para hostelería, terrazas y eventos, con impresión cuidada para que tu mesa tenga un acabado profesional y sea fácil de mantener.",
-      "bodyMd": "¿Qué es un hule personalizado y para qué se usa? \nUn hule es un material flexible con acabado impermeable que se utiliza como mantel para proteger mesas y facilitar la limpieza. Personalizado, además, se convierte en un soporte de marca: puedes incluir logo, colores corporativos, patrones, mensajes o incluso propuestas de carta y promociones, manteniendo una superficie práctica para el servicio.",
+      "bodyMd": "### ¿Qué es un hule personalizado y para qué se usa?\n\nUn hule personalizado es un mantel flexible con acabado impermeable, pensado para proteger mesas y facilitar la limpieza diaria. Es una solución práctica para restaurantes, bares, terrazas, hoteles, caterings y espacios con uso intensivo, porque se limpia rápido entre servicios y ayuda a mantener una imagen cuidada del local.\n\nAdemás de proteger la mesa, el hule puede convertirse en un soporte de marca: permite incorporar logotipo, colores corporativos, patrones, mensajes, cartas sencillas, promociones o diseños de temporada.\n\n### Una solución práctica para mesas con mucha rotación\n\nEl hule personalizado funciona especialmente bien cuando necesitas una superficie resistente, lavable y fácil de mantener. En hostelería ayuda a reducir tiempos de preparación entre turnos, mejora la uniformidad visual de las mesas y permite adaptar el diseño al estilo del establecimiento.\n\nPodemos producirlo a medida según el tipo de mesa, zona del local o uso previsto: interior, terraza, eventos, buffet, barra o espacios infantiles.",
       "sections": [
         {
           "id": "details",
@@ -24084,15 +24214,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es un hule personalizado y para qué se usa? \nUn hule es un material flexible con acabado impermeable que se utiliza como mantel para proteger mesas y facilitar la limpieza. Personalizado, además, se convierte en un soporte de marca: puedes incluir logo, colores corporativos, patrones, mensajes o incluso propuestas de carta y promociones, manteniendo una superficie práctica para el servicio."
-        },
-        {
-          "id": "benefits",
-          "key": "benefits",
-          "title": "Beneficios",
-          "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "Lavable e impermeable: ideal para limpieza frecuente en sala y terraza. \nResistente al uso diario: pensado para roce, manchas y manipulación constante. \nAhorra tiempo en el servicio: se limpia rápido entre mesas y turnos. \nMejora la imagen del local: mantiene las mesas uniformes y cuidadas. \nPersonalizable: diseños corporativos, patrones, mensajes o versiones por zona/temporada."
+          "body": "### ¿Qué es un hule personalizado y para qué se usa?\n\nUn hule personalizado es un mantel flexible con acabado impermeable, pensado para proteger mesas y facilitar la limpieza diaria. Es una solución práctica para restaurantes, bares, terrazas, hoteles, caterings y espacios con uso intensivo, porque se limpia rápido entre servicios y ayuda a mantener una imagen cuidada del local.\n\nAdemás de proteger la mesa, el hule puede convertirse en un soporte de marca: permite incorporar logotipo, colores corporativos, patrones, mensajes, cartas sencillas, promociones o diseños de temporada.\n\n### Una solución práctica para mesas con mucha rotación\n\nEl hule personalizado funciona especialmente bien cuando necesitas una superficie resistente, lavable y fácil de mantener. En hostelería ayuda a reducir tiempos de preparación entre turnos, mejora la uniformidad visual de las mesas y permite adaptar el diseño al estilo del establecimiento.\n\nPodemos producirlo a medida según el tipo de mesa, zona del local o uso previsto: interior, terraza, eventos, buffet, barra o espacios infantiles."
         },
         {
           "id": "technical-specs",
@@ -24100,33 +24222,57 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Medidas y formato \nFabricación a medida según mesa (rectangular, cuadrada o redonda). \nPosibilidad de producir series para diferentes tamaños de mesa o zonas del local. \nImpresión y diseño \nImpresión a color para integrar identidad visual: logo, colores, patrones o mensajes. \nDiseños sobrios (look premium) o más llamativos (terrazas, eventos, infantil). \nResistencia y mantenimiento \nSuperficie pensada para limpieza frecuente (paño húmedo y productos adecuados). \nRecomendación práctica: definir el tipo de uso (interior/terraza) ayuda a elegir el acabado más conveniente y a alargar la vida útil. \nAcabados \nOpciones de acabado orientadas a durabilidad y aspecto (según necesidad del proyecto). \nPosibilidad de remates/cortes adaptados para que el hule asiente bien en mesa."
+          "body": "### Medidas y formato\n\n- Fabricación a medida según el tipo de mesa: rectangular, cuadrada o redonda.\n- Posibilidad de producir series para diferentes tamaños de mesa, zonas del local o tipos de servicio.\n- Adaptación del diseño a mesas individuales, mesas grandes, barras, buffets o superficies auxiliares.\n\n### Impresión y diseño\n\n- Impresión a color para integrar logotipo, colores corporativos, patrones, mensajes o campañas.\n- Diseños sobrios para una imagen más premium o propuestas más llamativas para terrazas, eventos y espacios infantiles.\n- Recomendable trabajar con patrones discretos, fondos corporativos o composiciones que disimulen el uso diario sin perder presencia de marca.\n\n### Resistencia y mantenimiento\n\n- Superficie impermeable pensada para limpieza frecuente.\n- Limpieza rápida con paño húmedo y productos adecuados.\n- La durabilidad depende del tipo de uso, la exposición exterior y el mantenimiento diario.\n\n### Acabados y corte\n\n- Opciones de acabado orientadas a mejorar durabilidad, tacto y aspecto final según el proyecto.\n- Posibilidad de cortes y remates adaptados para que el hule asiente correctamente sobre la mesa.\n- Para terrazas o uso exterior, conviene indicar si estará a pleno sol, si se recogerá cada día o si tendrá exposición continuada."
         },
         {
           "id": "applications",
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "Restaurantes y bares: mesas de interior y exterior con alta rotación. \nTerrazas: protección y limpieza rápida en exterior. \nHoteles y bufés: mesas de apoyo, zonas de servicio o eventos internos. \nEventos y caterings: mesas de servicio, zonas de barra, espacios infantiles. \nCentros y colectividades: comedores, actividades y espacios con uso intensivo."
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Aplicaciones habituales para hules personalizados según tipo de local, rotación de mesas y necesidad de limpieza.",
+            "applications": [
+              {
+                "title": "Restaurantes y bares",
+                "description": "Hules lavables para mesas de interior con alta rotación, pensados para proteger la superficie y facilitar la limpieza entre servicios."
+              },
+              {
+                "title": "Terrazas",
+                "description": "Solución práctica para mesas exteriores donde interesa proteger, limpiar rápido y mantener una estética coherente con la marca."
+              },
+              {
+                "title": "Hoteles y bufés",
+                "description": "Hules personalizados para zonas de desayuno, buffet, mesas auxiliares o eventos internos, con diseño adaptado a la imagen del hotel."
+              },
+              {
+                "title": "Eventos y caterings",
+                "description": "Manteles de hule personalizados para barras, mesas de servicio, espacios promocionales o zonas infantiles en eventos temporales."
+              },
+              {
+                "title": "Centros y colectividades",
+                "description": "Hules resistentes para comedores, talleres, actividades y espacios donde la mesa tiene un uso frecuente e intensivo."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
         {
-          "question": "¿Es realmente lavable y para uso diario?",
-          "answer": "Sí, esa es su ventaja principal. Está pensado para limpiar rápido entre servicios."
+          "question": "¿Es realmente lavable y apto para uso diario?",
+          "answer": "Sí. Esa es una de sus principales ventajas. Está pensado para limpiar rápido entre servicios y para soportar el uso habitual en restaurantes, bares, terrazas y eventos."
         },
         {
           "question": "¿Se puede hacer a medida para diferentes mesas?",
-          "answer": "Sí. Podemos hacer series por tamaños y formas (mesa de 2, 4, 6…)."
+          "answer": "Sí. Podemos fabricar hules a medida para mesas rectangulares, cuadradas o redondas, y preparar series por tamaños o zonas del local."
         },
         {
           "question": "¿Qué tipo de diseño funciona mejor?",
-          "answer": "En muchos restaurantes funciona muy bien un diseño con patrón discreto + logo. Para campañas o eventos, se puede hacer un diseño más promocional o temático."
+          "answer": "En muchos restaurantes funciona muy bien un patrón discreto con el logotipo integrado. Para campañas, terrazas o eventos, también se puede crear un diseño más promocional, temático o llamativo."
         },
         {
-          "question": "¿Aguanta exterior?",
-          "answer": "Para terrazas suele funcionar bien, pero la durabilidad depende de exposición y mantenimiento. Si nos dices si estará a pleno sol o se guarda cada día, te orientamos para escoger la mejor opción."
+          "question": "¿Aguanta en exterior?",
+          "answer": "Para terrazas suele funcionar bien, pero la durabilidad depende de la exposición y del mantenimiento. Si nos indicas si estará a pleno sol, bajo cubierta o si se guarda cada día, te orientamos sobre la opción más adecuada."
         }
       ],
       "breadcrumbs": [
@@ -24161,7 +24307,36 @@
       "inStock": true,
       "ratingValue": 0,
       "reviewCount": 0,
-      "attributes": [],
+      "attributes": [
+        {
+          "key": "lavable",
+          "label": "Lavable e impermeable",
+          "placement": "hero-pills",
+          "icon": "Droplets",
+          "tone": "brand"
+        },
+        {
+          "key": "daily-use",
+          "label": "Uso diario",
+          "placement": "hero-pills",
+          "icon": "ShieldCheck",
+          "tone": "success"
+        },
+        {
+          "key": "custom-size",
+          "label": "A medida",
+          "placement": "hero-pills",
+          "icon": "Ruler",
+          "tone": "brand"
+        },
+        {
+          "key": "hospitality",
+          "label": "Para hostelería",
+          "placement": "hero-pills",
+          "icon": "Utensils",
+          "tone": "neutral"
+        }
+      ],
       "variants": [],
       "formFields": [
         {
@@ -24238,10 +24413,46 @@
           }
         ],
         "keywords": [
-          "hule personalizado"
+          "hule personalizado",
+          "hules personalizados",
+          "mantel de hule personalizado",
+          "manteles de hule personalizados",
+          "mantel lavable personalizado",
+          "manteles lavables personalizados",
+          "mantel impermeable personalizado",
+          "hule a medida",
+          "hules a medida",
+          "manteles personalizados para restaurantes",
+          "manteles personalizados para hostelería",
+          "hules personalizados para bares",
+          "hules personalizados para terrazas",
+          "hules para restaurantes",
+          "mantel PVC personalizado",
+          "mantel plastificado personalizado",
+          "manteles impermeables para restaurantes",
+          "hule impreso personalizado"
         ],
         "searchTerms": [
-          "hule personalizado"
+          "hule personalizado para restaurante",
+          "hules personalizados para bares",
+          "mantel de hule personalizado a medida",
+          "manteles de hule personalizados para hostelería",
+          "mantel lavable personalizado para restaurante",
+          "mantel impermeable personalizado para terraza",
+          "hules a medida para mesas de restaurante",
+          "hules personalizados con logo",
+          "manteles impermeables personalizados con logo",
+          "manteles lavables personalizados para bares",
+          "hule personalizado para terraza",
+          "manteles personalizados para hoteles y buffets",
+          "hules para eventos y caterings",
+          "mantel plastificado personalizado para hostelería",
+          "mantel PVC personalizado lavable",
+          "hule impreso a medida",
+          "mantel personalizado fácil de limpiar",
+          "manteles reutilizables personalizados para restaurantes",
+          "hules para mesas de hostelería",
+          "hule personalizado Barcelona"
         ],
         "schema": {
           "@context": "https://schema.org",
@@ -24292,10 +24503,10 @@
               "mainEntity": [
                 {
                   "@type": "Question",
-                  "name": "¿Es realmente lavable y para uso diario?",
+                  "name": "¿Es realmente lavable y apto para uso diario?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, esa es su ventaja principal. Está pensado para limpiar rápido entre servicios."
+                    "text": "Sí. Esa es una de sus principales ventajas. Está pensado para limpiar rápido entre servicios y para soportar el uso habitual en restaurantes, bares, terrazas y eventos."
                   }
                 },
                 {
@@ -24303,7 +24514,7 @@
                   "name": "¿Se puede hacer a medida para diferentes mesas?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí. Podemos hacer series por tamaños y formas (mesa de 2, 4, 6…)."
+                    "text": "Sí. Podemos fabricar hules a medida para mesas rectangulares, cuadradas o redondas, y preparar series por tamaños o zonas del local."
                   }
                 },
                 {
@@ -24311,15 +24522,15 @@
                   "name": "¿Qué tipo de diseño funciona mejor?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "En muchos restaurantes funciona muy bien un diseño con patrón discreto + logo. Para campañas o eventos, se puede hacer un diseño más promocional o temático."
+                    "text": "En muchos restaurantes funciona muy bien un patrón discreto con el logotipo integrado. Para campañas, terrazas o eventos, también se puede crear un diseño más promocional, temático o llamativo."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "¿Aguanta exterior?",
+                  "name": "¿Aguanta en exterior?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Para terrazas suele funcionar bien, pero la durabilidad depende de exposición y mantenimiento. Si nos dices si estará a pleno sol o se guarda cada día, te orientamos para escoger la mejor opción."
+                    "text": "Para terrazas suele funcionar bien, pero la durabilidad depende de la exposición y del mantenimiento. Si nos indicas si estará a pleno sol, bajo cubierta o si se guarda cada día, te orientamos sobre la opción más adecuada."
                   }
                 }
               ]
@@ -27900,14 +28111,15 @@
     },
     {
       "id": "69",
-      "updatedAt": "2026-05-05T11:45:03Z",
+      "updatedAt": "2026-05-21T08:06:02Z",
       "type": "producto",
       "slug": "metacrilato-personalizado",
       "path": "/productos/metacrilato-personalizado",
       "title": "Metacrilato (panel rígido premium)",
       "categorySlug": "material-rigido",
       "categorySlugs": [
-        "material-rigido"
+        "material-rigido",
+        "hosteleria-restauracion"
       ],
       "order": 9999,
       "isPublished": true,
@@ -29475,14 +29687,15 @@
     },
     {
       "id": "32",
-      "updatedAt": "2026-05-05T11:40:44Z",
+      "updatedAt": "2026-05-21T08:08:20Z",
       "type": "producto",
       "slug": "panel-dibond-personalizado",
       "path": "/productos/panel-dibond-personalizado",
       "title": "Panel de Dibond (composite de aluminio)",
       "categorySlug": "material-rigido",
       "categorySlugs": [
-        "material-rigido"
+        "material-rigido",
+        "hosteleria-restauracion"
       ],
       "order": 9999,
       "isPublished": true,
@@ -33192,14 +33405,15 @@
     },
     {
       "id": "133",
-      "updatedAt": "2026-05-05T11:54:58Z",
+      "updatedAt": "2026-05-21T08:10:13Z",
       "type": "producto",
       "slug": "placa-direccion-personalizada",
       "path": "/productos/placa-direccion-personalizada",
       "title": "Placa dirección personalizada",
       "categorySlug": "material-oficina",
       "categorySlugs": [
-        "material-oficina"
+        "material-oficina",
+        "hosteleria-restauracion"
       ],
       "order": 9999,
       "isPublished": true,
@@ -34891,14 +35105,15 @@
     },
     {
       "id": "89",
-      "updatedAt": "2026-05-21T06:18:47Z",
+      "updatedAt": "2026-05-21T08:03:35Z",
       "type": "producto",
       "slug": "roll-up-personalizado",
       "path": "/productos/roll-up-personalizado",
       "title": "Roll Up personalizado (expositor enrollable)",
       "categorySlug": "expositores",
       "categorySlugs": [
-        "expositores"
+        "expositores",
+        "hosteleria-restauracion"
       ],
       "order": 9999,
       "isPublished": true,
@@ -36502,14 +36717,15 @@
     },
     {
       "id": "130",
-      "updatedAt": "2026-05-21T06:43:49Z",
+      "updatedAt": "2026-05-21T08:02:21Z",
       "type": "producto",
       "slug": "talonarios-autocopiativos-personalizados",
       "path": "/productos/talonarios-autocopiativos-personalizados",
       "title": "Talonarios autocopiativos personalizados",
       "categorySlug": "material-oficina",
       "categorySlugs": [
-        "material-oficina"
+        "material-oficina",
+        "hosteleria-restauracion"
       ],
       "order": 9999,
       "isPublished": true,
@@ -39847,14 +40063,15 @@
     },
     {
       "id": "115",
-      "updatedAt": "2026-05-05T16:46:25Z",
+      "updatedAt": "2026-05-21T08:05:35Z",
       "type": "producto",
       "slug": "vinilo-para-cristal",
       "path": "/productos/vinilo-para-cristal",
       "title": "Vinilo para cristal",
       "categorySlug": "material-flexible",
       "categorySlugs": [
-        "material-flexible"
+        "material-flexible",
+        "hosteleria-restauracion"
       ],
       "order": 9999,
       "isPublished": true,
