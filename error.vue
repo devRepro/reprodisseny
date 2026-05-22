@@ -33,7 +33,7 @@ const description = computed(() => {
 const quickLinks = [
   {
     label: "Adhesivos",
-    to: "/categorias/adhesivos",
+    to: "/categorias/adhesivos-personalizados",
   },
   {
     label: "Gran formato",
@@ -45,7 +45,7 @@ const quickLinks = [
   },
   {
     label: "Libros y catálogos",
-    to: "/categorias/libros-revistas-y-catalogos",
+    to: "/categorias/libros-revistas-catalogos",
   },
   {
     label: "Packaging",
@@ -53,7 +53,7 @@ const quickLinks = [
   },
   {
     label: "Publicidad y oficina",
-    to: "/categorias/publicidad-y-oficina",
+    to: "/categorias/publicidad-oficina",
   },
 ];
 
@@ -68,11 +68,9 @@ const goTo = (path: string) => {
       <section class="relative overflow-hidden bg-background">
         <div class="container-content py-10 sm:py-12 md:py-16 lg:py-20">
           <div
-            class="relative overflow-hidden rounded-[28px] border border-border/70 bg-card shadow-[0_24px_70px_-48px_hsl(var(--foreground)/0.34)]"
-          >
+            class="relative overflow-hidden rounded-[28px] border border-border/70 bg-card shadow-[0_24px_70px_-48px_hsl(var(--foreground)/0.34)]">
             <div
-              class="absolute inset-0 bg-[radial-gradient(circle_at_18%_16%,hsl(var(--primary)/0.12),transparent_34%),linear-gradient(135deg,hsl(var(--accent)/0.72),hsl(var(--background))_52%,hsl(var(--brand-bg-2)/0.48))]"
-            />
+              class="absolute inset-0 bg-[radial-gradient(circle_at_18%_16%,hsl(var(--primary)/0.12),transparent_34%),linear-gradient(135deg,hsl(var(--accent)/0.72),hsl(var(--background))_52%,hsl(var(--brand-bg-2)/0.48))]" />
 
             <div class="relative grid items-center gap-0 lg:grid-cols-[0.92fr_1.08fr]">
               <div class="px-5 py-8 sm:px-8 sm:py-10 md:px-10 lg:px-12 lg:py-14">
@@ -80,9 +78,7 @@ const goTo = (path: string) => {
                   {{ eyebrow }}
                 </p>
 
-                <h1
-                  class="section-title section-title--hero section-title--ink max-w-[620px] text-balance"
-                >
+                <h1 class="section-title section-title--hero section-title--ink max-w-[620px] text-balance">
                   {{ title }}
                 </h1>
 
@@ -91,21 +87,12 @@ const goTo = (path: string) => {
                 </p>
 
                 <div class="mt-7 flex flex-col gap-3 sm:flex-row sm:items-center">
-                  <AppButton
-                    variant="primary"
-                    size="md"
-                    class="w-full sm:w-auto"
-                    @click="goTo('/')"
-                  >
+                  <AppButton variant="primary" size="md" class="w-full sm:w-auto" @click="goTo('/')">
                     Volver al inicio
                   </AppButton>
 
-                  <AppButton
-                    variant="outline"
-                    size="md"
-                    class="w-full bg-white/80 sm:w-auto"
-                    @click="goTo('/contacto')"
-                  >
+                  <AppButton variant="outline" size="md" class="w-full bg-white/80 sm:w-auto"
+                    @click="goTo('/contacto')">
                     Contactar con un experto
                   </AppButton>
                 </div>
@@ -116,13 +103,11 @@ const goTo = (path: string) => {
                   </p>
 
                   <div class="flex flex-wrap gap-2">
-                    <AppChip
-                      v-for="link in quickLinks"
-                      :key="link.to"
-                      variant="pill"
-                      class="bg-white/80"
-                      @click="goTo(link.to)"
-                    >
+                    <AppChip v-for="link in quickLinks" :key="link.to" variant="pill"
+                      class="group inline-flex items-center gap-2 rounded-full border border-foreground/10 bg-white/75 px-4 py-2 text-sm font-medium text-foreground/75 shadow-sm backdrop-blur-sm transition hover:-translate-y-0.5 hover:border-foreground/20 hover:bg-white hover:text-foreground hover:shadow-md"
+                      @click="goTo(link.to)">
+                      <span class="size-1.5 rounded-full bg-foreground/35 transition group-hover:bg-primary"
+                        aria-hidden="true" />
                       {{ link.label }}
                     </AppChip>
                   </div>
@@ -131,16 +116,10 @@ const goTo = (path: string) => {
 
               <div class="order-first p-4 sm:p-6 lg:order-none lg:p-8">
                 <div
-                  class="overflow-hidden rounded-[24px] bg-muted shadow-[0_20px_60px_-42px_hsl(var(--foreground)/0.55)] lg:rounded-[28px]"
-                >
-                  <img
-                    src="/img/ui/error404.webp"
-                    alt="Detalle de impresión sobre papel"
-                    width="1024"
-                    height="572"
+                  class="overflow-hidden rounded-[24px] bg-muted shadow-[0_20px_60px_-42px_hsl(var(--foreground)/0.55)] lg:rounded-[28px]">
+                  <img src="/img/ui/error404.webp" alt="Detalle de impresión sobre papel" width="1024" height="572"
                     sizes="(min-width: 1024px) 50vw, 100vw"
-                    class="aspect-[16/10] w-full object-cover lg:aspect-[4/3]"
-                  />
+                    class="aspect-[16/10] w-full object-cover lg:aspect-[4/3]" />
                 </div>
               </div>
             </div>
@@ -148,10 +127,8 @@ const goTo = (path: string) => {
         </div>
       </section>
 
-      <ContactInfoBand
-        section-class="bg-brand-base-dark text-brand-ink-light py-14 md:py-16 lg:py-20"
-        container-class="container-wide"
-      />
+      <ContactInfoBand section-class="bg-brand-base-dark text-brand-ink-light py-14 md:py-16 lg:py-20"
+        container-class="container-wide" />
     </main>
   </NuxtLayout>
 </template>

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-21T13:28:12.141Z",
+  "generatedAt": "2026-05-22T10:55:21.381Z",
   "categories": [
     {
       "id": "12",
@@ -4229,7 +4229,7 @@
     },
     {
       "id": "1",
-      "updatedAt": "2026-05-18T12:35:04Z",
+      "updatedAt": "2026-05-22T06:13:54Z",
       "type": "producto",
       "slug": "abanicos-personalizados",
       "path": "/productos/abanicos-personalizados",
@@ -4242,7 +4242,7 @@
       "isPublished": true,
       "shortDescription": "Los abanicos personalizados son un detalle útil y muy visible en eventos con calor: mejoran la experiencia del asistente y, a la vez, hacen que tu marca esté presente en fotos, vídeos y durante todo el acto. En Repro Disseny producimos abanicos para bodas, eventos corporativos, festivales y acciones de marca, con impresión cuidada y opciones de formato según el uso.",
       "description": "Los abanicos personalizados son un detalle útil y muy visible en eventos con calor: mejoran la experiencia del asistente y, a la vez, hacen que tu marca esté presente en fotos, vídeos y durante todo el acto. En Repro Disseny producimos abanicos para bodas, eventos corporativos, festivales y acciones de marca, con impresión cuidada y opciones de formato según el uso.",
-      "bodyMd": "### ¿Qué es un abanico personalizado y para qué se usa?\n\nUn abanico personalizado es una pieza de merchandising pensada para refrescar y comunicar. Puede ser un abanico plegable (con varillas) o un abanico tipo pai pai (mango y superficie rígida), e incluye diseño, logo, claim, fecha del evento o incluso nombres de invitados.\n\nSe utiliza especialmente en eventos al aire libre o de verano, donde el abanico pasa a ser un recurso práctico que el público agradece y, al mismo tiempo, una pieza de marca que se conserva y se recuerda.",
+      "bodyMd": "## Qué es un abanico personalizado y para qué se usa\n\nUn abanico personalizado es una pieza de merchandising para eventos, bodas, ferias y campañas de verano. Combina utilidad real —refrescar y acompañar al asistente— con visibilidad de marca en una superficie impresa que se usa durante el evento y puede conservarse como recuerdo.\n\nEs especialmente útil cuando buscas una pieza ligera, fácil de repartir y con buena presencia visual. Puede producirse en formato plegable, con varillas, o en formato pai pai, más directo y económico para acciones promocionales.\n\nTrabajamos el diseño, el formato y el soporte según el tipo de evento, la cantidad, la fecha de entrega y la percepción de calidad que quieres transmitir.",
       "sections": [
         {
           "id": "details",
@@ -4250,7 +4250,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "### ¿Qué es un abanico personalizado y para qué se usa?\n\nUn abanico personalizado es una pieza de merchandising pensada para refrescar y comunicar. Puede ser un abanico plegable (con varillas) o un abanico tipo pai pai (mango y superficie rígida), e incluye diseño, logo, claim, fecha del evento o incluso nombres de invitados.\n\nSe utiliza especialmente en eventos al aire libre o de verano, donde el abanico pasa a ser un recurso práctico que el público agradece y, al mismo tiempo, una pieza de marca que se conserva y se recuerda."
+          "body": "## Qué es un abanico personalizado y para qué se usa\n\nUn abanico personalizado es una pieza de merchandising para eventos, bodas, ferias y campañas de verano. Combina utilidad real —refrescar y acompañar al asistente— con visibilidad de marca en una superficie impresa que se usa durante el evento y puede conservarse como recuerdo.\n\nEs especialmente útil cuando buscas una pieza ligera, fácil de repartir y con buena presencia visual. Puede producirse en formato plegable, con varillas, o en formato pai pai, más directo y económico para acciones promocionales.\n\nTrabajamos el diseño, el formato y el soporte según el tipo de evento, la cantidad, la fecha de entrega y la percepción de calidad que quieres transmitir."
         },
         {
           "id": "benefits",
@@ -4291,19 +4291,19 @@
           "kind": "materials",
           "contentFormat": "json",
           "materialsData": {
-            "intro": "Seleccionamos el soporte del abanico según el formato elegido, la duración del evento y la percepción de calidad que se quiere transmitir.",
+            "intro": "Seleccionamos el soporte según el formato, la duración del evento y la percepción de calidad que se quiere transmitir.",
             "materials": [
               {
                 "title": "Cartulina gráfica",
-                "description": "Opción versátil para pai pai y abanicos promocionales con buena presencia y coste ajustado."
+                "description": "Opción versátil para abanicos pai pai o piezas promocionales ligeras."
               },
               {
-                "title": "Papel con buen cuerpo",
-                "description": "Adecuado para abanicos ligeros que deben mantener la forma durante el uso sin resultar incómodos."
+                "title": "Papel/cartulina para abanico plegable",
+                "description": "Soporte adecuado para impresión cuidada y plegado correcto en abanicos con varillas."
               },
               {
                 "title": "Varillas o mango",
-                "description": "Elemento de agarre según el modelo elegido, pensado para facilitar el uso y mejorar la experiencia del asistente."
+                "description": "Elemento estructural elegido según formato, uso y acabado deseado."
               }
             ]
           }
@@ -4315,33 +4315,29 @@
           "kind": "formats",
           "contentFormat": "json",
           "formatsData": {
-            "intro": "Definimos el formato, el material y la personalización según el tipo de evento, la forma de reparto y la experiencia de uso que se quiere ofrecer.",
+            "intro": "Definimos el formato del abanico según el tipo de evento, la forma de reparto y la experiencia de uso que se quiere ofrecer.",
             "shapes": [
               {
                 "title": "Abanico plegable",
-                "description": "Formato clásico con varillas, pensado para un uso continuado y una percepción más cuidada como regalo o recuerdo."
+                "description": "Formato clásico con varillas, mayor percepción de detalle y mejor encaje en bodas, celebraciones, regalos corporativos y eventos con imagen cuidada."
               },
               {
                 "title": "Abanico tipo pai pai",
-                "description": "Formato ligero, práctico y rápido de repartir, ideal para accesos, eventos de gran afluencia y campañas con muchas unidades."
+                "description": "Formato plano con mango, práctico para campañas, ferias, acciones promocionales y eventos donde se prioriza reparto rápido y coste controlado."
               },
               {
-                "title": "Tamaños estándar o a medida",
-                "description": "El tamaño se define según el diseño, la superficie de impresión, la visibilidad buscada y el tipo de entrega durante el evento."
+                "title": "Formato a medida",
+                "description": "Adaptamos tamaño, forma y superficie imprimible según diseño, cantidad y uso previsto."
               }
             ],
             "deliveryFormats": [
               {
-                "title": "Papel o cartulina",
-                "description": "Opciones con suficiente cuerpo para que el abanico mantenga bien la forma y no se doble con facilidad durante el uso."
+                "title": "Unidades listas para repartir",
+                "description": "Entrega preparada para evento, con manipulación adecuada según cantidad y formato."
               },
               {
-                "title": "Modelos con varillas",
-                "description": "Opciones pensadas para un uso cómodo y una mejor percepción del producto cuando se busca una pieza más cuidada."
-              },
-              {
-                "title": "Impresión y personalización",
-                "description": "Impresión a color con posibilidad de diseño por caras, personalización con nombres, mesas, códigos o patrocinadores, e integración opcional de QR para agenda, mapa, redes, landing o sorteos."
+                "title": "Producción por versiones",
+                "description": "Posibilidad de preparar diseños distintos por mesa, patrocinador, campaña o público."
               }
             ]
           }
@@ -4357,15 +4353,15 @@
             "finishes": [
               {
                 "title": "Acabado mate",
-                "description": "Recomendado cuando habrá mucha luz o se harán fotos, ya que ayuda a reducir reflejos."
+                "description": "Reduce reflejos y aporta una imagen más elegante y sobria."
               },
               {
                 "title": "Acabado brillo",
-                "description": "Adecuado cuando se busca un color más vivo y un efecto visual más llamativo."
+                "description": "Refuerza la intensidad visual del color y aporta un acabado más llamativo."
               },
               {
-                "title": "Preparación para entrega",
-                "description": "Opción de empaquetado por sets o preparación para packs de bienvenida y reparto."
+                "title": "Troquelado o forma especial",
+                "description": "Permite adaptar la silueta al diseño, logo o concepto del evento."
               }
             ]
           }
@@ -4376,7 +4372,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "### Formato\n\n- **Abanico plegable:** formato con varillas, más clásico y con mayor percepción de detalle para eventos o regalos.\n- **Abanico tipo pai pai:** formato con mango y superficie rígida, práctico para reparto rápido en eventos, campañas y acciones promocionales.\n- **Elección del formato:** se define según el uso previsto, el presupuesto, la duración del evento y la experiencia que se quiere ofrecer.\n\n### Personalización\n\n- **Diseño corporativo o de evento:** permite incorporar diseño, logotipo, claim, fecha, colores de marca o gráfica específica de campaña.\n- **Versiones personalizadas:** posibilidad de adaptar el diseño según público, zona, patrocinador, idioma o función dentro del evento.\n- **Datos variables:** si el proyecto lo requiere, se pueden valorar versiones con nombres, códigos, mensajes o referencias específicas.\n\n### Impresión\n\n- **Impresión a color:** buena definición para textos, logotipos, ilustraciones e imagen de marca.\n- **Lectura clara:** el diseño debe plantearse para que el mensaje principal se entienda de forma rápida durante el uso.\n- **Archivo recomendado:** PDF final con medidas correctas, sangrado, márgenes de seguridad y gráficos en buena resolución.\n\n### Uso recomendado\n\n- **Eventos al aire libre:** especialmente indicado para celebraciones de verano, ferias, congresos, bodas y acciones promocionales.\n- **Confort y visibilidad:** combina utilidad real para el usuario con presencia de marca durante el evento.\n- **Recuerdo del evento:** puede funcionar como detalle para invitados, clientes, asistentes, staff o patrocinadores.\n\n### Entrega y distribución\n\n- **Producto ligero:** fácil de transportar, almacenar y repartir en accesos, packs de bienvenida o puntos de atención.\n- **Preparación por grupos:** posibilidad de organizar la entrega por asistentes, mesas, zonas, sedes o patrocinadores.\n- **Uso en welcome packs:** adecuado para incluir en bolsas de evento, kits de verano, promociones o campañas de marca."
+          "body": "Estas especificaciones ayudan a preparar el archivo y definir el formato más adecuado antes de presupuestar. Si tienes dudas entre abanico plegable o pai pai, podemos orientarte según el tipo de evento, la cantidad y la fecha de entrega.\n\n### Formatos disponibles\n\n- **Abanico plegable:** formato con varillas y superficie impresa plegada. Es la opción más cuidada para bodas, eventos corporativos, celebraciones y regalos con mayor percepción de valor.\n\n- **Abanico tipo pai pai:** pieza plana con mango y superficie rígida o semirrígida. Funciona muy bien para campañas promocionales, ferias, festivales y repartos de gran volumen.\n\n- **Medidas estándar o personalizadas:** ajustamos el tamaño según diseño, superficie imprimible, cantidad y forma de entrega.\n\n### Preparación del diseño\n\n- **Archivo recomendado:** PDF en alta calidad, con textos trazados o tipografías incrustadas.\n\n- **Zona útil de impresión:** revisamos márgenes, sangrado y zonas de seguridad para evitar cortes no deseados.\n\n- **Diseños por versión:** podemos preparar varias artes finales para mesas, invitados, patrocinadores, idiomas o zonas del evento.\n\n### Impresión y acabados\n\n- **Impresión a todo color:** adecuada para logotipos, ilustraciones, patrones, nombres, fechas o mensajes de campaña.\n\n- **Acabado mate:** reduce reflejos y ofrece una imagen más elegante, especialmente en eventos al aire libre o fotografías.\n\n- **Acabado brillo:** refuerza la intensidad del color y aporta un resultado más llamativo para acciones promocionales.\n\n- **Troquelado o forma especial:** opción disponible si el diseño necesita una silueta diferenciada.\n\n### Para presupuestar\n\nIndícanos el formato elegido, la cantidad, las medidas aproximadas, la fecha del evento y si ya tienes diseño final o necesitas adaptación gráfica."
         },
         {
           "id": "applications",
@@ -4389,23 +4385,19 @@
             "applications": [
               {
                 "title": "Bodas y celebraciones",
-                "description": "Aporta un detalle útil y elegante para invitados en ceremonias y recepciones al aire libre."
+                "description": "Detalle práctico para invitados, especialmente en ceremonias, banquetes de verano o eventos al aire libre."
               },
               {
-                "title": "Ferias y eventos corporativos",
-                "description": "Refuerza la visibilidad de marca y mejora la experiencia del asistente en espacios concurridos."
+                "title": "Ferias y congresos",
+                "description": "Pieza ligera para repartir en stands, zonas de espera o acreditación."
               },
               {
-                "title": "Acciones promocionales",
-                "description": "Funciona como soporte publicitario práctico en campañas de verano, street marketing y reparto promocional."
+                "title": "Eventos corporativos",
+                "description": "Merchandising útil para convenciones, presentaciones, jornadas internas o activaciones de marca."
               },
               {
-                "title": "Hostelería y terrazas",
-                "description": "Ayuda a mejorar el confort en eventos, restaurantes y espacios expuestos al calor."
-              },
-              {
-                "title": "Eventos segmentados",
-                "description": "Permite crear versiones específicas para invitados, staff, patrocinadores o distintas zonas del evento."
+                "title": "Campañas de verano",
+                "description": "Soporte promocional con alta utilidad en terrazas, playas, festivales y acciones exteriores."
               }
             ]
           }
@@ -4469,7 +4461,32 @@
       "inStock": true,
       "ratingValue": 0,
       "reviewCount": 0,
-      "attributes": [],
+      "attributes": [
+        {
+          "key": "plegable-o-pai-pai",
+          "label": "Plegable o pai pai",
+          "placement": "hero-pills",
+          "tone": "brand"
+        },
+        {
+          "key": "ideal-para-eventos",
+          "label": "Ideal para eventos",
+          "placement": "hero-pills",
+          "tone": "brand"
+        },
+        {
+          "key": "ligero-y-f-cil-de-repartir",
+          "label": "Ligero y fácil de repartir",
+          "placement": "hero-pills",
+          "tone": "brand"
+        },
+        {
+          "key": "personalizaci-n-a-medida",
+          "label": "Personalización a medida",
+          "placement": "hero-pills",
+          "tone": "brand"
+        }
+      ],
       "variants": [],
       "formFields": [
         {
@@ -8678,7 +8695,7 @@
     },
     {
       "id": "138",
-      "updatedAt": "2026-05-05T15:57:12Z",
+      "updatedAt": "2026-05-22T07:45:19Z",
       "type": "producto",
       "slug": "caja-cerillas",
       "path": "/productos/caja-cerillas",
@@ -8872,7 +8889,20 @@
           }
         ],
         "keywords": [],
-        "searchTerms": [],
+        "searchTerms": [
+          "caja cerillas personalizada",
+          "caja tipo cerillas",
+          "packaging tipo cerillas",
+          "caja deslizante personalizada",
+          "caja con funda deslizante",
+          "caja premium personalizada",
+          "packaging regalo corporativo",
+          "caja para producto pequeño",
+          "caja impresa tipo cerillas",
+          "packaging promocional",
+          "caja de cartón personalizada",
+          "caja cerillas Barcelona"
+        ],
         "schema": {
           "@context": "https://schema.org",
           "@graph": [
@@ -10732,7 +10762,7 @@
     },
     {
       "id": "137",
-      "updatedAt": "2026-05-05T16:19:04Z",
+      "updatedAt": "2026-05-22T07:45:45Z",
       "type": "producto",
       "slug": "caja-porta-botella",
       "path": "/productos/caja-porta-botella",
@@ -10926,7 +10956,20 @@
           }
         ],
         "keywords": [],
-        "searchTerms": [],
+        "searchTerms": [
+          "caja porta botella",
+          "caja para botella personalizada",
+          "packaging para botellas",
+          "caja botella vino personalizada",
+          "caja porta botella impresa",
+          "caja para regalo corporativo",
+          "packaging vino personalizado",
+          "estuche para botella",
+          "caja para botella de vino",
+          "caja botella premium",
+          "packaging para bebidas",
+          "caja porta botellas Barcelona"
+        ],
         "schema": {
           "@context": "https://schema.org",
           "@graph": [
@@ -26927,7 +26970,7 @@
     },
     {
       "id": "63",
-      "updatedAt": "2026-05-05T15:22:35Z",
+      "updatedAt": "2026-05-22T07:46:07Z",
       "type": "producto",
       "slug": "lona-publicitaria",
       "path": "/productos/lona-publicitaria",
@@ -27116,7 +27159,18 @@
           "lona publicitaria"
         ],
         "searchTerms": [
-          "lona publicitaria"
+          "lona publicitaria",
+          "lona personalizada",
+          "lona impresa",
+          "lona gran formato",
+          "pancarta personalizada",
+          "lona para fachada",
+          "lona para eventos",
+          "lona exterior personalizada",
+          "banderola de lona",
+          "lona con ojales",
+          "impresión lona publicitaria",
+          "lonas publicitarias Barcelona"
         ],
         "schema": {
           "@context": "https://schema.org",
@@ -28111,7 +28165,7 @@
     },
     {
       "id": "69",
-      "updatedAt": "2026-05-21T08:06:02Z",
+      "updatedAt": "2026-05-22T07:45:52Z",
       "type": "producto",
       "slug": "metacrilato-personalizado",
       "path": "/productos/metacrilato-personalizado",
@@ -28300,7 +28354,18 @@
           "metacrilato"
         ],
         "searchTerms": [
-          "metacrilato"
+          "metacrilato personalizado",
+          "metacrilato impreso",
+          "placa de metacrilato",
+          "panel metacrilato personalizado",
+          "cartel metacrilato",
+          "metacrilato para señalética",
+          "metacrilato transparente impreso",
+          "metacrilato corporativo",
+          "placas metacrilato empresa",
+          "impresión sobre metacrilato",
+          "metacrilato a medida",
+          "metacrilato Barcelona"
         ],
         "schema": {
           "@context": "https://schema.org",
@@ -29687,7 +29752,7 @@
     },
     {
       "id": "32",
-      "updatedAt": "2026-05-21T08:08:20Z",
+      "updatedAt": "2026-05-22T07:46:29Z",
       "type": "producto",
       "slug": "panel-dibond-personalizado",
       "path": "/productos/panel-dibond-personalizado",
@@ -29877,7 +29942,18 @@
           "dibon"
         ],
         "searchTerms": [
-          "dibon"
+          "panel dibond personalizado",
+          "dibond impreso",
+          "panel composite aluminio",
+          "cartel dibond",
+          "placa dibond personalizada",
+          "impresión sobre dibond",
+          "panel dibond exterior",
+          "cartelería dibond",
+          "panel aluminio composite",
+          "dibond para rótulos",
+          "panel rígido premium",
+          "dibond Barcelona"
         ],
         "schema": {
           "@context": "https://schema.org",
@@ -30262,7 +30338,7 @@
     },
     {
       "id": "52",
-      "updatedAt": "2026-05-19T08:37:31Z",
+      "updatedAt": "2026-05-22T06:14:34Z",
       "type": "producto",
       "slug": "panel-forex",
       "path": "/productos/panel-forex",
@@ -30417,27 +30493,23 @@
           "kind": "applications",
           "contentFormat": "json",
           "applicationsData": {
-            "intro": "Aplicaciones habituales del panel de Forex en señalética, retail, eventos, oficinas y comunicación visual.",
+            "intro": "Aplicaciones habituales para comunicación visual, señalización y piezas rígidas de interior o exterior protegido.",
             "applications": [
               {
                 "title": "Señalética interior",
-                "description": "Direcciones, normativa, zonas, pictogramas, información corporativa y señalización funcional."
+                "description": "Paneles ligeros para indicar zonas, recorridos, normas o información corporativa."
               },
               {
                 "title": "Retail y punto de venta",
-                "description": "Campañas, promociones, precios, corners, PLV y comunicación estable en tienda."
+                "description": "Cartelería rígida para promociones, precios, campañas o comunicación en tienda."
               },
               {
                 "title": "Ferias y eventos",
-                "description": "Paneles de stand, cartelería rígida, fondos, indicaciones y piezas fáciles de transportar."
+                "description": "Soporte ligero y fácil de manipular para stands, presentaciones y montajes temporales."
               },
               {
-                "title": "Oficinas y corporativo",
-                "description": "Recepción, salas, comunicación interna, branding, paneles informativos y soportes visuales."
-              },
-              {
-                "title": "Exposiciones y centros",
-                "description": "Paneles explicativos, soportes visuales, cartelería informativa y señalización para recorridos."
+                "title": "Decoración corporativa",
+                "description": "Piezas impresas para oficinas, salas, recepciones o espacios de marca."
               }
             ]
           }
@@ -31253,7 +31325,7 @@
     },
     {
       "id": "120",
-      "updatedAt": "2026-05-05T11:57:21Z",
+      "updatedAt": "2026-05-22T07:46:53Z",
       "type": "producto",
       "slug": "panel-ultraligero",
       "path": "/productos/panel-ultraligero",
@@ -31372,7 +31444,20 @@
           }
         ],
         "keywords": [],
-        "searchTerms": [],
+        "searchTerms": [
+          "panel ultraligero",
+          "panel rígido ultraligero",
+          "panel impreso ligero",
+          "soporte rígido ligero",
+          "panel para eventos",
+          "panel para ferias",
+          "panel ligero personalizado",
+          "panel publicitario ligero",
+          "cartel rígido ligero",
+          "panel de gran formato ligero",
+          "panel para exposición",
+          "panel ultraligero impreso"
+        ],
         "schema": {
           "@context": "https://schema.org",
           "@graph": [
@@ -32420,7 +32505,7 @@
     },
     {
       "id": "78",
-      "updatedAt": "2026-05-21T07:50:18Z",
+      "updatedAt": "2026-05-22T08:06:53Z",
       "type": "producto",
       "slug": "pegatinas-personalizadas",
       "path": "/productos/pegatinas-personalizadas",
@@ -32628,7 +32713,36 @@
         "height": 1200,
         "alt": "Pegatinas personalizadas en papel o vinilo para packaging, promociones y marca"
       },
-      "galleryImages": [],
+      "galleryImages": [
+        {
+          "src": "https://webcms.blob.core.windows.net/media/product/adhesivos/pegatinas-individuales.webp",
+          "width": 1200,
+          "height": 1200,
+          "alt": "Pegatinas personalizadas individuales para packaging, promociones y marca",
+          "caption": "Pegatinas individuales personalizadas"
+        },
+        {
+          "src": "https://webcms.blob.core.windows.net/media/product/adhesivos/hojas-pegatinas.webp",
+          "width": 1200,
+          "height": 1200,
+          "alt": "Hojas con pegatinas personalizadas impresas para packaging, regalos y promociones",
+          "caption": "Pegatinas presentadas en hoja"
+        },
+        {
+          "src": "https://webcms.blob.core.windows.net/media/product/adhesivos/etiquetas-bobina.webp",
+          "width": 1200,
+          "height": 1200,
+          "alt": "Etiquetas adhesivas en bobina para producto, packaging y etiquetado profesional",
+          "caption": "Etiquetas adhesivas para producción y packaging"
+        },
+        {
+          "src": "https://webcms.blob.core.windows.net/media/product/adhesivos/doming.webp",
+          "width": 1200,
+          "height": 1200,
+          "alt": "Etiquetas doming personalizadas con volumen para acabados premium de marca",
+          "caption": "Acabado doming para adhesivos premium"
+        }
+      ],
       "sku": "01-ADHE-0001",
       "brand": "Reprodisseny",
       "price": 0,
@@ -37143,7 +37257,7 @@
     },
     {
       "id": "96",
-      "updatedAt": "2026-05-20T07:12:14Z",
+      "updatedAt": "2026-05-22T06:15:22Z",
       "type": "producto",
       "slug": "tarjetas-pvc-personalizadas",
       "path": "/productos/tarjetas-pvc-personalizadas",
@@ -37156,7 +37270,7 @@
       "isPublished": true,
       "shortDescription": "Tarjetas de PVC personalizadas para fidelización, acceso y membresías. Resistentes, a todo color, con opciones de datos variables, QR/código de barras y acabados premium. Solicita presupuesto.",
       "description": "Tarjetas de PVC personalizadas para fidelización, acceso y membresías. Resistentes, a todo color, con opciones de datos variables, QR/código de barras y acabados premium. Solicita presupuesto.",
-      "bodyMd": "## Qué es una tarjeta de PVC y para qué se usa\n\nUna tarjeta de PVC es una tarjeta de plástico rígido, pensada para uso repetido y manipulación frecuente.\n\nSe utiliza como soporte de marca y herramienta operativa: tarjetas de socio, fidelización, acceso, identificación, tarjetas regalo o tarjetas promocionales que deben durar más que una tarjeta de cartulina.",
+      "bodyMd": "## Qué es una tarjeta de PVC y para qué se usa\n\nUna tarjeta de PVC personalizada es una tarjeta rígida de plástico, similar en formato a una tarjeta bancaria, pensada para identificación, fidelización, acceso, promociones o uso corporativo recurrente.\n\nAporta más resistencia y percepción de valor que una tarjeta de papel. Es adecuada cuando la pieza se manipula a menudo, debe durar más tiempo o forma parte de una experiencia de marca: club de clientes, tarjeta regalo, acceso a eventos, acreditación premium o tarjeta identificativa.\n\nTrabajamos el formato, la impresión y los acabados según el uso real, la durabilidad esperada y la imagen que debe transmitir la tarjeta.",
       "sections": [
         {
           "id": "details",
@@ -37164,7 +37278,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "## Qué es una tarjeta de PVC y para qué se usa\n\nUna tarjeta de PVC es una tarjeta de plástico rígido, pensada para uso repetido y manipulación frecuente.\n\nSe utiliza como soporte de marca y herramienta operativa: tarjetas de socio, fidelización, acceso, identificación, tarjetas regalo o tarjetas promocionales que deben durar más que una tarjeta de cartulina."
+          "body": "## Qué es una tarjeta de PVC y para qué se usa\n\nUna tarjeta de PVC personalizada es una tarjeta rígida de plástico, similar en formato a una tarjeta bancaria, pensada para identificación, fidelización, acceso, promociones o uso corporativo recurrente.\n\nAporta más resistencia y percepción de valor que una tarjeta de papel. Es adecuada cuando la pieza se manipula a menudo, debe durar más tiempo o forma parte de una experiencia de marca: club de clientes, tarjeta regalo, acceso a eventos, acreditación premium o tarjeta identificativa.\n\nTrabajamos el formato, la impresión y los acabados según el uso real, la durabilidad esperada y la imagen que debe transmitir la tarjeta."
         },
         {
           "id": "materials",
@@ -37176,12 +37290,16 @@
             "intro": "Material pensado para tarjetas rígidas, resistentes y adecuadas para uso repetido.",
             "materials": [
               {
-                "title": "PVC 660 micras",
-                "description": "Soporte rígido, resistente y adecuado para tarjetas de uso frecuente."
+                "title": "PVC blanco",
+                "description": "Base más habitual para tarjetas impresas con buena presencia y durabilidad."
               },
               {
-                "title": "Acabado plástico",
-                "description": "Pensado para manipulación continua y mayor durabilidad que una tarjeta de cartulina."
+                "title": "PVC con impresión a todo color",
+                "description": "Permite reproducir marca, imágenes, fondos y datos con acabado consistente."
+              },
+              {
+                "title": "Opciones especiales según proyecto",
+                "description": "Según necesidad, se puede estudiar perforación, numeración, QR o preparación para sistemas concretos."
               }
             ]
           }
@@ -37193,18 +37311,31 @@
           "kind": "formats",
           "contentFormat": "json",
           "formatsData": {
-            "intro": "Formato estándar tipo tarjeta, similar a tarjeta bancaria, y opciones a medida según proyecto.",
+            "intro": "Definimos el formato de la tarjeta según el uso, el sistema de identificación y el nivel de personalización necesario.",
             "shapes": [
               {
-                "title": "Formato estándar tipo tarjeta",
-                "description": "Formato estándar similar a una tarjeta bancaria, pensado para tarjetas de socio, fidelización, acceso, identificación, regalo o promoción."
+                "title": "Formato tipo tarjeta bancaria",
+                "description": "Formato compacto y reconocible, cómodo para cartera, control de acceso o fidelización."
               },
               {
-                "title": "Opciones a medida",
-                "description": "Opciones a medida según proyecto cuando la tarjeta necesita adaptarse a un uso, una campaña o una función concreta."
+                "title": "Formato a medida",
+                "description": "Medidas especiales cuando el proyecto necesita una tarjeta diferente, una credencial premium o una pieza promocional específica."
+              },
+              {
+                "title": "Impresión una o dos caras",
+                "description": "Permite combinar marca, datos, QR, numeración, instrucciones o información legal según necesidad."
               }
             ],
-            "deliveryFormats": []
+            "deliveryFormats": [
+              {
+                "title": "Tarjetas sueltas",
+                "description": "Entrega lista para reparto, venta o incorporación en packs."
+              },
+              {
+                "title": "Versiones por campaña",
+                "description": "Diseños distintos por promoción, nivel de cliente, equipo o uso interno."
+              }
+            ]
           }
         },
         {
@@ -37214,15 +37345,19 @@
           "kind": "finishes",
           "contentFormat": "json",
           "finishesData": {
-            "intro": "Opciones de acabado para mejorar la presencia de la tarjeta según estilo y uso.",
+            "intro": "Opciones de acabado para mejorar la presencia, proteger la tarjeta y adaptarla al uso previsto.",
             "finishes": [
               {
-                "title": "Acabado mate o brillo",
-                "description": "Opciones de acabado para mejorar la presencia según el estilo de la tarjeta y el uso previsto."
+                "title": "Acabado mate",
+                "description": "Aporta una presencia sobria y reduce reflejos."
               },
               {
-                "title": "Perforación funcional",
-                "description": "Posibilidad de incorporar perforación para colgar si se usa como tarjeta o credencial en eventos, según formato."
+                "title": "Acabado brillo",
+                "description": "Refuerza el color y genera una apariencia más llamativa."
+              },
+              {
+                "title": "Numeración, QR o datos variables",
+                "description": "Útil para identificar cada tarjeta, medir campañas o vincularla a una base de datos."
               }
             ]
           }
@@ -37233,7 +37368,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "## Formato\n\nFormato estándar tipo tarjeta, similar a tarjeta bancaria, y opciones a medida según proyecto.\n\n## Impresión\n\nImpresión a todo color a una o dos caras.\n\nDiseño con buena legibilidad para datos, iconos y marca.\n\n## Personalización y control\n\n- Numeración correlativa por series o unidades.\n- Datos variables: nombre, ID, sede, nivel de socio, etc.\n- QR o código de barras para validación, canje, accesos o lectura con app o TPV.\n- Opciones de diferenciación por colores: categorías, niveles o roles.\n\n## Acabados según necesidad\n\n- Opciones de acabado para mejorar la presencia, mate o brillo, según estilo y uso.\n- Posibilidad de incorporar elementos funcionales, por ejemplo perforación para colgar si se usa como tarjeta o credencial en eventos, según formato."
+          "body": "## Especificaciones técnicas\n\n### Formato\n- Formato estándar tipo tarjeta o medidas a medida según proyecto.\n- Impresión a una o dos caras.\n- Posibilidad de preparar versiones por campaña, usuario, nivel o equipo.\n\n### Personalización\n- Logotipo, fondo, textos, QR, códigos o numeración.\n- Datos fijos o variables según necesidad.\n- Revisión previa de legibilidad y márgenes.\n\n### Acabados\n- Mate o brillo según estilo de marca.\n- Opciones funcionales bajo consulta: perforación, numeración o preparación específica.\n\n### Para presupuestar\n- Cantidad.\n- Medida/formato.\n- Una o dos caras.\n- Si hay datos variables, QR o numeración.\n- Fecha de entrega."
         },
         {
           "id": "applications",
@@ -37242,27 +37377,23 @@
           "kind": "applications",
           "contentFormat": "json",
           "applicationsData": {
-            "intro": "Aplicaciones habituales para tarjetas de PVC en fidelización, acceso, identificación, regalo, membresías y promociones.",
+            "intro": "Aplicaciones habituales para identificación, fidelización, acceso y comunicación duradera.",
             "applications": [
               {
-                "title": "Fidelización",
-                "description": "Tarjetas de puntos, club, descuentos y programas de cliente frecuente."
+                "title": "Tarjetas de fidelización",
+                "description": "Soporte resistente para programas de cliente, promociones y acciones recurrentes."
               },
               {
-                "title": "Acceso e identificación",
-                "description": "Tarjetas para staff, socios, invitados VIP y uso interno."
+                "title": "Identificación",
+                "description": "Tarjetas para empleados, socios, alumnos, asistentes o acreditaciones."
               },
               {
-                "title": "Tarjetas regalo",
-                "description": "Tarjetas regalo para retail, estética, hostelería y servicios."
+                "title": "Control de acceso",
+                "description": "Tarjetas duraderas para gimnasios, oficinas, eventos, clubs o instalaciones."
               },
               {
-                "title": "Membresías",
-                "description": "Tarjetas para gimnasios, centros, asociaciones y academias."
-              },
-              {
-                "title": "Promociones",
-                "description": "Tarjetas con código o QR para canje y campañas medibles."
+                "title": "Regalo o tarjeta premium",
+                "description": "Formato más resistente y profesional para tarjetas regalo, membresías o campañas especiales."
               }
             ]
           }
@@ -37322,7 +37453,32 @@
       "inStock": true,
       "ratingValue": 0,
       "reviewCount": 0,
-      "attributes": [],
+      "attributes": [
+        {
+          "key": "pvc-r-gido",
+          "label": "PVC rígido",
+          "placement": "hero-pills",
+          "tone": "brand"
+        },
+        {
+          "key": "uso-repetido",
+          "label": "Uso repetido",
+          "placement": "hero-pills",
+          "tone": "brand"
+        },
+        {
+          "key": "qr-o-numeraci-n",
+          "label": "QR o numeración",
+          "placement": "hero-pills",
+          "tone": "brand"
+        },
+        {
+          "key": "una-o-dos-caras",
+          "label": "Una o dos caras",
+          "placement": "hero-pills",
+          "tone": "brand"
+        }
+      ],
       "variants": [],
       "formFields": [
         {
@@ -39845,7 +40001,7 @@
     },
     {
       "id": "116",
-      "updatedAt": "2026-05-05T11:58:20Z",
+      "updatedAt": "2026-05-22T08:16:33Z",
       "type": "producto",
       "slug": "vinilo-de-corte",
       "path": "/productos/vinilo-de-corte",
@@ -39877,6 +40033,61 @@
           "body": "Acabado “sin fondo”: letras y logos limpios, integrados en el cristal o pared. \nImagen muy profesional: ideal para rotulación corporativa y señalética elegante. \nAlta durabilidad: buena resistencia para interior y exterior (según vinilo). \nAplicación versátil: cristal, paredes lisas, puertas, metal, mobiliario, etc. \nPersonalización total: tamaños, tipografías, formas, colores y composiciones por zonas."
         },
         {
+          "id": "materials",
+          "key": "materials",
+          "title": "Materiales",
+          "kind": "materials",
+          "contentFormat": "json",
+          "materialsData": {
+            "materials": [
+              {
+                "title": "Tipos de adhesivo",
+                "description": "Permanente: para rotulación estable y larga duración. Removible: recomendado para campañas temporales o cuando prevés retirar el vinilo."
+              },
+              {
+                "title": "Superficies recomendadas",
+                "description": "Cristal, metal, melamina, paredes lisas y otras superficies planas. En paredes con textura o pintura porosa, el agarre puede variar (mejor valorar alternativa o prueba)."
+              },
+              {
+                "title": "Colores",
+                "description": "Amplia gama de colores (según carta disponible)."
+              }
+            ]
+          }
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "kind": "formats",
+          "contentFormat": "json",
+          "formatsData": {
+            "shapes": [
+              {
+                "title": "Corte y detalle",
+                "description": "Corte preciso para letras, logos y formas. Recomendación práctica: en tipografías muy finas o tamaños muy pequeños, conviene ajustar el diseño para asegurar un corte limpio y una aplicación cómoda."
+              },
+              {
+                "title": "Aplicación",
+                "description": "Se entrega con transportador (cinta) para colocar el diseño alineado y sin deformaciones."
+              },
+              {
+                "title": "Piezas por zonas",
+                "description": "Posibilidad de preparar piezas por zonas (por ejemplo, logo + horarios + iconos) para facilitar el montaje."
+              }
+            ],
+            "deliveryFormats": []
+          }
+        },
+        {
+          "id": "finishes",
+          "key": "finishes",
+          "title": "Acabados",
+          "kind": "finishes",
+          "contentFormat": "markdown",
+          "body": "{\n  \"intro\": \"\",\n  \"finishes\": [\n    {\n      \"title\": \"Acabados habituales\",\n      \"description\": \"Mate (muy elegante y con menos reflejos) o brillo (más llamativo).\"\n    },\n    {\n      \"title\": \"Opciones especiales\",\n      \"description\": \"Opciones especiales según necesidad (por ejemplo, metalizados o colores corporativos aproximados).\"\n    },\n    {\n      \"title\": \"Acabado “sin fondo”\",\n      \"description\": \"Letras y logos limpios, integrados en el cristal o pared.\"\n    }\n  ]\n}"
+        },
+        {
           "id": "technical-specs",
           "key": "technical-specs",
           "title": "Características técnicas",
@@ -39890,7 +40101,7 @@
           "title": "Aplicaciones",
           "kind": "applications",
           "contentFormat": "markdown",
-          "body": "Escaparates: horarios, logo, redes, promociones “limpias” sin tapar el interior. \nOficinas: nombres de salas, señalización, vinilo al ácido combinado con corte, branding. \nRetail: rotulación de marca, rebajas, campañas estacionales con textos y formas. \nSeñalética interior: flechas, pictogramas, normas y zonas (recepción, baños, salidas). \nExterior: rótulos en cristal/puertas y elementos de identificación (según material)."
+          "body": "{\n  \"intro\": \"\",\n  \"applications\": [\n    {\n      \"title\": \"Escaparates\",\n      \"description\": \"horarios, logo, redes, promociones “limpias” sin tapar el interior.\"\n    },\n    {\n      \"title\": \"Oficinas\",\n      \"description\": \"nombres de salas, señalización, vinilo al ácido combinado con corte, branding.\"\n    },\n    {\n      \"title\": \"Retail\",\n      \"description\": \"rotulación de marca, rebajas, campañas estacionales con textos y formas.\"\n    },\n    {\n      \"title\": \"Señalética interior\",\n      \"description\": \"flechas, pictogramas, normas y zonas (recepción, baños, salidas).\"\n    },\n    {\n      \"title\": \"Exterior\",\n      \"description\": \"rótulos en cristal/puertas y elementos de identificación (según material).\"\n    }\n  ]\n}"
         }
       ],
       "faqs": [
@@ -39968,7 +40179,20 @@
           }
         ],
         "keywords": [],
-        "searchTerms": [],
+        "searchTerms": [
+          "vinilo de corte",
+          "vinilo corte personalizado",
+          "vinilos de corte para escaparates",
+          "vinilo de corte para cristales",
+          "rotulación con vinilo de corte",
+          "vinilo adhesivo recortado",
+          "vinilo sin fondo",
+          "letras vinilo adhesivo",
+          "vinilo de corte para paredes",
+          "vinilo de corte para negocios",
+          "vinilo de corte Barcelona",
+          "rotulación escaparates vinilo"
+        ],
         "schema": {
           "@context": "https://schema.org",
           "@graph": [
@@ -40352,7 +40576,7 @@
     },
     {
       "id": "119",
-      "updatedAt": "2026-05-05T15:48:17Z",
+      "updatedAt": "2026-05-22T07:47:08Z",
       "type": "producto",
       "slug": "vinilo-pizarra",
       "path": "/productos/vinilo-pizarra",
@@ -40475,7 +40699,20 @@
           }
         ],
         "keywords": [],
-        "searchTerms": [],
+        "searchTerms": [
+          "vinilo pizarra",
+          "vinilo pizarra personalizado",
+          "pizarra adhesiva",
+          "vinilo escribible",
+          "vinilo para escribir con tiza",
+          "vinilo pizarra para pared",
+          "pizarra adhesiva para negocios",
+          "vinilo pizarra para restaurantes",
+          "pizarra adhesiva para tiendas",
+          "vinilo pizarra a medida",
+          "vinilo de pizarra para oficina",
+          "pizarra vinílica personalizada"
+        ],
         "schema": {
           "@context": "https://schema.org",
           "@graph": [
@@ -40810,7 +41047,7 @@
     },
     {
       "id": "118",
-      "updatedAt": "2026-05-05T15:49:25Z",
+      "updatedAt": "2026-05-22T08:17:47Z",
       "type": "producto",
       "slug": "vinilo-vehiculos-personalizado",
       "path": "/productos/vinilo-vehiculos-personalizado",
@@ -40842,6 +41079,61 @@
           "body": "Publicidad 24/7: tu marca se ve mientras el vehículo circula o está aparcado. \nImagen profesional: uniformidad en la flota y mejor percepción de empresa. \nSolución flexible: desde textos y logos hasta rotulación parcial o integral. \nResistencia exterior: materiales y acabados pensados para intemperie y lavados. \nPersonalización total: medidas, diseño, zonas, variantes por vehículo o delegación."
         },
         {
+          "id": "materials",
+          "key": "materials",
+          "title": "Materiales",
+          "kind": "materials",
+          "contentFormat": "markdown",
+          "body": "\"intro\": \"\",\n  \"materials\": [\n    {\n      \"title\": \"Vinilo de corte\",\n      \"description\": \"Textos y logos sin fondo (acabado muy limpio).\"\n    },\n    {\n      \"title\": \"Vinilo impreso\",\n      \"description\": \"Permite fotos, degradados y creatividades completas.\"\n    },\n    {\n      \"title\": \"Adaptación a la carrocería\",\n      \"description\": \"Materiales con buena conformidad para ajustarse a curvas y zonas complejas (según el tipo de rotulación).\"\n    },\n    {\n      \"title\": \"Adhesivo\",\n      \"description\": \"Opciones permanentes para rotulación estable. Opciones removibles para campañas temporales (según material y tiempo de uso).\"\n    }\n  ]\n}"
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "kind": "formats",
+          "contentFormat": "json",
+          "formatsData": {
+            "shapes": [
+              {
+                "title": "Rotulación parcial o integral",
+                "description": "Desde puertas y laterales hasta grandes superficies."
+              },
+              {
+                "title": "Planificación por piezas",
+                "description": "Planificación por piezas para encajar bien en puertas, laterales, capó o trasera."
+              },
+              {
+                "title": "Packs por vehículo",
+                "description": "Posibilidad de preparar packs por vehículo (izquierda/derecha/trasera) para instalación más rápida."
+              }
+            ],
+            "deliveryFormats": []
+          }
+        },
+        {
+          "id": "finishes",
+          "key": "finishes",
+          "title": "Acabados",
+          "kind": "finishes",
+          "contentFormat": "json",
+          "finishesData": {
+            "finishes": [
+              {
+                "title": "Laminado protector recomendado para exterior",
+                "description": "Protege frente a UV, arañazos, lluvia y lavados."
+              },
+              {
+                "title": "Acabado mate o brillo",
+                "description": "Mate reduce reflejos; brillo realza color."
+              },
+              {
+                "title": "Corte y acabados",
+                "description": "Corte recto por piezas o corte a medida al contorno."
+              }
+            ]
+          }
+        },
+        {
           "id": "technical-specs",
           "key": "technical-specs",
           "title": "Características técnicas",
@@ -40854,8 +41146,31 @@
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "Rotulación corporativa: logo, web, teléfono, servicios y claim. \nFlotas comerciales: furgonetas, turismos, camiones y vehículos de reparto. \nCampañas temporales: promociones estacionales, lanzamientos, eventos. \nServicios técnicos: identificación rápida (zonas, equipos, numeración, horarios). \nVehículos de eventos: apoyo a campañas, roadshows y activaciones de marca."
+          "contentFormat": "json",
+          "applicationsData": {
+            "applications": [
+              {
+                "title": "Rotulación corporativa",
+                "description": "logo, web, teléfono, servicios y claim."
+              },
+              {
+                "title": "Flotas comerciales",
+                "description": "furgonetas, turismos, camiones y vehículos de reparto."
+              },
+              {
+                "title": "Campañas temporales",
+                "description": "promociones estacionales, lanzamientos, eventos."
+              },
+              {
+                "title": "Servicios técnicos",
+                "description": "identificación rápida (zonas, equipos, numeración, horarios)."
+              },
+              {
+                "title": "Vehículos de eventos",
+                "description": "apoyo a campañas, roadshows y activaciones de marca."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
@@ -40933,7 +41248,20 @@
           }
         ],
         "keywords": [],
-        "searchTerms": [],
+        "searchTerms": [
+          "vinilo para vehículos",
+          "rotulación de vehículos",
+          "vinilo vehículo personalizado",
+          "rotulación furgonetas",
+          "vinilos para coches de empresa",
+          "vinilo adhesivo para coche",
+          "rotulación parcial vehículo",
+          "rotulación comercial vehículos",
+          "vinilo para furgoneta",
+          "decoración vehículos empresa",
+          "vinilos coche empresa",
+          "rotulación vehículos Barcelona"
+        ],
         "schema": {
           "@context": "https://schema.org",
           "@graph": [

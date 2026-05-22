@@ -12,8 +12,9 @@ import ContentDetailsTabPanel from "@/components/marketing/content/ContentDetail
 import ContentCardsSection from "@/components/marketing/content/ContentCardsSection.vue";
 import ContentFinishesSection from "@/components/marketing/content/ContentFinishesSection.vue";
 import ContentFormatsSection from "@/components/marketing/content/ContentFormatsSection.vue";
+import ContentMaterialsSection from "@/components/marketing/content/ContentMaterialsSection.vue";
 import ContentApplicationsSection from "@/components/marketing/content/ContentApplicationsSection.vue";
-
+import ContentTechnicalSpecsSection from "@/components/marketing/content/ContentTechnicalSpecsSection.vue";
 import { useResolvedContentSection } from "~/composables/content/useResolvedContentSection";
 
 type RichTypeSourceItem = {
@@ -112,9 +113,13 @@ const isTypesSection = computed(() => matchesSection("types"));
 
 const isFormatsSection = computed(() => matchesSection("formats"));
 
+const isMaterialsSection = computed(() => matchesSection("materials"));
+
 const isFinishesSection = computed(() => matchesSection("finishes"));
 
 const isApplicationsSection = computed(() => matchesSection("applications"));
+
+
 
 function normalizeText(value: unknown) {
   return String(value ?? "").trim();
@@ -160,7 +165,7 @@ const typeItems = computed<RichTypeItem[]>(() => {
 <template>
   <div class="grid gap-8">
     <div class="min-w-0">
-      <ContentDetailsSection
+      <ContentTechnicalSpecsSection
         v-if="isTechnicalSpecsSection"
         :section="props.section"
         :show-header="shouldShowDetailsHeader"
@@ -190,6 +195,15 @@ const typeItems = computed<RichTypeItem[]>(() => {
         :title="title"
         :data="formatsData"
         :show-header="props.headerMode === 'default'"
+      />
+
+      <ContentMaterialsSection
+        v-else-if="isMaterialsSection"
+        :section="props.section"
+        :section-id="props.section.id"
+        :title="title"
+        :intro="intro"
+        :items="simpleGridItems"
       />
 
       <ContentFinishesSection

@@ -55,7 +55,13 @@
    * Reduce padding en móvil para evitar formularios estrechos.
    */
   .product-lead-card {
-    @apply overflow-hidden rounded-2xl border border-border/70 bg-card shadow-[0_14px_36px_-26px_hsl(var(--foreground)/0.16)] sm:rounded-[28px] xl:flex xl:h-[min(860px,calc(100dvh-7rem))] xl:flex-col;
+    @apply overflow-hidden rounded-2xl border border-border/70 bg-card shadow-[0_14px_36px_-26px_hsl(var(--foreground)/0.16)] sm:rounded-[28px] xl:flex xl:flex-col;
+  }
+
+  @screen xl {
+    .product-lead-card {
+      height: min(860px, calc(100dvh - 7rem));
+    }
   }
 
   .product-lead-form {
@@ -71,57 +77,135 @@
 
   .product-form-defaults {
     @apply rounded-2xl border p-4 sm:p-5;
-    background: linear-gradient(
-      180deg,
-      hsl(var(--accent) / 0.95) 0%,
-      hsl(var(--background)) 100%
-    );
+    background: linear-gradient(180deg,
+        hsl(var(--accent) / 0.95) 0%,
+        hsl(var(--background)) 100%);
     border-color: hsl(var(--primary) / 0.18);
     box-shadow: inset 0 1px 0 hsl(var(--primary) / 0.08);
   }
 
   .product-form-chip {
-    @apply inline-flex max-w-full items-center gap-1.5 rounded-full border px-3 py-1.5 text-body-s shadow-sm;
-    background: linear-gradient(
-      180deg,
-      hsl(var(--background)) 0%,
-      hsl(var(--accent) / 0.75) 100%
-    );
+    @apply inline-flex max-w-full items-center gap-2 rounded-full border px-3.5 py-2 text-body-s font-medium shadow-sm transition duration-200;
+    background: linear-gradient(180deg,
+        hsl(var(--card)) 0%,
+        hsl(var(--muted) / 0.34) 100%);
+    color: hsl(var(--foreground) / 0.78);
+    border-color: hsl(var(--border) / 0.88);
+    box-shadow:
+      0 12px 28px -24px hsl(var(--foreground) / 0.28),
+      inset 0 1px 0 hsl(var(--brand-white) / 0.82);
+  }
+
+  .product-form-chip:hover {
     color: hsl(var(--foreground));
-    border-color: hsl(var(--primary) / 0.18);
+    border-color: hsl(var(--foreground) / 0.16);
+    background: linear-gradient(180deg,
+        hsl(var(--background)) 0%,
+        hsl(var(--muted) / 0.42) 100%);
+    box-shadow:
+      0 16px 34px -24px hsl(var(--foreground) / 0.36),
+      inset 0 1px 0 hsl(var(--brand-white) / 0.88);
+    transform: translateY(-1px);
   }
 
   .product-form-chip-label {
-    color: hsl(var(--primary));
-    font-weight: 700;
+    color: hsl(var(--foreground) / 0.84);
+    font-weight: 600;
   }
-   .product-attribute-list {
-    @apply mt-5 flex flex-wrap items-center gap-2.5;
+
+  .product-attribute-list {
+    @apply mt-5 flex max-w-xl flex-wrap items-center gap-2.5;
   }
 
   .product-attribute-chip {
-    @apply inline-flex min-h-10 max-w-full items-center gap-2 rounded-full border px-3.5 py-2 text-label shadow-sm;
+    @apply relative inline-flex min-h-10 max-w-full items-center gap-2 overflow-hidden rounded-full border px-3.5 py-2 text-label font-medium transition duration-200;
+
     background:
       linear-gradient(
         180deg,
-        hsl(var(--card)) 0%,
-        hsl(var(--accent) / 0.62) 100%
+        hsl(var(--brand-white)) 0%,
+        hsl(var(--brand-bg-2) / 0.46) 100%
       );
-    color: hsl(var(--foreground) / 0.78);
-    border-color: hsl(var(--primary) / 0.16);
+
+    color: hsl(var(--foreground) / 0.82);
+    border-color: hsl(var(--foreground) / 0.12);
+
     box-shadow:
-      0 12px 28px -24px hsl(var(--foreground) / 0.32),
-      inset 0 1px 0 hsl(var(--brand-white) / 0.72);
+      0 10px 24px -20px hsl(var(--foreground) / 0.42),
+      0 1px 2px hsl(var(--foreground) / 0.06),
+      inset 0 1px 0 hsl(var(--brand-white) / 0.95);
+  }
+
+  .product-attribute-chip::before {
+    content: "";
+    @apply size-1.5 shrink-0 rounded-full;
+    background: hsl(var(--brand-yellow) / 0.95);
+    box-shadow:
+      0 0 0 3px hsl(var(--brand-yellow) / 0.16),
+      0 1px 2px hsl(var(--foreground) / 0.12);
+  }
+
+  .product-attribute-chip:has(.product-attribute-chip__icon)::before {
+    display: none;
+  }
+
+  .product-attribute-chip::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    background:
+      linear-gradient(
+        90deg,
+        transparent 0%,
+        hsl(var(--brand-white) / 0.62) 44%,
+        transparent 72%
+      );
+    opacity: 0;
+    transform: translateX(-38%);
+    transition:
+      opacity 180ms ease,
+      transform 240ms ease;
+  }
+
+  .product-attribute-chip:hover {
+    color: hsl(var(--foreground));
+    border-color: hsl(var(--foreground) / 0.20);
+
+    background:
+      linear-gradient(
+        180deg,
+        hsl(var(--brand-white)) 0%,
+        hsl(var(--brand-bg-2) / 0.62) 100%
+      );
+
+    box-shadow:
+      0 16px 36px -24px hsl(var(--foreground) / 0.46),
+      0 2px 5px hsl(var(--foreground) / 0.08),
+      inset 0 1px 0 hsl(var(--brand-white) / 1);
+
+    transform: translateY(-1px);
+  }
+
+  .product-attribute-chip:hover::after {
+    opacity: 1;
+    transform: translateX(34%);
   }
 
   .product-attribute-chip__icon {
     @apply size-4 shrink-0;
-    color: hsl(var(--primary));
+    color: hsl(var(--foreground) / 0.56);
+  }
+
+  .product-attribute-chip:hover .product-attribute-chip__icon {
+    color: hsl(var(--foreground) / 0.76);
   }
 
   .product-attribute-chip__label {
     @apply truncate;
   }
+
   .product-form-scroll-shell {
     @apply relative min-h-0 flex-1;
   }
@@ -268,13 +352,11 @@
   .section-divider {
     height: 1px;
     width: 100%;
-    background: linear-gradient(
-      90deg,
-      hsl(var(--primary) / 0) 0%,
-      hsl(var(--primary) / 0.18) 14%,
-      hsl(var(--border)) 44%,
-      hsl(var(--border)) 100%
-    );
+    background: linear-gradient(90deg,
+        hsl(var(--primary) / 0) 0%,
+        hsl(var(--primary) / 0.18) 14%,
+        hsl(var(--border)) 44%,
+        hsl(var(--border)) 100%);
   }
 
   .section-divider--center {
@@ -282,12 +364,10 @@
   }
 
   .section-divider--inverse {
-    background: linear-gradient(
-      90deg,
-      hsl(var(--primary-foreground) / 0) 0%,
-      hsl(var(--primary-foreground) / 0.26) 14%,
-      hsl(var(--primary-foreground) / 0.12) 100%
-    );
+    background: linear-gradient(90deg,
+        hsl(var(--primary-foreground) / 0) 0%,
+        hsl(var(--primary-foreground) / 0.26) 14%,
+        hsl(var(--primary-foreground) / 0.12) 100%);
   }
 
   .section-intro-surface {
@@ -302,16 +382,14 @@
     height: 10rem;
     border-radius: 9999px;
     pointer-events: none;
-    background: radial-gradient(
-      circle,
-      hsl(var(--primary) / 0.08) 0%,
-      hsl(var(--primary) / 0.03) 35%,
-      transparent 72%
-    );
+    background: radial-gradient(circle,
+        hsl(var(--primary) / 0.08) 0%,
+        hsl(var(--primary) / 0.03) 35%,
+        transparent 72%);
     filter: blur(8px);
   }
 
-   /* =========================================================
+  /* =========================================================
    PRODUCT TABS / RICH TEXT
    Contenido editorial renderizado desde Markdown en fichas.
    ========================================================= */
@@ -321,11 +399,11 @@
     line-height: 1.75;
   }
 
-  .product-tab-richtext > :first-child {
+  .product-tab-richtext> :first-child {
     margin-top: 0;
   }
 
-  .product-tab-richtext > :last-child {
+  .product-tab-richtext> :last-child {
     margin-bottom: 0;
   }
 
@@ -377,16 +455,11 @@
     line-height: 1.75;
   }
 
-  /*
-   * Listas HTML normales dentro de richtext.
-   * Se excluyen las listas renderizadas manualmente por ContentDetailsSection.vue
-   * para evitar doble bullet.
-   */
-  .product-tab-richtext ul:not(.product-tab-list) > li {
+  .product-tab-richtext ul:not(.product-tab-list)>li {
     padding-left: 1.35rem;
   }
 
-  .product-tab-richtext ul:not(.product-tab-list) > li::before {
+  .product-tab-richtext ul:not(.product-tab-list)>li::before {
     content: "";
     position: absolute;
     left: 0;
@@ -398,12 +471,12 @@
     opacity: 0.72;
   }
 
-  .product-tab-richtext ol:not(.product-tab-list) > li {
+  .product-tab-richtext ol:not(.product-tab-list)>li {
     counter-increment: product-tab-counter;
     padding-left: 2rem;
   }
 
-  .product-tab-richtext ol:not(.product-tab-list) > li::before {
+  .product-tab-richtext ol:not(.product-tab-list)>li::before {
     content: counter(product-tab-counter);
     position: absolute;
     left: 0;
@@ -421,26 +494,22 @@
     font-weight: 700;
   }
 
-  /*
-   * Listas renderizadas manualmente por ContentDetailsSection.vue.
-   * El bullet/number lo pinta el propio componente, no el CSS global.
-   */
   .product-tab-richtext .product-tab-list {
     @apply list-none pl-0;
     margin-left: 0;
   }
 
-  .product-tab-richtext .product-tab-list > .product-tab-list__item {
+  .product-tab-richtext .product-tab-list>.product-tab-list__item {
     @apply list-none p-0;
     margin-left: 0;
   }
 
-  .product-tab-richtext .product-tab-list > .product-tab-list__item::before {
+  .product-tab-richtext .product-tab-list>.product-tab-list__item::before {
     content: none;
     display: none;
   }
 
-  .product-tab-richtext .product-tab-list > .product-tab-list__item::marker {
+  .product-tab-richtext .product-tab-list>.product-tab-list__item::marker {
     content: "";
   }
 
@@ -452,16 +521,6 @@
     margin-bottom: 0;
   }
 
-  /**
-   * Variante para características técnicas.
-   * Sirve para que líneas como:
-   *
-   * Formato de hoja
-   *
-   * - Punto técnico
-   *
-   * se vean como subtítulos, aunque no lleven ### en Markdown.
-   */
   .product-tab-richtext--technical p:has(+ ul),
   .product-tab-richtext--technical p:has(+ ol) {
     @apply text-foreground;
@@ -473,36 +532,10 @@
     letter-spacing: -0.01em;
   }
 
-  .product-tab-richtext--technical > p:first-child:has(+ ul),
-  .product-tab-richtext--technical > p:first-child:has(+ ol) {
+  .product-tab-richtext--technical>p:first-child:has(+ ul),
+  .product-tab-richtext--technical>p:first-child:has(+ ol) {
     margin-top: 0;
   }
-
-/**
- * Variante para características técnicas.
- * Sirve para que líneas como:
- *
- * Formato de hoja
- *
- * - Punto técnico
- *
- * se vean como subtítulos, aunque no lleven ### en Markdown.
- */
-.product-tab-richtext--technical p:has(+ ul),
-.product-tab-richtext--technical p:has(+ ol) {
-  @apply text-foreground;
-  margin-top: 1.75rem;
-  margin-bottom: 0.85rem;
-  font-size: var(--font-h4);
-  line-height: var(--line-h4);
-  font-weight: 600;
-  letter-spacing: -0.01em;
-}
-
-.product-tab-richtext--technical > p:first-child:has(+ ul),
-.product-tab-richtext--technical > p:first-child:has(+ ol) {
-  margin-top: 0;
-}
 
   @media (max-width: 767px) {
     .section-intro-surface::before {
@@ -523,73 +556,58 @@
       "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
 
     /* Headings */
-     --font-h1: 32px;
-  --line-h1: 1.15;
-  --weight-h1: 600;
+    --font-h1: 32px;
+    --line-h1: 1.15;
+    --weight-h1: 600;
 
-  --font-h2: 28px;
-  --line-h2: 1.2;
-  --weight-h2: 600;
+    --font-h2: 28px;
+    --line-h2: 1.2;
+    --weight-h2: 600;
 
-  --font-h3: 22px;
-  --line-h3: 1.25;
-  --weight-h3: 600;
+    --font-h3: 22px;
+    --line-h3: 1.25;
+    --weight-h3: 600;
 
-  --font-h4: 18px;
-  --line-h4: 1.3;
-  --weight-h4: 500;
+    --font-h4: 18px;
+    --line-h4: 1.3;
+    --weight-h4: 500;
 
     /* Body */
     --font-body: 16px;
     --line-body: 1.5;
-    /* 150% */
     --weight-body: 400;
     --weight-body-bold: 700;
 
     /* Body small */
     --font-body-s: 14px;
     --line-body-s: 1.4;
-    /* 140% */
     --weight-body-s: 400;
     --weight-body-s-bold: 700;
 
     /* Labels */
     --font-label: 13px;
     --line-label: 1.4;
-    /* 140% */
     --weight-label: 500;
-    /* Medium */
 
     --font-label-s: 12px;
     --line-label-s: 1.35;
-    /* 135% */
     --weight-label-s: 400;
 
     /* =========================
        BRAND COLORS (paleta diseñador) - HSL
        ========================= */
     --brand-base: 201 100% 35%;
-    /* #0076B3 */
     --brand-base-dark: 201 100% 24%;
-    /* #004F78 */
     --brand-base-light: 201 100% 93%;
-    /* #DEF4FF */
     --brand-bg-2: 42 74% 92%;
-    /* #FAF0DA */
-    --brand-yellow: 42 100% 58%; /* #FFBD2B */
+    --brand-yellow: 42 100% 58%;
     --brand-white: 0 0% 100%;
-    /* #FFFFFF */
     --brand-ink-light: 0 0% 94%;
-    /* #EFEFEF */
     --brand-ink-medium: 0 0% 58%;
-    /* #959595 */
     --brand-ink-dark: 0 0% 13%;
-    /* #212121 */
 
     --brand-success: 101 100% 42%;
-    /* #44D400 */
     --brand-error: 7 100% 60%;
-    /* #FF4D35 */
 
     /* =========================
        LEGACY ALIASES (para tu CSS actual)
@@ -639,7 +657,7 @@
 
     --radius: 0.5rem;
 
-    /* Sidebar (lo dejamos como estaba por ahora) */
+    /* Sidebar */
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
@@ -650,7 +668,7 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
-  /* Dark mode: mantenemos la marca y ajustamos superficies/texto */
+  /* Dark mode */
   .dark {
     --background: var(--brand-ink-dark);
     --foreground: var(--brand-white);
@@ -662,7 +680,6 @@
     --popover-foreground: var(--brand-white);
 
     --primary: var(--brand-base);
-    /* la marca NO cambia */
     --primary-foreground: var(--brand-white);
 
     --secondary: 0 0% 18%;
@@ -778,6 +795,4 @@
     line-height: var(--line-label-s);
     font-weight: var(--weight-label-s);
   }
-
-  /* Nota: mantenemos comentados estilos genéricos de inputs si usas Shadcn <Input> */
 }

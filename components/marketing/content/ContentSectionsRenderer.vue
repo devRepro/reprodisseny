@@ -4,7 +4,9 @@ import type {
   CategoryDetailSectionItem,
   ProductDetailSectionItem,
 } from "~/server/services/cms/catalog.service";
-
+import type {
+  SectionInput,
+} from "~/types/contentSections";
 import ContentTabs from "@/components/marketing/content/ContentTabs.vue";
 import ContentSectionsPanel from "@/components/marketing/content/ContentSectionsPanel.vue";
 
@@ -267,7 +269,6 @@ const sectionsById = computed(() =>
 );
 
 function getPanelDetailsMedia(sectionId: string) {
-  if (props.variant !== "category") return null;
   if (sectionId !== "details") return null;
 
   return props.detailsMedia;

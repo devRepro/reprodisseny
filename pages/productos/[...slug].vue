@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import type { ProductDetailDto } from "~/server/services/cms/catalog.service";
+import type { DetailsMediaItem } from "~/types/contentSections";
 
 import SiteBreadcrumbs from "@/components/shared/SiteBreadcrumbs.vue";
 import ProductHero from "@/components/marketing/product/Hero.vue";
@@ -146,6 +147,32 @@ const galleryImages = computed<GalleryImage[]>(() =>
   )
 );
 
+const detailsMedia = computed<DetailsMediaItem | null>(() => {
+  const current = product.value;
+  if (!current) return null;
+
+  const primaryImage = current.image?.src
+    ? current.image
+    : galleryImages.value[0];
+
+  if (!primaryImage?.src) return null;
+
+  return {
+    image: {
+      src: primaryImage.src,
+      alt:
+        primaryImage.alt ||
+        current.title ||
+        "Imagen del producto",
+      caption:
+        primaryImage.caption ||
+        current.title ||
+        undefined,
+    },
+    pills: [],
+  };
+});
+
 const faqs = computed(() =>
   Array.isArray(product.value?.faqs) ? product.value.faqs.filter(Boolean) : []
 );
@@ -162,8 +189,8 @@ const heroProduct = computed(() => {
   const extraFields = Array.isArray((current as any).extraFields)
     ? (current as any).extraFields
     : Array.isArray(current.formFields)
-    ? current.formFields
-    : [];
+      ? current.formFields
+      : [];
 
   return {
     slug: current.slug,
@@ -175,14 +202,14 @@ const heroProduct = computed(() => {
     imageSrc: current.image?.src || null,
     image: current.image
       ? {
-          src: current.image.src,
-          alt: current.image.alt,
-          width: current.image.width ?? null,
-          height: current.image.height ?? null,
-        }
+        src: current.image.src,
+        alt: current.image.alt,
+        width: current.image.width ?? null,
+        height: current.image.height ?? null,
+      }
       : null,
     galleryImages: galleryImages.value,
-     attributes: Array.isArray(current.attributes) ? current.attributes : [],
+    attributes: Array.isArray(current.attributes) ? current.attributes : [],
     formFields: Array.isArray(current.formFields) ? current.formFields : [],
     extraFields,
     categorySlug: current.category?.slug || "",
@@ -217,10 +244,10 @@ const hreflangLinks = computed(
         };
       })
       .filter(Boolean) as Array<{
-      rel: "alternate";
-      hreflang: string;
-      href: string;
-    }>
+        rel: "alternate";
+        hreflang: string;
+        href: string;
+      }>
 );
 
 const ogImageUrl = computed(() => {
@@ -236,12 +263,12 @@ useHead(() => ({
   link: [{ rel: "canonical", href: canonicalUrl.value }, ...hreflangLinks.value],
   script: schemaJson.value
     ? [
-        {
-          key: "product-jsonld",
-          type: "application/ld+json",
-          children: schemaJson.value,
-        },
-      ]
+      {
+        key: "product-jsonld",
+        type: "application/ld+json",
+        children: schemaJson.value,
+      },
+    ]
     : [],
 }));
 
@@ -285,9 +312,7 @@ useSeoMeta({
 <template>
   <main class="min-h-screen bg-background">
     <div v-if="pending" class="container-content py-16 md:py-20">
-      <div
-        class="flex min-h-[30vh] items-center justify-center rounded-[28px] border border-border/70 bg-card/70"
-      >
+      <div class="flex min-h-[30vh] items-center justify-center rounded-[28px] border border-border/70 bg-card/70">
         <div class="animate-pulse text-body text-muted-foreground">
           Cargando detalles del producto...
         </div>
@@ -305,39 +330,22 @@ useSeoMeta({
             <ProductHero :product="heroProduct" :category="category" />
           </section>
 
-          <ContentSectionShell
-            v-if="hasSections"
-            id="informacion-producto"
-            theme="muted"
-            eyebrow="Información del producto"
-            title="Detalles, beneficios y opciones"
-            description="Consulta la información clave de este producto en un formato claro y fácil de revisar."
-          >
-            <ContentSectionsRenderer
-  :sections="sections"
-  variant="product"
-/>
+          <ContentSectionShell v-if="hasSections" id="informacion-producto" theme="muted"
+            eyebrow="Información del producto" title="Detalles, beneficios y opciones"
+            description="Consulta la información clave de este producto en un formato claro y fácil de revisar.">
+            <ContentSectionsRenderer :sections="sections" variant="product" :details-media="detailsMedia" />
           </ContentSectionShell>
 
-          <ContentSectionShell
-            v-if="hasFaqs"
-            eyebrow="Ayuda y dudas comunes"
-            title="Preguntas frecuentes"
-            description="Resolvemos las consultas más habituales sobre materiales, medidas, acabados, preparación y entrega."
-          >
+          <ContentSectionShell v-if="hasFaqs" eyebrow="Ayuda y dudas comunes" title="Preguntas frecuentes"
+            description="Resolvemos las consultas más habituales sobre materiales, medidas, acabados, preparación y entrega.">
             <FaqAccordion :items="faqs" />
           </ContentSectionShell>
 
           <section aria-label="Guía de preparación de archivos">
-            <GuideBanner
-              title="¿No estás seguro de las medidas?"
+            <GuideBanner title="¿No estás seguro de las medidas?"
               :cta="{ label: 'Consultar guía', to: '/como-preparar-archivos' }"
-              image-base-path="/img/ui/banners/como-preparar-archivos"
-              image-name="archivos_banner"
-              :height="240"
-              :full-bleed="true"
-              :rounded="false"
-            />
+              image-base-path="/img/ui/banners/como-preparar-archivos" image-name="archivos_banner" :height="240"
+              :full-bleed="true" :rounded="false" />
           </section>
         </div>
       </div>
