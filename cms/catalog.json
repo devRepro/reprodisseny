@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-22T10:55:21.381Z",
+  "generatedAt": "2026-05-25T20:24:39.575Z",
   "categories": [
     {
       "id": "12",
@@ -1262,7 +1262,7 @@
     },
     {
       "id": "2",
-      "updatedAt": "2026-05-20T11:53:50Z",
+      "updatedAt": "2026-05-25T20:19:59Z",
       "type": "categoria",
       "slug": "adhesivos-personalizados",
       "path": "/categorias/adhesivos-personalizados",
@@ -1431,28 +1431,8 @@
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "json",
-          "applicationsData": {
-            "intro": "Los adhesivos personalizados se adaptan a usos comerciales, promocionales, corporativos y de señalización, desde etiquetas de producto hasta vinilos para escaparates o materiales de marca.",
-            "applications": [
-              {
-                "title": "Etiquetas para cosmética, alimentación, bebidas y ecommerce",
-                "description": "Solución práctica para identificar productos, reforzar la marca y cuidar la presentación en packaging, envases y pedidos online."
-              },
-              {
-                "title": "Stickers para eventos, promociones y street marketing",
-                "description": "Ideales para acciones de visibilidad, reparto, campañas temporales, regalos de marca y materiales promocionales."
-              },
-              {
-                "title": "Vinilos para escaparates, paredes y señalización",
-                "description": "Pensados para comunicar promociones, decorar espacios, señalizar zonas o reforzar la identidad visual en tiendas, oficinas y espacios comerciales."
-              },
-              {
-                "title": "Identificación de paquetes, cajas, carpetas y material corporativo",
-                "description": "Útiles para organizar materiales, personalizar documentación, etiquetar envíos y mantener una imagen de marca coherente."
-              }
-            ]
-          }
+          "contentFormat": "markdown",
+          "body": "El material impreso para hostelería y restauración debe ayudar a informar, ordenar la experiencia del cliente y reforzar la imagen del establecimiento en cada punto de contacto.\n\n- **Hoteles y alojamientos:** información de habitación, wifi, horarios, servicios, códigos QR, señal de “no molestar” y comunicación de promociones o servicios.\n- **Restaurantes y bares:** cartas claras y resistentes, menús del día, sugerencias, promociones en mesa o barra y piezas para servicio diario.\n- **Experiencia del cliente:** materiales coherentes que aportan orden, calidad percibida y continuidad visual entre recepción, sala, habitación y evento.\n- **Ventas y upselling:** tabletents, colgadores de botellas, portacuentas y piezas de mesa para destacar recomendaciones, promociones o servicios adicionales.\n- **Eventos:** minutas, señalización de mesa y piezas impresas para una presentación cuidada y una organización más clara del servicio."
         }
       ],
       "image": {
@@ -3353,7 +3333,7 @@
     },
     {
       "id": "6",
-      "updatedAt": "2026-05-20T13:28:57Z",
+      "updatedAt": "2026-05-25T20:24:25Z",
       "type": "categoria",
       "slug": "hosteleria-restauracion",
       "path": "/categorias/hosteleria-restauracion",
@@ -3480,7 +3460,7 @@
           "title": "Aplicaciones",
           "kind": "applications",
           "contentFormat": "markdown",
-          "body": "{\n  \"intro\": \"\",\n  \"applications\": [\n    {\n      \"title\": \"Hoteles y alojamientos\",\n      \"description\": \"información de habitación (wifi, horarios, servicios, QR), señal de “no molestar”, comunicación de promociones y servicios.\"\n    },\n    {\n      \"title\": \"Restaurantes y bares\",\n      \"description\": \"cartas claras y resistentes, comunicación de menús del día, sugerencias y campañas en mesa/barra.\"\n    },\n    {\n      \"title\": \"Mejorar la experiencia del cliente\",\n      \"description\": \"coherencia visual y sensación de orden y calidad en cada punto de contacto.\"\n    },\n    {\n      \"title\": \"Ventas y upselling\",\n      \"description\": \"tabletents y colgadores de botellas para destacar recomendaciones y promociones.\"\n    },\n    {\n      \"title\": \"Eventos\",\n      \"description\": \"minutas de boda para presentación cuidada y organización del servicio.\"\n    }\n  ]\n}"
+          "body": "El material impreso para hostelería y restauración debe ayudar a informar, ordenar la experiencia del cliente y reforzar la imagen del establecimiento en cada punto de contacto.\n\n- **Hoteles y alojamientos:** información de habitación, wifi, horarios, servicios, códigos QR, señal de “no molestar” y comunicación de promociones o servicios.\n- **Restaurantes y bares:** cartas claras y resistentes, menús del día, sugerencias, promociones en mesa o barra y piezas para servicio diario.\n- **Experiencia del cliente:** materiales coherentes que aportan orden, calidad percibida y continuidad visual entre recepción, sala, habitación y evento.\n- **Ventas y upselling:** tabletents, colgadores de botellas, portacuentas y piezas de mesa para destacar recomendaciones, promociones o servicios adicionales.\n- **Eventos:** minutas, señalización de mesa y piezas impresas para una presentación cuidada y una organización más clara del servicio."
         }
       ],
       "image": {
@@ -3944,7 +3924,7 @@
   "products": [
     {
       "id": "157",
-      "updatedAt": "2026-05-13T05:51:59Z",
+      "updatedAt": "2026-05-25T20:18:27Z",
       "type": "producto",
       "slug": "colgador-puerta-personalizado",
       "path": "/productos/colgador-puerta-personalizado",
@@ -3968,33 +3948,63 @@
           "body": "### ¿Qué es un colgador de puerta y para qué se usa?\n\nUn colgador de puerta es una tarjeta troquelada que se cuelga en el pomo para comunicar mensajes como “No molestar”, “Hacer la habitación”, “Por favor, pasar más tarde” o avisos de servicio como lavandería, room service o mantenimiento.\n\nSe utiliza para mejorar la experiencia del huésped y facilitar la coordinación entre recepción, housekeeping y mantenimiento."
         },
         {
-          "id": "benefits",
-          "key": "benefits",
-          "title": "Beneficios",
-          "kind": "benefits",
+          "id": "materials",
+          "key": "materials",
+          "title": "Materiales",
+          "kind": "materials",
           "contentFormat": "json",
-          "benefitsData": {
-            "intro": "Los colgadores de puerta ayudan a mejorar la comunicación con el huésped, ordenar la operativa interna y reforzar la imagen del alojamiento.",
-            "benefits": [
+          "materialsData": {
+            "materials": [
               {
-                "title": "Mejora la experiencia del huésped",
-                "description": "Permite una comunicación clara sin interrupciones durante la estancia."
+                "title": "Cartulinas de buen gramaje",
+                "description": "Para conseguir una sensación más sólida y una mejor durabilidad."
               },
               {
-                "title": "Optimiza la operativa de limpieza",
-                "description": "Ayuda a reducir incidencias, organizar prioridades y coordinar mejor el trabajo de housekeeping."
+                "title": "Material más resistente",
+                "description": "Opción de material más resistente si habrá mucha rotación, manipulación o uso continuado."
+              }
+            ]
+          }
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "kind": "formats",
+          "contentFormat": "json",
+          "formatsData": {
+            "shapes": [
+              {
+                "title": "Troquel específico para colgar en pomo",
+                "description": "Con ventana o corte adaptado al uso real."
               },
               {
-                "title": "Imagen de marca cuidada",
-                "description": "Refuerza la coherencia visual del alojamiento en todos los detalles de comunicación."
+                "title": "Formas personalizadas",
+                "description": "Posibilidad de formas personalizadas, redondeos, siluetas o iconos si buscas un acabado diferencial."
+              }
+            ],
+            "deliveryFormats": []
+          }
+        },
+        {
+          "id": "finishes",
+          "key": "finishes",
+          "title": "Acabados",
+          "kind": "finishes",
+          "contentFormat": "json",
+          "finishesData": {
+            "finishes": [
+              {
+                "title": "Plastificado o laminado mate/brillo",
+                "description": "Para mejorar la resistencia al roce y facilitar la limpieza."
               },
               {
-                "title": "Durabilidad",
-                "description": "Puede fabricarse con materiales y acabados pensados para un uso repetido."
+                "title": "Acabado mate",
+                "description": "El acabado mate suele ser el más cómodo de leer y reduce reflejos."
               },
               {
-                "title": "Más servicios con menos fricción",
-                "description": "Permite añadir códigos QR para solicitar amenities, late check-out, room service, incidencias o contacto con recepción."
+                "title": "Esquinas redondeadas",
+                "description": "Mejoran la durabilidad y evitan que los bordes se deterioren con facilidad."
               }
             ]
           }
@@ -4005,7 +4015,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "### Formato y troquel\n\n- Troquel específico para colgar en pomo, con ventana o corte adaptado al uso real.\n- Posibilidad de formas personalizadas, redondeos, siluetas o iconos si buscas un acabado diferencial.\n\n### Material\n\n- Cartulinas de buen gramaje para conseguir una sensación más sólida y una mejor durabilidad.\n- Opción de material más resistente si habrá mucha rotación, manipulación o uso continuado.\n\n### Impresión\n\n- Impresión a todo color o con diseños más sobrios y corporativos.\n- Normalmente se producen a dos caras, por ejemplo: “No molestar” por un lado y “Hacer la habitación” por el otro.\n- Posibilidad de preparar versiones por idioma si el alojamiento lo necesita.\n\n### Acabados recomendados\n\n- Plastificado o laminado mate/brillo para mejorar la resistencia al roce y facilitar la limpieza.\n- Recomendación práctica: el acabado mate suele ser el más cómodo de leer y reduce reflejos.\n- Esquinas redondeadas para mejorar la durabilidad y evitar que los bordes se deterioren con facilidad.\n\n### Extras útiles\n\n- Código QR a WhatsApp, recepción, solicitud de amenities, incidencias, guía del hotel o encuesta.\n- Iconografía clara para facilitar la lectura rápida, especialmente en tareas de housekeeping."
+          "body": "### Impresión\n\n- Impresión a todo color o con diseños más sobrios y corporativos.\n- Normalmente se producen a dos caras, por ejemplo: “No molestar” por un lado y “Hacer la habitación” por el otro.\n- Posibilidad de preparar versiones por idioma si el alojamiento lo necesita.\n\n### Extras útiles\n\n- Código QR a WhatsApp, recepción, solicitud de amenities, incidencias, guía del hotel o encuesta.\n- Iconografía clara para facilitar la lectura rápida, especialmente en tareas de housekeeping."
         },
         {
           "id": "applications",
@@ -4013,7 +4023,7 @@
           "title": "Aplicaciones",
           "kind": "applications",
           "contentFormat": "markdown",
-          "body": "{\n  \"intro\": \"Los colgadores de puerta son especialmente útiles en alojamientos, resorts, apartamentos turísticos y eventos donde es necesario comunicar instrucciones de forma rápida y visible.\",\n  \"applications\": [\n    {\n      \"title\": \"Hoteles, hostales y apartamentos turísticos\",\n      \"description\": \"Para mensajes como “No molestar”, “Limpieza”, “Cambio de toallas” o instrucciones para housekeeping.\"\n    },\n    {\n      \"title\": \"Resorts\",\n      \"description\": \"Para controlar servicios por horarios, zonas o tipos de estancia.\"\n    },\n    {\n      \"title\": \"Alojamientos con enfoque sostenible\",\n      \"description\": \"Para comunicar mensajes de reutilización de toallas, ahorro energético o reducción de consumos.\"\n    },\n    {\n      \"title\": \"Eventos y grupos\",\n      \"description\": \"Para indicar instrucciones específicas por estancia, fecha, habitación o grupo.\"\n    }\n  ]\n}"
+          "body": "Los colgadores de puerta son especialmente útiles en alojamientos, resorts, apartamentos turísticos y eventos donde es necesario comunicar instrucciones de forma rápida y visible.\n\n- **Hoteles, hostales y apartamentos turísticos:** mensajes como “No molestar”, “Limpieza”, “Cambio de toallas” o instrucciones para housekeeping.\n- **Resorts:** control de servicios por horarios, zonas o tipos de estancia.\n- **Alojamientos con enfoque sostenible:** mensajes de reutilización de toallas, ahorro energético o reducción de consumos.\n- **Eventos y grupos:** instrucciones específicas por estancia, fecha, habitación o grupo."
         }
       ],
       "faqs": [
@@ -4063,7 +4073,38 @@
       "price": 0,
       "priceCurrency": "EUR",
       "inStock": false,
-      "attributes": [],
+      "attributes": [
+        {
+          "key": "mejora-la-experiencia-del-huesped",
+          "label": "Mejora la experiencia del huésped",
+          "value": "Permite una comunicación clara sin interrupciones durante la estancia.",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "optimiza-la-operativa-de-limpieza",
+          "label": "Optimiza la operativa de limpieza",
+          "value": "Ayuda a reducir incidencias, organizar prioridades y coordinar mejor el trabajo de housekeeping.",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "imagen-de-marca-cuidada",
+          "label": "Imagen de marca cuidada",
+          "value": "Refuerza la coherencia visual del alojamiento en todos los detalles de comunicación.",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "durabilidad",
+          "label": "Durabilidad",
+          "value": "Puede fabricarse con materiales y acabados pensados para un uso repetido.",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "mas-servicios-con-menos-friccion",
+          "label": "Más servicios con menos fricción",
+          "value": "Permite añadir códigos QR para solicitar amenities, late check-out, room service, incidencias o contacto con recepción.",
+          "placement": "hero-pills"
+        }
+      ],
       "variants": [],
       "formFields": [],
       "legacySlugs": [],
@@ -6282,7 +6323,7 @@
     },
     {
       "id": "7",
-      "updatedAt": "2026-05-05T15:00:15Z",
+      "updatedAt": "2026-05-25T20:15:37Z",
       "type": "producto",
       "slug": "banderola-lona-fachada",
       "path": "/productos/banderola-lona-fachada",
@@ -6295,7 +6336,7 @@
       "isPublished": true,
       "shortDescription": "La banderola de lona para fachada es una solución muy efectiva para ganar visibilidad en exterior: destaca desde lejos, refuerza la marca y señala tu ubicación de forma clara. En Repro Disseny imprimimos banderolas de lona a medida y las preparamos con los acabados de confección necesarios para que queden bien tensadas, resistentes y listas para instalar en fachada.",
       "description": "La banderola de lona para fachada es una solución muy efectiva para ganar visibilidad en exterior: destaca desde lejos, refuerza la marca y señala tu ubicación de forma clara. En Repro Disseny imprimimos banderolas de lona a medida y las preparamos con los acabados de confección necesarios para que queden bien tensadas, resistentes y listas para instalar en fachada.",
-      "bodyMd": "¿Qué es una banderola de lona para fachada y para qué se usa? \nUna banderola de lona de fachada es un soporte flexible impreso (en lona) pensado para colocarse en el exterior de un edificio, normalmente mediante brazos, barras o estructuras. Se utiliza para identificación de negocio, campañas de temporada, señalización de acceso o comunicación de marca en calles comerciales, polígonos y fachadas con paso de peatones o tráfico.",
+      "bodyMd": "### ¿Qué es una banderola de lona para fachada y para qué se usa?\n\nUna banderola de lona de fachada es un soporte flexible impreso en lona pensado para colocarse en el exterior de un edificio, normalmente mediante brazos, barras o estructuras.\n\nSe utiliza para identificación de negocio, campañas de temporada, señalización de acceso o comunicación de marca en calles comerciales, polígonos y fachadas con paso de peatones o tráfico.",
       "sections": [
         {
           "id": "details",
@@ -6303,15 +6344,67 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es una banderola de lona para fachada y para qué se usa? \nUna banderola de lona de fachada es un soporte flexible impreso (en lona) pensado para colocarse en el exterior de un edificio, normalmente mediante brazos, barras o estructuras. Se utiliza para identificación de negocio, campañas de temporada, señalización de acceso o comunicación de marca en calles comerciales, polígonos y fachadas con paso de peatones o tráfico."
+          "body": "### ¿Qué es una banderola de lona para fachada y para qué se usa?\n\nUna banderola de lona de fachada es un soporte flexible impreso en lona pensado para colocarse en el exterior de un edificio, normalmente mediante brazos, barras o estructuras.\n\nSe utiliza para identificación de negocio, campañas de temporada, señalización de acceso o comunicación de marca en calles comerciales, polígonos y fachadas con paso de peatones o tráfico."
         },
         {
-          "id": "benefits",
-          "key": "benefits",
-          "title": "Beneficios",
-          "kind": "benefits",
+          "id": "materials",
+          "key": "materials",
+          "title": "Materiales",
+          "kind": "materials",
           "contentFormat": "markdown",
-          "body": "Visibilidad a distancia: capta atención desde la calle y ayuda a localizar tu negocio. \nRefuerza branding: logo y mensajes siempre presentes en el exterior. \nResistente para intemperie: material y confección pensados para sol, lluvia y viento (según ubicación). \nA medida: tamaño y formato adaptados a tu fachada y al punto de instalación. \nInstalación versátil: se puede preparar con distintos acabados según estructura (vaina/ojales\refuerzo)."
+          "body": "La elección de la lona depende de la ubicación, la exposición al viento y el sistema real de instalación en fachada.\n\n- **Lona para exterior:** opción habitual para banderolas de fachada, con buena resistencia para campañas, identificación de negocio y comunicación exterior.\n- **Lona microperforada:** recomendable cuando hay viento o se necesita reducir el efecto “vela” en puntos expuestos.\n- **Material adaptado al soporte:** si ya existe una estructura, brazo o bastidor, ajustamos la preparación de la lona para que encaje correctamente."
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "kind": "formats",
+          "contentFormat": "json",
+          "formatsData": {
+            "intro": "Definimos el formato de la banderola según la fachada, la distancia de lectura y el sistema de brazos, barras o soporte existente.",
+            "shapes": [
+              {
+                "title": "Medidas a medida",
+                "description": "Producimos la banderola según el espacio disponible, la visibilidad necesaria y la proporción del diseño."
+              },
+              {
+                "title": "Formato vertical u horizontal",
+                "description": "Adaptamos la orientación a la fachada, al punto de instalación y al sentido de lectura desde la calle."
+              },
+              {
+                "title": "Una pieza o producción por paños",
+                "description": "Si la medida lo requiere, planteamos la producción en paños para facilitar manipulación, transporte e instalación."
+              }
+            ],
+            "deliveryFormats": []
+          }
+        },
+        {
+          "id": "finishes",
+          "key": "finishes",
+          "title": "Acabados",
+          "kind": "finishes",
+          "contentFormat": "json",
+          "finishesData": {
+            "finishes": [
+              {
+                "title": "Vaina",
+                "description": "Vaina superior, inferior o lateral para barra o brazo y mejor tensado."
+              },
+              {
+                "title": "Ojales",
+                "description": "Ojales para fijación adicional con bridas o cables si la estructura lo requiere."
+              },
+              {
+                "title": "Dobladillo y refuerzo perimetral",
+                "description": "Dobladillo y refuerzo perimetral para mejorar resistencia en bordes y puntos de tensión."
+              },
+              {
+                "title": "Preparación adaptada",
+                "description": "Preparación adaptada al sistema real de instalación: brazos, bastidor o anclajes."
+              }
+            ]
+          }
         },
         {
           "id": "technical-specs",
@@ -6319,15 +6412,38 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Formato y medidas \nMedidas estándar o totalmente a medida según fachada y distancia de lectura. \nFormato vertical u horizontal según ubicación y el sistema de brazos/soporte. \nTipo de lona (según exposición) \nLona para exterior con buena resistencia. \nOpción microperforada cuando hay viento o se requiere reducir el efecto “vela” (según punto de instalación). \nImpresión \nImpresión a todo color con buena definición para logos, tipografías e imágenes. \nRecomendación de diseño: mensajes cortos, alto contraste y lectura rápida (se ve en movimiento). \nConfección y acabados para fachada \nVaina (superior/inferior o lateral) para barra/brazo y mejor tensado. \nOjales para fijación adicional con bridas/cables si la estructura lo requiere. \nDobladillo y refuerzo perimetral para mejorar resistencia en bordes y puntos de tensión. \nPreparación adaptada al sistema real de instalación (brazos, bastidor, anclajes). \nDurabilidad\nDepende de ubicación y condiciones (orientación, sol, viento, lluvia). Si nos indicas el punto exacto, te proponemos la configuración más segura."
+          "body": "### Impresión\n\n- Impresión a todo color con buena definición para logos, tipografías e imágenes.\n- Recomendación de diseño: mensajes cortos, alto contraste y lectura rápida.\n\n### Durabilidad\n\nDepende de ubicación y condiciones: orientación, sol, viento y lluvia.\n\nSi nos indicas el punto exacto, te proponemos la configuración más segura."
         },
         {
           "id": "applications",
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "Fachadas de comercios y franquicias: identificación y campañas (rebajas, aperturas, temporada). \nOficinas y naves: señalización exterior, marca y orientación de acceso. \nCentros y servicios: academias, clínicas, gimnasios, centros educativos. \nEventos: banderolas temporales en recintos, accesos y perímetros de fachada. \nHostelería: hoteles, restaurantes y locales con paso de calle."
+          "contentFormat": "json",
+          "applicationsData": {
+            "applications": [
+              {
+                "title": "Fachadas de comercios y franquicias",
+                "description": "Identificación y campañas como rebajas, aperturas o temporada."
+              },
+              {
+                "title": "Oficinas y naves",
+                "description": "Señalización exterior, marca y orientación de acceso."
+              },
+              {
+                "title": "Centros y servicios",
+                "description": "Academias, clínicas, gimnasios y centros educativos."
+              },
+              {
+                "title": "Eventos",
+                "description": "Banderolas temporales en recintos, accesos y perímetros de fachada."
+              },
+              {
+                "title": "Hostelería",
+                "description": "Hoteles, restaurantes y locales con paso de calle."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
@@ -6384,7 +6500,33 @@
       "inStock": true,
       "ratingValue": 0,
       "reviewCount": 0,
-      "attributes": [],
+      "attributes": [
+        {
+          "key": "visibilidad-a-distancia",
+          "label": "Visibilidad a distancia",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "refuerza-branding",
+          "label": "Refuerza branding",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "resistente-intemperie",
+          "label": "Resistente para intemperie",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "a-medida",
+          "label": "A medida",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "instalacion-versatil",
+          "label": "Instalación versátil",
+          "placement": "hero-pills"
+        }
+      ],
       "variants": [],
       "formFields": [
         {
@@ -12069,7 +12211,7 @@
     },
     {
       "id": "16",
-      "updatedAt": "2026-05-15T15:45:47Z",
+      "updatedAt": "2026-05-25T18:48:01Z",
       "type": "producto",
       "slug": "carpetas-de-presentacion-personalizadas",
       "path": "/productos/carpetas-de-presentacion-personalizadas",
@@ -12082,7 +12224,7 @@
       "isPublished": true,
       "shortDescription": "Las carpetas de presentación son un básico cuando quieres entregar presupuestos, propuestas o documentación con una imagen cuidada y profesional. En Repro Disseny imprimimos carpetas corporativas personalizadas con diferentes formatos, solapas y acabados, para que tu marca destaque desde el primer momento y la documentación llegue ordenada.",
       "description": "Las carpetas de presentación son un básico cuando quieres entregar presupuestos, propuestas o documentación con una imagen cuidada y profesional. En Repro Disseny imprimimos carpetas corporativas personalizadas con diferentes formatos, solapas y acabados, para que tu marca destaque desde el primer momento y la documentación llegue ordenada.",
-      "bodyMd": "### ¿Qué es un cupón promocional y para qué se usa?\n\nUn cupón promocional es una pieza impresa (tipo tarjeta, vale o ticket) que da derecho a un beneficio: un descuento, una consumición, un regalo, un upgrade o una ventaja por participar. Puede incluir código, fecha de validez, condiciones básicas y elementos de control como numeración o QR/código de barras.\n\nEs especialmente útil cuando necesitas una acción medible: entregas el cupón, el usuario lo canjea y tú puedes controlar qué se ha utilizado, dónde y cuándo.",
+      "bodyMd": "### ¿Qué es una carpeta de presentación y para qué se usa?\n\nUna carpeta de presentación es una carpeta impresa, normalmente con solapas, diseñada para contener documentos A4, catálogos, contratos o dossieres.\n\nSe utiliza en visitas comerciales, ferias, entregas a clientes y presentaciones internas para reforzar la imagen de marca y mejorar la organización de la documentación.",
       "sections": [
         {
           "id": "details",
@@ -12090,15 +12232,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "### ¿Qué es un cupón promocional y para qué se usa?\n\nUn cupón promocional es una pieza impresa (tipo tarjeta, vale o ticket) que da derecho a un beneficio: un descuento, una consumición, un regalo, un upgrade o una ventaja por participar. Puede incluir código, fecha de validez, condiciones básicas y elementos de control como numeración o QR/código de barras.\n\nEs especialmente útil cuando necesitas una acción medible: entregas el cupón, el usuario lo canjea y tú puedes controlar qué se ha utilizado, dónde y cuándo."
-        },
-        {
-          "id": "benefits",
-          "key": "benefits",
-          "title": "Beneficios",
-          "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "{\"intro\":\"Ventajas principales para mejorar la experiencia, la visibilidad de marca y la operativa del evento.\",\"benefits\":[{\"title\":\"Acción inmediata y medible\",\"description\":\"El cupón convierte la atención en un paso claro (canjear, comprar, registrarse).\"},{\"title\":\"Control de canje\",\"description\":\"Con numeración o códigos únicos puedes validar premios/descuentos y evitar duplicidades.\"},{\"title\":\"Versátil para cualquier canal\",\"description\":\"Funciona en eventos, punto de venta, envíos, street marketing o como inserto en packaging.\"},{\"title\":\"Impulsa repetición y fidelización\",\"description\":\"Ideal para “vuelve y gana”, segunda compra, invitación a probar o incentivo post-evento.\"},{\"title\":\"Fácil de explicar\",\"description\":\"Una mecánica simple (presentar cupón / escanear QR) reduce fricción y aumenta conversiones.\"}]}"
+          "body": "### ¿Qué es una carpeta de presentación y para qué se usa?\n\nUna carpeta de presentación es una carpeta impresa, normalmente con solapas, diseñada para contener documentos A4, catálogos, contratos o dossieres.\n\nSe utiliza en visitas comerciales, ferias, entregas a clientes y presentaciones internas para reforzar la imagen de marca y mejorar la organización de la documentación."
         },
         {
           "id": "materials",
@@ -12107,19 +12241,18 @@
           "kind": "materials",
           "contentFormat": "json",
           "materialsData": {
-            "intro": "Elegimos el soporte del cupón según la forma de reparto, la duración de la promoción y el nivel de resistencia necesario durante el canje.",
             "materials": [
               {
-                "title": "Papel con buen cuerpo",
-                "description": "Opción práctica para campañas de volumen, reparto masivo o inserciones promocionales."
+                "title": "Cartulinas de alto gramaje",
+                "description": "Aportan rigidez y presencia a la carpeta."
               },
               {
-                "title": "Cartulina",
-                "description": "Aporta más presencia y resistencia cuando el cupón debe manipularse, guardarse o entregarse como vale."
+                "title": "Opciones mate",
+                "description": "Indicadas si buscas un acabado más premium."
               },
               {
-                "title": "Soporte resistente",
-                "description": "Recomendado para exterior, eventos de varios días o promociones con mayor manipulación."
+                "title": "Opciones con textura",
+                "description": "Indicadas si buscas un acabado más premium."
               }
             ]
           }
@@ -12131,35 +12264,29 @@
           "kind": "formats",
           "contentFormat": "json",
           "formatsData": {
-            "intro": "Definimos el formato del cupón según la mecánica de la promoción, la información necesaria y el sistema de control del canje.",
             "shapes": [
               {
-                "title": "Formato ticket",
-                "description": "Práctico para vales, consumiciones, sorteos, descuentos rápidos y promociones de gran volumen."
+                "title": "Carpeta para A4",
+                "description": "La opción más común, con opciones a medida según contenido."
               },
               {
-                "title": "A6 o DL",
-                "description": "Formatos compactos con más espacio para condiciones, QR, instrucciones o mensajes de campaña."
+                "title": "Con o sin lomo",
+                "description": "Recomendable con lomo si llevarás mucho papel o catálogos."
               },
               {
-                "title": "Formato a medida",
-                "description": "Permite adaptar tamaño, orientación y diseño a la mecánica promocional o al soporte de entrega."
+                "title": "Solapas interiores",
+                "description": "Solapas interiores para sujetar documentación."
+              },
+              {
+                "title": "Ranura para tarjeta",
+                "description": "Opción muy útil en visitas comerciales."
+              },
+              {
+                "title": "Cierres o sistemas especiales",
+                "description": "Posibilidad de cierres o sistemas especiales si lo requiere el proyecto."
               }
             ],
-            "deliveryFormats": [
-              {
-                "title": "Cupón simple",
-                "description": "Pieza individual para entregar, presentar y canjear de forma rápida."
-              },
-              {
-                "title": "Cupón con talón desprendible",
-                "description": "Útil para combinar canje, control interno, sorteo o resguardo en una misma pieza."
-              },
-              {
-                "title": "Series numeradas o con código",
-                "description": "Permiten controlar lotes, tiendas, días, zonas o tipos de premio/descuento."
-              }
-            ]
+            "deliveryFormats": []
           }
         },
         {
@@ -12169,23 +12296,26 @@
           "kind": "finishes",
           "contentFormat": "json",
           "finishesData": {
-            "intro": "Los acabados se eligen según la manipulación prevista, la seguridad del canje y la imagen final de la promoción.",
             "finishes": [
               {
-                "title": "Numeración correlativa",
-                "description": "Facilita el control de canje, la trazabilidad por lotes y la validación interna."
-              },
-              {
-                "title": "Códigos únicos o QR",
-                "description": "Permiten enlazar el cupón con una landing, formulario, condiciones o sistema de validación."
-              },
-              {
-                "title": "Perforado para talón",
-                "description": "Permite separar resguardo, cupón o matriz de forma limpia durante la acción."
+                "title": "Hendido profesional",
+                "description": "Permite un plegado limpio y resistente."
               },
               {
                 "title": "Laminado mate o brillo",
-                "description": "Aporta más resistencia y mejora la presencia cuando el cupón debe manipularse o conservarse."
+                "description": "Protege de roces y mejora la durabilidad. El mate suele ser más elegante."
+              },
+              {
+                "title": "Soft touch",
+                "description": "Aporta un tacto premium."
+              },
+              {
+                "title": "Barniz selectivo",
+                "description": "Resalta logo o detalles."
+              },
+              {
+                "title": "Stamping",
+                "description": "Metalizados ideales para un acabado corporativo premium."
               }
             ]
           }
@@ -12196,7 +12326,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "### Formatos y medidas\n- Tamaños estándar tipo ticket, A6, DL o tarjeta (o a medida según mecánica y cantidad de texto).\n\nImpresión a una o dos caras: el reverso es útil para condiciones, instrucciones o QR a bases completas.\n\n### Materiales recomendados\n- Cartulinas con buen cuerpo para una entrega cuidada y una manipulación cómoda.\n\nOpciones más resistentes si se van a repartir en exterior o en grandes cantidades.\n\n### Control y personalización\n- Numeración correlativa por series o lotes.\n\nCódigos únicos (alfanuméricos) para canje y validación.\n\nQR / código de barras para lectura rápida en móvil o TPV.\n\nDatos variables si necesitas versiones por tienda, zona, día, patrocinador o tipo de público.\n\n### Perforado y talones\n- Perforado para talón desprendible: muy útil cuando necesitas un control interno (guardar un talón, entregar otro) o combinar canje + sorteo.\n\nPosibilidad de incluir “cupón + resguardo” en la misma pieza.\n\n### Acabados y extras útiles\n- Acabado mate recomendado cuando habrá mucha luz o se van a fotografiar (reduce reflejos).\n\nLaminado mate o brillo si necesitas más resistencia al roce y una presencia más “premium”."
+          "body": "### Formatos habituales\n\n- Carpeta para A4, la opción más común.\n- Opciones a medida según contenido.\n- Con o sin lomo.\n\n### Estructura\n\n- Solapas interiores para sujetar documentación.\n- Hendido profesional para un plegado limpio y resistente.\n- Ranura para tarjeta opcional.\n- Posibilidad de cierres o sistemas especiales si lo requiere el proyecto.\n\n### Papeles y soportes\n\n- Cartulinas de alto gramaje para aportar rigidez y presencia.\n- Opciones mate o con textura si buscas un acabado más premium.\n\n### Impresión\n\n- Impresión a todo color a una o dos caras, según diseño.\n- Series por sede o departamento manteniendo coherencia visual.\n\n### Acabados recomendados\n\n- Laminado mate o brillo.\n- Soft touch.\n- Barniz selectivo.\n- Stamping metalizado."
         },
         {
           "id": "applications",
@@ -12205,27 +12335,26 @@
           "kind": "applications",
           "contentFormat": "json",
           "applicationsData": {
-            "intro": "Aplicaciones habituales en eventos, empresas, campañas y acciones promocionales.",
             "applications": [
               {
-                "title": "Ferias y congresos",
-                "description": "Cupones de descuento para captar leads (canje tras registro o visita al stand)."
+                "title": "Propuestas comerciales y presupuestos",
+                "description": "Para entregar documentación comercial con una imagen cuidada y profesional."
               },
               {
-                "title": "Eventos corporativos",
-                "description": "Vales para consumición, regalo, sorteo o dinámicas internas (gamificación)."
+                "title": "Contratos y documentación legal",
+                "description": "Para organizar y presentar documentación importante de forma ordenada."
               },
               {
-                "title": "Punto de venta",
-                "description": "Promociones ligadas a compra, cupones por ticket, campañas por tiendas o franjas horarias."
+                "title": "Ferias y visitas comerciales",
+                "description": "Para preparar carpeta, dossier y tarjeta en acciones comerciales."
               },
               {
-                "title": "Acciones de marca y street marketing",
-                "description": "Cupones con QR a landing, descarga o canje online."
+                "title": "Presentaciones corporativas",
+                "description": "Para memorias, catálogos, tarifas y documentación de empresa."
               },
               {
-                "title": "Hostelería en eventos",
-                "description": "Vales de bebida/comida, upgrades o packs especiales para asistentes."
+                "title": "Formación y documentación interna",
+                "description": "Para manuales, onboarding y procedimientos."
               }
             ]
           }
@@ -12234,19 +12363,19 @@
       "faqs": [
         {
           "question": "¿Con lomo o sin lomo?",
-          "answer": "Sin lomo para propuestas y documentación estándar. Con lomo si vas a incluir muchas hojas o un catálogo y quieres que la carpeta cierre bien."
+          "answer": "Sin lomo para propuestas y documentación estándar. Con lomo si vas a incluir muchas hojas o un catálogo y quieres que cierre bien."
         },
         {
-          "question": "¿Es recomendable el laminado?",
-          "answer": "Sí, especialmente si se va a manipular mucho en ferias, visitas o uso comercial. Aumenta la durabilidad y mejora la presencia del acabado."
+          "question": "¿Es recomendable laminado?",
+          "answer": "Sí, especialmente si se va a manipular mucho en ferias, visitas o uso comercial. Aumenta durabilidad y mejora presencia."
         },
         {
           "question": "¿Se puede incluir ranura para tarjeta?",
-          "answer": "Sí. Es una de las opciones más habituales en carpetas comerciales y de presentación."
+          "answer": "Sí, es una de las opciones más habituales para carpetas comerciales."
         },
         {
           "question": "¿Podéis hacer un pack completo de papelería corporativa?",
-          "answer": "Sí. Podemos preparar carpeta, papel de carta, sobres y tarjetas de visita con la misma línea gráfica corporativa."
+          "answer": "Sí: carpeta + papel de carta + sobres + tarjetas de visita, todo con la misma línea gráfica."
         }
       ],
       "breadcrumbs": [
@@ -12285,7 +12414,38 @@
       "inStock": true,
       "ratingValue": 0,
       "reviewCount": 0,
-      "attributes": [],
+      "attributes": [
+        {
+          "key": "calidad-percibida",
+          "label": "Mejora la calidad percibida",
+          "value": "Transmite profesionalidad y confianza en propuestas y entregas.",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "documentacion-ordenada",
+          "label": "Documentación ordenada",
+          "value": "Evita hojas sueltas y mejora la experiencia del cliente.",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "branding-coherente",
+          "label": "Branding coherente",
+          "value": "Alineada con tarjetas, papel de carta y sobres.",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "opciones-funcionales",
+          "label": "Opciones funcionales",
+          "value": "Solapas, lomo, ranura para tarjeta, cierres… según uso.",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "ventas-y-ferias",
+          "label": "Ideal para ventas y ferias",
+          "value": "Perfecta para entregar catálogos, tarifas o presentaciones.",
+          "placement": "hero-pills"
+        }
+      ],
       "variants": [],
       "formFields": [
         {
@@ -12372,7 +12532,18 @@
           }
         ],
         "keywords": [
-          "carpetas de presentación"
+          "carpetas de presentación personalizadas",
+          "carpetas corporativas",
+          "carpetas personalizadas para empresas",
+          "carpetas para documentación",
+          "carpetas con solapas",
+          "carpetas con lomo",
+          "carpetas con ranura para tarjeta",
+          "carpetas impresas personalizadas",
+          "carpetas para propuestas comerciales",
+          "carpetas para ferias",
+          "carpetas con laminado",
+          "carpetas con stamping"
         ],
         "searchTerms": [
           "carpetas de presentación"
@@ -12381,6 +12552,29 @@
           "@context": "https://schema.org",
           "@graph": [
             {
+              "0": "carpetas de presentación",
+              "1": "carpetas personalizadas",
+              "2": "carpetas corporativas",
+              "3": "carpetas empresa",
+              "4": "carpetas para documentos",
+              "5": "carpetas A4",
+              "6": "carpeta A4 personalizada",
+              "7": "carpetas con solapa",
+              "8": "carpetas con lomo",
+              "9": "carpetas sin lomo",
+              "10": "carpetas con ranura tarjeta",
+              "11": "carpetas para presupuestos",
+              "12": "carpetas para propuestas",
+              "13": "carpetas para contratos",
+              "14": "carpetas para ferias",
+              "15": "carpetas comerciales",
+              "16": "carpetas para visitas comerciales",
+              "17": "carpetas con laminado",
+              "18": "carpetas soft touch",
+              "19": "carpetas con barniz selectivo",
+              "20": "carpetas con stamping",
+              "21": "papelería corporativa",
+              "22": "pack papelería corporativa",
               "@type": "Product",
               "name": "Carpetas de presentación personalizadas",
               "description": "Carpetas de presentación personalizadas para propuestas y documentación. Con solapas, hendido, opción lomo y acabados premium (laminado, barniz, stamping). Solicita presupuesto.",
@@ -12435,15 +12629,15 @@
                   "name": "¿Con lomo o sin lomo?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sin lomo para propuestas y documentación estándar. Con lomo si vas a incluir muchas hojas o un catálogo y quieres que la carpeta cierre bien."
+                    "text": "Sin lomo para propuestas y documentación estándar. Con lomo si vas a incluir muchas hojas o un catálogo y quieres que cierre bien."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "¿Es recomendable el laminado?",
+                  "name": "¿Es recomendable laminado?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, especialmente si se va a manipular mucho en ferias, visitas o uso comercial. Aumenta la durabilidad y mejora la presencia del acabado."
+                    "text": "Sí, especialmente si se va a manipular mucho en ferias, visitas o uso comercial. Aumenta durabilidad y mejora presencia."
                   }
                 },
                 {
@@ -12451,7 +12645,7 @@
                   "name": "¿Se puede incluir ranura para tarjeta?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí. Es una de las opciones más habituales en carpetas comerciales y de presentación."
+                    "text": "Sí, es una de las opciones más habituales para carpetas comerciales."
                   }
                 },
                 {
@@ -12459,7 +12653,7 @@
                   "name": "¿Podéis hacer un pack completo de papelería corporativa?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí. Podemos preparar carpeta, papel de carta, sobres y tarjetas de visita con la misma línea gráfica corporativa."
+                    "text": "Sí: carpeta + papel de carta + sobres + tarjetas de visita, todo con la misma línea gráfica."
                   }
                 }
               ]
@@ -13247,7 +13441,7 @@
     },
     {
       "id": "20",
-      "updatedAt": "2026-05-05T11:39:21Z",
+      "updatedAt": "2026-05-25T18:33:38Z",
       "type": "producto",
       "slug": "carteles-personalizados-gran-formato",
       "path": "/productos/carteles-personalizados-gran-formato",
@@ -13260,7 +13454,7 @@
       "isPublished": true,
       "shortDescription": "Los carteles siguen siendo una de las formas más rápidas y efectivas de comunicar: informan, atraen y refuerzan tu marca en escaparates, paredes, ferias y espacios públicos. En Repro Disseny imprimimos cartelería personalizada en gran formato, con diferentes papeles y acabados para que el resultado se vea profesional y se adapte al uso (interior/exterior, campaña temporal o comunicación estable).",
       "description": "Los carteles siguen siendo una de las formas más rápidas y efectivas de comunicar: informan, atraen y refuerzan tu marca en escaparates, paredes, ferias y espacios públicos. En Repro Disseny imprimimos cartelería personalizada en gran formato, con diferentes papeles y acabados para que el resultado se vea profesional y se adapte al uso (interior/exterior, campaña temporal o comunicación estable).",
-      "bodyMd": "¿Qué es un cartel y para qué se usa? \nUn cartel es una pieza impresa diseñada para comunicar un mensaje a distancia: promoción, evento, lanzamiento, señalización o información. Puede colocarse en pared, escaparate, paneles, marcos o expositores y se utiliza tanto en retail como en eventos, hostelería, centros y entornos corporativos.",
+      "bodyMd": "### ¿Qué es un cartel y para qué se usa?\n\nUn cartel es una pieza impresa diseñada para comunicar un mensaje a distancia: promoción, evento, lanzamiento, señalización o información.\n\nPuede colocarse en pared, escaparate, paneles, marcos o expositores y se utiliza tanto en retail como en eventos, hostelería, centros y entornos corporativos.",
       "sections": [
         {
           "id": "details",
@@ -13268,15 +13462,77 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es un cartel y para qué se usa? \nUn cartel es una pieza impresa diseñada para comunicar un mensaje a distancia: promoción, evento, lanzamiento, señalización o información. Puede colocarse en pared, escaparate, paneles, marcos o expositores y se utiliza tanto en retail como en eventos, hostelería, centros y entornos corporativos."
+          "body": "### ¿Qué es un cartel y para qué se usa?\n\nUn cartel es una pieza impresa diseñada para comunicar un mensaje a distancia: promoción, evento, lanzamiento, señalización o información.\n\nPuede colocarse en pared, escaparate, paneles, marcos o expositores y se utiliza tanto en retail como en eventos, hostelería, centros y entornos corporativos."
         },
         {
-          "id": "benefits",
-          "key": "benefits",
-          "title": "Beneficios",
-          "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "Visibilidad inmediata: mensaje claro y legible para captar atención en segundos. \nVersátil y económico: ideal para campañas temporales, eventos o comunicación recurrente. \nImagen de marca consistente: mismo diseño para diferentes puntos y tamaños. \nFácil de colocar: en pared, cristal, panel, marco click o expositor. \nOpciones de acabado: mate/brillo y papeles según el entorno y la iluminación."
+          "id": "materials",
+          "key": "materials",
+          "title": "Materiales",
+          "kind": "materials",
+          "contentFormat": "json",
+          "materialsData": {
+            "materials": [
+              {
+                "title": "Papeles para interior",
+                "description": "Papeles para interior con buena reproducción de color y lectura."
+              },
+              {
+                "title": "Opciones mate",
+                "description": "Recomendadas cuando hay focos o reflejos, como en tiendas o escaparates interiores."
+              },
+              {
+                "title": "Opciones brillo",
+                "description": "Cuando buscas colores más vivos y un acabado más llamativo."
+              },
+              {
+                "title": "Alternativas para exterior o alta durabilidad",
+                "description": "Si el cartel es para exterior o alta durabilidad, suele interesar valorar alternativas como laminado, soportes específicos o soluciones de gran formato."
+              }
+            ]
+          }
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "kind": "formats",
+          "contentFormat": "json",
+          "formatsData": {
+            "shapes": [
+              {
+                "title": "Formatos habituales",
+                "description": "A4, A3, A2, A1, A0 y tamaños a medida."
+              },
+              {
+                "title": "Orientación vertical u horizontal",
+                "description": "Orientación vertical u horizontal según el diseño y el punto de colocación."
+              },
+              {
+                "title": "Preparación para marcos y expositores",
+                "description": "Ajuste exacto a formato, márgenes y sangrado."
+              }
+            ],
+            "deliveryFormats": []
+          }
+        },
+        {
+          "id": "finishes",
+          "key": "finishes",
+          "title": "Acabados",
+          "kind": "finishes",
+          "contentFormat": "json",
+          "finishesData": {
+            "finishes": [
+              {
+                "title": "Laminado mate o brillo",
+                "description": "Recomendado si habrá mucha manipulación o necesitas más resistencia."
+              },
+              {
+                "title": "Papeles según entorno e iluminación",
+                "description": "Opciones mate o brillo según el entorno y la iluminación."
+              }
+            ]
+          }
         },
         {
           "id": "technical-specs",
@@ -13284,15 +13540,38 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Formatos y medidas \nFormatos habituales: A4, A3, A2, A1, A0 y tamaños a medida. \nOrientación vertical u horizontal según el diseño y el punto de colocación. \nPapeles y soportes (según uso) \nPapeles para interior con buena reproducción de color y lectura. \nOpciones mate recomendadas cuando hay focos o reflejos (tiendas, escaparates interiores). \nOpciones brillo cuando buscas colores más vivos y un acabado más llamativo. \nSi el cartel es para exterior o alta durabilidad, suele interesar valorar alternativas (laminado, soportes específicos o soluciones de gran formato). \nImpresión \nImpresión a todo color con buena definición para tipografías, logos e imágenes. \nRecomendación de diseño: titular grande, contraste y jerarquía clara (un cartel se lee “en movimiento”). \nAcabados opcionales \nLaminado (mate o brillo) si habrá mucha manipulación o necesitas más resistencia. \nPreparación para marcos/expositores (ajuste exacto a formato, márgenes y sangrado)."
+          "body": "### Impresión\n\n- Impresión a todo color con buena definición para tipografías, logos e imágenes.\n- Recomendación de diseño: titular grande, contraste y jerarquía clara.\n\nUn cartel se lee en movimiento, por eso conviene priorizar mensajes claros y lectura rápida."
         },
         {
           "id": "applications",
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "Retail y escaparates: rebajas, lanzamientos, horarios, promociones estacionales. \nEventos: cartelería informativa, horarios, salas, señalización temporal. \nHostelería: menús especiales, eventos, promociones y comunicación en sala. \nCentros y entidades: campañas informativas, normativa, orientación al público. \nCorporativo: comunicación interna, señalización de salas, presentaciones."
+          "contentFormat": "json",
+          "applicationsData": {
+            "applications": [
+              {
+                "title": "Retail y escaparates",
+                "description": "Rebajas, lanzamientos, horarios y promociones estacionales."
+              },
+              {
+                "title": "Eventos",
+                "description": "Cartelería informativa, horarios, salas y señalización temporal."
+              },
+              {
+                "title": "Hostelería",
+                "description": "Menús especiales, eventos, promociones y comunicación en sala."
+              },
+              {
+                "title": "Centros y entidades",
+                "description": "Campañas informativas, normativa y orientación al público."
+              },
+              {
+                "title": "Corporativo",
+                "description": "Comunicación interna, señalización de salas y presentaciones."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
@@ -13349,7 +13628,33 @@
       "inStock": true,
       "ratingValue": 0,
       "reviewCount": 0,
-      "attributes": [],
+      "attributes": [
+        {
+          "key": "visibilidad-inmediata",
+          "label": "Visibilidad inmediata",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "versatil-economico",
+          "label": "Versátil y económico",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "imagen-marca-consistente",
+          "label": "Imagen de marca consistente",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "facil-de-colocar",
+          "label": "Fácil de colocar",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "opciones-de-acabado",
+          "label": "Opciones de acabado",
+          "placement": "hero-pills"
+        }
+      ],
       "variants": [],
       "formFields": [
         {
@@ -22185,7 +22490,7 @@
     },
     {
       "id": "49",
-      "updatedAt": "2026-05-20T07:32:01Z",
+      "updatedAt": "2026-05-25T20:17:31Z",
       "type": "producto",
       "slug": "flyers-personalizados",
       "path": "/productos/flyers-personalizados",
@@ -22320,7 +22625,7 @@
           "title": "Aplicaciones",
           "kind": "applications",
           "contentFormat": "markdown",
-          "body": "{\n  \"intro\": \"Aplicaciones habituales de los flyers personalizados en campañas locales, eventos, punto de venta, street marketing y packaging.\",\n  \"applications\": [\n    {\n      \"title\": \"Buzoneo y reparto\",\n      \"description\": \"Campañas locales para comercios, servicios, hostelería, academias, centros deportivos o negocios de proximidad.\"\n    },\n    {\n      \"title\": \"Eventos\",\n      \"description\": \"Invitaciones, programas breves, información de acceso, promociones en feria o comunicación para asistentes.\"\n    },\n    {\n      \"title\": \"Punto de venta\",\n      \"description\": \"Ofertas, lanzamientos de producto, descuentos por tiempo limitado, promociones en mostrador o acciones en tienda.\"\n    },\n    {\n      \"title\": \"Acciones de marca\",\n      \"description\": \"Street marketing, sampling, inauguraciones, openings, campañas de temporada y activaciones promocionales.\"\n    },\n    {\n      \"title\": \"Inserto en packaging\",\n      \"description\": \"Cupones, recomendaciones, instrucciones, mensajes de fidelización o tarjetas de “gracias por tu compra”.\"\n    }\n  ]\n}"
+          "body": "Los flyers personalizados funcionan especialmente bien en campañas locales, eventos, punto de venta, street marketing y acciones promocionales donde el mensaje debe entenderse rápido.\n\n- **Buzoneo y reparto:** campañas locales para comercios, servicios, hostelería, academias, centros deportivos o negocios de proximidad.\n- **Eventos:** invitaciones, programas breves, información de acceso, promociones en feria o comunicación para asistentes.\n- **Punto de venta:** ofertas, lanzamientos de producto, descuentos por tiempo limitado, promociones en mostrador o acciones en tienda.\n- **Acciones de marca:** presentación de servicios, novedades, campañas corporativas o comunicación comercial de apoyo.\n- **Packaging y envíos:** inserciones promocionales, cupones, instrucciones, QR o mensajes de fidelización dentro de pedidos."
         }
       ],
       "faqs": [
@@ -26970,7 +27275,7 @@
     },
     {
       "id": "63",
-      "updatedAt": "2026-05-22T07:46:07Z",
+      "updatedAt": "2026-05-25T20:13:30Z",
       "type": "producto",
       "slug": "lona-publicitaria",
       "path": "/productos/lona-publicitaria",
@@ -26983,7 +27288,7 @@
       "isPublished": true,
       "shortDescription": "La lona publicitaria es una de las soluciones más efectivas en gran formato: máxima visibilidad, instalación versátil y excelente relación impacto/precio. En Repro Disseny imprimimos lonas personalizadas para exterior e interior, con medidas a medida y acabados de confección (ojales, vaina, refuerzo) para que quede tensa, resistente y lista para colocar.",
       "description": "La lona publicitaria es una de las soluciones más efectivas en gran formato: máxima visibilidad, instalación versátil y excelente relación impacto/precio. En Repro Disseny imprimimos lonas personalizadas para exterior e interior, con medidas a medida y acabados de confección (ojales, vaina, refuerzo) para que quede tensa, resistente y lista para colocar.",
-      "bodyMd": "¿Qué es una lona publicitaria y para qué se usa? \nUna lona publicitaria es un soporte flexible impreso en gran formato, pensado para comunicar a distancia en fachadas, vallas, estructuras, stands o recintos. Se utiliza para promoción, branding, señalización y campañas temporales, tanto en entornos comerciales como en eventos.",
+      "bodyMd": "### ¿Qué es una lona publicitaria y para qué se usa?\n\nUna lona publicitaria es un soporte flexible impreso en gran formato, pensado para comunicar a distancia en fachadas, vallas, estructuras, stands o recintos.\n\nSe utiliza para promoción, branding, señalización y campañas temporales, tanto en entornos comerciales como en eventos.",
       "sections": [
         {
           "id": "details",
@@ -26991,7 +27296,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es una lona publicitaria y para qué se usa? \nUna lona publicitaria es un soporte flexible impreso en gran formato, pensado para comunicar a distancia en fachadas, vallas, estructuras, stands o recintos. Se utiliza para promoción, branding, señalización y campañas temporales, tanto en entornos comerciales como en eventos."
+          "body": "### ¿Qué es una lona publicitaria y para qué se usa?\n\nUna lona publicitaria es un soporte flexible impreso en gran formato, pensado para comunicar a distancia en fachadas, vallas, estructuras, stands o recintos.\n\nSe utiliza para promoción, branding, señalización y campañas temporales, tanto en entornos comerciales como en eventos."
         },
         {
           "id": "benefits",
@@ -27002,26 +27307,112 @@
           "body": "Alta visibilidad a distancia: ideal para fachada, valla, recinto o zonas de paso. \nVersátil en instalación: se adapta a múltiples sistemas (tensado, estructura, barandilla, andamio). \nResistente para exterior: materiales y acabados pensados para intemperie. \nMedidas a medida: desde piezas pequeñas hasta lonas de gran tamaño por paños. \nRentable: gran impacto visual con un coste muy eficiente."
         },
         {
+          "id": "materials",
+          "key": "materials",
+          "title": "Materiales",
+          "kind": "materials",
+          "contentFormat": "markdown",
+          "body": "Seleccionamos el tipo de lona según el entorno de uso, la exposición al viento y el sistema de instalación previsto.\n\n- **Lona para exterior:** soporte flexible y resistente para fachadas, vallas, recintos, eventos y campañas de gran formato.\n- **Lona microperforada:** adecuada cuando hay viento o se necesita reducir el efecto “vela” en estructuras expuestas.\n- **Lonas específicas para estructuras o luminosos:** opción a valorar cuando el proyecto requiere comportamiento técnico concreto, retroiluminación o montaje en sistema existente."
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "kind": "formats",
+          "contentFormat": "json",
+          "formatsData": {
+            "shapes": [
+              {
+                "title": "Tamaños estándar o a medida",
+                "description": "Según ubicación y distancia de lectura."
+              },
+              {
+                "title": "Producción por paños",
+                "description": "Posibilidad de producir por paños para grandes superficies, planificando uniones y montaje."
+              }
+            ],
+            "deliveryFormats": []
+          }
+        },
+        {
+          "id": "finishes",
+          "key": "finishes",
+          "title": "Acabados",
+          "kind": "finishes",
+          "contentFormat": "json",
+          "finishesData": {
+            "finishes": [
+              {
+                "title": "Ojales",
+                "description": "Para fijación con bridas o cables y tensado."
+              },
+              {
+                "title": "Vaina",
+                "description": "Para colocar en barras o sistemas de soporte."
+              },
+              {
+                "title": "Dobladillo y refuerzo perimetral",
+                "description": "Mejora resistencia en bordes y puntos de anclaje."
+              },
+              {
+                "title": "Configuración adaptada",
+                "description": "Configuración adaptada al sistema real de instalación: fachada, estructura, barandilla, etc."
+              },
+              {
+                "title": "Acabado mate",
+                "description": "Recomendado si habrá focos o se fotografiará, porque reduce reflejos."
+              },
+              {
+                "title": "Refuerzos adicionales",
+                "description": "Recomendados si se prevé mucho viento o una instalación prolongada, según ubicación."
+              }
+            ]
+          }
+        },
+        {
           "id": "technical-specs",
           "key": "technical-specs",
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Formatos y medidas \nTamaños estándar o a medida según ubicación y distancia de lectura. \nPosibilidad de producir por paños para grandes superficies, planificando uniones y montaje. \nTipos de lona (según uso) \nLona para exterior con buena resistencia. \nOpciones microperforadas cuando hay viento o necesitas reducir efecto “vela” (según ubicación). \nLonas específicas para estructuras/luminosos (según proyecto). \nImpresión \nImpresión a todo color con buena reproducción para logos, tipografías e imágenes. \nRecomendación: mensajes directos, alto contraste y tipografías grandes (se lee en movimiento). \nAcabados de confección e instalación \nOjales: para fijación con bridas/cables y tensado. \nVaina: para colocar en barras o sistemas de soporte. \nDobladillo y refuerzo perimetral: mejora resistencia en bordes y puntos de anclaje. \nConfiguración adaptada al sistema real de instalación (fachada, estructura, barandilla, etc.). \nAcabados recomendados \nAcabado mate si habrá focos o se fotografiará (reduce reflejos). \nRefuerzos adicionales si se prevé mucho viento o una instalación prolongada (según ubicación)."
+          "body": "### Impresión\n\n- Impresión a todo color con buena reproducción para logos, tipografías e imágenes.\n- Recomendación: mensajes directos, alto contraste y tipografías grandes, porque se lee en movimiento.\n\n### Instalación\n\n- La configuración debe adaptarse al sistema real de instalación: fachada, estructura, barandilla, valla o evento.\n- Si nos indicas el punto de instalación, podemos recomendar el material y la confección más adecuados.\n\n### Para presupuestar\n\nEnvíanos medidas, ubicación, si habrá viento, tipo de acabado si lo tienes claro y fecha de entrega."
         },
         {
           "id": "applications",
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "Fachadas y edificios: campañas, rótulos temporales, obras y aperturas. \nEventos y festivales: perímetros, accesos, patrocinadores, meta/salida, escenarios. \nRetail y centros comerciales: promociones estacionales, rebajas, inauguraciones. \nVallas y cerramientos: comunicación exterior y señalización de espacios. \nStands y ferias: fondos de marca, paredes de stand y zonas de foto."
+          "contentFormat": "json",
+          "applicationsData": {
+            "applications": [
+              {
+                "title": "Fachadas y edificios",
+                "description": "Campañas, rótulos temporales, obras y aperturas."
+              },
+              {
+                "title": "Eventos y festivales",
+                "description": "Perímetros, accesos, patrocinadores, meta/salida y escenarios."
+              },
+              {
+                "title": "Retail y centros comerciales",
+                "description": "Promociones estacionales, rebajas e inauguraciones."
+              },
+              {
+                "title": "Vallas y cerramientos",
+                "description": "Comunicación exterior y señalización de espacios."
+              },
+              {
+                "title": "Stands y ferias",
+                "description": "Fondos de marca, paredes de stand y zonas de foto."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
         {
           "question": "¿Qué acabado necesito: ojales o vaina?",
-          "answer": "Depende de cómo se instalará. Ojales para tensar con bridas/cable; vaina cuando va montada en barra/estructura. Si nos envías una foto del punto de instalación, lo definimos rápido."
+          "answer": "Depende de cómo se instalará. Ojales para tensar con bridas o cable; vaina cuando va montada en barra o estructura. Si nos envías una foto del punto de instalación, lo definimos rápido."
         },
         {
           "question": "¿Es mejor lona normal o microperforada?",
@@ -27072,7 +27463,43 @@
       "inStock": true,
       "ratingValue": 0,
       "reviewCount": 0,
-      "attributes": [],
+      "attributes": [
+        {
+          "key": "alta-visibilidad-a-distancia",
+          "label": "Alta visibilidad a distancia",
+          "value": "Ideal para fachada, valla, recinto o zonas de paso.",
+          "placement": "hero-pills",
+          "iconKey": "visibility"
+        },
+        {
+          "key": "instalacion-versatil",
+          "label": "Instalación versátil",
+          "value": "Se adapta a múltiples sistemas: tensado, estructura, barandilla o andamio.",
+          "placement": "hero-pills",
+          "iconKey": "install"
+        },
+        {
+          "key": "resistente-para-exterior",
+          "label": "Resistente para exterior",
+          "value": "Materiales y acabados pensados para intemperie.",
+          "placement": "hero-pills",
+          "iconKey": "resistance"
+        },
+        {
+          "key": "medidas-a-medida",
+          "label": "Medidas a medida",
+          "value": "Desde piezas pequeñas hasta lonas de gran tamaño por paños.",
+          "placement": "hero-pills",
+          "iconKey": "size"
+        },
+        {
+          "key": "rentable",
+          "label": "Rentable",
+          "value": "Gran impacto visual con un coste muy eficiente.",
+          "placement": "hero-pills",
+          "iconKey": "value"
+        }
+      ],
       "variants": [],
       "formFields": [
         {
@@ -27146,7 +27573,7 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Lona publicitaria personalizada | Gran formato",
+        "metaTitle": "Lona publicitaria personalizada | Impresión en gran formato para exterior e interior",
         "metaDescription": "Lona publicitaria personalizada para fachadas, vallas y eventos. Impresión a color, medidas a medida y acabados con ojales, vaina o refuerzo perimetral. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/lona-publicitaria",
         "hreflang": [
@@ -27156,7 +27583,18 @@
           }
         ],
         "keywords": [
-          "lona publicitaria"
+          "lona publicitaria",
+          "lona publicitaria personalizada",
+          "lona personalizada",
+          "lona impresa",
+          "lona gran formato",
+          "lona para fachada",
+          "lona para vallas",
+          "lona para eventos",
+          "lona exterior personalizada",
+          "lona con ojales",
+          "lona con vaina",
+          "lona microperforada"
         ],
         "searchTerms": [
           "lona publicitaria",
@@ -27169,8 +27607,13 @@
           "lona exterior personalizada",
           "banderola de lona",
           "lona con ojales",
+          "lona con vaina",
+          "lona microperforada",
           "impresión lona publicitaria",
-          "lonas publicitarias Barcelona"
+          "lonas publicitarias Barcelona",
+          "lona para valla",
+          "lona para stand",
+          "lona para feria"
         ],
         "schema": {
           "@context": "https://schema.org",
@@ -27230,7 +27673,7 @@
                   "name": "¿Qué acabado necesito: ojales o vaina?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Depende de cómo se instalará. Ojales para tensar con bridas/cable; vaina cuando va montada en barra/estructura. Si nos envías una foto del punto de instalación, lo definimos rápido."
+                    "text": "Depende de cómo se instalará. Ojales para tensar con bridas o cable; vaina cuando va montada en barra o estructura. Si nos envías una foto del punto de instalación, lo definimos rápido."
                   }
                 },
                 {
@@ -32505,7 +32948,7 @@
     },
     {
       "id": "78",
-      "updatedAt": "2026-05-22T08:06:53Z",
+      "updatedAt": "2026-05-25T18:26:35Z",
       "type": "producto",
       "slug": "pegatinas-personalizadas",
       "path": "/productos/pegatinas-personalizadas",
@@ -32518,7 +32961,7 @@
       "isPublished": true,
       "shortDescription": "Si necesitas pegatinas a medida para etiquetar productos, reforzar tu marca o lanzar una promoción, imprimimos tus pegatinas personalizadas en papel o plástico (blanco o transparente), con corte estándar o troquelado y colores vivos en cuatricromía.",
       "description": "Si necesitas pegatinas a medida para etiquetar productos, reforzar tu marca o lanzar una promoción, imprimimos tus pegatinas personalizadas en papel o plástico (blanco o transparente), con corte estándar o troquelado y colores vivos en cuatricromía.",
-      "bodyMd": "**Las pegatinas personalizadas**, también conocidas como stickers, son adhesivos impresos a medida que permiten adaptar el tamaño, la forma, el material y el acabado según el uso previsto.\n\nSe fabrican sobre un soporte adhesivo compuesto por tres capas:\n\n- **Material superior imprimible**, donde se aplica el diseño.\n- **Adhesivo**, adaptado al tipo de aplicación.\n- **Liner o papel soporte**, que protege la pegatina hasta su uso.\n\nPueden producirse en **papel**, **polipropileno blanco** o **polipropileno transparente**, y se utilizan en packaging, identificación de productos, decoración, promociones y comunicación de marca.\n\nSegún el proyecto, pueden entregarse como **unidades sueltas**, **en hojas** o **en bobina**, con corte estándar o troquelado a medida.",
+      "bodyMd": "### ¿Qué son las pegatinas personalizadas?\n\nLas pegatinas personalizadas, también conocidas como stickers, son adhesivos impresos a medida que permiten adaptar el tamaño, la forma, el material y el acabado según el uso previsto.\n\nSe fabrican sobre un soporte adhesivo compuesto por tres capas:\n\n- Material superior imprimible, donde se aplica el diseño.\n- Adhesivo, adaptado al tipo de aplicación.\n- Liner o papel soporte, que protege la pegatina hasta su uso.\n\nPueden producirse en papel, polipropileno blanco o polipropileno transparente, y se utilizan en packaging, identificación de productos, decoración, promociones y comunicación de marca.\n\nSegún el proyecto, pueden entregarse como unidades sueltas, en hojas o en bobina, con corte estándar o troquelado a medida.",
       "sections": [
         {
           "id": "details",
@@ -32526,7 +32969,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "**Las pegatinas personalizadas**, también conocidas como stickers, son adhesivos impresos a medida que permiten adaptar el tamaño, la forma, el material y el acabado según el uso previsto.\n\nSe fabrican sobre un soporte adhesivo compuesto por tres capas:\n\n- **Material superior imprimible**, donde se aplica el diseño.\n- **Adhesivo**, adaptado al tipo de aplicación.\n- **Liner o papel soporte**, que protege la pegatina hasta su uso.\n\nPueden producirse en **papel**, **polipropileno blanco** o **polipropileno transparente**, y se utilizan en packaging, identificación de productos, decoración, promociones y comunicación de marca.\n\nSegún el proyecto, pueden entregarse como **unidades sueltas**, **en hojas** o **en bobina**, con corte estándar o troquelado a medida."
+          "body": "### ¿Qué son las pegatinas personalizadas?\n\nLas pegatinas personalizadas, también conocidas como stickers, son adhesivos impresos a medida que permiten adaptar el tamaño, la forma, el material y el acabado según el uso previsto.\n\nSe fabrican sobre un soporte adhesivo compuesto por tres capas:\n\n- Material superior imprimible, donde se aplica el diseño.\n- Adhesivo, adaptado al tipo de aplicación.\n- Liner o papel soporte, que protege la pegatina hasta su uso.\n\nPueden producirse en papel, polipropileno blanco o polipropileno transparente, y se utilizan en packaging, identificación de productos, decoración, promociones y comunicación de marca.\n\nSegún el proyecto, pueden entregarse como unidades sueltas, en hojas o en bobina, con corte estándar o troquelado a medida."
         },
         {
           "id": "benefits",
@@ -32752,39 +33195,33 @@
       "reviewCount": 0,
       "attributes": [
         {
-          "key": "materiales",
+          "key": "papel-pp-blanco-transparente",
           "label": "Papel, PP blanco o transparente",
-          "value": "Papel, polipropileno blanco o transparente",
           "placement": "hero-pills"
         },
         {
-          "key": "corte",
+          "key": "corte-estandar-troquelado",
           "label": "Corte estándar o troquelado",
-          "value": "Corte estándar o troquelado a medida",
           "placement": "hero-pills"
         },
         {
-          "key": "presentacion",
-          "label": "Sueltas, en plancha o bobina",
-          "value": "Entrega en unidades sueltas, hojas/planchas o bobina",
-          "placement": "hero-pills"
-        },
-        {
-          "key": "archivo",
-          "label": "Revisión básica de archivo",
-          "value": "Revisión básica antes de producción",
+          "key": "sueltas-hojas-bobina",
+          "label": "Sueltas, en hojas o bobina",
           "placement": "hero-pills"
         },
         {
           "key": "personalizacion-total",
           "label": "Personalización total",
-          "value": "Tamaño, forma, material y acabado adaptados al uso previsto",
           "placement": "hero-pills"
         },
         {
-          "key": "versatiles",
-          "label": "Versátiles y fáciles de aplicar",
-          "value": "Para packaging, eventos, producto, envíos, decoración e identificación",
+          "key": "buena-relacion-impacto-coste",
+          "label": "Buena relación impacto-coste",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "acabado-profesional",
+          "label": "Acabado profesional",
           "placement": "hero-pills"
         }
       ],
@@ -40001,7 +40438,7 @@
     },
     {
       "id": "116",
-      "updatedAt": "2026-05-22T08:16:33Z",
+      "updatedAt": "2026-05-25T20:12:35Z",
       "type": "producto",
       "slug": "vinilo-de-corte",
       "path": "/productos/vinilo-de-corte",
@@ -40023,14 +40460,6 @@
           "kind": "details",
           "contentFormat": "markdown",
           "body": "¿Qué es un vinilo de corte y para qué se usa?\nUn vinilo de corte es un vinilo de color (normalmente sin imprimir) que se corta con plotter siguiendo la forma del diseño: letras, logotipos, iconos o siluetas. Al aplicarlo, solo queda el propio vinilo recortado (sin fondo), por eso se usa mucho en rotulación corporativa, escaparates, horarios, señalética y decoración minimalista."
-        },
-        {
-          "id": "benefits",
-          "key": "benefits",
-          "title": "Beneficios",
-          "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "Acabado “sin fondo”: letras y logos limpios, integrados en el cristal o pared. \nImagen muy profesional: ideal para rotulación corporativa y señalética elegante. \nAlta durabilidad: buena resistencia para interior y exterior (según vinilo). \nAplicación versátil: cristal, paredes lisas, puertas, metal, mobiliario, etc. \nPersonalización total: tamaños, tipografías, formas, colores y composiciones por zonas."
         },
         {
           "id": "materials",
@@ -40085,7 +40514,7 @@
           "title": "Acabados",
           "kind": "finishes",
           "contentFormat": "markdown",
-          "body": "{\n  \"intro\": \"\",\n  \"finishes\": [\n    {\n      \"title\": \"Acabados habituales\",\n      \"description\": \"Mate (muy elegante y con menos reflejos) o brillo (más llamativo).\"\n    },\n    {\n      \"title\": \"Opciones especiales\",\n      \"description\": \"Opciones especiales según necesidad (por ejemplo, metalizados o colores corporativos aproximados).\"\n    },\n    {\n      \"title\": \"Acabado “sin fondo”\",\n      \"description\": \"Letras y logos limpios, integrados en el cristal o pared.\"\n    }\n  ]\n}"
+          "body": "Los acabados del vinilo de corte se eligen según la superficie, la duración prevista y el efecto visual que quieres conseguir.\n\n- **Mate:** acabado elegante, con menos reflejos y muy adecuado para oficinas, cristal y señalética interior.\n- **Brillo:** opción más llamativa cuando se busca mayor presencia visual o contraste.\n- **Colores especiales:** posibilidad de valorar opciones como metalizados o tonos corporativos aproximados según disponibilidad.\n- **Acabado sin fondo:** letras, logos y formas quedan integrados sobre cristal, pared o puerta, sin base impresa visible."
         },
         {
           "id": "technical-specs",
@@ -40101,7 +40530,7 @@
           "title": "Aplicaciones",
           "kind": "applications",
           "contentFormat": "markdown",
-          "body": "{\n  \"intro\": \"\",\n  \"applications\": [\n    {\n      \"title\": \"Escaparates\",\n      \"description\": \"horarios, logo, redes, promociones “limpias” sin tapar el interior.\"\n    },\n    {\n      \"title\": \"Oficinas\",\n      \"description\": \"nombres de salas, señalización, vinilo al ácido combinado con corte, branding.\"\n    },\n    {\n      \"title\": \"Retail\",\n      \"description\": \"rotulación de marca, rebajas, campañas estacionales con textos y formas.\"\n    },\n    {\n      \"title\": \"Señalética interior\",\n      \"description\": \"flechas, pictogramas, normas y zonas (recepción, baños, salidas).\"\n    },\n    {\n      \"title\": \"Exterior\",\n      \"description\": \"rótulos en cristal/puertas y elementos de identificación (según material).\"\n    }\n  ]\n}"
+          "body": "El vinilo de corte es adecuado cuando necesitas textos, logotipos o formas limpias, sin fondo impreso y con aspecto profesional.\n\n- **Escaparates:** horarios, logotipo, redes sociales y promociones limpias sin tapar completamente el interior.\n- **Oficinas:** nombres de salas, señalización, branding y combinaciones con vinilo al ácido en mamparas o cristales.\n- **Retail:** rotulación de marca, rebajas y campañas estacionales con textos o formas de color.\n- **Señalética interior:** flechas, pictogramas, normas y zonas como recepción, baños o salidas.\n- **Exterior:** rótulos en cristal, puertas y elementos de identificación, siempre según material y condiciones de exposición."
         }
       ],
       "faqs": [
@@ -40155,7 +40584,33 @@
       "price": 0,
       "priceCurrency": "EUR",
       "inStock": false,
-      "attributes": [],
+      "attributes": [
+        {
+          "key": "acabado-sin-fondo",
+          "label": "Acabado sin fondo",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "imagen-muy-profesional",
+          "label": "Imagen muy profesional",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "alta-durabilidad",
+          "label": "Alta durabilidad",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "aplicacion-versatil",
+          "label": "Aplicación versátil",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "personalizacion-total",
+          "label": "Personalización total",
+          "placement": "hero-pills"
+        }
+      ],
       "variants": [],
       "formFields": [
         {
@@ -40287,7 +40742,7 @@
     },
     {
       "id": "115",
-      "updatedAt": "2026-05-21T08:05:35Z",
+      "updatedAt": "2026-05-25T20:11:34Z",
       "type": "producto",
       "slug": "vinilo-para-cristal",
       "path": "/productos/vinilo-para-cristal",
@@ -40301,7 +40756,7 @@
       "isPublished": true,
       "shortDescription": "El vinilo para cristal es una de las formas más efectivas de comunicar y decorar sin ocupar espacio: escaparates, puertas, ventanas o mamparas. En Repro Disseny imprimimos vinilos para cristal a medida con distintas opciones (transparente, al ácido, microperforado, corte de textos/logos) para lograr el efecto que necesitas: branding, privacidad o promoción.",
       "description": "El vinilo para cristal es una de las formas más efectivas de comunicar y decorar sin ocupar espacio: escaparates, puertas, ventanas o mamparas. En Repro Disseny imprimimos vinilos para cristal a medida con distintas opciones (transparente, al ácido, microperforado, corte de textos/logos) para lograr el efecto que necesitas: branding, privacidad o promoción.",
-      "bodyMd": "¿Qué es un vinilo para cristal y para qué se usa? \nUn vinilo para cristal es un material adhesivo diseñado para aplicarse sobre superficies de vidrio (escaparates, puertas, ventanales, mamparas). Puede ser impreso o de corte, y se utiliza para rotulación, campañas promocionales, señalética y privacidad (por ejemplo, en oficinas o salas). \nLa ventaja principal es que transforma el cristal en un soporte de comunicación visible y limpio, tanto desde fuera como desde dentro (según configuración).",
+      "bodyMd": "### ¿Qué es un vinilo para cristal y para qué se usa?\n\nUn vinilo para cristal es un material adhesivo diseñado para aplicarse sobre superficies de vidrio: escaparates, puertas, ventanales o mamparas.\n\nPuede ser impreso o de corte, y se utiliza para rotulación, campañas promocionales, señalética y privacidad, por ejemplo en oficinas o salas.\n\nLa ventaja principal es que transforma el cristal en un soporte de comunicación visible y limpio, tanto desde fuera como desde dentro, según configuración.",
       "sections": [
         {
           "id": "details",
@@ -40309,15 +40764,70 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es un vinilo para cristal y para qué se usa? \nUn vinilo para cristal es un material adhesivo diseñado para aplicarse sobre superficies de vidrio (escaparates, puertas, ventanales, mamparas). Puede ser impreso o de corte, y se utiliza para rotulación, campañas promocionales, señalética y privacidad (por ejemplo, en oficinas o salas). \nLa ventaja principal es que transforma el cristal en un soporte de comunicación visible y limpio, tanto desde fuera como desde dentro (según configuración)."
+          "body": "### ¿Qué es un vinilo para cristal y para qué se usa?\n\nUn vinilo para cristal es un material adhesivo diseñado para aplicarse sobre superficies de vidrio: escaparates, puertas, ventanales o mamparas.\n\nPuede ser impreso o de corte, y se utiliza para rotulación, campañas promocionales, señalética y privacidad, por ejemplo en oficinas o salas.\n\nLa ventaja principal es que transforma el cristal en un soporte de comunicación visible y limpio, tanto desde fuera como desde dentro, según configuración."
         },
         {
-          "id": "benefits",
-          "key": "benefits",
-          "title": "Beneficios",
-          "kind": "benefits",
+          "id": "materials",
+          "key": "materials",
+          "title": "Materiales",
+          "kind": "materials",
           "contentFormat": "markdown",
-          "body": "Visibilidad en escaparate: comunica ofertas, horarios y campañas donde la gente mira primero. \nBranding profesional: logos, mensajes y creatividades integradas en el espacio. \nPrivacidad sin perder luz: ideal para oficinas y salas (vinilo al ácido). \nOpciones para cada objetivo: transparente, microperforado, al ácido, corte de textos, etc. \nA medida: por paños, corte al contorno, letras sueltas o composición completa."
+          "body": "El material se selecciona según el efecto que quieras conseguir en el cristal: visibilidad, privacidad, promoción temporal o rotulación permanente.\n\n- **Vinilo transparente impreso:** mantiene la sensación de transparencia y permite que el diseño “flote” sobre el cristal.\n- **Vinilo al ácido:** aporta privacidad y un acabado elegante, muy usado en oficinas, salas de reunión y mamparas.\n- **Vinilo microperforado:** comunica desde fuera y permite cierta visión desde dentro, muy útil en escaparates.\n- **Vinilo de corte:** letras, logotipos o formas en color con acabado limpio y corporativo.\n- **Adhesivo removible:** recomendado para campañas temporales, rebajas, promociones o acciones de temporada.\n- **Adhesivo permanente:** adecuado para rotulación estable, horarios fijos, señalética o imagen corporativa duradera."
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "kind": "formats",
+          "contentFormat": "json",
+          "formatsData": {
+            "shapes": [
+              {
+                "title": "Producción por paños",
+                "description": "Para grandes ventanales, planificando uniones y encajes."
+              },
+              {
+                "title": "Corte al contorno",
+                "description": "Para adaptar el vinilo a formas, textos, logos o composiciones completas."
+              },
+              {
+                "title": "Letras sueltas",
+                "description": "Opción para textos, logotipos o formas en color con acabado limpio y corporativo."
+              },
+              {
+                "title": "Composición completa",
+                "description": "Preparación del vinilo como una composición completa para cristal, puerta, ventana o mampara."
+              }
+            ],
+            "deliveryFormats": []
+          }
+        },
+        {
+          "id": "finishes",
+          "key": "finishes",
+          "title": "Acabados",
+          "kind": "finishes",
+          "contentFormat": "json",
+          "finishesData": {
+            "finishes": [
+              {
+                "title": "Acabado mate",
+                "description": "Muy útil para evitar reflejos."
+              },
+              {
+                "title": "Acabado brillo",
+                "description": "Según el efecto visual buscado."
+              },
+              {
+                "title": "Laminado protector",
+                "description": "Opcional si habrá limpieza frecuente o exposición al roce."
+              },
+              {
+                "title": "Opciones combinables",
+                "description": "Opciones combinables para campañas, por ejemplo microperforado con corte o elementos opacos."
+              }
+            ]
+          }
         },
         {
           "id": "technical-specs",
@@ -40325,33 +40835,56 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Tipos de vinilo para cristal (según efecto) \nVinilo transparente impreso: perfecto cuando quieres mantener visión y “flotar” el diseño sobre el cristal.\nVinilo al ácido (efecto arenado): aporta privacidad y un acabado elegante, muy usado en oficinas. \nVinilo microperforado: ideal para escaparates cuando quieres ver desde dentro y comunicar desde fuera. \nVinilo de corte: letras, logos o formas en color (acabado limpio y corporativo). \nOpciones combinables para campañas (por ejemplo, microperforado + corte/elementos opacos). \nAdhesivo \nRemovible: recomendado para campañas temporales en escaparate. \nPermanente: para rotulación estable (marca, horarios fijos, señalética duradera). \nImpresión y acabado \nImpresión a color con buena definición para logos y tipografías. \nAcabado mate (muy útil para evitar reflejos) o brillo según el efecto buscado. \nLaminado protector opcional si habrá limpieza frecuente o exposición al roce. \nColocación y visibilidad \nAplicación por la cara interior o exterior según protección y lectura. \nPosibilidad de preparar el vinilo para lectura desde fuera (espejado si aplica) cuando se instala en interior. \nProducción por paños para grandes ventanales, planificando uniones y encajes."
+          "body": "### Impresión y visibilidad\n\n- Impresión a color con buena definición para logos y tipografías.\n- Aplicación por la cara interior o exterior según protección y lectura.\n- Posibilidad de preparar el vinilo para lectura desde fuera, espejado si aplica, cuando se instala en interior.\n\n### Colocación\n\n- Producción por paños para grandes ventanales.\n- Planificación de uniones y encajes para que el resultado sea limpio.\n\n### Para presupuestar\n\nEnvíanos medidas, tipo de cristal, efecto buscado, si lo quieres removible o permanente, y fecha de entrega."
         },
         {
           "id": "applications",
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "Escaparates y retail: promociones, rebajas, lanzamientos, horarios y decoración estacional. \nOficinas: mamparas, salas de reunión, despachos (privacidad + imagen corporativa). \nHostelería: puertas y ventanales con horarios, menús, señalética y marca. \nCentros y servicios: clínicas, gimnasios, academias (información, normas, branding). \nEventos: señalización temporal en accesos, zonas VIP, stands y recintos."
+          "contentFormat": "json",
+          "applicationsData": {
+            "applications": [
+              {
+                "title": "Escaparates y retail",
+                "description": "Promociones, rebajas, lanzamientos, horarios y decoración estacional."
+              },
+              {
+                "title": "Oficinas",
+                "description": "Mamparas, salas de reunión y despachos con privacidad e imagen corporativa."
+              },
+              {
+                "title": "Hostelería",
+                "description": "Puertas y ventanales con horarios, menús, señalética y marca."
+              },
+              {
+                "title": "Centros y servicios",
+                "description": "Clínicas, gimnasios y academias con información, normas y branding."
+              },
+              {
+                "title": "Eventos",
+                "description": "Señalización temporal en accesos, zonas VIP, stands y recintos."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
         {
           "question": "¿Qué vinilo es mejor para escaparate: microperforado o transparente?",
-          "answer": "Depende del objetivo: el microperforado permite ver desde dentro y es muy usado en escaparates; el transparente es ideal si quieres un diseño más limpio, con máxima entrada de luz o gráfica aplicada directamente sobre el cristal."
+          "answer": "Depende del objetivo: el microperforado permite ver desde dentro y es muy usado en escaparate; el transparente es ideal si quieres un diseño más limpio y mantener transparencia total."
         },
         {
           "question": "¿Se puede hacer privacidad en mamparas sin oscurecer?",
-          "answer": "Sí, el vinilo al ácido da privacidad manteniendo la entrada de luz y ofrece un acabado elegante para oficinas, salas de reunión, clínicas o espacios comerciales."
+          "answer": "Sí, el vinilo al ácido da privacidad manteniendo la entrada de luz y queda muy elegante."
         },
         {
           "question": "¿Removible o permanente?",
-          "answer": "Removible para campañas, promociones temporales o cambios frecuentes; permanente para rotulación fija, marca, horarios, señalética o aplicaciones de larga duración."
+          "answer": "Removible para campañas y promociones temporales; permanente para rotulación fija, marca, horarios o señalética."
         },
         {
           "question": "¿Podéis adaptarlo a medidas grandes?",
-          "answer": "Sí, se produce por paños y se planifica el montaje para que las uniones queden lo más discretas posible, especialmente en escaparates, cristaleras y superficies amplias."
+          "answer": "Sí, se produce por paños y se planifica el montaje para que las uniones queden lo más discretas posible."
         }
       ],
       "breadcrumbs": [
@@ -40387,7 +40920,20 @@
       "price": 0,
       "priceCurrency": "EUR",
       "inStock": false,
-      "attributes": [],
+      "attributes": [
+        "vinilo para cristal",
+        "vinilo para cristal personalizado",
+        "vinilo escaparate personalizado",
+        "vinilo para escaparates",
+        "vinilo ácido personalizado",
+        "vinilo transparente personalizado",
+        "vinilo microperforado",
+        "vinilo de corte para cristal",
+        "vinilo para ventanas",
+        "rotulación de cristales",
+        "vinilo para oficinas",
+        "vinilo para mamparas"
+      ],
       "variants": [],
       "formFields": [
         {
@@ -40539,7 +41085,7 @@
                   "name": "¿Qué vinilo es mejor para escaparate: microperforado o transparente?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Depende del objetivo: el microperforado permite ver desde dentro y es muy usado en escaparates; el transparente es ideal si quieres un diseño más limpio, con máxima entrada de luz o gráfica aplicada directamente sobre el cristal."
+                    "text": "Depende del objetivo: el microperforado permite ver desde dentro y es muy usado en escaparate; el transparente es ideal si quieres un diseño más limpio y mantener transparencia total."
                   }
                 },
                 {
@@ -40547,7 +41093,7 @@
                   "name": "¿Se puede hacer privacidad en mamparas sin oscurecer?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, el vinilo al ácido da privacidad manteniendo la entrada de luz y ofrece un acabado elegante para oficinas, salas de reunión, clínicas o espacios comerciales."
+                    "text": "Sí, el vinilo al ácido da privacidad manteniendo la entrada de luz y queda muy elegante."
                   }
                 },
                 {
@@ -40555,7 +41101,7 @@
                   "name": "¿Removible o permanente?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Removible para campañas, promociones temporales o cambios frecuentes; permanente para rotulación fija, marca, horarios, señalética o aplicaciones de larga duración."
+                    "text": "Removible para campañas y promociones temporales; permanente para rotulación fija, marca, horarios o señalética."
                   }
                 },
                 {
@@ -40563,7 +41109,7 @@
                   "name": "¿Podéis adaptarlo a medidas grandes?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, se produce por paños y se planifica el montaje para que las uniones queden lo más discretas posible, especialmente en escaparates, cristaleras y superficies amplias."
+                    "text": "Sí, se produce por paños y se planifica el montaje para que las uniones queden lo más discretas posible."
                   }
                 }
               ]
@@ -41356,7 +41902,7 @@
     },
     {
       "id": "114",
-      "updatedAt": "2026-05-05T16:45:53Z",
+      "updatedAt": "2026-05-25T20:10:39Z",
       "type": "producto",
       "slug": "vinilos-superficies-planas",
       "path": "/productos/vinilos-superficies-planas",
@@ -41380,12 +41926,67 @@
           "body": "¿Qué es un vinilo para pared y para qué se usa? \nUn vinilo adhesivo para pared es una gráfica impresa sobre material vinílico con adhesivo, diseñada para aplicarse sobre superficies lisas y planas (paredes pintadas lisas, pladur, cristal, metal, melamina, mobiliario, etc.). \nSe usa para decoración, rotulación interior, señalética (direcciones, normas, zonas) y ambientación de marca en oficinas, tiendas, stands o centros."
         },
         {
-          "id": "benefits",
-          "key": "benefits",
-          "title": "Beneficios",
-          "kind": "benefits",
+          "id": "materials",
+          "key": "materials",
+          "title": "Materiales",
+          "kind": "materials",
           "contentFormat": "markdown",
-          "body": "Impacto visual inmediato: cambia el espacio sin obras ni reformas. \nBranding coherente: logos, claims, colores corporativos y campañas integradas en el entorno. \nFlexible por duración: opciones removibles para campañas temporales o permanentes para instalaciones estables. \nA medida: impresión por paños, corte al contorno, elementos sueltos, textos, iconos o composiciones completas. \nMantenimiento sencillo: con el acabado adecuado, es fácil de limpiar y aguanta el uso diario en interior."
+          "body": "Elegimos el vinilo según la superficie, la duración prevista y el nivel de resistencia que necesita la aplicación.\n\n- **Vinilos para campañas de corta o media duración:** solución práctica para promociones, decoración temporal, eventos o acciones de comunicación interior.\n- **Vinilos de mayor estabilidad:** recomendados para instalaciones duraderas de marca, señalética interior o decoración corporativa.\n- **Adhesivo removible:** pensado para campañas temporales o espacios donde se prevé retirar la gráfica más adelante.\n- **Adhesivo permanente:** indicado para aplicaciones estables donde se busca máxima fijación sobre superficies adecuadas.\n- **Superficies recomendadas:** paredes lisas y bien pintadas, pladur, metal, melamina, cristal y otras superficies planas.\n- **Superficies a revisar:** paredes con gotelé, pintura porosa, textura marcada o soportes irregulares requieren valoración previa o prueba."
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "kind": "formats",
+          "contentFormat": "json",
+          "formatsData": {
+            "shapes": [
+              {
+                "title": "Producción por paños",
+                "description": "Para grandes ventanales, planificando uniones y encajes."
+              },
+              {
+                "title": "Corte al contorno",
+                "description": "Para adaptar el vinilo a formas, textos, logos o composiciones completas."
+              },
+              {
+                "title": "Letras sueltas",
+                "description": "Opción para textos, logotipos o formas en color con acabado limpio y corporativo."
+              },
+              {
+                "title": "Composición completa",
+                "description": "Preparación del vinilo como una composición completa para cristal, puerta, ventana o mampara."
+              }
+            ],
+            "deliveryFormats": []
+          }
+        },
+        {
+          "id": "finishes",
+          "key": "finishes",
+          "title": "Acabados",
+          "kind": "finishes",
+          "contentFormat": "json",
+          "finishesData": {
+            "finishes": [
+              {
+                "title": "Acabado mate",
+                "description": "Muy útil para evitar reflejos."
+              },
+              {
+                "title": "Acabado brillo",
+                "description": "Según el efecto visual buscado."
+              },
+              {
+                "title": "Laminado protector",
+                "description": "Opcional si habrá limpieza frecuente o exposición al roce."
+              },
+              {
+                "title": "Opciones combinables",
+                "description": "Opciones combinables para campañas, por ejemplo microperforado con corte o elementos opacos."
+              }
+            ]
+          }
         },
         {
           "id": "technical-specs",
@@ -41393,33 +41994,56 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Superficies recomendadas \nParedes lisas y bien pintadas, pladur, metal, melamina y otras superficies planas. \nNota práctica: en paredes con gotele, pintura muy porosa o superficies con textura marcada, conviene valorar alternativas o pruebas (la adherencia y el acabado pueden variar). \nTipos de vinilo (según uso) \nVinilos para campañas de corta/media duración (más económicos). \nVinilos de mayor estabilidad para instalaciones más duraderas. \nOpciones específicas si la superficie o el proyecto lo exige (por ejemplo, necesidad de máxima conformidad o resistencia). \nAdhesivo \nRemovible: pensado para retiradas limpias (campañas temporales). \nPermanente: para máxima fijación en aplicaciones estables. \nSelección en función de: tipo de pared, tiempo de uso y condiciones del espacio. \nImpresión y acabado\nImpresión a color en gran formato con buena definición para logotipos, tipografías e imágenes. \nAcabado mate (muy recomendado en interior por reflejos) o brillo (más “vivo”). \nLaminado protector opcional: útil si habrá roce, limpieza frecuente o zonas de mucho paso. \nFormato, corte y montaje \nProducción por paños para cubrir grandes superficies, con solapes/encajes planificados. \nCorte recto o corte a medida (formas, letras, iconos). \nPreparación del archivo pensando en instalación: sangrados, zonas de seguridad y orden de montaje."
+          "body": "### Impresión y visibilidad\n\n- Impresión a color con buena definición para logos y tipografías.\n- Aplicación por la cara interior o exterior según protección y lectura.\n- Posibilidad de preparar el vinilo para lectura desde fuera, espejado si aplica, cuando se instala en interior.\n\n### Colocación\n\n- Producción por paños para grandes ventanales.\n- Planificación de uniones y encajes para que el resultado sea limpio.\n\n### Para presupuestar\n\nEnvíanos medidas, tipo de cristal, efecto buscado, si lo quieres removible o permanente, y fecha de entrega."
         },
         {
           "id": "applications",
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "Oficinas y корпоративativo: paredes de marca, valores, señalización interna, salas y recepciones. \nRetail y puntos de venta: decoración, campañas, escaparatismo interior, promociones por temporada. \nCentros y espacios públicos: orientación, normativa, horarios, mensajes informativos. \nEventos y ferias: vinilos para stands, fondos de marca, zonas de foto, señalización temporal. \nHostelería: decoración de sala, zonas, indicaciones y mensajes promocionales."
+          "contentFormat": "json",
+          "applicationsData": {
+            "applications": [
+              {
+                "title": "Oficinas y espacios corporativos",
+                "description": "Paredes de marca, valores corporativos, señalización interna, salas de reunión y recepciones."
+              },
+              {
+                "title": "Retail y punto de venta",
+                "description": "Decoración interior, campañas, promociones de temporada y ambientación visual de tienda."
+              },
+              {
+                "title": "Centros y espacios públicos",
+                "description": "Orientación, normativa, horarios, mensajes informativos y zonas de circulación."
+              },
+              {
+                "title": "Eventos y ferias",
+                "description": "Vinilos para stands, fondos de marca, zonas de foto y señalización temporal."
+              },
+              {
+                "title": "Hostelería",
+                "description": "Decoración de sala, indicaciones, mensajes promocionales y ambientación de marca."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
         {
+          "question": "¿Qué vinilo es mejor para escaparate: microperforado o transparente?",
+          "answer": "Depende del objetivo: el microperforado permite ver desde dentro y es muy usado en escaparate; el transparente es ideal si quieres un diseño más limpio y mantener transparencia total."
+        },
+        {
+          "question": "¿Se puede hacer privacidad en mamparas sin oscurecer?",
+          "answer": "Sí, el vinilo al ácido da privacidad manteniendo la entrada de luz y queda muy elegante."
+        },
+        {
           "question": "¿Removible o permanente?",
-          "answer": "Si es una campaña temporal o puede cambiar, suele interesar removible. Para instalaciones de larga duración, permanente."
+          "answer": "Removible para campañas y promociones temporales; permanente para rotulación fija, marca, horarios o señalética."
         },
         {
-          "question": "¿Mate o brillo?",
-          "answer": "En paredes interiores, el mate suele funcionar mejor porque reduce reflejos (especialmente con focos). El brillo puede aportar más intensidad, pero refleja más."
-        },
-        {
-          "question": "¿Se puede instalar sobre cualquier pared?",
-          "answer": "Funciona mejor en superficies lisas. En paredes con textura o pintura delicada, la adherencia y el acabado pueden variar; te recomendamos según el caso."
-        },
-        {
-          "question": "¿Podéis preparar vinilos por zonas o departamentos?",
-          "answer": "Sí, podemos producir series por salas, plantas, tiendas o sedes manteniendo el mismo diseño base."
+          "question": "¿Podéis adaptarlo a medidas grandes?",
+          "answer": "Sí, se produce por paños y se planifica el montaje para que las uniones queden lo más discretas posible."
         }
       ],
       "breadcrumbs": [
@@ -41455,7 +42079,43 @@
       "price": 0,
       "priceCurrency": "EUR",
       "inStock": false,
-      "attributes": [],
+      "attributes": [
+        {
+          "key": "visibilidad-en-escaparate",
+          "label": "Visibilidad en escaparate",
+          "value": "Comunica ofertas, horarios y campañas donde la gente mira primero.",
+          "placement": "hero-pills",
+          "iconKey": "visibility"
+        },
+        {
+          "key": "branding-profesional",
+          "label": "Branding profesional",
+          "value": "Logos, mensajes y creatividades integradas en el espacio.",
+          "placement": "hero-pills",
+          "iconKey": "brand"
+        },
+        {
+          "key": "privacidad-sin-perder-luz",
+          "label": "Privacidad sin perder luz",
+          "value": "Ideal para oficinas y salas con vinilo al ácido.",
+          "placement": "hero-pills",
+          "iconKey": "privacy"
+        },
+        {
+          "key": "opciones-para-cada-objetivo",
+          "label": "Opciones para cada objetivo",
+          "value": "Transparente, microperforado, al ácido, corte de textos, etc.",
+          "placement": "hero-pills",
+          "iconKey": "settings"
+        },
+        {
+          "key": "a-medida",
+          "label": "A medida",
+          "value": "Por paños, corte al contorno, letras sueltas o composición completa.",
+          "placement": "hero-pills",
+          "iconKey": "size"
+        }
+      ],
       "variants": [],
       "formFields": [
         {
@@ -41517,7 +42177,7 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Vinilos para Pared y Superficies Planas | Gran Formato Personalizado",
+        "metaTitle": "Vinilo para Cristal Personalizado | Escaparates, Oficinas y Señalización",
         "metaDescription": "Vinilos adhesivos para pared y superficies planas: decoración, señalización y branding. Acabados mate o brillo, removible o permanente y corte a medida. Pide presupuesto.",
         "canonical": "https://reprodisseny.com/productos/vinilos-superficies-planas",
         "hreflang": [
@@ -41527,28 +42187,37 @@
           }
         ],
         "keywords": [
-          "vinilos para pared",
-          "vinilos superficies planas",
-          "vinilos decorativos personalizados",
-          "vinilo adhesivo personalizado",
-          "rotulación de paredes",
+          "vinilo para cristal",
+          "vinilo para cristal personalizado",
+          "vinilo escaparate personalizado",
+          "vinilo para escaparates",
+          "vinilo ácido personalizado",
+          "vinilo transparente personalizado",
+          "vinilo microperforado",
+          "vinilo de corte para cristal",
+          "vinilo para ventanas",
+          "rotulación de cristales",
           "vinilo para oficinas",
-          "vinilos para retail",
-          "vinilo interior personalizado"
+          "vinilo para mamparas"
         ],
         "searchTerms": [
-          "vinilos para pared",
-          "vinilos superficies planas",
-          "vinilo adhesivo pared",
-          "vinilo personalizado pared",
-          "vinilo para oficina",
-          "vinilo para tienda",
-          "rotulación pared",
-          "vinilos decorativos empresas",
-          "vinilo para superficies lisas",
-          "vinilo interior personalizado",
-          "impresión vinilo pared",
-          "vinilo corporativo"
+          "vinilo para cristal",
+          "vinilo cristal personalizado",
+          "vinilo escaparate",
+          "vinilo escaparate personalizado",
+          "vinilo para escaparate tienda",
+          "vinilo ácido",
+          "vinilo efecto ácido",
+          "vinilo transparente",
+          "vinilo microperforado",
+          "vinilo de corte cristal",
+          "vinilo para ventanas",
+          "rotulación cristales",
+          "vinilo oficinas cristal",
+          "vinilos para mamparas",
+          "vinilo privacidad oficina",
+          "vinilo para puertas de cristal",
+          "impresión vinilo cristal"
         ],
         "schema": {
           "@context": "https://schema.org",
@@ -41604,34 +42273,34 @@
               "mainEntity": [
                 {
                   "@type": "Question",
+                  "name": "¿Qué vinilo es mejor para escaparate: microperforado o transparente?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Depende del objetivo: el microperforado permite ver desde dentro y es muy usado en escaparate; el transparente es ideal si quieres un diseño más limpio y mantener transparencia total."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Se puede hacer privacidad en mamparas sin oscurecer?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí, el vinilo al ácido da privacidad manteniendo la entrada de luz y queda muy elegante."
+                  }
+                },
+                {
+                  "@type": "Question",
                   "name": "¿Removible o permanente?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Si es una campaña temporal o puede cambiar, suele interesar removible. Para instalaciones de larga duración, permanente."
+                    "text": "Removible para campañas y promociones temporales; permanente para rotulación fija, marca, horarios o señalética."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "¿Mate o brillo?",
+                  "name": "¿Podéis adaptarlo a medidas grandes?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "En paredes interiores, el mate suele funcionar mejor porque reduce reflejos (especialmente con focos). El brillo puede aportar más intensidad, pero refleja más."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Se puede instalar sobre cualquier pared?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Funciona mejor en superficies lisas. En paredes con textura o pintura delicada, la adherencia y el acabado pueden variar; te recomendamos según el caso."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Podéis preparar vinilos por zonas o departamentos?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí, podemos producir series por salas, plantas, tiendas o sedes manteniendo el mismo diseño base."
+                    "text": "Sí, se produce por paños y se planifica el montaje para que las uniones queden lo más discretas posible."
                   }
                 }
               ]
