@@ -135,24 +135,36 @@ function onImageError() {
 <template>
   <div>
     <figure
-      class="overflow-hidden rounded-[28px] border border-border/70 bg-card shadow-[0_10px_30px_-24px_hsl(var(--foreground)/0.16)]"
-    >
-      <CmsImage
-        :src="displayedImageSrc"
-        :alt="activeSlide?.alt || alt"
-        class="aspect-[16/11] w-full object-cover"
-        width="760"
-        height="522"
-        eager
-        @error="onImageError"
-      />
+  class="overflow-hidden rounded-[28px] border border-border/70 bg-card shadow-[0_10px_30px_-24px_hsl(var(--foreground)/0.16)]"
+>
+  <div class="product-hero-media">
+    <CmsImage
+      :src="displayedImageSrc"
+      alt=""
+      aria-hidden="true"
+      class="product-hero-media__backdrop"
+      width="760"
+      height="522"
+      eager
+    />
 
-      <figcaption v-if="activeSlide?.caption" class="sr-only">
-        {{ activeSlide.caption }}
-      </figcaption>
+    <CmsImage
+      :src="displayedImageSrc"
+      :alt="activeSlide?.alt || alt"
+      class="product-hero-media__image"
+      width="760"
+      height="522"
+      eager
+      @error="onImageError"
+    />
+  </div>
 
-      <meta itemprop="image" :content="displayedImageSrc" />
-    </figure>
+  <figcaption v-if="activeSlide?.caption" class="sr-only">
+    {{ activeSlide.caption }}
+  </figcaption>
+
+  <meta itemprop="image" :content="displayedImageSrc" />
+</figure>
 
     <div
       v-if="slides.length > 1"
