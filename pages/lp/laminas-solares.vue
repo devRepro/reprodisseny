@@ -184,19 +184,19 @@ const reasons: IconItem[] = [
   {
     title: "Producción propia",
     description:
-      "Preparamos las láminas en nuestro taller y gestionamos el proyecto desde el primer contacto.",
+      "",
     icon: Factory,
   },
   {
     title: "Asesoramiento técnico",
     description:
-      "Te orientamos según el tipo de cristal, la orientación del espacio y el resultado que necesitas.",
+      "",
     icon: Wrench,
   },
   {
     title: "Garantía profesional",
     description:
-      "Instalación realizada por equipo propio, con materiales adecuados para uso profesional.",
+      "",
     icon: BadgeCheck,
   },
 ];
@@ -301,12 +301,13 @@ function scrollToQuote() {
     <section class="landing-process" aria-labelledby="landing-process-title">
   <div class="container-content">
     <ContentSectionIntro
-      title="De la primera consulta a la instalación, en tres pasos"
-      centered
-      :line="false"
-      class="mx-auto"
-      title-class="text-white"
-    />
+  title="De la primera consulta a la instalación, en tres pasos"
+  centered
+  :line="false"
+  class="mx-auto w-full"
+  max-width-class="max-w-none"
+  title-class="text-white lg:whitespace-nowrap"
+/>
 
     <LandingProcessSteps :steps="steps" class="mt-9" />
   </div>
