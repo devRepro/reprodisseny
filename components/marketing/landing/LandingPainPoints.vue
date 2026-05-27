@@ -16,7 +16,7 @@ const props = withDefaults(
     id?: string;
   }>(),
   {
-    title: "El sol puede ser un problema en tu espacio de trabajo",
+    title: "El sol genera problemas en tu espacio de trabajo",
     items: () => [],
     id: undefined,
   }

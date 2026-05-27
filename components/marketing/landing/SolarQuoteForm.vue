@@ -13,7 +13,6 @@ type QuoteForm = {
   phone: string;
   spaceType: string;
   glassSurface: string;
-  problem: string;
   message: string;
   privacy: boolean;
 };
@@ -46,7 +45,6 @@ const form = reactive<QuoteForm>({
   phone: "",
   spaceType: "",
   glassSurface: "",
-  problem: "",
   message: "",
   privacy: false,
 });
@@ -83,7 +81,6 @@ function resetForm() {
   form.phone = "";
   form.spaceType = "";
   form.glassSurface = "";
-  form.problem = "";
   form.message = "";
   form.privacy = false;
   validationError.value = "";
@@ -149,7 +146,6 @@ async function onSubmit() {
     "Solicitud de presupuesto para láminas solares.",
     `Tipo de espacio: ${form.spaceType || "sin indicar"}.`,
     `Superficie aproximada: ${form.glassSurface || "sin indicar"}.`,
-    `Problema principal: ${form.problem || "sin indicar"}.`,
   ].join(" ");
 
   const response = await sendPriceRequest(
@@ -171,7 +167,6 @@ async function onSubmit() {
         landing: "laminas-solares",
         spaceType: form.spaceType || null,
         glassSurface: form.glassSurface || null,
-        problem: form.problem || null,
       },
       consent: true,
       sourceUrl: sourceUrl.value,
@@ -213,7 +208,7 @@ async function onSubmit() {
 </script>
 
 <template>
-  <div class="mx-auto w-full max-w-[460px]">
+  <div class="mx-auto w-full max-w-[480px]">
     <RequestSuccessState
       v-if="success"
       :product-name="props.productName"
@@ -222,13 +217,15 @@ async function onSubmit() {
       @reset="handleResetSuccessState"
     />
 
-    <form v-else class="space-y-3" novalidate @submit.prevent="onSubmit">
+    <form v-else class="space-y-4" novalidate @submit.prevent="onSubmit">
       <div
         v-if="errorMessage"
         class="rounded-lg border border-destructive/20 bg-destructive/10 px-3 py-2 text-sm font-medium text-destructive"
       >
         {{ errorMessage }}
       </div>
+
+    
 
       <input
         v-model="form.website"
@@ -241,56 +238,59 @@ async function onSubmit() {
       />
 
       <label class="block">
-        <span class="mb-1 block text-[13px] font-medium text-foreground">Nombre *</span>
+        <span class="mb-1.5 block text-sm font-medium text-foreground">Nombre *</span>
         <input
           v-model="form.name"
           name="name"
           type="text"
           autocomplete="name"
-          class="h-8 w-full rounded-[4px] border border-border bg-white px-3 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
+          required
+          class="h-10 w-full rounded-[6px] border border-border bg-white px-3 text-[15px] outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
         />
       </label>
 
       <label class="block">
-        <span class="mb-1 block text-[13px] font-medium text-foreground">Empresa</span>
+        <span class="mb-1.5 block text-sm font-medium text-foreground">Empresa</span>
         <input
           v-model="form.company"
           name="company"
           type="text"
           autocomplete="organization"
-          class="h-8 w-full rounded-[4px] border border-border bg-white px-3 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
+          class="h-10 w-full rounded-[6px] border border-border bg-white px-3 text-[15px] outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
         />
       </label>
 
       <label class="block">
-        <span class="mb-1 block text-[13px] font-medium text-foreground">Email *</span>
+        <span class="mb-1.5 block text-sm font-medium text-foreground">Email *</span>
         <input
           v-model="form.email"
           name="email"
           type="email"
           autocomplete="email"
-          class="h-8 w-full rounded-[4px] border border-border bg-white px-3 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
+          required
+          class="h-10 w-full rounded-[6px] border border-border bg-white px-3 text-[15px] outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
         />
       </label>
 
       <label class="block">
-        <span class="mb-1 block text-[13px] font-medium text-foreground">Teléfono *</span>
+        <span class="mb-1.5 block text-sm font-medium text-foreground">Teléfono *</span>
         <input
           v-model="form.phone"
           name="phone"
           type="tel"
           inputmode="tel"
           autocomplete="tel"
-          class="h-8 w-full rounded-[4px] border border-border bg-white px-3 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
+          required
+          class="h-10 w-full rounded-[6px] border border-border bg-white px-3 text-[15px] outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
         />
       </label>
 
       <label class="block">
-        <span class="mb-1 block text-[13px] font-medium text-foreground">Tipo de espacio</span>
+        <span class="mb-1.5 block text-sm font-medium text-foreground">Tipo de espacio</span>
         <select
           v-model="form.spaceType"
           name="spaceType"
-          class="h-8 w-full rounded-[4px] border border-border bg-white px-3 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
+          class="h-10 w-full rounded-[6px] border border-border bg-white px-3 text-[15px] outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
         >
           <option value="">Selecciona una opción</option>
           <option value="oficina">Oficina</option>
@@ -302,65 +302,56 @@ async function onSubmit() {
       </label>
 
       <label class="block">
-        <span class="mb-1 block text-[13px] font-medium text-foreground">Superficie aproximada en m²</span>
+        <span class="mb-1.5 block text-sm font-medium text-foreground">
+          Superficie aproximada en m²
+        </span>
         <input
           v-model="form.glassSurface"
           name="glassSurface"
           type="text"
           inputmode="decimal"
           placeholder="Ej. 12 m²"
-          class="h-8 w-full rounded-[4px] border border-border bg-white px-3 text-sm outline-none transition placeholder:text-muted-foreground/70 focus:border-primary focus:ring-2 focus:ring-primary/15"
+          class="h-10 w-full rounded-[6px] border border-border bg-white px-3 text-[15px] outline-none transition placeholder:text-muted-foreground/70 focus:border-primary focus:ring-2 focus:ring-primary/15"
         />
       </label>
 
       <label class="block">
-        <span class="mb-1 block text-[13px] font-medium text-foreground">¿Qué problema quieres resolver?</span>
-        <select
-          v-model="form.problem"
-          name="problem"
-          class="h-8 w-full rounded-[4px] border border-border bg-white px-3 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
-        >
-          <option value="">Selecciona una opción</option>
-          <option value="calor-excesivo">Calor excesivo</option>
-          <option value="reflejos-pantallas">Reflejos en pantallas</option>
-          <option value="proteccion-uv">Protección UV</option>
-          <option value="privacidad">Privacidad</option>
-          <option value="varios">Varios problemas</option>
-        </select>
-      </label>
+  <span class="mb-1.5 block text-sm font-medium text-foreground">Mensaje</span>
+  <textarea
+    v-model="form.message"
+    name="message"
+    rows="5"
+    class="w-full resize-y rounded-[6px] border border-border bg-white px-3 py-2.5 text-[15px] outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
+  />
+</label>
 
-      <label class="block">
-        <span class="mb-1 block text-[13px] font-medium text-foreground">Mensaje</span>
-        <textarea
-          v-model="form.message"
-          name="message"
-          rows="5"
-          class="w-full resize-y rounded-[4px] border border-border bg-white px-3 py-2 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
-        />
-      </label>
+<p class="text-xs leading-5 text-muted-foreground">
+  Los campos marcados con <span class="font-semibold text-foreground">*</span> son obligatorios.
+</p>
 
-      <label class="flex items-start gap-2 pt-1 text-[11px] leading-4 text-foreground/75">
-        <input
-          v-model="form.privacy"
-          type="checkbox"
-          class="mt-0.5 h-3.5 w-3.5 shrink-0 rounded border-border text-primary focus:ring-primary/20"
-        />
-        <span>
-          He leído y acepto la
-          <NuxtLink
-            to="/politica-privacidad"
-            target="_blank"
-            class="font-semibold text-primary hover:underline"
-          >
-            política de privacidad </NuxtLink
-          >.
-        </span>
-      </label>
+<label class="flex items-start gap-2 pt-1 text-xs leading-5 text-foreground/75">
+  <input
+    v-model="form.privacy"
+    type="checkbox"
+    required
+    class="mt-1 h-4 w-4 shrink-0 rounded border-border text-primary focus:ring-primary/20"
+  />
+  <span>
+    He leído y acepto la
+    <NuxtLink
+      to="/politica-privacidad"
+      target="_blank"
+      class="font-semibold text-primary hover:underline"
+    >
+      política de privacidad
+    </NuxtLink>.
+  </span>
+</label>
 
       <button
         type="submit"
         :disabled="isLoading"
-        class="inline-flex h-10 w-full items-center justify-center rounded-[6px] bg-primary px-4 text-[13px] font-semibold uppercase tracking-[0.12em] text-primary-foreground shadow-sm transition hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-70"
+        class="inline-flex h-11 w-full items-center justify-center rounded-[6px] bg-primary px-4 text-sm font-semibold uppercase tracking-[0.12em] text-primary-foreground shadow-sm transition hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-70"
       >
         <Loader2 v-if="isLoading" class="mr-2 h-4 w-4 animate-spin" />
         {{ isLoading ? "Enviando..." : "Solicitar presupuesto" }}

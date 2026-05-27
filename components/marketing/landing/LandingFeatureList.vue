@@ -80,7 +80,7 @@ const iconClass = computed(() => [
           class="mt-1 text-[13px] leading-5"
           :class="props.tone === 'dark' ? 'text-white/70' : 'text-foreground/70'"
         >
-          {{ item.description }}
+    
         </p>
       </div>
     </li>
