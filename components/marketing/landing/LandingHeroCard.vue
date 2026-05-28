@@ -105,7 +105,7 @@ const emit = defineEmits<{
   .landing-hero__claim-slot {
     position: absolute;
     top: 118px;
-    left: clamp(56px, 5.555vw, 80px);
+    left: max(24px, calc((100vw - 1120px) / 2));
     width: 759px;
     min-height: 0;
     padding: 0;
