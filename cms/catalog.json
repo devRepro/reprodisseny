@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-25T20:24:39.575Z",
+  "generatedAt": "2026-05-29T09:54:27.711Z",
   "categories": [
     {
       "id": "12",
@@ -2333,7 +2333,7 @@
     },
     {
       "id": "7",
-      "updatedAt": "2026-05-20T13:27:24Z",
+      "updatedAt": "2026-05-29T09:04:47Z",
       "type": "categoria",
       "slug": "libros-revistas-catalogos",
       "path": "/categorias/libros-revistas-catalogos",
@@ -2473,7 +2473,7 @@
         }
       ],
       "image": {
-        "src": "https://webcms.blob.core.windows.net/media/category/libros-revistas-catalogo.webp",
+        "src": "https://webcms.blob.core.windows.net/media/category/publicaciones.webp",
         "width": 350,
         "height": 321,
         "alt": "Imagen de libros, catálogos y revistas impresas de alta calidad para empresas en Barcelona"
@@ -2578,7 +2578,7 @@
               "name": "Impresión de libros, revistas y catálogos en Barcelona | Repro Disseny",
               "description": "Impresión profesional de libros, revistas y catálogos para empresas, editoriales y agencias. Alta calidad, encuadernación cuidada y entregas rápidas en toda Cataluña.",
               "url": "https://reprodisseny.com/categorias/libros-revistas-catalogos",
-              "image": "https://webcms.blob.core.windows.net/media/category/libros-revistas-catalogo.webp",
+              "image": "https://webcms.blob.core.windows.net/media/category/publicaciones.webp",
               "inLanguage": "es-ES",
               "publisher": {
                 "@type": "Organization",
@@ -2657,7 +2657,7 @@
           ]
         },
         "robotsOverride": "INHERIT",
-        "ogImageSrc": "https://webcms.blob.core.windows.net/media/category/libros-revistas-catalogo.webp"
+        "ogImageSrc": "https://webcms.blob.core.windows.net/media/category/publicaciones.webp"
       }
     },
     {
@@ -3004,7 +3004,7 @@
     },
     {
       "id": "9",
-      "updatedAt": "2026-05-20T13:28:46Z",
+      "updatedAt": "2026-05-29T09:06:28Z",
       "type": "categoria",
       "slug": "publicidad-oficina",
       "path": "/categorias/publicidad-oficina",
@@ -3147,7 +3147,7 @@
         }
       ],
       "image": {
-        "src": "https://webcms.blob.core.windows.net/media/category/material-oficina-publicitario.webp",
+        "src": "https://webcms.blob.core.windows.net/media/category/oficina-publicidad.webp",
         "width": 2400,
         "height": 1200,
         "alt": "Material publicitario y de oficina diverso impreso"
@@ -3249,7 +3249,7 @@
               "name": "Publicidad y Material de Oficina Personalizado | Repro Disseny",
               "description": "Soluciones integrales de impresión para publicidad y oficina...",
               "url": "https://reprodisseny.com/categorias/publicidad-oficina",
-              "image": "https://webcms.blob.core.windows.net/media/category/material-oficina-publicitario.webp",
+              "image": "https://webcms.blob.core.windows.net/media/category/oficina-publicidad.webp",
               "inLanguage": "es-ES",
               "publisher": {
                 "@type": "Organization",
@@ -3328,12 +3328,12 @@
           ]
         },
         "robotsOverride": "INHERIT",
-        "ogImageSrc": "https://webcms.blob.core.windows.net/media/category/material-oficina-publicitario.webp"
+        "ogImageSrc": "https://webcms.blob.core.windows.net/media/category/oficina-publicidad.webp"
       }
     },
     {
       "id": "6",
-      "updatedAt": "2026-05-25T20:24:25Z",
+      "updatedAt": "2026-05-29T09:03:58Z",
       "type": "categoria",
       "slug": "hosteleria-restauracion",
       "path": "/categorias/hosteleria-restauracion",
@@ -3464,7 +3464,7 @@
         }
       ],
       "image": {
-        "src": "https://webcms.blob.core.windows.net/media/category/hoteles-restaurantes.webp",
+        "src": "https://webcms.blob.core.windows.net/media/category/hosteleria.webp",
         "width": 2400,
         "height": 1200,
         "alt": "Cartas y menús impresos para restaurantes y hoteles en Cataluña"
@@ -3563,7 +3563,7 @@
               "name": "Impresión para hoteles, restaurantes y hostelería | Repro Disseny",
               "description": "Cartas, menús, posavasos, tarjetas y packaging personalizado para hoteles, restaurantes y negocios de hostelería en Cataluña. Calidad profesional y producción local.",
               "url": "https://reprodisseny.com/categorias/hosteleria-restauracion",
-              "image": "https://webcms.blob.core.windows.net/media/category/hoteles-restaurantes.webp",
+              "image": "https://webcms.blob.core.windows.net/media/category/hosteleria.webp",
               "inLanguage": "es-ES",
               "publisher": {
                 "@type": "Organization",
@@ -3642,7 +3642,7 @@
           ]
         },
         "robotsOverride": "INHERIT",
-        "ogImageSrc": "https://webcms.blob.core.windows.net/media/category/hoteles-restaurantes.webp"
+        "ogImageSrc": "https://webcms.blob.core.windows.net/media/category/hosteleria.webp"
       }
     },
     {
