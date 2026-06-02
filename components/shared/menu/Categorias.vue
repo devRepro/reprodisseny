@@ -74,7 +74,9 @@ const imageSrcOf = (item: any) => {
   return item.image?.src || item.imageSrc || "";
 };
 
-const isCategoryActive = (category: Partial<CategoriaNode> | null | undefined) => {
+const isCategoryActive = (
+  category: Partial<CategoriaNode> | null | undefined
+) => {
   const href = toCat(category);
   if (!href) return false;
 
@@ -89,17 +91,30 @@ const menuContentClass = (category: CategoriaNode) => [
 ];
 
 const menuInnerClass = (category: CategoriaNode) =>
-  hasChildren(category) ? "grid grid-cols-1 gap-5 p-5 sm:grid-cols-2 sm:gap-6" : "p-5";
+  hasChildren(category)
+    ? "grid grid-cols-1 gap-5 p-5 sm:grid-cols-2 sm:gap-6"
+    : "p-5";
+
+const desktopLinkClass =
+  "relative inline-flex h-10 shrink-0 items-center rounded-full px-2.5 text-[14px] leading-[20px] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground/60 focus-visible:ring-offset-2 focus-visible:ring-offset-primary";
+
+const desktopLinkStateClass = (category: CategoriaNode) =>
+  isCategoryActive(category)
+    ? "font-semibold text-primary-foreground after:absolute after:inset-x-2 after:bottom-1 after:h-0.5 after:rounded-full after:bg-primary-foreground/90"
+    : "font-medium text-primary-foreground/90 hover:bg-primary-foreground/10 hover:text-primary-foreground";
+
+const productLinkClass =
+  "flex min-w-0 w-full cursor-pointer items-center gap-3 rounded-lg px-2 py-2 text-sm text-foreground/88 transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40";
 </script>
 
 <template>
-  <nav class="w-full bg-[#004F78]" aria-label="Categorías">
+  <nav class="w-full bg-primary" aria-label="Categorías">
     <div
       class="mx-auto w-full max-w-[1440px] min-w-0 px-4 py-2 sm:px-6 lg:px-10 xl:px-[80px]"
     >
       <div
         v-if="!hasCategories"
-        class="text-center text-[14px] leading-[20px] text-white/80 md:text-left"
+        class="text-center text-[14px] leading-[20px] text-primary-foreground/80 md:text-left"
       >
         <span v-if="pending">Cargando…</span>
         <span v-else-if="error">No se ha podido cargar el menú.</span>
@@ -111,81 +126,164 @@ const menuInnerClass = (category: CategoriaNode) =>
           <span v-if="pending">Actualizando categorías</span>
         </div>
 
-        <!-- Mobile -->
-        <div class="relative min-w-0 md:hidden">
+        <!-- Compact: móvil, tablet y desktop pequeño -->
+        <div class="relative min-w-0 xl:hidden">
           <div
-            class="pointer-events-none absolute inset-y-0 left-0 w-6 bg-gradient-to-r from-[#004F78] to-transparent"
+            class="pointer-events-none absolute inset-y-0 left-0 z-10 w-6 bg-gradient-to-r from-primary to-transparent"
+            aria-hidden="true"
           />
           <div
-            class="pointer-events-none absolute inset-y-0 right-0 w-6 bg-gradient-to-l from-[#004F78] to-transparent"
+            class="pointer-events-none absolute inset-y-0 right-0 z-10 w-6 bg-gradient-to-l from-primary to-transparent"
+            aria-hidden="true"
           />
 
           <div
-            class="no-scrollbar flex items-center gap-2 overflow-x-auto overscroll-x-contain pr-4"
+            class="no-scrollbar -mx-4 overflow-x-auto overscroll-x-contain px-4 sm:-mx-6 sm:px-6 lg:-mx-10 lg:px-10"
           >
-            <NuxtLink
-              v-for="cat in categories"
-              :key="nodeKeyOf(cat)"
-              :to="toCat(cat)"
-              class="shrink-0 rounded-full border px-3 py-2 text-xs font-semibold transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
-              :class="
-                isCategoryActive(cat)
-                  ? 'border-white/30 bg-white text-[#004F78]'
-                  : 'border-white/20 bg-white/10 text-white hover:bg-white/15'
-              "
-            >
-              {{ labelOf(cat) }}
-            </NuxtLink>
+            <div class="flex w-max min-w-full items-center justify-center gap-2">
+              <NuxtLink
+                v-for="cat in categories"
+                :key="nodeKeyOf(cat)"
+                :to="toCat(cat)"
+                class="shrink-0 rounded-full border px-3 py-2 text-xs font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground/60 focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
+                :class="
+                  isCategoryActive(cat)
+                    ? 'border-primary-foreground bg-primary-foreground text-primary shadow-sm'
+                    : 'border-primary-foreground/20 bg-primary-foreground/10 text-primary-foreground hover:border-primary-foreground/35 hover:bg-primary-foreground/15'
+                "
+              >
+                {{ labelOf(cat) }}
+              </NuxtLink>
+            </div>
           </div>
         </div>
 
-        <!-- Desktop -->
-        <div class="hidden w-full min-w-0 md:flex md:justify-center">
-          <Menubar
-            class="flex flex-wrap w-full max-w-fit items-center justify-center gap-4 !border-0 !bg-transparent !p-0 !shadow-none lg:gap-6 xl:gap-8"
+        <!-- Desktop real -->
+        <div class="hidden w-full min-w-0 xl:block">
+          <div
+            class="no-scrollbar -mx-[80px] overflow-x-auto overscroll-x-contain px-[80px]"
           >
-            <MenubarMenu v-for="cat in categories" :key="nodeKeyOf(cat)" class="shrink-0">
-              <template v-if="hasDropdown(cat)">
-                <div class="inline-flex items-center gap-1">
-                  <NuxtLink
-                    :to="toCat(cat)"
-                    class="shrink-0 whitespace-nowrap text-[14px] leading-[20px] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#004F78]"
-                    :class="
-                      isCategoryActive(cat)
-                        ? 'font-semibold text-white'
-                        : 'font-normal text-white hover:text-white/90'
-                    "
-                  >
-                    {{ labelOf(cat) }}
-                  </NuxtLink>
-
-                  <MenubarTrigger as-child>
-                    <button
-                      type="button"
-                      class="inline-flex h-8 w-8 items-center justify-center rounded-full text-white transition hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#004F78] data-[state=open]:bg-white/15"
-                      :aria-label="`Abrir submenú de ${labelOf(cat)}`"
+            <Menubar
+              class="mx-auto flex w-max min-w-full flex-nowrap items-center justify-center gap-4 !border-0 !bg-transparent !p-0 !shadow-none 2xl:gap-6"
+            >
+              <MenubarMenu
+                v-for="cat in categories"
+                :key="nodeKeyOf(cat)"
+                class="shrink-0"
+              >
+                <template v-if="hasDropdown(cat)">
+                  <div class="inline-flex items-center gap-1">
+                    <NuxtLink
+                      :to="toCat(cat)"
+                      :class="[desktopLinkClass, desktopLinkStateClass(cat)]"
                     >
-                      <ChevronDownIcon class="h-4 w-4 shrink-0" aria-hidden="true" />
-                    </button>
-                  </MenubarTrigger>
-                </div>
+                      {{ labelOf(cat) }}
+                    </NuxtLink>
 
-                <MenubarContent align="center" :class="menuContentClass(cat)">
-                  <!-- Categoría con subcategorías -->
-                  <template v-if="hasChildren(cat)">
-                    <div :class="menuInnerClass(cat)">
-                      <section
-                        v-for="sub in childrenOf(cat)"
-                        :key="nodeKeyOf(sub)"
-                        class="min-w-0 rounded-xl border border-border/40 bg-background/60 p-4"
+                    <MenubarTrigger as-child>
+                      <button
+                        type="button"
+                        class="inline-flex h-8 w-8 items-center justify-center rounded-full text-primary-foreground/90 transition-colors hover:bg-primary-foreground/10 hover:text-primary-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground/60 focus-visible:ring-offset-2 focus-visible:ring-offset-primary data-[state=open]:bg-primary-foreground/15 data-[state=open]:text-primary-foreground"
+                        :aria-label="`Abrir submenú de ${labelOf(cat)}`"
                       >
+                        <ChevronDownIcon
+                          class="h-4 w-4 shrink-0"
+                          aria-hidden="true"
+                        />
+                      </button>
+                    </MenubarTrigger>
+                  </div>
+
+                  <MenubarContent align="center" :class="menuContentClass(cat)">
+                    <!-- Categoría con subcategorías -->
+                    <template v-if="hasChildren(cat)">
+                      <div :class="menuInnerClass(cat)">
+                        <section
+                          v-for="sub in childrenOf(cat)"
+                          :key="nodeKeyOf(sub)"
+                          class="min-w-0 rounded-xl border border-border/40 bg-background/60 p-4"
+                        >
+                          <NuxtLink
+                            :to="toCat(sub)"
+                            class="mb-3 flex items-center gap-3 border-b border-border/50 pb-3 transition-opacity hover:opacity-90"
+                          >
+                            <CmsImage
+                              v-if="imageSrcOf(sub)"
+                              :src="imageSrcOf(sub)"
+                              alt=""
+                              aria-hidden="true"
+                              width="36"
+                              height="36"
+                              class="h-9 w-9 shrink-0 rounded-full border border-border object-cover"
+                            />
+
+                            <span
+                              class="min-w-0 truncate text-sm font-bold uppercase tracking-[0.08em] text-foreground"
+                            >
+                              {{ labelOf(sub) }}
+                            </span>
+                          </NuxtLink>
+
+                          <div
+                            v-if="hasPreviewProducts(sub)"
+                            class="flex flex-col gap-1"
+                          >
+                            <MenubarItem
+                              v-for="prod in previewProducts(sub)"
+                              :key="prod.path || prod.slug || prod.title"
+                              as-child
+                            >
+                              <NuxtLink
+                                :to="toProd(prod)"
+                                :prefetch="false"
+                                :class="productLinkClass"
+                              >
+                                <CmsImage
+                                  v-if="imageSrcOf(prod)"
+                                  :src="imageSrcOf(prod)"
+                                  alt=""
+                                  aria-hidden="true"
+                                  width="32"
+                                  height="32"
+                                  class="h-8 w-8 shrink-0 rounded-full border border-border object-cover"
+                                />
+
+                                <span class="min-w-0 truncate">
+                                  {{ productLabelOf(prod) }}
+                                </span>
+                              </NuxtLink>
+                            </MenubarItem>
+
+                            <MenubarItem as-child>
+                              <NuxtLink
+                                :to="toCat(sub)"
+                                class="mt-3 inline-flex w-fit cursor-pointer items-center text-sm font-semibold text-primary hover:underline"
+                              >
+                                Ver subcategoría →
+                              </NuxtLink>
+                            </MenubarItem>
+                          </div>
+
+                          <div
+                            v-else
+                            class="rounded-lg bg-muted/40 px-3 py-2 text-sm text-muted-foreground"
+                          >
+                            Sin productos destacados
+                          </div>
+                        </section>
+                      </div>
+                    </template>
+
+                    <!-- Categoría sin subcategorías pero con productos directos -->
+                    <template v-else-if="hasPreviewProducts(cat)">
+                      <div :class="menuInnerClass(cat)">
                         <NuxtLink
-                          :to="toCat(sub)"
+                          :to="toCat(cat)"
                           class="mb-3 flex items-center gap-3 border-b border-border/50 pb-3 transition-opacity hover:opacity-90"
                         >
                           <CmsImage
-                            v-if="imageSrcOf(sub)"
-                            :src="imageSrcOf(sub)"
+                            v-if="imageSrcOf(cat)"
+                            :src="imageSrcOf(cat)"
                             alt=""
                             aria-hidden="true"
                             width="36"
@@ -196,20 +294,20 @@ const menuInnerClass = (category: CategoriaNode) =>
                           <span
                             class="min-w-0 truncate text-sm font-bold uppercase tracking-[0.08em] text-foreground"
                           >
-                            {{ labelOf(sub) }}
+                            {{ labelOf(cat) }}
                           </span>
                         </NuxtLink>
 
-                        <div v-if="hasPreviewProducts(sub)" class="flex flex-col gap-1">
+                        <div class="grid gap-1">
                           <MenubarItem
-                            v-for="prod in previewProducts(sub)"
+                            v-for="prod in previewProducts(cat)"
                             :key="prod.path || prod.slug || prod.title"
                             as-child
                           >
                             <NuxtLink
                               :to="toProd(prod)"
                               :prefetch="false"
-                              class="flex min-w-0 w-full cursor-pointer items-center gap-3 rounded-lg px-2 py-2 text-sm transition hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+                              :class="productLinkClass"
                             >
                               <CmsImage
                                 v-if="imageSrcOf(prod)"
@@ -221,7 +319,7 @@ const menuInnerClass = (category: CategoriaNode) =>
                                 class="h-8 w-8 shrink-0 rounded-full border border-border object-cover"
                               />
 
-                              <span class="min-w-0 truncate text-foreground/88">
+                              <span class="min-w-0 truncate">
                                 {{ productLabelOf(prod) }}
                               </span>
                             </NuxtLink>
@@ -229,104 +327,29 @@ const menuInnerClass = (category: CategoriaNode) =>
 
                           <MenubarItem as-child>
                             <NuxtLink
-                              :to="toCat(sub)"
+                              :to="toCat(cat)"
                               class="mt-3 inline-flex w-fit cursor-pointer items-center text-sm font-semibold text-primary hover:underline"
                             >
-                              Ver subcategoría →
+                              Ver categoría →
                             </NuxtLink>
                           </MenubarItem>
                         </div>
-
-                        <div
-                          v-else
-                          class="rounded-lg bg-muted/40 px-3 py-2 text-sm text-muted-foreground"
-                        >
-                          Sin productos destacados
-                        </div>
-                      </section>
-                    </div>
-                  </template>
-
-                  <!-- Categoría sin subcategorías pero con productos directos -->
-                  <template v-else-if="hasPreviewProducts(cat)">
-                    <div :class="menuInnerClass(cat)">
-                      <NuxtLink
-                        :to="toCat(cat)"
-                        class="mb-3 flex items-center gap-3 border-b border-border/50 pb-3 transition-opacity hover:opacity-90"
-                      >
-                        <CmsImage
-                          v-if="imageSrcOf(cat)"
-                          :src="imageSrcOf(cat)"
-                          alt=""
-                          aria-hidden="true"
-                          width="36"
-                          height="36"
-                          class="h-9 w-9 shrink-0 rounded-full border border-border object-cover"
-                        />
-
-                        <span
-                          class="min-w-0 truncate text-sm font-bold uppercase tracking-[0.08em] text-foreground"
-                        >
-                          {{ labelOf(cat) }}
-                        </span>
-                      </NuxtLink>
-
-                      <div class="grid gap-1">
-                        <MenubarItem
-                          v-for="prod in previewProducts(cat)"
-                          :key="prod.path || prod.slug || prod.title"
-                          as-child
-                        >
-                          <NuxtLink
-                            :to="toProd(prod)"
-                            :prefetch="false"
-                            class="flex min-w-0 w-full cursor-pointer items-center gap-3 rounded-lg px-2 py-2 text-sm transition hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
-                          >
-                            <CmsImage
-                              v-if="imageSrcOf(prod)"
-                              :src="imageSrcOf(prod)"
-                              alt=""
-                              aria-hidden="true"
-                              width="32"
-                              height="32"
-                              class="h-8 w-8 shrink-0 rounded-full border border-border object-cover"
-                            />
-
-                            <span class="min-w-0 truncate text-foreground/88">
-                              {{ productLabelOf(prod) }}
-                            </span>
-                          </NuxtLink>
-                        </MenubarItem>
-
-                        <MenubarItem as-child>
-                          <NuxtLink
-                            :to="toCat(cat)"
-                            class="mt-3 inline-flex w-fit cursor-pointer items-center text-sm font-semibold text-primary hover:underline"
-                          >
-                            Ver categoría →
-                          </NuxtLink>
-                        </MenubarItem>
                       </div>
-                    </div>
-                  </template>
-                </MenubarContent>
-              </template>
+                    </template>
+                  </MenubarContent>
+                </template>
 
-              <template v-else>
-                <NuxtLink
-                  :to="toCat(cat)"
-                  class="shrink-0 whitespace-nowrap text-[14px] leading-[20px] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:ring-offset-2 focus-visible:ring-offset-[#004F78]"
-                  :class="
-                    isCategoryActive(cat)
-                      ? 'font-semibold text-white'
-                      : 'font-normal text-white hover:text-white/90'
-                  "
-                >
-                  {{ labelOf(cat) }}
-                </NuxtLink>
-              </template>
-            </MenubarMenu>
-          </Menubar>
+                <template v-else>
+                  <NuxtLink
+                    :to="toCat(cat)"
+                    :class="[desktopLinkClass, desktopLinkStateClass(cat)]"
+                  >
+                    {{ labelOf(cat) }}
+                  </NuxtLink>
+                </template>
+              </MenubarMenu>
+            </Menubar>
+          </div>
         </div>
       </template>
     </div>
