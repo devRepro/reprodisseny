@@ -537,11 +537,33 @@
     margin-top: 0;
   }
 
+  .product-hero-media {
+  @apply relative aspect-[16/11] w-full overflow-hidden;
+
+  background:
+    linear-gradient(
+      180deg,
+      hsl(var(--brand-white)) 0%,
+      hsl(var(--brand-ink-light) / 0.32) 100%
+    );
+}
+
+.product-hero-media__backdrop {
+  @apply absolute inset-0 h-full w-full scale-110 object-cover blur-2xl;
+
+  opacity: 0.08;
+}
+
+.product-hero-media__image {
+  @apply relative z-10 h-full w-full object-contain p-1.5 sm:p-2;
+}
+
   @media (max-width: 767px) {
     .section-intro-surface::before {
       display: none;
     }
   }
+
 }
 
 /* =========================================================
