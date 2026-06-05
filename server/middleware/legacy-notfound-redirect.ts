@@ -19,6 +19,9 @@ import { redirectRouteRules } from "../../redirect-rules.generated"
  * - Redirigir queries legacy conocidas hacia URLs limpias.
  *
  * Mantener los 301 con equivalente real en redirect-rules.generated.ts.
+ * Usar MANUAL_LEGACY_REDIRECTS solo para correcciones puntuales de GSC
+ * cuando el destino correcto no exista todavía en redirect-rules.generated.ts
+ * o cuando haya que sobrescribir una regla antigua demasiado genérica.
  */
 
 const CANONICAL_ORIGIN = "https://reprodisseny.com"
@@ -30,6 +33,25 @@ const LEGACY_HOSTS = new Set([
   "calendarios.reprodisseny.com",
 ])
 
+/**
+ * Overrides manuales revisados desde el Excel de GSC.
+ * Tienen prioridad sobre redirectRouteRules porque algunas reglas legacy
+ * existentes apuntan a destinos demasiado genéricos.
+ */
+const MANUAL_LEGACY_REDIRECTS: Record<string, string> = {
+  "/product/imprimir-fotos-en-lienzos-presupuesto": "/productos/carteles-personalizados-gran-formato",
+  "/product/imprimir-fotos-en-lienzos-presupuesto/printestimate": "/productos/carteles-personalizados-gran-formato",
+
+  "/producto/lienzos": "/productos/carteles-personalizados-gran-formato",
+  "/producte/lienzos": "/productos/carteles-personalizados-gran-formato",
+
+  "/ca/producte/samarretes": "/productos/dorsales-carrera",
+  "/ca/p/ca/producte/samarretes": "/productos/dorsales-carrera",
+  "/producte/samarretes": "/productos/dorsales-carrera",
+
+  "/producto/delantal": "/categorias/hosteleria-restauracion",
+}
+
 const LEGACY_GONE_PREFIXES = [
   "/assets/Download/",
   "/DefaultCaptcha/",
@@ -37,6 +59,10 @@ const LEGACY_GONE_PREFIXES = [
   "/cart/",
   "/author/",
   "/tag/",
+  "/blog/",
+  "/wp-content/",
+  "/wp-includes/",
+  "/wp-json/",
 ] as const
 
 const LEGACY_GONE_PATHS = new Set([
@@ -51,6 +77,9 @@ const LEGACY_GONE_PATHS = new Set([
   "/adevinta-estrena-nuevas-oficinas",
   "/adevinta-estrena-nuevas-oficines",
   "/web2print-corporativa-adevinta",
+  "/ca/manual-para-hacer-un-buen-flyer",
+  "/manual-para-hacer-un-buen-flyer",
+  "/xmlrpc.php",
 ])
 
 type RedirectRule = {
@@ -109,7 +138,26 @@ function isSafeInternalDestination(destination: string) {
   return destination.startsWith("/") && !destination.startsWith("//")
 }
 
+function getManualRedirect(path: string) {
+  const destination = MANUAL_LEGACY_REDIRECTS[path]
+
+  if (!destination) return null
+  if (!isSafeInternalDestination(destination)) return null
+  if (destination === path) return null
+
+  return {
+    to: destination,
+    statusCode: 301,
+  }
+}
+
 function getMappedRedirect(path: string) {
+  const manualDestination = getManualRedirect(path)
+
+  if (manualDestination) {
+    return manualDestination
+  }
+
   const rule = routeRules[path]
   const destination = rule?.redirect?.to
 
