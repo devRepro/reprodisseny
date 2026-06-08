@@ -58,10 +58,10 @@ const props = withDefaults(
         <!-- Lista de Features Refactorizada -->
         <div class="mt-10 space-y-8">
           <div v-for="(feature, index) in props.features" :key="index" class="group">
-            <h3 class="text-base font-bold text-bclack/90">
+            <h3 class="text-base font-bold text-black/90">
               {{ feature.title }}
             </h3>
-            <p class="mt-1 text-[15px] leading-relaxed text-bclack/90">
+            <p class="mt-1 text-[15px] leading-relaxed text-black/90">
               {{ feature.description }}
             </p>
           </div>

@@ -76,12 +76,7 @@ const iconClass = computed(() => [
         >
           {{ item.title }}
         </h3>
-        <p
-          class="mt-1 text-[13px] leading-5"
-          :class="props.tone === 'dark' ? 'text-white/70' : 'text-foreground/70'"
-        >
-    
-        </p>
+  
       </div>
     </li>
   </ul>
