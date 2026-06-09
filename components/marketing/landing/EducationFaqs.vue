@@ -97,39 +97,39 @@ function toggleItem(index: number) {
 .education-faqs {
   width: 100%;
   background: transparent;
-  color: #212121;
+  color: hsl(var(--brand-ink-dark));
   padding: 0;
 }
 
 .education-faqs__inner {
-  width: min(100% - 96px, 1320px);
+  width: min(100% - 48px, 920px);
   margin-inline: auto;
 }
 
 .education-faqs__title {
   margin: 0 0 56px;
-  color: #212121;
-  font-family: Figtree, var(--font-sans);
-  font-size: 36px;
-  font-weight: 700;
-  line-height: 1.2;
+  color: hsl(var(--brand-ink-dark));
+  font-family: var(--font-sans);
+  font-size: var(--font-h1);
+  font-weight: var(--weight-h1);
+  line-height: var(--line-h1);
   letter-spacing: 0;
   text-align: center;
 }
 
 .education-faqs__list {
   display: grid;
-  gap: 54px;
+  gap: 28px;
   margin: 0;
   padding: 0;
 }
 
 .education-faqs__item {
   overflow: hidden;
-  border: 1px solid rgb(30 30 30 / 0.95);
-  border-radius: 16px;
-  background: #ffffff;
-  box-shadow: 0 8px 0 rgb(0 0 0 / 0.22);
+  border: 1px solid hsl(var(--brand-ink-dark) / 0.16);
+  border-radius: var(--radius);
+  background: hsl(var(--brand-white));
+  box-shadow: 0 10px 30px hsl(var(--brand-ink-dark) / 0.08);
 }
 
 .education-faqs__trigger {
@@ -137,13 +137,13 @@ function toggleItem(index: number) {
   grid-template-columns: minmax(0, 1fr) 20px;
   column-gap: 24px;
   width: 100%;
-  min-height: 55px;
+  min-height: 64px;
   align-items: center;
   border: 0;
-  border-bottom: 1px solid rgb(30 30 30 / 0.42);
+  border-bottom: 1px solid hsl(var(--brand-ink-dark) / 0.24);
   background: transparent;
-  padding: 23px 31px 13px;
-  color: #212121;
+  padding: 20px 28px 18px;
+  color: hsl(var(--brand-ink-dark));
   text-align: left;
   cursor: pointer;
 }
@@ -151,19 +151,19 @@ function toggleItem(index: number) {
 .education-faqs__question {
   display: block;
   min-width: 0;
-  color: #212121;
-  font-family: Figtree, var(--font-sans);
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 1.3;
+  color: hsl(var(--brand-ink-dark));
+  font-family: var(--font-sans);
+  font-size: var(--font-h4);
+  font-weight: var(--weight-h4);
+  line-height: var(--line-h4);
   letter-spacing: 0;
 }
 
 .education-faqs__icon {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   justify-self: end;
-  color: #212121;
+  color: hsl(var(--brand-ink-dark));
   stroke-width: 1.8;
   transition: transform 180ms ease;
 }
@@ -177,16 +177,16 @@ function toggleItem(index: number) {
 }
 
 .education-faqs__content {
-  padding: 15px 31px 29px;
+  padding: 18px 28px 24px;
 }
 
 .education-faqs__content p {
   margin: 0;
-  color: #212121;
-  font-family: Figtree, var(--font-sans);
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.4;
+  color: hsl(var(--brand-ink-medium));
+  font-family: var(--font-sans);
+  font-size: var(--font-body);
+  font-weight: var(--weight-body);
+  line-height: var(--line-body);
   letter-spacing: 0;
 }
 
@@ -196,7 +196,7 @@ function toggleItem(index: number) {
   }
 
   .education-faqs__list {
-    gap: 32px;
+    gap: 24px;
   }
 }
 
@@ -207,28 +207,31 @@ function toggleItem(index: number) {
 
   .education-faqs__title {
     margin-bottom: 36px;
-    font-size: 28px;
+    font-size: var(--font-h2);
+    font-weight: var(--weight-h2);
+    line-height: var(--line-h2);
   }
 
   .education-faqs__list {
-    gap: 22px;
+    gap: 18px;
   }
 
   .education-faqs__item {
-    border-radius: 12px;
-    box-shadow: 0 5px 0 rgb(0 0 0 / 0.18);
+    border-radius: var(--radius);
+    box-shadow: 0 8px 22px hsl(var(--brand-ink-dark) / 0.08);
   }
 
   .education-faqs__trigger {
     grid-template-columns: minmax(0, 1fr) 18px;
-    min-height: 58px;
+    min-height: 56px;
     column-gap: 16px;
-    padding: 18px 18px 13px;
+    padding: 17px 20px 15px;
   }
 
   .education-faqs__question {
-    font-size: 18px;
-    line-height: 1.3;
+    font-size: var(--font-body);
+    font-weight: var(--weight-body-bold);
+    line-height: var(--line-body);
   }
 
   .education-faqs__icon {
@@ -237,12 +240,12 @@ function toggleItem(index: number) {
   }
 
   .education-faqs__content {
-    padding: 14px 18px 18px;
+    padding: 14px 20px 18px;
   }
 
   .education-faqs__content p {
-    font-size: 16px;
-    line-height: 1.4;
+    font-size: var(--font-body-s);
+    line-height: var(--line-body-s);
   }
 }
 </style>

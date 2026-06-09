@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, reactive, ref } from "vue";
 import { useRoute } from "#imports";
-import { Check, ChevronRight, Loader2, Phone, X } from "lucide-vue-next";
+import { ChevronRight, Phone, X } from "lucide-vue-next";
 import { usePriceRequests } from "@/composables/usePriceRequests";
 import EducationFaqs from "@/components/marketing/landing/EducationFaqs.vue";
 import EducationQuoteForm from "@/components/marketing/landing/EducationQuoteForm.vue";
@@ -104,6 +104,7 @@ const logos = [
   { label: "EADA Business School", src: "/img/ui/ld/centres-educatius/logos/eada.svg" },
   { label: "Salesians", src: "/img/ui/ld/centres-educatius/logos/salesians.svg" },
   { label: "UAB", src: "/img/ui/ld/centres-educatius/logos/uab.svg" },
+    { label: "CETT Barcelona School of Tourism, Hospitality and Gastronomy", src: "/img/ui/ld/centres-educatius/logos/cett.svg" },
 ] as const;
 
 
@@ -480,7 +481,7 @@ useHead({
     <section class="education-trust" aria-labelledby="education-trust-title">
       <div class="education-container education-trust__grid">
         <img
-          :src="landingMedia('taller-reprodisseny.webp')"
+          :src="landingMedia('repro.webp')"
           alt="Equip de producció de Repro Disseny preparant material imprès"
           class="education-trust__image"
           loading="lazy"
@@ -498,7 +499,6 @@ useHead({
 
           <ul class="education-trust__list" role="list">
             <li v-for="reason in reasons" :key="reason">
-              <Check class="education-trust__icon" aria-hidden="true" />
               <span>{{ reason }}</span>
             </li>
           </ul>
@@ -591,13 +591,13 @@ useHead({
   --edu-radius: var(--radius, 0.5rem);
 
   width: 100%;
-  max-width: var(--edu-frame);
+  max-width: none;
   min-height: 100vh;
-  margin-inline: auto;
-  overflow: hidden;
+  margin-inline: 0;
+  overflow-x: clip;
   background: var(--edu-white);
   color: var(--edu-ink);
-  font-family: Figtree, var(--font-sans);
+  font-family: var(--font-sans);
   font-size: var(--font-body);
   line-height: var(--line-body);
 }
@@ -608,7 +608,7 @@ useHead({
 }
 
 .education-container--process {
-  max-width: 1120px;
+   max-width: 1001px;
 }
 
 .education-container--logos {
@@ -623,19 +623,19 @@ useHead({
 .education-title {
   margin: 0;
   color: var(--edu-ink);
-  font-family: Figtree, var(--font-sans);
-  font-weight: 700;
-  line-height: 1.2;
+  font-family: var(--font-sans);
+  font-weight: var(--weight-h2);
+  line-height: var(--line-h1);
   letter-spacing: 0;
   text-align: center;
 }
 
 .education-title--sm {
-  font-size: 36px;
+  font-size: var(--font-h1);
 }
 
 .education-title--xs {
-  font-size: 30px;
+  font-size: var(--font-h2);
   text-align: left;
 }
 
@@ -675,9 +675,9 @@ useHead({
   width: 700px;
   max-width: calc(100% - var(--edu-pad-left) - var(--edu-pad-right));
   border-radius: 16px;
-  background: rgb(255 255 255 / 0.86);
+  background: hsl(var(--brand-white) / 0.86);
   padding: 32px 38px 28px;
-  box-shadow: 0 18px 48px rgb(0 0 0 / 0.12);
+  box-shadow: 0 18px 48px hsl(var(--brand-ink-dark) / 0.12);
   backdrop-filter: blur(2px);
 }
 
@@ -685,11 +685,11 @@ useHead({
   width: 620px;
   max-width: 100%;
   margin: 0;
-  color: #212121;
-  font-family: Figtree, var(--font-sans);
-  font-size: 50px;
-  font-weight: 700;
-  line-height: 1;
+  color: var(--edu-ink);
+  font-family: var(--font-sans);
+  font-size: var(--font-h1);
+  font-weight: var(--weight-h1);
+  line-height: var(--line-h1);
   letter-spacing: 0;
   white-space: nowrap;
 }
@@ -698,11 +698,11 @@ useHead({
   width: 620px;
   max-width: 100%;
   margin: 18px 0 0;
-  color: #212121;
-  font-family: Figtree, var(--font-sans);
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 1.18;
+  color: var(--edu-ink);
+  font-family: var(--font-sans);
+  font-size: var(--font-h3);
+  font-weight: var(--weight-body);
+  line-height: var(--line-h3);
   letter-spacing: 0;
 }
 
@@ -724,10 +724,10 @@ useHead({
   background: var(--edu-primary);
   padding: 0 24px;
   color: var(--edu-white);
-  font-family: Figtree, var(--font-sans);
-  font-size: 15px;
-  font-weight: 500;
-  line-height: 1;
+  font-family: var(--font-sans);
+  font-size: var(--font-label);
+  font-weight: var(--weight-label);
+  line-height: var(--line-label);
   text-decoration: none;
   cursor: pointer;
   transition:
@@ -746,11 +746,11 @@ useHead({
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  color: #8da0b4;
-  font-family: Figtree, var(--font-sans);
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 1;
+  color: hsl(var(--brand-ink-medium));
+  font-family: var(--font-sans);
+  font-size: var(--font-h4);
+  font-weight: var(--weight-body-bold);
+  line-height: var(--line-h4);
   text-decoration: none;
   opacity: 0.76;
 }
@@ -758,17 +758,17 @@ useHead({
 .education-hero__phone-icon {
   width: 22px;
   height: 22px;
-  color: #8da0b4;
+  color: hsl(var(--brand-ink-medium));
   stroke-width: 2;
 }
 
 .education-hero__note {
   margin: 22px 0 0;
   color: var(--edu-primary);
-  font-family: Figtree, var(--font-sans);
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1.25;
+  font-family: var(--font-sans);
+  font-size: var(--font-label-s);
+  font-weight: var(--weight-label);
+  line-height: var(--line-label-s);
 }
 
 /* PUNTOS DE DOLOR — Figma: títol 36/700, ítems 28/500 */
@@ -785,11 +785,11 @@ useHead({
 .education-problems__title {
   width: 100%;
   margin: 0;
-  color: #1e1e1e;
-  font-family: Figtree, var(--font-sans);
-  font-size: 36px;
-  font-weight: 700;
-  line-height: 1.2;
+  color: var(--edu-ink);
+  font-family: var(--font-sans);
+  font-size: var(--font-h1);
+  font-weight: var(--weight-h1);
+  line-height: var(--line-h1);
   letter-spacing: 0;
   text-align: center;
 }
@@ -809,31 +809,32 @@ useHead({
   grid-template-columns: 40px minmax(0, 654px);
   align-items: center;
   column-gap: 28px;
-  color: #212121;
+  color: var(--edu-ink);
 }
 
 .education-problems__icon {
   width: 32px;
   height: 32px;
   justify-self: center;
-  color: #e00000;
+  color: var(--edu-error);
   stroke-width: 3.8;
 }
 
 .education-problems__text {
   display: block;
-  color: #212121;
-  font-family: Figtree, var(--font-sans);
-  font-size: 28px;
-  font-weight: 500;
-  line-height: 1.3;
+  color: var(--edu-ink);
+  font-family: var(--font-sans);
+  font-size: var(--font-h2);
+  font-weight: var(--weight-h2);
+  line-height: var(--line-h2);
   letter-spacing: 0;
 }
 
 /* SERVICIOS — Figma: cards 400px, bloc text 400x239, gap vertical 16px */
+/* SERVICIOS — Figma exact section */
 .education-services {
   background: var(--edu-light);
-  padding: 82px 0 86px;
+  padding: 78px 0 88px;
 }
 
 .education-container--services {
@@ -844,11 +845,11 @@ useHead({
 
 .education-services__title {
   margin: 0;
-  color: #212121;
-  font-family: Figtree, var(--font-sans);
-  font-size: 36px;
-  font-weight: 700;
-  line-height: 1.2;
+  color: var(--edu-ink);
+  font-family: var(--font-sans);
+  font-size: var(--font-h1);
+  font-weight: var(--weight-h1);
+  line-height: var(--line-h1);
   letter-spacing: 0;
   text-align: center;
 }
@@ -857,12 +858,15 @@ useHead({
   display: grid;
   grid-template-columns: repeat(2, 400px);
   justify-content: center;
-  gap: 72px;
+  align-items: start;
+  column-gap: 72px;
+  row-gap: 0;
   margin-top: 52px;
 }
 
 .education-service-card {
   width: 400px;
+  min-width: 0;
 }
 
 .education-service-card__image {
@@ -871,260 +875,361 @@ useHead({
   height: 280px;
   border-radius: 8px;
   object-fit: cover;
+  object-position: center;
   box-shadow: none;
 }
 
 .education-service-card__title {
-  margin: 16px 0 0;
-  color: hsl(var(--brand-base-dark));
-  font-family: Figtree, var(--font-sans);
-  font-size: 24px;
-  font-weight: 800;
-  line-height: 1.15;
+  width: 400px;
+  min-height: 34px;
+  margin: 20px 0 0;
+  color: var(--edu-primary-dark);
+  font-family: var(--font-sans);
+  font-size: var(--font-h2);
+  font-weight: var(--weight-h2);
+  line-height: var(--line-h2);
   letter-spacing: 0;
   text-transform: uppercase;
 }
 
 .education-service-card__subtitle {
-  margin: 16px 0 0;
-  color: hsl(var(--brand-base-dark));
-  font-family: Figtree, var(--font-sans);
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 1.3;
+  width: 400px;
+  min-height: 26px;
+  margin: 8px 0 0;
+  color: var(--edu-primary-dark);
+  font-family: var(--font-sans);
+  font-size: var(--font-h3);
+  font-weight: var(--weight-body);
+  line-height: var(--line-h3);
   letter-spacing: 0;
 }
 
 .education-service-card__bullets {
   display: grid;
   gap: 12px;
-  margin: 16px 0 0;
+  width: 400px;
+  margin: 18px 0 0;
   padding-left: 18px;
-  color: #212121;
-  font-family: Figtree, var(--font-sans);
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.35;
+  color: var(--edu-ink);
+  font-family: var(--font-sans);
+  font-size: var(--font-body);
+  font-weight: var(--weight-body);
+  line-height: var(--line-body);
   letter-spacing: 0;
+}
+
+.education-service-card__bullets li {
+  min-height: 22px;
+  padding-left: 4px;
 }
 
 .education-service-card__bullets li::marker {
   font-size: 0.7em;
 }
 
-/* PROCESO */
+/* PROCESO — Figma: frame 1441x525, padding 80 220 100 */
 .education-process {
   background: var(--edu-primary-dark);
-  padding: 62px 0 76px;
+  padding: 80px 0 100px;
   color: var(--edu-white);
 }
 
 .education-process__title {
   margin: 0;
-  text-align: center;
   color: var(--edu-white);
-  font-family: Figtree, var(--font-sans);
-  font-size: 36px;
-  font-weight: 700;
-  line-height: 1.2;
+  font-family: var(--font-sans);
+  font-size: var(--font-h1);
+  font-weight: var(--weight-h1);
+  line-height: var(--line-h1);
+  letter-spacing: 0;
+  text-align: center;
 }
 
 .education-process__grid {
   display: grid;
-  grid-template-columns: 1fr 32px 1fr 32px 1fr;
+  grid-template-columns: 300px 24px 300px 24px 300px;
   align-items: center;
-  gap: 20px;
-  margin-top: 40px;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1001px;
+  margin: 40px auto 0;
+  gap: 0;
 }
 
 .education-step {
-  min-height: 164px;
-  border-radius: var(--edu-radius);
-  background: var(--edu-primary-card);
-  padding: 25px 28px;
-  box-shadow: 0 20px 40px rgb(0 0 0 / 16%);
+  display: flex;
+  width: 300px;
+  height: 262px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border: 1px solid hsl(var(--brand-ink-dark) / 0.10);
+  border-radius: 12px;
+  background: hsl(var(--brand-base) / 0.35);
+  padding: 40px;
+  box-shadow: 2px 2px 8px hsl(var(--brand-ink-dark) / 0.18);
 }
 
 .education-step__number {
   margin: 0;
   color: var(--edu-white);
-  font-size: 25px;
-  font-weight: 900;
-  line-height: 1;
+  font-family: var(--font-sans);
+  font-size: var(--font-h2);
+  font-weight: var(--weight-h2);
+  line-height: var(--line-h2);
+  letter-spacing: 0;
   text-decoration: underline;
   text-decoration-thickness: 2px;
-  text-underline-offset: 4px;
+  text-underline-offset: 7px;
 }
 
 .education-step__title {
-  margin: 23px 0 0;
+  width: 220px;
+  margin: 24px 0 0;
   color: var(--edu-white);
-  font-size: 16px;
-  font-weight: 900;
-  line-height: 1.18;
+  font-family: var(--font-sans);
+  font-size: var(--font-h3);
+  font-weight: var(--weight-h3);
+  line-height: var(--line-h3);
+  letter-spacing: 0;
 }
 
 .education-step__text {
-  margin: 14px 0 0;
-  color: rgb(255 255 255 / 86%);
-  font-size: var(--font-label-s);
-  line-height: var(--line-label-s);
+  width: 220px;
+  margin: 24px 0 0;
+  color: var(--edu-white);
+  font-family: var(--font-sans);
+  font-size: var(--font-body);
+  font-weight: var(--weight-body);
+  line-height: var(--line-body);
+  letter-spacing: 0;
 }
 
 .education-step__arrow {
   justify-self: center;
-  width: 20px;
-  height: 20px;
-  color: rgb(255 255 255 / 70%);
+  width: 24px;
+  height: 24px;
+  color: var(--edu-white);
+  stroke-width: 2;
+  opacity: 1;
 }
-
-/* CONFIANZA */
+/* CONFIANZA — Figma: frame 1441, padding 100 220 120, gap 40 */
 .education-trust {
   background: var(--edu-white);
-  padding: 82px 0;
+  padding: 100px 220px 120px;
 }
 
 .education-trust__grid {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
+  grid-template-columns: 400px 537px;
   align-items: center;
-  gap: 70px;
-  max-width: 1120px;
+  justify-content: center;
+  gap: 40px;
+  width: 100%;
+  max-width: 1001px;
+  margin-inline: auto;
 }
 
 .education-trust__image {
   display: block;
-  width: 100%;
-  aspect-ratio: 1.45 / 1;
-  border-radius: var(--edu-radius);
+  width: 400px;
+  height: 313px;
+  border-radius: 8px;
   object-fit: cover;
-  box-shadow: 0 16px 40px rgb(0 0 0 / 10%);
+  object-position: center;
+  box-shadow: none;
+}
+
+.education-trust__content {
+  width: 537px;
+  max-width: 537px;
+}
+
+.education-trust__content .education-title,
+.education-title--xs {
+  width: 537px;
+  margin: 0;
+  color: var(--edu-ink);
+  font-family: var(--font-sans);
+  font-size: var(--font-h1);
+  font-weight: var(--weight-h1);
+  line-height: var(--line-h1);
+  letter-spacing: 0;
+  text-align: left;
 }
 
 .education-trust__lead {
-  max-width: 430px;
-  margin: 18px 0 0;
+  width: 537px;
+  margin: 14px 0 0;
   color: var(--edu-ink);
-  font-size: 15px;
-  font-weight: 800;
-  line-height: 1.45;
+  font-family: var(--font-sans);
+  font-size: var(--font-h3);
+  font-weight: var(--weight-body-bold);
+  line-height: var(--line-h3);
+  letter-spacing: 0;
 }
 
 .education-trust__list {
   display: grid;
-  gap: 9px;
-  margin: 18px 0 0;
+  gap: 18px;
+  width: 537px;
+  margin: 28px 0 0;
   padding: 0;
   list-style: none;
 }
 
 .education-trust__list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
+  position: relative;
+  display: block;
+  min-height: 24px;
+  padding-left: 22px;
   color: var(--edu-ink);
-  font-size: var(--font-label);
+  font-family: var(--font-sans);
+  font-size: var(--font-h4);
+  font-weight: var(--weight-body);
+  line-height: var(--line-h4);
+  letter-spacing: 0;
+}
+
+.education-trust__list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--edu-ink);
+  font: inherit;
   line-height: var(--line-label);
 }
 
 .education-trust__icon {
-  margin-top: 2px;
-  width: 13px;
-  height: 13px;
-  color: var(--edu-primary-dark);
-  stroke-width: 3;
+  display: none;
 }
 
-/* LOGOS */
+/* LOGOS — usando tokens globales */
 .education-logos {
   background: var(--edu-sand);
-  padding: 60px 0 58px;
+  padding: 72px 0 74px;
+}
+
+.education-container--logos {
+  width: min(100% - 48px, 1001px);
+  max-width: 1001px;
+  margin-inline: auto;
+}
+
+.education-logos .education-title--sm {
+  margin: 0;
+  color: var(--edu-ink);
+  font-family: var(--font-sans);
+  font-size: var(--font-h2);
+  font-weight: var(--weight-h2);
+  line-height: var(--line-h2);
+  text-align: center;
 }
 
 .education-logos__row {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
-  gap: 34px 48px;
-  margin-top: 40px;
+  gap: 28px;
+  margin-top: 48px;
 }
 
 .education-logo-item {
   display: grid;
-  min-width: 105px;
-  min-height: 44px;
+  width: 170px;
+  height: 80px;
+  flex: 0 0 170px;
   place-items: center;
 }
 
 .education-logo-item__image {
   display: block;
-  max-width: 135px;
-  max-height: 50px;
+  width: 100%;
+  max-width: 170px;
+  max-height: 80px;
   object-fit: contain;
 }
 
-/* FAQ */
-.education-faq {
+/* FAQS — wrapper real de la landing + componente hijo */
+.education-faq-section {
   background: var(--edu-white);
   padding: 80px 0 104px;
 }
 
-.education-faq__list {
+.education-faq-section__title {
+  margin: 0;
+  color: var(--edu-ink);
+  font-family: var(--font-sans);
+  font-size: var(--font-h2);
+  font-weight: var(--weight-h2);
+  line-height: var(--line-h2);
+  text-align: center;
+}
+
+/* El componente EducationFaqs vive dentro; con scoped hace falta :deep */
+.education-faq-section :deep(.education-faqs),
+.education-faq-section :deep(.education-faq),
+.education-faq-section :deep([data-faq-list]) {
+  width: min(100% - 48px, 920px);
+  margin: 56px auto 0;
+}
+
+.education-faq-section :deep(.education-faqs__list),
+.education-faq-section :deep(.education-faq__list) {
   display: grid;
   gap: 28px;
-  margin-top: 56px;
+  margin: 0;
+  padding: 0;
 }
 
-.education-faq__item {
+.education-faq-section :deep(details) {
   overflow: hidden;
-  border: 1px solid rgb(0 0 0 / 16%);
+  border: 1px solid hsl(var(--brand-ink-dark) / 0.16);
   border-radius: var(--edu-radius);
   background: var(--edu-white);
-  box-shadow: 0 10px 30px rgb(0 0 0 / 8%);
+  box-shadow: 0 10px 30px hsl(var(--brand-ink-dark) / 0.08);
 }
 
-.education-faq__question {
+.education-faq-section :deep(details + details) {
+  margin-top: 28px;
+}
+
+.education-faq-section :deep(summary) {
   display: flex;
-  min-height: 52px;
+  min-height: 64px;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  padding: 17px 21px 13px;
-  border-bottom: 1px solid rgb(0 0 0 / 24%);
+  padding: 20px 28px 18px;
   color: var(--edu-ink);
-  font-size: 14px;
-  line-height: 1.3;
+  font-family: var(--font-sans);
+  font-size: var(--font-h4);
+  font-weight: var(--weight-h4);
+  line-height: var(--line-h4);
   cursor: pointer;
   list-style: none;
 }
 
-.education-faq__question::-webkit-details-marker {
+.education-faq-section :deep(summary::-webkit-details-marker) {
   display: none;
 }
 
-.education-faq__question::after {
-  content: "⌃";
-  flex: 0 0 auto;
-  color: var(--edu-ink);
-  font-size: 15px;
-  line-height: 1;
+.education-faq-section :deep(details[open] summary) {
+  border-bottom: 1px solid hsl(var(--brand-ink-dark) / 0.24);
 }
 
-.education-faq__item:not([open]) .education-faq__question {
-  border-bottom: 0;
-}
-
-.education-faq__item:not([open]) .education-faq__question::after {
-  transform: rotate(180deg);
-}
-
-.education-faq__answer {
+.education-faq-section :deep(details > p),
+.education-faq-section :deep(.education-faq__answer),
+.education-faq-section :deep(.education-faqs__answer) {
   margin: 0;
-  padding: 13px 21px 18px;
+  padding: 18px 28px 24px;
   color: var(--edu-ink);
-  font-size: var(--font-label-s);
-  line-height: var(--line-label-s);
+  font-family: var(--font-sans);
+  font-size: var(--font-body);
+  font-weight: var(--weight-body);
+  line-height: var(--line-body);
 }
 
 /* FORM */
@@ -1139,7 +1244,7 @@ useHead({
 
 .education-contact__heading p {
   margin: 18px 0 38px;
-  color: #2b2b2b;
+  color: var(--edu-ink);
   font-size: var(--font-label);
   line-height: var(--line-label);
 }
@@ -1159,22 +1264,22 @@ useHead({
   display: grid;
   gap: 4px;
   color: var(--edu-ink);
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 1.2;
+  font-size: var(--font-label-s);
+  font-weight: var(--weight-label);
+  line-height: var(--line-label-s);
 }
 
 .education-form__field input,
 .education-form__field textarea {
   width: 100%;
   min-height: 30px;
-  border: 1px solid rgb(0 0 0 / 36%);
+  border: 1px solid hsl(var(--brand-ink-dark) / 0.36);
   border-radius: 4px;
   background: var(--edu-white);
   padding: 5px 8px;
   color: var(--edu-ink);
   font: inherit;
-  font-size: 13px;
+  font-size: var(--font-label);
   outline: none;
   transition: border-color 160ms ease, box-shadow 160ms ease;
 }
@@ -1186,7 +1291,7 @@ useHead({
 .education-form__field input:focus,
 .education-form__field textarea:focus {
   border-color: var(--edu-primary);
-  box-shadow: 0 0 0 3px rgb(0 118 179 / 16%);
+  box-shadow: 0 0 0 3px hsl(var(--brand-base) / 0.16);
 }
 
 .education-form__privacy {
@@ -1195,8 +1300,8 @@ useHead({
   gap: 8px;
   margin-top: 2px;
   color: var(--edu-ink);
-  font-size: 11px;
-  line-height: 1.35;
+  font-size: var(--font-label-s);
+  line-height: var(--line-label-s);
 }
 
 .education-form__privacy input {
@@ -1208,7 +1313,7 @@ useHead({
 
 .education-form__privacy a {
   color: var(--edu-primary-dark);
-  font-weight: 800;
+  font-weight: var(--weight-body-bold);
   text-decoration: underline;
   text-underline-offset: 2px;
 }
@@ -1225,8 +1330,8 @@ useHead({
   border-radius: var(--edu-radius);
   background: var(--edu-primary);
   color: var(--edu-white);
-  font-size: 12px;
-  font-weight: 900;
+  font-size: var(--font-label-s);
+  font-weight: var(--weight-body-bold);
   letter-spacing: 0.02em;
   text-transform: uppercase;
   cursor: pointer;
@@ -1253,14 +1358,14 @@ useHead({
 }
 
 .education-form__error {
-  border: 1px solid rgb(185 28 28 / 24%);
+  border: 1px solid hsl(var(--brand-error) / 0.24);
   border-radius: var(--edu-radius);
-  background: rgb(254 226 226 / 70%);
+  background: hsl(var(--brand-error) / 0.10);
   padding: 9px 11px;
-  color: #991b1b;
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 1.35;
+  color: var(--edu-error);
+  font-size: var(--font-label-s);
+  font-weight: var(--weight-body-bold);
+  line-height: var(--line-label-s);
 }
 
 .education-form__honeypot {
@@ -1269,7 +1374,7 @@ useHead({
 
 .education-success {
   border-radius: 12px;
-  background: rgb(255 255 255 / 70%);
+  background: hsl(var(--brand-white) / 0.70);
   padding: 28px 24px;
   text-align: center;
 }
@@ -1277,8 +1382,8 @@ useHead({
 .education-success h3 {
   margin: 0;
   color: var(--edu-primary-dark);
-  font-size: 18px;
-  font-weight: 900;
+  font-size: var(--font-h4);
+  font-weight: var(--weight-body-bold);
 }
 
 .education-success p {
@@ -1289,7 +1394,7 @@ useHead({
 }
 
 .education-success__reference {
-  font-weight: 800;
+  font-weight: var(--weight-body-bold);
 }
 
 .education-success__button {
@@ -1312,6 +1417,33 @@ useHead({
   .education-hero__claim {
     width: 700px;
   }
+
+  .education-container--process {
+    width: min(100% - 80px, 1001px);
+  }
+
+  .education-trust {
+    padding-inline: 80px;
+  }
+
+  .education-trust__grid {
+    grid-template-columns: minmax(320px, 400px) minmax(420px, 537px);
+  }
+
+  .education-trust__content,
+  .education-trust__content .education-title,
+  .education-title--xs,
+  .education-trust__lead,
+  .education-trust__list {
+    width: 100%;
+    max-width: 537px;
+  }
+
+  .education-trust__image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 400 / 313;
+  }
 }
 
 @media (max-width: 900px) {
@@ -1329,20 +1461,79 @@ useHead({
     gap: 48px;
   }
 
-  .education-service-card,
-  .education-service-card__image {
+  .education-service-card {
     width: 100%;
     max-width: 400px;
+    margin-inline: auto;
   }
 
-  .education-service-card {
-    margin-inline: auto;
+  .education-service-card__image,
+  .education-service-card__title,
+  .education-service-card__subtitle,
+  .education-service-card__bullets {
+    width: 100%;
+    max-width: 400px;
   }
 
   .education-service-card__image {
     height: auto;
     aspect-ratio: 400 / 280;
   }
+
+  .education-process__grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    justify-content: center;
+    max-width: 360px;
+  }
+
+  .education-step {
+    width: 100%;
+    max-width: 300px;
+    margin-inline: auto;
+  }
+
+  .education-step__arrow {
+    display: none;
+  }
+
+  .education-trust {
+    padding: 72px 48px 84px;
+  }
+
+  .education-trust__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    max-width: 560px;
+  }
+
+  .education-trust__image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 400 / 313;
+  }
+
+  .education-trust__content,
+  .education-trust__content .education-title,
+  .education-title--xs,
+  .education-trust__lead,
+  .education-trust__list {
+    width: 100%;
+    max-width: none;
+  }
+  .education-logos__row {
+  flex-wrap: wrap;
+  gap: 24px 32px;
+}
+
+.education-logo-item {
+  width: 150px;
+  flex-basis: 150px;
+}
+
+.education-logo-item__image {
+  max-width: 150px;
+}
 }
 
 @media (max-width: 767px) {
@@ -1382,16 +1573,16 @@ useHead({
 
   .education-hero__title {
     width: 100%;
-    font-size: 34px;
-    line-height: 1.05;
+    font-size: var(--font-h1);
+    line-height: var(--line-h1);
     white-space: normal;
   }
 
   .education-hero__text {
     width: 100%;
     margin-top: 18px;
-    font-size: 17px;
-    line-height: 1.25;
+    font-size: var(--font-body);
+    line-height: var(--line-body);
   }
 
   .education-hero__row {
@@ -1403,11 +1594,11 @@ useHead({
     min-width: 0;
     min-height: 46px;
     padding-inline: 22px;
-    font-size: 14px;
+    font-size: var(--font-body-s);
   }
 
   .education-hero__phone {
-    font-size: 14px;
+    font-size: var(--font-body-s);
   }
 
   .education-hero__phone-icon {
@@ -1417,7 +1608,7 @@ useHead({
 
   .education-hero__note {
     margin-top: 20px;
-    font-size: 13px;
+    font-size: var(--font-label);
   }
 
   .education-problems {
@@ -1431,8 +1622,8 @@ useHead({
   .education-problems__title,
   .education-services__title,
   .education-process__title {
-    font-size: 28px;
-    line-height: 1.2;
+    font-size: var(--font-h2);
+    line-height: var(--line-h1);
   }
 
   .education-problems__list {
@@ -1451,8 +1642,8 @@ useHead({
   }
 
   .education-problems__text {
-    font-size: 20px;
-    line-height: 1.3;
+    font-size: var(--font-h4);
+    line-height: var(--line-h3);
   }
 
   .education-services {
@@ -1475,77 +1666,221 @@ useHead({
     max-width: none;
   }
 
-  .education-service-card__image {
+  .education-service-card__image,
+  .education-service-card__title,
+  .education-service-card__subtitle,
+  .education-service-card__bullets {
     width: 100%;
     max-width: none;
+  }
+
+  .education-service-card__image {
     height: auto;
     aspect-ratio: 400 / 280;
   }
 
   .education-service-card__title {
-    margin-top: 20px;
-    font-size: 22px;
+    margin-top: 18px;
+    font-size: var(--font-h3);
+    line-height: var(--line-h3);
   }
 
   .education-service-card__subtitle {
-    margin-top: 12px;
-    font-size: 18px;
+    margin-top: 8px;
+    font-size: var(--font-h4);
+    line-height: var(--line-h4);
   }
 
   .education-service-card__bullets {
     gap: 10px;
-    margin-top: 18px;
-    font-size: 15px;
+    margin-top: 16px;
+    font-size: var(--font-body);
+    line-height: var(--line-body);
   }
 
-  .education-trust,
-  .education-logos,
-  .education-faq,
-  .education-contact {
-    padding-block: 56px;
+  .education-process {
+    padding: 56px 0 64px;
   }
 
-  .education-trust__grid,
+  .education-container--process {
+    width: min(100% - 32px, 360px);
+  }
+
+  .education-process__title {
+    font-size: var(--font-h2);
+    line-height: var(--line-h1);
+  }
+
   .education-process__grid {
     grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 32px;
   }
 
-  .education-process__grid {
-    gap: 18px;
+  .education-step {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    min-height: 236px;
+    padding: 34px;
+  }
+
+  .education-step__number {
+    font-size: var(--font-h2);
+  }
+
+  .education-step__title {
+    width: 100%;
+    margin-top: 22px;
+    font-size: var(--font-h3);
+    line-height: var(--line-h1);
+  }
+
+  .education-step__text {
+    width: 100%;
+    margin-top: 22px;
+    font-size: var(--font-body);
+    line-height: var(--line-h1);
   }
 
   .education-step__arrow {
     display: none;
   }
 
-  .education-title--xs {
-    text-align: center;
+  .education-trust {
+    padding: 56px 16px;
+  }
+
+  .education-trust__grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    max-width: 560px;
+  }
+
+  .education-trust__image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 400 / 313;
   }
 
   .education-trust__content {
-    text-align: center;
+    width: 100%;
+    max-width: none;
+    text-align: left;
+  }
+
+  .education-trust__content .education-title,
+  .education-title--xs {
+    width: 100%;
+    max-width: none;
+    font-size: var(--font-h2);
+    line-height: var(--line-h1);
+    text-align: left;
   }
 
   .education-trust__lead {
-    margin-inline: auto;
+    width: 100%;
+    max-width: none;
+    margin-top: 14px;
+    font-size: var(--font-h4);
+    line-height: var(--line-h1);
+  }
+
+  .education-trust__list {
+    width: 100%;
+    max-width: none;
+    gap: 16px;
+    margin-top: 24px;
   }
 
   .education-trust__list li {
-    justify-content: center;
+    font-size: var(--font-body);
+    line-height: var(--line-body);
+  }
+
+  .education-logos,
+  .education-faq,
+  .education-contact {
+    padding-block: 56px;
   }
 
   .education-faq__list {
     gap: 18px;
     margin-top: 36px;
   }
-  
+
   .education-faq-section {
     padding: 64px 0 76px;
   }
 
   .education-faq-section__title {
     margin-bottom: 40px;
-    font-size: 28px;
+    font-size: var(--font-h2);
   }
+  .education-logos {
+  padding: 56px 0 58px;
 }
+
+.education-container--logos {
+  width: min(100% - 32px, 560px);
+}
+
+.education-logos__row {
+  flex-wrap: wrap;
+  gap: 22px 28px;
+  margin-top: 36px;
+}
+
+.education-logo-item {
+  width: 128px;
+  height: 64px;
+  flex-basis: 128px;
+}
+
+.education-logo-item__image {
+  max-width: 128px;
+  max-height: 64px;
+}
+
+.education-faq-section {
+  padding: 64px 0 76px;
+}
+
+.education-faq-section__title {
+  font-size: var(--font-h2);
+  line-height: var(--line-h2);
+}
+
+.education-faq-section :deep(.education-faqs),
+.education-faq-section :deep(.education-faq),
+.education-faq-section :deep([data-faq-list]) {
+  width: min(100% - 32px, 560px);
+  margin-top: 40px;
+}
+
+.education-faq-section :deep(.education-faqs__list),
+.education-faq-section :deep(.education-faq__list) {
+  gap: 18px;
+}
+
+.education-faq-section :deep(details + details) {
+  margin-top: 18px;
+}
+
+.education-faq-section :deep(summary) {
+  min-height: 56px;
+  padding: 17px 20px 15px;
+  font-size: var(--font-body);
+  line-height: var(--line-body);
+}
+
+.education-faq-section :deep(details > p),
+.education-faq-section :deep(.education-faq__answer),
+.education-faq-section :deep(.education-faqs__answer) {
+  padding: 14px 20px 18px;
+  font-size: var(--font-body-s);
+  line-height: var(--line-body-s);
+}
+}
+
 </style>
