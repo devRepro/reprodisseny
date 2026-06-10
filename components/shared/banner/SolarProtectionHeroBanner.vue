@@ -125,7 +125,7 @@ const hasSecondaryAction = computed(() =>
               :to="primaryTo"
               variant="secondary"
               size="lg"
-              class="!h-12 !rounded-[9px] !bg-[hsl(var(--brand-yellow))] !px-5 !text-[17px] !font-semibold !leading-none !text-foreground shadow-none hover:!bg-[hsl(var(--brand-yellow)/0.9)] focus-visible:!ring-2 focus-visible:!ring-primary-foreground/45"
+              class="!h-12 !rounded-[9px] !bg-[hsl(var(--brand-yellow))] !px-5 !text-[17px] !font-semibold !leading-none !text-[hsl(var(--brand-ink-dark))] shadow-none hover:!bg-[hsl(var(--brand-yellow-hover))] focus-visible:!ring-2 focus-visible:!ring-primary-foreground/45"
             >
               {{ primaryLabel }}
             </AppButton>

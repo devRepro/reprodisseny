@@ -1,5 +1,3 @@
-@use "sass:color";
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -297,31 +295,31 @@
   }
 
   .section-title--hero {
-    font-size: clamp(2.25rem, 1.8rem + 1.5vw, 3.25rem);
-    line-height: 1.05;
-    font-weight: 700;
-    letter-spacing: -0.03em;
+    font-size: var(--font-h1);
+    line-height: var(--line-h1);
+    font-weight: var(--weight-h1);
+    letter-spacing: var(--tracking-heading);
   }
 
   .section-title--section {
-    font-size: clamp(1.75rem, 1.4rem + 1vw, 2.25rem);
-    line-height: 1.15;
-    font-weight: 600;
-    letter-spacing: -0.02em;
+    font-size: var(--font-h2);
+    line-height: var(--line-h2);
+    font-weight: var(--weight-h2);
+    letter-spacing: var(--tracking-heading);
   }
 
   .section-title--subsection {
-    font-size: clamp(1.35rem, 1.2rem + 0.5vw, 1.75rem);
-    line-height: 1.2;
-    font-weight: 600;
-    letter-spacing: -0.015em;
+    font-size: var(--font-h3);
+    line-height: var(--line-h3);
+    font-weight: var(--weight-h3);
+    letter-spacing: var(--tracking-heading);
   }
 
   .section-title--compact {
-    font-size: clamp(1.15rem, 1rem + 0.2vw, 1.25rem);
-    line-height: 1.3;
-    font-weight: 600;
-    letter-spacing: -0.01em;
+    font-size: var(--font-h4);
+    line-height: var(--line-h4);
+    font-weight: var(--weight-h4);
+    letter-spacing: var(--tracking-heading);
   }
 
   .section-title--brand {
@@ -342,7 +340,6 @@
 
   .section-subtitle {
     @apply max-w-3xl text-body text-muted-foreground;
-    line-height: 1.7;
   }
 
   .section-subtitle--center {
@@ -424,14 +421,21 @@
   }
 
   .product-tab-richtext h2 {
-    font-size: var(--font-h3);
-    line-height: var(--line-h3);
+    font-size: var(--font-h2);
+    line-height: var(--line-h2);
+    font-weight: var(--weight-h2);
   }
 
-  .product-tab-richtext h3,
+  .product-tab-richtext h3 {
+    font-size: var(--font-h3);
+    line-height: var(--line-h3);
+    font-weight: var(--weight-h3);
+  }
+
   .product-tab-richtext h4 {
     font-size: var(--font-h4);
     line-height: var(--line-h4);
+    font-weight: var(--weight-h4);
   }
 
   .product-tab-richtext ul,
@@ -517,9 +521,7 @@
     @apply font-semibold text-foreground;
   }
 
-  .product-tab-richtext li p {
-    margin-bottom: 0;
-  }
+
 
   .product-tab-richtext--technical p:has(+ ul),
   .product-tab-richtext--technical p:has(+ ol) {
@@ -538,26 +540,206 @@
   }
 
   .product-hero-media {
-  @apply relative aspect-[16/11] w-full overflow-hidden;
+    @apply relative aspect-[16/11] w-full overflow-hidden;
 
-  background:
-    linear-gradient(
-      180deg,
-      hsl(var(--brand-white)) 0%,
-      hsl(var(--brand-ink-light) / 0.32) 100%
-    );
-}
+    background:
+      linear-gradient(
+        180deg,
+        hsl(var(--brand-white)) 0%,
+        hsl(var(--brand-ink-light) / 0.32) 100%
+      );
+  }
 
-.product-hero-media__backdrop {
-  @apply absolute inset-0 h-full w-full scale-110 object-cover blur-2xl;
+  .product-hero-media__backdrop {
+    @apply absolute inset-0 h-full w-full scale-110 object-cover blur-2xl;
+    opacity: 0.08;
+  }
 
-  opacity: 0.08;
-}
+  .product-hero-media__image {
+    @apply relative z-10 h-full w-full object-contain p-1.5 sm:p-2;
+  }
 
-.product-hero-media__image {
-  @apply relative z-10 h-full w-full object-contain p-1.5 sm:p-2;
-}
 
+  /* =========================================================
+     BUTTONS — Figma kit
+     Usa estas clases para botones custom. El Button de shadcn ya hereda
+     colores vía --primary, --accent, --border, --ring.
+     ========================================================= */
+  .btn {
+    @apply inline-flex items-center justify-center whitespace-nowrap transition-colors disabled:pointer-events-none disabled:opacity-50;
+    gap: var(--button-gap);
+    border-radius: var(--button-radius);
+    padding: var(--button-padding-y) var(--button-padding-x);
+    font-size: var(--font-label);
+    line-height: var(--line-label);
+    font-weight: var(--weight-label);
+  }
+
+  .btn svg {
+    width: var(--button-icon-size);
+    height: var(--button-icon-size);
+    flex-shrink: 0;
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .btn-ghost {
+    @apply inline-flex items-center justify-center whitespace-nowrap transition-colors disabled:pointer-events-none disabled:opacity-50;
+    gap: var(--button-gap);
+    border-radius: var(--button-radius);
+    padding: var(--button-padding-y) var(--button-padding-x);
+    font-size: var(--font-label);
+    line-height: var(--line-label);
+    font-weight: var(--weight-label);
+  }
+
+  .btn-primary {
+    color: hsl(var(--primary-foreground));
+    background-color: hsl(var(--primary));
+    border: 1px solid hsl(var(--primary));
+  }
+
+  .btn-primary:hover {
+    background-color: hsl(var(--brand-base-dark));
+    border-color: hsl(var(--brand-base-dark));
+  }
+
+  .btn-secondary {
+    color: hsl(var(--primary));
+    background-color: hsl(var(--brand-white));
+    border: 1px solid hsl(var(--primary));
+  }
+
+  .btn-secondary:hover {
+    background-color: hsl(var(--brand-base-light));
+  }
+
+  .btn-ghost {
+    color: hsl(var(--brand-base-dark));
+    background-color: transparent;
+    border: 1px solid transparent;
+  }
+
+  .btn-ghost:hover {
+    background-color: hsl(var(--brand-base-light));
+  }
+
+  .btn-link {
+    @apply inline-flex items-center underline underline-offset-4 transition-colors;
+    gap: var(--button-gap);
+    color: hsl(var(--primary));
+    font-size: var(--font-label);
+    line-height: var(--line-label);
+    font-weight: var(--weight-label);
+  }
+
+  .btn-link:hover {
+    color: hsl(var(--brand-base-dark));
+  }
+
+  .btn-lg {
+    padding: var(--button-padding-y) var(--button-padding-x);
+    font-size: var(--font-body);
+    line-height: var(--line-body);
+    font-weight: 500;
+  }
+
+  .btn-lg svg {
+    width: var(--button-large-icon-size);
+    height: var(--button-large-icon-size);
+  }
+  .btn-primary,
+  .btn-secondary,
+  .btn-ghost,
+  .btn-link {
+    display: inline-flex;
+    min-height: 36px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: var(--font-label);
+    font-weight: var(--weight-label);
+    line-height: var(--line-label);
+    text-decoration: none;
+    transition:
+      background-color 160ms ease,
+      border-color 160ms ease,
+      color 160ms ease,
+      box-shadow 160ms ease,
+      transform 160ms ease;
+  }
+
+  .btn-primary svg,
+  .btn-secondary svg,
+  .btn-ghost svg,
+  .btn-link svg {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 auto;
+  }
+
+  .btn-primary {
+    border: 1px solid hsl(var(--brand-base));
+    background: hsl(var(--brand-base));
+    color: hsl(var(--brand-white));
+  }
+
+  .btn-primary:hover {
+    border-color: hsl(var(--brand-base-dark));
+    background: hsl(var(--brand-base-dark));
+    color: hsl(var(--brand-white));
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    border: 1px solid hsl(var(--brand-base));
+    background: hsl(var(--brand-white));
+    color: hsl(var(--brand-base));
+  }
+
+  .btn-secondary:hover {
+    background: hsl(var(--brand-base-light));
+    color: hsl(var(--brand-base));
+  }
+
+  .btn-ghost {
+    border: 1px solid transparent;
+    background: transparent;
+    color: hsl(var(--brand-base-dark));
+  }
+
+  .btn-ghost:hover {
+    background: hsl(var(--brand-base-light));
+    color: hsl(var(--brand-base-dark));
+  }
+
+  .btn-link {
+    min-height: auto;
+    border: 0;
+    background: transparent;
+    color: hsl(var(--brand-base));
+    padding: 0;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .btn-link:hover {
+    color: hsl(var(--brand-base-dark));
+  }
+
+  .btn-lg {
+    min-height: 48px;
+    font-size: var(--font-body);
+    font-weight: 500;
+    line-height: var(--line-body);
+  }
+
+  .btn-lg svg {
+    width: 24px;
+    height: 24px;
+  }
   @media (max-width: 767px) {
     .section-intro-surface::before {
       display: none;
@@ -568,78 +750,91 @@
 
 /* =========================================================
    BASE (tokens + tipografía + estilos base)
+   Design kit Figma — Repro Disseny
    ========================================================= */
 @layer base {
   :root {
     /* =========================
-   TYPO — Figma base scale
-   ========================= */
---font-sans: "Figtree", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
-  "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+       TYPOGRAPHY — Figma
+       ========================= */
+    --font-sans: "Figtree", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+      "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
 
-/* Headings */
---font-h1: 36px;
---line-h1: 1.2;
---weight-h1: 700;
+    --font-h1: 36px;
+    --line-h1: 1.2;
+    --weight-h1: 700;
 
---font-h2: 30px;
---line-h2: 1.2;
---weight-h2: 700;
+    --font-h2: 30px;
+    --line-h2: 1.2;
+    --weight-h2: 700;
 
---font-h3: 24px;
---line-h3: 1.3;
---weight-h3: 600;
+    --font-h3: 24px;
+    --line-h3: 1.3;
+    --weight-h3: 600;
 
---font-h4: 20px;
---line-h4: 1.3;
---weight-h4: 600;
+    --font-h4: 20px;
+    --line-h4: 1.3;
+    --weight-h4: 600;
 
-/* Body */
---font-body: 16px;
---line-body: 1.5;
---weight-body: 400;
---weight-body-bold: 700;
+    --font-body: 16px;
+    --line-body: 1.5;
+    --weight-body: 400;
+    --weight-body-bold: 700;
 
-/* Body small */
---font-body-s: 14px;
---line-body-s: 1.4;
---weight-body-s: 400;
---weight-body-s-bold: 700;
+    --font-body-s: 14px;
+    --line-body-s: 1.4;
+    --weight-body-s: 400;
+    --weight-body-s-bold: 700;
 
-/* Labels */
---font-label: 13px;
---line-label: 1.4;
---weight-label: 500;
+    --font-label: 13px;
+    --line-label: 1.4;
+    --weight-label: 500;
 
---font-label-s: 12px;
---line-label-s: 1.35;
---weight-label-s: 400;
+    --font-label-s: 12px;
+    --line-label-s: 1.35;
+    --weight-label-s: 400;
+
+    --tracking-heading: -0.01em;
 
     /* =========================
-       BRAND COLORS (paleta diseñador) - HSL
+       BRAND COLORS — Figma HEX as HSL
+       Base #0076B3 · Base-dark #004F78 · Base-light #DEF4FF
        ========================= */
-    --brand-base: 201 100% 35%;
-    --brand-base-dark: 201 100% 24%;
-    --brand-base-light: 201 100% 93%;
-    --brand-bg-2: 42 74% 92%;
-    --brand-yellow: 42 100% 58%;
+    --brand-base: 200 100% 35%;
+    --brand-base-dark: 200 100% 24%;
+    --brand-base-light: 200 100% 94%;
+    --brand-bg-2: 41 76% 92%;
+
     --brand-white: 0 0% 100%;
     --brand-ink-light: 0 0% 94%;
     --brand-ink-medium: 0 0% 58%;
     --brand-ink-dark: 0 0% 13%;
 
-    --brand-success: 101 100% 42%;
     --brand-error: 7 100% 60%;
+    --brand-success: 101 100% 42%;
 
-    /* =========================
-       LEGACY ALIASES (para tu CSS actual)
-       ========================= */
+    --brand-yellow: 43 96% 56%;
+    --brand-yellow-hover: 43 96% 50%;
+    /* Legacy aliases */
     --color-primary: var(--brand-base);
     --color-secondary: var(--brand-ink-dark);
     --color-accent: var(--brand-base-light);
     --color-light: var(--brand-ink-light);
     --color-dark: var(--brand-ink-dark);
     --color-gray: var(--brand-ink-medium);
+    
+    /* Layout */
+    --radius: 0.5rem;
+    --radius-card: 0.75rem;
+    --radius-button: 0.5rem;
+
+    /* Buttons — Figma */
+    --button-radius: 8px;
+    --button-padding-y: 8px;
+    --button-padding-x: 16px;
+    --button-gap: 8px;
+    --button-icon-size: 20px;
+    --button-large-icon-size: 24px;
 
     /* Menubar */
     --menubar-bg: var(--brand-ink-dark);
@@ -647,7 +842,7 @@
     --menubar-hover: 0 0% 20%;
 
     /* =========================
-       SHADCN / TAILWIND TOKENS (mapeados a marca)
+       SHADCN / TAILWIND TOKENS
        ========================= */
     --background: var(--brand-white);
     --foreground: var(--brand-ink-dark);
@@ -661,36 +856,36 @@
     --primary: var(--brand-base);
     --primary-foreground: var(--brand-white);
 
-    --secondary: var(--brand-ink-light);
-    --secondary-foreground: var(--brand-ink-dark);
+    --secondary: var(--brand-base-light);
+    --secondary-foreground: var(--brand-base-dark);
 
     --muted: var(--brand-ink-light);
     --muted-foreground: var(--brand-ink-medium);
 
     --accent: var(--brand-base-light);
-    --accent-foreground: var(--brand-ink-dark);
+    --accent-foreground: var(--brand-base-dark);
 
     --destructive: var(--brand-error);
     --destructive-foreground: var(--brand-white);
+
+    --success: var(--brand-success);
+    --success-foreground: var(--brand-ink-dark);
 
     --border: var(--brand-ink-light);
     --input: var(--brand-ink-light);
     --ring: var(--brand-base);
 
-    --radius: 0.5rem;
-
     /* Sidebar */
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: var(--brand-white);
+    --sidebar-foreground: var(--brand-ink-dark);
+    --sidebar-primary: var(--brand-base);
+    --sidebar-primary-foreground: var(--brand-white);
+    --sidebar-accent: var(--brand-base-light);
+    --sidebar-accent-foreground: var(--brand-base-dark);
+    --sidebar-border: var(--brand-ink-light);
+    --sidebar-ring: var(--brand-base);
   }
 
-  /* Dark mode */
   .dark {
     --background: var(--brand-ink-dark);
     --foreground: var(--brand-white);
@@ -720,18 +915,25 @@
     --input: 0 0% 20%;
     --ring: var(--brand-base);
 
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-background: 0 0% 9%;
+    --sidebar-foreground: var(--brand-white);
+    --sidebar-primary: var(--brand-base);
+    --sidebar-primary-foreground: var(--brand-white);
+    --sidebar-accent: 0 0% 18%;
+    --sidebar-accent-foreground: var(--brand-white);
+    --sidebar-border: 0 0% 20%;
+    --sidebar-ring: var(--brand-base);
   }
 
   * {
     @apply border-border;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
@@ -739,41 +941,54 @@
     font-family: var(--font-sans);
     font-size: var(--font-body);
     line-height: var(--line-body);
+    font-weight: var(--weight-body);
   }
 
-  h1 {
+  h1,
+  .text-h1 {
     font-size: var(--font-h1);
     line-height: var(--line-h1);
     font-weight: var(--weight-h1);
+    letter-spacing: var(--tracking-heading);
+    color: hsl(var(--foreground));
   }
 
-  h2 {
+  h2,
+  .text-h2 {
     font-size: var(--font-h2);
     line-height: var(--line-h2);
     font-weight: var(--weight-h2);
+    letter-spacing: var(--tracking-heading);
+    color: hsl(var(--foreground));
   }
 
-  h3 {
+  h3,
+  .text-h3 {
     font-size: var(--font-h3);
     line-height: var(--line-h3);
     font-weight: var(--weight-h3);
+    letter-spacing: var(--tracking-heading);
+    color: hsl(var(--foreground));
   }
 
-  h4 {
+  h4,
+  .text-h4 {
     font-size: var(--font-h4);
     line-height: var(--line-h4);
     font-weight: var(--weight-h4);
+    letter-spacing: var(--tracking-heading);
+    color: hsl(var(--foreground));
   }
 
   h5,
   h6 {
-    font-weight: 600;
+    font-weight: var(--weight-h4);
+    color: hsl(var(--foreground));
   }
 
   p {
     font-size: var(--font-body);
     line-height: var(--line-body);
-    margin-bottom: 1rem;
   }
 
   small {
@@ -781,31 +996,19 @@
     line-height: var(--line-body-s);
   }
 
-  /* Helpers opcionales */
+  a {
+    text-underline-offset: 4px;
+  }
 
-  .text-h1 {
-  font-size: var(--font-h1);
-  line-height: var(--line-h1);
-  font-weight: var(--weight-h1);
-}
-
-.text-h2 {
-  font-size: var(--font-h2);
-  line-height: var(--line-h2);
-  font-weight: var(--weight-h2);
-}
-
-.text-h3 {
-  font-size: var(--font-h3);
-  line-height: var(--line-h3);
-  font-weight: var(--weight-h3);
-}
-
-.text-h4 {
-  font-size: var(--font-h4);
-  line-height: var(--line-h4);
-  font-weight: var(--weight-h4);
-}
+  a:focus-visible,
+  button:focus-visible,
+  [role="button"]:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
 
   .text-body {
     font-size: var(--font-body);
