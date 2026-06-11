@@ -81,6 +81,7 @@ const file = ref<File | null>(null);
 const success = ref(false);
 const submittedEmail = ref("");
 const submittedReference = ref<string | null>(null);
+const localSubmitError = ref<string | null>(null);
 
 const inputClass =
   "h-11 rounded-xl border-border/80 bg-background shadow-sm transition-colors focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/15";
@@ -392,7 +393,10 @@ const validationSummary = computed(() => {
 });
 
 const submissionErrorMessage = computed(() => {
+  if (localSubmitError.value) return localSubmitError.value;
+
   if (!error.value) return "";
+
   return typeof error.value === "string"
     ? error.value
     : "No hemos podido enviar la solicitud. Inténtalo de nuevo en unos minutos.";
@@ -419,6 +423,8 @@ function focusFirstInvalidField(errors: Record<string, string>) {
 
 const onSubmit = handleSubmit(
   async (values) => {
+    localSubmitError.value = null;
+
     if (values.website?.trim()) {
       success.value = true;
       return;
@@ -442,71 +448,82 @@ const onSubmit = handleSubmit(
       extras.fileName = file.value.name;
     }
 
-    const response = await sendPriceRequest(
-      {
-        name: values.nombre.trim(),
-        email: values.email.trim(),
-        phone: values.telefono?.trim(),
-        company: values.empresa?.trim() || null,
-        message: values.comentario?.trim() || "Solicitud de presupuesto",
-        categorySlug: props.categorySlug,
-        product: {
-          name: props.producto,
-          slug: slug || null,
-          sku: props.productData?.sku ?? null,
-          url: props.productData?.path || sourceUrl.value,
+    try {
+      const response = await sendPriceRequest(
+        {
+          name: values.nombre.trim(),
+          email: values.email.trim(),
+          phone: values.telefono?.trim(),
+          company: values.empresa?.trim() || null,
+          message: values.comentario?.trim() || "Solicitud de presupuesto",
+          categorySlug: props.categorySlug,
+          product: {
+            name: props.producto,
+            slug: slug || null,
+            sku: props.productData?.sku ?? null,
+            url: props.productData?.path || sourceUrl.value,
+          },
+          extras,
+          consent: true,
+          sourceUrl: sourceUrl.value,
+          utm: utm.value,
+          tracking: getLeadTrackingPayload(slug || ""),
+          initialStatus: "Nova",
         },
-        extras,
-        consent: true,
-        sourceUrl: sourceUrl.value,
-        utm: utm.value,
-         tracking: getLeadTrackingPayload(slug),
-        initialStatus: "Nova",
-      },
-      { file: file.value, fileKind: "design" }
-    );
+        { file: file.value, fileKind: "design" }
+      );
 
-    const result = response as {
-      ok?: boolean;
-      duplicated?: boolean;
-      itemId?: string | number | null;
-      requestKey?: string | null;
-      reference?: string | null;
-      requestId?: string | null;
-      id?: string | number | null;
-    } | null;
+      const result = response as {
+        ok?: boolean;
+        duplicated?: boolean;
+        itemId?: string | number | null;
+        requestKey?: string | null;
+        reference?: string | null;
+        requestId?: string | null;
+        id?: string | number | null;
+      } | null;
 
-    if (!error.value && result?.ok) {
+      if (error.value) {
+        throw new Error(
+          typeof error.value === "string"
+            ? error.value
+            : "No hemos podido enviar la solicitud."
+        );
+      }
+
+      if (!result?.ok) {
+        throw new Error(
+          "No hemos podido confirmar el envío de la solicitud. Inténtalo de nuevo en unos minutos."
+        );
+      }
+
       submittedEmail.value = values.email.trim();
       submittedReference.value =
         result.reference ||
         result.requestId ||
         (result.id ? String(result.id) : null) ||
-        (result.itemId ? String(result.itemId) : null);
+        (result.itemId ? String(result.itemId) : null) ||
+        result.requestKey ||
+        null;
 
       if (!result.duplicated) {
-        pushDataLayer({
- slug,
-  itemId: result.itemId,
-  requestKey: result.requestKey,
-  quantity: values.cantidad,
+        pushLeadEvent({
+          slug,
+          itemId: result.itemId,
+          requestKey: result.requestKey,
+          quantity: values.cantidad,
         });
       }
 
       success.value = true;
       emit("success");
-    }
+    } catch (err) {
+      console.error("[ProductLeadForm] submit error", err);
 
-    if (!error.value) {
-      submittedEmail.value = values.email.trim();
-      submittedReference.value =
-        (response as any)?.reference ||
-        (response as any)?.requestId ||
-        (response as any)?.id ||
-        null;
-
-      success.value = true;
-      emit("success");
+      localSubmitError.value =
+        err instanceof Error && err.message
+          ? err.message
+          : "No hemos podido enviar la solicitud. Inténtalo de nuevo en unos minutos.";
     }
   },
   ({ errors }) => {

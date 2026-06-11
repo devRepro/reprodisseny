@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-11T12:38:04.992Z",
+  "generatedAt": "2026-06-11T13:57:28.121Z",
   "categories": [
     {
       "id": "12",
@@ -6794,7 +6794,7 @@
     },
     {
       "id": "9",
-      "updatedAt": "2026-06-10T10:03:57Z",
+      "updatedAt": "2026-06-11T13:50:48Z",
       "type": "producto",
       "slug": "banderolas-personalizadas",
       "path": "/productos/banderolas-personalizadas",
@@ -6807,7 +6807,7 @@
       "isPublished": true,
       "shortDescription": "Las banderolas son una de las soluciones más efectivas para ganar visibilidad en exterior: destacan a distancia, guían al público y refuerzan la marca en calles, accesos, recintos y fachadas. En Repro Disseny producimos banderolas personalizadas con impresión de calidad y acabados de confección para que queden bien tensadas, resistentes y listas para instalar.",
       "description": "Las banderolas son una de las soluciones más efectivas para ganar visibilidad en exterior: destacan a distancia, guían al público y refuerzan la marca en calles, accesos, recintos y fachadas. En Repro Disseny producimos banderolas personalizadas con impresión de calidad y acabados de confección para que queden bien tensadas, resistentes y listas para instalar.",
-      "bodyMd": "¿Qué es una banderola y para qué se usa? \nUna banderola publicitaria es un elemento de comunicación en formato vertical u horizontal, normalmente en lona o textil, diseñado para colocarse en exterior (o interior de grandes espacios) mediante soportes, brazos, farolas, fachadas o estructuras. Se utiliza para señalizar, promocionar y orientar en campañas, eventos y entornos comerciales.",
+      "bodyMd": "¿Qué es una banderola y para qué se usa?\n\nUna banderola publicitaria es un elemento de comunicación en formato vertical u horizontal, normalmente en lona o textil, diseñado para colocarse en exterior (o interior de grandes espacios) mediante soportes, brazos, farolas, fachadas o estructuras. Se utiliza para señalizar, promocionar y orientar en campañas, eventos y entornos comerciales.\"",
       "sections": [
         {
           "id": "details",
@@ -6815,7 +6815,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es una banderola y para qué se usa? \nUna banderola publicitaria es un elemento de comunicación en formato vertical u horizontal, normalmente en lona o textil, diseñado para colocarse en exterior (o interior de grandes espacios) mediante soportes, brazos, farolas, fachadas o estructuras. Se utiliza para señalizar, promocionar y orientar en campañas, eventos y entornos comerciales."
+          "body": "¿Qué es una banderola y para qué se usa?\n\nUna banderola publicitaria es un elemento de comunicación en formato vertical u horizontal, normalmente en lona o textil, diseñado para colocarse en exterior (o interior de grandes espacios) mediante soportes, brazos, farolas, fachadas o estructuras. Se utiliza para señalizar, promocionar y orientar en campañas, eventos y entornos comerciales.\""
         },
         {
           "id": "benefits",
@@ -6823,7 +6823,31 @@
           "title": "Beneficios",
           "kind": "benefits",
           "contentFormat": "markdown",
-          "body": "Visibilidad a gran distancia: ideal para accesos, calles y recintos amplios. \nRefuerza branding y patrocinadores: tu marca se repite en puntos estratégicos del recorrido. \nSeñalización clara: útil para dirigir flujos (entrada, taquillas, parking, zonas, escenario). \nResistente para exterior: materiales y confección pensados para intemperie. \nInstalación adaptable: diferentes sistemas de fijación según soporte y ubicación."
+          "body": "{\n  \"\"intro\"\": \"\"Ventajas principales de banderolas personalizadas (publicidad exterior y eventos) para mejorar visibilidad, presencia de marca y eficacia en espacios físicos.\"\",\n  \"\"benefits\"\": [\n    {\n      \"\"title\"\": \"\"Visibilidad a gran distancia\"\",\n      \"\"description\"\": \"\"ideal para accesos, calles y recintos amplios.\"\",\n      \"\"icon\"\": \"\"Eye\"\",\n      \"\"iconKey\"\": \"\"eye\"\"\n    },\n    {\n      \"\"title\"\": \"\"Refuerza branding y patrocinadores\"\",\n      \"\"description\"\": \"\"tu marca se repite en puntos estratégicos del recorrido.\"\",\n      \"\"icon\"\": \"\"Sparkles\"\",\n      \"\"iconKey\"\": \"\"sparkles\"\"\n    },\n    {\n      \"\"title\"\": \"\"Señalización clara\"\",\n      \"\"description\"\": \"\"útil para dirigir flujos (entrada, taquillas, parking, zonas, escenario).\"\",\n      \"\"icon\"\": \"\"MousePointerClick\"\",\n      \"\"iconKey\"\": \"\"mouse-pointer-click\"\"\n    },\n    {\n      \"\"title\"\": \"\"Resistente para exterior\"\",\n      \"\"description\"\": \"\"materiales y confección pensados para intemperie.\"\",\n      \"\"icon\"\": \"\"ShieldCheck\"\",\n      \"\"iconKey\"\": \"\"shield-check\"\"\n    },\n    {\n      \"\"title\"\": \"\"Instalación adaptable\"\",\n      \"\"description\"\": \"\"diferentes sistemas de fijación según soporte y ubicación.\"\",\n      \"\"icon\"\": \"\"Move\"\",\n      \"\"iconKey\"\": \"\"move\"\"\n    }\n  ]\n}"
+        },
+        {
+          "id": "materials",
+          "key": "materials",
+          "title": "Materiales",
+          "kind": "materials",
+          "contentFormat": "markdown",
+          "body": "{\n  \"\"intro\"\": \"\"Seleccionamos materiales y sistema de impresión para que el banderolas personalizadas (publicidad exterior y eventos) tenga presencia, estabilidad y resistencia según su uso real.\"\",\n  \"\"materials\"\": [\n    {\n      \"\"title\"\": \"\"Lona\"\",\n      \"\"description\"\": \"\"opción muy habitual por resistencia y buen comportamiento en exterior.\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Campañas, ferias, retail, eventos y comunicación corporativa\"\",\n      \"\"icon\"\": \"\"Layers\"\",\n      \"\"iconKey\"\": \"\"layers\"\"\n    },\n    {\n      \"\"title\"\": \"\"Textil\"\",\n      \"\"description\"\": \"\"acabado más “premium” y ligero; muy usado cuando se busca mejor estética o caída.\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Campañas, ferias, retail, eventos y comunicación corporativa\"\",\n      \"\"icon\"\": \"\"Printer\"\",\n      \"\"iconKey\"\": \"\"printer\"\"\n    },\n    {\n      \"\"title\"\": \"\"Material para uso temporal\"\",\n      \"\"description\"\": \"\"Impresión a todo color con buena reproducción para logos, iconos y tipografías.\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Campañas, ferias, retail, eventos y comunicación corporativa\"\",\n      \"\"icon\"\": \"\"Shield\"\",\n      \"\"iconKey\"\": \"\"shield\"\"\n    },\n    {\n      \"\"title\"\": \"\"Material para uso recurrente\"\",\n      \"\"description\"\": \"\"Posibilidad de una o dos caras (según ubicación y necesidad de visibilidad desde ambos sentidos).\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Campañas, ferias, retail, eventos y comunicación corporativa\"\",\n      \"\"icon\"\": \"\"RefreshCw\"\",\n      \"\"iconKey\"\": \"\"refresh-cw\"\"\n    }\n  ]\n}"
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "kind": "formats",
+          "contentFormat": "markdown",
+          "body": "{\n  \"\"intro\"\": \"\"Definimos formato, medida y configuración de banderolas personalizadas (publicidad exterior y eventos) según el espacio, la distancia de lectura, el uso previsto y el sistema de montaje.\"\",\n  \"\"shapes\"\": [\n    {\n      \"\"title\"\": \"\"Medidas estándar o a medida\"\",\n      \"\"description\"\": \"\"Medidas estándar o a medida, según el soporte (farola, fachada, estructura) y la distancia de lectura.\"\",\n      \"\"icon\"\": \"\"Ruler\"\",\n      \"\"iconKey\"\": \"\"ruler\"\"\n    },\n    {\n      \"\"title\"\": \"\"Diseño optimizado para lectura rápida\"\",\n      \"\"description\"\": \"\"mensajes cortos, alto contraste y jerarquía clara.\"\",\n      \"\"icon\"\": \"\"PanelTop\"\",\n      \"\"iconKey\"\": \"\"maximize\"\"\n    }\n  ],\n  \"\"deliveryFormats\"\": []\n}"
+        },
+        {
+          "id": "finishes",
+          "key": "finishes",
+          "title": "Acabados",
+          "kind": "finishes",
+          "contentFormat": "markdown",
+          "body": "{\n  \"\"intro\"\": \"\"Los acabados de banderolas personalizadas (publicidad exterior y eventos) se definen según duración, manipulación, instalación y nivel de presencia visual necesario.\"\",\n  \"\"finishes\"\": [\n    {\n      \"\"title\"\": \"\"Acabado protector\"\",\n      \"\"description\"\": \"\"Vaina (superior/inferior) para colocar en brazo o barra.\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Mejorar presencia, durabilidad, montaje y lectura del soporte\"\",\n      \"\"icon\"\": \"\"Shield\"\",\n      \"\"iconKey\"\": \"\"shield\"\"\n    },\n    {\n      \"\"title\"\": \"\"Corte a medida\"\",\n      \"\"description\"\": \"\"Ojales para fijación con bridas/cables (según estructura).\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Mejorar presencia, durabilidad, montaje y lectura del soporte\"\",\n      \"\"icon\"\": \"\"Scissors\"\",\n      \"\"iconKey\"\": \"\"scissors\"\"\n    },\n    {\n      \"\"title\"\": \"\"Sistema de montaje\"\",\n      \"\"description\"\": \"\"Dobladillo y refuerzo perimetral para mejorar resistencia.\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Mejorar presencia, durabilidad, montaje y lectura del soporte\"\",\n      \"\"icon\"\": \"\"Wrench\"\",\n      \"\"iconKey\"\": \"\"wrench\"\"\n    },\n    {\n      \"\"title\"\": \"\"Preparación de archivo\"\",\n      \"\"description\"\": \"\"Preparación específica según el sistema de instalación (farolas, mástiles, brazos, fachadas).\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Mejorar presencia, durabilidad, montaje y lectura del soporte\"\",\n      \"\"icon\"\": \"\"FileCheck\"\",\n      \"\"iconKey\"\": \"\"file-check\"\"\n    },\n    {\n      \"\"title\"\": \"\"Para exterior y campañas largas, conviene definir bien\"\",\n      \"\"description\"\": \"\"ubicación, exposición al viento y sistema de sujeción, para elegir el acabado de confección adecuado.\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Mejorar presencia, durabilidad, montaje y lectura del soporte\"\",\n      \"\"icon\"\": \"\"BadgeCheck\"\",\n      \"\"iconKey\"\": \"\"badge-check\"\"\n    }\n  ]\n}"
         },
         {
           "id": "technical-specs",
@@ -6831,7 +6855,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Formatos y medidas \nMedidas estándar o a medida, según el soporte (farola, fachada, estructura) y la distancia de lectura. \nDiseño optimizado para lectura rápida: mensajes cortos, alto contraste y jerarquía clara. \nMateriales habituales \nLona: opción muy habitual por resistencia y buen comportamiento en exterior. \nTextil: acabado más “premium” y ligero; muy usado cuando se busca mejor estética o caída. \nImpresión \nImpresión a todo color con buena reproducción para logos, iconos y tipografías. \nPosibilidad de una o dos caras (según ubicación y necesidad de visibilidad desde ambos sentidos). \nConfección y acabados de instalación \nVaina (superior/inferior) para colocar en brazo o barra. \nOjales para fijación con bridas/cables (según estructura). \nDobladillo y refuerzo perimetral para mejorar resistencia. \nPreparación específica según el sistema de instalación (farolas, mástiles, brazos, fachadas). \nRecomendaciones de durabilidad \nPara exterior y campañas largas, conviene definir bien: ubicación, exposición al viento y sistema de sujeción, para elegir el acabado de confección adecuado."
+          "body": "### Formatos y medidas\n- Medidas estándar o a medida, según el soporte (farola, fachada, estructura) y la distancia de lectura.\n- Diseño optimizado para lectura rápida: mensajes cortos, alto contraste y jerarquía clara.\n### Materiales habituales\n- Lona: opción muy habitual por resistencia y buen comportamiento en exterior.\n- Textil: acabado más “premium” y ligero; muy usado cuando se busca mejor estética o caída.\n### Impresión\n- Impresión a todo color con buena reproducción para logos, iconos y tipografías.\n- Posibilidad de una o dos caras (según ubicación y necesidad de visibilidad desde ambos sentidos).\n### Confección y acabados de instalación\n- Vaina (superior/inferior) para colocar en brazo o barra.\n- Ojales para fijación con bridas/cables (según estructura).\n- Dobladillo y refuerzo perimetral para mejorar resistencia.\n- Preparación específica según el sistema de instalación (farolas, mástiles, brazos, fachadas).\n### Recomendaciones de durabilidad\n- Para exterior y campañas largas, conviene definir bien: ubicación, exposición al viento y sistema de sujeción, para elegir el acabado de confección adecuado."
         },
         {
           "id": "applications",
@@ -6959,12 +6983,8 @@
             "url": "https://reprodisseny.com/productos/banderolas-personalizadas"
           }
         ],
-        "keywords": [
-          "banderolas"
-        ],
-        "searchTerms": [
-          "banderolas"
-        ],
+        "keywords": [],
+        "searchTerms": [],
         "schema": {
           "@context": "https://schema.org",
           "@graph": [
@@ -7011,26 +7031,26 @@
             }
           ]
         },
-        "robotsOverride": "INHERIT",
+        "robotsOverride": "index,follow",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/expositores/banderolas.webp"
       }
     },
     {
       "id": "10",
-      "updatedAt": "2026-06-10T10:03:57Z",
+      "updatedAt": "2026-06-11T13:54:04Z",
       "type": "producto",
       "slug": "banner-golf-personalizado",
       "path": "/productos/banner-golf-personalizado",
-      "title": "Banner Golf personalizado para eventos deportivos y exterior",
+      "title": "Banner Golf personalizado (expositor exterior)",
       "categorySlug": "expositores",
       "categorySlugs": [
         "expositores"
       ],
       "order": 9999,
       "isPublished": true,
-      "shortDescription": "Banner Golf personalizado para eventos deportivos, patrocinadores, ferias y señalización exterior. Un expositor textil ligero, visible y fácil de montar, pensado para campañas al aire libre, recorridos, accesos y zonas de paso.",
-      "description": "Banner Golf personalizado para eventos deportivos, patrocinadores, ferias y señalización exterior. Un expositor textil ligero, visible y fácil de montar, pensado para campañas al aire libre, recorridos, accesos y zonas de paso.",
-      "bodyMd": "¿Qué es un Banner Golf y para qué se usa?\nUn Banner Golf es un expositor flexible con forma ovalada o similar, montado sobre una estructura que mantiene la gráfica tensada. Se usa sobre todo en exterior para señalización, patrocinio y branding en zonas de paso: recorridos deportivos, accesos, photocalls de meta, áreas de sponsors o activaciones de marca.",
+      "shortDescription": "El Banner Golf es un expositor pensado para exterior: se instala rápido, resiste bien en espacios abiertos y ofrece mucha visibilidad con un formato ligero y fácil de transportar. En Repro Disseny producimos banners golf personalizados para eventos deportivos, ferias, activaciones y señalización, con impresión de calidad y acabados listos para uso.",
+      "description": "El Banner Golf es un expositor pensado para exterior: se instala rápido, resiste bien en espacios abiertos y ofrece mucha visibilidad con un formato ligero y fácil de transportar. En Repro Disseny producimos banners golf personalizados para eventos deportivos, ferias, activaciones y señalización, con impresión de calidad y acabados listos para uso.",
+      "bodyMd": "¿Qué es un Banner Golf y para qué se usa?\n\nUn Banner Golf es un expositor flexible con forma ovalada o similar, montado sobre una estructura que mantiene la gráfica tensada. Se usa sobre todo en exterior para señalización, patrocinio y branding en zonas de paso: recorridos deportivos, accesos, photocalls de meta, áreas de sponsors o activaciones de marca.",
       "sections": [
         {
           "id": "details",
@@ -7038,7 +7058,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es un Banner Golf y para qué se usa?\nUn Banner Golf es un expositor flexible con forma ovalada o similar, montado sobre una estructura que mantiene la gráfica tensada. Se usa sobre todo en exterior para señalización, patrocinio y branding en zonas de paso: recorridos deportivos, accesos, photocalls de meta, áreas de sponsors o activaciones de marca."
+          "body": "¿Qué es un Banner Golf y para qué se usa?\n\nUn Banner Golf es un expositor flexible con forma ovalada o similar, montado sobre una estructura que mantiene la gráfica tensada. Se usa sobre todo en exterior para señalización, patrocinio y branding en zonas de paso: recorridos deportivos, accesos, photocalls de meta, áreas de sponsors o activaciones de marca."
         },
         {
           "id": "benefits",
@@ -7046,7 +7066,31 @@
           "title": "Beneficios",
           "kind": "benefits",
           "contentFormat": "markdown",
-          "body": "- **Alta visibilidad en exterior:** formato bajo y ancho, ideal para zonas de paso, recorridos deportivos, accesos y espacios abiertos.\n- **Montaje rápido:** se instala y se recoge en pocos minutos, sin necesidad de estructuras complejas.\n- **Fácil de transportar:** ligero, plegable y pensado para campañas itinerantes o eventos en diferentes ubicaciones.\n- **Muy útil para patrocinadores:** permite repetir logos, mensajes o marcas en varios puntos del evento.\n- **Comunicación clara a distancia:** funciona muy bien para indicaciones, zonas de entrada/salida, parking, recorridos o áreas de sponsors.\n- **Formato versátil:** adecuado para eventos deportivos, ferias, activaciones de marca, street marketing y acciones corporativas al aire libre."
+          "body": "{\n  \"\"intro\"\": \"\"Ventajas principales de banner golf personalizado (expositor exterior) para mejorar visibilidad, presencia de marca y eficacia en espacios físicos.\"\",\n  \"\"benefits\"\": [\n    {\n      \"\"title\"\": \"\"Muy visible en exterior\"\",\n      \"\"description\"\": \"\"formato bajo y ancho, perfecto para zonas de paso y recorridos.\"\",\n      \"\"icon\"\": \"\"Eye\"\",\n      \"\"iconKey\"\": \"\"eye\"\"\n    },\n    {\n      \"\"title\"\": \"\"Instalación rápida\"\",\n      \"\"description\"\": \"\"se monta y se recoge en pocos minutos.\"\",\n      \"\"icon\"\": \"\"Sparkles\"\",\n      \"\"iconKey\"\": \"\"sparkles\"\"\n    },\n    {\n      \"\"title\"\": \"\"Fácil de transportar\"\",\n      \"\"description\"\": \"\"ligero y pensado para campañas itinerantes o varios puntos de instalación.\"\",\n      \"\"icon\"\": \"\"MousePointerClick\"\",\n      \"\"iconKey\"\": \"\"mouse-pointer-click\"\"\n    },\n    {\n      \"\"title\"\": \"\"Ideal para patrocinadores\"\",\n      \"\"description\"\": \"\"permite repetir logos y mensajes en diferentes ubicaciones.\"\",\n      \"\"icon\"\": \"\"ShieldCheck\"\",\n      \"\"iconKey\"\": \"\"shield-check\"\"\n    },\n    {\n      \"\"title\"\": \"\"Versátil\"\",\n      \"\"description\"\": \"\"funciona para señalización (entrada/salida/parking) o comunicación de marca.\"\",\n      \"\"icon\"\": \"\"Move\"\",\n      \"\"iconKey\"\": \"\"move\"\"\n    }\n  ]\n}"
+        },
+        {
+          "id": "materials",
+          "key": "materials",
+          "title": "Materiales",
+          "kind": "materials",
+          "contentFormat": "markdown",
+          "body": "{\n  \"\"intro\"\": \"\"Seleccionamos materiales y sistema de impresión para que el banner golf personalizado (expositor exterior) tenga presencia, estabilidad y resistencia según su uso real.\"\",\n  \"\"materials\"\": [\n    {\n      \"\"title\"\": \"\"Soporte recomendado\"\",\n      \"\"description\"\": \"\"Impresión a todo color con buena definición para logos, iconos y tipografías.\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Campañas, ferias, retail, eventos y comunicación corporativa\"\",\n      \"\"icon\"\": \"\"Layers\"\",\n      \"\"iconKey\"\": \"\"layers\"\"\n    },\n    {\n      \"\"title\"\": \"\"Impresión a color\"\",\n      \"\"description\"\": \"\"Posibilidad de una o dos caras (muy recomendable si se verá desde ambos sentidos).\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Campañas, ferias, retail, eventos y comunicación corporativa\"\",\n      \"\"icon\"\": \"\"Printer\"\",\n      \"\"iconKey\"\": \"\"printer\"\"\n    },\n    {\n      \"\"title\"\": \"\"Material para uso temporal\"\",\n      \"\"description\"\": \"\"Material flexible pensado para exterior.\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Campañas, ferias, retail, eventos y comunicación corporativa\"\",\n      \"\"icon\"\": \"\"Shield\"\",\n      \"\"iconKey\"\": \"\"shield\"\"\n    },\n    {\n      \"\"title\"\": \"\"Material para uso recurrente\"\",\n      \"\"description\"\": \"\"Estructura que mantiene la gráfica tensada y estable (según sistema y ubicación).\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Campañas, ferias, retail, eventos y comunicación corporativa\"\",\n      \"\"icon\"\": \"\"RefreshCw\"\",\n      \"\"iconKey\"\": \"\"refresh-cw\"\"\n    }\n  ]\n}"
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "kind": "formats",
+          "contentFormat": "markdown",
+          "body": "{\n  \"\"intro\"\": \"\"Definimos formato, medida y configuración de banner golf personalizado (expositor exterior) según el espacio, la distancia de lectura, el uso previsto y el sistema de montaje.\"\",\n  \"\"shapes\"\": [\n    {\n      \"\"title\"\": \"\"Formas habituales\"\",\n      \"\"description\"\": \"\"ovalada / elíptica, con tamaños estándar o a medida según visibilidad y espacio.\"\",\n      \"\"icon\"\": \"\"Ruler\"\",\n      \"\"iconKey\"\": \"\"ruler\"\"\n    },\n    {\n      \"\"title\"\": \"\"Diseño optimizado para lectura rápida\"\",\n      \"\"description\"\": \"\"mensajes cortos, buen contraste y logos claros.\"\",\n      \"\"icon\"\": \"\"PanelTop\"\",\n      \"\"iconKey\"\": \"\"maximize\"\"\n    },\n    {\n      \"\"title\"\": \"\"Material flexible pensado para exterior.\"\",\n      \"\"description\"\": \"\"Material flexible pensado para exterior.\"\",\n      \"\"icon\"\": \"\"Move\"\",\n      \"\"iconKey\"\": \"\"panel-top\"\"\n    },\n    {\n      \"\"title\"\": \"\"Sistema de montaje\"\",\n      \"\"description\"\": \"\"Estructura que mantiene la gráfica tensada y estable (según sistema y ubicación).\"\",\n      \"\"icon\"\": \"\"MapPin\"\",\n      \"\"iconKey\"\": \"\"move\"\"\n    }\n  ],\n  \"\"deliveryFormats\"\": []\n}"
+        },
+        {
+          "id": "finishes",
+          "key": "finishes",
+          "title": "Acabados",
+          "kind": "finishes",
+          "contentFormat": "markdown",
+          "body": "{\n  \"\"intro\"\": \"\"Los acabados de banner golf personalizado (expositor exterior) se definen según duración, manipulación, instalación y nivel de presencia visual necesario.\"\",\n  \"\"finishes\"\": [\n    {\n      \"\"title\"\": \"\"Acabado protector\"\",\n      \"\"description\"\": \"\"Opciones de fijación/estabilidad según terreno (césped, tierra, asfalto) y exposición.\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Mejorar presencia, durabilidad, montaje y lectura del soporte\"\",\n      \"\"icon\"\": \"\"Shield\"\",\n      \"\"iconKey\"\": \"\"shield\"\"\n    },\n    {\n      \"\"title\"\": \"\"Recomendación práctica\"\",\n      \"\"description\"\": \"\"en exterior conviene definir dónde irá y si habrá viento para ajustar el sistema.\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Mejorar presencia, durabilidad, montaje y lectura del soporte\"\",\n      \"\"icon\"\": \"\"Scissors\"\",\n      \"\"iconKey\"\": \"\"scissors\"\"\n    },\n    {\n      \"\"title\"\": \"\"Sistema de montaje\"\",\n      \"\"description\"\": \"\"Refuerzos en perímetro y puntos de anclaje (cuando aplica) para mejorar durabilidad en montaje/desmontaje.\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Mejorar presencia, durabilidad, montaje y lectura del soporte\"\",\n      \"\"icon\"\": \"\"Wrench\"\",\n      \"\"iconKey\"\": \"\"wrench\"\"\n    },\n    {\n      \"\"title\"\": \"\"Preparación de archivo\"\",\n      \"\"description\"\": \"\"Acabado mate si habrá mucho sol o se fotografiará (reduce reflejos).\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Mejorar presencia, durabilidad, montaje y lectura del soporte\"\",\n      \"\"icon\"\": \"\"FileCheck\"\",\n      \"\"iconKey\"\": \"\"file-check\"\"\n    }\n  ]\n}"
         },
         {
           "id": "technical-specs",
@@ -7054,7 +7098,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "## Formatos y medidas\n\n- Formas habituales: ovalada o elíptica, con estructura flexible para mantener la gráfica tensada.\n- Medidas estándar o a medida según visibilidad, distancia de lectura y espacio disponible.\n- Diseño recomendado con mensajes cortos, buen contraste, logotipos claros y jerarquía visual sencilla.\n\n## Impresión\n\n- Impresión personalizada a todo color sobre material textil flexible.\n- Buena definición para logotipos, iconos, textos y elementos gráficos de marca.\n- Posibilidad de impresión a una o dos caras según el uso y la visibilidad necesaria.\n- La impresión a doble cara es recomendable cuando el Banner Golf se verá desde ambos sentidos.\n\n## Material y estructura\n\n- Material textil flexible pensado para uso en exterior y eventos.\n- Estructura ligera que mantiene la gráfica tensada y facilita el montaje.\n- Sistema transportable, adecuado para campañas itinerantes, eventos deportivos y acciones temporales.\n\n## Sujeción y estabilidad\n\n- Opciones de fijación o estabilidad según el terreno: césped, tierra, arena, pavimento o asfalto.\n- En exterior conviene definir la ubicación exacta y la exposición al viento para recomendar el sistema más adecuado.\n- Para eventos con mucho tránsito, se recomienda planificar bien la colocación para maximizar visibilidad y seguridad.\n\n## Acabados\n\n- Refuerzos en perímetro y puntos de anclaje cuando el sistema lo requiere.\n- Acabados pensados para montaje, desmontaje, transporte y reutilización en varios eventos.\n- Acabado mate recomendado si el banner estará expuesto a mucho sol o aparecerá en fotografías, ya que ayuda a reducir reflejos."
+          "body": "### Formatos y medidas\n- Formas habituales: ovalada / elíptica, con tamaños estándar o a medida según visibilidad y espacio.\n- Diseño optimizado para lectura rápida: mensajes cortos, buen contraste y logos claros.\n### Impresión\n- Impresión a todo color con buena definición para logos, iconos y tipografías.\n- Posibilidad de una o dos caras (muy recomendable si se verá desde ambos sentidos).\n### Material y estructura\n- Material flexible pensado para exterior.\n- Estructura que mantiene la gráfica tensada y estable (según sistema y ubicación).\n### Sujeción y estabilidad\n- Opciones de fijación/estabilidad según terreno (césped, tierra, asfalto) y exposición.\n- Recomendación práctica: en exterior conviene definir dónde irá y si habrá viento para ajustar el sistema.\n### Acabados\n- Refuerzos en perímetro y puntos de anclaje (cuando aplica) para mejorar durabilidad en montaje/desmontaje.\n- Acabado mate si habrá mucho sol o se fotografiará (reduce reflejos)."
         },
         {
           "id": "applications",
@@ -7062,7 +7106,7 @@
           "title": "Aplicaciones",
           "kind": "applications",
           "contentFormat": "markdown",
-          "body": "- **Eventos deportivos:** carreras, triatlones, ciclismo, torneos de golf, pádel, fútbol, running y competiciones al aire libre.\n- **Patrocinios y branding:** visibilidad de marcas en recorridos, zonas de meta, salida, podio, área de prensa o espacios de sponsors.\n- **Ferias y eventos exteriores:** accesos, zonas de registro, áreas informativas, señalización provisional y orientación de visitantes.\n- **Activaciones de marca:** street marketing, promociones en exterior, sampling, lanzamientos de producto y campañas temporales.\n- **Eventos corporativos outdoor:** family days, jornadas de empresa, convenciones al aire libre y acciones de comunicación interna.\n- **Señalización temporal:** entrada, salida, parking, recorridos, puntos de información o zonas restringidas."
+          "body": "{\n  \"\"intro\"\": \"\"Usos habituales de banner golf personalizado (expositor exterior) en campañas, ferias, eventos, tiendas y espacios corporativos.\"\",\n  \"\"applications\"\": [\n    {\n      \"\"title\"\": \"\"Eventos deportivos\"\",\n      \"\"description\"\": \"\"carreras, triatlón, ciclismo, torneos, golf, etc.\"\",\n      \"\"icon\"\": \"\"Store\"\",\n      \"\"iconKey\"\": \"\"store\"\"\n    },\n    {\n      \"\"title\"\": \"\"Ferias y exterior\"\",\n      \"\"description\"\": \"\"accesos, zonas de registro, señalización y orientación.\"\",\n      \"\"icon\"\": \"\"CalendarDays\"\",\n      \"\"iconKey\"\": \"\"calendar-days\"\"\n    },\n    {\n      \"\"title\"\": \"\"Activaciones de marca\"\",\n      \"\"description\"\": \"\"street marketing, promociones en exterior, sampling.\"\",\n      \"\"icon\"\": \"\"MapPin\"\",\n      \"\"iconKey\"\": \"\"map-pin\"\"\n    },\n    {\n      \"\"title\"\": \"\"Eventos corporativos al aire libre\"\",\n      \"\"description\"\": \"\"family days, jornadas, actividades outdoor.\"\",\n      \"\"icon\"\": \"\"Building2\"\",\n      \"\"iconKey\"\": \"\"building2\"\"\n    },\n    {\n      \"\"title\"\": \"\"Zonas de patrocinio\"\",\n      \"\"description\"\": \"\"recorridos, meta/salida, podio o áreas de prensa.\"\",\n      \"\"icon\"\": \"\"Users\"\",\n      \"\"iconKey\"\": \"\"users\"\"\n    }\n  ]\n}"
         }
       ],
       "faqs": [],
@@ -7080,7 +7124,7 @@
           "url": "/categorias/expositores"
         },
         {
-          "name": "Banner Golf personalizado para eventos deportivos y exterior",
+          "name": "Banner Golf personalizado (expositor exterior)",
           "url": "/productos/banner-golf-personalizado"
         }
       ],
@@ -7100,71 +7144,11 @@
       "reviewCount": 0,
       "attributes": [],
       "variants": [],
-      "formFields": [
-        {
-          "name": "ancho",
-          "label": "Ancho",
-          "type": "select",
-          "required": false,
-          "options": [
-            "130 cm",
-            "200 cm",
-            "230 cm",
-            "270 cm"
-          ],
-          "readonly": false
-        },
-        {
-          "name": "impresion",
-          "label": "Impresión",
-          "type": "select",
-          "required": false,
-          "options": [
-            "Sublimación 1 cara"
-          ],
-          "readonly": true
-        },
-        {
-          "name": "material",
-          "label": "Material",
-          "type": "select",
-          "required": false,
-          "options": [
-            "Poliéster textil"
-          ],
-          "readonly": true
-        },
-        {
-          "name": "bolsa_transporte",
-          "label": "Bolsa de transporte",
-          "type": "select",
-          "required": false,
-          "options": [
-            "Bolsa de transporte y piquetas fijación incluído"
-          ],
-          "readonly": true
-        },
-        {
-          "name": "cantidad",
-          "label": "Cantidad",
-          "type": "number",
-          "required": false,
-          "options": [],
-          "readonly": false
-        },
-        {
-          "name": "observaciones",
-          "label": "Observaciones",
-          "type": "text",
-          "required": false,
-          "options": [],
-          "readonly": false
-        }
-      ],
+      "formFields": [],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Banner Golf personalizado en Barcelona | Repro Disseny",
-        "metaDescription": "Banner Golf personalizado para eventos deportivos, patrocinadores y señalización exterior en Barcelona. Ligero, visible, transportable y fácil de montar.",
+        "metaTitle": "Banner Golf Personalizado | Expositor Exterior para Eventos y Patrocinio",
+        "metaDescription": "Banner Golf personalizado para exterior: estable, ligero y muy visible. Ideal para eventos deportivos, ferias y activaciones. Impresión a color y fácil transporte. Pide presupuesto.",
         "canonical": "https://reprodisseny.com/productos/banner-golf-personalizado",
         "hreflang": [
           {
@@ -7172,42 +7156,15 @@
             "url": "https://reprodisseny.com/productos/banner-golf-personalizado"
           }
         ],
-        "keywords": [
-          "banner golf personalizado",
-          "banner golf Barcelona",
-          "banner golf para eventos",
-          "expositor exterior personalizado",
-          "banner deportivo personalizado",
-          "banner para patrocinadores",
-          "banner textil exterior",
-          "señalización exterior para eventos",
-          "expositor para eventos deportivos",
-          "banner ovalado personalizado"
-        ],
-        "searchTerms": [
-          "banner golf",
-          "banner golf personalizado",
-          "banner golf barcelona",
-          "banner golf para eventos deportivos",
-          "banner patrocinadores evento",
-          "expositor exterior eventos",
-          "expositor deportivo exterior",
-          "banner ovalado",
-          "banner textil exterior",
-          "banner para carreras",
-          "banner para torneos de golf",
-          "señalización exterior eventos",
-          "publicidad exterior para eventos",
-          "soporte publicitario deportivo",
-          "banner para meta y salida"
-        ],
+        "keywords": [],
+        "searchTerms": [],
         "schema": {
           "@context": "https://schema.org",
           "@graph": [
             {
               "@type": "Product",
-              "name": "Banner Golf personalizado para eventos deportivos y exterior",
-              "description": "Banner Golf personalizado para eventos deportivos, patrocinadores y señalización exterior en Barcelona. Ligero, visible, transportable y fácil de montar.",
+              "name": "Banner Golf personalizado (expositor exterior)",
+              "description": "Banner Golf personalizado para exterior: estable, ligero y muy visible. Ideal para eventos deportivos, ferias y activaciones. Impresión a color y fácil transporte. Pide presupuesto.",
               "image": "https://webcms.blob.core.windows.net/media/product/expositores/banner-golf.webp",
               "url": "https://reprodisseny.com/productos/banner-golf-personalizado",
               "brand": {
@@ -7240,7 +7197,7 @@
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Banner Golf personalizado para eventos deportivos y exterior",
+                  "name": "Banner Golf personalizado (expositor exterior)",
                   "item": "https://reprodisseny.com/productos/banner-golf-personalizado"
                 }
               ]
@@ -7554,7 +7511,7 @@
     },
     {
       "id": "13",
-      "updatedAt": "2026-06-10T10:03:58Z",
+      "updatedAt": "2026-06-11T13:55:14Z",
       "type": "producto",
       "slug": "caballetes-publicitarios-personalizados",
       "path": "/productos/caballetes-publicitarios-personalizados",
@@ -7567,7 +7524,7 @@
       "isPublished": true,
       "shortDescription": "Los caballetes son un clásico que sigue funcionando porque están donde importa: a pie de calle, en la entrada o junto al mostrador. En Repro Disseny preparamos caballetes publicitarios personalizados para comunicar promociones, menús, horarios o señalización, con opciones para interior/exterior, doble cara y sistemas de cambio de gráfica.",
       "description": "Los caballetes son un clásico que sigue funcionando porque están donde importa: a pie de calle, en la entrada o junto al mostrador. En Repro Disseny preparamos caballetes publicitarios personalizados para comunicar promociones, menús, horarios o señalización, con opciones para interior/exterior, doble cara y sistemas de cambio de gráfica.",
-      "bodyMd": "¿Qué es un caballete y para qué se usa? \nUn caballete publicitario es un expositor autoportante, normalmente en forma de “A”, pensado para colocar cartelería en zonas de paso. Se utiliza para atraer atención, guiar al público o informar con rapidez (ofertas, menú del día, eventos, descuentos, normas de acceso). Es especialmente útil porque se mueve y recoloca en segundos, sin instalación fija.",
+      "bodyMd": "\"¿Qué es un caballete y para qué se usa?\n\nUn caballete publicitario es un expositor autoportante, normalmente en forma de “A”, pensado para colocar cartelería en zonas de paso. Se utiliza para atraer atención, guiar al público o informar con rapidez (ofertas, menú del día, eventos, descuentos, normas de acceso). Es especialmente útil porque se mueve y recoloca en segundos, sin instalación fija.\"",
       "sections": [
         {
           "id": "details",
@@ -7575,7 +7532,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es un caballete y para qué se usa? \nUn caballete publicitario es un expositor autoportante, normalmente en forma de “A”, pensado para colocar cartelería en zonas de paso. Se utiliza para atraer atención, guiar al público o informar con rapidez (ofertas, menú del día, eventos, descuentos, normas de acceso). Es especialmente útil porque se mueve y recoloca en segundos, sin instalación fija."
+          "body": "\"¿Qué es un caballete y para qué se usa?\n\nUn caballete publicitario es un expositor autoportante, normalmente en forma de “A”, pensado para colocar cartelería en zonas de paso. Se utiliza para atraer atención, guiar al público o informar con rapidez (ofertas, menú del día, eventos, descuentos, normas de acceso). Es especialmente útil porque se mueve y recoloca en segundos, sin instalación fija.\""
         },
         {
           "id": "benefits",
@@ -7583,7 +7540,31 @@
           "title": "Beneficios",
           "kind": "benefits",
           "contentFormat": "markdown",
-          "body": "Visibilidad inmediata en accesos y calle: perfecto para captar atención antes de entrar. \nDoble cara: comunicación efectiva en ambos sentidos de paso. \nFácil de mover: ideal para campañas diarias o cambios de mensaje frecuentes. \nVersátil: sirve para promociones, menús, horarios, señalización o eventos. \nOpción de cambio rápido: según modelo, puedes sustituir la gráfica sin complicaciones."
+          "body": "\"{\n  \"\"intro\"\": \"\"Ventajas principales de caballetes publicitarios personalizados para mejorar visibilidad, presencia de marca y eficacia en espacios físicos.\"\",\n  \"\"benefits\"\": [\n    {\n      \"\"title\"\": \"\"Visibilidad inmediata en accesos y calle\"\",\n      \"\"description\"\": \"\"perfecto para captar atención antes de entrar.\"\",\n      \"\"icon\"\": \"\"Eye\"\",\n      \"\"iconKey\"\": \"\"eye\"\"\n    },\n    {\n      \"\"title\"\": \"\"Doble cara\"\",\n      \"\"description\"\": \"\"comunicación efectiva en ambos sentidos de paso.\"\",\n      \"\"icon\"\": \"\"Sparkles\"\",\n      \"\"iconKey\"\": \"\"sparkles\"\"\n    },\n    {\n      \"\"title\"\": \"\"Fácil de mover\"\",\n      \"\"description\"\": \"\"ideal para campañas diarias o cambios de mensaje frecuentes.\"\",\n      \"\"icon\"\": \"\"MousePointerClick\"\",\n      \"\"iconKey\"\": \"\"mouse-pointer-click\"\"\n    },\n    {\n      \"\"title\"\": \"\"Versátil\"\",\n      \"\"description\"\": \"\"sirve para promociones, menús, horarios, señalización o eventos.\"\",\n      \"\"icon\"\": \"\"ShieldCheck\"\",\n      \"\"iconKey\"\": \"\"shield-check\"\"\n    },\n    {\n      \"\"title\"\": \"\"Opción de cambio rápido\"\",\n      \"\"description\"\": \"\"según modelo, puedes sustituir la gráfica sin complicaciones.\"\",\n      \"\"icon\"\": \"\"Move\"\",\n      \"\"iconKey\"\": \"\"move\"\"\n    }\n  ]\n}\""
+        },
+        {
+          "id": "materials",
+          "key": "materials",
+          "title": "Materiales",
+          "kind": "materials",
+          "contentFormat": "markdown",
+          "body": "\"{\n  \"\"intro\"\": \"\"Seleccionamos materiales y sistema de impresión para que el caballetes publicitarios personalizados tenga presencia, estabilidad y resistencia según su uso real.\"\",\n  \"\"materials\"\": [\n    {\n      \"\"title\"\": \"\"Soporte recomendado\"\",\n      \"\"description\"\": \"\"Estructuras en metal/aluminio (resistentes y prácticas para uso intensivo).\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Campañas, ferias, retail, eventos y comunicación corporativa\"\",\n      \"\"icon\"\": \"\"Layers\"\",\n      \"\"iconKey\"\": \"\"layers\"\"\n    },\n    {\n      \"\"title\"\": \"\"Impresión a color\"\",\n      \"\"description\"\": \"\"Opciones en madera cuando se busca un look más cálido o “premium” (muy usado en hostelería).\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Campañas, ferias, retail, eventos y comunicación corporativa\"\",\n      \"\"icon\"\": \"\"Printer\"\",\n      \"\"iconKey\"\": \"\"printer\"\"\n    },\n    {\n      \"\"title\"\": \"\"Material para uso temporal\"\",\n      \"\"description\"\": \"\"Gráficas impresas en material adecuado para mantener buena lectura y durabilidad (según interior/exterior).\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Campañas, ferias, retail, eventos y comunicación corporativa\"\",\n      \"\"icon\"\": \"\"Shield\"\",\n      \"\"iconKey\"\": \"\"shield\"\"\n    },\n    {\n      \"\"title\"\": \"\"Material para uso recurrente\"\",\n      \"\"description\"\": \"\"Cartelería a todo color o diseño más sobrio corporativo.\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Campañas, ferias, retail, eventos y comunicación corporativa\"\",\n      \"\"icon\"\": \"\"RefreshCw\"\",\n      \"\"iconKey\"\": \"\"refresh-cw\"\"\n    },\n    {\n      \"\"title\"\": \"\"Gráfica intercambiable\"\",\n      \"\"description\"\": \"\"Posibilidad de preparar packs de pósters para ir cambiando por campañas/temporadas.\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Campañas, ferias, retail, eventos y comunicación corporativa\"\",\n      \"\"icon\"\": \"\"Image\"\",\n      \"\"iconKey\"\": \"\"image\"\"\n    }\n  ]\n}\""
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "kind": "formats",
+          "contentFormat": "markdown",
+          "body": "\"{\n  \"\"intro\"\": \"\"Definimos formato, medida y configuración de caballetes publicitarios personalizados según el espacio, la distancia de lectura, el uso previsto y el sistema de montaje.\"\",\n  \"\"shapes\"\": [\n    {\n      \"\"title\"\": \"\"Caballete tipo A (doble cara)\"\",\n      \"\"description\"\": \"\"el formato más habitual para exterior/interior.\"\",\n      \"\"icon\"\": \"\"Ruler\"\",\n      \"\"iconKey\"\": \"\"ruler\"\"\n    },\n    {\n      \"\"title\"\": \"\"Caballete con marco (click o portapóster)\"\",\n      \"\"description\"\": \"\"pensado para cambiar el póster rápido y mantener un acabado limpio.\"\",\n      \"\"icon\"\": \"\"PanelTop\"\",\n      \"\"iconKey\"\": \"\"maximize\"\"\n    },\n    {\n      \"\"title\"\": \"\"Caballete para pizarra (si la campaña cambia a diario)\"\",\n      \"\"description\"\": \"\"para mensajes escritos/actualizables.\"\",\n      \"\"icon\"\": \"\"Move\"\",\n      \"\"iconKey\"\": \"\"panel-top\"\"\n    },\n    {\n      \"\"title\"\": \"\"Tamaños habituales (orientativos)\"\",\n      \"\"description\"\": \"\"A1, A2 y otros formatos según necesidad.\"\",\n      \"\"icon\"\": \"\"MapPin\"\",\n      \"\"iconKey\"\": \"\"move\"\"\n    },\n    {\n      \"\"title\"\": \"\"Uso interior o exterior\"\",\n      \"\"description\"\": \"\"Orientación vertical y diseño optimizado para lectura rápida (titular grande + oferta clara).\"\",\n      \"\"icon\"\": \"\"Repeat\"\",\n      \"\"iconKey\"\": \"\"map-pin\"\"\n    }\n  ],\n  \"\"deliveryFormats\"\": []\n}\""
+        },
+        {
+          "id": "finishes",
+          "key": "finishes",
+          "title": "Acabados",
+          "kind": "finishes",
+          "contentFormat": "markdown",
+          "body": "\"{\n  \"\"intro\"\": \"\"Los acabados de caballetes publicitarios personalizados se definen según duración, manipulación, instalación y nivel de presencia visual necesario.\"\",\n  \"\"finishes\"\": [\n    {\n      \"\"title\"\": \"\"Acabado protector\"\",\n      \"\"description\"\": \"\"Acabado mate si hay iluminación directa (reduce reflejos y mejora la lectura).\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Mejorar presencia, durabilidad, montaje y lectura del soporte\"\",\n      \"\"icon\"\": \"\"Shield\"\",\n      \"\"iconKey\"\": \"\"shield\"\"\n    },\n    {\n      \"\"title\"\": \"\"Corte a medida\"\",\n      \"\"description\"\": \"\"Protección extra si el caballete se usa a diario o estará expuesto a roces/manipulación.\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Mejorar presencia, durabilidad, montaje y lectura del soporte\"\",\n      \"\"icon\"\": \"\"Scissors\"\",\n      \"\"iconKey\"\": \"\"scissors\"\"\n    }\n  ]\n}\""
         },
         {
           "id": "technical-specs",
@@ -7591,7 +7572,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Tipos de caballete (según uso) \nCaballete tipo A (doble cara): el formato más habitual para exterior/interior. \nCaballete con marco (click o portapóster): pensado para cambiar el póster rápido y mantener un acabado limpio. \nCaballete para pizarra (si la campaña cambia a diario): para mensajes escritos/actualizables. \nModelos reforzados para exterior: más estables cuando hay viento o alto tránsito. \nMateriales\nEstructuras en metal/aluminio (resistentes y prácticas para uso intensivo). \nOpciones en madera cuando se busca un look más cálido o “premium” (muy usado en hostelería). \nGráficas impresas en material adecuado para mantener buena lectura y durabilidad (según interior/exterior). \nFormatos \nTamaños habituales (orientativos): A1, A2 y otros formatos según necesidad. \nOrientación vertical y diseño optimizado para lectura rápida (titular grande + oferta clara). \nImpresión \nCartelería a todo color o diseño más sobrio corporativo. \nPosibilidad de preparar packs de pósters para ir cambiando por campañas/temporadas. \nAcabados recomendados \nAcabado mate si hay iluminación directa (reduce reflejos y mejora la lectura). \nProtección extra si el caballete se usa a diario o estará expuesto a roces/manipulación."
+          "body": "\"### Tipos de caballete (según uso)\n- Caballete tipo A (doble cara): el formato más habitual para exterior/interior.\n- Caballete con marco (click o portapóster): pensado para cambiar el póster rápido y mantener un acabado limpio.\n- Caballete para pizarra (si la campaña cambia a diario): para mensajes escritos/actualizables.\n- Modelos reforzados para exterior: más estables cuando hay viento o alto tránsito.\n### Materiales\n- Estructuras en metal/aluminio (resistentes y prácticas para uso intensivo).\n- Opciones en madera cuando se busca un look más cálido o “premium” (muy usado en hostelería).\n- Gráficas impresas en material adecuado para mantener buena lectura y durabilidad (según interior/exterior).\n### Formatos\n- Tamaños habituales (orientativos): A1, A2 y otros formatos según necesidad.\n- Orientación vertical y diseño optimizado para lectura rápida (titular grande + oferta clara).\n### Impresión\n- Cartelería a todo color o diseño más sobrio corporativo.\n- Posibilidad de preparar packs de pósters para ir cambiando por campañas/temporadas.\n### Acabados recomendados\n- Acabado mate si hay iluminación directa (reduce reflejos y mejora la lectura).\n- Protección extra si el caballete se usa a diario o estará expuesto a roces/manipulación.\""
         },
         {
           "id": "applications",
@@ -7599,7 +7580,7 @@
           "title": "Aplicaciones",
           "kind": "applications",
           "contentFormat": "markdown",
-          "body": "Hostelería: menú del día, promociones de terraza, eventos especiales, horarios. \nRetail: rebajas, lanzamientos, campañas estacionales, “últimas unidades”. \nCentros y servicios: academias, clínicas, gimnasios, peluquerías (información y ofertas). \nEventos: señalización de acceso, registro, salas, rutas y puntos de información. \nInmobiliaria y oficinas: jornadas de puertas abiertas, indicaciones, campañas puntuales."
+          "body": "\"{\n  \"\"intro\"\": \"\"Usos habituales de caballetes publicitarios personalizados en campañas, ferias, eventos, tiendas y espacios corporativos.\"\",\n  \"\"applications\"\": [\n    {\n      \"\"title\"\": \"\"Hostelería\"\",\n      \"\"description\"\": \"\"menú del día, promociones de terraza, eventos especiales, horarios.\"\",\n      \"\"icon\"\": \"\"Store\"\",\n      \"\"iconKey\"\": \"\"store\"\"\n    },\n    {\n      \"\"title\"\": \"\"Retail\"\",\n      \"\"description\"\": \"\"rebajas, lanzamientos, campañas estacionales, “últimas unidades”.\"\",\n      \"\"icon\"\": \"\"CalendarDays\"\",\n      \"\"iconKey\"\": \"\"calendar-days\"\"\n    },\n    {\n      \"\"title\"\": \"\"Centros y servicios\"\",\n      \"\"description\"\": \"\"academias, clínicas, gimnasios, peluquerías (información y ofertas).\"\",\n      \"\"icon\"\": \"\"MapPin\"\",\n      \"\"iconKey\"\": \"\"map-pin\"\"\n    },\n    {\n      \"\"title\"\": \"\"Eventos\"\",\n      \"\"description\"\": \"\"señalización de acceso, registro, salas, rutas y puntos de información.\"\",\n      \"\"icon\"\": \"\"Building2\"\",\n      \"\"iconKey\"\": \"\"building2\"\"\n    },\n    {\n      \"\"title\"\": \"\"Inmobiliaria y oficinas\"\",\n      \"\"description\"\": \"\"jornadas de puertas abiertas, indicaciones, campañas puntuales.\"\",\n      \"\"icon\"\": \"\"Users\"\",\n      \"\"iconKey\"\": \"\"users\"\"\n    }\n  ]\n}\""
         }
       ],
       "faqs": [],
@@ -7637,70 +7618,10 @@
       "reviewCount": 0,
       "attributes": [],
       "variants": [],
-      "formFields": [
-        {
-          "name": "tamano",
-          "label": "Tamaño",
-          "type": "select",
-          "required": false,
-          "options": [
-            "50x70 cm",
-            "59.4x84 cm",
-            "70x100 cm"
-          ],
-          "readonly": false
-        },
-        {
-          "name": "impresion",
-          "label": "Impresión",
-          "type": "select",
-          "required": false,
-          "options": [
-            "Sin impresión",
-            "con impresión"
-          ],
-          "readonly": false
-        },
-        {
-          "name": "material",
-          "label": "Material",
-          "type": "select",
-          "required": false,
-          "options": [
-            "Estucado mate 170 gr"
-          ],
-          "readonly": true
-        },
-        {
-          "name": "estructura",
-          "label": "Estructura",
-          "type": "select",
-          "required": false,
-          "options": [
-            "Aluminio plata+pantalla protectora"
-          ],
-          "readonly": true
-        },
-        {
-          "name": "cantidad",
-          "label": "Cantidad",
-          "type": "number",
-          "required": false,
-          "options": [],
-          "readonly": false
-        },
-        {
-          "name": "observaciones",
-          "label": "Observaciones",
-          "type": "text",
-          "required": false,
-          "options": [],
-          "readonly": false
-        }
-      ],
+      "formFields": [],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Caballetes publicitarios personalizados",
+        "metaTitle": "Caballetes Publicitarios Personalizados | Señalización de Calle y Punto de Venta",
         "metaDescription": "Caballetes publicitarios para exterior e interior: doble cara, estables y fáciles de mover. Ideales para promociones, menús y señalización. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/caballetes-publicitarios-personalizados",
         "hreflang": [
@@ -7709,12 +7630,8 @@
             "url": "https://reprodisseny.com/productos/caballetes-publicitarios-personalizados"
           }
         ],
-        "keywords": [
-          "caballetes"
-        ],
-        "searchTerms": [
-          "caballetes"
-        ],
+        "keywords": [],
+        "searchTerms": [],
         "schema": {
           "@context": "https://schema.org",
           "@graph": [
@@ -10701,7 +10618,7 @@
     },
     {
       "id": "14",
-      "updatedAt": "2026-06-10T10:03:58Z",
+      "updatedAt": "2026-06-11T13:37:27Z",
       "type": "producto",
       "slug": "cajas-de-luz-personalizadas",
       "path": "/productos/cajas-de-luz-personalizadas",
@@ -10845,121 +10762,13 @@
       "inStock": true,
       "ratingValue": 0,
       "reviewCount": 0,
-      "attributes": [
-        {
-          "key": "high-impact",
-          "label": "Alto impacto visual",
-          "placement": "hero-pills",
-          "icon": "Sparkles",
-          "tone": "brand"
-        },
-        {
-          "key": "led-lighting",
-          "label": "Iluminación LED",
-          "placement": "hero-pills",
-          "icon": "Lightbulb",
-          "tone": "success"
-        },
-        {
-          "key": "changeable-graphic",
-          "label": "Gráfica intercambiable",
-          "placement": "hero-pills",
-          "icon": "RefreshCw",
-          "tone": "brand"
-        },
-        {
-          "key": "custom-size",
-          "label": "A medida",
-          "placement": "hero-pills",
-          "icon": "Ruler",
-          "tone": "neutral"
-        }
-      ],
+      "attributes": [],
       "variants": [],
-      "formFields": [
-        {
-          "name": "tamano",
-          "label": "Tamaño",
-          "type": "select",
-          "required": false,
-          "options": [
-            "85x200 cm",
-            "100x200 cm",
-            "120x200 cm"
-          ],
-          "readonly": false
-        },
-        {
-          "name": "impresion",
-          "label": "Impresión",
-          "type": "select",
-          "required": false,
-          "options": [
-            "2 gráficas en cuatricromía"
-          ],
-          "readonly": true
-        },
-        {
-          "name": "material",
-          "label": "Material",
-          "type": "select",
-          "required": false,
-          "options": [
-            "Tela poliéster 200g libre de PVC retroiluminada."
-          ],
-          "readonly": true
-        },
-        {
-          "name": "estructura",
-          "label": "Estructura",
-          "type": "select",
-          "required": false,
-          "options": [
-            "Aluminio plata ancho marco 8 cm"
-          ],
-          "readonly": true
-        },
-        {
-          "name": "pies",
-          "label": "Pies",
-          "type": "select",
-          "required": false,
-          "options": [
-            "2 pies retráctiles"
-          ],
-          "readonly": true
-        },
-        {
-          "name": "conexion_electrica",
-          "label": "Conexión eléctrica",
-          "type": "select",
-          "required": false,
-          "options": [
-            "Enchufe 220 V"
-          ],
-          "readonly": true
-        },
-        {
-          "name": "cantidad",
-          "label": "Cantidad",
-          "type": "number",
-          "required": false,
-          "options": [],
-          "readonly": false
-        },
-        {
-          "name": "observaciones",
-          "label": "Observaciones",
-          "type": "text",
-          "required": false,
-          "options": [],
-          "readonly": false
-        }
-      ],
+      "formFields": [],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Cajas de Luz Personalizadas | Expositores Retroiluminados para Marcas",
-        "metaDescription": "Cajas de luz personalizadas para ferias, retail y espacios corporativos. Lightboxes LED a una o dos caras, gráfica backlit y cambio rápido.",
+        "metaDescription": "Cajas de luz personalizadas para ferias, retail y espacios corporativos. Lightboxes LED a una o dos caras, con gráfica backlit y cambio rápido. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/cajas-de-luz-personalizadas",
         "hreflang": [
           {
@@ -11017,7 +10826,7 @@
             {
               "@type": "Product",
               "name": "Cajas de luz personalizadas (expositores retroiluminados)",
-              "description": "Cajas de luz personalizadas para ferias, retail y espacios corporativos. Lightboxes LED a una o dos caras, gráfica backlit y cambio rápido.",
+              "description": "Cajas de luz personalizadas para ferias, retail y espacios corporativos. Lightboxes LED a una o dos caras, con gráfica backlit y cambio rápido. Solicita presupuesto.",
               "image": "https://webcms.blob.core.windows.net/media/product/expositores/cajas-de-luz.webp",
               "url": "https://reprodisseny.com/productos/cajas-de-luz-personalizadas",
               "brand": {

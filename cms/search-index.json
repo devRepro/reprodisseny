@@ -483,47 +483,16 @@
     "slug": "banderolas-personalizadas",
     "title": "Banderolas personalizadas (publicidad exterior y eventos)",
     "path": "/productos/banderolas-personalizadas",
-    "keywords": [
-      "banderolas"
-    ],
-    "searchTerms": [
-      "banderolas"
-    ]
+    "keywords": [],
+    "searchTerms": []
   },
   {
     "type": "producto",
     "slug": "banner-golf-personalizado",
-    "title": "Banner Golf personalizado para eventos deportivos y exterior",
+    "title": "Banner Golf personalizado (expositor exterior)",
     "path": "/productos/banner-golf-personalizado",
-    "keywords": [
-      "banner golf personalizado",
-      "banner golf Barcelona",
-      "banner golf para eventos",
-      "expositor exterior personalizado",
-      "banner deportivo personalizado",
-      "banner para patrocinadores",
-      "banner textil exterior",
-      "señalización exterior para eventos",
-      "expositor para eventos deportivos",
-      "banner ovalado personalizado"
-    ],
-    "searchTerms": [
-      "banner golf",
-      "banner golf personalizado",
-      "banner golf barcelona",
-      "banner golf para eventos deportivos",
-      "banner patrocinadores evento",
-      "expositor exterior eventos",
-      "expositor deportivo exterior",
-      "banner ovalado",
-      "banner textil exterior",
-      "banner para carreras",
-      "banner para torneos de golf",
-      "señalización exterior eventos",
-      "publicidad exterior para eventos",
-      "soporte publicitario deportivo",
-      "banner para meta y salida"
-    ]
+    "keywords": [],
+    "searchTerms": []
   },
   {
     "type": "producto",
@@ -542,12 +511,8 @@
     "slug": "caballetes-publicitarios-personalizados",
     "title": "Caballetes publicitarios personalizados",
     "path": "/productos/caballetes-publicitarios-personalizados",
-    "keywords": [
-      "caballetes"
-    ],
-    "searchTerms": [
-      "caballetes"
-    ]
+    "keywords": [],
+    "searchTerms": []
   },
   {
     "type": "producto",
