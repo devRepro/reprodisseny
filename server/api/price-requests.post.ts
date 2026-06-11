@@ -8,13 +8,31 @@ import {
 
 import { createPriceRequest } from "~/server/services/priceRequests/priceRequestService.server"
 import { rateLimit, ipHash, getClientIp } from "~/server/utils/rateLimit.server"
-
 const ProductSchema = z.object({
   name: z.string().min(1).max(200),
   slug: z.string().optional().nullable(),
   sku: z.string().optional().nullable(),
   url: z.string().optional().nullable(),
-})
+});
+
+const LooseObjectSchema = z.record(z.any());
+
+const TrackingSchema = z
+  .object({
+    context: LooseObjectSchema.optional().nullable(),
+    attribution: LooseObjectSchema.optional().nullable(),
+
+    // Compatibilidad si desde el frontend mandas campos ya normalizados
+    TrackingSource: z.string().optional().nullable(),
+    TrackingMedium: z.string().optional().nullable(),
+    TrackingCampaign: z.string().optional().nullable(),
+    TrackingCampaignId: z.string().optional().nullable(),
+    SourceUrl: z.string().optional().nullable(),
+    UtmJson: z.string().optional().nullable(),
+  })
+  .passthrough()
+  .optional()
+  .nullable();
 
 const PayloadSchema = z.object({
   website: z.string().optional().nullable(), // honeypot
@@ -42,14 +60,154 @@ const PayloadSchema = z.object({
 
   consent: z.boolean(),
   sourceUrl: z.string().min(1).max(300),
+
+  // Legacy
   utm: z.record(z.any()).optional().nullable(),
+
+  /**
+   * Tracking nuevo estándar:
+   * - contexto de landing/formulario
+   * - atribución first/last touch
+   * - gclid/gbraid/wbraid
+   * - campaña/anuncio/origen
+   */
+  tracking: TrackingSchema,
+
   initialStatus: z.string().optional().nullable(),
 });
 
+  
 const FileKindSchema = z
   .enum(["design", "brief", "proof", "final", "other"])
   .optional()
   .default("design")
+
+function isRecord(value: unknown): value is Record<string, any> {
+  return Boolean(value) && typeof value === "object" && !Array.isArray(value);
+}
+
+function cleanString(value: unknown, max = 300) {
+  if (typeof value !== "string") return null;
+
+  const trimmed = value.trim();
+
+  if (!trimmed) return null;
+
+  return trimmed.slice(0, max);
+}
+
+function firstString(...values: unknown[]) {
+  for (const value of values) {
+    const cleaned = cleanString(value);
+
+    if (cleaned) return cleaned;
+  }
+
+  return null;
+}
+
+function normalizeLeadTracking(input: {
+  tracking?: Record<string, any> | null;
+  utm?: Record<string, any> | null;
+  sourceUrl: string;
+  categorySlug: string;
+  productSlug?: string | null;
+}) {
+  const tracking = isRecord(input.tracking) ? input.tracking : {};
+  const utm = isRecord(input.utm) ? input.utm : {};
+
+  const context = isRecord(tracking.context) ? tracking.context : {};
+  const attribution = isRecord(tracking.attribution) ? tracking.attribution : {};
+
+  const firstTouch = isRecord(attribution.first) ? attribution.first : {};
+  const lastTouch = isRecord(attribution.last) ? attribution.last : {};
+  const selectedTouch = Object.keys(lastTouch).length ? lastTouch : firstTouch;
+
+  const trackingSource =
+    firstString(
+      tracking.TrackingSource,
+      tracking.trackingSource,
+      selectedTouch.source,
+      lastTouch.source,
+      firstTouch.source,
+      utm.utm_source,
+      utm.source,
+    ) || "direct";
+
+  const trackingMedium =
+    firstString(
+      tracking.TrackingMedium,
+      tracking.trackingMedium,
+      selectedTouch.medium,
+      lastTouch.medium,
+      firstTouch.medium,
+      utm.utm_medium,
+      utm.medium,
+    ) || "direct";
+
+  const trackingCampaign = firstString(
+    tracking.TrackingCampaign,
+    tracking.trackingCampaign,
+    selectedTouch.campaign,
+    lastTouch.campaign,
+    firstTouch.campaign,
+    context.campaignName,
+    utm.utm_campaign,
+    utm.campaign,
+  );
+
+  const trackingCampaignId = firstString(
+    tracking.TrackingCampaignId,
+    tracking.trackingCampaignId,
+    selectedTouch.campaignId,
+    lastTouch.campaignId,
+    firstTouch.campaignId,
+    context.campaignId,
+    utm.utm_id,
+    utm.campaign_id,
+  );
+
+  const sourceUrl =
+    firstString(
+      tracking.SourceUrl,
+      tracking.sourceUrl,
+      selectedTouch.landingUrl,
+      lastTouch.landingUrl,
+      firstTouch.landingUrl,
+      input.sourceUrl,
+    ) || input.sourceUrl;
+
+  const raw = {
+    schemaVersion: 1,
+    receivedAt: new Date().toISOString(),
+
+    normalized: {
+      trackingSource,
+      trackingMedium,
+      trackingCampaign,
+      trackingCampaignId,
+      sourceUrl,
+      categorySlug: input.categorySlug,
+      productSlug: input.productSlug ?? null,
+    },
+
+    context,
+    attribution,
+    utm,
+
+    rawTracking: tracking,
+  };
+
+  return {
+    trackingSource,
+    trackingMedium,
+    trackingCampaign,
+    trackingCampaignId,
+    sourceUrl,
+    utmJson: JSON.stringify(raw),
+  };
+}
+
 
 export default defineEventHandler(async (event) => {
   const parts = await readMultipartFormData(event)
@@ -148,6 +306,7 @@ export default defineEventHandler(async (event) => {
     consent: p.consent,
     sourceUrl: p.sourceUrl,
     utm: p.utm,
+    tracking: p.tracking,
     initialStatus: p.initialStatus,
     attachment: attachment
       ? {
@@ -160,6 +319,14 @@ export default defineEventHandler(async (event) => {
   })
 }
 
+  const normalizedTracking = normalizeLeadTracking({
+  tracking: p.tracking ?? null,
+  utm: p.utm ?? null,
+  sourceUrl: p.sourceUrl,
+  categorySlug: p.categorySlug,
+  productSlug: p.product.slug ?? null,
+});
+
   try {
     const created = await createPriceRequest(event, {
   name: p.name,
@@ -171,8 +338,15 @@ export default defineEventHandler(async (event) => {
   product: p.product,
   extras: p.extras,
   consent: p.consent,
-  sourceUrl: p.sourceUrl,
+
+  sourceUrl: normalizedTracking.sourceUrl,
+
+  // Mantengo utm legacy por compatibilidad
   utm: p.utm ?? null,
+
+  // Nuevo tracking normalizado
+  tracking: normalizedTracking,
+
   initialStatus: p.initialStatus || "Nova",
   attachment,
   fileKind,

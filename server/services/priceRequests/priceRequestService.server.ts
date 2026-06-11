@@ -32,6 +32,15 @@ export type ProductInput = {
   url?: string | null
 }
 
+export type PriceRequestTrackingInput = {
+  trackingSource: string;
+  trackingMedium: string;
+  trackingCampaign: string | null;
+  trackingCampaignId: string | null;
+  sourceUrl: string;
+  utmJson: string;
+};
+
 export type FormField =
   | {
       name: string
@@ -77,6 +86,12 @@ export type PriceRequestInput = {
   consent: boolean
   sourceUrl: string
   utm?: Record<string, any> | null
+
+  /**
+   * Tracking normalizado por el endpoint:
+   * Google Ads, UTMs, gclid, campañas, referrer, landing, etc.
+   */
+  tracking?: PriceRequestTrackingInput | null;
 
   initialStatus?: string
   attachment?: AttachmentInput | null
@@ -214,6 +229,25 @@ export async function createPriceRequest(event: any, input: PriceRequestInput) {
   }
 
   const categorySlug = (input.categorySlug ?? "").trim()
+  const trackingSourceField =
+  config.crm?.trackingSourceField || SPF.TRACKING_SOURCE || "TrackingSource";
+
+const trackingMediumField =
+  config.crm?.trackingMediumField || SPF.TRACKING_MEDIUM || "TrackingMedium";
+
+const trackingCampaignField =
+  config.crm?.trackingCampaignField || SPF.TRACKING_CAMPAIGN || "TrackingCampaign";
+
+const trackingCampaignIdField =
+  config.crm?.trackingCampaignIdField ||
+  SPF.TRACKING_CAMPAIGN_ID ||
+  "TrackingCampaignId";
+
+const utmJsonField =
+  config.crm?.utmJsonField || SPF.UTM_JSON || "UtmJson";
+
+const sourceUrlField =
+  config.crm?.sourceUrlField || SPF.SOURCE_URL || "SourceUrl";
 
   const requestKey = computeRequestKey({
     email: input.email,
@@ -309,7 +343,14 @@ export async function createPriceRequest(event: any, input: PriceRequestInput) {
         file: input.attachment,
       })
     }
-
+      const tracking = input.tracking ?? {
+  trackingSource: "direct",
+  trackingMedium: "direct",
+  trackingCampaign: null,
+  trackingCampaignId: null,
+  sourceUrl: input.sourceUrl || getHeader(event, "referer") || "",
+  utmJson: input.utm ? JSON.stringify(input.utm) : "",
+};
     // 3) Compose product snapshot
     const productJson = {
       name: input.product.name,
@@ -318,11 +359,17 @@ export async function createPriceRequest(event: any, input: PriceRequestInput) {
       url: input.product.url ?? null,
       selection: extrasClean,
       context: {
-        sourceUrl: input.sourceUrl || getHeader(event, "referer") || "",
-        categorySlug: categorySlug || null,
-        productSlug,
-        utm: input.utm ?? null,
-      },
+  sourceUrl: tracking.sourceUrl || input.sourceUrl || getHeader(event, "referer") || "",
+  categorySlug: categorySlug || null,
+  productSlug,
+  utm: input.utm ?? null,
+  tracking: {
+    source: tracking.trackingSource,
+    medium: tracking.trackingMedium,
+    campaign: tracking.trackingCampaign,
+    campaignId: tracking.trackingCampaignId,
+  },
+},
       attachments: uploadedFile
         ? [
             {
@@ -339,28 +386,33 @@ export async function createPriceRequest(event: any, input: PriceRequestInput) {
 
     // 4) Compose SharePoint fields
     const rawFields: Record<string, any> = {
-      Title: input.name,
-      [SPF.EMAIL]: input.email,
-      [SPF.PHONE]: input.phone ?? "",
-      [SPF.COMPANY]: input.company ?? "",
-      [SPF.COMMENT]: input.message ?? "",
-      [SPF.PRODUCT]: safeJsonStringify(productJson),
-      [SPF.STATUS]: input.initialStatus || "Nova",
+  Title: input.name,
+  [SPF.EMAIL]: input.email,
+  [SPF.PHONE]: input.phone ?? "",
+  [SPF.COMPANY]: input.company ?? "",
+  [SPF.COMMENT]: input.message ?? "",
+  [SPF.PRODUCT]: safeJsonStringify(productJson),
+  [SPF.STATUS]: input.initialStatus || "Nova",
 
-      [requestKeyField]: requestKey,
-      [SPF.CONSENT || "Consent"]: Boolean(input.consent),
-      [SPF.CATEGORY_SLUG || "CategorySlug"]: categorySlug || "",
-      [SPF.PRODUCT_SLUG || "ProductSlug"]: productSlug || "",
-      [SPF.UTM_JSON || "UtmJson"]: input.utm ? JSON.stringify(input.utm) : "",
-      [SPF.SOURCE_URL || "SourceUrl"]: input.sourceUrl,
+  [requestKeyField]: requestKey,
+  [SPF.CONSENT || "Consent"]: Boolean(input.consent),
+  [SPF.CATEGORY_SLUG || "CategorySlug"]: categorySlug || "",
+  [SPF.PRODUCT_SLUG || "ProductSlug"]: productSlug || "",
 
-      [hasAttachmentField]: Boolean(uploadedFile),
-      [primaryFileDriveItemIdField]: uploadedFile?.driveItemId || "",
-      [primaryFileWebUrlField]: uploadedFile?.webUrl || "",
-      [primaryFileNameField]: uploadedFile?.name || "",
-      [primaryFileMimeTypeField]: uploadedFile?.mimeType || "",
-      [primaryFileSizeField]: uploadedFile?.size || 0,
-    }
+  [trackingSourceField]: tracking.trackingSource || "direct",
+  [trackingMediumField]: tracking.trackingMedium || "direct",
+  [trackingCampaignField]: tracking.trackingCampaign || "",
+  [trackingCampaignIdField]: tracking.trackingCampaignId || "",
+  [utmJsonField]: tracking.utmJson || (input.utm ? JSON.stringify(input.utm) : ""),
+  [sourceUrlField]: tracking.sourceUrl || input.sourceUrl,
+
+  [hasAttachmentField]: Boolean(uploadedFile),
+  [primaryFileDriveItemIdField]: uploadedFile?.driveItemId || "",
+  [primaryFileWebUrlField]: uploadedFile?.webUrl || "",
+  [primaryFileNameField]: uploadedFile?.name || "",
+  [primaryFileMimeTypeField]: uploadedFile?.mimeType || "",
+  [primaryFileSizeField]: uploadedFile?.size || 0,
+};
 
     const fields = compactFields(rawFields)
 
