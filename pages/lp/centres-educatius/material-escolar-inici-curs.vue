@@ -1,29 +1,14 @@
 <script setup lang="ts">
-import { computed, reactive, ref } from "vue";
-import { useRoute } from "#imports";
 import { ChevronRight, Phone, X } from "lucide-vue-next";
-import { usePriceRequests } from "@/composables/usePriceRequests";
+
 import EducationFaqs from "@/components/marketing/landing/EducationFaqs.vue";
 import EducationQuoteForm from "@/components/marketing/landing/EducationQuoteForm.vue";
-/**
- * Si este archivo vive en pages/centros-educativos.vue, deja el alias.
- * Si lo pegas directamente en pages/ensenyament.vue, puedes cambiar el alias a ["/centros-educativos"] o eliminarlo.
- */
+import type { TrackingContext } from "~/types/tracking";
+
 definePageMeta({
-  layout: "pd"
+  layout: "centres-educatius"
 });
 
-const route = useRoute();
-const { sendPriceRequest, isLoading, error } = usePriceRequests();
-
-/**
- * Base pública de imágenes.
- *
- * Ahora queda operativa contra Blob Storage. Cuando confirmes el hostname del CDN,
- * cambia SOLO esta constante. Ejemplos habituales:
- * - Si el CDN conserva /media en la URL: "https://cdn.reprodisseny.com/media"
- * - Si el CDN ya apunta al contenedor media: "https://cdn.reprodisseny.com"
- */
 const MEDIA_BASE_URL = "https://webcms.blob.core.windows.net/media";
 const LANDING_MEDIA_PATH = "landing/centros-educativos";
 const quoteSectionId = "pressupost-centres-educatius";
@@ -31,8 +16,22 @@ const quoteSectionId = "pressupost-centres-educatius";
 function landingMedia(fileName: string) {
   const base = MEDIA_BASE_URL.replace(/\/$/, "");
   const file = fileName.replace(/^\//, "");
+
   return `${base}/${LANDING_MEDIA_PATH}/${file}`;
 }
+
+const trackingContext: TrackingContext = {
+  pageType: "landing",
+  pageLanguage: "ca",
+  contentGroup: "educacion",
+  serviceName: "Centres educatius",
+  campaignName: "centres-educatius-2026",
+  campaignId: null,
+  productSlug: "centres-educatius",
+  categorySlug: "publicaciones",
+  formId: "education_quote_form_ca",
+  formName: "education_quote_form",
+};
 
 const hero = {
   title: "Material escolar personalitzat\nper a escoles",
@@ -46,7 +45,7 @@ const problems = [
   "Sense poder lliurar els apunts el primer dia de classe",
   "La senyalística del centre sense actualitzar",
   "Les presses d’última hora que ho encareixen tot",
-];
+] as const;
 
 const services = [
   {
@@ -127,7 +126,6 @@ const logos = [
   },
 ] as const;
 
-
 const faqs = [
   {
     question: "Podeu imprimir dossiers, quadernets, exàmens, fitxes i material didàctic?",
@@ -166,230 +164,117 @@ const faqs = [
   },
 ] as const;
 
-type QuoteForm = {
-  website: string;
-  name: string;
-  center: string;
-  email: string;
-  phone: string;
-  message: string;
-  privacy: boolean;
-};
-
-const success = ref(false);
-const validationError = ref("");
-const submittedReference = ref<string | null>(null);
-
-const form = reactive<QuoteForm>({
-  website: "",
-  name: "",
-  center: "",
-  email: "",
-  phone: "",
-  message: "",
-  privacy: false,
-});
-
-const sourceUrl = computed(() => {
-  const value = import.meta.client ? window.location.href : route.fullPath || "/";
-  return String(value).slice(0, 300);
-});
-
-const utm = computed(() => {
-  const out: Record<string, string> = {};
-
-  for (const [key, value] of Object.entries(route.query || {})) {
-    if (!key.toLowerCase().startsWith("utm_")) continue;
-    out[key] = Array.isArray(value) ? String(value[0] ?? "") : String(value ?? "");
-  }
-
-  return Object.keys(out).length ? out : null;
-});
-
-const errorMessage = computed(() => {
-  if (validationError.value) return validationError.value;
-  if (!error.value) return "";
-  return typeof error.value === "string"
-    ? error.value
-    : "No hem pogut enviar la sol·licitud. Torna-ho a intentar o truca’ns al +34 932 749 890.";
-});
-
 function scrollToQuote() {
   if (!import.meta.client) return;
-  document.getElementById(quoteSectionId)?.scrollIntoView({ behavior: "smooth", block: "start" });
+
+  document
+    .getElementById(quoteSectionId)
+    ?.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
-function resetForm() {
-  form.website = "";
-  form.name = "";
-  form.center = "";
-  form.email = "";
-  form.phone = "";
-  form.message = "";
-  form.privacy = false;
-  validationError.value = "";
-}
-
-function isValidEmail(value: string) {
-  return /^\S+@\S+\.\S+$/.test(value.trim());
-}
-
-function pushLeadEvent(transactionId?: string | number | null) {
-  if (!import.meta.client) return;
-
-  const win = window as Window & { dataLayer?: Record<string, unknown>[] };
-  win.dataLayer = win.dataLayer || [];
-
-  win.dataLayer.push({
-    event: "generate_lead",
-    form_name: "landing_ensenyament",
-    lead_type: "quote_request",
-    page_path: window.location.pathname,
-    category_slug: "publicaciones",
-    product_slug: "centres-educatius",
-    product_name: "Material gràfic i senyalística per a centres educatius",
-    transaction_id: transactionId ? String(transactionId) : undefined,
-  });
-}
-
-async function onSubmit() {
-  validationError.value = "";
-  error.value = null;
-
-  if (form.website.trim()) {
-    success.value = true;
-    return;
-  }
-
-  if (!form.name.trim()) {
-    validationError.value = "Indica el teu nom.";
-    return;
-  }
-
-  if (!form.center.trim()) {
-    validationError.value = "Indica el nom del centre.";
-    return;
-  }
-
-  if (!isValidEmail(form.email)) {
-    validationError.value = "Introdueix un correu electrònic vàlid.";
-    return;
-  }
-
-  if (!form.phone.trim() || form.phone.trim().length < 9) {
-    validationError.value = "Introdueix un telèfon vàlid.";
-    return;
-  }
-
-  if (!form.message.trim()) {
-    validationError.value = "Explica breument quin material necessiteu.";
-    return;
-  }
-
-  if (!form.privacy) {
-    validationError.value = "Has d’acceptar la política de privacitat.";
-    return;
-  }
-
-  const response = await sendPriceRequest(
-    {
-      website: null,
-      name: form.name.trim(),
-      email: form.email.trim(),
-      phone: form.phone.trim(),
-      company: form.center.trim(),
-      message: form.message.trim(),
-      categorySlug: "publicaciones",
-      product: {
-        name: "Material gràfic i senyalística per a centres educatius",
-        slug: "centres-educatius",
-        sku: null,
-        url: sourceUrl.value,
-      },
-      extras: {
-        landing: "ensenyament",
-        locale: "ca",
-        center: form.center.trim(),
-      },
-      consent: true,
-      sourceUrl: sourceUrl.value,
-      utm: utm.value,
-      initialStatus: "Nova",
-    },
-    { file: null, fileKind: "design" }
-  );
-
-  const result = response as {
-    ok?: boolean;
-    duplicated?: boolean;
-    itemId?: string | number | null;
-    requestKey?: string | null;
-    reference?: string | null;
-    requestId?: string | null;
-    id?: string | number | null;
-  } | null;
-
-  if (error.value) return;
-
-  const transactionId =
-    result?.reference ||
-    result?.requestId ||
-    result?.id ||
-    result?.itemId ||
-    result?.requestKey ||
-    null;
-
-  submittedReference.value = transactionId ? String(transactionId) : null;
-
-  if (!result?.duplicated) {
-    pushLeadEvent(transactionId);
-  }
-
-  success.value = true;
-  resetForm();
-}
+const pageUrl =
+  "https://reprodisseny.com/lp/centres-educatius/material-escolar-inici-curs";
 
 useSeoMeta({
-  title: "Material gràfic i senyalística per a centres educatius | Repro Disseny",
+  title: "Material escolar personalitzat per a escoles | Repro Disseny",
   description:
     "Producció i instal·lació de material didàctic, dossiers, quaderns, vinils, cartells i senyalística per a centres educatius. Tot a punt per a l’inici de curs.",
-  ogTitle: "Material gràfic i senyalística per a centres educatius | Repro Disseny",
+  ogTitle: "Material escolar personalitzat per a escoles | Repro Disseny",
   ogDescription:
     "Material didàctic, senyalística, cartelleria i impressió per a centres educatius. Planifica l’inici de curs amb Repro Disseny.",
   ogImage: hero.image,
+  ogUrl: pageUrl,
+  twitterCard: "summary_large_image",
 });
 
 useHead({
   htmlAttrs: { lang: "ca" },
   link: [
     { rel: "preload", as: "image", href: hero.image },
-    { rel: "canonical", href: "https://reprodisseny.com/ensenyament" },
-    { rel: "alternate", hreflang: "ca", href: "https://reprodisseny.com/ensenyament" },
-  ],
-  script: [
     {
-      type: "application/ld+json",
-      innerHTML: JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Service",
-        name: "Material gràfic i senyalística per a centres educatius",
-        provider: {
-          "@type": "LocalBusiness",
-          name: "Repro Disseny",
-          telephone: "+34 932 749 890",
-          address: {
-            "@type": "PostalAddress",
-            streetAddress: "Juan de Mena 19",
-            postalCode: "08035",
-            addressLocality: "Barcelona",
-            addressCountry: "ES",
-          },
-        },
-        areaServed: "Barcelona",
-        serviceType: "Impressió i senyalística per a centres educatius",
-      }),
+      rel: "canonical",
+      href: pageUrl,
+    },
+    {
+      rel: "alternate",
+      hreflang: "ca",
+      href: pageUrl,
+    },
+    {
+      rel: "alternate",
+      hreflang: "x-default",
+      href: pageUrl,
     },
   ],
+  script: [
+  {
+    type: "application/ld+json",
+    innerHTML: JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebPage",
+          "@id": `${pageUrl}#webpage`,
+          url: pageUrl,
+          name: "Material escolar personalitzat per a escoles | Repro Disseny",
+          description:
+            "Producció i instal·lació de material didàctic, dossiers, quaderns, vinils, cartells i senyalística per a centres educatius. Tot a punt per a l’inici de curs.",
+          inLanguage: "ca",
+          isPartOf: {
+            "@type": "WebSite",
+            "@id": "https://reprodisseny.com/#website",
+            name: "Repro Disseny",
+            url: "https://reprodisseny.com",
+          },
+          primaryImageOfPage: {
+            "@type": "ImageObject",
+            url: hero.image,
+          },
+        },
+        {
+          "@type": "Service",
+          "@id": `${pageUrl}#service`,
+          url: pageUrl,
+          name: "Material escolar personalitzat per a escoles",
+          description:
+            "Producció i instal·lació de material didàctic, dossiers, quaderns, vinils, cartells i senyalística per a centres educatius.",
+          serviceType: "Impressió i senyalística per a centres educatius",
+          areaServed: {
+            "@type": "AdministrativeArea",
+            name: "Catalunya",
+          },
+          provider: {
+            "@type": "LocalBusiness",
+            "@id": "https://reprodisseny.com/#localbusiness",
+            name: "Repro Disseny",
+            url: "https://reprodisseny.com",
+            telephone: "+34 932 749 890",
+            address: {
+              "@type": "PostalAddress",
+              streetAddress: "Juan de Mena 19",
+              postalCode: "08035",
+              addressLocality: "Barcelona",
+              addressCountry: "ES",
+            },
+          },
+          inLanguage: "ca",
+        },
+        {
+          "@type": "FAQPage",
+          "@id": `${pageUrl}#faq`,
+          mainEntity: faqs.map((item) => ({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: item.answer,
+            },
+          })),
+        },
+      ],
+    }),
+  },
+],
 });
 </script>
 
@@ -523,7 +408,7 @@ useHead({
 
     <section class="education-faq-section" aria-labelledby="education-faq-title">
       <h2 id="education-faq-title" class="education-faq-section__title">
-        FAQS
+        Preguntes freqüents
       </h2>
 
       <EducationFaqs :items="faqs" :default-open="true" :show-title="false" />
@@ -538,21 +423,13 @@ useHead({
           <p>Explica’ns què necessites i et prepararem una proposta. Sense esperes.</p>
         </div>
 
-        <div v-if="success" class="education-success" role="status">
-          <h3>Sol·licitud enviada correctament</h3>
-          <p>
-            Hem rebut la teva petició. Ens posarem en contacte amb tu en menys de 24 hores laborables.
-          </p>
-          <p v-if="submittedReference" class="education-success__reference">
-            Referència: {{ submittedReference }}
-          </p>
-          <button type="button" class="education-success__button" @click="success = false">
-            Enviar una altra sol·licitud
-          </button>
-        </div>
-        <EducationQuoteForm locale="ca" product-name="Material gràfic i senyalística per a centres educatius"
-          product-slug="centres-educatius" category-slug="publicaciones" />
-
+        <EducationQuoteForm
+          locale="ca"
+          product-name="Material gràfic i senyalística per a centres educatius"
+          product-slug="centres-educatius"
+          category-slug="publicaciones"
+          :tracking-context="trackingContext"
+        />
       </div>
     </section>
 
@@ -1055,34 +932,6 @@ useHead({
   color: hsl(var(--foreground));
   font-size: var(--font-label);
   line-height: var(--line-label);
-}
-
-.education-success {
-  width: min(100%, 520px);
-  margin: 38px auto 0;
-  border-radius: 12px;
-  background: hsl(var(--brand-white) / 0.72);
-  padding: 28px 24px;
-  text-align: center;
-}
-
-.education-success h3 {
-  color: hsl(var(--brand-base-dark));
-  font-size: var(--font-h4);
-}
-
-.education-success p {
-  margin-top: 10px;
-  font-size: var(--font-label);
-  line-height: var(--line-label);
-}
-
-.education-success__reference {
-  font-weight: var(--weight-body-bold);
-}
-
-.education-success__button {
-  margin-top: 18px;
 }
 
 .education-hero__text,

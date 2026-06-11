@@ -12,7 +12,7 @@ import LandingProcessSteps from "@/components/marketing/landing/LandingProcessSt
 import LandingSplitFeature from "@/components/marketing/landing/LandingSplitFeature.vue";
 import LandingStatsGrid from "@/components/marketing/landing/LandingStatsGrid.vue";
 import SolarQuoteForm from "@/components/marketing/landing/SolarQuoteForm.vue";
-
+import type { TrackingContext } from "~/types/tracking";
 definePageMeta({
   layout: "landing",
 });
@@ -26,6 +26,22 @@ useSeoMeta({
     "Protege tus espacios del calor y los reflejos con instalación profesional de láminas solares para cristales.",
   robots: "index, follow",
 });
+
+
+//Google Ads tracking context
+const trackingContext: TrackingContext = {
+  pageType: "landing",
+  pageLanguage: "es",
+  contentGroup: "gran-formato",
+  serviceName: "Láminas solares",
+  campaignName: "laminas-solares-2026",
+  campaignId: null,
+  productSlug: "laminas-solares",
+  categorySlug: "gran-formato",
+  formId: "solar_quote_form",
+  formName: "solar_quote_form",
+};
+
 
 type IconItem = {
   title: string;
@@ -345,7 +361,7 @@ function scrollToQuote() {
         />
 
         <div class="mt-7">
-          <SolarQuoteForm />
+          <SolarQuoteForm  :tracking-context="trackingContext" />
         </div>
       </div>
     </section>

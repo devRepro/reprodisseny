@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-05-29T10:08:37.000Z",
+  "generatedAt": "2026-06-10T12:04:17.917Z",
   "categories": [
     {
       "id": "12",
@@ -4270,7 +4270,7 @@
     },
     {
       "id": "1",
-      "updatedAt": "2026-05-22T06:13:54Z",
+      "updatedAt": "2026-06-10T10:03:57Z",
       "type": "producto",
       "slug": "abanicos-personalizados",
       "path": "/productos/abanicos-personalizados",
@@ -4444,32 +4444,7 @@
           }
         }
       ],
-      "faqs": [
-        {
-          "question": "¿Qué diferencia hay entre un abanico plegable y un pai pai personalizado?",
-          "answer": "El abanico plegable suele percibirse como un regalo más duradero y de mayor valor, mientras que el pai pai es una opción muy práctica para repartir rápidamente en accesos, ferias, bodas o acciones promocionales con mucho volumen."
-        },
-        {
-          "question": "¿Se pueden personalizar los abanicos con nombres, mesas o datos variables?",
-          "answer": "Sí. Podemos preparar versiones personalizadas con nombres, mesas, grupos u otros datos variables, siempre que nos facilites el listado y la información bien estructurada."
-        },
-        {
-          "question": "¿Qué acabado recomendáis para eventos en exterior y con sol?",
-          "answer": "Para exteriores solemos recomendar acabado mate, ya que reduce los reflejos, mejora la legibilidad con luz directa y ofrece un resultado más elegante en fotografía y vídeo."
-        },
-        {
-          "question": "¿Podéis adaptar el diseño o preparar el archivo para imprenta?",
-          "answer": "Sí. Revisamos el diseño, ajustamos medidas, sangres, márgenes de seguridad y resolución para que el arte final quede correctamente preparado para impresión."
-        },
-        {
-          "question": "¿Qué formato es más recomendable para bodas, eventos y promociones?",
-          "answer": "Depende del uso y del presupuesto. El abanico plegable suele funcionar mejor como detalle o regalo, mientras que el pai pai es ideal para campañas promocionales, eventos masivos o acciones donde se necesite una distribución rápida."
-        },
-        {
-          "question": "¿Qué archivo debo enviar para imprimir abanicos personalizados?",
-          "answer": "Lo ideal es enviar un PDF listo para imprenta o un archivo vectorial editable. Si no lo tienes preparado, también podemos ayudarte a revisar, adaptar o maquetar el diseño final."
-        }
-      ],
+      "faqs": [],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -4647,59 +4622,6 @@
                   "item": "https://reprodisseny.com/productos/abanicos-personalizados"
                 }
               ]
-            },
-            {
-              "@type": "FAQPage",
-              "mainEntity": [
-                {
-                  "@type": "Question",
-                  "name": "¿Qué diferencia hay entre un abanico plegable y un pai pai personalizado?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "El abanico plegable suele percibirse como un regalo más duradero y de mayor valor, mientras que el pai pai es una opción muy práctica para repartir rápidamente en accesos, ferias, bodas o acciones promocionales con mucho volumen."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Se pueden personalizar los abanicos con nombres, mesas o datos variables?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Podemos preparar versiones personalizadas con nombres, mesas, grupos u otros datos variables, siempre que nos facilites el listado y la información bien estructurada."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Qué acabado recomendáis para eventos en exterior y con sol?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Para exteriores solemos recomendar acabado mate, ya que reduce los reflejos, mejora la legibilidad con luz directa y ofrece un resultado más elegante en fotografía y vídeo."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Podéis adaptar el diseño o preparar el archivo para imprenta?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Revisamos el diseño, ajustamos medidas, sangres, márgenes de seguridad y resolución para que el arte final quede correctamente preparado para impresión."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Qué formato es más recomendable para bodas, eventos y promociones?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Depende del uso y del presupuesto. El abanico plegable suele funcionar mejor como detalle o regalo, mientras que el pai pai es ideal para campañas promocionales, eventos masivos o acciones donde se necesite una distribución rápida."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Qué archivo debo enviar para imprimir abanicos personalizados?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Lo ideal es enviar un PDF listo para imprenta o un archivo vectorial editable. Si no lo tienes preparado, también podemos ayudarte a revisar, adaptar o maquetar el diseño final."
-                  }
-                }
-              ]
             }
           ]
         },
@@ -4709,7 +4631,7 @@
     },
     {
       "id": "2",
-      "updatedAt": "2026-05-15T15:35:29Z",
+      "updatedAt": "2026-06-10T10:03:57Z",
       "type": "producto",
       "slug": "acreditaciones-personalizadas",
       "path": "/productos/acreditaciones-personalizadas",
@@ -4895,32 +4817,7 @@
           }
         }
       ],
-      "faqs": [
-        {
-          "question": "¿Se pueden imprimir acreditaciones con nombres, empresas o cargos diferentes?",
-          "answer": "Sí. Trabajamos con datos variables para personalizar cada acreditación con nombres, empresas, cargos, numeraciones, códigos o cualquier otro dato que necesites."
-        },
-        {
-          "question": "¿Qué material recomendáis para acreditaciones de varios días?",
-          "answer": "Para eventos de varios días solemos recomendar soportes más resistentes, como materiales sintéticos o acabados laminados, ya que soportan mejor el uso continuado, el roce y la manipulación."
-        },
-        {
-          "question": "¿Se pueden incluir códigos QR o códigos de barras para control de acceso?",
-          "answer": "Sí. Podemos integrar códigos QR, códigos de barras, numeración o identificadores variables para facilitar el acceso, el check-in o la gestión interna del evento."
-        },
-        {
-          "question": "¿Podéis suministrar las acreditaciones con lanyard?",
-          "answer": "Sí. Podemos preparar el pack completo con acreditación, lanyard y la configuración más adecuada según el tipo de evento, el sistema de acceso y el uso previsto."
-        },
-        {
-          "question": "¿Qué formato de acreditación es más recomendable para congresos, ferias o eventos corporativos?",
-          "answer": "Depende del tipo de evento y de la información que deba mostrarse. Podemos ayudarte a elegir el tamaño, la orientación y el acabado más adecuados para garantizar visibilidad, comodidad y resistencia."
-        },
-        {
-          "question": "¿Qué archivo necesitáis para imprimir acreditaciones personalizadas?",
-          "answer": "Lo ideal es recibir un PDF listo para imprenta o un archivo editable bien preparado. Si además hay datos variables, también necesitaremos el listado en un formato ordenado para vincular correctamente la personalización."
-        }
-      ],
+      "faqs": [],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -5098,59 +4995,6 @@
                   "item": "https://reprodisseny.com/productos/acreditaciones-personalizadas"
                 }
               ]
-            },
-            {
-              "@type": "FAQPage",
-              "mainEntity": [
-                {
-                  "@type": "Question",
-                  "name": "¿Se pueden imprimir acreditaciones con nombres, empresas o cargos diferentes?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Trabajamos con datos variables para personalizar cada acreditación con nombres, empresas, cargos, numeraciones, códigos o cualquier otro dato que necesites."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Qué material recomendáis para acreditaciones de varios días?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Para eventos de varios días solemos recomendar soportes más resistentes, como materiales sintéticos o acabados laminados, ya que soportan mejor el uso continuado, el roce y la manipulación."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Se pueden incluir códigos QR o códigos de barras para control de acceso?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Podemos integrar códigos QR, códigos de barras, numeración o identificadores variables para facilitar el acceso, el check-in o la gestión interna del evento."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Podéis suministrar las acreditaciones con lanyard?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Podemos preparar el pack completo con acreditación, lanyard y la configuración más adecuada según el tipo de evento, el sistema de acceso y el uso previsto."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Qué formato de acreditación es más recomendable para congresos, ferias o eventos corporativos?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Depende del tipo de evento y de la información que deba mostrarse. Podemos ayudarte a elegir el tamaño, la orientación y el acabado más adecuados para garantizar visibilidad, comodidad y resistencia."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Qué archivo necesitáis para imprimir acreditaciones personalizadas?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Lo ideal es recibir un PDF listo para imprenta o un archivo editable bien preparado. Si además hay datos variables, también necesitaremos el listado en un formato ordenado para vincular correctamente la personalización."
-                  }
-                }
-              ]
             }
           ]
         },
@@ -5160,7 +5004,7 @@
     },
     {
       "id": "3",
-      "updatedAt": "2026-05-05T15:56:58Z",
+      "updatedAt": "2026-06-10T10:03:57Z",
       "type": "producto",
       "slug": "agendas-personalizadas",
       "path": "/productos/agendas-personalizadas",
@@ -5286,32 +5130,7 @@
           "body": "Aplicaciones habituales de las agendas personalizadas en empresas, equipos comerciales, formación, eventos y regalos corporativos.\n\n- **Agendas corporativas para empleados:** uso interno, planificación de equipos, reuniones, tareas y seguimiento de objetivos.\n- **Regalo a clientes y partners:** opción útil para Navidad, cierre de año, acciones comerciales o campañas de fidelización.\n- **Welcome packs:** complemento práctico para incorporaciones, formaciones, eventos internos o kits de bienvenida.\n- **Equipos comerciales:** seguimiento de leads, visitas, rutas, objetivos, reuniones y planificación semanal o mensual.\n- **Centros y entidades:** organización de cursos, academias, asociaciones, actividades formativas o planificación interna."
         }
       ],
-      "faqs": [
-        {
-          "question": "¿Qué opción es mejor: agenda semanal o agenda diaria?",
-          "answer": "La agenda semanal suele ser la opción más equilibrada para la mayoría de equipos, porque ofrece una buena visión general. La agenda diaria es más recomendable cuando se necesita mucho espacio de anotación y un mayor nivel de control."
-        },
-        {
-          "question": "¿Se puede personalizar el interior de la agenda con nuestras plantillas o necesidades?",
-          "answer": "Sí. Podemos crear un interior adaptado a tu forma de trabajar, incorporando apartados para reuniones, proyectos, objetivos, seguimiento comercial, planificación o cualquier otra necesidad interna."
-        },
-        {
-          "question": "¿Qué acabado recomendáis para una agenda como regalo corporativo?",
-          "answer": "Para regalo corporativo suele funcionar muy bien una agenda con tapa dura, acabado mate o soft touch y algún detalle premium, como stamping, barniz selectivo o personalización de cubierta."
-        },
-        {
-          "question": "¿Podéis hacer diferentes versiones por sedes, departamentos o equipos?",
-          "answer": "Sí. Podemos mantener una base de diseño común y adaptar secciones, datos, portada o interiores para cada sede, departamento o línea de negocio."
-        },
-        {
-          "question": "¿Se pueden personalizar también la portada y otros elementos de la agenda?",
-          "answer": "Sí. Además del interior, podemos personalizar la portada, contraportada, acabados, colores, encuadernación y otros detalles para que la agenda encaje con la identidad de tu empresa."
-        },
-        {
-          "question": "¿Qué archivo necesitáis para presupuestar o producir agendas personalizadas?",
-          "answer": "Lo ideal es contar con el diseño o con una referencia clara de lo que necesitas. Si no tienes el arte final preparado, también podemos ayudarte a maquetar la agenda y adaptar los archivos para impresión."
-        }
-      ],
+      "faqs": [],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -5502,59 +5321,6 @@
                   "item": "https://reprodisseny.com/productos/agendas-personalizadas"
                 }
               ]
-            },
-            {
-              "@type": "FAQPage",
-              "mainEntity": [
-                {
-                  "@type": "Question",
-                  "name": "¿Qué opción es mejor: agenda semanal o agenda diaria?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "La agenda semanal suele ser la opción más equilibrada para la mayoría de equipos, porque ofrece una buena visión general. La agenda diaria es más recomendable cuando se necesita mucho espacio de anotación y un mayor nivel de control."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Se puede personalizar el interior de la agenda con nuestras plantillas o necesidades?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Podemos crear un interior adaptado a tu forma de trabajar, incorporando apartados para reuniones, proyectos, objetivos, seguimiento comercial, planificación o cualquier otra necesidad interna."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Qué acabado recomendáis para una agenda como regalo corporativo?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Para regalo corporativo suele funcionar muy bien una agenda con tapa dura, acabado mate o soft touch y algún detalle premium, como stamping, barniz selectivo o personalización de cubierta."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Podéis hacer diferentes versiones por sedes, departamentos o equipos?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Podemos mantener una base de diseño común y adaptar secciones, datos, portada o interiores para cada sede, departamento o línea de negocio."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Se pueden personalizar también la portada y otros elementos de la agenda?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Además del interior, podemos personalizar la portada, contraportada, acabados, colores, encuadernación y otros detalles para que la agenda encaje con la identidad de tu empresa."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Qué archivo necesitáis para presupuestar o producir agendas personalizadas?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Lo ideal es contar con el diseño o con una referencia clara de lo que necesitas. Si no tienes el arte final preparado, también podemos ayudarte a maquetar la agenda y adaptar los archivos para impresión."
-                  }
-                }
-              ]
             }
           ]
         },
@@ -5564,7 +5330,7 @@
     },
     {
       "id": "4",
-      "updatedAt": "2026-05-15T15:37:24Z",
+      "updatedAt": "2026-06-10T10:03:57Z",
       "type": "producto",
       "slug": "arbol-navidad-corporativo",
       "path": "/productos/arbol-navidad-corporativo",
@@ -5751,32 +5517,7 @@
           }
         }
       ],
-      "faqs": [
-        {
-          "question": "¿El expositor se monta realmente sin herramientas?",
-          "answer": "Sí. Es un sistema automontable formado por piezas troqueladas que encajan entre sí, por lo que el montaje es rápido y no requiere herramientas adicionales."
-        },
-        {
-          "question": "¿Se puede reutilizar después de un evento o campaña?",
-          "answer": "Sí. Si se monta y desmonta con cuidado y se almacena correctamente en plano, puede reutilizarse en varias ocasiones. Si necesitas una opción más resistente, podemos recomendarte el material más adecuado según el uso."
-        },
-        {
-          "question": "¿Se puede fabricar con una forma personalizada o adaptada a nuestra marca?",
-          "answer": "Sí. Además del formato clásico, podemos desarrollar siluetas o diseños personalizados manteniendo un sistema de montaje práctico y funcional."
-        },
-        {
-          "question": "¿Qué información necesitáis para preparar un presupuesto?",
-          "answer": "Para presupuestarlo correctamente necesitamos la medida aproximada, la cantidad, el lugar de uso (interior o exterior) y saber si aportas arte final o necesitas que preparemos el diseño."
-        },
-        {
-          "question": "¿Qué material recomendáis para un expositor automontable?",
-          "answer": "Depende del tamaño, del tiempo de uso y de si va a colocarse en interior o exterior. Te proponemos el soporte más adecuado para conseguir estabilidad, buena impresión y facilidad de montaje."
-        },
-        {
-          "question": "¿Podéis adaptar el diseño para que quede listo para imprimir y montar?",
-          "answer": "Sí. Podemos ayudarte a desarrollar el diseño, adaptar la creatividad al troquel y preparar el archivo final para que el expositor quede bien resuelto tanto visual como técnicamente."
-        }
-      ],
+      "faqs": [],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -5936,59 +5677,6 @@
                   "item": "https://reprodisseny.com/productos/arbol-navidad-corporativo"
                 }
               ]
-            },
-            {
-              "@type": "FAQPage",
-              "mainEntity": [
-                {
-                  "@type": "Question",
-                  "name": "¿El expositor se monta realmente sin herramientas?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Es un sistema automontable formado por piezas troqueladas que encajan entre sí, por lo que el montaje es rápido y no requiere herramientas adicionales."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Se puede reutilizar después de un evento o campaña?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Si se monta y desmonta con cuidado y se almacena correctamente en plano, puede reutilizarse en varias ocasiones. Si necesitas una opción más resistente, podemos recomendarte el material más adecuado según el uso."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Se puede fabricar con una forma personalizada o adaptada a nuestra marca?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Además del formato clásico, podemos desarrollar siluetas o diseños personalizados manteniendo un sistema de montaje práctico y funcional."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Qué información necesitáis para preparar un presupuesto?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Para presupuestarlo correctamente necesitamos la medida aproximada, la cantidad, el lugar de uso (interior o exterior) y saber si aportas arte final o necesitas que preparemos el diseño."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Qué material recomendáis para un expositor automontable?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Depende del tamaño, del tiempo de uso y de si va a colocarse en interior o exterior. Te proponemos el soporte más adecuado para conseguir estabilidad, buena impresión y facilidad de montaje."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Podéis adaptar el diseño para que quede listo para imprimir y montar?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Podemos ayudarte a desarrollar el diseño, adaptar la creatividad al troquel y preparar el archivo final para que el expositor quede bien resuelto tanto visual como técnicamente."
-                  }
-                }
-              ]
             }
           ]
         },
@@ -5998,7 +5686,7 @@
     },
     {
       "id": "5",
-      "updatedAt": "2026-05-05T15:58:17Z",
+      "updatedAt": "2026-06-10T10:03:57Z",
       "type": "producto",
       "slug": "archivadores-personalizados",
       "path": "/productos/archivadores-personalizados",
@@ -6046,32 +5734,7 @@
           "body": "Administración y contabilidad: facturas, albaranes, IVA, ejercicios por año. \nRRHH: contratos, formación, prevención, documentación interna. \nProyectos: documentación por cliente, obra, expediente o fase. \nCalidad y procedimientos: manuales ISO, registros, auditorías, checklists. \nCatálogos técnicos: fichas y hojas sueltas actualizables en anillas."
         }
       ],
-      "faqs": [
-        {
-          "question": "¿Qué opción es mejor: archivador de palanca o archivador de anillas?",
-          "answer": "El archivador de palanca suele ser la mejor opción cuando se busca un sistema de archivo más robusto y con mayor capacidad. El archivador de anillas resulta más práctico cuando es necesario actualizar documentos con frecuencia o reorganizar secciones con facilidad."
-        },
-        {
-          "question": "¿Se puede personalizar el lomo para identificar el archivador rápidamente?",
-          "answer": "Sí. Personalizar el lomo es una de las opciones más recomendables, ya que facilita mucho la organización, la identificación visual y la localización rápida en estanterías o archivos."
-        },
-        {
-          "question": "¿Podéis fabricar series de archivadores por departamentos, años o proyectos?",
-          "answer": "Sí. Podemos producir series completas manteniendo un diseño base común y aplicando variaciones en color, textos, códigos o identificación según departamento, ejercicio o tipología documental."
-        },
-        {
-          "question": "¿También podéis preparar el contenido interior del archivador?",
-          "answer": "Sí. Podemos completar el proyecto con separadores, portadas interiores, hojas perforadas y otros elementos para crear un sistema de archivo totalmente funcional y coherente."
-        },
-        {
-          "question": "¿Qué material o acabado recomendáis para archivadores de uso intensivo?",
-          "answer": "Depende del volumen de uso y del entorno, pero normalmente recomendamos materiales resistentes y acabados duraderos que soporten bien la manipulación continua y mantengan una buena imagen con el tiempo."
-        },
-        {
-          "question": "¿Podéis ayudar con el diseño y la preparación del archivo para imprenta?",
-          "answer": "Sí. Podemos adaptar el diseño, preparar la maquetación del lomo, portadas y elementos interiores, y dejar el archivo final correctamente ajustado para producción."
-        }
-      ],
+      "faqs": [],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -6261,59 +5924,6 @@
                   "item": "https://reprodisseny.com/productos/archivadores-personalizados"
                 }
               ]
-            },
-            {
-              "@type": "FAQPage",
-              "mainEntity": [
-                {
-                  "@type": "Question",
-                  "name": "¿Qué opción es mejor: archivador de palanca o archivador de anillas?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "El archivador de palanca suele ser la mejor opción cuando se busca un sistema de archivo más robusto y con mayor capacidad. El archivador de anillas resulta más práctico cuando es necesario actualizar documentos con frecuencia o reorganizar secciones con facilidad."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Se puede personalizar el lomo para identificar el archivador rápidamente?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Personalizar el lomo es una de las opciones más recomendables, ya que facilita mucho la organización, la identificación visual y la localización rápida en estanterías o archivos."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Podéis fabricar series de archivadores por departamentos, años o proyectos?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Podemos producir series completas manteniendo un diseño base común y aplicando variaciones en color, textos, códigos o identificación según departamento, ejercicio o tipología documental."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿También podéis preparar el contenido interior del archivador?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Podemos completar el proyecto con separadores, portadas interiores, hojas perforadas y otros elementos para crear un sistema de archivo totalmente funcional y coherente."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Qué material o acabado recomendáis para archivadores de uso intensivo?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Depende del volumen de uso y del entorno, pero normalmente recomendamos materiales resistentes y acabados duraderos que soporten bien la manipulación continua y mantengan una buena imagen con el tiempo."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Podéis ayudar con el diseño y la preparación del archivo para imprenta?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Podemos adaptar el diseño, preparar la maquetación del lomo, portadas y elementos interiores, y dejar el archivo final correctamente ajustado para producción."
-                  }
-                }
-              ]
             }
           ]
         },
@@ -6323,7 +5933,7 @@
     },
     {
       "id": "7",
-      "updatedAt": "2026-05-25T20:15:37Z",
+      "updatedAt": "2026-06-10T10:03:58Z",
       "type": "producto",
       "slug": "banderola-lona-fachada",
       "path": "/productos/banderola-lona-fachada",
@@ -6446,24 +6056,7 @@
           }
         }
       ],
-      "faqs": [
-        {
-          "question": "¿Qué acabado conviene: vaina u ojales?",
-          "answer": "Depende del soporte. Vaina si va montada en barra/brazo; ojales si se tensará con bridas/cables o necesita puntos de anclaje. Con una foto del punto de instalación lo definimos rápido."
-        },
-        {
-          "question": "¿Es mejor lona normal o microperforada?",
-          "answer": "Si hay viento o la banderola es grande, la microperforada puede ayudar a reducir resistencia. En ubicaciones más protegidas, la lona estándar suele ser suficiente."
-        },
-        {
-          "question": "¿A una o dos caras?",
-          "answer": "Para fachada, lo más habitual es una cara. Si se verá por ambos lados, valoramos opciones según estructura (para que la lectura sea correcta)."
-        },
-        {
-          "question": "¿Podéis adaptar el diseño para que se lea desde la calle?",
-          "answer": "Sí, ajustamos jerarquía, contraste y tamaño de texto para lectura a distancia."
-        }
-      ],
+      "faqs": [],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -6672,43 +6265,6 @@
                   "item": "https://reprodisseny.com/productos/banderola-lona-fachada"
                 }
               ]
-            },
-            {
-              "@type": "FAQPage",
-              "mainEntity": [
-                {
-                  "@type": "Question",
-                  "name": "¿Qué acabado conviene: vaina u ojales?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Depende del soporte. Vaina si va montada en barra/brazo; ojales si se tensará con bridas/cables o necesita puntos de anclaje. Con una foto del punto de instalación lo definimos rápido."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Es mejor lona normal o microperforada?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Si hay viento o la banderola es grande, la microperforada puede ayudar a reducir resistencia. En ubicaciones más protegidas, la lona estándar suele ser suficiente."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿A una o dos caras?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Para fachada, lo más habitual es una cara. Si se verá por ambos lados, valoramos opciones según estructura (para que la lectura sea correcta)."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Podéis adaptar el diseño para que se lea desde la calle?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí, ajustamos jerarquía, contraste y tamaño de texto para lectura a distancia."
-                  }
-                }
-              ]
             }
           ]
         },
@@ -6718,7 +6274,7 @@
     },
     {
       "id": "6",
-      "updatedAt": "2026-05-05T11:36:50Z",
+      "updatedAt": "2026-06-10T10:03:57Z",
       "type": "producto",
       "slug": "banderola-fachada-personalizada",
       "path": "/productos/banderola-fachada-personalizada",
@@ -6766,32 +6322,7 @@
           "body": "Comercios y franquicias: identificación exterior, campañas estacionales, rebajas. \nHostelería: restaurantes, cafeterías, hoteles y locales con actividad nocturna. \nServicios: clínicas, academias, gimnasios, centros de estética, oficinas a pie de calle. \nNaves y accesos: señalización de entrada y orientación en polígonos. \nEventos temporales: señalización exterior de acceso (según necesidades del proyecto)."
         }
       ],
-      "faqs": [
-        {
-          "question": "¿En qué se diferencia una banderola de lineal de un stopper?",
-          "answer": "El stopper suele sobresalir hacia el pasillo para captar la atención de forma más directa. La banderola de lineal funciona más como una señal vertical o una bandera visual dentro de la estantería, y es especialmente útil para identificar categorías o destacar una referencia concreta."
-        },
-        {
-          "question": "¿Conviene fabricar las banderolas de lineal a doble cara?",
-          "answer": "Sí, especialmente cuando el lineal o el pasillo es visible desde ambos sentidos. En este tipo de ubicaciones, la doble cara mejora claramente la visibilidad y el impacto del mensaje."
-        },
-        {
-          "question": "¿Se pueden preparar por campañas o promociones para cambiarlas con rapidez?",
-          "answer": "Sí. Podemos producir juegos de banderolas por temporada, promoción o campaña, y adaptar el sistema de fijación para que la sustitución sea rápida, práctica y operativa en tienda."
-        },
-        {
-          "question": "¿Podéis ayudar con el diseño para que el mensaje se entienda en pocos segundos?",
-          "answer": "Sí. Te ayudamos a plantear un diseño claro y efectivo, con titular corto, alto contraste, tipografía legible y un beneficio o llamada a la acción fácil de identificar de un vistazo."
-        },
-        {
-          "question": "¿Qué material recomendáis para banderolas de lineal en punto de venta?",
-          "answer": "La elección depende del tiempo de uso, del sistema de fijación y del entorno. Podemos recomendarte el soporte más adecuado para conseguir buena rigidez, visibilidad y durabilidad en tienda."
-        },
-        {
-          "question": "¿Podéis adaptar el formato y la medida a cada lineal o categoría de producto?",
-          "answer": "Sí. Podemos producir banderolas personalizadas en diferentes tamaños, formas y configuraciones para que encajen con cada lineal, campaña o necesidad de señalización."
-        }
-      ],
+      "faqs": [],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -6980,59 +6511,6 @@
                   "item": "https://reprodisseny.com/productos/banderola-fachada-personalizada"
                 }
               ]
-            },
-            {
-              "@type": "FAQPage",
-              "mainEntity": [
-                {
-                  "@type": "Question",
-                  "name": "¿En qué se diferencia una banderola de lineal de un stopper?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "El stopper suele sobresalir hacia el pasillo para captar la atención de forma más directa. La banderola de lineal funciona más como una señal vertical o una bandera visual dentro de la estantería, y es especialmente útil para identificar categorías o destacar una referencia concreta."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Conviene fabricar las banderolas de lineal a doble cara?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí, especialmente cuando el lineal o el pasillo es visible desde ambos sentidos. En este tipo de ubicaciones, la doble cara mejora claramente la visibilidad y el impacto del mensaje."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Se pueden preparar por campañas o promociones para cambiarlas con rapidez?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Podemos producir juegos de banderolas por temporada, promoción o campaña, y adaptar el sistema de fijación para que la sustitución sea rápida, práctica y operativa en tienda."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Podéis ayudar con el diseño para que el mensaje se entienda en pocos segundos?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Te ayudamos a plantear un diseño claro y efectivo, con titular corto, alto contraste, tipografía legible y un beneficio o llamada a la acción fácil de identificar de un vistazo."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Qué material recomendáis para banderolas de lineal en punto de venta?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "La elección depende del tiempo de uso, del sistema de fijación y del entorno. Podemos recomendarte el soporte más adecuado para conseguir buena rigidez, visibilidad y durabilidad en tienda."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Podéis adaptar el formato y la medida a cada lineal o categoría de producto?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Podemos producir banderolas personalizadas en diferentes tamaños, formas y configuraciones para que encajen con cada lineal, campaña o necesidad de señalización."
-                  }
-                }
-              ]
             }
           ]
         },
@@ -7042,7 +6520,7 @@
     },
     {
       "id": "8",
-      "updatedAt": "2026-05-05T15:24:05Z",
+      "updatedAt": "2026-06-10T10:03:57Z",
       "type": "producto",
       "slug": "banderolas-lineal-personalizadas",
       "path": "/productos/banderolas-lineal-personalizadas",
@@ -7152,24 +6630,7 @@
           "body": "Supermercados y retail: campañas estacionales, promociones, lanzamientos y señalización por categoría. \nFarmacia/parafarmacia: novedades, recomendados, campañas por laboratorio. \nTiendas especializadas: producto destacado, packs, descuentos por tiempo limitado. \nShowrooms y corners: refuerzo visual en exposición de producto. \nFerias o pop-ups: señalización rápida en estanterías o muebles temporales."
         }
       ],
-      "faqs": [
-        {
-          "question": "¿En qué se diferencia una banderola de lineal de un stopper?",
-          "answer": "El stopper suele sobresalir hacia el pasillo para captar la atención de forma más directa. La banderola de lineal funciona más como una señal vertical o una bandera visual dentro de la estantería, y es especialmente útil para identificar categorías o destacar una referencia concreta."
-        },
-        {
-          "question": "¿Conviene fabricar las banderolas de lineal a doble cara?",
-          "answer": "Sí, especialmente cuando el lineal o el pasillo es visible desde ambos sentidos. En este tipo de ubicaciones, la doble cara mejora claramente la visibilidad y el impacto del mensaje."
-        },
-        {
-          "question": "¿Se pueden preparar por campañas o promociones para cambiarlas con rapidez?",
-          "answer": "Sí. Podemos producir juegos de banderolas por temporada, promoción o campaña, y adaptar el sistema de fijación para que la sustitución sea rápida, práctica y operativa en tienda."
-        },
-        {
-          "question": "¿Podéis ayudar con el diseño para que el mensaje se entienda en pocos segundos?",
-          "answer": "Sí. Te ayudamos a plantear un diseño claro y efectivo, con titular corto, alto contraste, tipografía legible y un beneficio o llamada a la acción fácil de identificar de un vistazo."
-        }
-      ],
+      "faqs": [],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -7324,43 +6785,6 @@
                   "item": "https://reprodisseny.com/productos/banderolas-lineal-personalizadas"
                 }
               ]
-            },
-            {
-              "@type": "FAQPage",
-              "mainEntity": [
-                {
-                  "@type": "Question",
-                  "name": "¿En qué se diferencia una banderola de lineal de un stopper?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "El stopper suele sobresalir hacia el pasillo para captar la atención de forma más directa. La banderola de lineal funciona más como una señal vertical o una bandera visual dentro de la estantería, y es especialmente útil para identificar categorías o destacar una referencia concreta."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Conviene fabricar las banderolas de lineal a doble cara?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí, especialmente cuando el lineal o el pasillo es visible desde ambos sentidos. En este tipo de ubicaciones, la doble cara mejora claramente la visibilidad y el impacto del mensaje."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Se pueden preparar por campañas o promociones para cambiarlas con rapidez?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Podemos producir juegos de banderolas por temporada, promoción o campaña, y adaptar el sistema de fijación para que la sustitución sea rápida, práctica y operativa en tienda."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Podéis ayudar con el diseño para que el mensaje se entienda en pocos segundos?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Te ayudamos a plantear un diseño claro y efectivo, con titular corto, alto contraste, tipografía legible y un beneficio o llamada a la acción fácil de identificar de un vistazo."
-                  }
-                }
-              ]
             }
           ]
         },
@@ -7370,7 +6794,7 @@
     },
     {
       "id": "9",
-      "updatedAt": "2026-05-05T11:37:30Z",
+      "updatedAt": "2026-06-10T10:03:57Z",
       "type": "producto",
       "slug": "banderolas-personalizadas",
       "path": "/productos/banderolas-personalizadas",
@@ -7418,24 +6842,7 @@
           "body": "Eventos y festivales: accesos, perímetro, zonas de paso, recinto y parking. \nAyuntamientos y campañas: comunicación en vía pública, señalización temporal. \nRetail y centros comerciales: campañas estacionales, rebajas, entradas y pasillos. \nHoteles y hostelería: eventos, congresos, señalización de accesos y zonas. \nFachadas y calles comerciales: promoción de marca, aperturas e inauguraciones."
         }
       ],
-      "faqs": [
-        {
-          "question": "¿Qué opción es mejor para una banderola: lona o textil?",
-          "answer": "La lona suele ser la opción más resistente y versátil, especialmente para exterior. El textil ofrece un acabado más ligero y estético, por lo que la elección depende de la ubicación, la duración de la campaña y el efecto visual que busques."
-        },
-        {
-          "question": "¿Se pueden imprimir banderolas a doble cara?",
-          "answer": "Sí. Es una opción muy recomendable cuando la banderola va a verse desde ambos sentidos, ya que mejora la visibilidad y el aprovechamiento del soporte."
-        },
-        {
-          "question": "¿Qué información necesitáis para preparar un presupuesto?",
-          "answer": "Para presupuestarlo correctamente necesitamos la medida, la ubicación de instalación —por ejemplo, farola, fachada o estructura—, si irá a una o dos caras y, si lo conoces, el sistema de fijación. Si no dispones de esos datos, una fotografía del punto de instalación suele ser suficiente para orientarnos."
-        },
-        {
-          "question": "¿Podéis adaptar el arte final para que se lea bien desde lejos?",
-          "answer": "Sí. Podemos revisar el diseño y ajustar la jerarquía visual, el tamaño de los textos, el contraste y la composición para mejorar la lectura a distancia."
-        }
-      ],
+      "faqs": [],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -7601,43 +7008,6 @@
                   "item": "https://reprodisseny.com/productos/banderolas-personalizadas"
                 }
               ]
-            },
-            {
-              "@type": "FAQPage",
-              "mainEntity": [
-                {
-                  "@type": "Question",
-                  "name": "¿Qué opción es mejor para una banderola: lona o textil?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "La lona suele ser la opción más resistente y versátil, especialmente para exterior. El textil ofrece un acabado más ligero y estético, por lo que la elección depende de la ubicación, la duración de la campaña y el efecto visual que busques."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Se pueden imprimir banderolas a doble cara?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Es una opción muy recomendable cuando la banderola va a verse desde ambos sentidos, ya que mejora la visibilidad y el aprovechamiento del soporte."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Qué información necesitáis para preparar un presupuesto?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Para presupuestarlo correctamente necesitamos la medida, la ubicación de instalación —por ejemplo, farola, fachada o estructura—, si irá a una o dos caras y, si lo conoces, el sistema de fijación. Si no dispones de esos datos, una fotografía del punto de instalación suele ser suficiente para orientarnos."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Podéis adaptar el arte final para que se lea bien desde lejos?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Podemos revisar el diseño y ajustar la jerarquía visual, el tamaño de los textos, el contraste y la composición para mejorar la lectura a distancia."
-                  }
-                }
-              ]
             }
           ]
         },
@@ -7647,7 +7017,7 @@
     },
     {
       "id": "10",
-      "updatedAt": "2026-05-05T13:16:35Z",
+      "updatedAt": "2026-06-10T10:03:57Z",
       "type": "producto",
       "slug": "banner-golf-personalizado",
       "path": "/productos/banner-golf-personalizado",
@@ -7695,28 +7065,7 @@
           "body": "- **Eventos deportivos:** carreras, triatlones, ciclismo, torneos de golf, pádel, fútbol, running y competiciones al aire libre.\n- **Patrocinios y branding:** visibilidad de marcas en recorridos, zonas de meta, salida, podio, área de prensa o espacios de sponsors.\n- **Ferias y eventos exteriores:** accesos, zonas de registro, áreas informativas, señalización provisional y orientación de visitantes.\n- **Activaciones de marca:** street marketing, promociones en exterior, sampling, lanzamientos de producto y campañas temporales.\n- **Eventos corporativos outdoor:** family days, jornadas de empresa, convenciones al aire libre y acciones de comunicación interna.\n- **Señalización temporal:** entrada, salida, parking, recorridos, puntos de información o zonas restringidas."
         }
       ],
-      "faqs": [
-        {
-          "question": "¿El Banner Golf es adecuado para exterior?",
-          "answer": "Sí. Está pensado para eventos y campañas al aire libre, aunque la estabilidad depende del terreno, la ubicación y la exposición al viento. Si nos indicas dónde se colocará, te recomendaremos la opción de fijación más adecuada."
-        },
-        {
-          "question": "¿Es mejor imprimir el Banner Golf a una o dos caras?",
-          "answer": "Si se verá desde ambos sentidos, por ejemplo en recorridos deportivos, accesos o zonas de paso, la impresión a doble cara suele ser la opción más efectiva para aprovechar mejor la visibilidad."
-        },
-        {
-          "question": "¿Se puede reutilizar en varios eventos?",
-          "answer": "Sí. Es un sistema ligero y transportable, pensado para montajes temporales y uso en diferentes ubicaciones. Para alargar su vida útil conviene cuidar el transporte, el desmontaje y el almacenaje."
-        },
-        {
-          "question": "¿Qué información necesitáis para preparar el presupuesto?",
-          "answer": "Necesitamos la medida aproximada, cantidad, si irá a una o dos caras, tipo de evento, ubicación de instalación y si estará expuesto al viento. Con esos datos podemos recomendar formato, material y sistema de sujeción."
-        },
-        {
-          "question": "¿Podéis adaptar el diseño para que se lea bien a distancia?",
-          "answer": "Sí. Podemos revisar el diseño, jerarquía visual, contraste, tamaño de textos y composición para que los logos y mensajes se identifiquen rápidamente en exterior."
-        }
-      ],
+      "faqs": [],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -7895,51 +7244,6 @@
                   "item": "https://reprodisseny.com/productos/banner-golf-personalizado"
                 }
               ]
-            },
-            {
-              "@type": "FAQPage",
-              "mainEntity": [
-                {
-                  "@type": "Question",
-                  "name": "¿El Banner Golf es adecuado para exterior?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Está pensado para eventos y campañas al aire libre, aunque la estabilidad depende del terreno, la ubicación y la exposición al viento. Si nos indicas dónde se colocará, te recomendaremos la opción de fijación más adecuada."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Es mejor imprimir el Banner Golf a una o dos caras?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Si se verá desde ambos sentidos, por ejemplo en recorridos deportivos, accesos o zonas de paso, la impresión a doble cara suele ser la opción más efectiva para aprovechar mejor la visibilidad."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Se puede reutilizar en varios eventos?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Es un sistema ligero y transportable, pensado para montajes temporales y uso en diferentes ubicaciones. Para alargar su vida útil conviene cuidar el transporte, el desmontaje y el almacenaje."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Qué información necesitáis para preparar el presupuesto?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Necesitamos la medida aproximada, cantidad, si irá a una o dos caras, tipo de evento, ubicación de instalación y si estará expuesto al viento. Con esos datos podemos recomendar formato, material y sistema de sujeción."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Podéis adaptar el diseño para que se lea bien a distancia?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Podemos revisar el diseño, jerarquía visual, contraste, tamaño de textos y composición para que los logos y mensajes se identifiquen rápidamente en exterior."
-                  }
-                }
-              ]
             }
           ]
         },
@@ -7949,7 +7253,7 @@
     },
     {
       "id": "12",
-      "updatedAt": "2026-05-21T08:08:46Z",
+      "updatedAt": "2026-06-10T10:03:58Z",
       "type": "producto",
       "slug": "blocs-notas",
       "path": "/productos/blocs-notas",
@@ -8072,24 +7376,7 @@
           "body": "Aplicaciones habituales de los blocs de notas personalizados en oficina, formación, eventos, atención al cliente y acciones de marca.\n\n- **Oficina y reuniones:** notas internas, briefings, llamadas, seguimiento de tareas y documentación de trabajo.\n- **Formación y onboarding:** material práctico para cursos, sesiones internas, workshops, manuales y programas de bienvenida.\n- **Eventos y ferias:** complemento útil para welcome packs de asistentes, ponentes, expositores o clientes.\n- **Recepción y atención al cliente:** soporte para notas rápidas, avisos, seguimiento comercial y material corporativo visible.\n- **Promoción de marca:** merchandising útil para clientes, partners y campañas donde se busca permanencia real."
         }
       ],
-      "faqs": [
-        {
-          "question": "¿Qué tamaño recomendáis para empresa?",
-          "answer": "El formato A5 suele ser el más práctico: ofrece suficiente espacio para escribir y es fácil de transportar. El A4 es recomendable si se usa en mesa, formación o reuniones con más contenido."
-        },
-        {
-          "question": "¿Se puede personalizar el interior con una plantilla?",
-          "answer": "Sí. Es una de las opciones más útiles: agendas de reunión, listas de tareas, planificación semanal, checklists u otros contenidos adaptados a tu equipo."
-        },
-        {
-          "question": "¿Se pueden hacer blocs para diferentes sedes o departamentos?",
-          "answer": "Sí. Podemos mantener un diseño base y adaptar cabeceras, datos, sedes, departamentos u otros elementos variables."
-        },
-        {
-          "question": "¿Hojas arrancables o bloc para guardar?",
-          "answer": "Lo habitual es hacer blocs encolados para poder arrancar las hojas fácilmente. Si buscas conservarlo como cuaderno, te proponemos el formato más adecuado."
-        }
-      ],
+      "faqs": [],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -8258,43 +7545,6 @@
                   "item": "https://reprodisseny.com/productos/blocs-notas"
                 }
               ]
-            },
-            {
-              "@type": "FAQPage",
-              "mainEntity": [
-                {
-                  "@type": "Question",
-                  "name": "¿Qué tamaño recomendáis para empresa?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "El formato A5 suele ser el más práctico: ofrece suficiente espacio para escribir y es fácil de transportar. El A4 es recomendable si se usa en mesa, formación o reuniones con más contenido."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Se puede personalizar el interior con una plantilla?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Es una de las opciones más útiles: agendas de reunión, listas de tareas, planificación semanal, checklists u otros contenidos adaptados a tu equipo."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Se pueden hacer blocs para diferentes sedes o departamentos?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Podemos mantener un diseño base y adaptar cabeceras, datos, sedes, departamentos u otros elementos variables."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Hojas arrancables o bloc para guardar?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Lo habitual es hacer blocs encolados para poder arrancar las hojas fácilmente. Si buscas conservarlo como cuaderno, te proponemos el formato más adecuado."
-                  }
-                }
-              ]
             }
           ]
         },
@@ -8304,7 +7554,7 @@
     },
     {
       "id": "13",
-      "updatedAt": "2026-05-05T15:24:15Z",
+      "updatedAt": "2026-06-10T10:03:58Z",
       "type": "producto",
       "slug": "caballetes-publicitarios-personalizados",
       "path": "/productos/caballetes-publicitarios-personalizados",
@@ -8352,24 +7602,7 @@
           "body": "Hostelería: menú del día, promociones de terraza, eventos especiales, horarios. \nRetail: rebajas, lanzamientos, campañas estacionales, “últimas unidades”. \nCentros y servicios: academias, clínicas, gimnasios, peluquerías (información y ofertas). \nEventos: señalización de acceso, registro, salas, rutas y puntos de información. \nInmobiliaria y oficinas: jornadas de puertas abiertas, indicaciones, campañas puntuales."
         }
       ],
-      "faqs": [
-        {
-          "question": "¿Qué tamaño recomendáis?",
-          "answer": "Para entradas y calle, A1 suele dar muy buena visibilidad. Si el espacio es reducido, A2 funciona bien sin molestar el paso."
-        },
-        {
-          "question": "¿Sirven para exterior?",
-          "answer": "Sí, pero conviene escoger un modelo estable y valorar la exposición al viento. Si nos dices ubicación, te recomendamos la opción adecuada."
-        },
-        {
-          "question": "¿Se puede cambiar la gráfica fácilmente?",
-          "answer": "Depende del modelo. Los caballetes con marco portapóster/click permiten cambios muy rápidos. También podemos prepararte varias gráficas para rotación."
-        },
-        {
-          "question": "¿Podéis diseñar el cartel para que se lea rápido?",
-          "answer": "Sí: ajustamos jerarquía, tamaños y contraste para que el mensaje funcione a primera vista."
-        }
-      ],
+      "faqs": [],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -8523,43 +7756,6 @@
                   "position": 4,
                   "name": "Caballetes publicitarios personalizados",
                   "item": "https://reprodisseny.com/productos/caballetes-publicitarios-personalizados"
-                }
-              ]
-            },
-            {
-              "@type": "FAQPage",
-              "mainEntity": [
-                {
-                  "@type": "Question",
-                  "name": "¿Qué tamaño recomendáis?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Para entradas y calle, A1 suele dar muy buena visibilidad. Si el espacio es reducido, A2 funciona bien sin molestar el paso."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Sirven para exterior?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí, pero conviene escoger un modelo estable y valorar la exposición al viento. Si nos dices ubicación, te recomendamos la opción adecuada."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Se puede cambiar la gráfica fácilmente?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Depende del modelo. Los caballetes con marco portapóster/click permiten cambios muy rápidos. También podemos prepararte varias gráficas para rotación."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Podéis diseñar el cartel para que se lea rápido?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí: ajustamos jerarquía, tamaños y contraste para que el mensaje funcione a primera vista."
-                  }
                 }
               ]
             }
@@ -11505,7 +10701,7 @@
     },
     {
       "id": "14",
-      "updatedAt": "2026-05-21T13:26:58Z",
+      "updatedAt": "2026-06-10T10:03:58Z",
       "type": "producto",
       "slug": "cajas-de-luz-personalizadas",
       "path": "/productos/cajas-de-luz-personalizadas",
@@ -11616,24 +10812,7 @@
           }
         }
       ],
-      "faqs": [
-        {
-          "question": "¿Qué diferencia hay entre una caja de luz y un panel impreso normal?",
-          "answer": "La retroiluminación aumenta la visibilidad, mejora la lectura del mensaje y aporta un acabado más premium que un panel impreso convencional."
-        },
-        {
-          "question": "¿Se puede cambiar la gráfica?",
-          "answer": "Sí. Es una de sus principales ventajas. Puedes preparar distintas gráficas para campañas, promociones o temporadas y sustituirlas cuando lo necesites."
-        },
-        {
-          "question": "¿Es mejor una caja de luz a una cara o a doble cara?",
-          "answer": "Depende de la ubicación. Si va contra una pared, normalmente basta con una cara. Si estará en un pasillo, entrada, isla o zona con tránsito en ambos sentidos, la doble cara suele ser más efectiva."
-        },
-        {
-          "question": "¿Qué necesitáis para presupuestarla?",
-          "answer": "Necesitamos la medida aproximada, la ubicación, si irá en pared, suelo, colgante o sobremesa, si la quieres a una o dos caras y la fecha de uso o entrega. Si ya tienes diseño, lo revisamos para asegurar un buen resultado en backlit."
-        }
-      ],
+      "faqs": [],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -11875,43 +11054,6 @@
                   "item": "https://reprodisseny.com/productos/cajas-de-luz-personalizadas"
                 }
               ]
-            },
-            {
-              "@type": "FAQPage",
-              "mainEntity": [
-                {
-                  "@type": "Question",
-                  "name": "¿Qué diferencia hay entre una caja de luz y un panel impreso normal?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "La retroiluminación aumenta la visibilidad, mejora la lectura del mensaje y aporta un acabado más premium que un panel impreso convencional."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Se puede cambiar la gráfica?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Es una de sus principales ventajas. Puedes preparar distintas gráficas para campañas, promociones o temporadas y sustituirlas cuando lo necesites."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Es mejor una caja de luz a una cara o a doble cara?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Depende de la ubicación. Si va contra una pared, normalmente basta con una cara. Si estará en un pasillo, entrada, isla o zona con tránsito en ambos sentidos, la doble cara suele ser más efectiva."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Qué necesitáis para presupuestarla?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Necesitamos la medida aproximada, la ubicación, si irá en pared, suelo, colgante o sobremesa, si la quieres a una o dos caras y la fecha de uso o entrega. Si ya tienes diseño, lo revisamos para asegurar un buen resultado en backlit."
-                  }
-                }
-              ]
             }
           ]
         },
@@ -11921,7 +11063,7 @@
     },
     {
       "id": "15",
-      "updatedAt": "2026-05-05T11:38:52Z",
+      "updatedAt": "2026-06-10T10:03:58Z",
       "type": "producto",
       "slug": "calendarios-personalizados",
       "path": "/productos/calendarios-personalizados",
@@ -11969,24 +11111,7 @@
           "body": "Regalo corporativo (Navidad / cierre de año). \nOficinas y recepción: organización interna y recordatorio de marca. \nPunto de venta: mostrador y atención al cliente. \nFranquicias y sedes: versiones por centro con el mismo diseño base. \nEmpresas con campañas: calendarios con hitos, lanzamientos o acciones planificadas."
         }
       ],
-      "faqs": [
-        {
-          "question": "¿Cuál funciona mejor como regalo corporativo?",
-          "answer": "El calendario de pared funciona muy bien por visibilidad, mientras que el de sobremesa destaca por su uso diario en oficina. Para distribuciones amplias, el calendario de bolsillo es una opción muy efectiva."
-        },
-        {
-          "question": "¿Se puede personalizar por sedes o equipos?",
-          "answer": "Sí. Podemos partir de un diseño base común y crear variantes por sede, equipo, datos de contacto, imágenes u otros elementos específicos."
-        },
-        {
-          "question": "¿Mate o brillo?",
-          "answer": "El acabado mate ofrece un aspecto más corporativo y reduce reflejos. El brillo aporta más intensidad de color y un resultado visual más llamativo."
-        },
-        {
-          "question": "¿Podéis incluir festivos o fechas clave?",
-          "answer": "Sí. Si nos indicas la zona y el tipo de calendario, podemos integrar festivos, campañas, eventos internos o fechas clave en el diseño."
-        }
-      ],
+      "faqs": [],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -12165,43 +11290,6 @@
                   "item": "https://reprodisseny.com/productos/calendarios-personalizados"
                 }
               ]
-            },
-            {
-              "@type": "FAQPage",
-              "mainEntity": [
-                {
-                  "@type": "Question",
-                  "name": "¿Cuál funciona mejor como regalo corporativo?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "El calendario de pared funciona muy bien por visibilidad, mientras que el de sobremesa destaca por su uso diario en oficina. Para distribuciones amplias, el calendario de bolsillo es una opción muy efectiva."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Se puede personalizar por sedes o equipos?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Podemos partir de un diseño base común y crear variantes por sede, equipo, datos de contacto, imágenes u otros elementos específicos."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Mate o brillo?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "El acabado mate ofrece un aspecto más corporativo y reduce reflejos. El brillo aporta más intensidad de color y un resultado visual más llamativo."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Podéis incluir festivos o fechas clave?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Si nos indicas la zona y el tipo de calendario, podemos integrar festivos, campañas, eventos internos o fechas clave en el diseño."
-                  }
-                }
-              ]
             }
           ]
         },
@@ -12211,7 +11299,7 @@
     },
     {
       "id": "16",
-      "updatedAt": "2026-05-25T18:48:01Z",
+      "updatedAt": "2026-06-10T10:03:58Z",
       "type": "producto",
       "slug": "carpetas-de-presentacion-personalizadas",
       "path": "/productos/carpetas-de-presentacion-personalizadas",
@@ -12360,24 +11448,7 @@
           }
         }
       ],
-      "faqs": [
-        {
-          "question": "¿Con lomo o sin lomo?",
-          "answer": "Sin lomo para propuestas y documentación estándar. Con lomo si vas a incluir muchas hojas o un catálogo y quieres que cierre bien."
-        },
-        {
-          "question": "¿Es recomendable laminado?",
-          "answer": "Sí, especialmente si se va a manipular mucho en ferias, visitas o uso comercial. Aumenta durabilidad y mejora presencia."
-        },
-        {
-          "question": "¿Se puede incluir ranura para tarjeta?",
-          "answer": "Sí, es una de las opciones más habituales para carpetas comerciales."
-        },
-        {
-          "question": "¿Podéis hacer un pack completo de papelería corporativa?",
-          "answer": "Sí: carpeta + papel de carta + sobres + tarjetas de visita, todo con la misma línea gráfica."
-        }
-      ],
+      "faqs": [],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -12620,43 +11691,6 @@
                   "item": "https://reprodisseny.com/productos/carpetas-de-presentacion-personalizadas"
                 }
               ]
-            },
-            {
-              "@type": "FAQPage",
-              "mainEntity": [
-                {
-                  "@type": "Question",
-                  "name": "¿Con lomo o sin lomo?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sin lomo para propuestas y documentación estándar. Con lomo si vas a incluir muchas hojas o un catálogo y quieres que cierre bien."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Es recomendable laminado?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí, especialmente si se va a manipular mucho en ferias, visitas o uso comercial. Aumenta durabilidad y mejora presencia."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Se puede incluir ranura para tarjeta?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí, es una de las opciones más habituales para carpetas comerciales."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Podéis hacer un pack completo de papelería corporativa?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí: carpeta + papel de carta + sobres + tarjetas de visita, todo con la misma línea gráfica."
-                  }
-                }
-              ]
             }
           ]
         },
@@ -12666,7 +11700,7 @@
     },
     {
       "id": "17",
-      "updatedAt": "2026-05-15T10:14:17Z",
+      "updatedAt": "2026-06-10T10:03:58Z",
       "type": "producto",
       "slug": "cartas-restaurante-personalizadas",
       "path": "/productos/cartas-restaurante-personalizadas",
@@ -12864,24 +11898,7 @@
           }
         }
       ],
-      "faqs": [
-        {
-          "question": "¿Qué acabado es mejor para uso intensivo?",
-          "answer": "Normalmente recomendamos laminado o plastificado, especialmente en acabado mate para evitar reflejos. Si la carta se manipula mucho, también conviene valorar esquinas redondeadas."
-        },
-        {
-          "question": "¿Carta fija o con hojas intercambiables?",
-          "answer": "Si cambias precios o platos a menudo, conviene un sistema con portacarta o insertos. Si la carta es estable, una carta impresa definitiva queda más limpia, sólida y profesional."
-        },
-        {
-          "question": "¿Podéis hacerla en varios idiomas?",
-          "answer": "Sí, podemos preparar versiones por idioma manteniendo la misma estética y estructura visual."
-        },
-        {
-          "question": "¿Se puede combinar carta impresa y QR?",
-          "answer": "Sí. Es muy habitual combinar carta física para la experiencia en mesa y QR para ampliar información, mostrar otros idiomas, alérgenos, reservas o reseñas."
-        }
-      ],
+      "faqs": [],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -13053,43 +12070,6 @@
                   "position": 4,
                   "name": "Cartas de restaurante personalizadas",
                   "item": "https://reprodisseny.com/productos/cartas-restaurante-personalizadas"
-                }
-              ]
-            },
-            {
-              "@type": "FAQPage",
-              "mainEntity": [
-                {
-                  "@type": "Question",
-                  "name": "¿Qué acabado es mejor para uso intensivo?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Normalmente recomendamos laminado o plastificado, especialmente en acabado mate para evitar reflejos. Si la carta se manipula mucho, también conviene valorar esquinas redondeadas."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Carta fija o con hojas intercambiables?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Si cambias precios o platos a menudo, conviene un sistema con portacarta o insertos. Si la carta es estable, una carta impresa definitiva queda más limpia, sólida y profesional."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Podéis hacerla en varios idiomas?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí, podemos preparar versiones por idioma manteniendo la misma estética y estructura visual."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Se puede combinar carta impresa y QR?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Es muy habitual combinar carta física para la experiencia en mesa y QR para ampliar información, mostrar otros idiomas, alérgenos, reservas o reseñas."
-                  }
                 }
               ]
             }
@@ -13441,7 +12421,7 @@
     },
     {
       "id": "20",
-      "updatedAt": "2026-05-25T18:33:38Z",
+      "updatedAt": "2026-06-10T10:03:58Z",
       "type": "producto",
       "slug": "carteles-personalizados-gran-formato",
       "path": "/productos/carteles-personalizados-gran-formato",
@@ -13574,24 +12554,7 @@
           }
         }
       ],
-      "faqs": [
-        {
-          "question": "¿Qué tamaño necesito?",
-          "answer": "Depende de la distancia de lectura. Para escaparate o pared cercana, los formatos A3 o A2 suelen funcionar bien. Para captar atención a más distancia, los formatos A1 o A0 son más efectivos."
-        },
-        {
-          "question": "¿Mate o brillo?",
-          "answer": "En interiores con iluminación, el acabado mate suele reducir reflejos y mejorar la lectura. El brillo puede aportar más viveza al color, pero también refleja más."
-        },
-        {
-          "question": "¿Podéis imprimir series de carteles para varias tiendas o campañas?",
-          "answer": "Sí. Podemos producir por lotes y versiones, por ejemplo por idioma, precio, ubicación o campaña, manteniendo la coherencia de marca."
-        },
-        {
-          "question": "¿Podéis revisar el archivo antes de imprimir?",
-          "answer": "Sí. Revisamos medidas, sangrado y resolución para evitar problemas antes de imprimir."
-        }
-      ],
+      "faqs": [],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -13776,43 +12739,6 @@
                   "item": "https://reprodisseny.com/productos/carteles-personalizados-gran-formato"
                 }
               ]
-            },
-            {
-              "@type": "FAQPage",
-              "mainEntity": [
-                {
-                  "@type": "Question",
-                  "name": "¿Qué tamaño necesito?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Depende de la distancia de lectura. Para escaparate o pared cercana, los formatos A3 o A2 suelen funcionar bien. Para captar atención a más distancia, los formatos A1 o A0 son más efectivos."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Mate o brillo?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "En interiores con iluminación, el acabado mate suele reducir reflejos y mejorar la lectura. El brillo puede aportar más viveza al color, pero también refleja más."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Podéis imprimir series de carteles para varias tiendas o campañas?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Podemos producir por lotes y versiones, por ejemplo por idioma, precio, ubicación o campaña, manteniendo la coherencia de marca."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Podéis revisar el archivo antes de imprimir?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Revisamos medidas, sangrado y resolución para evitar problemas antes de imprimir."
-                  }
-                }
-              ]
             }
           ]
         },
@@ -13822,7 +12748,7 @@
     },
     {
       "id": "23",
-      "updatedAt": "2026-05-05T15:31:57Z",
+      "updatedAt": "2026-06-10T10:03:59Z",
       "type": "producto",
       "slug": "certificados-personalizados",
       "path": "/productos/certificados-personalizados",
@@ -13870,24 +12796,7 @@
           "body": "Formación y academias: diplomas y certificados de asistencia/aprovechamiento. \nEmpresas (RRHH): certificaciones internas, onboarding, compliance, PRL. \nEventos: participación, ponencias, jurados, voluntariado, acreditaciones. \nInstituciones y entidades: reconocimientos, premios, jornadas y programas. \nCalidad y procesos: auditorías internas, validación de procedimientos, acreditaciones."
         }
       ],
-      "faqs": [
-        {
-          "question": "¿Se pueden personalizar con nombres distintos?",
-          "answer": "Sí. Podemos trabajar con datos variables a partir de un listado, ideal para cursos, eventos, formaciones y entregas masivas."
-        },
-        {
-          "question": "¿Podéis añadir numeración o QR para validación?",
-          "answer": "Sí. Es una opción muy recomendable si necesitas control, trazabilidad o verificación del certificado."
-        },
-        {
-          "question": "¿Qué papel recomendáis para un certificado premium?",
-          "answer": "Recomendamos un papel de buen gramaje. Si quieres un acabado más premium, podemos valorar papeles con textura, relieve en seco o stamping."
-        },
-        {
-          "question": "¿Podéis preparar un diseño corporativo que encaje con nuestra marca?",
-          "answer": "Sí. Adaptamos tipografía, colores y composición para mantener la coherencia con tu identidad de marca."
-        }
-      ],
+      "faqs": [],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -14042,43 +12951,6 @@
                   "position": 5,
                   "name": "Certificados personalizados",
                   "item": "https://reprodisseny.com/productos/certificados-personalizados"
-                }
-              ]
-            },
-            {
-              "@type": "FAQPage",
-              "mainEntity": [
-                {
-                  "@type": "Question",
-                  "name": "¿Se pueden personalizar con nombres distintos?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Podemos trabajar con datos variables a partir de un listado, ideal para cursos, eventos, formaciones y entregas masivas."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Podéis añadir numeración o QR para validación?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Es una opción muy recomendable si necesitas control, trazabilidad o verificación del certificado."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Qué papel recomendáis para un certificado premium?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Recomendamos un papel de buen gramaje. Si quieres un acabado más premium, podemos valorar papeles con textura, relieve en seco o stamping."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Podéis preparar un diseño corporativo que encaje con nuestra marca?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Adaptamos tipografía, colores y composición para mantener la coherencia con tu identidad de marca."
-                  }
                 }
               ]
             }
@@ -29646,7 +28518,7 @@
     },
     {
       "id": "21",
-      "updatedAt": "2026-05-05T15:23:30Z",
+      "updatedAt": "2026-06-10T10:03:59Z",
       "type": "producto",
       "slug": "panel-carton-compacto-personalizado",
       "path": "/productos/panel-carton-compacto-personalizado",
@@ -29694,20 +28566,7 @@
           "body": "PLV y punto de venta: displays, stoppers, señalización interior y corners. \nExpositores de mesa: piezas rígidas para mostrador (promos, precios, QR). \nSeñalética interior: información, direcciones, normativa, pictogramas. \nEventos: cartelería rígida, paneles informativos, soportes temporales. \nPiezas creativas: siluetas troqueladas, letras, formas de producto y elementos decorativos."
         }
       ],
-      "faqs": [
-        {
-          "question": "¿Cartón compacto o panel de foam?",
-          "answer": "El panel de foam es más ligero. El cartón compacto suele ofrecer más sensación de solidez y funciona mejor como base de display o pieza estructural para interior."
-        },
-        {
-          "question": "¿Se puede hacer con forma personalizada?",
-          "answer": "Sí. Es uno de sus puntos fuertes: admite troquelado o corte a medida para crear piezas creativas, promocionales o funcionales."
-        },
-        {
-          "question": "¿Es adecuado para exterior?",
-          "answer": "Está pensado principalmente para interior. Si necesitas usarlo en exterior o en zonas con humedad, te recomendaremos un soporte más adecuado."
-        }
-      ],
+      "faqs": [],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -29882,35 +28741,6 @@
                   "item": "https://reprodisseny.com/productos/panel-carton-compacto-personalizado"
                 }
               ]
-            },
-            {
-              "@type": "FAQPage",
-              "mainEntity": [
-                {
-                  "@type": "Question",
-                  "name": "¿Cartón compacto o panel de foam?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "El panel de foam es más ligero. El cartón compacto suele ofrecer más sensación de solidez y funciona mejor como base de display o pieza estructural para interior."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Se puede hacer con forma personalizada?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Es uno de sus puntos fuertes: admite troquelado o corte a medida para crear piezas creativas, promocionales o funcionales."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Es adecuado para exterior?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Está pensado principalmente para interior. Si necesitas usarlo en exterior o en zonas con humedad, te recomendaremos un soporte más adecuado."
-                  }
-                }
-              ]
             }
           ]
         },
@@ -29920,7 +28750,7 @@
     },
     {
       "id": "22",
-      "updatedAt": "2026-05-05T11:39:36Z",
+      "updatedAt": "2026-06-10T10:03:59Z",
       "type": "producto",
       "slug": "panel-carton-corrugado-personalizado",
       "path": "/productos/panel-carton-corrugado-personalizado",
@@ -29968,20 +28798,7 @@
           "body": "PLV y punto de venta: paneles promocionales, stoppers grandes, cartelería de campaña, corners. \nSeñalética interior: direcciones, normativa, zonas, información temporal. \nFerias y eventos: carteles informativos, señalización de espacios, soportes ligeros para montaje rápido. \nCampañas estacionales: rebajas, lanzamientos, promociones y comunicación por departamentos/tiendas. \nPiezas creativas: siluetas, flechas, formas de producto y elementos decorativos temporales."
         }
       ],
-      "faqs": [
-        {
-          "question": "¿Es reciclable?",
-          "answer": "Sí. Es un soporte de base papel. Para mantenerlo totalmente reciclable, lo ideal es elegir acabados compatibles y evitar laminados plásticos cuando no sean necesarios."
-        },
-        {
-          "question": "¿Es lo mismo que el cartón nido de abeja?",
-          "answer": "No. El cartón corrugado u ondulado es muy eficiente para campañas y PLV con coste contenido. El cartón nido de abeja suele destacar en formatos muy grandes por su rigidez y bajo peso."
-        },
-        {
-          "question": "¿Se puede hacer con forma personalizada?",
-          "answer": "Sí. Admite troquelado o corte a medida para crear siluetas, flechas, formas de producto o piezas promocionales creativas."
-        }
-      ],
+      "faqs": [],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -30155,35 +28972,6 @@
                   "position": 5,
                   "name": "Panel de cartón corrugado",
                   "item": "https://reprodisseny.com/productos/panel-carton-corrugado-personalizado"
-                }
-              ]
-            },
-            {
-              "@type": "FAQPage",
-              "mainEntity": [
-                {
-                  "@type": "Question",
-                  "name": "¿Es reciclable?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Es un soporte de base papel. Para mantenerlo totalmente reciclable, lo ideal es elegir acabados compatibles y evitar laminados plásticos cuando no sean necesarios."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Es lo mismo que el cartón nido de abeja?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "No. El cartón corrugado u ondulado es muy eficiente para campañas y PLV con coste contenido. El cartón nido de abeja suele destacar en formatos muy grandes por su rigidez y bajo peso."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Se puede hacer con forma personalizada?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí. Admite troquelado o corte a medida para crear siluetas, flechas, formas de producto o piezas promocionales creativas."
-                  }
                 }
               ]
             }
@@ -42313,7 +41101,7 @@
     },
     {
       "id": "11",
-      "updatedAt": "2026-05-05T11:37:47Z",
+      "updatedAt": "2026-06-10T10:03:57Z",
       "type": "producto",
       "slug": "xbanner-personalizado",
       "path": "/productos/xbanner-personalizado",
@@ -42361,24 +41149,7 @@
           "body": "Usos habituales del X-Banner personalizado en ferias, eventos, punto de venta, hostelería y comunicación temporal.\n\n- **Ferias y congresos:** dentro del stand, zonas de paso, accesos, puntos de registro o espacios de información.\n- **Punto de venta:** ofertas, campañas, lanzamientos, promociones temporales y comunicación comercial en tienda.\n- **Eventos corporativos:** señalización de salas, formaciones, presentaciones, recepciones y jornadas internas.\n- **Hostelería:** menús, eventos especiales, horarios, promociones en sala o comunicación en terraza.\n- **Centros y entidades:** puntos de información, campañas institucionales, orientación al público y señalización temporal."
         }
       ],
-      "faqs": [
-        {
-          "question": "¿Qué diferencia hay entre un X-Banner y un Roll Up?",
-          "answer": "El X-Banner es más ligero y económico y se basa en tensión por varillas; el Roll Up se enrolla en cassette y suele ser más premium en presencia y durabilidad para uso intensivo."
-        },
-        {
-          "question": "¿Se puede cambiar la gráfica?",
-          "answer": "Sí, al ir sujeta por esquinas, es fácil sustituir la lona/gráfica si mantienes el mismo formato y sistema de fijación."
-        },
-        {
-          "question": "¿Es adecuado para exterior?",
-          "answer": "Depende del lugar (viento) y del tiempo de exposición. Para exterior o uso exigente suele convenir valorar otras soluciones más estables."
-        },
-        {
-          "question": "¿Podéis revisar el archivo antes de imprimir?",
-          "answer": "Sí, revisamos medidas, márgenes y resolución para evitar problemas en impresión y montaje."
-        }
-      ],
+      "faqs": [],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -42531,43 +41302,6 @@
                   "position": 4,
                   "name": "X-Banner personalizado (expositor tipo X)",
                   "item": "https://reprodisseny.com/productos/xbanner-personalizado"
-                }
-              ]
-            },
-            {
-              "@type": "FAQPage",
-              "mainEntity": [
-                {
-                  "@type": "Question",
-                  "name": "¿Qué diferencia hay entre un X-Banner y un Roll Up?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "El X-Banner es más ligero y económico y se basa en tensión por varillas; el Roll Up se enrolla en cassette y suele ser más premium en presencia y durabilidad para uso intensivo."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Se puede cambiar la gráfica?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí, al ir sujeta por esquinas, es fácil sustituir la lona/gráfica si mantienes el mismo formato y sistema de fijación."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Es adecuado para exterior?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Depende del lugar (viento) y del tiempo de exposición. Para exterior o uso exigente suele convenir valorar otras soluciones más estables."
-                  }
-                },
-                {
-                  "@type": "Question",
-                  "name": "¿Podéis revisar el archivo antes de imprimir?",
-                  "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí, revisamos medidas, márgenes y resolución para evitar problemas en impresión y montaje."
-                  }
                 }
               ]
             }

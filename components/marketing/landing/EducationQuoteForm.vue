@@ -2,15 +2,12 @@
 import { computed, reactive, ref } from "vue";
 import { useRoute } from "#imports";
 import { Loader2 } from "lucide-vue-next";
-import RequestSuccessState from "@/components/marketing/quote/RequestSuccessState.vue";
+
 import { usePriceRequests } from "@/composables/usePriceRequests";
+import { useTracking } from "@/composables/useTracking";
+import type { TrackingContext, TrackingEventName } from "~/types/tracking";
 
-type Locale = "es" | "ca";
-
-type MaterialOption = {
-  value: string;
-  label: string;
-};
+type EducationLocale = "ca" | "es";
 
 type QuoteForm = {
   website: string;
@@ -18,101 +15,42 @@ type QuoteForm = {
   center: string;
   email: string;
   phone: string;
-  material: string;
+  materialType: string;
+  deadline: string;
+  message: string;
   privacy: boolean;
 };
 
+type PriceRequestResult = {
+  ok?: boolean;
+  duplicated?: boolean;
+  itemId?: string | number | null;
+  requestKey?: string | null;
+  reference?: string | null;
+  requestId?: string | null;
+  id?: string | number | null;
+} | null;
+
 const props = withDefaults(
   defineProps<{
-    locale?: Locale;
+    locale?: EducationLocale;
     productName?: string;
     productSlug?: string;
     categorySlug?: string;
+    trackingContext?: TrackingContext;
   }>(),
   {
     locale: "ca",
     productName: "Material gràfic i senyalística per a centres educatius",
     productSlug: "centres-educatius",
     categorySlug: "publicaciones",
-  }
+    trackingContext: undefined,
+  },
 );
-
-const copy = computed(() => {
-  if (props.locale === "ca") {
-    return {
-      successTitle: "Sol·licitud enviada correctament",
-      name: "Nom",
-      center: "Centre",
-      email: "Correu electrònic",
-      phone: "Telèfon",
-      material: "Quins materials necessiteu per al nou curs?",
-      materialPlaceholder: "Selecciona una opció",
-      privacyStart: "He llegit i accepto la",
-      privacyLink: "política de privacitat",
-      submit: "Parla amb un expert",
-      submitting: "Enviant...",
-      fallback: "Sol·licitud de pressupost per a centres educatius.",
-      materialOptions: [
-        { value: "apunts", label: "Apunts" },
-        { value: "quaderns", label: "Quaderns" },
-        { value: "dossiers-de-treball", label: "Dossiers de treball" },
-        { value: "fitxes", label: "Fitxes" },
-        { value: "avaluacions", label: "Avaluacions" },
-        { value: "agendes", label: "Agendes" },
-        { value: "senyalistica", label: "Senyalística" },
-        { value: "altres", label: "Altres" },
-      ] satisfies MaterialOption[],
-      errors: {
-        name: "Indica el teu nom.",
-        center: "Indica el nom del centre.",
-        email: "Introdueix un correu electrònic vàlid.",
-        phone: "Introdueix un telèfon vàlid.",
-        material: "Selecciona quin material necessiteu.",
-        privacy: "Has d’acceptar la política de privacitat.",
-        generic:
-          "No hem pogut enviar la sol·licitud. Torna-ho a intentar o truca’ns al +34 932 749 890.",
-      },
-    };
-  }
-
-  return {
-    successTitle: "Solicitud enviada correctamente",
-    name: "Nombre",
-    center: "Centro",
-    email: "Correo electrónico",
-    phone: "Teléfono",
-    material: "¿Qué materiales necesitáis para el nuevo curso?",
-    materialPlaceholder: "Selecciona una opción",
-    privacyStart: "He leído y acepto la",
-    privacyLink: "política de privacidad",
-    submit: "Habla con un experto",
-    submitting: "Enviando...",
-    fallback: "Solicitud de presupuesto para centros educativos.",
-    materialOptions: [
-      { value: "apuntes", label: "Apuntes" },
-      { value: "cuadernos", label: "Cuadernos" },
-      { value: "dossieres-de-trabajo", label: "Dossieres de trabajo" },
-      { value: "fichas", label: "Fichas" },
-      { value: "evaluaciones", label: "Evaluaciones" },
-      { value: "agendas", label: "Agendas" },
-      { value: "senaletica", label: "Señalética" },
-      { value: "otros", label: "Otros" },
-    ] satisfies MaterialOption[],
-    errors: {
-      name: "Indica tu nombre.",
-      center: "Indica el nombre del centro.",
-      email: "Introduce un correo electrónico válido.",
-      phone: "Introduce un teléfono válido.",
-      material: "Selecciona qué material necesitáis.",
-      privacy: "Debes aceptar la política de privacidad.",
-      generic:
-        "No hemos podido enviar la solicitud. Inténtalo de nuevo o llámanos al +34 932 749 890.",
-    },
-  };
-});
 
 const route = useRoute();
 const { sendPriceRequest, isLoading, error } = usePriceRequests();
+const tracking = useTracking();
 
 const success = ref(false);
 const validationError = ref("");
@@ -124,24 +62,99 @@ const form = reactive<QuoteForm>({
   center: "",
   email: "",
   phone: "",
-  material: "",
+  materialType: "",
+  deadline: "",
+  message: "",
   privacy: false,
 });
 
-const selectedMaterialLabel = computed(() => {
-  return copy.value.materialOptions.find((item) => item.value === form.material)?.label || "";
+const copy = computed(() => {
+  if (props.locale === "es") {
+    return {
+      successTitle: "Solicitud enviada correctamente",
+      genericError:
+        "No hemos podido enviar la solicitud. Inténtalo de nuevo o llámanos al +34 932 749 890.",
+      name: "Nombre *",
+      center: "Centro educativo *",
+      email: "Email *",
+      phone: "Teléfono *",
+      materialType: "Tipo de material",
+      materialPlaceholder: "Selecciona una opción",
+      deadline: "Fecha aproximada de entrega",
+      deadlinePlaceholder: "Ej. antes del 5 de septiembre",
+      message: "Mensaje",
+      messagePlaceholder: "Cuéntanos qué necesitáis: dossiers, vinilos, carteles, señalética, cantidades aproximadas...",
+      requiredNote: "Los campos marcados con",
+      requiredNoteEnd: "son obligatorios.",
+      privacyPrefix: "He leído y acepto la",
+      privacyLink: "política de privacidad",
+      submit: "Solicitar presupuesto",
+      sending: "Enviando...",
+      errors: {
+        name: "Indica tu nombre.",
+        center: "Indica el nombre del centro educativo.",
+        email: "Introduce un email válido.",
+        phone: "Introduce un teléfono válido.",
+        privacy: "Debes aceptar la política de privacidad.",
+      },
+    };
+  }
+
+  return {
+  successTitle: "Sol·licitud enviada correctament",
+  successMessage:
+    "Hem rebut la teva sol·licitud. Ens posarem en contacte amb tu en menys de 24 hores laborables.",
+  referenceLabel: "Referència",
+  sendAnother: "Enviar una altra sol·licitud",
+  notProvided: "no indicat",
+  genericError:
+    "No hem pogut enviar la sol·licitud. Torna-ho a intentar o truca’ns al +34 932 749 890.",
+  name: "Nom i cognoms *",
+  center: "Centre educatiu *",
+  email: "Email *",
+  phone: "Telèfon *",
+  materialType: "Tipus de material",
+  materialPlaceholder: "Selecciona una opció",
+  deadline: "Data aproximada d’entrega",
+  deadlinePlaceholder: "Ex. abans del 5 de setembre",
+  message: "Missatge",
+  messagePlaceholder:
+    "Explica’ns què necessiteu: dossiers, vinils, cartells, senyalística, quantitats aproximades...",
+  requiredNote: "Els camps marcats amb",
+  requiredNoteEnd: "són obligatoris.",
+  privacyPrefix: "He llegit i accepto la",
+  privacyLink: "política de privacitat",
+  submit: "Sol·licitar pressupost",
+  sending: "Enviant...",
+  errors: {
+    name: "Indica el teu nom.",
+    center: "Indica el nom del centre educatiu.",
+    email: "Introdueix un email vàlid.",
+    phone: "Introdueix un telèfon vàlid.",
+    privacy: "Has d’acceptar la política de privacitat.",
+  },
+};
 });
 
 const sourceUrl = computed(() => {
   const value = import.meta.client ? window.location.href : route.fullPath || "/";
+
   return String(value).slice(0, 300);
 });
 
-const utm = computed(() => {
+const routeUtm = computed(() => {
   const out: Record<string, string> = {};
 
   for (const [key, value] of Object.entries(route.query || {})) {
-    if (!key.toLowerCase().startsWith("utm_")) continue;
+    const normalizedKey = key.toLowerCase();
+
+    if (
+      !normalizedKey.startsWith("utm_") &&
+      !["gclid", "gbraid", "wbraid", "fbclid", "msclkid"].includes(normalizedKey)
+    ) {
+      continue;
+    }
+
     out[key] = Array.isArray(value) ? String(value[0] ?? "") : String(value ?? "");
   }
 
@@ -151,56 +164,98 @@ const utm = computed(() => {
 const errorMessage = computed(() => {
   if (validationError.value) return validationError.value;
   if (!error.value) return "";
-  return typeof error.value === "string" ? error.value : copy.value.errors.generic;
+
+  return typeof error.value === "string" ? error.value : copy.value.genericError;
 });
 
-function clearInputs() {
+function getTrackingContext(): TrackingContext {
+  return {
+    pageType: "landing",
+    pageLanguage: props.locale,
+    contentGroup: "educacion",
+    serviceName: "Centres educatius",
+    campaignName: "centres-educatius-2026",
+    campaignId: null,
+    productSlug: props.productSlug,
+    categorySlug: props.categorySlug,
+    formId: props.locale === "ca" ? "education_quote_form_ca" : "education_quote_form_es",
+    formName: "education_quote_form",
+    ...props.trackingContext,
+  };
+}
+
+function resetForm() {
   form.website = "";
   form.name = "";
   form.center = "";
   form.email = "";
   form.phone = "";
-  form.material = "";
+  form.materialType = "";
+  form.deadline = "";
+  form.message = "";
   form.privacy = false;
   validationError.value = "";
+  submittedReference.value = null;
 }
 
 function handleResetSuccessState() {
   success.value = false;
-  submittedReference.value = null;
-  clearInputs();
+  resetForm();
 }
 
 function isValidEmail(value: string) {
-  return /^\S+@\S+\.\S+$/.test(value.trim());
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
+}
+
+function isValidPhone(value: string) {
+  const digits = value.replace(/\D/g, "");
+
+  return digits.length >= 9;
+}
+
+function resolveRequestReference(result: PriceRequestResult) {
+  return (
+    result?.reference ||
+    result?.requestId ||
+    result?.requestKey ||
+    result?.id ||
+    result?.itemId ||
+    null
+  );
 }
 
 function pushLeadEvent(transactionId?: string | number | null) {
-  if (!import.meta.client) return;
+  const requestKey = transactionId ? String(transactionId) : null;
+  const context = getTrackingContext();
 
-  const win = window as Window & { dataLayer?: Record<string, unknown>[] };
-  win.dataLayer = win.dataLayer || [];
+  tracking.pushEvent(
+    "generate_lead" as TrackingEventName,
+    {
+      lead_type: "quote_request",
+      request_key: requestKey,
+      lead_id: requestKey,
+      transaction_id: requestKey,
+      product_name: props.productName,
+      page_path: import.meta.client ? window.location.pathname : route.path,
+    },
+    context,
+  );
+}
 
-  win.dataLayer.push({
-    event: "generate_lead",
-    form_name:
-      props.locale === "ca"
-        ? "landing_ensenyament"
-        : "landing_centros_educativos",
-    lead_type: "quote_request",
-    page_path: window.location.pathname,
-    category_slug: props.categorySlug,
-    product_slug: props.productSlug,
-    product_name: props.productName,
-    transaction_id: transactionId ? String(transactionId) : undefined,
-  });
+function getLeadTrackingPayload() {
+  const context = getTrackingContext();
+
+  return {
+    ...tracking.getTrackingPayloadForLead(context),
+    routeUtm: routeUtm.value,
+    sourceUrl: sourceUrl.value,
+  };
 }
 
 async function onSubmit() {
   validationError.value = "";
   error.value = null;
 
-  // Honeypot: si un bot rellena este campo, no enviamos nada.
   if (form.website.trim()) {
     success.value = true;
     return;
@@ -221,13 +276,8 @@ async function onSubmit() {
     return;
   }
 
-  if (!form.phone.trim() || form.phone.trim().replace(/\D/g, "").length < 9) {
+  if (!isValidPhone(form.phone)) {
     validationError.value = copy.value.errors.phone;
-    return;
-  }
-
-  if (!form.material.trim()) {
-    validationError.value = copy.value.errors.material;
     return;
   }
 
@@ -236,21 +286,24 @@ async function onSubmit() {
     return;
   }
 
-  const materialLabel = selectedMaterialLabel.value;
-  const message = [
-    copy.value.fallback,
-    `Centre: ${form.center.trim()}.`,
-    `Material seleccionat: ${materialLabel}.`,
-  ].join("\n");
+  const fallbackMessage = [
+    props.locale === "ca"
+      ? "Sol·licitud de pressupost per a centre educatiu."
+      : "Solicitud de presupuesto para centro educativo.",
+    `${props.locale === "ca" ? "Centre" : "Centro"}: ${form.center.trim()}.`,
+    `${props.locale === "ca" ? "Tipus de material" : "Tipo de material"}: ${form.materialType || "sin indicar"}.`,
+    `${props.locale === "ca" ? "Data aproximada" : "Fecha aproximada"}: ${form.deadline || "sin indicar"}.`,
+  ].join(" ");
 
-  const response = await sendPriceRequest(
-    {
+  const trackingPayload = getLeadTrackingPayload();
+
+  const priceRequestPayload = {
       website: null,
       name: form.name.trim(),
       email: form.email.trim(),
       phone: form.phone.trim(),
       company: form.center.trim(),
-      message,
+      message: form.message.trim() || fallbackMessage,
       categorySlug: props.categorySlug,
       product: {
         name: props.productName,
@@ -259,39 +312,29 @@ async function onSubmit() {
         url: sourceUrl.value,
       },
       extras: {
-        landing: props.locale === "ca" ? "ensenyament" : "centros-educativos",
+        landing: "centres-educatius",
         locale: props.locale,
         center: form.center.trim(),
-        selectedMaterial: materialLabel,
+        materialType: form.materialType || null,
+        deadline: form.deadline || null,
       },
       consent: true,
       sourceUrl: sourceUrl.value,
-      utm: utm.value,
+      utm: routeUtm.value,
+      tracking: trackingPayload,
       initialStatus: "Nova",
-    },
-    { file: null, fileKind: "design" }
+  };
+
+  const response = await sendPriceRequest(
+    priceRequestPayload as unknown as Parameters<typeof sendPriceRequest>[0],
+    { file: null, fileKind: "design" },
   );
 
-  const result = response as {
-    ok?: boolean;
-    duplicated?: boolean;
-    itemId?: string | number | null;
-    requestKey?: string | null;
-    reference?: string | null;
-    requestId?: string | null;
-    id?: string | number | null;
-  } | null;
+  const result = response as PriceRequestResult;
 
   if (error.value) return;
 
-  const transactionId =
-    result?.reference ||
-    result?.requestId ||
-    result?.id ||
-    result?.itemId ||
-    result?.requestKey ||
-    null;
-
+  const transactionId = resolveRequestReference(result);
   submittedReference.value = transactionId ? String(transactionId) : null;
 
   if (!result?.duplicated) {
@@ -299,30 +342,46 @@ async function onSubmit() {
   }
 
   success.value = true;
-  clearInputs();
+  resetForm();
 }
 </script>
 
 <template>
-  <div class="education-quote-form">
-    <RequestSuccessState
-      v-if="success"
-      :product-name="props.productName"
-      :title="copy.successTitle"
-      primary-to="/"
-      @reset="handleResetSuccessState"
-    />
+  <div class="mx-auto w-full max-w-[480px]">
+    <div
+  v-if="success"
+  class="rounded-xl border border-primary/15 bg-white px-6 py-7 text-center shadow-sm"
+  role="status"
+  aria-live="polite"
+>
+  <h3 class="text-xl font-semibold text-foreground">
+    {{ copy.successTitle }}
+  </h3>
 
-    <form
-      v-else
-      class="education-quote-form__form"
-      novalidate
-      @submit.prevent="onSubmit"
-    >
+  <p class="mt-3 text-sm leading-6 text-muted-foreground">
+    {{ copy.successMessage }}
+  </p>
+
+  <p
+    v-if="submittedReference"
+    class="mt-3 text-xs font-medium text-muted-foreground"
+  >
+    {{ copy.referenceLabel }}: {{ submittedReference }}
+  </p>
+
+  <button
+    type="button"
+    class="mt-5 inline-flex h-10 items-center justify-center rounded-[6px] bg-primary px-4 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90"
+    @click="handleResetSuccessState"
+  >
+    {{ copy.sendAnother }}
+  </button>
+</div>
+
+    <form v-else class="space-y-4" novalidate @submit.prevent="onSubmit">
       <div
         v-if="errorMessage"
-        class="education-quote-form__error"
-        role="alert"
+        class="rounded-lg border border-destructive/20 bg-destructive/10 px-3 py-2 text-sm font-medium text-destructive"
       >
         {{ errorMessage }}
       </div>
@@ -333,60 +392,48 @@ async function onSubmit() {
         name="website"
         tabindex="-1"
         autocomplete="off"
-        class="education-quote-form__honeypot"
+        class="hidden"
         aria-hidden="true"
       />
 
-      <label class="education-quote-form__field">
-        <span class="education-quote-form__label">
-          {{ copy.name }} <span aria-hidden="true">*</span>
-        </span>
-
+      <label class="block">
+        <span class="mb-1.5 block text-sm font-medium text-foreground">{{ copy.name }}</span>
         <input
           v-model="form.name"
           name="name"
           type="text"
           autocomplete="name"
           required
-          class="education-quote-form__control"
+          class="h-10 w-full rounded-[6px] border border-border bg-white px-3 text-[15px] outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
         />
       </label>
 
-      <label class="education-quote-form__field">
-        <span class="education-quote-form__label">
-          {{ copy.center }} <span aria-hidden="true">*</span>
-        </span>
-
+      <label class="block">
+        <span class="mb-1.5 block text-sm font-medium text-foreground">{{ copy.center }}</span>
         <input
           v-model="form.center"
           name="center"
           type="text"
           autocomplete="organization"
           required
-          class="education-quote-form__control"
+          class="h-10 w-full rounded-[6px] border border-border bg-white px-3 text-[15px] outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
         />
       </label>
 
-      <label class="education-quote-form__field">
-        <span class="education-quote-form__label">
-          {{ copy.email }} <span aria-hidden="true">*</span>
-        </span>
-
+      <label class="block">
+        <span class="mb-1.5 block text-sm font-medium text-foreground">{{ copy.email }}</span>
         <input
           v-model="form.email"
           name="email"
           type="email"
           autocomplete="email"
           required
-          class="education-quote-form__control"
+          class="h-10 w-full rounded-[6px] border border-border bg-white px-3 text-[15px] outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
         />
       </label>
 
-      <label class="education-quote-form__field">
-        <span class="education-quote-form__label">
-          {{ copy.phone }} <span aria-hidden="true">*</span>
-        </span>
-
+      <label class="block">
+        <span class="mb-1.5 block text-sm font-medium text-foreground">{{ copy.phone }}</span>
         <input
           v-model="form.phone"
           name="phone"
@@ -394,49 +441,67 @@ async function onSubmit() {
           inputmode="tel"
           autocomplete="tel"
           required
-          class="education-quote-form__control"
+          class="h-10 w-full rounded-[6px] border border-border bg-white px-3 text-[15px] outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
         />
       </label>
 
-      <label class="education-quote-form__field">
-        <span class="education-quote-form__label">
-          {{ copy.material }} <span aria-hidden="true">*</span>
-        </span>
-
-        <span class="education-quote-form__select-wrap">
-          <select
-            v-model="form.material"
-            name="material"
-            required
-            class="education-quote-form__control education-quote-form__control--select"
-          >
-            <option value="" disabled>
-              {{ copy.materialPlaceholder }}
-            </option>
-
-            <option
-              v-for="option in copy.materialOptions"
-              :key="option.value"
-              :value="option.value"
-            >
-              {{ option.label }}
-            </option>
-          </select>
-        </span>
+      <label class="block">
+        <span class="mb-1.5 block text-sm font-medium text-foreground">{{ copy.materialType }}</span>
+        <select
+          v-model="form.materialType"
+          name="materialType"
+          class="h-10 w-full rounded-[6px] border border-border bg-white px-3 text-[15px] outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
+        >
+          <option value="">{{ copy.materialPlaceholder }}</option>
+          <option value="material-didactic">Material didàctic</option>
+          <option value="senyalistica">Senyalística</option>
+          <option value="cartelleria">Cartelleria</option>
+          <option value="vinils">Vinils</option>
+          <option value="altres">Altres</option>
+        </select>
       </label>
 
-      <label class="education-quote-form__privacy">
+      <label class="block">
+        <span class="mb-1.5 block text-sm font-medium text-foreground">{{ copy.deadline }}</span>
+        <input
+          v-model="form.deadline"
+          name="deadline"
+          type="text"
+          :placeholder="copy.deadlinePlaceholder"
+          class="h-10 w-full rounded-[6px] border border-border bg-white px-3 text-[15px] outline-none transition placeholder:text-muted-foreground/70 focus:border-primary focus:ring-2 focus:ring-primary/15"
+        />
+      </label>
+
+      <label class="block">
+        <span class="mb-1.5 block text-sm font-medium text-foreground">{{ copy.message }}</span>
+        <textarea
+          v-model="form.message"
+          name="message"
+          rows="5"
+          :placeholder="copy.messagePlaceholder"
+          class="w-full resize-y rounded-[6px] border border-border bg-white px-3 py-2.5 text-[15px] outline-none transition placeholder:text-muted-foreground/70 focus:border-primary focus:ring-2 focus:ring-primary/15"
+        />
+      </label>
+
+      <p class="text-xs leading-5 text-muted-foreground">
+        {{ copy.requiredNote }}
+        <span class="font-semibold text-foreground">*</span>
+        {{ copy.requiredNoteEnd }}
+      </p>
+
+      <label class="flex items-start gap-2 pt-1 text-xs leading-5 text-foreground/75">
         <input
           v-model="form.privacy"
           type="checkbox"
           required
+          class="mt-1 h-4 w-4 shrink-0 rounded border-border text-primary focus:ring-primary/20"
         />
-
         <span>
-          {{ copy.privacyStart }}
+          {{ copy.privacyPrefix }}
           <NuxtLink
             to="/politica-privacidad"
             target="_blank"
+            class="font-semibold text-primary hover:underline"
           >
             {{ copy.privacyLink }}
           </NuxtLink>.
@@ -445,225 +510,12 @@ async function onSubmit() {
 
       <button
         type="submit"
-        class="education-quote-form__submit"
         :disabled="isLoading"
+        class="inline-flex h-11 w-full items-center justify-center rounded-[6px] bg-primary px-4 text-sm font-semibold uppercase tracking-[0.12em] text-primary-foreground shadow-sm transition hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-70"
       >
-        <Loader2
-          v-if="isLoading"
-          class="education-quote-form__loader"
-          aria-hidden="true"
-        />
-        {{ isLoading ? copy.submitting : copy.submit }}
+        <Loader2 v-if="isLoading" class="mr-2 h-4 w-4 animate-spin" />
+        {{ isLoading ? copy.sending : copy.submit }}
       </button>
     </form>
   </div>
 </template>
-
-<style scoped>
-.education-quote-form {
-  width: min(100%, 515px);
-  margin-inline: auto;
-  font-family: Figtree, var(--font-sans);
-  color: #212121;
-}
-
-.education-quote-form__form {
-  display: grid;
-  gap: 10px;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  background: transparent;
-  border: 0;
-  box-shadow: none;
-}
-
-.education-quote-form__field {
-  display: grid;
-  gap: 4px;
-}
-
-.education-quote-form__label {
-  color: #212121;
-  font-family: Figtree, var(--font-sans);
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.4;
-}
-
-.education-quote-form__label span {
-  color: #e00000;
-}
-
-.education-quote-form__control {
-  display: block;
-  width: 515px;
-  max-width: 100%;
-  height: 43px;
-  border: 1px solid #a2a2a2;
-  border-radius: 10px;
-  background: #ffffff;
-  box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
-  padding: 0 14px;
-  color: #212121;
-  font-family: Figtree, var(--font-sans);
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.4;
-  outline: none;
-  transition:
-    border-color 160ms ease,
-    box-shadow 160ms ease;
-}
-
-.education-quote-form__control:focus {
-  border-color: hsl(var(--brand-base));
-  box-shadow:
-    0 4px 4px rgb(0 0 0 / 25%),
-    0 0 0 3px hsl(var(--brand-base) / 18%);
-}
-
-.education-quote-form__select-wrap {
-  position: relative;
-  display: block;
-  width: 515px;
-  max-width: 100%;
-}
-
-.education-quote-form__select-wrap::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: 15px;
-  width: 9px;
-  height: 9px;
-  pointer-events: none;
-  border-right: 1.6px solid #212121;
-  border-bottom: 1.6px solid #212121;
-  transform: translateY(-65%) rotate(45deg);
-}
-
-.education-quote-form__control--select {
-  appearance: none;
-  padding-right: 42px;
-  cursor: pointer;
-}
-
-.education-quote-form__privacy {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  margin-top: 6px;
-  color: #212121;
-  font-family: Figtree, var(--font-sans);
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 1.4;
-}
-
-.education-quote-form__privacy input {
-  width: 16px;
-  height: 16px;
-  margin: 1px 0 0;
-  flex: 0 0 auto;
-  border: 1px solid #a2a2a2;
-  border-radius: 3px;
-  background: #ffffff;
-}
-
-.education-quote-form__privacy a {
-  color: #212121;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-.education-quote-form__submit {
-  display: inline-flex;
-  width: 515px;
-  max-width: 100%;
-  min-height: 54px;
-  align-items: center;
-  justify-content: center;
-  margin-top: 14px;
-  border: 0;
-  border-radius: 10px;
-  background: hsl(var(--brand-base));
-  color: hsl(var(--brand-white));
-  font-family: Figtree, var(--font-sans);
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition:
-    background-color 160ms ease,
-    transform 160ms ease,
-    opacity 160ms ease;
-}
-
-.education-quote-form__submit:hover {
-  background: hsl(var(--brand-base-dark));
-  transform: translateY(-1px);
-}
-
-.education-quote-form__submit:disabled {
-  cursor: not-allowed;
-  opacity: 0.7;
-  transform: none;
-}
-
-.education-quote-form__loader {
-  width: 18px;
-  height: 18px;
-  margin-right: 8px;
-  animation: education-quote-form-spin 900ms linear infinite;
-}
-
-.education-quote-form__error {
-  border: 1px solid rgb(185 28 28 / 24%);
-  border-radius: 10px;
-  background: rgb(254 226 226 / 75%);
-  padding: 10px 12px;
-  color: #991b1b;
-  font-family: Figtree, var(--font-sans);
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 1.4;
-}
-
-.education-quote-form__honeypot {
-  display: none;
-}
-
-@keyframes education-quote-form-spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (max-width: 767px) {
-  .education-quote-form {
-    width: 100%;
-  }
-
-  .education-quote-form__form {
-    gap: 10px;
-  }
-
-  .education-quote-form__label {
-    font-size: 14px;
-  }
-
-  .education-quote-form__control,
-  .education-quote-form__select-wrap,
-  .education-quote-form__submit {
-    width: 100%;
-  }
-
-  .education-quote-form__submit {
-    min-height: 48px;
-    font-size: 14px;
-  }
-}
-</style>

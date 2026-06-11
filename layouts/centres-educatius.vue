@@ -59,8 +59,8 @@ function scrollToQuote() {
                 class="inline-flex h-9 items-center justify-center gap-2 whitespace-nowrap rounded-2xl border border-transparent bg-primary px-2.5 py-2 text-[12px] font-semibold text-primary-foreground shadow-sm transition-all duration-200 hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 sm:px-3 sm:text-[13px] md:h-11 md:px-6 md:text-[14px]"
                 @click="scrollToQuote"
               >
-                <span class="hidden text-sm sm:inline">Pide presupuesto</span>
-                <span class="text-xs sm:hidden">Presupuesto</span>
+                <span class="hidden text-sm sm:inline">Demana pressupost</span>
+                <span class="text-xs sm:hidden">Pressupost</span>
               </button>
             </div>
           </div>
@@ -85,15 +85,15 @@ function scrollToQuote() {
             </NuxtLink>
 
             <p class="mt-4 max-w-sm text-sm leading-6 text-white/68">
-              Impresión profesional, gran formato, PLV, vinilos, packaging y soluciones
-              gráficas para empresas, retail, eventos y comunicación visual.
-            </p>
+  Impressió professional, material didàctic, dossiers, quaderns,
+  senyalística, vinils i solucions gràfiques per a centres educatius.
+</p>
           </div>
 
           <address class="space-y-2 text-sm not-italic text-white/72">
             <p>Juan de Mena 19, 08035 Barcelona</p>
             <p><a href="tel:+34932749890" class="hover:text-white">93 274 98 90</a></p>
-            <p>lunes a jueves 8:30-18:00<br />viernes 8:00-14:00</p>
+            <p>dilluns a dijous 8:30-18:00<br />divendres 8:00-14:00</p>
             <p>
               <a href="mailto:comercial@reprodisseny.com" class="hover:text-white">
                 comercial@reprodisseny.com
