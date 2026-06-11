@@ -29,6 +29,8 @@ import {
 
 import RequestSuccessState from "@/components/marketing/quote/RequestSuccessState.vue";
 import { usePriceRequests } from "@/composables/usePriceRequests";
+import { useTracking } from "@/composables/useTracking";
+import type { TrackingContext, TrackingEventName } from "~/types/tracking";
 
 declare global {
   interface Window {
@@ -36,12 +38,7 @@ declare global {
   }
 }
 
-function pushDataLayer(payload: Record<string, unknown>) {
-  if (!process.client) return;
 
-  window.dataLayer = window.dataLayer || [];
-  window.dataLayer.push(payload);
-}
 type ExtraField = {
   name: string;
   label: string;
@@ -299,6 +296,60 @@ watch(initialValues, (values) => resetForm({ values }), { deep: true });
 
 const { sendPriceRequest, isLoading, error } = usePriceRequests();
 
+const tracking = useTracking();
+
+
+function getTrackingContext(slug: string): TrackingContext {
+  return {
+    pageType: "product",
+    pageLanguage: "es",
+    contentGroup: "producto",
+    serviceName: props.producto,
+    campaignName: null,
+    campaignId: null,
+    productSlug: slug || props.productData?.slug || null,
+    categorySlug: props.categorySlug,
+    formId: "product_lead_form",
+    formName: "price_request",
+  };
+}
+
+
+function getLeadTrackingPayload(slug: string) {
+  const context = getTrackingContext(slug);
+
+  return {
+    ...tracking.getTrackingPayloadForLead(context),
+    routeUtm: utm.value,
+    sourceUrl: sourceUrl.value,
+  };
+}
+
+function pushLeadEvent(params: {
+  slug?: string | null;
+  itemId?: string | number | null;
+  requestKey?: string | null;
+  quantity?: string | number | null;
+}) {
+  const requestKey =
+    params.requestKey ||
+    (params.itemId ? String(params.itemId) : null);
+
+  tracking.pushEvent(
+    "generate_lead" as TrackingEventName,
+    {
+      lead_type: "quote_request",
+      request_key: requestKey,
+      lead_id: requestKey,
+      transaction_id: params.itemId ? String(params.itemId) : undefined,
+      product_name: props.producto,
+      quantity: params.quantity ?? null,
+      page_path: import.meta.client ? window.location.pathname : route.path,
+    },
+    getTrackingContext(params.slug),
+  );
+}
+
 function handleResetSuccessState() {
   success.value = false;
   submittedEmail.value = "";
@@ -409,6 +460,7 @@ const onSubmit = handleSubmit(
         consent: true,
         sourceUrl: sourceUrl.value,
         utm: utm.value,
+         tracking: getLeadTrackingPayload(slug),
         initialStatus: "Nova",
       },
       { file: file.value, fileKind: "design" }
@@ -434,15 +486,10 @@ const onSubmit = handleSubmit(
 
       if (!result.duplicated) {
         pushDataLayer({
-          event: "generate_lead",
-          form_name: "price_request",
-          lead_type: "quote_request",
-          page_path: window.location.pathname,
-          category_slug: props.categorySlug,
-          product_slug: slug || undefined,
-          product_name: props.producto,
-          quantity: values.cantidad,
-          transaction_id: result.itemId ? String(result.itemId) : undefined,
+ slug,
+  itemId: result.itemId,
+  requestKey: result.requestKey,
+  quantity: values.cantidad,
         });
       }
 

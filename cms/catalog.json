@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-10T12:04:17.917Z",
+  "generatedAt": "2026-06-11T12:38:04.992Z",
   "categories": [
     {
       "id": "12",
@@ -25098,6 +25098,566 @@
         },
         "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/imanes.webp"
+      }
+    },
+    {
+      "id": "170",
+      "updatedAt": "2026-06-11T12:36:35Z",
+      "type": "producto",
+      "slug": "laminas-solares-para-cristales",
+      "path": "/productos/laminas-solares-para-cristales",
+      "title": "Láminas solares para cristales",
+      "categorySlug": "material-flexible",
+      "categorySlugs": [
+        "material-flexible"
+      ],
+      "order": 9999,
+      "isPublished": true,
+      "shortDescription": "Las láminas solares para cristales son una solución práctica para mejorar el confort térmico y visual en espacios con mucha entrada de luz. En Repro Disseny trabajamos con láminas de control solar para colocación interior y exterior, recomendando la opción más adecuada según el tipo de cristal, la orientación, el uso del espacio y el nivel de protección que necesites.\nSon ideales para oficinas, escaparates, locales comerciales, viviendas, mamparas y fachadas acristaladas donde se busca reducir el calor, el deslumbramiento y la exposición solar sin sustituir los cristales existentes.",
+      "description": "Las láminas solares para cristales son una solución práctica para mejorar el confort térmico y visual en espacios con mucha entrada de luz. En Repro Disseny trabajamos con láminas de control solar para colocación interior y exterior, recomendando la opción más adecuada según el tipo de cristal, la orientación, el uso del espacio y el nivel de protección que necesites.\nSon ideales para oficinas, escaparates, locales comerciales, viviendas, mamparas y fachadas acristaladas donde se busca reducir el calor, el deslumbramiento y la exposición solar sin sustituir los cristales existentes.",
+      "bodyMd": "Las láminas solares son películas técnicas que se aplican sobre superficies acristaladas para controlar la entrada de radiación solar. Ayudan a reducir la sensación de calor, mejorar la visibilidad interior y proteger mobiliario, productos expuestos o equipos frente al desgaste provocado por la luz solar.\n\nPueden instalarse por la cara interior o exterior del cristal, según las características del vidrio, la orientación, la exposición solar y el resultado esperado. Por eso conviene valorar cada caso antes de elegir el tipo de lámina.\n\nEn Repro Disseny te ayudamos a escoger la solución más adecuada para oficinas, escaparates, viviendas, mamparas, locales comerciales y fachadas acristaladas.",
+      "sections": [
+        {
+          "id": "details",
+          "key": "details",
+          "title": "Detalles",
+          "kind": "details",
+          "contentFormat": "markdown",
+          "body": "Las láminas solares son películas técnicas que se aplican sobre superficies acristaladas para controlar la entrada de radiación solar. Ayudan a reducir la sensación de calor, mejorar la visibilidad interior y proteger mobiliario, productos expuestos o equipos frente al desgaste provocado por la luz solar.\n\nPueden instalarse por la cara interior o exterior del cristal, según las características del vidrio, la orientación, la exposición solar y el resultado esperado. Por eso conviene valorar cada caso antes de elegir el tipo de lámina.\n\nEn Repro Disseny te ayudamos a escoger la solución más adecuada para oficinas, escaparates, viviendas, mamparas, locales comerciales y fachadas acristaladas."
+        },
+        {
+          "id": "benefits",
+          "key": "benefits",
+          "title": "Beneficios",
+          "kind": "benefits",
+          "contentFormat": "json",
+          "benefitsData": {
+            "intro": "Ventajas principales de las láminas solares para mejorar el confort térmico, reducir reflejos y proteger espacios acristalados sin sustituir los cristales existentes.",
+            "benefits": [
+              {
+                "title": "Menos calor interior",
+                "description": "Ayudan a reducir la entrada de calor en cristales con exposición solar directa, mejorando el confort en oficinas, comercios y viviendas."
+              },
+              {
+                "title": "Reducción del deslumbramiento",
+                "description": "Mejoran la visibilidad en zonas de trabajo, escaparates y espacios con pantallas o mucha luz natural."
+              },
+              {
+                "title": "Protección de mobiliario y producto",
+                "description": "Pueden ayudar a proteger muebles, materiales, escaparates y productos expuestos frente al desgaste provocado por la luz solar."
+              },
+              {
+                "title": "Más privacidad según acabado",
+                "description": "Las opciones tonalizadas o reflectantes pueden mejorar la privacidad visual sin bloquear completamente la entrada de luz."
+              },
+              {
+                "title": "Sin cambiar el cristal",
+                "description": "Permiten mejorar el comportamiento solar del vidrio existente con una intervención limpia y adaptable a cada ventana o escaparate."
+              }
+            ]
+          }
+        },
+        {
+          "id": "materials",
+          "key": "materials",
+          "title": "Materiales",
+          "kind": "materials",
+          "contentFormat": "json",
+          "materialsData": {
+            "intro": "Seleccionamos la lámina solar según el tipo de vidrio, la ubicación, la exposición al sol y el equilibrio necesario entre protección, entrada de luz y estética.",
+            "materials": [
+              {
+                "title": "Lámina solar neutra",
+                "description": "Recomendada cuando se busca mejorar el confort manteniendo una imagen discreta y una buena entrada de luz natural."
+              },
+              {
+                "title": "Lámina solar tonalizada",
+                "description": "Aporta control solar con un cambio visual moderado en el cristal, útil en espacios con mucha claridad o exposición directa."
+              },
+              {
+                "title": "Lámina solar reflectante",
+                "description": "Indicada cuando se busca mayor rechazo solar y privacidad visual, valorando siempre el efecto desde el interior y el exterior."
+              },
+              {
+                "title": "Lámina para instalación interior",
+                "description": "Opción habitual en muchas aplicaciones por su mantenimiento sencillo y protección frente al uso diario."
+              },
+              {
+                "title": "Lámina para instalación exterior",
+                "description": "Solución a valorar cuando el tipo de vidrio, la orientación o las condiciones técnicas aconsejan trabajar por la cara exterior."
+              }
+            ]
+          }
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "kind": "formats",
+          "contentFormat": "json",
+          "formatsData": {
+            "intro": "Definimos el formato, el tipo de lámina y el sistema de aplicación según las medidas de cada cristal, el tipo de instalación y el objetivo principal del proyecto.",
+            "shapes": [
+              {
+                "title": "Corte a medida por cristal",
+                "description": "La lámina se prepara según las medidas reales de cada paño de vidrio para conseguir un ajuste limpio y profesional."
+              },
+              {
+                "title": "Instalación interior o exterior",
+                "description": "La cara de aplicación se define según el tipo de vidrio, la exposición solar, la orientación y las condiciones técnicas del proyecto."
+              },
+              {
+                "title": "Ventanas, escaparates y mamparas",
+                "description": "Puede aplicarse en una ventana puntual, escaparates completos, mamparas, cerramientos o fachadas acristaladas."
+              },
+              {
+                "title": "Diferentes niveles de protección",
+                "description": "Seleccionamos la lámina según transmisión de luz, rechazo solar, privacidad y aspecto visual deseado."
+              }
+            ],
+            "deliveryFormats": []
+          }
+        },
+        {
+          "id": "finishes",
+          "key": "finishes",
+          "title": "Acabados",
+          "kind": "finishes",
+          "contentFormat": "json",
+          "finishesData": {
+            "intro": "El acabado de la lámina determina el equilibrio entre protección solar, entrada de luz, privacidad y aspecto exterior del cristal.",
+            "finishes": [
+              {
+                "title": "Transparente o neutra",
+                "description": "Mantiene una imagen discreta y mejora el confort sin alterar en exceso la estética del vidrio."
+              },
+              {
+                "title": "Tonalizada",
+                "description": "Reduce luz y calor con un cambio visual moderado, adecuada cuando se busca mayor protección sin un efecto demasiado reflectante."
+              },
+              {
+                "title": "Reflectante",
+                "description": "Aporta mayor rechazo solar y puede mejorar la privacidad, siempre valorando el efecto visual exterior y la visibilidad desde el interior."
+              },
+              {
+                "title": "Control de deslumbramiento",
+                "description": "Ayuda a reducir reflejos y exceso de claridad en zonas de trabajo, escaparates, salas y espacios con pantallas."
+              },
+              {
+                "title": "Protección UV según modelo",
+                "description": "Algunas láminas ayudan a reducir la radiación UV y a proteger mobiliario, producto expuesto o materiales sensibles a la luz."
+              }
+            ]
+          }
+        },
+        {
+          "id": "technical-specs",
+          "key": "technical-specs",
+          "title": "Características técnicas",
+          "kind": "technical-specs",
+          "contentFormat": "markdown",
+          "body": "Estas especificaciones ayudan a definir la lámina solar más adecuada antes de presupuestar o instalar. Si no tienes claro el tipo de vidrio o la orientación, podemos revisarlo contigo para evitar una elección incorrecta.\n\n### Antes de elegir la lámina\n\n- **Tipo de cristal:** revisamos si es cristal simple, doble acristalamiento, vidrio templado, laminado u otra composición.\n- **Cara de instalación:** valoramos si la lámina debe colocarse por el interior o por el exterior.\n- **Orientación solar:** tenemos en cuenta si recibe sol de mañana, de tarde o muchas horas de sol directo.\n- **Objetivo principal:** definimos si se prioriza reducir calor, reducir deslumbramiento, ganar privacidad o proteger producto expuesto.\n- **Entrada de luz:** equilibramos protección solar y transmisión de luz para no oscurecer más de lo necesario.\n\n### Datos útiles para presupuestar\n\n- Medidas aproximadas de cada cristal.\n- Número de cristales o zonas acristaladas.\n- Ubicación: oficina, escaparate, vivienda, local, mampara o fachada.\n- Tipo de cristal, si se conoce.\n- Orientación y horas de sol directo.\n- Si necesitas solo suministro, instalación o asesoramiento completo.\n\n### Recomendaciones de uso\n\n- En escaparates conviene equilibrar protección solar y visibilidad del producto.\n- En oficinas se debe valorar la entrada de luz natural y el nivel de deslumbramiento durante la jornada.\n- En instalaciones exteriores hay que tener en cuenta orientación, clima, limpieza y mantenimiento.\n- No todas las láminas son adecuadas para todos los cristales; por eso es importante revisar el soporte antes de producir o instalar."
+        },
+        {
+          "id": "applications",
+          "key": "applications",
+          "title": "Aplicaciones",
+          "kind": "applications",
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Aplicaciones habituales de las láminas solares en espacios acristalados donde se busca reducir calor, reflejos, exposición solar o mejorar la privacidad.",
+            "applications": [
+              {
+                "title": "Oficinas y despachos",
+                "description": "Mejora del confort térmico y reducción del deslumbramiento en zonas con mucha entrada de sol."
+              },
+              {
+                "title": "Escaparates comerciales",
+                "description": "Protección de productos expuestos, reducción de reflejos y mayor confort interior del local."
+              },
+              {
+                "title": "Locales, hoteles y restaurantes",
+                "description": "Control solar en espacios de atención al público con cristaleras, ventanales o fachadas acristaladas."
+              },
+              {
+                "title": "Viviendas y comunidades",
+                "description": "Aplicación en ventanales, terrazas acristaladas, galerías, cerramientos y zonas con exposición solar directa."
+              },
+              {
+                "title": "Mamparas y separaciones de cristal",
+                "description": "Control de luz, mejora visual y privacidad en interiores corporativos o espacios compartidos."
+              },
+              {
+                "title": "Fachadas acristaladas",
+                "description": "Soluciones de control solar para grandes superficies de vidrio y cerramientos exteriores."
+              },
+              {
+                "title": "Centros educativos, clínicas y gimnasios",
+                "description": "Reducción de calor y deslumbramiento en aulas, salas, consultas y espacios de uso continuado."
+              }
+            ]
+          }
+        }
+      ],
+      "faqs": [
+        {
+          "question": "¿Las láminas solares se colocan por dentro o por fuera del cristal?",
+          "answer": "Pueden colocarse por el interior o por el exterior, según el tipo de vidrio, la exposición solar y las necesidades del proyecto. En Repro Disseny te asesoramos para escoger la opción más adecuada."
+        },
+        {
+          "question": "¿Las láminas solares reducen el calor?",
+          "answer": "Sí, las láminas solares ayudan a reducir la entrada de calor provocada por la radiación solar. El nivel de protección dependerá del tipo de lámina instalada y de las características del cristal."
+        },
+        {
+          "question": "¿Sirven para escaparates?",
+          "answer": "Sí. Son una buena solución para escaparates expuestos al sol, ya que ayudan a proteger productos, reducir reflejos y mejorar el confort interior del local."
+        },
+        {
+          "question": "¿Quitan visibilidad desde el interior?",
+          "answer": "Depende del modelo de lámina. Existen opciones más transparentes, tonalizadas o reflectantes. Te recomendaremos la más adecuada según el nivel de luz, privacidad y estética que busques."
+        },
+        {
+          "question": "¿Se pueden instalar en cualquier cristal?",
+          "answer": "No siempre. Antes de instalar una lámina solar conviene valorar el tipo de vidrio, su orientación y las condiciones de exposición para evitar problemas y asegurar un buen resultado."
+        }
+      ],
+      "breadcrumbs": [
+        {
+          "name": "Inicio",
+          "url": "/"
+        },
+        {
+          "name": "Categorías",
+          "url": "/categorias"
+        },
+        {
+          "name": "Gran Formato",
+          "url": "/categorias/gran-formato"
+        },
+        {
+          "name": "Material Flexible",
+          "url": "/categorias/gran-formato/material-flexible"
+        },
+        {
+          "name": "Láminas solares para cristales",
+          "url": "/productos/laminas-solares-para-cristales"
+        }
+      ],
+      "image": {
+        "src": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/laminas-solares.webp",
+        "width": 1200,
+        "height": 1200,
+        "alt": "Láminas solares para cristales de colocación interior y exterior en oficinas, escaparates y viviendas"
+      },
+      "galleryImages": [],
+      "sku": "laminas-solares-para-cristales",
+      "brand": "Repro Disseny",
+      "price": 0,
+      "priceCurrency": "EUR",
+      "inStock": true,
+      "ratingValue": 0,
+      "attributes": [
+        {
+          "key": "control-solar",
+          "label": "Control solar",
+          "value": "Ayuda a reducir calor y deslumbramiento en cristales expuestos.",
+          "placement": "hero-pills",
+          "iconKey": "sun"
+        },
+        {
+          "key": "interior-o-exterior",
+          "label": "Interior o exterior",
+          "value": "Seleccionamos la lámina según el tipo de vidrio y la exposición.",
+          "placement": "hero-pills",
+          "iconKey": "install"
+        },
+        {
+          "key": "confort-visual",
+          "label": "Confort visual",
+          "value": "Mejora la visibilidad en oficinas, comercios y viviendas con mucha luz.",
+          "placement": "hero-pills",
+          "iconKey": "visibility"
+        },
+        {
+          "key": "proteccion-uv",
+          "label": "Protección UV",
+          "value": "Puede ayudar a proteger mobiliario y producto expuesto según modelo.",
+          "placement": "hero-pills",
+          "iconKey": "shield"
+        },
+        {
+          "key": "corte-a-medida",
+          "label": "Corte a medida",
+          "value": "Adaptado a ventanas, escaparates, mamparas y fachadas acristaladas.",
+          "placement": "hero-pills",
+          "iconKey": "size"
+        }
+      ],
+      "variants": [],
+      "formFields": [
+        {
+          "name": "medidas",
+          "label": "Medidas aproximadas",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "cantidad_cristales",
+          "label": "Cantidad de cristales / unidades",
+          "type": "number",
+          "required": false,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "tipo_instalacion",
+          "label": "Tipo de instalación",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Interior",
+            "Exterior",
+            "A definir según cristal"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "ubicacion",
+          "label": "Ubicación",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Oficina o despacho",
+            "Escaparate",
+            "Local comercial",
+            "Vivienda",
+            "Mampara interior",
+            "Fachada acristalada",
+            "Otro"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "tipo_cristal",
+          "label": "Tipo de cristal",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Cristal simple",
+            "Doble acristalamiento",
+            "Vidrio templado",
+            "Vidrio laminado",
+            "No lo sé / a revisar"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "objetivo",
+          "label": "Objetivo principal",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Reducir calor",
+            "Reducir deslumbramiento",
+            "Proteger mobiliario o producto expuesto",
+            "Ganar privacidad",
+            "Mejorar confort visual",
+            "A definir"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "tipo_lamina",
+          "label": "Tipo de lámina",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Transparente / neutra",
+            "Ligeramente tonalizada",
+            "Reflectante",
+            "Exterior",
+            "A definir según proyecto"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "orientacion",
+          "label": "Orientación / exposición",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Sol directo de mañana",
+            "Sol directo de tarde",
+            "Muchas horas de sol",
+            "Exposición moderada",
+            "No lo sé"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "instalacion",
+          "label": "¿Necesitas instalación?",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Sí",
+            "No",
+            "A valorar"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
+      "legacySlugs": [],
+      "seo": {
+        "metaTitle": "Láminas solares para cristales | Interior y exterior",
+        "metaDescription": "Láminas solares para cristales de colocación interior y exterior. Reduce calor, deslumbramiento y mejora el confort en oficinas, comercios y viviendas. Solicita presupuesto.",
+        "canonical": "https://reprodisseny.com/productos/laminas-solares-para-cristales",
+        "hreflang": [
+          {
+            "lang": "es-ES",
+            "url": "https://reprodisseny.com/productos/laminas-solares-para-cristales"
+          }
+        ],
+        "keywords": [
+          "láminas solares para cristales",
+          "láminas de control solar",
+          "láminas solares interior exterior",
+          "láminas solares para escaparates",
+          "láminas solares para oficinas",
+          "film solar para ventanas",
+          "protección solar para cristales",
+          "lámina reflectante para cristal",
+          "vinilo solar para cristales",
+          "láminas solares Barcelona"
+        ],
+        "searchTerms": [
+          "láminas solares",
+          "laminas solares",
+          "láminas solares para cristales",
+          "láminas control solar",
+          "control solar cristales",
+          "film solar ventanas",
+          "vinilo solar cristal",
+          "lámina solar escaparate",
+          "lámina solar oficina",
+          "lámina reflectante cristal",
+          "lámina solar interior",
+          "lámina solar exterior",
+          "protección solar escaparates",
+          "reducir calor cristales",
+          "reducir deslumbramiento oficinas",
+          "láminas solares Barcelona",
+          "láminas para ventanas"
+        ],
+        "schema": {
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Product",
+              "name": "Láminas solares para cristales",
+              "description": "Láminas solares para cristales de colocación interior y exterior. Reduce calor, deslumbramiento y mejora el confort en oficinas, comercios y viviendas. Solicita presupuesto.",
+              "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/laminas-solares.webp",
+              "url": "https://reprodisseny.com/productos/laminas-solares-para-cristales",
+              "brand": {
+                "@type": "Organization",
+                "name": "Repro Disseny"
+              },
+              "sku": "laminas-solares-para-cristales"
+            },
+            {
+              "@type": "BreadcrumbList",
+              "itemListElement": [
+                {
+                  "@type": "ListItem",
+                  "position": 1,
+                  "name": "Inicio",
+                  "item": "https://reprodisseny.com/"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 2,
+                  "name": "Categorías",
+                  "item": "https://reprodisseny.com/categorias"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 3,
+                  "name": "Gran Formato",
+                  "item": "https://reprodisseny.com/categorias/gran-formato"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 4,
+                  "name": "Material Flexible",
+                  "item": "https://reprodisseny.com/categorias/gran-formato/material-flexible"
+                },
+                {
+                  "@type": "ListItem",
+                  "position": 5,
+                  "name": "Láminas solares para cristales",
+                  "item": "https://reprodisseny.com/productos/laminas-solares-para-cristales"
+                }
+              ]
+            },
+            {
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "¿Las láminas solares se colocan por dentro o por fuera del cristal?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Pueden colocarse por el interior o por el exterior, según el tipo de vidrio, la exposición solar y las necesidades del proyecto. En Repro Disseny te asesoramos para escoger la opción más adecuada."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Las láminas solares reducen el calor?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí, las láminas solares ayudan a reducir la entrada de calor provocada por la radiación solar. El nivel de protección dependerá del tipo de lámina instalada y de las características del cristal."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Sirven para escaparates?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí. Son una buena solución para escaparates expuestos al sol, ya que ayudan a proteger productos, reducir reflejos y mejorar el confort interior del local."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Quitan visibilidad desde el interior?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Depende del modelo de lámina. Existen opciones más transparentes, tonalizadas o reflectantes. Te recomendaremos la más adecuada según el nivel de luz, privacidad y estética que busques."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Se pueden instalar en cualquier cristal?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No siempre. Antes de instalar una lámina solar conviene valorar el tipo de vidrio, su orientación y las condiciones de exposición para evitar problemas y asegurar un buen resultado."
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "robotsOverride": "index,follow",
+        "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/laminas-solares.webp"
       }
     },
     {
