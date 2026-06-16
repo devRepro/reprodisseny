@@ -5,11 +5,33 @@ export interface ContactPayload {
   nombre: string
   email: string
   telefono?: string | null
+  codigoPostal?: string | null
   consulta: string
   consent: boolean
   origen?: string
-  utm?: Record<string, any>
-  website?: string // honeypot
+  utm?: Record<string, string>
+  sourceUrl?: string | null
+  website?: string | null // honeypot
+}
+
+function cleanString(value: unknown) {
+  return typeof value === "string" ? value.trim() : ""
+}
+
+function getFallbackSourceUrl() {
+  if (!import.meta.client) return ""
+
+  return window.location.href
+}
+
+function getErrorMessage(error: any) {
+  return (
+    error?.data?.message ||
+    error?.data?.statusMessage ||
+    error?.statusMessage ||
+    error?.message ||
+    "Error al enviar"
+  )
 }
 
 export function useSendContact() {
@@ -23,30 +45,51 @@ export function useSendContact() {
     success.value = false
     error.value = null
 
+    const body = {
+      nombre: cleanString(payload.nombre),
+      email: cleanString(payload.email),
+      telefono: cleanString(payload.telefono) || null,
+      codigoPostal: cleanString(payload.codigoPostal) || null,
+      consulta: cleanString(payload.consulta),
+      consent: Boolean(payload.consent),
+
+      origen: cleanString(payload.origen) || "contact-page",
+      utm: payload.utm ?? {},
+      sourceUrl: cleanString(payload.sourceUrl) || getFallbackSourceUrl(),
+
+      website: cleanString(payload.website),
+    }
+
     try {
-      const p = $fetch("/api/cms/contact", {
+      const request = $fetch("/api/cms/contact", {
         method: "POST",
-        body: {
-          ...payload,
-          sourceUrl: process.client ? location.href : undefined,
-        },
+        body,
       })
 
-      const res = await notify.promise(p, {
+      const res = await notify.promise(request, {
         loading: "Enviando solicitud…",
         success: "Mensaje enviado",
-        error: (e) => e?.data?.statusMessage || e?.message || "Error al enviar",
+        error: (e) => getErrorMessage(e),
       })
 
       success.value = true
       return res
     } catch (e: any) {
-      error.value = e?.data?.statusMessage || e?.message || "Error"
-      notify.error("No se pudo enviar", error.value)
+      const message = getErrorMessage(e)
+
+      error.value = message
+      notify.error("No se pudo enviar", message)
+
+      return null
     } finally {
       isLoading.value = false
     }
   }
 
-  return { sendContact, isLoading, error, success }
+  return {
+    sendContact,
+    isLoading,
+    error,
+    success,
+  }
 }
