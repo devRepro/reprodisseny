@@ -49,7 +49,13 @@ const PayloadSchema = z.object({
     .min(1, "El teléfono es obligatorio")
     .min(9, "Introduce un teléfono válido")
     .max(30, "El teléfono es demasiado largo"),
-
+  postalCode: z
+  .string()
+  .trim()
+  .max(20, "El código postal es demasiado largo")
+  .regex(/^[A-Za-z0-9\s-]*$/, "Código postal no válido")
+  .optional()
+  .nullable(),  
   company: z.string().optional().nullable(),
 
   message: z.string().max(4000).optional().nullable(),
@@ -295,28 +301,29 @@ export default defineEventHandler(async (event) => {
 
   if (import.meta.dev) {
   console.info("[PRICE REQUEST][API][NORMALIZED PAYLOAD]", {
-    name: p.name,
-    email: p.email ? "[redacted]" : null,
-    phone: p.phone ? "[redacted]" : null,
-    company: p.company ? "[redacted]" : null,
-    message: p.message ? "[redacted]" : null,
-    categorySlug: p.categorySlug,
-    product: p.product,
-    extras: p.extras,
-    consent: p.consent,
-    sourceUrl: p.sourceUrl,
-    utm: p.utm,
-    tracking: p.tracking,
-    initialStatus: p.initialStatus,
-    attachment: attachment
-      ? {
-          filename: attachment.filename,
-          mimeType: attachment.mimeType,
-          size: attachment.size,
-        }
-      : null,
-    fileKind,
-  })
+  name: p.name,
+  email: p.email ? "[redacted]" : null,
+  phone: p.phone ? "[redacted]" : null,
+  postalCode: p.postalCode ? "[redacted]" : null,
+  company: p.company ? "[redacted]" : null,
+  message: p.message ? "[redacted]" : null,
+  categorySlug: p.categorySlug,
+  product: p.product,
+  extras: p.extras,
+  consent: p.consent,
+  sourceUrl: p.sourceUrl,
+  utm: p.utm,
+  tracking: p.tracking,
+  initialStatus: p.initialStatus,
+  attachment: attachment
+    ? {
+        filename: attachment.filename,
+        mimeType: attachment.mimeType,
+        size: attachment.size,
+      }
+    : null,
+  fileKind,
+});
 }
 
   const normalizedTracking = normalizeLeadTracking({
@@ -332,6 +339,7 @@ export default defineEventHandler(async (event) => {
   name: p.name,
   email: p.email,
   phone: p.phone,
+    postalCode: p.postalCode ?? null,
   company: p.company ?? undefined,
   message: p.message ?? "",
   categorySlug: p.categorySlug,

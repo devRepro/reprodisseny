@@ -206,6 +206,16 @@ function compactFields(obj: Record<string, any>) {
   )
 }
 
+function cleanPostalCode(value: unknown) {
+  if (typeof value !== "string") return null;
+
+  const cleaned = value
+    .trim()
+    .replace(/\s+/g, " ")
+    .slice(0, 20);
+
+  return cleaned || null;
+}
 // ---- Main ----
 export async function createPriceRequest(event: any, input: PriceRequestInput) {
   const config = useRuntimeConfig()
@@ -229,7 +239,10 @@ export async function createPriceRequest(event: any, input: PriceRequestInput) {
     throw err
   }
 
+   
+
   const categorySlug = (input.categorySlug ?? "").trim()
+  const postalCode = cleanPostalCode(input.postalCode)
   const trackingSourceField =
   config.crm?.trackingSourceField || SPF.TRACKING_SOURCE || "TrackingSource";
 
@@ -367,7 +380,7 @@ const sourceUrlField =
       context: {
         categorySlug: categorySlug || null,
         sourceUrl: tracking.sourceUrl || input.sourceUrl || getHeader(event, "referer") || "",
-        postalCode: input.postalCode ?? null,
+        postalCode,
         productSlug,
         tracking: {
           source: tracking.trackingSource,
@@ -396,6 +409,7 @@ const sourceUrlField =
   Title: input.name,
   [SPF.EMAIL]: input.email,
   [SPF.PHONE]: input.phone ?? "",
+    [postalCodeField]: postalCode || "",
   [SPF.COMPANY]: input.company ?? "",
   [SPF.COMMENT]: input.message ?? "",
   [SPF.PRODUCT]: safeJsonStringify(productJson),
@@ -420,7 +434,7 @@ const sourceUrlField =
   [primaryFileMimeTypeField]: uploadedFile?.mimeType || "",
   [primaryFileSizeField]: uploadedFile?.size || 0,
 };
-
+   
     const fields = compactFields(rawFields)
 
     // 5) Create item in requests list
