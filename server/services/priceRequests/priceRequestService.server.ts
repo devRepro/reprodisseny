@@ -76,6 +76,7 @@ export type PriceRequestInput = {
   name: string
   email: string
   phone?: string
+  postalCode?: string | null
   company?: string
   message?: string | null
 
@@ -249,6 +250,11 @@ const utmJsonField =
 const sourceUrlField =
   config.crm?.sourceUrlField || SPF.SOURCE_URL || "SourceUrl";
 
+  const postalCodeField =
+  config.crm?.postalCodeField ||
+  (SPF as any).POSTAL_CODE ||
+  "PostalCode";
+
   const requestKey = computeRequestKey({
     email: input.email,
     categorySlug: categorySlug || undefined,
@@ -359,16 +365,17 @@ const sourceUrlField =
       url: input.product.url ?? null,
       selection: extrasClean,
       context: {
-  sourceUrl: tracking.sourceUrl || input.sourceUrl || getHeader(event, "referer") || "",
-  categorySlug: categorySlug || null,
-  productSlug,
-  utm: input.utm ?? null,
-  tracking: {
-    source: tracking.trackingSource,
-    medium: tracking.trackingMedium,
-    campaign: tracking.trackingCampaign,
-    campaignId: tracking.trackingCampaignId,
-  },
+        categorySlug: categorySlug || null,
+        sourceUrl: tracking.sourceUrl || input.sourceUrl || getHeader(event, "referer") || "",
+        postalCode: input.postalCode ?? null,
+        productSlug,
+        tracking: {
+          source: tracking.trackingSource,
+          utm: input.utm ?? null,
+          campaign: tracking.trackingCampaign,
+          medium: tracking.trackingMedium,
+        },
+        campaignId: tracking.trackingCampaignId,
 },
       attachments: uploadedFile
         ? [
