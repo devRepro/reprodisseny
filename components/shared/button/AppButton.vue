@@ -1,10 +1,10 @@
 <script setup lang="ts">
-defineOptions({ inheritAttrs: false });
+defineOptions({ inheritAttrs: false })
 
-import { computed, useAttrs } from "vue";
-import { ArrowRight, LoaderCircle } from "lucide-vue-next";
-import { Button } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
+import { computed, useAttrs, type HTMLAttributes } from "vue"
+import { ArrowRight, LoaderCircle } from "lucide-vue-next"
+import { Button } from "@/components/ui/button"
+import { cn } from "@/lib/utils"
 
 type AppButtonVariant =
   | "primary"
@@ -12,24 +12,24 @@ type AppButtonVariant =
   | "outline"
   | "ghost"
   | "link"
-  | "destructive";
+  | "destructive"
 
-type AppButtonSize = "sm" | "md" | "lg" | "icon";
+type AppButtonSize = "sm" | "md" | "lg" | "icon"
 
 const props = withDefaults(
   defineProps<{
-    to?: string | Record<string, unknown> | null;
-    href?: string | null;
-    target?: string | null;
-    rel?: string | null;
-    type?: "button" | "submit" | "reset";
-    variant?: AppButtonVariant;
-    size?: AppButtonSize;
-    loading?: boolean;
-    disabled?: boolean;
-    block?: boolean;
-    arrow?: boolean;
-    class?: string;
+    to?: string | Record<string, unknown> | null
+    href?: string | null
+    target?: string | null
+    rel?: string | null
+    type?: "button" | "submit" | "reset"
+    variant?: AppButtonVariant
+    size?: AppButtonSize
+    loading?: boolean
+    disabled?: boolean
+    block?: boolean
+    arrow?: boolean
+    class?: HTMLAttributes["class"]
   }>(),
   {
     to: null,
@@ -44,120 +44,77 @@ const props = withDefaults(
     block: false,
     arrow: false,
     class: "",
-  }
-);
+  },
+)
 
-const attrs = useAttrs();
+const attrs = useAttrs()
 
-const isDisabled = computed(() => props.disabled || props.loading);
+const isDisabled = computed(() => props.disabled || props.loading)
 
 const shadcnVariant = computed(() => {
-  switch (props.variant) {
-    case "primary":
-      return "default";
-    case "secondary":
-      return "secondary";
-    case "outline":
-      return "outline";
-    case "ghost":
-      return "ghost";
-    case "link":
-      return "link";
-    case "destructive":
-      return "destructive";
-    default:
-      return "default";
-  }
-});
+  /**
+   * Usamos shadcn como primitivo estructural.
+   * El look real lo controla main.scss con .btn-*.
+   */
+  return "ghost"
+})
 
 const shadcnSize = computed(() => {
-  return props.size === "icon" ? "icon" : "default";
-});
-
-const sizeClass = computed(() => {
-  if (props.variant === "link") {
-    return "h-auto px-0 py-0 text-body-s";
-  }
-
-  switch (props.size) {
-    case "sm":
-      return "h-9 px-4 text-body-s";
-    case "lg":
-      return "h-12 px-6 text-body";
-    case "icon":
-      return "h-10 w-10 p-0";
-    case "md":
-    default:
-      return "h-11 px-5 text-body-s";
-  }
-});
+  return props.size === "icon" ? "icon" : "default"
+})
 
 const variantClass = computed(() => {
   switch (props.variant) {
     case "primary":
-      return [
-        "rounded-2xl border border-transparent",
-        "bg-primary text-primary-foreground shadow-sm",
-        "hover:bg-primary/92",
-        "focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-      ].join(" ");
-
+      return "btn-primary"
     case "secondary":
-      return [
-        "rounded-2xl border border-border",
-        "bg-accent text-foreground shadow-sm",
-        "hover:bg-accent/80",
-        "focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-      ].join(" ");
-
+      return "btn-secondary"
     case "outline":
-      return [
-        "rounded-2xl border border-border",
-        "bg-background text-foreground shadow-sm",
-        "hover:bg-accent/45",
-        "focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-      ].join(" ");
-
+      return "btn-outline"
     case "ghost":
-      return [
-        "rounded-2xl border border-transparent",
-        "bg-transparent text-foreground",
-        "hover:bg-accent/45",
-        "focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-      ].join(" ");
-
+      return "btn-ghost"
     case "link":
-      return [
-        "rounded-none border-0 bg-transparent shadow-none",
-        "text-primary hover:text-primary/80",
-        "underline-offset-4 hover:no-underline",
-      ].join(" ");
-
+      return "btn-link"
     case "destructive":
-      return ["rounded-2xl border border-transparent shadow-sm"].join(" ");
-
+      return "btn-destructive"
     default:
-      return "";
+      return "btn-primary"
   }
-});
+})
+
+const sizeClass = computed(() => {
+  if (props.variant === "link") return ""
+
+  switch (props.size) {
+    case "sm":
+      return "btn-sm"
+    case "lg":
+      return "btn-lg"
+    case "icon":
+      return "btn-icon"
+    case "md":
+    default:
+      return "btn-md"
+  }
+})
 
 const buttonClass = computed(() =>
   cn(
-    "inline-flex items-center justify-center gap-2 whitespace-nowrap font-semibold transition-all duration-200",
-    "[&_svg]:shrink-0",
-    props.block && props.variant !== "link" ? "w-full" : "",
-    isDisabled.value ? "pointer-events-none opacity-50" : "",
-    sizeClass.value,
+    "btn",
     variantClass.value,
-    props.class
-  )
-);
+    sizeClass.value,
+    props.block && props.variant !== "link" ? "btn-block" : "",
+    isDisabled.value ? "btn-disabled" : "",
+    props.class,
+  ),
+)
 
 const externalRel = computed(() => {
-  if (props.rel) return props.rel;
-  if (props.target === "_blank") return "noopener noreferrer";
-  return undefined;
-});
+  if (props.rel) return props.rel
+  if (props.target === "_blank") return "noopener noreferrer"
+
+  return undefined
+})
 </script>
 
 <template>
@@ -169,10 +126,17 @@ const externalRel = computed(() => {
     :class="buttonClass"
     v-bind="attrs"
   >
-    <NuxtLink :to="to" :target="target || undefined" :rel="externalRel">
-      <LoaderCircle v-if="loading" class="h-4 w-4 animate-spin" />
+    <NuxtLink
+  :to="to"
+  :target="target || undefined"
+  :rel="externalRel"
+  :aria-disabled="isDisabled || undefined"
+  :tabindex="isDisabled ? -1 : undefined"
+  @click="isDisabled && $event.preventDefault()"
+>
+      <LoaderCircle v-if="loading" class="btn-icon-svg animate-spin" />
       <slot />
-      <ArrowRight v-if="arrow && !loading" class="h-4 w-4" />
+      <ArrowRight v-if="arrow && !loading" class="btn-icon-svg" />
     </NuxtLink>
   </Button>
 
@@ -184,10 +148,16 @@ const externalRel = computed(() => {
     :class="buttonClass"
     v-bind="attrs"
   >
-    <a :href="href" :target="target || undefined" :rel="externalRel">
-      <LoaderCircle v-if="loading" class="h-4 w-4 animate-spin" />
+    <a
+  :href="isDisabled ? undefined : href"
+  :target="target || undefined"
+  :rel="externalRel"
+  :aria-disabled="isDisabled || undefined"
+  :tabindex="isDisabled ? -1 : undefined"
+>
+      <LoaderCircle v-if="loading" class="btn-icon-svg animate-spin" />
       <slot />
-      <ArrowRight v-if="arrow && !loading" class="h-4 w-4" />
+      <ArrowRight v-if="arrow && !loading" class="btn-icon-svg" />
     </a>
   </Button>
 
@@ -200,8 +170,8 @@ const externalRel = computed(() => {
     :disabled="isDisabled"
     v-bind="attrs"
   >
-    <LoaderCircle v-if="loading" class="h-4 w-4 animate-spin" />
+    <LoaderCircle v-if="loading" class="btn-icon-svg animate-spin" />
     <slot />
-    <ArrowRight v-if="arrow && !loading" class="h-4 w-4" />
+    <ArrowRight v-if="arrow && !loading" class="btn-icon-svg" />
   </Button>
 </template>

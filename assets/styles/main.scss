@@ -53,12 +53,12 @@
    * Reduce padding en móvil para evitar formularios estrechos.
    */
   .product-lead-card {
-    @apply overflow-hidden rounded-2xl border border-border/70 bg-card shadow-[0_14px_36px_-26px_hsl(var(--foreground)/0.16)] sm:rounded-[28px] xl:flex xl:flex-col;
+    @apply rounded-2xl border border-border/70 bg-card shadow-[0_14px_36px_-26px_hsl(var(--foreground)/0.16)] sm:rounded-[28px] xl:flex xl:min-h-0 xl:flex-col xl:overflow-hidden;
   }
 
   @screen xl {
     .product-lead-card {
-      height: min(860px, calc(100dvh - 7rem));
+      height: min(860px, calc(100svh - 7rem));
     }
   }
 
@@ -119,11 +119,9 @@
     @apply relative inline-flex min-h-10 max-w-full items-center gap-2 overflow-hidden rounded-full border px-3.5 py-2 text-label font-medium transition duration-200;
 
     background:
-      linear-gradient(
-        180deg,
+      linear-gradient(180deg,
         hsl(var(--brand-white)) 0%,
-        hsl(var(--brand-bg-2) / 0.46) 100%
-      );
+        hsl(var(--brand-bg-2) / 0.46) 100%);
 
     color: hsl(var(--foreground) / 0.82);
     border-color: hsl(var(--foreground) / 0.12);
@@ -154,12 +152,10 @@
     pointer-events: none;
     border-radius: inherit;
     background:
-      linear-gradient(
-        90deg,
+      linear-gradient(90deg,
         transparent 0%,
         hsl(var(--brand-white) / 0.62) 44%,
-        transparent 72%
-      );
+        transparent 72%);
     opacity: 0;
     transform: translateX(-38%);
     transition:
@@ -172,11 +168,9 @@
     border-color: hsl(var(--foreground) / 0.20);
 
     background:
-      linear-gradient(
-        180deg,
+      linear-gradient(180deg,
         hsl(var(--brand-white)) 0%,
-        hsl(var(--brand-bg-2) / 0.62) 100%
-      );
+        hsl(var(--brand-bg-2) / 0.62) 100%);
 
     box-shadow:
       0 16px 36px -24px hsl(var(--foreground) / 0.46),
@@ -543,11 +537,9 @@
     @apply relative aspect-[16/11] w-full overflow-hidden;
 
     background:
-      linear-gradient(
-        180deg,
+      linear-gradient(180deg,
         hsl(var(--brand-white)) 0%,
-        hsl(var(--brand-ink-light) / 0.32) 100%
-      );
+        hsl(var(--brand-ink-light) / 0.32) 100%);
   }
 
   .product-hero-media__backdrop {
@@ -561,84 +553,136 @@
 
 
   /* =========================================================
-     BUTTONS — Figma kit
-     Usa estas clases para botones custom. El Button de shadcn ya hereda
-     colores vía --primary, --accent, --border, --ring.
-     ========================================================= */
-  .btn {
-    @apply inline-flex items-center justify-center whitespace-nowrap transition-colors disabled:pointer-events-none disabled:opacity-50;
-    gap: var(--button-gap);
-    border-radius: var(--button-radius);
-    padding: var(--button-padding-y) var(--button-padding-x);
-    font-size: var(--font-label);
-    line-height: var(--line-label);
-    font-weight: var(--weight-label);
-  }
+   BUTTONS
+   ========================================================= */
 
-  .btn svg {
-    width: var(--button-icon-size);
-    height: var(--button-icon-size);
-    flex-shrink: 0;
-  }
-
+  .btn,
   .btn-primary,
   .btn-secondary,
-  .btn-ghost {
-    @apply inline-flex items-center justify-center whitespace-nowrap transition-colors disabled:pointer-events-none disabled:opacity-50;
+  .btn-outline,
+  .btn-ghost,
+  .btn-link,
+  .btn-destructive {
+    display: inline-flex;
+    min-height: 36px;
+    align-items: center;
+    justify-content: center;
     gap: var(--button-gap);
     border-radius: var(--button-radius);
     padding: var(--button-padding-y) var(--button-padding-x);
     font-size: var(--font-label);
     line-height: var(--line-label);
     font-weight: var(--weight-label);
+    text-decoration: none;
+    white-space: nowrap;
+    transition:
+      background-color 160ms ease,
+      border-color 160ms ease,
+      color 160ms ease,
+      box-shadow 160ms ease,
+      transform 160ms ease;
+  }
+
+  .btn svg,
+  .btn-primary svg,
+  .btn-secondary svg,
+  .btn-outline svg,
+  .btn-ghost svg,
+  .btn-link svg,
+  .btn-destructive svg {
+    width: var(--button-icon-size);
+    height: var(--button-icon-size);
+    flex: 0 0 auto;
   }
 
   .btn-primary {
-    color: hsl(var(--primary-foreground));
-    background-color: hsl(var(--primary));
     border: 1px solid hsl(var(--primary));
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    box-shadow: 0 10px 24px -18px hsl(var(--primary) / 0.65);
   }
 
   .btn-primary:hover {
-    background-color: hsl(var(--brand-base-dark));
     border-color: hsl(var(--brand-base-dark));
+    background: hsl(var(--brand-base-dark));
+    color: hsl(var(--primary-foreground));
+    transform: translateY(-1px);
   }
 
   .btn-secondary {
-    color: hsl(var(--primary));
-    background-color: hsl(var(--brand-white));
-    border: 1px solid hsl(var(--primary));
+    border: 1px solid hsl(var(--primary) / 0.22);
+    background: hsl(var(--secondary));
+    color: hsl(var(--secondary-foreground));
   }
 
   .btn-secondary:hover {
-    background-color: hsl(var(--brand-base-light));
+    border-color: hsl(var(--primary) / 0.35);
+    background: hsl(var(--brand-base-light));
+    color: hsl(var(--brand-base-dark));
+  }
+
+  .btn-outline {
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    box-shadow: 0 1px 2px hsl(var(--foreground) / 0.06);
+  }
+
+  .btn-outline:hover {
+    border-color: hsl(var(--primary) / 0.32);
+    background: hsl(var(--accent) / 0.55);
+    color: hsl(var(--accent-foreground));
   }
 
   .btn-ghost {
-    color: hsl(var(--brand-base-dark));
-    background-color: transparent;
     border: 1px solid transparent;
+    background: transparent;
+    color: hsl(var(--foreground));
   }
 
   .btn-ghost:hover {
-    background-color: hsl(var(--brand-base-light));
+    background: hsl(var(--accent) / 0.55);
+    color: hsl(var(--accent-foreground));
   }
 
   .btn-link {
-    @apply inline-flex items-center underline underline-offset-4 transition-colors;
-    gap: var(--button-gap);
+    min-height: auto;
+    border: 0;
+    background: transparent;
     color: hsl(var(--primary));
-    font-size: var(--font-label);
-    line-height: var(--line-label);
-    font-weight: var(--weight-label);
+    padding: 0;
+    text-decoration: underline;
+    text-underline-offset: 4px;
   }
 
   .btn-link:hover {
     color: hsl(var(--brand-base-dark));
   }
 
+  .btn-destructive {
+    border: 1px solid hsl(var(--destructive));
+    background: hsl(var(--destructive));
+    color: hsl(var(--destructive-foreground));
+  }
+
+  .btn-destructive:hover {
+    background: hsl(var(--destructive) / 0.9);
+  }
+
+  .btn-sm {
+    min-height: 36px;
+    padding: 7px 14px;
+    font-size: var(--font-label-s);
+    line-height: var(--line-label-s);
+  }
+
+  .btn-md {
+    min-height: 44px;
+  }
+
   .btn-lg {
-    padding: var(--button-padding-y) var(--button-padding-x);
+    min-height: 48px;
+    padding: 10px 18px;
     font-size: var(--font-body);
     line-height: var(--line-body);
     font-weight: 500;
@@ -648,101 +692,543 @@
     width: var(--button-large-icon-size);
     height: var(--button-large-icon-size);
   }
-  .btn-primary,
-  .btn-secondary,
-  .btn-ghost,
-  .btn-link {
-    display: inline-flex;
-    min-height: 36px;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    border-radius: 8px;
-    padding: 8px 16px;
-    font-size: var(--font-label);
-    font-weight: var(--weight-label);
-    line-height: var(--line-label);
-    text-decoration: none;
-    transition:
-      background-color 160ms ease,
-      border-color 160ms ease,
-      color 160ms ease,
-      box-shadow 160ms ease,
-      transform 160ms ease;
+
+  .btn-block {
+    width: 100%;
   }
 
-  .btn-primary svg,
-  .btn-secondary svg,
-  .btn-ghost svg,
-  .btn-link svg {
-    width: 20px;
-    height: 20px;
+  .btn-icon {
+    width: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    padding: 0;
+  }
+
+  .btn:focus-visible,
+  .btn-primary:focus-visible,
+  .btn-secondary:focus-visible,
+  .btn-outline:focus-visible,
+  .btn-ghost:focus-visible,
+  .btn-link:focus-visible,
+  .btn-destructive:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+
+  .btn-primary:disabled,
+  .btn-secondary:disabled,
+  .btn-outline:disabled,
+  .btn-ghost:disabled,
+  .btn-link:disabled,
+  .btn-destructive:disabled {
+    pointer-events: none;
+    opacity: 0.55;
+    transform: none;
+  }
+
+  .btn-icon-svg {
+    width: var(--button-icon-size);
+    height: var(--button-icon-size);
     flex: 0 0 auto;
   }
 
-  .btn-primary {
-    border: 1px solid hsl(var(--brand-base));
-    background: hsl(var(--brand-base));
-    color: hsl(var(--brand-white));
+  .btn.btn-lg .btn-icon-svg {
+    width: var(--button-large-icon-size);
+    height: var(--button-large-icon-size);
   }
 
-  .btn-primary:hover {
+  .btn-disabled,
+  .btn[aria-disabled="true"],
+  .btn:disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+    opacity: 0.55;
+    transform: none;
+  }
+
+  /* Refuerzo para que AppButton mande sobre las utilities internas de shadcn */
+  .btn.btn-primary {
+    border: 1px solid hsl(var(--primary));
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    box-shadow: 0 10px 24px -18px hsl(var(--primary) / 0.65);
+  }
+
+  .btn.btn-primary:hover {
     border-color: hsl(var(--brand-base-dark));
     background: hsl(var(--brand-base-dark));
-    color: hsl(var(--brand-white));
+    color: hsl(var(--primary-foreground));
     transform: translateY(-1px);
   }
 
-  .btn-secondary {
-    border: 1px solid hsl(var(--brand-base));
-    background: hsl(var(--brand-white));
-    color: hsl(var(--brand-base));
+  .btn.btn-secondary {
+    border: 1px solid hsl(var(--primary) / 0.22);
+    background: hsl(var(--secondary));
+    color: hsl(var(--secondary-foreground));
   }
 
-  .btn-secondary:hover {
+  .btn.btn-secondary:hover {
+    border-color: hsl(var(--primary) / 0.35);
     background: hsl(var(--brand-base-light));
-    color: hsl(var(--brand-base));
+    color: hsl(var(--brand-base-dark));
   }
 
-  .btn-ghost {
+  .btn.btn-outline {
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    box-shadow: 0 1px 2px hsl(var(--foreground) / 0.06);
+  }
+
+  .btn.btn-outline:hover {
+    border-color: hsl(var(--primary) / 0.32);
+    background: hsl(var(--accent) / 0.55);
+    color: hsl(var(--accent-foreground));
+  }
+
+  .btn.btn-ghost {
     border: 1px solid transparent;
     background: transparent;
-    color: hsl(var(--brand-base-dark));
+    color: hsl(var(--foreground));
+    box-shadow: none;
   }
 
-  .btn-ghost:hover {
-    background: hsl(var(--brand-base-light));
-    color: hsl(var(--brand-base-dark));
+  .btn.btn-ghost:hover {
+    background: hsl(var(--accent) / 0.55);
+    color: hsl(var(--accent-foreground));
   }
 
-  .btn-link {
+  .btn.btn-link {
     min-height: auto;
     border: 0;
     background: transparent;
-    color: hsl(var(--brand-base));
+    color: hsl(var(--primary));
     padding: 0;
+    box-shadow: none;
     text-decoration: underline;
-    text-underline-offset: 3px;
+    text-underline-offset: 4px;
   }
 
-  .btn-link:hover {
+  .btn.btn-link:hover {
     color: hsl(var(--brand-base-dark));
+    background: transparent;
   }
 
-  .btn-lg {
+  .btn.btn-destructive {
+    border: 1px solid hsl(var(--destructive));
+    background: hsl(var(--destructive));
+    color: hsl(var(--destructive-foreground));
+  }
+
+  .btn.btn-sm {
+    min-height: 36px;
+    height: auto;
+    padding: 7px 14px;
+    font-size: var(--font-label-s);
+    line-height: var(--line-label-s);
+  }
+
+  .btn.btn-md {
+    min-height: 44px;
+    height: auto;
+    padding: var(--button-padding-y) var(--button-padding-x);
+  }
+
+  .btn.btn-lg {
     min-height: 48px;
+    height: auto;
+    padding: 10px 18px;
     font-size: var(--font-body);
-    font-weight: 500;
     line-height: var(--line-body);
+    font-weight: 500;
   }
 
-  .btn-lg svg {
-    width: 24px;
-    height: 24px;
+  .btn.btn-icon {
+    width: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    height: 40px;
+    padding: 0;
   }
+
+  /* =========================================================
+   FORMS
+   Formularios comerciales / marketing.
+   No tocar primitivos shadcn aquí.
+   ========================================================= */
+
+  .form-shell {
+    width: 100%;
+    max-width: 550px;
+    margin-inline: auto;
+  }
+
+  .form-shell-sm {
+    max-width: 480px;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .form-label {
+    font-size: var(--font-body);
+    line-height: var(--line-body);
+    font-weight: 400;
+    color: hsl(var(--foreground));
+  }
+
+  .form-label-muted {
+    margin-left: 0.25rem;
+    font-size: var(--font-body-s);
+    line-height: var(--line-body-s);
+    color: hsl(var(--muted-foreground));
+  }
+
+  .form-control {
+    width: 100%;
+    min-height: var(--form-control-height);
+    border-radius: var(--form-control-radius);
+    border: 1px solid hsl(var(--form-control-border));
+    background: hsl(var(--form-control-bg));
+    color: hsl(var(--foreground));
+    padding: var(--form-control-padding-y) var(--form-control-padding-x);
+    font-size: var(--form-control-font-size);
+    line-height: var(--form-control-line-height);
+    box-shadow: var(--form-control-shadow);
+    transition:
+      border-color 160ms ease,
+      box-shadow 160ms ease,
+      background-color 160ms ease;
+  }
+
+  .form-control::placeholder {
+    color: hsl(var(--form-control-placeholder) / 0.72);
+  }
+
+  .form-control:hover {
+    border-color: hsl(var(--form-control-border-hover) / 0.58);
+  }
+
+  .form-control:focus {
+    border-color: hsl(var(--ring));
+    outline: none;
+    box-shadow: var(--form-control-focus-shadow);
+  }
+
+  .form-control:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+  }
+
+  .form-control-sm {
+    min-height: var(--form-control-height-sm);
+  }
+
+  .form-textarea {
+    min-height: 128px;
+    resize: vertical;
+  }
+
+  .form-textarea-lg {
+    min-height: 160px;
+  }
+
+  .form-control-error {
+    border-color: hsl(var(--destructive));
+  }
+
+  .form-control-error:focus {
+    border-color: hsl(var(--destructive));
+    box-shadow: 0 0 0 3px hsl(var(--destructive) / 0.14);
+  }
+
+  .form-checkbox {
+    margin-top: 0.25rem;
+    height: 1.25rem;
+    width: 1.25rem;
+    flex: 0 0 auto;
+    cursor: pointer;
+    border-radius: 0.35rem;
+    border: 1px solid hsl(var(--border));
+    accent-color: hsl(var(--primary));
+  }
+
+  .form-checkbox:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+
+  .form-consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .form-consent-label {
+    cursor: pointer;
+    user-select: none;
+    font-size: var(--font-body-s);
+    line-height: 1.65;
+    color: hsl(var(--muted-foreground));
+  }
+
+  .form-link {
+    border-radius: 0.25rem;
+    color: hsl(var(--primary));
+    font-weight: 500;
+    text-decoration: none;
+    text-underline-offset: 4px;
+  }
+
+  .form-link:hover {
+    text-decoration: underline;
+  }
+
+  .form-error {
+    border-radius: var(--form-control-radius);
+    border: 1px solid hsl(var(--destructive) / 0.18);
+    background: hsl(var(--destructive) / 0.08);
+    padding: 0.75rem;
+    color: hsl(var(--destructive));
+    font-size: var(--font-body-s);
+    line-height: var(--line-body-s);
+    font-weight: 500;
+  }
+
+  .form-file-button {
+    display: inline-flex;
+    min-height: 32px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.625rem;
+    border: 1px solid hsl(var(--border));
+    background: hsl(var(--background));
+    padding: 0.4rem 0.75rem;
+    color: hsl(var(--foreground));
+    font-size: var(--font-body-s);
+    line-height: var(--line-body-s);
+    font-weight: 500;
+    box-shadow: 0 1px 2px hsl(var(--foreground) / 0.05);
+    transition:
+      background-color 160ms ease,
+      border-color 160ms ease;
+  }
+
+  .form-file-button:hover {
+    border-color: hsl(var(--primary) / 0.28);
+    background: hsl(var(--accent) / 0.55);
+  }
+
+  .form-file-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: hsl(var(--muted-foreground));
+    font-size: var(--font-body-s);
+    line-height: var(--line-body-s);
+  }
+
+
   @media (max-width: 767px) {
     .section-intro-surface::before {
       display: none;
+    }
+  }
+
+  /* =========================================================
+   RD FORM SYSTEM
+   Formularios comerciales con UX robusta:
+   - Mobile/tablet: scroll natural de página
+   - Desktop xl: card con header/footer fijos y body scrolleable
+   ========================================================= */
+
+  .rd-form-frame {
+    @apply w-full min-w-0;
+  }
+
+  /* Card base */
+  .rd-form-shell {
+    @apply flex w-full min-w-0 flex-col rounded-3xl border border-border/70 bg-card shadow-sm;
+  }
+
+  /* En móvil NO forzamos scroll interno */
+  .rd-form-shell--sticky {
+    @apply overflow-visible;
+  }
+
+  /* Header fijo dentro de la card */
+  .rd-form-header {
+    @apply shrink-0 border-b border-border/50 px-5 py-5 sm:px-6 lg:px-8;
+  }
+
+  .rd-form-eyebrow {
+    @apply text-xs font-bold uppercase tracking-[0.12em] text-primary;
+  }
+
+  .rd-form-title {
+    @apply mt-1 text-[1.05rem] font-semibold tracking-tight text-foreground md:text-xl;
+  }
+
+  .rd-form-description {
+    @apply mt-1 text-sm leading-relaxed text-muted-foreground;
+  }
+
+  /* Body: en móvil fluye normal; en desktop será el área scrolleable */
+  .rd-form-body {
+    @apply min-h-0 flex-1 px-5 py-5 sm:px-6 lg:px-8;
+  }
+
+  .rd-form-stack {
+    @apply space-y-4 md:space-y-5;
+  }
+
+  .rd-form-label {
+    @apply text-sm font-medium text-foreground;
+  }
+
+  .rd-form-control {
+    @apply h-11 rounded-xl border-border/80 bg-background shadow-sm transition-colors focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/15;
+  }
+
+  .rd-form-control--readonly {
+    @apply bg-muted/35 text-foreground/85;
+  }
+
+  .rd-form-control--error {
+    @apply border-destructive focus-visible:border-destructive focus-visible:ring-destructive/15;
+  }
+
+  .rd-form-textarea {
+    @apply min-h-[96px] resize-y rounded-xl border-border/80 bg-background shadow-sm transition-colors focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/15;
+  }
+
+  .rd-form-section {
+    @apply space-y-4;
+  }
+
+  .rd-form-section-bordered {
+    @apply space-y-4 border-t border-border/60 pt-5;
+  }
+
+  .rd-form-section-title {
+    @apply text-sm font-bold uppercase tracking-[0.08em] text-foreground/80;
+  }
+
+  /* Footer: siempre visible en desktop */
+  .rd-form-footer {
+    @apply shrink-0 border-t border-border/50 bg-card px-5 py-4 sm:px-6 lg:px-8;
+  }
+
+  .rd-form-upload {
+    @apply flex cursor-pointer items-center justify-between gap-3 rounded-xl border border-dashed border-border/80 bg-muted/20 px-3 py-2.5 transition hover:border-primary/40 hover:bg-muted/40 focus-within:ring-2 focus-within:ring-primary/20;
+  }
+
+  .rd-form-upload-button {
+    @apply inline-flex h-8 shrink-0 items-center rounded-md border border-border/60 bg-background px-3 text-xs font-semibold text-foreground transition-colors;
+  }
+
+  .rd-form-upload-text {
+    @apply min-w-0 flex-1 truncate text-right text-xs text-muted-foreground transition-colors;
+  }
+
+  .rd-form-upload:hover .rd-form-upload-button {
+    @apply bg-background/80;
+  }
+
+  .rd-form-upload:hover .rd-form-upload-text {
+    @apply text-foreground;
+  }
+
+  .rd-form-check-panel {
+    @apply flex items-start gap-3 rounded-xl bg-muted/30 p-3 transition-colors;
+  }
+
+  .rd-form-check-panel--error {
+    @apply bg-destructive/5 ring-1 ring-destructive/30;
+  }
+
+  .rd-form-alert {
+    @apply mb-4 shrink-0 rounded-2xl shadow-sm;
+  }
+
+  .rd-form-checkbox {
+    @apply mt-0.5 h-4 w-4 shrink-0 rounded border-border text-primary focus:ring-primary/20;
+  }
+
+  .rd-form-privacy-text {
+    @apply block cursor-pointer text-xs leading-tight text-foreground/80;
+  }
+
+  .rd-form-link {
+    @apply font-semibold text-primary hover:underline;
+  }
+
+  .rd-form-readonly-badge {
+    @apply pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 rounded-full border border-primary/15 bg-primary/5 px-2.5 py-0.5 text-[11px] font-semibold text-primary;
+  }
+
+  .rd-form-inline-note {
+    @apply ml-1 text-xs font-normal text-muted-foreground;
+  }
+
+  .rd-form-required {
+    @apply text-destructive;
+  }
+
+  .rd-form-fixed-note {
+    @apply ml-1 text-[11px] font-bold uppercase tracking-wider text-primary;
+  }
+
+  /* Desktop product form behavior */
+  @screen xl {
+    .rd-form-frame {
+      @apply min-h-0;
+    }
+
+    .rd-form-shell--sticky {
+      max-height: min(860px, calc(100svh - 7rem));
+      overflow: hidden;
+    }
+
+    .rd-form-body {
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      scrollbar-width: thin;
+      scrollbar-color: hsl(var(--primary) / 0.35) transparent;
+    }
+
+    .rd-form-body::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    .rd-form-body::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .rd-form-body::-webkit-scrollbar-thumb {
+      background-color: hsl(var(--primary) / 0.32);
+      border-radius: 9999px;
+      border: 2px solid hsl(var(--card));
+    }
+
+    .rd-form-footer {
+      box-shadow: 0 -14px 28px -24px hsl(var(--foreground) / 0.28);
     }
   }
 
@@ -822,7 +1308,7 @@
     --color-light: var(--brand-ink-light);
     --color-dark: var(--brand-ink-dark);
     --color-gray: var(--brand-ink-medium);
-    
+
     /* Layout */
     --radius: 0.5rem;
     --radius-card: 0.75rem;
@@ -836,6 +1322,20 @@
     --button-icon-size: 20px;
     --button-large-icon-size: 24px;
 
+    /* Forms */
+    --form-control-height: 44px;
+    --form-control-height-sm: 40px;
+    --form-control-radius: 12px;
+    --form-control-padding-x: 12px;
+    --form-control-padding-y: 10px;
+    --form-control-font-size: var(--font-body-s);
+    --form-control-line-height: var(--line-body);
+    --form-control-shadow: 0 1px 2px hsl(var(--foreground) / 0.06);
+    --form-control-focus-shadow: 0 0 0 3px hsl(var(--ring) / 0.14);
+    --form-control-border: var(--input);
+    --form-control-border-hover: var(--brand-ink-medium);
+    --form-control-bg: var(--background);
+    --form-control-placeholder: var(--muted-foreground);
     /* Menubar */
     --menubar-bg: var(--brand-ink-dark);
     --menubar-text: var(--brand-white);

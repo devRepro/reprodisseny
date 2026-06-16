@@ -17,7 +17,7 @@ export const SPF = {
     FOLLOWUP: "Seguiment",
     STATUS: "Estat",
     STATUS_CODE: "StatusCode",
-  
+    POSTAL_CODE: "PostalCode",
     RESPONSABLE: "Responsable",
     RESPONSABLE_ID: "ResponsableLookupId",
   
@@ -29,7 +29,7 @@ export const SPF = {
   PRIMARY_FILE_NAME: "PrimaryFileName",
   PRIMARY_FILE_MIME_TYPE: "PrimaryFileMimeType",
   PRIMARY_FILE_SIZE: "PrimaryFileSize",
-
+    
   CONSENT: "Consent",
   CATEGORY_SLUG: "CategorySlug",
   PRODUCT_SLUG: "ProductSlug",

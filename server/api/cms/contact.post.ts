@@ -17,6 +17,10 @@ const ContactPayloadSchema = z.object({
   nombre: z.string().min(2).max(120),
   email: z.string().email().max(160),
   telefono: z.string().max(40).optional().nullable(),
+  codigoPostal: z.string().max(20).optional().nullable(),
+codigo_postal: z.string().max(20).optional().nullable(),
+postalCode: z.string().max(20).optional().nullable(),
+cp: z.string().max(20).optional().nullable(),
 
   empresa: z.string().max(160).optional().nullable(),
   company: z.string().max(160).optional().nullable(),
@@ -233,6 +237,12 @@ function cleanClientMessage(value: unknown) {
 const origin = firstString(p.origen, "contact_form")
 
 const company = firstString(p.empresa, p.company)
+const postalCode = firstString(
+  p.codigoPostal,
+  p.codigo_postal,
+  p.postalCode,
+  p.cp,
+)
 
 const productName = firstString(p.producto, p.product) || "Consulta web"
 
@@ -279,6 +289,7 @@ const normalizedTracking = normalizeContactTracking({
     origin,
     sourceUrl: normalizedTracking.sourceUrl || sourceUrl || null,
     productName,
+    postalCode: postalCode || null,
   },
 
   consent: Boolean(p.consent),
