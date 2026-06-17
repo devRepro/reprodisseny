@@ -49,7 +49,7 @@ const services: Service[] = [
 
 <template>
   <section class="w-full bg-background">
-    <div class="container-content py-10 md:py-14 lg:py-16">
+    <div class="home-section__inner py-10 md:py-14 lg:py-16">
       <SectionHeading
         as="h2"
         title="Inspiramos confianza en las empresas a través de nuestros servicios"

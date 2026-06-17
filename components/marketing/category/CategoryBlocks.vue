@@ -31,7 +31,7 @@ function hasItems(block: Block) {
       <!-- Texto normal -->
       <div v-else-if="b.type === 'text'" class="max-w-[72ch]">
         <p
-          class="mb-0 whitespace-pre-line text-body text-foreground/82 md:text-[18px] md:leading-[1.72]"
+          class="mb-0 whitespace-pre-line text-body text-foreground/80md:text-[18px] md:leading-[1.72]"
         >
           {{ (b as any).text }}
         </p>

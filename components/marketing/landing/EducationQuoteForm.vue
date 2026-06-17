@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import { computed, reactive, ref } from "vue";
 import { useRoute } from "#imports";
-import { Loader2 } from "lucide-vue-next";
 
+import { cn } from "@/lib/utils";
+import AppButton from "@/components/shared/button/AppButton.vue";
 import { usePriceRequests } from "@/composables/usePriceRequests";
 import { useTracking } from "@/composables/useTracking";
 import type { TrackingContext, TrackingEventName } from "~/types/tracking";
-
-type EducationLocale = "ca" | "es";
 
 type QuoteForm = {
   website: string;
@@ -21,6 +20,8 @@ type QuoteForm = {
   privacy: boolean;
 };
 
+type ValidationField = "name" | "center" | "email" | "phone" | "privacy" | null;
+
 type PriceRequestResult = {
   ok?: boolean;
   duplicated?: boolean;
@@ -33,14 +34,12 @@ type PriceRequestResult = {
 
 const props = withDefaults(
   defineProps<{
-    locale?: EducationLocale;
     productName?: string;
     productSlug?: string;
     categorySlug?: string;
     trackingContext?: TrackingContext;
   }>(),
   {
-    locale: "ca",
     productName: "Material gràfic i senyalística per a centres educatius",
     productSlug: "centres-educatius",
     categorySlug: "publicaciones",
@@ -54,6 +53,7 @@ const tracking = useTracking();
 
 const success = ref(false);
 const validationError = ref("");
+const validationField = ref<ValidationField>(null);
 const submittedReference = ref<string | null>(null);
 
 const form = reactive<QuoteForm>({
@@ -68,39 +68,7 @@ const form = reactive<QuoteForm>({
   privacy: false,
 });
 
-const copy = computed(() => {
-  if (props.locale === "es") {
-    return {
-      successTitle: "Solicitud enviada correctamente",
-      genericError:
-        "No hemos podido enviar la solicitud. Inténtalo de nuevo o llámanos al +34 932 749 890.",
-      name: "Nombre *",
-      center: "Centro educativo *",
-      email: "Email *",
-      phone: "Teléfono *",
-      materialType: "Tipo de material",
-      materialPlaceholder: "Selecciona una opción",
-      deadline: "Fecha aproximada de entrega",
-      deadlinePlaceholder: "Ej. antes del 5 de septiembre",
-      message: "Mensaje",
-      messagePlaceholder: "Cuéntanos qué necesitáis: dossiers, vinilos, carteles, señalética, cantidades aproximadas...",
-      requiredNote: "Los campos marcados con",
-      requiredNoteEnd: "son obligatorios.",
-      privacyPrefix: "He leído y acepto la",
-      privacyLink: "política de privacidad",
-      submit: "Solicitar presupuesto",
-      sending: "Enviando...",
-      errors: {
-        name: "Indica tu nombre.",
-        center: "Indica el nombre del centro educativo.",
-        email: "Introduce un email válido.",
-        phone: "Introduce un teléfono válido.",
-        privacy: "Debes aceptar la política de privacidad.",
-      },
-    };
-  }
-
-  return {
+const copy = {
   successTitle: "Sol·licitud enviada correctament",
   successMessage:
     "Hem rebut la teva sol·licitud. Ens posarem en contacte amb tu en menys de 24 hores laborables.",
@@ -134,11 +102,9 @@ const copy = computed(() => {
     privacy: "Has d’acceptar la política de privacitat.",
   },
 };
-});
 
 const sourceUrl = computed(() => {
   const value = import.meta.client ? window.location.href : route.fullPath || "/";
-
   return String(value).slice(0, 300);
 });
 
@@ -155,7 +121,9 @@ const routeUtm = computed(() => {
       continue;
     }
 
-    out[key] = Array.isArray(value) ? String(value[0] ?? "") : String(value ?? "");
+    out[key] = Array.isArray(value)
+      ? String(value[0] ?? "")
+      : String(value ?? "");
   }
 
   return Object.keys(out).length ? out : null;
@@ -165,26 +133,44 @@ const errorMessage = computed(() => {
   if (validationError.value) return validationError.value;
   if (!error.value) return "";
 
-  return typeof error.value === "string" ? error.value : copy.value.genericError;
+  return typeof error.value === "string" ? error.value : copy.genericError;
 });
+
+function controlClass(field: ValidationField) {
+  return cn(
+    "rd-form-control",
+    validationField.value === field && "rd-form-control--error",
+  );
+}
+
+function textareaClass() {
+  return "rd-form-textarea";
+}
+
+function checkPanelClass(field: ValidationField) {
+  return cn(
+    "rd-form-check-panel",
+    validationField.value === field && "rd-form-check-panel--error",
+  );
+}
 
 function getTrackingContext(): TrackingContext {
   return {
     pageType: "landing",
-    pageLanguage: props.locale,
+    pageLanguage: "ca",
     contentGroup: "educacion",
     serviceName: "Centres educatius",
     campaignName: "centres-educatius-2026",
     campaignId: null,
     productSlug: props.productSlug,
     categorySlug: props.categorySlug,
-    formId: props.locale === "ca" ? "education_quote_form_ca" : "education_quote_form_es",
+    formId: "education_quote_form_ca",
     formName: "education_quote_form",
     ...props.trackingContext,
   };
 }
 
-function resetForm() {
+function resetFormFields() {
   form.website = "";
   form.name = "";
   form.center = "";
@@ -194,13 +180,15 @@ function resetForm() {
   form.deadline = "";
   form.message = "";
   form.privacy = false;
+
   validationError.value = "";
-  submittedReference.value = null;
+  validationField.value = null;
 }
 
 function handleResetSuccessState() {
   success.value = false;
-  resetForm();
+  submittedReference.value = null;
+  resetFormFields();
 }
 
 function isValidEmail(value: string) {
@@ -209,7 +197,6 @@ function isValidEmail(value: string) {
 
 function isValidPhone(value: string) {
   const digits = value.replace(/\D/g, "");
-
   return digits.length >= 9;
 }
 
@@ -253,6 +240,7 @@ function getLeadTrackingPayload() {
 }
 
 async function onSubmit() {
+  validationField.value = null;
   validationError.value = "";
   error.value = null;
 
@@ -262,67 +250,73 @@ async function onSubmit() {
   }
 
   if (!form.name.trim()) {
-    validationError.value = copy.value.errors.name;
+    validationField.value = "name";
+    validationError.value = copy.errors.name;
     return;
   }
 
   if (!form.center.trim()) {
-    validationError.value = copy.value.errors.center;
+    validationField.value = "center";
+    validationError.value = copy.errors.center;
     return;
   }
 
   if (!isValidEmail(form.email)) {
-    validationError.value = copy.value.errors.email;
+    validationField.value = "email";
+    validationError.value = copy.errors.email;
     return;
   }
 
   if (!isValidPhone(form.phone)) {
-    validationError.value = copy.value.errors.phone;
+    validationField.value = "phone";
+    validationError.value = copy.errors.phone;
     return;
   }
 
   if (!form.privacy) {
-    validationError.value = copy.value.errors.privacy;
+    validationField.value = "privacy";
+    validationError.value = copy.errors.privacy;
     return;
   }
 
+  const materialType = form.materialType.trim() || copy.notProvided;
+  const deadline = form.deadline.trim() || copy.notProvided;
+
   const fallbackMessage = [
-    props.locale === "ca"
-      ? "Sol·licitud de pressupost per a centre educatiu."
-      : "Solicitud de presupuesto para centro educativo.",
-    `${props.locale === "ca" ? "Centre" : "Centro"}: ${form.center.trim()}.`,
-    `${props.locale === "ca" ? "Tipus de material" : "Tipo de material"}: ${form.materialType || "sin indicar"}.`,
-    `${props.locale === "ca" ? "Data aproximada" : "Fecha aproximada"}: ${form.deadline || "sin indicar"}.`,
+    "Sol·licitud de pressupost per a centre educatiu.",
+    `Centre: ${form.center.trim()}.`,
+    `Tipus de material: ${materialType}.`,
+    `Data aproximada: ${deadline}.`,
   ].join(" ");
 
   const trackingPayload = getLeadTrackingPayload();
 
   const priceRequestPayload = {
-      website: null,
-      name: form.name.trim(),
-      email: form.email.trim(),
-      phone: form.phone.trim(),
-      company: form.center.trim(),
-      message: form.message.trim() || fallbackMessage,
-      categorySlug: props.categorySlug,
-      product: {
-        name: props.productName,
-        slug: props.productSlug,
-        sku: null,
-        url: sourceUrl.value,
-      },
-      extras: {
-        landing: "centres-educatius",
-        locale: props.locale,
-        center: form.center.trim(),
-        materialType: form.materialType || null,
-        deadline: form.deadline || null,
-      },
-      consent: true,
-      sourceUrl: sourceUrl.value,
-      utm: routeUtm.value,
-      tracking: trackingPayload,
-      initialStatus: "Nova",
+    website: null,
+    name: form.name.trim(),
+    email: form.email.trim(),
+    phone: form.phone.trim(),
+    company: form.center.trim(),
+    message: form.message.trim() || fallbackMessage,
+    categorySlug: props.categorySlug,
+    product: {
+      name: props.productName,
+      slug: props.productSlug,
+      sku: null,
+      url: sourceUrl.value,
+    },
+    extras: {
+      landing: "centres-educatius",
+      locale: "ca",
+      center: form.center.trim(),
+      materialType: form.materialType.trim() || null,
+      deadline: form.deadline.trim() || null,
+    },
+    consent: true,
+    sourceUrl: sourceUrl.value,
+    utm: routeUtm.value,
+    tracking: trackingPayload,
+    initialStatus: "Nova",
   };
 
   const response = await sendPriceRequest(
@@ -335,187 +329,229 @@ async function onSubmit() {
   if (error.value) return;
 
   const transactionId = resolveRequestReference(result);
-  submittedReference.value = transactionId ? String(transactionId) : null;
 
   if (!result?.duplicated) {
     pushLeadEvent(transactionId);
   }
 
+  resetFormFields();
+  submittedReference.value = transactionId ? String(transactionId) : null;
   success.value = true;
-  resetForm();
 }
 </script>
 
 <template>
-  <div class="mx-auto w-full max-w-[480px]">
+  <div class="rd-form-frame mx-auto max-w-xl">
     <div
-  v-if="success"
-  class="rounded-xl border border-primary/15 bg-white px-6 py-7 text-center shadow-sm"
-  role="status"
-  aria-live="polite"
->
-  <h3 class="text-xl font-semibold text-foreground">
-    {{ copy.successTitle }}
-  </h3>
+      v-if="success"
+      class="rd-form-shell"
+      role="status"
+      aria-live="polite"
+    >
+      <div class="rd-form-body text-center">
+        <h3 class="text-xl font-semibold text-foreground">
+          {{ copy.successTitle }}
+        </h3>
 
-  <p class="mt-3 text-sm leading-6 text-muted-foreground">
-    {{ copy.successMessage }}
-  </p>
+        <p class="mt-3 text-sm leading-6 text-muted-foreground">
+          {{ copy.successMessage }}
+        </p>
 
-  <p
-    v-if="submittedReference"
-    class="mt-3 text-xs font-medium text-muted-foreground"
-  >
-    {{ copy.referenceLabel }}: {{ submittedReference }}
-  </p>
-
-  <button
-    type="button"
-    class="mt-5 inline-flex h-10 items-center justify-center rounded-[6px] bg-primary px-4 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90"
-    @click="handleResetSuccessState"
-  >
-    {{ copy.sendAnother }}
-  </button>
-</div>
-
-    <form v-else class="space-y-4" novalidate @submit.prevent="onSubmit">
-      <div
-        v-if="errorMessage"
-        class="rounded-lg border border-destructive/20 bg-destructive/10 px-3 py-2 text-sm font-medium text-destructive"
-      >
-        {{ errorMessage }}
+        <p
+          v-if="submittedReference"
+          class="mt-3 text-xs font-medium text-muted-foreground"
+        >
+          {{ copy.referenceLabel }}: {{ submittedReference }}
+        </p>
       </div>
 
-      <input
-        v-model="form.website"
-        type="text"
-        name="website"
-        tabindex="-1"
-        autocomplete="off"
-        class="hidden"
-        aria-hidden="true"
-      />
-
-      <label class="block">
-        <span class="mb-1.5 block text-sm font-medium text-foreground">{{ copy.name }}</span>
-        <input
-          v-model="form.name"
-          name="name"
-          type="text"
-          autocomplete="name"
-          required
-          class="h-10 w-full rounded-[6px] border border-border bg-white px-3 text-[15px] outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
-        />
-      </label>
-
-      <label class="block">
-        <span class="mb-1.5 block text-sm font-medium text-foreground">{{ copy.center }}</span>
-        <input
-          v-model="form.center"
-          name="center"
-          type="text"
-          autocomplete="organization"
-          required
-          class="h-10 w-full rounded-[6px] border border-border bg-white px-3 text-[15px] outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
-        />
-      </label>
-
-      <label class="block">
-        <span class="mb-1.5 block text-sm font-medium text-foreground">{{ copy.email }}</span>
-        <input
-          v-model="form.email"
-          name="email"
-          type="email"
-          autocomplete="email"
-          required
-          class="h-10 w-full rounded-[6px] border border-border bg-white px-3 text-[15px] outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
-        />
-      </label>
-
-      <label class="block">
-        <span class="mb-1.5 block text-sm font-medium text-foreground">{{ copy.phone }}</span>
-        <input
-          v-model="form.phone"
-          name="phone"
-          type="tel"
-          inputmode="tel"
-          autocomplete="tel"
-          required
-          class="h-10 w-full rounded-[6px] border border-border bg-white px-3 text-[15px] outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
-        />
-      </label>
-
-      <label class="block">
-        <span class="mb-1.5 block text-sm font-medium text-foreground">{{ copy.materialType }}</span>
-        <select
-          v-model="form.materialType"
-          name="materialType"
-          class="h-10 w-full rounded-[6px] border border-border bg-white px-3 text-[15px] outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
+      <div class="rd-form-footer">
+        <AppButton
+          type="button"
+          size="lg"
+          block
+          @click="handleResetSuccessState"
         >
-          <option value="">{{ copy.materialPlaceholder }}</option>
-          <option value="material-didactic">Material didàctic</option>
-          <option value="senyalistica">Senyalística</option>
-          <option value="cartelleria">Cartelleria</option>
-          <option value="vinils">Vinils</option>
-          <option value="altres">Altres</option>
-        </select>
-      </label>
+          {{ copy.sendAnother }}
+        </AppButton>
+      </div>
+    </div>
 
-      <label class="block">
-        <span class="mb-1.5 block text-sm font-medium text-foreground">{{ copy.deadline }}</span>
-        <input
-          v-model="form.deadline"
-          name="deadline"
-          type="text"
-          :placeholder="copy.deadlinePlaceholder"
-          class="h-10 w-full rounded-[6px] border border-border bg-white px-3 text-[15px] outline-none transition placeholder:text-muted-foreground/70 focus:border-primary focus:ring-2 focus:ring-primary/15"
-        />
-      </label>
-
-      <label class="block">
-        <span class="mb-1.5 block text-sm font-medium text-foreground">{{ copy.message }}</span>
-        <textarea
-          v-model="form.message"
-          name="message"
-          rows="5"
-          :placeholder="copy.messagePlaceholder"
-          class="w-full resize-y rounded-[6px] border border-border bg-white px-3 py-2.5 text-[15px] outline-none transition placeholder:text-muted-foreground/70 focus:border-primary focus:ring-2 focus:ring-primary/15"
-        />
-      </label>
-
-      <p class="text-xs leading-5 text-muted-foreground">
-        {{ copy.requiredNote }}
-        <span class="font-semibold text-foreground">*</span>
-        {{ copy.requiredNoteEnd }}
-      </p>
-
-      <label class="flex items-start gap-2 pt-1 text-xs leading-5 text-foreground/75">
-        <input
-          v-model="form.privacy"
-          type="checkbox"
-          required
-          class="mt-1 h-4 w-4 shrink-0 rounded border-border text-primary focus:ring-primary/20"
-        />
-        <span>
-          {{ copy.privacyPrefix }}
-          <NuxtLink
-            to="/politica-privacidad"
-            target="_blank"
-            class="font-semibold text-primary hover:underline"
+    <form
+      v-else
+      class="rd-form-shell"
+      novalidate
+      @submit.prevent="onSubmit"
+    >
+      <div class="rd-form-body">
+        <div class="rd-form-stack">
+          <div
+            v-if="errorMessage"
+            class="rd-form-alert rd-form-alert--destructive"
           >
-            {{ copy.privacyLink }}
-          </NuxtLink>.
-        </span>
-      </label>
+            {{ errorMessage }}
+          </div>
 
-      <button
-        type="submit"
-        :disabled="isLoading"
-        class="inline-flex h-11 w-full items-center justify-center rounded-[6px] bg-primary px-4 text-sm font-semibold uppercase tracking-[0.12em] text-primary-foreground shadow-sm transition hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-70"
-      >
-        <Loader2 v-if="isLoading" class="mr-2 h-4 w-4 animate-spin" />
-        {{ isLoading ? copy.sending : copy.submit }}
-      </button>
+          <input
+            v-model="form.website"
+            type="text"
+            name="website"
+            tabindex="-1"
+            autocomplete="off"
+            class="hidden"
+            aria-hidden="true"
+          />
+
+          <label class="rd-form-field">
+            <span class="rd-form-label">
+              {{ copy.name }}
+            </span>
+
+            <input
+              v-model="form.name"
+              name="name"
+              type="text"
+              autocomplete="name"
+              required
+              :class="controlClass('name')"
+            />
+          </label>
+
+          <label class="rd-form-field">
+            <span class="rd-form-label">
+              {{ copy.center }}
+            </span>
+
+            <input
+              v-model="form.center"
+              name="center"
+              type="text"
+              autocomplete="organization"
+              required
+              :class="controlClass('center')"
+            />
+          </label>
+
+          <label class="rd-form-field">
+            <span class="rd-form-label">
+              {{ copy.email }}
+            </span>
+
+            <input
+              v-model="form.email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              required
+              :class="controlClass('email')"
+            />
+          </label>
+
+          <label class="rd-form-field">
+            <span class="rd-form-label">
+              {{ copy.phone }}
+            </span>
+
+            <input
+              v-model="form.phone"
+              name="phone"
+              type="tel"
+              inputmode="tel"
+              autocomplete="tel"
+              required
+              :class="controlClass('phone')"
+            />
+          </label>
+
+          <label class="rd-form-field">
+            <span class="rd-form-label">
+              {{ copy.materialType }}
+              <span class="rd-form-inline-note">(Opcional)</span>
+            </span>
+
+            <select
+              v-model="form.materialType"
+              name="materialType"
+              class="rd-form-control"
+            >
+              <option value="">{{ copy.materialPlaceholder }}</option>
+              <option value="material-didactic">Material didàctic</option>
+              <option value="senyalistica">Senyalística</option>
+              <option value="cartelleria">Cartelleria</option>
+              <option value="vinils">Vinils</option>
+              <option value="altres">Altres</option>
+            </select>
+          </label>
+
+          <label class="rd-form-field">
+            <span class="rd-form-label">
+              {{ copy.deadline }}
+              <span class="rd-form-inline-note">(Opcional)</span>
+            </span>
+
+            <input
+              v-model="form.deadline"
+              name="deadline"
+              type="text"
+              :placeholder="copy.deadlinePlaceholder"
+              class="rd-form-control"
+            />
+          </label>
+
+          <label class="rd-form-field">
+            <span class="rd-form-label">
+              {{ copy.message }}
+              <span class="rd-form-inline-note">(Opcional)</span>
+            </span>
+
+            <textarea
+              v-model="form.message"
+              name="message"
+              rows="5"
+              :placeholder="copy.messagePlaceholder"
+              :class="textareaClass()"
+            />
+          </label>
+
+          <p class="rd-form-help-text">
+            {{ copy.requiredNote }}
+            <span class="rd-form-required">*</span>
+            {{ copy.requiredNoteEnd }}
+          </p>
+
+          <label :class="checkPanelClass('privacy')">
+            <input
+              v-model="form.privacy"
+              type="checkbox"
+              required
+              class="rd-form-checkbox"
+            />
+
+            <span class="rd-form-privacy-text">
+              {{ copy.privacyPrefix }}
+              <NuxtLink
+                to="/politica-privacidad"
+                target="_blank"
+                class="rd-form-link"
+              >
+                {{ copy.privacyLink }}
+              </NuxtLink>.
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <div class="rd-form-footer">
+        <AppButton
+          type="submit"
+          :disabled="isLoading"
+          :loading="isLoading"
+          size="lg"
+          block
+        >
+          {{ isLoading ? copy.sending : copy.submit }}
+        </AppButton>
+      </div>
     </form>
   </div>
 </template>

@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { computed, reactive, ref } from "vue";
 import { useRoute } from "#imports";
-import { Loader2 } from "lucide-vue-next";
+import AppButton from "@/components/shared/button/AppButton.vue";
+import { cn } from "@/lib/utils";
 import RequestSuccessState from "@/components/marketing/quote/RequestSuccessState.vue";
 import { usePriceRequests } from "@/composables/usePriceRequests";
 
@@ -17,6 +18,8 @@ type QuoteForm = {
   privacy: boolean;
 };
 
+type ValidationField = "name" | "email" | "phone" | "privacy" | null;
+
 const props = withDefaults(
   defineProps<{
     productName?: string;
@@ -27,7 +30,7 @@ const props = withDefaults(
     productName: "Láminas solares para cristales",
     productSlug: "laminas-solares",
     categorySlug: "gran-formato",
-  }
+  },
 );
 
 const route = useRoute();
@@ -35,7 +38,7 @@ const { sendPriceRequest, isLoading, error } = usePriceRequests();
 
 const success = ref(false);
 const validationError = ref("");
-const submittedReference = ref<string | null>(null);
+const validationField = ref<ValidationField>(null);
 
 const form = reactive<QuoteForm>({
   website: "",
@@ -68,10 +71,15 @@ const utm = computed(() => {
 const errorMessage = computed(() => {
   if (validationError.value) return validationError.value;
   if (!error.value) return "";
+
   return typeof error.value === "string"
     ? error.value
     : "No hemos podido enviar la solicitud. Inténtalo de nuevo o llámanos al +34 932 749 890.";
 });
+
+function cleanString(value: string) {
+  return String(value || "").trim();
+}
 
 function resetForm() {
   form.website = "";
@@ -84,7 +92,7 @@ function resetForm() {
   form.message = "";
   form.privacy = false;
   validationError.value = "";
-  submittedReference.value = null;
+  validationField.value = null;
 }
 
 function handleResetSuccessState() {
@@ -93,7 +101,20 @@ function handleResetSuccessState() {
 }
 
 function isValidEmail(value: string) {
-  return /^\S+@\S+\.\S+$/.test(value.trim());
+  return /^\S+@\S+\.\S+$/.test(cleanString(value));
+}
+
+function setValidationError(field: ValidationField, message: string) {
+  validationField.value = field;
+  validationError.value = message;
+}
+
+function controlClass(field?: ValidationField) {
+  return cn("rd-form-control", validationField.value === field && "rd-form-control--error");
+}
+
+function checkPanelClass(field?: ValidationField) {
+  return cn("rd-form-check-panel", validationField.value === field && "rd-form-check-panel--error");
 }
 
 function pushLeadEvent(transactionId?: string | number | null) {
@@ -115,47 +136,56 @@ function pushLeadEvent(transactionId?: string | number | null) {
 
 async function onSubmit() {
   validationError.value = "";
+  validationField.value = null;
   error.value = null;
 
-  if (form.website.trim()) {
+  const name = cleanString(form.name);
+  const company = cleanString(form.company);
+  const email = cleanString(form.email);
+  const phone = cleanString(form.phone);
+  const spaceType = cleanString(form.spaceType);
+  const glassSurface = cleanString(form.glassSurface);
+  const message = cleanString(form.message);
+
+  if (cleanString(form.website)) {
     success.value = true;
     return;
   }
 
-  if (!form.name.trim()) {
-    validationError.value = "Indica tu nombre.";
+  if (!name) {
+    setValidationError("name", "Indica tu nombre.");
     return;
   }
 
-  if (!isValidEmail(form.email)) {
-    validationError.value = "Introduce un email válido.";
+  if (!isValidEmail(email)) {
+    setValidationError("email", "Introduce un email válido.");
     return;
   }
 
-  if (!form.phone.trim() || form.phone.trim().length < 9) {
-    validationError.value = "Introduce un teléfono válido.";
+  if (!phone || phone.length < 9) {
+    setValidationError("phone", "Introduce un teléfono válido.");
     return;
   }
 
   if (!form.privacy) {
-    validationError.value = "Debes aceptar la política de privacidad.";
+    setValidationError("privacy", "Debes aceptar la política de privacidad.");
     return;
   }
 
   const fallbackMessage = [
     "Solicitud de presupuesto para láminas solares.",
-    `Tipo de espacio: ${form.spaceType || "sin indicar"}.`,
-    `Superficie aproximada: ${form.glassSurface || "sin indicar"}.`,
+    `Tipo de espacio: ${spaceType || "sin indicar"}.`,
+    `Superficie aproximada: ${glassSurface || "sin indicar"}.`,
   ].join(" ");
 
   const response = await sendPriceRequest(
     {
       website: null,
-      name: form.name.trim(),
-      email: form.email.trim(),
-      phone: form.phone.trim(),
-      company: form.company.trim() || null,
-      message: form.message.trim() || fallbackMessage,
+      name,
+      email,
+      phone,
+      company: company || null,
+      message: message || fallbackMessage,
       categorySlug: props.categorySlug,
       product: {
         name: props.productName,
@@ -165,15 +195,15 @@ async function onSubmit() {
       },
       extras: {
         landing: "laminas-solares",
-        spaceType: form.spaceType || null,
-        glassSurface: form.glassSurface || null,
+        spaceType: spaceType || null,
+        glassSurface: glassSurface || null,
       },
       consent: true,
       sourceUrl: sourceUrl.value,
       utm: utm.value,
       initialStatus: "Nova",
     },
-    { file: null, fileKind: "design" }
+    { file: null, fileKind: "design" },
   );
 
   const result = response as {
@@ -195,8 +225,6 @@ async function onSubmit() {
       result?.requestKey ||
       null;
 
-    submittedReference.value = transactionId ? String(transactionId) : null;
-
     if (!result?.duplicated) {
       pushLeadEvent(transactionId);
     }
@@ -206,9 +234,8 @@ async function onSubmit() {
   }
 }
 </script>
-
 <template>
-  <div class="mx-auto w-full max-w-[480px]">
+  <div class="rd-form-frame mx-auto max-w-xl">
     <RequestSuccessState
       v-if="success"
       :product-name="props.productName"
@@ -217,145 +244,177 @@ async function onSubmit() {
       @reset="handleResetSuccessState"
     />
 
-    <form v-else class="space-y-4" novalidate @submit.prevent="onSubmit">
-      <div
-        v-if="errorMessage"
-        class="rounded-lg border border-destructive/20 bg-destructive/10 px-3 py-2 text-sm font-medium text-destructive"
-      >
-        {{ errorMessage }}
+    <form
+      v-else
+      class="rd-form-shell"
+      novalidate
+      @submit.prevent="onSubmit"
+    >
+      <div class="rd-form-body">
+        <div class="rd-form-stack">
+          <div
+            v-if="errorMessage"
+            class="rd-form-alert rd-form-alert--destructive"
+          >
+            {{ errorMessage }}
+          </div>
+
+          <input
+            v-model="form.website"
+            type="text"
+            name="website"
+            tabindex="-1"
+            autocomplete="off"
+            class="hidden"
+            aria-hidden="true"
+          />
+
+          <label class="rd-form-field">
+            <span class="rd-form-label">
+              Nombre <span class="rd-form-required">*</span>
+            </span>
+
+            <input
+              v-model="form.name"
+              name="name"
+              type="text"
+              autocomplete="name"
+              required
+              :class="controlClass('name')"
+            />
+          </label>
+
+          <label class="rd-form-field">
+            <span class="rd-form-label">
+              Empresa <span class="rd-form-inline-note">(Opcional)</span>
+            </span>
+
+            <input
+              v-model="form.company"
+              name="company"
+              type="text"
+              autocomplete="organization"
+              class="rd-form-control"
+            />
+          </label>
+
+          <label class="rd-form-field">
+            <span class="rd-form-label">
+              Email <span class="rd-form-required">*</span>
+            </span>
+
+            <input
+              v-model="form.email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              required
+              :class="controlClass('email')"
+            />
+          </label>
+
+          <label class="rd-form-field">
+            <span class="rd-form-label">
+              Teléfono <span class="rd-form-required">*</span>
+            </span>
+
+            <input
+              v-model="form.phone"
+              name="phone"
+              type="tel"
+              inputmode="tel"
+              autocomplete="tel"
+              required
+              :class="controlClass('phone')"
+            />
+          </label>
+
+          <label class="rd-form-field">
+            <span class="rd-form-label">
+              Tipo de espacio <span class="rd-form-inline-note">(Opcional)</span>
+            </span>
+
+            <select
+              v-model="form.spaceType"
+              name="spaceType"
+              class="rd-form-control"
+            >
+              <option value="">Selecciona una opción</option>
+              <option value="oficina">Oficina</option>
+              <option value="comercio-escaparate">Comercio / escaparate</option>
+              <option value="hotel-restaurante">Hotel / restaurante</option>
+              <option value="vivienda">Vivienda</option>
+              <option value="otro">Otro</option>
+            </select>
+          </label>
+
+          <label class="rd-form-field">
+            <span class="rd-form-label">
+              Superficie aproximada en m²
+              <span class="rd-form-inline-note">(Opcional)</span>
+            </span>
+
+            <input
+              v-model="form.glassSurface"
+              name="glassSurface"
+              type="text"
+              inputmode="decimal"
+              placeholder="Ej. 12 m²"
+              class="rd-form-control"
+            />
+          </label>
+
+          <label class="rd-form-field">
+            <span class="rd-form-label">
+              Mensaje <span class="rd-form-inline-note">(Opcional)</span>
+            </span>
+
+            <textarea
+              v-model="form.message"
+              name="message"
+              rows="5"
+              placeholder="Cuéntanos qué necesitas proteger del sol o del calor."
+              class="rd-form-textarea"
+            />
+          </label>
+
+          <p class="rd-form-help-text">
+            Los campos marcados con <span class="rd-form-required">*</span> son obligatorios.
+          </p>
+
+          <label :class="checkPanelClass('privacy')">
+            <input
+              v-model="form.privacy"
+              type="checkbox"
+              required
+              class="rd-form-checkbox"
+            />
+
+            <span class="rd-form-privacy-text">
+              He leído y acepto la
+              <NuxtLink
+                to="/politica-privacidad"
+                target="_blank"
+                class="rd-form-link"
+              >
+                política de privacidad
+              </NuxtLink>.
+            </span>
+          </label>
+        </div>
       </div>
 
-    
-
-      <input
-        v-model="form.website"
-        type="text"
-        name="website"
-        tabindex="-1"
-        autocomplete="off"
-        class="hidden"
-        aria-hidden="true"
-      />
-
-      <label class="block">
-        <span class="mb-1.5 block text-sm font-medium text-foreground">Nombre *</span>
-        <input
-          v-model="form.name"
-          name="name"
-          type="text"
-          autocomplete="name"
-          required
-          class="h-10 w-full rounded-[6px] border border-border bg-white px-3 text-[15px] outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
-        />
-      </label>
-
-      <label class="block">
-        <span class="mb-1.5 block text-sm font-medium text-foreground">Empresa</span>
-        <input
-          v-model="form.company"
-          name="company"
-          type="text"
-          autocomplete="organization"
-          class="h-10 w-full rounded-[6px] border border-border bg-white px-3 text-[15px] outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
-        />
-      </label>
-
-      <label class="block">
-        <span class="mb-1.5 block text-sm font-medium text-foreground">Email *</span>
-        <input
-          v-model="form.email"
-          name="email"
-          type="email"
-          autocomplete="email"
-          required
-          class="h-10 w-full rounded-[6px] border border-border bg-white px-3 text-[15px] outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
-        />
-      </label>
-
-      <label class="block">
-        <span class="mb-1.5 block text-sm font-medium text-foreground">Teléfono *</span>
-        <input
-          v-model="form.phone"
-          name="phone"
-          type="tel"
-          inputmode="tel"
-          autocomplete="tel"
-          required
-          class="h-10 w-full rounded-[6px] border border-border bg-white px-3 text-[15px] outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
-        />
-      </label>
-
-      <label class="block">
-        <span class="mb-1.5 block text-sm font-medium text-foreground">Tipo de espacio</span>
-        <select
-          v-model="form.spaceType"
-          name="spaceType"
-          class="h-10 w-full rounded-[6px] border border-border bg-white px-3 text-[15px] outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
+      <div class="rd-form-footer">
+        <AppButton
+          type="submit"
+          :disabled="isLoading"
+          :loading="isLoading"
+          size="lg"
+          block
         >
-          <option value="">Selecciona una opción</option>
-          <option value="oficina">Oficina</option>
-          <option value="comercio-escaparate">Comercio / escaparate</option>
-          <option value="hotel-restaurante">Hotel / restaurante</option>
-          <option value="vivienda">Vivienda</option>
-          <option value="otro">Otro</option>
-        </select>
-      </label>
-
-      <label class="block">
-        <span class="mb-1.5 block text-sm font-medium text-foreground">
-          Superficie aproximada en m²
-        </span>
-        <input
-          v-model="form.glassSurface"
-          name="glassSurface"
-          type="text"
-          inputmode="decimal"
-          placeholder="Ej. 12 m²"
-          class="h-10 w-full rounded-[6px] border border-border bg-white px-3 text-[15px] outline-none transition placeholder:text-muted-foreground/70 focus:border-primary focus:ring-2 focus:ring-primary/15"
-        />
-      </label>
-
-      <label class="block">
-  <span class="mb-1.5 block text-sm font-medium text-foreground">Mensaje</span>
-  <textarea
-    v-model="form.message"
-    name="message"
-    rows="5"
-    class="w-full resize-y rounded-[6px] border border-border bg-white px-3 py-2.5 text-[15px] outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/15"
-  />
-</label>
-
-<p class="text-xs leading-5 text-muted-foreground">
-  Los campos marcados con <span class="font-semibold text-foreground">*</span> son obligatorios.
-</p>
-
-<label class="flex items-start gap-2 pt-1 text-xs leading-5 text-foreground/75">
-  <input
-    v-model="form.privacy"
-    type="checkbox"
-    required
-    class="mt-1 h-4 w-4 shrink-0 rounded border-border text-primary focus:ring-primary/20"
-  />
-  <span>
-    He leído y acepto la
-    <NuxtLink
-      to="/politica-privacidad"
-      target="_blank"
-      class="font-semibold text-primary hover:underline"
-    >
-      política de privacidad
-    </NuxtLink>.
-  </span>
-</label>
-
-      <button
-        type="submit"
-        :disabled="isLoading"
-        class="inline-flex h-11 w-full items-center justify-center rounded-[6px] bg-primary px-4 text-sm font-semibold uppercase tracking-[0.12em] text-primary-foreground shadow-sm transition hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-70"
-      >
-        <Loader2 v-if="isLoading" class="mr-2 h-4 w-4 animate-spin" />
-        {{ isLoading ? "Enviando..." : "Solicitar presupuesto" }}
-      </button>
+          {{ isLoading ? "Enviando..." : "Solicitar presupuesto" }}
+        </AppButton>
+      </div>
     </form>
   </div>
 </template>

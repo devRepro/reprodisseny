@@ -3,28 +3,41 @@
     <HomeHero>
       <HomeImageStrip :images="stripImages" />
     </HomeHero>
-   <SolarProtectionHeroBanner
-  title="Láminas solares para cristales"
-  image-src="/img/banners/sala_reunions.webp"
-  :bullets="[
-    'Reduce calor y reflejos sin obras',
-    'Instalación profesional en Barcelona',
-    'Presupuesto en menos de 24 h laborales',
-  ]"
-  primary-to="/lp/laminas-solares#quote-form"
+
+    <SolarProtectionHeroBanner
+      title="Láminas solares para cristales"
+      image-src="/img/banners/sala_reunions.webp"
+      :bullets="[
+        'Reduce calor y reflejos sin obras',
+        'Instalación profesional en Barcelona',
+        'Presupuesto en menos de 24 h laborales',
+      ]"
+      primary-to="/lp/laminas-solares#quote-form"
+    />
+
+    <MarketingProductCategoryGrid
+  title="Ofrecemos una amplia gama de productos"
+  description="Explora las principales categorías y encuentra la solución que mejor encaja con tu proyecto."
+  :categories="safeHomeCategories"
+  :total-slots="8"
+  :pending="homeCategoriesPending"
+  container-class="home-section__inner py-10 md:py-14 lg:py-16"
 />
-    <MarketingProductCategoryGrid title="Ofrecemos una amplia gama de productos"
-      description="Explora las principales categorías y encuentra la solución que mejor encaja con tu proyecto."
-      :categories="safeHomeCategories" :total-slots="8" :pending="homeCategoriesPending" />
 
     <MarketingServicesGrid />
-    <MarketingProcessSection section-class="bg-background pt-10 pb-8 md:pt-12 md:pb-10"
-      cta-label="Contacta con nosotros" cta-to="/contacto" />
 
+    <MarketingProcessSection
+  section-class="home-section home-section--compact bg-background"
+  container-class="home-section__inner"
+  cta-label="Contacta con nosotros"
+  cta-to="/contacto"
+/>
 
-    <ClientLogosBand :logos="clientLogos" />
+    <section class="home-trust-block">
+      <ClientLogosBand :logos="clientLogos" />
 
-    <GoogleReviewsSection />
+      <GoogleReviewsSection />
+    </section>
 
     <GetFiles submit-endpoint="/api/price-requests" />
   </div>
@@ -38,16 +51,15 @@ import MarketingProductCategoryGrid from "@/components/marketing/ProductCategory
 import MarketingProcessSection from "@/components/marketing/ProcessSection.vue";
 import ClientLogosBand from "@/components/marketing/ClientLogosBand.vue";
 import GetFiles from "@/components/marketing/GetFiles.vue";
+import SolarProtectionHeroBanner from "@/components/shared/banner/SolarProtectionHeroBanner.vue";
 import { useHomeCategoriesGrid } from "@/composables/useHomeCategoriesGrid";
 import { GoogleReviewsSection, MarketingServicesGrid } from "#components";
-import SolarProtectionHeroBanner from "@/components/shared/banner/SolarProtectionHeroBanner.vue";
-import AppButton from "@/components/shared/button/AppButton.vue";
+
 definePageMeta({ layout: "home" });
 
 const {
   categories: homeCategories,
   pending: homeCategoriesPending,
-  error: homeCategoriesError,
 } = useHomeCategoriesGrid(8);
 
 const safeHomeCategories = computed(() => homeCategories.value ?? []);
@@ -86,3 +98,4 @@ const clientLogos = [
   { src: "/img/customers/green-vita.svg", alt: "Green Vita" },
 ];
 </script>
+

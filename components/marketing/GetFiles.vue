@@ -99,7 +99,7 @@ function handleImageError() {
       />
     </div>
 
-    <div class="container-content relative py-16 lg:py-20">
+    <div class="home-section__inner relative py-16 lg:py-20">
       <div class="grid items-center gap-10 lg:grid-cols-[485px_1fr] lg:gap-20">
         <div class="w-full lg:w-[485px]">
           <img

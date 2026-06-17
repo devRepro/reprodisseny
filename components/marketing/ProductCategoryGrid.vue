@@ -35,7 +35,7 @@ const props = withDefaults(
     totalSlots: 8,
     pending: false,
     sectionClass: "",
-    containerClass: "container-content py-10 md:py-14 lg:py-16",
+    containerClass: "home-section__inner py-10 md:py-14 lg:py-16",
   }
 );
 

@@ -3,7 +3,7 @@ import { useForm } from "vee-validate";
 import { z } from "zod";
 import { toTypedSchema } from "@vee-validate/zod";
 import { useRoute } from "#imports";
-
+import { cn } from "@/lib/utils";
 import { useSendContact } from "@/composables/useSendContact";
 
 import {
@@ -74,6 +74,17 @@ function normalizeUtm(q: Record<string, any>) {
   return out;
 }
 
+function controlClass(errorMessage?: string) {
+  return cn("rd-form-control", errorMessage && "rd-form-control--error");
+}
+
+function textareaClass(errorMessage?: string) {
+  return cn("rd-form-textarea", errorMessage && "rd-form-control--error");
+}
+
+function checkPanelClass(errorMessage?: string) {
+  return cn("rd-form-check-panel", errorMessage && "rd-form-check-panel--error");
+}
 const onSubmit = handleSubmit(async (values) => {
   error.value = null;
   success.value = false;
@@ -106,108 +117,176 @@ const onSubmit = handleSubmit(async (values) => {
 </script>
 
 <template>
-  <div class="form-shell">
-    <form @submit.prevent="onSubmit" novalidate class="form">
-      <div class="form-grid">
-        <FormField v-slot="{ componentField, errorMessage }" name="nombre">
-          <FormItem>
-            <FormLabel class="form-label">Nombre</FormLabel>
-            <FormControl>
-              <Input v-bind="componentField" autocomplete="name" placeholder="Ej. Juan Pérez" class="form-control"
-                :class="{ 'form-control-error': errorMessage }" />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        </FormField>
-
-        <FormField v-slot="{ componentField, errorMessage }" name="email">
-          <FormItem>
-            <FormLabel class="form-label">Email</FormLabel>
-            <FormControl>
-              <Input v-bind="componentField" type="email" autocomplete="email" placeholder="nombre@empresa.com"
-                class="form-control" :class="{ 'form-control-error': errorMessage }" />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        </FormField>
-
-        <div class="grid gap-5 md:grid-cols-2">
-          <FormField v-slot="{ componentField, errorMessage }" name="telefono">
+  <div class="rd-form-frame mx-auto max-w-xl">
+    <form @submit.prevent="onSubmit" novalidate class="rd-form-shell">
+      <div class="rd-form-body">
+        <div class="rd-form-stack">
+          <FormField v-slot="{ componentField, errorMessage }" name="nombre">
             <FormItem>
-              <FormLabel class="form-label">
-                Teléfono
-                <span class="form-label-muted">(Opcional)</span>
+              <FormLabel class="rd-form-label">
+                Nombre <span class="rd-form-required">*</span>
               </FormLabel>
+
               <FormControl>
-                <Input v-bind="componentField" type="tel" inputmode="tel" autocomplete="tel"
-                  placeholder="+34 600 000 000" class="form-control" :class="{ 'form-control-error': errorMessage }" />
+                <Input
+                  v-bind="componentField"
+                  autocomplete="name"
+                  placeholder="Ej. Juan Pérez"
+                  :class="controlClass(errorMessage)"
+                />
               </FormControl>
-              <FormMessage />
+
+              <FormMessage class="mt-1" />
             </FormItem>
           </FormField>
 
-          <FormField v-slot="{ componentField, errorMessage }" name="codigoPostal">
+          <FormField v-slot="{ componentField, errorMessage }" name="email">
             <FormItem>
-              <FormLabel class="form-label">
-                Código postal
-                <span class="form-label-muted">(Opcional)</span>
+              <FormLabel class="rd-form-label">
+                Email <span class="rd-form-required">*</span>
               </FormLabel>
+
               <FormControl>
-                <Input v-bind="componentField" type="text" inputmode="numeric" autocomplete="postal-code" maxlength="5"
-                  placeholder="08001" class="form-control" :class="{ 'form-control-error': errorMessage }" />
+                <Input
+                  v-bind="componentField"
+                  type="email"
+                  autocomplete="email"
+                  placeholder="nombre@empresa.com"
+                  :class="controlClass(errorMessage)"
+                />
               </FormControl>
-              <FormMessage />
+
+              <FormMessage class="mt-1" />
+            </FormItem>
+          </FormField>
+
+          <div class="grid gap-4 md:grid-cols-2">
+            <FormField v-slot="{ componentField, errorMessage }" name="telefono">
+              <FormItem>
+                <FormLabel class="rd-form-label">
+                  Teléfono <span class="rd-form-inline-note">(Opcional)</span>
+                </FormLabel>
+
+                <FormControl>
+                  <Input
+                    v-bind="componentField"
+                    type="tel"
+                    inputmode="tel"
+                    autocomplete="tel"
+                    placeholder="+34 600 000 000"
+                    :class="controlClass(errorMessage)"
+                  />
+                </FormControl>
+
+                <FormMessage class="mt-1" />
+              </FormItem>
+            </FormField>
+
+            <FormField v-slot="{ componentField, errorMessage }" name="codigoPostal">
+              <FormItem>
+                <FormLabel class="rd-form-label">
+                  Código postal <span class="rd-form-inline-note">(Opcional)</span>
+                </FormLabel>
+
+                <FormControl>
+                  <Input
+                    v-bind="componentField"
+                    type="text"
+                    inputmode="numeric"
+                    autocomplete="postal-code"
+                    maxlength="5"
+                    placeholder="08001"
+                    :class="controlClass(errorMessage)"
+                  />
+                </FormControl>
+
+                <FormMessage class="mt-1" />
+              </FormItem>
+            </FormField>
+          </div>
+
+          <FormField v-slot="{ componentField, errorMessage }" name="consulta">
+            <FormItem>
+              <FormLabel class="rd-form-label">
+                Consulta <span class="rd-form-required">*</span>
+              </FormLabel>
+
+              <FormControl>
+                <Textarea
+                  v-bind="componentField"
+                  placeholder="¿En qué podemos ayudarte?"
+                  :class="textareaClass(errorMessage)"
+                />
+              </FormControl>
+
+              <FormMessage class="mt-1" />
+            </FormItem>
+          </FormField>
+
+          <FormField v-slot="{ componentField }" name="website">
+            <input
+              v-bind="componentField"
+              class="hidden"
+              tabindex="-1"
+              autocomplete="off"
+              aria-hidden="true"
+            />
+          </FormField>
+
+          <FormField v-slot="{ componentField, errorMessage }" name="consent">
+            <FormItem class="space-y-0">
+              <label :class="checkPanelClass(errorMessage)" for="contact-privacy-check">
+                <FormControl>
+                  <input
+                    id="contact-privacy-check"
+                    type="checkbox"
+                    class="rd-form-checkbox"
+                    :checked="componentField.modelValue === true"
+                    @change="
+                      (event) =>
+                        componentField.onChange(
+                          (event.target as HTMLInputElement).checked,
+                        )
+                    "
+                    @blur="componentField.onBlur"
+                  />
+                </FormControl>
+
+                <span class="rd-form-privacy-text">
+                  He leído y acepto la
+                  <NuxtLink
+                    to="/politica-privacidad"
+                    target="_blank"
+                    class="rd-form-link"
+                  >
+                    política de privacidad
+                  </NuxtLink>
+                  .
+                </span>
+              </label>
+
+              <FormMessage class="mt-2 block" />
             </FormItem>
           </FormField>
         </div>
-
-        <FormField v-slot="{ componentField, errorMessage }" name="consulta">
-          <FormItem>
-            <FormLabel class="form-label">Consulta</FormLabel>
-            <FormControl>
-              <Textarea v-bind="componentField" placeholder="¿En qué podemos ayudarte?"
-                class="form-control form-textarea form-textarea-lg" :class="{ 'form-control-error': errorMessage }" />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        </FormField>
-
-        <FormField v-slot="{ componentField }" name="website">
-          <input v-bind="componentField" class="absolute -z-10 hidden h-0 w-0 opacity-0" tabindex="-1"
-            autocomplete="off" aria-hidden="true" />
-        </FormField>
       </div>
 
-      <FormField v-slot="{ componentField }" name="consent">
-        <FormItem class="space-y-0">
-          <div class="form-consent">
-            <FormControl>
-              <input id="privacy-check" type="checkbox" class="form-checkbox"
-                :checked="componentField.modelValue === true"
-                @change="(e) => componentField.onChange((e.target as HTMLInputElement).checked)"
-                @blur="componentField.onBlur" />
-            </FormControl>
+      <div class="rd-form-footer">
+        <AppButton
+          type="submit"
+          :disabled="isLoading"
+          :loading="isLoading"
+          size="lg"
+          block
+        >
+          {{ isLoading ? "Enviando mensaje..." : "Contactar con un experto" }}
+        </AppButton>
 
-            <label for="privacy-check" class="form-consent-label">
-              He leído y acepto la
-              <a href="/politica-privacidad" target="_blank" rel="noopener noreferrer" class="form-link">
-                política de privacidad
-              </a>.
-            </label>
-          </div>
-
-          <FormMessage class="ml-8 mt-1 block" />
-        </FormItem>
-      </FormField>
-
-      <AppButton type="submit" :disabled="isLoading" :loading="isLoading" size="lg" block>
-        {{ isLoading ? "Enviando mensaje..." : "Contactar con un experto" }}
-      </AppButton>
-
-      <div v-if="error" class="form-error animate-in fade-in">
-        <p class="flex items-center justify-center gap-2 text-center">
-          <span>⚠️</span> {{ error }}
-        </p>
+        <div v-if="error" class="rd-form-alert rd-form-alert--destructive animate-in fade-in">
+          <p class="text-center">
+            {{ error }}
+          </p>
+        </div>
       </div>
     </form>
   </div>

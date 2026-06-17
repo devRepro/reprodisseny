@@ -12,7 +12,7 @@
    COMPONENTS (tus clases custom)
    ========================================================= */
 @layer components {
-  .container-full {
+    .container-full {
     @apply w-full max-w-none;
   }
 
@@ -24,6 +24,57 @@
     @apply mx-auto w-full max-w-[1200px] px-4 sm:px-6 lg:px-10;
   }
 
+  /* =========================================================
+   HOME LAYOUT SYSTEM
+   ========================================================= */
+
+  .home-page {
+    @apply bg-background text-foreground;
+  }
+
+  .home-section {
+    @apply py-12 md:py-16 lg:py-20;
+  }
+
+  .home-section--compact {
+    @apply py-10 md:py-12 lg:py-14;
+  }
+
+  .home-section--soft {
+    @apply bg-[hsl(var(--brand-bg-2))];
+  }
+
+  .home-section--blue {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  .home-section__inner {
+    @apply mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-10 2xl:px-[120px];
+  }
+
+  .home-section__header {
+    @apply mb-8 max-w-3xl md:mb-10;
+  }
+
+  .home-section__eyebrow {
+    @apply section-eyebrow;
+  }
+
+  .home-section__title {
+    @apply section-title;
+  }
+
+  .home-section__description {
+    @apply mt-3 max-w-2xl text-sm leading-6 text-muted-foreground md:text-base md:leading-7;
+  }
+
+  .home-trust-block {
+    @apply bg-[hsl(var(--brand-bg-2))];
+  }
+
+  .home-trust-block .google-reviews-section {
+    @apply border-t border-border/50 bg-background;
+  }
   .menubar {
     @apply flex w-full justify-center gap-4;
     background-color: hsl(var(--menubar-bg));
@@ -61,11 +112,6 @@
       height: min(860px, calc(100svh - 7rem));
     }
   }
-
-
-
-
-
 
   .product-attribute-list {
     @apply mt-5 flex max-w-xl flex-wrap items-center gap-2.5;
@@ -495,100 +541,123 @@
     flex: 0 0 auto;
   }
 
-  .btn-primary {
+  .btn-primary,
+  .btn.btn-primary {
     border: 1px solid hsl(var(--primary));
     background: hsl(var(--primary));
     color: hsl(var(--primary-foreground));
     box-shadow: 0 10px 24px -18px hsl(var(--primary) / 0.65);
   }
 
-  .btn-primary:hover {
+  .btn-primary:hover,
+  .btn.btn-primary:hover {
     border-color: hsl(var(--brand-base-dark));
     background: hsl(var(--brand-base-dark));
     color: hsl(var(--primary-foreground));
     transform: translateY(-1px);
   }
 
-  .btn-secondary {
+  .btn-secondary,
+  .btn.btn-secondary {
     border: 1px solid hsl(var(--primary) / 0.22);
     background: hsl(var(--secondary));
     color: hsl(var(--secondary-foreground));
   }
 
-  .btn-secondary:hover {
+  .btn-secondary:hover,
+  .btn.btn-secondary:hover {
     border-color: hsl(var(--primary) / 0.35);
     background: hsl(var(--brand-base-light));
     color: hsl(var(--brand-base-dark));
   }
 
-  .btn-outline {
+  .btn-outline,
+  .btn.btn-outline {
     border: 1px solid hsl(var(--border));
     background: hsl(var(--background));
     color: hsl(var(--foreground));
     box-shadow: 0 1px 2px hsl(var(--foreground) / 0.06);
   }
 
-  .btn-outline:hover {
+  .btn-outline:hover,
+  .btn.btn-outline:hover {
     border-color: hsl(var(--primary) / 0.32);
     background: hsl(var(--accent) / 0.55);
     color: hsl(var(--accent-foreground));
   }
 
-  .btn-ghost {
+  .btn-ghost,
+  .btn.btn-ghost {
     border: 1px solid transparent;
     background: transparent;
     color: hsl(var(--foreground));
+    box-shadow: none;
   }
 
-  .btn-ghost:hover {
+  .btn-ghost:hover,
+  .btn.btn-ghost:hover {
     background: hsl(var(--accent) / 0.55);
     color: hsl(var(--accent-foreground));
   }
 
-  .btn-link {
+  .btn-link,
+  .btn.btn-link {
     min-height: auto;
     border: 0;
     background: transparent;
     color: hsl(var(--primary));
     padding: 0;
+    box-shadow: none;
     text-decoration: underline;
     text-underline-offset: 4px;
   }
 
-  .btn-link:hover {
+  .btn-link:hover,
+  .btn.btn-link:hover {
     color: hsl(var(--brand-base-dark));
+    background: transparent;
   }
 
-  .btn-destructive {
+  .btn-destructive,
+  .btn.btn-destructive {
     border: 1px solid hsl(var(--destructive));
     background: hsl(var(--destructive));
     color: hsl(var(--destructive-foreground));
   }
 
-  .btn-destructive:hover {
+  .btn-destructive:hover,
+  .btn.btn-destructive:hover {
     background: hsl(var(--destructive) / 0.9);
   }
 
-  .btn-sm {
+  .btn-sm,
+  .btn.btn-sm {
     min-height: 36px;
+    height: auto;
     padding: 7px 14px;
     font-size: var(--font-label-s);
     line-height: var(--line-label-s);
   }
 
-  .btn-md {
+  .btn-md,
+  .btn.btn-md {
     min-height: 44px;
+    height: auto;
+    padding: var(--button-padding-y) var(--button-padding-x);
   }
 
-  .btn-lg {
+  .btn-lg,
+  .btn.btn-lg {
     min-height: 48px;
+    height: auto;
     padding: 10px 18px;
     font-size: var(--font-body);
     line-height: var(--line-body);
     font-weight: 500;
   }
 
-  .btn-lg svg {
+  .btn-lg svg,
+  .btn.btn-lg svg {
     width: var(--button-large-icon-size);
     height: var(--button-large-icon-size);
   }
@@ -597,10 +666,12 @@
     width: 100%;
   }
 
-  .btn-icon {
+  .btn-icon,
+  .btn.btn-icon {
     width: 40px;
     min-width: 40px;
     min-height: 40px;
+    height: 40px;
     padding: 0;
   }
 
@@ -620,8 +691,12 @@
   .btn-outline:disabled,
   .btn-ghost:disabled,
   .btn-link:disabled,
-  .btn-destructive:disabled {
+  .btn-destructive:disabled,
+  .btn[aria-disabled="true"],
+  .btn:disabled,
+  .btn-disabled {
     pointer-events: none;
+    cursor: not-allowed;
     opacity: 0.55;
     transform: none;
   }
@@ -637,309 +712,29 @@
     height: var(--button-large-icon-size);
   }
 
-  .btn-disabled,
-  .btn[aria-disabled="true"],
-  .btn:disabled {
-    pointer-events: none;
-    cursor: not-allowed;
-    opacity: 0.55;
-    transform: none;
-  }
-
-  /* Refuerzo para que AppButton mande sobre las utilities internas de shadcn */
-  .btn.btn-primary {
-    border: 1px solid hsl(var(--primary));
-    background: hsl(var(--primary));
-    color: hsl(var(--primary-foreground));
-    box-shadow: 0 10px 24px -18px hsl(var(--primary) / 0.65);
-  }
-
-  .btn.btn-primary:hover {
-    border-color: hsl(var(--brand-base-dark));
-    background: hsl(var(--brand-base-dark));
-    color: hsl(var(--primary-foreground));
-    transform: translateY(-1px);
-  }
-
-  .btn.btn-secondary {
-    border: 1px solid hsl(var(--primary) / 0.22);
-    background: hsl(var(--secondary));
-    color: hsl(var(--secondary-foreground));
-  }
-
-  .btn.btn-secondary:hover {
-    border-color: hsl(var(--primary) / 0.35);
-    background: hsl(var(--brand-base-light));
-    color: hsl(var(--brand-base-dark));
-  }
-
-  .btn.btn-outline {
-    border: 1px solid hsl(var(--border));
-    background: hsl(var(--background));
-    color: hsl(var(--foreground));
-    box-shadow: 0 1px 2px hsl(var(--foreground) / 0.06);
-  }
-
-  .btn.btn-outline:hover {
-    border-color: hsl(var(--primary) / 0.32);
-    background: hsl(var(--accent) / 0.55);
-    color: hsl(var(--accent-foreground));
-  }
-
-  .btn.btn-ghost {
-    border: 1px solid transparent;
-    background: transparent;
-    color: hsl(var(--foreground));
-    box-shadow: none;
-  }
-
-  .btn.btn-ghost:hover {
-    background: hsl(var(--accent) / 0.55);
-    color: hsl(var(--accent-foreground));
-  }
-
-  .btn.btn-link {
-    min-height: auto;
-    border: 0;
-    background: transparent;
-    color: hsl(var(--primary));
-    padding: 0;
-    box-shadow: none;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-
-  .btn.btn-link:hover {
-    color: hsl(var(--brand-base-dark));
-    background: transparent;
-  }
-
-  .btn.btn-destructive {
-    border: 1px solid hsl(var(--destructive));
-    background: hsl(var(--destructive));
-    color: hsl(var(--destructive-foreground));
-  }
-
-  .btn.btn-sm {
-    min-height: 36px;
-    height: auto;
-    padding: 7px 14px;
-    font-size: var(--font-label-s);
-    line-height: var(--line-label-s);
-  }
-
-  .btn.btn-md {
-    min-height: 44px;
-    height: auto;
-    padding: var(--button-padding-y) var(--button-padding-x);
-  }
-
-  .btn.btn-lg {
-    min-height: 48px;
-    height: auto;
-    padding: 10px 18px;
-    font-size: var(--font-body);
-    line-height: var(--line-body);
-    font-weight: 500;
-  }
-
-  .btn.btn-icon {
-    width: 40px;
-    min-width: 40px;
-    min-height: 40px;
-    height: 40px;
-    padding: 0;
-  }
-
+  
   /* =========================================================
-   FORMS
-   Formularios comerciales / marketing.
-   No tocar primitivos shadcn aquí.
-   ========================================================= */
-
-  .form-shell {
-    width: 100%;
-    max-width: 550px;
-    margin-inline: auto;
-  }
-
-  .form-shell-sm {
-    max-width: 480px;
-  }
-
-  .form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-  }
-
-  .form-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-  }
-
-  .form-field {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .form-label {
-    font-size: var(--font-body);
-    line-height: var(--line-body);
-    font-weight: 400;
-    color: hsl(var(--foreground));
-  }
-
-  .form-label-muted {
-    margin-left: 0.25rem;
-    font-size: var(--font-body-s);
-    line-height: var(--line-body-s);
-    color: hsl(var(--muted-foreground));
-  }
-
-  .form-control {
-    width: 100%;
-    min-height: var(--form-control-height);
-    border-radius: var(--form-control-radius);
-    border: 1px solid hsl(var(--form-control-border));
-    background: hsl(var(--form-control-bg));
-    color: hsl(var(--foreground));
-    padding: var(--form-control-padding-y) var(--form-control-padding-x);
-    font-size: var(--form-control-font-size);
-    line-height: var(--form-control-line-height);
-    box-shadow: var(--form-control-shadow);
-    transition:
-      border-color 160ms ease,
-      box-shadow 160ms ease,
-      background-color 160ms ease;
-  }
-
-  .form-control::placeholder {
-    color: hsl(var(--form-control-placeholder) / 0.72);
-  }
-
-  .form-control:hover {
-    border-color: hsl(var(--form-control-border-hover) / 0.58);
-  }
-
-  .form-control:focus {
-    border-color: hsl(var(--ring));
-    outline: none;
-    box-shadow: var(--form-control-focus-shadow);
-  }
-
-  .form-control:disabled {
-    cursor: not-allowed;
-    opacity: 0.55;
-  }
-
-  .form-control-sm {
-    min-height: var(--form-control-height-sm);
-  }
-
-  .form-textarea {
-    min-height: 128px;
-    resize: vertical;
-  }
-
-  .form-textarea-lg {
-    min-height: 160px;
-  }
-
-  .form-control-error {
-    border-color: hsl(var(--destructive));
-  }
-
-  .form-control-error:focus {
-    border-color: hsl(var(--destructive));
-    box-shadow: 0 0 0 3px hsl(var(--destructive) / 0.14);
-  }
-
-  .form-checkbox {
-    margin-top: 0.25rem;
-    height: 1.25rem;
-    width: 1.25rem;
-    flex: 0 0 auto;
-    cursor: pointer;
-    border-radius: 0.35rem;
-    border: 1px solid hsl(var(--border));
-    accent-color: hsl(var(--primary));
-  }
-
-  .form-checkbox:focus-visible {
-    outline: 2px solid hsl(var(--ring));
-    outline-offset: 2px;
-  }
-
-  .form-consent {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-  }
-
-  .form-consent-label {
-    cursor: pointer;
-    user-select: none;
-    font-size: var(--font-body-s);
-    line-height: 1.65;
-    color: hsl(var(--muted-foreground));
-  }
-
-  .form-link {
-    border-radius: 0.25rem;
-    color: hsl(var(--primary));
-    font-weight: 500;
-    text-decoration: none;
-    text-underline-offset: 4px;
-  }
-
-  .form-link:hover {
-    text-decoration: underline;
-  }
-
-  .form-error {
-    border-radius: var(--form-control-radius);
-    border: 1px solid hsl(var(--destructive) / 0.18);
-    background: hsl(var(--destructive) / 0.08);
-    padding: 0.75rem;
-    color: hsl(var(--destructive));
-    font-size: var(--font-body-s);
-    line-height: var(--line-body-s);
-    font-weight: 500;
-  }
-
-
-
-  @media (max-width: 767px) {
-    .section-intro-surface::before {
-      display: none;
-    }
-  }
-
-  /* =========================================================
-   RD FORM SYSTEM
-   Formularios comerciales con UX robusta:
-   - Mobile/tablet: scroll natural de página
-   - Desktop xl: card con header/footer fijos y body scrolleable
-   ========================================================= */
+ RD FORM SYSTEM
+ Formularios comerciales unificados:
+ - Contacto
+ - Solicitud de presupuesto
+ - Landing forms
+ - Formulario sticky de producto
+ ========================================================= */
 
   .rd-form-frame {
     @apply w-full min-w-0;
   }
 
-  /* Card base */
   .rd-form-shell {
-    @apply flex w-full min-w-0 flex-col rounded-3xl border border-border/70 bg-card shadow-sm;
+    @apply flex w-full min-w-0 flex-col rounded-[28px] border border-border/70 bg-card shadow-sm;
+    box-shadow: 0 18px 48px hsl(var(--foreground) / 0.08);
   }
 
-  /* En móvil NO forzamos scroll interno */
   .rd-form-shell--sticky {
     @apply overflow-visible;
   }
 
-  /* Header fijo dentro de la card */
   .rd-form-header {
     @apply shrink-0 border-b border-border/50 px-5 py-5 sm:px-6 lg:px-8;
   }
@@ -956,7 +751,6 @@
     @apply mt-1 text-sm leading-relaxed text-muted-foreground;
   }
 
-  /* Body: en móvil fluye normal; en desktop será el área scrolleable */
   .rd-form-body {
     @apply min-h-0 flex-1 px-5 py-5 sm:px-6 lg:px-8;
   }
@@ -965,12 +759,45 @@
     @apply space-y-4 md:space-y-5;
   }
 
+  .rd-form-grid {
+    @apply grid gap-4;
+  }
+
+  .rd-form-grid--2 {
+    @apply grid gap-4 md:grid-cols-2;
+  }
+
+  .rd-form-field {
+    @apply block space-y-1.5;
+  }
+
   .rd-form-label {
-    @apply text-sm font-medium text-foreground;
+    @apply block text-sm font-medium leading-5 text-foreground;
   }
 
   .rd-form-control {
-    @apply h-11 rounded-xl border-border/80 bg-background shadow-sm transition-colors focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/15;
+    @apply block w-full border text-foreground outline-none transition-colors;
+    height: var(--form-control-height);
+    border-radius: var(--form-control-radius);
+    border-color: hsl(var(--form-control-border) / 0.8);
+    background: hsl(var(--form-control-bg));
+    padding-inline: var(--form-control-padding-x);
+    font-size: var(--form-control-font-size);
+    line-height: var(--form-control-line-height);
+    box-shadow: var(--form-control-shadow);
+  }
+
+  .rd-form-control::placeholder {
+    color: hsl(var(--form-control-placeholder) / 0.7);
+  }
+
+  .rd-form-control:focus-visible {
+    border-color: hsl(var(--primary));
+    box-shadow: var(--form-control-focus-shadow);
+  }
+
+  .rd-form-control:disabled {
+    @apply cursor-not-allowed opacity-60;
   }
 
   .rd-form-control--readonly {
@@ -982,7 +809,28 @@
   }
 
   .rd-form-textarea {
-    @apply min-h-[96px] resize-y rounded-xl border-border/80 bg-background shadow-sm transition-colors focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/15;
+    @apply block w-full resize-y border text-foreground outline-none transition-colors;
+    min-height: 128px;
+    border-radius: var(--form-control-radius);
+    border-color: hsl(var(--form-control-border) / 0.8);
+    background: hsl(var(--form-control-bg));
+    padding: var(--form-control-padding-y) var(--form-control-padding-x);
+    font-size: var(--form-control-font-size);
+    line-height: var(--form-control-line-height);
+    box-shadow: var(--form-control-shadow);
+  }
+
+  .rd-form-textarea::placeholder {
+    color: hsl(var(--form-control-placeholder) / 0.7);
+  }
+
+  .rd-form-textarea:focus-visible {
+    border-color: hsl(var(--primary));
+    box-shadow: var(--form-control-focus-shadow);
+  }
+
+  .rd-form-textarea:disabled {
+    @apply cursor-not-allowed opacity-60;
   }
 
   .rd-form-section {
@@ -997,9 +845,8 @@
     @apply text-sm font-bold uppercase tracking-[0.08em] text-foreground/80;
   }
 
-  /* Footer: siempre visible en desktop */
   .rd-form-footer {
-    @apply shrink-0 border-t border-border/50 bg-card px-5 py-4 sm:px-6 lg:px-8;
+    @apply shrink-0 space-y-4 border-t border-border/50 bg-card px-5 py-4 sm:px-6 lg:px-8;
   }
 
   .rd-form-upload {
@@ -1023,15 +870,11 @@
   }
 
   .rd-form-check-panel {
-    @apply flex items-start gap-3 rounded-xl bg-muted/30 p-3 transition-colors;
+    @apply flex items-start gap-3 rounded-xl border border-border/70 bg-muted/20 p-3 transition-colors;
   }
 
   .rd-form-check-panel--error {
-    @apply bg-destructive/5 ring-1 ring-destructive/30;
-  }
-
-  .rd-form-alert {
-    @apply mb-4 shrink-0 rounded-2xl shadow-sm;
+    @apply border-destructive/40 bg-destructive/5 ring-1 ring-destructive/20;
   }
 
   .rd-form-checkbox {
@@ -1039,11 +882,11 @@
   }
 
   .rd-form-privacy-text {
-    @apply block cursor-pointer text-xs leading-tight text-foreground/80;
+    @apply block cursor-pointer text-sm leading-6 text-muted-foreground;
   }
 
   .rd-form-link {
-    @apply font-semibold text-primary hover:underline;
+    @apply font-semibold text-primary underline-offset-4 hover:underline;
   }
 
   .rd-form-readonly-badge {
@@ -1060,6 +903,18 @@
 
   .rd-form-fixed-note {
     @apply ml-1 text-[11px] font-bold uppercase tracking-wider text-primary;
+  }
+
+  .rd-form-help-text {
+    @apply text-xs leading-5 text-muted-foreground;
+  }
+
+  .rd-form-alert {
+    @apply shrink-0 rounded-2xl px-4 py-3 text-sm shadow-sm;
+  }
+
+  .rd-form-alert--destructive {
+    @apply border border-destructive/20 bg-destructive/10 font-medium text-destructive;
   }
 
   /* Desktop product form behavior */
@@ -1099,52 +954,112 @@
     }
   }
 
-  .rd-chip {
-    @apply inline-flex items-center justify-center whitespace-nowrap select-none rounded-full border transition-all duration-200;
-    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:ring-offset-2;
-  }
 
-  .rd-chip--pill {
-    @apply min-h-9 border-border/70 bg-card px-4 py-2 text-body-s text-foreground/75;
-  }
 
-  .rd-chip--pill:hover {
-    @apply border-primary/25 text-primary shadow-sm;
-  }
-
-  .rd-chip--pill.rd-chip--active {
-    @apply border-primary/30 bg-accent text-primary shadow-sm;
-  }
-
-  .rd-chip--tab {
-    @apply min-h-11 border-border bg-background px-5 py-2.5 text-body-s font-semibold text-foreground/80;
-  }
-
-  .rd-chip--tab:hover {
-    @apply border-primary/25 bg-accent/40 text-primary;
-  }
-
-  .rd-chip--tab.rd-chip--active {
-    @apply border-primary bg-primary text-primary-foreground shadow-sm;
-  }
-
-  .rd-chip--related {
-    @apply min-h-9 border-border/80 bg-secondary/70 px-4 py-2 text-body-s font-medium text-foreground/80 shadow-sm;
-  }
-
-  .rd-chip--related:hover {
-    @apply border-foreground/25 bg-foreground text-background;
-  }
-
-  .rd-chip--related.rd-chip--active {
-    @apply border-foreground/25 bg-foreground text-background;
-  }
-
-  .rd-chip--disabled,
-  .rd-chip[aria-disabled="true"] {
-    @apply pointer-events-none opacity-50;
+  @media (max-width: 767px) {
+    .section-intro-surface::before {
+      display: none;
+    }
   }
 }
+    /* =========================================================
+   GOOGLE REVIEWS
+   ========================================================= */
+
+  .google-reviews-section {
+    @apply bg-background py-12 md:py-16 lg:py-20;
+  }
+
+  .google-reviews-header {
+    @apply mb-7 flex flex-col gap-4 md:mb-8 md:flex-row md:items-end md:justify-between;
+  }
+
+  .google-reviews-header-actions {
+    @apply flex shrink-0 items-center gap-3;
+  }
+
+  .google-reviews-rating {
+    @apply mt-3 text-sm text-muted-foreground;
+  }
+
+  .google-reviews-empty {
+    @apply text-sm text-muted-foreground;
+  }
+
+  .google-reviews-carousel {
+    @apply overflow-hidden outline-none;
+  }
+
+  .google-reviews-track {
+    @apply flex;
+  }
+
+  .google-reviews-slide {
+    @apply min-w-0 shrink-0 grow-0 basis-full px-2 sm:basis-1/2 lg:basis-1/3;
+  }
+
+  .google-reviews-card {
+    @apply flex h-full flex-col rounded-2xl border border-border/70 bg-card p-5 shadow-sm transition;
+    box-shadow: 0 14px 34px hsl(var(--foreground) / 0.06);
+  }
+
+  .google-reviews-card:hover {
+    @apply border-primary/20;
+    box-shadow: 0 18px 44px hsl(var(--foreground) / 0.09);
+  }
+
+  .google-reviews-card-header {
+    @apply flex items-center gap-3;
+  }
+
+  .google-reviews-stars {
+    @apply ml-auto flex items-center gap-1 text-amber-500;
+  }
+
+  .google-reviews-card-body {
+    @apply mt-4 flex flex-1 flex-col text-sm leading-relaxed;
+    color: hsl(var(--foreground) / 0.82);
+  }
+
+  .google-reviews-card-footer {
+    @apply mt-auto flex items-center justify-between gap-3 pt-3;
+  }
+
+  .google-reviews-text-button {
+    @apply text-xs font-semibold text-primary underline-offset-4 transition hover:underline;
+  }
+
+  .google-reviews-link {
+    @apply ml-auto text-xs font-medium text-muted-foreground underline-offset-4 transition hover:text-primary hover:underline;
+  }
+
+  .google-reviews-controls {
+    @apply mt-6 flex items-center justify-between gap-4;
+  }
+
+  .google-reviews-arrows {
+    @apply flex items-center gap-2;
+  }
+
+  .google-reviews-dots {
+    @apply flex items-center gap-1.5;
+  }
+
+  .google-reviews-dot {
+    @apply h-1.5 w-5 rounded-full bg-muted transition-all;
+  }
+
+  .google-reviews-dot--active {
+    @apply w-6 bg-foreground;
+  }
+
+  .google-reviews-clamp {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+  }
+
 
 /* =========================================================
    BASE (tokens + tipografía + estilos base)

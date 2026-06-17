@@ -49,7 +49,7 @@ const props = withDefaults(
     ctaLabel: "Contacta con nosotros",
     ctaTo: "/contacto#formulario",
     sectionClass: "catalog-section bg-background",
-    containerClass: "container-content",
+    containerClass: "home-section__inner",
   }
 );
 

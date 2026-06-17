@@ -1,4 +1,6 @@
+<!-- components/google/reviews/Section.vue -->
 <script setup lang="ts">
+import { computed } from "vue";
 import GoogleReviewsCarousel from "./Carousel.vue";
 import { usePlaceReviews } from "@/composables/usePlaceReviews";
 
@@ -8,32 +10,62 @@ const { items, average, total, mapsUrl, pending, error } = usePlaceReviews({
   lang: "es",
   limit: 6,
 });
+
+const devErrorMessage = computed(() => {
+  if (!error.value) return "";
+
+  return (
+    error.value.statusMessage ||
+    error.value.message ||
+    String(error.value)
+  );
+});
 </script>
 
 <template>
-  <section class="max-w-5xl mx-auto py-8">
-    <div v-if="pending && items.length === 0">Cargando reseñas…</div>
+  <GoogleReviewsCarousel
+    v-if="!pending && !error && items.length > 0"
+    title="Opiniones de clientes"
+    :reviews="items"
+    :rating="average"
+    :count="total"
+    :maps-url="mapsUrl || ''"
+    business-name="Repro Disseny"
+    business-url="https://reprodisseny.com"
+  />
 
-    <p v-else-if="error" class="text-sm text-destructive">
-      No se han podido cargar las reseñas.
-      <span v-if="isDev" class="block mt-1 opacity-80">
-        {{ (error as any)?.statusMessage || (error as any)?.message || String(error) }}
-      </span>
-    </p>
+  <section
+    v-else
+    class="google-reviews-section"
+  >
+    <div class="container-wide">
+      <div
+        v-if="pending && items.length === 0"
+        class="google-reviews-empty"
+      >
+        Cargando reseñas…
+      </div>
 
-    <div v-else-if="items.length === 0" class="text-sm text-muted-foreground">
-      No hay reseñas para mostrar.
+      <p
+        v-else-if="error"
+        class="text-sm text-destructive"
+      >
+        No se han podido cargar las reseñas.
+
+        <span
+          v-if="isDev && devErrorMessage"
+          class="mt-1 block opacity-80"
+        >
+          {{ devErrorMessage }}
+        </span>
+      </p>
+
+      <div
+        v-else
+        class="google-reviews-empty"
+      >
+        No hay reseñas para mostrar.
+      </div>
     </div>
-
-    <GoogleReviewsCarousel
-      v-else
-      title="Opiniones de clientes"
-      :reviews="items"
-      :rating="average"
-      :count="total"
-      :maps-url="mapsUrl || ''"
-      business-name="Repro Disseny"
-      business-url="https://reprodisseny.com"
-    />
   </section>
 </template>

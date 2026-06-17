@@ -2,35 +2,43 @@
 import { computed } from "vue";
 import { cn } from "@/lib/utils";
 
+type ProductAttributeTone =
+  | "neutral"
+  | "material"
+  | "format"
+  | "finish"
+  | "file"
+  | "delivery";
+
 type ProductAttribute = {
   label: string;
   icon?: string | null;
-  tone?: string | null;
+  tone?: ProductAttributeTone | string | null;
 };
 
 const props = withDefaults(
   defineProps<{
     items?: ProductAttribute[];
     class?: string;
+    limit?: number;
   }>(),
   {
     items: () => [],
     class: "",
-  }
+    limit: 4,
+  },
 );
 
-const safeItems = computed(() =>
-  (props.items || [])
-    .map((item) => ({
-      label: String(item?.label || "").trim(),
-      icon: item?.icon ? String(item.icon).trim() : null,
-      tone: item?.tone ? String(item.tone).trim().toLowerCase() : "neutral",
-    }))
-    .filter((item) => item.label)
-    .slice(0, 4)
-);
+const ATTRIBUTE_TONES = new Set<ProductAttributeTone>([
+  "neutral",
+  "material",
+  "format",
+  "finish",
+  "file",
+  "delivery",
+]);
 
-const iconMap: Record<string, string> = {
+const ATTRIBUTE_ICON_MAP: Record<string, string> = {
   headphones: "lucide:headphones",
   "file-check": "lucide:file-check-2",
   zap: "lucide:zap",
@@ -42,24 +50,37 @@ const iconMap: Record<string, string> = {
   sparkles: "lucide:sparkles",
 };
 
-function normalizeToneClass(tone: string | null) {
+function normalizeTone(tone?: string | null): ProductAttributeTone {
   const value = String(tone || "neutral")
+    .trim()
+    .toLowerCase() as ProductAttributeTone;
+
+  return ATTRIBUTE_TONES.has(value) ? value : "neutral";
+}
+
+function normalizeIcon(icon?: string | null) {
+  const value = String(icon || "")
     .trim()
     .toLowerCase();
 
-  const allowed = new Set([
-    "neutral",
-    "material",
-    "format",
-    "finish",
-    "file",
-    "delivery",
-  ]);
-
-  return allowed.has(value) ? value : "neutral";
+  return value ? ATTRIBUTE_ICON_MAP[value] || null : null;
 }
-</script>
 
+const safeItems = computed(() =>
+  (props.items || [])
+    .map((item) => {
+      const label = String(item?.label || "").trim();
+
+      return {
+        label,
+        icon: normalizeIcon(item?.icon),
+        tone: normalizeTone(item?.tone),
+      };
+    })
+    .filter((item) => item.label)
+    .slice(0, Math.max(0, props.limit)),
+);
+</script>
 <template>
   <ul
     v-if="safeItems.length"
@@ -74,7 +95,7 @@ function normalizeToneClass(tone: string | null) {
       <span
         :class="[
           'product-attribute-chip',
-          `product-attribute-chip--${normalizeToneClass(item.tone)}`,
+          `product-attribute-chip--${item.tone}`,
         ]"
       >
         <span
@@ -82,8 +103,8 @@ function normalizeToneClass(tone: string | null) {
           aria-hidden="true"
         >
           <Icon
-            v-if="item.icon && iconMap[item.icon]"
-            :name="iconMap[item.icon]"
+            v-if="item.icon"
+            :name="item.icon"
             class="product-attribute-chip__icon"
           />
 

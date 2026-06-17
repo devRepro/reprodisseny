@@ -59,7 +59,7 @@ const props = withDefaults(
               <li v-for="item in props.menuLeft" :key="item.to">
                 <NuxtLink
                   :to="item.to"
-                  class="text-body-s leading-[1.6] text-white/82 underline-offset-4 transition hover:text-white hover:underline"
+                  class="text-body-s leading-[1.6] text-white/[0.82] underline-offset-4 transition hover:text-white hover:underline"
                 >
                   {{ item.label }}
                 </NuxtLink>
@@ -70,7 +70,7 @@ const props = withDefaults(
               <li v-for="item in props.menuRight" :key="item.to">
                 <NuxtLink
                   :to="item.to"
-                  class="text-body-s leading-[1.6] text-white/82 underline-offset-4 transition hover:text-white hover:underline"
+                  class="text-body-s leading-[1.6] text-white/[0.82] underline-offset-4 transition hover:text-white hover:underline"
                 >
                   {{ item.label }}
                 </NuxtLink>
@@ -80,7 +80,7 @@ const props = withDefaults(
         </nav>
 
         <address class="min-w-0 not-italic">
-          <div class="space-y-4 text-body-s leading-[1.65] text-white/82">
+          <div class="space-y-4 text-body-s leading-[1.65] text-white/[0.82]">
             <p>Juan de Mena 19, 08035 Barcelona</p>
 
             <p>
@@ -108,7 +108,7 @@ const props = withDefaults(
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn de Reprodisseny"
-              class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/82 transition hover:border-white/30 hover:bg-white/[0.08] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+              class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/[0.82] transition hover:border-white/30 hover:bg-white/[0.08] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
             >
               <LinkedinIcon class="h-5 w-5" />
             </a>
@@ -118,7 +118,7 @@ const props = withDefaults(
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram de Reprodisseny"
-              class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/82 transition hover:border-white/30 hover:bg-white/[0.08] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+              class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/[0.82] transition hover:border-white/30 hover:bg-white/[0.08] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
             >
               <InstagramIcon class="h-5 w-5" />
             </a>

@@ -4,8 +4,8 @@ import { useRoute } from "#imports";
 import { useForm } from "vee-validate";
 import { z } from "zod";
 import { toTypedSchema } from "@vee-validate/zod";
-import { Loader2 } from "lucide-vue-next";
 
+import AppButton from "@/components/shared/button/AppButton.vue";
 import {
   FormControl,
   FormField,
@@ -14,7 +14,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
   Select,
@@ -428,10 +427,15 @@ const onSubmit = handleSubmit(
       </div>
 
       <div class="rd-form-footer">
-        <Button type="submit" :disabled="isLoading" class="h-12 w-full">
-          <Loader2 v-if="isLoading" class="mr-2 h-5 w-5 animate-spin" />
-          {{ isLoading ? "Enviando solicitud..." : "Contactar con un experto" }}
-        </Button>
+        <AppButton
+  type="submit"
+  :disabled="isLoading"
+  :loading="isLoading"
+  size="lg"
+  block
+>
+  {{ isLoading ? "Enviando solicitud..." : "Solicitar presupuesto" }}
+</AppButton>
       </div>
     </form>
   </div>

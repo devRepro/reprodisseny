@@ -112,7 +112,7 @@ const frameClass = computed(() =>
           </picture>
 
           <div
-            class="pointer-events-none absolute inset-0 bg-gradient-to-r from-background/95 via-background/86 to-background/20 md:from-background md:via-background/82 md:to-transparent"
+            class="pointer-events-none absolute inset-0 bg-gradient-to-r from-background/95 via-background/[0.86] to-background/20 md:from-background md:via-background/[0.82] md:to-transparent"
           />
 
           <div class="relative z-10 min-h-[var(--section-media-banner-h)]">
