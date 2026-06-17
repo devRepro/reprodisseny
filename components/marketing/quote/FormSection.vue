@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { computed, ref } from "vue";
 import { useRoute } from "#imports";
 import { useForm } from "vee-validate";
 import { z } from "zod";
@@ -7,25 +7,26 @@ import { toTypedSchema } from "@vee-validate/zod";
 import { Loader2 } from "lucide-vue-next";
 
 import {
+  FormControl,
   FormField,
   FormItem,
   FormLabel,
-  FormControl,
   FormMessage,
 } from "@/components/ui/form";
 
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import {
   Select,
-  SelectTrigger,
-  SelectValue,
   SelectContent,
   SelectItem,
+  SelectTrigger,
+  SelectValue,
 } from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
 
 import { usePriceRequests } from "@/composables/usePriceRequests";
+import { cn } from "@/lib/utils";
 
 const props = withDefaults(
   defineProps<{
@@ -39,35 +40,44 @@ const props = withDefaults(
     categorySlug: "presupuesto",
     productName: "Presupuesto genérico",
     productSlug: "presupuesto-generico",
-  }
+  },
 );
 
 const route = useRoute();
 const file = ref<File | null>(null);
 
-function normalizeUtm(q: Record<string, any>) {
+const fileName = computed(() => file.value?.name || "Ningún archivo seleccionado");
+
+const emptyToNull = (value: unknown) => {
+  if (typeof value === "string" && value.trim() === "") return null;
+  return value;
+};
+
+function cleanString(value: unknown) {
+  return typeof value === "string" ? value.trim() : "";
+}
+
+function normalizeUtm(query: Record<string, unknown>) {
   const out: Record<string, string> = {};
-  for (const [k, v] of Object.entries(q || {})) {
-    if (!k.toLowerCase().startsWith("utm_")) continue;
-    if (Array.isArray(v)) out[k] = String(v[0] ?? "");
-    else if (v == null) out[k] = "";
-    else out[k] = String(v);
+
+  for (const [key, value] of Object.entries(query || {})) {
+    if (!key.toLowerCase().startsWith("utm_")) continue;
+
+    if (Array.isArray(value)) out[key] = String(value[0] ?? "");
+    else if (value == null) out[key] = "";
+    else out[key] = String(value);
   }
+
   return Object.keys(out).length ? out : null;
 }
 
-const utm = computed(() => normalizeUtm(route.query as any));
+const utm = computed(() => normalizeUtm(route.query as Record<string, unknown>));
 
-// Ojo: el endpoint limita sourceUrl a 300 chars
+// El endpoint limita sourceUrl a 300 caracteres.
 const sourceUrl = computed(() => {
-  const url = process.client ? location.href : route.fullPath || "/";
+  const url = import.meta.client ? window.location.href : route.fullPath || "/";
   return String(url).slice(0, 300);
 });
-
-const emptyToNull = (v: unknown) => {
-  if (typeof v === "string" && v.trim() === "") return null;
-  return v;
-};
 
 const schema = toTypedSchema(
   z.object({
@@ -81,21 +91,24 @@ const schema = toTypedSchema(
       emptyToNull,
       z
         .string()
-        .regex(/^[\d\s\+\-]*$/, "Solo se permiten números y símbolos válidos")
+        .regex(/^[\d\s+-]*$/, "Solo se permiten números y símbolos válidos")
         .nullable()
-        .optional()
+        .optional(),
     ),
 
     productType: z.preprocess(emptyToNull, z.string().nullable().optional()),
 
-    message: z.preprocess(emptyToNull, z.string().max(4000).nullable().optional()),
+    message: z.preprocess(
+      emptyToNull,
+      z.string().max(4000, "El mensaje no puede superar los 4000 caracteres").nullable().optional(),
+    ),
 
     needAdvice: z.boolean().optional(),
 
-    consent: z.boolean().refine((v) => v === true, {
+    consent: z.boolean().refine((value) => value === true, {
       message: "Es necesario aceptar la política de privacidad",
     }),
-  })
+  }),
 );
 
 const { handleSubmit, resetForm } = useForm({
@@ -112,11 +125,23 @@ const { handleSubmit, resetForm } = useForm({
   },
 });
 
-const { createPriceRequest, isLoading, error, success } = usePriceRequests();
+const { createPriceRequest, error, isLoading, success } = usePriceRequests();
 
-function onPickFile(e: Event) {
-  const input = e.target as HTMLInputElement;
-  file.value = input.files?.[0] || null;
+function controlClass(errorMessage?: string) {
+  return cn("rd-form-control", errorMessage && "rd-form-control--error");
+}
+
+function textareaClass(errorMessage?: string) {
+  return cn("rd-form-textarea", errorMessage && "rd-form-control--error");
+}
+
+function checkPanelClass(errorMessage?: string) {
+  return cn("rd-form-check-panel", errorMessage && "rd-form-check-panel--error");
+}
+
+function onPickFile(event: Event) {
+  const input = event.target as HTMLInputElement;
+  file.value = input.files?.[0] ?? null;
 }
 
 const onSubmit = handleSubmit(
@@ -124,8 +149,8 @@ const onSubmit = handleSubmit(
     error.value = null;
     success.value = false;
 
-    // Honeypot: respuesta silenciosa, sin crear solicitud real
-    if (values.website && values.website.trim()) {
+    // Honeypot: respuesta silenciosa, sin crear solicitud real.
+    if (cleanString(values.website)) {
       await navigateTo({
         path: "/gracias",
         query: { kind: "presupuesto" },
@@ -134,14 +159,14 @@ const onSubmit = handleSubmit(
     }
 
     const payload = {
-      website: values.website || null,
+      website: cleanString(values.website) || null,
 
-      name: values.name.trim(),
-      email: values.email.trim(),
-      phone: values.phone?.trim() || null,
+      name: cleanString(values.name),
+      email: cleanString(values.email),
+      phone: cleanString(values.phone) || null,
       company: null,
 
-      message: (values.message || "").trim() || "Solicitud de presupuesto",
+      message: cleanString(values.message) || "Solicitud de presupuesto",
 
       categorySlug: props.categorySlug || "presupuesto",
 
@@ -153,7 +178,7 @@ const onSubmit = handleSubmit(
       },
 
       extras: {
-        productType: values.productType || null,
+        productType: cleanString(values.productType) || null,
         needAdvice: values.needAdvice === true,
         fileName: file.value?.name || null,
         page: "pedir-presupuesto",
@@ -182,251 +207,232 @@ const onSubmit = handleSubmit(
 
     error.value =
       firstError || "Revisa los campos obligatorios antes de enviar la solicitud.";
-  }
+  },
 );
 </script>
 
 <template>
-  <div class="mx-auto w-full max-w-[549px]">
-    <!-- Éxito (igual que contacto) -->
-    <div
-      v-if="success"
-      class="flex flex-col items-center justify-center p-8 text-center bg-emerald-50 rounded-xl border border-emerald-100 min-h-[300px] animate-in fade-in slide-in-from-bottom-4"
-    >
-      <CheckCircle2 class="w-16 h-16 text-emerald-600 mb-4" />
-      <h3 class="text-2xl font-bold text-emerald-800 font-['Figtree'] mb-2">
-        ¡Solicitud enviada!
-      </h3>
-      <p class="text-emerald-700 font-['Figtree'] whitespace-pre-line">
-        Gracias. Un experto revisará tu solicitud y te responderá a la brevedad.
-      </p>
-
-      <Button
-        variant="outline"
-        class="mt-6 border-emerald-200 text-emerald-700 hover:bg-emerald-100 hover:text-emerald-800"
-        @click="success = false"
-      >
-        Enviar otra solicitud
-      </Button>
-    </div>
-
-    <form v-else @submit.prevent="onSubmit" novalidate class="flex flex-col gap-6">
-      <!-- Error inline (además del toast) -->
-      <div
-        v-if="error"
-        class="p-3 bg-red-50 border border-red-100 rounded-lg animate-in fade-in"
-      >
-        <p
-          class="text-sm font-medium text-red-600 text-center flex items-center justify-center gap-2"
-        >
-          <span>⚠️</span> {{ error }}
+  <div class="rd-form-frame mx-auto max-w-xl">
+    <form @submit.prevent="onSubmit" novalidate class="rd-form-shell">
+      <div v-if="error" class="rd-form-alert border border-destructive/20 bg-destructive/5 px-4 py-3">
+        <p class="text-center text-sm font-medium text-destructive">
+          {{ error }}
         </p>
       </div>
 
-      <div class="flex flex-col gap-5">
-        <FormField name="name" v-slot="{ componentField, errorMessage }">
-          <FormItem>
-            <FormLabel class="font-['Figtree'] text-base font-normal text-gray-900">
-              Nombre
-            </FormLabel>
-            <FormControl>
-              <Input
-                v-bind="componentField"
-                autocomplete="name"
-                placeholder="Ej. Juan Pérez"
-                class="h-[43px] rounded-[10px] border-gray-300 focus:border-[#0076B3] focus:ring-2 focus:ring-[#0076B3]/20 shadow-sm transition-all duration-200"
-                :class="{ 'border-red-500 focus:ring-red-200': errorMessage }"
-              />
-            </FormControl>
-            <FormMessage class="font-['Figtree'] text-sm mt-1" />
-          </FormItem>
-        </FormField>
+      <div class="rd-form-body">
+        <div class="rd-form-stack">
+          <FormField name="name" v-slot="{ componentField, errorMessage }">
+            <FormItem>
+              <FormLabel class="rd-form-label">
+                Nombre <span class="rd-form-required">*</span>
+              </FormLabel>
 
-        <FormField name="email" v-slot="{ componentField, errorMessage }">
-          <FormItem>
-            <FormLabel class="font-['Figtree'] text-base font-normal text-gray-900">
-              Email
-            </FormLabel>
-            <FormControl>
-              <Input
-                v-bind="componentField"
-                type="email"
-                autocomplete="email"
-                placeholder="nombre@empresa.com"
-                class="h-[43px] rounded-[10px] border-gray-300 focus:border-[#0076B3] focus:ring-2 focus:ring-[#0076B3]/20 shadow-sm transition-all duration-200"
-                :class="{ 'border-red-500 focus:ring-red-200': errorMessage }"
-              />
-            </FormControl>
-            <FormMessage class="font-['Figtree'] text-sm mt-1" />
-          </FormItem>
-        </FormField>
+              <FormControl>
+                <Input
+                  v-bind="componentField"
+                  autocomplete="name"
+                  placeholder="Ej. Juan Pérez"
+                  :class="controlClass(errorMessage)"
+                />
+              </FormControl>
 
-        <FormField name="phone" v-slot="{ componentField, errorMessage }">
-          <FormItem>
-            <FormLabel class="font-['Figtree'] text-base font-normal text-gray-900">
-              Teléfono <span class="text-gray-400 text-sm ml-1">(Opcional)</span>
-            </FormLabel>
-            <FormControl>
-              <Input
-                v-bind="componentField"
-                type="tel"
-                inputmode="tel"
-                autocomplete="tel"
-                placeholder="+34 600 000 000"
-                class="h-[43px] rounded-[10px] border-gray-300 focus:border-[#0076B3] focus:ring-2 focus:ring-[#0076B3]/20 shadow-sm transition-all duration-200"
-                :class="{ 'border-red-500 focus:ring-red-200': errorMessage }"
-              />
-            </FormControl>
-            <FormMessage class="font-['Figtree'] text-sm mt-1" />
-          </FormItem>
-        </FormField>
+              <FormMessage class="mt-1" />
+            </FormItem>
+          </FormField>
 
-        <!-- Tipo de producto -->
-        <FormField name="productType" v-slot="{ componentField }">
-          <FormItem>
-            <FormLabel class="font-['Figtree'] text-base font-normal text-gray-900">
-              Tipo de producto <span class="text-gray-400 text-sm ml-1">(Opcional)</span>
-            </FormLabel>
+          <FormField name="email" v-slot="{ componentField, errorMessage }">
+            <FormItem>
+              <FormLabel class="rd-form-label">
+                Email <span class="rd-form-required">*</span>
+              </FormLabel>
 
-            <FormControl>
-              <Select
-                :model-value="componentField.modelValue || undefined"
-                @update:model-value="componentField.onChange"
-              >
-                <SelectTrigger
-                  class="h-[43px] rounded-[10px] border-gray-300 shadow-sm focus:ring-2 focus:ring-[#0076B3]/20"
+              <FormControl>
+                <Input
+                  v-bind="componentField"
+                  type="email"
+                  autocomplete="email"
+                  placeholder="nombre@empresa.com"
+                  :class="controlClass(errorMessage)"
+                />
+              </FormControl>
+
+              <FormMessage class="mt-1" />
+            </FormItem>
+          </FormField>
+
+          <FormField name="phone" v-slot="{ componentField, errorMessage }">
+            <FormItem>
+              <FormLabel class="rd-form-label">
+                Teléfono <span class="rd-form-inline-note">(Opcional)</span>
+              </FormLabel>
+
+              <FormControl>
+                <Input
+                  v-bind="componentField"
+                  type="tel"
+                  inputmode="tel"
+                  autocomplete="tel"
+                  placeholder="+34 600 000 000"
+                  :class="controlClass(errorMessage)"
+                />
+              </FormControl>
+
+              <FormMessage class="mt-1" />
+            </FormItem>
+          </FormField>
+
+          <FormField name="productType" v-slot="{ componentField, errorMessage }">
+            <FormItem>
+              <FormLabel class="rd-form-label">
+                Tipo de producto <span class="rd-form-inline-note">(Opcional)</span>
+              </FormLabel>
+
+              <FormControl>
+                <Select
+                  :model-value="componentField.modelValue || undefined"
+                  @update:model-value="componentField.onChange"
                 >
-                  <SelectValue placeholder="Selecciona una opción" />
-                </SelectTrigger>
+                  <SelectTrigger :class="controlClass(errorMessage)">
+                    <SelectValue placeholder="Selecciona una opción" />
+                  </SelectTrigger>
 
-                <SelectContent>
-                  <SelectItem value="adhesivos">Adhesivos</SelectItem>
-                  <SelectItem value="gran-formato">Gran Formato</SelectItem>
-                  <SelectItem value="expositores">Expositores</SelectItem>
-                  <SelectItem value="publicaciones">Publicaciones</SelectItem>
-                  <SelectItem value="packaging">Packaging</SelectItem>
-                  <SelectItem value="otro">Otro</SelectItem>
-                </SelectContent>
-              </Select>
-            </FormControl>
-          </FormItem>
-        </FormField>
+                  <SelectContent>
+                    <SelectItem value="adhesivos">Adhesivos</SelectItem>
+                    <SelectItem value="gran-formato">Gran formato</SelectItem>
+                    <SelectItem value="expositores">Expositores</SelectItem>
+                    <SelectItem value="publicaciones">Publicaciones</SelectItem>
+                    <SelectItem value="packaging">Packaging</SelectItem>
+                    <SelectItem value="otro">Otro</SelectItem>
+                  </SelectContent>
+                </Select>
+              </FormControl>
 
-        <!-- Descripción -->
-        <FormField name="message" v-slot="{ componentField }">
-          <FormItem>
-            <FormLabel class="font-['Figtree'] text-base font-normal text-gray-900">
-              Descripción <span class="text-gray-400 text-sm ml-1">(Opcional)</span>
-            </FormLabel>
-            <FormControl>
-              <Textarea
-                v-bind="componentField"
-                placeholder="Qué necesitas, cantidad aproximada, medidas, ¿tienes diseño?..."
-                class="min-h-[128px] resize-y rounded-[10px] border-gray-300 focus:border-[#0076B3] focus:ring-2 focus:ring-[#0076B3]/20 shadow-sm transition-all duration-200"
-              />
-            </FormControl>
-          </FormItem>
-        </FormField>
+              <FormMessage class="mt-1" />
+            </FormItem>
+          </FormField>
 
-        <!-- Honeypot -->
-        <FormField name="website" v-slot="{ componentField }">
-          <input
-            v-bind="componentField"
-            class="hidden opacity-0 w-0 h-0 absolute -z-10"
-            tabindex="-1"
-            autocomplete="off"
-            aria-hidden="true"
-          />
-        </FormField>
+          <FormField name="message" v-slot="{ componentField, errorMessage }">
+            <FormItem>
+              <FormLabel class="rd-form-label">
+                Descripción <span class="rd-form-inline-note">(Opcional)</span>
+              </FormLabel>
 
-        <!-- Adjuntar archivo -->
-        <div class="grid gap-2 pt-1">
-          <label class="font-['Figtree'] text-base font-normal text-gray-900">
-            Adjuntar archivo <span class="text-gray-400 text-sm ml-1">(Opcional)</span>
-          </label>
+              <FormControl>
+                <Textarea
+                  v-bind="componentField"
+                  placeholder="Qué necesitas, cantidad aproximada, medidas, ¿tienes diseño?..."
+                  :class="textareaClass(errorMessage)"
+                />
+              </FormControl>
 
-          <div class="flex items-center gap-4">
-            <label
-              class="inline-flex h-[28px] items-center justify-center rounded-[5px] border border-[#3F3F3F] px-[10px] text-[14px] leading-[20px] font-normal text-black cursor-pointer"
-            >
-              Seleccionar archivo
-              <input type="file" class="hidden" @change="onPickFile" />
+              <FormMessage class="mt-1" />
+            </FormItem>
+          </FormField>
+
+          <FormField name="website" v-slot="{ componentField }">
+            <input
+              v-bind="componentField"
+              class="hidden"
+              tabindex="-1"
+              autocomplete="off"
+              aria-hidden="true"
+            />
+          </FormField>
+
+          <div class="rd-form-section">
+            <label class="rd-form-label">
+              Adjuntar archivo <span class="rd-form-inline-note">(Opcional)</span>
             </label>
 
-            <span class="text-[14px] leading-[20px] font-normal text-[#A2A2A2] truncate">
-              {{ file?.name || "Ningún archivo seleccionado" }}
-            </span>
+            <label class="rd-form-upload">
+              <span class="rd-form-upload-button">
+                Seleccionar archivo
+              </span>
+
+              <span class="rd-form-upload-text">
+                {{ fileName }}
+              </span>
+
+              <input
+                type="file"
+                class="sr-only"
+                accept=".pdf,.jpg,.jpeg,.png,.ai,.eps,.svg,.zip"
+                @change="onPickFile"
+              />
+            </label>
           </div>
+
+          <FormField name="needAdvice" v-slot="{ componentField }">
+            <FormItem class="space-y-0">
+              <label class="rd-form-check-panel" for="need-advice-check">
+                <FormControl>
+                  <input
+                    id="need-advice-check"
+                    type="checkbox"
+                    class="rd-form-checkbox"
+                    :checked="componentField.modelValue === true"
+                    @change="
+                      (event) =>
+                        componentField.onChange(
+                          (event.target as HTMLInputElement).checked,
+                        )
+                    "
+                    @blur="componentField.onBlur"
+                  />
+                </FormControl>
+
+                <span class="rd-form-privacy-text">
+                  Necesito asesoramiento
+                </span>
+              </label>
+            </FormItem>
+          </FormField>
+
+          <FormField name="consent" v-slot="{ componentField, errorMessage }">
+            <FormItem class="space-y-0">
+              <label :class="checkPanelClass(errorMessage)" for="privacy-check">
+                <FormControl>
+                  <input
+                    id="privacy-check"
+                    type="checkbox"
+                    class="rd-form-checkbox"
+                    :checked="componentField.modelValue === true"
+                    @change="
+                      (event) =>
+                        componentField.onChange(
+                          (event.target as HTMLInputElement).checked,
+                        )
+                    "
+                    @blur="componentField.onBlur"
+                  />
+                </FormControl>
+
+                <span class="rd-form-privacy-text">
+                  He leído y acepto la
+                  <NuxtLink
+                    to="/politica-privacidad"
+                    target="_blank"
+                    class="rd-form-link"
+                  >
+                    política de privacidad
+                  </NuxtLink>
+                  .
+                </span>
+              </label>
+
+              <FormMessage class="mt-2 block" />
+            </FormItem>
+          </FormField>
         </div>
-
-        <!-- Need advice -->
-        <FormField name="needAdvice" v-slot="{ componentField }">
-          <FormItem class="space-y-0">
-            <div class="flex items-start gap-3">
-              <FormControl>
-                <input
-                  type="checkbox"
-                  class="mt-1 h-5 w-5 rounded border-gray-300 text-[#0076B3] focus:ring-[#0076B3] cursor-pointer"
-                  :checked="componentField.modelValue === true"
-                  @change="(e) => componentField.onChange((e.target as HTMLInputElement).checked)"
-                  @blur="componentField.onBlur"
-                />
-              </FormControl>
-              <label
-                class="text-sm font-['Figtree'] leading-relaxed text-gray-700 cursor-pointer select-none"
-              >
-                Necesito asesoramiento
-              </label>
-            </div>
-          </FormItem>
-        </FormField>
       </div>
 
-      <!-- Consent (igual que contacto: nativo + vee-validate) -->
-      <div class="mt-1">
-        <FormField name="consent" v-slot="{ componentField }">
-          <FormItem class="space-y-0">
-            <div class="flex items-start gap-3">
-              <FormControl>
-                <input
-                  type="checkbox"
-                  id="privacy-check"
-                  class="mt-1 h-5 w-5 rounded border-gray-300 text-[#0076B3] focus:ring-[#0076B3] cursor-pointer"
-                  :checked="componentField.modelValue === true"
-                  @change="(e) => componentField.onChange((e.target as HTMLInputElement).checked)"
-                  @blur="componentField.onBlur"
-                />
-              </FormControl>
-
-              <label
-                for="privacy-check"
-                class="text-sm font-['Figtree'] leading-relaxed text-gray-700 cursor-pointer select-none"
-              >
-                He leído y acepto la
-                <a
-                  href="/politica-privacidad"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="text-[#0076B3] hover:underline focus:outline-none focus:ring-2 focus:ring-[#0076B3]/50 rounded px-0.5"
-                >
-                  política de privacidad </a
-                >.
-              </label>
-            </div>
-            <FormMessage class="ml-8 mt-1 block" />
-          </FormItem>
-        </FormField>
+      <div class="rd-form-footer">
+        <Button type="submit" :disabled="isLoading" class="h-12 w-full">
+          <Loader2 v-if="isLoading" class="mr-2 h-5 w-5 animate-spin" />
+          {{ isLoading ? "Enviando solicitud..." : "Contactar con un experto" }}
+        </Button>
       </div>
-
-      <!-- Botón: NO lo bloqueamos por “validez”, solo por loading -->
-      <Button
-        type="submit"
-        :disabled="isLoading"
-        class="w-full h-12 mt-1 rounded-lg bg-[#0076B3] hover:bg-[#006599] disabled:opacity-70 disabled:cursor-not-allowed font-['Figtree'] text-base font-medium text-white shadow-md transition-all active:scale-[0.98]"
-      >
-        <Loader2 v-if="isLoading" class="mr-2 h-5 w-5 animate-spin" />
-        {{ isLoading ? "Enviando solicitud..." : "Contactar con un experto" }}
-      </Button>
     </form>
   </div>
 </template>
