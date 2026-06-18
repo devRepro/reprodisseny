@@ -5,6 +5,8 @@ import AppButton from "@/components/shared/button/AppButton.vue";
 import { cn } from "@/lib/utils";
 import RequestSuccessState from "@/components/marketing/quote/RequestSuccessState.vue";
 import { usePriceRequests } from "@/composables/usePriceRequests";
+import { useTracking } from "@/composables/useTracking";
+import type { TrackingContext, TrackingEventName } from "~/types/tracking";
 
 type QuoteForm = {
   website: string;
@@ -25,16 +27,19 @@ const props = withDefaults(
     productName?: string;
     productSlug?: string;
     categorySlug?: string;
+    trackingContext?: TrackingContext;
   }>(),
   {
     productName: "Láminas solares para cristales",
     productSlug: "laminas-solares",
     categorySlug: "gran-formato",
+    trackingContext: undefined,
   },
 );
 
 const route = useRoute();
 const { sendPriceRequest, isLoading, error } = usePriceRequests();
+const tracking = useTracking();
 
 const success = ref(false);
 const validationError = ref("");
@@ -57,11 +62,19 @@ const sourceUrl = computed(() => {
   return String(value).slice(0, 300);
 });
 
-const utm = computed(() => {
+const routeAttribution = computed(() => {
   const out: Record<string, string> = {};
 
   for (const [key, value] of Object.entries(route.query || {})) {
-    if (!key.toLowerCase().startsWith("utm_")) continue;
+    const normalizedKey = key.toLowerCase();
+
+    if (
+      !normalizedKey.startsWith("utm_") &&
+      !["gclid", "gbraid", "wbraid", "fbclid", "msclkid"].includes(normalizedKey)
+    ) {
+      continue;
+    }
+
     out[key] = Array.isArray(value) ? String(value[0] ?? "") : String(value ?? "");
   }
 
@@ -117,21 +130,47 @@ function checkPanelClass(field?: ValidationField) {
   return cn("rd-form-check-panel", validationField.value === field && "rd-form-check-panel--error");
 }
 
-function pushLeadEvent(transactionId?: string | number | null) {
-  if (!import.meta.client) return;
+function getTrackingContext(): TrackingContext {
+  return {
+    pageType: "landing",
+    pageLanguage: "es",
+    contentGroup: "gran-formato",
+    serviceName: "Láminas solares",
+    campaignName: "laminas-solares",
+    campaignId: undefined,
+    productSlug: props.productSlug,
+    categorySlug: props.categorySlug,
+    formId: "solar_quote_form",
+    formName: "solar_quote_form",
+    ...props.trackingContext,
+  };
+}
 
-  const win = window as Window & { dataLayer?: Record<string, unknown>[] };
-  win.dataLayer = win.dataLayer || [];
-  win.dataLayer.push({
-    event: "generate_lead",
-    form_name: "landing_laminas_solares",
-    lead_type: "quote_request",
-    page_path: window.location.pathname,
-    category_slug: props.categorySlug,
-    product_slug: props.productSlug,
-    product_name: props.productName,
-    transaction_id: transactionId ? String(transactionId) : undefined,
-  });
+function getLeadTrackingPayload() {
+  const context = getTrackingContext();
+
+  return {
+    ...tracking.getTrackingPayloadForLead(context),
+    routeAttribution: routeAttribution.value,
+    sourceUrl: sourceUrl.value,
+  };
+}
+
+function pushLeadEvent(transactionId?: string | number | null) {
+  const requestKey = transactionId ? String(transactionId) : null;
+
+  tracking.pushEvent(
+    "generate_lead" as TrackingEventName,
+    {
+      lead_type: "quote_request",
+      request_key: requestKey,
+      lead_id: requestKey,
+      transaction_id: requestKey,
+      product_name: props.productName,
+      page_path: import.meta.client ? window.location.pathname : route.path,
+    },
+    getTrackingContext(),
+  );
 }
 
 async function onSubmit() {
@@ -200,7 +239,8 @@ async function onSubmit() {
       },
       consent: true,
       sourceUrl: sourceUrl.value,
-      utm: utm.value,
+      utm: routeAttribution.value,
+      tracking: getLeadTrackingPayload(),
       initialStatus: "Nova",
     },
     { file: null, fileKind: "design" },
