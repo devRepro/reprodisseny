@@ -9,7 +9,8 @@ export interface ContactPayload {
   consulta: string
   consent: boolean
   origen?: string
-  utm?: Record<string, string>
+  utm?: Record<string, string> | null
+  tracking?: Record<string, unknown> | null
   sourceUrl?: string | null
   website?: string | null // honeypot
 }
@@ -55,6 +56,7 @@ export function useSendContact() {
 
       origen: cleanString(payload.origen) || "contact-page",
       utm: payload.utm ?? {},
+      tracking: payload.tracking ?? null,
       sourceUrl: cleanString(payload.sourceUrl) || getFallbackSourceUrl(),
 
       website: cleanString(payload.website),
