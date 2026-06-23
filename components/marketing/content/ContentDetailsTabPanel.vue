@@ -1,6 +1,6 @@
 <!-- components/marketing/content/ContentDetailsTabPanel.vue -->
 <script setup lang="ts">
-import { computed } from "vue"
+import { computed, ref, watch } from "vue"
 import { cn } from "@/lib/utils"
 import { normalizeCmsMediaSrc } from "@/utils/cmsMedia"
 
@@ -69,83 +69,26 @@ function readString(source: Record<string, unknown> | null, keys: string[]) {
   return ""
 }
 
-function stripCmsOrigin(value: string) {
-  return value
-    .trim()
-    .replace(/\\/g, "/")
-    .replace(/^[a-z]+:\/\/[^/]+\//i, "")
-    .replace(/^\/+/, "")
-    .replace(/[?#].*$/, "")
-    .replace(/\/{2,}/g, "/")
-}
-
-function getParentPath(value: string) {
-  const clean = stripCmsOrigin(value)
-  const parts = clean.split("/").filter(Boolean)
-
-  if (parts.length <= 1) return ""
-
-  parts.pop()
-
-  return parts.join("/")
-}
-
 const productRecord = computed(() => asRecord(props.featuredProduct))
-
-const categoryRecord = computed(() =>
-  asRecord(productRecord.value?.category),
-)
-
-const productImageRecord = computed(() =>
-  asRecord(productRecord.value?.image),
-)
-
-const productSlug = computed(() =>
-  readString(productRecord.value, ["slug", "productSlug"]),
-)
 
 const productTitle = computed(() =>
   readString(productRecord.value, ["title", "name"]),
 )
 
-const categorySlug = computed(() => {
-  const direct = readString(productRecord.value, ["categorySlug"])
+const hasImageLoadError = ref(false)
 
-  if (direct) return direct
-
-  return readString(categoryRecord.value, ["slug", "categorySlug"])
-})
-
-const productImageSrc = computed(() => {
-  const direct = readString(productRecord.value, ["imageSrc"])
-
-  if (direct) return direct
-
-  return readString(productImageRecord.value, ["src"])
-})
-
-const fallbackDetailsImageSrc = computed(() => {
-  if (!productSlug.value) return ""
-
-  const imageParentPath = getParentPath(productImageSrc.value)
-
-  if (imageParentPath) {
-    return `${imageParentPath}/details/${productSlug.value}/01-detail.webp`
-  }
-
-  if (categorySlug.value) {
-    return `media/product/${categorySlug.value}/details/${productSlug.value}/01-detail.webp`
-  }
-
-  return ""
-})
+watch(
+  () => props.detailsMedia?.image?.src,
+  () => {
+    hasImageLoadError.value = false
+  },
+)
 
 const leadImage = computed(() => {
-  const image = props.detailsMedia?.image
+  if (hasImageLoadError.value) return null
 
-  const explicitSrc = normalizeCmsMediaSrc(image?.src || "")
-  const fallbackSrc = normalizeCmsMediaSrc(fallbackDetailsImageSrc.value)
-  const src = explicitSrc || fallbackSrc
+  const image = props.detailsMedia?.image
+  const src = normalizeCmsMediaSrc(image?.src || "")
 
   if (!src) return null
 
@@ -182,44 +125,41 @@ const hasLeadImage = computed(() => Boolean(leadImage.value))
 const showDetailsHeader = computed(() => props.headerMode === "default")
 
 const layoutClass = computed(() =>
-  hasLeadImage.value
-    ? "grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(300px,420px)] lg:items-start lg:gap-8"
-    : "max-w-[860px]",
+  cn(
+    "content-details-panel__layout",
+    hasLeadImage.value
+      ? "content-details-panel__layout--with-media"
+      : "content-details-panel__layout--text-only",
+  ),
 )
 </script>
 
 <template>
-  <div :class="cn('space-y-8 md:space-y-10', props.class)">
-    <section
-      :aria-label="section.title || 'Detalle'"
-      class="w-full overflow-hidden rounded-3xl border border-border/70 bg-card/80 p-5 shadow-sm md:p-7"
-    >
+  <div :class="cn('content-details-panel', props.class)">
+    <section :aria-label="section.title || 'Detalle'" class="content-details-panel__card">
       <div :class="layoutClass">
-        <div class="min-w-0 space-y-6 md:space-y-7">
+        <div class="content-details-panel__body">
           <ContentDetailsSection
-  :section="section"
-  eyebrow="Información"
-  :show-header="showDetailsHeader"
-  content-class="space-y-5 pt-1 md:space-y-6"
-/>
+            :section="section"
+            eyebrow="Información"
+            :show-header="showDetailsHeader"
+            content-class="content-details-panel__richtext"
+          />
 
           <aside
             v-if="pills.length"
-            class="rounded-2xl border border-border/60 bg-background/45 p-4 sm:p-5"
+            class="content-details-panel__related"
             aria-label="Productos o soluciones relacionadas"
           >
-            <div class="mb-3 flex items-center gap-3">
-              <span
-                class="h-px w-8 shrink-0 bg-foreground/25"
-                aria-hidden="true"
-              />
+            <div class="content-details-panel__related-header">
+              <span class="content-details-panel__related-line" aria-hidden="true" />
 
-              <p class="mb-0 text-sm font-semibold tracking-wide text-foreground">
+              <p class="content-details-panel__related-title">
                 Productos o soluciones relacionadas
               </p>
             </div>
 
-            <div class="flex flex-wrap gap-2">
+            <div class="content-details-panel__related-list">
               <AppChip
                 v-for="pill in pills"
                 :key="`${pill.to}-${pill.label}`"
@@ -233,22 +173,17 @@ const layoutClass = computed(() =>
           </aside>
         </div>
 
-        <figure
-          v-if="leadImage"
-          class="overflow-hidden rounded-2xl bg-muted/30 p-2"
-        >
+        <figure v-if="leadImage" class="content-details-panel__media">
           <CmsImage
             :src="leadImage.src"
             :alt="leadImage.alt"
             width="840"
             height="630"
-            class="aspect-[4/3] w-full rounded-xl object-cover"
+            class="content-details-panel__image"
+            @error="hasImageLoadError = true"
           />
 
-          <figcaption
-            v-if="leadImage.caption"
-            class="px-2 pt-3 text-body-s leading-6 text-muted-foreground"
-          >
+          <figcaption v-if="leadImage.caption" class="content-details-panel__caption">
             {{ leadImage.caption }}
           </figcaption>
         </figure>
