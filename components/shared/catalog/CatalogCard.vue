@@ -1,124 +1,136 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import { ArrowRight } from "lucide-vue-next";
-import CmsImage from "@/components/shared/blocks/CmsImage.vue";
-import { normalizeCmsMediaSrc } from "@/utils/cmsMedia";
+import { computed } from "vue"
+import type { RouteLocationRaw } from "vue-router"
+import CmsImage from "@/components/shared/blocks/CmsImage.vue"
+import AppButton from "@/components/shared/button/AppButton.vue"
+import { normalizeCmsMediaSrc } from "@/utils/cmsMedia"
 
 type CardMedia =
   | string
   | {
-      src?: string | null;
-      alt?: string | null;
-      width?: number | null;
-      height?: number | null;
+      src?: string | null
+      alt?: string | null
+      width?: number | null
+      height?: number | null
     }
   | null
-  | undefined;
+  | undefined
 
-const props = withDefaults(
-  defineProps<{
-    href: string;
-    title: string;
-    description?: string | null;
-    image?: CardMedia;
-    ctaLabel?: string;
-    imageAspectClass?: string;
-    fallbackLabel?: string;
-    badge?: string | null;
-  }>(),
-  {
-    description: "",
-    image: null,
-    ctaLabel: "Ver más",
-    imageAspectClass: "aspect-[4/3]",
-    fallbackLabel: "Sin imagen",
-    badge: "",
-  }
-);
+type Props = {
+  href: RouteLocationRaw | string
+  title: string
+  description?: string | null
+  image?: CardMedia
+  ctaLabel?: string
+  imageAspectClass?: string
+  fallbackLabel?: string
+  badge?: string | null
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  description: "",
+  image: null,
+  ctaLabel: "Ver más",
+  imageAspectClass: "aspect-[4/3]",
+  fallbackLabel: "Sin imagen",
+  badge: "",
+})
+
+const safeTitle = computed(() => String(props.title || "").trim())
+const safeDescription = computed(() => String(props.description || "").trim())
+const safeCtaLabel = computed(() => String(props.ctaLabel || "Ver más").trim())
+const safeFallbackLabel = computed(() =>
+  String(props.fallbackLabel || "Sin imagen").trim()
+)
+const safeBadge = computed(() => String(props.badge || "").trim())
 
 const media = computed(() => {
-  const value = props.image;
+  const value = props.image
 
   if (typeof value === "string") {
     return {
       src: normalizeCmsMediaSrc(value),
-      alt: props.title,
+      alt: safeTitle.value,
       width: null as number | null,
       height: null as number | null,
-    };
+    }
   }
 
   return {
     src: normalizeCmsMediaSrc(value?.src ?? ""),
-    alt: value?.alt || props.title,
+    alt: value?.alt || safeTitle.value,
     width: value?.width ?? null,
     height: value?.height ?? null,
-  };
-});
+  }
+})
 
-const hasMedia = computed(() => Boolean(media.value.src));
-const linkAriaLabel = computed(() => `${props.ctaLabel}: ${props.title}`);
+const hasMedia = computed(() => Boolean(media.value.src))
+
+const linkAriaLabel = computed(() => {
+  if (!safeTitle.value) return safeCtaLabel.value
+
+  return `${safeCtaLabel.value}: ${safeTitle.value}`
+})
 </script>
 
 <template>
-  <article class="group h-full">
+  <article class="catalog-card">
     <NuxtLink
-      :to="href"
+      :to="props.href"
       :aria-label="linkAriaLabel"
-      class="flex h-full flex-col rounded-3xl border border-border/60 bg-card p-4 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:border-primary/20 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/30 md:p-5"
+      class="catalog-card__main-link"
     >
-      <div class="overflow-hidden rounded-[1.25rem] border border-border/40 bg-muted/30">
-        <div :class="['relative w-full overflow-hidden', imageAspectClass]">
+      <div class="catalog-card__media">
+        <div :class="['catalog-card__media-frame', props.imageAspectClass]">
           <CmsImage
             v-if="hasMedia"
             :src="media.src"
             :alt="media.alt"
             :width="media.width || undefined"
             :height="media.height || undefined"
-            class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
+            class="catalog-card__image"
           />
 
           <div
             v-else
-            class="flex h-full w-full items-center justify-center px-6 text-center text-sm font-medium text-muted-foreground"
+            class="catalog-card__fallback"
           >
-            {{ fallbackLabel }}
+            {{ safeFallbackLabel }}
           </div>
         </div>
       </div>
 
-      <div class="flex flex-1 flex-col gap-4 px-1 pt-4">
-        <div class="space-y-2">
-          <p
-            v-if="badge"
-            class="text-xs font-semibold uppercase tracking-[0.12em] text-primary"
-          >
-            {{ badge }}
-          </p>
+      <div class="catalog-card__content">
+        <p
+          v-if="safeBadge"
+          class="catalog-card__badge"
+        >
+          {{ safeBadge }}
+        </p>
 
-          <h3
-            class="text-balance text-lg font-semibold leading-tight text-foreground md:text-xl"
-          >
-            {{ title }}
-          </h3>
+        <h3 class="catalog-card__title">
+          {{ safeTitle }}
+        </h3>
 
-          <p
-            v-if="description"
-            class="line-clamp-2 text-sm leading-6 text-muted-foreground md:text-base"
-          >
-            {{ description }}
-          </p>
-        </div>
-
-        <div class="mt-auto pt-2">
-          <span
-            class="inline-flex min-h-11 items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground transition-colors duration-200 group-hover:border-primary/20 group-hover:text-primary"
-          >
-            {{ ctaLabel }}
-            <ArrowRight class="h-4 w-4" aria-hidden="true" />
-          </span>
-        </div>
+        <p
+          v-if="safeDescription"
+          class="catalog-card__description"
+        >
+          {{ safeDescription }}
+        </p>
       </div>
     </NuxtLink>
+
+    <div class="catalog-card__actions">
+      <AppButton
+        :to="props.href"
+        variant="outline"
+        size="sm"
+        arrow
+        :aria-label="linkAriaLabel"
+      >
+        {{ safeCtaLabel }}
+      </AppButton>
+    </div>
   </article>
 </template>
