@@ -137,7 +137,7 @@ const linkAriaLabel = computed(() => {
 
         <div class="mt-auto pt-2">
           <span
-            class="inline-flex min-h-11 items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground shadow-sm transition-all duration-200 group-hover:border-primary/30 group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-md"
+            class="inline-flex min-h-11 items-center gap-2 rounded-xl border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground shadow-sm transition-all duration-200 group-hover:border-primary/30 group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-md"
           >
             {{ safeCtaLabel }}
             <ArrowRight
