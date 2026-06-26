@@ -1,31 +1,31 @@
 <script setup lang="ts">
-import { computed } from "vue"
-import type { RouteLocationRaw } from "vue-router"
-import CmsImage from "@/components/shared/blocks/CmsImage.vue"
-import AppButton from "@/components/shared/button/AppButton.vue"
-import { normalizeCmsMediaSrc } from "@/utils/cmsMedia"
+import { computed } from "vue";
+import type { RouteLocationRaw } from "vue-router";
+import { ArrowRight } from "lucide-vue-next";
+import CmsImage from "@/components/shared/blocks/CmsImage.vue";
+import { normalizeCmsMediaSrc } from "@/utils/cmsMedia";
 
 type CardMedia =
   | string
   | {
-      src?: string | null
-      alt?: string | null
-      width?: number | null
-      height?: number | null
+      src?: string | null;
+      alt?: string | null;
+      width?: number | null;
+      height?: number | null;
     }
   | null
-  | undefined
+  | undefined;
 
 type Props = {
-  href: RouteLocationRaw | string
-  title: string
-  description?: string | null
-  image?: CardMedia
-  ctaLabel?: string
-  imageAspectClass?: string
-  fallbackLabel?: string
-  badge?: string | null
-}
+  href: RouteLocationRaw | string;
+  title: string;
+  description?: string | null;
+  image?: CardMedia;
+  ctaLabel?: string;
+  imageAspectClass?: string;
+  fallbackLabel?: string;
+  badge?: string | null;
+};
 
 const props = withDefaults(defineProps<Props>(), {
   description: "",
@@ -34,58 +34,45 @@ const props = withDefaults(defineProps<Props>(), {
   imageAspectClass: "aspect-[4/3]",
   fallbackLabel: "Sin imagen",
   badge: "",
-})
+});
 
-const safeTitle = computed(() => String(props.title || "").trim())
-const safeDescription = computed(() => String(props.description || "").trim())
-const safeCtaLabel = computed(() => String(props.ctaLabel || "Ver más").trim())
+const safeTitle = computed(() => String(props.title || "").trim());
+
+const safeDescription = computed(() => String(props.description || "").trim());
+
+const safeCtaLabel = computed(() => String(props.ctaLabel || "Ver más").trim());
+
 const safeFallbackLabel = computed(() =>
   String(props.fallbackLabel || "Sin imagen").trim()
-)
-const safeBadge = computed(() => String(props.badge || "").trim())
+);
 
-const cleanTitle = computed(() => props.title.trim());
-
-const cleanDescription = computed(() => {
-  const value = props.description?.trim() ?? "";
-  return value.length > 0 ? value : "";
-});
-
-const cleanBadge = computed(() => {
-  const value = props.badge?.trim() ?? "";
-  return value.length > 0 ? value : "";
-});
+const safeBadge = computed(() => String(props.badge || "").trim());
 
 const media = computed(() => {
-  const value = props.image
+  const value = props.image;
 
   if (typeof value === "string") {
     return {
       src: normalizeCmsMediaSrc(value),
-      alt: cleanTitle.value,
+      alt: safeTitle.value,
       width: null as number | null,
       height: null as number | null,
-    }
+    };
   }
 
   return {
     src: normalizeCmsMediaSrc(value?.src ?? ""),
-    alt: value?.alt?.trim() || cleanTitle.value,
+    alt: value?.alt?.trim() || safeTitle.value,
     width: value?.width ?? null,
     height: value?.height ?? null,
-  }
-})
-
-const hasMedia = computed(() => Boolean(media.value.src))
-
-const linkAriaLabel = computed(() => {
-  if (!safeTitle.value) return safeCtaLabel.value
+  };
+});
 
 const hasMedia = computed(() => Boolean(media.value.src));
 
 const linkAriaLabel = computed(() => {
-  const label = props.ctaLabel?.trim() || "Ver más";
-  return `${label}: ${cleanTitle.value}`;
+  if (!safeTitle.value) return safeCtaLabel.value;
+  return `${safeCtaLabel.value}: ${safeTitle.value}`;
 });
 </script>
 
@@ -114,7 +101,7 @@ const linkAriaLabel = computed(() => {
               v-else
               class="flex h-full w-full items-center justify-center bg-muted/40 px-6 text-center text-sm font-medium text-muted-foreground"
             >
-              {{ fallbackLabel }}
+              {{ safeFallbackLabel }}
             </div>
 
             <div
@@ -128,23 +115,23 @@ const linkAriaLabel = computed(() => {
       <div class="flex flex-1 flex-col gap-4 p-4 pt-5 md:p-5 md:pt-5">
         <div class="space-y-2.5">
           <p
-            v-if="cleanBadge"
+            v-if="safeBadge"
             class="text-xs font-bold uppercase tracking-[0.16em] text-primary"
           >
-            {{ cleanBadge }}
+            {{ safeBadge }}
           </p>
 
           <h3
             class="text-balance text-lg font-semibold leading-tight text-foreground transition-colors duration-200 group-hover:text-primary md:text-xl"
           >
-            {{ cleanTitle }}
+            {{ safeTitle }}
           </h3>
 
           <p
-            v-if="cleanDescription"
+            v-if="safeDescription"
             class="line-clamp-3 text-sm leading-6 text-muted-foreground md:line-clamp-2 md:text-base"
           >
-            {{ cleanDescription }}
+            {{ safeDescription }}
           </p>
         </div>
 
@@ -152,7 +139,7 @@ const linkAriaLabel = computed(() => {
           <span
             class="inline-flex min-h-11 items-center gap-2 rounded-full border border-border bg-background px-4 py-2 text-sm font-semibold text-foreground shadow-sm transition-all duration-200 group-hover:border-primary/30 group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-md"
           >
-            {{ ctaLabel }}
+            {{ safeCtaLabel }}
             <ArrowRight
               class="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5"
               aria-hidden="true"
@@ -161,17 +148,5 @@ const linkAriaLabel = computed(() => {
         </div>
       </div>
     </NuxtLink>
-
-    <div class="catalog-card__actions">
-      <AppButton
-        :to="props.href"
-        variant="outline"
-        size="sm"
-        arrow
-        :aria-label="linkAriaLabel"
-      >
-        {{ safeCtaLabel }}
-      </AppButton>
-    </div>
   </article>
 </template>
