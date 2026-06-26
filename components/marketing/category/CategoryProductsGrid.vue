@@ -2,7 +2,7 @@
 import { computed, ref } from "vue";
 import ContentSectionIntro from "@/components/marketing/content/ContentSectionIntro.vue";
 import CatalogCard from "@/components/shared/catalog/CatalogCard.vue";
-import { Button } from "@/components/ui/button";
+import AppButton from "@/components/shared/button/AppButton.vue";
 
 type ProductItem = {
   slug?: string | null;
@@ -123,14 +123,9 @@ function loadMore() {
       </ul>
 
       <div v-if="canLoadMore" class="mt-8 flex justify-center">
-        <Button
-          type="button"
-          variant="outline"
-          class="rounded-full px-6"
-          @click="loadMore"
-        >
+        <AppButton type="button" variant="outline" size="md" @click="loadMore">
           Mostrar {{ Math.min(loadMoreStep, remainingCount) }} productos más
-        </Button>
+        </AppButton>
       </div>
     </div>
   </section>
