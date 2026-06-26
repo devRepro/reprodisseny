@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, watchEffect } from "vue";
+import { computed } from "vue";
 import ProductHeroGallery from "@/components/marketing/product/ProductHeroGallery.vue";
 import ProductAttributePills from "@/components/shared/pills/ProductAttributePills.vue";
 import LeadForm from "@/components/marketing/product/LeadForm.vue";
@@ -7,15 +7,14 @@ import LeadForm from "@/components/marketing/product/LeadForm.vue";
 type HeroImage =
   | string
   | {
-    src?: string | null;
-    alt?: string | null;
-    caption?: string | null;
-    width?: number | null;
-    height?: number | null;
-  }
+      src?: string | null;
+      alt?: string | null;
+      caption?: string | null;
+      width?: number | null;
+      height?: number | null;
+    }
   | null
   | undefined;
-
 
 type HeroProductAttribute = {
   label: string;
@@ -62,30 +61,34 @@ const props = defineProps<{
 
 const FALLBACK = "/img/placeholders/producto.webp";
 
-
-const imgAlt = computed(() => {
-  const image = props.product?.image;
-
-  if (typeof image === "object" && image?.alt) {
-    return image.alt;
-  }
-
-  return props.product?.title || "Producto";
-});
-
 const productTitle = computed(() => props.product?.title?.trim() || "");
 
 const productDesc = computed(() => {
   return (
-    props.product?.shortDescription?.trim() || props.product?.description?.trim() || ""
+    props.product?.shortDescription?.trim() ||
+    props.product?.description?.trim() ||
+    ""
   );
 });
 
+const productAriaLabel = computed(() =>
+  productTitle.value
+    ? `Página del producto ${productTitle.value}`
+    : "Página de producto",
+);
+
+const imgAlt = computed(() => {
+  const image = props.product?.image;
+
+  if (image && typeof image === "object" && image.alt) {
+    return image.alt;
+  }
+
+  return productTitle.value || "Producto";
+});
 
 const attributePills = computed<HeroProductAttribute[]>(() => {
-  const raw = Array.isArray(props.product?.attributes)
-    ? props.product.attributes
-    : [];
+  const raw = Array.isArray(props.product?.attributes) ? props.product.attributes : [];
 
   return raw
     .map((item) => ({
@@ -105,13 +108,11 @@ const primaryImage = computed<HeroImage>(() => {
   return props.product?.imageSrc || props.product?.image || null;
 });
 
-const galleryImages = computed<HeroImage[]>(() => {
-  return [
-    ...toHeroImageArray(props.product?.gallery),
-    ...toHeroImageArray(props.product?.galleryImages),
-    ...toHeroImageArray(props.product?.images),
-  ];
-});
+const galleryImages = computed<HeroImage[]>(() => [
+  ...toHeroImageArray(props.product?.gallery),
+  ...toHeroImageArray(props.product?.galleryImages),
+  ...toHeroImageArray(props.product?.images),
+]);
 
 const categorySlug = computed(() => {
   return props.category?.slug || props.product?.categorySlug || "";
@@ -119,75 +120,66 @@ const categorySlug = computed(() => {
 
 const extraFields = computed(() => {
   const explicitExtraFields = Array.isArray(props.product?.extraFields)
-    ? props.product?.extraFields
+    ? props.product.extraFields
     : [];
 
-  if (explicitExtraFields.length) {
-    return explicitExtraFields;
-  }
+  if (explicitExtraFields.length) return explicitExtraFields;
 
-  return Array.isArray(props.product?.formFields) ? props.product?.formFields : [];
+  return Array.isArray(props.product?.formFields) ? props.product.formFields : [];
 });
-
 
 const productNameForForm = computed(() => productTitle.value || "Producto");
-
-watchEffect(() => {
-  if (!import.meta.dev) return;
-
-  console.log("[ProductHeroGallery input]", {
-  productTitle: productTitle.value,
-  productKeys: Object.keys(props.product ?? {}),
-  attributes: props.product?.attributes,
-  primaryImage: primaryImage.value,
-  gallery: props.product?.gallery,
-  galleryImages: props.product?.galleryImages,
-  images: props.product?.images,
-  computedGalleryImages: galleryImages.value,
-});
-});
 </script>
 
 <template>
-  <article class="w-full" itemscope itemtype="https://schema.org/Product" :aria-label="productTitle ? `Página del producto ${productTitle}` : 'Página de producto'
-    ">
+  <article
+    class="product-hero"
+    itemscope
+    itemtype="https://schema.org/Product"
+    :aria-label="productAriaLabel"
+  >
     <meta v-if="product?.sku" itemprop="sku" :content="String(product.sku)" />
     <meta v-if="productTitle" itemprop="name" :content="productTitle" />
     <meta v-if="productDesc" itemprop="description" :content="productDesc" />
 
-    <div
-      class="grid items-start gap-8 lg:gap-10 xl:grid-cols-[minmax(0,1fr)_minmax(380px,430px)] xl:gap-12 2xl:grid-cols-[minmax(0,1fr)_minmax(400px,450px)]">
-      <section class="min-w-0">
-        <div class="max-w-3xl">
-          <header class="space-y-4 md:space-y-5">
-            <p v-if="category?.title || category?.nav"
-              class="inline-flex w-fit items-center rounded-full border border-primary/15 bg-primary/5 px-3 py-1.5 text-label text-primary">
+    <div class="product-hero__grid">
+      <section class="product-hero__main">
+        <div class="product-hero__content">
+          <header class="product-hero__header">
+            <p v-if="category?.title || category?.nav" class="product-hero__category-pill">
               {{ category?.nav || category?.title }}
             </p>
 
-            <h1
-              class="text-[clamp(2.1rem,3.6vw,3.9rem)] leading-[1.02] tracking-tight text-foreground [overflow-wrap:anywhere]"
-              :title="productTitle" itemprop="name">
+            <h1 class="product-hero__title" :title="productTitle" itemprop="name">
               {{ productTitle }}
             </h1>
 
-            <p v-if="productDesc" class="max-w-[68ch] text-body text-foreground/78 md:text-[18px] md:leading-[1.68]"
-              itemprop="description">
+            <p v-if="productDesc" class="product-hero__description" itemprop="description">
               {{ productDesc }}
             </p>
           </header>
 
-          <ProductHeroGallery class="mt-6 md:mt-8" :primary-image="primaryImage" :images="galleryImages" :alt="imgAlt"
-            :fallback="FALLBACK" />
+          <ProductHeroGallery
+            class="product-hero__gallery"
+            :primary-image="primaryImage"
+            :images="galleryImages"
+            :alt="imgAlt"
+            :fallback="FALLBACK"
+          />
 
           <ProductAttributePills v-if="attributePills.length" :items="attributePills" />
         </div>
       </section>
 
-      <aside class="min-w-0 xl:sticky xl:top-24 xl:self-start">
+      <aside class="product-hero__aside">
         <div class="product-lead-card">
-          <LeadForm :producto="productNameForForm" :category-slug="categorySlug" :extra-fields="extraFields"
-            :product-data="product" class="w-full xl:min-h-0 xl:flex-1" />
+          <LeadForm
+            :producto="productNameForForm"
+            :category-slug="categorySlug"
+            :extra-fields="extraFields"
+            :product-data="product"
+            class="w-full xl:min-h-0 xl:flex-1"
+          />
         </div>
       </aside>
     </div>

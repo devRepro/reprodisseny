@@ -1,93 +1,130 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import SectionHeading from "@/components/marketing/content/SectionHeading.vue";
-import CatalogCard from "@/components/shared/catalog/CatalogCard.vue";
+import { computed } from "vue"
+import SectionHeading from "@/components/marketing/content/SectionHeading.vue"
+import CatalogCard from "@/components/shared/catalog/CatalogCard.vue"
+
+type CategoryImage = {
+  src?: string | null
+  alt?: string | null
+  width?: number | null
+  height?: number | null
+}
 
 type CategoryItem = {
-  id: string;
-  title: string;
-  slug: string;
-  href: string;
-  image: {
-    src?: string | null;
-    alt?: string | null;
-    width?: number | null;
-    height?: number | null;
-  } | null;
-  shortDescription?: string | null;
-  description?: string | null;
-};
+  id: string
+  title: string
+  slug: string
+  href: string
+  image: CategoryImage | null
+  shortDescription?: string | null
+  description?: string | null
+}
 
-const props = withDefaults(
-  defineProps<{
-    title?: string;
-    description?: string;
-    categories?: CategoryItem[] | null;
-    totalSlots?: number;
-    pending?: boolean;
-    sectionClass?: string;
-    containerClass?: string;
-  }>(),
-  {
-    title: "Ofrecemos una amplia gama de productos",
-    description: "",
-    categories: () => [],
-    totalSlots: 8,
-    pending: false,
-    sectionClass: "",
-    containerClass: "home-section__inner py-10 md:py-14 lg:py-16",
-  }
-);
+type Props = {
+  id?: string
+  title?: string
+  description?: string
+  categories?: CategoryItem[] | null
+  totalSlots?: number
+  pending?: boolean
+  sectionClass?: string
+  containerClass?: string
+}
 
-const headingId = "home-product-category-grid-title";
+const props = withDefaults(defineProps<Props>(), {
+  id: "home-product-category-grid",
+  title: "Ofrecemos una amplia gama de productos",
+  description: "",
+  categories: () => [],
+  totalSlots: 8,
+  pending: false,
+  sectionClass: "",
+  containerClass: "home-section__inner",
+})
 
-const sourceCategories = computed<CategoryItem[]>(() =>
-  Array.isArray(props.categories) ? props.categories.filter(Boolean) : []
-);
+const headingId = computed(() => `${props.id}-title`)
+
+const safeTitle = computed(() => String(props.title || "").trim())
+const safeDescription = computed(() => String(props.description || "").trim())
+
+const safeTotalSlots = computed(() => {
+  const value = Number(props.totalSlots)
+
+  if (!Number.isFinite(value)) return 8
+
+  return Math.max(0, Math.floor(value))
+})
+
+const sourceCategories = computed<CategoryItem[]>(() => {
+  if (!Array.isArray(props.categories)) return []
+
+  return props.categories
+    .filter(Boolean)
+    .map((item) => ({
+      ...item,
+      id: String(item.id || item.slug || item.href || "").trim(),
+      title: String(item.title || "").trim(),
+      slug: String(item.slug || "").trim(),
+      href: String(item.href || "").trim(),
+      shortDescription: item.shortDescription
+        ? String(item.shortDescription).trim()
+        : "",
+      description: item.description ? String(item.description).trim() : "",
+    }))
+    .filter((item) => item.id && item.title && item.href)
+})
 
 const visibleItems = computed<CategoryItem[]>(() =>
-  sourceCategories.value.slice(0, props.totalSlots)
-);
+  sourceCategories.value.slice(0, safeTotalSlots.value)
+)
 
 const skeletonCount = computed(() => {
-  if (!props.pending) return 0;
-  return Math.max(0, props.totalSlots - visibleItems.value.length);
-});
+  if (!props.pending) return 0
+
+  return Math.max(0, safeTotalSlots.value - visibleItems.value.length)
+})
+
+const hasHeader = computed(() =>
+  Boolean(safeTitle.value || safeDescription.value)
+)
 </script>
 
 <template>
   <section
-    :class="['bg-background text-foreground', props.sectionClass]"
-    :aria-labelledby="headingId"
+    :id="props.id"
+    :class="['home-category-grid', props.sectionClass]"
+    :aria-labelledby="safeTitle ? headingId : undefined"
   >
-    <div :class="props.containerClass">
-      <header class="space-y-4">
+    <div :class="[props.containerClass, 'home-category-grid__container']">
+      <header
+        v-if="hasHeader"
+        class="home-category-grid__header"
+      >
         <SectionHeading
+          v-if="safeTitle"
           :id="headingId"
           as="h2"
-          :title="props.title"
+          :title="safeTitle"
           title-tone="ink"
           line-tone="ink"
-          class="w-full"
+          class="home-category-grid__heading"
         />
 
         <p
-          v-if="props.description"
-          class="max-w-2xl text-base leading-7 text-muted-foreground"
+          v-if="safeDescription"
+          class="home-category-grid__description"
         >
-          {{ props.description }}
+          {{ safeDescription }}
         </p>
       </header>
 
-      <div class="mt-10 md:mt-12">
-        <ul
-  class="-mx-6 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-4 sm:mx-0 sm:grid sm:auto-rows-fr sm:grid-cols-2 sm:gap-6 sm:overflow-visible sm:px-0 sm:pb-0 xl:grid-cols-4 xl:gap-8"
->
+      <div class="home-category-grid__body">
+        <ul class="home-category-grid__list">
           <li
-  v-for="item in visibleItems"
-  :key="item.id"
-  class="min-w-[78vw] snap-start list-none sm:min-w-0"
->
+            v-for="item in visibleItems"
+            :key="item.id"
+            class="home-category-grid__item"
+          >
             <CatalogCard
               :href="item.href"
               :title="item.title"
@@ -99,25 +136,22 @@ const skeletonCount = computed(() => {
           </li>
 
           <li
-  v-for="n in skeletonCount"
-  :key="`home-category-skeleton-${n}`"
-  class="min-w-[78vw] snap-start list-none sm:min-w-0"
-  aria-hidden="true"
->
-            <article
-              class="h-full rounded-3xl border border-border/60 bg-card p-4 shadow-sm md:p-5"
-            >
-              <div
-                class="overflow-hidden rounded-[1.25rem] border border-border/40 bg-muted/30"
-              >
-                <div class="aspect-[4/3] animate-pulse bg-muted" />
+            v-for="n in skeletonCount"
+            :key="`home-category-skeleton-${n}`"
+            class="home-category-grid__item"
+            aria-hidden="true"
+          >
+            <article class="home-category-grid__skeleton-card">
+              <div class="home-category-grid__skeleton-media">
+                <div class="home-category-grid__skeleton-image" />
               </div>
 
-              <div class="space-y-3 px-1 pt-4">
-                <div class="h-6 w-3/4 animate-pulse rounded-md bg-muted" />
-                <div class="h-4 w-2/3 animate-pulse rounded-md bg-muted" />
-                <div class="pt-2">
-                  <div class="h-10 w-36 animate-pulse rounded-full bg-muted" />
+              <div class="home-category-grid__skeleton-content">
+                <div class="home-category-grid__skeleton-title" />
+                <div class="home-category-grid__skeleton-text" />
+
+                <div class="home-category-grid__skeleton-action">
+                  <div class="home-category-grid__skeleton-button" />
                 </div>
               </div>
             </article>

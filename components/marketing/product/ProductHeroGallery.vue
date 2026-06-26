@@ -32,7 +32,7 @@ const props = withDefaults(
     images: () => [],
     alt: "Producto",
     fallback: "/img/placeholders/producto.webp",
-  }
+  },
 );
 
 const activeIndex = ref(0);
@@ -44,7 +44,7 @@ function getImageSrc(image: GalleryImage) {
 }
 
 function getImageAlt(image: GalleryImage) {
-  if (typeof image === "object" && image?.alt) {
+  if (image && typeof image === "object" && image.alt) {
     return image.alt;
   }
 
@@ -52,7 +52,7 @@ function getImageAlt(image: GalleryImage) {
 }
 
 function getImageCaption(image: GalleryImage) {
-  if (typeof image === "object" && image?.caption) {
+  if (image && typeof image === "object" && image.caption) {
     return image.caption;
   }
 
@@ -67,9 +67,7 @@ const slides = computed<GallerySlide[]>(() => {
     .map((image) => {
       const src = normalizeCmsMediaSrc(getImageSrc(image));
 
-      if (!src || seen.has(src)) {
-        return null;
-      }
+      if (!src || seen.has(src)) return null;
 
       seen.add(src);
 
@@ -79,19 +77,32 @@ const slides = computed<GallerySlide[]>(() => {
         caption: getImageCaption(image),
       };
     })
-    .filter(Boolean) as GallerySlide[];
+    .filter((item): item is GallerySlide => Boolean(item));
 
-  if (!normalized.length) {
-    return [
-      {
-        src: props.fallback,
-        alt: props.alt,
-      },
-    ];
-  }
+  if (normalized.length) return normalized;
 
-  return normalized;
+  const fallbackSrc = normalizeCmsMediaSrc(props.fallback);
+
+  return fallbackSrc
+    ? [
+        {
+          src: fallbackSrc,
+          alt: props.alt,
+        },
+      ]
+    : [];
 });
+
+const slideSignature = computed(() => slides.value.map((slide) => slide.src).join("|"));
+
+watch(
+  slideSignature,
+  () => {
+    activeIndex.value = 0;
+    failedSources.value = new Set();
+  },
+  { immediate: true },
+);
 
 watch(
   slides,
@@ -100,22 +111,25 @@ watch(
       activeIndex.value = 0;
     }
   },
-  { immediate: true }
 );
 
 const activeSlide = computed(() => {
-  return slides.value[activeIndex.value] || slides.value[0];
+  return slides.value[activeIndex.value] || slides.value[0] || null;
 });
 
 const displayedImageSrc = computed(() => {
   const src = activeSlide.value?.src;
 
-  if (!src || failedSources.value.has(src)) {
-    return props.fallback;
+  if (!src) return "";
+
+  if (failedSources.value.has(src)) {
+    return normalizeCmsMediaSrc(props.fallback);
   }
 
   return src;
 });
+
+const hasGallery = computed(() => slides.value.length > 1);
 
 function selectSlide(index: number) {
   activeIndex.value = index;
@@ -124,63 +138,51 @@ function selectSlide(index: number) {
 function onImageError() {
   const src = activeSlide.value?.src;
 
-  if (!src || src === props.fallback) {
-    return;
-  }
+  if (!src || src === normalizeCmsMediaSrc(props.fallback)) return;
 
   failedSources.value = new Set([...failedSources.value, src]);
 }
 </script>
 
 <template>
-  <div>
-    <figure
-  class="overflow-hidden rounded-[28px] border border-border/70 bg-card shadow-[0_10px_30px_-24px_hsl(var(--foreground)/0.16)]"
->
-  <div class="product-hero-media">
-    <CmsImage
-      :src="displayedImageSrc"
-      alt=""
-      aria-hidden="true"
-      class="product-hero-media__backdrop"
-      width="760"
-      height="522"
-      eager
-    />
+  <div class="product-hero-gallery">
+    <figure v-if="displayedImageSrc" class="product-hero-gallery__frame">
+      <div class="product-hero-media">
+        <CmsImage
+          :src="displayedImageSrc"
+          alt=""
+          aria-hidden="true"
+          class="product-hero-media__backdrop"
+          width="760"
+          height="760"
+          eager
+        />
 
-    <CmsImage
-      :src="displayedImageSrc"
-      :alt="activeSlide?.alt || alt"
-      class="product-hero-media__image"
-      width="760"
-      height="522"
-      eager
-      @error="onImageError"
-    />
-  </div>
+        <CmsImage
+          :src="displayedImageSrc"
+          :alt="activeSlide?.alt || alt"
+          class="product-hero-media__image"
+          width="760"
+          height="760"
+          eager
+          @error="onImageError"
+        />
+      </div>
 
-  <figcaption v-if="activeSlide?.caption" class="sr-only">
-    {{ activeSlide.caption }}
-  </figcaption>
+      <figcaption v-if="activeSlide?.caption" class="sr-only">
+        {{ activeSlide.caption }}
+      </figcaption>
 
-  <meta itemprop="image" :content="displayedImageSrc" />
-</figure>
+      <meta itemprop="image" :content="displayedImageSrc" />
+    </figure>
 
-    <div
-      v-if="slides.length > 1"
-      class="mt-3 flex gap-2 overflow-x-auto pb-1"
-      aria-label="Galería de producto"
-    >
+    <div v-if="hasGallery" class="product-hero-gallery__thumbs" aria-label="Galería de producto">
       <button
         v-for="(slide, index) in slides"
         :key="slide.src"
         type="button"
-        class="h-16 w-20 shrink-0 overflow-hidden rounded-xl border bg-card transition md:h-18 md:w-24"
-        :class="
-          index === activeIndex
-            ? 'border-primary ring-2 ring-primary/20'
-            : 'border-border/70 opacity-75 hover:opacity-100'
-        "
+        class="product-hero-gallery__thumb"
+        :class="{ 'product-hero-gallery__thumb--active': index === activeIndex }"
         :aria-label="`Ver imagen ${index + 1} de ${slides.length}`"
         :aria-current="index === activeIndex ? 'true' : undefined"
         :title="slide.caption || slide.alt"
@@ -189,9 +191,9 @@ function onImageError() {
         <CmsImage
           :src="slide.src"
           :alt="slide.alt"
-          class="h-full w-full object-cover"
+          class="product-hero-gallery__thumb-image"
           width="160"
-          height="110"
+          height="160"
         />
       </button>
     </div>

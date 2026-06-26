@@ -1,40 +1,48 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import { ArrowRight } from "lucide-vue-next";
-import CmsImage from "@/components/shared/blocks/CmsImage.vue";
-import { normalizeCmsMediaSrc } from "@/utils/cmsMedia";
+import { computed } from "vue"
+import type { RouteLocationRaw } from "vue-router"
+import CmsImage from "@/components/shared/blocks/CmsImage.vue"
+import AppButton from "@/components/shared/button/AppButton.vue"
+import { normalizeCmsMediaSrc } from "@/utils/cmsMedia"
 
 type CardMedia =
   | string
   | {
-      src?: string | null;
-      alt?: string | null;
-      width?: number | null;
-      height?: number | null;
+      src?: string | null
+      alt?: string | null
+      width?: number | null
+      height?: number | null
     }
   | null
-  | undefined;
+  | undefined
 
-const props = withDefaults(
-  defineProps<{
-    href: string;
-    title: string;
-    description?: string | null;
-    image?: CardMedia;
-    ctaLabel?: string;
-    imageAspectClass?: string;
-    fallbackLabel?: string;
-    badge?: string | null;
-  }>(),
-  {
-    description: "",
-    image: null,
-    ctaLabel: "Ver más",
-    imageAspectClass: "aspect-[4/3]",
-    fallbackLabel: "Sin imagen",
-    badge: "",
-  }
-);
+type Props = {
+  href: RouteLocationRaw | string
+  title: string
+  description?: string | null
+  image?: CardMedia
+  ctaLabel?: string
+  imageAspectClass?: string
+  fallbackLabel?: string
+  badge?: string | null
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  description: "",
+  image: null,
+  ctaLabel: "Ver más",
+  imageAspectClass: "aspect-[4/3]",
+  fallbackLabel: "Sin imagen",
+  badge: "",
+})
+
+const safeTitle = computed(() => String(props.title || "").trim())
+const safeDescription = computed(() => String(props.description || "").trim())
+const safeCtaLabel = computed(() => String(props.ctaLabel || "Ver más").trim())
+const safeFallbackLabel = computed(() =>
+  String(props.fallbackLabel || "Sin imagen").trim()
+)
+const safeBadge = computed(() => String(props.badge || "").trim())
 
 const cleanTitle = computed(() => props.title.trim());
 
@@ -49,7 +57,7 @@ const cleanBadge = computed(() => {
 });
 
 const media = computed(() => {
-  const value = props.image;
+  const value = props.image
 
   if (typeof value === "string") {
     return {
@@ -57,7 +65,7 @@ const media = computed(() => {
       alt: cleanTitle.value,
       width: null as number | null,
       height: null as number | null,
-    };
+    }
   }
 
   return {
@@ -65,8 +73,13 @@ const media = computed(() => {
     alt: value?.alt?.trim() || cleanTitle.value,
     width: value?.width ?? null,
     height: value?.height ?? null,
-  };
-});
+  }
+})
+
+const hasMedia = computed(() => Boolean(media.value.src))
+
+const linkAriaLabel = computed(() => {
+  if (!safeTitle.value) return safeCtaLabel.value
 
 const hasMedia = computed(() => Boolean(media.value.src));
 
@@ -79,7 +92,7 @@ const linkAriaLabel = computed(() => {
 <template>
   <article class="h-full">
     <NuxtLink
-      :to="href"
+      :to="props.href"
       :aria-label="linkAriaLabel"
       class="group flex h-full flex-col overflow-hidden rounded-3xl border border-border/60 bg-card shadow-sm ring-1 ring-transparent transition-all duration-300 hover:-translate-y-1 hover:border-primary/25 hover:shadow-lg hover:ring-primary/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
     >
@@ -148,5 +161,17 @@ const linkAriaLabel = computed(() => {
         </div>
       </div>
     </NuxtLink>
+
+    <div class="catalog-card__actions">
+      <AppButton
+        :to="props.href"
+        variant="outline"
+        size="sm"
+        arrow
+        :aria-label="linkAriaLabel"
+      >
+        {{ safeCtaLabel }}
+      </AppButton>
+    </div>
   </article>
 </template>

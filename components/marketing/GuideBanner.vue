@@ -1,27 +1,35 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import { Button } from "@/components/ui/button";
+import { computed } from "vue"
 
-type CTA = {
-  label: string;
-  to: string;
-  external?: boolean;
-};
+type GuideBannerCta = {
+  label: string
+  to: string
+  external?: boolean
+  ariaLabel?: string
+}
 
 type Props = {
-  title?: string;
-  description?: string;
-  cta?: CTA | null;
-  imageBasePath?: string;
-  imageName?: string;
-  height?: number;
-  fullBleed?: boolean;
-  rounded?: boolean;
-  containerClass?: string;
-  contentClass?: string;
-  objectPosition?: string;
-  overlayClass?: string;
-};
+  title?: string
+  description?: string
+  cta?: GuideBannerCta | null
+
+  imageBasePath?: string
+  imageName?: string
+  imageAlt?: string
+  imageSizes?: string
+
+  height?: number
+  mobileHeight?: number
+  desktopHeight?: number
+
+  fullBleed?: boolean
+  rounded?: boolean
+
+  containerClass?: string
+  contentClass?: string
+  objectPosition?: string
+  overlayClass?: string
+}
 
 const props = withDefaults(defineProps<Props>(), {
   title: "¿Sabes cómo preparar tus archivos correctamente?",
@@ -31,79 +39,111 @@ const props = withDefaults(defineProps<Props>(), {
     to: "/como-preparar-archivos",
     external: false,
   }),
+
   imageBasePath: "/img/ui/banners/como-preparar-archivos",
   imageName: "archivos_banner",
+  imageAlt: "",
+  imageSizes: "100vw",
+
   height: 240,
-  rounded: false,
+  mobileHeight: 220,
+  desktopHeight: 280,
+
   fullBleed: true,
-  containerClass: "mx-auto w-full max-w-[1440px] px-6 lg:px-10 2xl:px-[120px]",
+  rounded: false,
+
+  containerClass: "container-wide",
   contentClass: "",
   objectPosition: "right center",
-  overlayClass:
-    "pointer-events-none absolute inset-0 bg-gradient-to-r from-background via-background/90 to-transparent",
-});
+  overlayClass: "guide-banner__overlay",
+})
 
-const ctaLabel = computed(() => props.cta?.label ?? "Ver la guía rápida");
-const ctaTo = computed(() => props.cta?.to ?? "/como-preparar-archivos");
-const isExternal = computed(() => Boolean(props.cta?.external));
+const hasCta = computed(() => Boolean(props.cta?.label && props.cta?.to))
 
-const base = computed(() => {
-  const s = String(props.imageBasePath || "").trim();
-  if (!s) return "";
-  return s.startsWith("/") ? s.replace(/\/$/, "") : `/${s.replace(/\/$/, "")}`;
-});
+const normalizedBasePath = computed(() => {
+  const value = String(props.imageBasePath || "").trim()
 
-const fileBaseName = computed(() => String(props.imageName || "archivos_banner").trim());
+  if (!value) return ""
 
-const cssVars = computed(
+  const cleanValue = value.replace(/\/$/, "")
+
+  return cleanValue.startsWith("/") ? cleanValue : `/${cleanValue}`
+})
+
+const normalizedImageName = computed(() =>
+  String(props.imageName || "archivos_banner").trim()
+)
+
+const bannerStyle = computed(
   () =>
     ({
-      "--gb-h": `${props.height}px`,
-      "--gb-pos": props.objectPosition,
-    } as Record<string, string>)
-);
+      "--guide-banner-height": `${props.height}px`,
+      "--guide-banner-height-mobile": `${props.mobileHeight}px`,
+      "--guide-banner-height-desktop": `${props.desktopHeight}px`,
+      "--guide-banner-object-position": props.objectPosition,
+    }) as Record<string, string>
+)
 
-const widths = [1440, 1920, 2560, 2880, 3840, 4096] as const;
+const imageWidths = [1440, 1920, 2560, 2880, 3840, 4096] as const
 
 const webpSrcset = computed(() =>
-  widths
-    .map((w) => `${base.value}/${fileBaseName.value}_${w}w.webp ${w}w`)
+  imageWidths
+    .map(
+      (width) =>
+        `${normalizedBasePath.value}/${normalizedImageName.value}_${width}w.webp ${width}w`
+    )
     .join(", ")
-);
+)
 
 const jpgSrcset = computed(() =>
-  widths
-    .map((w) => `${base.value}/${fileBaseName.value}_${w}w.jpg ${w}w`)
+  imageWidths
+    .map(
+      (width) =>
+        `${normalizedBasePath.value}/${normalizedImageName.value}_${width}w.jpg ${width}w`
+    )
     .join(", ")
-);
+)
 
-const fallbackJpg = computed(
-  () => `${base.value}/${fileBaseName.value}_1920w.jpg`
-);
+const fallbackImage = computed(
+  () => `${normalizedBasePath.value}/${normalizedImageName.value}_1920w.jpg`
+)
+
+const isDecorativeImage = computed(() => !props.imageAlt)
 </script>
 
 <template>
   <section
-    :class="
-      props.fullBleed
-        ? 'relative left-1/2 right-1/2 -mx-[50vw] w-[100vw] overflow-x-clip'
-        : ''
-    "
+    class="guide-banner"
+    :class="{
+      'guide-banner--full-bleed': props.fullBleed,
+    }"
+    :style="bannerStyle"
   >
     <div
-      class="relative overflow-hidden bg-background"
-      :class="props.rounded ? 'rounded-xl' : ''"
-      :style="cssVars"
+      class="guide-banner__frame"
+      :class="{
+        'guide-banner__frame--rounded': props.rounded,
+      }"
     >
-      <div class="relative h-[var(--gb-h)] w-full">
-        <picture>
-          <source type="image/webp" :srcset="webpSrcset" sizes="100vw" />
-          <source type="image/jpeg" :srcset="jpgSrcset" sizes="100vw" />
+      <div class="guide-banner__media">
+        <picture class="guide-banner__picture">
+          <source
+            type="image/webp"
+            :srcset="webpSrcset"
+            :sizes="props.imageSizes"
+          />
+
+          <source
+            type="image/jpeg"
+            :srcset="jpgSrcset"
+            :sizes="props.imageSizes"
+          />
+
           <img
-            :src="fallbackJpg"
-            alt=""
-            class="absolute inset-0 h-full w-full object-cover"
-            :style="{ objectPosition: 'var(--gb-pos)' }"
+            class="guide-banner__image"
+            :src="fallbackImage"
+            :alt="props.imageAlt"
+            :aria-hidden="isDecorativeImage ? 'true' : undefined"
             loading="lazy"
             decoding="async"
           />
@@ -111,34 +151,37 @@ const fallbackJpg = computed(
 
         <div :class="props.overlayClass" />
 
-        <div class="relative h-full">
-          <div :class="props.containerClass" class="h-full">
+        <div class="guide-banner__body">
+          <div :class="[props.containerClass, 'guide-banner__container']">
             <div
-              class="flex h-full flex-col items-start justify-center gap-5"
+              class="guide-banner__content"
               :class="props.contentClass"
             >
-              <h2
-                class="text-2xl font-semibold leading-tight text-foreground md:text-3xl"
-              >
-                {{ title }}
+              <h2 class="guide-banner__title">
+                {{ props.title }}
               </h2>
 
               <p
-                v-if="description"
-                class="max-w-2xl text-sm leading-7 text-muted-foreground md:text-base"
+                v-if="props.description"
+                class="guide-banner__description"
               >
-                {{ description }}
+                {{ props.description }}
               </p>
 
-              <Button as-child class="h-11 rounded-full px-6">
-                <NuxtLink
-                  :to="ctaTo"
-                  :target="isExternal ? '_blank' : undefined"
-                  :rel="isExternal ? 'noopener noreferrer' : undefined"
+              <div
+                v-if="hasCta"
+                class="guide-banner__actions"
+              >
+                <AppButton
+                  :to="props.cta!.to"
+                  :external="props.cta?.external"
+                  :aria-label="props.cta?.ariaLabel || props.cta?.label"
+                  variant="primary"
+                  size="lg"
                 >
-                  {{ ctaLabel }}
-                </NuxtLink>
-              </Button>
+                  {{ props.cta!.label }}
+                </AppButton>
+              </div>
             </div>
           </div>
         </div>

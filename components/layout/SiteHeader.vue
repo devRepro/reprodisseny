@@ -121,7 +121,7 @@ const staticLinks = [
 </script>
 
 <template>
-  <header class="sticky top-0 z-[50] w-full border-b border-slate-100 bg-white">
+  <header class="sticky top-0 z-50 w-full border-b border-border/70 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/85">
     <div
       class="mx-auto flex h-16 w-full max-w-[1440px] items-center justify-between gap-3 px-4 sm:px-6 md:h-20 md:gap-6 md:px-10 lg:px-16 2xl:px-[120px]"
     >
@@ -144,22 +144,22 @@ const staticLinks = [
         <AppButton
           variant="ghost"
           size="icon"
-          class="shrink-0 text-slate-500 hover:text-sky-700 lg:hidden"
+          class="site-header__icon-button lg:hidden"
           aria-label="Alternar barra de búsqueda"
           :aria-expanded="isMobileSearchOpen"
           @click="isMobileSearchOpen = !isMobileSearchOpen"
         >
-          <Search v-if="!isMobileSearchOpen" class="h-6 w-6" />
-          <X v-else class="h-6 w-6" />
+          <Search v-if="!isMobileSearchOpen" class="size-5" />
+          <X v-else class="size-5" />
         </AppButton>
 
         <a
           href="tel:+34932749890"
-          class="hidden items-center gap-2 p-2 text-slate-400 transition-colors hover:text-sky-700 sm:flex"
+          class="site-header__phone"
           aria-label="Llamar a atención al cliente"
         >
-          <Phone class="h-5 w-5 md:h-4 md:w-4" />
-          <span class="hidden whitespace-nowrap text-[14px] font-medium xl:inline">
+          <Phone class="size-4" />
+          <span class="hidden whitespace-nowrap xl:inline">
             +34 932 749 890
           </span>
         </a>
@@ -167,11 +167,11 @@ const staticLinks = [
         <AppButton
           to="/pedir-presupuesto"
           variant="primary"
-          size="md"
-          class="h-9 px-2.5 text-[12px] sm:px-3 sm:text-[13px] md:h-11 md:px-6 md:text-[14px]"
+          size="sm"
+          class="site-header__cta"
         >
-          <span class="hidden text-sm sm:inline">Pide presupuesto</span>
-          <span class="text-xs sm:hidden">Presupuesto</span>
+          <span class="hidden sm:inline">Pide presupuesto</span>
+          <span class="sm:hidden">Presupuesto</span>
         </AppButton>
 
         <DropdownMenu>
@@ -179,10 +179,10 @@ const staticLinks = [
             <AppButton
               variant="ghost"
               size="icon"
-              class="hidden shrink-0 lg:inline-flex"
+              class="site-header__icon-button hidden lg:inline-flex"
               aria-label="Abrir accesos rápidos"
             >
-              <Menu class="h-6 w-6 text-[#212121]" />
+              <Menu class="size-5" />
             </AppButton>
           </DropdownMenuTrigger>
 
@@ -203,20 +203,20 @@ const staticLinks = [
             <AppButton
               variant="ghost"
               size="icon"
-              class="shrink-0 lg:hidden"
+              class="site-header__icon-button lg:hidden"
               aria-label="Abrir menú de navegación"
             >
-              <Menu class="h-6 w-6 text-[#212121]" />
+              <Menu class="size-5" />
             </AppButton>
           </SheetTrigger>
 
           <SheetContent
             side="left"
-            class="flex w-[min(90vw,400px)] flex-col border-r-slate-200 p-0"
+            class="flex w-[min(90vw,400px)] flex-col border-r-border/70 p-0"
           >
             <SheetTitle class="sr-only">Menú de navegación principal</SheetTitle>
 
-            <div class="border-b border-slate-100 bg-slate-50/50 p-4">
+            <div class="border-b border-border/60 bg-muted/35 p-4">
               <HeaderSearch @search="closeMobileMenu" />
             </div>
 
@@ -401,13 +401,13 @@ const staticLinks = [
     <Transition name="slide-down">
       <div
         v-if="isMobileSearchOpen"
-        class="border-t border-slate-50 bg-white px-4 py-3 shadow-inner lg:hidden"
+        class="border-t border-border/60 bg-background px-4 py-3 shadow-inner lg:hidden"
       >
         <HeaderSearch @search="isMobileSearchOpen = false" />
       </div>
     </Transition>
 
-    <div v-if="showMenu" class="hidden border-t border-slate-50 lg:block">
+    <div v-if="showMenu" class="hidden border-t border-border/60 lg:block">
       <CategoriasMenu :tree="categories" :pending="pendingValue" :error="errorValue" />
     </div>
   </header>

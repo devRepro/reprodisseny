@@ -1,146 +1,170 @@
-<!-- components/marketing/ProcessSection.vue -->
 <script setup lang="ts">
-import { computed } from "vue";
-import AppButton from "@/components/shared/button/AppButton.vue";
+import { computed } from "vue"
+import type { RouteLocationRaw } from "vue-router"
+import AppButton from "@/components/shared/button/AppButton.vue"
 
-type Step = {
-  title: string;
-  description: string;
-};
+type ProcessStep = {
+  title: string
+  description: string
+}
 
-const props = withDefaults(
-  defineProps<{
-    eyebrow?: string;
-    title?: string;
-    intro?: string;
-    steps?: Step[];
-    ctaLabel?: string;
-    ctaTo?: string | Record<string, unknown> | null;
-    sectionClass?: string;
-    containerClass?: string;
-  }>(),
-  {
-    eyebrow: "Cómo trabajamos",
-    title: "Un proceso claro, un único interlocutor",
-    intro:
-      "Te acompañamos desde la primera consulta hasta la entrega final, con asesoramiento técnico y control de producción en cada fase.",
-    steps: () => [
-      {
-        title: "Nos explicas tu necesidad",
-        description:
-          "Analizamos tu proyecto, plazos y objetivos para proponerte la mejor solución desde el inicio.",
-      },
-      {
-        title: "Te asesoramos y lo validamos contigo",
-        description:
-          "Te ayudamos a tomar decisiones técnicas y creativas antes de producir, evitando errores y sobrecostes.",
-      },
-      {
-        title: "Producimos con control y calidad",
-        description:
-          "Producimos internamente o con partners de confianza, supervisando cada fase del proceso.",
-      },
-      {
-        title: "Entregamos o instalamos",
-        description:
-          "Nos ocupamos de la logística, distribución e instalación para que el resultado final sea impecable.",
-      },
-    ],
-    ctaLabel: "Contacta con nosotros",
-    ctaTo: "/contacto#formulario",
-    sectionClass: "catalog-section bg-background",
-    containerClass: "home-section__inner",
-  }
-);
+type Props = {
+  id?: string
+  eyebrow?: string
+  title?: string
+  intro?: string
+  steps?: ProcessStep[]
+  ctaLabel?: string
+  ctaTo?: RouteLocationRaw | null
+  sectionClass?: string
+  containerClass?: string
+}
 
-const headingId = "process-section-title";
+const props = withDefaults(defineProps<Props>(), {
+  id: "process-section",
+  eyebrow: "Cómo trabajamos",
+  title: "Un proceso claro, un único interlocutor",
+  intro:
+    "Te acompañamos desde la primera consulta hasta la entrega final, con asesoramiento técnico y control de producción en cada fase.",
+  steps: () => [
+    {
+      title: "Nos explicas tu necesidad",
+      description:
+        "Analizamos tu proyecto, plazos y objetivos para proponerte la mejor solución desde el inicio.",
+    },
+    {
+      title: "Te asesoramos y lo validamos contigo",
+      description:
+        "Te ayudamos a tomar decisiones técnicas y creativas antes de producir, evitando errores y sobrecostes.",
+    },
+    {
+      title: "Producimos con control y calidad",
+      description:
+        "Producimos internamente o con partners de confianza, supervisando cada fase del proceso.",
+    },
+    {
+      title: "Entregamos o instalamos",
+      description:
+        "Nos ocupamos de la logística, distribución e instalación para que el resultado final sea impecable.",
+    },
+  ],
+  ctaLabel: "Contacta con nosotros",
+  ctaTo: "/contacto#formulario",
+  sectionClass: "catalog-section bg-background",
+  containerClass: "home-section__inner",
+})
 
-const safeSteps = computed<Step[]>(() => {
-  if (!Array.isArray(props.steps)) return [];
+const headingId = computed(() => `${props.id}-title`)
+
+const safeEyebrow = computed(() => String(props.eyebrow || "").trim())
+const safeTitle = computed(() => String(props.title || "").trim())
+const safeIntro = computed(() => String(props.intro || "").trim())
+const safeCtaLabel = computed(() => String(props.ctaLabel || "").trim())
+
+const safeSteps = computed<ProcessStep[]>(() => {
+  if (!Array.isArray(props.steps)) return []
 
   return props.steps
     .map((step) => ({
       title: String(step?.title || "").trim(),
       description: String(step?.description || "").trim(),
     }))
-    .filter((step) => step.title && step.description);
-});
+    .filter((step) => step.title && step.description)
+})
+
+const hasHeader = computed(
+  () => Boolean(safeEyebrow.value || safeTitle.value || safeIntro.value)
+)
+
+const hasCta = computed(() => Boolean(safeCtaLabel.value && props.ctaTo))
 </script>
 
 <template>
-  <section :class="props.sectionClass" :aria-labelledby="headingId">
-    <div :class="props.containerClass">
-      <div class="space-y-8 md:space-y-10">
-        <div class="max-w-3xl">
-          <p v-if="props.eyebrow" class="section-eyebrow">
-            {{ props.eyebrow }}
+  <section
+    :id="props.id"
+    :class="[props.sectionClass, 'process-section']"
+    :aria-labelledby="safeTitle ? headingId : undefined"
+  >
+    <div :class="[props.containerClass, 'process-section__container']">
+      <div class="process-section__layout">
+        <header
+          v-if="hasHeader"
+          class="process-section__header"
+        >
+          <p
+            v-if="safeEyebrow"
+            class="section-eyebrow"
+          >
+            {{ safeEyebrow }}
           </p>
 
           <h2
+            v-if="safeTitle"
             :id="headingId"
-            class="section-title section-title--section section-title--foreground mt-4"
+            class="section-title section-title--section section-title--foreground process-section__title"
           >
-            {{ props.title }}
+            {{ safeTitle }}
           </h2>
 
-          <p v-if="props.intro" class="section-subtitle mt-4">
-            {{ props.intro }}
+          <p
+            v-if="safeIntro"
+            class="section-subtitle process-section__intro"
+          >
+            {{ safeIntro }}
           </p>
 
-          <div class="section-divider mt-5 max-w-xs" aria-hidden="true" />
-        </div>
+          <div
+            class="section-divider process-section__divider"
+            aria-hidden="true"
+          />
+        </header>
 
         <ol
           v-if="safeSteps.length"
-          class="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4 xl:gap-5"
+          class="process-section__grid"
         >
           <li
             v-for="(step, index) in safeSteps"
             :key="`${index}-${step.title}`"
-            class="group relative list-none"
+            class="process-section__item"
           >
-            <article
-              class="relative flex h-full flex-col overflow-hidden rounded-[24px] border border-border/70 bg-card p-5 shadow-[0_14px_34px_-28px_hsl(var(--foreground)/0.28)] transition duration-200 hover:-translate-y-0.5 hover:border-primary/25 hover:shadow-[0_18px_42px_-30px_hsl(var(--foreground)/0.34)] md:p-6"
-            >
+            <article class="process-section__card">
               <div
+                class="process-section__card-glow"
                 aria-hidden="true"
-                class="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-primary/7 blur-2xl transition group-hover:bg-primary/10"
               />
 
-              <div class="relative flex items-start gap-4">
-                <div
-                  class="flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-primary/15 bg-primary/6 text-sm font-bold text-primary"
-                  aria-hidden="true"
-                >
-                  {{ String(index + 1).padStart(2, "0") }}
-                </div>
+              <div
+                class="process-section__number"
+                aria-hidden="true"
+              >
+                {{ String(index + 1).padStart(2, "0") }}
+              </div>
 
-                <div class="min-w-0 space-y-3">
-                  <h3 class="text-base font-semibold leading-6 text-foreground">
-                    {{ step.title }}
-                  </h3>
+              <div class="process-section__card-content">
+                <h3 class="process-section__step-title">
+                  {{ step.title }}
+                </h3>
 
-                  <p class="text-sm leading-6 text-muted-foreground">
-                    {{ step.description }}
-                  </p>
-                </div>
+                <p class="process-section__step-description">
+                  {{ step.description }}
+                </p>
               </div>
             </article>
           </li>
         </ol>
 
         <div
-          v-if="props.ctaLabel && props.ctaTo"
-          class="flex justify-center pt-1 md:pt-2"
+          v-if="hasCta"
+          class="process-section__actions"
         >
           <AppButton
             :to="props.ctaTo"
             variant="primary"
             size="lg"
             arrow
-            class="rounded-full px-7"
           >
-            {{ props.ctaLabel }}
+            {{ safeCtaLabel }}
           </AppButton>
         </div>
       </div>

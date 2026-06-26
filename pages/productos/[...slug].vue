@@ -147,31 +147,173 @@ const galleryImages = computed<GalleryImage[]>(() =>
   )
 );
 
+function readDetailsImageSource(value: unknown): GalleryImage | null {
+  if (!value) return null;
+
+  if (typeof value === "string") {
+    const src = value.trim();
+    return src ? { src } : null;
+  }
+
+  if (typeof value !== "object" || Array.isArray(value)) {
+    return null;
+  }
+
+  const record = value as Record<string, unknown>;
+
+  const src = String(
+    record.src ||
+      record.url ||
+      record.imageSrc ||
+      record.detailImageSrc ||
+      ""
+  ).trim();
+
+  if (!src) return null;
+
+  const alt = String(record.alt || "").trim();
+  const caption = String(record.caption || "").trim();
+
+  return {
+    src,
+    ...(alt ? { alt } : {}),
+    ...(caption ? { caption } : {}),
+    width: typeof record.width === "number" ? record.width : null,
+    height: typeof record.height === "number" ? record.height : null,
+  };
+}
+
+function getExplicitDetailsImage(current: ProductDetailDto): GalleryImage | null {
+  const record = current as ProductDetailDto & Record<string, unknown>;
+
+  return (
+    readDetailsImageSource(record.detailsImage) ||
+    readDetailsImageSource(record.detailsImageSrc) ||
+    readDetailsImageSource(record.DetailImage) ||
+    readDetailsImageSource(record.DetailImageSrc) ||
+    readDetailsImageSource(record.detailsMedia)
+  );
+}
+
+function getProductSlugSegment(current: ProductDetailDto) {
+  const rawSlug =
+    String((current as ProductDetailDto & Record<string, unknown>).slug || "").trim() ||
+    String(slug.value || "").trim();
+
+  return rawSlug
+    .split("/")
+    .map((part) => part.trim())
+    .filter(Boolean)
+    .at(-1);
+}
+
+function getMediaPathFromImageSrc(src?: string | null) {
+  const cleanSrc = String(src || "").trim().split("?")[0];
+  if (!cleanSrc) return "";
+
+  try {
+    const parsed = new URL(cleanSrc);
+    const pathname = decodeURIComponent(parsed.pathname);
+
+    const mediaIndex = pathname.indexOf("/media/");
+    if (mediaIndex >= 0) {
+      return pathname.slice(mediaIndex + "/media/".length).replace(/^\/+/, "");
+    }
+
+    return pathname.replace(/^\/+/, "");
+  } catch {
+    return cleanSrc
+      .replace(/^https:\/\/webcms\.blob\.core\.windows\.net\/media\/?/i, "")
+      .replace(/^https:\/\/media\.reprodisseny\.com\/media\/?/i, "")
+      .replace(/^\/?media\/?/i, "")
+      .replace(/^\/+/, "");
+  }
+}
+
+function toCdnMediaUrl(mediaPath: string) {
+  const mediaBaseUrl = String(
+    config.public.cmsMediaCdnBaseUrl ||
+      "https://media.reprodisseny.com/media"
+  ).replace(/\/+$/, "");
+
+  const cleanPath = String(mediaPath || "")
+    .trim()
+    .replace(/^\/+/, "")
+    .replace(/^media\//i, "");
+
+  if (!cleanPath) return "";
+
+  return `${mediaBaseUrl}/${cleanPath}`;
+}
+
+function resolveDetailsImageFromProduct(current: ProductDetailDto): GalleryImage | null {
+  const explicitImage = getExplicitDetailsImage(current);
+
+  if (explicitImage?.src) {
+    return {
+      src: explicitImage.src,
+      alt:
+        explicitImage.alt ||
+        (current.title ? `Detalle de ${current.title}` : "Detalle del producto"),
+      caption: explicitImage.caption || current.title || undefined,
+      width: explicitImage.width ?? null,
+      height: explicitImage.height ?? null,
+    };
+  }
+
+  const productSlug = getProductSlugSegment(current);
+  const heroMediaPath = getMediaPathFromImageSrc(current.image?.src);
+
+  if (!productSlug || !heroMediaPath) return null;
+
+  const lastSlashIndex = heroMediaPath.lastIndexOf("/");
+  if (lastSlashIndex < 0) return null;
+
+  const productMediaFolder = heroMediaPath.slice(0, lastSlashIndex);
+  if (!productMediaFolder) return null;
+
+  const src = toCdnMediaUrl(
+    `${productMediaFolder}/details/${productSlug}/01-detail.webp`
+  );
+
+  if (!src) return null;
+
+  return {
+    src,
+    alt: current.title
+      ? `Detalle de ${current.title}`
+      : "Detalle del producto",
+    caption: current.title || undefined,
+    width: null,
+    height: null,
+  };
+}
+
 const detailsMedia = computed<DetailsMediaItem | null>(() => {
   const current = product.value;
   if (!current) return null;
 
-  const primaryImage = current.image?.src
-    ? current.image
-    : galleryImages.value[0];
+  const detailsImage = resolveDetailsImageFromProduct(current);
 
-  if (!primaryImage?.src) return null;
+  if (!detailsImage?.src) return null;
 
   return {
     image: {
-      src: primaryImage.src,
+      src: detailsImage.src,
       alt:
-        primaryImage.alt ||
+        detailsImage.alt ||
         current.title ||
-        "Imagen del producto",
+        "Imagen de detalle del producto",
       caption:
-        primaryImage.caption ||
+        detailsImage.caption ||
         current.title ||
         undefined,
     },
     pills: [],
   };
 });
+
+
 
 const faqs = computed(() =>
   Array.isArray(product.value?.faqs) ? product.value.faqs.filter(Boolean) : []
