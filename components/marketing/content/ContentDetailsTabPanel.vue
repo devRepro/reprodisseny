@@ -1,137 +1,130 @@
 <!-- components/marketing/content/ContentDetailsTabPanel.vue -->
 <script setup lang="ts">
-import { computed, ref, watch } from "vue"
-import { cn } from "@/lib/utils"
-import { normalizeCmsMediaSrc } from "@/utils/cmsMedia"
+import { computed, ref, watch } from "vue";
+import { cn } from "@/lib/utils";
+import { normalizeCmsMediaSrc } from "@/utils/cmsMedia";
 
-import CmsImage from "@/components/shared/blocks/CmsImage.vue"
-import AppChip from "@/components/shared/pills/AppChip.vue"
-import CategoryShowcaseCta from "@/components/marketing/category/CategoryShowcaseCta.vue"
-import ContentDetailsSection from "@/components/marketing/content/ContentDetailsSection.vue"
+import CmsImage from "@/components/shared/blocks/CmsImage.vue";
+import AppChip from "@/components/shared/pills/AppChip.vue";
+import CategoryShowcaseCta from "@/components/marketing/category/CategoryShowcaseCta.vue";
+import ContentDetailsSection from "@/components/marketing/content/ContentDetailsSection.vue";
 
 type DetailsSection = {
-  id?: string
-  key?: string
-  title?: string
-  intro?: string
-  body?: string
-  text?: string
-  html?: string
-}
+  id?: string;
+  key?: string;
+  title?: string;
+  intro?: string;
+  body?: string;
+  text?: string;
+  html?: string;
+};
 
 type DetailsMediaItem = {
   image?: {
-    src?: string
-    alt?: string
-    caption?: string
-  } | null
+    src?: string;
+    alt?: string;
+    caption?: string;
+  } | null;
   pills?: Array<{
-    label?: string
-    to?: string
-    ariaLabel?: string
-  }>
-}
+    label?: string;
+    to?: string;
+    ariaLabel?: string;
+  }>;
+};
 
 const props = withDefaults(
   defineProps<{
-    section: DetailsSection
-    detailsMedia?: DetailsMediaItem | null
-    featuredProduct?: Record<string, unknown> | null
-    headerMode?: "default" | "intro-only" | "none"
-    class?: string
+    section: DetailsSection;
+    detailsMedia?: DetailsMediaItem | null;
+    featuredProduct?: Record<string, unknown> | null;
+    headerMode?: "default" | "intro-only" | "none";
+    class?: string;
   }>(),
   {
     detailsMedia: null,
     featuredProduct: null,
     headerMode: "default",
     class: "",
-  },
-)
+  }
+);
 
 function asRecord(value: unknown): Record<string, unknown> | null {
   return value && typeof value === "object" && !Array.isArray(value)
     ? (value as Record<string, unknown>)
-    : null
+    : null;
 }
 
 function cleanText(value: unknown) {
-  return String(value ?? "").trim()
+  return String(value ?? "").trim();
 }
 
 function readString(source: Record<string, unknown> | null, keys: string[]) {
-  if (!source) return ""
+  if (!source) return "";
 
   for (const key of keys) {
-    const value = cleanText(source[key])
-    if (value) return value
+    const value = cleanText(source[key]);
+    if (value) return value;
   }
 
-  return ""
+  return "";
 }
 
-const productRecord = computed(() => asRecord(props.featuredProduct))
+const productRecord = computed(() => asRecord(props.featuredProduct));
 
-const productTitle = computed(() =>
-  readString(productRecord.value, ["title", "name"]),
-)
+const productTitle = computed(() => readString(productRecord.value, ["title", "name"]));
 
-const hasImageLoadError = ref(false)
+const hasImageLoadError = ref(false);
 
 watch(
   () => props.detailsMedia?.image?.src,
   () => {
-    hasImageLoadError.value = false
-  },
-)
+    hasImageLoadError.value = false;
+  }
+);
 
 const leadImage = computed(() => {
-  if (hasImageLoadError.value) return null
+  if (hasImageLoadError.value) return null;
 
-  const image = props.detailsMedia?.image
-  const src = normalizeCmsMediaSrc(image?.src || "")
+  const image = props.detailsMedia?.image;
+  const src = normalizeCmsMediaSrc(image?.src || "");
 
-  if (!src) return null
+  if (!src) return null;
 
   return {
     src,
-    alt: String(
-      image?.alt ||
-        productTitle.value ||
-        props.section?.title ||
-        "",
-    ).trim(),
+    alt: String(image?.alt || productTitle.value || props.section?.title || "").trim(),
     caption: String(image?.caption || "").trim(),
-  }
-})
+  };
+});
 
 const pills = computed(() =>
   (props.detailsMedia?.pills || [])
     .map((item) => {
-      const label = String(item?.label || "").trim()
-      const to = String(item?.to || "").trim()
-      const ariaLabel = String(item?.ariaLabel || "").trim()
+      const label = String(item?.label || "").trim();
+      const to = String(item?.to || "").trim();
+      const ariaLabel = String(item?.ariaLabel || "").trim();
 
       return {
         label,
         to,
         ariaLabel: ariaLabel || `Ver ${label}`,
-      }
+      };
     })
-    .filter((item) => item.label && item.to),
-)
+    .filter((item) => item.label && item.to)
+);
 
-const hasLeadImage = computed(() => Boolean(leadImage.value))
+const hasLeadImage = computed(() => Boolean(leadImage.value));
 
-const showDetailsHeader = computed(() => props.headerMode === "default")
+const showDetailsHeader = computed(() => props.headerMode === "default");
 
 const layoutClass = computed(() =>
   cn(
     "content-details-panel__layout",
     hasLeadImage.value
       ? "content-details-panel__layout--with-media"
-      : "content-details-panel__layout--text-only",
-  ),
-)
+      : "content-details-panel__layout--text-only"
+  )
+);
 </script>
 
 <template>
@@ -159,17 +152,17 @@ const layoutClass = computed(() =>
               </p>
             </div>
 
-            <div class="content-details-panel__related-list">
-              <AppChip
+            <ul class="content-details-panel__related-list">
+              <li
                 v-for="pill in pills"
                 :key="`${pill.to}-${pill.label}`"
-                variant="related"
-                :to="pill.to"
-                :aria-label="pill.ariaLabel"
+                class="list-none"
               >
-                {{ pill.label }}
-              </AppChip>
-            </div>
+                <AppChip variant="related" :to="pill.to" :aria-label="pill.ariaLabel">
+                  {{ pill.label }}
+                </AppChip>
+              </li>
+            </ul>
           </aside>
         </div>
 
