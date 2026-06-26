@@ -28,3 +28,4 @@ logs
 !.gitkeep
 .vercel
 .env*.local
+*.lnk
