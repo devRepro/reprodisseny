@@ -6,6 +6,11 @@ import QuoteFormSection from "@/components/marketing/quote/FormSection.vue";
 import ContactInfoBand from "@/components/marketing/ContactInfoBand.vue";
 import MarketingProductCategoryGrid from "@/components/marketing/ProductCategoryGrid.vue";
 import GuideBanner from "@/components/marketing/GuideBanner.vue";
+useSeoMeta({
+  title: "Solicitar presupuesto de impresión | Repro Disseny",
+  description:
+    "Solicita presupuesto para impresión digital, gran formato, packaging, expositores, eventos y materiales corporativos a medida.",
+});
 
 const {
   categories: homeCategories,

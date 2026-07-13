@@ -517,10 +517,28 @@
   {
     "type": "producto",
     "slug": "caja-almohada",
-    "title": "Caja almohada",
+    "title": "Caja almohada personalizada",
     "path": "/productos/caja-almohada",
-    "keywords": [],
-    "searchTerms": []
+    "keywords": [
+      "caja almohada personalizada",
+      "pillow box personalizada",
+      "caja para regalos corporativos",
+      "packaging para welcome pack",
+      "caja automontable pequeña",
+      "caja para merchandising",
+      "caja personalizada para detalles de empresa",
+      "packaging corporativo pequeño"
+    ],
+    "searchTerms": [
+      "caja almohada",
+      "pillow box",
+      "caja regalo empresa",
+      "caja para detalles corporativos",
+      "caja para merchandising",
+      "packaging welcome pack",
+      "caja pequeña personalizada",
+      "caja automontable para regalos"
+    ]
   },
   {
     "type": "producto",

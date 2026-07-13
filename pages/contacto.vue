@@ -3,15 +3,21 @@ import HeaderPage from "@/components/shared/hero/HeaderPage.vue";
 import ContactForm from "@/components/marketing/contact/ContactForm.vue";
 import ContactInfoBand from "@/components/marketing/ContactInfoBand.vue";
 import LocationMapSection from "@/components/marketing/LocationMapSection.vue";
+
+useSeoMeta({
+  title: "Contacto | Imprenta en Barcelona | Repro Disseny",
+  description:
+    "Contacta con Repro Disseny para resolver dudas sobre impresión, gran formato, packaging, expositores o producción gráfica en Barcelona.",
+});
 </script>
 
 <template>
   <main>
     <HeaderPage
-  title="Contáctanos"
-  description="Explícanos tu consulta y te responderemos lo antes posible.
+      title="Contáctanos"
+      description="Explícanos tu consulta y te responderemos lo antes posible.
 Si lo necesitas urgente, mejor llámanos."
-/>
+    />
 
     <!-- Sección formulario -->
     <section class="container">
@@ -22,9 +28,9 @@ Si lo necesitas urgente, mejor llámanos."
     </section>
 
     <ContactInfoBand
-  section-class="bg-brand-dark text-brand-ink-light py-20"
-  container-class="container-wide"
-/>
+      section-class="bg-brand-dark text-brand-ink-light py-20"
+      container-class="container-wide"
+    />
     <LocationMapSection :show-meta="false" :show-floating-cta="false" />
   </main>
 </template>

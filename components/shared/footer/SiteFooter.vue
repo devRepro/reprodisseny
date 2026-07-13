@@ -40,38 +40,30 @@ const props = withDefaults(
 </script>
 
 <template>
-  <footer class="bg-[hsl(var(--brand-ink-dark))] text-white">
-    <div class="container-wide py-12 md:py-14 lg:py-16">
-      <div
-        class="grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,1fr)_minmax(260px,0.9fr)] lg:gap-12"
-      >
-        <section class="min-w-0">
-          <SharedLogo variant="negative" class="h-8 w-auto" />
+  <footer class="site-footer">
+    <div class="container-wide site-footer__container">
+      <div class="site-footer__grid">
+        <section class="site-footer__brand">
+          <SharedLogo variant="negative" class="site-footer__logo" />
 
-          <p class="mt-5 max-w-[34ch] text-body-s leading-[1.7] text-white/78">
+          <p class="site-footer__description">
             {{ props.description }}
           </p>
         </section>
 
-        <nav aria-label="Categorías del sitio" class="min-w-0">
-          <div class="grid grid-cols-1 gap-8 sm:grid-cols-2">
-            <ul class="space-y-3">
+        <nav aria-label="Categorías del sitio" class="site-footer__navigation">
+          <div class="site-footer__menu-columns">
+            <ul class="site-footer__menu">
               <li v-for="item in props.menuLeft" :key="item.to">
-                <NuxtLink
-                  :to="item.to"
-                  class="text-body-s leading-[1.6] text-white/[0.82] underline-offset-4 transition hover:text-white hover:underline"
-                >
+                <NuxtLink :to="item.to" class="site-footer__link">
                   {{ item.label }}
                 </NuxtLink>
               </li>
             </ul>
 
-            <ul class="space-y-3">
+            <ul class="site-footer__menu">
               <li v-for="item in props.menuRight" :key="item.to">
-                <NuxtLink
-                  :to="item.to"
-                  class="text-body-s leading-[1.6] text-white/[0.82] underline-offset-4 transition hover:text-white hover:underline"
-                >
+                <NuxtLink :to="item.to" class="site-footer__link">
                   {{ item.label }}
                 </NuxtLink>
               </li>
@@ -79,8 +71,8 @@ const props = withDefaults(
           </div>
         </nav>
 
-        <address class="min-w-0 not-italic">
-          <div class="space-y-4 text-body-s leading-[1.65] text-white/[0.82]">
+        <address class="site-footer__address">
+          <div class="site-footer__contact">
             <p>Juan de Mena 19, 08035 Barcelona</p>
 
             <p>
@@ -90,27 +82,21 @@ const props = withDefaults(
             </p>
 
             <p>
-              <a
-                href="mailto:comercial@reprodisseny.com"
-                class="underline-offset-4 transition hover:text-white hover:underline"
-              >
+              <a href="mailto:comercial@reprodisseny.com" class="site-footer__link">
                 comercial@reprodisseny.com
               </a>
             </p>
           </div>
 
-          <nav
-            aria-label="Redes sociales"
-            class="mt-5 flex items-center gap-4"
-          >
+          <nav aria-label="Redes sociales" class="site-footer__social">
             <a
               :href="props.linkedinUrl"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn de Reprodisseny"
-              class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/[0.82] transition hover:border-white/30 hover:bg-white/[0.08] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+              class="site-footer__social-link"
             >
-              <LinkedinIcon class="h-5 w-5" />
+              <LinkedinIcon class="site-footer__social-icon" />
             </a>
 
             <a
@@ -118,27 +104,22 @@ const props = withDefaults(
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram de Reprodisseny"
-              class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-white/[0.82] transition hover:border-white/30 hover:bg-white/[0.08] hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60"
+              class="site-footer__social-link"
             >
-              <InstagramIcon class="h-5 w-5" />
+              <InstagramIcon class="site-footer__social-icon" />
             </a>
           </nav>
         </address>
       </div>
 
-      <div class="mt-10 border-t border-white/10 pt-5">
-        <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <p class="text-[13px] leading-5 text-white/56">
-            © {{ new Date().getFullYear() }} Reprodisseny
-          </p>
+      <div class="site-footer__bottom">
+        <p class="site-footer__copyright">
+          © {{ new Date().getFullYear() }} Reprodisseny
+        </p>
 
-          <NuxtLink
-            to="/politica-privacidad"
-            class="text-[13px] leading-5 text-white/72 underline-offset-4 transition hover:text-white hover:underline"
-          >
-            Aviso legal
-          </NuxtLink>
-        </div>
+        <NuxtLink to="/politica-privacidad" class="site-footer__legal-link">
+          Aviso legal
+        </NuxtLink>
       </div>
     </div>
   </footer>

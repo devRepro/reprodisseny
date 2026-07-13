@@ -254,10 +254,17 @@ export const redirectRouteRules = {
   "/shop": { redirect: { to: "/productos", statusCode: 301 } },
   "/sitemap": { redirect: { to: "/sitemap.xml", statusCode: 301 } },
   "/te-presentamos-kitbox-cajas-corporativas-personalizadas-para-trabajadores-y-clientes": { redirect: { to: "/categorias/packaging", statusCode: 301 } },
+  "/categorias/adhesivos": {
+    redirect: {
+      to: "/categorias/adhesivos-personalizados",
+      statusCode: 301,
+    },
+  },
 
-
-
-
-
-
+  "/categorias/libros": {
+    redirect: {
+      to: "/categorias/libros-revistas-catalogos",
+      statusCode: 301,
+    },
+  },
 } as const ;

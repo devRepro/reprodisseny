@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-12T10:52:12.712Z",
+  "generatedAt": "2026-07-13T08:34:34.598Z",
   "categories": [
     {
       "id": "12",
@@ -2333,7 +2333,7 @@
     },
     {
       "id": "7",
-      "updatedAt": "2026-05-29T09:04:47Z",
+      "updatedAt": "2026-07-13T07:34:05Z",
       "type": "categoria",
       "slug": "libros-revistas-catalogos",
       "path": "/categorias/libros-revistas-catalogos",
@@ -7684,11 +7684,11 @@
     },
     {
       "id": "140",
-      "updatedAt": "2026-05-05T16:02:57Z",
+      "updatedAt": "2026-06-12T11:32:20Z",
       "type": "producto",
       "slug": "caja-almohada",
       "path": "/productos/caja-almohada",
-      "title": "Caja almohada",
+      "title": "Caja almohada personalizada",
       "categorySlug": "packaging",
       "categorySlugs": [
         "packaging"
@@ -7734,20 +7734,24 @@
       ],
       "faqs": [
         {
-          "question": "¿Para qué tipo de productos funciona mejor?",
-          "answer": "Para productos pequeños y ligeros: merchandising, papelería, cosmética/gourmet pequeño, accesorios, etc."
+          "question": "¿Para qué productos funciona mejor una caja almohada?",
+          "answer": "Funciona especialmente bien para productos pequeños y ligeros: merchandising, papelería, accesorios, cosmética pequeña, gourmet pequeño o detalles corporativos."
         },
         {
           "question": "¿Se entrega montada o plana?",
-          "answer": "Lo habitual es entregarla plana para optimizar transporte y almacenaje; se monta en segundos."
+          "answer": "Lo habitual es entregarla plana para optimizar transporte y almacenaje. Se monta rápidamente mediante solapas."
         },
         {
           "question": "¿Se puede hacer a medida?",
-          "answer": "Sí, para ajustar al contenido y que la presentación quede más compacta y profesional."
+          "answer": "Sí. Podemos ajustar la medida al contenido para que la presentación quede más compacta, ordenada y profesional."
         },
         {
-          "question": "¿Conviene laminado?",
-          "answer": "Si es un pack que se manipula o se envía, el laminado ayuda a que llegue impecable y se vea más premium."
+          "question": "¿Conviene laminar la caja?",
+          "answer": "Si el pack se manipula o se envía, el laminado ayuda a proteger la impresión y mejora la calidad percibida."
+        },
+        {
+          "question": "¿Puede llevar impresión interior?",
+          "answer": "Sí. La impresión interior permite añadir mensajes de bienvenida, agradecimientos, instrucciones o códigos QR."
         }
       ],
       "breadcrumbs": [
@@ -7764,7 +7768,7 @@
           "url": "/categorias/packaging"
         },
         {
-          "name": "Caja almohada",
+          "name": "Caja almohada personalizada",
           "url": "/productos/caja-almohada"
         }
       ],
@@ -7851,8 +7855,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Caja almohada personalizada | Packaging corporativo para regalos y kits",
-        "metaDescription": "Caja almohada personalizada para regalos corporativos y packs pequeños. Automontable, ligera y con impresión a color.",
+        "metaTitle": "Caja almohada personalizada | Pillow box para regalos corporativos",
+        "metaDescription": "Caja almohada personalizada para regalos corporativos, welcome packs y packs pequeños. Automontable, ligera y con impresión a color. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/caja-almohada",
         "hreflang": [
           {
@@ -7860,15 +7864,33 @@
             "url": "https://reprodisseny.com/productos/caja-almohada"
           }
         ],
-        "keywords": [],
-        "searchTerms": [],
+        "keywords": [
+          "caja almohada personalizada",
+          "pillow box personalizada",
+          "caja para regalos corporativos",
+          "packaging para welcome pack",
+          "caja automontable pequeña",
+          "caja para merchandising",
+          "caja personalizada para detalles de empresa",
+          "packaging corporativo pequeño"
+        ],
+        "searchTerms": [
+          "caja almohada",
+          "pillow box",
+          "caja regalo empresa",
+          "caja para detalles corporativos",
+          "caja para merchandising",
+          "packaging welcome pack",
+          "caja pequeña personalizada",
+          "caja automontable para regalos"
+        ],
         "schema": {
           "@context": "https://schema.org",
           "@graph": [
             {
               "@type": "Product",
-              "name": "Caja almohada",
-              "description": "Caja almohada personalizada para regalos corporativos y packs pequeños. Automontable, ligera y con impresión a color.",
+              "name": "Caja almohada personalizada",
+              "description": "Caja almohada personalizada para regalos corporativos, welcome packs y packs pequeños. Automontable, ligera y con impresión a color. Solicita presupuesto.",
               "image": "https://webcms.blob.core.windows.net/media/product/packaging/caja almohada.webp",
               "url": "https://reprodisseny.com/productos/caja-almohada",
               "brand": {
@@ -7900,7 +7922,7 @@
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Caja almohada",
+                  "name": "Caja almohada personalizada",
                   "item": "https://reprodisseny.com/productos/caja-almohada"
                 }
               ]
@@ -7910,10 +7932,10 @@
               "mainEntity": [
                 {
                   "@type": "Question",
-                  "name": "¿Para qué tipo de productos funciona mejor?",
+                  "name": "¿Para qué productos funciona mejor una caja almohada?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Para productos pequeños y ligeros: merchandising, papelería, cosmética/gourmet pequeño, accesorios, etc."
+                    "text": "Funciona especialmente bien para productos pequeños y ligeros: merchandising, papelería, accesorios, cosmética pequeña, gourmet pequeño o detalles corporativos."
                   }
                 },
                 {
@@ -7921,7 +7943,7 @@
                   "name": "¿Se entrega montada o plana?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Lo habitual es entregarla plana para optimizar transporte y almacenaje; se monta en segundos."
+                    "text": "Lo habitual es entregarla plana para optimizar transporte y almacenaje. Se monta rápidamente mediante solapas."
                   }
                 },
                 {
@@ -7929,15 +7951,23 @@
                   "name": "¿Se puede hacer a medida?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, para ajustar al contenido y que la presentación quede más compacta y profesional."
+                    "text": "Sí. Podemos ajustar la medida al contenido para que la presentación quede más compacta, ordenada y profesional."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "¿Conviene laminado?",
+                  "name": "¿Conviene laminar la caja?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Si es un pack que se manipula o se envía, el laminado ayuda a que llegue impecable y se vea más premium."
+                    "text": "Si el pack se manipula o se envía, el laminado ayuda a proteger la impresión y mejora la calidad percibida."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Puede llevar impresión interior?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí. La impresión interior permite añadir mensajes de bienvenida, agradecimientos, instrucciones o códigos QR."
                   }
                 }
               ]
@@ -32105,7 +32135,7 @@
     },
     {
       "id": "78",
-      "updatedAt": "2026-05-25T18:26:35Z",
+      "updatedAt": "2026-06-23T08:42:09Z",
       "type": "producto",
       "slug": "pegatinas-personalizadas",
       "path": "/productos/pegatinas-personalizadas",
@@ -32313,36 +32343,7 @@
         "height": 1200,
         "alt": "Pegatinas personalizadas en papel o vinilo para packaging, promociones y marca"
       },
-      "galleryImages": [
-        {
-          "src": "https://webcms.blob.core.windows.net/media/product/adhesivos/pegatinas-individuales.webp",
-          "width": 1200,
-          "height": 1200,
-          "alt": "Pegatinas personalizadas individuales para packaging, promociones y marca",
-          "caption": "Pegatinas individuales personalizadas"
-        },
-        {
-          "src": "https://webcms.blob.core.windows.net/media/product/adhesivos/hojas-pegatinas.webp",
-          "width": 1200,
-          "height": 1200,
-          "alt": "Hojas con pegatinas personalizadas impresas para packaging, regalos y promociones",
-          "caption": "Pegatinas presentadas en hoja"
-        },
-        {
-          "src": "https://webcms.blob.core.windows.net/media/product/adhesivos/etiquetas-bobina.webp",
-          "width": 1200,
-          "height": 1200,
-          "alt": "Etiquetas adhesivas en bobina para producto, packaging y etiquetado profesional",
-          "caption": "Etiquetas adhesivas para producción y packaging"
-        },
-        {
-          "src": "https://webcms.blob.core.windows.net/media/product/adhesivos/doming.webp",
-          "width": 1200,
-          "height": 1200,
-          "alt": "Etiquetas doming personalizadas con volumen para acabados premium de marca",
-          "caption": "Acabado doming para adhesivos premium"
-        }
-      ],
+      "galleryImages": [],
       "sku": "01-ADHE-0001",
       "brand": "Reprodisseny",
       "price": 0,

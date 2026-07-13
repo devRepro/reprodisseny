@@ -12,7 +12,7 @@
    COMPONENTS (tus clases custom)
    ========================================================= */
 @layer components {
-    .container-full {
+  .container-full {
     @apply w-full max-w-none;
   }
 
@@ -75,6 +75,7 @@
   .home-trust-block .google-reviews-section {
     @apply border-t border-border/50 bg-background;
   }
+
   .menubar {
     @apply flex w-full justify-center gap-4;
     background-color: hsl(var(--menubar-bg));
@@ -1165,7 +1166,7 @@
     @apply shrink-0;
   }
 
-   .guide-banner {
+  .guide-banner {
     @apply relative;
   }
 
@@ -1422,111 +1423,204 @@
     @apply mt-auto px-1 pt-6;
   }
 
+  /* =========================================================
+   SITE FOOTER
+   ========================================================= */
+
+  .site-footer {
+    @apply text-white;
+    background-color: hsl(var(--brand-ink-dark));
+  }
+
+  .site-footer__container {
+    @apply py-12 md:py-14 lg:py-16;
+  }
+
+  .site-footer__grid {
+    @apply grid gap-10 lg:grid-cols-[minmax(0,_1.05fr)_minmax(0,_1fr)_minmax(260px,_0.9fr)] lg:gap-12;
+  }
+
+  .site-footer__brand,
+  .site-footer__navigation,
+  .site-footer__address {
+    @apply min-w-0;
+  }
+
+  .site-footer__logo {
+    @apply h-8 w-auto;
+  }
+
+  .site-footer__description {
+    @apply mt-5 max-w-[34ch] text-body-s leading-[1.7] text-white/80;
+  }
+
+  .site-footer__menu-columns {
+    @apply grid grid-cols-1 gap-8 sm:grid-cols-2;
+  }
+
+  .site-footer__menu {
+    @apply space-y-3;
+  }
+
+  .site-footer__link {
+    @apply text-body-s leading-[1.6] text-white/80 underline-offset-4 transition;
+  }
+
+  .site-footer__link:hover {
+    @apply text-white underline;
+  }
+
+  .site-footer__address {
+    @apply not-italic;
+  }
+
+  .site-footer__contact {
+    @apply space-y-4 text-body-s leading-[1.65] text-white/80;
+  }
+
+  .site-footer__social {
+    @apply mt-5 flex items-center gap-4;
+  }
+
+  .site-footer__social-link {
+    @apply inline-flex size-10 items-center justify-center rounded-full border border-white/15 text-white/80 transition;
+  }
+
+  .site-footer__social-link:hover {
+    @apply border-white/30 bg-white/10 text-white;
+  }
+
+  .site-footer__social-link:focus-visible {
+    @apply outline-none ring-2 ring-white/60;
+  }
+
+  .site-footer__social-icon {
+    @apply size-5;
+  }
+
+  .site-footer__bottom {
+    @apply mt-10 flex flex-col gap-3 border-t border-white/10 pt-5 sm:flex-row sm:items-center sm:justify-between;
+  }
+
+  .site-footer__copyright {
+    @apply text-[13px] leading-5 text-white/60;
+  }
+
+  .site-footer__legal-link {
+    @apply text-[13px] leading-5 text-white/70 underline-offset-4 transition;
+  }
+
+  .site-footer__legal-link:hover {
+    @apply text-white underline;
+  }
+
   @media (max-width: 767px) {
     .section-intro-surface::before {
       display: none;
     }
   }
- }
 
 
-    /* =========================================================
+}
+
+
+/* =========================================================
    GOOGLE REVIEWS
    ========================================================= */
 
-  .google-reviews-section {
-    @apply bg-background py-12 md:py-16 lg:py-20;
-  }
+.google-reviews-section {
+  @apply bg-background py-12 md:py-16 lg:py-20;
+}
 
-  .google-reviews-header {
-    @apply mb-7 flex flex-col gap-4 md:mb-8 md:flex-row md:items-end md:justify-between;
-  }
+.google-reviews-header {
+  @apply mb-7 flex flex-col gap-4 md:mb-8 md:flex-row md:items-end md:justify-between;
+}
 
-  .google-reviews-header-actions {
-    @apply flex shrink-0 items-center gap-3;
-  }
+.google-reviews-header-actions {
+  @apply flex shrink-0 items-center gap-3;
+}
 
-  .google-reviews-rating {
-    @apply mt-3 text-sm text-muted-foreground;
-  }
+.google-reviews-rating {
+  @apply mt-3 text-sm text-muted-foreground;
+}
 
-  .google-reviews-empty {
-    @apply text-sm text-muted-foreground;
-  }
+.google-reviews-empty {
+  @apply text-sm text-muted-foreground;
+}
 
-  .google-reviews-carousel {
-    @apply overflow-hidden outline-none;
-  }
+.google-reviews-carousel {
+  @apply overflow-hidden outline-none;
+}
 
-  .google-reviews-track {
-    @apply flex;
-  }
+.google-reviews-track {
+  @apply flex;
+}
 
-  .google-reviews-slide {
-    @apply min-w-0 shrink-0 grow-0 basis-full px-2 sm:basis-1/2 lg:basis-1/3;
-  }
+.google-reviews-slide {
+  @apply min-w-0 shrink-0 grow-0 basis-full px-2 sm:basis-1/2 lg:basis-1/3;
+}
 
-  .google-reviews-card {
-    @apply flex h-full flex-col rounded-2xl border border-border/70 bg-card p-5 shadow-sm transition;
-    box-shadow: 0 14px 34px hsl(var(--foreground) / 0.06);
-  }
+.google-reviews-card {
+  @apply flex h-full flex-col rounded-2xl border border-border/70 bg-card p-5 shadow-sm transition;
+  box-shadow: 0 14px 34px hsl(var(--foreground) / 0.06);
+}
 
-  .google-reviews-card:hover {
-    @apply border-primary/20;
-    box-shadow: 0 18px 44px hsl(var(--foreground) / 0.09);
-  }
+.google-reviews-card:hover {
+  @apply border-primary/20;
+  box-shadow: 0 18px 44px hsl(var(--foreground) / 0.09);
+}
 
-  .google-reviews-card-header {
-    @apply flex items-center gap-3;
-  }
+.google-reviews-card-header {
+  @apply flex items-center gap-3;
+}
 
-  .google-reviews-stars {
-    @apply ml-auto flex items-center gap-1 text-amber-500;
-  }
+.google-reviews-stars {
+  @apply ml-auto flex items-center gap-1 text-amber-500;
+}
 
-  .google-reviews-card-body {
-    @apply mt-4 flex flex-1 flex-col text-sm leading-relaxed;
-    color: hsl(var(--foreground) / 0.82);
-  }
+.google-reviews-card-body {
+  @apply mt-4 flex flex-1 flex-col text-sm leading-relaxed;
+  color: hsl(var(--foreground) / 0.82);
+}
 
-  .google-reviews-card-footer {
-    @apply mt-auto flex items-center justify-between gap-3 pt-3;
-  }
+.google-reviews-card-footer {
+  @apply mt-auto flex items-center justify-between gap-3 pt-3;
+}
 
-  .google-reviews-text-button {
-    @apply text-xs font-semibold text-primary underline-offset-4 transition hover:underline;
-  }
+.google-reviews-text-button {
+  @apply text-xs font-semibold text-primary underline-offset-4 transition hover:underline;
+}
 
-  .google-reviews-link {
-    @apply ml-auto text-xs font-medium text-muted-foreground underline-offset-4 transition hover:text-primary hover:underline;
-  }
+.google-reviews-link {
+  @apply ml-auto text-xs font-medium text-muted-foreground underline-offset-4 transition hover:text-primary hover:underline;
+}
 
-  .google-reviews-controls {
-    @apply mt-6 flex items-center justify-between gap-4;
-  }
+.google-reviews-controls {
+  @apply mt-6 flex items-center justify-between gap-4;
+}
 
-  .google-reviews-arrows {
-    @apply flex items-center gap-2;
-  }
+.google-reviews-arrows {
+  @apply flex items-center gap-2;
+}
 
-  .google-reviews-dots {
-    @apply flex items-center gap-1.5;
-  }
+.google-reviews-dots {
+  @apply flex items-center gap-1.5;
+}
 
-  .google-reviews-dot {
-    @apply h-1.5 w-5 rounded-full bg-muted transition-all;
-  }
+.google-reviews-dot {
+  @apply h-1.5 w-5 rounded-full bg-muted transition-all;
+}
 
-  .google-reviews-dot--active {
-    @apply w-6 bg-foreground;
-  }
+.google-reviews-dot--active {
+  @apply w-6 bg-foreground;
+}
 
-  .google-reviews-clamp {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 5;
-    overflow: hidden;
-  }
+.google-reviews-clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
+  overflow: hidden;
+}
 
 
 /* =========================================================
