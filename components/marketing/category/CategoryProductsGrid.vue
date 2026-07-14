@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
+import { computed } from "vue";
+
 import ContentSectionIntro from "@/components/marketing/content/ContentSectionIntro.vue";
 import CatalogCard from "@/components/shared/catalog/CatalogCard.vue";
-import { Button } from "@/components/ui/button";
+import CatalogPagination from "@/components/shared/navigation/CatalogPagination.vue";
 
 type ProductItem = {
   slug?: string | null;
@@ -27,8 +28,10 @@ const props = withDefaults(
     title?: string;
     description?: string;
     containerClass?: string;
-    initialLimit?: number;
-    loadMoreStep?: number;
+    currentPage?: number;
+    totalPages?: number;
+    totalItems?: number;
+    basePath?: string;
   }>(),
   {
     products: () => [],
@@ -36,44 +39,68 @@ const props = withDefaults(
     title: "Explora los productos de esta categoría",
     description: "Consulta formatos y soluciones disponibles dentro de esta categoría.",
     containerClass: "container-content py-8 md:py-10",
-    initialLimit: 8,
-    loadMoreStep: 8,
+    currentPage: 1,
+    totalPages: 0,
+    totalItems: 0,
+    basePath: "/categorias",
   }
 );
 
-const visibleCount = ref(props.initialLimit);
-
 const visibleProducts = computed(() =>
   (props.products ?? []).filter(
-    (item) =>
-      Boolean(item) &&
-      Boolean(item?.title || item?.name) &&
-      Boolean(item?.path || item?.slug)
+    (item): item is ProductItem =>
+      Boolean(item) && Boolean(item.title || item.name) && Boolean(item.path || item.slug)
   )
 );
 
-const displayedProducts = computed(() =>
-  visibleProducts.value.slice(0, visibleCount.value)
-);
-
-const remainingCount = computed(() =>
-  Math.max(0, visibleProducts.value.length - displayedProducts.value.length)
-);
-
-const canLoadMore = computed(() => remainingCount.value > 0);
-
 const gridClass = computed(() => {
-  const count = displayedProducts.value.length;
+  const count = visibleProducts.value.length;
 
-  if (count <= 1) return "mx-auto max-w-[420px] grid-cols-1";
-  if (count === 2) return "mx-auto max-w-[920px] grid-cols-1 sm:grid-cols-2";
-  if (count === 3) return "grid-cols-1 sm:grid-cols-2 xl:grid-cols-3";
+  if (count <= 1) {
+    return "mx-auto max-w-[420px] grid-cols-1";
+  }
+
+  if (count === 2) {
+    return "mx-auto max-w-[920px] grid-cols-1 sm:grid-cols-2";
+  }
+
+  if (count === 3) {
+    return "grid-cols-1 sm:grid-cols-2 xl:grid-cols-3";
+  }
 
   return "grid-cols-1 sm:grid-cols-2 xl:grid-cols-4";
 });
 
-function loadMore() {
-  visibleCount.value += props.loadMoreStep;
+const resultSummary = computed(() => {
+  if (props.totalItems <= 0) {
+    return "";
+  }
+
+  if (props.totalPages <= 1) {
+    return `${props.totalItems} ${props.totalItems === 1 ? "producto" : "productos"}`;
+  }
+
+  return `${props.totalItems} productos · Página ${props.currentPage} de ${props.totalPages}`;
+});
+
+function productHref(product: ProductItem): string {
+  const path = String(product.path || "").trim();
+
+  if (path) {
+    return path;
+  }
+
+  const slug = String(product.slug || "").trim();
+
+  return `/productos/${encodeURIComponent(slug)}`;
+}
+
+function productTitle(product: ProductItem): string {
+  return String(product.title || product.name || "").trim();
+}
+
+function productDescription(product: ProductItem): string {
+  return String(product.shortDescription || product.description || "").trim();
 }
 </script>
 
@@ -95,24 +122,28 @@ function loadMore() {
           :line="false"
           title-tone="foreground"
         />
+
+        <p v-if="resultSummary" class="mt-3 text-body-s text-muted-foreground">
+          {{ resultSummary }}
+        </p>
       </div>
 
       <ul :class="['mt-6 grid auto-rows-fr gap-5 md:gap-6', gridClass]">
         <li
-          v-for="product in displayedProducts"
+          v-for="product in visibleProducts"
           :key="product.path || product.slug || product.title || product.name"
           class="h-full list-none"
         >
           <CatalogCard
-            :href="product.path || `/productos/${product.slug}`"
-            :title="product.title || product.name || ''"
-            :description="product.shortDescription || product.description || ''"
+            :href="productHref(product)"
+            :title="productTitle(product)"
+            :description="productDescription(product)"
             :image="
               product.image ||
               (product.imageSrc
                 ? {
                     src: product.imageSrc,
-                    alt: product.title || product.name || 'Producto',
+                    alt: productTitle(product) || 'Producto',
                   }
                 : null)
             "
@@ -122,16 +153,11 @@ function loadMore() {
         </li>
       </ul>
 
-      <div v-if="canLoadMore" class="mt-8 flex justify-center">
-        <Button
-          type="button"
-          variant="outline"
-          class="rounded-full px-6"
-          @click="loadMore"
-        >
-          Mostrar {{ Math.min(loadMoreStep, remainingCount) }} productos más
-        </Button>
-      </div>
+      <CatalogPagination
+        :current-page="currentPage"
+        :total-pages="totalPages"
+        :base-path="basePath"
+      />
     </div>
   </section>
 </template>
