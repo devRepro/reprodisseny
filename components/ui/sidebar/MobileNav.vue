@@ -1,7 +1,5 @@
 <script setup lang="ts">
-
-import { Menu } from 'lucide-vue-next'
-
+import { Menu } from "lucide-vue-next";
 </script>
 
 <template>
@@ -19,12 +17,22 @@ import { Menu } from 'lucide-vue-next'
 
       <SheetContent side="left" class="w-[260px]">
         <!-- Contenido del menú móvil -->
-        <div class="py-4 space-y-4">
+        <div class="space-y-4 py-4">
           <LogoMobile class="mb-4" />
 
           <nav class="flex flex-col space-y-2">
-            <NuxtLink to="/categorias/adhesivos" class="menu-link">Adhesivos</NuxtLink>
-            <NuxtLink to="/categorias/libros" class="menu-link">Libros</NuxtLink>
+            <NuxtLink
+              to="/categorias/adhesivos-personalizados"
+              class="menu-link"
+            >
+              Adhesivos
+            </NuxtLink>
+            <NuxtLink
+              to="/categorias/libros-revistas-catalogos"
+              class="menu-link"
+            >
+              Libros
+            </NuxtLink>
             <NuxtLink to="/contacto" class="menu-link">Contacto</NuxtLink>
             <NuxtLink to="/novedades" class="menu-link">Novedades</NuxtLink>
             <NuxtLink to="/blog" class="menu-link">Blog</NuxtLink>
@@ -34,4 +42,3 @@ import { Menu } from 'lucide-vue-next'
     </Sheet>
   </div>
 </template>
-

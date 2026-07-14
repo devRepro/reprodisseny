@@ -13,6 +13,7 @@
     "validate-md": "node scripts/validate-md-structure.js",
     "validate:categorias": "node scripts/validateCategorias.js",
     "validate-md-seo": "node scripts/validate-md-seo.js",
+    "validate:seo-routes": "node scripts/validate-seo-routes.mjs",
     "validate:all": "npm run validate-md && npm run validate-md-seo && npm run validate:categorias",
     "fix:types": "rm -rf .nuxt node_modules package-lock.json && npm install && npx nuxi prepare",
     "refresh:types": "npx nuxi prepare",
