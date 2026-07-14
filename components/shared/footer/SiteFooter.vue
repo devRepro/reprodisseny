@@ -16,8 +16,11 @@ const props = withDefaults(
     description:
       "Impresión profesional, gran formato, PLV, vinilos, packaging y soluciones gráficas para empresas, retail, eventos y comunicación visual.",
     menuLeft: () => [
-      { label: "Libros, revistas y catálogos", to: "/categorias/libros" },
-      { label: "Adhesivos", to: "/categorias/adhesivos" },
+      {
+        label: "Libros, revistas y catálogos",
+        to: "/categorias/libros-revistas-catalogos",
+      },
+      { label: "Adhesivos", to: "/categorias/adhesivos-personalizados" },
       {
         label: "Material publicitario y oficina",
         to: "/categorias/publicidad-oficina",
