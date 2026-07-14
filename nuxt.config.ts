@@ -454,7 +454,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   },
 
   routeRules: {
-  "/categorias/**": { isr: 600 },
+  "/categorias/**": { cache: false },
   "/productos/**": { isr: 600 },
 
   "/api/**": { robots: false },
