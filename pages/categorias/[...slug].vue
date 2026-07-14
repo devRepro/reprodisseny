@@ -12,7 +12,6 @@ import ContentProcessSteps, {
   type ProcessStepItem,
 } from "@/components/marketing/content/ContentProcessSteps.vue";
 import GuideBanner from "@/components/marketing/GuideBanner.vue";
-import { getCategoryKeywordPills } from "@/utils/relatedKeywordPills";
 
 type CategoryHowWeWork = {
   title?: string;
@@ -31,6 +30,46 @@ type GalleryImage = {
 const route = useRoute();
 const config = useRuntimeConfig();
 const nuxtApp = useNuxtApp();
+
+
+const PRODUCTS_PER_PAGE = 12;
+
+function parsePageQuery(value: unknown): number {
+  const raw = Array.isArray(value)
+    ? value[0]
+    : value;
+
+  if (
+    raw === undefined ||
+    raw === null ||
+    raw === ""
+  ) {
+    return 1;
+  }
+
+  const normalized = String(raw).trim();
+
+  if (!/^[1-9]\d*$/.test(normalized)) {
+    return 0;
+  }
+
+  const parsed = Number(normalized);
+
+  return Number.isSafeInteger(parsed)
+    ? parsed
+    : 0;
+}
+
+const currentPage = computed(() =>
+  parsePageQuery(route.query.page),
+);
+
+if (currentPage.value === 0) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: "Página no encontrada",
+  });
+}
 
 const pageContainerClass = "container-content";
 const pageFlowClass = "space-y-0";
@@ -155,12 +194,11 @@ const { data, status, pending, error } =
     `cms:category:${slug.value}`,
     () =>
       $fetch(`/api/cms/category/${apiSlug.value}`, {
-        query: {
-          includeProducts: 1,
-          productLimit: 24,
-          includeChildren: 1,
-          childLimit: 50,
-        },
+       query: {
+  includeProducts: 0,
+  includeChildren: 1,
+  childLimit: 50,
+},
       }),
     {
       server: true,
@@ -182,18 +220,64 @@ if (
 const fetchError = computed(() => (error.value as any) || null);
 const category = computed(() => data.value as CategoryDetailPageDto | null);
 
+
 const children = computed(() =>
   Array.isArray(category.value?.children) ? category.value.children : []
 );
 
-const products = computed(() =>
-  Array.isArray(category.value?.products) ? category.value.products : []
-);
 
 const detailGallery = computed<GalleryImage[]>(() => {
   const items = normalizeGalleryImages((category.value as any)?.detailGallery);
   return items.slice(0, 3);
 });
+
+const categoryProductsSlug = computed(() =>
+  String(
+    category.value?.slug ||
+      slugParts.value.at(-1) ||
+      "",
+  ).trim(),
+);
+
+const {
+  items: products,
+  meta: productsMeta,
+  pending: productsPending,
+  error: productsError,
+} = await useCategoriaProductos({
+  categorySlug: categoryProductsSlug,
+  page: currentPage,
+  limit: PRODUCTS_PER_PAGE,
+  sort: "order",
+  direction: "ASC",
+  includeSubcategory: true,
+});
+
+if (productsError.value) {
+  const productFetchError = productsError.value as {
+    statusCode?: number;
+    status?: number;
+    statusMessage?: string;
+    message?: string;
+    data?: {
+      message?: string;
+    };
+  };
+
+  throw createError({
+    statusCode:
+      productFetchError.statusCode ||
+      productFetchError.status ||
+      404,
+    statusMessage:
+      productFetchError.statusMessage ||
+      "Página no encontrada",
+    message:
+      productFetchError.data?.message ||
+      productFetchError.message ||
+      "No se pudieron cargar los productos",
+  });
+}
 
 const galleryImages = computed<GalleryImage[]>(() => {
   const fromGalleryImages = normalizeGalleryImages(
@@ -259,12 +343,18 @@ const breadcrumbItems = computed(() =>
 const heroImage = computed(() => category.value?.image?.src || "");
 
 const secondaryCta = computed(() => {
-  if (products.value.length) {
-    return { label: "Ver productos", to: "#productos" };
+  if (productsMeta.value.total > 0) {
+    return {
+      label: "Ver productos",
+      to: "#productos",
+    };
   }
 
   if (children.value.length) {
-    return { label: "Explorar subcategorías", to: "#subcategorias" };
+    return {
+      label: "Explorar subcategorías",
+      to: "#subcategorias",
+    };
   }
 
   return undefined;
@@ -281,11 +371,55 @@ const childrenGridClass = computed(() => {
 });
 
 const canonicalUrl = computed(() => {
-  return (
-    toAbsoluteUrl(category.value?.seo?.canonical || category.value?.path || route.path) ||
+  const baseUrl =
+    toAbsoluteUrl(
+      category.value?.seo?.canonical ||
+        category.value?.path ||
+        route.path,
+    ) ||
     toAbsoluteUrl("/") ||
-    "https://reprodisseny.com"
-  );
+    "https://reprodisseny.com";
+
+  const url = new URL(baseUrl);
+
+  // Eliminamos cualquier query heredada del canonical del CMS.
+  url.search = "";
+
+  if (currentPage.value > 1) {
+    url.searchParams.set(
+      "page",
+      String(currentPage.value),
+    );
+  }
+
+  return url.toString();
+});
+
+const seoTitle = computed(() => {
+  const baseTitle =
+    category.value?.seo?.title ||
+    category.value?.title ||
+    "Categoría";
+
+  return currentPage.value > 1
+    ? `${baseTitle} – Página ${currentPage.value}`
+    : baseTitle;
+});
+
+const seoDescription = computed(() => {
+  const baseDescription =
+    category.value?.seo?.description ||
+    category.value?.description ||
+    "Categoría de productos";
+
+  if (currentPage.value <= 1) {
+    return baseDescription;
+  }
+
+  return `${baseDescription} Página ${currentPage.value} de ${Math.max(
+    productsMeta.value.pages,
+    1,
+  )}.`;
 });
 
 const ogImageUrl = computed(() => {
@@ -297,34 +431,26 @@ useHead(() => ({
 }));
 
 useSeoMeta({
-  title: () =>
-    category.value?.seo?.title ||
-    (category.value?.title
-      ? `${category.value.title} | Reprodisseny`
-      : "Categoría | Reprodisseny"),
+  title: () => seoTitle.value,
+  description: () => seoDescription.value,
 
-  description: () =>
-    category.value?.seo?.description ||
-    category.value?.description ||
-    "Categoría de productos",
-
-  ogTitle: () => category.value?.seo?.title || category.value?.title || "Categoría",
-
-  ogDescription: () =>
-    category.value?.seo?.description ||
-    category.value?.description ||
-    "Categoría de productos",
-
+  ogTitle: () => seoTitle.value,
+  ogDescription: () => seoDescription.value,
   ogUrl: () => canonicalUrl.value,
   ogImage: () => ogImageUrl.value,
-  robots: () => category.value?.seo?.robots || "index,follow",
 
-  twitterCard: () => (ogImageUrl.value ? "summary_large_image" : "summary"),
-  twitterTitle: () => category.value?.seo?.title || category.value?.title || "Categoría",
+  robots: () =>
+    category.value?.seo?.robots ||
+    "index,follow",
+
+  twitterCard: () =>
+    ogImageUrl.value
+      ? "summary_large_image"
+      : "summary",
+
+  twitterTitle: () => seoTitle.value,
   twitterDescription: () =>
-    category.value?.seo?.description ||
-    category.value?.description ||
-    "Categoría de productos",
+    seoDescription.value,
   twitterImage: () => ogImageUrl.value,
 });
 
@@ -419,7 +545,9 @@ const closingBannerPills = computed(() => {
 <template>
   <main class="min-h-screen bg-background">
     <div v-if="isPending && !category" class="container-content py-16 md:py-20">
-      <div class="flex min-h-[30vh] items-center justify-center rounded-[28px] border border-border/70 bg-card/70">
+      <div
+        class="flex min-h-[30vh] items-center justify-center rounded-[28px] border border-border/70 bg-card/70"
+      >
         <div class="animate-pulse text-body text-muted-foreground">
           Cargando categoría...
         </div>
@@ -434,25 +562,44 @@ const closingBannerPills = computed(() => {
       <div :class="pageBottomSpacingClass">
         <div :class="pageFlowClass">
           <section aria-label="Presentación de la categoría">
-            <CategoryHero :category="category" :primary-cta="{ label: 'Pedir presupuesto', to: '/contacto' }"
-              :secondary-cta="secondaryCta" />
+            <CategoryHero
+              :category="category"
+              :primary-cta="{ label: 'Pedir presupuesto', to: '/contacto' }"
+              :secondary-cta="secondaryCta"
+            />
           </section>
 
-          <section v-if="children.length" id="subcategorias" :class="pageContainerClass" aria-label="Subcategorías">
+          <section
+            v-if="currentPage === 1 && children.length"
+            id="subcategorias"
+            :class="pageContainerClass"
+            aria-label="Subcategorías"
+          >
             <div class="space-y-8 md:space-y-10">
               <div :class="sectionIntroClass">
-                <ContentSectionIntro eyebrow="Subcategorías" title="Explora esta línea de soluciones"
-                  description="Accede directamente a las subcategorías relacionadas con esta área." />
+                <ContentSectionIntro
+                  eyebrow="Subcategorías"
+                  title="Explora esta línea de soluciones"
+                  description="Accede directamente a las subcategorías relacionadas con esta área."
+                />
               </div>
 
               <div :class="['grid auto-rows-fr gap-6', childrenGridClass]">
-                <NuxtLink v-for="child in children" :key="child.slug || child.path" :to="child.path"
-                  class="group flex h-full flex-col overflow-hidden rounded-[28px] border border-border/70 bg-card shadow-[0_10px_30px_-24px_hsl(var(--foreground)/0.14)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:shadow-[0_18px_40px_-26px_hsl(var(--foreground)/0.18)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:ring-offset-2">
+                <NuxtLink
+                  v-for="child in children"
+                  :key="child.slug || child.path"
+                  :to="child.path"
+                  class="group flex h-full flex-col overflow-hidden rounded-[28px] border border-border/70 bg-card shadow-[0_10px_30px_-24px_hsl(var(--foreground)/0.14)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:shadow-[0_18px_40px_-26px_hsl(var(--foreground)/0.18)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:ring-offset-2"
+                >
                   <div class="aspect-[16/10] overflow-hidden bg-muted/25">
-                    <img v-if="child.image?.src" :src="child.image.src"
+                    <img
+                      v-if="child.image?.src"
+                      :src="child.image.src"
                       :alt="child.image.alt || child.title || 'Subcategoría'"
                       class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                      loading="lazy" decoding="async" />
+                      loading="lazy"
+                      decoding="async"
+                    />
                     <div v-else class="h-full w-full bg-muted/40" />
                   </div>
 
@@ -461,12 +608,16 @@ const closingBannerPills = computed(() => {
                       {{ child.title }}
                     </h3>
 
-                    <p v-if="child.description" class="mt-3 line-clamp-3 text-body-s leading-[1.6] text-foreground/72">
+                    <p
+                      v-if="child.description"
+                      class="mt-3 line-clamp-3 text-body-s leading-[1.6] text-foreground/72"
+                    >
                       {{ child.description }}
                     </p>
 
                     <span
-                      class="mt-5 inline-flex min-h-11 items-center justify-center self-start rounded-lg border border-border bg-background px-4 py-2.5 text-body-s-bold text-foreground transition group-hover:border-primary/25 group-hover:text-primary">
+                      class="mt-5 inline-flex min-h-11 items-center justify-center self-start rounded-lg border border-border bg-background px-4 py-2.5 text-body-s-bold text-foreground transition group-hover:border-primary/25 group-hover:text-primary"
+                    >
                       Ver subcategoría
                     </span>
                   </div>
@@ -475,32 +626,72 @@ const closingBannerPills = computed(() => {
             </div>
           </section>
 
-          <CategoryProductsGrid :products="products" eyebrow="Catálogo" title="Productos de esta categoría"
-            description="Explora opciones, formatos y acabados disponibles." :initial-limit="8" :load-more-step="8" />
+          <div
+            v-if="productsPending"
+            class="container-content py-10 text-center text-muted-foreground"
+          >
+            Cargando productos...
+          </div>
 
-          <ContentSectionShell v-if="hasSections" theme="muted" eyebrow="Soluciones gráficas"
+          <CategoryProductsGrid
+            v-else
+            :products="products"
+            eyebrow="Catálogo"
+            :title="
+              currentPage > 1
+                ? `Productos de esta categoría — página ${currentPage}`
+                : 'Productos de esta categoría'
+            "
+            description="Explora opciones, formatos y acabados disponibles."
+            :current-page="productsMeta.page"
+            :total-pages="productsMeta.pages"
+            :total-items="productsMeta.total"
+            :base-path="category.path || route.path"
+          />
+
+          <ContentSectionShell
+            v-if="currentPage === 1 && hasSections"
+            theme="muted"
+            eyebrow="Soluciones gráficas"
             title="Características, tipos, formatos y acabados"
-            description="Consulta la información clave de esta categoría en un formato más claro y fácil de comparar.">
-            <ContentSectionsRenderer :sections="sections" variant="category" :details-media="detailsMedia"/>
+            description="Consulta la información clave de esta categoría en un formato más claro y fácil de comparar."
+          >
+            <ContentSectionsRenderer
+              :sections="sections"
+              variant="category"
+              :details-media="detailsMedia"
+            />
           </ContentSectionShell>
 
-          <div v-if="hasProcessSteps" :class="sectionSpacingClass">
-            <ContentSectionShell id="como-trabajamos" eyebrow="Cómo realizamos tu pedido" :title="processTitle"
-              :description="processDescription" density="compact" intro-spacing="tight">
+          <div v-if="currentPage === 1 && hasProcessSteps" :class="sectionSpacingClass">
+            <ContentSectionShell
+              id="como-trabajamos"
+              eyebrow="Cómo realizamos tu pedido"
+              :title="processTitle"
+              :description="processDescription"
+              density="compact"
+              intro-spacing="tight"
+            >
               <ContentProcessSteps :steps="processSteps" />
             </ContentSectionShell>
           </div>
 
-          <div :class="sectionSpacingCompactClass">
-            <GuideBanner title="¿Tienes dudas con el archivo, el tamaño o el acabado?"
+          <div v-if="currentPage === 1" :class="sectionSpacingCompactClass">
+            <GuideBanner
+              title="¿Tienes dudas con el archivo, el tamaño o el acabado?"
               description="Consulta la guía rápida para preparar artes finales y evitar incidencias antes de imprimir."
-              :cta="{ label: 'Ver guía de archivos', to: '/como-preparar-archivos' }" />
+              :cta="{ label: 'Ver guía de archivos', to: '/como-preparar-archivos' }"
+            />
           </div>
 
-          <div v-if="hasFaqs" :class="sectionSpacingCompactClass">
-            <ContentSectionShell eyebrow="Ayuda y dudas comunes" title="Preguntas frecuentes"
+          <div v-if="currentPage === 1 && hasFaqs" :class="sectionSpacingCompactClass">
+            <ContentSectionShell
+              eyebrow="Ayuda y dudas comunes"
+              title="Preguntas frecuentes"
               description="Respondemos las dudas más habituales sobre materiales, formatos, acabados y criterios de elección."
-              density="compact" intro-spacing="tight">
+              density="compact"
+              intro-spacing="tight"
+            >
               <FaqAccordion :items="faqs" />
             </ContentSectionShell>
           </div>
