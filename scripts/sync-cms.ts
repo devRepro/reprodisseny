@@ -138,6 +138,14 @@ type ContentSection =
   | TechnicalSpecsContentSection
   | ApplicationsContentSection;
 
+function getMarkdownSectionBody(
+  section: ContentSection | undefined,
+): string {
+  return section?.contentFormat === "markdown"
+    ? section.body
+    : "";
+}
+
 type ImageDto = {
   src?: string;
   width?: number;
@@ -304,37 +312,31 @@ const CATEGORY_FIELDS = {
   slug: "CategorySlug",
   nav: "NavLabel",
   sortOrder: "SortOrder",
-  parentCategory: "ParentCategory",
-  isFeatured: "IsFeatured",
-  isHidden: "IsHidden",
   isPublished: "IsPublished",
-  publishedAt: "PublishedAt",
   path: "Path",
-  canonical: "Canonical",
+
   description: "Description",
   bodyMd: "BodyMd",
   detailsMd: "DetailsMd",
   typesMd: "TypesMd",
   formatsMd: "FormatsMd",
   finishesMd: "FinishesMd",
-  usesMd: "UseMd",
+  usesMd: "UsesMd",
   faqsJson: "FaqsJson",
+
   imageSrc: "ImageSrc",
   imageWidth: "ImageWidth",
   imageHeight: "ImageHeight",
   imageAlt: "ImageAlt",
   galleryImagesJson: "GalleryImagesJson",
+
   relatedProductsJson: "RelatedProductsJson",
-  ogImageSrc: "OgImageSrc",
+
   metaTitle: "MetaTitle",
   metaDescription: "MetaDescription",
-  hreflangJson: "HrefLangJson",
   keywordsJson: "KeywordsJson",
   searchTermsJson: "SearchTermsJson",
-  schemaJson: "SchemaJson",
   legacySlugsJson: "LegacySlugsJson",
-  robotsOverride: "RobotsOverride",
-  robotsAdvanced: "RobotsAdvanced",
 } as const;
 
 
@@ -767,7 +769,12 @@ function parseStringList(value: unknown): string[] {
   if (Array.isArray(value)) {
     return value
       .map((item) => str(item))
-      .filter((item): item is string => Boolean(item) && !["[]", "{}", "[ ]"].includes(item));
+      .filter(
+        (item): item is string =>
+          typeof item === "string" &&
+          item.length > 0 &&
+          !["[]", "{}", "[ ]"].includes(item),
+      );
   }
 
   const raw = str(value);
@@ -781,7 +788,12 @@ function parseStringList(value: unknown): string[] {
     if (Array.isArray(parsed)) {
       return parsed
         .map((item) => str(item))
-        .filter((item): item is string => Boolean(item) && !["[]", "{}", "[ ]"].includes(item));
+        .filter(
+        (item): item is string =>
+          typeof item === "string" &&
+          item.length > 0 &&
+          !["[]", "{}", "[ ]"].includes(item),
+      );
     }
   }
 
@@ -1114,7 +1126,10 @@ async function fetchAllItems<T extends Record<string, unknown>>(
   let next: string | null = `/sites/${siteId}/lists/${listId}/items?$top=999&$expand=${expand}`;
 
   while (next) {
-    const response = await graphGet<{ value?: Array<GraphItem<T>>; "@odata.nextLink"?: string }>(next);
+    const response: {
+      value?: Array<GraphItem<T>>;
+      "@odata.nextLink"?: string;
+    } = await graphGet(next);
     for (const item of response.value || []) items.push(item);
     next = response["@odata.nextLink"] || null;
   }
@@ -1513,7 +1528,7 @@ function buildSections<K extends ContentSectionKind>(
     const markdownSection = createMarkdownSection(id, titles[id] || id, body);
 
     if (markdownSection) {
-      sections.push(markdownSection);
+      sections.push(markdownSection as ContentSection);
     }
   }
 
@@ -1592,40 +1607,42 @@ function buildCategorySeo(
   imageSrc?: string,
 ): SeoDto {
   const canonical = `${SITE_URL}${publicPath}`;
-  const metaTitle = str(fields[CATEGORY_FIELDS.metaTitle]) || title;
+
+  const metaTitle =
+    str(fields[CATEGORY_FIELDS.metaTitle]) ||
+    title;
+
   const metaDescription =
     str(fields[CATEGORY_FIELDS.metaDescription]) ||
     str(fields[CATEGORY_FIELDS.description]) ||
-    firstSentence(str(fields[CATEGORY_FIELDS.detailsMd]) || "") ||
-    firstSentence(str(fields[CATEGORY_FIELDS.bodyMd]) || "");
-
-  const hreflang = parseJsonLoose<Array<{ lang?: unknown; url?: unknown }>>(
-    fields[CATEGORY_FIELDS.hreflangJson],
-    [],
-  )
-    .map((item) => ({
-      lang: str(item?.lang) || "es-ES",
-      url: toAbsoluteUrl(item?.url, publicPath),
-    }))
-    .filter((item) => item.url);
+    firstSentence(
+      str(fields[CATEGORY_FIELDS.detailsMd]) || "",
+    ) ||
+    firstSentence(
+      str(fields[CATEGORY_FIELDS.bodyMd]) || "",
+    );
 
   return {
     metaTitle,
     metaDescription,
     canonical,
-    hreflang: hreflang.length ? hreflang : [{ lang: "es-ES", url: canonical }],
-    keywords: normalizeKeywordList(fields[CATEGORY_FIELDS.keywordsJson]),
-    searchTerms: normalizeKeywordList(fields[CATEGORY_FIELDS.searchTermsJson]),
-    schema: parseJsonLoose<Record<string, JsonValue>>(fields[CATEGORY_FIELDS.schemaJson], {}),
-    robotsOverride: str(fields[CATEGORY_FIELDS.robotsOverride]) || "INHERIT",
-    robotsAdvanced: str(fields[CATEGORY_FIELDS.robotsAdvanced]),
-    ogImageSrc: sanitizeImageSrc(fields[CATEGORY_FIELDS.ogImageSrc]) || imageSrc,
+    hreflang: [
+      {
+        lang: "es-ES",
+        url: canonical,
+      },
+    ],
+    keywords: normalizeKeywordList(
+      fields[CATEGORY_FIELDS.keywordsJson],
+    ),
+    searchTerms: normalizeKeywordList(
+      fields[CATEGORY_FIELDS.searchTermsJson],
+    ),
+    schema: {},
+    robotsOverride: "INHERIT",
+    ogImageSrc: imageSrc,
   };
 }
-
-
-
-
 function buildProductSections(
   fields: Record<string, unknown>,
   detailsMd?: string,
@@ -1776,7 +1793,7 @@ function buildCategorySchemaGraph(category: CategoryDto): Record<string, JsonVal
     description:
       category.seo.metaDescription ||
       category.description ||
-      firstSentence(category.sections[0]?.body || "") ||
+      firstSentence(getMarkdownSectionBody(category.sections[0])) ||
       undefined,
     url: category.seo.canonical,
     image: category.seo.ogImageSrc || category.image.src,
@@ -1802,7 +1819,7 @@ function buildProductSchemaGraph(product: ProductDto): Record<string, JsonValue 
       product.seo.metaDescription ||
       product.shortDescription ||
       product.description ||
-      firstSentence(product.sections[0]?.body || "") ||
+      firstSentence(getMarkdownSectionBody(product.sections[0])) ||
       undefined,
     image: product.seo.ogImageSrc || product.image.src,
     url: product.seo.canonical,
@@ -1875,19 +1892,31 @@ function buildCategory(item: GraphItem<Record<string, unknown>>): CategoryDto | 
   const fields = item.fields || {};
 
 
-  const slug =
-    normalizeSlug(fields[CATEGORY_FIELDS.slug]) ||
-    slugFromPath(pathFromUrlLike(fields[CATEGORY_FIELDS.path]), "/categorias") ||
-    slugFromPath(pathFromUrlLike(fields[CATEGORY_FIELDS.canonical]), "/categorias");
+  const isPublished = bool(
+    fields[CATEGORY_FIELDS.isPublished],
+  );
+
+  if (!isPublished) {
+    return null;
+  }
+
+  const slug = normalizeSlug(
+    fields[CATEGORY_FIELDS.slug],
+  );
 
   if (!slug) {
-    warn(`Categoría descartada: item ${String(item.id ?? "sin-id")} sin slug válido.`);
+    warn(
+      `Categoría descartada: item ${
+        String(item.id ?? "sin-id")
+      } sin CategorySlug válido.`,
+    );
+
     return null;
   }
 
   const publicPath = normalizePublicPath(
     fields[CATEGORY_FIELDS.path],
-    fields[CATEGORY_FIELDS.canonical],
+    undefined,
     `/categorias/${slug}`,
     "/categorias",
   );
@@ -1901,10 +1930,15 @@ function buildCategory(item: GraphItem<Record<string, unknown>>): CategoryDto | 
 
   const sections = buildCategorySections(fields, detailsMd, bodyMd, description);
 
-  const pathSegments = publicPath.split("/").filter(Boolean);
-  const inferredParent = pathSegments.length > 2 ? pathSegments.slice(-2, -1)[0] : undefined;
+  const pathSegments = publicPath
+    .split("/")
+    .filter(Boolean);
 
-  const parent = normalizeSlug(fields[CATEGORY_FIELDS.parentCategory]) || inferredParent;
+  const parent =
+    pathSegments.length > 2
+      ? normalizeSlug(pathSegments[pathSegments.length - 2])
+      : undefined;
+
   const seo = buildCategorySeo(fields, title, publicPath, imageSrc);
 
   return {
@@ -1917,10 +1951,9 @@ function buildCategory(item: GraphItem<Record<string, unknown>>): CategoryDto | 
     nav,
     order: num(fields[CATEGORY_FIELDS.sortOrder]) ?? DEFAULT_SORT_ORDER,
     parent,
-    hidden: bool(fields[CATEGORY_FIELDS.isHidden]),
-    featured: bool(fields[CATEGORY_FIELDS.isFeatured]),
-    isPublished: bool(fields[CATEGORY_FIELDS.isPublished]),
-    publishedAt: str(fields[CATEGORY_FIELDS.publishedAt]),
+    hidden: false,
+    featured: false,
+    isPublished: true,
     description,
     bodyMd: bodyMd || detailsMd || description,
     sections,
@@ -1933,8 +1966,8 @@ function buildCategory(item: GraphItem<Record<string, unknown>>): CategoryDto | 
     faqs: parseFaqs(fields[CATEGORY_FIELDS.faqsJson]),
     galleryImages: parseJsonLoose<unknown[]>(fields[CATEGORY_FIELDS.galleryImagesJson], []),
     relatedProductsJson: parseRelatedProductsJson(
-  fields[CATEGORY_FIELDS.relatedProductsJson]
-),
+      fields[CATEGORY_FIELDS.relatedProductsJson],
+    ),
     breadcrumbs: [],
     legacySlugs: uniq(
       parseStringList(fields[CATEGORY_FIELDS.legacySlugsJson])

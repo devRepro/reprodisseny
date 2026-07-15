@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-07-13T08:34:34.598Z",
+  "generatedAt": "2026-07-14T12:54:59.895Z",
   "categories": [
     {
       "id": "12",
-      "updatedAt": "2026-05-20T13:23:26Z",
+      "updatedAt": "2026-07-14T10:38:10Z",
       "type": "subcategoria",
       "slug": "material-flexible",
       "path": "/categorias/gran-formato/material-flexible",
@@ -12,7 +12,7 @@
       "order": 0,
       "parent": "gran-formato",
       "hidden": false,
-      "featured": true,
+      "featured": false,
       "isPublished": true,
       "description": "Imprimimos en gran formato flexible para exterior e interior: vinilos, lonas, cartelería, retroiluminados, textil y soluciones especiales como imanes. Te asesoramos para elegir el material ideal según la superficie, la duración y las condiciones (sol, humedad, roce o tránsito), para que la gráfica se vea impecable y sea fácil de instalar.",
       "bodyMd": "{\n  \"title\": \"Cómo trabajamos\",\n  \"description\": \"Te ayudamos a elegir, producir y entregar la solución gráfica más adecuada según la superficie, la ubicación y la duración prevista.\",\n  \"steps\": [\n    {\n      \"label\": \"01\",\n      \"title\": \"Definimos la ubicación, la superficie y la medida\",\n      \"description\": \"Nos dices dónde irá la pieza —pared, cristal, suelo, vehículo o exterior— y las medidas necesarias para orientar correctamente la solución.\"\n    },\n    {\n      \"label\": \"02\",\n      \"title\": \"Revisamos el archivo y elegimos material y sistema gráfico\",\n      \"description\": \"Comprobamos el diseño y definimos el material o adhesivo más adecuado según la superficie, el uso y la duración prevista.\"\n    },\n    {\n      \"label\": \"03\",\n      \"title\": \"Imprimimos y aplicamos los acabados necesarios\",\n      \"description\": \"Producimos la pieza y aplicamos acabados como laminado, corte o refuerzos según los requisitos del proyecto.\"\n    },\n    {\n      \"label\": \"04\",\n      \"title\": \"Entregamos listo para instalar\",\n      \"description\": \"Preparamos el pedido para que llegue listo para su colocación y, si aplica, coordinamos la logística para facilitar la instalación.\"\n    }\n  ],\n  \"cta\": {\n    \"title\": \"¿Dudas entre vinilo, lona, textil o retroiluminado?\",\n    \"description\": \"Cuéntanos la superficie, la ubicación, la medida y la duración prevista, y te recomendaremos el material más adecuado para tu proyecto.\",\n    \"buttonLabel\": \"Solicitar asesoramiento\",\n    \"href\": \"/contacto\"\n  }\n}",
@@ -136,41 +136,6 @@
           "kind": "finishes",
           "contentFormat": "markdown",
           "body": "- Laminado mate o brillo: mejora presencia y añade protección, especialmente recomendable en vinilos y cartelería (roce, manipulación o exposición).\n- Acabados específicos para suelo: cuando hay tránsito, se usa vinilo para suelo con el acabado adecuado para resistencia.\n- Refuerzos para lona: dobladillo, ojales, vaina o refuerzo perimetral según instalación (fachada, tensado, puntos de anclaje).\n- Corte a medida / troquelado: contornos especiales para adaptar la gráfica al soporte o crear piezas con forma."
-        },
-        {
-          "id": "applications",
-          "key": "applications",
-          "title": "Aplicaciones",
-          "kind": "applications",
-          "contentFormat": "json",
-          "applicationsData": {
-            "applications": [
-              {
-                "title": "Escaparates y retail",
-                "description": "vinilos de cristal, campañas promocionales, rotulación temporal."
-              },
-              {
-                "title": "Señalética",
-                "description": "indicaciones, normas, zonas, direccionales."
-              },
-              {
-                "title": "Ferias y eventos",
-                "description": "fondos, cartelería grande, materiales ligeros para transporte."
-              },
-              {
-                "title": "Fachadas",
-                "description": "banderolas y lonas para máxima visibilidad."
-              },
-              {
-                "title": "Decoración corporativa",
-                "description": "papel de pared, vinilos de pared y gráficos de marca."
-              },
-              {
-                "title": "Vehículos",
-                "description": "rotulación parcial o completa."
-              }
-            ]
-          }
         }
       ],
       "image": {
@@ -355,7 +320,7 @@
     },
     {
       "id": "13",
-      "updatedAt": "2026-05-20T13:23:53Z",
+      "updatedAt": "2026-07-14T10:38:22Z",
       "type": "subcategoria",
       "slug": "material-rigido",
       "path": "/categorias/gran-formato/material-rigido",
@@ -364,7 +329,7 @@
       "order": 0,
       "parent": "gran-formato",
       "hidden": false,
-      "featured": true,
+      "featured": false,
       "isPublished": true,
       "description": "Imprimimos en gran formato rígido para exterior e interior: soportes como foam/panel ligero, Forex, Dibond, nido de abeja, Dispa, cartones, metacrilato, madera y opciones enmarcadas. Te asesoramos para elegir el material ideal según la ubicación (interior/exterior), la durabilidad y las condiciones del entorno (roce, humedad o manipulación).",
       "bodyMd": "{\n  \"title\": \"Cómo trabajamos\",\n  \"description\": \"Te ayudamos a definir, producir y entregar el soporte rígido más adecuado según la ubicación, el sistema de instalación y la durabilidad que necesitas.\",\n  \"steps\": [\n    {\n      \"label\": \"01\",\n      \"title\": \"Definimos la ubicación, la medida y el objetivo\",\n      \"description\": \"Nos dices si irá en interior o exterior, las medidas y si la pieza es para señalética, display, evento u otro uso concreto.\"\n    },\n    {\n      \"label\": \"02\",\n      \"title\": \"Revisamos el archivo y elegimos el soporte rígido\",\n      \"description\": \"Comprobamos el diseño y definimos el material más adecuado según el uso, la instalación y la duración prevista.\"\n    },\n    {\n      \"label\": \"03\",\n      \"title\": \"Imprimimos y aplicamos los acabados necesarios\",\n      \"description\": \"Producimos la pieza y aplicamos acabados como laminado, corte y opciones de montaje según los requisitos del proyecto.\"\n    },\n    {\n      \"label\": \"04\",\n      \"title\": \"Entregamos listo para instalar\",\n      \"description\": \"Preparamos el pedido para que llegue listo para su colocación y, si aplica, coordinamos la logística para facilitar la instalación.\"\n    }\n  ],\n  \"cta\": {\n    \"title\": \"¿Dudas entre Forex, Dibond, metacrilato o un panel ligero?\",\n    \"description\": \"Cuéntanos la ubicación, la medida, la duración prevista y cómo se instalará, y te recomendaremos el soporte rígido más adecuado para tu proyecto.\",\n    \"buttonLabel\": \"Solicitar asesoramiento\",\n    \"href\": \"/contacto\"\n  }\n}",
@@ -468,33 +433,6 @@
           "kind": "finishes",
           "contentFormat": "markdown",
           "body": "- Laminado mate o brillo: mejora la presencia y añade protección extra (recomendable cuando hay manipulación o roce).\n- Corte a medida / troquelado: contornos especiales para adaptar la pieza al soporte o crear formatos con forma.\n- Opciones de montaje (según producto): soluciones para dejar la pieza lista para instalar, como enmarcados u otras opciones según necesidad."
-        },
-        {
-          "id": "applications",
-          "key": "applications",
-          "title": "Aplicaciones",
-          "kind": "applications",
-          "contentFormat": "json",
-          "applicationsData": {
-            "applications": [
-              {
-                "title": "Escaparates y punto de venta",
-                "description": "comunicación estable, displays y cartelería de alto impacto."
-              },
-              {
-                "title": "Señalética",
-                "description": "indicaciones, normas, zonas, precios, direccionales."
-              },
-              {
-                "title": "Ferias y eventos",
-                "description": "piezas con equilibrio entre rigidez/ligereza para transporte y montaje."
-              },
-              {
-                "title": "Cartelería inmobiliaria",
-                "description": "carteles grandes pensados para máxima legibilidad."
-              }
-            ]
-          }
         }
       ],
       "image": {
@@ -667,7 +605,7 @@
     },
     {
       "id": "10",
-      "updatedAt": "2026-05-20T13:28:29Z",
+      "updatedAt": "2026-07-14T10:36:46Z",
       "type": "subcategoria",
       "slug": "material-oficina",
       "path": "/categorias/publicidad-oficina/material-oficina",
@@ -676,9 +614,8 @@
       "order": 0,
       "parent": "publicidad-oficina",
       "hidden": false,
-      "featured": true,
+      "featured": false,
       "isPublished": true,
-      "publishedAt": "2026-02-04T23:00:00Z",
       "description": "La imagen de marca también se construye en el día a día: lo que entregas, lo que envías y la documentación que usa tu equipo. En Repro Disseny imprimimos papelería corporativa (tarjetas, sobres, papel de carta, carpetas, certificados…), material de organización (blocs, libretas, agendas, calendarios, talonarios autocopiativos, sellos…) y piezas de imagen/señalización para reforzar presencia (pizarras, placa de dirección, letras corpóreas).",
       "bodyMd": "{\n  \"title\": \"Cómo trabajamos\",\n  \"description\": \"Te ayudamos a definir, producir y entregar el material más adecuado según el uso, la operativa diaria y la imagen que quieres proyectar.\",\n  \"steps\": [\n    {\n      \"label\": \"01\",\n      \"title\": \"Definimos la pieza, las cantidades y el uso previsto\",\n      \"description\": \"Nos indicas qué necesitas, las cantidades, las medidas, el uso y la fecha para orientar correctamente la solución desde el inicio.\"\n    },\n    {\n      \"label\": \"02\",\n      \"title\": \"Revisamos el diseño y la preparación de imprenta\",\n      \"description\": \"Comprobamos legibilidad, márgenes y la correcta preparación técnica del archivo para asegurar una producción fiable.\"\n    },\n    {\n      \"label\": \"03\",\n      \"title\": \"Recomendamos soporte y acabado según el uso real\",\n      \"description\": \"Te orientamos según la durabilidad, la manipulación diaria y si la pieza será para oficina, envío o recepción.\"\n    },\n    {\n      \"label\": \"04\",\n      \"title\": \"Imprimimos y entregamos listo para usar\",\n      \"description\": \"Producimos el material con control de calidad y consistencia de color para que llegue preparado para su uso final.\"\n    }\n  ],\n  \"cta\": {\n    \"title\": \"¿Quieres que te recomendemos la mejor combinación?\",\n    \"description\": \"Indícanos qué pieza necesitas, las cantidades, cómo se va a usar y la fecha prevista, y te recomendaremos la combinación más eficiente de formato, soporte y acabado para que el material funcione y se vea profesional.\",\n    \"buttonLabel\": \"Solicitar presupuesto\",\n    \"href\": \"/contacto\"\n  }\n}",
       "sections": [
@@ -756,29 +693,6 @@
               }
             ],
             "deliveryFormats": []
-          }
-        },
-        {
-          "id": "applications",
-          "key": "applications",
-          "title": "Aplicaciones",
-          "kind": "applications",
-          "contentFormat": "json",
-          "applicationsData": {
-            "applications": [
-              {
-                "title": "Imagen corporativa sólida",
-                "description": "papelería alineada (tarjetas, sobres, carpetas, certificados) para dar consistencia a tu marca."
-              },
-              {
-                "title": "Gestión y operativa",
-                "description": "talonarios autocopiativos, sellos, archivadores, calendarios y material interno."
-              },
-              {
-                "title": "Señalización y presencia",
-                "description": "placa de dirección y letras corpóreas para reforzar la visibilidad del negocio."
-              }
-            ]
           }
         }
       ],
@@ -964,7 +878,7 @@
     },
     {
       "id": "11",
-      "updatedAt": "2026-05-20T13:28:08Z",
+      "updatedAt": "2026-07-14T10:36:57Z",
       "type": "subcategoria",
       "slug": "material-publicitario",
       "path": "/categorias/publicidad-oficina/material-publicitario",
@@ -973,9 +887,8 @@
       "order": 0,
       "parent": "publicidad-oficina",
       "hidden": false,
-      "featured": true,
+      "featured": false,
       "isPublished": true,
-      "publishedAt": "2026-02-04T23:00:00Z",
       "description": "La publicidad impresa funciona cuando comunica rápido y se entiende al primer vistazo. En Repro Disseny imprimimos material promocional (flyers, folletos, posters, invitaciones, postales…) y material para punto de venta (displays, stoppers, banderolas y elementos de lineal) con acabados profesionales, buena reproducción de color y opciones pensadas para campañas, ferias y retail.",
       "bodyMd": "{\n  \"title\": \"Cómo trabajamos\",\n  \"description\": \"Te ayudamos a definir, producir y entregar el material más adecuado según el uso, el canal y el resultado que necesitas.\",\n  \"steps\": [\n    {\n      \"label\": \"01\",\n      \"title\": \"Definimos la pieza, las cantidades y el uso previsto\",\n      \"description\": \"Nos indicas qué necesitas, las cantidades, las medidas, el uso y la fecha para orientar correctamente la solución desde el inicio.\"\n    },\n    {\n      \"label\": \"02\",\n      \"title\": \"Revisamos el diseño y la preparación técnica\",\n      \"description\": \"Comprobamos legibilidad, márgenes y la correcta preparación del archivo para asegurar una producción fiable.\"\n    },\n    {\n      \"label\": \"03\",\n      \"title\": \"Recomendamos soporte y acabado según el objetivo\",\n      \"description\": \"Te orientamos según el impacto visual, la durabilidad, la manipulación y si la pieza será para punto de venta, reparto o envío.\"\n    },\n    {\n      \"label\": \"04\",\n      \"title\": \"Imprimimos y entregamos listo para usar\",\n      \"description\": \"Producimos el material con control de calidad y consistencia de color para que llegue preparado para su uso final.\"\n    }\n  ],\n  \"cta\": {\n    \"title\": \"¿Quieres que te recomendemos la mejor combinación?\",\n    \"description\": \"Indícanos qué pieza necesitas, las cantidades, cómo se va a usar y la fecha prevista, y te recomendaremos la combinación más eficiente de formato, soporte y acabado.\",\n    \"buttonLabel\": \"Solicitar presupuesto\",\n    \"href\": \"/contacto\"\n  }\n}",
       "sections": [
@@ -1262,7 +1175,7 @@
     },
     {
       "id": "2",
-      "updatedAt": "2026-05-25T20:19:59Z",
+      "updatedAt": "2026-07-14T10:35:48Z",
       "type": "categoria",
       "slug": "adhesivos-personalizados",
       "path": "/categorias/adhesivos-personalizados",
@@ -1425,14 +1338,6 @@
               }
             ]
           }
-        },
-        {
-          "id": "applications",
-          "key": "applications",
-          "title": "Aplicaciones",
-          "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "El material impreso para hostelería y restauración debe ayudar a informar, ordenar la experiencia del cliente y reforzar la imagen del establecimiento en cada punto de contacto.\n\n- **Hoteles y alojamientos:** información de habitación, wifi, horarios, servicios, códigos QR, señal de “no molestar” y comunicación de promociones o servicios.\n- **Restaurantes y bares:** cartas claras y resistentes, menús del día, sugerencias, promociones en mesa o barra y piezas para servicio diario.\n- **Experiencia del cliente:** materiales coherentes que aportan orden, calidad percibida y continuidad visual entre recepción, sala, habitación y evento.\n- **Ventas y upselling:** tabletents, colgadores de botellas, portacuentas y piezas de mesa para destacar recomendaciones, promociones o servicios adicionales.\n- **Eventos:** minutas, señalización de mesa y piezas impresas para una presentación cuidada y una organización más clara del servicio."
         }
       ],
       "image": {
@@ -1544,8 +1449,8 @@
           "@graph": [
             {
               "@type": "CollectionPage",
-              "name": "Adhesivos personalizados para branding e interiorismo | Repro Disseny",
-              "description": "Adhesivos vinílicos, troquelados y removibles para campañas, productos y decoración. Soluciones creativas y personalizadas para agencias y negocios en Cataluña.",
+              "name": "Adhesivos personalizados para branding e interiorismo",
+              "description": "Adhesivos y pegatinas personalizadas en papel o vinilo, con troquelado a medida y acabados premium. Para etiquetas, packaging y escaparates.",
               "url": "https://reprodisseny.com/categorias/adhesivos-personalizados",
               "image": "https://webcms.blob.core.windows.net/media/category/adhesivos.webp",
               "inLanguage": "es-ES",
@@ -1623,7 +1528,7 @@
     },
     {
       "id": "5",
-      "updatedAt": "2026-05-20T13:22:59Z",
+      "updatedAt": "2026-07-14T10:37:28Z",
       "type": "categoria",
       "slug": "gran-formato",
       "path": "/categorias/gran-formato",
@@ -1631,7 +1536,7 @@
       "nav": "Gran Formato",
       "order": 2,
       "hidden": false,
-      "featured": true,
+      "featured": false,
       "isPublished": true,
       "description": "Imprimimos en gran formato para exterior e interior: vinilos, lonas, cartelería, retroiluminados y soportes rígidos para punto de venta, escaparates, ferias, señalética y rotulación. Te asesoramos para elegir el material ideal según la superficie, la duración y las condiciones (sol, humedad, roce o tránsito).",
       "bodyMd": "{\n  \"title\": \"Cómo trabajamos\",\n  \"description\": \"Te ayudamos a elegir, producir y entregar la solución gráfica más adecuada según la superficie, la ubicación y la duración prevista.\",\n  \"steps\": [\n    {\n      \"label\": \"01\",\n      \"title\": \"Definimos la ubicación, la superficie y la medida\",\n      \"description\": \"Nos dices dónde irá la pieza —pared, cristal, suelo, vehículo o exterior— y las medidas necesarias para orientar correctamente la solución.\"\n    },\n    {\n      \"label\": \"02\",\n      \"title\": \"Revisamos el archivo y elegimos material y adhesivo\",\n      \"description\": \"Comprobamos el diseño y definimos el material y el adhesivo más adecuados según la superficie, el uso y la duración prevista.\"\n    },\n    {\n      \"label\": \"03\",\n      \"title\": \"Imprimimos y aplicamos los acabados necesarios\",\n      \"description\": \"Producimos la pieza y aplicamos acabados como laminado, corte o refuerzos según los requisitos del proyecto.\"\n    },\n    {\n      \"label\": \"04\",\n      \"title\": \"Entregamos listo para instalar\",\n      \"description\": \"Preparamos el pedido para que llegue listo para su colocación y, si aplica, coordinamos la logística para facilitar la instalación.\"\n    }\n  ],\n  \"cta\": {\n    \"title\": \"¿Dudas entre vinilo, lona o rígido?\",\n    \"description\": \"Cuéntanos la superficie, la ubicación, la medida y la duración prevista, y te recomendaremos el material más adecuado para tu proyecto.\",\n    \"buttonLabel\": \"Solicitar asesoramiento\",\n    \"href\": \"/contacto\"\n  }\n}",
@@ -1769,41 +1674,6 @@
           "kind": "finishes",
           "contentFormat": "markdown",
           "body": "- Laminado mate o brillo: mejora la presencia y añade protección extra, especialmente recomendable en vinilos y cartelería (roce, manipulación o exposición).\n- Acabados específicos para suelo: cuando hay tránsito, se usa el vinilo para suelo con el acabado adecuado para mejorar resistencia (y, si aplica, comportamiento en zonas de paso).\n- Refuerzos para lona: dobladillo, ojales, vaina o refuerzo perimetral según cómo vaya instalada (fachada, tensado, puntos de anclaje, etc.).\n- Corte a medida / troquelado: contornos especiales en vinilos, displays o piezas promocionales para adaptar la gráfica al soporte o crear formatos con forma.\n- Opciones de montaje (según producto): enmarcados, sistemas luminosos, adhesivos específicos y soluciones pensadas para dejar la pieza lista para instalar."
-        },
-        {
-          "id": "applications",
-          "key": "applications",
-          "title": "Aplicaciones",
-          "kind": "applications",
-          "contentFormat": "json",
-          "applicationsData": {
-            "applications": [
-              {
-                "title": "Escaparates y retail",
-                "description": "vinilos de cristal, campañas promocionales y rotulación temporal."
-              },
-              {
-                "title": "Señalética",
-                "description": "indicaciones, normas, zonas, precios, direccionales."
-              },
-              {
-                "title": "Ferias y eventos",
-                "description": "fondos, cartelería grande, rigidez/ligereza según transporte."
-              },
-              {
-                "title": "Fachadas",
-                "description": "banderolas y lonas para máxima visibilidad."
-              },
-              {
-                "title": "Decoración corporativa",
-                "description": "papel de pared, vinilos de pared y gráficos de marca."
-              },
-              {
-                "title": "Vehículos",
-                "description": "rotulación parcial o completa con vinilo para vehículo."
-              }
-            ]
-          }
         }
       ],
       "image": {
@@ -1891,8 +1761,8 @@
           "@graph": [
             {
               "@type": "CollectionPage",
-              "name": "Impresión en Gran Formato en Barcelona y Cataluña | Repro Disseny",
-              "description": "Servicios de impresión en gran formato en Barcelona y Cataluña: lonas publicitarias, carteles, vinilos decorativos y más. Calidad premium y producción local.",
+              "name": "Impresión gran formato (flexible y rígido)",
+              "description": "Impresión gran formato en Barcelona: vinilos (pared, cristal, suelo y vehículo), lonas, retroiluminados y soportes rígidos (Forex, Dibond). Interior/exterior.",
               "url": "https://reprodisseny.com/categorias/gran-formato",
               "image": "https://webcms.blob.core.windows.net/media/category/gran-formato.webp",
               "inLanguage": "es-ES",
@@ -1978,7 +1848,7 @@
     },
     {
       "id": "4",
-      "updatedAt": "2026-05-20T13:27:13Z",
+      "updatedAt": "2026-07-14T10:39:24Z",
       "type": "categoria",
       "slug": "expositores",
       "path": "/categorias/expositores",
@@ -2118,37 +1988,6 @@
           "kind": "finishes",
           "contentFormat": "markdown",
           "body": "- Laminado mate o brillo: añade protección y mejora la presencia (según soporte). Útil en expositores que se manipulan, viajan o están en zonas de roce. \n- Refuerzos para exterior: dobladillos, refuerzo perimetral, ojales o vaina cuando aplica, para asegurar fijación y resistencia en montajes expuestos. \n- Corte a medida / troquelado: perfecto para displays y elementos promocionales con forma personalizada, aportando diferenciación sin perder funcionalidad.  \n- Impresión a una o dos caras: según el tipo de expositor y su ubicación, puedes optar por visibilidad frontal o doble cara (por ejemplo, en zonas de paso)."
-        },
-        {
-          "id": "applications",
-          "key": "applications",
-          "title": "Aplicaciones",
-          "kind": "applications",
-          "contentFormat": "json",
-          "applicationsData": {
-            "applications": [
-              {
-                "title": "Ferias y congresos",
-                "description": "señalización de stand, promociones, lanzamientos."
-              },
-              {
-                "title": "Punto de venta",
-                "description": "comunicación de campañas, ofertas, novedades."
-              },
-              {
-                "title": "Eventos y photocalls",
-                "description": "fondos de marca, patrocinadores, prensa."
-              },
-              {
-                "title": "Señalética interna",
-                "description": "dirección, normas, itinerarios, información."
-              },
-              {
-                "title": "Campañas estacionales",
-                "description": "Navidad, rebajas, promociones temporales."
-              }
-            ]
-          }
         }
       ],
       "image": {
@@ -2238,8 +2077,8 @@
           "@graph": [
             {
               "@type": "CollectionPage",
-              "name": "Expositores impresos para punto de venta y eventos | Repro Disseny",
-              "description": "Stoppers, PLV, displays y peanas de cartón. Expositores personalizados para destacar en retail, showrooms y ferias.",
+              "name": "Expositores personalizados para ferias y punto de venta",
+              "description": "Expositores para ferias y punto de venta en Barcelona: roll-ups, banners, tótems, photocalls y cajas de luz. También displays, cubrealarmas y marcos a medida.",
               "url": "https://reprodisseny.com/categorias/expositores",
               "image": "https://webcms.blob.core.windows.net/media/category/expositores.webp",
               "inLanguage": "es-ES",
@@ -2333,7 +2172,7 @@
     },
     {
       "id": "7",
-      "updatedAt": "2026-07-13T07:34:05Z",
+      "updatedAt": "2026-07-14T10:34:40Z",
       "type": "categoria",
       "slug": "libros-revistas-catalogos",
       "path": "/categorias/libros-revistas-catalogos",
@@ -2451,25 +2290,6 @@
           "kind": "finishes",
           "contentFormat": "markdown",
           "body": "- Laminado mate o brillo: protege la cubierta frente a roces y huellas y mejora el tacto/imagen (muy recomendable en catálogos de uso comercial). \n- Soft touch: acabado premium muy usado en cubiertas para aportar un tacto más “sedoso” y una percepción de mayor calidad. \n- Barniz selectivo: resalta logo, título o detalles para dirigir la atención y aportar contraste (especialmente efectivo en portada). \n- Stamping: detalle premium para portadas, ideal si buscas un impacto visual distintivo. \n- Relieve en seco (gofrado): aporta volumen y presencia sin necesidad de tinta adicional; muy útil en cubiertas corporativas. \n- Solapas: especialmente en rústica, mejoran la presentación y la funcionalidad (información extra, marca, protección de cantos)."
-        },
-        {
-          "id": "applications",
-          "key": "applications",
-          "title": "Aplicaciones",
-          "kind": "applications",
-          "contentFormat": "json",
-          "applicationsData": {
-            "applications": [
-              {
-                "title": "Catálogos de producto",
-                "description": "colecciones, tarifas, campañas."
-              },
-              {
-                "title": "Revistas corporativas o internas",
-                "description": "comunicación, cultura de empresa."
-              }
-            ]
-          }
         }
       ],
       "image": {
@@ -2575,8 +2395,8 @@
           "@graph": [
             {
               "@type": "CollectionPage",
-              "name": "Impresión de libros, revistas y catálogos en Barcelona | Repro Disseny",
-              "description": "Impresión profesional de libros, revistas y catálogos para empresas, editoriales y agencias. Alta calidad, encuadernación cuidada y entregas rápidas en toda Cataluña.",
+              "name": "Libros, revistas y catálogos en impresión digital",
+              "description": "Impresión de libros, revistas y catálogos en Barcelona: tiradas cortas o medias, encuadernación a medida (grapado, fresado, tapa dura) con acabados premium.",
               "url": "https://reprodisseny.com/categorias/libros-revistas-catalogos",
               "image": "https://webcms.blob.core.windows.net/media/category/publicaciones.webp",
               "inLanguage": "es-ES",
@@ -2662,7 +2482,7 @@
     },
     {
       "id": "3",
-      "updatedAt": "2026-05-20T13:27:55Z",
+      "updatedAt": "2026-07-14T10:39:47Z",
       "type": "categoria",
       "slug": "eventos",
       "path": "/categorias/eventos",
@@ -2801,37 +2621,6 @@
               }
             ]
           }
-        },
-        {
-          "id": "applications",
-          "key": "applications",
-          "title": "Aplicaciones",
-          "kind": "applications",
-          "contentFormat": "json",
-          "applicationsData": {
-            "applications": [
-              {
-                "title": "Ferias y congresos",
-                "description": "stands, photocall, señalización y material promocional."
-              },
-              {
-                "title": "Eventos corporativos",
-                "description": "presentaciones, formaciones, convenciones internas."
-              },
-              {
-                "title": "Puntos de venta e inauguraciones",
-                "description": "vinilos, carteles, displays y promociones."
-              },
-              {
-                "title": "Eventos culturales/deportivos",
-                "description": "entradas, acreditaciones, programas, cartelería."
-              },
-              {
-                "title": "Acciones de marca",
-                "description": "campañas temporales, activaciones y street marketing."
-              }
-            ]
-          }
         }
       ],
       "image": {
@@ -2917,8 +2706,8 @@
           "@graph": [
             {
               "@type": "CollectionPage",
-              "name": "Impresión personalizada para eventos corporativos | Repro Disseny",
-              "description": "Acreditaciones, invitaciones, soportes gráficos y detalles para eventos. Producción local y adaptada a agencias y organizadores.\n",
+              "name": "Impresión personalizada para eventos corporativos",
+              "description": "Impresión para eventos: roll-ups, photocalls, lonas, flyers, acreditaciones y merchandising. Materiales interior/exterior, acabados premium y entrega rápida.",
               "url": "https://reprodisseny.com/categorias/eventos",
               "image": "https://webcms.blob.core.windows.net/media/category/eventos.webp",
               "inLanguage": "es-ES",
@@ -3004,7 +2793,7 @@
     },
     {
       "id": "9",
-      "updatedAt": "2026-05-29T09:06:28Z",
+      "updatedAt": "2026-07-14T10:36:34Z",
       "type": "categoria",
       "slug": "publicidad-oficina",
       "path": "/categorias/publicidad-oficina",
@@ -3246,8 +3035,8 @@
           "@graph": [
             {
               "@type": "CollectionPage",
-              "name": "Publicidad y Material de Oficina Personalizado | Repro Disseny",
-              "description": "Soluciones integrales de impresión para publicidad y oficina...",
+              "name": "Impresión para publicidad y oficina: material promocional y papelería corporativa",
+              "description": "Impresión para publicidad y oficina: flyers, folletos, displays, stoppers. Papelería corporativa: tarjetas, sobres, carpetas, agendas. Solicita presupuesto.",
               "url": "https://reprodisseny.com/categorias/publicidad-oficina",
               "image": "https://webcms.blob.core.windows.net/media/category/oficina-publicidad.webp",
               "inLanguage": "es-ES",
@@ -3333,7 +3122,7 @@
     },
     {
       "id": "6",
-      "updatedAt": "2026-05-29T09:03:58Z",
+      "updatedAt": "2026-07-14T10:40:15Z",
       "type": "categoria",
       "slug": "hosteleria-restauracion",
       "path": "/categorias/hosteleria-restauracion",
@@ -3453,14 +3242,6 @@
           "kind": "finishes",
           "contentFormat": "markdown",
           "body": "- Plastificado mate o brillo: aporta protección y facilita la limpieza; especialmente recomendable en cartas, portacuentas y tabletents. \n- Laminados/barnices: mejoran presencia, tacto y resistencia al roce en piezas que pasan por muchas manos. \n- Troquelado: esencial para que colgadores de puerta y colgadores de botellas encajen y funcionen bien (forma precisa y uso cómodo). \n- Esquinas redondeadas: aumentan la durabilidad y reducen el desgaste en piezas manipuladas a diario. \n- Impresión a una o dos caras: según visibilidad y uso (por ejemplo, información por ambos lados en colgadores o piezas de mesa)."
-        },
-        {
-          "id": "applications",
-          "key": "applications",
-          "title": "Aplicaciones",
-          "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "El material impreso para hostelería y restauración debe ayudar a informar, ordenar la experiencia del cliente y reforzar la imagen del establecimiento en cada punto de contacto.\n\n- **Hoteles y alojamientos:** información de habitación, wifi, horarios, servicios, códigos QR, señal de “no molestar” y comunicación de promociones o servicios.\n- **Restaurantes y bares:** cartas claras y resistentes, menús del día, sugerencias, promociones en mesa o barra y piezas para servicio diario.\n- **Experiencia del cliente:** materiales coherentes que aportan orden, calidad percibida y continuidad visual entre recepción, sala, habitación y evento.\n- **Ventas y upselling:** tabletents, colgadores de botellas, portacuentas y piezas de mesa para destacar recomendaciones, promociones o servicios adicionales.\n- **Eventos:** minutas, señalización de mesa y piezas impresas para una presentación cuidada y una organización más clara del servicio."
         }
       ],
       "image": {
@@ -3560,8 +3341,8 @@
           "@graph": [
             {
               "@type": "CollectionPage",
-              "name": "Impresión para hoteles, restaurantes y hostelería | Repro Disseny",
-              "description": "Cartas, menús, posavasos, tarjetas y packaging personalizado para hoteles, restaurantes y negocios de hostelería en Cataluña. Calidad profesional y producción local.",
+              "name": "Impresión para hostelería y restauración: hoteles, restaurantes y eventos",
+              "description": "Impresión para hoteles y restaurantes en Barcelona: tarjetas, colgadores de puerta, cartas, tabletents, manteles y hules personalizados. Acabados resistentes",
               "url": "https://reprodisseny.com/categorias/hosteleria-restauracion",
               "image": "https://webcms.blob.core.windows.net/media/category/hosteleria.webp",
               "inLanguage": "es-ES",
@@ -3647,7 +3428,7 @@
     },
     {
       "id": "8",
-      "updatedAt": "2026-05-20T13:29:12Z",
+      "updatedAt": "2026-07-14T10:40:51Z",
       "type": "categoria",
       "slug": "packaging",
       "path": "/categorias/packaging",
@@ -3843,8 +3624,8 @@
           "@graph": [
             {
               "@type": "CollectionPage",
-              "name": "Packaging personalizado para productos y marcas | Repro Disseny",
-              "description": "Cajas, estuches, sobres y soluciones a medida. Diseñado para destacar tu marca. Impresión de packaging para agencias, negocios y ecommerce.",
+              "name": "Packaging a medida: soluciones folding y corrugado para empresa",
+              "description": "Packaging a medida: cajas folding para presentación, kits y retail (estuches, sleeves y cierres premium). Corrugado para envío y urnas. Pide presupuesto.",
               "url": "https://reprodisseny.com/categorias/packaging",
               "image": "https://webcms.blob.core.windows.net/media/category/packaging.webp",
               "inLanguage": "es-ES",
