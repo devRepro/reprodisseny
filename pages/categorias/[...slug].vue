@@ -637,11 +637,7 @@ const closingBannerPills = computed(() => {
             v-else
             :products="products"
             eyebrow="Catálogo"
-            :title="
-              currentPage > 1
-                ? `Productos de esta categoría — página ${currentPage}`
-                : 'Productos de esta categoría'
-            "
+            title="Productos de esta categoría"
             description="Explora opciones, formatos y acabados disponibles."
             :current-page="productsMeta.page"
             :total-pages="productsMeta.pages"
