@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-15T08:29:53.987Z",
+  "generatedAt": "2026-07-15T12:45:21.103Z",
   "categories": [
     {
       "id": "12",
@@ -6575,7 +6575,7 @@
     },
     {
       "id": "9",
-      "updatedAt": "2026-07-15T08:19:58Z",
+      "updatedAt": "2026-07-15T12:16:29Z",
       "type": "producto",
       "slug": "banderolas-personalizadas",
       "path": "/productos/banderolas-personalizadas",
@@ -6588,7 +6588,7 @@
       "isPublished": true,
       "shortDescription": "Las banderolas son una de las soluciones más efectivas para ganar visibilidad en exterior: destacan a distancia, guían al público y refuerzan la marca en calles, accesos, recintos y fachadas. En Repro Disseny producimos banderolas personalizadas con impresión de calidad y acabados de confección para que queden bien tensadas, resistentes y listas para instalar.",
       "description": "Las banderolas son una de las soluciones más efectivas para ganar visibilidad en exterior: destacan a distancia, guían al público y refuerzan la marca en calles, accesos, recintos y fachadas. En Repro Disseny producimos banderolas personalizadas con impresión de calidad y acabados de confección para que queden bien tensadas, resistentes y listas para instalar.",
-      "bodyMd": "### ¿Qué es una banderola y para qué se usa?\n\nUna banderola publicitaria es un elemento de comunicación en formato vertical u horizontal, normalmente en lona o textil, diseñado para colocarse en exterior (o interior de grandes espacios) mediante soportes, brazos, farolas, fachadas o estructuras. Se utiliza para señalizar, promocionar y orientar en campañas, eventos y entornos comerciales.\"",
+      "bodyMd": "### ¿Qué es una banderola y para qué se usa?\n\nUna banderola publicitaria es un elemento de comunicación en formato vertical u horizontal, normalmente en lona o textil, diseñado para colocarse en exterior (o interior de grandes espacios) mediante soportes, brazos, farolas, fachadas o estructuras. Se utiliza para señalizar, promocionar y orientar en campañas, eventos y entornos comerciales.",
       "sections": [
         {
           "id": "details",
@@ -6596,7 +6596,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "### ¿Qué es una banderola y para qué se usa?\n\nUna banderola publicitaria es un elemento de comunicación en formato vertical u horizontal, normalmente en lona o textil, diseñado para colocarse en exterior (o interior de grandes espacios) mediante soportes, brazos, farolas, fachadas o estructuras. Se utiliza para señalizar, promocionar y orientar en campañas, eventos y entornos comerciales.\""
+          "body": "### ¿Qué es una banderola y para qué se usa?\n\nUna banderola publicitaria es un elemento de comunicación en formato vertical u horizontal, normalmente en lona o textil, diseñado para colocarse en exterior (o interior de grandes espacios) mediante soportes, brazos, farolas, fachadas o estructuras. Se utiliza para señalizar, promocionar y orientar en campañas, eventos y entornos comerciales."
         },
         {
           "id": "benefits",
@@ -8569,7 +8569,7 @@
     },
     {
       "id": "138",
-      "updatedAt": "2026-05-22T07:45:19Z",
+      "updatedAt": "2026-07-15T11:19:32Z",
       "type": "producto",
       "slug": "caja-cerillas",
       "path": "/productos/caja-cerillas",
@@ -8582,7 +8582,7 @@
       "isPublished": true,
       "shortDescription": "La caja cerilla es uno de los formatos más elegantes para packaging corporativo: combina una funda exterior y un cajón deslizante, creando una experiencia de apertura premium. En Repro Disseny fabricamos cajas tipo cerilla personalizadas para empresas y oficinas, ideales para regalos corporativos, welcome packs especiales y envíos a clientes donde la presentación marca la diferencia.",
       "description": "La caja cerilla es uno de los formatos más elegantes para packaging corporativo: combina una funda exterior y un cajón deslizante, creando una experiencia de apertura premium. En Repro Disseny fabricamos cajas tipo cerilla personalizadas para empresas y oficinas, ideales para regalos corporativos, welcome packs especiales y envíos a clientes donde la presentación marca la diferencia.",
-      "bodyMd": "¿Qué es una caja cerilla y para qué se usa?\nUna caja cerilla es un packaging compuesto por dos piezas:\n• una funda (exterior),\n• y un cajón (interior) que se extrae deslizando.\nSe utiliza para presentar productos o kits de forma ordenada y con un “unboxing” cuidado. Es perfecta cuando quieres una caja que transmita valor, proteja el contenido y refuerce la marca desde el primer contacto.",
+      "bodyMd": "### ¿Qué es una caja tipo cerillas?\n\nLa caja tipo cerillas es un packaging formado por dos piezas: una funda exterior y un cajón interior que se abre mediante un movimiento deslizante.\n\nEste sistema crea una experiencia de apertura más cuidada que una caja convencional y permite presentar el contenido de forma ordenada, protegida y con una percepción de mayor valor.\n\nLa funda, el cajón y el interior se pueden personalizar con la identidad visual de la marca, mensajes, instrucciones o elementos gráficos específicos de cada campaña.\n\n### ¿Cuándo elegir este formato?\n\nEs una solución especialmente adecuada cuando la presentación forma parte del producto: regalos corporativos, welcome packs, ediciones especiales, kits de lanzamiento o envíos en los que se quiere causar una buena primera impresión.",
       "sections": [
         {
           "id": "details",
@@ -8590,15 +8590,88 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es una caja cerilla y para qué se usa?\nUna caja cerilla es un packaging compuesto por dos piezas:\n- una funda (exterior),\n- y un cajón (interior) que se extrae deslizando.\nSe utiliza para presentar productos o kits de forma ordenada y con un “unboxing” cuidado. Es perfecta cuando quieres una caja que transmita valor, proteja el contenido y refuerce la marca desde el primer contacto."
+          "body": "### ¿Qué es una caja tipo cerillas?\n\nLa caja tipo cerillas es un packaging formado por dos piezas: una funda exterior y un cajón interior que se abre mediante un movimiento deslizante.\n\nEste sistema crea una experiencia de apertura más cuidada que una caja convencional y permite presentar el contenido de forma ordenada, protegida y con una percepción de mayor valor.\n\nLa funda, el cajón y el interior se pueden personalizar con la identidad visual de la marca, mensajes, instrucciones o elementos gráficos específicos de cada campaña.\n\n### ¿Cuándo elegir este formato?\n\nEs una solución especialmente adecuada cuando la presentación forma parte del producto: regalos corporativos, welcome packs, ediciones especiales, kits de lanzamiento o envíos en los que se quiere causar una buena primera impresión."
         },
         {
-          "id": "benefits",
-          "key": "benefits",
-          "title": "Beneficios",
-          "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "- Presentación premium: el formato cajón eleva la calidad percibida al instante.\n- Experiencia de unboxing: apertura más “ritual” y memorable.\n- Protección y orden: ideal para packs con varios elementos o piezas delicadas.\n- Branding completo: personalización en funda, cajón e incluso interior.\n- Perfecta para ediciones especiales: campañas, regalos VIP, kits de alto valor."
+          "id": "materials",
+          "key": "materials",
+          "title": "Materiales",
+          "kind": "materials",
+          "contentFormat": "json",
+          "materialsData": {
+            "intro": "Seleccionamos el material según las medidas de la caja, el peso del contenido, el nivel de rigidez necesario y las condiciones de transporte.",
+            "materials": [
+              {
+                "title": "Cartón rígido",
+                "description": "Aporta una estructura sólida y una presencia premium. Es recomendable para regalos corporativos, kits de alto valor y contenidos que necesitan una protección elevada."
+              },
+              {
+                "title": "Cartoncillo reforzado",
+                "description": "Permite fabricar una caja más ligera manteniendo una buena estabilidad. Es adecuado para contenidos de peso moderado y producciones que buscan equilibrar presentación y coste."
+              },
+              {
+                "title": "Interior reforzado",
+                "description": "Cuando la caja debe viajar o soportar una manipulación frecuente, se puede reforzar el interior para mejorar la estabilidad y proteger mejor el contenido."
+              }
+            ]
+          }
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "kind": "formats",
+          "contentFormat": "json",
+          "formatsData": {
+            "intro": "La estructura y las medidas se adaptan al contenido para conseguir un conjunto compacto, estable y fácil de abrir.",
+            "shapes": [
+              {
+                "title": "Funda exterior y cajón deslizante",
+                "description": "La caja se compone de una funda exterior personalizada y un cajón interior que se extrae mediante deslizamiento."
+              },
+              {
+                "title": "Medidas estándar o a medida",
+                "description": "Podemos trabajar con formatos habituales o fabricar la caja a medida según las dimensiones y la distribución del contenido."
+              },
+              {
+                "title": "Detalle de extracción",
+                "description": "El cajón puede incorporar una hendidura, un agarre u otro recurso que facilite la apertura y forme parte del diseño."
+              },
+              {
+                "title": "Interiores y separadores",
+                "description": "Se pueden añadir separadores o encajes interiores para organizar varios elementos y evitar que se desplacen dentro de la caja."
+              }
+            ],
+            "deliveryFormats": []
+          }
+        },
+        {
+          "id": "finishes",
+          "key": "finishes",
+          "title": "Acabados",
+          "kind": "finishes",
+          "contentFormat": "json",
+          "finishesData": {
+            "intro": "Los acabados permiten proteger la impresión y reforzar el carácter premium de la caja.",
+            "finishes": [
+              {
+                "title": "Laminado mate o brillo",
+                "description": "Protege la superficie frente a la manipulación y mejora la presencia final. El mate ofrece un resultado sobrio y el brillo intensifica los colores."
+              },
+              {
+                "title": "Soft touch",
+                "description": "Aporta un tacto suave y aterciopelado que refuerza la percepción de calidad del packaging."
+              },
+              {
+                "title": "Barniz selectivo",
+                "description": "Permite destacar el logotipo, textos o detalles gráficos mediante contrastes de brillo y textura."
+              },
+              {
+                "title": "Stamping metalizado",
+                "description": "Aplicación en dorado, plata u otros tonos metalizados para logotipos y detalles que requieren un acabado de alta gama."
+              }
+            ]
+          }
         },
         {
           "id": "technical-specs",
@@ -8606,33 +8679,57 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Estructura\n- Funda exterior + cajón interior deslizante.\n- Posibilidad de añadir detalle de extracción (hendidura/agarre) según diseño.\nMedidas\n- Medidas estándar o a medida según el contenido (recomendable para que el pack quede compacto y “de lujo”).\nMaterial\n- Cartón rígido o cartoncillo reforzado (según el nivel de rigidez y el peso del contenido).\n- Opción de reforzar interior si el pack debe viajar o soportar manipulación.\nImpresión y personalización\n- Impresión a color en funda (marca, patrón, campaña).\n- Opción de impresión interior (mensaje de bienvenida, instrucciones, QR).\n- Posibilidad de versiones por sede/departamento o ediciones (muy útil en campañas).\nAcabados premium (opcionales)\n- Laminado mate (muy recomendable) o brillo.\n- Soft touch para tacto premium.\n- Barniz selectivo para resaltar logo o detalles.\n- Stamping (dorado/plata/metalizados) para un acabado de alta gama.\nExtras para mejorar la experiencia\n- Separadores/interiores para organizar elementos (si hay varios productos).\n- Tarjeta de bienvenida o tarjetón dentro del cajón.\n- QR a onboarding, vídeo, catálogo o landing de campaña."
+          "body": "### Estructura\n\n- Funda exterior y cajón interior deslizante.\n- Posibilidad de incorporar una hendidura, un agarre u otro detalle de extracción.\n- Opción de añadir separadores, encajes o refuerzos interiores.\n\n### Medidas y ajuste\n\n- Fabricación en medidas estándar o completamente a medida.\n- Las dimensiones se definen según el contenido para que el conjunto quede compacto, protegido y bien presentado.\n- El material y la rigidez se seleccionan según el tamaño, el peso y el uso previsto.\n\n### Impresión y personalización\n\n- Impresión a color en la funda exterior.\n- Posibilidad de personalizar también el cajón y el interior.\n- Incorporación de mensajes de bienvenida, instrucciones, patrones gráficos o códigos QR.\n- Posibilidad de crear versiones diferenciadas por sede, departamento, campaña o destinatario.\n\n### Interiores y extras\n\n- Separadores o encajes para organizar varios productos.\n- Tarjetas de bienvenida o tarjetones colocados dentro del cajón.\n- Códigos QR dirigidos a vídeos, procesos de onboarding, catálogos o landings de campaña.\n- Refuerzo interior cuando el pack debe viajar o soportar una manipulación frecuente."
         },
         {
           "id": "applications",
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "- Regalos corporativos premium: cierres de proyecto, Navidad, fidelización.\n- Welcome packs “VIP”: onboarding directivo o kits especiales para equipo.\n- Packs para eventos: ponentes, prensa, patrocinadores, invitados.\n- Kits de producto: muestras, lanzamientos, presentaciones de marca.\n- Packaging de papelería: sets de libreta + bolígrafo + tarjeta + guía."
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "La caja tipo cerillas es adecuada para proyectos en los que la presentación, la protección y la experiencia de apertura tienen un papel importante.",
+            "applications": [
+              {
+                "title": "Regalos corporativos premium",
+                "description": "Cierres de proyecto, campañas de Navidad, acciones de fidelización y obsequios para clientes o colaboradores."
+              },
+              {
+                "title": "Welcome packs especiales",
+                "description": "Kits de bienvenida para equipos, perfiles directivos, nuevas incorporaciones o acciones internas de empresa."
+              },
+              {
+                "title": "Packs para eventos",
+                "description": "Materiales para ponentes, prensa, patrocinadores, invitados y participantes en congresos o presentaciones."
+              },
+              {
+                "title": "Kits de producto",
+                "description": "Muestras, lanzamientos, ediciones limitadas y presentaciones comerciales que necesitan una puesta en escena cuidada."
+              },
+              {
+                "title": "Sets de papelería corporativa",
+                "description": "Packs que combinan libreta, bolígrafo, tarjeta, guía, documentación u otros elementos de comunicación."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
         {
           "question": "¿La caja cerilla es mejor que una caja estándar?",
-          "answer": "Si buscas una presentación premium y una experiencia de apertura más cuidada, sí. Para logística y coste más ajustado, la caja estándar es más directa."
+          "answer": "Si buscas una presentación premium y una experiencia de apertura más cuidada, sí. Para proyectos donde la prioridad sea ajustar el coste o simplificar la logística, una caja estándar puede ser una opción más directa."
         },
         {
           "question": "¿Se puede imprimir también por dentro?",
-          "answer": "Sí, y en este tipo de caja queda especialmente bien (mensaje interior + marca)."
+          "answer": "Sí. Podemos personalizar el interior con mensajes, instrucciones, elementos gráficos, códigos QR o la identidad visual de la marca."
         },
         {
-          "question": "¿Conviene laminado?",
-          "answer": "En packaging premium, el laminado suele ayudar a mantener la caja impecable y elevar la percepción de calidad."
+          "question": "¿Conviene añadir un laminado?",
+          "answer": "En packaging premium, el laminado ayuda a proteger la impresión frente a la manipulación y mejora la percepción de calidad. Puede aplicarse en acabado mate, brillo o soft touch."
         },
         {
-          "question": "¿Podéis hacer interiores para sujetar el contenido?",
-          "answer": "Sí, podemos preparar separadores o encajes para que el contenido quede fijo y bien presentado."
+          "question": "¿Podéis fabricar interiores para sujetar el contenido?",
+          "answer": "Sí. Podemos preparar separadores, encajes o refuerzos interiores para que los elementos queden fijos, protegidos y bien presentados."
         }
       ],
       "breadcrumbs": [
@@ -8828,7 +8925,7 @@
                   "name": "¿La caja cerilla es mejor que una caja estándar?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Si buscas una presentación premium y una experiencia de apertura más cuidada, sí. Para logística y coste más ajustado, la caja estándar es más directa."
+                    "text": "Si buscas una presentación premium y una experiencia de apertura más cuidada, sí. Para proyectos donde la prioridad sea ajustar el coste o simplificar la logística, una caja estándar puede ser una opción más directa."
                   }
                 },
                 {
@@ -8836,23 +8933,23 @@
                   "name": "¿Se puede imprimir también por dentro?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, y en este tipo de caja queda especialmente bien (mensaje interior + marca)."
+                    "text": "Sí. Podemos personalizar el interior con mensajes, instrucciones, elementos gráficos, códigos QR o la identidad visual de la marca."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "¿Conviene laminado?",
+                  "name": "¿Conviene añadir un laminado?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "En packaging premium, el laminado suele ayudar a mantener la caja impecable y elevar la percepción de calidad."
+                    "text": "En packaging premium, el laminado ayuda a proteger la impresión frente a la manipulación y mejora la percepción de calidad. Puede aplicarse en acabado mate, brillo o soft touch."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "¿Podéis hacer interiores para sujetar el contenido?",
+                  "name": "¿Podéis fabricar interiores para sujetar el contenido?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, podemos preparar separadores o encajes para que el contenido quede fijo y bien presentado."
+                    "text": "Sí. Podemos preparar separadores, encajes o refuerzos interiores para que los elementos queden fijos, protegidos y bien presentados."
                   }
                 }
               ]
@@ -11758,7 +11855,7 @@
     },
     {
       "id": "15",
-      "updatedAt": "2026-07-15T08:23:42Z",
+      "updatedAt": "2026-07-15T12:45:09Z",
       "type": "producto",
       "slug": "calendarios-personalizados",
       "path": "/productos/calendarios-personalizados",
@@ -11769,9 +11866,9 @@
       ],
       "order": 9999,
       "isPublished": true,
-      "shortDescription": "Los calendarios personalizados son uno de los soportes con mayor permanencia: están visibles todo el año y refuerzan tu marca cada día. En Repro Disseny producimos calendarios corporativos para pared y sobremesa, con distintos formatos, papeles y acabados, pensados para regalo a clientes o uso interno, con una presentación profesional.",
-      "description": "Los calendarios personalizados son uno de los soportes con mayor permanencia: están visibles todo el año y refuerzan tu marca cada día. En Repro Disseny producimos calendarios corporativos para pared y sobremesa, con distintos formatos, papeles y acabados, pensados para regalo a clientes o uso interno, con una presentación profesional.",
-      "bodyMd": "### ¿Qué es un calendario personalizado y para qué se usa? \nUn calendario personalizado es un calendario impreso con identidad corporativa (logo, colores, datos de contacto y/o imágenes de marca). Se utiliza como regalo corporativo y como herramienta de organización en oficina, recepción o punto de venta. Además, puede incluir información útil como festivos, campañas, eventos internos, horarios o QR a contacto/web.",
+      "shortDescription": "Calendarios personalizados de pared, sobremesa y bolsillo para regalos corporativos, oficinas y puntos de venta, con formatos, imágenes y fechas adaptados a tu empresa.",
+      "description": "Calendarios personalizados de pared, sobremesa y bolsillo para regalos corporativos, oficinas y puntos de venta, con formatos, imágenes y fechas adaptados a tu empresa.",
+      "bodyMd": "### Calendarios personalizados para empresas\n\nUn calendario personalizado es una pieza impresa que combina la organización diaria con la identidad visual de una empresa. Puede incorporar el logotipo, los colores corporativos, imágenes, datos de contacto, mensajes, fechas importantes y códigos QR.\n\nAl permanecer visible durante todo el año, funciona como una herramienta práctica y como un soporte continuado de comunicación de marca.\n\n### ¿Para qué se utilizan?\n\nLos calendarios corporativos se utilizan principalmente como regalo para clientes y colaboradores, como herramienta de organización interna y como material de apoyo en oficinas, recepciones y puntos de venta.\n\nPodemos adaptar el calendario al espacio y al uso previsto: modelos de pared para una mayor visibilidad, calendarios de sobremesa para escritorios y recepciones, formatos de bolsillo para distribución masiva o diseños especiales desarrollados a medida.\n\nTambién es posible incorporar festivos, campañas, lanzamientos, eventos internos, horarios, recordatorios o fechas relevantes para la actividad de la empresa.",
       "sections": [
         {
           "id": "details",
@@ -11779,7 +11876,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "### ¿Qué es un calendario personalizado y para qué se usa? \nUn calendario personalizado es un calendario impreso con identidad corporativa (logo, colores, datos de contacto y/o imágenes de marca). Se utiliza como regalo corporativo y como herramienta de organización en oficina, recepción o punto de venta. Además, puede incluir información útil como festivos, campañas, eventos internos, horarios o QR a contacto/web."
+          "body": "### Calendarios personalizados para empresas\n\nUn calendario personalizado es una pieza impresa que combina la organización diaria con la identidad visual de una empresa. Puede incorporar el logotipo, los colores corporativos, imágenes, datos de contacto, mensajes, fechas importantes y códigos QR.\n\nAl permanecer visible durante todo el año, funciona como una herramienta práctica y como un soporte continuado de comunicación de marca.\n\n### ¿Para qué se utilizan?\n\nLos calendarios corporativos se utilizan principalmente como regalo para clientes y colaboradores, como herramienta de organización interna y como material de apoyo en oficinas, recepciones y puntos de venta.\n\nPodemos adaptar el calendario al espacio y al uso previsto: modelos de pared para una mayor visibilidad, calendarios de sobremesa para escritorios y recepciones, formatos de bolsillo para distribución masiva o diseños especiales desarrollados a medida.\n\nTambién es posible incorporar festivos, campañas, lanzamientos, eventos internos, horarios, recordatorios o fechas relevantes para la actividad de la empresa."
         },
         {
           "id": "benefits",
@@ -11790,23 +11887,189 @@
           "body": "Visibilidad diaria de marca: presencia constante durante 12 meses. \nRegalo útil y apreciado: perfecto para clientes, partners y equipos. \nPersonalización total: diseño, fotos, mensajes, datos de contacto y QR. \nCoherencia corporativa: mantiene identidad visual en oficina y en clientes. \nOpciones para cada espacio: pared, sobremesa, bolsillo o formatos especiales."
         },
         {
+          "id": "materials",
+          "key": "materials",
+          "title": "Materiales",
+          "kind": "materials",
+          "contentFormat": "json",
+          "materialsData": {
+            "intro": "Seleccionamos el papel y los elementos estructurales según el tipo de calendario, la calidad de imagen, la manipulación prevista y el sistema de montaje.",
+            "materials": [
+              {
+                "title": "Papel estucado mate",
+                "description": "Ofrece una reproducción de color cuidada con menos reflejos. Es adecuado para calendarios corporativos, imágenes, textos y contenidos que deben leerse con comodidad."
+              },
+              {
+                "title": "Papel estucado brillo",
+                "description": "Realza la intensidad de los colores y resulta apropiado para calendarios fotográficos, promocionales o con imágenes de producto."
+              },
+              {
+                "title": "Papel offset",
+                "description": "Recomendado cuando se necesita escribir, marcar citas, añadir notas o completar información manualmente."
+              },
+              {
+                "title": "Papeles reciclados",
+                "description": "Alternativa para proyectos que buscan una imagen más natural o una comunicación vinculada a sostenibilidad."
+              },
+              {
+                "title": "Cartón para bases y soportes",
+                "description": "Los calendarios de sobremesa pueden incorporar una base rígida para mantenerse estables durante todo el año."
+              }
+            ]
+          }
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "kind": "formats",
+          "contentFormat": "json",
+          "formatsData": {
+            "intro": "El tipo, el tamaño y la estructura se adaptan al lugar donde se utilizará el calendario, a la cantidad de contenido y al nivel de visibilidad necesario.",
+            "shapes": [
+              {
+                "title": "Calendario de pared",
+                "description": "Formato de alta visibilidad para oficinas, comercios, talleres, recepciones y regalos corporativos. Puede presentarse con una hoja anual o con diferentes páginas mensuales."
+              },
+              {
+                "title": "Calendario de sobremesa triangular",
+                "description": "Modelo compacto y estable para escritorios, mostradores y zonas de atención al cliente."
+              },
+              {
+                "title": "Calendario de sobremesa con Wire-O",
+                "description": "Permite pasar las páginas cómodamente e incorporar una creatividad, fotografía o mensaje diferente para cada mes."
+              },
+              {
+                "title": "Calendario de bolsillo",
+                "description": "Formato compacto y fácil de distribuir, adecuado para campañas promocionales, ferias, establecimientos y acciones de gran volumen."
+              },
+              {
+                "title": "Calendario anual",
+                "description": "Presenta todo el año en una sola pieza y facilita una consulta rápida de fechas, festivos y periodos de planificación."
+              },
+              {
+                "title": "Calendario mensual",
+                "description": "Distribuye el contenido por meses y ofrece más espacio para imágenes, promociones, notas, campañas o información corporativa."
+              },
+              {
+                "title": "Formatos personalizados",
+                "description": "Podemos desarrollar medidas y estructuras especiales adaptadas al diseño, al espacio disponible y al objetivo de la campaña."
+              }
+            ],
+            "deliveryFormats": []
+          }
+        },
+        {
+          "id": "finishes",
+          "key": "finishes",
+          "title": "Acabados",
+          "kind": "finishes",
+          "contentFormat": "json",
+          "finishesData": {
+            "intro": "La encuadernación y los acabados se seleccionan según el formato, la frecuencia de uso y la presentación final del calendario.",
+            "finishes": [
+              {
+                "title": "Encuadernación Wire-O",
+                "description": "Permite pasar las páginas con comodidad y mantener el calendario abierto. Es habitual en modelos de pared y sobremesa."
+              },
+              {
+                "title": "Grapado",
+                "description": "Sistema funcional para calendarios de pared con diferentes páginas o cuadernillos."
+              },
+              {
+                "title": "Perforación para colgar",
+                "description": "Incorpora un orificio preparado para colocar el calendario directamente en la pared."
+              },
+              {
+                "title": "Base rígida de sobremesa",
+                "description": "Aporta estabilidad y permite mantener el calendario correctamente colocado sobre escritorios y mostradores."
+              },
+              {
+                "title": "Acabado mate",
+                "description": "Reduce reflejos y proporciona una presentación sobria y corporativa."
+              },
+              {
+                "title": "Acabado brillo",
+                "description": "Intensifica los colores y mejora la presencia de fotografías, ilustraciones e imágenes de producto."
+              },
+              {
+                "title": "Laminado protector",
+                "description": "Puede aplicarse cuando se necesita una mayor resistencia al roce, la manipulación o el uso continuado."
+              }
+            ]
+          }
+        },
+        {
           "id": "technical-specs",
           "key": "technical-specs",
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Tipos de calendario \nCalendario de pared: muy visible, ideal para clientes y oficinas. \nCalendario de sobremesa: práctico para escritorios y recepciones. \nCalendario de bolsillo: formato compacto tipo tarjeta (alta distribución). \nCalendarios a medida: formatos especiales según proyecto. \nFormatos y estructura \nTamaños estándar (A4/A3 y similares) o a medida. \nOpciones mensuales o anuales según el tipo. \nPosibilidad de incluir espacio para notas, recordatorios o planificación. \nPapeles y acabados \nPapeles con buena reproducción de color para imágenes y marca. \nOpciones mate (menos reflejos) o brillo (colores más vivos), según estilo. \nAcabados resistentes si va a manipularse mucho (por ejemplo, sobremesa). \nEncuadernación y montaje (según modelo) \nGrapado o wire/espiral para calendarios de pared (según diseño). \nBase rígida para sobremesa (estabilidad). \nOpciones de perforación para colgar (pared). \nPersonalización \nInclusión de datos de contacto, QR a web/WhatsApp\reservas, redes. \nVersiones por sede/departamento o por campañas. \nPosibilidad de integrar festivos regionales/municipales (si lo necesitas)."
+          "body": "### Tipos de calendario\n\n- Calendarios de pared.\n- Calendarios de sobremesa triangulares.\n- Calendarios de sobremesa con Wire-O.\n- Calendarios de bolsillo.\n- Modelos anuales o mensuales.\n- Formatos especiales desarrollados a medida.\n\n### Formatos y estructura\n\n- Medidas estándar como A4, A3 y otros formatos habituales.\n- Producción en medidas personalizadas.\n- Posibilidad de incluir espacio para notas, recordatorios o planificación.\n- Calendarios de una sola hoja o con diferentes páginas.\n- Base rígida para modelos de sobremesa.\n- Perforación o sistema de suspensión para calendarios de pared.\n\n### Impresión y personalización\n\n- Impresión a color.\n- Personalización con logotipo, colores, imágenes y mensajes corporativos.\n- Incorporación de teléfono, dirección, web, redes sociales o códigos QR.\n- QR dirigido a la web, WhatsApp, reservas, catálogo o landing de campaña.\n- Posibilidad de crear versiones por sede, departamento, equipo o establecimiento.\n- Incorporación de festivos nacionales, autonómicos, municipales o fechas específicas facilitadas por el cliente.\n\n### Encuadernación\n\n- Wire-O o espiral según el modelo.\n- Grapado para determinados calendarios de pared.\n- Base rígida para formatos triangulares de sobremesa.\n- El sistema final se define según el número de páginas, el formato y el uso previsto.\n\n### Preparación del archivo\n\n- Archivo preferiblemente en PDF de alta calidad.\n- Documento preparado con las medidas finales y el sangrado necesario.\n- Imágenes con resolución adecuada.\n- Textos y logotipos dentro de los márgenes de seguridad.\n- Revisión previa de meses, fechas, festivos, teléfonos, direcciones y códigos QR.\n- Las versiones por sede o departamento deben entregarse mediante una relación clara de los datos variables."
         },
         {
           "id": "applications",
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "Regalo corporativo (Navidad / cierre de año). \nOficinas y recepción: organización interna y recordatorio de marca. \nPunto de venta: mostrador y atención al cliente. \nFranquicias y sedes: versiones por centro con el mismo diseño base. \nEmpresas con campañas: calendarios con hitos, lanzamientos o acciones planificadas."
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Los calendarios personalizados combinan utilidad, organización y presencia de marca durante los doce meses del año.",
+            "applications": [
+              {
+                "title": "Regalos corporativos",
+                "description": "Calendarios para clientes, proveedores, colaboradores y equipos en campañas de Navidad, cierre de año o fidelización."
+              },
+              {
+                "title": "Oficinas y recepciones",
+                "description": "Herramienta de consulta y organización para escritorios, despachos, salas, recepciones y zonas comunes."
+              },
+              {
+                "title": "Puntos de venta",
+                "description": "Calendarios para mostradores y espacios de atención al cliente con promociones, horarios, teléfonos o información útil."
+              },
+              {
+                "title": "Franquicias y redes de establecimientos",
+                "description": "Producción de un diseño corporativo común con variantes de dirección, teléfono, imágenes o información para cada sede."
+              },
+              {
+                "title": "Planificación interna",
+                "description": "Calendarios con campañas, lanzamientos, cierres, eventos, formaciones y fechas relevantes para los equipos."
+              },
+              {
+                "title": "Campañas promocionales",
+                "description": "Formatos de bolsillo, sobremesa o pared utilizados como material promocional de larga duración."
+              }
+            ]
+          }
         }
       ],
-      "faqs": [],
+      "faqs": [
+        {
+          "question": "¿Qué tipo de calendario funciona mejor como regalo corporativo?",
+          "answer": "El calendario de pared ofrece una gran visibilidad, mientras que el calendario de sobremesa se utiliza diariamente en escritorios y recepciones. Para campañas de distribución masiva, el calendario de bolsillo es una opción compacta y práctica."
+        },
+        {
+          "question": "¿Se pueden personalizar los calendarios para diferentes sedes o equipos?",
+          "answer": "Sí. Podemos mantener un diseño corporativo común y generar variantes con diferentes direcciones, teléfonos, imágenes, departamentos, establecimientos o datos de contacto."
+        },
+        {
+          "question": "¿Es mejor un acabado mate o brillo?",
+          "answer": "El acabado mate reduce los reflejos y proporciona una imagen más sobria. El brillo intensifica los colores y resulta especialmente adecuado para calendarios fotográficos o promocionales."
+        },
+        {
+          "question": "¿Podéis incluir festivos y fechas importantes?",
+          "answer": "Sí. Podemos incorporar festivos nacionales, autonómicos o municipales, además de campañas, eventos, cierres, lanzamientos y otras fechas facilitadas por la empresa."
+        },
+        {
+          "question": "¿Se pueden incluir códigos QR?",
+          "answer": "Sí. El calendario puede incorporar códigos QR dirigidos a la web, WhatsApp, un sistema de reservas, un catálogo, una promoción o una landing específica."
+        },
+        {
+          "question": "¿Qué información necesitáis para preparar el presupuesto?",
+          "answer": "Necesitamos el tipo de calendario, la cantidad, el formato, si será anual o mensual, el sistema de encuadernación, el nivel de personalización y la fecha prevista de entrega."
+        }
+      ],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -11843,19 +12106,66 @@
       "inStock": true,
       "ratingValue": 0,
       "reviewCount": 0,
-      "attributes": [],
+      "attributes": [
+        {
+          "label": "Pared o sobremesa",
+          "tone": "brand"
+        },
+        {
+          "label": "Anual o mensual",
+          "tone": "neutral"
+        },
+        {
+          "label": "Personalización por sede",
+          "tone": "success"
+        },
+        {
+          "label": "Formatos a medida",
+          "tone": "warning"
+        }
+      ],
       "variants": [],
       "formFields": [
+        {
+          "name": "tipoCalendario",
+          "label": "Tipo de calendario",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Sobremesa triangular",
+            "Sobremesa con Wire-O",
+            "Pared con Wire-O",
+            "Pared grapado",
+            "Bolsillo",
+            "Otro formato a medida"
+          ],
+          "readonly": false
+        },
         {
           "name": "tamano",
           "label": "Tamaño",
           "type": "select",
           "required": false,
           "options": [
-            "Din A-5",
-            "Din A-4.15x15 cm",
-            "21x10 cm",
-            "34 x 48 cm"
+            "DIN A5",
+            "DIN A4",
+            "DIN A3",
+            "15 × 15 cm",
+            "21 × 10 cm",
+            "34 × 48 cm",
+            "A medida"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "periodicidad",
+          "label": "Distribución del calendario",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Anual en una sola hoja",
+            "Mensual",
+            "Otro"
           ],
           "readonly": false
         },
@@ -11865,9 +12175,11 @@
           "type": "select",
           "required": false,
           "options": [
-            "Cuatricromía 2 caras"
+            "Cuatricromía a una cara",
+            "Cuatricromía a dos caras",
+            "A definir según el modelo"
           ],
-          "readonly": true
+          "readonly": false
         },
         {
           "name": "papel",
@@ -11875,54 +12187,32 @@
           "type": "select",
           "required": false,
           "options": [
-            "Estucado mate o brillo 350 gr."
+            "Estucado mate",
+            "Estucado brillo",
+            "Offset para escritura",
+            "Papel reciclado",
+            "A definir según el modelo"
           ],
-          "readonly": true
+          "readonly": false
         },
         {
-          "name": "tipo",
-          "label": "Tipo",
+          "name": "versiones",
+          "label": "Versiones personalizadas",
           "type": "select",
           "required": false,
           "options": [
-            "Triangular de mesa",
-            "De pared grapado",
-            "De mesa Wire-O"
+            "Una única versión",
+            "Versiones por sede o establecimiento",
+            "Versiones por departamento o equipo",
+            "A definir"
           ],
-          "readonly": false
-        },
-        {
-          "name": "encuadernacion",
-          "label": "Encuadernación",
-          "type": "select",
-          "required": false,
-          "options": [
-            "Wire-O",
-            "Grapado"
-          ],
-          "readonly": false
-        },
-        {
-          "name": "cantidad",
-          "label": "Cantidad",
-          "type": "number",
-          "required": false,
-          "options": [],
-          "readonly": false
-        },
-        {
-          "name": "observaciones",
-          "label": "Observaciones",
-          "type": "text",
-          "required": false,
-          "options": [],
           "readonly": false
         }
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Calendarios personalizados | Calendarios corporativos para empresas",
-        "metaDescription": "Calendarios personalizados para empresa: pared, sobremesa y bolsillo. Impresión a color, formatos a medida y acabados resistentes. Ideales como regalo corporativo. Solicita presupuesto.",
+        "metaTitle": "Calendarios personalizados para empresas | Pared y mesa",
+        "metaDescription": "Calendarios personalizados de pared, sobremesa y bolsillo para empresas. Formatos a medida, encuadernación Wire-O y versiones por sede.",
         "canonical": "https://reprodisseny.com/productos/calendarios-personalizados",
         "hreflang": [
           {
@@ -11931,10 +12221,40 @@
           }
         ],
         "keywords": [
-          "calendarios"
+          "calendarios personalizados",
+          "calendarios personalizados para empresas",
+          "calendarios corporativos",
+          "calendarios de pared personalizados",
+          "calendarios de sobremesa personalizados",
+          "calendarios de bolsillo personalizados",
+          "calendarios publicitarios",
+          "calendarios con logo",
+          "calendarios para regalar a clientes",
+          "impresión de calendarios personalizados",
+          "calendarios empresariales",
+          "calendarios a medida"
         ],
         "searchTerms": [
-          "calendarios"
+          "calendarios personalizados",
+          "calendarios corporativos",
+          "calendarios para empresas",
+          "calendarios con logo",
+          "calendarios publicitarios",
+          "calendario empresa personalizado",
+          "calendario de pared personalizado",
+          "calendarios pared empresa",
+          "calendario sobremesa personalizado",
+          "calendarios de mesa personalizados",
+          "calendario triangular de mesa",
+          "calendario sobremesa wire-o",
+          "calendarios de bolsillo personalizados",
+          "calendarios personalizados para clientes",
+          "calendarios regalo empresa",
+          "calendarios corporativos navidad",
+          "calendarios anuales personalizados",
+          "calendarios mensuales personalizados",
+          "imprimir calendarios personalizados",
+          "calendarios personalizados barcelona"
         ],
         "schema": {
           "@context": "https://schema.org",
@@ -11942,7 +12262,7 @@
             {
               "@type": "Product",
               "name": "Calendarios personalizados",
-              "description": "Calendarios personalizados para empresa: pared, sobremesa y bolsillo. Impresión a color, formatos a medida y acabados resistentes. Ideales como regalo corporativo. Solicita presupuesto.",
+              "description": "Calendarios personalizados de pared, sobremesa y bolsillo para empresas. Formatos a medida, encuadernación Wire-O y versiones por sede.",
               "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/calendarios.webp",
               "url": "https://reprodisseny.com/productos/calendarios-personalizados",
               "brand": {
@@ -11983,6 +12303,59 @@
                   "position": 5,
                   "name": "Calendarios personalizados",
                   "item": "https://reprodisseny.com/productos/calendarios-personalizados"
+                }
+              ]
+            },
+            {
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "¿Qué tipo de calendario funciona mejor como regalo corporativo?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "El calendario de pared ofrece una gran visibilidad, mientras que el calendario de sobremesa se utiliza diariamente en escritorios y recepciones. Para campañas de distribución masiva, el calendario de bolsillo es una opción compacta y práctica."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Se pueden personalizar los calendarios para diferentes sedes o equipos?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí. Podemos mantener un diseño corporativo común y generar variantes con diferentes direcciones, teléfonos, imágenes, departamentos, establecimientos o datos de contacto."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Es mejor un acabado mate o brillo?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "El acabado mate reduce los reflejos y proporciona una imagen más sobria. El brillo intensifica los colores y resulta especialmente adecuado para calendarios fotográficos o promocionales."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Podéis incluir festivos y fechas importantes?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí. Podemos incorporar festivos nacionales, autonómicos o municipales, además de campañas, eventos, cierres, lanzamientos y otras fechas facilitadas por la empresa."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Se pueden incluir códigos QR?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí. El calendario puede incorporar códigos QR dirigidos a la web, WhatsApp, un sistema de reservas, un catálogo, una promoción o una landing específica."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Qué información necesitáis para preparar el presupuesto?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Necesitamos el tipo de calendario, la cantidad, el formato, si será anual o mensual, el sistema de encuadernación, el nivel de personalización y la fecha prevista de entrega."
+                  }
                 }
               ]
             }
@@ -13657,7 +14030,7 @@
     },
     {
       "id": "25",
-      "updatedAt": "2026-07-15T08:22:40Z",
+      "updatedAt": "2026-07-15T12:28:42Z",
       "type": "producto",
       "slug": "colgador-de-botellas-personalizado",
       "path": "/productos/colgador-de-botellas-personalizado",
@@ -13694,7 +14067,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Formato y troquel \nTroquel específico para cuello de botella, con orificio\ranura adaptado para que quede bien colgado. \nFormatos habituales: rectangulares, con esquinas redondeadas o formas personalizadas (siluetas, medallas, etiquetas grandes). \nOpción de doble cara para aprovechar mejor el mensaje (promo delante + ficha/QR detrás). \nMaterial \nCartulinas de buen gramaje para que el colgador tenga cuerpo y no se deforme. \nOpciones más resistentes si va a manipularse mucho o se usa en campaña larga. \nImpresión \nImpresión a todo color para destacar marca y mensajes de promo. \nVersiones por referencia (vino tinto/blanco\rosado, añadas, formatos) sin perder coherencia visual. \nAcabados recomendados \nLaminado mate o brillo: mejora resistencia al roce y la presencia (mate suele reducir reflejos en tienda). \nEsquinas redondeadas: mayor durabilidad y mejor tacto. \nOpciones premium (si aplica): barniz selectivo para resaltar logo o claim. \nExtras útiles \nQR a ficha de producto, video, notas de cata, maridajes, promociones o registro.\nDatos variables (si necesitas series por lote o campañas con códigos)."
+          "body": "Formato y troquel \nTroquel específico para cuello de botella, con orificio o ranura adaptado para que quede bien colgado. \nFormatos habituales: rectangulares, con esquinas redondeadas o formas personalizadas (siluetas, medallas, etiquetas grandes). \nOpción de doble cara para aprovechar mejor el mensaje (promo delante + ficha/QR detrás). \nMaterial \nCartulinas de buen gramaje para que el colgador tenga cuerpo y no se deforme. \nOpciones más resistentes si va a manipularse mucho o se usa en campaña larga. \nImpresión \nImpresión a todo color para destacar marca y mensajes de promo. \nVersiones por referencia (vino tinto, blanco o rosado, añadas, formatos) sin perder coherencia visual. \nAcabados recomendados \nLaminado mate o brillo: mejora resistencia al roce y la presencia (mate suele reducir reflejos en tienda). \nEsquinas redondeadas: mayor durabilidad y mejor tacto. \nOpciones premium (si aplica): barniz selectivo para resaltar logo o claim. \nExtras útiles \nQR a ficha de producto, video, notas de cata, maridajes, promociones o registro.\nDatos variables (si necesitas series por lote o campañas con códigos)."
         },
         {
           "id": "applications",
@@ -13830,7 +14203,7 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "colgador-de-botellas-personalizado",
+        "metaTitle": "Colgadores de botellas personalizados | Promoción y retail",
         "metaDescription": "Colgadores de botellas personalizados para promociones en tienda y hostelería. Troquelados, resistentes y con impresión a color. Ideales para ofertas, catas y lanzamientos. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/colgador-de-botellas-personalizado",
         "hreflang": [
@@ -22497,7 +22870,7 @@
     },
     {
       "id": "51",
-      "updatedAt": "2026-05-21T06:44:51Z",
+      "updatedAt": "2026-07-15T12:17:45Z",
       "type": "producto",
       "slug": "folletos-plegados-personalizados",
       "path": "/productos/folletos-plegados-personalizados",
@@ -22712,35 +23085,7 @@
       "inStock": true,
       "ratingValue": 0,
       "reviewCount": 0,
-      "attributes": {
-        "intro": "Aplicaciones habituales de los talonarios autocopiativos personalizados en empresas de servicios, logística, comercio, talleres y administración.",
-        "applications": [
-          {
-            "title": "Albaranes de entrega y recepción",
-            "description": "documentación práctica para dejar constancia de entregas, recogidas, recepciones o conformidades."
-          },
-          {
-            "title": "Pedidos y órdenes de compra",
-            "description": "formularios preparados para registrar referencias, cantidades, precios, condiciones y datos del cliente."
-          },
-          {
-            "title": "Partes de trabajo",
-            "description": "útiles para SAT, mantenimiento, instalaciones, reparaciones, servicios técnicos o trabajos en ruta."
-          },
-          {
-            "title": "Presupuestos y autorizaciones de servicio",
-            "description": "documentos firmables para validar trabajos, importes, condiciones o intervenciones."
-          },
-          {
-            "title": "Facturas simplificadas y tickets",
-            "description": "opción práctica para ciertos usos de mostrador, servicios o ventas rápidas, según necesidad."
-          },
-          {
-            "title": "Hojas de caja y control interno",
-            "description": "formularios para arqueos, movimientos, incidencias, inventario o seguimiento administrativo."
-          }
-        ]
-      },
+      "attributes": [],
       "variants": [],
       "formFields": [
         {
@@ -27837,7 +28182,7 @@
     },
     {
       "id": "65",
-      "updatedAt": "2026-05-05T15:57:22Z",
+      "updatedAt": "2026-07-15T12:21:14Z",
       "type": "producto",
       "slug": "manteles-individuales-personalizados",
       "path": "/productos/manteles-individuales-personalizados",
@@ -28009,7 +28354,7 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "manteles-individuales-personalizados",
+        "metaTitle": "Manteles individuales personalizados | Hostelería y eventos",
         "metaDescription": "Manteles individuales personalizados para restaurantes y eventos. Impresión a color, papeles resistentes y diseños a medida. Pide presupuesto.",
         "canonical": "https://reprodisseny.com/productos/manteles-individuales-personalizados",
         "hreflang": [
@@ -30536,7 +30881,7 @@
     },
     {
       "id": "50",
-      "updatedAt": "2026-05-05T11:43:13Z",
+      "updatedAt": "2026-07-15T12:34:06Z",
       "type": "producto",
       "slug": "panel-foam-personalizado",
       "path": "/productos/panel-foam-personalizado",
@@ -30573,7 +30918,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Medidas y grosores \nFormatos estándar o a medida (desde piezas pequeñas hasta grandes paneles). \nDiferentes grosores según necesidad de rigidez y tipo de montaje. \nImpresión \nImpresión a color con buena definición para textos, iconos y fotografía. \nRecomendación: mantener jerarquía y contraste para lectura a distancia. \nCorte \nCorte recto (formato clásico) o corte a medida / troquelado para siluetas, flechas, formas de producto, etc. \nPosibilidad de hacer perforaciones\ranuras si el montaje lo requiere. \nMontaje e instalación \nPanel apoyado (en peana/soporte), colgado o fijado a pared. \nPreparación para sistemas de montaje habituales (según proyecto): adhesivos, velcro, colgadores, etc. \nUso recomendado \nPrincipalmente para interior. Si necesitas exterior o alta resistencia, conviene valorar otros rígidos (por ejemplo PVC/Dibond) según el caso.\nAcabados \nOpción de protección extra si se va a manipular mucho o viajar (según necesidad del proyecto)."
+          "body": "Medidas y grosores \nFormatos estándar o a medida (desde piezas pequeñas hasta grandes paneles). \nDiferentes grosores según necesidad de rigidez y tipo de montaje. \nImpresión \nImpresión a color con buena definición para textos, iconos y fotografía. \nRecomendación: mantener jerarquía y contraste para lectura a distancia. \nCorte \nCorte recto (formato clásico) o corte a medida / troquelado para siluetas, flechas, formas de producto, etc. \nPosibilidad de hacer perforaciones o ranuras si el montaje lo requiere. \nMontaje e instalación \nPanel apoyado (en peana/soporte), colgado o fijado a pared. \nPreparación para sistemas de montaje habituales (según proyecto): adhesivos, velcro, colgadores, etc. \nUso recomendado \nPrincipalmente para interior. Si necesitas exterior o alta resistencia, conviene valorar otros rígidos (por ejemplo PVC/Dibond) según el caso.\nAcabados \nOpción de protección extra si se va a manipular mucho o viajar (según necesidad del proyecto)."
         },
         {
           "id": "applications",
@@ -31537,7 +31882,7 @@
     },
     {
       "id": "35",
-      "updatedAt": "2026-05-05T11:41:08Z",
+      "updatedAt": "2026-07-15T12:35:01Z",
       "type": "producto",
       "slug": "panel-dispa-personalizado",
       "path": "/productos/panel-dispa-personalizado",
@@ -31574,7 +31919,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Composición \nPanel de 100% papel con capas exteriores blancas y núcleo de papel con estructura embosada para aportar rigidez.  \nImpresión \nApto para impresión digital (UV/latex según equipo) y serigrafía.  \nMedidas y grosores \nFormatos estándar o a medida, con grosores habituales de este tipo de panel según necesidad del proyecto (cartelería, colgante, display, etc.).  \nCorte y acabados \nCorte recto o corte a medida/troquelado (formas, siluetas, piezas de PLV).  \nPosibilidad de preparar taladros\ranuras si se necesita para colgar o montar. \nUso recomendado \nEspecialmente indicado para interior y campañas temporales. Existen versiones orientadas a exterior según proveedor, pero conviene definir ubicación y duración para escoger el soporte adecuado. (Antalis) \nSostenibilidad \nAl ser un soporte 100% papel, es reciclable; si necesitas mantenerlo “lo más reciclable posible”, te aconsejamos evitar acabados no compatibles con el reciclaje según el uso."
+          "body": "Composición \nPanel de 100% papel con capas exteriores blancas y núcleo de papel con estructura embosada para aportar rigidez.  \nImpresión \nApto para impresión digital (UV/latex según equipo) y serigrafía.  \nMedidas y grosores \nFormatos estándar o a medida, con grosores habituales de este tipo de panel según necesidad del proyecto (cartelería, colgante, display, etc.).  \nCorte y acabados \nCorte recto o corte a medida/troquelado (formas, siluetas, piezas de PLV).  \nPosibilidad de preparar taladros o ranuras si se necesita para colgar o montar. \nUso recomendado \nEspecialmente indicado para interior y campañas temporales. Existen versiones orientadas a exterior según proveedor, pero conviene definir ubicación y duración para escoger el soporte adecuado. (Antalis) \nSostenibilidad \nAl ser un soporte 100% papel, es reciclable; si necesitas mantenerlo “lo más reciclable posible”, te aconsejamos evitar acabados no compatibles con el reciclaje según el uso."
         },
         {
           "id": "applications",
@@ -31811,7 +32156,7 @@
     },
     {
       "id": "120",
-      "updatedAt": "2026-05-22T07:46:53Z",
+      "updatedAt": "2026-07-15T12:37:02Z",
       "type": "producto",
       "slug": "panel-ultraligero",
       "path": "/productos/panel-ultraligero",
@@ -31848,7 +32193,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Composición del material \nPanel sándwich con núcleo XPS (poliestireno extruido) y caras de PVC espumado. \nGrosor \nDiferentes grosores según necesidad (rigidez, tamaño y tipo de montaje). \nImpresión \nImpresión a todo color en una o dos caras, según la aplicación. \nCorte y acabados \nCorte recto o corte a medida (mecanizado) para formas especiales, letras, iconos y siluetas. \nPosibilidad de preparar taladros\ranuras si el montaje lo requiere (soportes, colgadores, encajes). \nUso recomendado \nMuy recomendado para interior y campañas. Si se plantea exterior, conviene definir ubicación y duración para ajustar material y acabado."
+          "body": "Composición del material \nPanel sándwich con núcleo XPS (poliestireno extruido) y caras de PVC espumado. \nGrosor \nDiferentes grosores según necesidad (rigidez, tamaño y tipo de montaje). \nImpresión \nImpresión a todo color en una o dos caras, según la aplicación. \nCorte y acabados \nCorte recto o corte a medida (mecanizado) para formas especiales, letras, iconos y siluetas. \nPosibilidad de preparar taladros o ranuras si el montaje lo requiere (soportes, colgadores, encajes). \nUso recomendado \nMuy recomendado para interior y campañas. Si se plantea exterior, conviene definir ubicación y duración para ajustar material y acabado."
         },
         {
           "id": "applications",
@@ -32030,7 +32375,7 @@
     },
     {
       "id": "64",
-      "updatedAt": "2026-05-05T15:33:00Z",
+      "updatedAt": "2026-07-15T12:36:23Z",
       "type": "producto",
       "slug": "paneles-madera",
       "path": "/productos/paneles-madera",
@@ -32067,7 +32412,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "MDF 10 mm \nUso recomendado: paneles y piezas con forma para pared, señalética y decoración interior. \nVentajas: buen equilibrio entre rigidez y peso; superficie uniforme (ideal si irá pintado o con acabado limpio). \nIdeal para: logos recortados, textos, flechas, paneles de señalética. \nMDF 19 mm \nUso recomendado: piezas que necesitan más cuerpo, volumen o sensación corpórea. \nVentajas: mayor rigidez y estabilidad; perfecto para letras más gruesas, relieves o piezas que deben “destacar” de la pared. \nIdeal para: letras corpóreas, logotipos con presencia, piezas con fresado\relieve, elementos decorativos robustos. \nContrachapado 10 mm \nUso recomendado: cuando buscas un acabado con veta visible y un aspecto más “natural”. \nVentajas: estética madera real, canto característico, muy utilizado en decoración y señalética con look cálido. \nIdeal para: señalética decorativa, branding con estilo artesanal\natural, piezas para interior donde la madera sea parte del diseño.\nProcesos disponibles (comunes) \nCorte recto o a la forma (siluetas, letras, contornos). \nFresado/mecanizado (según diseño): detalles, huecos, encajes o relieves. \nPreparación para montaje: taladros, puntos de fijación o sistemas de instalación (según necesidad).\nAcabados (según proyecto): vinilo aplicado, impresión directa, barnizado/pintura (si aplica), etc.\nNota práctica: si la pieza va en una zona de roce o uso intensivo, conviene definir el acabado/protección desde el inicio para que dure más y se limpie mejor."
+          "body": "MDF 10 mm \nUso recomendado: paneles y piezas con forma para pared, señalética y decoración interior. \nVentajas: buen equilibrio entre rigidez y peso; superficie uniforme (ideal si irá pintado o con acabado limpio). \nIdeal para: logos recortados, textos, flechas, paneles de señalética. \nMDF 19 mm \nUso recomendado: piezas que necesitan más cuerpo, volumen o sensación corpórea. \nVentajas: mayor rigidez y estabilidad; perfecto para letras más gruesas, relieves o piezas que deben “destacar” de la pared. \nIdeal para: letras corpóreas, logotipos con presencia, piezas con fresado o relieve, elementos decorativos robustos. \nContrachapado 10 mm \nUso recomendado: cuando buscas un acabado con veta visible y un aspecto más “natural”. \nVentajas: estética madera real, canto característico, muy utilizado en decoración y señalética con look cálido. \nIdeal para: señalética decorativa, branding con estilo artesanal y natural, piezas para interior donde la madera sea parte del diseño.\nProcesos disponibles (comunes) \nCorte recto o a la forma (siluetas, letras, contornos). \nFresado/mecanizado (según diseño): detalles, huecos, encajes o relieves. \nPreparación para montaje: taladros, puntos de fijación o sistemas de instalación (según necesidad).\nAcabados (según proyecto): vinilo aplicado, impresión directa, barnizado/pintura (si aplica), etc.\nNota práctica: si la pieza va en una zona de roce o uso intensivo, conviene definir el acabado/protección desde el inicio para que dure más y se limpie mejor."
         },
         {
           "id": "applications",
@@ -32640,7 +32985,7 @@
     },
     {
       "id": "76",
-      "updatedAt": "2026-05-05T15:36:26Z",
+      "updatedAt": "2026-07-15T12:21:26Z",
       "type": "producto",
       "slug": "papel-de-pared-personalizado",
       "path": "/productos/papel-de-pared-personalizado",
@@ -32881,7 +33226,7 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "papel-de-pared-personalizado",
+        "metaTitle": "Papel de pared personalizado | Decoración corporativa",
         "metaDescription": "Papel de pared personalizado para oficinas, tiendas y espacios comerciales. Diseños a medida, impresión de gran formato y acabados mate. Ideal para branding y decoración sin obras. Pide presupuesto.",
         "canonical": "https://reprodisseny.com/productos/papel-de-pared-personalizado",
         "hreflang": [
@@ -33702,7 +34047,7 @@
     },
     {
       "id": "126",
-      "updatedAt": "2026-05-05T11:56:49Z",
+      "updatedAt": "2026-07-15T12:38:35Z",
       "type": "producto",
       "slug": "pizarras-a-medida",
       "path": "/productos/pizarras-a-medida",
@@ -33715,7 +34060,7 @@
       "isPublished": true,
       "shortDescription": "Una pizarra no tiene por qué ser “la típica blanca”. En Repro Disseny fabricamos pizarras corporativas a medida con soportes de gran formato (Forex 5 mm, Dibond o plancha metálica) y acabado tipo Velleda, pensadas para uso real en oficina: reuniones, formación, planificación, lluvia de ideas y seguimiento de proyectos, con una superficie escribible y fácil de borrar.",
       "description": "Una pizarra no tiene por qué ser “la típica blanca”. En Repro Disseny fabricamos pizarras corporativas a medida con soportes de gran formato (Forex 5 mm, Dibond o plancha metálica) y acabado tipo Velleda, pensadas para uso real en oficina: reuniones, formación, planificación, lluvia de ideas y seguimiento de proyectos, con una superficie escribible y fácil de borrar.",
-      "bodyMd": "¿Qué es una pizarra a medida y para qué se usa? \nEs un panel rígido fabricado a la medida que necesites y acabado con una superficie escritura/borrado en seco (tipo Velleda). La gran ventaja es que puedes elegir entre una pizarra totalmente blanca o una pizarra personalizada con tu diseño (por ejemplo, calendarios, kanban, objetivos, procesos, mapas o plantillas de reunión), manteniendo un uso cómodo y profesional en el día a día.",
+      "bodyMd": "### ¿Qué es una pizarra a medida y para qué se usa? \nEs un panel rígido fabricado a la medida que necesites y acabado con una superficie escritura/borrado en seco (tipo Velleda). La gran ventaja es que puedes elegir entre una pizarra totalmente blanca o una pizarra personalizada con tu diseño (por ejemplo, calendarios, kanban, objetivos, procesos, mapas o plantillas de reunión), manteniendo un uso cómodo y profesional en el día a día.",
       "sections": [
         {
           "id": "details",
@@ -33723,7 +34068,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es una pizarra a medida y para qué se usa? \nEs un panel rígido fabricado a la medida que necesites y acabado con una superficie escritura/borrado en seco (tipo Velleda). La gran ventaja es que puedes elegir entre una pizarra totalmente blanca o una pizarra personalizada con tu diseño (por ejemplo, calendarios, kanban, objetivos, procesos, mapas o plantillas de reunión), manteniendo un uso cómodo y profesional en el día a día."
+          "body": "### ¿Qué es una pizarra a medida y para qué se usa? \nEs un panel rígido fabricado a la medida que necesites y acabado con una superficie escritura/borrado en seco (tipo Velleda). La gran ventaja es que puedes elegir entre una pizarra totalmente blanca o una pizarra personalizada con tu diseño (por ejemplo, calendarios, kanban, objetivos, procesos, mapas o plantillas de reunión), manteniendo un uso cómodo y profesional en el día a día."
         },
         {
           "id": "benefits",
@@ -33739,7 +34084,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Soportes disponibles \nForex 5 mm: ligero y práctico para interior. \nDibond: mayor estabilidad y acabado muy “fino” (ideal para una pizarra de presencia premium). \nPlancha metálica: opción ideal si necesitas uso con imanes (pizarra magnética).\nOpciones de acabado tipo Velleda \nVinilo convencional impreso + laminado Velleda transparente \nPermite imprimir una plantilla a cuatricromía a 1 cara (calendario, tabla, procesos, branding) y luego laminar con un acabado Velleda para escribir y borrar encima. \nVinilo Velleda blanco \nSuperficie blanca tipo pizarra, perfecta para escritura libre (y si lo necesitas, se pueden añadir elementos de diseño\rotulación puntual según el proyecto). \nFormato y corte \nFabricación a medida (alto x ancho). \nCorte recto o corte a la forma si necesitas una pieza especial. \nInstalación \nOpciones de colocación según el espacio: fijación a pared, montaje con separadores, adhesivos técnicos o soluciones específicas (en función de tamaño y soporte). \nRecomendación de uso \nUso con rotuladores de borrado en seco. \nPara mantener la superficie impecable, limpieza periódica con paño y producto adecuado (según intensidad de uso)."
+          "body": "Soportes disponibles \nForex 5 mm: ligero y práctico para interior. \nDibond: mayor estabilidad y acabado muy “fino” (ideal para una pizarra de presencia premium). \nPlancha metálica: opción ideal si necesitas uso con imanes (pizarra magnética).\nOpciones de acabado tipo Velleda \nVinilo convencional impreso + laminado Velleda transparente \nPermite imprimir una plantilla a cuatricromía a 1 cara (calendario, tabla, procesos, branding) y luego laminar con un acabado Velleda para escribir y borrar encima. \nVinilo Velleda blanco \nSuperficie blanca tipo pizarra, perfecta para escritura libre (y si lo necesitas, se pueden añadir elementos de diseño o rotulación puntual según el proyecto). \nFormato y corte \nFabricación a medida (alto x ancho). \nCorte recto o corte a la forma si necesitas una pieza especial. \nInstalación \nOpciones de colocación según el espacio: fijación a pared, montaje con separadores, adhesivos técnicos o soluciones específicas (en función de tamaño y soporte). \nRecomendación de uso \nUso con rotuladores de borrado en seco. \nPara mantener la superficie impecable, limpieza periódica con paño y producto adecuado (según intensidad de uso)."
         },
         {
           "id": "applications",
@@ -38858,11 +39203,11 @@
     },
     {
       "id": "97",
-      "updatedAt": "2026-05-05T12:10:45Z",
+      "updatedAt": "2026-07-15T12:18:53Z",
       "type": "producto",
       "slug": "tarjetas-rasca",
       "path": "/productos/tarjetas-rasca",
-      "title": "Tarjetas rasca",
+      "title": "Tarjetas rasca personalizadas",
       "categorySlug": "eventos",
       "categorySlugs": [
         "eventos",
@@ -38870,9 +39215,9 @@
       ],
       "order": 9999,
       "isPublished": true,
-      "shortDescription": "Texto que acompaña la imagen del producto\nLas tarjetas rasca son una de las acciones promocionales más efectivas para generar participación: dinámicas rápidas, premio inmediato y alta tasa de respuesta. En Repro Disseny imprimimos tarjetas rasca personalizadas para eventos, ferias y campañas de marca, con opciones de numeración, códigos y acabados para que el resultado sea profesional y funcione en el punto de entrega.",
-      "description": "Texto que acompaña la imagen del producto\nLas tarjetas rasca son una de las acciones promocionales más efectivas para generar participación: dinámicas rápidas, premio inmediato y alta tasa de respuesta. En Repro Disseny imprimimos tarjetas rasca personalizadas para eventos, ferias y campañas de marca, con opciones de numeración, códigos y acabados para que el resultado sea profesional y funcione en el punto de entrega.",
-      "bodyMd": "¿Qué es una tarjeta rasca y para qué se usa?\nUna tarjeta rasca es una tarjeta impresa que incluye una zona cubierta por una tinta rascable (habitualmente plateada o dorada). Al rascarla, aparece un premio, un código, un descuento o un mensaje (por ejemplo: “Sigue participando”).\nEs ideal para activar stands, incentivar compras, dinamizar registros y crear experiencias rápidas en eventos: el participante entiende la mecánica en segundos y la marca obtiene interacción y recuerdo.",
+      "shortDescription": "Creamos tarjetas rasca personalizadas para promociones, eventos y campañas de fidelización, con premios, códigos únicos, numeración, QR y diferentes zonas rascables.",
+      "description": "Creamos tarjetas rasca personalizadas para promociones, eventos y campañas de fidelización, con premios, códigos únicos, numeración, QR y diferentes zonas rascables.",
+      "bodyMd": "### ¿Qué es una tarjeta rasca personalizada?\n\nUna tarjeta rasca es una pieza impresa que incorpora una o varias zonas cubiertas con una tinta rascable. Al retirar esa capa aparece un premio, un descuento, un código, una instrucción o un mensaje como «Sigue participando».\n\nEs un formato especialmente eficaz para crear dinámicas rápidas en promociones, ferias, eventos y puntos de venta. La mecánica se entiende en pocos segundos y permite generar participación, incentivar una compra, captar registros o entregar premios de manera inmediata.\n\n### Una mecánica adaptada a cada campaña\n\nPodemos producir tarjetas con diferentes mensajes, premios o códigos dentro de una misma tirada. La distribución se prepara según la lógica definida para la campaña y puede organizarse por series, establecimientos, fechas, zonas o tipos de participante.\n\nTambién es posible incorporar códigos QR, numeración y datos variables para facilitar el control, la validación o el canje de cada tarjeta.",
       "sections": [
         {
           "id": "details",
@@ -38880,15 +39225,96 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es una tarjeta rasca y para qué se usa?\nUna tarjeta rasca es una tarjeta impresa que incluye una zona cubierta por una tinta rascable (habitualmente plateada o dorada). Al rascarla, aparece un premio, un código, un descuento o un mensaje (por ejemplo: “Sigue participando”).\nEs ideal para activar stands, incentivar compras, dinamizar registros y crear experiencias rápidas en eventos: el participante entiende la mecánica en segundos y la marca obtiene interacción y recuerdo."
+          "body": "### ¿Qué es una tarjeta rasca personalizada?\n\nUna tarjeta rasca es una pieza impresa que incorpora una o varias zonas cubiertas con una tinta rascable. Al retirar esa capa aparece un premio, un descuento, un código, una instrucción o un mensaje como «Sigue participando».\n\nEs un formato especialmente eficaz para crear dinámicas rápidas en promociones, ferias, eventos y puntos de venta. La mecánica se entiende en pocos segundos y permite generar participación, incentivar una compra, captar registros o entregar premios de manera inmediata.\n\n### Una mecánica adaptada a cada campaña\n\nPodemos producir tarjetas con diferentes mensajes, premios o códigos dentro de una misma tirada. La distribución se prepara según la lógica definida para la campaña y puede organizarse por series, establecimientos, fechas, zonas o tipos de participante.\n\nTambién es posible incorporar códigos QR, numeración y datos variables para facilitar el control, la validación o el canje de cada tarjeta."
         },
         {
-          "id": "benefits",
-          "key": "benefits",
-          "title": "Beneficios",
-          "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "- Participación inmediata: formato simple y divertido, perfecto para stands y eventos con alto flujo de gente.\n- Impulsa ventas o registros: puedes revelar descuentos, regalos, códigos de canje o premios por categorías.\n- Control y trazabilidad: numeración, series o códigos únicos para validar premios y evitar duplicidades.\n- Personalización total: diseño, mensajes, probabilidades por premio y variantes por campaña o patrocinador.\n- Gran impacto con poco presupuesto: pieza pequeña, fácil de repartir, con alto retorno en acciones promocionales."
+          "id": "materials",
+          "key": "materials",
+          "title": "Materiales",
+          "kind": "materials",
+          "contentFormat": "json",
+          "materialsData": {
+            "intro": "Seleccionamos el soporte según el tamaño, la manipulación prevista, el sistema de distribución y la imagen que debe transmitir la campaña.",
+            "materials": [
+              {
+                "title": "Cartulina gráfica",
+                "description": "Proporciona buen cuerpo, calidad de impresión y una manipulación cómoda. Es adecuada para promociones, eventos y reparto en punto de venta."
+              },
+              {
+                "title": "Cartulina de mayor rigidez",
+                "description": "Recomendada cuando la tarjeta debe soportar transporte, reparto masivo o una manipulación más intensa durante la campaña."
+              },
+              {
+                "title": "Soporte adaptado al acabado rascable",
+                "description": "La superficie se prepara para garantizar una correcta aplicación de la zona rascable y una lectura clara del mensaje oculto."
+              }
+            ]
+          }
+        },
+        {
+          "id": "formats",
+          "key": "formats",
+          "title": "Formatos y soportes",
+          "kind": "formats",
+          "contentFormat": "json",
+          "formatsData": {
+            "intro": "El tamaño y la distribución se adaptan a la mecánica de la promoción, la cantidad de información y el número de zonas rascables.",
+            "shapes": [
+              {
+                "title": "Formato tarjeta",
+                "description": "Tamaño compacto y fácil de repartir, adecuado para descuentos, códigos, premios rápidos y acciones de fidelización."
+              },
+              {
+                "title": "Formato postal",
+                "description": "Ofrece más espacio para explicar la mecánica, incorporar imágenes, condiciones, patrocinadores o información de la campaña."
+              },
+              {
+                "title": "Medidas personalizadas",
+                "description": "Producción a medida según el diseño, el espacio necesario para los premios y la forma de distribución."
+              },
+              {
+                "title": "Una o varias zonas rascables",
+                "description": "Posibilidad de incorporar un único panel, varios intentos, combinaciones o zonas con mensajes independientes."
+              },
+              {
+                "title": "Tarjeta con talón",
+                "description": "Puede añadirse una parte desprendible para controlar premios, accesos, sorteos o entregas."
+              }
+            ],
+            "deliveryFormats": []
+          }
+        },
+        {
+          "id": "finishes",
+          "key": "finishes",
+          "title": "Acabados",
+          "kind": "finishes",
+          "contentFormat": "json",
+          "finishesData": {
+            "intro": "Los acabados se definen según la mecánica de la promoción, la resistencia necesaria y el aspecto visual de la campaña.",
+            "finishes": [
+              {
+                "title": "Zona rascable plateada",
+                "description": "Acabado clásico y reconocible para ocultar premios, mensajes, descuentos o códigos."
+              },
+              {
+                "title": "Zona rascable dorada",
+                "description": "Alternativa visual para campañas con una presentación más premium o vinculada a premios especiales."
+              },
+              {
+                "title": "Laminado mate",
+                "description": "Aporta protección y reduce los reflejos. Es recomendable cuando las tarjetas se manipulan mucho o se fotografían durante el evento."
+              },
+              {
+                "title": "Laminado brillo",
+                "description": "Refuerza la intensidad del color y protege la superficie frente al roce y la manipulación."
+              },
+              {
+                "title": "Perforado",
+                "description": "Permite incorporar un talón desprendible para validación, control interno o entrega de premios."
+              }
+            ]
+          }
         },
         {
           "id": "technical-specs",
@@ -38896,33 +39322,65 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Formatos y medidas\n- Tamaños estándar (tipo postal/tarjeta) o a medida según mecánica y cantidad de información.\n- Impresión a una o dos caras (reverso útil para bases, instrucciones, términos o QR).\nMateriales recomendados\n- Cartulinas con buen cuerpo para una manipulación cómoda y una imagen de calidad.\n- Opciones de mayor resistencia si se van a transportar, repartir masivamente o usar en exterior.\nZona rascable (panel “rasca”)\n- Panel rascable plateado/dorado u otras opciones según diseño.\n- Posibilidad de una o varias zonas rascables (por ejemplo, 3 intentos, combinaciones o premios escalonados).\n- Área rascable dimensionada para que se rasque fácil y se lea bien el contenido.\nPersonalización y control\n- Numeración correlativa por series o tiradas.\n- Códigos únicos (alfanuméricos) para validación y canje.\n- Datos variables si necesitas campañas por lotes, diferentes mensajes o segmentación (por zona, tienda, día, etc.).\n- Integración de QR para llevar a landing, registro, canje o condiciones de la promo.\nAcabados y extras útiles\n- Laminado mate o brillo (si necesitas más resistencia al roce y mejor presencia).\n- Perforado (si quieres talón desprendible para control interno o entrega de premio).\n- Opciones de acabado mate recomendables si hay mucha luz o se van a fotografiar (reduce reflejos)."
+          "body": "### Impresión y personalización\n\n- Impresión a una o dos caras.\n- Diseño completamente personalizado.\n- Posibilidad de incorporar diferentes premios, mensajes o resultados dentro de una misma tirada.\n- Producción de versiones por establecimiento, patrocinador, zona, fecha o campaña.\n\n### Zona rascable\n\n- Una o varias zonas rascables por tarjeta.\n- Acabado plateado o dorado según el diseño.\n- Medida adaptada al contenido oculto y a la facilidad de rascado.\n- Posibilidad de crear mecánicas con varios intentos o combinaciones.\n\n### Datos variables y control\n\n- Numeración correlativa.\n- Códigos alfanuméricos únicos.\n- Códigos QR para registro, validación, canje o consulta de condiciones.\n- Organización por series, lotes o grupos.\n- Distribución de mensajes y premios según una matriz definida para la campaña.\n\n### Información del reverso\n\nEl reverso puede utilizarse para incluir:\n\n- Instrucciones de participación.\n- Condiciones básicas de la promoción.\n- Periodo de validez.\n- Información de contacto.\n- QR a las bases completas.\n- Identificación de lote o campaña.\n\n### Preparación del archivo\n\n- Archivo preferiblemente en PDF de alta calidad.\n- Sangrado y márgenes de seguridad.\n- Ubicación claramente identificada de cada zona rascable.\n- Base de datos separada cuando haya numeración, códigos o mensajes variables.\n- Validación previa de la correspondencia entre códigos, premios y series."
         },
         {
           "id": "applications",
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "- Ferias y congresos: dinámicas de stand para captar leads (“rasca y gana” tras registrarse).\n- Eventos corporativos: sorteos internos, gamificación, incentivos en convenciones o formaciones.\n- Activaciones de marca: street marketing, lanzamientos, campañas con QR/código para canje online.\n- Punto de venta: promoción ligada a compra (“rasca con tu ticket”), cupones de descuento y fidelización.\n- Eventos deportivos/culturales: premios, merchandising y participación del público."
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Las tarjetas rasca se utilizan para generar participación inmediata y vincular una acción física con un premio, un registro o una conversión.",
+            "applications": [
+              {
+                "title": "Ferias y congresos",
+                "description": "Dinámicas de stand para captar contactos, premiar registros y aumentar la interacción con visitantes."
+              },
+              {
+                "title": "Promociones en punto de venta",
+                "description": "Descuentos, regalos y códigos de canje vinculados a una compra o a la presentación de un ticket."
+              },
+              {
+                "title": "Eventos corporativos",
+                "description": "Sorteos internos, incentivos, gamificación y actividades para convenciones, formaciones o celebraciones."
+              },
+              {
+                "title": "Activaciones de marca",
+                "description": "Campañas de street marketing, lanzamientos y acciones promocionales conectadas con una landing o un formulario mediante QR."
+              },
+              {
+                "title": "Fidelización",
+                "description": "Premios, descuentos y ventajas para clientes recurrentes, programas de puntos y campañas especiales."
+              },
+              {
+                "title": "Eventos deportivos y culturales",
+                "description": "Participación del público, sorteos, merchandising y entrega de premios durante la actividad."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
         {
-          "question": "¿Se pueden hacer premios diferentes dentro de la misma tirada?",
-          "answer": "Sí. Podemos preparar distintas combinaciones (premios, \"no premiado\", códigos) y organizarlo por series según la lógica de tu campaña."
+          "question": "¿Se pueden incluir premios diferentes dentro de la misma tirada?",
+          "answer": "Sí. Podemos producir diferentes premios, mensajes, códigos o resultados y organizarlos por series según la lógica definida para la campaña."
         },
         {
           "question": "¿Podéis incluir códigos únicos para canje online?",
-          "answer": "Sí, con códigos variables y/o QR para validación. Es una de las opciones más habituales en promociones."
+          "answer": "Sí. Podemos incorporar códigos alfanuméricos variables, códigos QR o ambos para facilitar la validación, el registro o el canje online."
         },
         {
-          "question": "¿Qué conviene poner en el reverso?",
-          "answer": "Suele ser útil incluir instrucciones, condiciones básicas, periodo de validez, QR a bases completas o contacto de la campaña."
+          "question": "¿Se puede poner más de una zona rascable?",
+          "answer": "Sí. La tarjeta puede incorporar varias zonas para crear mecánicas con diferentes intentos, combinaciones, preguntas o premios escalonados."
         },
         {
-          "question": "¿Se puede añadir un talón para control?",
-          "answer": "Sí, mediante perforado: ideal para controlar premios, accesos o sorteos en el evento."
+          "question": "¿Qué información conviene poner en el reverso?",
+          "answer": "Normalmente se incluyen instrucciones, periodo de validez, condiciones básicas, información de contacto y un QR que dirija a las bases completas de la promoción."
+        },
+        {
+          "question": "¿Se puede añadir un talón para controlar los premios?",
+          "answer": "Sí. Mediante un perforado podemos crear una parte desprendible para controlar la entrega de premios, accesos, participaciones o sorteos."
         }
       ],
       "breadcrumbs": [
@@ -38939,7 +39397,7 @@
           "url": "/categorias/eventos"
         },
         {
-          "name": "Tarjetas rasca",
+          "name": "Tarjetas rasca personalizadas",
           "url": "/productos/tarjetas-rasca"
         }
       ],
@@ -38957,7 +39415,24 @@
       "inStock": true,
       "ratingValue": 0,
       "reviewCount": 0,
-      "attributes": [],
+      "attributes": [
+        {
+          "label": "Datos variables",
+          "tone": "brand"
+        },
+        {
+          "label": "Códigos únicos",
+          "tone": "neutral"
+        },
+        {
+          "label": "Una o varias zonas",
+          "tone": "success"
+        },
+        {
+          "label": "Formato a medida",
+          "tone": "warning"
+        }
+      ],
       "variants": [],
       "formFields": [
         {
@@ -39057,8 +39532,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Tarjetas Rasca Personalizadas | Promociones y Eventos",
-        "metaDescription": "Tarjetas rasca personalizadas para promociones, ferias y eventos. Impresión profesional, numeración y datos variables, opciones de seguridad y acabados. Solicita presupuesto.",
+        "metaTitle": "Tarjetas rasca personalizadas | Promociones y eventos",
+        "metaDescription": "Tarjetas rasca personalizadas con premios, códigos únicos, numeración, QR y una o varias zonas rascables para promociones y eventos.",
         "canonical": "https://reprodisseny.com/productos/tarjetas-rasca",
         "hreflang": [
           {
@@ -39067,18 +39542,49 @@
           }
         ],
         "keywords": [
-          "tarjetas rasca"
+          "tarjetas rasca personalizadas",
+          "tarjetas rasca para promociones",
+          "tarjetas rasca para eventos",
+          "rasca y gana personalizado",
+          "tarjetas con zona rascable",
+          "tarjetas rasca con premios",
+          "tarjetas rasca con códigos únicos",
+          "tarjetas rasca numeradas",
+          "tarjetas promocionales personalizadas",
+          "impresión de tarjetas rasca",
+          "tarjetas rasca para punto de venta",
+          "tarjetas rasca para ferias"
         ],
         "searchTerms": [
-          "tarjetas rasca"
+          "tarjetas rasca",
+          "tarjetas rasca personalizadas",
+          "imprimir tarjetas rasca",
+          "rasca y gana personalizado",
+          "tarjetas rasca y gana",
+          "tarjetas con tinta rascable",
+          "tarjetas con zona rascable",
+          "tarjetas rasca con premios",
+          "tarjetas rasca con descuentos",
+          "tarjetas rasca con códigos",
+          "tarjetas rasca con códigos únicos",
+          "tarjetas rasca con qr",
+          "tarjetas rasca numeradas",
+          "tarjetas rasca para promociones",
+          "tarjetas rasca para eventos",
+          "tarjetas rasca para ferias",
+          "tarjetas rasca para tiendas",
+          "tarjetas promocionales rasca",
+          "cupones rasca personalizados",
+          "rasca y gana para empresas",
+          "imprenta tarjetas rasca barcelona"
         ],
         "schema": {
           "@context": "https://schema.org",
           "@graph": [
             {
               "@type": "Product",
-              "name": "Tarjetas rasca",
-              "description": "Tarjetas rasca personalizadas para promociones, ferias y eventos. Impresión profesional, numeración y datos variables, opciones de seguridad y acabados. Solicita presupuesto.",
+              "name": "Tarjetas rasca personalizadas",
+              "description": "Tarjetas rasca personalizadas con premios, códigos únicos, numeración, QR y una o varias zonas rascables para promociones y eventos.",
               "image": "https://webcms.blob.core.windows.net/media/product/eventos/tarjeta-rasca.webp",
               "url": "https://reprodisseny.com/productos/tarjetas-rasca",
               "brand": {
@@ -39111,7 +39617,7 @@
                 {
                   "@type": "ListItem",
                   "position": 4,
-                  "name": "Tarjetas rasca",
+                  "name": "Tarjetas rasca personalizadas",
                   "item": "https://reprodisseny.com/productos/tarjetas-rasca"
                 }
               ]
@@ -39121,10 +39627,10 @@
               "mainEntity": [
                 {
                   "@type": "Question",
-                  "name": "¿Se pueden hacer premios diferentes dentro de la misma tirada?",
+                  "name": "¿Se pueden incluir premios diferentes dentro de la misma tirada?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí. Podemos preparar distintas combinaciones (premios, \"no premiado\", códigos) y organizarlo por series según la lógica de tu campaña."
+                    "text": "Sí. Podemos producir diferentes premios, mensajes, códigos o resultados y organizarlos por series según la lógica definida para la campaña."
                   }
                 },
                 {
@@ -39132,23 +39638,31 @@
                   "name": "¿Podéis incluir códigos únicos para canje online?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, con códigos variables y/o QR para validación. Es una de las opciones más habituales en promociones."
+                    "text": "Sí. Podemos incorporar códigos alfanuméricos variables, códigos QR o ambos para facilitar la validación, el registro o el canje online."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "¿Qué conviene poner en el reverso?",
+                  "name": "¿Se puede poner más de una zona rascable?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Suele ser útil incluir instrucciones, condiciones básicas, periodo de validez, QR a bases completas o contacto de la campaña."
+                    "text": "Sí. La tarjeta puede incorporar varias zonas para crear mecánicas con diferentes intentos, combinaciones, preguntas o premios escalonados."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "¿Se puede añadir un talón para control?",
+                  "name": "¿Qué información conviene poner en el reverso?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, mediante perforado: ideal para controlar premios, accesos o sorteos en el evento."
+                    "text": "Normalmente se incluyen instrucciones, periodo de validez, condiciones básicas, información de contacto y un QR que dirija a las bases completas de la promoción."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Se puede añadir un talón para controlar los premios?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí. Mediante un perforado podemos crear una parte desprendible para controlar la entrega de premios, accesos, participaciones o sorteos."
                   }
                 }
               ]
@@ -40756,11 +41270,11 @@
     },
     {
       "id": "115",
-      "updatedAt": "2026-05-25T20:11:34Z",
+      "updatedAt": "2026-07-15T12:06:39Z",
       "type": "producto",
       "slug": "vinilo-para-cristal",
       "path": "/productos/vinilo-para-cristal",
-      "title": "Vinilo para cristal",
+      "title": "Vinilo para cristal personalizado",
       "categorySlug": "material-flexible",
       "categorySlugs": [
         "material-flexible",
@@ -40768,9 +41282,9 @@
       ],
       "order": 9999,
       "isPublished": true,
-      "shortDescription": "El vinilo para cristal es una de las formas más efectivas de comunicar y decorar sin ocupar espacio: escaparates, puertas, ventanas o mamparas. En Repro Disseny imprimimos vinilos para cristal a medida con distintas opciones (transparente, al ácido, microperforado, corte de textos/logos) para lograr el efecto que necesitas: branding, privacidad o promoción.",
-      "description": "El vinilo para cristal es una de las formas más efectivas de comunicar y decorar sin ocupar espacio: escaparates, puertas, ventanas o mamparas. En Repro Disseny imprimimos vinilos para cristal a medida con distintas opciones (transparente, al ácido, microperforado, corte de textos/logos) para lograr el efecto que necesitas: branding, privacidad o promoción.",
-      "bodyMd": "### ¿Qué es un vinilo para cristal y para qué se usa?\n\nUn vinilo para cristal es un material adhesivo diseñado para aplicarse sobre superficies de vidrio: escaparates, puertas, ventanales o mamparas.\n\nPuede ser impreso o de corte, y se utiliza para rotulación, campañas promocionales, señalética y privacidad, por ejemplo en oficinas o salas.\n\nLa ventaja principal es que transforma el cristal en un soporte de comunicación visible y limpio, tanto desde fuera como desde dentro, según configuración.",
+      "shortDescription": "Vinilos para cristal a medida para escaparates, ventanas y mamparas, con opciones transparentes, microperforadas, efecto ácido o de corte.",
+      "description": "Vinilos para cristal a medida para escaparates, ventanas y mamparas, con opciones transparentes, microperforadas, efecto ácido o de corte.",
+      "bodyMd": "### ¿Qué es un vinilo para cristal?\n\nEl vinilo para cristal es un material adhesivo diseñado para aplicarse sobre escaparates, ventanas, puertas de vidrio y mamparas.\n\nPuede utilizarse para incorporar logotipos, horarios, promociones, señalización, elementos decorativos o soluciones de privacidad. Según el resultado buscado, se puede emplear vinilo transparente, microperforado, efecto ácido o vinilo de corte.\n\n### Comunicación, decoración y privacidad\n\nEl cristal puede transformarse en un soporte de comunicación sin ocupar espacio adicional. En un escaparate permite mostrar campañas y mensajes comerciales; en una oficina puede reforzar la identidad corporativa o aportar privacidad a salas de reuniones y despachos.\n\nLa solución se define según la visibilidad necesaria, la entrada de luz, la duración prevista y si el vinilo debe colocarse por la cara interior o exterior del cristal.",
       "sections": [
         {
           "id": "details",
@@ -40778,15 +41292,39 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "### ¿Qué es un vinilo para cristal y para qué se usa?\n\nUn vinilo para cristal es un material adhesivo diseñado para aplicarse sobre superficies de vidrio: escaparates, puertas, ventanales o mamparas.\n\nPuede ser impreso o de corte, y se utiliza para rotulación, campañas promocionales, señalética y privacidad, por ejemplo en oficinas o salas.\n\nLa ventaja principal es que transforma el cristal en un soporte de comunicación visible y limpio, tanto desde fuera como desde dentro, según configuración."
+          "body": "### ¿Qué es un vinilo para cristal?\n\nEl vinilo para cristal es un material adhesivo diseñado para aplicarse sobre escaparates, ventanas, puertas de vidrio y mamparas.\n\nPuede utilizarse para incorporar logotipos, horarios, promociones, señalización, elementos decorativos o soluciones de privacidad. Según el resultado buscado, se puede emplear vinilo transparente, microperforado, efecto ácido o vinilo de corte.\n\n### Comunicación, decoración y privacidad\n\nEl cristal puede transformarse en un soporte de comunicación sin ocupar espacio adicional. En un escaparate permite mostrar campañas y mensajes comerciales; en una oficina puede reforzar la identidad corporativa o aportar privacidad a salas de reuniones y despachos.\n\nLa solución se define según la visibilidad necesaria, la entrada de luz, la duración prevista y si el vinilo debe colocarse por la cara interior o exterior del cristal."
         },
         {
           "id": "materials",
           "key": "materials",
           "title": "Materiales",
           "kind": "materials",
-          "contentFormat": "markdown",
-          "body": "El material se selecciona según el efecto que quieras conseguir en el cristal: visibilidad, privacidad, promoción temporal o rotulación permanente.\n\n- **Vinilo transparente impreso:** mantiene la sensación de transparencia y permite que el diseño “flote” sobre el cristal.\n- **Vinilo al ácido:** aporta privacidad y un acabado elegante, muy usado en oficinas, salas de reunión y mamparas.\n- **Vinilo microperforado:** comunica desde fuera y permite cierta visión desde dentro, muy útil en escaparates.\n- **Vinilo de corte:** letras, logotipos o formas en color con acabado limpio y corporativo.\n- **Adhesivo removible:** recomendado para campañas temporales, rebajas, promociones o acciones de temporada.\n- **Adhesivo permanente:** adecuado para rotulación estable, horarios fijos, señalética o imagen corporativa duradera."
+          "contentFormat": "json",
+          "materialsData": {
+            "intro": "Seleccionamos el tipo de vinilo según el grado de transparencia, privacidad, visibilidad y duración que necesita cada aplicación.",
+            "materials": [
+              {
+                "title": "Vinilo transparente impreso",
+                "description": "Permite imprimir diseños a color manteniendo parte de la transparencia del cristal. Es adecuado para promociones, elementos decorativos y gráficos ligeros."
+              },
+              {
+                "title": "Vinilo efecto ácido",
+                "description": "Crea un acabado arenado que aporta privacidad sin bloquear completamente la entrada de luz. Es habitual en mamparas, despachos y salas de reuniones."
+              },
+              {
+                "title": "Vinilo microperforado",
+                "description": "Permite comunicar hacia el exterior manteniendo visión desde el interior en condiciones de iluminación adecuadas. Se utiliza principalmente en escaparates y grandes ventanales."
+              },
+              {
+                "title": "Vinilo de corte",
+                "description": "Permite aplicar letras, logotipos y formas sin fondo, con un resultado limpio y corporativo."
+              },
+              {
+                "title": "Combinaciones de materiales",
+                "description": "Es posible combinar diferentes vinilos para integrar zonas transparentes, opacas, microperforadas o efecto ácido dentro de una misma composición."
+              }
+            ]
+          }
         },
         {
           "id": "formats",
@@ -40795,22 +41333,27 @@
           "kind": "formats",
           "contentFormat": "json",
           "formatsData": {
+            "intro": "El vinilo se produce a medida según las dimensiones del cristal, el diseño, la cara de aplicación y la visibilidad necesaria.",
             "shapes": [
               {
+                "title": "Letras y logotipos",
+                "description": "Elementos recortados sin fondo para rotulación corporativa, horarios, servicios y señalización."
+              },
+              {
+                "title": "Composición parcial",
+                "description": "Aplicación sobre una zona concreta del cristal para promociones, bandas de privacidad o elementos de marca."
+              },
+              {
+                "title": "Cobertura completa",
+                "description": "Rotulación de toda la superficie para campañas de gran impacto, decoración o privacidad."
+              },
+              {
                 "title": "Producción por paños",
-                "description": "Para grandes ventanales, planificando uniones y encajes."
+                "description": "Los ventanales de gran tamaño pueden dividirse en varias piezas, planificando las uniones para mantener la continuidad del diseño."
               },
               {
-                "title": "Corte al contorno",
-                "description": "Para adaptar el vinilo a formas, textos, logos o composiciones completas."
-              },
-              {
-                "title": "Letras sueltas",
-                "description": "Opción para textos, logotipos o formas en color con acabado limpio y corporativo."
-              },
-              {
-                "title": "Composición completa",
-                "description": "Preparación del vinilo como una composición completa para cristal, puerta, ventana o mampara."
+                "title": "Instalación interior o exterior",
+                "description": "La pieza puede prepararse según la cara del cristal donde deba colocarse y la dirección desde la que debe leerse."
               }
             ],
             "deliveryFormats": []
@@ -40823,22 +41366,27 @@
           "kind": "finishes",
           "contentFormat": "json",
           "finishesData": {
+            "intro": "El acabado se elige según el efecto visual, la exposición, la frecuencia de limpieza y la duración prevista.",
             "finishes": [
               {
                 "title": "Acabado mate",
-                "description": "Muy útil para evitar reflejos."
+                "description": "Reduce reflejos y proporciona un aspecto sobrio, adecuado para oficinas, señalización y superficies con mucha iluminación."
               },
               {
                 "title": "Acabado brillo",
-                "description": "Según el efecto visual buscado."
+                "description": "Realza la intensidad de los colores y aporta una superficie visualmente más brillante."
               },
               {
                 "title": "Laminado protector",
-                "description": "Opcional si habrá limpieza frecuente o exposición al roce."
+                "description": "Protege la impresión frente a limpieza frecuente, humedad, radiación UV y manipulación."
               },
               {
-                "title": "Opciones combinables",
-                "description": "Opciones combinables para campañas, por ejemplo microperforado con corte o elementos opacos."
+                "title": "Corte a contorno",
+                "description": "Permite recortar textos, logotipos, iconos y formas siguiendo la silueta del diseño."
+              },
+              {
+                "title": "Preparación espejada",
+                "description": "Cuando el vinilo se instala por la cara interior para verse desde fuera, el diseño puede prepararse con la orientación correspondiente."
               }
             ]
           }
@@ -40849,7 +41397,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "### Impresión y visibilidad\n\n- Impresión a color con buena definición para logos y tipografías.\n- Aplicación por la cara interior o exterior según protección y lectura.\n- Posibilidad de preparar el vinilo para lectura desde fuera, espejado si aplica, cuando se instala en interior.\n\n### Colocación\n\n- Producción por paños para grandes ventanales.\n- Planificación de uniones y encajes para que el resultado sea limpio.\n\n### Para presupuestar\n\nEnvíanos medidas, tipo de cristal, efecto buscado, si lo quieres removible o permanente, y fecha de entrega."
+          "body": "### Selección del vinilo\n\nLa elección depende de:\n\n- Si se busca promoción, decoración, señalización o privacidad.\n- El nivel de transparencia necesario.\n- La visibilidad desde el interior y el exterior.\n- La duración de la campaña.\n- La exposición al sol, la limpieza y la manipulación.\n- La cara del cristal donde se realizará la instalación.\n\n### Adhesivo\n\n- Vinilo removible para promociones y campañas temporales.\n- Vinilo permanente para logotipos, horarios, señalización y aplicaciones estables.\n- La facilidad de retirada depende del material, el tiempo de uso y el estado de la superficie.\n\n### Impresión y corte\n\n- Impresión a color para imágenes, fondos y diseños complejos.\n- Corte de textos, logotipos y formas sin fondo.\n- Posibilidad de combinar impresión y corte.\n- Adaptación del diseño a cada cristal o conjunto de paños.\n\n### Aplicación interior o exterior\n\n- Instalación exterior cuando se necesita máxima visibilidad directa.\n- Instalación interior para proteger el vinilo frente a manipulación o exposición.\n- Preparación espejada cuando debe leerse desde el exterior y se instala por dentro.\n- Comprobación de la orientación antes de producir.\n\n### Grandes superficies\n\n- Producción por paños para escaparates y ventanales de gran tamaño.\n- Planificación de uniones, solapes y continuidad gráfica.\n- Identificación de las piezas para facilitar el montaje.\n- Adaptación a marcos, divisiones y elementos existentes.\n\n### Preparación del archivo\n\n- PDF de alta calidad con medidas finales.\n- Sangrado y márgenes de seguridad.\n- Contornos vectoriales cuando haya corte.\n- Indicación clara de la cara de aplicación.\n- Plano o fotografía con las medidas de cada cristal cuando existan varios paños."
         },
         {
           "id": "applications",
@@ -40858,26 +41406,31 @@
           "kind": "applications",
           "contentFormat": "json",
           "applicationsData": {
+            "intro": "El vinilo para cristal permite utilizar escaparates, ventanas y mamparas como superficies de comunicación, decoración, señalización o privacidad.",
             "applications": [
               {
                 "title": "Escaparates y retail",
-                "description": "Promociones, rebajas, lanzamientos, horarios y decoración estacional."
+                "description": "Promociones, rebajas, lanzamientos, horarios, campañas estacionales y comunicación de marca."
               },
               {
-                "title": "Oficinas",
-                "description": "Mamparas, salas de reunión y despachos con privacidad e imagen corporativa."
+                "title": "Oficinas y mamparas",
+                "description": "Privacidad para salas de reuniones y despachos, bandas de señalización y elementos de identidad corporativa."
               },
               {
-                "title": "Hostelería",
-                "description": "Puertas y ventanales con horarios, menús, señalética y marca."
+                "title": "Hostelería y restauración",
+                "description": "Horarios, menús, logotipos, señalización y decoración para puertas, ventanas y cerramientos de cristal."
               },
               {
-                "title": "Centros y servicios",
-                "description": "Clínicas, gimnasios y academias con información, normas y branding."
+                "title": "Clínicas, gimnasios y academias",
+                "description": "Información de servicios, normas, señalización de espacios y privacidad en salas o zonas de atención."
               },
               {
-                "title": "Eventos",
-                "description": "Señalización temporal en accesos, zonas VIP, stands y recintos."
+                "title": "Eventos y espacios temporales",
+                "description": "Señalización, identificación de accesos, zonas VIP, stands y campañas de duración limitada."
+              },
+              {
+                "title": "Decoración corporativa",
+                "description": "Patrones, franjas, mensajes y recursos gráficos que integran la identidad visual en el espacio."
               }
             ]
           }
@@ -40886,19 +41439,23 @@
       "faqs": [
         {
           "question": "¿Qué vinilo es mejor para escaparate: microperforado o transparente?",
-          "answer": "Depende del objetivo: el microperforado permite ver desde dentro y es muy usado en escaparate; el transparente es ideal si quieres un diseño más limpio y mantener transparencia total."
+          "answer": "El microperforado permite comunicar hacia el exterior manteniendo cierta visión desde el interior en condiciones de iluminación adecuadas. El transparente es más apropiado cuando se busca una gráfica ligera y conservar una mayor sensación de transparencia."
         },
         {
-          "question": "¿Se puede hacer privacidad en mamparas sin oscurecer?",
-          "answer": "Sí, el vinilo al ácido da privacidad manteniendo la entrada de luz y queda muy elegante."
+          "question": "¿Se puede dar privacidad a una mampara sin bloquear la luz?",
+          "answer": "Sí. El vinilo efecto ácido proporciona privacidad visual y mantiene la entrada de luz, por lo que es una solución habitual para despachos y salas de reuniones."
         },
         {
-          "question": "¿Removible o permanente?",
-          "answer": "Removible para campañas y promociones temporales; permanente para rotulación fija, marca, horarios o señalética."
+          "question": "¿Es mejor un vinilo removible o permanente?",
+          "answer": "El removible es adecuado para campañas y promociones temporales. El permanente se recomienda para logotipos, horarios y señalización de larga duración."
         },
         {
-          "question": "¿Podéis adaptarlo a medidas grandes?",
-          "answer": "Sí, se produce por paños y se planifica el montaje para que las uniones queden lo más discretas posible."
+          "question": "¿Se puede instalar el vinilo por dentro del cristal?",
+          "answer": "Sí. Cuando debe verse desde el exterior, el diseño se prepara con la orientación adecuada. La viabilidad depende del tipo de vinilo y del efecto visual buscado."
+        },
+        {
+          "question": "¿Podéis producir vinilos para ventanales grandes?",
+          "answer": "Sí. La gráfica se divide en paños y se planifican las uniones para mantener la continuidad del diseño y facilitar la instalación."
         }
       ],
       "breadcrumbs": [
@@ -40919,7 +41476,7 @@
           "url": "/categorias/gran-formato/material-flexible"
         },
         {
-          "name": "Vinilo para cristal",
+          "name": "Vinilo para cristal personalizado",
           "url": "/productos/vinilo-para-cristal"
         }
       ],
@@ -40935,18 +41492,22 @@
       "priceCurrency": "EUR",
       "inStock": false,
       "attributes": [
-        "vinilo para cristal",
-        "vinilo para cristal personalizado",
-        "vinilo escaparate personalizado",
-        "vinilo para escaparates",
-        "vinilo ácido personalizado",
-        "vinilo transparente personalizado",
-        "vinilo microperforado",
-        "vinilo de corte para cristal",
-        "vinilo para ventanas",
-        "rotulación de cristales",
-        "vinilo para oficinas",
-        "vinilo para mamparas"
+        {
+          "label": "A medida",
+          "tone": "brand"
+        },
+        {
+          "label": "Privacidad o promoción",
+          "tone": "neutral"
+        },
+        {
+          "label": "Removible o permanente",
+          "tone": "success"
+        },
+        {
+          "label": "Impresión o corte",
+          "tone": "warning"
+        }
       ],
       "variants": [],
       "formFields": [
@@ -41009,8 +41570,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Vinilo para Cristal Personalizado | Escaparates, Oficinas y Señalización",
-        "metaDescription": "Vinilo para cristal a medida: escaparates, mamparas y ventanas. Opciones transparente, al ácido, microperforado y corte a medida. Instalación fácil. Pide presupuesto.",
+        "metaTitle": "Vinilo para cristal personalizado | Escaparates y oficinas",
+        "metaDescription": "Vinilo para cristal a medida para escaparates, ventanas y mamparas: transparente, ácido, microperforado o de corte. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/vinilo-para-cristal",
         "hreflang": [
           {
@@ -41019,36 +41580,53 @@
           }
         ],
         "keywords": [
-          "vinilo para cristal",
-          "vinilo escaparate personalizado",
-          "vinilo ácido personalizado",
-          "vinilo transparente personalizado",
-          "vinilo para ventanas",
+          "vinilo para cristal personalizado",
+          "vinilos para escaparates",
+          "vinilo para mamparas de oficina",
+          "vinilo ácido para cristal",
+          "vinilo microperforado para escaparate",
+          "vinilo transparente impreso",
+          "vinilo de corte para cristal",
+          "vinilo de privacidad para ventanas",
           "rotulación de cristales",
-          "vinilo para oficinas",
-          "vinilo para escaparates"
+          "vinilo removible para escaparates",
+          "vinilo para ventanas personalizado",
+          "impresión de vinilos para cristal"
         ],
         "searchTerms": [
           "vinilo para cristal",
+          "vinilo para cristal personalizado",
+          "vinilos para cristales",
           "vinilo escaparate",
+          "vinilo escaparate personalizado",
+          "vinilos para escaparates",
+          "vinilo para ventana",
+          "vinilo para ventanas personalizado",
+          "vinilo para mamparas",
+          "vinilo oficina cristal",
+          "vinilo privacidad cristal",
           "vinilo ácido",
-          "vinilo transparente",
-          "vinilo para ventanas",
-          "rotulación cristales",
-          "vinilo cristal personalizado",
-          "vinilo oficinas cristal",
-          "vinilo para escaparate tienda",
-          "vinilo efecto ácido",
-          "vinilos para mamparas",
-          "impresión vinilo cristal"
+          "vinilo ácido para cristal",
+          "vinilo efecto arenado",
+          "vinilo microperforado",
+          "vinilo microperforado escaparate",
+          "vinilo transparente impreso",
+          "vinilo de corte para cristal",
+          "letras adhesivas para cristal",
+          "rotulación de cristales",
+          "rotulación de escaparates",
+          "vinilo removible escaparate",
+          "vinilo permanente cristal",
+          "vinilo para cristal a medida",
+          "imprenta vinilo cristal barcelona"
         ],
         "schema": {
           "@context": "https://schema.org",
           "@graph": [
             {
               "@type": "Product",
-              "name": "Vinilo para cristal",
-              "description": "Vinilo para cristal a medida: escaparates, mamparas y ventanas. Opciones transparente, al ácido, microperforado y corte a medida. Instalación fácil. Pide presupuesto.",
+              "name": "Vinilo para cristal personalizado",
+              "description": "Vinilo para cristal a medida para escaparates, ventanas y mamparas: transparente, ácido, microperforado o de corte. Solicita presupuesto.",
               "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-cristal.webp",
               "url": "https://reprodisseny.com/productos/vinilo-para-cristal",
               "brand": {
@@ -41086,7 +41664,7 @@
                 {
                   "@type": "ListItem",
                   "position": 5,
-                  "name": "Vinilo para cristal",
+                  "name": "Vinilo para cristal personalizado",
                   "item": "https://reprodisseny.com/productos/vinilo-para-cristal"
                 }
               ]
@@ -41099,31 +41677,39 @@
                   "name": "¿Qué vinilo es mejor para escaparate: microperforado o transparente?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Depende del objetivo: el microperforado permite ver desde dentro y es muy usado en escaparate; el transparente es ideal si quieres un diseño más limpio y mantener transparencia total."
+                    "text": "El microperforado permite comunicar hacia el exterior manteniendo cierta visión desde el interior en condiciones de iluminación adecuadas. El transparente es más apropiado cuando se busca una gráfica ligera y conservar una mayor sensación de transparencia."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "¿Se puede hacer privacidad en mamparas sin oscurecer?",
+                  "name": "¿Se puede dar privacidad a una mampara sin bloquear la luz?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, el vinilo al ácido da privacidad manteniendo la entrada de luz y queda muy elegante."
+                    "text": "Sí. El vinilo efecto ácido proporciona privacidad visual y mantiene la entrada de luz, por lo que es una solución habitual para despachos y salas de reuniones."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "¿Removible o permanente?",
+                  "name": "¿Es mejor un vinilo removible o permanente?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Removible para campañas y promociones temporales; permanente para rotulación fija, marca, horarios o señalética."
+                    "text": "El removible es adecuado para campañas y promociones temporales. El permanente se recomienda para logotipos, horarios y señalización de larga duración."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "¿Podéis adaptarlo a medidas grandes?",
+                  "name": "¿Se puede instalar el vinilo por dentro del cristal?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, se produce por paños y se planifica el montaje para que las uniones queden lo más discretas posible."
+                    "text": "Sí. Cuando debe verse desde el exterior, el diseño se prepara con la orientación adecuada. La viabilidad depende del tipo de vinilo y del efecto visual buscado."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Podéis producir vinilos para ventanales grandes?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí. La gráfica se divide en paños y se planifican las uniones para mantener la continuidad del diseño y facilitar la instalación."
                   }
                 }
               ]
@@ -41607,20 +42193,20 @@
     },
     {
       "id": "118",
-      "updatedAt": "2026-05-22T08:17:47Z",
+      "updatedAt": "2026-07-15T11:46:34Z",
       "type": "producto",
       "slug": "vinilo-vehiculos-personalizado",
       "path": "/productos/vinilo-vehiculos-personalizado",
-      "title": "Vinilo para vehículos personalizado (rotulación y branding)",
+      "title": "Vinilo para vehículos personalizado",
       "categorySlug": "material-flexible",
       "categorySlugs": [
         "material-flexible"
       ],
       "order": 9999,
       "isPublished": true,
-      "shortDescription": "El vinilo para vehículo convierte tu flota en publicidad en movimiento: refuerza la marca, mejora la visibilidad y transmite profesionalidad. En Repro Disseny producimos vinilos para rotulación de vehículos con materiales específicos para carrocería, opciones de corte o impresión, y acabados con laminado protector para que la gráfica aguante sol, lluvia, lavado y uso diario.",
-      "description": "El vinilo para vehículo convierte tu flota en publicidad en movimiento: refuerza la marca, mejora la visibilidad y transmite profesionalidad. En Repro Disseny producimos vinilos para rotulación de vehículos con materiales específicos para carrocería, opciones de corte o impresión, y acabados con laminado protector para que la gráfica aguante sol, lluvia, lavado y uso diario.",
-      "bodyMd": "¿Qué es un vinilo para vehículo y para qué se usa? \nUn vinilo para vehículo es un material adhesivo diseñado para aplicarse sobre superficies de carrocería (metal pintado, plásticos, cristales en algunos casos) y adaptarse a la forma del vehículo. Se usa para rotulación corporativa (logo, datos, servicios), campañas promocionales temporales y señalización de flotas, tanto en turismos como en furgonetas, camiones o vehículos comerciales.",
+      "shortDescription": "Convierte coches, furgonetas y flotas en publicidad en movimiento con vinilos de corte o impresos, rotulación parcial o integral y laminado protector para exterior.",
+      "description": "Convierte coches, furgonetas y flotas en publicidad en movimiento con vinilos de corte o impresos, rotulación parcial o integral y laminado protector para exterior.",
+      "bodyMd": "### ¿Qué es un vinilo para vehículos y para qué se utiliza?\n\nEl vinilo para vehículos es un material adhesivo diseñado para aplicarse sobre carrocerías y adaptarse a diferentes zonas del vehículo, como puertas, laterales, capó o parte trasera.\n\nSe utiliza para incorporar logotipos, datos de contacto, servicios, mensajes promocionales y elementos de identificación en coches, furgonetas, camiones y vehículos comerciales.\n\nLa rotulación puede ser parcial o integral y realizarse mediante vinilo de corte o vinilo impreso, según el diseño, la cobertura y la duración prevista.\n\nAdemás de reforzar la imagen profesional de la empresa, convierte cada vehículo en un soporte publicitario visible mientras circula o permanece aparcado.",
       "sections": [
         {
           "id": "details",
@@ -41628,7 +42214,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es un vinilo para vehículo y para qué se usa? \nUn vinilo para vehículo es un material adhesivo diseñado para aplicarse sobre superficies de carrocería (metal pintado, plásticos, cristales en algunos casos) y adaptarse a la forma del vehículo. Se usa para rotulación corporativa (logo, datos, servicios), campañas promocionales temporales y señalización de flotas, tanto en turismos como en furgonetas, camiones o vehículos comerciales."
+          "body": "### ¿Qué es un vinilo para vehículos y para qué se utiliza?\n\nEl vinilo para vehículos es un material adhesivo diseñado para aplicarse sobre carrocerías y adaptarse a diferentes zonas del vehículo, como puertas, laterales, capó o parte trasera.\n\nSe utiliza para incorporar logotipos, datos de contacto, servicios, mensajes promocionales y elementos de identificación en coches, furgonetas, camiones y vehículos comerciales.\n\nLa rotulación puede ser parcial o integral y realizarse mediante vinilo de corte o vinilo impreso, según el diseño, la cobertura y la duración prevista.\n\nAdemás de reforzar la imagen profesional de la empresa, convierte cada vehículo en un soporte publicitario visible mientras circula o permanece aparcado."
         },
         {
           "id": "benefits",
@@ -41643,8 +42229,28 @@
           "key": "materials",
           "title": "Materiales",
           "kind": "materials",
-          "contentFormat": "markdown",
-          "body": "\"intro\": \"\",\n  \"materials\": [\n    {\n      \"title\": \"Vinilo de corte\",\n      \"description\": \"Textos y logos sin fondo (acabado muy limpio).\"\n    },\n    {\n      \"title\": \"Vinilo impreso\",\n      \"description\": \"Permite fotos, degradados y creatividades completas.\"\n    },\n    {\n      \"title\": \"Adaptación a la carrocería\",\n      \"description\": \"Materiales con buena conformidad para ajustarse a curvas y zonas complejas (según el tipo de rotulación).\"\n    },\n    {\n      \"title\": \"Adhesivo\",\n      \"description\": \"Opciones permanentes para rotulación estable. Opciones removibles para campañas temporales (según material y tiempo de uso).\"\n    }\n  ]\n}"
+          "contentFormat": "json",
+          "materialsData": {
+            "intro": "Seleccionamos el tipo de vinilo según el diseño, la superficie, la cobertura del vehículo y la duración prevista de la rotulación.",
+            "materials": [
+              {
+                "title": "Vinilo de corte",
+                "description": "Recomendado para logotipos, textos y formas simples sin fondo. Ofrece un acabado limpio y definido."
+              },
+              {
+                "title": "Vinilo impreso",
+                "description": "Permite reproducir imágenes, degradados, fondos y diseños a todo color para rotulaciones más complejas."
+              },
+              {
+                "title": "Vinilo removible",
+                "description": "Adecuado para campañas temporales, promociones, eventos o rotulaciones que deben retirarse posteriormente."
+              },
+              {
+                "title": "Vinilo permanente",
+                "description": "Pensado para rotulación corporativa estable, identificación de flotas y aplicaciones de larga duración."
+              }
+            ]
+          }
         },
         {
           "id": "formats",
@@ -41653,18 +42259,23 @@
           "kind": "formats",
           "contentFormat": "json",
           "formatsData": {
+            "intro": "La cobertura y la distribución del vinilo se adaptan al modelo del vehículo, las zonas que deben rotularse y el objetivo de comunicación.",
             "shapes": [
               {
-                "title": "Rotulación parcial o integral",
-                "description": "Desde puertas y laterales hasta grandes superficies."
+                "title": "Rotulación parcial",
+                "description": "Aplicación en puertas, laterales, trasera, capó u otras zonas concretas del vehículo."
               },
               {
-                "title": "Planificación por piezas",
-                "description": "Planificación por piezas para encajar bien en puertas, laterales, capó o trasera."
+                "title": "Rotulación integral",
+                "description": "Cobertura de grandes superficies del vehículo para campañas de alto impacto o transformaciones completas de imagen."
               },
               {
                 "title": "Packs por vehículo",
-                "description": "Posibilidad de preparar packs por vehículo (izquierda/derecha/trasera) para instalación más rápida."
+                "description": "Preparación de piezas diferenciadas para lateral izquierdo, lateral derecho, parte trasera y otras zonas."
+              },
+              {
+                "title": "Adaptación por modelo",
+                "description": "El diseño puede ajustarse a distintos coches, furgonetas o vehículos comerciales dentro de una misma flota."
               }
             ],
             "deliveryFormats": []
@@ -41677,18 +42288,19 @@
           "kind": "finishes",
           "contentFormat": "json",
           "finishesData": {
+            "intro": "Los acabados protegen la impresión y ayudan a adaptar el resultado a la estética y las condiciones de uso del vehículo.",
             "finishes": [
               {
-                "title": "Laminado protector recomendado para exterior",
-                "description": "Protege frente a UV, arañazos, lluvia y lavados."
+                "title": "Laminado mate",
+                "description": "Reduce reflejos y proporciona un acabado sobrio, además de proteger la impresión frente al uso exterior."
               },
               {
-                "title": "Acabado mate o brillo",
-                "description": "Mate reduce reflejos; brillo realza color."
+                "title": "Laminado brillo",
+                "description": "Realza el color y aporta una superficie brillante con protección frente a humedad, radiación UV y manipulación."
               },
               {
-                "title": "Corte y acabados",
-                "description": "Corte recto por piezas o corte a medida al contorno."
+                "title": "Corte a contorno",
+                "description": "Permite recortar logotipos, textos y elementos gráficos siguiendo su silueta."
               }
             ]
           }
@@ -41699,7 +42311,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Tipos de vinilo (según objetivo) \nVinilo de corte: textos y logos sin fondo (acabado muy limpio). \nVinilo impreso: permite fotos, degradados y creatividades completas.\nRotulación parcial o integral (según cobertura): desde puertas y laterales hasta grandes superficies. \nAdaptación a la carrocería \nMateriales con buena conformidad para ajustarse a curvas y zonas complejas (según el tipo de rotulación). \nPlanificación por piezas para encajar bien en puertas, laterales, capó o trasera. \nAdhesivo \nOpciones permanentes para rotulación estable. \nOpciones removibles para campañas temporales (según material y tiempo de uso). \nProtección y durabilidad \nLaminado protector recomendado para exterior: protege frente a UV, arañazos, lluvia y lavados. \nAcabado mate o brillo según estética y visibilidad (mate reduce reflejos; brillo realza color). \nCorte y acabados \nCorte recto por piezas o corte a medida al contorno. \nPosibilidad de preparar packs por vehículo (izquierda/derecha/trasera) para instalación más rápida. \nDiseño orientado a lectura\nTextos claros, alto contraste y jerarquía (en movimiento, se lee en segundos). \nUbicación estratégica de datos: teléfono/web en zonas visibles (laterales/trasera)."
+          "body": "### Adaptación a la carrocería\n\n- Selección del material según la superficie, las curvas y las zonas que deben rotularse.\n- Planificación de las piezas para puertas, laterales, capó, trasera y otras áreas.\n- Ajuste del diseño a diferentes modelos de vehículo cuando se trabaja con una flota.\n\n### Adhesivo y duración\n\n- Opciones removibles para campañas temporales.\n- Opciones permanentes para rotulación corporativa de larga duración.\n- La duración depende del material, la exposición exterior, los lavados y el mantenimiento.\n\n### Protección exterior\n\n- Laminado protector recomendado para vinilos impresos.\n- Protección frente a radiación UV, humedad, pequeños arañazos y lavados habituales.\n- Acabado mate o brillo según la estética y la visibilidad deseadas.\n\n### Corte y preparación\n\n- Corte recto por piezas o corte siguiendo el contorno del diseño.\n- Posibilidad de preparar packs identificados por vehículo y zona de aplicación.\n- Los textos y datos de contacto deben tener buena legibilidad y contraste para poder leerse rápidamente."
         },
         {
           "id": "applications",
@@ -41708,26 +42320,27 @@
           "kind": "applications",
           "contentFormat": "json",
           "applicationsData": {
+            "intro": "La rotulación de vehículos permite identificar la empresa, reforzar la marca y convertir la flota en un soporte publicitario móvil.",
             "applications": [
               {
                 "title": "Rotulación corporativa",
-                "description": "logo, web, teléfono, servicios y claim."
+                "description": "Logotipo, teléfono, web, servicios, mensaje comercial y elementos de identidad de marca."
               },
               {
                 "title": "Flotas comerciales",
-                "description": "furgonetas, turismos, camiones y vehículos de reparto."
+                "description": "Identificación coherente de coches, furgonetas, camiones y vehículos de reparto."
               },
               {
                 "title": "Campañas temporales",
-                "description": "promociones estacionales, lanzamientos, eventos."
+                "description": "Promociones estacionales, lanzamientos, eventos y acciones publicitarias de duración limitada."
               },
               {
                 "title": "Servicios técnicos",
-                "description": "identificación rápida (zonas, equipos, numeración, horarios)."
+                "description": "Identificación de zonas, equipos, numeración, horarios o especialidades del vehículo."
               },
               {
-                "title": "Vehículos de eventos",
-                "description": "apoyo a campañas, roadshows y activaciones de marca."
+                "title": "Eventos y activaciones",
+                "description": "Vehículos utilizados en roadshows, acciones promocionales y campañas itinerantes."
               }
             ]
           }
@@ -41769,7 +42382,7 @@
           "url": "/categorias/gran-formato/material-flexible"
         },
         {
-          "name": "Vinilo para vehículos personalizado (rotulación y branding)",
+          "name": "Vinilo para vehículos personalizado",
           "url": "/productos/vinilo-vehiculos-personalizado"
         }
       ],
@@ -41798,8 +42411,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Vinilo para Vehículo Personalizado | Rotulación Profesional para Empresa",
-        "metaDescription": "Vinilo para vehículos personalizado para rotulación comercial y campañas. Impresión a color, laminado protector y corte a medida.",
+        "metaTitle": "Vinilo para vehículos | Rotulación profesional",
+        "metaDescription": "Vinilo para vehículos a medida para flotas y campañas. Corte o impresión, opción removible o permanente y laminado protector. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/vinilo-vehiculos-personalizado",
         "hreflang": [
           {
@@ -41827,8 +42440,8 @@
           "@graph": [
             {
               "@type": "Product",
-              "name": "Vinilo para vehículos personalizado (rotulación y branding)",
-              "description": "Vinilo para vehículos personalizado para rotulación comercial y campañas. Impresión a color, laminado protector y corte a medida.",
+              "name": "Vinilo para vehículos personalizado",
+              "description": "Vinilo para vehículos a medida para flotas y campañas. Corte o impresión, opción removible o permanente y laminado protector. Solicita presupuesto.",
               "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-para-vehiculos.webp",
               "url": "https://reprodisseny.com/productos/vinilo-vehiculos-personalizado",
               "brand": {
@@ -41866,7 +42479,7 @@
                 {
                   "@type": "ListItem",
                   "position": 5,
-                  "name": "Vinilo para vehículos personalizado (rotulación y branding)",
+                  "name": "Vinilo para vehículos personalizado",
                   "item": "https://reprodisseny.com/productos/vinilo-vehiculos-personalizado"
                 }
               ]
