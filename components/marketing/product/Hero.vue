@@ -65,16 +65,12 @@ const productTitle = computed(() => props.product?.title?.trim() || "");
 
 const productDesc = computed(() => {
   return (
-    props.product?.shortDescription?.trim() ||
-    props.product?.description?.trim() ||
-    ""
+    props.product?.shortDescription?.trim() || props.product?.description?.trim() || ""
   );
 });
 
 const productAriaLabel = computed(() =>
-  productTitle.value
-    ? `Página del producto ${productTitle.value}`
-    : "Página de producto",
+  productTitle.value ? `Página del producto ${productTitle.value}` : "Página de producto"
 );
 
 const imgAlt = computed(() => {
@@ -130,7 +126,6 @@ const extraFields = computed(() => {
 
 const productNameForForm = computed(() => productTitle.value || "Producto");
 </script>
-
 <template>
   <article
     class="product-hero"
@@ -139,46 +134,48 @@ const productNameForForm = computed(() => productTitle.value || "Producto");
     :aria-label="productAriaLabel"
   >
     <meta v-if="product?.sku" itemprop="sku" :content="String(product.sku)" />
+
     <meta v-if="productTitle" itemprop="name" :content="productTitle" />
+
     <meta v-if="productDesc" itemprop="description" :content="productDesc" />
 
+    <header class="product-hero__header">
+      <p v-if="category?.title || category?.nav" class="product-hero__category-pill">
+        {{ category?.nav || category?.title }}
+      </p>
+
+      <h1 class="product-hero__title" :title="productTitle" itemprop="name">
+        {{ productTitle }}
+      </h1>
+
+      <p v-if="productDesc" class="product-hero__description" itemprop="description">
+        {{ productDesc }}
+      </p>
+    </header>
+
     <div class="product-hero__grid">
-      <section class="product-hero__main">
-        <div class="product-hero__content">
-          <header class="product-hero__header">
-            <p v-if="category?.title || category?.nav" class="product-hero__category-pill">
-              {{ category?.nav || category?.title }}
-            </p>
-
-            <h1 class="product-hero__title" :title="productTitle" itemprop="name">
-              {{ productTitle }}
-            </h1>
-
-            <p v-if="productDesc" class="product-hero__description" itemprop="description">
-              {{ productDesc }}
-            </p>
-          </header>
-
-          <ProductHeroGallery
-            class="product-hero__gallery"
-            :primary-image="primaryImage"
-            :images="galleryImages"
-            :alt="imgAlt"
-            :fallback="FALLBACK"
-          />
-
-          <ProductAttributePills v-if="attributePills.length" :items="attributePills" />
-        </div>
+      <section class="product-hero__main" aria-label="Galería del producto">
+        <ProductHeroGallery
+          class="product-hero__gallery"
+          :primary-image="primaryImage"
+          :images="galleryImages"
+          :alt="imgAlt"
+          :fallback="FALLBACK"
+        />
       </section>
 
-      <aside class="product-hero__aside">
+      <div v-if="attributePills.length" class="product-hero__attributes">
+        <ProductAttributePills :items="attributePills" />
+      </div>
+
+      <aside class="product-hero__aside" aria-label="Solicitud de presupuesto">
         <div class="product-lead-card">
           <LeadForm
             :producto="productNameForForm"
             :category-slug="categorySlug"
             :extra-fields="extraFields"
             :product-data="product"
-            class="w-full xl:min-h-0 xl:flex-1"
+            class="h-full w-full min-h-0 flex-1"
           />
         </div>
       </aside>
