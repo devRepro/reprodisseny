@@ -1,35 +1,35 @@
 <script setup lang="ts">
-import { computed } from "vue"
-
+import { computed } from "vue";
+import AppButton from "@/components/shared/button/AppButton.vue";
 type GuideBannerCta = {
-  label: string
-  to: string
-  external?: boolean
-  ariaLabel?: string
-}
+  label: string;
+  to: string;
+  external?: boolean;
+  ariaLabel?: string;
+};
 
 type Props = {
-  title?: string
-  description?: string
-  cta?: GuideBannerCta | null
+  title?: string;
+  description?: string;
+  cta?: GuideBannerCta | null;
 
-  imageBasePath?: string
-  imageName?: string
-  imageAlt?: string
-  imageSizes?: string
+  imageBasePath?: string;
+  imageName?: string;
+  imageAlt?: string;
+  imageSizes?: string;
 
-  height?: number
-  mobileHeight?: number
-  desktopHeight?: number
+  height?: number;
+  mobileHeight?: number;
+  desktopHeight?: number;
 
-  fullBleed?: boolean
-  rounded?: boolean
+  fullBleed?: boolean;
+  rounded?: boolean;
 
-  containerClass?: string
-  contentClass?: string
-  objectPosition?: string
-  overlayClass?: string
-}
+  containerClass?: string;
+  contentClass?: string;
+  objectPosition?: string;
+  overlayClass?: string;
+};
 
 const props = withDefaults(defineProps<Props>(), {
   title: "¿Sabes cómo preparar tus archivos correctamente?",
@@ -56,23 +56,23 @@ const props = withDefaults(defineProps<Props>(), {
   contentClass: "",
   objectPosition: "right center",
   overlayClass: "guide-banner__overlay",
-})
+});
 
-const hasCta = computed(() => Boolean(props.cta?.label && props.cta?.to))
+const hasCta = computed(() => Boolean(props.cta?.label && props.cta?.to));
 
 const normalizedBasePath = computed(() => {
-  const value = String(props.imageBasePath || "").trim()
+  const value = String(props.imageBasePath || "").trim();
 
-  if (!value) return ""
+  if (!value) return "";
 
-  const cleanValue = value.replace(/\/$/, "")
+  const cleanValue = value.replace(/\/$/, "");
 
-  return cleanValue.startsWith("/") ? cleanValue : `/${cleanValue}`
-})
+  return cleanValue.startsWith("/") ? cleanValue : `/${cleanValue}`;
+});
 
 const normalizedImageName = computed(() =>
   String(props.imageName || "archivos_banner").trim()
-)
+);
 
 const bannerStyle = computed(
   () =>
@@ -81,10 +81,10 @@ const bannerStyle = computed(
       "--guide-banner-height-mobile": `${props.mobileHeight}px`,
       "--guide-banner-height-desktop": `${props.desktopHeight}px`,
       "--guide-banner-object-position": props.objectPosition,
-    }) as Record<string, string>
-)
+    } as Record<string, string>)
+);
 
-const imageWidths = [1440, 1920, 2560, 2880, 3840, 4096] as const
+const imageWidths = [1440, 1920, 2560, 2880, 3840, 4096] as const;
 
 const webpSrcset = computed(() =>
   imageWidths
@@ -93,7 +93,7 @@ const webpSrcset = computed(() =>
         `${normalizedBasePath.value}/${normalizedImageName.value}_${width}w.webp ${width}w`
     )
     .join(", ")
-)
+);
 
 const jpgSrcset = computed(() =>
   imageWidths
@@ -102,13 +102,13 @@ const jpgSrcset = computed(() =>
         `${normalizedBasePath.value}/${normalizedImageName.value}_${width}w.jpg ${width}w`
     )
     .join(", ")
-)
+);
 
 const fallbackImage = computed(
   () => `${normalizedBasePath.value}/${normalizedImageName.value}_1920w.jpg`
-)
+);
 
-const isDecorativeImage = computed(() => !props.imageAlt)
+const isDecorativeImage = computed(() => !props.imageAlt);
 </script>
 
 <template>
@@ -127,17 +127,9 @@ const isDecorativeImage = computed(() => !props.imageAlt)
     >
       <div class="guide-banner__media">
         <picture class="guide-banner__picture">
-          <source
-            type="image/webp"
-            :srcset="webpSrcset"
-            :sizes="props.imageSizes"
-          />
+          <source type="image/webp" :srcset="webpSrcset" :sizes="props.imageSizes" />
 
-          <source
-            type="image/jpeg"
-            :srcset="jpgSrcset"
-            :sizes="props.imageSizes"
-          />
+          <source type="image/jpeg" :srcset="jpgSrcset" :sizes="props.imageSizes" />
 
           <img
             class="guide-banner__image"
@@ -153,28 +145,18 @@ const isDecorativeImage = computed(() => !props.imageAlt)
 
         <div class="guide-banner__body">
           <div :class="[props.containerClass, 'guide-banner__container']">
-            <div
-              class="guide-banner__content"
-              :class="props.contentClass"
-            >
+            <div class="guide-banner__content" :class="props.contentClass">
               <h2 class="guide-banner__title">
                 {{ props.title }}
               </h2>
 
-              <p
-                v-if="props.description"
-                class="guide-banner__description"
-              >
+              <p v-if="props.description" class="guide-banner__description">
                 {{ props.description }}
               </p>
 
-              <div
-                v-if="hasCta"
-                class="guide-banner__actions"
-              >
+              <div v-if="hasCta" class="guide-banner__actions">
                 <AppButton
                   :to="props.cta!.to"
-                  :external="props.cta?.external"
                   :aria-label="props.cta?.ariaLabel || props.cta?.label"
                   variant="primary"
                   size="lg"

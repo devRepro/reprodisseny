@@ -342,9 +342,9 @@ const CATEGORY_FIELDS = {
 
 const PRODUCT_FIELDS = {
   title: "Title",
-  slug: "Slug",
-  categorySlug: "PrimaryCategory",
-  legacyCategorySlug: "CategorySlug",
+  slug: "ProductSlug",
+  categorySlug: "CategorySlug",
+  legacyCategorySlug: "PrimaryCategory",
   categories: "Categories",
   isFeatured: "IsFeatured",
   isPublished: "IsPublished",

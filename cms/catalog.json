@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-14T12:54:59.895Z",
+  "generatedAt": "2026-07-15T08:29:53.987Z",
   "categories": [
     {
       "id": "12",
@@ -4051,7 +4051,7 @@
     },
     {
       "id": "1",
-      "updatedAt": "2026-06-10T10:03:57Z",
+      "updatedAt": "2026-07-15T08:24:50Z",
       "type": "producto",
       "slug": "abanicos-personalizados",
       "path": "/productos/abanicos-personalizados",
@@ -4064,7 +4064,7 @@
       "isPublished": true,
       "shortDescription": "Los abanicos personalizados son un detalle útil y muy visible en eventos con calor: mejoran la experiencia del asistente y, a la vez, hacen que tu marca esté presente en fotos, vídeos y durante todo el acto. En Repro Disseny producimos abanicos para bodas, eventos corporativos, festivales y acciones de marca, con impresión cuidada y opciones de formato según el uso.",
       "description": "Los abanicos personalizados son un detalle útil y muy visible en eventos con calor: mejoran la experiencia del asistente y, a la vez, hacen que tu marca esté presente en fotos, vídeos y durante todo el acto. En Repro Disseny producimos abanicos para bodas, eventos corporativos, festivales y acciones de marca, con impresión cuidada y opciones de formato según el uso.",
-      "bodyMd": "## Qué es un abanico personalizado y para qué se usa\n\nUn abanico personalizado es una pieza de merchandising para eventos, bodas, ferias y campañas de verano. Combina utilidad real —refrescar y acompañar al asistente— con visibilidad de marca en una superficie impresa que se usa durante el evento y puede conservarse como recuerdo.\n\nEs especialmente útil cuando buscas una pieza ligera, fácil de repartir y con buena presencia visual. Puede producirse en formato plegable, con varillas, o en formato pai pai, más directo y económico para acciones promocionales.\n\nTrabajamos el diseño, el formato y el soporte según el tipo de evento, la cantidad, la fecha de entrega y la percepción de calidad que quieres transmitir.",
+      "bodyMd": "### Qué es un abanico personalizado y para qué se usa\n\nUn abanico personalizado es una pieza de merchandising para eventos, bodas, ferias y campañas de verano. Combina utilidad real —refrescar y acompañar al asistente— con visibilidad de marca en una superficie impresa que se usa durante el evento y puede conservarse como recuerdo.\n\nEs especialmente útil cuando buscas una pieza ligera, fácil de repartir y con buena presencia visual. Puede producirse en formato plegable, con varillas, o en formato pai pai, más directo y económico para acciones promocionales.\n\nTrabajamos el diseño, el formato y el soporte según el tipo de evento, la cantidad, la fecha de entrega y la percepción de calidad que quieres transmitir.",
       "sections": [
         {
           "id": "details",
@@ -4072,7 +4072,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "## Qué es un abanico personalizado y para qué se usa\n\nUn abanico personalizado es una pieza de merchandising para eventos, bodas, ferias y campañas de verano. Combina utilidad real —refrescar y acompañar al asistente— con visibilidad de marca en una superficie impresa que se usa durante el evento y puede conservarse como recuerdo.\n\nEs especialmente útil cuando buscas una pieza ligera, fácil de repartir y con buena presencia visual. Puede producirse en formato plegable, con varillas, o en formato pai pai, más directo y económico para acciones promocionales.\n\nTrabajamos el diseño, el formato y el soporte según el tipo de evento, la cantidad, la fecha de entrega y la percepción de calidad que quieres transmitir."
+          "body": "### Qué es un abanico personalizado y para qué se usa\n\nUn abanico personalizado es una pieza de merchandising para eventos, bodas, ferias y campañas de verano. Combina utilidad real —refrescar y acompañar al asistente— con visibilidad de marca en una superficie impresa que se usa durante el evento y puede conservarse como recuerdo.\n\nEs especialmente útil cuando buscas una pieza ligera, fácil de repartir y con buena presencia visual. Puede producirse en formato plegable, con varillas, o en formato pai pai, más directo y económico para acciones promocionales.\n\nTrabajamos el diseño, el formato y el soporte según el tipo de evento, la cantidad, la fecha de entrega y la percepción de calidad que quieres transmitir."
         },
         {
           "id": "benefits",
@@ -5467,7 +5467,7 @@
     },
     {
       "id": "5",
-      "updatedAt": "2026-06-10T10:03:57Z",
+      "updatedAt": "2026-07-15T08:18:59Z",
       "type": "producto",
       "slug": "archivadores-personalizados",
       "path": "/productos/archivadores-personalizados",
@@ -5480,7 +5480,7 @@
       "isPublished": true,
       "shortDescription": "Los archivadores son básicos en cualquier oficina: ordenan documentación, facilitan el acceso y mantienen una imagen corporativa coherente. En Repro Disseny realizamos archivadores personalizados para empresas, con diseño de marca, lomo identificable y opciones de personalización para que tu documentación esté organizada y se vea profesional en estantería.",
       "description": "Los archivadores son básicos en cualquier oficina: ordenan documentación, facilitan el acceso y mantienen una imagen corporativa coherente. En Repro Disseny realizamos archivadores personalizados para empresas, con diseño de marca, lomo identificable y opciones de personalización para que tu documentación esté organizada y se vea profesional en estantería.",
-      "bodyMd": "¿Qué es un archivador personalizado y para qué se usa? \nUn archivador personalizado es una carpeta rígida (de palanca o anillas) diseñada para almacenar y clasificar documentos (habitualmente A4). Se personaliza con la identidad corporativa (logo, colores, datos) y, sobre todo, con un lomo visible para identificar el contenido rápidamente: contabilidad, RRHH, proyectos, procedimientos, tarifas, formación, etc.",
+      "bodyMd": "### ¿Qué es un archivador personalizado y para qué se usa? \nUn archivador personalizado es una carpeta rígida (de palanca o anillas) diseñada para almacenar y clasificar documentos (habitualmente A4). Se personaliza con la identidad corporativa (logo, colores, datos) y, sobre todo, con un lomo visible para identificar el contenido rápidamente: contabilidad, RRHH, proyectos, procedimientos, tarifas, formación, etc.",
       "sections": [
         {
           "id": "details",
@@ -5488,7 +5488,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es un archivador personalizado y para qué se usa? \nUn archivador personalizado es una carpeta rígida (de palanca o anillas) diseñada para almacenar y clasificar documentos (habitualmente A4). Se personaliza con la identidad corporativa (logo, colores, datos) y, sobre todo, con un lomo visible para identificar el contenido rápidamente: contabilidad, RRHH, proyectos, procedimientos, tarifas, formación, etc."
+          "body": "### ¿Qué es un archivador personalizado y para qué se usa? \nUn archivador personalizado es una carpeta rígida (de palanca o anillas) diseñada para almacenar y clasificar documentos (habitualmente A4). Se personaliza con la identidad corporativa (logo, colores, datos) y, sobre todo, con un lomo visible para identificar el contenido rápidamente: contabilidad, RRHH, proyectos, procedimientos, tarifas, formación, etc."
         },
         {
           "id": "benefits",
@@ -6055,7 +6055,7 @@
     },
     {
       "id": "6",
-      "updatedAt": "2026-06-10T10:03:57Z",
+      "updatedAt": "2026-07-15T08:19:30Z",
       "type": "producto",
       "slug": "banderola-fachada-personalizada",
       "path": "/productos/banderola-fachada-personalizada",
@@ -6068,7 +6068,7 @@
       "isPublished": true,
       "shortDescription": "La banderola luminosa para fachada es una de las soluciones más eficaces para señalizar y dar visibilidad a un negocio: destaca de día y, sobre todo, de noche, cuando la iluminación marca la diferencia. En Repro Disseny preparamos banderolas luminosas personalizadas con gráfica retroiluminada (backlit) y acabados listos para instalación, para que tu marca se vea clara desde la calle.",
       "description": "La banderola luminosa para fachada es una de las soluciones más eficaces para señalizar y dar visibilidad a un negocio: destaca de día y, sobre todo, de noche, cuando la iluminación marca la diferencia. En Repro Disseny preparamos banderolas luminosas personalizadas con gráfica retroiluminada (backlit) y acabados listos para instalación, para que tu marca se vea clara desde la calle.",
-      "bodyMd": "¿Qué es una banderola luminosa para fachada y para qué se usa? \nUna banderola luminosa es un elemento de comunicación exterior que incorpora iluminación (habitualmente LED) y una gráfica preparada para que, al iluminarse, el diseño se vea uniforme y con alto impacto. Se instala en fachada mediante soporte/brazo y se utiliza para identificar el negocio, reforzar marca y mejorar la localización desde distintos ángulos, especialmente en calles con competencia visual o zonas con poco contraste nocturno.",
+      "bodyMd": "### ¿Qué es una banderola luminosa para fachada y para qué se usa? \nUna banderola luminosa es un elemento de comunicación exterior que incorpora iluminación (habitualmente LED) y una gráfica preparada para que, al iluminarse, el diseño se vea uniforme y con alto impacto. Se instala en fachada mediante soporte/brazo y se utiliza para identificar el negocio, reforzar marca y mejorar la localización desde distintos ángulos, especialmente en calles con competencia visual o zonas con poco contraste nocturno.",
       "sections": [
         {
           "id": "details",
@@ -6076,7 +6076,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es una banderola luminosa para fachada y para qué se usa? \nUna banderola luminosa es un elemento de comunicación exterior que incorpora iluminación (habitualmente LED) y una gráfica preparada para que, al iluminarse, el diseño se vea uniforme y con alto impacto. Se instala en fachada mediante soporte/brazo y se utiliza para identificar el negocio, reforzar marca y mejorar la localización desde distintos ángulos, especialmente en calles con competencia visual o zonas con poco contraste nocturno."
+          "body": "### ¿Qué es una banderola luminosa para fachada y para qué se usa? \nUna banderola luminosa es un elemento de comunicación exterior que incorpora iluminación (habitualmente LED) y una gráfica preparada para que, al iluminarse, el diseño se vea uniforme y con alto impacto. Se instala en fachada mediante soporte/brazo y se utiliza para identificar el negocio, reforzar marca y mejorar la localización desde distintos ángulos, especialmente en calles con competencia visual o zonas con poco contraste nocturno."
         },
         {
           "id": "benefits",
@@ -6301,7 +6301,7 @@
     },
     {
       "id": "8",
-      "updatedAt": "2026-06-10T10:03:57Z",
+      "updatedAt": "2026-07-15T08:19:48Z",
       "type": "producto",
       "slug": "banderolas-lineal-personalizadas",
       "path": "/productos/banderolas-lineal-personalizadas",
@@ -6314,7 +6314,7 @@
       "isPublished": true,
       "shortDescription": "Las banderolas de lineal son una pieza de PLV muy efectiva para aumentar la visibilidad de un producto en estantería: sobresalen del lineal y ayudan a captar la atención justo en el momento de compra. En Repro Disseny fabricamos banderolas personalizadas con impresión de calidad, soportes adecuados y sistemas de fijación pensados para montaje rápido en tienda.",
       "description": "Las banderolas de lineal son una pieza de PLV muy efectiva para aumentar la visibilidad de un producto en estantería: sobresalen del lineal y ayudan a captar la atención justo en el momento de compra. En Repro Disseny fabricamos banderolas personalizadas con impresión de calidad, soportes adecuados y sistemas de fijación pensados para montaje rápido en tienda.",
-      "bodyMd": "¿Qué es una banderola de lineal y para qué se usa? \nUna banderola de lineal es un elemento publicitario que se coloca en estanterías o góndolas (normalmente en el borde o en un rail) y queda visible por encima o delante del producto. Se utiliza para destacar ofertas, novedades, packs, promociones temporales o mensajes como “Nuevo”, “Top ventas”, “Edición limitada”, etc.",
+      "bodyMd": "### ¿Qué es una banderola de lineal y para qué se usa? \nUna banderola de lineal es un elemento publicitario que se coloca en estanterías o góndolas (normalmente en el borde o en un rail) y queda visible por encima o delante del producto. Se utiliza para destacar ofertas, novedades, packs, promociones temporales o mensajes como “Nuevo”, “Top ventas”, “Edición limitada”, etc.",
       "sections": [
         {
           "id": "details",
@@ -6322,7 +6322,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es una banderola de lineal y para qué se usa? \nUna banderola de lineal es un elemento publicitario que se coloca en estanterías o góndolas (normalmente en el borde o en un rail) y queda visible por encima o delante del producto. Se utiliza para destacar ofertas, novedades, packs, promociones temporales o mensajes como “Nuevo”, “Top ventas”, “Edición limitada”, etc."
+          "body": "### ¿Qué es una banderola de lineal y para qué se usa? \nUna banderola de lineal es un elemento publicitario que se coloca en estanterías o góndolas (normalmente en el borde o en un rail) y queda visible por encima o delante del producto. Se utiliza para destacar ofertas, novedades, packs, promociones temporales o mensajes como “Nuevo”, “Top ventas”, “Edición limitada”, etc."
         },
         {
           "id": "benefits",
@@ -6575,7 +6575,7 @@
     },
     {
       "id": "9",
-      "updatedAt": "2026-06-11T13:50:48Z",
+      "updatedAt": "2026-07-15T08:19:58Z",
       "type": "producto",
       "slug": "banderolas-personalizadas",
       "path": "/productos/banderolas-personalizadas",
@@ -6588,7 +6588,7 @@
       "isPublished": true,
       "shortDescription": "Las banderolas son una de las soluciones más efectivas para ganar visibilidad en exterior: destacan a distancia, guían al público y refuerzan la marca en calles, accesos, recintos y fachadas. En Repro Disseny producimos banderolas personalizadas con impresión de calidad y acabados de confección para que queden bien tensadas, resistentes y listas para instalar.",
       "description": "Las banderolas son una de las soluciones más efectivas para ganar visibilidad en exterior: destacan a distancia, guían al público y refuerzan la marca en calles, accesos, recintos y fachadas. En Repro Disseny producimos banderolas personalizadas con impresión de calidad y acabados de confección para que queden bien tensadas, resistentes y listas para instalar.",
-      "bodyMd": "¿Qué es una banderola y para qué se usa?\n\nUna banderola publicitaria es un elemento de comunicación en formato vertical u horizontal, normalmente en lona o textil, diseñado para colocarse en exterior (o interior de grandes espacios) mediante soportes, brazos, farolas, fachadas o estructuras. Se utiliza para señalizar, promocionar y orientar en campañas, eventos y entornos comerciales.\"",
+      "bodyMd": "### ¿Qué es una banderola y para qué se usa?\n\nUna banderola publicitaria es un elemento de comunicación en formato vertical u horizontal, normalmente en lona o textil, diseñado para colocarse en exterior (o interior de grandes espacios) mediante soportes, brazos, farolas, fachadas o estructuras. Se utiliza para señalizar, promocionar y orientar en campañas, eventos y entornos comerciales.\"",
       "sections": [
         {
           "id": "details",
@@ -6596,39 +6596,121 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es una banderola y para qué se usa?\n\nUna banderola publicitaria es un elemento de comunicación en formato vertical u horizontal, normalmente en lona o textil, diseñado para colocarse en exterior (o interior de grandes espacios) mediante soportes, brazos, farolas, fachadas o estructuras. Se utiliza para señalizar, promocionar y orientar en campañas, eventos y entornos comerciales.\""
+          "body": "### ¿Qué es una banderola y para qué se usa?\n\nUna banderola publicitaria es un elemento de comunicación en formato vertical u horizontal, normalmente en lona o textil, diseñado para colocarse en exterior (o interior de grandes espacios) mediante soportes, brazos, farolas, fachadas o estructuras. Se utiliza para señalizar, promocionar y orientar en campañas, eventos y entornos comerciales.\""
         },
         {
           "id": "benefits",
           "key": "benefits",
           "title": "Beneficios",
           "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "{\n  \"\"intro\"\": \"\"Ventajas principales de banderolas personalizadas (publicidad exterior y eventos) para mejorar visibilidad, presencia de marca y eficacia en espacios físicos.\"\",\n  \"\"benefits\"\": [\n    {\n      \"\"title\"\": \"\"Visibilidad a gran distancia\"\",\n      \"\"description\"\": \"\"ideal para accesos, calles y recintos amplios.\"\",\n      \"\"icon\"\": \"\"Eye\"\",\n      \"\"iconKey\"\": \"\"eye\"\"\n    },\n    {\n      \"\"title\"\": \"\"Refuerza branding y patrocinadores\"\",\n      \"\"description\"\": \"\"tu marca se repite en puntos estratégicos del recorrido.\"\",\n      \"\"icon\"\": \"\"Sparkles\"\",\n      \"\"iconKey\"\": \"\"sparkles\"\"\n    },\n    {\n      \"\"title\"\": \"\"Señalización clara\"\",\n      \"\"description\"\": \"\"útil para dirigir flujos (entrada, taquillas, parking, zonas, escenario).\"\",\n      \"\"icon\"\": \"\"MousePointerClick\"\",\n      \"\"iconKey\"\": \"\"mouse-pointer-click\"\"\n    },\n    {\n      \"\"title\"\": \"\"Resistente para exterior\"\",\n      \"\"description\"\": \"\"materiales y confección pensados para intemperie.\"\",\n      \"\"icon\"\": \"\"ShieldCheck\"\",\n      \"\"iconKey\"\": \"\"shield-check\"\"\n    },\n    {\n      \"\"title\"\": \"\"Instalación adaptable\"\",\n      \"\"description\"\": \"\"diferentes sistemas de fijación según soporte y ubicación.\"\",\n      \"\"icon\"\": \"\"Move\"\",\n      \"\"iconKey\"\": \"\"move\"\"\n    }\n  ]\n}"
+          "contentFormat": "json",
+          "benefitsData": {
+            "intro": "Ventajas principales de las banderolas personalizadas para mejorar la visibilidad, la presencia de marca y la eficacia en espacios físicos.",
+            "benefits": [
+              {
+                "title": "Visibilidad a gran distancia",
+                "description": "Ideal para accesos, calles y recintos amplios."
+              },
+              {
+                "title": "Refuerzo de marca y patrocinadores",
+                "description": "La marca se repite en puntos estratégicos del recorrido."
+              },
+              {
+                "title": "Señalización clara",
+                "description": "Útil para dirigir flujos hacia entradas, taquillas, aparcamientos, zonas o escenarios."
+              },
+              {
+                "title": "Resistencia en exteriores",
+                "description": "Materiales y confección pensados para soportar las condiciones de intemperie."
+              },
+              {
+                "title": "Instalación adaptable",
+                "description": "Disponemos de diferentes sistemas de fijación según el soporte y la ubicación."
+              }
+            ]
+          }
         },
         {
           "id": "materials",
           "key": "materials",
           "title": "Materiales",
           "kind": "materials",
-          "contentFormat": "markdown",
-          "body": "{\n  \"\"intro\"\": \"\"Seleccionamos materiales y sistema de impresión para que el banderolas personalizadas (publicidad exterior y eventos) tenga presencia, estabilidad y resistencia según su uso real.\"\",\n  \"\"materials\"\": [\n    {\n      \"\"title\"\": \"\"Lona\"\",\n      \"\"description\"\": \"\"opción muy habitual por resistencia y buen comportamiento en exterior.\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Campañas, ferias, retail, eventos y comunicación corporativa\"\",\n      \"\"icon\"\": \"\"Layers\"\",\n      \"\"iconKey\"\": \"\"layers\"\"\n    },\n    {\n      \"\"title\"\": \"\"Textil\"\",\n      \"\"description\"\": \"\"acabado más “premium” y ligero; muy usado cuando se busca mejor estética o caída.\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Campañas, ferias, retail, eventos y comunicación corporativa\"\",\n      \"\"icon\"\": \"\"Printer\"\",\n      \"\"iconKey\"\": \"\"printer\"\"\n    },\n    {\n      \"\"title\"\": \"\"Material para uso temporal\"\",\n      \"\"description\"\": \"\"Impresión a todo color con buena reproducción para logos, iconos y tipografías.\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Campañas, ferias, retail, eventos y comunicación corporativa\"\",\n      \"\"icon\"\": \"\"Shield\"\",\n      \"\"iconKey\"\": \"\"shield\"\"\n    },\n    {\n      \"\"title\"\": \"\"Material para uso recurrente\"\",\n      \"\"description\"\": \"\"Posibilidad de una o dos caras (según ubicación y necesidad de visibilidad desde ambos sentidos).\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Campañas, ferias, retail, eventos y comunicación corporativa\"\",\n      \"\"icon\"\": \"\"RefreshCw\"\",\n      \"\"iconKey\"\": \"\"refresh-cw\"\"\n    }\n  ]\n}"
+          "contentFormat": "json",
+          "materialsData": {
+            "intro": "Seleccionamos el material y el sistema de impresión para que las banderolas tengan la presencia, estabilidad y resistencia adecuadas según su ubicación y duración.",
+            "materials": [
+              {
+                "title": "Lona frontlit",
+                "description": "Opción resistente y versátil para banderolas de exterior, campañas, fachadas y eventos."
+              },
+              {
+                "title": "Tejido de poliéster",
+                "description": "Material ligero, con buena caída y un acabado más elegante para espacios interiores, ferias y eventos."
+              },
+              {
+                "title": "Lona microperforada",
+                "description": "Recomendada para ubicaciones expuestas al viento, ya que permite reducir la presión sobre la banderola y su sistema de fijación."
+              }
+            ]
+          }
         },
         {
           "id": "formats",
           "key": "formats",
           "title": "Formatos y soportes",
           "kind": "formats",
-          "contentFormat": "markdown",
-          "body": "{\n  \"\"intro\"\": \"\"Definimos formato, medida y configuración de banderolas personalizadas (publicidad exterior y eventos) según el espacio, la distancia de lectura, el uso previsto y el sistema de montaje.\"\",\n  \"\"shapes\"\": [\n    {\n      \"\"title\"\": \"\"Medidas estándar o a medida\"\",\n      \"\"description\"\": \"\"Medidas estándar o a medida, según el soporte (farola, fachada, estructura) y la distancia de lectura.\"\",\n      \"\"icon\"\": \"\"Ruler\"\",\n      \"\"iconKey\"\": \"\"ruler\"\"\n    },\n    {\n      \"\"title\"\": \"\"Diseño optimizado para lectura rápida\"\",\n      \"\"description\"\": \"\"mensajes cortos, alto contraste y jerarquía clara.\"\",\n      \"\"icon\"\": \"\"PanelTop\"\",\n      \"\"iconKey\"\": \"\"maximize\"\"\n    }\n  ],\n  \"\"deliveryFormats\"\": []\n}"
+          "contentFormat": "json",
+          "formatsData": {
+            "intro": "Definimos el formato, la medida y la configuración de las banderolas personalizadas según el espacio disponible, la distancia de lectura, el uso previsto y el sistema de montaje.",
+            "shapes": [
+              {
+                "title": "Formato vertical a medida",
+                "description": "Adaptamos las dimensiones al soporte, ya sea una farola, una fachada, un mástil o una estructura específica."
+              },
+              {
+                "title": "Diseño para lectura a distancia",
+                "description": "Preparamos la composición con mensajes breves, buen contraste y una jerarquía visual clara."
+              }
+            ],
+            "deliveryFormats": [
+              {
+                "title": "Impresión a una cara",
+                "description": "Adecuada cuando la banderola se visualizará principalmente desde un único sentido."
+              },
+              {
+                "title": "Impresión a doble cara",
+                "description": "Recomendada cuando la pieza debe ser visible desde ambos sentidos de circulación."
+              }
+            ]
+          }
         },
         {
           "id": "finishes",
           "key": "finishes",
           "title": "Acabados",
           "kind": "finishes",
-          "contentFormat": "markdown",
-          "body": "{\n  \"\"intro\"\": \"\"Los acabados de banderolas personalizadas (publicidad exterior y eventos) se definen según duración, manipulación, instalación y nivel de presencia visual necesario.\"\",\n  \"\"finishes\"\": [\n    {\n      \"\"title\"\": \"\"Acabado protector\"\",\n      \"\"description\"\": \"\"Vaina (superior/inferior) para colocar en brazo o barra.\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Mejorar presencia, durabilidad, montaje y lectura del soporte\"\",\n      \"\"icon\"\": \"\"Shield\"\",\n      \"\"iconKey\"\": \"\"shield\"\"\n    },\n    {\n      \"\"title\"\": \"\"Corte a medida\"\",\n      \"\"description\"\": \"\"Ojales para fijación con bridas/cables (según estructura).\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Mejorar presencia, durabilidad, montaje y lectura del soporte\"\",\n      \"\"icon\"\": \"\"Scissors\"\",\n      \"\"iconKey\"\": \"\"scissors\"\"\n    },\n    {\n      \"\"title\"\": \"\"Sistema de montaje\"\",\n      \"\"description\"\": \"\"Dobladillo y refuerzo perimetral para mejorar resistencia.\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Mejorar presencia, durabilidad, montaje y lectura del soporte\"\",\n      \"\"icon\"\": \"\"Wrench\"\",\n      \"\"iconKey\"\": \"\"wrench\"\"\n    },\n    {\n      \"\"title\"\": \"\"Preparación de archivo\"\",\n      \"\"description\"\": \"\"Preparación específica según el sistema de instalación (farolas, mástiles, brazos, fachadas).\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Mejorar presencia, durabilidad, montaje y lectura del soporte\"\",\n      \"\"icon\"\": \"\"FileCheck\"\",\n      \"\"iconKey\"\": \"\"file-check\"\"\n    },\n    {\n      \"\"title\"\": \"\"Para exterior y campañas largas, conviene definir bien\"\",\n      \"\"description\"\": \"\"ubicación, exposición al viento y sistema de sujeción, para elegir el acabado de confección adecuado.\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Mejorar presencia, durabilidad, montaje y lectura del soporte\"\",\n      \"\"icon\"\": \"\"BadgeCheck\"\",\n      \"\"iconKey\"\": \"\"badge-check\"\"\n    }\n  ]\n}"
+          "contentFormat": "json",
+          "finishesData": {
+            "intro": "Los acabados de las banderolas personalizadas se definen según la duración de la campaña, la ubicación, la exposición al viento y el sistema de instalación.",
+            "finishes": [
+              {
+                "title": "Vaina superior e inferior",
+                "description": "Confección preparada para introducir brazos, barras o elementos rígidos de sujeción."
+              },
+              {
+                "title": "Ojales de fijación",
+                "description": "Permiten sujetar la banderola mediante bridas, cables o tensores según la estructura disponible."
+              },
+              {
+                "title": "Dobladillo y refuerzo perimetral",
+                "description": "Refuerza los bordes de la pieza y mejora su resistencia durante la instalación y el uso exterior."
+              },
+              {
+                "title": "Confección según el montaje",
+                "description": "Adaptamos la preparación de la pieza al sistema de instalación en farolas, mástiles, brazos, fachadas o estructuras."
+              }
+            ]
+          }
         },
         {
           "id": "technical-specs",
@@ -6647,7 +6729,24 @@
           "body": "Eventos y festivales: accesos, perímetro, zonas de paso, recinto y parking. \nAyuntamientos y campañas: comunicación en vía pública, señalización temporal. \nRetail y centros comerciales: campañas estacionales, rebajas, entradas y pasillos. \nHoteles y hostelería: eventos, congresos, señalización de accesos y zonas. \nFachadas y calles comerciales: promoción de marca, aperturas e inauguraciones."
         }
       ],
-      "faqs": [],
+      "faqs": [
+        {
+          "question": "¿Lona o textil?",
+          "answer": "La lona suele ser la opción más resistente y versátil. El textil es ligero y con un acabado más estético; te recomendamos según ubicación y duración."
+        },
+        {
+          "question": "¿Se pueden imprimir a doble cara?",
+          "answer": "Sí, y es recomendable cuando la banderola se verá desde ambos sentidos."
+        },
+        {
+          "question": "¿Qué necesitáis para presupuestar?",
+          "answer": "Medida, ubicación (farola/fachada/estructura), si será a una o dos caras y el sistema de fijación (si lo conoces). Si no, con una foto del punto de instalación suele bastar."
+        },
+        {
+          "question": "¿Podéis preparar el arte final para que se lea bien desde lejos?",
+          "answer": "Sí, podemos revisar el diseño y adaptar jerarquía y tamaños de texto para lectura a distancia."
+        }
+      ],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -6680,7 +6779,36 @@
       "inStock": true,
       "ratingValue": 0,
       "reviewCount": 0,
-      "attributes": [],
+      "attributes": [
+        {
+          "key": "alta-visibilidad",
+          "label": "Alta visibilidad",
+          "placement": "hero-pills",
+          "icon": "Eye",
+          "tone": "brand"
+        },
+        {
+          "key": "exterior-y-eventos",
+          "label": "Exterior y eventos",
+          "placement": "hero-pills",
+          "icon": "Megaphone",
+          "tone": "brand"
+        },
+        {
+          "key": "lona-o-textil",
+          "label": "Lona o textil",
+          "placement": "hero-pills",
+          "icon": "Layers",
+          "tone": "neutral"
+        },
+        {
+          "key": "confeccion-a-medida",
+          "label": "Confección a medida",
+          "placement": "hero-pills",
+          "icon": "Ruler",
+          "tone": "success"
+        }
+      ],
       "variants": [],
       "formFields": [
         {
@@ -6764,8 +6892,40 @@
             "url": "https://reprodisseny.com/productos/banderolas-personalizadas"
           }
         ],
-        "keywords": [],
-        "searchTerms": [],
+        "keywords": [
+          "banderolas personalizadas",
+          "banderolas publicitarias",
+          "banderolas publicitarias personalizados",
+          "banderolas publicitarias para empresas",
+          "expositores personalizados",
+          "expositores publicitarios",
+          "material para ferias",
+          "material para eventos",
+          "banderolas publicitarias para punto de venta",
+          "banderolas publicitarias para retail",
+          "señalización personalizada",
+          "imprenta expositores Barcelona"
+        ],
+        "searchTerms": [
+          "banderolas publicitarias",
+          "banderolas personalizadas",
+          "banderolas publicitarias personalizado",
+          "banderolas publicitarias personalizados",
+          "imprimir banderolas publicitarias",
+          "banderolas publicitarias a medida",
+          "banderolas publicitarias barcelona",
+          "banderolas publicitarias para ferias",
+          "banderolas publicitarias para eventos",
+          "banderolas publicitarias para retail",
+          "banderolas publicitarias para punto de venta",
+          "banderolas publicitarias para tiendas",
+          "banderolas publicitarias para empresas",
+          "expositores para ferias",
+          "expositores para eventos",
+          "expositores para punto de venta",
+          "material plv personalizado",
+          "soportes publicitarios personalizados"
+        ],
         "schema": {
           "@context": "https://schema.org",
           "@graph": [
@@ -6809,6 +6969,43 @@
                   "item": "https://reprodisseny.com/productos/banderolas-personalizadas"
                 }
               ]
+            },
+            {
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "¿Lona o textil?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "La lona suele ser la opción más resistente y versátil. El textil es ligero y con un acabado más estético; te recomendamos según ubicación y duración."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Se pueden imprimir a doble cara?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí, y es recomendable cuando la banderola se verá desde ambos sentidos."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Qué necesitáis para presupuestar?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Medida, ubicación (farola/fachada/estructura), si será a una o dos caras y el sistema de fijación (si lo conoces). Si no, con una foto del punto de instalación suele bastar."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Podéis preparar el arte final para que se lea bien desde lejos?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí, podemos revisar el diseño y adaptar jerarquía y tamaños de texto para lectura a distancia."
+                  }
+                }
+              ]
             }
           ]
         },
@@ -6818,7 +7015,7 @@
     },
     {
       "id": "10",
-      "updatedAt": "2026-06-11T13:54:04Z",
+      "updatedAt": "2026-07-15T08:20:09Z",
       "type": "producto",
       "slug": "banner-golf-personalizado",
       "path": "/productos/banner-golf-personalizado",
@@ -6831,7 +7028,7 @@
       "isPublished": true,
       "shortDescription": "El Banner Golf es un expositor pensado para exterior: se instala rápido, resiste bien en espacios abiertos y ofrece mucha visibilidad con un formato ligero y fácil de transportar. En Repro Disseny producimos banners golf personalizados para eventos deportivos, ferias, activaciones y señalización, con impresión de calidad y acabados listos para uso.",
       "description": "El Banner Golf es un expositor pensado para exterior: se instala rápido, resiste bien en espacios abiertos y ofrece mucha visibilidad con un formato ligero y fácil de transportar. En Repro Disseny producimos banners golf personalizados para eventos deportivos, ferias, activaciones y señalización, con impresión de calidad y acabados listos para uso.",
-      "bodyMd": "¿Qué es un Banner Golf y para qué se usa?\n\nUn Banner Golf es un expositor flexible con forma ovalada o similar, montado sobre una estructura que mantiene la gráfica tensada. Se usa sobre todo en exterior para señalización, patrocinio y branding en zonas de paso: recorridos deportivos, accesos, photocalls de meta, áreas de sponsors o activaciones de marca.",
+      "bodyMd": "###  ¿Qué es un Banner Golf y para qué se usa?\n\nUn Banner Golf es un expositor flexible con forma ovalada o similar, montado sobre una estructura que mantiene la gráfica tensada. Se usa sobre todo en exterior para señalización, patrocinio y branding en zonas de paso: recorridos deportivos, accesos, photocalls de meta, áreas de sponsors o activaciones de marca.",
       "sections": [
         {
           "id": "details",
@@ -6839,39 +7036,129 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es un Banner Golf y para qué se usa?\n\nUn Banner Golf es un expositor flexible con forma ovalada o similar, montado sobre una estructura que mantiene la gráfica tensada. Se usa sobre todo en exterior para señalización, patrocinio y branding en zonas de paso: recorridos deportivos, accesos, photocalls de meta, áreas de sponsors o activaciones de marca."
+          "body": "###  ¿Qué es un Banner Golf y para qué se usa?\n\nUn Banner Golf es un expositor flexible con forma ovalada o similar, montado sobre una estructura que mantiene la gráfica tensada. Se usa sobre todo en exterior para señalización, patrocinio y branding en zonas de paso: recorridos deportivos, accesos, photocalls de meta, áreas de sponsors o activaciones de marca."
         },
         {
           "id": "benefits",
           "key": "benefits",
           "title": "Beneficios",
           "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "{\n  \"\"intro\"\": \"\"Ventajas principales de banner golf personalizado (expositor exterior) para mejorar visibilidad, presencia de marca y eficacia en espacios físicos.\"\",\n  \"\"benefits\"\": [\n    {\n      \"\"title\"\": \"\"Muy visible en exterior\"\",\n      \"\"description\"\": \"\"formato bajo y ancho, perfecto para zonas de paso y recorridos.\"\",\n      \"\"icon\"\": \"\"Eye\"\",\n      \"\"iconKey\"\": \"\"eye\"\"\n    },\n    {\n      \"\"title\"\": \"\"Instalación rápida\"\",\n      \"\"description\"\": \"\"se monta y se recoge en pocos minutos.\"\",\n      \"\"icon\"\": \"\"Sparkles\"\",\n      \"\"iconKey\"\": \"\"sparkles\"\"\n    },\n    {\n      \"\"title\"\": \"\"Fácil de transportar\"\",\n      \"\"description\"\": \"\"ligero y pensado para campañas itinerantes o varios puntos de instalación.\"\",\n      \"\"icon\"\": \"\"MousePointerClick\"\",\n      \"\"iconKey\"\": \"\"mouse-pointer-click\"\"\n    },\n    {\n      \"\"title\"\": \"\"Ideal para patrocinadores\"\",\n      \"\"description\"\": \"\"permite repetir logos y mensajes en diferentes ubicaciones.\"\",\n      \"\"icon\"\": \"\"ShieldCheck\"\",\n      \"\"iconKey\"\": \"\"shield-check\"\"\n    },\n    {\n      \"\"title\"\": \"\"Versátil\"\",\n      \"\"description\"\": \"\"funciona para señalización (entrada/salida/parking) o comunicación de marca.\"\",\n      \"\"icon\"\": \"\"Move\"\",\n      \"\"iconKey\"\": \"\"move\"\"\n    }\n  ]\n}"
+          "contentFormat": "json",
+          "benefitsData": {
+            "intro": "Ventajas principales del banner golf personalizado para mejorar la visibilidad, la presencia de marca y la señalización en espacios exteriores.",
+            "benefits": [
+              {
+                "title": "Alta visibilidad en exterior",
+                "description": "Su formato bajo y ancho permite identificar marcas y mensajes en recorridos, accesos y zonas de paso."
+              },
+              {
+                "title": "Montaje rápido",
+                "description": "Se instala y se recoge en pocos minutos, facilitando su uso en eventos y campañas temporales."
+              },
+              {
+                "title": "Fácil de transportar",
+                "description": "Su estructura ligera permite trasladarlo cómodamente entre diferentes ubicaciones."
+              },
+              {
+                "title": "Ideal para patrocinadores",
+                "description": "Permite mostrar logotipos y mensajes de marca en puntos estratégicos del evento."
+              },
+              {
+                "title": "Señalización versátil",
+                "description": "Puede utilizarse para indicar entradas, salidas, aparcamientos, recorridos o zonas específicas."
+              }
+            ]
+          }
         },
         {
           "id": "materials",
           "key": "materials",
           "title": "Materiales",
           "kind": "materials",
-          "contentFormat": "markdown",
-          "body": "{\n  \"\"intro\"\": \"\"Seleccionamos materiales y sistema de impresión para que el banner golf personalizado (expositor exterior) tenga presencia, estabilidad y resistencia según su uso real.\"\",\n  \"\"materials\"\": [\n    {\n      \"\"title\"\": \"\"Soporte recomendado\"\",\n      \"\"description\"\": \"\"Impresión a todo color con buena definición para logos, iconos y tipografías.\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Campañas, ferias, retail, eventos y comunicación corporativa\"\",\n      \"\"icon\"\": \"\"Layers\"\",\n      \"\"iconKey\"\": \"\"layers\"\"\n    },\n    {\n      \"\"title\"\": \"\"Impresión a color\"\",\n      \"\"description\"\": \"\"Posibilidad de una o dos caras (muy recomendable si se verá desde ambos sentidos).\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Campañas, ferias, retail, eventos y comunicación corporativa\"\",\n      \"\"icon\"\": \"\"Printer\"\",\n      \"\"iconKey\"\": \"\"printer\"\"\n    },\n    {\n      \"\"title\"\": \"\"Material para uso temporal\"\",\n      \"\"description\"\": \"\"Material flexible pensado para exterior.\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Campañas, ferias, retail, eventos y comunicación corporativa\"\",\n      \"\"icon\"\": \"\"Shield\"\",\n      \"\"iconKey\"\": \"\"shield\"\"\n    },\n    {\n      \"\"title\"\": \"\"Material para uso recurrente\"\",\n      \"\"description\"\": \"\"Estructura que mantiene la gráfica tensada y estable (según sistema y ubicación).\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Campañas, ferias, retail, eventos y comunicación corporativa\"\",\n      \"\"icon\"\": \"\"RefreshCw\"\",\n      \"\"iconKey\"\": \"\"refresh-cw\"\"\n    }\n  ]\n}"
+          "contentFormat": "json",
+          "materialsData": {
+            "intro": "Seleccionamos la gráfica, la estructura y el sistema de sujeción según la ubicación, la duración de la campaña y las condiciones de uso.",
+            "materials": [
+              {
+                "title": "Gráfica textil",
+                "description": "Material ligero y flexible, adecuado para obtener una buena reproducción de logotipos, colores y mensajes."
+              },
+              {
+                "title": "Lona ligera",
+                "description": "Alternativa resistente para determinados usos exteriores y campañas de mayor exigencia."
+              },
+              {
+                "title": "Estructura flexible",
+                "description": "Mantiene la gráfica tensada y ayuda a conservar la forma ovalada o elíptica del expositor."
+              },
+              {
+                "title": "Sistema de sujeción",
+                "description": "Se adapta al terreno y a la ubicación mediante piquetas, bases u otros elementos de fijación."
+              }
+            ]
+          }
         },
         {
           "id": "formats",
           "key": "formats",
           "title": "Formatos y soportes",
           "kind": "formats",
-          "contentFormat": "markdown",
-          "body": "{\n  \"\"intro\"\": \"\"Definimos formato, medida y configuración de banner golf personalizado (expositor exterior) según el espacio, la distancia de lectura, el uso previsto y el sistema de montaje.\"\",\n  \"\"shapes\"\": [\n    {\n      \"\"title\"\": \"\"Formas habituales\"\",\n      \"\"description\"\": \"\"ovalada / elíptica, con tamaños estándar o a medida según visibilidad y espacio.\"\",\n      \"\"icon\"\": \"\"Ruler\"\",\n      \"\"iconKey\"\": \"\"ruler\"\"\n    },\n    {\n      \"\"title\"\": \"\"Diseño optimizado para lectura rápida\"\",\n      \"\"description\"\": \"\"mensajes cortos, buen contraste y logos claros.\"\",\n      \"\"icon\"\": \"\"PanelTop\"\",\n      \"\"iconKey\"\": \"\"maximize\"\"\n    },\n    {\n      \"\"title\"\": \"\"Material flexible pensado para exterior.\"\",\n      \"\"description\"\": \"\"Material flexible pensado para exterior.\"\",\n      \"\"icon\"\": \"\"Move\"\",\n      \"\"iconKey\"\": \"\"panel-top\"\"\n    },\n    {\n      \"\"title\"\": \"\"Sistema de montaje\"\",\n      \"\"description\"\": \"\"Estructura que mantiene la gráfica tensada y estable (según sistema y ubicación).\"\",\n      \"\"icon\"\": \"\"MapPin\"\",\n      \"\"iconKey\"\": \"\"move\"\"\n    }\n  ],\n  \"\"deliveryFormats\"\": []\n}"
+          "contentFormat": "json",
+          "formatsData": {
+            "intro": "Definimos el formato, la medida y la configuración del banner golf según el espacio disponible, la distancia de lectura y la visibilidad necesaria.",
+            "shapes": [
+              {
+                "title": "Formato ovalado o elíptico",
+                "description": "Diseño característico, bajo y alargado, pensado para señalización y comunicación de marca en exteriores."
+              },
+              {
+                "title": "Tamaños estándar o personalizados",
+                "description": "Seleccionamos las dimensiones según el espacio, el recorrido y la distancia desde la que debe leerse."
+              },
+              {
+                "title": "Diseño para lectura rápida",
+                "description": "Recomendamos mensajes breves, buen contraste y logotipos claramente identificables."
+              }
+            ],
+            "deliveryFormats": [
+              {
+                "title": "Impresión a una cara",
+                "description": "Adecuada cuando el expositor se visualizará principalmente desde una única dirección."
+              },
+              {
+                "title": "Impresión a doble cara",
+                "description": "Recomendada para recorridos, accesos y ubicaciones donde el banner se verá desde ambos sentidos."
+              }
+            ]
+          }
         },
         {
           "id": "finishes",
           "key": "finishes",
           "title": "Acabados",
           "kind": "finishes",
-          "contentFormat": "markdown",
-          "body": "{\n  \"\"intro\"\": \"\"Los acabados de banner golf personalizado (expositor exterior) se definen según duración, manipulación, instalación y nivel de presencia visual necesario.\"\",\n  \"\"finishes\"\": [\n    {\n      \"\"title\"\": \"\"Acabado protector\"\",\n      \"\"description\"\": \"\"Opciones de fijación/estabilidad según terreno (césped, tierra, asfalto) y exposición.\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Mejorar presencia, durabilidad, montaje y lectura del soporte\"\",\n      \"\"icon\"\": \"\"Shield\"\",\n      \"\"iconKey\"\": \"\"shield\"\"\n    },\n    {\n      \"\"title\"\": \"\"Recomendación práctica\"\",\n      \"\"description\"\": \"\"en exterior conviene definir dónde irá y si habrá viento para ajustar el sistema.\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Mejorar presencia, durabilidad, montaje y lectura del soporte\"\",\n      \"\"icon\"\": \"\"Scissors\"\",\n      \"\"iconKey\"\": \"\"scissors\"\"\n    },\n    {\n      \"\"title\"\": \"\"Sistema de montaje\"\",\n      \"\"description\"\": \"\"Refuerzos en perímetro y puntos de anclaje (cuando aplica) para mejorar durabilidad en montaje/desmontaje.\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Mejorar presencia, durabilidad, montaje y lectura del soporte\"\",\n      \"\"icon\"\": \"\"Wrench\"\",\n      \"\"iconKey\"\": \"\"wrench\"\"\n    },\n    {\n      \"\"title\"\": \"\"Preparación de archivo\"\",\n      \"\"description\"\": \"\"Acabado mate si habrá mucho sol o se fotografiará (reduce reflejos).\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Mejorar presencia, durabilidad, montaje y lectura del soporte\"\",\n      \"\"icon\"\": \"\"FileCheck\"\",\n      \"\"iconKey\"\": \"\"file-check\"\"\n    }\n  ]\n}"
+          "contentFormat": "json",
+          "finishesData": {
+            "intro": "Los acabados se seleccionan según la frecuencia de montaje, la exposición exterior, el terreno y el nivel de resistencia necesario.",
+            "finishes": [
+              {
+                "title": "Refuerzo perimetral",
+                "description": "Ayuda a mejorar la resistencia de la gráfica durante el montaje, el desmontaje y el transporte."
+              },
+              {
+                "title": "Puntos de anclaje reforzados",
+                "description": "Preparación específica de las zonas sometidas a mayor tensión durante la instalación."
+              },
+              {
+                "title": "Sistema de fijación adaptado",
+                "description": "Seleccionamos la sujeción más adecuada para césped, tierra, superficies duras o zonas expuestas al viento."
+              },
+              {
+                "title": "Acabado mate",
+                "description": "Recomendado en ubicaciones con mucha luz o cuando el banner se utilizará como fondo de fotografías."
+              }
+            ]
+          }
         },
         {
           "id": "technical-specs",
@@ -6886,11 +7173,52 @@
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "{\n  \"\"intro\"\": \"\"Usos habituales de banner golf personalizado (expositor exterior) en campañas, ferias, eventos, tiendas y espacios corporativos.\"\",\n  \"\"applications\"\": [\n    {\n      \"\"title\"\": \"\"Eventos deportivos\"\",\n      \"\"description\"\": \"\"carreras, triatlón, ciclismo, torneos, golf, etc.\"\",\n      \"\"icon\"\": \"\"Store\"\",\n      \"\"iconKey\"\": \"\"store\"\"\n    },\n    {\n      \"\"title\"\": \"\"Ferias y exterior\"\",\n      \"\"description\"\": \"\"accesos, zonas de registro, señalización y orientación.\"\",\n      \"\"icon\"\": \"\"CalendarDays\"\",\n      \"\"iconKey\"\": \"\"calendar-days\"\"\n    },\n    {\n      \"\"title\"\": \"\"Activaciones de marca\"\",\n      \"\"description\"\": \"\"street marketing, promociones en exterior, sampling.\"\",\n      \"\"icon\"\": \"\"MapPin\"\",\n      \"\"iconKey\"\": \"\"map-pin\"\"\n    },\n    {\n      \"\"title\"\": \"\"Eventos corporativos al aire libre\"\",\n      \"\"description\"\": \"\"family days, jornadas, actividades outdoor.\"\",\n      \"\"icon\"\": \"\"Building2\"\",\n      \"\"iconKey\"\": \"\"building2\"\"\n    },\n    {\n      \"\"title\"\": \"\"Zonas de patrocinio\"\",\n      \"\"description\"\": \"\"recorridos, meta/salida, podio o áreas de prensa.\"\",\n      \"\"icon\"\": \"\"Users\"\",\n      \"\"iconKey\"\": \"\"users\"\"\n    }\n  ]\n}"
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "El banner golf personalizado es una solución práctica para campañas, eventos y acciones de comunicación en espacios exteriores.",
+            "applications": [
+              {
+                "title": "Eventos deportivos",
+                "description": "Adecuado para carreras, triatlones, torneos, circuitos de golf, ciclismo y otras actividades al aire libre."
+              },
+              {
+                "title": "Ferias y congresos",
+                "description": "Útil para señalizar accesos, zonas de registro, recorridos y espacios de exposición."
+              },
+              {
+                "title": "Activaciones de marca",
+                "description": "Recomendado para promociones, acciones de street marketing, sampling y campañas itinerantes."
+              },
+              {
+                "title": "Eventos corporativos",
+                "description": "Puede utilizarse en jornadas, actividades de empresa, presentaciones y encuentros al aire libre."
+              },
+              {
+                "title": "Patrocinio y señalización",
+                "description": "Permite reforzar la presencia de patrocinadores en metas, salidas, podios, recorridos y zonas de prensa."
+              }
+            ]
+          }
         }
       ],
-      "faqs": [],
+      "faqs": [
+        {
+          "question": "¿Es adecuado para exterior con viento?",
+          "answer": "Sí, pero la estabilidad depende del terreno y de la exposición. Si nos dices dónde se colocará, te recomendamos la opción de sujeción más segura."
+        },
+        {
+          "question": "¿Mejor a una o dos caras?",
+          "answer": "Si el banner se verá desde ambos sentidos, como recorridos, entradas o salidas, la impresión a doble cara es la opción más efectiva."
+        },
+        {
+          "question": "¿Se puede usar en varios eventos?",
+          "answer": "Sí. Está pensado para montajes repetidos; para reutilizarlo conviene cuidar el transporte y el almacenaje."
+        },
+        {
+          "question": "¿Podéis adaptar el diseño para que se lea bien a distancia?",
+          "answer": "Sí, revisamos la jerarquía, el contraste y los tamaños para que la marca se identifique rápidamente."
+        }
+      ],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -6923,9 +7251,127 @@
       "inStock": true,
       "ratingValue": 0,
       "reviewCount": 0,
-      "attributes": [],
+      "attributes": [
+        {
+          "key": "exterior-deportivo",
+          "label": "Exterior deportivo",
+          "placement": "hero-pills",
+          "icon": "Flag",
+          "tone": "brand"
+        },
+        {
+          "key": "montaje-rapido",
+          "label": "Montaje rápido",
+          "placement": "hero-pills",
+          "icon": "Timer",
+          "tone": "success"
+        },
+        {
+          "key": "ligero-y-transportable",
+          "label": "Ligero y transportable",
+          "placement": "hero-pills",
+          "icon": "MoveRight",
+          "tone": "neutral"
+        },
+        {
+          "key": "una-o-dos-caras",
+          "label": "Una o dos caras",
+          "placement": "hero-pills",
+          "icon": "Repeat",
+          "tone": "brand"
+        }
+      ],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "name": "cantidad",
+          "label": "Cantidad",
+          "type": "number",
+          "required": false,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "medidas",
+          "label": "Medidas aproximadas",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "uso",
+          "label": "Uso previsto",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Feria o congreso",
+            "Punto de venta / retail",
+            "Evento corporativo",
+            "Exterior",
+            "Interior",
+            "Campaña temporal",
+            "Uso recurrente",
+            "Otro"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "caras",
+          "label": "Impresión",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Una cara",
+            "Dos caras",
+            "A definir según ubicación"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "material",
+          "label": "Material o acabado preferido",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Recomendación de Repro Disseny",
+            "Lona o textil",
+            "Soporte rígido",
+            "Cartón / material ligero",
+            "Acabado premium",
+            "No lo sé"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "instalacion",
+          "label": "¿Necesitas instalación o solo suministro?",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Solo suministro",
+            "Suministro e instalación",
+            "A valorar"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "fecha_entrega",
+          "label": "Fecha de entrega o evento",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Banner Golf Personalizado | Expositor Exterior para Eventos y Patrocinio",
@@ -6937,8 +7383,39 @@
             "url": "https://reprodisseny.com/productos/banner-golf-personalizado"
           }
         ],
-        "keywords": [],
-        "searchTerms": [],
+        "keywords": [
+          "banner golf personalizado",
+          "banner golf",
+          "banner golf personalizados",
+          "banner golf para empresas",
+          "expositores personalizados",
+          "expositores publicitarios",
+          "material para ferias",
+          "material para eventos",
+          "banner golf para punto de venta",
+          "banner golf para retail",
+          "señalización personalizada",
+          "imprenta de expositores en Barcelona"
+        ],
+        "searchTerms": [
+          "banner golf",
+          "banner golf personalizado",
+          "banner golf personalizados",
+          "imprimir banner golf",
+          "banner golf a medida",
+          "banner golf Barcelona",
+          "banner golf para ferias",
+          "banner golf para eventos",
+          "banner golf para retail",
+          "banner golf para punto de venta",
+          "banner golf para tiendas",
+          "banner golf para empresas",
+          "expositores para ferias",
+          "expositores para eventos",
+          "expositores para punto de venta",
+          "material PLV personalizado",
+          "soportes publicitarios personalizados"
+        ],
         "schema": {
           "@context": "https://schema.org",
           "@graph": [
@@ -6980,6 +7457,43 @@
                   "position": 4,
                   "name": "Banner Golf personalizado (expositor exterior)",
                   "item": "https://reprodisseny.com/productos/banner-golf-personalizado"
+                }
+              ]
+            },
+            {
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "¿Es adecuado para exterior con viento?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí, pero la estabilidad depende del terreno y de la exposición. Si nos dices dónde se colocará, te recomendamos la opción de sujeción más segura."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Mejor a una o dos caras?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Si el banner se verá desde ambos sentidos, como recorridos, entradas o salidas, la impresión a doble cara es la opción más efectiva."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Se puede usar en varios eventos?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí. Está pensado para montajes repetidos; para reutilizarlo conviene cuidar el transporte y el almacenaje."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Podéis adaptar el diseño para que se lea bien a distancia?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí, revisamos la jerarquía, el contraste y los tamaños para que la marca se identifique rápidamente."
+                  }
                 }
               ]
             }
@@ -7292,7 +7806,7 @@
     },
     {
       "id": "13",
-      "updatedAt": "2026-06-11T13:55:14Z",
+      "updatedAt": "2026-07-15T08:20:35Z",
       "type": "producto",
       "slug": "caballetes-publicitarios-personalizados",
       "path": "/productos/caballetes-publicitarios-personalizados",
@@ -7305,7 +7819,7 @@
       "isPublished": true,
       "shortDescription": "Los caballetes son un clásico que sigue funcionando porque están donde importa: a pie de calle, en la entrada o junto al mostrador. En Repro Disseny preparamos caballetes publicitarios personalizados para comunicar promociones, menús, horarios o señalización, con opciones para interior/exterior, doble cara y sistemas de cambio de gráfica.",
       "description": "Los caballetes son un clásico que sigue funcionando porque están donde importa: a pie de calle, en la entrada o junto al mostrador. En Repro Disseny preparamos caballetes publicitarios personalizados para comunicar promociones, menús, horarios o señalización, con opciones para interior/exterior, doble cara y sistemas de cambio de gráfica.",
-      "bodyMd": "\"¿Qué es un caballete y para qué se usa?\n\nUn caballete publicitario es un expositor autoportante, normalmente en forma de “A”, pensado para colocar cartelería en zonas de paso. Se utiliza para atraer atención, guiar al público o informar con rapidez (ofertas, menú del día, eventos, descuentos, normas de acceso). Es especialmente útil porque se mueve y recoloca en segundos, sin instalación fija.\"",
+      "bodyMd": "### ¿Qué es un caballete y para qué se usa?\n\nUn caballete publicitario es un expositor autoportante, normalmente en forma de “A”, pensado para colocar cartelería en zonas de paso. Se utiliza para atraer atención, guiar al público o informar con rapidez (ofertas, menú del día, eventos, descuentos, normas de acceso). Es especialmente útil porque se mueve y recoloca en segundos, sin instalación fija.",
       "sections": [
         {
           "id": "details",
@@ -7313,39 +7827,101 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "\"¿Qué es un caballete y para qué se usa?\n\nUn caballete publicitario es un expositor autoportante, normalmente en forma de “A”, pensado para colocar cartelería en zonas de paso. Se utiliza para atraer atención, guiar al público o informar con rapidez (ofertas, menú del día, eventos, descuentos, normas de acceso). Es especialmente útil porque se mueve y recoloca en segundos, sin instalación fija.\""
-        },
-        {
-          "id": "benefits",
-          "key": "benefits",
-          "title": "Beneficios",
-          "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "\"{\n  \"\"intro\"\": \"\"Ventajas principales de caballetes publicitarios personalizados para mejorar visibilidad, presencia de marca y eficacia en espacios físicos.\"\",\n  \"\"benefits\"\": [\n    {\n      \"\"title\"\": \"\"Visibilidad inmediata en accesos y calle\"\",\n      \"\"description\"\": \"\"perfecto para captar atención antes de entrar.\"\",\n      \"\"icon\"\": \"\"Eye\"\",\n      \"\"iconKey\"\": \"\"eye\"\"\n    },\n    {\n      \"\"title\"\": \"\"Doble cara\"\",\n      \"\"description\"\": \"\"comunicación efectiva en ambos sentidos de paso.\"\",\n      \"\"icon\"\": \"\"Sparkles\"\",\n      \"\"iconKey\"\": \"\"sparkles\"\"\n    },\n    {\n      \"\"title\"\": \"\"Fácil de mover\"\",\n      \"\"description\"\": \"\"ideal para campañas diarias o cambios de mensaje frecuentes.\"\",\n      \"\"icon\"\": \"\"MousePointerClick\"\",\n      \"\"iconKey\"\": \"\"mouse-pointer-click\"\"\n    },\n    {\n      \"\"title\"\": \"\"Versátil\"\",\n      \"\"description\"\": \"\"sirve para promociones, menús, horarios, señalización o eventos.\"\",\n      \"\"icon\"\": \"\"ShieldCheck\"\",\n      \"\"iconKey\"\": \"\"shield-check\"\"\n    },\n    {\n      \"\"title\"\": \"\"Opción de cambio rápido\"\",\n      \"\"description\"\": \"\"según modelo, puedes sustituir la gráfica sin complicaciones.\"\",\n      \"\"icon\"\": \"\"Move\"\",\n      \"\"iconKey\"\": \"\"move\"\"\n    }\n  ]\n}\""
+          "body": "### ¿Qué es un caballete y para qué se usa?\n\nUn caballete publicitario es un expositor autoportante, normalmente en forma de “A”, pensado para colocar cartelería en zonas de paso. Se utiliza para atraer atención, guiar al público o informar con rapidez (ofertas, menú del día, eventos, descuentos, normas de acceso). Es especialmente útil porque se mueve y recoloca en segundos, sin instalación fija."
         },
         {
           "id": "materials",
           "key": "materials",
           "title": "Materiales",
           "kind": "materials",
-          "contentFormat": "markdown",
-          "body": "\"{\n  \"\"intro\"\": \"\"Seleccionamos materiales y sistema de impresión para que el caballetes publicitarios personalizados tenga presencia, estabilidad y resistencia según su uso real.\"\",\n  \"\"materials\"\": [\n    {\n      \"\"title\"\": \"\"Soporte recomendado\"\",\n      \"\"description\"\": \"\"Estructuras en metal/aluminio (resistentes y prácticas para uso intensivo).\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Campañas, ferias, retail, eventos y comunicación corporativa\"\",\n      \"\"icon\"\": \"\"Layers\"\",\n      \"\"iconKey\"\": \"\"layers\"\"\n    },\n    {\n      \"\"title\"\": \"\"Impresión a color\"\",\n      \"\"description\"\": \"\"Opciones en madera cuando se busca un look más cálido o “premium” (muy usado en hostelería).\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Campañas, ferias, retail, eventos y comunicación corporativa\"\",\n      \"\"icon\"\": \"\"Printer\"\",\n      \"\"iconKey\"\": \"\"printer\"\"\n    },\n    {\n      \"\"title\"\": \"\"Material para uso temporal\"\",\n      \"\"description\"\": \"\"Gráficas impresas en material adecuado para mantener buena lectura y durabilidad (según interior/exterior).\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Campañas, ferias, retail, eventos y comunicación corporativa\"\",\n      \"\"icon\"\": \"\"Shield\"\",\n      \"\"iconKey\"\": \"\"shield\"\"\n    },\n    {\n      \"\"title\"\": \"\"Material para uso recurrente\"\",\n      \"\"description\"\": \"\"Cartelería a todo color o diseño más sobrio corporativo.\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Campañas, ferias, retail, eventos y comunicación corporativa\"\",\n      \"\"icon\"\": \"\"RefreshCw\"\",\n      \"\"iconKey\"\": \"\"refresh-cw\"\"\n    },\n    {\n      \"\"title\"\": \"\"Gráfica intercambiable\"\",\n      \"\"description\"\": \"\"Posibilidad de preparar packs de pósters para ir cambiando por campañas/temporadas.\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Campañas, ferias, retail, eventos y comunicación corporativa\"\",\n      \"\"icon\"\": \"\"Image\"\",\n      \"\"iconKey\"\": \"\"image\"\"\n    }\n  ]\n}\""
+          "contentFormat": "json",
+          "materialsData": {
+            "intro": "Seleccionamos la estructura y el soporte gráfico según la ubicación, la frecuencia de uso y el acabado visual deseado.",
+            "materials": [
+              {
+                "title": "Estructura metálica o de aluminio",
+                "description": "Opción resistente y práctica para establecimientos, eventos y usos frecuentes."
+              },
+              {
+                "title": "Estructura de madera",
+                "description": "Aporta un acabado más cálido y decorativo, especialmente adecuado para hostelería, comercios y espacios interiores."
+              },
+              {
+                "title": "Póster intercambiable",
+                "description": "Gráfica impresa que puede sustituirse fácilmente en modelos con marco portapóster o sistema click."
+              },
+              {
+                "title": "Panel rígido impreso",
+                "description": "Solución adecuada para modelos con gráfica fija o para campañas que requieren mayor estabilidad."
+              }
+            ]
+          }
         },
         {
           "id": "formats",
           "key": "formats",
           "title": "Formatos y soportes",
           "kind": "formats",
-          "contentFormat": "markdown",
-          "body": "\"{\n  \"\"intro\"\": \"\"Definimos formato, medida y configuración de caballetes publicitarios personalizados según el espacio, la distancia de lectura, el uso previsto y el sistema de montaje.\"\",\n  \"\"shapes\"\": [\n    {\n      \"\"title\"\": \"\"Caballete tipo A (doble cara)\"\",\n      \"\"description\"\": \"\"el formato más habitual para exterior/interior.\"\",\n      \"\"icon\"\": \"\"Ruler\"\",\n      \"\"iconKey\"\": \"\"ruler\"\"\n    },\n    {\n      \"\"title\"\": \"\"Caballete con marco (click o portapóster)\"\",\n      \"\"description\"\": \"\"pensado para cambiar el póster rápido y mantener un acabado limpio.\"\",\n      \"\"icon\"\": \"\"PanelTop\"\",\n      \"\"iconKey\"\": \"\"maximize\"\"\n    },\n    {\n      \"\"title\"\": \"\"Caballete para pizarra (si la campaña cambia a diario)\"\",\n      \"\"description\"\": \"\"para mensajes escritos/actualizables.\"\",\n      \"\"icon\"\": \"\"Move\"\",\n      \"\"iconKey\"\": \"\"panel-top\"\"\n    },\n    {\n      \"\"title\"\": \"\"Tamaños habituales (orientativos)\"\",\n      \"\"description\"\": \"\"A1, A2 y otros formatos según necesidad.\"\",\n      \"\"icon\"\": \"\"MapPin\"\",\n      \"\"iconKey\"\": \"\"move\"\"\n    },\n    {\n      \"\"title\"\": \"\"Uso interior o exterior\"\",\n      \"\"description\"\": \"\"Orientación vertical y diseño optimizado para lectura rápida (titular grande + oferta clara).\"\",\n      \"\"icon\"\": \"\"Repeat\"\",\n      \"\"iconKey\"\": \"\"map-pin\"\"\n    }\n  ],\n  \"\"deliveryFormats\"\": []\n}\""
+          "contentFormat": "json",
+          "formatsData": {
+            "intro": "Definimos el tipo de caballete, el tamaño y la orientación según el espacio disponible, la distancia de lectura y la frecuencia de actualización del mensaje.",
+            "shapes": [
+              {
+                "title": "Caballete tipo A",
+                "description": "Formato plegable y de doble cara, adecuado para interiores, accesos, terrazas y zonas de paso."
+              },
+              {
+                "title": "Caballete con marco portapóster",
+                "description": "Permite cambiar la gráfica rápidamente y mantener una presentación limpia y profesional."
+              },
+              {
+                "title": "Caballete tipo pizarra",
+                "description": "Recomendado para mensajes que cambian con frecuencia, como menús, promociones diarias o avisos."
+              }
+            ],
+            "deliveryFormats": [
+              {
+                "title": "Formato A1",
+                "description": "Opción habitual para obtener una buena visibilidad en accesos, calles y terrazas."
+              },
+              {
+                "title": "Formato A2",
+                "description": "Adecuado para espacios más reducidos donde se necesita comunicar sin dificultar el paso."
+              },
+              {
+                "title": "Medidas personalizadas",
+                "description": "Podemos adaptar la gráfica o el soporte a necesidades específicas de espacio y comunicación."
+              }
+            ]
+          }
         },
         {
           "id": "finishes",
           "key": "finishes",
           "title": "Acabados",
           "kind": "finishes",
-          "contentFormat": "markdown",
-          "body": "\"{\n  \"\"intro\"\": \"\"Los acabados de caballetes publicitarios personalizados se definen según duración, manipulación, instalación y nivel de presencia visual necesario.\"\",\n  \"\"finishes\"\": [\n    {\n      \"\"title\"\": \"\"Acabado protector\"\",\n      \"\"description\"\": \"\"Acabado mate si hay iluminación directa (reduce reflejos y mejora la lectura).\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Mejorar presencia, durabilidad, montaje y lectura del soporte\"\",\n      \"\"icon\"\": \"\"Shield\"\",\n      \"\"iconKey\"\": \"\"shield\"\"\n    },\n    {\n      \"\"title\"\": \"\"Corte a medida\"\",\n      \"\"description\"\": \"\"Protección extra si el caballete se usa a diario o estará expuesto a roces/manipulación.\"\",\n      \"\"features\"\": [],\n      \"\"idealFor\"\": \"\"Mejorar presencia, durabilidad, montaje y lectura del soporte\"\",\n      \"\"icon\"\": \"\"Scissors\"\",\n      \"\"iconKey\"\": \"\"scissors\"\"\n    }\n  ]\n}\""
+          "contentFormat": "json",
+          "finishesData": {
+            "intro": "Los acabados se definen según la ubicación, la manipulación habitual, la exposición a la luz y la frecuencia de cambio de la gráfica.",
+            "finishes": [
+              {
+                "title": "Acabado mate",
+                "description": "Reduce los reflejos y facilita la lectura en espacios con iluminación directa o exposición al sol."
+              },
+              {
+                "title": "Protección de la gráfica",
+                "description": "Ayuda a mejorar la resistencia frente a roces, manipulación frecuente y uso continuado."
+              },
+              {
+                "title": "Marco de apertura rápida",
+                "description": "Permite sustituir el póster de forma sencilla sin desmontar el caballete."
+              },
+              {
+                "title": "Gráfica a doble cara",
+                "description": "Permite comunicar el mensaje en ambos sentidos de circulación."
+              }
+            ]
+          }
         },
         {
           "id": "technical-specs",
@@ -7353,18 +7929,59 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "\"### Tipos de caballete (según uso)\n- Caballete tipo A (doble cara): el formato más habitual para exterior/interior.\n- Caballete con marco (click o portapóster): pensado para cambiar el póster rápido y mantener un acabado limpio.\n- Caballete para pizarra (si la campaña cambia a diario): para mensajes escritos/actualizables.\n- Modelos reforzados para exterior: más estables cuando hay viento o alto tránsito.\n### Materiales\n- Estructuras en metal/aluminio (resistentes y prácticas para uso intensivo).\n- Opciones en madera cuando se busca un look más cálido o “premium” (muy usado en hostelería).\n- Gráficas impresas en material adecuado para mantener buena lectura y durabilidad (según interior/exterior).\n### Formatos\n- Tamaños habituales (orientativos): A1, A2 y otros formatos según necesidad.\n- Orientación vertical y diseño optimizado para lectura rápida (titular grande + oferta clara).\n### Impresión\n- Cartelería a todo color o diseño más sobrio corporativo.\n- Posibilidad de preparar packs de pósters para ir cambiando por campañas/temporadas.\n### Acabados recomendados\n- Acabado mate si hay iluminación directa (reduce reflejos y mejora la lectura).\n- Protección extra si el caballete se usa a diario o estará expuesto a roces/manipulación.\""
+          "body": "### Tipos de caballete (según uso)\n- Caballete tipo A (doble cara): el formato más habitual para exterior/interior.\n- Caballete con marco (click o portapóster): pensado para cambiar el póster rápido y mantener un acabado limpio.\n- Caballete para pizarra (si la campaña cambia a diario): para mensajes escritos/actualizables.\n- Modelos reforzados para exterior: más estables cuando hay viento o alto tránsito.\n### Materiales\n- Estructuras en metal/aluminio (resistentes y prácticas para uso intensivo).\n- Opciones en madera cuando se busca un look más cálido o “premium” (muy usado en hostelería).\n- Gráficas impresas en material adecuado para mantener buena lectura y durabilidad (según interior/exterior).\n### Formatos\n- Tamaños habituales (orientativos): A1, A2 y otros formatos según necesidad.\n- Orientación vertical y diseño optimizado para lectura rápida (titular grande + oferta clara).\n### Impresión\n- Cartelería a todo color o diseño más sobrio corporativo.\n- Posibilidad de preparar packs de pósters para ir cambiando por campañas/temporadas.\n### Acabados recomendados\n- Acabado mate si hay iluminación directa (reduce reflejos y mejora la lectura).\n- Protección extra si el caballete se usa a diario o estará expuesto a roces/manipulación."
         },
         {
           "id": "applications",
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "\"{\n  \"\"intro\"\": \"\"Usos habituales de caballetes publicitarios personalizados en campañas, ferias, eventos, tiendas y espacios corporativos.\"\",\n  \"\"applications\"\": [\n    {\n      \"\"title\"\": \"\"Hostelería\"\",\n      \"\"description\"\": \"\"menú del día, promociones de terraza, eventos especiales, horarios.\"\",\n      \"\"icon\"\": \"\"Store\"\",\n      \"\"iconKey\"\": \"\"store\"\"\n    },\n    {\n      \"\"title\"\": \"\"Retail\"\",\n      \"\"description\"\": \"\"rebajas, lanzamientos, campañas estacionales, “últimas unidades”.\"\",\n      \"\"icon\"\": \"\"CalendarDays\"\",\n      \"\"iconKey\"\": \"\"calendar-days\"\"\n    },\n    {\n      \"\"title\"\": \"\"Centros y servicios\"\",\n      \"\"description\"\": \"\"academias, clínicas, gimnasios, peluquerías (información y ofertas).\"\",\n      \"\"icon\"\": \"\"MapPin\"\",\n      \"\"iconKey\"\": \"\"map-pin\"\"\n    },\n    {\n      \"\"title\"\": \"\"Eventos\"\",\n      \"\"description\"\": \"\"señalización de acceso, registro, salas, rutas y puntos de información.\"\",\n      \"\"icon\"\": \"\"Building2\"\",\n      \"\"iconKey\"\": \"\"building2\"\"\n    },\n    {\n      \"\"title\"\": \"\"Inmobiliaria y oficinas\"\",\n      \"\"description\"\": \"\"jornadas de puertas abiertas, indicaciones, campañas puntuales.\"\",\n      \"\"icon\"\": \"\"Users\"\",\n      \"\"iconKey\"\": \"\"users\"\"\n    }\n  ]\n}\""
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Los caballetes publicitarios pueden utilizarse en comercios, establecimientos de hostelería, eventos y espacios de atención al público.",
+            "applications": [
+              {
+                "title": "Hostelería",
+                "description": "Menús del día, promociones de terraza, horarios, eventos especiales y mensajes de bienvenida."
+              },
+              {
+                "title": "Comercios y retail",
+                "description": "Rebajas, lanzamientos, campañas estacionales, promociones y avisos en el punto de venta."
+              },
+              {
+                "title": "Centros y servicios",
+                "description": "Información y ofertas para academias, clínicas, gimnasios, peluquerías y otros negocios."
+              },
+              {
+                "title": "Eventos",
+                "description": "Señalización de accesos, registros, salas, recorridos y puntos de información."
+              },
+              {
+                "title": "Oficinas e inmobiliarias",
+                "description": "Jornadas de puertas abiertas, indicaciones temporales, campañas comerciales y señalización de espacios."
+              }
+            ]
+          }
         }
       ],
-      "faqs": [],
+      "faqs": [
+        {
+          "question": "¿Qué tamaño recomendáis?",
+          "answer": "Para entradas, terrazas y espacios exteriores, el formato A1 suele ofrecer muy buena visibilidad. Cuando el espacio es reducido, el formato A2 permite comunicar el mensaje sin dificultar el paso."
+        },
+        {
+          "question": "¿Sirven para exterior?",
+          "answer": "Sí, pero conviene escoger un modelo estable y valorar la exposición al viento. Si nos indicas la ubicación, podemos recomendarte la opción más adecuada."
+        },
+        {
+          "question": "¿Se puede cambiar la gráfica fácilmente?",
+          "answer": "Depende del modelo. Los caballetes con marco portapóster o sistema click permiten sustituir la gráfica rápidamente. También podemos preparar varias gráficas para alternarlas según la campaña."
+        },
+        {
+          "question": "¿Podéis diseñar el cartel para que se lea rápidamente?",
+          "answer": "Sí. Revisamos la jerarquía, el tamaño de los textos y el contraste para que el mensaje se entienda a primera vista."
+        }
+      ],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -7397,9 +8014,131 @@
       "inStock": true,
       "ratingValue": 0,
       "reviewCount": 0,
-      "attributes": [],
+      "attributes": [
+        {
+          "key": "doble-cara",
+          "label": "Doble cara",
+          "placement": "hero-pills",
+          "icon": "PanelTop",
+          "tone": "brand"
+        },
+        {
+          "key": "a-pie-de-calle",
+          "label": "A pie de calle",
+          "placement": "hero-pills",
+          "icon": "MapPin",
+          "tone": "brand"
+        },
+        {
+          "key": "cambio-rapido",
+          "label": "Cambio rápido",
+          "placement": "hero-pills",
+          "icon": "RefreshCw",
+          "tone": "success"
+        },
+        {
+          "key": "interior-exterior",
+          "label": "Interior y exterior",
+          "placement": "hero-pills",
+          "icon": "Sun",
+          "tone": "neutral"
+        }
+      ],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "name": "cantidad",
+          "label": "Cantidad",
+          "type": "number",
+          "required": false,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "medidas",
+          "label": "Medidas aproximadas",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "placeholder": "Por ejemplo: A1, A2 o medida personalizada",
+          "readonly": false
+        },
+        {
+          "name": "uso",
+          "label": "Uso previsto",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Hostelería y terraza",
+            "Tienda o punto de venta",
+            "Feria o evento",
+            "Oficina o recepción",
+            "Señalización",
+            "Promoción temporal",
+            "Otro"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "tipo_caballete",
+          "label": "Tipo de caballete",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Tipo A de doble cara",
+            "Con marco portapóster",
+            "Con sistema click",
+            "Tipo pizarra",
+            "Con gráfica fija",
+            "Necesito recomendación"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "ubicacion",
+          "label": "Ubicación",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Interior",
+            "Exterior protegido",
+            "Exterior expuesto",
+            "Interior y exterior",
+            "A definir"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "grafica",
+          "label": "Configuración de la gráfica",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Una cara",
+            "Doble cara",
+            "Gráfica intercambiable",
+            "Mensaje actualizable tipo pizarra",
+            "A definir"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "fecha_entrega",
+          "label": "Fecha prevista de entrega",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Caballetes Publicitarios Personalizados | Señalización de Calle y Punto de Venta",
@@ -7411,8 +8150,40 @@
             "url": "https://reprodisseny.com/productos/caballetes-publicitarios-personalizados"
           }
         ],
-        "keywords": [],
-        "searchTerms": [],
+        "keywords": [
+          "caballetes personalizados",
+          "caballetes publicitarios",
+          "caballetes publicitarios personalizados",
+          "caballetes publicitarios para empresas",
+          "expositores personalizados",
+          "expositores publicitarios",
+          "material para ferias",
+          "material para eventos",
+          "caballetes para punto de venta",
+          "caballetes para retail",
+          "señalización personalizada",
+          "imprenta de expositores en Barcelona"
+        ],
+        "searchTerms": [
+          "caballetes publicitarios",
+          "caballetes personalizados",
+          "caballete publicitario personalizado",
+          "caballetes publicitarios personalizados",
+          "imprimir caballetes publicitarios",
+          "caballetes publicitarios a medida",
+          "caballetes publicitarios Barcelona",
+          "caballetes para ferias",
+          "caballetes para eventos",
+          "caballetes para retail",
+          "caballetes para punto de venta",
+          "caballetes para tiendas",
+          "caballetes publicitarios para empresas",
+          "expositores para ferias",
+          "expositores para eventos",
+          "expositores para punto de venta",
+          "material PLV personalizado",
+          "soportes publicitarios personalizados"
+        ],
         "schema": {
           "@context": "https://schema.org",
           "@graph": [
@@ -7454,6 +8225,43 @@
                   "position": 4,
                   "name": "Caballetes publicitarios personalizados",
                   "item": "https://reprodisseny.com/productos/caballetes-publicitarios-personalizados"
+                }
+              ]
+            },
+            {
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "¿Qué tamaño recomendáis?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Para entradas, terrazas y espacios exteriores, el formato A1 suele ofrecer muy buena visibilidad. Cuando el espacio es reducido, el formato A2 permite comunicar el mensaje sin dificultar el paso."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Sirven para exterior?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí, pero conviene escoger un modelo estable y valorar la exposición al viento. Si nos indicas la ubicación, podemos recomendarte la opción más adecuada."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Se puede cambiar la gráfica fácilmente?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Depende del modelo. Los caballetes con marco portapóster o sistema click permiten sustituir la gráfica rápidamente. También podemos preparar varias gráficas para alternarlas según la campaña."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Podéis diseñar el cartel para que se lea rápidamente?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí. Revisamos la jerarquía, el tamaño de los textos y el contraste para que el mensaje se entienda a primera vista."
+                  }
                 }
               ]
             }
@@ -10429,7 +11237,7 @@
     },
     {
       "id": "14",
-      "updatedAt": "2026-06-11T13:37:27Z",
+      "updatedAt": "2026-07-15T08:26:29Z",
       "type": "producto",
       "slug": "cajas-de-luz-personalizadas",
       "path": "/productos/cajas-de-luz-personalizadas",
@@ -10441,9 +11249,9 @@
       ],
       "order": 9999,
       "isPublished": true,
-      "shortDescription": "Las cajas de luz son uno de los expositores con mayor impacto visual: la retroiluminación hace que tu gráfica destaque incluso en entornos muy cargados (ferias, centros comerciales, escaparates o recepciones). En Repro Disseny producimos cajas de luz personalizadas con impresión backlit y sistemas pensados para un montaje limpio y un cambio de gráfica rápido.",
-      "description": "Las cajas de luz son uno de los expositores con mayor impacto visual: la retroiluminación hace que tu gráfica destaque incluso en entornos muy cargados (ferias, centros comerciales, escaparates o recepciones). En Repro Disseny producimos cajas de luz personalizadas con impresión backlit y sistemas pensados para un montaje limpio y un cambio de gráfica rápido.",
-      "bodyMd": "### ¿Qué es una caja de luz y para qué se usa?\n\nUna caja de luz, también conocida como lightbox, es un expositor con iluminación interna que proyecta luz de forma uniforme a través de una gráfica impresa en material traslúcido. Se utiliza para destacar marcas, campañas, promociones y mensajes de señalización con mucha más visibilidad que un panel impreso convencional.\n\nEs una solución especialmente eficaz en ferias, escaparates, puntos de venta, recepciones, showrooms y zonas de paso, porque combina comunicación gráfica, iluminación y presencia visual en una sola pieza.\n\n### Comunicación iluminada para destacar en espacios con competencia visual\n\nLa principal ventaja de una caja de luz es que la gráfica no depende solo de la iluminación ambiente. Al estar retroiluminada, mejora la lectura del mensaje, aumenta el contraste y aporta una percepción más premium al espacio.\n\nAdemás, muchos sistemas permiten cambiar la gráfica, lo que convierte la caja de luz en una solución reutilizable para campañas, promociones temporales, lanzamientos o comunicación corporativa que se renueva durante el año.",
+      "shortDescription": "Cajas de luz LED personalizadas para ferias, escaparates, puntos de venta y espacios corporativos. Disponibles en diferentes formatos, a una o dos caras y con gráfica backlit intercambiable.",
+      "description": "Cajas de luz LED personalizadas para ferias, escaparates, puntos de venta y espacios corporativos. Disponibles en diferentes formatos, a una o dos caras y con gráfica backlit intercambiable.",
+      "bodyMd": "## Cajas de luz personalizadas para destacar tu marca\n\nLas cajas de luz personalizadas, también conocidas como *lightboxes* o expositores retroiluminados, permiten presentar imágenes, promociones y mensajes corporativos con una gran intensidad visual.\n\nLa iluminación LED distribuye la luz detrás de una gráfica traslúcida para conseguir una imagen uniforme, legible y llamativa. Es una solución especialmente eficaz en ferias, escaparates, centros comerciales, recepciones y puntos de venta con mucha competencia visual.\n\nEn Repro Disseny preparamos la estructura y la gráfica de cada caja de luz según el espacio disponible, la orientación, la distancia de lectura y la frecuencia con la que necesites cambiar la campaña.\n\n### ¿Qué es una caja de luz?\n\nUna caja de luz es un expositor con iluminación interior que proyecta luz de forma uniforme a través de una gráfica impresa sobre un material traslúcido.\n\nA diferencia de un panel impreso convencional, la retroiluminación mejora el contraste, aumenta la visibilidad y ayuda a mantener la legibilidad incluso en espacios muy iluminados o con numerosos estímulos visuales.\n\n## Gráfica intercambiable\n\nSegún el modelo, la gráfica puede sustituirse sin cambiar toda la estructura. Esto permite reutilizar la caja de luz en campañas estacionales, lanzamientos de producto, promociones y eventos.\n\nPodemos preparar una única gráfica o varias piezas para alternarlas durante el año.",
       "sections": [
         {
           "id": "details",
@@ -10451,7 +11259,67 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "### ¿Qué es una caja de luz y para qué se usa?\n\nUna caja de luz, también conocida como lightbox, es un expositor con iluminación interna que proyecta luz de forma uniforme a través de una gráfica impresa en material traslúcido. Se utiliza para destacar marcas, campañas, promociones y mensajes de señalización con mucha más visibilidad que un panel impreso convencional.\n\nEs una solución especialmente eficaz en ferias, escaparates, puntos de venta, recepciones, showrooms y zonas de paso, porque combina comunicación gráfica, iluminación y presencia visual en una sola pieza.\n\n### Comunicación iluminada para destacar en espacios con competencia visual\n\nLa principal ventaja de una caja de luz es que la gráfica no depende solo de la iluminación ambiente. Al estar retroiluminada, mejora la lectura del mensaje, aumenta el contraste y aporta una percepción más premium al espacio.\n\nAdemás, muchos sistemas permiten cambiar la gráfica, lo que convierte la caja de luz en una solución reutilizable para campañas, promociones temporales, lanzamientos o comunicación corporativa que se renueva durante el año."
+          "body": "## Cajas de luz personalizadas para destacar tu marca\n\nLas cajas de luz personalizadas, también conocidas como *lightboxes* o expositores retroiluminados, permiten presentar imágenes, promociones y mensajes corporativos con una gran intensidad visual.\n\nLa iluminación LED distribuye la luz detrás de una gráfica traslúcida para conseguir una imagen uniforme, legible y llamativa. Es una solución especialmente eficaz en ferias, escaparates, centros comerciales, recepciones y puntos de venta con mucha competencia visual.\n\nEn Repro Disseny preparamos la estructura y la gráfica de cada caja de luz según el espacio disponible, la orientación, la distancia de lectura y la frecuencia con la que necesites cambiar la campaña.\n\n### ¿Qué es una caja de luz?\n\nUna caja de luz es un expositor con iluminación interior que proyecta luz de forma uniforme a través de una gráfica impresa sobre un material traslúcido.\n\nA diferencia de un panel impreso convencional, la retroiluminación mejora el contraste, aumenta la visibilidad y ayuda a mantener la legibilidad incluso en espacios muy iluminados o con numerosos estímulos visuales.\n\n## Gráfica intercambiable\n\nSegún el modelo, la gráfica puede sustituirse sin cambiar toda la estructura. Esto permite reutilizar la caja de luz en campañas estacionales, lanzamientos de producto, promociones y eventos.\n\nPodemos preparar una única gráfica o varias piezas para alternarlas durante el año."
+        },
+        {
+          "id": "benefits",
+          "key": "benefits",
+          "title": "Beneficios",
+          "kind": "benefits",
+          "contentFormat": "json",
+          "benefitsData": {
+            "intro": "Las cajas de luz personalizadas combinan iluminación, impresión y estructura para aumentar la visibilidad de la marca en espacios comerciales, corporativos y expositivos.",
+            "benefits": [
+              {
+                "title": "Gran impacto visual",
+                "description": "La gráfica retroiluminada destaca más que un soporte impreso convencional, especialmente en espacios con mucha competencia visual."
+              },
+              {
+                "title": "Mayor legibilidad",
+                "description": "La iluminación uniforme facilita la lectura de logotipos, mensajes y promociones a diferentes distancias."
+              },
+              {
+                "title": "Imagen de marca profesional",
+                "description": "Aporta una presentación limpia y cuidada en stands, escaparates, recepciones y puntos de venta."
+              },
+              {
+                "title": "Gráfica intercambiable",
+                "description": "Permite actualizar campañas y promociones sin sustituir toda la estructura."
+              },
+              {
+                "title": "Configuración adaptable",
+                "description": "Disponemos de soluciones de pared, suelo, sobremesa o suspensión, a una o dos caras según el espacio."
+              }
+            ]
+          }
+        },
+        {
+          "id": "materials",
+          "key": "materials",
+          "title": "Materiales",
+          "kind": "materials",
+          "contentFormat": "json",
+          "materialsData": {
+            "intro": "Seleccionamos la estructura, la iluminación y el soporte gráfico según el modelo de caja de luz, la ubicación y la frecuencia de uso.",
+            "materials": [
+              {
+                "title": "Estructura de aluminio",
+                "description": "Material ligero, estable y resistente, adecuado para crear marcos con un acabado limpio y profesional."
+              },
+              {
+                "title": "Gráfica backlit traslúcida",
+                "description": "Soporte preparado para difundir la iluminación de manera uniforme y mantener una buena reproducción de colores, imágenes y logotipos."
+              },
+              {
+                "title": "Iluminación LED",
+                "description": "Sistema de iluminación eficiente que permite distribuir la luz por el interior del expositor."
+              },
+              {
+                "title": "Sistema de tensado o fijación",
+                "description": "Mantiene la gráfica correctamente posicionada y facilita su sustitución según el modelo."
+              }
+            ]
+          }
         },
         {
           "id": "formats",
@@ -10460,41 +11328,73 @@
           "kind": "formats",
           "contentFormat": "json",
           "formatsData": {
-            "intro": "Configuramos la caja de luz según ubicación, distancia de lectura, sentido de paso y tipo de campaña.",
+            "intro": "Definimos el formato y las dimensiones de la caja de luz según la ubicación, la distancia de lectura, el sentido de circulación y el espacio disponible.",
             "shapes": [
               {
                 "title": "Caja de luz de pared",
-                "description": "Formato limpio y estable para comunicación fija en recepciones, pasillos, showrooms, escaparates o paredes de stand."
+                "description": "Adecuada para recepciones, pasillos, escaparates, stands y espacios donde la comunicación se visualiza desde una dirección."
               },
               {
                 "title": "Caja de luz autoportante",
-                "description": "Solución de suelo para puntos de paso donde interesa ganar visibilidad sin depender de una pared o estructura existente."
+                "description": "Solución de suelo para entradas, zonas de paso, promociones y espacios donde no se puede fijar la estructura a una pared."
               },
               {
                 "title": "Caja de luz colgante",
-                "description": "Formato pensado para destacar desde mayor distancia en espacios amplios, pasillos, ferias o grandes superficies."
+                "description": "Permite elevar la comunicación y mejorar la visibilidad en ferias, centros comerciales y espacios de gran altura."
               },
               {
                 "title": "Caja de luz de sobremesa",
-                "description": "Formato compacto para mostradores, recepciones o comunicación directa en puntos de atención."
+                "description": "Formato compacto para mostradores, recepciones, escaparates y puntos de atención."
               }
             ],
             "deliveryFormats": [
               {
                 "title": "Una cara",
-                "description": "Recomendada cuando la caja de luz va colocada contra una pared o solo necesita comunicar hacia un sentido de paso."
+                "description": "Recomendada cuando la caja de luz se instala contra una pared o se visualiza desde una única dirección."
               },
               {
                 "title": "Doble cara",
-                "description": "Permite ver la gráfica desde ambos lados, por lo que es más efectiva en pasillos, entradas, islas comerciales o zonas de circulación."
+                "description": "Adecuada para pasillos, entradas, islas y zonas donde el público circula en ambos sentidos."
               },
               {
-                "title": "Tamaño estándar o a medida",
-                "description": "Podemos adaptar medidas, orientación y proporción según el espacio disponible, la distancia de lectura y el tipo de mensaje."
+                "title": "Orientación vertical u horizontal",
+                "description": "Adaptamos la orientación al diseño, al espacio disponible y a la distancia de lectura."
               },
               {
-                "title": "Gráfica intercambiable",
-                "description": "Permite sustituir la impresión para renovar campañas, promociones o mensajes sin cambiar toda la estructura."
+                "title": "Medidas personalizadas",
+                "description": "Preparamos la configuración según las dimensiones necesarias y las características del lugar de instalación."
+              }
+            ]
+          }
+        },
+        {
+          "id": "finishes",
+          "key": "finishes",
+          "title": "Acabados",
+          "kind": "finishes",
+          "contentFormat": "json",
+          "finishesData": {
+            "intro": "Los acabados se definen según la ubicación, la frecuencia de cambio de la gráfica, el sistema de montaje y el nivel de resistencia necesario.",
+            "finishes": [
+              {
+                "title": "Marco de acabado limpio",
+                "description": "Estructura diseñada para integrar la gráfica y reducir la presencia visual de los elementos de fijación."
+              },
+              {
+                "title": "Gráfica tensada",
+                "description": "Ayuda a mantener la superficie uniforme y evita ondulaciones que puedan afectar a la distribución de la luz."
+              },
+              {
+                "title": "Cambio rápido de gráfica",
+                "description": "Según el modelo, permite sustituir la campaña sin desmontar completamente la estructura."
+              },
+              {
+                "title": "Preparación para instalación",
+                "description": "Podemos adaptar la pieza para montaje en pared, estructura de stand, suelo, techo o mobiliario."
+              },
+              {
+                "title": "Protección para uso frecuente",
+                "description": "Cuando la caja de luz se transporta o se monta repetidamente, valoramos soluciones que faciliten su manipulación y conservación."
               }
             ]
           }
@@ -10505,7 +11405,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "### Gráfica e impresión\n\n- Impresión en material backlit o traslúcido para conseguir una iluminación uniforme.\n- Preparación de color pensada para que la gráfica mantenga contraste e impacto al estar retroiluminada.\n- Posibilidad de producir varias gráficas para campañas, temporadas, promociones o mensajes alternativos.\n- Recomendable evitar textos demasiado pequeños: en caja de luz funciona mejor una jerarquía clara, buen contraste y mensajes directos.\n\n### Iluminación y estructura\n\n- Iluminación interna, normalmente mediante sistema LED.\n- Estructura o marco según modelo, tamaño y sistema de instalación.\n- Opciones de una cara o doble cara según la visibilidad necesaria.\n- Configuración vertical u horizontal según el espacio disponible y la distancia de lectura.\n\n### Montaje e instalación\n\n- Sistemas pensados para un montaje limpio y un acabado profesional.\n- Posibilidad de instalación en pared, suelo, colgante o sobremesa según proyecto.\n- Preparación para integración en stands, escaparates, recepciones o espacios comerciales.\n- En proyectos de feria o eventos, conviene indicar si la pieza viajará, se montará varias veces o tendrá uso intensivo.\n\n### Información necesaria para presupuestar\n\n- Medida aproximada o espacio disponible.\n- Ubicación: pared, suelo, colgante, sobremesa o estructura de stand.\n- Uso a una cara o doble cara.\n- Tipo de gráfica: campaña puntual, comunicación fija o gráfica intercambiable.\n- Fecha de entrega o evento.\n- Diseño disponible, boceto o necesidad de adaptación gráfica."
+          "body": "## Configuración de la caja de luz\n\nLa configuración final depende del espacio, la distancia de lectura, el tipo de instalación y el sentido desde el que se visualizará la gráfica.\n\n### Formato y dimensiones\n\n- Tamaños estándar o personalizados.\n- Orientación vertical u horizontal.\n- Modelos de pared, suelo, sobremesa o suspensión.\n- Configuración a una o dos caras.\n- Adaptación a stands, mobiliario y espacios corporativos.\n\n### Gráfica retroiluminada\n\nLa gráfica se imprime sobre un soporte traslúcido preparado para iluminación posterior. El objetivo es conseguir una distribución uniforme de la luz y mantener una reproducción correcta de los colores.\n\nPara obtener un buen resultado recomendamos:\n\n- Utilizar imágenes con resolución suficiente.\n- Evitar textos demasiado pequeños.\n- Mantener una jerarquía visual clara.\n- Utilizar un contraste adecuado entre fondo, textos y logotipos.\n- Revisar los colores teniendo en cuenta que la gráfica se visualizará iluminada.\n\n### Una o dos caras\n\nUna caja de luz a una cara resulta adecuada cuando se instala contra una pared o se visualiza desde un único sentido.\n\nLa configuración a doble cara es recomendable en pasillos, entradas, islas comerciales y espacios donde el público circula en ambas direcciones.\n\n### Cambio de campaña\n\nSegún el sistema elegido, la gráfica puede sustituirse sin cambiar la estructura. Esto permite preparar varias campañas para utilizar el mismo expositor durante diferentes temporadas o eventos.\n\n### Información necesaria para presupuestar\n\nPara preparar una propuesta necesitamos:\n\n- Anchura y altura aproximadas.\n- Tipo de instalación.\n- Orientación vertical u horizontal.\n- Configuración a una o dos caras.\n- Ubicación interior o exterior.\n- Fecha prevista de entrega o instalación.\n- Cantidad de estructuras y gráficas.\n- Archivo de diseño, cuando ya esté disponible.\n\n> Antes de producir revisamos la configuración y el archivo para asegurar que la gráfica funcione correctamente con retroiluminación."
         },
         {
           "id": "applications",
@@ -10514,33 +11414,50 @@
           "kind": "applications",
           "contentFormat": "json",
           "applicationsData": {
-            "intro": "Aplicaciones habituales de las cajas de luz según el espacio, la visibilidad necesaria y el tipo de comunicación.",
+            "intro": "Las cajas de luz personalizadas se utilizan para branding, promoción, señalización y comunicación corporativa en espacios donde la visibilidad es prioritaria.",
             "applications": [
               {
                 "title": "Ferias y congresos",
-                "description": "Cajas de luz para paredes de stand, corners de marca, fondos gráficos y elementos de alta visibilidad dentro del espacio expositivo."
+                "description": "Paredes de stand, fondos de marca, corners promocionales y espacios de presentación de producto."
               },
               {
                 "title": "Retail y punto de venta",
-                "description": "Solución luminosa para escaparates, lineales, promociones, lanzamientos y campañas que necesitan destacar frente a otros estímulos visuales."
+                "description": "Escaparates, lanzamientos, promociones, lineales y zonas destacadas dentro de la tienda."
               },
               {
                 "title": "Centros comerciales",
-                "description": "Comunicación retroiluminada para pasillos, accesos, islas comerciales y campañas temporales con alta exposición al tráfico de personas."
+                "description": "Campañas promocionales, señalización de pasillos, comunicación temporal y espacios publicitarios."
               },
               {
                 "title": "Empresas y oficinas",
-                "description": "Cajas de luz para reforzar imagen de marca en recepciones, showrooms, salas de reunión o espacios corporativos."
+                "description": "Recepciones, showrooms, salas de reuniones y espacios de comunicación corporativa."
               },
               {
                 "title": "Hostelería y ocio",
-                "description": "Comunicación luminosa para entradas, cartelería de eventos, menús especiales, campañas internas o zonas de atención al cliente."
+                "description": "Entradas, promociones, eventos, menús especiales y comunicación en espacios de atención al público."
               }
             ]
           }
         }
       ],
-      "faqs": [],
+      "faqs": [
+        {
+          "question": "¿Qué diferencia hay entre una caja de luz y un panel impreso convencional?",
+          "answer": "La retroiluminación mejora la visibilidad, facilita la lectura y aporta un acabado más llamativo y profesional."
+        },
+        {
+          "question": "¿Se puede cambiar la gráfica?",
+          "answer": "Sí. Una de sus principales ventajas es que permite sustituir la gráfica cuando cambia la campaña, la promoción o el mensaje."
+        },
+        {
+          "question": "¿Es mejor a una cara o a doble cara?",
+          "answer": "Depende de la ubicación. Cuando hay tránsito en ambos sentidos, una caja de luz a doble cara suele ofrecer mayor visibilidad."
+        },
+        {
+          "question": "¿Qué necesitáis para preparar el presupuesto?",
+          "answer": "Necesitamos la medida aproximada, la ubicación, el tipo de instalación —pared, suelo o colgante—, si será a una o dos caras y la fecha prevista de entrega. Si ya dispones del diseño, también podemos revisarlo para asegurar un buen resultado con la retroiluminación."
+        }
+      ],
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -10563,7 +11480,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/expositores/cajas-de-luz.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Cajas de luz personalizadas con gráfica retroiluminada para retail y escaparates"
+        "alt": "Caja de luz LED personalizada con gráfica retroiluminada"
       },
       "galleryImages": [],
       "sku": "01-EXPO-0010",
@@ -10573,13 +11490,142 @@
       "inStock": true,
       "ratingValue": 0,
       "reviewCount": 0,
-      "attributes": [],
+      "attributes": [
+        {
+          "key": "iluminacion-led",
+          "label": "Iluminación LED",
+          "placement": "hero-pills",
+          "icon": "Lightbulb",
+          "tone": "brand"
+        },
+        {
+          "key": "grafica-intercambiable",
+          "label": "Gráfica intercambiable",
+          "placement": "hero-pills",
+          "icon": "RefreshCw",
+          "tone": "success"
+        },
+        {
+          "key": "una-o-dos-caras",
+          "label": "Una o dos caras",
+          "placement": "hero-pills",
+          "icon": "PanelTop",
+          "tone": "neutral"
+        },
+        {
+          "key": "formato-a-medida",
+          "label": "Formato a medida",
+          "placement": "hero-pills",
+          "icon": "Ruler",
+          "tone": "brand"
+        }
+      ],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "name": "cantidad",
+          "label": "Cantidad",
+          "type": "number",
+          "required": false,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "medidas",
+          "label": "Medidas aproximadas",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "placeholder": "Anchura × altura",
+          "readonly": false
+        },
+        {
+          "name": "tipo_instalacion",
+          "label": "Tipo de instalación",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Pared",
+            "Suelo / autoportante",
+            "Colgante",
+            "Sobremesa",
+            "Integrada en un stand o mueble",
+            "A definir"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "caras",
+          "label": "Configuración",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Una cara",
+            "Doble cara",
+            "A definir según ubicación"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "orientacion",
+          "label": "Orientación",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Vertical",
+            "Horizontal",
+            "A definir"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "ubicacion",
+          "label": "Ubicación prevista",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Feria o congreso",
+            "Tienda o escaparate",
+            "Centro comercial",
+            "Oficina o recepción",
+            "Hostelería u ocio",
+            "Otro"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "instalacion",
+          "label": "¿Necesitas instalación?",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Solo suministro",
+            "Suministro e instalación",
+            "A valorar"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "fecha_entrega",
+          "label": "Fecha prevista de entrega o instalación",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        },
+        {
+          "name": "observaciones",
+          "label": "Observaciones",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "readonly": false
+        }
+      ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Cajas de Luz Personalizadas | Expositores Retroiluminados para Marcas",
-        "metaDescription": "Cajas de luz personalizadas para ferias, retail y espacios corporativos. Lightboxes LED a una o dos caras, con gráfica backlit y cambio rápido. Solicita presupuesto.",
+        "metaTitle": "Cajas de luz personalizadas LED | Repro Disseny",
+        "metaDescription": "Cajas de luz LED personalizadas para ferias, retail y espacios corporativos. Modelos a una o dos caras con gráfica backlit intercambiable.",
         "canonical": "https://reprodisseny.com/productos/cajas-de-luz-personalizadas",
         "hreflang": [
           {
@@ -10588,48 +11634,40 @@
           }
         ],
         "keywords": [
-          "caja de luz",
-          "cajas de luz",
-          "caja de luz personalizada",
           "cajas de luz personalizadas",
-          "lightbox personalizado",
+          "caja de luz LED",
+          "expositores retroiluminados",
           "lightbox publicitario",
-          "panel retroiluminado",
-          "panel luminoso",
-          "expositor luminoso",
-          "cartel luminoso",
-          "cartel retroiluminado",
-          "caja de luz led",
-          "caja de luz para stand",
-          "caja de luz para feria",
+          "cajas de luz para ferias",
+          "cajas de luz para retail",
           "caja de luz para escaparate",
-          "caja de luz para retail",
+          "caja de luz a medida",
           "caja de luz doble cara",
           "gráfica backlit",
-          "impresión backlit",
-          "cartelería retroiluminada"
+          "expositores luminosos",
+          "cajas de luz Barcelona"
         ],
         "searchTerms": [
+          "cajas de luz personalizadas",
           "caja de luz personalizada",
-          "cajas de luz para empresas",
-          "caja de luz led personalizada",
-          "lightbox personalizado para stand",
-          "caja de luz para feria",
-          "caja de luz para congreso",
-          "caja de luz para escaparate",
+          "caja de luz LED personalizada",
+          "lightbox personalizado",
+          "lightbox publicitario",
+          "expositor retroiluminado",
+          "expositores retroiluminados personalizados",
+          "caja de luz para ferias",
+          "caja de luz para stands",
+          "caja de luz para escaparates",
+          "caja de luz para tiendas",
           "caja de luz para retail",
-          "caja de luz para punto de venta",
-          "panel retroiluminado personalizado",
-          "panel luminoso para stand",
-          "cartel luminoso personalizado",
-          "cartel retroiluminado para tienda",
-          "expositor luminoso personalizado",
-          "caja de luz doble cara",
-          "caja de luz una cara",
-          "gráfica backlit para caja de luz",
-          "impresión backlit personalizada",
-          "cajas de luz para centros comerciales",
-          "caja de luz Barcelona"
+          "caja de luz para recepción",
+          "caja de luz de pared",
+          "caja de luz autoportante",
+          "caja de luz colgante",
+          "caja de luz a doble cara",
+          "impresión backlit",
+          "gráfica retroiluminada",
+          "cajas de luz Barcelona"
         ],
         "schema": {
           "@context": "https://schema.org",
@@ -10637,7 +11675,7 @@
             {
               "@type": "Product",
               "name": "Cajas de luz personalizadas (expositores retroiluminados)",
-              "description": "Cajas de luz personalizadas para ferias, retail y espacios corporativos. Lightboxes LED a una o dos caras, con gráfica backlit y cambio rápido. Solicita presupuesto.",
+              "description": "Cajas de luz LED personalizadas para ferias, retail y espacios corporativos. Modelos a una o dos caras con gráfica backlit intercambiable.",
               "image": "https://webcms.blob.core.windows.net/media/product/expositores/cajas-de-luz.webp",
               "url": "https://reprodisseny.com/productos/cajas-de-luz-personalizadas",
               "brand": {
@@ -10674,6 +11712,43 @@
                   "item": "https://reprodisseny.com/productos/cajas-de-luz-personalizadas"
                 }
               ]
+            },
+            {
+              "@type": "FAQPage",
+              "mainEntity": [
+                {
+                  "@type": "Question",
+                  "name": "¿Qué diferencia hay entre una caja de luz y un panel impreso convencional?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "La retroiluminación mejora la visibilidad, facilita la lectura y aporta un acabado más llamativo y profesional."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Se puede cambiar la gráfica?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Sí. Una de sus principales ventajas es que permite sustituir la gráfica cuando cambia la campaña, la promoción o el mensaje."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Es mejor a una cara o a doble cara?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Depende de la ubicación. Cuando hay tránsito en ambos sentidos, una caja de luz a doble cara suele ofrecer mayor visibilidad."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Qué necesitáis para preparar el presupuesto?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Necesitamos la medida aproximada, la ubicación, el tipo de instalación —pared, suelo o colgante—, si será a una o dos caras y la fecha prevista de entrega. Si ya dispones del diseño, también podemos revisarlo para asegurar un buen resultado con la retroiluminación."
+                  }
+                }
+              ]
             }
           ]
         },
@@ -10683,7 +11758,7 @@
     },
     {
       "id": "15",
-      "updatedAt": "2026-06-10T10:03:58Z",
+      "updatedAt": "2026-07-15T08:23:42Z",
       "type": "producto",
       "slug": "calendarios-personalizados",
       "path": "/productos/calendarios-personalizados",
@@ -10696,7 +11771,7 @@
       "isPublished": true,
       "shortDescription": "Los calendarios personalizados son uno de los soportes con mayor permanencia: están visibles todo el año y refuerzan tu marca cada día. En Repro Disseny producimos calendarios corporativos para pared y sobremesa, con distintos formatos, papeles y acabados, pensados para regalo a clientes o uso interno, con una presentación profesional.",
       "description": "Los calendarios personalizados son uno de los soportes con mayor permanencia: están visibles todo el año y refuerzan tu marca cada día. En Repro Disseny producimos calendarios corporativos para pared y sobremesa, con distintos formatos, papeles y acabados, pensados para regalo a clientes o uso interno, con una presentación profesional.",
-      "bodyMd": "¿Qué es un calendario personalizado y para qué se usa? \nUn calendario personalizado es un calendario impreso con identidad corporativa (logo, colores, datos de contacto y/o imágenes de marca). Se utiliza como regalo corporativo y como herramienta de organización en oficina, recepción o punto de venta. Además, puede incluir información útil como festivos, campañas, eventos internos, horarios o QR a contacto/web.",
+      "bodyMd": "### ¿Qué es un calendario personalizado y para qué se usa? \nUn calendario personalizado es un calendario impreso con identidad corporativa (logo, colores, datos de contacto y/o imágenes de marca). Se utiliza como regalo corporativo y como herramienta de organización en oficina, recepción o punto de venta. Además, puede incluir información útil como festivos, campañas, eventos internos, horarios o QR a contacto/web.",
       "sections": [
         {
           "id": "details",
@@ -10704,7 +11779,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es un calendario personalizado y para qué se usa? \nUn calendario personalizado es un calendario impreso con identidad corporativa (logo, colores, datos de contacto y/o imágenes de marca). Se utiliza como regalo corporativo y como herramienta de organización en oficina, recepción o punto de venta. Además, puede incluir información útil como festivos, campañas, eventos internos, horarios o QR a contacto/web."
+          "body": "### ¿Qué es un calendario personalizado y para qué se usa? \nUn calendario personalizado es un calendario impreso con identidad corporativa (logo, colores, datos de contacto y/o imágenes de marca). Se utiliza como regalo corporativo y como herramienta de organización en oficina, recepción o punto de venta. Además, puede incluir información útil como festivos, campañas, eventos internos, horarios o QR a contacto/web."
         },
         {
           "id": "benefits",
@@ -12368,7 +13443,7 @@
     },
     {
       "id": "23",
-      "updatedAt": "2026-06-10T10:03:59Z",
+      "updatedAt": "2026-07-15T08:22:58Z",
       "type": "producto",
       "slug": "certificados-personalizados",
       "path": "/productos/certificados-personalizados",
@@ -12381,7 +13456,7 @@
       "isPublished": true,
       "shortDescription": "Un certificado es más que un papel: valida un logro, una formación o una participación y refuerza la reputación de tu empresa o institución. En Repro Disseny imprimimos certificados personalizados con papeles de calidad y acabados profesionales, para que la entrega tenga presencia y transmita confianza.",
       "description": "Un certificado es más que un papel: valida un logro, una formación o una participación y refuerza la reputación de tu empresa o institución. En Repro Disseny imprimimos certificados personalizados con papeles de calidad y acabados profesionales, para que la entrega tenga presencia y transmita confianza.",
-      "bodyMd": "¿Qué es un certificado y para qué se usa? \nUn certificado es un documento que acredita oficialmente algo: la asistencia a un curso, la superación de una formación, una participación en evento, una acreditación interna o un reconocimiento. Suele incluir nombre y apellidos, entidad emisora, fecha, firma/sello y, si se requiere, un identificador (numeración o QR) para control y validación.",
+      "bodyMd": "### ¿Qué es un certificado y para qué se usa? \nUn certificado es un documento que acredita oficialmente algo: la asistencia a un curso, la superación de una formación, una participación en evento, una acreditación interna o un reconocimiento. Suele incluir nombre y apellidos, entidad emisora, fecha, firma/sello y, si se requiere, un identificador (numeración o QR) para control y validación.",
       "sections": [
         {
           "id": "details",
@@ -12389,7 +13464,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es un certificado y para qué se usa? \nUn certificado es un documento que acredita oficialmente algo: la asistencia a un curso, la superación de una formación, una participación en evento, una acreditación interna o un reconocimiento. Suele incluir nombre y apellidos, entidad emisora, fecha, firma/sello y, si se requiere, un identificador (numeración o QR) para control y validación."
+          "body": "### ¿Qué es un certificado y para qué se usa? \nUn certificado es un documento que acredita oficialmente algo: la asistencia a un curso, la superación de una formación, una participación en evento, una acreditación interna o un reconocimiento. Suele incluir nombre y apellidos, entidad emisora, fecha, firma/sello y, si se requiere, un identificador (numeración o QR) para control y validación."
         },
         {
           "id": "benefits",
@@ -12582,7 +13657,7 @@
     },
     {
       "id": "25",
-      "updatedAt": "2026-05-05T15:36:01Z",
+      "updatedAt": "2026-07-15T08:22:40Z",
       "type": "producto",
       "slug": "colgador-de-botellas-personalizado",
       "path": "/productos/colgador-de-botellas-personalizado",
@@ -12595,7 +13670,7 @@
       "isPublished": true,
       "shortDescription": "El colgador de botellas es una pieza pequeña con un efecto enorme en ventas: se coloca directamente en el cuello de la botella y convierte el producto en un soporte promocional visible en lineal, barra o mesa. En Repro Disseny imprimimos colgadores personalizados con troquel a medida, buen gramaje y acabados opcionales para que aguanten manipulación y se vean profesionales.",
       "description": "El colgador de botellas es una pieza pequeña con un efecto enorme en ventas: se coloca directamente en el cuello de la botella y convierte el producto en un soporte promocional visible en lineal, barra o mesa. En Repro Disseny imprimimos colgadores personalizados con troquel a medida, buen gramaje y acabados opcionales para que aguanten manipulación y se vean profesionales.",
-      "bodyMd": "¿Qué es un colgador de botellas y para qué se usa? \nUn colgador de botellas es una tarjeta troquelada diseñada para colgarse del cuello de una botella (vino, cava, destilados, aceite gourmet, etc.). Se utiliza para destacar promociones, comunicar premios, proponer maridajes, incluir QR a ficha de producto o impulsar acciones como catas, packs regalo y lanzamientos.",
+      "bodyMd": "### ¿Qué es un colgador de botellas y para qué se usa? \nUn colgador de botellas es una tarjeta troquelada diseñada para colgarse del cuello de una botella (vino, cava, destilados, aceite gourmet, etc.). Se utiliza para destacar promociones, comunicar premios, proponer maridajes, incluir QR a ficha de producto o impulsar acciones como catas, packs regalo y lanzamientos.",
       "sections": [
         {
           "id": "details",
@@ -12603,7 +13678,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es un colgador de botellas y para qué se usa? \nUn colgador de botellas es una tarjeta troquelada diseñada para colgarse del cuello de una botella (vino, cava, destilados, aceite gourmet, etc.). Se utiliza para destacar promociones, comunicar premios, proponer maridajes, incluir QR a ficha de producto o impulsar acciones como catas, packs regalo y lanzamientos."
+          "body": "### ¿Qué es un colgador de botellas y para qué se usa? \nUn colgador de botellas es una tarjeta troquelada diseñada para colgarse del cuello de una botella (vino, cava, destilados, aceite gourmet, etc.). Se utiliza para destacar promociones, comunicar premios, proponer maridajes, incluir QR a ficha de producto o impulsar acciones como catas, packs regalo y lanzamientos."
         },
         {
           "id": "benefits",
@@ -13124,7 +14199,7 @@
     },
     {
       "id": "28",
-      "updatedAt": "2026-05-05T13:32:10Z",
+      "updatedAt": "2026-07-15T08:22:23Z",
       "type": "producto",
       "slug": "cubos-publicitarios-personalizados",
       "path": "/productos/cubos-publicitarios-personalizados",
@@ -13137,7 +14212,7 @@
       "isPublished": true,
       "shortDescription": "Los cubos personalizados son una solución muy versátil para destacar marca en espacios físicos: funcionan como expositor, elemento decorativo, señalética o incluso como apoyo en zona de foto. En Repro Disseny producimos cubos publicitarios con impresión a todo color y materiales pensados para que queden estables, vistosos y listos para montar.",
       "description": "Los cubos personalizados son una solución muy versátil para destacar marca en espacios físicos: funcionan como expositor, elemento decorativo, señalética o incluso como apoyo en zona de foto. En Repro Disseny producimos cubos publicitarios con impresión a todo color y materiales pensados para que queden estables, vistosos y listos para montar.",
-      "bodyMd": "## ¿Qué es un cubo publicitario y para qué se usa?\n\nUn cubo publicitario es una pieza tridimensional con caras imprimibles que se utiliza para comunicar marca, producto o mensajes promocionales desde varios ángulos. Puede colocarse en suelo, mostrador, escaparate, stand o zona de paso, funcionando como expositor, elemento decorativo, señalética o apoyo visual para campañas.\n\nA diferencia de un cartel plano, el cubo aporta volumen, presencia y mayor visibilidad en el espacio. Es especialmente útil cuando necesitas crear una composición llamativa, destacar un producto, reforzar una promoción o generar un punto visual dentro de un evento, feria, tienda o acción de marca.\n\nEn Repro Disseny producimos cubos publicitarios personalizados en Barcelona con impresión a todo color, materiales ligeros y acabados pensados para que la pieza quede estable, vistosa y lista para montar.",
+      "bodyMd": "### ¿Qué es un cubo publicitario y para qué se usa?\n\nUn cubo publicitario es una pieza tridimensional con caras imprimibles que se utiliza para comunicar marca, producto o mensajes promocionales desde varios ángulos. Puede colocarse en suelo, mostrador, escaparate, stand o zona de paso, funcionando como expositor, elemento decorativo, señalética o apoyo visual para campañas.\n\nA diferencia de un cartel plano, el cubo aporta volumen, presencia y mayor visibilidad en el espacio. Es especialmente útil cuando necesitas crear una composición llamativa, destacar un producto, reforzar una promoción o generar un punto visual dentro de un evento, feria, tienda o acción de marca.\n\nEn Repro Disseny producimos cubos publicitarios personalizados en Barcelona con impresión a todo color, materiales ligeros y acabados pensados para que la pieza quede estable, vistosa y lista para montar.",
       "sections": [
         {
           "id": "details",
@@ -13145,7 +14220,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "## ¿Qué es un cubo publicitario y para qué se usa?\n\nUn cubo publicitario es una pieza tridimensional con caras imprimibles que se utiliza para comunicar marca, producto o mensajes promocionales desde varios ángulos. Puede colocarse en suelo, mostrador, escaparate, stand o zona de paso, funcionando como expositor, elemento decorativo, señalética o apoyo visual para campañas.\n\nA diferencia de un cartel plano, el cubo aporta volumen, presencia y mayor visibilidad en el espacio. Es especialmente útil cuando necesitas crear una composición llamativa, destacar un producto, reforzar una promoción o generar un punto visual dentro de un evento, feria, tienda o acción de marca.\n\nEn Repro Disseny producimos cubos publicitarios personalizados en Barcelona con impresión a todo color, materiales ligeros y acabados pensados para que la pieza quede estable, vistosa y lista para montar."
+          "body": "### ¿Qué es un cubo publicitario y para qué se usa?\n\nUn cubo publicitario es una pieza tridimensional con caras imprimibles que se utiliza para comunicar marca, producto o mensajes promocionales desde varios ángulos. Puede colocarse en suelo, mostrador, escaparate, stand o zona de paso, funcionando como expositor, elemento decorativo, señalética o apoyo visual para campañas.\n\nA diferencia de un cartel plano, el cubo aporta volumen, presencia y mayor visibilidad en el espacio. Es especialmente útil cuando necesitas crear una composición llamativa, destacar un producto, reforzar una promoción o generar un punto visual dentro de un evento, feria, tienda o acción de marca.\n\nEn Repro Disseny producimos cubos publicitarios personalizados en Barcelona con impresión a todo color, materiales ligeros y acabados pensados para que la pieza quede estable, vistosa y lista para montar."
         },
         {
           "id": "benefits",
@@ -13407,7 +14482,7 @@
     },
     {
       "id": "29",
-      "updatedAt": "2026-05-05T11:40:28Z",
+      "updatedAt": "2026-07-15T08:21:56Z",
       "type": "producto",
       "slug": "cubrealarmas-tiendas-retail",
       "path": "/productos/cubrealarmas-tiendas-retail",
@@ -13420,7 +14495,7 @@
       "isPublished": true,
       "shortDescription": "Los cubrealarmas convierten un elemento técnico (los arcos de seguridad de la entrada) en un soporte de comunicación de alto impacto. En Repro Disseny fabricamos cubrealarmas personalizados para campañas en punto de venta, con corte a medida, materiales rígidos y opciones de montaje pensadas para que queden limpios, estables y bien alineados con tu marca.",
       "description": "Los cubrealarmas convierten un elemento técnico (los arcos de seguridad de la entrada) en un soporte de comunicación de alto impacto. En Repro Disseny fabricamos cubrealarmas personalizados para campañas en punto de venta, con corte a medida, materiales rígidos y opciones de montaje pensadas para que queden limpios, estables y bien alineados con tu marca.",
-      "bodyMd": "¿Qué es un cubrealarmas y para qué se usa? \nUn cubrealarmas es una pieza gráfica que cubre o envuelve los arcos/antenas antihurto (EAS) situados en la entrada de muchas tiendas. Su función es aprovechar una zona de máxima visibilidad (acceso, caja, flujo de clientes) para comunicar promociones, lanzamientos, señalización o branding, sin interferir en la operativa del comercio.",
+      "bodyMd": "### ¿Qué es un cubrealarmas y para qué se usa? \nUn cubrealarmas es una pieza gráfica que cubre o envuelve los arcos/antenas antihurto (EAS) situados en la entrada de muchas tiendas. Su función es aprovechar una zona de máxima visibilidad (acceso, caja, flujo de clientes) para comunicar promociones, lanzamientos, señalización o branding, sin interferir en la operativa del comercio.",
       "sections": [
         {
           "id": "details",
@@ -13428,7 +14503,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es un cubrealarmas y para qué se usa? \nUn cubrealarmas es una pieza gráfica que cubre o envuelve los arcos/antenas antihurto (EAS) situados en la entrada de muchas tiendas. Su función es aprovechar una zona de máxima visibilidad (acceso, caja, flujo de clientes) para comunicar promociones, lanzamientos, señalización o branding, sin interferir en la operativa del comercio."
+          "body": "### ¿Qué es un cubrealarmas y para qué se usa? \nUn cubrealarmas es una pieza gráfica que cubre o envuelve los arcos/antenas antihurto (EAS) situados en la entrada de muchas tiendas. Su función es aprovechar una zona de máxima visibilidad (acceso, caja, flujo de clientes) para comunicar promociones, lanzamientos, señalización o branding, sin interferir en la operativa del comercio."
         },
         {
           "id": "benefits",
@@ -14450,7 +15525,7 @@
     },
     {
       "id": "34",
-      "updatedAt": "2026-05-05T15:29:34Z",
+      "updatedAt": "2026-07-15T08:21:27Z",
       "type": "producto",
       "slug": "tarjeta-habitacion-hotel",
       "path": "/productos/tarjeta-habitacion-hotel",
@@ -14463,7 +15538,7 @@
       "isPublished": true,
       "shortDescription": "El díptico tarjeta de habitación es un básico en hostelería: acompaña al huésped desde el check-in y concentra la información que más se consulta durante la estancia (WiFi, horarios, servicios, contacto). En Repro Disseny imprimimos tarjetas de habitación plegadas con un acabado cuidado y opciones de resistencia para que se vean profesionales y aguanten el uso diario.",
       "description": "El díptico tarjeta de habitación es un básico en hostelería: acompaña al huésped desde el check-in y concentra la información que más se consulta durante la estancia (WiFi, horarios, servicios, contacto). En Repro Disseny imprimimos tarjetas de habitación plegadas con un acabado cuidado y opciones de resistencia para que se vean profesionales y aguanten el uso diario.",
-      "bodyMd": "¿Qué es un díptico tarjeta de habitación y para qué se usa? \nEs una tarjeta plegada (en formato díptico) que se deja en la habitación o se entrega en recepción con información práctica del alojamiento. Suele incluir datos de WiFi, horarios (desayuno, recepción, check-out), servicios (room service, spa, parking), normas básicas, contacto y, si se desea, QR a carta digital, reservas o guía del hotel.",
+      "bodyMd": "### ¿Qué es un díptico tarjeta de habitación y para qué se usa? \nEs una tarjeta plegada (en formato díptico) que se deja en la habitación o se entrega en recepción con información práctica del alojamiento. Suele incluir datos de WiFi, horarios (desayuno, recepción, check-out), servicios (room service, spa, parking), normas básicas, contacto y, si se desea, QR a carta digital, reservas o guía del hotel.",
       "sections": [
         {
           "id": "details",
@@ -14471,7 +15546,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es un díptico tarjeta de habitación y para qué se usa? \nEs una tarjeta plegada (en formato díptico) que se deja en la habitación o se entrega en recepción con información práctica del alojamiento. Suele incluir datos de WiFi, horarios (desayuno, recepción, check-out), servicios (room service, spa, parking), normas básicas, contacto y, si se desea, QR a carta digital, reservas o guía del hotel."
+          "body": "### ¿Qué es un díptico tarjeta de habitación y para qué se usa? \nEs una tarjeta plegada (en formato díptico) que se deja en la habitación o se entrega en recepción con información práctica del alojamiento. Suele incluir datos de WiFi, horarios (desayuno, recepción, check-out), servicios (room service, spa, parking), normas básicas, contacto y, si se desea, QR a carta digital, reservas o guía del hotel."
         },
         {
           "id": "benefits",
@@ -28698,7 +29773,7 @@
     },
     {
       "id": "21",
-      "updatedAt": "2026-06-10T10:03:59Z",
+      "updatedAt": "2026-07-15T08:23:27Z",
       "type": "producto",
       "slug": "panel-carton-compacto-personalizado",
       "path": "/productos/panel-carton-compacto-personalizado",
@@ -28711,7 +29786,7 @@
       "isPublished": true,
       "shortDescription": "El panel de cartón compacto es una solución perfecta cuando necesitas un soporte rígido, estable y con buena presencia para interior. En Repro Disseny lo utilizamos mucho en PLV, displays, señalética y piezas troqueladas, porque ofrece un acabado sólido y permite trabajar formatos a medida con cortes limpios.",
       "description": "El panel de cartón compacto es una solución perfecta cuando necesitas un soporte rígido, estable y con buena presencia para interior. En Repro Disseny lo utilizamos mucho en PLV, displays, señalética y piezas troqueladas, porque ofrece un acabado sólido y permite trabajar formatos a medida con cortes limpios.",
-      "bodyMd": "¿Qué es un panel de cartón compacto y para qué se usa? \nUn panel de cartón compacto (también conocido como cartón rígido o cartón gris, según acabados) es un soporte de alta densidad, pensado para piezas que deben mantener la forma y aguantar manipulación en campañas, punto de venta o eventos. Se puede imprimir directamente o, más habitualmente, montar una impresión sobre el cartón para conseguir un acabado más “premium” y consistente.",
+      "bodyMd": "### ¿Qué es un panel de cartón compacto y para qué se usa? \nUn panel de cartón compacto (también conocido como cartón rígido o cartón gris, según acabados) es un soporte de alta densidad, pensado para piezas que deben mantener la forma y aguantar manipulación en campañas, punto de venta o eventos. Se puede imprimir directamente o, más habitualmente, montar una impresión sobre el cartón para conseguir un acabado más “premium” y consistente.",
       "sections": [
         {
           "id": "details",
@@ -28719,7 +29794,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es un panel de cartón compacto y para qué se usa? \nUn panel de cartón compacto (también conocido como cartón rígido o cartón gris, según acabados) es un soporte de alta densidad, pensado para piezas que deben mantener la forma y aguantar manipulación en campañas, punto de venta o eventos. Se puede imprimir directamente o, más habitualmente, montar una impresión sobre el cartón para conseguir un acabado más “premium” y consistente."
+          "body": "### ¿Qué es un panel de cartón compacto y para qué se usa? \nUn panel de cartón compacto (también conocido como cartón rígido o cartón gris, según acabados) es un soporte de alta densidad, pensado para piezas que deben mantener la forma y aguantar manipulación en campañas, punto de venta o eventos. Se puede imprimir directamente o, más habitualmente, montar una impresión sobre el cartón para conseguir un acabado más “premium” y consistente."
         },
         {
           "id": "benefits",
@@ -28930,7 +30005,7 @@
     },
     {
       "id": "22",
-      "updatedAt": "2026-06-10T10:03:59Z",
+      "updatedAt": "2026-07-15T08:23:09Z",
       "type": "producto",
       "slug": "panel-carton-corrugado-personalizado",
       "path": "/productos/panel-carton-corrugado-personalizado",
@@ -28943,7 +30018,7 @@
       "isPublished": true,
       "shortDescription": "El panel de cartón corrugado es una opción muy práctica para campañas y comunicación interior: es ligero, tiene buena rigidez para su peso y permite producir piezas a medida de forma ágil. En Repro Disseny imprimimos paneles de cartón corrugado personalizados para cartelería, PLV y señalética, con opción de corte recto o a la forma y con un enfoque más sostenible: es un soporte de base papel reciclable.",
       "description": "El panel de cartón corrugado es una opción muy práctica para campañas y comunicación interior: es ligero, tiene buena rigidez para su peso y permite producir piezas a medida de forma ágil. En Repro Disseny imprimimos paneles de cartón corrugado personalizados para cartelería, PLV y señalética, con opción de corte recto o a la forma y con un enfoque más sostenible: es un soporte de base papel reciclable.",
-      "bodyMd": "¿Qué es un panel de cartón corrugado y para qué se usa? \nUn panel de cartón corrugado (cartón ondulado) es un soporte formado por una o varias capas de papel con una estructura interna ondulada que aporta rigidez sin aumentar demasiado el peso. Se utiliza principalmente en interior para comunicación temporal: cartelería rígida, displays, expositores sencillos, señalización y piezas promocionales que necesitan buena presencia con un coste contenido.",
+      "bodyMd": "### ¿Qué es un panel de cartón corrugado y para qué se usa? \nUn panel de cartón corrugado (cartón ondulado) es un soporte formado por una o varias capas de papel con una estructura interna ondulada que aporta rigidez sin aumentar demasiado el peso. Se utiliza principalmente en interior para comunicación temporal: cartelería rígida, displays, expositores sencillos, señalización y piezas promocionales que necesitan buena presencia con un coste contenido.",
       "sections": [
         {
           "id": "details",
@@ -28951,7 +30026,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es un panel de cartón corrugado y para qué se usa? \nUn panel de cartón corrugado (cartón ondulado) es un soporte formado por una o varias capas de papel con una estructura interna ondulada que aporta rigidez sin aumentar demasiado el peso. Se utiliza principalmente en interior para comunicación temporal: cartelería rígida, displays, expositores sencillos, señalización y piezas promocionales que necesitan buena presencia con un coste contenido."
+          "body": "### ¿Qué es un panel de cartón corrugado y para qué se usa? \nUn panel de cartón corrugado (cartón ondulado) es un soporte formado por una o varias capas de papel con una estructura interna ondulada que aporta rigidez sin aumentar demasiado el peso. Se utiliza principalmente en interior para comunicación temporal: cartelería rígida, displays, expositores sencillos, señalización y piezas promocionales que necesitan buena presencia con un coste contenido."
         },
         {
           "id": "benefits",
@@ -29163,7 +30238,7 @@
     },
     {
       "id": "32",
-      "updatedAt": "2026-05-22T07:46:29Z",
+      "updatedAt": "2026-07-15T08:21:42Z",
       "type": "producto",
       "slug": "panel-dibond-personalizado",
       "path": "/productos/panel-dibond-personalizado",
@@ -29177,7 +30252,7 @@
       "isPublished": true,
       "shortDescription": "El panel de Dibond (composite de aluminio) es una de las opciones más fiables cuando necesitas un soporte rígido con acabado premium y máxima estabilidad, especialmente en exterior. En Repro Disseny imprimimos paneles de Dibond a medida para rótulos, señalización y cartelería corporativa, con opción de una o dos caras y corte recto o a la forma.",
       "description": "El panel de Dibond (composite de aluminio) es una de las opciones más fiables cuando necesitas un soporte rígido con acabado premium y máxima estabilidad, especialmente en exterior. En Repro Disseny imprimimos paneles de Dibond a medida para rótulos, señalización y cartelería corporativa, con opción de una o dos caras y corte recto o a la forma.",
-      "bodyMd": "¿Qué es un panel de Dibond y para qué se usa? \nUn panel de Dibond es un soporte rígido formado por dos láminas de aluminio con un núcleo interior (material compuesto). Esta estructura le da una gran planimetría (se mantiene muy plano), buena resistencia y un acabado muy profesional. \nSe usa mucho para señalética, rótulos, placas corporativas, cartelería de larga duración y piezas que deben aguantar bien en exterior.",
+      "bodyMd": "### ¿Qué es un panel de Dibond y para qué se usa? \nUn panel de Dibond es un soporte rígido formado por dos láminas de aluminio con un núcleo interior (material compuesto). Esta estructura le da una gran planimetría (se mantiene muy plano), buena resistencia y un acabado muy profesional. \nSe usa mucho para señalética, rótulos, placas corporativas, cartelería de larga duración y piezas que deben aguantar bien en exterior.",
       "sections": [
         {
           "id": "details",
@@ -29185,7 +30260,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es un panel de Dibond y para qué se usa? \nUn panel de Dibond es un soporte rígido formado por dos láminas de aluminio con un núcleo interior (material compuesto). Esta estructura le da una gran planimetría (se mantiene muy plano), buena resistencia y un acabado muy profesional. \nSe usa mucho para señalética, rótulos, placas corporativas, cartelería de larga duración y piezas que deben aguantar bien en exterior."
+          "body": "### ¿Qué es un panel de Dibond y para qué se usa? \nUn panel de Dibond es un soporte rígido formado por dos láminas de aluminio con un núcleo interior (material compuesto). Esta estructura le da una gran planimetría (se mantiene muy plano), buena resistencia y un acabado muy profesional. \nSe usa mucho para señalética, rótulos, placas corporativas, cartelería de larga duración y piezas que deben aguantar bien en exterior."
         },
         {
           "id": "benefits",
@@ -41252,7 +42327,7 @@
     },
     {
       "id": "11",
-      "updatedAt": "2026-06-10T10:03:57Z",
+      "updatedAt": "2026-07-15T08:20:23Z",
       "type": "producto",
       "slug": "xbanner-personalizado",
       "path": "/productos/xbanner-personalizado",
@@ -41265,7 +42340,7 @@
       "isPublished": true,
       "shortDescription": "El X-Banner es una solución ligera y muy práctica para comunicar en espacios temporales: promociones, ferias, puntos de información o campañas itinerantes. En Repro Disseny imprimimos X-Banners personalizados con gráficas nítidas y materiales pensados para que el montaje sea rápido y el resultado se vea profesional.",
       "description": "El X-Banner es una solución ligera y muy práctica para comunicar en espacios temporales: promociones, ferias, puntos de información o campañas itinerantes. En Repro Disseny imprimimos X-Banners personalizados con gráficas nítidas y materiales pensados para que el montaje sea rápido y el resultado se vea profesional.",
-      "bodyMd": "¿Qué es un X-Banner y para qué se usa? \nUn X-Banner es un expositor portátil formado por una estructura en forma de “X” (varillas tensadas) que sujeta una lona o gráfica impresa mediante ojales o enganches en las esquinas. Se utiliza para mostrar promociones, señalización o mensajes corporativos de forma visible, con un sistema muy fácil de montar y transportar.",
+      "bodyMd": "### ¿Qué es un X-Banner y para qué se usa? \nUn X-Banner es un expositor portátil formado por una estructura en forma de “X” (varillas tensadas) que sujeta una lona o gráfica impresa mediante ojales o enganches en las esquinas. Se utiliza para mostrar promociones, señalización o mensajes corporativos de forma visible, con un sistema muy fácil de montar y transportar.",
       "sections": [
         {
           "id": "details",
@@ -41273,7 +42348,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es un X-Banner y para qué se usa? \nUn X-Banner es un expositor portátil formado por una estructura en forma de “X” (varillas tensadas) que sujeta una lona o gráfica impresa mediante ojales o enganches en las esquinas. Se utiliza para mostrar promociones, señalización o mensajes corporativos de forma visible, con un sistema muy fácil de montar y transportar."
+          "body": "### ¿Qué es un X-Banner y para qué se usa? \nUn X-Banner es un expositor portátil formado por una estructura en forma de “X” (varillas tensadas) que sujeta una lona o gráfica impresa mediante ojales o enganches en las esquinas. Se utiliza para mostrar promociones, señalización o mensajes corporativos de forma visible, con un sistema muy fácil de montar y transportar."
         },
         {
           "id": "benefits",
