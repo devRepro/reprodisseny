@@ -78,7 +78,7 @@
     "gray-matter": "^2.0.1",
     "isomorphic-fetch": "^3.0.0",
     "nuxi": "^3.28.0",
-    "nuxt": "^3.21.7",
+    "nuxt": "3.21.8",
     "postcss": "^8.5.3",
     "radix-vue": "^1.9.17",
     "rimraf": "^6.1.3",
