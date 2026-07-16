@@ -275,7 +275,30 @@ export default defineNuxtConfig({
         "PrimaryFileMimeType",
 
       primaryFileSizeField:
-        process.env.CRM_PR_PRIMARY_FILE_SIZE_FIELD || "PrimaryFileSize",
+        process.env.CRM_PR_PRIMARY_FILE_SIZE_FIELD ||
+        "PrimaryFileSize",
+
+      trackingSourceField:
+        process.env.CRM_PR_TRACKING_SOURCE_FIELD ||
+        "TrackingSource",
+      trackingMediumField:
+        process.env.CRM_PR_TRACKING_MEDIUM_FIELD ||
+        "TrackingMedium",
+      trackingCampaignField:
+        process.env.CRM_PR_TRACKING_CAMPAIGN_FIELD ||
+        "TrackingCampaign",
+      trackingCampaignIdField:
+        process.env.CRM_PR_TRACKING_CAMPAIGN_ID_FIELD ||
+        "TrackingCampaignId",
+      utmJsonField:
+        process.env.CRM_PR_UTM_JSON_FIELD ||
+        "UtmJson",
+      sourceUrlField:
+        process.env.CRM_PR_SOURCE_URL_FIELD ||
+        "SourceUrl",
+      postalCodeField:
+        process.env.CRM_PR_POSTAL_CODE_FIELD ||
+        "PostalCode",
     },
 
     googleMaps: {
