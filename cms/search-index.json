@@ -637,6 +637,38 @@
   },
   {
     "type": "producto",
+    "slug": "caja-automontable",
+    "title": "Caja automontable mini para dulces",
+    "path": "/productos/caja-automontable",
+    "keywords": [
+      "caja automontable personalizada",
+      "caja mini para dulces",
+      "caja para bombones personalizada",
+      "caja para caramelos personalizada",
+      "packaging para dulces",
+      "caja de cartón automontable",
+      "caja para turrón personalizada",
+      "caja regalo corporativo pequeña",
+      "packaging gourmet personalizado",
+      "caja troquelada a medida"
+    ],
+    "searchTerms": [
+      "caja automontable",
+      "caja dulces mini",
+      "caja para caramelos",
+      "caja para bombones",
+      "caja para mini turrón",
+      "caja pastelería pequeña",
+      "packaging dulces",
+      "caja regalo pequeña",
+      "caja cartón automontable",
+      "caja troquelada",
+      "caja para detalles corporativos",
+      "caja gourmet personalizada"
+    ]
+  },
+  {
+    "type": "producto",
     "slug": "caja-cerillas",
     "title": "Caja cerillas (funda + cajón)",
     "path": "/productos/caja-cerillas",
@@ -719,26 +751,68 @@
   {
     "type": "producto",
     "slug": "caja-desplegable-tapa",
-    "title": "Caja desplegable con tapa",
+    "title": "Caja desplegable con tapa personalizada",
     "path": "/productos/caja-desplegable-tapa",
-    "keywords": [],
-    "searchTerms": []
-  },
-  {
-    "type": "producto",
-    "slug": "caja-automontable",
-    "title": "Caja dulces mini",
-    "path": "/productos/caja-automontable",
-    "keywords": [],
-    "searchTerms": []
+    "keywords": [
+      "caja desplegable con tapa",
+      "caja desplegable personalizada",
+      "caja rígida plegable",
+      "caja plegable premium",
+      "packaging corporativo premium",
+      "caja para welcome pack",
+      "caja para regalos corporativos",
+      "caja rígida personalizada",
+      "caja con tapa personalizada",
+      "caja plegable a medida"
+    ],
+    "searchTerms": [
+      "caja desplegable",
+      "caja desplegable con tapa",
+      "caja rígida plegable",
+      "caja plegable con tapa",
+      "caja premium personalizada",
+      "caja regalo empresa",
+      "caja welcome pack",
+      "packaging premium",
+      "caja rígida desmontable",
+      "caja plegada para montar",
+      "caja con cierre imantado",
+      "caja para kit corporativo",
+      "caja a medida",
+      "caja de presentación"
+    ]
   },
   {
     "type": "producto",
     "slug": "caja-envolvente",
-    "title": "Caja envolvente",
+    "title": "Caja envolvente personalizada",
     "path": "/productos/caja-envolvente",
-    "keywords": [],
-    "searchTerms": []
+    "keywords": [
+      "caja envolvente personalizada",
+      "packaging corporativo premium",
+      "caja con faja personalizada",
+      "caja sleeve personalizada",
+      "caja para welcome pack",
+      "caja para regalos corporativos",
+      "packaging para kits corporativos",
+      "caja de presentación personalizada",
+      "caja personalizada a medida",
+      "packaging con envolvente"
+    ],
+    "searchTerms": [
+      "caja envolvente",
+      "caja con faja",
+      "caja sleeve",
+      "packaging envolvente",
+      "caja regalo empresa",
+      "caja welcome pack",
+      "caja para kit corporativo",
+      "caja premium personalizada",
+      "caja base con funda",
+      "caja con banda exterior",
+      "packaging corporativo",
+      "caja a medida"
+    ]
   },
   {
     "type": "producto",
@@ -925,7 +999,29 @@
       "carpetas con stamping"
     ],
     "searchTerms": [
-      "carpetas de presentación"
+      "carpetas de presentación",
+      "carpetas personalizadas",
+      "carpetas corporativas",
+      "carpetas empresa",
+      "carpetas para documentos",
+      "carpetas A4",
+      "carpeta A4 personalizada",
+      "carpetas con solapa",
+      "carpetas con lomo",
+      "carpetas sin lomo",
+      "carpetas con ranura tarjeta",
+      "carpetas para presupuestos",
+      "carpetas para propuestas",
+      "carpetas para contratos",
+      "carpetas para ferias",
+      "carpetas comerciales",
+      "carpetas para visitas comerciales",
+      "carpetas con laminado",
+      "carpetas soft touch",
+      "carpetas con barniz selectivo",
+      "carpetas con stamping",
+      "papelería corporativa",
+      "pack papelería corporativa"
     ]
   },
   {
@@ -1445,10 +1541,36 @@
   {
     "type": "producto",
     "slug": "faja-para-caja",
-    "title": "Faja para caja",
+    "title": "Faja para caja personalizada",
     "path": "/productos/faja-para-caja",
-    "keywords": [],
-    "searchTerms": []
+    "keywords": [
+      "fajas para cajas personalizadas",
+      "faja para caja personalizada",
+      "sleeve para caja",
+      "funda de cartón para caja",
+      "banda de packaging personalizada",
+      "faja de cartón impresa",
+      "packaging con faja",
+      "faja para packaging",
+      "faja personalizada a medida",
+      "sleeve de cartón personalizado"
+    ],
+    "searchTerms": [
+      "faja para caja",
+      "fajas para cajas",
+      "sleeve caja",
+      "funda para caja",
+      "banda para packaging",
+      "faja cartón",
+      "faja impresa",
+      "faja personalizada",
+      "caja con faja",
+      "envolvente para caja",
+      "banda de cartón personalizada",
+      "faja packaging a medida",
+      "faja con logo",
+      "sleeve personalizado"
+    ]
   },
   {
     "type": "producto",
@@ -1826,8 +1948,37 @@
     "slug": "libretas-personalizadas",
     "title": "Libretas personalizadas",
     "path": "/productos/libretas-personalizadas",
-    "keywords": [],
-    "searchTerms": []
+    "keywords": [
+      "libretas personalizadas",
+      "libretas personalizadas para empresas",
+      "libretas corporativas",
+      "libretas con logotipo",
+      "cuadernos personalizados",
+      "libretas A5 personalizadas",
+      "libretas de tapa dura",
+      "libretas de tapa blanda",
+      "libretas Wire-O",
+      "libretas para eventos",
+      "libretas promocionales",
+      "cuadernos corporativos"
+    ],
+    "searchTerms": [
+      "libreta personalizada",
+      "libretas empresa",
+      "libreta con logo",
+      "cuaderno personalizado",
+      "cuaderno corporativo",
+      "libreta A5",
+      "libreta A4",
+      "libreta A6",
+      "libreta tapa dura",
+      "libreta tapa blanda",
+      "libreta Wire-O",
+      "libreta espiral",
+      "libretas para congresos",
+      "libretas para formación",
+      "merchandising corporativo"
+    ]
   },
   {
     "type": "producto",
@@ -2089,8 +2240,36 @@
     "slug": "papel-de-carta",
     "title": "Papel de carta personalizado (hojas membretadas)",
     "path": "/productos/papel-de-carta",
-    "keywords": [],
-    "searchTerms": []
+    "keywords": [
+      "papel de carta personalizado",
+      "papel de carta para empresas",
+      "hojas membretadas personalizadas",
+      "papelería corporativa",
+      "papel corporativo personalizado",
+      "hojas A4 personalizadas",
+      "papel con logotipo",
+      "papel de carta A4",
+      "hojas corporativas impresas",
+      "papel de empresa personalizado",
+      "papel membretado",
+      "impresión de papel de carta"
+    ],
+    "searchTerms": [
+      "papel de carta",
+      "papel membretado",
+      "hojas membretadas",
+      "hojas con logotipo",
+      "papel corporativo",
+      "papelería empresa",
+      "hojas A4 personalizadas",
+      "papel carta empresa",
+      "papel con membrete",
+      "papel para presupuestos",
+      "papel para cartas comerciales",
+      "papel oficina personalizado",
+      "hojas corporativas",
+      "papel impreso A4"
+    ]
   },
   {
     "type": "producto",
@@ -2161,8 +2340,37 @@
     "slug": "pizarras-a-medida",
     "title": "Pizarras personalizadas a medida (tipo Velleda)",
     "path": "/productos/pizarras-a-medida",
-    "keywords": [],
-    "searchTerms": []
+    "keywords": [
+      "pizarras personalizadas a medida",
+      "pizarra tipo Velleda personalizada",
+      "pizarra blanca personalizada",
+      "pizarra para oficina",
+      "pizarra corporativa",
+      "pizarra con logotipo",
+      "pizarra calendario personalizada",
+      "pizarra de planificación",
+      "panel escribible personalizado",
+      "pizarra impresa a medida",
+      "pizarra para formación",
+      "pizarra para sala de reuniones"
+    ],
+    "searchTerms": [
+      "pizarra personalizada",
+      "pizarra a medida",
+      "pizarra Velleda",
+      "pizarra blanca",
+      "pizarra para rotulador",
+      "pizarra oficina",
+      "pizarra empresa",
+      "pizarra con logo",
+      "pizarra calendario",
+      "pizarra planificación",
+      "panel escribible",
+      "pizarra magnética",
+      "pizarra para reuniones",
+      "pizarra para producción",
+      "pizarra para aula"
+    ]
   },
   {
     "type": "producto",
@@ -2290,8 +2498,37 @@
     "slug": "sobres-personalizados",
     "title": "Sobres personalizados (papelería corporativa)",
     "path": "/productos/sobres-personalizados",
-    "keywords": [],
-    "searchTerms": []
+    "keywords": [
+      "sobres personalizados",
+      "sobres personalizados para empresas",
+      "sobres corporativos",
+      "sobres con logotipo",
+      "sobres impresos personalizados",
+      "sobres DL personalizados",
+      "sobres C5 personalizados",
+      "sobres C4 personalizados",
+      "sobres americanos personalizados",
+      "sobres con ventana personalizados",
+      "papelería corporativa personalizada",
+      "impresión de sobres"
+    ],
+    "searchTerms": [
+      "sobres personalizados",
+      "sobres empresa",
+      "sobres corporativos",
+      "sobres con logo",
+      "sobres impresos",
+      "sobre DL",
+      "sobre americano",
+      "sobre C5",
+      "sobre C4",
+      "sobres con ventana",
+      "sobres sin ventana",
+      "sobres para cartas",
+      "sobres para facturas",
+      "papelería corporativa",
+      "imprimir sobres"
+    ]
   },
   {
     "type": "producto",
@@ -2322,8 +2559,37 @@
     "slug": "talonarios-autocopiativos-personalizados",
     "title": "Talonarios autocopiativos personalizados",
     "path": "/productos/talonarios-autocopiativos-personalizados",
-    "keywords": [],
-    "searchTerms": []
+    "keywords": [
+      "talonarios autocopiativos personalizados",
+      "talonarios personalizados para empresas",
+      "talonarios autocopiativos",
+      "talonarios numerados",
+      "talonarios de albaranes",
+      "talonarios de pedidos",
+      "talonarios de presupuestos",
+      "talonarios de recibos",
+      "talonarios de partes de trabajo",
+      "formularios autocopiativos",
+      "papel autocopiativo personalizado",
+      "talonarios duplicados y triplicados"
+    ],
+    "searchTerms": [
+      "talonarios autocopiativos",
+      "talonarios personalizados",
+      "talonario duplicado",
+      "talonario triplicado",
+      "talonarios con numeración",
+      "talonarios de albaranes",
+      "talonarios de pedidos",
+      "talonarios de recibos",
+      "talonarios de presupuestos",
+      "partes de trabajo autocopiativos",
+      "formularios autocopiativos",
+      "papel autocopiativo",
+      "talonarios con original y copia",
+      "talonarios perforados",
+      "talonarios a medida"
+    ]
   },
   {
     "type": "producto",
@@ -2505,10 +2771,39 @@
   {
     "type": "producto",
     "slug": "urna",
-    "title": "Urna",
+    "title": "Urna personalizada de cartón",
     "path": "/productos/urna",
-    "keywords": [],
-    "searchTerms": []
+    "keywords": [
+      "urna personalizada",
+      "urna de cartón personalizada",
+      "urna para sorteos",
+      "urna para eventos",
+      "urna para votaciones",
+      "urna para encuestas",
+      "urna publicitaria",
+      "urna para recoger tarjetas",
+      "urna automontable",
+      "caja urna personalizada",
+      "buzón de sugerencias personalizado",
+      "urna de sobremesa personalizada"
+    ],
+    "searchTerms": [
+      "urna",
+      "urna personalizada",
+      "urna cartón",
+      "urna sorteo",
+      "urna votación",
+      "urna encuesta",
+      "urna evento",
+      "urna para papeletas",
+      "urna para tarjetas",
+      "caja urna",
+      "buzón sugerencias",
+      "urna con ranura",
+      "urna con ventana",
+      "urna automontable",
+      "urna publicitaria"
+    ]
   },
   {
     "type": "producto",
