@@ -37,6 +37,10 @@ const mediaCdnOrigin = (() => {
   }
 })();
 
+const defaultSiteTitle = "Imprenta en Barcelona";
+
+const defaultSiteDescription =
+  "Impresión profesional en Barcelona: impresión digital y offset, gran formato, vinilos, PLV, packaging y soluciones gráficas para empresas.";
 
 export default defineNuxtConfig({
   experimental: {
@@ -47,8 +51,7 @@ export default defineNuxtConfig({
   site: {
     url: siteUrl,
     name: "Repro Disseny",
-    description:
-      "Impresión profesional en Cataluña: gran formato, PLV, vinilos, calendarios, packaging y material corporativo con asesoramiento experto.",
+    description: defaultSiteDescription,
     defaultLocale: "es",
     trailingSlash: false,
     indexable: isIndexable,
@@ -342,8 +345,8 @@ export default defineNuxtConfig({
       lang: "es",
     },
 
-    title: "Impresión profesional en Cataluña",
-    titleTemplate: "%s · Repro Disseny",
+    title: defaultSiteTitle,
+titleTemplate: "%s | Repro Disseny",
 
     meta: [
       {

@@ -70,11 +70,12 @@ const {
 
 const safeHomeCategories = computed(() => homeCategories.value ?? []);
 
-const HOME_TITLE = "Imprenta en Barcelona | Repro Disseny";
+const HOME_TITLE = "Imprenta en Barcelona";
+
+const HOME_SOCIAL_TITLE = "Imprenta en Barcelona | Repro Disseny";
 
 const HOME_DESCRIPTION =
   "Impresión profesional en Barcelona: impresión digital y offset, gran formato, vinilos, PLV, packaging y soluciones gráficas para empresas.";
-
 const homeIdentitySchema = buildSiteIdentitySchema({
   title: HOME_TITLE,
   description: HOME_DESCRIPTION,
@@ -85,13 +86,13 @@ useSeoMeta({
   title: HOME_TITLE,
   description: HOME_DESCRIPTION,
 
-  ogTitle: HOME_TITLE,
+  ogTitle: HOME_SOCIAL_TITLE,
   ogDescription: HOME_DESCRIPTION,
   ogUrl: `${SITE_URL}/`,
   ogImage: SITE_IDENTITY.imageUrl,
 
   twitterCard: "summary_large_image",
-  twitterTitle: HOME_TITLE,
+  twitterTitle: HOME_SOCIAL_TITLE,
   twitterDescription: HOME_DESCRIPTION,
   twitterImage: SITE_IDENTITY.imageUrl,
 });
