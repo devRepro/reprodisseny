@@ -97,6 +97,9 @@
   "resolutions": {
     "parse-git-config": "latest"
   },
+  "engines": {
+    "node": ">=22.12.0 <23"
+  },
   "overrides": {
     "esbuild": "^0.25",
     "node-fetch-native": "1.6.4",
