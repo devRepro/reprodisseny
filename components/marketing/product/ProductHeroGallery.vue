@@ -32,7 +32,7 @@ const props = withDefaults(
     images: () => [],
     alt: "Producto",
     fallback: "/img/placeholders/producto.webp",
-  },
+  }
 );
 
 const activeIndex = ref(0);
@@ -101,17 +101,14 @@ watch(
     activeIndex.value = 0;
     failedSources.value = new Set();
   },
-  { immediate: true },
+  { immediate: true }
 );
 
-watch(
-  slides,
-  (value) => {
-    if (!value.length || activeIndex.value > value.length - 1) {
-      activeIndex.value = 0;
-    }
-  },
-);
+watch(slides, (value) => {
+  if (!value.length || activeIndex.value > value.length - 1) {
+    activeIndex.value = 0;
+  }
+});
 
 const activeSlide = computed(() => {
   return slides.value[activeIndex.value] || slides.value[0] || null;
@@ -172,11 +169,13 @@ function onImageError() {
       <figcaption v-if="activeSlide?.caption" class="sr-only">
         {{ activeSlide.caption }}
       </figcaption>
-
-      <meta itemprop="image" :content="displayedImageSrc" />
     </figure>
 
-    <div v-if="hasGallery" class="product-hero-gallery__thumbs" aria-label="Galería de producto">
+    <div
+      v-if="hasGallery"
+      class="product-hero-gallery__thumbs"
+      aria-label="Galería de producto"
+    >
       <button
         v-for="(slide, index) in slides"
         :key="slide.src"

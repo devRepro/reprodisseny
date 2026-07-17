@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { computed } from "vue";
+
+import LeadForm from "@/components/marketing/product/LeadForm.vue";
 import ProductHeroGallery from "@/components/marketing/product/ProductHeroGallery.vue";
 import ProductAttributePills from "@/components/shared/pills/ProductAttributePills.vue";
-import LeadForm from "@/components/marketing/product/LeadForm.vue";
 
 type HeroImage =
   | string
@@ -59,59 +60,81 @@ const props = defineProps<{
   category?: HeroCategory;
 }>();
 
-const FALLBACK = "/img/placeholders/producto.webp";
+const FALLBACK_IMAGE = "/img/placeholders/producto.webp";
+const DEFAULT_PRODUCT_NAME = "Producto";
 
-const productTitle = computed(() => props.product?.title?.trim() || "");
-
-const productDesc = computed(() => {
-  return (
-    props.product?.shortDescription?.trim() || props.product?.description?.trim() || ""
-  );
-});
-
-const productAriaLabel = computed(() =>
-  productTitle.value ? `Página del producto ${productTitle.value}` : "Página de producto"
-);
-
-const imgAlt = computed(() => {
-  const image = props.product?.image;
-
-  if (image && typeof image === "object" && image.alt) {
-    return image.alt;
-  }
-
-  return productTitle.value || "Producto";
-});
-
-const attributePills = computed<HeroProductAttribute[]>(() => {
-  const raw = Array.isArray(props.product?.attributes) ? props.product.attributes : [];
-
-  return raw
-    .map((item) => ({
-      label: String(item?.label || "").trim(),
-      icon: item?.icon ? String(item.icon) : null,
-      tone: item?.tone ? String(item.tone) : "neutral",
-    }))
-    .filter((item) => item.label)
-    .slice(0, 4);
-});
+function normalizeText(value: unknown): string {
+  return typeof value === "string" ? value.trim() : "";
+}
 
 function toHeroImageArray(value: unknown): HeroImage[] {
   return Array.isArray(value) ? (value as HeroImage[]) : [];
 }
 
+const productTitle = computed(() => {
+  return normalizeText(props.product?.title) || DEFAULT_PRODUCT_NAME;
+});
+
+const productDescription = computed(() => {
+  return (
+    normalizeText(props.product?.shortDescription) ||
+    normalizeText(props.product?.description)
+  );
+});
+
+const categoryLabel = computed(() => {
+  return normalizeText(props.category?.nav) || normalizeText(props.category?.title);
+});
+
+const categorySlug = computed(() => {
+  return (
+    normalizeText(props.category?.slug) || normalizeText(props.product?.categorySlug)
+  );
+});
+
+const productAriaLabel = computed(() => {
+  return `Página del producto ${productTitle.value}`;
+});
+
+const imageAlt = computed(() => {
+  const image = props.product?.image;
+
+  if (image && typeof image === "object") {
+    const explicitAlt = normalizeText(image.alt);
+
+    if (explicitAlt) {
+      return explicitAlt;
+    }
+  }
+
+  return productTitle.value;
+});
+
 const primaryImage = computed<HeroImage>(() => {
   return props.product?.imageSrc || props.product?.image || null;
 });
 
-const galleryImages = computed<HeroImage[]>(() => [
-  ...toHeroImageArray(props.product?.gallery),
-  ...toHeroImageArray(props.product?.galleryImages),
-  ...toHeroImageArray(props.product?.images),
-]);
+const galleryImages = computed<HeroImage[]>(() => {
+  return [
+    ...toHeroImageArray(props.product?.gallery),
+    ...toHeroImageArray(props.product?.galleryImages),
+    ...toHeroImageArray(props.product?.images),
+  ];
+});
 
-const categorySlug = computed(() => {
-  return props.category?.slug || props.product?.categorySlug || "";
+const attributePills = computed<HeroProductAttribute[]>(() => {
+  const attributes = Array.isArray(props.product?.attributes)
+    ? props.product.attributes
+    : [];
+
+  return attributes
+    .map((attribute) => ({
+      label: normalizeText(attribute?.label),
+      icon: normalizeText(attribute?.icon) || null,
+      tone: normalizeText(attribute?.tone) || "neutral",
+    }))
+    .filter((attribute) => Boolean(attribute.label))
+    .slice(0, 4);
 });
 
 const extraFields = computed(() => {
@@ -119,37 +142,27 @@ const extraFields = computed(() => {
     ? props.product.extraFields
     : [];
 
-  if (explicitExtraFields.length) return explicitExtraFields;
+  if (explicitExtraFields.length > 0) {
+    return explicitExtraFields;
+  }
 
   return Array.isArray(props.product?.formFields) ? props.product.formFields : [];
 });
-
-const productNameForForm = computed(() => productTitle.value || "Producto");
 </script>
+
 <template>
-  <article
-    class="product-hero"
-    itemscope
-    itemtype="https://schema.org/Product"
-    :aria-label="productAriaLabel"
-  >
-    <meta v-if="product?.sku" itemprop="sku" :content="String(product.sku)" />
-
-    <meta v-if="productTitle" itemprop="name" :content="productTitle" />
-
-    <meta v-if="productDesc" itemprop="description" :content="productDesc" />
-
+  <article class="product-hero" :aria-label="productAriaLabel">
     <header class="product-hero__header">
-      <p v-if="category?.title || category?.nav" class="product-hero__category-pill">
-        {{ category?.nav || category?.title }}
+      <p v-if="categoryLabel" class="product-hero__category-pill">
+        {{ categoryLabel }}
       </p>
 
-      <h1 class="product-hero__title" :title="productTitle" itemprop="name">
+      <h1 class="product-hero__title" :title="productTitle">
         {{ productTitle }}
       </h1>
 
-      <p v-if="productDesc" class="product-hero__description" itemprop="description">
-        {{ productDesc }}
+      <p v-if="productDescription" class="product-hero__description">
+        {{ productDescription }}
       </p>
     </header>
 
@@ -159,8 +172,8 @@ const productNameForForm = computed(() => productTitle.value || "Producto");
           class="product-hero__gallery"
           :primary-image="primaryImage"
           :images="galleryImages"
-          :alt="imgAlt"
-          :fallback="FALLBACK"
+          :alt="imageAlt"
+          :fallback="FALLBACK_IMAGE"
         />
       </section>
 
@@ -171,11 +184,11 @@ const productNameForForm = computed(() => productTitle.value || "Producto");
       <aside class="product-hero__aside" aria-label="Solicitud de presupuesto">
         <div class="product-lead-card">
           <LeadForm
-            :producto="productNameForForm"
+            :producto="productTitle"
             :category-slug="categorySlug"
             :extra-fields="extraFields"
-            :product-data="product"
-            class="h-full w-full min-h-0 flex-1"
+            :product-data="props.product"
+            class="h-full min-h-0 w-full flex-1"
           />
         </div>
       </aside>

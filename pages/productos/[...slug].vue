@@ -2,6 +2,7 @@
 import { computed } from "vue";
 import type { ProductDetailDto } from "~/server/services/cms/catalog.service";
 import type { DetailsMediaItem } from "~/types/contentSections";
+import { buildProductPageSchema } from "~/utils/seo/buildProductPageSchema";
 
 import SiteBreadcrumbs from "@/components/shared/SiteBreadcrumbs.vue";
 import ProductHero from "@/components/marketing/product/Hero.vue";
@@ -162,11 +163,7 @@ function readDetailsImageSource(value: unknown): GalleryImage | null {
   const record = value as Record<string, unknown>;
 
   const src = String(
-    record.src ||
-      record.url ||
-      record.imageSrc ||
-      record.detailImageSrc ||
-      ""
+    record.src || record.url || record.imageSrc || record.detailImageSrc || ""
   ).trim();
 
   if (!src) return null;
@@ -208,7 +205,9 @@ function getProductSlugSegment(current: ProductDetailDto) {
 }
 
 function getMediaPathFromImageSrc(src?: string | null) {
-  const cleanSrc = String(src || "").trim().split("?")[0];
+  const cleanSrc = String(src || "")
+    .trim()
+    .split("?")[0];
   if (!cleanSrc) return "";
 
   try {
@@ -232,8 +231,7 @@ function getMediaPathFromImageSrc(src?: string | null) {
 
 function toCdnMediaUrl(mediaPath: string) {
   const mediaBaseUrl = String(
-    config.public.cmsMediaCdnBaseUrl ||
-      "https://media.reprodisseny.com/media"
+    config.public.cmsMediaCdnBaseUrl || "https://media.reprodisseny.com/media"
   ).replace(/\/+$/, "");
 
   const cleanPath = String(mediaPath || "")
@@ -280,9 +278,7 @@ function resolveDetailsImageFromProduct(current: ProductDetailDto): GalleryImage
 
   return {
     src,
-    alt: current.title
-      ? `Detalle de ${current.title}`
-      : "Detalle del producto",
+    alt: current.title ? `Detalle de ${current.title}` : "Detalle del producto",
     caption: current.title || undefined,
     width: null,
     height: null,
@@ -300,20 +296,12 @@ const detailsMedia = computed<DetailsMediaItem | null>(() => {
   return {
     image: {
       src: detailsImage.src,
-      alt:
-        detailsImage.alt ||
-        current.title ||
-        "Imagen de detalle del producto",
-      caption:
-        detailsImage.caption ||
-        current.title ||
-        undefined,
+      alt: detailsImage.alt || current.title || "Imagen de detalle del producto",
+      caption: detailsImage.caption || current.title || undefined,
     },
     pills: [],
   };
 });
-
-
 
 const faqs = computed(() =>
   Array.isArray(product.value?.faqs) ? product.value.faqs.filter(Boolean) : []
@@ -331,8 +319,8 @@ const heroProduct = computed(() => {
   const extraFields = Array.isArray((current as any).extraFields)
     ? (current as any).extraFields
     : Array.isArray(current.formFields)
-      ? current.formFields
-      : [];
+    ? current.formFields
+    : [];
 
   return {
     slug: current.slug,
@@ -344,11 +332,11 @@ const heroProduct = computed(() => {
     imageSrc: current.image?.src || null,
     image: current.image
       ? {
-        src: current.image.src,
-        alt: current.image.alt,
-        width: current.image.width ?? null,
-        height: current.image.height ?? null,
-      }
+          src: current.image.src,
+          alt: current.image.alt,
+          width: current.image.width ?? null,
+          height: current.image.height ?? null,
+        }
       : null,
     galleryImages: galleryImages.value,
     attributes: Array.isArray(current.attributes) ? current.attributes : [],
@@ -386,31 +374,123 @@ const hreflangLinks = computed(
         };
       })
       .filter(Boolean) as Array<{
-        rel: "alternate";
-        hreflang: string;
-        href: string;
-      }>
+      rel: "alternate";
+      hreflang: string;
+      href: string;
+    }>
 );
 
 const ogImageUrl = computed(() => {
   return toAbsoluteUrl(product.value?.seo?.image || heroImage.value);
 });
 
+const siteUrl = computed(() => {
+  return String(config.public.siteUrl || "https://reprodisseny.com").replace(/\/+$/, "");
+});
+
+const schemaBreadcrumbs = computed<Array<{ name: string; url: string }>>(() => {
+  const items: Array<{ name: string; url: string }> = [
+    {
+      name: "Inicio",
+      url: "/",
+    },
+    {
+      name: "Productos",
+      url: "/productos",
+    },
+  ];
+
+  const categoryName = String(category.value?.nav || category.value?.title || "").trim();
+
+  const categoryUrl = String(
+    category.value?.path ||
+      (category.value?.slug ? `/categorias/${category.value.slug}` : "")
+  ).trim();
+
+  if (categoryName && categoryUrl) {
+    items.push({
+      name: categoryName,
+      url: categoryUrl,
+    });
+  }
+
+  const productName = String(product.value?.title || "").trim();
+
+  if (productName) {
+    items.push({
+      name: productName,
+      url: canonicalUrl.value,
+    });
+  }
+
+  return items;
+});
+
+const productPageSchema = computed(() => {
+  const current = product.value;
+  const title = String(current?.title || "").trim();
+
+  if (!current || !title) {
+    return null;
+  }
+
+  return buildProductPageSchema({
+    siteUrl: siteUrl.value,
+    canonicalUrl: canonicalUrl.value,
+    title,
+    description:
+      current.seo?.description || current.shortDescription || current.description || "",
+    image: current.seo?.image || current.image?.src || heroImage.value || null,
+    category: category.value?.nav || category.value?.title || "",
+    breadcrumbs: schemaBreadcrumbs.value,
+  });
+});
+
 const schemaJson = computed(() => {
-  const schema = product.value?.seo?.schema;
-  return schema ? JSON.stringify(schema) : "";
+  if (!productPageSchema.value) {
+    return "";
+  }
+
+  return JSON.stringify(productPageSchema.value).replace(/</g, "\\u003c");
 });
 
 useHead(() => ({
-  link: [{ rel: "canonical", href: canonicalUrl.value }, ...hreflangLinks.value],
+  link: [
+    {
+      rel: "canonical",
+      href: canonicalUrl.value,
+    },
+    ...hreflangLinks.value,
+  ],
+
   script: schemaJson.value
     ? [
-      {
-        key: "product-jsonld",
-        type: "application/ld+json",
-        children: schemaJson.value,
-      },
-    ]
+        {
+          key: "product-page-jsonld",
+          type: "application/ld+json",
+          textContent: schemaJson.value,
+        },
+      ]
+    : [],
+}));
+
+useHead(() => ({
+  link: [
+    {
+      rel: "canonical",
+      href: canonicalUrl.value,
+    },
+    ...hreflangLinks.value,
+  ],
+
+  script: schemaJson.value
+    ? [
+        {
+          key: "product-page-jsonld",
+          type: "application/ld+json",
+          children: schemaJson.value,
+        },
+      ]
     : [],
 }));
 
@@ -454,7 +534,9 @@ useSeoMeta({
 <template>
   <main class="min-h-screen bg-background">
     <div v-if="pending" class="container-content py-16 md:py-20">
-      <div class="flex min-h-[30vh] items-center justify-center rounded-[28px] border border-border/70 bg-card/70">
+      <div
+        class="flex min-h-[30vh] items-center justify-center rounded-[28px] border border-border/70 bg-card/70"
+      >
         <div class="animate-pulse text-body text-muted-foreground">
           Cargando detalles del producto...
         </div>
@@ -472,22 +554,40 @@ useSeoMeta({
             <ProductHero :product="heroProduct" :category="category" />
           </section>
 
-          <ContentSectionShell v-if="hasSections" id="informacion-producto" theme="muted"
-            eyebrow="Información del producto" title="Detalles, beneficios y opciones"
-            description="Consulta la información clave de este producto en un formato claro y fácil de revisar.">
-            <ContentSectionsRenderer :sections="sections" variant="product" :details-media="detailsMedia" />
+          <ContentSectionShell
+            v-if="hasSections"
+            id="informacion-producto"
+            theme="muted"
+            eyebrow="Información del producto"
+            title="Detalles, beneficios y opciones"
+            description="Consulta la información clave de este producto en un formato claro y fácil de revisar."
+          >
+            <ContentSectionsRenderer
+              :sections="sections"
+              variant="product"
+              :details-media="detailsMedia"
+            />
           </ContentSectionShell>
 
-          <ContentSectionShell v-if="hasFaqs" eyebrow="Ayuda y dudas comunes" title="Preguntas frecuentes"
-            description="Resolvemos las consultas más habituales sobre materiales, medidas, acabados, preparación y entrega.">
+          <ContentSectionShell
+            v-if="hasFaqs"
+            eyebrow="Ayuda y dudas comunes"
+            title="Preguntas frecuentes"
+            description="Resolvemos las consultas más habituales sobre materiales, medidas, acabados, preparación y entrega."
+          >
             <FaqAccordion :items="faqs" />
           </ContentSectionShell>
 
           <section aria-label="Guía de preparación de archivos">
-            <GuideBanner title="¿No estás seguro de las medidas?"
+            <GuideBanner
+              title="¿No estás seguro de las medidas?"
               :cta="{ label: 'Consultar guía', to: '/como-preparar-archivos' }"
-              image-base-path="/img/ui/banners/como-preparar-archivos" image-name="archivos_banner" :height="240"
-              :full-bleed="true" :rounded="false" />
+              image-base-path="/img/ui/banners/como-preparar-archivos"
+              image-name="archivos_banner"
+              :height="240"
+              :full-bleed="true"
+              :rounded="false"
+            />
           </section>
         </div>
       </div>
