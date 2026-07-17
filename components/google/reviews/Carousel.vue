@@ -24,7 +24,7 @@ const props = withDefaults(
     mapsUrl: "",
     rating: undefined,
     count: undefined,
-  },
+  }
 );
 
 const [emblaRef, emblaApi] = emblaCarouselVue({
@@ -36,15 +36,13 @@ const [emblaRef, emblaApi] = emblaCarouselVue({
 const selectedIndex = ref(0);
 const expanded = ref<Record<string, boolean>>({});
 
-const slides = computed<ReviewCardItem[]>(() =>
-  (props.reviews ?? []).filter(Boolean),
-);
+const slides = computed<ReviewCardItem[]>(() => (props.reviews ?? []).filter(Boolean));
 
 const hasAggregate = computed(
   () =>
     Boolean(props.businessName) &&
     Number.isFinite(props.rating) &&
-    Number.isFinite(props.count),
+    Number.isFinite(props.count)
 );
 
 function getReviewKey(review: ReviewCardItem, index: number) {
@@ -103,48 +101,16 @@ onBeforeUnmount(() => {
   emblaApi.value.off("select", onSelect);
   emblaApi.value.off("reInit", onSelect);
 });
-
-useHead(() =>
-  hasAggregate.value
-    ? {
-        script: [
-          {
-            key: `ld-agg-rating-${props.businessName}`,
-            type: "application/ld+json",
-            children: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              name: props.businessName,
-              ...(props.businessUrl ? { url: props.businessUrl } : {}),
-              aggregateRating: {
-                "@type": "AggregateRating",
-                ratingValue: props.rating,
-                reviewCount: props.count,
-              },
-            }),
-          },
-        ],
-      }
-    : {},
-);
 </script>
 
 <template>
-  <section
-    aria-labelledby="reviews-title"
-    class="google-reviews-section"
-  >
+  <section aria-labelledby="reviews-title" class="google-reviews-section">
     <div class="container-wide">
       <header class="google-reviews-header">
         <div class="min-w-0">
-          <p class="section-eyebrow">
-            Opiniones verificadas
-          </p>
+          <p class="section-eyebrow">Opiniones verificadas</p>
 
-          <h2
-            id="reviews-title"
-            class="section-title section-title--subsection mt-2"
-          >
+          <h2 id="reviews-title" class="section-title section-title--subsection mt-2">
             {{ title }}
           </h2>
 
@@ -189,10 +155,7 @@ useHead(() =>
         </div>
       </header>
 
-      <p
-        v-if="!slides.length"
-        class="google-reviews-empty"
-      >
+      <p v-if="!slides.length" class="google-reviews-empty">
         No hay reseñas para mostrar.
       </p>
 
@@ -240,11 +203,7 @@ useHead(() =>
                   </p>
                 </div>
 
-                <div
-                  class="google-reviews-stars"
-                  aria-label="Puntuación"
-                  role="img"
-                >
+                <div class="google-reviews-stars" aria-label="Puntuación" role="img">
                   <svg
                     v-for="star in 5"
                     :key="star"
@@ -259,9 +218,7 @@ useHead(() =>
                     />
                   </svg>
 
-                  <span class="sr-only">
-                    {{ review.rating }} de 5
-                  </span>
+                  <span class="sr-only"> {{ review.rating }} de 5 </span>
                 </div>
               </div>
 
@@ -318,10 +275,7 @@ useHead(() =>
             </AppButton>
           </div>
 
-          <div
-            class="google-reviews-dots"
-            aria-label="Diapositivas"
-          >
+          <div class="google-reviews-dots" aria-label="Diapositivas">
             <button
               v-for="(_, index) in slides"
               :key="index"
