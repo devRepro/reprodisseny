@@ -120,9 +120,15 @@ const props = withDefaults(
           © {{ new Date().getFullYear() }} Reprodisseny
         </p>
 
-        <NuxtLink to="/politica-privacidad" class="site-footer__legal-link">
-          Aviso legal
-        </NuxtLink>
+        <nav class="site-footer__legal-links" aria-label="Información legal">
+          <NuxtLink to="/politica-privacidad" class="site-footer__legal-link">
+            Política de privacidad
+          </NuxtLink>
+
+          <NuxtLink to="/politica-cookies" class="site-footer__legal-link">
+            Política de cookies
+          </NuxtLink>
+        </nav>
       </div>
     </div>
   </footer>
