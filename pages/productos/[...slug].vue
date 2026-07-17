@@ -474,26 +474,6 @@ useHead(() => ({
     : [],
 }));
 
-useHead(() => ({
-  link: [
-    {
-      rel: "canonical",
-      href: canonicalUrl.value,
-    },
-    ...hreflangLinks.value,
-  ],
-
-  script: schemaJson.value
-    ? [
-        {
-          key: "product-page-jsonld",
-          type: "application/ld+json",
-          children: schemaJson.value,
-        },
-      ]
-    : [],
-}));
-
 useSeoMeta({
   title: () =>
     product.value?.seo?.title ||
@@ -545,7 +525,7 @@ useSeoMeta({
 
     <template v-else-if="product && heroProduct">
       <div class="container-content pt-4 pb-4 md:pt-6 md:pb-6">
-        <SiteBreadcrumbs :items="breadcrumbItems" :auto="false" />
+        <SiteBreadcrumbs :items="breadcrumbItems" :auto="false" :json-ld="false" />
       </div>
 
       <div :class="pageBottomSpacingClass">
