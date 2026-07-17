@@ -12,6 +12,7 @@ import ContentProcessSteps, {
   type ProcessStepItem,
 } from "@/components/marketing/content/ContentProcessSteps.vue";
 import GuideBanner from "@/components/marketing/GuideBanner.vue";
+import { buildCategoryPageSchema } from "~/utils/seo/buildCategoryPageSchema";
 
 type CategoryHowWeWork = {
   title?: string;
@@ -426,8 +427,121 @@ const ogImageUrl = computed(() => {
   return toAbsoluteUrl(category.value?.seo?.image || heroImage.value);
 });
 
+const schemaSiteUrl = computed(() =>
+  String(config.public.siteUrl || "https://reprodisseny.com").replace(/\/+$/, "")
+);
+
+const schemaBreadcrumbs = computed(() => {
+  const rawItems = Array.isArray(breadcrumbItems.value)
+    ? breadcrumbItems.value
+    : [];
+
+  const items = rawItems
+    .map((item: any, index: number) => {
+      const name = String(item?.label || "").trim();
+
+      const rawUrl =
+        item?.to ||
+        (index === rawItems.length - 1
+          ? canonicalUrl.value
+          : "");
+
+      return {
+        name,
+        url: toAbsoluteUrl(rawUrl) || "",
+      };
+    })
+    .filter((item) => item.name && item.url);
+
+  const homeUrl = toAbsoluteUrl("/") || `${schemaSiteUrl.value}/`;
+
+  if (
+    items[0]?.url !== homeUrl &&
+    items[0]?.name.toLowerCase() !== "inicio"
+  ) {
+    items.unshift({
+      name: "Inicio",
+      url: homeUrl,
+    });
+  }
+
+  return items;
+});
+
+const schemaItems = computed(() =>
+  products.value
+    .map((product: any) => {
+      const name = String(
+        product?.title ||
+          product?.name ||
+          product?.nav ||
+          ""
+      ).trim();
+
+      const rawPath = String(
+        product?.path ||
+          product?.url ||
+          (product?.slug
+            ? `/productos/${product.slug}`
+            : "")
+      ).trim();
+
+      const url = toAbsoluteUrl(rawPath);
+
+      const image = toAbsoluteUrl(
+        product?.image?.src ||
+          product?.mainImage?.src ||
+          ""
+      );
+
+      if (!name || !url) return null;
+
+      return {
+        name,
+        url,
+        ...(image ? { image } : {}),
+      };
+    })
+    .filter(Boolean)
+);
+
+const categoryPageSchema = computed(() =>
+  buildCategoryPageSchema({
+    siteUrl: schemaSiteUrl.value,
+    canonicalUrl: canonicalUrl.value,
+    title: seoTitle.value,
+    description: seoDescription.value,
+    image: ogImageUrl.value,
+    breadcrumbs: schemaBreadcrumbs.value,
+    items: schemaItems.value,
+    positionOffset:
+      (currentPage.value - 1) * PRODUCTS_PER_PAGE,
+    inLanguage: "es-ES",
+  })
+);
+
+const categoryPageSchemaJson = computed(() =>
+  categoryPageSchema.value
+    ? JSON.stringify(categoryPageSchema.value)
+    : ""
+);
+
 useHead(() => ({
-  link: [{ rel: "canonical", href: canonicalUrl.value }],
+  link: [
+    {
+      rel: "canonical",
+      href: canonicalUrl.value,
+    },
+  ],
+  script: categoryPageSchemaJson.value
+    ? [
+        {
+          id: "category-page-jsonld",
+          type: "application/ld+json",
+          textContent: categoryPageSchemaJson.value,
+        },
+      ]
+    : [],
 }));
 
 useSeoMeta({
@@ -556,7 +670,7 @@ const closingBannerPills = computed(() => {
 
     <div v-else-if="category">
       <div class="container-content pt-4 pb-2 md:pt-6 md:pb-3">
-        <SiteBreadcrumbs :items="breadcrumbItems" :auto="false" />
+        <SiteBreadcrumbs :items="breadcrumbItems" :auto="false" :json-ld="false" />
       </div>
 
       <div :class="pageBottomSpacingClass">
