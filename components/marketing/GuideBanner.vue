@@ -95,17 +95,10 @@ const webpSrcset = computed(() =>
     .join(", ")
 );
 
-const jpgSrcset = computed(() =>
-  imageWidths
-    .map(
-      (width) =>
-        `${normalizedBasePath.value}/${normalizedImageName.value}_${width}w.jpg ${width}w`
-    )
-    .join(", ")
-);
+
 
 const fallbackImage = computed(
-  () => `${normalizedBasePath.value}/${normalizedImageName.value}_1920w.jpg`
+  () => `${normalizedBasePath.value}/${normalizedImageName.value}_1920w.webp`
 );
 
 const isDecorativeImage = computed(() => !props.imageAlt);
@@ -128,9 +121,6 @@ const isDecorativeImage = computed(() => !props.imageAlt);
       <div class="guide-banner__media">
         <picture class="guide-banner__picture">
           <source type="image/webp" :srcset="webpSrcset" :sizes="props.imageSizes" />
-
-          <source type="image/jpeg" :srcset="jpgSrcset" :sizes="props.imageSizes" />
-
           <img
             class="guide-banner__image"
             :src="fallbackImage"

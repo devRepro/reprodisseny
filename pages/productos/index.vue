@@ -95,9 +95,9 @@ const shouldNoindex = computed(() => {
 
 useSeoMeta({
   title: () =>
-    selectedCategory.value
-      ? `Catálogo ${currentCategoryLabel.value || selectedCategory.value} | Reprodisseny`
-      : "Catálogo de productos | Reprodisseny",
+  selectedCategory.value
+    ? `Catálogo ${currentCategoryLabel.value || selectedCategory.value}`
+    : "Catálogo de productos",
 
   description:
     "Encuentra el soporte o formato que necesitas: adhesivos, gran formato, expositores y más. Solicita presupuesto online.",

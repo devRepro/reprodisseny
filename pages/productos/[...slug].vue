@@ -195,97 +195,29 @@ function getExplicitDetailsImage(current: ProductDetailDto): GalleryImage | null
   );
 }
 
-function getProductSlugSegment(current: ProductDetailDto) {
-  const rawSlug =
-    String((current as ProductDetailDto & Record<string, unknown>).slug || "").trim() ||
-    String(slug.value || "").trim();
 
-  return rawSlug
-    .split("/")
-    .map((part) => part.trim())
-    .filter(Boolean)
-    .at(-1);
-}
-
-function getMediaPathFromImageSrc(src?: string | null) {
-  const cleanSrc = String(src || "").trim().split("?")[0];
-  if (!cleanSrc) return "";
-
-  try {
-    const parsed = new URL(cleanSrc);
-    const pathname = decodeURIComponent(parsed.pathname);
-
-    const mediaIndex = pathname.indexOf("/media/");
-    if (mediaIndex >= 0) {
-      return pathname.slice(mediaIndex + "/media/".length).replace(/^\/+/, "");
-    }
-
-    return pathname.replace(/^\/+/, "");
-  } catch {
-    return cleanSrc
-      .replace(/^https:\/\/webcms\.blob\.core\.windows\.net\/media\/?/i, "")
-      .replace(/^https:\/\/media\.reprodisseny\.com\/media\/?/i, "")
-      .replace(/^\/?media\/?/i, "")
-      .replace(/^\/+/, "");
-  }
-}
-
-function toCdnMediaUrl(mediaPath: string) {
-  const mediaBaseUrl = String(
-    config.public.cmsMediaCdnBaseUrl ||
-      "https://media.reprodisseny.com/media"
-  ).replace(/\/+$/, "");
-
-  const cleanPath = String(mediaPath || "")
-    .trim()
-    .replace(/^\/+/, "")
-    .replace(/^media\//i, "");
-
-  if (!cleanPath) return "";
-
-  return `${mediaBaseUrl}/${cleanPath}`;
-}
-
-function resolveDetailsImageFromProduct(current: ProductDetailDto): GalleryImage | null {
+function resolveDetailsImageFromProduct(
+  current: ProductDetailDto
+): GalleryImage | null {
   const explicitImage = getExplicitDetailsImage(current);
 
-  if (explicitImage?.src) {
-    return {
-      src: explicitImage.src,
-      alt:
-        explicitImage.alt ||
-        (current.title ? `Detalle de ${current.title}` : "Detalle del producto"),
-      caption: explicitImage.caption || current.title || undefined,
-      width: explicitImage.width ?? null,
-      height: explicitImage.height ?? null,
-    };
+  if (!explicitImage?.src) {
+    return null;
   }
 
-  const productSlug = getProductSlugSegment(current);
-  const heroMediaPath = getMediaPathFromImageSrc(current.image?.src);
-
-  if (!productSlug || !heroMediaPath) return null;
-
-  const lastSlashIndex = heroMediaPath.lastIndexOf("/");
-  if (lastSlashIndex < 0) return null;
-
-  const productMediaFolder = heroMediaPath.slice(0, lastSlashIndex);
-  if (!productMediaFolder) return null;
-
-  const src = toCdnMediaUrl(
-    `${productMediaFolder}/details/${productSlug}/01-detail.webp`
-  );
-
-  if (!src) return null;
-
   return {
-    src,
-    alt: current.title
-      ? `Detalle de ${current.title}`
-      : "Detalle del producto",
-    caption: current.title || undefined,
-    width: null,
-    height: null,
+    src: explicitImage.src,
+    alt:
+      explicitImage.alt ||
+      (current.title
+        ? `Detalle de ${current.title}`
+        : "Detalle del producto"),
+    caption:
+      explicitImage.caption ||
+      current.title ||
+      undefined,
+    width: explicitImage.width ?? null,
+    height: explicitImage.height ?? null,
   };
 }
 
@@ -416,10 +348,9 @@ useHead(() => ({
 
 useSeoMeta({
   title: () =>
-    product.value?.seo?.title ||
-    (product.value?.title
-      ? `${product.value.title} | Reprodisseny`
-      : "Producto | Reprodisseny"),
+  product.value?.seo?.title ||
+  product.value?.title ||
+  "Producto",
 
   description: () =>
     product.value?.seo?.description ||

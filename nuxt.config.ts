@@ -347,11 +347,10 @@ export default defineNuxtConfig({
   css: ["@/assets/styles/main.scss"],
 
   image: {
-    provider: "ipx",
     domains: [
       "media.reprodisseny.com",
       "webcms.blob.core.windows.net",
-    ],
+    ]
   },
 
   shadcn: {
@@ -418,7 +417,7 @@ link: [
           ? [
             {
               id: "google-consent-default",
-              tagPriority: "critical",
+              tagPriority: "critical" as const,
               innerHTML: `
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
@@ -441,7 +440,7 @@ gtag('consent', 'default', {
           ? [
             {
               id: "usercentrics-cmp",
-              tagPriority: "high",
+              tagPriority: "high" as const,
               src: "https://web.cmp.usercentrics.eu/ui/loader.js",
               "data-settings-id": usercentricsSettingsId,
               async: true,
@@ -453,7 +452,7 @@ gtag('consent', 'default', {
           ? [
             {
               id: "gtm-script",
-              tagPriority: "low",
+              tagPriority: "low" as const,
               innerHTML: `
 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -477,19 +476,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   },
 
   routeRules: {
-  "/categorias/**": { cache: false },
-  "/productos/**": { isr: 600 },
+  "/categorias/**": {
+    cache: false,
+  },
 
-  "/api/**": { robots: false },
-
-  "/admin": { robots: false },
-  "/admin/**": { robots: false },
-  "/panel": { robots: false },
-  "/panel/**": { robots: false },
-  "/gracias": { robots: false },
+  "/productos/**": {
+    isr: 600,
+  },
 
   "/img/logo.svg": {
-    redirect: { to: "/img/logo/reprodisseny.svg", statusCode: 301 },
+    redirect: {
+      to: "/img/logo/reprodisseny.svg",
+      statusCode: 301,
+    },
   },
 
   ...redirectRouteRules,

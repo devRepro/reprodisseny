@@ -71,8 +71,14 @@ const gridClass = computed(() => {
 
         <ul :class="['grid auto-rows-fr gap-6', gridClass]">
           <li
-            v-for="child in visibleChildren"
-            :key="child.path || child.slug || child.title || child.name"
+            v-for="(child, index) in visibleChildren"
+:key="
+  child.path ||
+  child.slug ||
+  child.title ||
+  child.name ||
+  `child-${index}`
+"
             class="h-full list-none"
           >
             <CatalogCard

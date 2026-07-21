@@ -61,25 +61,37 @@ function getImageCaption(image: GalleryImage) {
 
 const slides = computed<GallerySlide[]>(() => {
   const seen = new Set<string>();
-  const sourceImages = [props.primaryImage, ...(props.images ?? [])];
+  const sourceImages = [
+    props.primaryImage,
+    ...(props.images ?? []),
+  ];
 
-  const normalized = sourceImages
-    .map((image) => {
+  const normalized = sourceImages.reduce<GallerySlide[]>(
+    (result, image) => {
       const src = normalizeCmsMediaSrc(getImageSrc(image));
 
-      if (!src || seen.has(src)) return null;
+      if (!src || seen.has(src)) {
+        return result;
+      }
 
       seen.add(src);
 
-      return {
+      const caption = getImageCaption(image);
+
+      result.push({
         src,
         alt: getImageAlt(image),
-        caption: getImageCaption(image),
-      };
-    })
-    .filter((item): item is GallerySlide => Boolean(item));
+        ...(caption ? { caption } : {}),
+      });
 
-  if (normalized.length) return normalized;
+      return result;
+    },
+    [],
+  );
+
+  if (normalized.length) {
+    return normalized;
+  }
 
   const fallbackSrc = normalizeCmsMediaSrc(props.fallback);
 

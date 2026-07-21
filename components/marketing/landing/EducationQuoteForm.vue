@@ -7,6 +7,7 @@ import AppButton from "@/components/shared/button/AppButton.vue";
 import { usePriceRequests } from "@/composables/usePriceRequests";
 import { useTracking } from "@/composables/useTracking";
 import type { TrackingContext, TrackingEventName } from "~/types/tracking";
+import { string } from "zod";
 
 type QuoteForm = {
   website: string;
@@ -161,7 +162,6 @@ function getTrackingContext(): TrackingContext {
     contentGroup: "educacion",
     serviceName: "Centres educatius",
     campaignName: "centres-educatius-2026",
-    campaignId: null,
     productSlug: props.productSlug,
     categorySlug: props.categorySlug,
     formId: "education_quote_form_ca",

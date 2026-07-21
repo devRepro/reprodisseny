@@ -267,4 +267,66 @@ export const redirectRouteRules = {
       statusCode: 301,
     },
   },
+  "/category/expositores-publicitarios": {
+  redirect: {
+    to: "/categorias/expositores",
+    statusCode: 301,
+  },
+},
+
+"/category/folletos-publicitarios": {
+  redirect: {
+    to: "/productos/folletos-plegados-personalizados",
+    statusCode: 301,
+  },
+},
+
+"/category/imprimir-libros": {
+  redirect: {
+    to: "/categorias/libros-revistas-catalogos",
+    statusCode: 301,
+  },
+},
+
+"/category/imprimir-posters": {
+  redirect: {
+    to: "/productos/posters-personalizados",
+    statusCode: 301,
+  },
+},
+
+"/category/imprimir-tarjetas-de-visita": {
+  redirect: {
+    to: "/productos/tarjetas-de-visita-personalizadas",
+    statusCode: 301,
+  },
+},
+
+"/product/expositor-de-suelo-con-peana-presupuesto": {
+  redirect: {
+    to: "/categorias/expositores",
+    statusCode: 301,
+  },
+},
+
+"/product/folletos-troquelados-presupuesto": {
+  redirect: {
+    to: "/productos/flyers-con-forma-personalizados",
+    statusCode: 301,
+  },
+},
+
+"/product/impresion-en-metacrilato-presupuesto": {
+  redirect: {
+    to: "/productos/metacrilato-personalizado",
+    statusCode: 301,
+  },
+},
+
+"/product/dipticos-llave-habitacion-presupuesto": {
+  redirect: {
+    to: "/productos/tarjeta-habitacion-hotel",
+    statusCode: 301,
+  },
+},
 } as const ;
