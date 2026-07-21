@@ -1,5 +1,4 @@
 import { defineEventHandler, getQuery, createError } from "h3"
-import { useStorage } from "#imports"
 import { getCmsCatalog } from "~/server/utils/cmsCatalog.server"
 
 type Kind = "producto" | "categoria"

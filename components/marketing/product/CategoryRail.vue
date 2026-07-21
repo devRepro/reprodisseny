@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { useRoute } from "#imports";
 import PageContainer from "@/components/layout/PageContainer.vue";
 import AppChip from "@/components/shared/pills/AppChip.vue";
 
@@ -28,8 +27,6 @@ const props = withDefaults(
   }
 );
 
-const route = useRoute();
-
 function normalizeSlug(value: string | null | undefined) {
   return String(value || "")
     .trim()
@@ -52,14 +49,24 @@ function getCategoryLabel(category: CategoryItem) {
 }
 
 function buildCategoryTo(category: CategoryItem | null) {
-  return {
-    path: "/productos",
-    query: {
-      ...route.query,
-      category: category?.slug || undefined,
-      page: undefined,
-    },
-  };
+  if (!category) {
+    return "/productos";
+  }
+
+  const directPath = String(
+    category.canonicalPath ||
+      category.categoryPath ||
+      category.fullPath ||
+      category.path ||
+      category.url ||
+      ""
+  ).trim();
+
+  if (directPath.startsWith("/")) {
+    return directPath;
+  }
+
+  return `/categorias/${category.slug}`;
 }
 </script>
 

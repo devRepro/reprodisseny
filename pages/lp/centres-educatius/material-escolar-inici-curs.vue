@@ -26,7 +26,6 @@ const trackingContext: TrackingContext = {
   contentGroup: "educacion",
   serviceName: "Centres educatius",
   campaignName: "centres-educatius-2026",
-  campaignId: null,
   productSlug: "centres-educatius",
   categorySlug: "publicaciones",
   formId: "education_quote_form_ca",
@@ -162,7 +161,7 @@ const faqs = [
     answer:
       "Sí, tenim uns preus molt competitius per aquest sector i podem millorar cada cas d’acord amb el volum i les condicions.",
   },
-] as const;
+];
 
 function scrollToQuote() {
   if (!import.meta.client) return;

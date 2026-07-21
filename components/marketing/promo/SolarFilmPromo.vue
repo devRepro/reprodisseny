@@ -36,7 +36,7 @@ const open = ref(false);
 const isMobile = ref(false);
 const hasTrackedView = ref(false);
 
-let timerId: ReturnType<typeof window.setTimeout> | null = null;
+let timerId: number | null = null;
 let mediaQuery: MediaQueryList | null = null;
 let removeMediaListener: (() => void) | null = null;
 let closeReason: "cta" | "dismiss" | null = null;

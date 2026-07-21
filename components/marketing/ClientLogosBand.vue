@@ -67,7 +67,7 @@ const displayed = computed<DisplayLogo[]>(() => {
         href: logo.href?.trim() || undefined,
       };
     })
-    .filter((logo): logo is DisplayLogo => Boolean(logo.src && logo.alt))
+    .filter((logo) => Boolean(logo.src && logo.alt))
     .slice(0, props.maxItems);
 });
 

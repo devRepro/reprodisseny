@@ -130,8 +130,14 @@ function productDescription(product: ProductItem): string {
 
       <ul :class="['mt-6 grid auto-rows-fr gap-5 md:gap-6', gridClass]">
         <li
-          v-for="product in visibleProducts"
-          :key="product.path || product.slug || product.title || product.name"
+          v-for="(product, index) in visibleProducts"
+:key="
+  product.path ||
+  product.slug ||
+  product.title ||
+  product.name ||
+  `product-${index}`
+"
           class="h-full list-none"
         >
           <CatalogCard

@@ -278,7 +278,30 @@ export default defineNuxtConfig({
         "PrimaryFileMimeType",
 
       primaryFileSizeField:
-        process.env.CRM_PR_PRIMARY_FILE_SIZE_FIELD || "PrimaryFileSize",
+        process.env.CRM_PR_PRIMARY_FILE_SIZE_FIELD ||
+        "PrimaryFileSize",
+
+      trackingSourceField:
+        process.env.CRM_PR_TRACKING_SOURCE_FIELD ||
+        "TrackingSource",
+      trackingMediumField:
+        process.env.CRM_PR_TRACKING_MEDIUM_FIELD ||
+        "TrackingMedium",
+      trackingCampaignField:
+        process.env.CRM_PR_TRACKING_CAMPAIGN_FIELD ||
+        "TrackingCampaign",
+      trackingCampaignIdField:
+        process.env.CRM_PR_TRACKING_CAMPAIGN_ID_FIELD ||
+        "TrackingCampaignId",
+      utmJsonField:
+        process.env.CRM_PR_UTM_JSON_FIELD ||
+        "UtmJson",
+      sourceUrlField:
+        process.env.CRM_PR_SOURCE_URL_FIELD ||
+        "SourceUrl",
+      postalCodeField:
+        process.env.CRM_PR_POSTAL_CODE_FIELD ||
+        "PostalCode",
     },
 
     googleMaps: {
@@ -327,11 +350,10 @@ export default defineNuxtConfig({
   css: ["@/assets/styles/main.scss"],
 
   image: {
-    provider: "ipx",
     domains: [
       "media.reprodisseny.com",
       "webcms.blob.core.windows.net",
-    ],
+    ]
   },
 
   shadcn: {
@@ -398,7 +420,7 @@ link: [
           ? [
             {
               id: "google-consent-default",
-              tagPriority: "critical",
+              tagPriority: "critical" as const,
               innerHTML: `
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
@@ -421,7 +443,7 @@ gtag('consent', 'default', {
           ? [
             {
               id: "usercentrics-cmp",
-              tagPriority: "high",
+              tagPriority: "high" as const,
               src: "https://web.cmp.usercentrics.eu/ui/loader.js",
               "data-settings-id": usercentricsSettingsId,
               async: true,
@@ -433,7 +455,7 @@ gtag('consent', 'default', {
           ? [
             {
               id: "gtm-script",
-              tagPriority: "low",
+              tagPriority: "low" as const,
               innerHTML: `
 (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -457,19 +479,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   },
 
   routeRules: {
-  "/categorias/**": { cache: false },
-  "/productos/**": { isr: 600 },
+  "/categorias/**": {
+    cache: false,
+  },
 
-  "/api/**": { robots: false },
-
-  "/admin": { robots: false },
-  "/admin/**": { robots: false },
-  "/panel": { robots: false },
-  "/panel/**": { robots: false },
-  "/gracias": { robots: false },
+  "/productos/**": {
+    isr: 600,
+  },
 
   "/img/logo.svg": {
-    redirect: { to: "/img/logo/reprodisseny.svg", statusCode: 301 },
+    redirect: {
+      to: "/img/logo/reprodisseny.svg",
+      statusCode: 301,
+    },
   },
 
   ...redirectRouteRules,

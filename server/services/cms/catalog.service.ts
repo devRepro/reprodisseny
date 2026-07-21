@@ -33,6 +33,10 @@ type CatalogImage = {
   height?: number;
 };
 
+type ProductDetailGalleryImageItem = CatalogImage & {
+  caption?: string;
+};
+
 type CatalogGalleryImage = {
   src?: string | null;
   url?: string | null;
@@ -646,8 +650,8 @@ function normalizeProductAttributes(
         href: record.href ? String(record.href) : null,
       };
     })
-    .filter((item): item is ProductAttributeDto => Boolean(item))
-    .slice(0, 4);
+    .filter((item) => Boolean(item))
+    .slice(0, 4) as ProductAttributeDto[];
 }
 
 
@@ -1260,7 +1264,7 @@ function normalizeProductGalleryImages(
         ...(typeof item?.height === "number" ? { height: item.height } : {}),
       };
     })
-    .filter((item): item is ProductDetailGalleryImageItem => Boolean(item));
+    .filter((item) => Boolean(item)) as ProductDetailGalleryImageItem[];
 }
 
 function getCategoryFaqs(category: CatalogCategory): CategoryDetailFaqItem[] {

@@ -16,12 +16,11 @@ export default defineEventHandler((event) => {
       },
       sharepoint: {
         crmSiteId: Boolean(config.sharepoint?.crm?.siteId),
-        priceRequestsListId: Boolean(config.sharepoint?.crm?.priceRequestsListId),
-        contactListId: Boolean(config.sharepoint?.crm?.contactListId),
+        listId: Boolean(config.sharepoint?.crm?.listId),
       },
       google: {
-        placesApiKey: Boolean(config.google?.placesApiKey),
-        placeId: Boolean(config.google?.placeId),
+        placesApiKey: Boolean(config.googleMaps?.apiKey),
+        placeId: Boolean(config.public?.googleMaps?.placeId),
       },
     };
   });

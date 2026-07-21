@@ -1,5 +1,5 @@
 import { defineEventHandler, getQuery, setHeader, createError } from "h3";
-import { useRuntimeConfig, useStorage } from "#imports";
+import { useRuntimeConfig } from "#imports";
 import { fetchWithBackoff } from "~/server/utils/googleFetch.server";
 
 interface PlaceReview {

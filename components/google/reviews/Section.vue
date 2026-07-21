@@ -11,15 +11,34 @@ const { items, average, total, mapsUrl, pending, error } = usePlaceReviews({
   limit: 6,
 });
 
-const devErrorMessage = computed(() => {
-  if (!error.value) return "";
+function getErrorMessage(value: unknown): string {
+  if (!value) {
+    return "";
+  }
 
-  return (
-    error.value.statusMessage ||
-    error.value.message ||
-    String(error.value)
-  );
-});
+  if (typeof value === "object") {
+    const statusMessage = Reflect.get(value, "statusMessage");
+
+    if (
+      typeof statusMessage === "string" &&
+      statusMessage.trim()
+    ) {
+      return statusMessage;
+    }
+
+    const message = Reflect.get(value, "message");
+
+    if (typeof message === "string" && message.trim()) {
+      return message;
+    }
+  }
+
+  return String(value);
+}
+
+const devErrorMessage = computed(() =>
+  getErrorMessage(error.value),
+);
 </script>
 
 <template>

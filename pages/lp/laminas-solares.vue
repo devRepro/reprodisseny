@@ -35,7 +35,6 @@ const trackingContext: TrackingContext = {
   contentGroup: "gran-formato",
   serviceName: "Láminas solares",
   campaignName: "laminas-solares-2026",
-  campaignId: null,
   productSlug: "laminas-solares",
   categorySlug: "gran-formato",
   formId: "solar_quote_form",
