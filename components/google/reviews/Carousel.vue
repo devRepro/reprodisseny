@@ -218,12 +218,13 @@ useHead(() =>
               <div class="google-reviews-card-header">
                 <Avatar class="h-10 w-10 shrink-0">
                   <AvatarImage
-                    :src="review.avatar || undefined"
-                    alt=""
-                    loading="lazy"
-                    decoding="async"
-                    referrerpolicy="no-referrer"
-                  />
+  v-if="review.avatar"
+  :src="review.avatar"
+  alt=""
+  loading="lazy"
+  decoding="async"
+  referrerpolicy="no-referrer"
+/>
 
                   <AvatarFallback>
                     {{ (review.author || "?").slice(0, 1).toUpperCase() }}
