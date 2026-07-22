@@ -2022,7 +2022,7 @@ export function getCategoryDetailByPath(
       title:
         category?.seo?.metaTitle ||
         category?.seo?.title ||
-        `${category.title} | Reprodisseny`,
+        category.title,
       description:
         category?.seo?.metaDescription ||
         category?.seo?.description ||
@@ -2456,7 +2456,7 @@ export function getProductDetailBySlug(
       title:
         product?.seo?.metaTitle ||
         product?.seo?.title ||
-        `${product.title} | Reprodisseny`,
+        product.title,
       description:
         product?.seo?.metaDescription ||
         product?.seo?.description ||

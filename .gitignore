@@ -28,3 +28,6 @@ logs
 !.gitkeep
 .vercel
 .env*.local
+
+# Informes locales generados
+/tmp/
