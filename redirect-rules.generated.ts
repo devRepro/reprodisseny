@@ -267,4 +267,25 @@ export const redirectRouteRules = {
       statusCode: 301,
     },
   },
-} as const ;
+
+  "/category/articulos-promocionales": {
+    redirect: {
+      to: "/categorias/eventos",
+      statusCode: 301,
+    },
+  },
+
+  "/category/publicidad-en-puntos-de-venta": {
+    redirect: {
+      to: "/categorias/expositores",
+      statusCode: 301,
+    },
+  },
+
+  "/product/diptico-presupuesto": {
+    redirect: {
+      to: "/productos/folletos-plegados-personalizados",
+      statusCode: 301,
+    },
+  },
+} as const;
