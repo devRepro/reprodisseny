@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-22T08:13:14.849Z",
+  "generatedAt": "2026-07-22T12:10:34.825Z",
   "categories": [
     {
       "id": "12",
@@ -4051,7 +4051,7 @@
     },
     {
       "id": "1",
-      "updatedAt": "2026-07-15T08:24:50Z",
+      "updatedAt": "2026-07-22T12:07:16Z",
       "type": "producto",
       "slug": "abanicos-personalizados",
       "path": "/productos/abanicos-personalizados",
@@ -4345,8 +4345,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Abanicos Personalizados para Eventos | Merchandising Impreso",
-        "metaDescription": "Abanicos personalizados para bodas, ferias y eventos de verano. Impresión a color, opciones plegables o tipo pai pai y personalización con nombres o marca. Solicita presupuesto.",
+        "metaTitle": "Abanicos personalizados para eventos",
+        "metaDescription": "Abanicos personalizados para bodas, ferias y eventos de verano. Impresión a color, opciones plegables o tipo pai pai y personalización con nombres o marca.",
         "canonical": "https://reprodisseny.com/productos/abanicos-personalizados",
         "hreflang": [
           {
@@ -4366,7 +4366,7 @@
             {
               "@type": "Product",
               "name": "Abanicos personalizados para eventos",
-              "description": "Abanicos personalizados para bodas, ferias y eventos de verano. Impresión a color, opciones plegables o tipo pai pai y personalización con nombres o marca. Solicita presupuesto.",
+              "description": "Abanicos personalizados para bodas, ferias y eventos de verano. Impresión a color, opciones plegables o tipo pai pai y personalización con nombres o marca.",
               "image": "https://webcms.blob.core.windows.net/media/product/eventos/abanicos.webp",
               "url": "https://reprodisseny.com/productos/abanicos-personalizados",
               "brand": {
@@ -5714,7 +5714,7 @@
     },
     {
       "id": "7",
-      "updatedAt": "2026-06-10T10:03:58Z",
+      "updatedAt": "2026-07-22T11:59:51Z",
       "type": "producto",
       "slug": "banderola-lona-fachada",
       "path": "/productos/banderola-lona-fachada",
@@ -5982,8 +5982,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Banderola de lona para fachada | Publicidad exterior a medida",
-        "metaDescription": "Banderola de lona para fachada personalizada: impresión a color, medidas a medida y acabados de confección (vaina, ojales, refuerzo). Ideal para exterior. Solicita presupuesto.",
+        "metaTitle": "Banderola luminosa para fachada",
+        "metaDescription": "Banderola de lona para fachada personalizada: impresión a color, medidas a medida y acabados de confección (vaina, ojales, refuerzo). Ideal para exterior.",
         "canonical": "https://reprodisseny.com/productos/banderola-lona-fachada",
         "hreflang": [
           {
@@ -6003,7 +6003,7 @@
             {
               "@type": "Product",
               "name": "Banderola de lona para fachada",
-              "description": "Banderola de lona para fachada personalizada: impresión a color, medidas a medida y acabados de confección (vaina, ojales, refuerzo). Ideal para exterior. Solicita presupuesto.",
+              "description": "Banderola de lona para fachada personalizada: impresión a color, medidas a medida y acabados de confección (vaina, ojales, refuerzo). Ideal para exterior.",
               "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/banderola-para-fachada-de-lona.webp",
               "url": "https://reprodisseny.com/productos/banderola-lona-fachada",
               "brand": {
@@ -14758,7 +14758,7 @@
     },
     {
       "id": "20",
-      "updatedAt": "2026-06-10T10:03:58Z",
+      "updatedAt": "2026-07-22T11:57:14Z",
       "type": "producto",
       "slug": "carteles-personalizados-gran-formato",
       "path": "/productos/carteles-personalizados-gran-formato",
@@ -15012,8 +15012,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Carteles Personalizados | Impresión de Cartelería en Gran Formato",
-        "metaDescription": "Carteles personalizados para publicidad, eventos y punto de venta. Impresión a color en distintos papeles, tamaños A3–A0 y a medida, con acabados mate o brillo. Pide presupuesto.",
+        "metaTitle": "Carteles personalizados en gran formato",
+        "metaDescription": "Carteles personalizados para publicidad, eventos y punto de venta. Impresión a color en distintos papeles, tamaños A3–A0 y a medida.",
         "canonical": "https://reprodisseny.com/productos/carteles-personalizados-gran-formato",
         "hreflang": [
           {
@@ -15033,7 +15033,7 @@
             {
               "@type": "Product",
               "name": "Carteles personalizados (cartelería publicitaria)",
-              "description": "Carteles personalizados para publicidad, eventos y punto de venta. Impresión a color en distintos papeles, tamaños A3–A0 y a medida, con acabados mate o brillo. Pide presupuesto.",
+              "description": "Carteles personalizados para publicidad, eventos y punto de venta. Impresión a color en distintos papeles, tamaños A3–A0 y a medida.",
               "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/carteles.webp",
               "url": "https://reprodisseny.com/productos/carteles-personalizados-gran-formato",
               "brand": {
@@ -16124,7 +16124,7 @@
     },
     {
       "id": "29",
-      "updatedAt": "2026-07-15T08:21:56Z",
+      "updatedAt": "2026-07-22T11:36:49Z",
       "type": "producto",
       "slug": "cubrealarmas-tiendas-retail",
       "path": "/productos/cubrealarmas-tiendas-retail",
@@ -16285,8 +16285,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Cubrealarmas Personalizados | Branding en Entradas de Tienda",
-        "metaDescription": "Cubrealarmas personalizados para arcos de seguridad en retail. Impresión a color, corte a medida y montaje fácil. Ideal para campañas y promociones en punto de venta. Pide presupuesto.",
+        "metaTitle": "Cubrealarmas personalizados para tiendas",
+        "metaDescription": "Cubrealarmas personalizados para arcos de seguridad en tiendas. Impresión a color, corte a medida y montaje sencillo para campañas de retail.",
         "canonical": "https://reprodisseny.com/productos/cubrealarmas-tiendas-retail",
         "hreflang": [
           {
@@ -16306,7 +16306,7 @@
             {
               "@type": "Product",
               "name": "Cubrealarmas personalizados para tiendas y retail",
-              "description": "Cubrealarmas personalizados para arcos de seguridad en retail. Impresión a color, corte a medida y montaje fácil. Ideal para campañas y promociones en punto de venta. Pide presupuesto.",
+              "description": "Cubrealarmas personalizados para arcos de seguridad en tiendas. Impresión a color, corte a medida y montaje sencillo para campañas de retail.",
               "image": "https://webcms.blob.core.windows.net/media/product/expositores/cubre-alarmas.webp",
               "url": "https://reprodisseny.com/productos/cubrealarmas-tiendas-retail",
               "brand": {
@@ -16389,7 +16389,7 @@
     },
     {
       "id": "30",
-      "updatedAt": "2026-05-15T16:44:39Z",
+      "updatedAt": "2026-07-22T11:55:25Z",
       "type": "producto",
       "slug": "cupones-promocionales",
       "path": "/productos/cupones-promocionales",
@@ -16679,8 +16679,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Cupones Promocionales Personalizados | Descuentos, Canje y Control",
-        "metaDescription": "Cupones promocionales personalizados para eventos y campañas: descuentos, vouchers y códigos únicos. Numeración, QR/código de barras y perforado. Solicita presupuesto.",
+        "metaTitle": "Cupones promocionales personalizados",
+        "metaDescription": "Cupones promocionales personalizados para eventos y campañas: descuentos, vouchers y códigos únicos. Numeración, QR/código de barras y perforado.",
         "canonical": "https://reprodisseny.com/productos/cupones-promocionales",
         "hreflang": [
           {
@@ -16700,7 +16700,7 @@
             {
               "@type": "Product",
               "name": "Cupones promocionales",
-              "description": "Cupones promocionales personalizados para eventos y campañas: descuentos, vouchers y códigos únicos. Numeración, QR/código de barras y perforado. Solicita presupuesto.",
+              "description": "Cupones promocionales personalizados para eventos y campañas: descuentos, vouchers y códigos únicos. Numeración, QR/código de barras y perforado.",
               "image": "https://webcms.blob.core.windows.net/media/product/eventos/cupones-promocionales.webp",
               "url": "https://reprodisseny.com/productos/cupones-promocionales",
               "brand": {
@@ -20015,7 +20015,7 @@
     },
     {
       "id": "40",
-      "updatedAt": "2026-05-05T11:41:47Z",
+      "updatedAt": "2026-07-22T11:34:43Z",
       "type": "producto",
       "slug": "encuadernado-con-grapas",
       "path": "/productos/encuadernado-con-grapas",
@@ -20213,8 +20213,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Encuadernado con grapas | Revistas y catálogos grapados (caballito)",
-        "metaDescription": "Encuadernado con grapas (caballito) para revistas, catálogos y folletos. Acabado profesional, opción de papeles y cubiertas, y tiradas cortas o medias. Solicita presupuesto.",
+        "metaTitle": "Encuadernación con grapas para revistas",
+        "metaDescription": "Encuadernación con grapas para revistas, catálogos y folletos. Acabado profesional, diferentes papeles y cubiertas, y tiradas cortas o medias.",
         "canonical": "https://reprodisseny.com/productos/encuadernado-con-grapas",
         "hreflang": [
           {
@@ -20234,7 +20234,7 @@
             {
               "@type": "Product",
               "name": "Encuadernado con grapas (caballito)",
-              "description": "Encuadernado con grapas (caballito) para revistas, catálogos y folletos. Acabado profesional, opción de papeles y cubiertas, y tiradas cortas o medias. Solicita presupuesto.",
+              "description": "Encuadernación con grapas para revistas, catálogos y folletos. Acabado profesional, diferentes papeles y cubiertas, y tiradas cortas o medias.",
               "image": "https://webcms.blob.core.windows.net/media/product/publicaciones/encuadernado-grapas.webp",
               "url": "https://reprodisseny.com/productos/encuadernado-con-grapas",
               "brand": {
@@ -21476,7 +21476,7 @@
     },
     {
       "id": "44",
-      "updatedAt": "2026-05-05T11:42:19Z",
+      "updatedAt": "2026-07-22T11:35:31Z",
       "type": "producto",
       "slug": "etiquetas-colgantes",
       "path": "/productos/etiquetas-colgantes",
@@ -21653,8 +21653,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Etiquetas colgantes personalizadas | Hang tags para producto y marca",
-        "metaDescription": "Etiquetas colgantes personalizadas para ropa, complementos y packaging. Cartulinas premium, troquel, agujero para cordón y acabados (laminado, stamping, barniz). Solicita presupuesto.",
+        "metaTitle": "Etiquetas colgantes personalizadas",
+        "metaDescription": "Etiquetas colgantes personalizadas para ropa, complementos y packaging. Cartulinas premium, troquel, cordón y acabados como laminado o stamping.",
         "canonical": "https://reprodisseny.com/productos/etiquetas-colgantes",
         "hreflang": [
           {
@@ -21674,7 +21674,7 @@
             {
               "@type": "Product",
               "name": "Etiquetas colgantes personalizadas",
-              "description": "Etiquetas colgantes personalizadas para ropa, complementos y packaging. Cartulinas premium, troquel, agujero para cordón y acabados (laminado, stamping, barniz). Solicita presupuesto.",
+              "description": "Etiquetas colgantes personalizadas para ropa, complementos y packaging. Cartulinas premium, troquel, cordón y acabados como laminado o stamping.",
               "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/etiquetas-colgantes.webp",
               "url": "https://reprodisseny.com/productos/etiquetas-colgantes",
               "brand": {
@@ -25916,7 +25916,7 @@
     },
     {
       "id": "56",
-      "updatedAt": "2026-05-21T13:27:33Z",
+      "updatedAt": "2026-07-22T11:58:10Z",
       "type": "producto",
       "slug": "hule-personalizado",
       "path": "/productos/hule-personalizado",
@@ -26126,8 +26126,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Hule personalizado | Manteles lavables para hostelería y eventos",
-        "metaDescription": "Hule personalizado para mesas: mantel impermeable, lavable y resistente. Ideal para restaurantes, terrazas y eventos. Impresión a color y medidas a medida. Solicita presupuesto.",
+        "metaTitle": "Hule personalizado para hostelería",
+        "metaDescription": "Hule personalizado para mesas: mantel impermeable, lavable y resistente. Ideal para restaurantes, terrazas y eventos. Impresión a color y medidas a medida.",
         "canonical": "https://reprodisseny.com/productos/hule-personalizado",
         "hreflang": [
           {
@@ -26183,7 +26183,7 @@
             {
               "@type": "Product",
               "name": "Hule personalizado (mantel lavable a medida)",
-              "description": "Hule personalizado para mesas: mantel impermeable, lavable y resistente. Ideal para restaurantes, terrazas y eventos. Impresión a color y medidas a medida. Solicita presupuesto.",
+              "description": "Hule personalizado para mesas: mantel impermeable, lavable y resistente. Ideal para restaurantes, terrazas y eventos. Impresión a color y medidas a medida.",
               "image": "https://webcms.blob.core.windows.net/media/product/restauracion/hule-personalizado.webp",
               "url": "https://reprodisseny.com/productos/hule-personalizado",
               "brand": {
@@ -26699,7 +26699,7 @@
     },
     {
       "id": "59",
-      "updatedAt": "2026-05-05T11:44:09Z",
+      "updatedAt": "2026-07-22T11:36:08Z",
       "type": "producto",
       "slug": "imanes-publicitarios",
       "path": "/productos/imanes-publicitarios",
@@ -26909,8 +26909,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Imanes personalizados | Publicidad práctica para empresas y campañas",
-        "metaDescription": "Imanes personalizados para publicidad y organización: imanes de nevera, imanes con forma, calendarios e imanes para vehículos. Impresión a color y corte a medida. Solicita presupuesto.",
+        "metaTitle": "Imanes publicitarios personalizados",
+        "metaDescription": "Imanes personalizados para publicidad y organización: imanes de nevera, imanes con forma, calendarios e imanes para vehículos.",
         "canonical": "https://reprodisseny.com/productos/imanes-publicitarios",
         "hreflang": [
           {
@@ -26930,7 +26930,7 @@
             {
               "@type": "Product",
               "name": "Imanes publicitarios",
-              "description": "Imanes personalizados para publicidad y organización: imanes de nevera, imanes con forma, calendarios e imanes para vehículos. Impresión a color y corte a medida. Solicita presupuesto.",
+              "description": "Imanes personalizados para publicidad y organización: imanes de nevera, imanes con forma, calendarios e imanes para vehículos.",
               "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/imanes-publicitarios.webp",
               "url": "https://reprodisseny.com/productos/imanes-publicitarios",
               "brand": {
@@ -30603,7 +30603,7 @@
     },
     {
       "id": "69",
-      "updatedAt": "2026-05-22T07:45:52Z",
+      "updatedAt": "2026-07-22T12:09:14Z",
       "type": "producto",
       "slug": "metacrilato-personalizado",
       "path": "/productos/metacrilato-personalizado",
@@ -30779,8 +30779,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Metacrilato personalizado | Impresión en panel rígido premium",
-        "metaDescription": "Metacrilato personalizado para señalética, placas y decoración. Impresión directa UV, transparente u opal, corte a medida y acabados premium. Solicita presupuesto.",
+        "metaTitle": "Metacrilato personalizado a medida",
+        "metaDescription": "Metacrilato personalizado para señalética, placas y decoración. Impresión directa UV, transparente u opal, corte a medida y acabados premium.",
         "canonical": "https://reprodisseny.com/productos/metacrilato-personalizado",
         "hreflang": [
           {
@@ -30811,7 +30811,7 @@
             {
               "@type": "Product",
               "name": "Metacrilato (panel rígido premium)",
-              "description": "Metacrilato personalizado para señalética, placas y decoración. Impresión directa UV, transparente u opal, corte a medida y acabados premium. Solicita presupuesto.",
+              "description": "Metacrilato personalizado para señalética, placas y decoración. Impresión directa UV, transparente u opal, corte a medida y acabados premium.",
               "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/metacrilato.webp",
               "url": "https://reprodisseny.com/productos/metacrilato-personalizado",
               "brand": {
@@ -30900,7 +30900,7 @@
     },
     {
       "id": "70",
-      "updatedAt": "2026-05-21T07:01:10Z",
+      "updatedAt": "2026-07-22T11:37:34Z",
       "type": "producto",
       "slug": "minutas-boda",
       "path": "/productos/minutas-boda",
@@ -31199,8 +31199,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Minutas de Boda Personalizadas | Menús Impresos con Acabados Premium",
-        "metaDescription": "Minutas de boda personalizadas para mesas y banquetes. Papeles especiales, impresión a color, acabados premium y personalización por mesa o invitado. Pide presupuesto.",
+        "metaTitle": "Minutas de boda personalizadas",
+        "metaDescription": "Minutas de boda personalizadas para mesas y banquetes. Papeles especiales, impresión a color, acabados premium y personalización por mesa o invitado.",
         "canonical": "https://reprodisseny.com/productos/minutas-boda",
         "hreflang": [
           {
@@ -31220,7 +31220,7 @@
             {
               "@type": "Product",
               "name": "Minutas de boda",
-              "description": "Minutas de boda personalizadas para mesas y banquetes. Papeles especiales, impresión a color, acabados premium y personalización por mesa o invitado. Pide presupuesto.",
+              "description": "Minutas de boda personalizadas para mesas y banquetes. Papeles especiales, impresión a color, acabados premium y personalización por mesa o invitado.",
               "image": "https://webcms.blob.core.windows.net/media/product/eventos/minutas-boda.webp",
               "url": "https://reprodisseny.com/productos/minutas-boda",
               "brand": {
@@ -33405,7 +33405,7 @@
     },
     {
       "id": "35",
-      "updatedAt": "2026-07-15T12:35:01Z",
+      "updatedAt": "2026-07-22T12:08:20Z",
       "type": "producto",
       "slug": "panel-dispa-personalizado",
       "path": "/productos/panel-dispa-personalizado",
@@ -33577,8 +33577,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Panel Dispa personalizado | Cartón rígido ligero y reciclable",
-        "metaDescription": "Panel Dispa impreso a medida: rígido, muy ligero, 100% papel y reciclable. Ideal para cartelería, señalética y PLV en interior. Corte recto o a la forma. Solicita presupuesto.",
+        "metaTitle": "Panel Dispa personalizado para interior",
+        "metaDescription": "Panel Dispa impreso a medida: rígido, muy ligero, 100% papel y reciclable. Ideal para cartelería, señalética y PLV en interior. Corte recto o a la forma.",
         "canonical": "https://reprodisseny.com/productos/panel-dispa-personalizado",
         "hreflang": [
           {
@@ -33598,7 +33598,7 @@
             {
               "@type": "Product",
               "name": "Panel Dispa",
-              "description": "Panel Dispa impreso a medida: rígido, muy ligero, 100% papel y reciclable. Ideal para cartelería, señalética y PLV en interior. Corte recto o a la forma. Solicita presupuesto.",
+              "description": "Panel Dispa impreso a medida: rígido, muy ligero, 100% papel y reciclable. Ideal para cartelería, señalética y PLV en interior. Corte recto o a la forma.",
               "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/dispa.webp",
               "url": "https://reprodisseny.com/productos/panel-dispa-personalizado",
               "brand": {
@@ -33679,7 +33679,7 @@
     },
     {
       "id": "120",
-      "updatedAt": "2026-07-15T12:37:02Z",
+      "updatedAt": "2026-07-22T12:06:34Z",
       "type": "producto",
       "slug": "panel-ultraligero",
       "path": "/productos/panel-ultraligero",
@@ -33788,8 +33788,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Panel ultraligero | Impresión en rígido sándwich a medida",
-        "metaDescription": "Panel ultraligero con núcleo XPS y caras de PVC para cartelería, señalética y displays. Impresión a color, una o dos caras y corte a medida. Solicita presupuesto.",
+        "metaTitle": "Panel ultraligero impreso a medida",
+        "metaDescription": "Panel ultraligero con núcleo XPS y caras de PVC para cartelería, señalética y displays. Impresión a color, una o dos caras y corte a medida.",
         "canonical": "https://reprodisseny.com/productos/panel-ultraligero",
         "hreflang": [
           {
@@ -33818,7 +33818,7 @@
             {
               "@type": "Product",
               "name": "Panel ligero (rígido ultraligero)",
-              "description": "Panel ultraligero con núcleo XPS y caras de PVC para cartelería, señalética y displays. Impresión a color, una o dos caras y corte a medida. Solicita presupuesto.",
+              "description": "Panel ultraligero con núcleo XPS y caras de PVC para cartelería, señalética y displays. Impresión a color, una o dos caras y corte a medida.",
               "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/panel-ligero.webp",
               "url": "https://reprodisseny.com/productos/panel-ultraligero",
               "brand": {
@@ -35957,7 +35957,7 @@
     },
     {
       "id": "133",
-      "updatedAt": "2026-05-21T08:10:13Z",
+      "updatedAt": "2026-07-22T11:56:21Z",
       "type": "producto",
       "slug": "placa-direccion-personalizada",
       "path": "/productos/placa-direccion-personalizada",
@@ -36123,8 +36123,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Placa dirección personalizada | Señalética de oficinas y edificios",
-        "metaDescription": "Placa de dirección personalizada para oficinas, centros y edificios. Materiales premium (metacrilato, Dibond, PVC), corte a medida y opciones de fijación. Solicita presupuesto.",
+        "metaTitle": "Placas de dirección personalizadas",
+        "metaDescription": "Placa de dirección personalizada para oficinas, centros y edificios. Materiales premium (metacrilato, Dibond, PVC), corte a medida y opciones de fijación.",
         "canonical": "https://reprodisseny.com/productos/placa-direccion-personalizada",
         "hreflang": [
           {
@@ -36140,7 +36140,7 @@
             {
               "@type": "Product",
               "name": "Placa dirección personalizada",
-              "description": "Placa de dirección personalizada para oficinas, centros y edificios. Materiales premium (metacrilato, Dibond, PVC), corte a medida y opciones de fijación. Solicita presupuesto.",
+              "description": "Placa de dirección personalizada para oficinas, centros y edificios. Materiales premium (metacrilato, Dibond, PVC), corte a medida y opciones de fijación.",
               "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/placa-dirección.webp",
               "url": "https://reprodisseny.com/productos/placa-direccion-personalizada",
               "brand": {
@@ -37090,7 +37090,7 @@
     },
     {
       "id": "86",
-      "updatedAt": "2026-05-05T11:48:50Z",
+      "updatedAt": "2026-07-22T11:59:04Z",
       "type": "producto",
       "slug": "premios-personalizados",
       "path": "/productos/premios-personalizados",
@@ -37264,8 +37264,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Premios Personalizados para Eventos | Trofeos y Placas a Medida",
-        "metaDescription": "Premios personalizados para eventos, empresas y competiciones: trofeos, placas y reconocimientos en materiales rígidos con impresión y acabados premium. Pide presupuesto.",
+        "metaTitle": "Premios personalizados para eventos",
+        "metaDescription": "Premios personalizados para eventos, empresas y competiciones: trofeos, placas y reconocimientos en materiales rígidos con impresión y acabados premium.",
         "canonical": "https://reprodisseny.com/productos/premios-personalizados",
         "hreflang": [
           {
@@ -37285,7 +37285,7 @@
             {
               "@type": "Product",
               "name": "Premios personalizados para eventos",
-              "description": "Premios personalizados para eventos, empresas y competiciones: trofeos, placas y reconocimientos en materiales rígidos con impresión y acabados premium. Pide presupuesto.",
+              "description": "Premios personalizados para eventos, empresas y competiciones: trofeos, placas y reconocimientos en materiales rígidos con impresión y acabados premium.",
               "image": "https://webcms.blob.core.windows.net/media/product/eventos/premios-personalizados.webp",
               "url": "https://reprodisseny.com/productos/premios-personalizados",
               "brand": {
@@ -37657,7 +37657,7 @@
     },
     {
       "id": "89",
-      "updatedAt": "2026-05-21T08:03:35Z",
+      "updatedAt": "2026-07-22T11:38:14Z",
       "type": "producto",
       "slug": "roll-up-personalizado",
       "path": "/productos/roll-up-personalizado",
@@ -37946,8 +37946,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Roll Up Personalizado | Expositor Enrollable para Ferias y Empresas",
-        "metaDescription": "Roll up personalizado para ferias, eventos y punto de venta. Impresión a color, estructuras estables y montaje en segundos. Solicita presupuesto a Repro Disseny.",
+        "metaTitle": "Roll up personalizado para ferias",
+        "metaDescription": "Roll up personalizado para ferias, eventos y punto de venta. Impresión a color, estructura estable, bolsa de transporte y montaje en segundos.",
         "canonical": "https://reprodisseny.com/productos/roll-up-personalizado",
         "hreflang": [
           {
@@ -37967,7 +37967,7 @@
             {
               "@type": "Product",
               "name": "Roll Up personalizado (expositor enrollable)",
-              "description": "Roll up personalizado para ferias, eventos y punto de venta. Impresión a color, estructuras estables y montaje en segundos. Solicita presupuesto a Repro Disseny.",
+              "description": "Roll up personalizado para ferias, eventos y punto de venta. Impresión a color, estructura estable, bolsa de transporte y montaje en segundos.",
               "image": "https://webcms.blob.core.windows.net/media/product/expositores/roll-up.webp",
               "url": "https://reprodisseny.com/productos/roll-up-personalizado",
               "brand": {
@@ -38297,7 +38297,7 @@
     },
     {
       "id": "128",
-      "updatedAt": "2026-07-16T09:05:36Z",
+      "updatedAt": "2026-07-22T12:04:32Z",
       "type": "producto",
       "slug": "sobres-personalizados",
       "path": "/productos/sobres-personalizados",
@@ -38617,8 +38617,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Sobres personalizados | Sobres corporativos para empresas",
-        "metaDescription": "Sobres personalizados para empresas: formatos DL, C5, C4 y americano. Impresión a 1 tinta o color, con o sin ventana y opción de versiones por sede. Solicita presupuesto.",
+        "metaTitle": "Sobres personalizados para empresas",
+        "metaDescription": "Sobres personalizados para empresas: formatos DL, C5, C4 y americano. Impresión a 1 tinta o color, con o sin ventana y opción de versiones por sede.",
         "canonical": "https://reprodisseny.com/productos/sobres-personalizados",
         "hreflang": [
           {
@@ -38663,7 +38663,7 @@
             {
               "@type": "Product",
               "name": "Sobres personalizados (papelería corporativa)",
-              "description": "Sobres personalizados para empresas: formatos DL, C5, C4 y americano. Impresión a 1 tinta o color, con o sin ventana y opción de versiones por sede. Solicita presupuesto.",
+              "description": "Sobres personalizados para empresas: formatos DL, C5, C4 y americano. Impresión a 1 tinta o color, con o sin ventana y opción de versiones por sede.",
               "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/sobres.webp",
               "url": "https://reprodisseny.com/productos/sobres-personalizados",
               "brand": {
@@ -39298,7 +39298,7 @@
     },
     {
       "id": "130",
-      "updatedAt": "2026-07-16T09:09:45Z",
+      "updatedAt": "2026-07-22T12:05:34Z",
       "type": "producto",
       "slug": "talonarios-autocopiativos-personalizados",
       "path": "/productos/talonarios-autocopiativos-personalizados",
@@ -39619,8 +39619,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Talonarios autocopiativos personalizados para empresas",
-        "metaDescription": "Talonarios autocopiativos personalizados para empresa: 2 o 3 copias, numeración, perforado y formatos a medida. Ideales para albaranes, presupuestos y partes. Solicita presupuesto.",
+        "metaTitle": "Talonarios autocopiativos personalizados",
+        "metaDescription": "Talonarios autocopiativos personalizados con 2 o 3 copias, numeración, perforado y formatos a medida para albaranes, presupuestos y partes.",
         "canonical": "https://reprodisseny.com/productos/talonarios-autocopiativos-personalizados",
         "hreflang": [
           {
@@ -39665,7 +39665,7 @@
             {
               "@type": "Product",
               "name": "Talonarios autocopiativos personalizados",
-              "description": "Talonarios autocopiativos personalizados para empresa: 2 o 3 copias, numeración, perforado y formatos a medida. Ideales para albaranes, presupuestos y partes. Solicita presupuesto.",
+              "description": "Talonarios autocopiativos personalizados con 2 o 3 copias, numeración, perforado y formatos a medida para albaranes, presupuestos y partes.",
               "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/talonarios-autocopiativos.webp",
               "url": "https://reprodisseny.com/productos/talonarios-autocopiativos-personalizados",
               "brand": {
@@ -42152,7 +42152,7 @@
     },
     {
       "id": "104",
-      "updatedAt": "2026-05-05T11:59:28Z",
+      "updatedAt": "2026-07-22T11:38:54Z",
       "type": "producto",
       "slug": "totems-publicitarios-personalizados",
       "path": "/productos/totems-publicitarios-personalizados",
@@ -42315,8 +42315,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Tótems Publicitarios Personalizados | Expositores de Suelo a Medida",
-        "metaDescription": "Tótems personalizados para ferias, eventos y punto de venta. Expositores de suelo en rígidos, a una o dos caras, con corte a medida y opciones de base. Solicita presupuesto.",
+        "metaTitle": "Tótems publicitarios personalizados",
+        "metaDescription": "Tótems personalizados para ferias, eventos y punto de venta. Expositores de suelo en rígidos, a una o dos caras, con corte a medida y opciones de base.",
         "canonical": "https://reprodisseny.com/productos/totems-publicitarios-personalizados",
         "hreflang": [
           {
@@ -42336,7 +42336,7 @@
             {
               "@type": "Product",
               "name": "Tótems publicitarios personalizados (expositores de suelo)",
-              "description": "Tótems personalizados para ferias, eventos y punto de venta. Expositores de suelo en rígidos, a una o dos caras, con corte a medida y opciones de base. Solicita presupuesto.",
+              "description": "Tótems personalizados para ferias, eventos y punto de venta. Expositores de suelo en rígidos, a una o dos caras, con corte a medida y opciones de base.",
               "image": "https://webcms.blob.core.windows.net/media/product/expositores/totem.webp",
               "url": "https://reprodisseny.com/productos/totems-publicitarios-personalizados",
               "brand": {
