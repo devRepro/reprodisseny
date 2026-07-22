@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-16T10:58:43.153Z",
+  "generatedAt": "2026-07-22T08:13:14.849Z",
   "categories": [
     {
       "id": "12",
@@ -3705,7 +3705,7 @@
   "products": [
     {
       "id": "157",
-      "updatedAt": "2026-05-25T20:18:27Z",
+      "updatedAt": "2026-07-22T07:55:04Z",
       "type": "producto",
       "slug": "colgador-puerta-personalizado",
       "path": "/productos/colgador-puerta-personalizado",
@@ -3890,8 +3890,8 @@
       "formFields": [],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Colgador de puerta personalizado | Hotel, apartamentos y alojamientos",
-        "metaDescription": "Colgadores de puerta para hoteles: “No molestar / Hacer la habitación”, avisos y servicios. Troquelados, resistentes y con opción plastificado. Añade QR. Solicita presupuesto.",
+        "metaTitle": "Colgadores de puerta para hoteles",
+        "metaDescription": "Colgadores de puerta para hoteles, apartamentos y alojamientos. Troquelados, resistentes, con plastificado opcional y posibilidad de incorporar códigos QR.",
         "canonical": "https://reprodisseny.com/productos/colgador-puerta-personalizado",
         "hreflang": [
           {
@@ -5111,7 +5111,7 @@
     },
     {
       "id": "4",
-      "updatedAt": "2026-06-10T10:03:57Z",
+      "updatedAt": "2026-07-22T07:56:07Z",
       "type": "producto",
       "slug": "arbol-navidad-corporativo",
       "path": "/productos/arbol-navidad-corporativo",
@@ -5394,8 +5394,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Árbol de Navidad Corporativo Personalizado | Nido de Abeja Troquelado",
-        "metaDescription": "Árbol de Navidad corporativo impreso en nido de abeja, troquelado a medida y automontable en 2 piezas. Ligero, estable y fácil de transportar. Solicita presupuesto.",
+        "metaTitle": "Árbol de Navidad corporativo personalizado",
+        "metaDescription": "Árbol de Navidad corporativo impreso en nido de abeja, troquelado a medida y automontable en 2 piezas. Ligero, estable y fácil de transportar.",
         "canonical": "https://reprodisseny.com/productos/arbol-navidad-corporativo",
         "hreflang": [
           {
@@ -5421,7 +5421,7 @@
             {
               "@type": "Product",
               "name": "Árbol de Navidad corporativo personalizado",
-              "description": "Árbol de Navidad corporativo impreso en nido de abeja, troquelado a medida y automontable en 2 piezas. Ligero, estable y fácil de transportar. Solicita presupuesto.",
+              "description": "Árbol de Navidad corporativo impreso en nido de abeja, troquelado a medida y automontable en 2 piezas. Ligero, estable y fácil de transportar.",
               "image": "https://webcms.blob.core.windows.net/media/product/eventos/arbol-de-navidad.webp",
               "url": "https://reprodisseny.com/productos/arbol-navidad-corporativo",
               "brand": {
@@ -6575,7 +6575,7 @@
     },
     {
       "id": "9",
-      "updatedAt": "2026-07-15T12:16:29Z",
+      "updatedAt": "2026-07-22T07:45:43Z",
       "type": "producto",
       "slug": "banderolas-personalizadas",
       "path": "/productos/banderolas-personalizadas",
@@ -6883,8 +6883,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Banderolas Personalizadas | Publicidad Exterior y Señalización de Eventos",
-        "metaDescription": "Banderolas publicitarias personalizadas para eventos, calles y fachadas. Impresión en lona o textil, con acabados de confección y sistemas de fijación. Solicita presupuesto.",
+        "metaTitle": "Banderolas publicitarias personalizadas",
+        "metaDescription": "Banderolas publicitarias personalizadas para eventos, calles y fachadas. Impresión en lona o textil, con acabados de confección y sistemas de fijación.",
         "canonical": "https://reprodisseny.com/productos/banderolas-personalizadas",
         "hreflang": [
           {
@@ -6932,7 +6932,7 @@
             {
               "@type": "Product",
               "name": "Banderolas personalizadas (publicidad exterior y eventos)",
-              "description": "Banderolas publicitarias personalizadas para eventos, calles y fachadas. Impresión en lona o textil, con acabados de confección y sistemas de fijación. Solicita presupuesto.",
+              "description": "Banderolas publicitarias personalizadas para eventos, calles y fachadas. Impresión en lona o textil, con acabados de confección y sistemas de fijación.",
               "image": "https://webcms.blob.core.windows.net/media/product/expositores/banderolas.webp",
               "url": "https://reprodisseny.com/productos/banderolas-personalizadas",
               "brand": {
@@ -7015,7 +7015,7 @@
     },
     {
       "id": "10",
-      "updatedAt": "2026-07-15T08:20:09Z",
+      "updatedAt": "2026-07-22T06:54:25Z",
       "type": "producto",
       "slug": "banner-golf-personalizado",
       "path": "/productos/banner-golf-personalizado",
@@ -7374,8 +7374,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Banner Golf Personalizado | Expositor Exterior para Eventos y Patrocinio",
-        "metaDescription": "Banner Golf personalizado para exterior: estable, ligero y muy visible. Ideal para eventos deportivos, ferias y activaciones. Impresión a color y fácil transporte. Pide presupuesto.",
+        "metaTitle": "Banner Golf Personalizado | Expositor Exterior para Eventos y Patrocinio | Repro Disseny",
+        "metaDescription": "Banner Golf personalizado para exterior: estable, ligero y muy visible. Ideal para eventos deportivos, ferias y activaciones.",
         "canonical": "https://reprodisseny.com/productos/banner-golf-personalizado",
         "hreflang": [
           {
@@ -7422,7 +7422,7 @@
             {
               "@type": "Product",
               "name": "Banner Golf personalizado (expositor exterior)",
-              "description": "Banner Golf personalizado para exterior: estable, ligero y muy visible. Ideal para eventos deportivos, ferias y activaciones. Impresión a color y fácil transporte. Pide presupuesto.",
+              "description": "Banner Golf personalizado para exterior: estable, ligero y muy visible. Ideal para eventos deportivos, ferias y activaciones.",
               "image": "https://webcms.blob.core.windows.net/media/product/expositores/banner-golf.webp",
               "url": "https://reprodisseny.com/productos/banner-golf-personalizado",
               "brand": {
@@ -7806,7 +7806,7 @@
     },
     {
       "id": "13",
-      "updatedAt": "2026-07-15T08:20:35Z",
+      "updatedAt": "2026-07-22T07:27:16Z",
       "type": "producto",
       "slug": "caballetes-publicitarios-personalizados",
       "path": "/productos/caballetes-publicitarios-personalizados",
@@ -8141,8 +8141,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Caballetes Publicitarios Personalizados | Señalización de Calle y Punto de Venta",
-        "metaDescription": "Caballetes publicitarios para exterior e interior: doble cara, estables y fáciles de mover. Ideales para promociones, menús y señalización. Solicita presupuesto.",
+        "metaTitle": "Caballetes publicitarios personalizados",
+        "metaDescription": "Caballetes publicitarios para exterior e interior: doble cara, estables y fáciles de mover. Ideales para promociones, menús y señalización.",
         "canonical": "https://reprodisseny.com/productos/caballetes-publicitarios-personalizados",
         "hreflang": [
           {
@@ -8190,7 +8190,7 @@
             {
               "@type": "Product",
               "name": "Caballetes publicitarios personalizados",
-              "description": "Caballetes publicitarios para exterior e interior: doble cara, estables y fáciles de mover. Ideales para promociones, menús y señalización. Solicita presupuesto.",
+              "description": "Caballetes publicitarios para exterior e interior: doble cara, estables y fáciles de mover. Ideales para promociones, menús y señalización.",
               "image": "https://webcms.blob.core.windows.net/media/product/expositores/caballetes.webp",
               "url": "https://reprodisseny.com/productos/caballetes-publicitarios-personalizados",
               "brand": {
@@ -8667,7 +8667,7 @@
     },
     {
       "id": "136",
-      "updatedAt": "2026-07-16T10:22:48Z",
+      "updatedAt": "2026-07-16T11:31:30Z",
       "type": "producto",
       "slug": "caja-automontable",
       "path": "/productos/caja-automontable",
@@ -8751,8 +8751,38 @@
           "key": "formats",
           "title": "Formatos y soportes",
           "kind": "formats",
-          "contentFormat": "markdown",
-          "body": "{\n      \"title\": \"Caja mini automontable\",\n      \"description\": \"Estructura troquelada de una pieza con solapas, pensada para montaje rápido.\"\n    },\n    {\n      \"title\": \"Medida a producto\",\n      \"description\": \"El alto, ancho y fondo se ajustan a la pieza o surtido que debe contener.\"\n    },\n    {\n      \"title\": \"Con ventana troquelada\",\n      \"description\": \"Permite mostrar el producto cuando el diseño, el material y el sistema de envasado lo permiten.\"\n    },\n    {\n      \"title\": \"Con adaptación interior\",\n      \"description\": \"Puede incorporar una solución interna para limitar el movimiento de piezas pequeñas.\"\n    }\n  ],\n  \"deliveryFormats\": [\n    {\n      \"title\": \"Entrega plana\",\n      \"description\": \"Optimiza transporte y almacenaje antes del montaje.\"\n    },\n    {\n      \"title\": \"Series por campaña\",\n      \"description\": \"Posibilidad de producir variantes de diseño para temporadas, sedes o acciones promocionales.\"\n    }\n  ]\n}"
+          "contentFormat": "json",
+          "formatsData": {
+            "intro": "El formato se adapta al producto, al sistema de montaje y a la presentación que necesita cada campaña.",
+            "shapes": [
+              {
+                "title": "Caja mini automontable",
+                "description": "Estructura troquelada de una pieza con solapas, pensada para montaje rápido."
+              },
+              {
+                "title": "Medida a producto",
+                "description": "El alto, ancho y fondo se ajustan a la pieza o surtido que debe contener."
+              },
+              {
+                "title": "Con ventana troquelada",
+                "description": "Permite mostrar el producto cuando el diseño, el material y el sistema de envasado lo permiten."
+              },
+              {
+                "title": "Con adaptación interior",
+                "description": "Puede incorporar una solución interna para limitar el movimiento de piezas pequeñas."
+              }
+            ],
+            "deliveryFormats": [
+              {
+                "title": "Entrega plana",
+                "description": "Optimiza transporte y almacenaje antes del montaje."
+              },
+              {
+                "title": "Series por campaña",
+                "description": "Posibilidad de producir variantes de diseño para temporadas, sedes o acciones promocionales."
+              }
+            ]
+          }
         },
         {
           "id": "finishes",
@@ -9975,7 +10005,7 @@
     },
     {
       "id": "146",
-      "updatedAt": "2026-07-16T10:54:16Z",
+      "updatedAt": "2026-07-16T11:34:31Z",
       "type": "producto",
       "slug": "caja-envio",
       "path": "/productos/caja-envio",
@@ -10092,8 +10122,32 @@
           "key": "finishes",
           "title": "Acabados",
           "kind": "finishes",
-          "contentFormat": "markdown",
-          "body": "{"
+          "contentFormat": "json",
+          "finishesData": {
+            "intro": "Los acabados deben equilibrar la resistencia durante el transporte, la protección de la impresión y la presencia de marca.",
+            "finishes": [
+              {
+                "title": "Impresión exterior personalizada",
+                "description": "Permite identificar el envío y reforzar la marca con logotipo, mensajes, instrucciones o información logística."
+              },
+              {
+                "title": "Impresión interior",
+                "description": "Añade mensajes de bienvenida, instrucciones, códigos QR o elementos de unboxing al abrir la caja."
+              },
+              {
+                "title": "Barniz o protección superficial",
+                "description": "Puede mejorar la resistencia de la impresión frente al roce y la manipulación, según el cartón y el sistema de producción."
+              },
+              {
+                "title": "Cinta, etiqueta o precinto personalizado",
+                "description": "Refuerza el cierre y añade un elemento gráfico o de control sin modificar la estructura de la caja."
+              },
+              {
+                "title": "Acabados especiales",
+                "description": "Laminados, barnices selectivos u otros recursos pueden valorarse cuando el material, la tirada y el uso logístico lo permiten."
+              }
+            ]
+          }
         },
         {
           "id": "technical-specs",
@@ -10799,7 +10853,7 @@
     },
     {
       "id": "139",
-      "updatedAt": "2026-07-16T10:32:22Z",
+      "updatedAt": "2026-07-16T11:32:58Z",
       "type": "producto",
       "slug": "caja-envolvente",
       "path": "/productos/caja-envolvente",
@@ -10883,16 +10937,65 @@
           "key": "formats",
           "title": "Formatos y soportes",
           "kind": "formats",
-          "contentFormat": "markdown",
-          "body": "{\n  \"intro\": \"El ajuste entre caja y faja es la clave para una apertura fluida y una presentación limpia.\",\n  \"shapes\": [\n    {\n      \"title\": \"Faja deslizante\",\n      \"description\": \"La envolvente rodea la caja y se retira por deslizamiento.\"\n    },\n    {\n      \"title\": \"Envolvente con encaje\",\n      \"description\": \"Puede incorporar una solapa o cierre sencillo según la medida y el diseño.\"\n    },\n    {\n      \"title\": \"Cobertura parcial\",\n      \"description\": \"Deja visible parte de la caja base y concentra la comunicación en una banda.\"\n    },\n    {\n      \"title\": \"Cobertura amplia\",\n      \"description\": \"Aumenta la superficie gráfica y transforma visualmente la caja.\"\n    },\n    {\n      \"title\": \"Interiores opcionales\",\n      \"description\": \"La caja puede completarse con separadores o encajes para organizar el contenido.\"\n    }\n  ],\n  \"deliveryFormats\": []"
+          "contentFormat": "json",
+          "formatsData": {
+            "intro": "El ajuste entre caja y faja es la clave para una apertura fluida y una presentación limpia.",
+            "shapes": [
+              {
+                "title": "Faja deslizante",
+                "description": "La envolvente rodea la caja y se retira por deslizamiento."
+              },
+              {
+                "title": "Envolvente con encaje",
+                "description": "Puede incorporar una solapa o cierre sencillo según la medida y el diseño."
+              },
+              {
+                "title": "Cobertura parcial",
+                "description": "Deja visible parte de la caja base y concentra la comunicación en una banda."
+              },
+              {
+                "title": "Cobertura amplia",
+                "description": "Aumenta la superficie gráfica y transforma visualmente la caja."
+              },
+              {
+                "title": "Interiores opcionales",
+                "description": "La caja puede completarse con separadores o encajes para organizar el contenido."
+              }
+            ],
+            "deliveryFormats": []
+          }
         },
         {
           "id": "finishes",
           "key": "finishes",
           "title": "Acabados",
           "kind": "finishes",
-          "contentFormat": "markdown",
-          "body": "\"intro\": \"Los acabados se aplican especialmente en la envolvente, donde se concentra el mensaje visual.\",\n  \"finishes\": [\n    {\n      \"title\": \"Laminado mate\",\n      \"description\": \"Protege la impresión y ofrece un resultado sobrio con menos reflejos.\"\n    },\n    {\n      \"title\": \"Laminado brillo\",\n      \"description\": \"Refuerza el color y la presencia de campañas promocionales.\"\n    },\n    {\n      \"title\": \"Soft touch\",\n      \"description\": \"Aporta un tacto suave en packs de mayor valor percibido.\"\n    },\n    {\n      \"title\": \"Barniz selectivo\",\n      \"description\": \"Destaca el logotipo o el titular sobre la superficie de la faja.\"\n    },\n    {\n      \"title\": \"Stamping\",\n      \"description\": \"Añade un detalle metalizado para regalos o ediciones especiales.\"\n    }\n  ]\n}"
+          "contentFormat": "json",
+          "finishesData": {
+            "intro": "Los acabados se aplican especialmente en la envolvente, donde se concentra el mensaje visual.",
+            "finishes": [
+              {
+                "title": "Laminado mate",
+                "description": "Protege la impresión y ofrece un resultado sobrio con menos reflejos."
+              },
+              {
+                "title": "Laminado brillo",
+                "description": "Refuerza el color y la presencia de campañas promocionales."
+              },
+              {
+                "title": "Soft touch",
+                "description": "Aporta un tacto suave en packs de mayor valor percibido."
+              },
+              {
+                "title": "Barniz selectivo",
+                "description": "Destaca el logotipo o el titular sobre la superficie de la faja."
+              },
+              {
+                "title": "Stamping",
+                "description": "Añade un detalle metalizado para regalos o ediciones especiales."
+              }
+            ]
+          }
         },
         {
           "id": "technical-specs",
@@ -12054,7 +12157,7 @@
     },
     {
       "id": "143",
-      "updatedAt": "2026-07-16T10:46:03Z",
+      "updatedAt": "2026-07-16T11:35:10Z",
       "type": "producto",
       "slug": "caja-sobre-personalizada",
       "path": "/productos/caja-sobre-personalizada",
@@ -12216,8 +12319,32 @@
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "{\n  \"intro\": \"Usos para contenidos planos que necesitan una presentación más protegida y profesional.\",\n  \"applications\": [\n    {\n      \"title\": \"Propuestas y contratos\",\n      \"description\": \"Entregas comerciales o institucionales que requieren una presentación cuidada.\"\n    },\n    {\n      \"title\": \"Dossiers y catálogos\",\n      \"description\": \"Documentación corporativa, memorias, presentaciones y materiales de campaña.\"\n    },\n    {\n      \"title\": \"Welcome packs planos\",\n      \"description\": \"Guías, tarjetas, credenciales y merchandising ligero.\"\n    },\n    {\n      \"title\": \"Kits de formación\",\n      \"description\": \"Manuales, fichas, hojas y accesos digitales organizados en un único pack.\"\n    },\n    {\n      \"title\": \"Eventos y prensa\",\n      \"description\": \"Material para asistentes, ponentes, medios o invitados.\"\n    }\n  ]"
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Usos para contenidos planos que necesitan una presentación más protegida y profesional.",
+            "applications": [
+              {
+                "title": "Propuestas y contratos",
+                "description": "Entregas comerciales o institucionales que requieren una presentación cuidada."
+              },
+              {
+                "title": "Dossiers y catálogos",
+                "description": "Documentación corporativa, memorias, presentaciones y materiales de campaña."
+              },
+              {
+                "title": "Welcome packs planos",
+                "description": "Guías, tarjetas, credenciales y merchandising ligero."
+              },
+              {
+                "title": "Kits de formación",
+                "description": "Manuales, fichas, hojas y accesos digitales organizados en un único pack."
+              },
+              {
+                "title": "Eventos y prensa",
+                "description": "Material para asistentes, ponentes, medios o invitados."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
@@ -13910,7 +14037,7 @@
     },
     {
       "id": "17",
-      "updatedAt": "2026-06-10T10:03:58Z",
+      "updatedAt": "2026-07-22T07:25:20Z",
       "type": "producto",
       "slug": "cartas-restaurante-personalizadas",
       "path": "/productos/cartas-restaurante-personalizadas",
@@ -14208,8 +14335,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Cartas de restaurante personalizadas | Repro Disseny",
-        "metaDescription": "Cartas de restaurante personalizadas para bares, restaurantes y hoteles. Impresión profesional con acabados resistentes y formatos a medida. Pide presupuesto.",
+        "metaTitle": "Cartas de restaurante personalizadas",
+        "metaDescription": "Cartas de restaurante personalizadas para bares, restaurantes y hoteles. Impresión profesional con acabados resistentes y formatos a medida.",
         "canonical": "https://reprodisseny.com/productos/cartas-restaurante-personalizadas",
         "hreflang": [
           {
@@ -14958,7 +15085,7 @@
     },
     {
       "id": "23",
-      "updatedAt": "2026-07-15T08:22:58Z",
+      "updatedAt": "2026-07-22T08:07:22Z",
       "type": "producto",
       "slug": "certificados-personalizados",
       "path": "/productos/certificados-personalizados",
@@ -15100,7 +15227,7 @@
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Certificados personalizados para empresas",
-        "metaDescription": "Certificados personalizados para cursos, eventos y empresas. Papeles premium, impresión a color, numeración, datos variables y acabados (sellos, stamping, relieve). Solicita presupuesto.",
+        "metaDescription": "Certificados personalizados para cursos, eventos y empresas. Papeles premium, datos variables, numeración y acabados como stamping, sellos o relieve.",
         "canonical": "https://reprodisseny.com/productos/certificados-personalizados",
         "hreflang": [
           {
@@ -15120,7 +15247,7 @@
             {
               "@type": "Product",
               "name": "Certificados personalizados",
-              "description": "Certificados personalizados para cursos, eventos y empresas. Papeles premium, impresión a color, numeración, datos variables y acabados (sellos, stamping, relieve). Solicita presupuesto.",
+              "description": "Certificados personalizados para cursos, eventos y empresas. Papeles premium, datos variables, numeración y acabados como stamping, sellos o relieve.",
               "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/certificados.webp",
               "url": "https://reprodisseny.com/productos/certificados-personalizados",
               "brand": {
@@ -15172,7 +15299,7 @@
     },
     {
       "id": "25",
-      "updatedAt": "2026-07-15T12:28:42Z",
+      "updatedAt": "2026-07-22T08:09:07Z",
       "type": "producto",
       "slug": "colgador-de-botellas-personalizado",
       "path": "/productos/colgador-de-botellas-personalizado",
@@ -15345,8 +15472,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Colgadores de botellas personalizados | Promoción y retail",
-        "metaDescription": "Colgadores de botellas personalizados para promociones en tienda y hostelería. Troquelados, resistentes y con impresión a color. Ideales para ofertas, catas y lanzamientos. Solicita presupuesto.",
+        "metaTitle": "Colgadores de botellas personalizados",
+        "metaDescription": "Colgadores de botellas personalizados para promociones en tienda y hostelería. Troquelados, resistentes e impresos a color para ofertas y lanzamientos.",
         "canonical": "https://reprodisseny.com/productos/colgador-de-botellas-personalizado",
         "hreflang": [
           {
@@ -15366,7 +15493,7 @@
             {
               "@type": "Product",
               "name": "Colgador de botellas personalizado",
-              "description": "Colgadores de botellas personalizados para promociones en tienda y hostelería. Troquelados, resistentes y con impresión a color. Ideales para ofertas, catas y lanzamientos. Solicita presupuesto.",
+              "description": "Colgadores de botellas personalizados para promociones en tienda y hostelería. Troquelados, resistentes e impresos a color para ofertas y lanzamientos.",
               "image": "https://webcms.blob.core.windows.net/media/product/restauracion/colgador-botella.webp",
               "url": "https://reprodisseny.com/productos/colgador-de-botellas-personalizado",
               "brand": {
@@ -15449,7 +15576,7 @@
     },
     {
       "id": "77",
-      "updatedAt": "2026-05-05T11:47:04Z",
+      "updatedAt": "2026-07-22T07:47:33Z",
       "type": "producto",
       "slug": "contenedores-de-reciclaje",
       "path": "/productos/contenedores-de-reciclaje",
@@ -15610,8 +15737,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Contenedores de Reciclaje Personalizados | Puntos de Recogida con Branding",
-        "metaDescription": "Contenedores de reciclaje personalizados para oficinas, eventos y retail. Diseño a medida por fracciones, impresión profesional y opciones automontables. Solicita presupuesto.",
+        "metaTitle": "Contenedores de reciclaje personalizados",
+        "metaDescription": "Contenedores de reciclaje personalizados para oficinas, eventos y retail. Diseño a medida por fracciones, impresión profesional y opciones automontables.",
         "canonical": "https://reprodisseny.com/productos/contenedores-de-reciclaje",
         "hreflang": [
           {
@@ -15631,7 +15758,7 @@
             {
               "@type": "Product",
               "name": "Contenedores de reciclaje personalizados",
-              "description": "Contenedores de reciclaje personalizados para oficinas, eventos y retail. Diseño a medida por fracciones, impresión profesional y opciones automontables. Solicita presupuesto.",
+              "description": "Contenedores de reciclaje personalizados para oficinas, eventos y retail. Diseño a medida por fracciones, impresión profesional y opciones automontables.",
               "image": "https://webcms.blob.core.windows.net/media/product/expositores/contenedor-reciclaje.webp",
               "url": "https://reprodisseny.com/productos/contenedores-de-reciclaje",
               "brand": {
@@ -16656,7 +16783,7 @@
     },
     {
       "id": "33",
-      "updatedAt": "2026-05-21T06:45:55Z",
+      "updatedAt": "2026-07-22T07:44:56Z",
       "type": "producto",
       "slug": "diplomas-personalizados",
       "path": "/productos/diplomas-personalizados",
@@ -16936,8 +17063,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Diplomas Personalizados para Eventos | Impresión Profesional en Barcelona",
-        "metaDescription": "Imprime diplomas personalizados para cursos, entregas y eventos corporativos. Papel de calidad, acabados premium y datos variables. Presupuesto rápido con Repro Disseny.",
+        "metaTitle": "Diplomas personalizados para eventos",
+        "metaDescription": "Imprime diplomas personalizados para cursos, entregas y eventos corporativos. Papel de calidad, acabados premium y datos variables.",
         "canonical": "https://reprodisseny.com/productos/diplomas-personalizados",
         "hreflang": [
           {
@@ -16957,7 +17084,7 @@
             {
               "@type": "Product",
               "name": "Diplomas personalizados para eventos",
-              "description": "Imprime diplomas personalizados para cursos, entregas y eventos corporativos. Papel de calidad, acabados premium y datos variables. Presupuesto rápido con Repro Disseny.",
+              "description": "Imprime diplomas personalizados para cursos, entregas y eventos corporativos. Papel de calidad, acabados premium y datos variables.",
               "image": "https://webcms.blob.core.windows.net/media/product/eventos/diplomas.webp",
               "url": "https://reprodisseny.com/productos/diplomas-personalizados",
               "brand": {
@@ -17314,7 +17441,7 @@
     },
     {
       "id": "36",
-      "updatedAt": "2026-05-05T11:41:16Z",
+      "updatedAt": "2026-07-22T07:46:52Z",
       "type": "producto",
       "slug": "displays-de-mesa-personalizados",
       "path": "/productos/displays-de-mesa-personalizados",
@@ -17514,8 +17641,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Displays de mesa personalizados | Publicidad en mostrador y punto de venta",
-        "metaDescription": "Displays de mesa personalizados para promociones y comunicación en mostrador. Formatos A4/A5/A6, autoportantes, a una o dos caras y con acabados resistentes. Solicita presupuesto.",
+        "metaTitle": "Displays de mesa personalizados",
+        "metaDescription": "Displays de mesa personalizados para promociones y comunicación en mostrador. Formatos A4/A5/A6, autoportantes. Formatos A4/A5/A6, autoportantes, a una.",
         "canonical": "https://reprodisseny.com/productos/displays-de-mesa-personalizados",
         "hreflang": [
           {
@@ -17535,7 +17662,7 @@
             {
               "@type": "Product",
               "name": "Displays de mesa personalizados",
-              "description": "Displays de mesa personalizados para promociones y comunicación en mostrador. Formatos A4/A5/A6, autoportantes, a una o dos caras y con acabados resistentes. Solicita presupuesto.",
+              "description": "Displays de mesa personalizados para promociones y comunicación en mostrador. Formatos A4/A5/A6, autoportantes. Formatos A4/A5/A6, autoportantes, a una.",
               "image": "https://webcms.blob.core.windows.net/media/product/expositores/display.webp",
               "url": "https://reprodisseny.com/productos/displays-de-mesa-personalizados",
               "brand": {
@@ -17624,7 +17751,7 @@
     },
     {
       "id": "38",
-      "updatedAt": "2026-05-21T06:46:59Z",
+      "updatedAt": "2026-07-22T06:57:48Z",
       "type": "producto",
       "slug": "dorsales-carrera",
       "path": "/productos/dorsales-carrera",
@@ -17920,8 +18047,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Dorsales de Carrera Personalizados | Impresión para Eventos Deportivos",
-        "metaDescription": "Dorsales de carrera personalizados para running, trail y competiciones. Numeración y datos variables, QR/código de barras, materiales resistentes y acabados a medida. Pide presupuesto.",
+        "metaTitle": "Dorsales personalizados para carreras",
+        "metaDescription": "Dorsales de carrera personalizados para running, trail y competiciones. Numeración y datos variables, QR/código de barras.",
         "canonical": "https://reprodisseny.com/productos/dorsales-carrera",
         "hreflang": [
           {
@@ -17941,7 +18068,7 @@
             {
               "@type": "Product",
               "name": "Dorsales de carrera personalizados",
-              "description": "Dorsales de carrera personalizados para running, trail y competiciones. Numeración y datos variables, QR/código de barras, materiales resistentes y acabados a medida. Pide presupuesto.",
+              "description": "Dorsales de carrera personalizados para running, trail y competiciones. Numeración y datos variables, QR/código de barras.",
               "image": "https://webcms.blob.core.windows.net/media/product/eventos/dorsal-carreras.webp",
               "url": "https://reprodisseny.com/productos/dorsales-carrera",
               "brand": {
@@ -18899,7 +19026,7 @@
     },
     {
       "id": "27",
-      "updatedAt": "2026-05-05T11:40:14Z",
+      "updatedAt": "2026-07-22T06:54:30Z",
       "type": "producto",
       "slug": "encuadernacion-cosida-tapa-dura",
       "path": "/productos/encuadernacion-cosida-tapa-dura",
@@ -19179,8 +19306,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Encuadernación cosida tapa dura | Libros premium y ediciones especiales",
-        "metaDescription": "Encuadernación cosida con tapa dura para libros, memorias y ediciones premium. Máxima durabilidad, mejor apertura y acabados de portada (laminado, stamping, relieve). Solicita presupuesto.",
+        "metaTitle": "Encuadernación cosida tapa dura | Libros premium y ediciones especiales | Repro Disseny",
+        "metaDescription": "Encuadernación cosida con tapa dura para libros y ediciones premium. Mayor durabilidad, buena apertura y acabados como laminado, stamping o relieve.",
         "canonical": "https://reprodisseny.com/productos/encuadernacion-cosida-tapa-dura",
         "hreflang": [
           {
@@ -19200,7 +19327,7 @@
             {
               "@type": "Product",
               "name": "Encuadernación cosida tapa dura",
-              "description": "Encuadernación cosida con tapa dura para libros, memorias y ediciones premium. Máxima durabilidad, mejor apertura y acabados de portada (laminado, stamping, relieve). Solicita presupuesto.",
+              "description": "Encuadernación cosida con tapa dura para libros y ediciones premium. Mayor durabilidad, buena apertura y acabados como laminado, stamping o relieve.",
               "image": "https://webcms.blob.core.windows.net/media/product/publicaciones/encuadernacion-cosida-tapa-dura.webp",
               "url": "https://reprodisseny.com/productos/encuadernacion-cosida-tapa-dura",
               "brand": {
@@ -21636,7 +21763,7 @@
     },
     {
       "id": "37",
-      "updatedAt": "2026-05-21T07:42:03Z",
+      "updatedAt": "2026-07-22T08:04:48Z",
       "type": "producto",
       "slug": "etiquetas-doming",
       "path": "/productos/etiquetas-doming",
@@ -21921,8 +22048,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Etiquetas Doming Personalizadas en Barcelona | Efecto Gota de Resina 3D",
-        "metaDescription": "Imprime tus etiquetas doming personalizadas con efecto resina en Barcelona. Alta resistencia, acabado profesional y presupuesto rápido. Contacta con Repro Disseny.",
+        "metaTitle": "Etiquetas doming personalizadas",
+        "metaDescription": "Etiquetas doming personalizadas con resina 3D, alta resistencia y acabado brillante. Producción a medida para producto, maquinaria y marca.",
         "canonical": "https://reprodisseny.com/productos/etiquetas-doming",
         "hreflang": [
           {
@@ -21975,7 +22102,7 @@
             {
               "@type": "Product",
               "name": "Etiquetas Doming Personalizadas en Barcelona",
-              "description": "Imprime tus etiquetas doming personalizadas con efecto resina en Barcelona. Alta resistencia, acabado profesional y presupuesto rápido. Contacta con Repro Disseny.",
+              "description": "Etiquetas doming personalizadas con resina 3D, alta resistencia y acabado brillante. Producción a medida para producto, maquinaria y marca.",
               "image": "https://webcms.blob.core.windows.net/media/product/adhesivos/doming.webp",
               "url": "https://reprodisseny.com/productos/etiquetas-doming",
               "brand": {
@@ -22058,7 +22185,7 @@
     },
     {
       "id": "45",
-      "updatedAt": "2026-05-05T11:42:25Z",
+      "updatedAt": "2026-07-22T07:28:03Z",
       "type": "producto",
       "slug": "expositores-de-mesa-personalizados",
       "path": "/productos/expositores-de-mesa-personalizados",
@@ -22218,8 +22345,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Expositores de Mesa Personalizados | Displays de Sobremesa para Promociones",
-        "metaDescription": "Expositores de mesa personalizados para promociones, menús y señalización. Formatos autoportantes, impresión a color y acabados resistentes. Solicita presupuesto.",
+        "metaTitle": "Expositores de mesa personalizados",
+        "metaDescription": "Expositores de mesa personalizados para promociones, menús y señalización. Formatos autoportantes, impresión a color y acabados resistentes.",
         "canonical": "https://reprodisseny.com/productos/expositores-de-mesa-personalizados",
         "hreflang": [
           {
@@ -22239,7 +22366,7 @@
             {
               "@type": "Product",
               "name": "Expositores de mesa personalizados (displays de sobremesa)",
-              "description": "Expositores de mesa personalizados para promociones, menús y señalización. Formatos autoportantes, impresión a color y acabados resistentes. Solicita presupuesto.",
+              "description": "Expositores de mesa personalizados para promociones, menús y señalización. Formatos autoportantes, impresión a color y acabados resistentes.",
               "image": "https://webcms.blob.core.windows.net/media/product/expositores/expositor-mesa.webp",
               "url": "https://reprodisseny.com/productos/expositores-de-mesa-personalizados",
               "brand": {
@@ -22322,7 +22449,7 @@
     },
     {
       "id": "46",
-      "updatedAt": "2026-05-05T11:42:36Z",
+      "updatedAt": "2026-07-22T07:28:35Z",
       "type": "producto",
       "slug": "expositores-suelo-personalizados",
       "path": "/productos/expositores-suelo-personalizados",
@@ -22482,8 +22609,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Expositores de Suelo Personalizados | Displays de Pie para Retail y Eventos",
-        "metaDescription": "Expositores de suelo personalizados para promociones, ferias y punto de venta. Autoportantes, a una o dos caras, en rígidos y con corte a medida. Solicita presupuesto.",
+        "metaTitle": "Expositores de suelo personalizados",
+        "metaDescription": "Expositores de suelo personalizados para promociones, ferias y punto de venta. Autoportantes, a una o dos caras, en rígidos y con corte a medida.",
         "canonical": "https://reprodisseny.com/productos/expositores-suelo-personalizados",
         "hreflang": [
           {
@@ -22503,7 +22630,7 @@
             {
               "@type": "Product",
               "name": "Expositores de suelo personalizados (displays de pie)",
-              "description": "Expositores de suelo personalizados para promociones, ferias y punto de venta. Autoportantes, a una o dos caras, en rígidos y con corte a medida. Solicita presupuesto.",
+              "description": "Expositores de suelo personalizados para promociones, ferias y punto de venta. Autoportantes, a una o dos caras, en rígidos y con corte a medida.",
               "image": "https://webcms.blob.core.windows.net/media/product/expositores/expositor-suelo.webp",
               "url": "https://reprodisseny.com/productos/expositores-suelo-personalizados",
               "brand": {
@@ -23766,7 +23893,7 @@
     },
     {
       "id": "49",
-      "updatedAt": "2026-05-25T20:17:31Z",
+      "updatedAt": "2026-07-22T07:32:31Z",
       "type": "producto",
       "slug": "flyers-personalizados",
       "path": "/productos/flyers-personalizados",
@@ -24065,8 +24192,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Flyers personalizados | Impresión de folletos publicitarios para campañas",
-        "metaDescription": "Flyers personalizados para publicidad, eventos y punto de venta. Formatos A6/A5/DL y a medida, impresión a color, papeles mate o brillo y acabados opcionales. Solicita presupuesto.",
+        "metaTitle": "Flyers personalizados para publicidad",
+        "metaDescription": "Flyers personalizados para publicidad, eventos y punto de venta. Formatos A6/A5/DL y a medida, impresión a color. Formatos A6/A5/DL y a medida, impresión.",
         "canonical": "https://reprodisseny.com/productos/flyers-personalizados",
         "hreflang": [
           {
@@ -24117,7 +24244,7 @@
             {
               "@type": "Product",
               "name": "Flyers personalizados",
-              "description": "Flyers personalizados para publicidad, eventos y punto de venta. Formatos A6/A5/DL y a medida, impresión a color, papeles mate o brillo y acabados opcionales. Solicita presupuesto.",
+              "description": "Flyers personalizados para publicidad, eventos y punto de venta. Formatos A6/A5/DL y a medida, impresión a color. Formatos A6/A5/DL y a medida, impresión.",
               "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/flyers.webp",
               "url": "https://reprodisseny.com/productos/flyers-personalizados",
               "brand": {
@@ -26139,7 +26266,7 @@
     },
     {
       "id": "57",
-      "updatedAt": "2026-05-21T07:00:35Z",
+      "updatedAt": "2026-07-22T07:24:31Z",
       "type": "producto",
       "slug": "identificador-maleta",
       "path": "/productos/identificador-maleta",
@@ -26447,8 +26574,8 @@
         "idenficador-maleta"
       ],
       "seo": {
-        "metaTitle": "Identificador de maleta personalizado | Repro Disseny",
-        "metaDescription": "Identificadores de maleta personalizados para viajes, congresos y eventos. Resistentes, con troquel, laminado, datos variables y QR. Solicita presupuesto.",
+        "metaTitle": "Identificadores de maleta personalizados",
+        "metaDescription": "Identificadores de maleta personalizados para viajes, congresos y eventos. Resistentes, con troquel, laminado, datos variables y QR.",
         "canonical": "https://reprodisseny.com/productos/identificador-maleta",
         "hreflang": [
           {
@@ -26489,7 +26616,7 @@
             {
               "@type": "Product",
               "name": "Identificador de maleta",
-              "description": "Identificadores de maleta personalizados para viajes, congresos y eventos. Resistentes, con troquel, laminado, datos variables y QR. Solicita presupuesto.",
+              "description": "Identificadores de maleta personalizados para viajes, congresos y eventos. Resistentes, con troquel, laminado, datos variables y QR.",
               "image": "https://webcms.blob.core.windows.net/media/product/restauracion/identificador-maleta.webp",
               "url": "https://reprodisseny.com/productos/identificador-maleta",
               "brand": {
@@ -27195,7 +27322,7 @@
     },
     {
       "id": "148",
-      "updatedAt": "2026-05-05T16:48:16Z",
+      "updatedAt": "2026-07-22T07:01:24Z",
       "type": "producto",
       "slug": "lamina-magnetica-impresa",
       "path": "/productos/lamina-magnetica-impresa",
@@ -27351,8 +27478,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Lámina magnética impresa | Señalética removible y rotulación temporal",
-        "metaDescription": "Lámina magnética impresa (imán flexible) para cartelería removible y rotulación temporal: ideal para vehículos y superficies metálicas. Corte a medida y opción de laminado. Solicita presupuesto.",
+        "metaTitle": "Lámina magnética impresa a medida",
+        "metaDescription": "Lámina magnética impresa (imán flexible) para cartelería removible y rotulación temporal: ideal para vehículos y superficies metálicas.",
         "canonical": "https://reprodisseny.com/productos/lamina-magnetica-impresa",
         "hreflang": [
           {
@@ -27390,7 +27517,7 @@
             {
               "@type": "Product",
               "name": "Lámina magnética impresa",
-              "description": "Lámina magnética impresa (imán flexible) para cartelería removible y rotulación temporal: ideal para vehículos y superficies metálicas. Corte a medida y opción de laminado. Solicita presupuesto.",
+              "description": "Lámina magnética impresa (imán flexible) para cartelería removible y rotulación temporal: ideal para vehículos y superficies metálicas.",
               "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/imanes.webp",
               "url": "https://reprodisseny.com/productos/lamina-magnetica-impresa",
               "brand": {
@@ -28441,7 +28568,7 @@
     },
     {
       "id": "132",
-      "updatedAt": "2026-05-05T15:48:42Z",
+      "updatedAt": "2026-07-22T07:54:16Z",
       "type": "producto",
       "slug": "letras-corporeas-personalizadas",
       "path": "/productos/letras-corporeas-personalizadas",
@@ -28603,7 +28730,7 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Letras corpóreas personalizadas | Rótulos 3D para interior y exterior",
+        "metaTitle": "Letras corpóreas personalizadas",
         "metaDescription": "Letras corpóreas personalizadas para rótulos y decoración. PVC, metacrilato, madera o Dibond con corte/fresado a medida.",
         "canonical": "https://reprodisseny.com/productos/letras-corporeas-personalizadas",
         "hreflang": [
@@ -29143,7 +29270,7 @@
     },
     {
       "id": "63",
-      "updatedAt": "2026-05-25T20:13:30Z",
+      "updatedAt": "2026-07-22T07:26:05Z",
       "type": "producto",
       "slug": "lona-publicitaria",
       "path": "/productos/lona-publicitaria",
@@ -29441,8 +29568,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Lona publicitaria personalizada | Impresión en gran formato para exterior e interior",
-        "metaDescription": "Lona publicitaria personalizada para fachadas, vallas y eventos. Impresión a color, medidas a medida y acabados con ojales, vaina o refuerzo perimetral. Solicita presupuesto.",
+        "metaTitle": "Lonas publicitarias personalizadas",
+        "metaDescription": "Lona publicitaria personalizada para fachadas, vallas y eventos. Impresión a color, medidas a medida y acabados con ojales, vaina o refuerzo perimetral.",
         "canonical": "https://reprodisseny.com/productos/lona-publicitaria",
         "hreflang": [
           {
@@ -29489,7 +29616,7 @@
             {
               "@type": "Product",
               "name": "Lona publicitaria",
-              "description": "Lona publicitaria personalizada para fachadas, vallas y eventos. Impresión a color, medidas a medida y acabados con ojales, vaina o refuerzo perimetral. Solicita presupuesto.",
+              "description": "Lona publicitaria personalizada para fachadas, vallas y eventos. Impresión a color, medidas a medida y acabados con ojales, vaina o refuerzo perimetral.",
               "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/lona-publicitaria.webp",
               "url": "https://reprodisseny.com/productos/lona-publicitaria",
               "brand": {
@@ -31176,7 +31303,7 @@
     },
     {
       "id": "72",
-      "updatedAt": "2026-05-05T11:46:09Z",
+      "updatedAt": "2026-07-22T08:02:48Z",
       "type": "producto",
       "slug": "nombres-sobremesa-personalizados",
       "path": "/productos/nombres-sobremesa-personalizados",
@@ -31410,8 +31537,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Nombres de Sobremesa Personalizados para Eventos | Impresión Profesional",
-        "metaDescription": "Nombres de sobremesa personalizados para mesas, ponencias y eventos corporativos. Con datos variables, distintos formatos y acabados resistentes. Pide presupuesto a Repro Disseny.",
+        "metaTitle": "Nombres de sobremesa para eventos",
+        "metaDescription": "Nombres de sobremesa personalizados para mesas, ponencias y eventos corporativos. Con datos variables, distintos formatos y acabados resistentes.",
         "canonical": "https://reprodisseny.com/productos/nombres-sobremesa-personalizados",
         "hreflang": [
           {
@@ -31431,7 +31558,7 @@
             {
               "@type": "Product",
               "name": "Nombres de sobremesa personalizados para eventos",
-              "description": "Nombres de sobremesa personalizados para mesas, ponencias y eventos corporativos. Con datos variables, distintos formatos y acabados resistentes. Pide presupuesto a Repro Disseny.",
+              "description": "Nombres de sobremesa personalizados para mesas, ponencias y eventos corporativos. Con datos variables, distintos formatos y acabados resistentes.",
               "image": "https://webcms.blob.core.windows.net/media/product/eventos/nombres-sobremesa.webp",
               "url": "https://reprodisseny.com/productos/nombres-sobremesa-personalizados",
               "brand": {
@@ -31746,7 +31873,7 @@
     },
     {
       "id": "22",
-      "updatedAt": "2026-07-15T08:23:09Z",
+      "updatedAt": "2026-07-22T07:57:55Z",
       "type": "producto",
       "slug": "panel-carton-corrugado-personalizado",
       "path": "/productos/panel-carton-corrugado-personalizado",
@@ -31906,8 +32033,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Panel de cartón corrugado personalizado | Rígido, ligero y reciclable",
-        "metaDescription": "Panel de cartón corrugado impreso a medida para cartelería, señalética y PLV en interior. Ligero, económico y reciclable, con corte recto o a la forma. Solicita presupuesto.",
+        "metaTitle": "Panel de cartón corrugado personalizado",
+        "metaDescription": "Panel de cartón corrugado impreso a medida para cartelería, señalética y PLV en interior. Ligero, económico y reciclable, con corte recto o a la forma.",
         "canonical": "https://reprodisseny.com/productos/panel-carton-corrugado-personalizado",
         "hreflang": [
           {
@@ -31927,7 +32054,7 @@
             {
               "@type": "Product",
               "name": "Panel de cartón corrugado",
-              "description": "Panel de cartón corrugado impreso a medida para cartelería, señalética y PLV en interior. Ligero, económico y reciclable, con corte recto o a la forma. Solicita presupuesto.",
+              "description": "Panel de cartón corrugado impreso a medida para cartelería, señalética y PLV en interior. Ligero, económico y reciclable, con corte recto o a la forma.",
               "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/carton-corrugado.webp",
               "url": "https://reprodisseny.com/productos/panel-carton-corrugado-personalizado",
               "brand": {
@@ -31979,7 +32106,7 @@
     },
     {
       "id": "32",
-      "updatedAt": "2026-07-15T08:21:42Z",
+      "updatedAt": "2026-07-22T08:08:31Z",
       "type": "producto",
       "slug": "panel-dibond-personalizado",
       "path": "/productos/panel-dibond-personalizado",
@@ -32156,8 +32283,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Panel de Dibond personalizado | Impresión en composite de aluminio a medida",
-        "metaDescription": "Panel de Dibond (composite de aluminio) impreso a medida para rótulos, señalética y exterior. Resistente, estable y con corte a medida. Solicita presupuesto.",
+        "metaTitle": "Panel Dibond personalizado a medida",
+        "metaDescription": "Panel de Dibond (composite de aluminio) impreso a medida para rótulos, señalética y exterior. Resistente, estable y con corte a medida.",
         "canonical": "https://reprodisseny.com/productos/panel-dibond-personalizado",
         "hreflang": [
           {
@@ -32188,7 +32315,7 @@
             {
               "@type": "Product",
               "name": "Panel de Dibond (composite de aluminio)",
-              "description": "Panel de Dibond (composite de aluminio) impreso a medida para rótulos, señalética y exterior. Resistente, estable y con corte a medida. Solicita presupuesto.",
+              "description": "Panel de Dibond (composite de aluminio) impreso a medida para rótulos, señalética y exterior. Resistente, estable y con corte a medida.",
               "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/dibond.webp",
               "url": "https://reprodisseny.com/productos/panel-dibond-personalizado",
               "brand": {
@@ -32277,7 +32404,7 @@
     },
     {
       "id": "50",
-      "updatedAt": "2026-07-15T12:34:06Z",
+      "updatedAt": "2026-07-22T08:07:57Z",
       "type": "producto",
       "slug": "panel-foam-personalizado",
       "path": "/productos/panel-foam-personalizado",
@@ -32455,8 +32582,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Panel de foam personalizado | Impresión en cartón pluma para interior",
-        "metaDescription": "Panel de foam (cartón pluma) impreso a medida para señalización, displays y eventos. Ligero, rígido y con corte recto o troquelado. Solicita presupuesto.",
+        "metaTitle": "Panel de foam personalizado a medida",
+        "metaDescription": "Panel de foam (cartón pluma) impreso a medida para señalización, displays y eventos. Ligero, rígido y con corte recto o troquelado.",
         "canonical": "https://reprodisseny.com/productos/panel-foam-personalizado",
         "hreflang": [
           {
@@ -32476,7 +32603,7 @@
             {
               "@type": "Product",
               "name": "Panel de foam (cartón pluma)",
-              "description": "Panel de foam (cartón pluma) impreso a medida para señalización, displays y eventos. Ligero, rígido y con corte recto o troquelado. Solicita presupuesto.",
+              "description": "Panel de foam (cartón pluma) impreso a medida para señalización, displays y eventos. Ligero, rígido y con corte recto o troquelado.",
               "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/foam.webp",
               "url": "https://reprodisseny.com/productos/panel-foam-personalizado",
               "brand": {
@@ -34059,7 +34186,7 @@
     },
     {
       "id": "127",
-      "updatedAt": "2026-07-16T09:04:44Z",
+      "updatedAt": "2026-07-22T07:01:46Z",
       "type": "producto",
       "slug": "papel-de-carta",
       "path": "/productos/papel-de-carta",
@@ -34307,8 +34434,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Papel de carta personalizado | Papelería corporativa profesional",
-        "metaDescription": "Papel de carta personalizado para empresas: hojas membretadas con tu identidad visual. Impresión a color o 1 tinta, en A4/A5, papeles de calidad y opciones por departamentos. Solicita presupuesto.",
+        "metaTitle": "Papel de carta personalizado para empresas",
+        "metaDescription": "Papel de carta personalizado para empresas: hojas membretadas con tu identidad visual. Impresión a color o 1 tinta, en A4/A5.",
         "canonical": "https://reprodisseny.com/productos/papel-de-carta",
         "hreflang": [
           {
@@ -34352,7 +34479,7 @@
             {
               "@type": "Product",
               "name": "Papel de carta personalizado (hojas membretadas)",
-              "description": "Papel de carta personalizado para empresas: hojas membretadas con tu identidad visual. Impresión a color o 1 tinta, en A4/A5, papeles de calidad y opciones por departamentos. Solicita presupuesto.",
+              "description": "Papel de carta personalizado para empresas: hojas membretadas con tu identidad visual. Impresión a color o 1 tinta, en A4/A5.",
               "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/papel-carta.webp",
               "url": "https://reprodisseny.com/productos/papel-de-carta",
               "brand": {
@@ -34440,7 +34567,7 @@
     },
     {
       "id": "76",
-      "updatedAt": "2026-07-15T12:21:26Z",
+      "updatedAt": "2026-07-22T07:59:18Z",
       "type": "producto",
       "slug": "papel-de-pared-personalizado",
       "path": "/productos/papel-de-pared-personalizado",
@@ -34681,8 +34808,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Papel de pared personalizado | Decoración corporativa",
-        "metaDescription": "Papel de pared personalizado para oficinas, tiendas y espacios comerciales. Diseños a medida, impresión de gran formato y acabados mate. Ideal para branding y decoración sin obras. Pide presupuesto.",
+        "metaTitle": "Papel de pared personalizado",
+        "metaDescription": "Papel de pared personalizado para oficinas, tiendas y espacios comerciales. Diseños a medida, impresión de gran formato y acabados mate.",
         "canonical": "https://reprodisseny.com/productos/papel-de-pared-personalizado",
         "hreflang": [
           {
@@ -34702,7 +34829,7 @@
             {
               "@type": "Product",
               "name": "Papel de pared personalizado",
-              "description": "Papel de pared personalizado para oficinas, tiendas y espacios comerciales. Diseños a medida, impresión de gran formato y acabados mate. Ideal para branding y decoración sin obras. Pide presupuesto.",
+              "description": "Papel de pared personalizado para oficinas, tiendas y espacios comerciales. Diseños a medida, impresión de gran formato y acabados mate.",
               "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/papel-pared.webp",
               "url": "https://reprodisseny.com/productos/papel-de-pared-personalizado",
               "brand": {
@@ -35502,7 +35629,7 @@
     },
     {
       "id": "126",
-      "updatedAt": "2026-07-16T09:04:03Z",
+      "updatedAt": "2026-07-22T06:59:59Z",
       "type": "producto",
       "slug": "pizarras-a-medida",
       "path": "/productos/pizarras-a-medida",
@@ -35696,8 +35823,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Pizarras personalizadas a medida | Superficie tipo Velleda para oficina",
-        "metaDescription": "Pizarras a medida para oficinas: Forex 5 mm, Dibond o plancha metálica. Vinilo impreso + laminado Velleda o vinilo Velleda blanco. Ideales para reuniones y formación. Solicita presupuesto.",
+        "metaTitle": "Pizarras personalizadas a medida",
+        "metaDescription": "Pizarras a medida para oficinas: Forex 5 mm, Dibond o plancha metálica. Vinilo impreso + laminado Velleda o vinilo Velleda blanco.",
         "canonical": "https://reprodisseny.com/productos/pizarras-a-medida",
         "hreflang": [
           {
@@ -35742,7 +35869,7 @@
             {
               "@type": "Product",
               "name": "Pizarras personalizadas a medida (tipo Velleda)",
-              "description": "Pizarras a medida para oficinas: Forex 5 mm, Dibond o plancha metálica. Vinilo impreso + laminado Velleda o vinilo Velleda blanco. Ideales para reuniones y formación. Solicita presupuesto.",
+              "description": "Pizarras a medida para oficinas: Forex 5 mm, Dibond o plancha metálica. Vinilo impreso + laminado Velleda o vinilo Velleda blanco.",
               "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/pizarra.webp",
               "url": "https://reprodisseny.com/productos/pizarras-a-medida",
               "brand": {
@@ -36673,7 +36800,7 @@
     },
     {
       "id": "85",
-      "updatedAt": "2026-05-05T11:48:25Z",
+      "updatedAt": "2026-07-22T08:02:00Z",
       "type": "producto",
       "slug": "posters-personalizados",
       "path": "/productos/posters-personalizados",
@@ -36853,8 +36980,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Pósters personalizados | Impresión profesional para publicidad y eventos",
-        "metaDescription": "Pósters personalizados para campañas, escaparates y eventos. Formatos A3–A0 y a medida, impresión a color, papel mate o brillo y acabados opcionales. Solicita presupuesto.",
+        "metaTitle": "Pósters personalizados para publicidad",
+        "metaDescription": "Pósters personalizados para campañas, escaparates y eventos. Formatos A3–A0 y a medida, impresión a color, papel mate o brillo y acabados opcionales.",
         "canonical": "https://reprodisseny.com/productos/posters-personalizados",
         "hreflang": [
           {
@@ -36874,7 +37001,7 @@
             {
               "@type": "Product",
               "name": "Pósters personalizados",
-              "description": "Pósters personalizados para campañas, escaparates y eventos. Formatos A3–A0 y a medida, impresión a color, papel mate o brillo y acabados opcionales. Solicita presupuesto.",
+              "description": "Pósters personalizados para campañas, escaparates y eventos. Formatos A3–A0 y a medida, impresión a color, papel mate o brillo y acabados opcionales.",
               "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/posters.webp",
               "url": "https://reprodisseny.com/productos/posters-personalizados",
               "brand": {
@@ -37923,7 +38050,7 @@
     },
     {
       "id": "131",
-      "updatedAt": "2026-05-05T11:55:40Z",
+      "updatedAt": "2026-07-22T07:31:46Z",
       "type": "producto",
       "slug": "sellos-de-goma-personalizados",
       "path": "/productos/sellos-de-goma-personalizados",
@@ -38065,8 +38192,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Sellos de goma personalizados | Sellos automáticos para empresa y oficina",
-        "metaDescription": "Sellos de goma personalizados para empresas: automáticos o manuales. Para datos fiscales, firmas, “pagado”, “recibido” y control interno. Entrega rápida. Solicita presupuesto.",
+        "metaTitle": "Sellos de goma personalizados",
+        "metaDescription": "Sellos de goma personalizados para empresas: automáticos o manuales. Para datos fiscales, firmas, “pagado”, “recibido” y control interno. Entrega rápida.",
         "canonical": "https://reprodisseny.com/productos/sellos-de-goma-personalizados",
         "hreflang": [
           {
@@ -38082,7 +38209,7 @@
             {
               "@type": "Product",
               "name": "Sellos de goma personalizados",
-              "description": "Sellos de goma personalizados para empresas: automáticos o manuales. Para datos fiscales, firmas, “pagado”, “recibido” y control interno. Entrega rápida. Solicita presupuesto.",
+              "description": "Sellos de goma personalizados para empresas: automáticos o manuales. Para datos fiscales, firmas, “pagado”, “recibido” y control interno. Entrega rápida.",
               "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/sellos.webp",
               "url": "https://reprodisseny.com/productos/sellos-de-goma-personalizados",
               "brand": {
@@ -38624,7 +38751,7 @@
     },
     {
       "id": "92",
-      "updatedAt": "2026-05-05T12:12:11Z",
+      "updatedAt": "2026-07-22T07:23:20Z",
       "type": "producto",
       "slug": "stoppers-lineal-personalizados",
       "path": "/productos/stoppers-lineal-personalizados",
@@ -38792,8 +38919,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Stoppers personalizados | Promoción en lineal y punto de venta",
-        "metaDescription": "Stoppers personalizados para estanterías y lineales: destaca ofertas y lanzamientos en el punto de decisión. Impresión a color, soportes rígidos, corte a medida y sistemas de fijación. Solicita presupuesto.",
+        "metaTitle": "Stoppers personalizados para lineales",
+        "metaDescription": "Stoppers personalizados para estanterías y lineales: destaca ofertas y lanzamientos en el punto de decisión. Impresión a color, soportes rígidos.",
         "canonical": "https://reprodisseny.com/productos/stoppers-lineal-personalizados",
         "hreflang": [
           {
@@ -38813,7 +38940,7 @@
             {
               "@type": "Product",
               "name": "Stoppers personalizados (punto de venta)",
-              "description": "Stoppers personalizados para estanterías y lineales: destaca ofertas y lanzamientos en el punto de decisión. Impresión a color, soportes rígidos, corte a medida y sistemas de fijación. Solicita presupuesto.",
+              "description": "Stoppers personalizados para estanterías y lineales: destaca ofertas y lanzamientos en el punto de decisión. Impresión a color, soportes rígidos.",
               "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/stoppers.webp",
               "url": "https://reprodisseny.com/productos/stoppers-lineal-personalizados",
               "brand": {
@@ -40062,7 +40189,7 @@
     },
     {
       "id": "125",
-      "updatedAt": "2026-05-21T06:19:54Z",
+      "updatedAt": "2026-07-22T06:59:20Z",
       "type": "producto",
       "slug": "tarjetas-de-visita-personalizadas",
       "path": "/productos/tarjetas-de-visita-personalizadas",
@@ -40370,8 +40497,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Tarjetas de visita personalizadas | Impresión profesional para empresas",
-        "metaDescription": "Tarjetas de visita personalizadas para empresas y profesionales. Papeles premium, acabados (laminado, soft touch, barniz, stamping) y opción de datos variables o QR. Solicita presupuesto.",
+        "metaTitle": "Tarjetas de visita personalizadas",
+        "metaDescription": "Tarjetas de visita personalizadas para empresas y profesionales. Papeles premium, datos variables y acabados como soft touch, barniz o stamping.",
         "canonical": "https://reprodisseny.com/productos/tarjetas-de-visita-personalizadas",
         "hreflang": [
           {
@@ -40409,7 +40536,7 @@
             {
               "@type": "Product",
               "name": "Tarjetas de visita personalizadas",
-              "description": "Tarjetas de visita personalizadas para empresas y profesionales. Papeles premium, acabados (laminado, soft touch, barniz, stamping) y opción de datos variables o QR. Solicita presupuesto.",
+              "description": "Tarjetas de visita personalizadas para empresas y profesionales. Papeles premium, datos variables y acabados como soft touch, barniz o stamping.",
               "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/tarjetas-de-visita.webp",
               "url": "https://reprodisseny.com/productos/tarjetas-de-visita-personalizadas",
               "brand": {
@@ -40497,7 +40624,7 @@
     },
     {
       "id": "95",
-      "updatedAt": "2026-05-05T12:12:00Z",
+      "updatedAt": "2026-07-22T07:02:36Z",
       "type": "producto",
       "slug": "tarjetas-postales-personalizadas",
       "path": "/productos/tarjetas-postales-personalizadas",
@@ -40666,8 +40793,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Tarjetas postales personalizadas | Publicidad directa y campañas",
-        "metaDescription": "Tarjetas postales personalizadas para campañas, mailings y promociones. Impresión a color, papeles de calidad, acabados mate o brillo y opción de datos variables/QR. Solicita presupuesto.",
+        "metaTitle": "Tarjetas postales personalizadas",
+        "metaDescription": "Tarjetas postales personalizadas para campañas, mailings y promociones. Impresión a color, papeles de calidad. Impresión a color, papeles de calidad.",
         "canonical": "https://reprodisseny.com/productos/tarjetas-postales-personalizadas",
         "hreflang": [
           {
@@ -40687,7 +40814,7 @@
             {
               "@type": "Product",
               "name": "Tarjetas postales personalizadas",
-              "description": "Tarjetas postales personalizadas para campañas, mailings y promociones. Impresión a color, papeles de calidad, acabados mate o brillo y opción de datos variables/QR. Solicita presupuesto.",
+              "description": "Tarjetas postales personalizadas para campañas, mailings y promociones. Impresión a color, papeles de calidad. Impresión a color, papeles de calidad.",
               "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/tarjetas-postales.webp",
               "url": "https://reprodisseny.com/productos/tarjetas-postales-personalizadas",
               "brand": {
@@ -41500,7 +41627,7 @@
     },
     {
       "id": "102",
-      "updatedAt": "2026-05-05T12:00:03Z",
+      "updatedAt": "2026-07-22T08:00:15Z",
       "type": "producto",
       "slug": "textil-reposacabezas-personalizado",
       "path": "/productos/textil-reposacabezas-personalizado",
@@ -41646,8 +41773,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Textil Reposacabezas Personalizado | Publicidad y Branding para Eventos",
-        "metaDescription": "Textil reposacabezas personalizado para asientos, zonas VIP y transporte de eventos. Impresión a color, medidas a medida y opciones de fijación. Pide presupuesto.",
+        "metaTitle": "Reposacabezas textiles personalizados",
+        "metaDescription": "Reposacabezas textiles personalizados para asientos, zonas VIP y transporte en eventos. Impresión a color, medidas a medida y opciones de fijación.",
         "canonical": "https://reprodisseny.com/productos/textil-reposacabezas-personalizado",
         "hreflang": [
           {
@@ -41667,7 +41794,7 @@
             {
               "@type": "Product",
               "name": "Textil reposacabezas personalizado",
-              "description": "Textil reposacabezas personalizado para asientos, zonas VIP y transporte de eventos. Impresión a color, medidas a medida y opciones de fijación. Pide presupuesto.",
+              "description": "Reposacabezas textiles personalizados para asientos, zonas VIP y transporte en eventos. Impresión a color, medidas a medida y opciones de fijación.",
               "image": "https://webcms.blob.core.windows.net/media/product/eventos/textil-reposacabezas.webp",
               "url": "https://reprodisseny.com/productos/textil-reposacabezas-personalizado",
               "brand": {
@@ -41750,7 +41877,7 @@
     },
     {
       "id": "103",
-      "updatedAt": "2026-05-05T11:59:41Z",
+      "updatedAt": "2026-07-22T08:01:01Z",
       "type": "producto",
       "slug": "tiras-de-lineal-personalizadas",
       "path": "/productos/tiras-de-lineal-personalizadas",
@@ -41915,8 +42042,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Tiras de lineal personalizadas | PLV para estanterías y punto de venta",
-        "metaDescription": "Tiras de lineal personalizadas para destacar categorías y promociones en estantería. Impresión a color, medidas a medida y fijación para rail/adhesivo. Solicita presupuesto.",
+        "metaTitle": "Tiras de lineal personalizadas para retail",
+        "metaDescription": "Tiras de lineal personalizadas para destacar categorías y promociones en estantería. Impresión a color, medidas a medida y fijación para rail/adhesivo.",
         "canonical": "https://reprodisseny.com/productos/tiras-de-lineal-personalizadas",
         "hreflang": [
           {
@@ -41936,7 +42063,7 @@
             {
               "@type": "Product",
               "name": "Tiras de lineal personalizadas",
-              "description": "Tiras de lineal personalizadas para destacar categorías y promociones en estantería. Impresión a color, medidas a medida y fijación para rail/adhesivo. Solicita presupuesto.",
+              "description": "Tiras de lineal personalizadas para destacar categorías y promociones en estantería. Impresión a color, medidas a medida y fijación para rail/adhesivo.",
               "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/tira-lineal.webp",
               "url": "https://reprodisseny.com/productos/tiras-de-lineal-personalizadas",
               "brand": {
@@ -42709,7 +42836,7 @@
     },
     {
       "id": "116",
-      "updatedAt": "2026-05-25T20:12:35Z",
+      "updatedAt": "2026-07-22T06:53:35Z",
       "type": "producto",
       "slug": "vinilo-de-corte",
       "path": "/productos/vinilo-de-corte",
@@ -42895,8 +43022,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Vinilo de Corte Personalizado | Rotulación para Cristal, Pared y Vehículos",
-        "metaDescription": "Vinilo de corte a medida para rotulación y señalética: logos, textos y formas sin fondo. Acabado limpio y profesional, colores variados y opción removible o permanente. Pide presupuesto.",
+        "metaTitle": "Vinilo de corte personalizado para rotulación",
+        "metaDescription": "Vinilo de corte a medida para rotulación y señalética: logos, textos y formas sin fondo. Acabado limpio y profesional.",
         "canonical": "https://reprodisseny.com/productos/vinilo-de-corte",
         "hreflang": [
           {
@@ -42925,7 +43052,7 @@
             {
               "@type": "Product",
               "name": "Vinilo de corte",
-              "description": "Vinilo de corte a medida para rotulación y señalética: logos, textos y formas sin fondo. Acabado limpio y profesional, colores variados y opción removible o permanente. Pide presupuesto.",
+              "description": "Vinilo de corte a medida para rotulación y señalética: logos, textos y formas sin fondo. Acabado limpio y profesional.",
               "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-de-corte.webp",
               "url": "https://reprodisseny.com/productos/vinilo-de-corte",
               "brand": {
@@ -43465,7 +43592,7 @@
     },
     {
       "id": "119",
-      "updatedAt": "2026-05-22T07:47:08Z",
+      "updatedAt": "2026-07-22T07:52:40Z",
       "type": "producto",
       "slug": "vinilo-pizarra",
       "path": "/productos/vinilo-pizarra",
@@ -43578,7 +43705,7 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Vinilo para Pizarra | Vinilo Adhesivo Escribible para Pared y Muebles",
+        "metaTitle": "Vinilo pizarra adhesivo a medida",
         "metaDescription": "Vinilo pizarra adhesivo y escribible para oficinas, tiendas y hostelería. Corte a medida e instalación en superficies planas.",
         "canonical": "https://reprodisseny.com/productos/vinilo-pizarra",
         "hreflang": [
@@ -44272,7 +44399,7 @@
     },
     {
       "id": "114",
-      "updatedAt": "2026-05-25T20:10:39Z",
+      "updatedAt": "2026-07-22T08:05:54Z",
       "type": "producto",
       "slug": "vinilos-superficies-planas",
       "path": "/productos/vinilos-superficies-planas",
@@ -44547,8 +44674,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Vinilo para Cristal Personalizado | Escaparates, Oficinas y Señalización",
-        "metaDescription": "Vinilos adhesivos para pared y superficies planas: decoración, señalización y branding. Acabados mate o brillo, removible o permanente y corte a medida. Pide presupuesto.",
+        "metaTitle": "Vinilos para superficies planas",
+        "metaDescription": "Vinilos adhesivos para pared y superficies planas: decoración, señalización y branding. Acabados mate o brillo, removible o permanente y corte a medida.",
         "canonical": "https://reprodisseny.com/productos/vinilos-superficies-planas",
         "hreflang": [
           {
@@ -44595,7 +44722,7 @@
             {
               "@type": "Product",
               "name": "Vinilos para pared y superficies planas",
-              "description": "Vinilos adhesivos para pared y superficies planas: decoración, señalización y branding. Acabados mate o brillo, removible o permanente y corte a medida. Pide presupuesto.",
+              "description": "Vinilos adhesivos para pared y superficies planas: decoración, señalización y branding. Acabados mate o brillo, removible o permanente y corte a medida.",
               "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-para-superficies-planas.webp",
               "url": "https://reprodisseny.com/productos/vinilos-superficies-planas",
               "brand": {
