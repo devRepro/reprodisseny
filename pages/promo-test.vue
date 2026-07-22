@@ -5,22 +5,24 @@ import SolarFilmPromo from "@/components/marketing/promo/SolarFilmPromo.vue";
 definePageMeta({
   layout: "default",
 });
+
+useSeoMeta({
+  title: "Prueba de elementos promocionales",
+  robots: "noindex,follow",
+});
 </script>
 
 <template>
   <main>
     <section class="container-content py-12 md:py-16">
       <div class="max-w-3xl space-y-4">
-        <p class="text-label text-primary">
-          Página de prueba
-        </p>
+        <p class="text-label text-primary">Página de prueba</p>
 
-        <h1 class="section-title section-title--page">
-          Test de elementos promocionales
-        </h1>
+        <h1 class="section-title section-title--page">Test de elementos promocionales</h1>
 
         <p class="section-subtitle">
-          Esta página sirve para validar el banner full-width, el sheet de desktop y el drawer de mobile.
+          Esta página sirve para validar el banner full-width, el sheet de desktop y el
+          drawer de mobile.
         </p>
       </div>
     </section>
@@ -33,7 +35,7 @@ definePageMeta({
         :bullets="[
           'Instalación para oficinas, locales, escaparates y viviendas',
           'Mejora el confort térmico y visual',
-          'Solución limpia sin sustituir los cristales'
+          'Solución limpia sin sustituir los cristales',
         ]"
         primary-label="Pedir presupuesto"
         primary-to="/lp/laminas-solares#quote-form"

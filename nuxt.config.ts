@@ -67,6 +67,10 @@ export default defineNuxtConfig({
       "/panel",
       "/panel/**",
       "/gracias",
+      "/buscar",
+      "/buscar/**",
+      "/promo-test",
+      "/novedades",
     ],
   },
 
