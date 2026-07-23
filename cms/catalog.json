@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-22T12:10:34.825Z",
+  "generatedAt": "2026-07-23T08:23:54.563Z",
   "categories": [
     {
       "id": "12",
@@ -17167,7 +17167,7 @@
     },
     {
       "id": "34",
-      "updatedAt": "2026-07-15T08:21:27Z",
+      "updatedAt": "2026-07-23T07:25:22Z",
       "type": "producto",
       "slug": "tarjeta-habitacion-hotel",
       "path": "/productos/tarjeta-habitacion-hotel",
@@ -17338,7 +17338,7 @@
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Tarjetas de habitación para hoteles",
-        "metaDescription": "Díptico tarjeta de habitación para hoteles: info WiFi, horarios y servicios con diseño corporativo. Papel resistente, plastificado opcional y QR. Solicita presupuesto.",
+        "metaDescription": "Díptico tarjeta de habitación para hoteles: info WiFi, horarios y servicios con diseño corporativo. Papel resistente, plastificado opcional y QR.",
         "canonical": "https://reprodisseny.com/productos/tarjeta-habitacion-hotel",
         "hreflang": [
           {
@@ -17358,7 +17358,7 @@
             {
               "@type": "Product",
               "name": "Díptico tarjeta de habitación para hoteles",
-              "description": "Díptico tarjeta de habitación para hoteles: info WiFi, horarios y servicios con diseño corporativo. Papel resistente, plastificado opcional y QR. Solicita presupuesto.",
+              "description": "Díptico tarjeta de habitación para hoteles: info WiFi, horarios y servicios con diseño corporativo. Papel resistente, plastificado opcional y QR.",
               "image": "https://webcms.blob.core.windows.net/media/product/restauracion/diptico-tarjeta%20habitacion.webp",
               "url": "https://reprodisseny.com/productos/tarjeta-habitacion-hotel",
               "brand": {
@@ -18151,7 +18151,7 @@
     },
     {
       "id": "106",
-      "updatedAt": "2026-05-21T05:53:16Z",
+      "updatedAt": "2026-07-23T07:41:43Z",
       "type": "producto",
       "slug": "encuadernacion-wire-o-oculto",
       "path": "/productos/encuadernacion-wire-o-oculto",
@@ -18403,8 +18403,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Encuadernación Wire-O oculto | Apertura 360º con acabado más premium",
-        "metaDescription": "Encuadernación Wire-O oculto para catálogos y presentaciones. Apertura 360º con espiral oculta y acabado más premium.",
+        "metaTitle": "Encuadernación Wire-O personalizada",
+        "metaDescription": "Encuadernación Wire-O (doble espiral metálica) para manuales, dossiers y catálogos. Apertura 360º, páginas en plano y acabados profesionales.",
         "canonical": "https://reprodisseny.com/productos/encuadernacion-wire-o-oculto",
         "hreflang": [
           {
@@ -18470,7 +18470,7 @@
             {
               "@type": "Product",
               "name": "Encuadernación  Wire O Oculto",
-              "description": "Encuadernación Wire-O oculto para catálogos y presentaciones. Apertura 360º con espiral oculta y acabado más premium.",
+              "description": "Encuadernación Wire-O (doble espiral metálica) para manuales, dossiers y catálogos. Apertura 360º, páginas en plano y acabados profesionales.",
               "image": "https://webcms.blob.core.windows.net/media/product/publicaciones/encuadernacion-wire-oculto.webp",
               "url": "https://reprodisseny.com/productos/encuadernacion-wire-o-oculto",
               "brand": {
@@ -18553,7 +18553,7 @@
     },
     {
       "id": "26",
-      "updatedAt": "2026-05-13T12:35:31Z",
+      "updatedAt": "2026-07-23T07:39:09Z",
       "type": "producto",
       "slug": "cosida-tapa-blanda",
       "path": "/productos/cosida-tapa-blanda",
@@ -18886,8 +18886,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Encuadernación cosida tapa blanda | Libros y catálogos",
-        "metaDescription": "Encuadernación cosida con tapa blanda para libros, catálogos, revistas y publicaciones corporativas. Más resistencia, mejor apertura y acabado editorial.",
+        "metaTitle": "Encuadernación encolada con tapa blanda",
+        "metaDescription": "Encuadernación encolada tapa blanda (rústica fresada) para libros, catálogos y revistas. Acabado profesional, lomo impreso y opciones de papel y laminado.",
         "canonical": "https://reprodisseny.com/productos/cosida-tapa-blanda",
         "hreflang": [
           {
@@ -18935,7 +18935,7 @@
             {
               "@type": "Product",
               "name": "Encuadernación cosida tapa blanda",
-              "description": "Encuadernación cosida con tapa blanda para libros, catálogos, revistas y publicaciones corporativas. Más resistencia, mejor apertura y acabado editorial.",
+              "description": "Encuadernación encolada tapa blanda (rústica fresada) para libros, catálogos y revistas. Acabado profesional, lomo impreso y opciones de papel y laminado.",
               "image": "https://webcms.blob.core.windows.net/media/product/publicaciones/encuadernacion-cosida-tapa-blanda.webp",
               "url": "https://reprodisseny.com/productos/cosida-tapa-blanda",
               "brand": {
@@ -23192,7 +23192,7 @@
     },
     {
       "id": "47",
-      "updatedAt": "2026-05-21T06:59:26Z",
+      "updatedAt": "2026-07-23T07:28:19Z",
       "type": "producto",
       "slug": "figuras-arbol-navidad",
       "path": "/productos/figuras-arbol-navidad",
@@ -23496,7 +23496,7 @@
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Figuras de Navidad corporativas",
-        "metaDescription": "Figuras árbol de Navidad personalizadas troqueladas o cortadas a la forma. Ideales para decoración corporativa y branding en campañas navideñas. Pide presupuesto.",
+        "metaDescription": "Figuras árbol de Navidad personalizadas troqueladas o cortadas a la forma. Ideales para decoración corporativa y branding en campañas navideñas.",
         "canonical": "https://reprodisseny.com/productos/figuras-arbol-navidad",
         "hreflang": [
           {
@@ -23516,7 +23516,7 @@
             {
               "@type": "Product",
               "name": "Figuras árbol de Navidad personalizadas para branding",
-              "description": "Figuras árbol de Navidad personalizadas troqueladas o cortadas a la forma. Ideales para decoración corporativa y branding en campañas navideñas. Pide presupuesto.",
+              "description": "Figuras árbol de Navidad personalizadas troqueladas o cortadas a la forma. Ideales para decoración corporativa y branding en campañas navideñas.",
               "image": "https://webcms.blob.core.windows.net/media/product/eventos/figuras-arbol-de-navidad.webp",
               "url": "https://reprodisseny.com/productos/figuras-arbol-navidad",
               "brand": {
@@ -24333,7 +24333,7 @@
     },
     {
       "id": "51",
-      "updatedAt": "2026-07-15T12:17:45Z",
+      "updatedAt": "2026-07-23T07:30:57Z",
       "type": "producto",
       "slug": "folletos-plegados-personalizados",
       "path": "/productos/folletos-plegados-personalizados",
@@ -24642,7 +24642,7 @@
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Folletos plegados personalizados",
-        "metaDescription": "Folletos plegados personalizados (dípticos, trípticos, cuadrípticos). Formatos A4/A5/DL, impresión a color, hendidos profesionales y acabados opcionales. Solicita presupuesto.",
+        "metaDescription": "Folletos plegados personalizados (dípticos, trípticos, cuadrípticos). Formatos A4/A5/DL, impresión a color, hendidos profesionales y acabados opcionales.",
         "canonical": "https://reprodisseny.com/productos/folletos-plegados-personalizados",
         "hreflang": [
           {
@@ -24662,7 +24662,7 @@
             {
               "@type": "Product",
               "name": "Folletos plegados personalizados",
-              "description": "Folletos plegados personalizados (dípticos, trípticos, cuadrípticos). Formatos A4/A5/DL, impresión a color, hendidos profesionales y acabados opcionales. Solicita presupuesto.",
+              "description": "Folletos plegados personalizados (dípticos, trípticos, cuadrípticos). Formatos A4/A5/DL, impresión a color, hendidos profesionales y acabados opcionales.",
               "image": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/folletos-plegados.webp",
               "url": "https://reprodisseny.com/productos/folletos-plegados-personalizados",
               "brand": {
@@ -33898,7 +33898,7 @@
     },
     {
       "id": "64",
-      "updatedAt": "2026-07-15T12:36:23Z",
+      "updatedAt": "2026-07-23T07:29:04Z",
       "type": "producto",
       "slug": "paneles-madera",
       "path": "/productos/paneles-madera",
@@ -34077,7 +34077,7 @@
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Paneles de madera personalizados",
-        "metaDescription": "Paneles de madera a medida para rotulación, decoración y señalética: MDF 10 mm, MDF 19 mm y contrachapado 10 mm. Corte y fresado, impresión y acabados. Solicita presupuesto.",
+        "metaDescription": "Paneles de madera a medida para rotulación, decoración y señalética: MDF 10 mm, MDF 19 mm y contrachapado 10 mm. Corte y fresado, impresión y acabados.",
         "canonical": "https://reprodisseny.com/productos/paneles-madera",
         "hreflang": [
           {
@@ -34097,7 +34097,7 @@
             {
               "@type": "Product",
               "name": "Paneles de madera personalizados (MDF y contrachapado)",
-              "description": "Paneles de madera a medida para rotulación, decoración y señalética: MDF 10 mm, MDF 19 mm y contrachapado 10 mm. Corte y fresado, impresión y acabados. Solicita presupuesto.",
+              "description": "Paneles de madera a medida para rotulación, decoración y señalética: MDF 10 mm, MDF 19 mm y contrachapado 10 mm. Corte y fresado, impresión y acabados.",
               "image": "https://webcms.blob.core.windows.net/media/product/gran-formato/material-rigido/madera.webp",
               "url": "https://reprodisseny.com/productos/paneles-madera",
               "brand": {
@@ -34918,7 +34918,7 @@
     },
     {
       "id": "78",
-      "updatedAt": "2026-06-23T08:42:09Z",
+      "updatedAt": "2026-07-23T07:31:18Z",
       "type": "producto",
       "slug": "pegatinas-personalizadas",
       "path": "/productos/pegatinas-personalizadas",
@@ -35220,7 +35220,7 @@
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Pegatinas personalizadas a medida",
-        "metaDescription": "Diseñamos e imprimimos etiquetas personalizadas para productos, envases y promociones. En rollo o en hojas, vinilo, papel, transparentes y troqueladas. Solicita presupuesto.",
+        "metaDescription": "Pegatinas personalizadas para productos, envases y promociones. En rollo o en hojas, sobre papel, vinilo o material transparente y con corte a medida.",
         "canonical": "https://reprodisseny.com/productos/pegatinas-personalizadas",
         "hreflang": [
           {
