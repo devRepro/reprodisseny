@@ -422,6 +422,7 @@ export type CategoryDetailPageDto = {
   children: CategoryDetailChildItem[];
   detailGallery?: CategoryDetailMediaItemDto[];
   keywordPills: KeywordPillItem[];
+  relatedProducts: CategoryDetailProductItem[];
   products: CategoryDetailProductItem[];
   sections: CategoryDetailSectionItem[];
   faqs: CategoryDetailFaqItem[];
@@ -1157,13 +1158,15 @@ function resolveCategoryKeywordPills(
     .slice(0, 3);
 }
 
-function resolveProductRelatedItems(
-  sourceProduct: CatalogProduct,
-  products: CatalogProduct[]
-): ProductRelatedItem[] {
+function resolveRelatedProductItems(
+  value: unknown,
+  products: CatalogProduct[],
+  limit: number,
+  excludedPath?: string
+): CategoryDetailProductItem[] {
   const refs = normalizeRelatedProductReferences(
-    sourceProduct.relatedProductsJson ?? sourceProduct.RelatedProductsJson,
-    4
+    value,
+    limit
   );
 
   if (!refs.length || !products.length) return [];
@@ -1176,11 +1179,10 @@ function resolveProductRelatedItems(
     }
   }
 
-  const sourcePath = productPathOf(sourceProduct);
   const seenPaths = new Set<string>();
 
   return refs
-    .reduce<ProductRelatedItem[]>((items, ref) => {
+    .reduce<CategoryDetailProductItem[]>((items, ref) => {
       let relatedProduct: CatalogProduct | undefined;
 
       for (const key of getRelatedProductLookupCandidates(ref.productSlug)) {
@@ -1191,7 +1193,7 @@ function resolveProductRelatedItems(
       if (!relatedProduct) return items;
 
       const path = productPathOf(relatedProduct);
-      if (!path || path === sourcePath || seenPaths.has(path)) return items;
+      if (!path || path === excludedPath || seenPaths.has(path)) return items;
 
       seenPaths.add(path);
       items.push({
@@ -1203,11 +1205,14 @@ function resolveProductRelatedItems(
             relatedProduct.shortDescription || relatedProduct.description || ""
           ).trim() || undefined,
         image: productImageDtoOf(relatedProduct.image, relatedProduct.title),
+        order: Number.isFinite(relatedProduct.order)
+          ? Number(relatedProduct.order)
+          : DEFAULT_SORT_ORDER,
       });
 
       return items;
     }, [])
-    .slice(0, 4);
+    .slice(0, limit);
 }
 
 const GALLERY_MEDIA_URL_KEYS = new Set([
@@ -2064,6 +2069,11 @@ export function getCategoryDetailByPath(
 
   const publishedProducts = getPublishedProducts();
   const keywordPills = resolveCategoryKeywordPills(category, publishedProducts);
+  const relatedProducts = resolveRelatedProductItems(
+    category.relatedProductsJson ?? category.RelatedProductsJson,
+    publishedProducts,
+    3
+  );
 
   return {
     slug: categoryPublicSlugOf(category),
@@ -2082,6 +2092,7 @@ export function getCategoryDetailByPath(
       getCategoryDetailGalleryBySlug(categoryPublicSlugOf(category))
     ),
     keywordPills,
+    relatedProducts,
     breadcrumbs: [
       { label: "Inicio", to: "/" },
       { label: "Categorías", to: "/categorias" },
@@ -2486,7 +2497,12 @@ export function getProductDetailBySlug(
   const sections = getProductSections(product);
   const productImage = productImageDtoOf(product.image, product.title);
   const galleryImages = normalizeProductGalleryImages(product, productImage?.src);
-  const relatedProducts = resolveProductRelatedItems(product, products);
+  const relatedProducts = resolveRelatedProductItems(
+    product.relatedProductsJson ?? product.RelatedProductsJson,
+    products,
+    4,
+    canonicalPath
+  );
 
   return {
     slug: productPublicSlugOf(product),
