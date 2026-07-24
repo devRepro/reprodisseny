@@ -116,8 +116,11 @@ function normalizeBreadcrumbs(
 /**
  * Genera el JSON-LD para una ficha comercial sin precio fijo.
  *
- * No genera Product, Service, Offer, precio, disponibilidad
- * ni valoraciones.
+ * Modela la oferta de Repro Disseny como Service, ya que estas páginas
+ * describen soluciones de impresión a medida que se presupuestan según
+ * configuración, cantidad y acabados.
+ *
+ * No inventa Product, Offer, precio, disponibilidad ni valoraciones.
  */
 export function buildProductPageSchema(
   input: BuildProductPageSchemaInput,
@@ -145,6 +148,7 @@ export function buildProductPageSchema(
     normalizeText(input.inLanguage) || "es-ES";
 
   const webpageId = `${canonicalUrl}#webpage`;
+  const serviceId = `${canonicalUrl}#service`;
   const breadcrumbId = `${canonicalUrl}#breadcrumb`;
   const primaryImageId = `${canonicalUrl}#primaryimage`;
 
@@ -172,6 +176,10 @@ export function buildProductPageSchema(
     publisher: {
       "@id": organizationId,
     },
+
+    mainEntity: {
+      "@id": serviceId,
+    },
   };
 
   if (description) {
@@ -198,6 +206,40 @@ export function buildProductPageSchema(
   }
 
   graph.push(webpage);
+
+  const service: Record<string, unknown> = {
+    "@type": "Service",
+    "@id": serviceId,
+    url: canonicalUrl,
+    name: title,
+    mainEntityOfPage: {
+      "@id": webpageId,
+    },
+    provider: {
+      "@id": organizationId,
+    },
+    areaServed: {
+      "@type": "Country",
+      name: "España",
+    },
+  };
+
+  if (description) {
+    service.description = description;
+  }
+
+  if (category) {
+    service.category = category;
+    service.serviceType = category;
+  }
+
+  if (imageUrl) {
+    service.image = {
+      "@id": primaryImageId,
+    };
+  }
+
+  graph.push(service);
 
   if (imageUrl) {
     graph.push({
