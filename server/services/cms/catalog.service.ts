@@ -217,6 +217,8 @@ type CatalogProduct = {
     height?: number;
   } | null;
   galleryImages?: CatalogGalleryImage[];
+  relatedProductsJson?: unknown;
+  RelatedProductsJson?: unknown;
   gallery?: CatalogGalleryImage[];
   images?: CatalogGalleryImage[];
   media?: CatalogGalleryImage[];
@@ -420,6 +422,7 @@ export type CategoryDetailPageDto = {
   children: CategoryDetailChildItem[];
   detailGallery?: CategoryDetailMediaItemDto[];
   keywordPills: KeywordPillItem[];
+  relatedProducts: CategoryDetailProductItem[];
   products: CategoryDetailProductItem[];
   sections: CategoryDetailSectionItem[];
   faqs: CategoryDetailFaqItem[];
@@ -472,6 +475,19 @@ export type ProductDetailFaqItem = {
   a: string;
 };
 
+export type ProductRelatedItem = {
+  slug: string;
+  path: string;
+  title: string;
+  description?: string;
+  image: {
+    src: string;
+    alt: string;
+    width?: number;
+    height?: number;
+  } | null;
+};
+
 export type ProductDetailDto = {
   slug: string;
   path: string;
@@ -480,6 +496,7 @@ export type ProductDetailDto = {
   description?: string;
   sections: ProductDetailSectionItem[];
   faqs: ProductDetailFaqItem[];
+  relatedProducts: ProductRelatedItem[];
   image: {
     src: string;
     alt: string;
@@ -1043,7 +1060,10 @@ type RelatedProductReference = {
   productSlug: string;
 };
 
-function normalizeRelatedProductReferences(value: unknown): RelatedProductReference[] {
+function normalizeRelatedProductReferences(
+  value: unknown,
+  limit: number
+): RelatedProductReference[] {
   const rawItems = parseJsonArray(value);
   const seen = new Set<string>();
 
@@ -1070,7 +1090,7 @@ function normalizeRelatedProductReferences(value: unknown): RelatedProductRefere
       };
     })
     .filter((item): item is RelatedProductReference => Boolean(item))
-    .slice(0, 3);
+    .slice(0, limit);
 }
 
 function getRelatedProductLookupCandidates(value: string): string[] {
@@ -1092,7 +1112,8 @@ function resolveCategoryKeywordPills(
   products: CatalogProduct[]
 ): KeywordPillItem[] {
   const refs = normalizeRelatedProductReferences(
-    category.relatedProductsJson ?? category.RelatedProductsJson
+    category.relatedProductsJson ?? category.RelatedProductsJson,
+    3
   );
 
   if (!refs.length || !products.length) return [];
@@ -1135,6 +1156,63 @@ function resolveCategoryKeywordPills(
       return acc;
     }, [])
     .slice(0, 3);
+}
+
+function resolveRelatedProductItems(
+  value: unknown,
+  products: CatalogProduct[],
+  limit: number,
+  excludedPath?: string
+): CategoryDetailProductItem[] {
+  const refs = normalizeRelatedProductReferences(
+    value,
+    limit
+  );
+
+  if (!refs.length || !products.length) return [];
+
+  const productIndex = new Map<string, CatalogProduct>();
+
+  for (const product of products) {
+    for (const key of getProductLookupKeys(product)) {
+      productIndex.set(key, product);
+    }
+  }
+
+  const seenPaths = new Set<string>();
+
+  return refs
+    .reduce<CategoryDetailProductItem[]>((items, ref) => {
+      let relatedProduct: CatalogProduct | undefined;
+
+      for (const key of getRelatedProductLookupCandidates(ref.productSlug)) {
+        relatedProduct = productIndex.get(key);
+        if (relatedProduct) break;
+      }
+
+      if (!relatedProduct) return items;
+
+      const path = productPathOf(relatedProduct);
+      if (!path || path === excludedPath || seenPaths.has(path)) return items;
+
+      seenPaths.add(path);
+      items.push({
+        slug: productPublicSlugOf(relatedProduct),
+        path,
+        title: String(relatedProduct.title || "").trim(),
+        description:
+          String(
+            relatedProduct.shortDescription || relatedProduct.description || ""
+          ).trim() || undefined,
+        image: productImageDtoOf(relatedProduct.image, relatedProduct.title),
+        order: Number.isFinite(relatedProduct.order)
+          ? Number(relatedProduct.order)
+          : DEFAULT_SORT_ORDER,
+      });
+
+      return items;
+    }, [])
+    .slice(0, limit);
 }
 
 const GALLERY_MEDIA_URL_KEYS = new Set([
@@ -1991,6 +2069,11 @@ export function getCategoryDetailByPath(
 
   const publishedProducts = getPublishedProducts();
   const keywordPills = resolveCategoryKeywordPills(category, publishedProducts);
+  const relatedProducts = resolveRelatedProductItems(
+    category.relatedProductsJson ?? category.RelatedProductsJson,
+    publishedProducts,
+    3
+  );
 
   return {
     slug: categoryPublicSlugOf(category),
@@ -2009,6 +2092,7 @@ export function getCategoryDetailByPath(
       getCategoryDetailGalleryBySlug(categoryPublicSlugOf(category))
     ),
     keywordPills,
+    relatedProducts,
     breadcrumbs: [
       { label: "Inicio", to: "/" },
       { label: "Categorías", to: "/categorias" },
@@ -2413,6 +2497,12 @@ export function getProductDetailBySlug(
   const sections = getProductSections(product);
   const productImage = productImageDtoOf(product.image, product.title);
   const galleryImages = normalizeProductGalleryImages(product, productImage?.src);
+  const relatedProducts = resolveRelatedProductItems(
+    product.relatedProductsJson ?? product.RelatedProductsJson,
+    products,
+    4,
+    canonicalPath
+  );
 
   return {
     slug: productPublicSlugOf(product),
@@ -2422,6 +2512,7 @@ export function getProductDetailBySlug(
     description: product.description || product.shortDescription || "",
     sections,
     faqs: getProductFaqs(product),
+    relatedProducts,
     image: productImage,
     imageSrc: productImage?.src || null,
     galleryImages,

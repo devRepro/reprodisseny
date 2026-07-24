@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-23T08:23:54.563Z",
+  "generatedAt": "2026-07-24T08:13:34.266Z",
   "categories": [
     {
       "id": "12",
@@ -320,7 +320,7 @@
     },
     {
       "id": "13",
-      "updatedAt": "2026-07-14T10:38:22Z",
+      "updatedAt": "2026-07-24T06:20:23Z",
       "type": "subcategoria",
       "slug": "material-rigido",
       "path": "/categorias/gran-formato/material-rigido",
@@ -439,7 +439,7 @@
         "src": "https://webcms.blob.core.windows.net/media/category/gran-formato-rigidos.webp",
         "width": 2400,
         "height": 1200,
-        "alt": "Material publicitario impreso para campañas, promociones y punto de venta"
+        "alt": "Impresión en soportes rígidos: Forex, Dibond, metacrilato y cartón"
       },
       "faqs": [
         {
@@ -1528,7 +1528,7 @@
     },
     {
       "id": "5",
-      "updatedAt": "2026-07-14T10:37:28Z",
+      "updatedAt": "2026-07-24T07:46:59Z",
       "type": "categoria",
       "slug": "gran-formato",
       "path": "/categorias/gran-formato",
@@ -1707,16 +1707,13 @@
       "galleryImages": [],
       "relatedProductsJson": [
         {
-          "label": "Etiquetas en bobina",
-          "productSlug": "etiquetas-adhesivas-en-bobina"
+          "productSlug": "vinilo-para-cristal"
         },
         {
-          "label": "Hojas con pegatinas",
-          "productSlug": "hojas-pegatinas-personalizadas"
+          "productSlug": "lona-publicitaria"
         },
         {
-          "label": "Pegatinas personalizadas",
-          "productSlug": "pegatinas-personalizadas"
+          "productSlug": "panel-forex"
         }
       ],
       "breadcrumbs": [
@@ -3850,6 +3847,7 @@
         "alt": "Colgador de puerta personalizado para hotel impreso a doble cara con troquel para pomo"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "brand": "Repro Disseny",
       "price": 0,
       "priceCurrency": "EUR",
@@ -4251,6 +4249,7 @@
         "alt": "Abanicos personalizados impresos para bodas, ferias y eventos de verano"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-EVEN-0010",
       "brand": "Reprodisseny",
       "price": 0,
@@ -4412,7 +4411,7 @@
     },
     {
       "id": "2",
-      "updatedAt": "2026-06-10T10:03:57Z",
+      "updatedAt": "2026-07-24T07:45:17Z",
       "type": "producto",
       "slug": "acreditaciones-personalizadas",
       "path": "/productos/acreditaciones-personalizadas",
@@ -4624,6 +4623,20 @@
         "alt": "Acreditaciones personalizadas impresas para congresos, ferias y eventos corporativos"
       },
       "galleryImages": [],
+      "relatedProductsJson": [
+        {
+          "productSlug": "lanyards-eventos-barcelona"
+        },
+        {
+          "productSlug": "entradas-personalizadas"
+        },
+        {
+          "productSlug": "photocall-personalizado"
+        },
+        {
+          "productSlug": "roll-up-personalizado"
+        }
+      ],
       "sku": "01-EVEN-0003",
       "brand": "Reprodisseny",
       "price": 0,
@@ -4941,6 +4954,7 @@
         "alt": "Agendas personalizadas para empresas, equipos y regalos corporativos"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-OFICI-0024",
       "brand": "Reprodisseny",
       "price": 0,
@@ -5324,6 +5338,7 @@
         "alt": "Árbol de Navidad corporativo impreso en nido de abeja para escaparates y oficinas"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-EVEN-0017",
       "brand": "Reprodisseny",
       "price": 0,
@@ -5545,6 +5560,7 @@
         "alt": "Archivadores personalizados para documentación corporativa y organización de oficina"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-OFICI-0028",
       "brand": "Reprodisseny",
       "price": 0,
@@ -5714,7 +5730,7 @@
     },
     {
       "id": "7",
-      "updatedAt": "2026-07-22T11:59:51Z",
+      "updatedAt": "2026-07-24T06:15:01Z",
       "type": "producto",
       "slug": "banderola-lona-fachada",
       "path": "/productos/banderola-lona-fachada",
@@ -5867,6 +5883,7 @@
         "alt": "Banderola de lona personalizada para fachada exterior e identificación de negocio"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-GRFO-0007",
       "brand": "Reprodisseny",
       "price": 0,
@@ -5982,7 +5999,7 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Banderola luminosa para fachada",
+        "metaTitle": "Banderola de lona para fachada",
         "metaDescription": "Banderola de lona para fachada personalizada: impresión a color, medidas a medida y acabados de confección (vaina, ojales, refuerzo). Ideal para exterior.",
         "canonical": "https://reprodisseny.com/productos/banderola-lona-fachada",
         "hreflang": [
@@ -6133,6 +6150,7 @@
         "alt": "Banderola luminosa personalizada para fachada, rótulos comerciales y visibilidad exterior"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-GRFO-0008",
       "brand": "Reprodisseny",
       "price": 0,
@@ -6301,7 +6319,7 @@
     },
     {
       "id": "8",
-      "updatedAt": "2026-07-15T08:19:48Z",
+      "updatedAt": "2026-07-24T06:19:10Z",
       "type": "producto",
       "slug": "banderolas-lineal-personalizadas",
       "path": "/productos/banderolas-lineal-personalizadas",
@@ -6438,9 +6456,10 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/banderolas-lineal.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Banderola de lona impresa para fachadas, campañas exteriores y comunicación comercial"
+        "alt": "Banderola de lineal personalizada para promociones y productos en punto de venta"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-OFICI-0011",
       "brand": "Reprodisseny",
       "price": 0,
@@ -6772,6 +6791,7 @@
         "alt": "Banderolas de lineal personalizadas para promociones, retail y punto de venta"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-EXPO-0006",
       "brand": "Reprodisseny",
       "price": 0,
@@ -7244,6 +7264,7 @@
         "alt": "Banner Golf personalizado para eventos deportivos y señalización exterior"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-EXPO-0007",
       "brand": "Reprodisseny",
       "price": 0,
@@ -7658,6 +7679,7 @@
         "alt": "Blocs de notas personalizados para oficinas, reuniones y merchandising corporativo"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-OFICI-0021",
       "brand": "Reprodisseny",
       "price": 0,
@@ -8007,6 +8029,7 @@
         "alt": "Caballetes publicitarios personalizados para tiendas, restaurantes y promociones exteriores"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-EXPO-0015",
       "brand": "Reprodisseny",
       "price": 0,
@@ -8273,7 +8296,7 @@
     },
     {
       "id": "140",
-      "updatedAt": "2026-07-16T10:36:05Z",
+      "updatedAt": "2026-07-24T06:50:01Z",
       "type": "producto",
       "slug": "caja-almohada",
       "path": "/productos/caja-almohada",
@@ -8474,6 +8497,7 @@
         "alt": "Caja almohada personalizada para packaging pequeño, regalos y promociones"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "brand": "Repro Disseny",
       "price": 0,
       "priceCurrency": "EUR",
@@ -8667,7 +8691,7 @@
     },
     {
       "id": "136",
-      "updatedAt": "2026-07-16T11:31:30Z",
+      "updatedAt": "2026-07-24T07:42:00Z",
       "type": "producto",
       "slug": "caja-automontable",
       "path": "/productos/caja-automontable",
@@ -8900,6 +8924,20 @@
         "alt": "Caja dulces mini personalizada para packaging promocional, regalos y producto"
       },
       "galleryImages": [],
+      "relatedProductsJson": [
+        {
+          "productSlug": "faja-para-caja"
+        },
+        {
+          "productSlug": "etiquetas-adhesivas-en-bobina"
+        },
+        {
+          "productSlug": "caja-estandar"
+        },
+        {
+          "productSlug": "caja-almohada"
+        }
+      ],
       "brand": "Repro Disseny",
       "price": 0,
       "priceCurrency": "EUR",
@@ -9147,7 +9185,7 @@
     },
     {
       "id": "138",
-      "updatedAt": "2026-07-16T10:29:07Z",
+      "updatedAt": "2026-07-24T06:49:43Z",
       "type": "producto",
       "slug": "caja-cerillas",
       "path": "/productos/caja-cerillas",
@@ -9367,6 +9405,7 @@
         "alt": "Caja cerillas personalizada con funda y cajón para packaging creativo y regalos"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "brand": "Repro Disseny",
       "price": 0,
       "priceCurrency": "EUR",
@@ -9572,7 +9611,7 @@
     },
     {
       "id": "142",
-      "updatedAt": "2026-07-16T10:42:50Z",
+      "updatedAt": "2026-07-24T06:50:16Z",
       "type": "producto",
       "slug": "caja-cofre",
       "path": "/productos/caja-cofre",
@@ -9800,6 +9839,20 @@
         "alt": "Caja cofre personalizada para packaging premium, regalos y presentación de marca"
       },
       "galleryImages": [],
+      "relatedProductsJson": [
+        {
+          "productSlug": "caja-desplegable-tapa"
+        },
+        {
+          "productSlug": "caja-envolvente"
+        },
+        {
+          "productSlug": "faja-para-caja"
+        },
+        {
+          "productSlug": "etiquetas-colgantes"
+        }
+      ],
       "brand": "Repro Disseny",
       "price": 0,
       "priceCurrency": "EUR",
@@ -10005,7 +10058,7 @@
     },
     {
       "id": "146",
-      "updatedAt": "2026-07-16T11:34:31Z",
+      "updatedAt": "2026-07-24T06:48:11Z",
       "type": "producto",
       "slug": "caja-envio",
       "path": "/productos/caja-envio",
@@ -10233,6 +10286,20 @@
         "alt": "Caja de envío personalizada para ecommerce, packaging y logística de marca"
       },
       "galleryImages": [],
+      "relatedProductsJson": [
+        {
+          "productSlug": "caja-automontable"
+        },
+        {
+          "productSlug": "caja-sobre-personalizada"
+        },
+        {
+          "productSlug": "faja-para-caja"
+        },
+        {
+          "productSlug": "pegatinas-personalizadas"
+        }
+      ],
       "brand": "Repro Disseny",
       "price": 0,
       "priceCurrency": "EUR",
@@ -10414,7 +10481,7 @@
     },
     {
       "id": "145",
-      "updatedAt": "2026-07-16T10:56:37Z",
+      "updatedAt": "2026-07-24T06:50:57Z",
       "type": "producto",
       "slug": "caja-desplegable-tapa",
       "path": "/productos/caja-desplegable-tapa",
@@ -10623,6 +10690,20 @@
         "alt": "Caja desplegable con tapa personalizada para packaging premium y presentación de producto"
       },
       "galleryImages": [],
+      "relatedProductsJson": [
+        {
+          "productSlug": "caja-cofre"
+        },
+        {
+          "productSlug": "caja-envolvente"
+        },
+        {
+          "productSlug": "faja-para-caja"
+        },
+        {
+          "productSlug": "etiquetas-adhesivas-en-bobina"
+        }
+      ],
       "brand": "Repro Disseny",
       "price": 0,
       "priceCurrency": "EUR",
@@ -10853,7 +10934,7 @@
     },
     {
       "id": "139",
-      "updatedAt": "2026-07-16T11:32:58Z",
+      "updatedAt": "2026-07-24T06:51:28Z",
       "type": "producto",
       "slug": "caja-envolvente",
       "path": "/productos/caja-envolvente",
@@ -11081,6 +11162,20 @@
         "alt": "Caja envolvente personalizada para packaging, producto y presentación comercial"
       },
       "galleryImages": [],
+      "relatedProductsJson": [
+        {
+          "productSlug": "faja-para-caja"
+        },
+        {
+          "productSlug": "caja-cofre"
+        },
+        {
+          "productSlug": "caja-desplegable-tapa"
+        },
+        {
+          "productSlug": "etiquetas-adhesivas-en-bobina"
+        }
+      ],
       "brand": "Repro Disseny",
       "price": 0,
       "priceCurrency": "EUR",
@@ -11328,7 +11423,7 @@
     },
     {
       "id": "135",
-      "updatedAt": "2026-07-16T10:18:24Z",
+      "updatedAt": "2026-07-24T07:38:47Z",
       "type": "producto",
       "slug": "caja-estandar",
       "path": "/productos/caja-estandar",
@@ -11504,6 +11599,20 @@
         "alt": "Caja estándar personalizada para packaging, producto y presentación de marca"
       },
       "galleryImages": [],
+      "relatedProductsJson": [
+        {
+          "productSlug": "faja-para-caja"
+        },
+        {
+          "productSlug": "etiquetas-adhesivas-en-bobina"
+        },
+        {
+          "productSlug": "caja-envio"
+        },
+        {
+          "productSlug": "caja-envolvente"
+        }
+      ],
       "brand": "Repro Disseny",
       "price": 0,
       "priceCurrency": "EUR",
@@ -11720,7 +11829,7 @@
     },
     {
       "id": "137",
-      "updatedAt": "2026-07-16T10:25:57Z",
+      "updatedAt": "2026-07-24T06:51:46Z",
       "type": "producto",
       "slug": "caja-porta-botella",
       "path": "/productos/caja-porta-botella",
@@ -11952,6 +12061,20 @@
         "alt": "Caja porta botella personalizada para packaging, regalos y presentación de producto"
       },
       "galleryImages": [],
+      "relatedProductsJson": [
+        {
+          "productSlug": "etiquetas-colgantes"
+        },
+        {
+          "productSlug": "faja-para-caja"
+        },
+        {
+          "productSlug": "caja-cofre"
+        },
+        {
+          "productSlug": "caja-estandar"
+        }
+      ],
       "brand": "Repro Disseny",
       "price": 0,
       "priceCurrency": "EUR",
@@ -12390,6 +12513,7 @@
         "alt": "Caja sobre personalizada para packaging plano, ecommerce y documentación promocional"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "brand": "Repro Disseny",
       "price": 0,
       "priceCurrency": "EUR",
@@ -12850,6 +12974,7 @@
         "alt": "Caja de luz LED personalizada con gráfica retroiluminada"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-EXPO-0010",
       "brand": "Reprodisseny",
       "price": 0,
@@ -13369,6 +13494,7 @@
         "alt": "Calendarios personalizados impresos para empresas, oficinas y regalos corporativos"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-OFICI-0025",
       "brand": "Reprodisseny",
       "price": 0,
@@ -13816,6 +13942,7 @@
         "alt": "Carpetas de presentación personalizadas para propuestas comerciales y documentación corporativa"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-OFICI-0020",
       "brand": "Reprodisseny",
       "price": 0,
@@ -14261,6 +14388,7 @@
         "alt": "Cartas de restaurante personalizadas impresas para hostelería, bares y restaurantes"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-HORE-0005",
       "brand": "Reprodisseny",
       "price": 0,
@@ -14551,6 +14679,7 @@
         "alt": "Carteles inmobiliaria personalizados para venta, alquiler y señalización exterior"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "brand": "Repro Disseny",
       "price": 0,
       "priceCurrency": "EUR",
@@ -14921,6 +15050,7 @@
         "alt": "Carteles personalizados de gran formato para escaparates, campañas y comunicación visual"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-GRFO-0002",
       "brand": "Reprodisseny",
       "price": 0,
@@ -15163,6 +15293,7 @@
         "alt": "Certificados personalizados impresos para formación, eventos y reconocimiento corporativo"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-OFICI-0030",
       "brand": "Reprodisseny",
       "price": 0,
@@ -15390,6 +15521,7 @@
         "alt": "Colgador de botellas personalizado para promociones, packaging y hostelería"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-HORE-0002",
       "brand": "Reprodisseny",
       "price": 0,
@@ -15667,6 +15799,7 @@
         "alt": "Contenedores de reciclaje personalizados para oficinas, eventos y espacios corporativos"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-EXPO-0017",
       "brand": "Reprodisseny",
       "price": 0,
@@ -15932,6 +16065,7 @@
         "alt": "Cubos publicitarios personalizados para eventos, escaparates y campañas promocionales"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-EXPO-0005",
       "brand": "Reprodisseny",
       "price": 0,
@@ -16215,6 +16349,7 @@
         "alt": "Cubrealarmas personalizados para tiendas, retail y campañas de punto de venta"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-EXPO-0011",
       "brand": "Reprodisseny",
       "price": 0,
@@ -16618,6 +16753,7 @@
         "alt": "Cupones promocionales personalizados para campañas, fidelización y acciones comerciales"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-EVEN-0011",
       "brand": "Reprodisseny",
       "price": 0,
@@ -16964,6 +17100,7 @@
         "alt": "Diplomas personalizados impresos para eventos, formación y ceremonias corporativas"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-EVEN-0002",
       "brand": "Reprodisseny",
       "price": 0,
@@ -17258,6 +17395,7 @@
         "alt": "Díptico tarjeta de habitación personalizado para hoteles, eventos y servicios de alojamiento"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-HORE-0001",
       "brand": "Reprodisseny",
       "price": 0,
@@ -17537,6 +17675,7 @@
         "alt": "Displays de mesa personalizados para mostradores, promociones y punto de venta"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-EXPO-0008",
       "brand": "Reprodisseny",
       "price": 0,
@@ -17952,6 +18091,7 @@
         "alt": "Dorsales de carrera personalizados para eventos deportivos, carreras y competiciones"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-EVEN-0006",
       "brand": "Reprodisseny",
       "price": 0,
@@ -18151,7 +18291,7 @@
     },
     {
       "id": "106",
-      "updatedAt": "2026-07-23T07:41:43Z",
+      "updatedAt": "2026-07-24T06:17:02Z",
       "type": "producto",
       "slug": "encuadernacion-wire-o-oculto",
       "path": "/productos/encuadernacion-wire-o-oculto",
@@ -18266,6 +18406,7 @@
         "alt": "Encuadernación Wire-O oculto para catálogos, dosieres y publicaciones premium"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-PUBLI-0005",
       "brand": "Reprodisseny",
       "price": 0,
@@ -18403,7 +18544,7 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Encuadernación Wire-O personalizada",
+        "metaTitle": "Encuadernación Wire-O oculta personalizada",
         "metaDescription": "Encuadernación Wire-O (doble espiral metálica) para manuales, dossiers y catálogos. Apertura 360º, páginas en plano y acabados profesionales.",
         "canonical": "https://reprodisseny.com/productos/encuadernacion-wire-o-oculto",
         "hreflang": [
@@ -18553,7 +18694,7 @@
     },
     {
       "id": "26",
-      "updatedAt": "2026-07-23T07:39:09Z",
+      "updatedAt": "2026-07-24T06:14:14Z",
       "type": "producto",
       "slug": "cosida-tapa-blanda",
       "path": "/productos/cosida-tapa-blanda",
@@ -18779,6 +18920,7 @@
         "alt": "Encuadernación cosida en tapa blanda para libros, catálogos y publicaciones corporativas"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-PUBLI-0003",
       "brand": "Reprodisseny",
       "price": 0,
@@ -18886,8 +19028,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Encuadernación encolada con tapa blanda",
-        "metaDescription": "Encuadernación encolada tapa blanda (rústica fresada) para libros, catálogos y revistas. Acabado profesional, lomo impreso y opciones de papel y laminado.",
+        "metaTitle": "Encuadernación cosida tapa blanda",
+        "metaDescription": "Encuadernación cosida con tapa blanda para libros, catálogos y publicaciones profesionales. Mayor resistencia, buena apertura y acabados a medida.",
         "canonical": "https://reprodisseny.com/productos/cosida-tapa-blanda",
         "hreflang": [
           {
@@ -18935,7 +19077,7 @@
             {
               "@type": "Product",
               "name": "Encuadernación cosida tapa blanda",
-              "description": "Encuadernación encolada tapa blanda (rústica fresada) para libros, catálogos y revistas. Acabado profesional, lomo impreso y opciones de papel y laminado.",
+              "description": "Encuadernación cosida con tapa blanda para libros, catálogos y publicaciones profesionales. Mayor resistencia, buena apertura y acabados a medida.",
               "image": "https://webcms.blob.core.windows.net/media/product/publicaciones/encuadernacion-cosida-tapa-blanda.webp",
               "url": "https://reprodisseny.com/productos/cosida-tapa-blanda",
               "brand": {
@@ -19199,6 +19341,7 @@
         "alt": "Encuadernación cosida en tapa dura para libros premium, memorias y publicaciones corporativas"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-PUBLI-0004",
       "brand": "Reprodisseny",
       "price": 0,
@@ -19501,6 +19644,7 @@
         "alt": "Encuadernación encolada en tapa blanda para catálogos, libros y manuales corporativos"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-PUBLI-0002",
       "brand": "Reprodisseny",
       "price": 0,
@@ -19712,7 +19856,7 @@
     },
     {
       "id": "107",
-      "updatedAt": "2026-05-05T16:19:28Z",
+      "updatedAt": "2026-07-24T06:16:29Z",
       "type": "producto",
       "slug": "encuadernacion-wire-o",
       "path": "/productos/encuadernacion-wire-o",
@@ -19803,6 +19947,7 @@
         "alt": "Encuadernación Wire-O personalizada para manuales, agendas y catálogos corporativos"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-PUBLI-0005",
       "brand": "Reprodisseny",
       "price": 0,
@@ -19911,7 +20056,7 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Encuadernación Wire-O personalizada",
+        "metaTitle": "Encuadernación Wire-O doble personalizada",
         "metaDescription": "Encuadernación Wire-O (doble espiral metálica) para manuales, dossiers y catálogos. Apertura 360º, páginas en plano y acabados profesionales. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/encuadernacion-wire-o",
         "hreflang": [
@@ -20106,6 +20251,7 @@
         "alt": "Encuadernado con grapas para revistas, folletos, catálogos y publicaciones comerciales"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-PUBLI-0001",
       "brand": "Reprodisseny",
       "price": 0,
@@ -20412,6 +20558,7 @@
         "alt": "Enmarcados personalizados con impresión para decoración, señalética y espacios corporativos"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-GRFO-0020",
       "brand": "Reprodisseny",
       "price": 0,
@@ -20821,6 +20968,7 @@
         "alt": "Entradas personalizadas impresas para eventos, espectáculos y control de accesos"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-EVEN-0012",
       "brand": "Reprodisseny",
       "price": 0,
@@ -21013,7 +21161,7 @@
     },
     {
       "id": "43",
-      "updatedAt": "2026-07-16T08:31:49Z",
+      "updatedAt": "2026-07-24T07:42:49Z",
       "type": "producto",
       "slug": "etiquetas-adhesivas-en-bobina",
       "path": "/productos/etiquetas-adhesivas-en-bobina",
@@ -21226,6 +21374,20 @@
         "alt": "Etiquetas adhesivas en bobina personalizadas para packaging, producto y etiquetado"
       },
       "galleryImages": [],
+      "relatedProductsJson": [
+        {
+          "productSlug": "caja-estandar"
+        },
+        {
+          "productSlug": "caja-porta-botella"
+        },
+        {
+          "productSlug": "pegatinas-personalizadas"
+        },
+        {
+          "productSlug": "etiquetas-colgantes"
+        }
+      ],
       "sku": "01-ADHE-0003",
       "brand": "Reprodisseny",
       "price": 0,
@@ -21571,6 +21733,7 @@
         "alt": "Etiquetas colgantes personalizadas para producto, moda, packaging y retail"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-OFICI-0008",
       "brand": "Reprodisseny",
       "price": 0,
@@ -21948,6 +22111,7 @@
         "alt": "Etiquetas Doming personalizadas con volumen para marca, producto y acabados premium"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-ADHE-0005",
       "brand": "Repro Disseny",
       "price": 0,
@@ -22276,6 +22440,7 @@
         "alt": "Expositores de mesa personalizados para mostradores, promociones y venta de producto"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-EXPO-0012",
       "brand": "Reprodisseny",
       "price": 0,
@@ -22540,6 +22705,7 @@
         "alt": "Expositores de suelo personalizados para retail, ferias y campañas promocionales"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-EXPO-0013",
       "brand": "Reprodisseny",
       "price": 0,
@@ -22713,7 +22879,7 @@
     },
     {
       "id": "141",
-      "updatedAt": "2026-07-16T10:39:25Z",
+      "updatedAt": "2026-07-24T06:52:04Z",
       "type": "producto",
       "slug": "faja-para-caja",
       "path": "/productos/faja-para-caja",
@@ -22941,6 +23107,20 @@
         "alt": "Faja para caja personalizada para packaging, presentación de producto y branding"
       },
       "galleryImages": [],
+      "relatedProductsJson": [
+        {
+          "productSlug": "caja-estandar"
+        },
+        {
+          "productSlug": "caja-automontable"
+        },
+        {
+          "productSlug": "caja-envio"
+        },
+        {
+          "productSlug": "etiquetas-adhesivas-en-bobina"
+        }
+      ],
       "brand": "Repro Disseny",
       "price": 0,
       "priceCurrency": "EUR",
@@ -23404,6 +23584,7 @@
         "alt": "Figuras de árbol de Navidad personalizadas para branding, escaparates y campañas festivas"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-EVEN-0018",
       "brand": "Reprodisseny",
       "price": 0,
@@ -23694,6 +23875,7 @@
         "alt": "Flyers troquelados con forma personalizada para campañas, promociones y publicidad creativa"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-OFICI-0003",
       "brand": "Reprodisseny",
       "price": 0,
@@ -24078,6 +24260,7 @@
         "alt": "Flyers personalizados impresos para campañas comerciales, promociones y reparto publicitario"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-OFICI-0002",
       "brand": "Reprodisseny",
       "price": 0,
@@ -24541,6 +24724,7 @@
         "alt": "Folletos plegados personalizados para comunicación comercial, ferias y presentaciones"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-OFICI-0006",
       "brand": "Reprodisseny",
       "price": 0,
@@ -24960,6 +25144,7 @@
         "alt": "Funda para rosa de Sant Jordi personalizada para campañas, regalos y acciones de marca"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-EVEN-0001",
       "brand": "Reprodisseny",
       "price": 0,
@@ -25343,6 +25528,7 @@
         "alt": "Pegatinas impresas sobre hoja de vinilo personalizadas para packaging y promoción"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-ADHE-0002",
       "brand": "Reprodisseny",
       "price": 0,
@@ -25668,6 +25854,7 @@
         "alt": "Hojas sueltas para archivadores impresas con perforado para manuales, tarifas y documentación"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-PUBLI-0007",
       "brand": "Reprodisseny",
       "price": 0,
@@ -26023,6 +26210,7 @@
         "alt": "Hule personalizado lavable para mesas de hostelería, restaurantes y eventos"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-HORE-0004",
       "brand": "Reprodisseny",
       "price": 0,
@@ -26466,6 +26654,7 @@
         "alt": "Identificador de maleta personalizado para eventos, viajes y regalos promocionales"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-EVEN-0016",
       "brand": "Reprodisseny",
       "price": 0,
@@ -26794,6 +26983,7 @@
         "alt": "Imanes publicitarios personalizados para promociones, campañas y recordatorio de marca"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-OFICI-0012",
       "brand": "Reprodisseny",
       "price": 0,
@@ -27114,6 +27304,7 @@
         "alt": "Invitaciones y tarjetones personalizados para eventos, celebraciones y comunicación premium"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-OFICI-0001",
       "brand": "Reprodisseny",
       "price": 0,
@@ -27417,6 +27608,7 @@
         "alt": "Lámina magnética impresa para vehículos, superficies metálicas y campañas temporales"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "brand": "Repro Disseny",
       "price": 0,
       "priceCurrency": "EUR",
@@ -27853,6 +28045,7 @@
         "alt": "Láminas solares para cristales de colocación interior y exterior en oficinas, escaparates y viviendas"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "laminas-solares-para-cristales",
       "brand": "Repro Disseny",
       "price": 0,
@@ -28374,6 +28567,7 @@
         "alt": "Lanyards personalizados para ferias, congresos y eventos corporativos"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-EVEN-0004",
       "brand": "Reprodisseny",
       "price": 0,
@@ -28663,6 +28857,7 @@
         "alt": "Letras corpóreas personalizadas para rótulos, oficinas y señalización corporativa"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "brand": "Repro Disseny",
       "price": 0,
       "priceCurrency": "EUR",
@@ -29012,6 +29207,7 @@
         "alt": "Libretas personalizadas para empresas, eventos y regalos corporativos"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "brand": "Repro Disseny",
       "price": 0,
       "priceCurrency": "EUR",
@@ -29451,6 +29647,7 @@
         "alt": "Lona publicitaria impresa para fachadas, eventos y comunicación exterior"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-GRFO-0004",
       "brand": "Reprodisseny",
       "price": 0,
@@ -29796,6 +29993,7 @@
         "alt": "Manteles individuales personalizados para restaurantes, hoteles y promociones de mesa"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-HORE-0003",
       "brand": "Reprodisseny",
       "price": 0,
@@ -30072,6 +30270,7 @@
         "alt": "Marcos Click System personalizados para pósters, cartelería y cambio rápido de gráfica"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-EXPO-0014",
       "brand": "Reprodisseny",
       "price": 0,
@@ -30416,6 +30615,7 @@
         "alt": "Marcos para photocall personalizados para eventos, bodas y campañas de marca"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-EVEN-0008",
       "brand": "Reprodisseny",
       "price": 0,
@@ -30699,6 +30899,7 @@
         "alt": "Panel de metacrilato personalizado para placas, señalética y comunicación premium"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-GRFO-0017",
       "brand": "Reprodisseny",
       "price": 0,
@@ -31090,6 +31291,7 @@
         "alt": "Minutas de boda impresas con diseño personalizado para eventos y celebraciones"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-EVEN-0013",
       "brand": "Reprodisseny",
       "price": 0,
@@ -31464,6 +31666,7 @@
         "alt": "Nombres de sobremesa personalizados para bodas, eventos y mesas corporativas"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-EVEN-0007",
       "brand": "Reprodisseny",
       "price": 0,
@@ -31719,6 +31922,7 @@
         "alt": "Panel de cartón compacto impreso para displays, señalética y comunicación temporal"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-GRFO-0015",
       "brand": "Reprodisseny",
       "price": 0,
@@ -31951,6 +32155,7 @@
         "alt": "Panel de cartón corrugado personalizado para campañas, retail y soportes promocionales"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-GRFO-0016",
       "brand": "Reprodisseny",
       "price": 0,
@@ -32202,6 +32407,7 @@
         "alt": "Panel de Dibond personalizado para señalética exterior, placas y comunicación premium"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-GRFO-0012",
       "brand": "Reprodisseny",
       "price": 0,
@@ -32499,6 +32705,7 @@
         "alt": "Panel de foam personalizado para cartelería ligera, presentaciones y señalética interior"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-GRFO-0010",
       "brand": "Reprodisseny",
       "price": 0,
@@ -32692,7 +32899,7 @@
     },
     {
       "id": "52",
-      "updatedAt": "2026-05-22T06:14:34Z",
+      "updatedAt": "2026-07-24T07:44:08Z",
       "type": "producto",
       "slug": "panel-forex",
       "path": "/productos/panel-forex",
@@ -32916,6 +33123,20 @@
         "alt": "Panel de Forex personalizado para cartelería rígida, señalética y punto de venta"
       },
       "galleryImages": [],
+      "relatedProductsJson": [
+        {
+          "productSlug": "panel-dibond-personalizado"
+        },
+        {
+          "productSlug": "panel-foam-personalizado"
+        },
+        {
+          "productSlug": "metacrilato-personalizado"
+        },
+        {
+          "productSlug": "carteles-personalizados-gran-formato"
+        }
+      ],
       "sku": "01-GRFO-0011",
       "brand": "Reprodisseny",
       "price": 0,
@@ -33221,6 +33442,7 @@
         "alt": "Panel de nido de abeja personalizado para displays ligeros, expositores y cartelería"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-GRFO-0013",
       "brand": "Reprodisseny",
       "price": 0,
@@ -33496,6 +33718,7 @@
         "alt": "Panel Dispa personalizado para cartelería ligera, eventos y señalética interior"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-GRFO-0014",
       "brand": "Reprodisseny",
       "price": 0,
@@ -33770,6 +33993,7 @@
         "alt": "Panel ligero rígido ultraligero para cartelería, eventos y señalética interior"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "brand": "Repro Disseny",
       "price": 0,
       "priceCurrency": "EUR",
@@ -33993,6 +34217,7 @@
         "alt": "Paneles de madera personalizados para decoración, señalética e interiorismo corporativo"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-GRFO-0018",
       "brand": "Reprodisseny",
       "price": 0,
@@ -34343,6 +34568,7 @@
         "alt": "Papel de carta personalizado con membrete para empresas y comunicación corporativa"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "brand": "Repro Disseny",
       "price": 0,
       "priceCurrency": "EUR",
@@ -34728,6 +34954,7 @@
         "alt": "Papel de pared personalizado para decoración corporativa, oficinas y espacios comerciales"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-GRFO-0003",
       "brand": "Reprodisseny",
       "price": 0,
@@ -34918,7 +35145,7 @@
     },
     {
       "id": "78",
-      "updatedAt": "2026-07-23T07:31:18Z",
+      "updatedAt": "2026-07-24T07:43:12Z",
       "type": "producto",
       "slug": "pegatinas-personalizadas",
       "path": "/productos/pegatinas-personalizadas",
@@ -35127,6 +35354,20 @@
         "alt": "Pegatinas personalizadas en papel o vinilo para packaging, promociones y marca"
       },
       "galleryImages": [],
+      "relatedProductsJson": [
+        {
+          "productSlug": "hojas-pegatinas-personalizadas"
+        },
+        {
+          "productSlug": "etiquetas-adhesivas-en-bobina"
+        },
+        {
+          "productSlug": "etiquetas-doming"
+        },
+        {
+          "productSlug": "vinilo-de-corte"
+        }
+      ],
       "sku": "01-ADHE-0001",
       "brand": "Reprodisseny",
       "price": 0,
@@ -35361,7 +35602,7 @@
     },
     {
       "id": "79",
-      "updatedAt": "2026-07-16T09:20:46Z",
+      "updatedAt": "2026-07-24T07:44:28Z",
       "type": "producto",
       "slug": "photocall-personalizado",
       "path": "/productos/photocall-personalizado",
@@ -35452,6 +35693,20 @@
         "alt": "Photocall personalizado impreso para eventos, presentaciones y campañas de marca"
       },
       "galleryImages": [],
+      "relatedProductsJson": [
+        {
+          "productSlug": "marcos-photocall-personalizados"
+        },
+        {
+          "productSlug": "roll-up-personalizado"
+        },
+        {
+          "productSlug": "acreditaciones-personalizadas"
+        },
+        {
+          "productSlug": "lanyards-eventos-barcelona"
+        }
+      ],
       "sku": "01-EXPO-0004",
       "brand": "Reprodisseny",
       "price": 0,
@@ -35724,6 +35979,7 @@
         "alt": "Pizarras personalizadas a medida tipo Velleda para oficinas, formación y espacios comerciales"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "brand": "Repro Disseny",
       "price": 0,
       "priceCurrency": "EUR",
@@ -36053,6 +36309,7 @@
         "alt": "Placa de dirección personalizada para despachos, oficinas y señalización interior"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "brand": "Repro Disseny",
       "price": 0,
       "priceCurrency": "EUR",
@@ -36319,6 +36576,7 @@
         "alt": "Portacuentas personalizados para restaurantes, hoteles y presentación de la cuenta"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-HORE-0010",
       "brand": "Reprodisseny",
       "price": 0,
@@ -36599,6 +36857,7 @@
         "alt": "Posavasos personalizados para bares, restaurantes, eventos y promociones"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-HORE-0011",
       "brand": "Reprodisseny",
       "price": 0,
@@ -36895,6 +37154,7 @@
         "alt": "Pósters personalizados impresos para campañas, escaparates y decoración comercial"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-OFICI-0004",
       "brand": "Reprodisseny",
       "price": 0,
@@ -37181,6 +37441,7 @@
         "alt": "Premios personalizados para eventos, reconocimientos y acciones corporativas"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-EVEN-0005",
       "brand": "Reprodisseny",
       "price": 0,
@@ -37463,6 +37724,7 @@
         "alt": "Puntos de libro personalizados para campañas, editoriales y regalos promocionales"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-OFICI-0009",
       "brand": "Reprodisseny",
       "price": 0,
@@ -37657,7 +37919,7 @@
     },
     {
       "id": "89",
-      "updatedAt": "2026-07-22T11:38:14Z",
+      "updatedAt": "2026-07-24T07:44:50Z",
       "type": "producto",
       "slug": "roll-up-personalizado",
       "path": "/productos/roll-up-personalizado",
@@ -37859,6 +38121,20 @@
         "alt": "Roll up personalizado impreso para ferias, eventos y presentaciones corporativas"
       },
       "galleryImages": [],
+      "relatedProductsJson": [
+        {
+          "productSlug": "xbanner-personalizado"
+        },
+        {
+          "productSlug": "photocall-personalizado"
+        },
+        {
+          "productSlug": "totems-publicitarios-personalizados"
+        },
+        {
+          "productSlug": "acreditaciones-personalizadas"
+        }
+      ],
       "sku": "01-EXPO-0001",
       "brand": "Reprodisseny",
       "price": 0,
@@ -38145,6 +38421,7 @@
         "alt": "Sellos de goma personalizados para oficina, documentación y gestión administrativa"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "brand": "Repro Disseny",
       "price": 0,
       "priceCurrency": "EUR",
@@ -38510,6 +38787,7 @@
         "alt": "Sobres personalizados para papelería corporativa, envíos y comunicación de empresa"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "brand": "Repro Disseny",
       "price": 0,
       "priceCurrency": "EUR",
@@ -38846,6 +39124,7 @@
         "alt": "Stoppers personalizados para lineal, promociones en tienda y punto de venta"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-OFICI-00010",
       "brand": "Reprodisseny",
       "price": 0,
@@ -39121,6 +39400,7 @@
         "alt": "Tabletens personalizados de sobremesa para eventos, restaurantes y comunicación comercial"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-EVEN-0014",
       "brand": "Reprodisseny",
       "price": 0,
@@ -39512,6 +39792,7 @@
         "alt": "Talonarios autocopiativos personalizados para pedidos, albaranes y documentación comercial"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "brand": "Repro Disseny",
       "price": 0,
       "priceCurrency": "EUR",
@@ -39942,6 +40223,7 @@
         "alt": "Tarjetas de PVC personalizadas para fidelización, acreditación y acceso"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-OFICI-0013",
       "brand": "Reprodisseny",
       "price": 0,
@@ -40402,6 +40684,7 @@
         "alt": "Tarjetas de visita personalizadas para imagen corporativa y presentación profesional"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "brand": "Repro Disseny",
       "price": 0,
       "priceCurrency": "EUR",
@@ -40719,6 +41002,7 @@
         "alt": "Tarjetas postales personalizadas para campañas, invitaciones y comunicación de marca"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-OFICI-0007",
       "brand": "Reprodisseny",
       "price": 0,
@@ -41108,6 +41392,7 @@
         "alt": "Tarjetas rasca personalizadas para promociones, sorteos y campañas comerciales"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-EVEN-0009",
       "brand": "Reprodisseny",
       "price": 0,
@@ -41470,6 +41755,7 @@
         "alt": "Tazas personalizadas corporativas para regalos de empresa, oficinas y merchandising"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-OFICI-0027",
       "brand": "Reprodisseny",
       "price": 0,
@@ -41718,6 +42004,7 @@
         "alt": "Textil reposacabezas personalizado para transporte, eventos y comunicación de marca"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-EVEN-0015",
       "brand": "Reprodisseny",
       "price": 0,
@@ -41972,6 +42259,7 @@
         "alt": "Tiras de lineal personalizadas para promociones, retail y señalización de producto"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-OFICI-0014",
       "brand": "Reprodisseny",
       "price": 0,
@@ -42243,6 +42531,7 @@
         "alt": "Tótems publicitarios personalizados para ferias, retail y comunicación de gran formato"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-EXPO-0003",
       "brand": "Reprodisseny",
       "price": 0,
@@ -42620,6 +42909,7 @@
         "alt": "Urna personalizada de cartón para sorteos, eventos y campañas promocionales"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "brand": "Repro Disseny",
       "price": 0,
       "priceCurrency": "EUR",
@@ -42978,6 +43268,7 @@
         "alt": "Vinilo de corte personalizado para rótulos, escaparates y señalización corporativa"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "brand": "Repro Disseny",
       "price": 0,
       "priceCurrency": "EUR",
@@ -43140,7 +43431,7 @@
     },
     {
       "id": "115",
-      "updatedAt": "2026-07-15T12:06:39Z",
+      "updatedAt": "2026-07-24T07:43:41Z",
       "type": "producto",
       "slug": "vinilo-para-cristal",
       "path": "/productos/vinilo-para-cristal",
@@ -43357,6 +43648,20 @@
         "alt": "Vinilo para cristal personalizado para escaparates, oficinas y campañas temporales"
       },
       "galleryImages": [],
+      "relatedProductsJson": [
+        {
+          "productSlug": "vinilo-de-corte"
+        },
+        {
+          "productSlug": "vinilos-superficies-planas"
+        },
+        {
+          "productSlug": "laminas-solares-para-cristales"
+        },
+        {
+          "productSlug": "vinilo-suelo-personalizado"
+        }
+      ],
       "brand": "Repro Disseny",
       "price": 0,
       "priceCurrency": "EUR",
@@ -43687,6 +43992,7 @@
         "alt": "Vinilo para pizarra escribible personalizado para oficinas, tiendas y espacios educativos"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "brand": "Repro Disseny",
       "price": 0,
       "priceCurrency": "EUR",
@@ -43918,6 +44224,7 @@
         "alt": "Vinilo para suelo personalizado para señalización, campañas y recorridos comerciales"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "brand": "Repro Disseny",
       "price": 0,
       "priceCurrency": "EUR",
@@ -44263,6 +44570,7 @@
         "alt": "Vinilo para vehículos personalizado para rotulación, branding y flotas corporativas"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "brand": "Repro Disseny",
       "price": 0,
       "priceCurrency": "EUR",
@@ -44572,6 +44880,7 @@
         "alt": "Vinilos para pared y superficies planas personalizados para decoración y señalización"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "brand": "Repro Disseny",
       "price": 0,
       "priceCurrency": "EUR",
@@ -44884,6 +45193,7 @@
         "alt": "X-Banner personalizado con gráfica impresa para ferias, tiendas y presentaciones"
       },
       "galleryImages": [],
+      "relatedProductsJson": [],
       "sku": "01-EXPO-0002",
       "brand": "Reprodisseny",
       "price": 0,

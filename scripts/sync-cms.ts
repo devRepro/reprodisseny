@@ -217,6 +217,7 @@ type ProductDto = {
   breadcrumbs: Array<{ name: string; url: string }>;
   image: ImageDto;
   galleryImages: unknown[];
+  relatedProductsJson: RelatedProductReference[];
   sku?: string;
   mpn?: string;
   gtin13?: string;
@@ -376,6 +377,7 @@ const PRODUCT_FIELDS = {
   imageHeight: "ImageHeight",
   imageAlt: "ImageAlt",
   galleryImagesJson: "GalleryImagesJson",
+  relatedProductsJson: "RelatedProductsJson",
   ogImageSrc: "OgImageSrc",
   attributesJson: "AttributesJson",
   variantsJson: "VariantsJson",
@@ -1234,8 +1236,19 @@ function parseFormFields(value: unknown): ProductDto["formFields"] {
   });
 }
 
-function parseRelatedProductsJson(value: unknown): RelatedProductReference[] {
-  const parsed = parseJsonLoose<unknown[]>(value, []);
+function parseRelatedProductsJson(
+  value: unknown,
+  limit: number,
+  context?: string,
+): RelatedProductReference[] {
+  const raw = str(value);
+  const parsed = parseJsonLoose<unknown>(value, null);
+
+  if (raw && parsed === null) {
+    warn(`${context || "RelatedProductsJson"}: JSON inválido; se usará una lista vacía.`);
+    return [];
+  }
+
   if (!Array.isArray(parsed)) return [];
 
   const seen = new Set<string>();
@@ -1257,7 +1270,7 @@ function parseRelatedProductsJson(value: unknown): RelatedProductReference[] {
       };
     })
     .filter((item): item is RelatedProductReference => Boolean(item))
-    .slice(0, 3);
+    .slice(0, limit);
 }
 
 
@@ -1967,6 +1980,8 @@ function buildCategory(item: GraphItem<Record<string, unknown>>): CategoryDto | 
     galleryImages: parseJsonLoose<unknown[]>(fields[CATEGORY_FIELDS.galleryImagesJson], []),
     relatedProductsJson: parseRelatedProductsJson(
       fields[CATEGORY_FIELDS.relatedProductsJson],
+      3,
+      `Categoría ${slug}: RelatedProductsJson`,
     ),
     breadcrumbs: [],
     legacySlugs: uniq(
@@ -2072,6 +2087,11 @@ function buildProduct(item: GraphItem<Record<string, unknown>>): ProductDto | nu
     galleryImages: parseJsonLoose<unknown[]>(
       fields[PRODUCT_FIELDS.galleryImagesJson],
       [],
+    ),
+    relatedProductsJson: parseRelatedProductsJson(
+      fields[PRODUCT_FIELDS.relatedProductsJson],
+      4,
+      `Producto ${slug}: RelatedProductsJson`,
     ),
     sku: str(fields[PRODUCT_FIELDS.sku]),
     mpn: str(fields[PRODUCT_FIELDS.mpn]),

@@ -372,7 +372,6 @@ export default defineNuxtConfig({
     },
 
     title: defaultSiteTitle,
-titleTemplate: "%s | Repro Disseny",
 
     meta: [
       {

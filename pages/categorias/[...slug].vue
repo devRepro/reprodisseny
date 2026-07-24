@@ -290,7 +290,11 @@ const galleryImages = computed<GalleryImage[]>(() => {
   return detailGallery.value;
 });
 
-const keywordPills = computed(() => category.value?.keywordPills ?? []);
+const relatedProducts = computed(() =>
+  Array.isArray(category.value?.relatedProducts)
+    ? category.value.relatedProducts
+    : []
+);
 
 const isPending = computed(() => status.value === "pending");
 
@@ -594,26 +598,11 @@ const detailsMedia = computed(() => {
       }
     : null;
 
-  const pills = (keywordPills.value || [])
-    .map((item) => {
-      const label = String(item?.label || "").trim();
-      const to = String(item?.to || "").trim();
-      const ariaLabel = String(item?.ariaLabel || "").trim();
-
-      return {
-        label,
-        to,
-        ariaLabel: ariaLabel || `Ver ${label}`,
-      };
-    })
-    .filter((item) => item.label && item.to)
-    .slice(0, 6);
-
-  if (!image && !pills.length) return null;
+  if (!image) return null;
 
   return {
     image,
-    pills,
+    pills: [],
   };
 });
 
@@ -642,13 +631,6 @@ const closingBannerImage = computed(() => {
 });
 
 const closingBannerPills = computed(() => {
-  const related = keywordPills.value
-    .map((item) => String(item?.label || "").trim())
-    .filter(Boolean)
-    .slice(0, 4);
-
-  if (related.length) return related;
-
   return children.value
     .map((item) => item?.title?.trim())
     .filter(Boolean)
@@ -805,6 +787,15 @@ const closingBannerPills = computed(() => {
               <FaqAccordion :items="faqs" />
             </ContentSectionShell>
           </div>
+
+          <CategoryProductsGrid
+            v-if="currentPage === 1 && relatedProducts.length"
+            :products="relatedProducts"
+            eyebrow="Productos relacionados"
+            title="También te puede interesar"
+            description="Descubre productos y soluciones relacionados con esta categoría."
+            container-class="container-content py-8 md:py-10"
+          />
 
           <!--<div :class="sectionSpacingCompactClass">
             <SectionSplitBanner

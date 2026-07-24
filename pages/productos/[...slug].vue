@@ -10,6 +10,7 @@ import GuideBanner from "@/components/marketing/GuideBanner.vue";
 import ContentSectionsRenderer from "@/components/marketing/content/ContentSectionsRenderer.vue";
 import FaqAccordion from "@/components/shared/blocks/FaqAccordion.vue";
 import ContentSectionShell from "@/components/marketing/content/ContentSectionShell.vue";
+import CategoryProductsGrid from "@/components/marketing/category/CategoryProductsGrid.vue";
 
 type GalleryImage = {
   src?: string;
@@ -514,6 +515,15 @@ useSeoMeta({
           >
             <FaqAccordion :items="faqs" />
           </ContentSectionShell>
+
+          <CategoryProductsGrid
+            v-if="product.relatedProducts?.length"
+            :products="product.relatedProducts"
+            eyebrow="También te puede interesar"
+            title="Completa tu proyecto"
+            description="Descubre otros productos y soluciones que pueden complementar este trabajo."
+            container-class="container-content py-8 md:py-10"
+          />
 
           <section aria-label="Guía de preparación de archivos">
             <GuideBanner
