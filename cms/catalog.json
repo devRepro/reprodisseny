@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-23T08:23:54.563Z",
+  "generatedAt": "2026-07-24T06:52:38.140Z",
   "categories": [
     {
       "id": "12",
@@ -320,7 +320,7 @@
     },
     {
       "id": "13",
-      "updatedAt": "2026-07-14T10:38:22Z",
+      "updatedAt": "2026-07-24T06:20:23Z",
       "type": "subcategoria",
       "slug": "material-rigido",
       "path": "/categorias/gran-formato/material-rigido",
@@ -439,7 +439,7 @@
         "src": "https://webcms.blob.core.windows.net/media/category/gran-formato-rigidos.webp",
         "width": 2400,
         "height": 1200,
-        "alt": "Material publicitario impreso para campañas, promociones y punto de venta"
+        "alt": "Impresión en soportes rígidos: Forex, Dibond, metacrilato y cartón"
       },
       "faqs": [
         {
@@ -5714,7 +5714,7 @@
     },
     {
       "id": "7",
-      "updatedAt": "2026-07-22T11:59:51Z",
+      "updatedAt": "2026-07-24T06:15:01Z",
       "type": "producto",
       "slug": "banderola-lona-fachada",
       "path": "/productos/banderola-lona-fachada",
@@ -5982,7 +5982,7 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Banderola luminosa para fachada",
+        "metaTitle": "Banderola de lona para fachada",
         "metaDescription": "Banderola de lona para fachada personalizada: impresión a color, medidas a medida y acabados de confección (vaina, ojales, refuerzo). Ideal para exterior.",
         "canonical": "https://reprodisseny.com/productos/banderola-lona-fachada",
         "hreflang": [
@@ -6301,7 +6301,7 @@
     },
     {
       "id": "8",
-      "updatedAt": "2026-07-15T08:19:48Z",
+      "updatedAt": "2026-07-24T06:19:10Z",
       "type": "producto",
       "slug": "banderolas-lineal-personalizadas",
       "path": "/productos/banderolas-lineal-personalizadas",
@@ -6438,7 +6438,7 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/banderolas-lineal.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Banderola de lona impresa para fachadas, campañas exteriores y comunicación comercial"
+        "alt": "Banderola de lineal personalizada para promociones y productos en punto de venta"
       },
       "galleryImages": [],
       "sku": "01-OFICI-0011",
@@ -8273,7 +8273,7 @@
     },
     {
       "id": "140",
-      "updatedAt": "2026-07-16T10:36:05Z",
+      "updatedAt": "2026-07-24T06:50:01Z",
       "type": "producto",
       "slug": "caja-almohada",
       "path": "/productos/caja-almohada",
@@ -8667,7 +8667,7 @@
     },
     {
       "id": "136",
-      "updatedAt": "2026-07-16T11:31:30Z",
+      "updatedAt": "2026-07-24T06:49:05Z",
       "type": "producto",
       "slug": "caja-automontable",
       "path": "/productos/caja-automontable",
@@ -9147,7 +9147,7 @@
     },
     {
       "id": "138",
-      "updatedAt": "2026-07-16T10:29:07Z",
+      "updatedAt": "2026-07-24T06:49:43Z",
       "type": "producto",
       "slug": "caja-cerillas",
       "path": "/productos/caja-cerillas",
@@ -9572,7 +9572,7 @@
     },
     {
       "id": "142",
-      "updatedAt": "2026-07-16T10:42:50Z",
+      "updatedAt": "2026-07-24T06:50:16Z",
       "type": "producto",
       "slug": "caja-cofre",
       "path": "/productos/caja-cofre",
@@ -10005,7 +10005,7 @@
     },
     {
       "id": "146",
-      "updatedAt": "2026-07-16T11:34:31Z",
+      "updatedAt": "2026-07-24T06:48:11Z",
       "type": "producto",
       "slug": "caja-envio",
       "path": "/productos/caja-envio",
@@ -10414,7 +10414,7 @@
     },
     {
       "id": "145",
-      "updatedAt": "2026-07-16T10:56:37Z",
+      "updatedAt": "2026-07-24T06:50:57Z",
       "type": "producto",
       "slug": "caja-desplegable-tapa",
       "path": "/productos/caja-desplegable-tapa",
@@ -10853,7 +10853,7 @@
     },
     {
       "id": "139",
-      "updatedAt": "2026-07-16T11:32:58Z",
+      "updatedAt": "2026-07-24T06:51:28Z",
       "type": "producto",
       "slug": "caja-envolvente",
       "path": "/productos/caja-envolvente",
@@ -11328,7 +11328,7 @@
     },
     {
       "id": "135",
-      "updatedAt": "2026-07-16T10:18:24Z",
+      "updatedAt": "2026-07-24T06:49:17Z",
       "type": "producto",
       "slug": "caja-estandar",
       "path": "/productos/caja-estandar",
@@ -11720,7 +11720,7 @@
     },
     {
       "id": "137",
-      "updatedAt": "2026-07-16T10:25:57Z",
+      "updatedAt": "2026-07-24T06:51:46Z",
       "type": "producto",
       "slug": "caja-porta-botella",
       "path": "/productos/caja-porta-botella",
@@ -18151,7 +18151,7 @@
     },
     {
       "id": "106",
-      "updatedAt": "2026-07-23T07:41:43Z",
+      "updatedAt": "2026-07-24T06:17:02Z",
       "type": "producto",
       "slug": "encuadernacion-wire-o-oculto",
       "path": "/productos/encuadernacion-wire-o-oculto",
@@ -18403,7 +18403,7 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Encuadernación Wire-O personalizada",
+        "metaTitle": "Encuadernación Wire-O oculta personalizada",
         "metaDescription": "Encuadernación Wire-O (doble espiral metálica) para manuales, dossiers y catálogos. Apertura 360º, páginas en plano y acabados profesionales.",
         "canonical": "https://reprodisseny.com/productos/encuadernacion-wire-o-oculto",
         "hreflang": [
@@ -18553,7 +18553,7 @@
     },
     {
       "id": "26",
-      "updatedAt": "2026-07-23T07:39:09Z",
+      "updatedAt": "2026-07-24T06:14:14Z",
       "type": "producto",
       "slug": "cosida-tapa-blanda",
       "path": "/productos/cosida-tapa-blanda",
@@ -18886,8 +18886,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Encuadernación encolada con tapa blanda",
-        "metaDescription": "Encuadernación encolada tapa blanda (rústica fresada) para libros, catálogos y revistas. Acabado profesional, lomo impreso y opciones de papel y laminado.",
+        "metaTitle": "Encuadernación cosida tapa blanda",
+        "metaDescription": "Encuadernación cosida con tapa blanda para libros, catálogos y publicaciones profesionales. Mayor resistencia, buena apertura y acabados a medida.",
         "canonical": "https://reprodisseny.com/productos/cosida-tapa-blanda",
         "hreflang": [
           {
@@ -18935,7 +18935,7 @@
             {
               "@type": "Product",
               "name": "Encuadernación cosida tapa blanda",
-              "description": "Encuadernación encolada tapa blanda (rústica fresada) para libros, catálogos y revistas. Acabado profesional, lomo impreso y opciones de papel y laminado.",
+              "description": "Encuadernación cosida con tapa blanda para libros, catálogos y publicaciones profesionales. Mayor resistencia, buena apertura y acabados a medida.",
               "image": "https://webcms.blob.core.windows.net/media/product/publicaciones/encuadernacion-cosida-tapa-blanda.webp",
               "url": "https://reprodisseny.com/productos/cosida-tapa-blanda",
               "brand": {
@@ -19712,7 +19712,7 @@
     },
     {
       "id": "107",
-      "updatedAt": "2026-05-05T16:19:28Z",
+      "updatedAt": "2026-07-24T06:16:29Z",
       "type": "producto",
       "slug": "encuadernacion-wire-o",
       "path": "/productos/encuadernacion-wire-o",
@@ -19911,7 +19911,7 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Encuadernación Wire-O personalizada",
+        "metaTitle": "Encuadernación Wire-O doble personalizada",
         "metaDescription": "Encuadernación Wire-O (doble espiral metálica) para manuales, dossiers y catálogos. Apertura 360º, páginas en plano y acabados profesionales. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/encuadernacion-wire-o",
         "hreflang": [
@@ -22713,7 +22713,7 @@
     },
     {
       "id": "141",
-      "updatedAt": "2026-07-16T10:39:25Z",
+      "updatedAt": "2026-07-24T06:52:04Z",
       "type": "producto",
       "slug": "faja-para-caja",
       "path": "/productos/faja-para-caja",

@@ -177,10 +177,79 @@ function auditFormats(entityType, item, columns) {
     return results;
 }
 
+function auditRelatedProducts(product, publishedProducts) {
+    const references = product.relatedProductsJson ?? product.RelatedProductsJson;
+    if (references == null || references === "") return [];
+
+    const parsed = typeof references === "string" ? parseJson(references) : {
+        status: "json",
+        value: references,
+    };
+
+    if (parsed.status !== "json" || !Array.isArray(parsed.value)) return [{
+        type: "product",
+        slug: product.slug,
+        title: product.title,
+        field: "relatedProductsJson",
+        issue: parsed.status === "invalid-json" ? "invalid-json" : "invalid-json-shape",
+        details: parsed.error || "Debe ser un array JSON.",
+    }];
+
+    const issues = [];
+    const seen = new Set();
+
+    if (parsed.value.length > 4) {
+        issues.push({
+            issue: "too-many-related-products",
+            details: `${parsed.value.length} referencias; el máximo es 4.`,
+        });
+    }
+
+    for (const reference of parsed.value) {
+        const slug = String(reference?.productSlug ?? reference?.slug ?? "")
+            .trim()
+            .replace(/^\/+|\/+$/g, "")
+            .split("/")
+            .filter(Boolean)
+            .at(-1);
+
+        if (!slug) continue;
+
+        if (slug === product.slug) {
+            issues.push({ issue: "related-product-self-reference", details: slug });
+        } else if (seen.has(slug)) {
+            issues.push({ issue: "duplicate-related-product", details: slug });
+        } else if (!publishedProducts.has(slug)) {
+            issues.push({ issue: "missing-related-product", details: slug });
+        }
+
+        seen.add(slug);
+    }
+
+    return issues.map((issue) => ({
+        type: "product",
+        slug: product.slug,
+        title: product.title,
+        field: "relatedProductsJson",
+        ...issue,
+    }));
+}
+
+const publishedProducts = new Set(
+    catalog.products
+        .filter((product) => product.isPublished !== false)
+        .flatMap((product) => [
+            String(product.slug ?? "").trim(),
+            String(product.path ?? "").split("/").filter(Boolean).at(-1) || "",
+        ])
+        .filter(Boolean),
+);
+
 const issues = [
     ...catalog.products.flatMap((product) => [
         ...auditStructured("product", product, productStructuredColumns),
         ...auditFormats("product", product, productFormatColumns),
+        ...auditRelatedProducts(product, publishedProducts),
     ]),
     ...catalog.categories.flatMap((category) => [
         ...auditStructured("category", category, categoryStructuredColumns),
