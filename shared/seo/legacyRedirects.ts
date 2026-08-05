@@ -7,18 +7,12 @@ export const LEGACY_HOSTS = [
   "calendarios.reprodisseny.com",
 ] as const;
 
+/**
+ * Redirecciones manuales decididas en la revisión de Google Search Console.
+ * No duplicar estos orígenes en redirect-rules.generated.ts.
+ */
 export const MANUAL_LEGACY_REDIRECTS = {
-  "/product/imprimir-fotos-en-lienzos-presupuesto": "/productos/carteles-personalizados-gran-formato",
-  "/product/imprimir-fotos-en-lienzos-presupuesto/printestimate": "/productos/carteles-personalizados-gran-formato",
-
-  "/producto/lienzos": "/productos/carteles-personalizados-gran-formato",
-  "/producte/lienzos": "/productos/carteles-personalizados-gran-formato",
-
-  "/ca/producte/samarretes": "/productos/dorsales-carrera",
-  "/ca/p/ca/producte/samarretes": "/productos/dorsales-carrera",
-  "/producte/samarretes": "/productos/dorsales-carrera",
-
-  "/producto/delantal": "/categorias/hosteleria-restauracion",
+  "/product/banderas-personalizadas-presupuesto": "/productos/banderolas-personalizadas",
 } as const;
 
 export const LEGACY_GONE_PREFIXES = [
@@ -56,4 +50,15 @@ export const LEGACY_GONE_PATHS = [
   "/product/diseno-tarjeta-8555-2c",
   "/product/diseno-tarjeta-8555-1c",
   "/xmlrpc.php",
+] as const;
+
+/**
+ * Clasificaciones del Excel corregidas tras comprobar que no existe un
+ * sustituto equivalente. Estas rutas deben conservar una respuesta 404 real.
+ */
+export const LEGACY_NOT_FOUND_PATHS = [
+  "/page/aviso-legal",
+  // Producto futuro: revisar cuando exista una URL canónica publicada.
+  "/page/rosa-sant-jordi",
+  "/page/darse-de-baja",
 ] as const;

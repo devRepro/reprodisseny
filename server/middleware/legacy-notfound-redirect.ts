@@ -25,19 +25,12 @@ import {
  * - Canonicalizar hosts legacy hacia https://reprodisseny.com.
  * - Redirigir queries legacy conocidas hacia URLs limpias.
  *
- * Mantener los 301 con equivalente real en redirect-rules.generated.ts.
- * Usar MANUAL_LEGACY_REDIRECTS solo para correcciones puntuales de GSC
- * cuando el destino correcto no exista todavía en redirect-rules.generated.ts
- * o cuando haya que sobrescribir una regla antigua demasiado genérica.
+ * Mantener los 301 generales en redirect-rules.generated.ts y las decisiones
+ * manuales de GSC únicamente en MANUAL_LEGACY_REDIRECTS.
  */
 
 const legacyHosts = new Set<string>(LEGACY_HOSTS)
 
-/**
- * Overrides manuales revisados desde el Excel de GSC.
- * Tienen prioridad sobre redirectRouteRules porque algunas reglas legacy
- * existentes apuntan a destinos demasiado genéricos.
- */
 const legacyGonePaths = new Set<string>(LEGACY_GONE_PATHS)
 
 type RedirectRule = {
@@ -48,6 +41,7 @@ type RedirectRule = {
 }
 
 const routeRules = redirectRouteRules as unknown as Record<string, RedirectRule>
+const manualRedirects = MANUAL_LEGACY_REDIRECTS as Record<string, string>
 
 function safeDecodeURIComponent(value: string) {
   try {
@@ -96,24 +90,18 @@ function isSafeInternalDestination(destination: string) {
   return destination.startsWith("/") && !destination.startsWith("//")
 }
 
-function getManualRedirect(path: string) {
-  const destination = (MANUAL_LEGACY_REDIRECTS as Record<string, string>)[path]
-
-  if (!destination) return null
-  if (!isSafeInternalDestination(destination)) return null
-  if (destination === path) return null
-
-  return {
-    to: destination,
-    statusCode: 301,
-  }
-}
-
 function getMappedRedirect(path: string) {
-  const manualDestination = getManualRedirect(path)
+  const manualDestination = manualRedirects[path]
 
-  if (manualDestination) {
-    return manualDestination
+  if (
+    manualDestination &&
+    isSafeInternalDestination(manualDestination) &&
+    manualDestination !== path
+  ) {
+    return {
+      to: manualDestination,
+      statusCode: 301,
+    }
   }
 
   const rule = routeRules[path]

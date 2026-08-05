@@ -6,6 +6,7 @@ import { redirectRouteRules } from "../redirect-rules.generated";
 import {
   LEGACY_GONE_PATHS,
   LEGACY_GONE_PREFIXES,
+  LEGACY_NOT_FOUND_PATHS,
   MANUAL_LEGACY_REDIRECTS,
 } from "../shared/seo/legacyRedirects";
 
@@ -20,7 +21,7 @@ type RedirectEntry = {
   from: string;
   to: string;
   statusCode: number;
-  source: "manual" | "generated";
+  source: "generated" | "manual";
 };
 
 const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -98,11 +99,7 @@ function collectManualRedirects() {
 function buildEffectiveRedirects(entries: RedirectEntry[]) {
   const effective = new Map<string, RedirectEntry>();
 
-  for (const entry of entries.filter((item) => item.source === "generated")) {
-    effective.set(entry.from, entry);
-  }
-
-  for (const entry of entries.filter((item) => item.source === "manual")) {
+  for (const entry of entries) {
     effective.set(entry.from, entry);
   }
 
@@ -191,6 +188,12 @@ const effectiveRedirects = buildEffectiveRedirects(allRedirects);
 const errors: string[] = [];
 const warnings: string[] = [];
 
+for (const manualRedirect of manualRedirects) {
+  if (generatedRedirects.some((entry) => entry.from === manualRedirect.from)) {
+    errors.push(`redirect manual duplicado en generated: ${manualRedirect.from}`);
+  }
+}
+
 for (const entry of allRedirects) {
   validateConfiguredPath(`${entry.source} redirect origen`, entry.from, errors);
   validateConfiguredPath(`${entry.source} redirect destino`, entry.to, errors);
@@ -235,14 +238,16 @@ for (const gonePrefix of LEGACY_GONE_PREFIXES) {
   });
 }
 
-for (const manualRedirect of manualRedirects) {
-  const generatedRedirect = generatedRedirects.find((entry) => entry.from === manualRedirect.from);
+for (const notFoundPath of LEGACY_NOT_FOUND_PATHS) {
+  validateConfiguredPath("404 path", notFoundPath, errors);
 
-  if (!generatedRedirect) continue;
+  if (effectiveRedirects.has(notFoundPath)) {
+    errors.push(`404 path ${notFoundPath}: también está configurado como redirect`);
+  }
 
-  warnings.push(
-    `manual ${manualRedirect.from} tiene prioridad sobre generated ${generatedRedirect.from} -> ${generatedRedirect.to}`,
-  );
+  if (isGonePath(notFoundPath)) {
+    errors.push(`404 path ${notFoundPath}: también está configurado como 410`);
+  }
 }
 
 const redirectChains = findRedirectChains(effectiveRedirects);
@@ -261,6 +266,7 @@ console.log(`Redirects validados: ${effectiveRedirects.size}`);
 console.log(
   `URLs 410 validadas: ${LEGACY_GONE_PATHS.length + LEGACY_GONE_PREFIXES.length} (${LEGACY_GONE_PATHS.length} paths, ${LEGACY_GONE_PREFIXES.length} prefijos)`,
 );
+console.log(`URLs 404 explícitas validadas: ${LEGACY_NOT_FOUND_PATHS.length}`);
 
 if (errors.length) {
   console.error(`\nErrores bloqueantes (${errors.length})`);

@@ -421,7 +421,6 @@ export const redirectRouteRules = {
   "/product/punto-de-libro-presupuesto": { redirect: { to: "/productos/puntos-de-libro-personalizados", statusCode: 301 } },
   "/product/doming-gota-resina-presupuesto": { redirect: { to: "/productos/etiquetas-doming", statusCode: 301 } },
   "/product/vinilo-alta-adherencia-presupuesto": { redirect: { to: "/categorias/adhesivos-personalizados", statusCode: 301 } },
-  "/page/aviso-legal": { redirect: { to: "/aviso-legal", statusCode: 301 } },
   "/product/manteles-individuales-presupuesto": { redirect: { to: "/productos/manteles-individuales-personalizados", statusCode: 301 } },
   "/product/calendario-sobremesa-presupuesto": { redirect: { to: "/productos/calendarios-personalizados", statusCode: 301 } },
 } as const ;

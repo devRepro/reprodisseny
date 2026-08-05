@@ -1,9 +1,17 @@
+import { readFileSync } from "node:fs";
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { performance } from "node:perf_hooks";
 import { fileURLToPath } from "node:url";
 
 import * as XLSX from "xlsx";
+
+import {
+  LEGACY_GONE_PATHS,
+  LEGACY_GONE_PREFIXES,
+  LEGACY_NOT_FOUND_PATHS,
+  MANUAL_LEGACY_REDIRECTS,
+} from "../shared/seo/legacyRedirects";
 
 const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const auditDir = path.join(rootDir, "seo-audit");
@@ -162,7 +170,7 @@ async function followRedirects(startPath: string): Promise<FollowResult> {
 }
 
 function readRows(): AuditRow[] {
-  const workbook = XLSX.readFile(excelPath);
+  const workbook = XLSX.read(readFileSync(excelPath), { type: "buffer" });
   const sheet = workbook.Sheets.URLs;
 
   if (!sheet) {
@@ -173,15 +181,42 @@ function readRows(): AuditRow[] {
     defval: "",
   });
 
-  return records.map((record, index) => ({
-    rowNumber: index + 2,
-    url: String(record.URL ?? "").trim(),
-    path: normalizePath(String(record.Path ?? "").trim()),
-    action: String(record["Accion propuesta"] ?? record["Acción propuesta"] ?? "").trim() as Action,
-    proposedDestination: normalizePath(String(record["Destino propuesto"] ?? "").trim()),
-    confidence: String(record.Confianza ?? "").trim(),
-    reason: String(record.Motivo ?? "").trim(),
-  }));
+  const notFoundPaths = new Set<string>(LEGACY_NOT_FOUND_PATHS);
+  const gonePaths = new Set<string>(LEGACY_GONE_PATHS);
+  const manualRedirects = MANUAL_LEGACY_REDIRECTS as Record<string, string>;
+
+  return records.map((record, index) => {
+    const path = normalizePath(String(record.Path ?? "").trim());
+    const correctedAsNotFound = notFoundPaths.has(path);
+    const correctedAsGone = gonePaths.has(path) || LEGACY_GONE_PREFIXES.some((prefix) => path.startsWith(prefix));
+    const manualDestination = manualRedirects[path];
+
+    return {
+      rowNumber: index + 2,
+      url: String(record.URL ?? "").trim(),
+      path,
+      action: manualDestination
+        ? "301"
+        : correctedAsGone
+          ? "410"
+          : correctedAsNotFound
+            ? "404"
+            : String(record["Accion propuesta"] ?? record["Acción propuesta"] ?? "").trim() as Action,
+      proposedDestination: manualDestination
+        ? manualDestination
+        : correctedAsGone || correctedAsNotFound
+          ? ""
+          : normalizePath(String(record["Destino propuesto"] ?? "").trim()),
+      confidence: String(record.Confianza ?? "").trim(),
+      reason: manualDestination
+        ? "Clasificación definitiva: producto equivalente confirmado"
+        : correctedAsGone
+          ? "Clasificación definitiva: contenido eliminado sin sustituto"
+          : correctedAsNotFound
+            ? "Clasificación definitiva: no existe sustituto equivalente"
+            : String(record.Motivo ?? "").trim(),
+    };
+  });
 }
 
 function formatChain(chain: RowResult["chain"]) {
@@ -428,6 +463,16 @@ function makeMainReport(results: RowResult[], totalSeconds: number) {
 
 function makeReviewReport(results: RowResult[]) {
   const reviewResults = results.filter((result) => result.row.action === "REVISAR");
+
+  if (!reviewResults.length) {
+    return [
+      "# Revisión manual cerrada",
+      "",
+      "Las 122 URLs tienen una clasificación definitiva. No quedan casos REVISAR.",
+      "",
+    ].join("\n");
+  }
+
   const lines = [
     "# Revision manual pendiente",
     "",
