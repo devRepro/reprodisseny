@@ -33,7 +33,10 @@ export const SPF = {
   CONSENT: "Consent",
   CATEGORY_SLUG: "CategorySlug",
   PRODUCT_SLUG: "ProductSlug",
+  TRACKING_SOURCE: "TrackingSource",
+  TRACKING_MEDIUM: "TrackingMedium",
+  TRACKING_CAMPAIGN: "TrackingCampaign",
+  TRACKING_CAMPAIGN_ID: "TrackingCampaignId",
   UTM_JSON: "UtmJson",
   SOURCE_URL: "SourceUrl",
   } as const
-  

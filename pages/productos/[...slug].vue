@@ -20,6 +20,10 @@ type GalleryImage = {
   height?: number | null;
 };
 
+type ProductDetailWithSku = ProductDetailDto & {
+  sku?: unknown;
+};
+
 const route = useRoute();
 const config = useRuntimeConfig();
 
@@ -70,6 +74,14 @@ function normalizeGalleryImages(value: unknown): GalleryImage[] {
       };
     })
     .filter((image) => image.src);
+}
+
+function normalizeSku(value: unknown): string | null {
+  if (typeof value !== "string") return null;
+
+  const sku = value.trim();
+
+  return sku || null;
 }
 
 const slug = computed(() =>
@@ -301,7 +313,7 @@ const heroProduct = computed(() => {
 
     categorySlug: current.category?.slug || "",
 
-    sku: (current as ProductDetailDto & { sku?: unknown }).sku ?? null,
+    sku: normalizeSku((current as ProductDetailWithSku).sku),
 
     seo: {
       canonical: current.seo?.canonical,

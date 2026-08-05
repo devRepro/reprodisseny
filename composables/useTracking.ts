@@ -7,13 +7,15 @@ import type {
 } from "~/types/tracking"
 import { getAttribution } from "~/utils/tracking/attribution"
 
+type TrackingContextInput = Partial<TrackingContext>
+
 declare global {
   interface Window {
     dataLayer?: Record<string, unknown>[]
   }
 }
 
-function toDataLayerContext(context?: TrackingContext) {
+function toDataLayerContext(context?: TrackingContextInput) {
   if (!context) return {}
 
   return {
@@ -37,11 +39,11 @@ function resolveAttributionForLead(attribution: ReturnType<typeof getAttribution
   return last || first || null
 }
 
-export function useTracking(defaultContext?: TrackingContext) {
+export function useTracking(defaultContext?: TrackingContextInput) {
   function pushEvent(
     event: TrackingEventName,
     payload: TrackingPayload = {},
-    context?: TrackingContext,
+    context?: TrackingContextInput,
   ) {
     if (!import.meta.client) return
 
@@ -83,7 +85,7 @@ export function useTracking(defaultContext?: TrackingContext) {
     })
   }
 
-  function getTrackingPayloadForLead(context?: TrackingContext) {
+  function getTrackingPayloadForLead(context?: TrackingContextInput) {
     if (!import.meta.client) {
       return {
         context: {
@@ -110,7 +112,7 @@ export function useTracking(defaultContext?: TrackingContext) {
     }
   }
 
-  function getSharePointTrackingFields(context?: TrackingContext) {
+  function getSharePointTrackingFields(context?: TrackingContextInput) {
     if (!import.meta.client) {
       return {
         TrackingSource: "unknown",
@@ -173,7 +175,7 @@ export function useTracking(defaultContext?: TrackingContext) {
 
   function pushGenerateLeadEvent(params: {
     requestKey: string
-    context?: TrackingContext
+    context?: TrackingContextInput
     value?: number | null
     currency?: string | null
   }) {
