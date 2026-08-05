@@ -15,6 +15,16 @@ export const MANUAL_LEGACY_REDIRECTS = {
   "/product/banderas-personalizadas-presupuesto": "/productos/banderolas-personalizadas",
 } as const;
 
+/**
+ * Rutas internas que deben seguir accesibles con 200, pero no indexarse ni
+ * formar parte del sitemap.
+ */
+export const MANUAL_NOINDEX_PATHS = {
+  "/buscar": "noindex, follow",
+  "/gracias": "noindex, nofollow",
+  "/novedades": "noindex, follow",
+} as const;
+
 export const LEGACY_GONE_PREFIXES = [
   "/assets/Download/",
   "/DefaultCaptcha/",
@@ -49,6 +59,7 @@ export const LEGACY_GONE_PATHS = [
   "/product/plantilla-tarjeta-7",
   "/product/diseno-tarjeta-8555-2c",
   "/product/diseno-tarjeta-8555-1c",
+  "/promo-test",
   "/xmlrpc.php",
 ] as const;
 

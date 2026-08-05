@@ -1,6 +1,7 @@
 // nuxt.config.ts
 import { defineNuxtConfig } from "nuxt/config";
 import { redirectRouteRules } from "./redirect-rules.generated";
+import { MANUAL_NOINDEX_PATHS } from "./shared/seo/legacyRedirects";
 
 const siteUrl =
   process.env.NUXT_SITE_URL ||
@@ -482,6 +483,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   },
 
   routeRules: {
+  ...Object.fromEntries(
+    Object.entries(MANUAL_NOINDEX_PATHS).map(([path, robots]) => [
+      path,
+      { robots },
+    ]),
+  ),
+
   "/categorias/**": {
     cache: false,
   },
