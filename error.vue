@@ -14,6 +14,10 @@ const props = defineProps<{
 const statusCode = computed(() => props.error?.statusCode ?? 500);
 const is404 = computed(() => statusCode.value === 404);
 
+useSeoMeta({
+  robots: "noindex, follow",
+});
+
 const eyebrow = computed(() => {
   return is404.value ? "Error 404" : `Error ${statusCode.value}`;
 });

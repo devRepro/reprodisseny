@@ -4,13 +4,15 @@ import type { SitemapUrlInput } from "#sitemap/types";
 
 import routes from "~/cms/routes.json";
 import catalog from "~/cms/catalog.json";
+import { MANUAL_NOINDEX_PATHS } from "~/shared/seo/legacyRedirects";
 
 const SITE_URL = "https://reprodisseny.com";
 const MEDIA_BLOB_ORIGIN = "https://webcms.blob.core.windows.net";
 const MEDIA_CDN_ORIGIN = "https://media.reprodisseny.com";
 
 const excludedExactPaths = new Set([
-  "/gracias",
+  ...Object.keys(MANUAL_NOINDEX_PATHS),
+  "/promo-test",
 ]);
 
 const excludedPrefixes = [
