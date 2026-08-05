@@ -1,5 +1,5 @@
 // server/api/__sitemap__/urls.ts
-import { defineSitemapEventHandler } from "#imports";
+import { defineEventHandler } from "h3";
 import type { SitemapUrlInput } from "#sitemap/types";
 
 import routes from "~/cms/routes.json";
@@ -189,7 +189,7 @@ function buildCatalogIndex() {
   return index;
 }
 
-export default defineSitemapEventHandler(() => {
+export default defineEventHandler(() => {
   const seen = new Set<string>();
   const catalogIndex = buildCatalogIndex();
 

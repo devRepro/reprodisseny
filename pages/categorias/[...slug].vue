@@ -12,7 +12,10 @@ import ContentProcessSteps, {
   type ProcessStepItem,
 } from "@/components/marketing/content/ContentProcessSteps.vue";
 import GuideBanner from "@/components/marketing/GuideBanner.vue";
-import { buildCategoryPageSchema } from "~/utils/seo/buildCategoryPageSchema";
+import {
+  buildCategoryPageSchema,
+  type CategorySchemaItem,
+} from "~/utils/seo/buildCategoryPageSchema";
 
 type CategoryHowWeWork = {
   title?: string;
@@ -27,6 +30,12 @@ type GalleryImage = {
   width?: number | null;
   height?: number | null;
 };
+
+function isCategorySchemaItem(
+  item: CategorySchemaItem | null,
+): item is CategorySchemaItem {
+  return item !== null;
+}
 
 const route = useRoute();
 const config = useRuntimeConfig();
@@ -468,9 +477,9 @@ const schemaBreadcrumbs = computed(() => {
   return items;
 });
 
-const schemaItems = computed(() =>
+const schemaItems = computed<CategorySchemaItem[]>(() =>
   products.value
-    .map((product: any) => {
+    .map((product: any): CategorySchemaItem | null => {
       const name = String(
         product?.title ||
           product?.name ||
@@ -502,7 +511,7 @@ const schemaItems = computed(() =>
         ...(image ? { image } : {}),
       };
     })
-    .filter(Boolean)
+    .filter(isCategorySchemaItem)
 );
 
 const categoryPageSchema = computed(() =>

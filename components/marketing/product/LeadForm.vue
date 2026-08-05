@@ -311,15 +311,15 @@ const { sendPriceRequest, isLoading, error } = usePriceRequests();
 const tracking = useTracking();
 
 
-function getTrackingContext(slug: string): TrackingContext {
+function getTrackingContext(slug?: string | null): TrackingContext {
   return {
     pageType: "product",
     pageLanguage: "es",
     contentGroup: "producto",
     serviceName: props.producto,
-    campaignName: null,
-    campaignId: null,
-    productSlug: slug || props.productData?.slug || null,
+    campaignName: undefined,
+    campaignId: undefined,
+    productSlug: slug || props.productData?.slug || undefined,
     categorySlug: props.categorySlug,
     formId: "product_lead_form",
     formName: "price_request",
