@@ -8,6 +8,13 @@ import {
 } from "h3"
 
 import { redirectRouteRules } from "../../redirect-rules.generated"
+import {
+  CANONICAL_ORIGIN,
+  LEGACY_GONE_PATHS,
+  LEGACY_GONE_PREFIXES,
+  LEGACY_HOSTS,
+  MANUAL_LEGACY_REDIRECTS,
+} from "../../shared/seo/legacyRedirects"
 
 /**
  * Limpieza SEO de URLs legacy para Google Search Console.
@@ -24,63 +31,14 @@ import { redirectRouteRules } from "../../redirect-rules.generated"
  * o cuando haya que sobrescribir una regla antigua demasiado genérica.
  */
 
-const CANONICAL_ORIGIN = "https://reprodisseny.com"
-
-const LEGACY_HOSTS = new Set([
-  "www.reprodisseny.com",
-  "demo.reprodisseny.com",
-  "blog.reprodisseny.com",
-  "calendarios.reprodisseny.com",
-])
+const legacyHosts = new Set<string>(LEGACY_HOSTS)
 
 /**
  * Overrides manuales revisados desde el Excel de GSC.
  * Tienen prioridad sobre redirectRouteRules porque algunas reglas legacy
  * existentes apuntan a destinos demasiado genéricos.
  */
-const MANUAL_LEGACY_REDIRECTS: Record<string, string> = {
-  "/product/imprimir-fotos-en-lienzos-presupuesto": "/productos/carteles-personalizados-gran-formato",
-  "/product/imprimir-fotos-en-lienzos-presupuesto/printestimate": "/productos/carteles-personalizados-gran-formato",
-
-  "/producto/lienzos": "/productos/carteles-personalizados-gran-formato",
-  "/producte/lienzos": "/productos/carteles-personalizados-gran-formato",
-
-  "/ca/producte/samarretes": "/productos/dorsales-carrera",
-  "/ca/p/ca/producte/samarretes": "/productos/dorsales-carrera",
-  "/producte/samarretes": "/productos/dorsales-carrera",
-
-  "/producto/delantal": "/categorias/hosteleria-restauracion",
-}
-
-const LEGACY_GONE_PREFIXES = [
-  "/assets/Download/",
-  "/DefaultCaptcha/",
-  "/Cart/",
-  "/cart/",
-  "/author/",
-  "/tag/",
-  "/blog/",
-  "/wp-content/",
-  "/wp-includes/",
-  "/wp-json/",
-] as const
-
-const LEGACY_GONE_PATHS = new Set([
-  "/Content/404.html",
-  "/Orders/GetOrderItemProofFiles",
-  "/feed",
-  "/productfileupload",
-  "/savedforlater",
-  "/settings",
-  "/blog",
-  "/page/escoles",
-  "/adevinta-estrena-nuevas-oficinas",
-  "/adevinta-estrena-nuevas-oficines",
-  "/web2print-corporativa-adevinta",
-  "/ca/manual-para-hacer-un-buen-flyer",
-  "/manual-para-hacer-un-buen-flyer",
-  "/xmlrpc.php",
-])
+const legacyGonePaths = new Set<string>(LEGACY_GONE_PATHS)
 
 type RedirectRule = {
   redirect?: {
@@ -139,7 +97,7 @@ function isSafeInternalDestination(destination: string) {
 }
 
 function getManualRedirect(path: string) {
-  const destination = MANUAL_LEGACY_REDIRECTS[path]
+  const destination = (MANUAL_LEGACY_REDIRECTS as Record<string, string>)[path]
 
   if (!destination) return null
   if (!isSafeInternalDestination(destination)) return null
@@ -172,7 +130,7 @@ function getMappedRedirect(path: string) {
 }
 
 function isLegacyGonePath(path: string) {
-  if (LEGACY_GONE_PATHS.has(path)) return true
+  if (legacyGonePaths.has(path)) return true
 
   return LEGACY_GONE_PREFIXES.some((prefix) => path.startsWith(prefix))
 }
@@ -222,7 +180,7 @@ function throwGone() {
 export default defineEventHandler((event) => {
   const url = getRequestURL(event)
   const currentPath = normalizeLegacyPath(url.pathname)
-  const isLegacyHost = LEGACY_HOSTS.has(url.hostname)
+  const isLegacyHost = legacyHosts.has(url.hostname)
 
   const rootQueryDestination = resolveLegacyRootQuery(url)
 
