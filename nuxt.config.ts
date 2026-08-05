@@ -44,6 +44,10 @@ const defaultSiteDescription =
   "Impresión profesional en Barcelona: impresión digital y offset, gran formato, vinilos, PLV, packaging y soluciones gráficas para empresas.";
 
 export default defineNuxtConfig({
+  features: {
+    inlineStyles: false,
+  },
+
   experimental: {
     payloadExtraction: process.env.NODE_ENV === "production",
     appManifest: false,
