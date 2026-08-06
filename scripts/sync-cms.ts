@@ -4,6 +4,17 @@ import dotenv from "dotenv";
 import { Client } from "@microsoft/microsoft-graph-client";
 import "isomorphic-fetch";
 import { ClientSecretCredential } from "@azure/identity";
+import {
+  applySyncOutputs,
+  buildCatalogDiff,
+  buildSyncReport,
+  parseEditorialJson,
+  renderSyncReport,
+  validateCatalogState,
+  writeReportFiles,
+  type CatalogSnapshot,
+  type SyncIssue,
+} from "./sync-cms-core";
 
 dotenv.config({ path: ".env.imports", override: true });
 
@@ -304,6 +315,7 @@ if (!SHAREPOINT_SITE_ID && (!CMS_SITE_HOSTNAME || !CMS_SITE_PATH)) {
 }
 
 const warnings: string[] = [];
+const editorialIssues: SyncIssue[] = [];
 const warn = (message: string): void => {
   warnings.push(message);
 };
@@ -396,6 +408,16 @@ const PRODUCT_FIELDS = {
 
 const CATEGORY_SELECT = [...new Set(Object.values(CATEGORY_FIELDS))];
 const PRODUCT_SELECT = [...new Set(Object.values(PRODUCT_FIELDS))];
+
+const CATEGORY_JSON_FIELDS = Object.entries(CATEGORY_FIELDS).filter(([key]) => key.endsWith("Json"));
+const PRODUCT_JSON_FIELDS = Object.entries(PRODUCT_FIELDS).filter(([key]) => key.endsWith("Json"));
+const STRUCTURED_MD_FIELDS = [
+  CATEGORY_FIELDS.formatsMd,
+  CATEGORY_FIELDS.finishesMd,
+  PRODUCT_FIELDS.materialsMd,
+  PRODUCT_FIELDS.formatsMd,
+  PRODUCT_FIELDS.finishesMd,
+] as const;
 
 const CATEGORY_SECTION_TITLES: Record<string, string> = {
   details: "Detalles y características",
@@ -507,6 +529,16 @@ function createMarkdownSection<K extends ContentSectionKind>(
     contentFormat: "markdown",
     body,
   };
+}
+
+function createLiteralMarkdownSection<K extends ContentSectionKind>(
+  id: K,
+  title: string,
+  value: unknown,
+): MarkdownContentSection<K> | null {
+  const body = normalizeMarkdown(value);
+  if (!body) return null;
+  return { id, key: id, title, kind: id, contentFormat: "markdown", body };
 }
 
 function createTypesSection(
@@ -751,19 +783,13 @@ function parseJsonLoose<T>(value: unknown, fallback: T): T {
   if (value == null) return fallback;
   if (typeof value === "object") return value as T;
 
-  let text = str(value);
+  const text = str(value);
   if (!text) return fallback;
-
-  text = extractJsonFragment(normalizeSmartQuotes(text));
 
   try {
     return JSON.parse(text) as T;
   } catch {
-    try {
-      return JSON.parse(escapeControlChars(text)) as T;
-    } catch {
-      return fallback;
-    }
+    return fallback;
   }
 }
 
@@ -1139,69 +1165,51 @@ async function fetchAllItems<T extends Record<string, unknown>>(
   return items;
 }
 
-function parseFaqs(value: unknown): Array<{ question: string; answer: string }> {
+function validateRawEditorialJson(
+  items: Array<GraphItem<Record<string, unknown>>>,
+  entityType: "category" | "product",
+  jsonFields: Array<[string, string]>,
+): void {
+  for (const item of items) {
+    const fields = item.fields || {};
+    const rawSlug = entityType === "category"
+      ? fields[CATEGORY_FIELDS.slug]
+      : fields[PRODUCT_FIELDS.slug];
+    const slug = normalizeSlug(rawSlug) || String(item.id || "sin-slug");
+    const context = { entityType, entityId: String(item.id || slug), slug };
+
+    for (const [, fieldName] of jsonFields) {
+      if (fieldName === CATEGORY_FIELDS.faqsJson || fieldName === PRODUCT_FIELDS.faqsJson) continue;
+      parseEditorialJson(fields[fieldName], null, { field: fieldName, ...context }, editorialIssues);
+    }
+
+    for (const fieldName of STRUCTURED_MD_FIELDS) {
+      const raw = str(fields[fieldName]);
+      if (!raw || !/^\s*[\[{]/.test(raw)) continue;
+      parseEditorialJson(raw, null, { field: fieldName, ...context }, editorialIssues);
+    }
+  }
+}
+
+function parseFaqs(
+  value: unknown,
+  context: { entityType: "category" | "product"; entityId: string; slug: string },
+): Array<{ question: string; answer: string }> {
   const raw = str(value);
   if (!raw) return [];
 
-  let cleaned = normalizeSmartQuotes(raw)
-    .replace(/^Preguntas frecuentes\s*/i, "")
-    .trim();
+  const parsed = parseEditorialJson<Array<Record<string, unknown>>>(
+    raw,
+    [],
+    { field: "FaqsJson", ...context },
+    editorialIssues,
+  );
+  if (!Array.isArray(parsed)) return [];
 
-  cleaned = extractJsonFragment(cleaned);
-
-  // Intento 1: JSON normal
-  let parsed = parseJsonLoose<Array<Record<string, unknown>>>(cleaned, []);
-  if (Array.isArray(parsed) && parsed.length > 0) {
-    return parsed
-      .map((item) => ({
-        question: str(item?.question ?? item?.q ?? item?.pregunta ?? item?.title) || "",
-        answer: normalizeMarkdown(
-          item?.answer ?? item?.a ?? item?.respuesta ?? item?.text ?? ""
-        ),
-      }))
-      .filter((item) => item.question && item.answer);
-  }
-
-  // Reparaciones frecuentes del contenido pegado desde SharePoint
-  cleaned = cleaned
-    // comillas tipográficas -> normales
-    .replace(/[“”]/g, '"')
-    .replace(/[‘’]/g, "'")
-    // falta de coma entre question y answer
-    .replace(/"\s*[\r\n]+\s*"answer"/g, '", "answer"')
-    .replace(/"\s*"answer"/g, '", "answer"')
-    // falta de coma entre answer y siguiente objeto
-    .replace(/"}\s*[\r\n]+\s*{/g, '"}, {')
-    .replace(/"}\s*{/g, '"}, {')
-    // posibles saltos raros
-    .replace(/\r\n/g, "\n")
-    .trim();
-
-  // Intento 2: JSON reparado
-  parsed = parseJsonLoose<Array<Record<string, unknown>>>(cleaned, []);
-  if (Array.isArray(parsed) && parsed.length > 0) {
-    return parsed
-      .map((item) => ({
-        question: str(item?.question ?? item?.q ?? item?.pregunta ?? item?.title) || "",
-        answer: normalizeMarkdown(
-          item?.answer ?? item?.a ?? item?.respuesta ?? item?.text ?? ""
-        ),
-      }))
-      .filter((item) => item.question && item.answer);
-  }
-
-  // Intento 3: rescate por regex
-  const results: Array<{ question: string; answer: string }> = [];
-  const pairRegex =
-    /"question"\s*:\s*"([\s\S]*?)"\s*,?\s*"answer"\s*:\s*"([\s\S]*?)"/gi;
-
-  for (const match of cleaned.matchAll(pairRegex)) {
-    const question = str(match[1]) || "";
-    const answer = normalizeMarkdown(match[2] || "");
-    if (question && answer) results.push({ question, answer });
-  }
-
-  return results;
+  return parsed.map((item) => ({
+    question: str(item?.question ?? item?.q ?? item?.pregunta ?? item?.title) || "",
+    answer: normalizeMarkdown(item?.answer ?? item?.a ?? item?.respuesta ?? item?.text ?? ""),
+  }));
 }
 
 function parseFormFields(value: unknown): ProductDto["formFields"] {
@@ -1214,9 +1222,9 @@ function parseFormFields(value: unknown): ProductDto["formFields"] {
       : [];
 
     return {
-      name: str(field?.name || field?.id) || `field_${index + 1}`,
-      label: str(field?.label || field?.title) || str(field?.name) || `Campo ${index + 1}`,
-      type: (str(field?.type) || "text").toLowerCase(),
+      name: str(field?.name || field?.id) || "",
+      label: str(field?.label || field?.title) || "",
+      type: (str(field?.type) || "").toLowerCase(),
       required: bool(field?.required),
       options,
       placeholder: str(field?.placeholder),
@@ -1621,19 +1629,8 @@ function buildCategorySeo(
 ): SeoDto {
   const canonical = `${SITE_URL}${publicPath}`;
 
-  const metaTitle =
-    str(fields[CATEGORY_FIELDS.metaTitle]) ||
-    title;
-
-  const metaDescription =
-    str(fields[CATEGORY_FIELDS.metaDescription]) ||
-    str(fields[CATEGORY_FIELDS.description]) ||
-    firstSentence(
-      str(fields[CATEGORY_FIELDS.detailsMd]) || "",
-    ) ||
-    firstSentence(
-      str(fields[CATEGORY_FIELDS.bodyMd]) || "",
-    );
+  const metaTitle = str(fields[CATEGORY_FIELDS.metaTitle]);
+  const metaDescription = str(fields[CATEGORY_FIELDS.metaDescription]);
 
   return {
     metaTitle,
@@ -1663,10 +1660,6 @@ function buildProductSections(
 ): ContentSection[] {
   const editorialSectionEntries: Array<{ target: string; value?: string }> = [
     { target: "details", value: detailsMd || shortDescription },
-    {
-      target: "technical-specs",
-      value: str(fields[PRODUCT_FIELDS.technicalSpecsMd]),
-    },
   ];
 
   const editorialSectionOrder = [
@@ -1700,6 +1693,12 @@ function buildProductSections(
     editorialSections.map((section) => [section.id, section] as const),
   );
 
+  const technicalSpecsSection = createLiteralMarkdownSection(
+    "technical-specs",
+    PRODUCT_SECTION_TITLES["technical-specs"],
+    fields[PRODUCT_FIELDS.technicalSpecsMd],
+  );
+
   const benefitsSection = createBenefitsSection(
     PRODUCT_SECTION_TITLES.benefits || "Beneficios",
     fields[PRODUCT_FIELDS.benefitsMd],
@@ -1728,6 +1727,10 @@ function buildProductSections(
   const sections: ContentSection[] = [];
 
   for (const id of fullProductSectionOrder) {
+    if (id === "technical-specs") {
+      if (technicalSpecsSection) sections.push(technicalSpecsSection);
+      continue;
+    }
     if (id === "benefits") {
       if (benefitsSection) sections.push(benefitsSection);
       continue;
@@ -1765,13 +1768,9 @@ function buildProductSeo(
   publicPath: string,
   imageSrc?: string,
 ): SeoDto {
-  const canonical = `${SITE_URL}${publicPath}`;
-  const metaTitle = str(fields[PRODUCT_FIELDS.metaTitle]) || title;
-  const metaDescription =
-    str(fields[PRODUCT_FIELDS.metaDescription]) ||
-    str(fields[PRODUCT_FIELDS.shortDescription]) ||
-    firstSentence(str(fields[PRODUCT_FIELDS.detailsMd]) || "") ||
-    firstSentence(str(fields[PRODUCT_FIELDS.bodyMd]) || "");
+  const canonical = toAbsoluteUrl(fields[PRODUCT_FIELDS.canonical], publicPath);
+  const metaTitle = str(fields[PRODUCT_FIELDS.metaTitle]);
+  const metaDescription = str(fields[PRODUCT_FIELDS.metaDescription]);
 
   const hreflang = parseJsonLoose<Array<{ lang?: unknown; url?: unknown }>>(
     fields[PRODUCT_FIELDS.hreflangJson],
@@ -1934,8 +1933,8 @@ function buildCategory(item: GraphItem<Record<string, unknown>>): CategoryDto | 
     "/categorias",
   );
 
-  const title = str(fields[CATEGORY_FIELDS.title]) || slug;
-  const nav = str(fields[CATEGORY_FIELDS.nav]) || title;
+  const title = str(fields[CATEGORY_FIELDS.title]) || "";
+  const nav = str(fields[CATEGORY_FIELDS.nav]) || "";
   const imageSrc = sanitizeImageSrc(fields[CATEGORY_FIELDS.imageSrc]);
   const detailsMd = str(fields[CATEGORY_FIELDS.detailsMd]);
   const bodyMd = str(fields[CATEGORY_FIELDS.bodyMd]);
@@ -1968,15 +1967,19 @@ function buildCategory(item: GraphItem<Record<string, unknown>>): CategoryDto | 
     featured: false,
     isPublished: true,
     description,
-    bodyMd: bodyMd || detailsMd || description,
+    bodyMd,
     sections,
     image: {
       src: imageSrc,
       width: parseImageDimension(fields[CATEGORY_FIELDS.imageWidth]),
       height: parseImageDimension(fields[CATEGORY_FIELDS.imageHeight]),
-      alt: str(fields[CATEGORY_FIELDS.imageAlt]) || title,
+      alt: str(fields[CATEGORY_FIELDS.imageAlt]),
     },
-    faqs: parseFaqs(fields[CATEGORY_FIELDS.faqsJson]),
+    faqs: parseFaqs(fields[CATEGORY_FIELDS.faqsJson], {
+      entityType: "category",
+      entityId: String(item.id || slug),
+      slug,
+    }),
     galleryImages: parseJsonLoose<unknown[]>(fields[CATEGORY_FIELDS.galleryImagesJson], []),
     relatedProductsJson: parseRelatedProductsJson(
       fields[CATEGORY_FIELDS.relatedProductsJson],
@@ -2032,7 +2035,7 @@ function buildProduct(item: GraphItem<Record<string, unknown>>): ProductDto | nu
     "/productos",
   );
 
-  const title = str(fields[PRODUCT_FIELDS.title]) || slug;
+  const title = str(fields[PRODUCT_FIELDS.title]) || "";
 
   const additionalCategories = parseStringList(rawCategories)
     .map((value) => leafSlug(value))
@@ -2046,10 +2049,7 @@ function buildProduct(item: GraphItem<Record<string, unknown>>): ProductDto | nu
   const detailsMd = str(fields[PRODUCT_FIELDS.detailsMd]);
   const bodyMd = str(fields[PRODUCT_FIELDS.bodyMd]);
 
-  const shortDescription =
-    str(fields[PRODUCT_FIELDS.shortDescription]) ||
-    firstSentence(detailsMd || "") ||
-    firstSentence(bodyMd || "");
+  const shortDescription = str(fields[PRODUCT_FIELDS.shortDescription]);
 
   const brand = str(fields[PRODUCT_FIELDS.brand]);
   const priceValue = parsePrice(fields[PRODUCT_FIELDS.price]);
@@ -2073,16 +2073,20 @@ function buildProduct(item: GraphItem<Record<string, unknown>>): ProductDto | nu
     isPublished: bool(fields[PRODUCT_FIELDS.isPublished]),
     publishedAt: str(fields[PRODUCT_FIELDS.publishedAt]),
     shortDescription,
-    description: shortDescription,
-    bodyMd: bodyMd || detailsMd || shortDescription,
+    description: undefined,
+    bodyMd,
     sections,
-    faqs: parseFaqs(fields[PRODUCT_FIELDS.faqsJson]),
+    faqs: parseFaqs(fields[PRODUCT_FIELDS.faqsJson], {
+      entityType: "product",
+      entityId: String(item.id || slug),
+      slug,
+    }),
     breadcrumbs: [],
     image: {
       src: imageSrc,
       width: parseImageDimension(fields[PRODUCT_FIELDS.imageWidth]),
       height: parseImageDimension(fields[PRODUCT_FIELDS.imageHeight]),
-      alt: str(fields[PRODUCT_FIELDS.imageAlt]) || title,
+      alt: str(fields[PRODUCT_FIELDS.imageAlt]),
     },
     galleryImages: parseJsonLoose<unknown[]>(
       fields[PRODUCT_FIELDS.galleryImagesJson],
@@ -2306,35 +2310,43 @@ function assertPublishedProductsHaveCategories(products: ProductDto[]): void {
   );
 }
 
-async function writeJsonAtomic(filePath: string, data: unknown): Promise<void> {
-  const dir = path.dirname(filePath);
-  const base = path.basename(filePath);
-  const tempPath = path.join(dir, `${base}.tmp`);
+type CliOptions = {
+  check: boolean;
+  strict: boolean;
+  report: boolean;
+  write: boolean;
+  allowBreakingChanges: boolean;
+};
 
-  await fs.mkdir(dir, { recursive: true });
-  await fs.writeFile(tempPath, JSON.stringify(data, null, 2), "utf8");
-  await fs.rename(tempPath, filePath);
+function parseCliOptions(argv: string[]): CliOptions {
+  const known = new Set(["--check", "--strict", "--report", "--write", "--allow-breaking-changes"]);
+  const unknown = argv.filter((argument) => argument.startsWith("--") && !known.has(argument));
+  if (unknown.length) throw new Error(`Opciones desconocidas: ${unknown.join(", ")}`);
+  const write = argv.includes("--write");
+  const check = argv.includes("--check") || !write;
+  if (check && write) throw new Error("--check y --write son incompatibles");
+  return {
+    check,
+    write,
+    strict: argv.includes("--strict"),
+    report: argv.includes("--report"),
+    allowBreakingChanges: argv.includes("--allow-breaking-changes"),
+  };
 }
 
-async function debugProductColumns(): Promise<void> {
-  const siteId = await resolveSiteId();
-  const response = await graphGet<{
-    value?: Array<{
-      name?: string;
-      displayName?: string;
-      hidden?: boolean;
-    }>;
-  }>(`/sites/${siteId}/lists/${SP_LIST_PRODUCTS_ID}/columns?$top=999&$select=name,displayName,hidden`);
-
-  console.log("\n🧱 Columnas reales de la lista de productos:");
-  for (const col of response.value || []) {
-    console.log(`- displayName="${col.displayName}" | internal="${col.name}" | hidden=${col.hidden}`);
+async function readCurrentCatalog(): Promise<SyncCatalog> {
+  const raw = await fs.readFile(path.resolve("cms/catalog.json"), "utf8");
+  const parsed = JSON.parse(raw) as Partial<SyncCatalog>;
+  if (!Array.isArray(parsed.categories) || !Array.isArray(parsed.products)) {
+    throw new Error("cms/catalog.json no tiene la estructura esperada de categorías y productos");
   }
+  return parsed as SyncCatalog;
 }
 
 async function run(): Promise<void> {
-  console.log("🔄 Sincronizando SharePoint -> cms/catalog.json\n");
-  await debugProductColumns();
+  const options = parseCliOptions(process.argv.slice(2));
+  console.log(`🔄 SharePoint -> catálogo (${options.check ? "CHECK sin escritura" : "WRITE"}${options.strict ? ", STRICT" : ""})\n`);
+  const previousCatalog = await readCurrentCatalog();
   const [categoryItems, productItems] = await Promise.all([
     fetchAllItems<Record<string, unknown>>(SP_LIST_CATEGORIES_ID!, CATEGORY_SELECT),
     fetchAllItems<Record<string, unknown>>(SP_LIST_PRODUCTS_ID!, PRODUCT_SELECT),
@@ -2342,6 +2354,8 @@ async function run(): Promise<void> {
 
   console.log(`📦 SharePoint: ${categoryItems.length} categorías, ${productItems.length} productos`);
   assertRawProductFieldCoverage(productItems);
+  validateRawEditorialJson(categoryItems, "category", CATEGORY_JSON_FIELDS);
+  validateRawEditorialJson(productItems, "product", PRODUCT_JSON_FIELDS);
 
   const builtCategories = categoryItems.map(buildCategory).filter((item): item is CategoryDto => Boolean(item));
   const builtProducts = productItems.map(buildProduct).filter((item): item is ProductDto => Boolean(item));
@@ -2355,8 +2369,6 @@ async function run(): Promise<void> {
     .sort((a, b) => (a.order !== b.order ? a.order - b.order : safeLocaleCompare(a.title, b.title)));
 
   finalizeCatalog(categories, products);
-  validateCatalog(categories, products);
-  assertPublishedProductsHaveCategories(products);
 
   const catalog: SyncCatalog = {
     generatedAt: new Date().toISOString(),
@@ -2387,18 +2399,67 @@ async function run(): Promise<void> {
     })),
   ];
 
-  await writeJsonAtomic(path.resolve("cms/catalog.json"), catalog);
-  await writeJsonAtomic(path.resolve("cms/routes.json"), routes);
-  await writeJsonAtomic(path.resolve("cms/search-index.json"), searchIndex);
+  const previousSnapshot = previousCatalog as unknown as CatalogSnapshot;
+  const nextSnapshot = catalog as unknown as CatalogSnapshot;
+  const diff = buildCatalogDiff(previousSnapshot, nextSnapshot);
+  const legacyWarnings: SyncIssue[] = warnings.map((message) => ({
+    severity: "warning",
+    code: "legacy_validation_warning",
+    message,
+  }));
+  const validationIssues = validateCatalogState(
+    previousSnapshot,
+    nextSnapshot,
+    diff,
+    [...editorialIssues, ...legacyWarnings],
+    { strict: options.strict, allowBreakingChanges: options.allowBreakingChanges },
+  );
+  const report = buildSyncReport(previousSnapshot, nextSnapshot, diff, validationIssues, {
+    check: options.check,
+    strict: options.strict,
+    report: options.report,
+    allowBreakingChanges: options.allowBreakingChanges,
+  });
 
-  console.log("\n✅ Generados:");
-  console.log("   cms/catalog.json");
-  console.log("   cms/routes.json");
-  console.log("   cms/search-index.json");
+  console.log(`\n📊 Diff: +${diff.addedProducts.length} ~${diff.modifiedProducts.length} -${diff.removedProducts.length} productos; +${diff.addedCategories.length} ~${diff.modifiedCategories.length} -${diff.removedCategories.length} categorías`);
+  console.log(`   Errores: ${report.errors.length}; warnings: ${report.warnings.length}`);
+  if (options.report) {
+    console.log(`\n${renderSyncReport(report)}`);
+    console.log("--- Informe estructurado (JSON) ---");
+    console.log(JSON.stringify(report, null, 2));
+  }
+  if (options.report && !options.check) {
+    await writeReportFiles(report, path.resolve("reports/cms-sync"));
+    console.log("📝 Informes: reports/cms-sync/cms-sync-report.{md,json}");
+  }
 
-  if (warnings.length > 0) {
-    console.log(`\n⚠️ Validaciones (${warnings.length}):`);
-    for (const message of warnings) console.log(`   - ${message}`);
+  if (report.redirectRequirements.length) {
+    console.log("\n🚧 URLs que necesitan redirección:");
+    for (const item of report.redirectRequirements) console.log(`   ${item.from} -> ${item.to || "destino pendiente"}`);
+  }
+
+  if (report.errors.length) {
+    throw new Error(`Sincronización abortada: ${report.errors.length} errores bloqueantes. No se ha escrito el catálogo.`);
+  }
+
+  await applySyncOutputs(options.check, [
+    { filePath: path.resolve("cms/catalog.json"), data: catalog },
+    { filePath: path.resolve("cms/routes.json"), data: routes },
+    { filePath: path.resolve("cms/search-index.json"), data: searchIndex },
+  ]);
+
+  if (options.check) {
+    console.log("\n✅ CHECK completado: no se ha modificado ningún archivo ni se ha lanzado ningún despliegue.");
+  } else {
+    console.log("\n✅ Sustitución atómica completada:");
+    console.log("   cms/catalog.json");
+    console.log("   cms/routes.json");
+    console.log("   cms/search-index.json");
+  }
+
+  if (report.warnings.length > 0) {
+    console.log(`\n⚠️ Validaciones (${report.warnings.length}):`);
+    for (const issue of report.warnings) console.log(`   - [${issue.code}] ${issue.message}`);
   } else {
     console.log("\n✅ Sin warnings de validación");
   }
