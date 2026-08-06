@@ -31,3 +31,6 @@ logs
 
 # Informes locales generados
 /tmp/
+
+# Informes de sincronización locales
+/reports/
