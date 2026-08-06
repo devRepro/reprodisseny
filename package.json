@@ -16,6 +16,7 @@
     "validate:seo-routes": "node scripts/validate-seo-routes.mjs",
     "validate:seo-redirects": "tsx scripts/validate-seo-redirects.ts",
     "validate:seo-http": "tsx scripts/validate-seo-http.ts",
+    "test:canonical-host": "tsx --test tests/canonical-host-redirect.test.ts",
     "validate:seo": "npm run validate:seo-routes && npm run validate:seo-redirects",
     "validate:all": "npm run validate-md && npm run validate-md-seo && npm run validate:categorias",
     "fix:types": "rm -rf .nuxt node_modules package-lock.json && npm install && npx nuxi prepare",

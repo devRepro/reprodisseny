@@ -1,4 +1,4 @@
-export const CANONICAL_ORIGIN = "https://reprodisseny.com";
+export { CANONICAL_ORIGIN } from "./canonicalHostRedirect";
 
 export const LEGACY_HOSTS = [
   "www.reprodisseny.com",
