@@ -516,6 +516,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   ...redirectRouteRules,
 },
 
+  hooks: {
+    "nitro:config": (nitroConfig) => {
+      const emptyContentDumpRoutes = [
+        "/__nuxt_content/categorias/sql_dump.txt",
+        "/__nuxt_content/productos/sql_dump.txt",
+      ];
+
+      nitroConfig.routeRules ||= {};
+      for (const route of emptyContentDumpRoutes) {
+        const existingRule = nitroConfig.routeRules[route] || {};
+        nitroConfig.routeRules[route] = {
+          ...existingRule,
+          prerender: false,
+        };
+      }
+    },
+  },
+
   nitro: {
     serverAssets: [
       {
