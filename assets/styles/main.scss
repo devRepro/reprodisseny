@@ -633,11 +633,6 @@
       inset 0 -1.5rem 3.75rem hsl(var(--foreground) / 0.045);
   }
 
-  .product-hero-media__backdrop {
-    @apply absolute inset-0 h-full w-full scale-105 object-cover blur-2xl;
-    opacity: 0.1;
-  }
-
   .product-hero-media__image {
     @apply relative z-10 h-full w-full object-cover;
   }
@@ -1161,6 +1156,10 @@
 
   .rd-form-readonly-badge {
     @apply pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 rounded-full border border-primary/15 bg-primary/5 px-2.5 py-0.5 text-[11px] font-semibold text-primary;
+  }
+
+  .rd-form-fixed-value {
+    @apply relative min-h-11 rounded-xl border border-border/70 bg-muted/30 px-3 py-2.5 pr-20 text-sm font-medium text-foreground;
   }
 
   .rd-form-inline-note {

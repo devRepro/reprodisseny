@@ -26,6 +26,8 @@ type UnknownRecord = Record<string, unknown>;
 type SitemapCatalogEntry = {
   path?: unknown;
   slug?: unknown;
+  isPublished?: unknown;
+  hidden?: unknown;
   updatedAt?: unknown;
   publishedAt?: unknown;
   modifiedAt?: unknown;
@@ -132,6 +134,10 @@ function getEntryPath(entry: SitemapCatalogEntry) {
   return normalizeSitemapPath(entry.path);
 }
 
+function isPublishedEntry(entry: SitemapCatalogEntry) {
+  return entry.isPublished !== false && entry.hidden !== true;
+}
+
 function getEntryLastmod(entry: SitemapCatalogEntry) {
   return (
     normalizeDate(entry.updatedAt) ||
@@ -175,6 +181,8 @@ function buildCatalogIndex() {
   >();
 
   for (const entry of getCatalogCollections()) {
+    if (!isPublishedEntry(entry)) continue;
+
     const path = getEntryPath(entry);
 
     if (!path || !isAllowedPath(path)) continue;

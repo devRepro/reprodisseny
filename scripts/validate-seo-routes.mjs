@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 import fg from "fast-glob";
 
 const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
+const productionOrigin = "https://reprodisseny.com";
 
 function normalizePath(value) {
   const raw = String(value ?? "").trim();
@@ -43,7 +44,7 @@ function collectCatalogPaths(catalog) {
     ? catalog.categories.filter(isPublished)
     : [];
   const products = Array.isArray(catalog?.products)
-    ? catalog.products.filter((item) => item?.isPublished !== false)
+    ? catalog.products.filter(isPublished)
     : [];
 
   return new Set(
@@ -51,6 +52,51 @@ function collectCatalogPaths(catalog) {
       .map((item) => normalizePath(item?.path))
       .filter((item) => item.startsWith("/categorias/") || item.startsWith("/productos/")),
   );
+}
+
+function validateCatalogCanonicals(catalog) {
+  const failures = [];
+  const canonicalOwners = new Map();
+  const publishedEntries = [
+    ...(Array.isArray(catalog?.categories) ? catalog.categories.filter(isPublished) : []),
+    ...(Array.isArray(catalog?.products) ? catalog.products.filter(isPublished) : []),
+  ];
+
+  for (const entry of publishedEntries) {
+    const entryPath = normalizePath(entry?.path);
+    const rawCanonical = String(entry?.seo?.canonical ?? "").trim();
+    let canonical;
+
+    try {
+      canonical = new URL(rawCanonical);
+    } catch {
+      failures.push(`${entry?.slug || entry?.id}: canonical inválido (${rawCanonical || "vacío"})`);
+      continue;
+    }
+
+    const canonicalPath = normalizePath(canonical.pathname);
+    if (canonical.origin !== productionOrigin) {
+      failures.push(`${entry?.slug || entry?.id}: canonical fuera de producción (${rawCanonical})`);
+    }
+    if (canonicalPath !== entryPath) {
+      failures.push(`${entry?.slug || entry?.id}: canonical incompatible con path (${canonicalPath} != ${entryPath})`);
+    }
+    if (canonicalPath.startsWith("/product/")) {
+      failures.push(`${entry?.slug || entry?.id}: canonical legacy (${rawCanonical})`);
+    }
+    if (!canonicalPath.startsWith("/productos/") && !canonicalPath.startsWith("/categorias/")) {
+      failures.push(`${entry?.slug || entry?.id}: canonical fuera de las rutas públicas de catálogo (${rawCanonical})`);
+    }
+
+    const previousOwner = canonicalOwners.get(rawCanonical);
+    if (previousOwner) {
+      failures.push(`canonical duplicado ${rawCanonical}: ${previousOwner}, ${entry?.slug || entry?.id}`);
+    } else {
+      canonicalOwners.set(rawCanonical, entry?.slug || entry?.id);
+    }
+  }
+
+  return failures;
 }
 
 async function findNonCanonicalCategoryLinks(canonicalCategoryPaths) {
@@ -114,6 +160,7 @@ const staleSitemapRoutes = [...sitemapRoutes]
 const nonCanonicalCategoryLinks = await findNonCanonicalCategoryLinks(
   canonicalCategoryPaths,
 );
+const canonicalFailures = validateCatalogCanonicals(catalog);
 
 const failures = [];
 
@@ -133,6 +180,10 @@ if (nonCanonicalCategoryLinks.length) {
   failures.push(
     `Enlaces internos de categoría no canónicos:\n- ${nonCanonicalCategoryLinks.join("\n- ")}`,
   );
+}
+
+if (canonicalFailures.length) {
+  failures.push(`Canonicals de catálogo inválidos:\n- ${canonicalFailures.join("\n- ")}`);
 }
 
 if (failures.length) {

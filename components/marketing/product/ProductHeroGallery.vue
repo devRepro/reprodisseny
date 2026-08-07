@@ -159,16 +159,6 @@ function onImageError() {
       <div class="product-hero-media">
         <CmsImage
           :src="displayedImageSrc"
-          alt=""
-          aria-hidden="true"
-          class="product-hero-media__backdrop"
-          width="760"
-          height="760"
-          eager
-        />
-
-        <CmsImage
-          :src="displayedImageSrc"
           :alt="activeSlide?.alt || alt"
           class="product-hero-media__image"
           width="760"

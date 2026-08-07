@@ -32,6 +32,12 @@ import RequestSuccessState from "@/components/marketing/quote/RequestSuccessStat
 import { usePriceRequests } from "@/composables/usePriceRequests";
 import { useTracking } from "@/composables/useTracking";
 import type { TrackingContext, TrackingEventName } from "~/types/tracking";
+import {
+  getNamedValue,
+  normalizeProductExtraField,
+  type NormalizedProductExtraField,
+  type ProductExtraField,
+} from "~/utils/productExtraFields";
 
 declare global {
   interface Window {
@@ -40,26 +46,11 @@ declare global {
 }
 
 
-type ExtraField = {
-  name: string;
-  label: string;
-  type?: "text" | "number" | "select" | "textarea";
-  placeholder?: string;
-  required?: boolean;
-  options?: string[];
-};
-
-type NormalizedExtraField = ExtraField & {
-  kind: "input" | "select" | "readonly";
-  normalizedOptions: string[];
-  initialValue: string | number;
-};
-
 const props = withDefaults(
   defineProps<{
     categorySlug: string;
     producto: string;
-    extraFields?: ExtraField[];
+    extraFields?: ProductExtraField[];
     productData?: {
       slug?: string;
       sku?: string | null;
@@ -85,7 +76,6 @@ const submittedReference = ref<string | null>(null);
 const localSubmitError = ref<string | null>(null);
 
 const inputClass = "rd-form-control";
-const readonlyInputClass = "rd-form-control rd-form-control--readonly pr-24";
 const textareaClass = "rd-form-textarea";
 const labelClass = "rd-form-label";
 const errorClass = "rd-form-control--error";
@@ -97,7 +87,7 @@ function onPickFile(e: Event) {
   file.value = input.files?.[0] || null;
 }
 
-function normalizeUtm(q: Record<string, any>) {
+function normalizeUtm(q: Record<string, unknown>) {
   const out: Record<string, string> = {};
 
   for (const [k, v] of Object.entries(q || {})) {
@@ -108,92 +98,17 @@ function normalizeUtm(q: Record<string, any>) {
   return Object.keys(out).length ? out : null;
 }
 
-const utm = computed(() => normalizeUtm(route.query as any));
+const utm = computed(() => normalizeUtm(route.query));
 
 const sourceUrl = computed(() => {
   const url = process.client ? location.href : route.fullPath || "/";
   return String(url).slice(0, 300);
 });
 
-function normalizeKey(value: unknown) {
-  return String(value ?? "")
-    .normalize("NFD")
-    .replace(/\p{Diacritic}/gu, "")
-    .trim()
-    .toLowerCase();
-}
-
-const BASE_FIELDS = new Set(
-  [
-    "cantidad",
-    "comentario",
-    "observaciones",
-    "privacy",
-    "nombre",
-    "email",
-    "telefono",
-    "empresa",
-    "codigoPostal",
-    "codigo postal",
-    "código postal",
-    "cp",
-    "postalCode",
-    "website",
-  ].map(normalizeKey)
-);
-
-function normalizeExtraField(field: ExtraField): NormalizedExtraField | null {
-  const safeName = String(field.name || "").trim();
-  const safeLabel = String(field.label || field.name || "").trim();
-  const safeType = (field.type || "text") as ExtraField["type"];
-
-  if (!safeName || !safeLabel || BASE_FIELDS.has(normalizeKey(safeName))) {
-    return null;
-  }
-
-  const normalizedOptions = (field.options || [])
-    .map((opt) => String(opt).trim())
-    .filter(Boolean);
-
-  if (safeType === "select") {
-    if (normalizedOptions.length === 0) return null;
-
-    if (normalizedOptions.length === 1) {
-      return {
-        ...field,
-        name: safeName,
-        label: safeLabel,
-        kind: "readonly",
-        normalizedOptions,
-        initialValue: normalizedOptions[0],
-      };
-    }
-
-    return {
-      ...field,
-      name: safeName,
-      label: safeLabel,
-      kind: "select",
-      normalizedOptions,
-      initialValue: "",
-    };
-  }
-
-  return {
-    ...field,
-    name: safeName,
-    label: safeLabel,
-    type: safeType,
-    kind: "input",
-    normalizedOptions,
-    initialValue: "",
-  };
-}
-
-const normalizedExtraFields = computed<NormalizedExtraField[]>(() =>
+const normalizedExtraFields = computed<NormalizedProductExtraField[]>(() =>
   (props.extraFields || [])
-    .map(normalizeExtraField)
-    .filter((f): f is NormalizedExtraField => !!f)
+    .map(normalizeProductExtraField)
+    .filter((field): field is NormalizedProductExtraField => field !== null)
 );
 
 function normalizeNumber(value: unknown) {
@@ -207,8 +122,8 @@ function emptyToUndefined(value: unknown) {
   return value ?? undefined;
 }
 
-function schemaForField(field: NormalizedExtraField) {
-  if (field.kind === "readonly") {
+function schemaForField(field: NormalizedProductExtraField) {
+  if (field.kind === "fixed") {
     return z.preprocess(
       emptyToUndefined,
       z.string({ required_error: "Requerido" }).min(1)
@@ -455,7 +370,7 @@ const onSubmit = handleSubmit(
     };
 
     normalizedExtraFields.value.forEach((field) => {
-      extras[field.name] = (values as any)[field.name];
+      extras[field.name] = getNamedValue(values, field.name);
     });
 
     if (file.value) {
@@ -535,13 +450,13 @@ const onSubmit = handleSubmit(
     } catch (err) {
       console.error("[ProductLeadForm] submit error", err);
 
-      const apiError = err as any;
+      const errorCandidates = err && typeof err === "object"
+        ? Object.values(err).filter((value): value is string => typeof value === "string")
+        : [];
 
-localSubmitError.value =
-  apiError?.data?.message ||
-  apiError?.statusMessage ||
-  apiError?.message ||
-  "No hemos podido enviar la solicitud. Inténtalo de nuevo en unos minutos.";
+      localSubmitError.value =
+        (err instanceof Error ? err.message : errorCandidates[0]) ||
+        "No hemos podido enviar la solicitud. Inténtalo de nuevo en unos minutos.";
     }
   },
   ({ errors }) => {
@@ -611,7 +526,7 @@ localSubmitError.value =
                   <FormLabel :class="labelClass">
                     {{ field.label }}
 
-                    <span v-if="field.kind === 'readonly'" class="rd-form-fixed-note">
+                    <span v-if="field.kind === 'fixed'" class="rd-form-fixed-note">
                       (Incluido)
                     </span>
 
@@ -624,17 +539,13 @@ localSubmitError.value =
                     </span>
                   </FormLabel>
 
-                  <FormControl>
-                    <div v-if="field.kind === 'readonly'" class="relative">
-                      <Input :id="field.name" v-bind="componentField" :value="String(value ?? field.initialValue)"
-                        readonly aria-readonly="true" :class="readonlyInputClass" />
+                  <div v-if="field.kind === 'fixed'" class="rd-form-fixed-value">
+                    <span>{{ String(value ?? field.initialValue) }}</span>
+                    <span class="rd-form-readonly-badge">Fijo</span>
+                  </div>
 
-                      <span class="rd-form-readonly-badge">
-                        Fijo
-                      </span>
-                    </div>
-
-                    <Select v-else-if="field.kind === 'select'" :model-value="String(value ?? '')"
+                  <FormControl v-else>
+                    <Select v-if="field.kind === 'select'" :model-value="String(value ?? '')"
                       @update:model-value="handleChange">
                       <SelectTrigger :id="field.name" :data-field-name="field.name"
                         :class="[inputClass, errorMessage && errorClass]">

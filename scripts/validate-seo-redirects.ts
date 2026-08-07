@@ -188,6 +188,17 @@ const effectiveRedirects = buildEffectiveRedirects(allRedirects);
 const errors: string[] = [];
 const warnings: string[] = [];
 
+for (const entry of generatedRedirects) {
+  if (!entry.from.endsWith("/printestimate")) continue;
+
+  const basePath = entry.from.slice(0, -"/printestimate".length);
+  const baseRedirect = effectiveRedirects.get(basePath);
+
+  if (!baseRedirect) {
+    errors.push(`${entry.source} redirect ${entry.from}: falta la URL base equivalente ${basePath}`);
+  }
+}
+
 for (const manualRedirect of manualRedirects) {
   if (generatedRedirects.some((entry) => entry.from === manualRedirect.from)) {
     errors.push(`redirect manual duplicado en generated: ${manualRedirect.from}`);

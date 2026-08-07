@@ -2,6 +2,7 @@
 import { defineNuxtConfig } from "nuxt/config";
 import { redirectRouteRules } from "./redirect-rules.generated";
 import { MANUAL_NOINDEX_PATHS } from "./shared/seo/legacyRedirects";
+import { parseExplicitBoolean } from "./utils/explicitBoolean";
 
 const siteUrl =
   process.env.NUXT_SITE_URL ||
@@ -478,7 +479,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     },
   },
 
-  tailwindcss: { configPath: "tailwind.config.ts", exposeConfig: true },
+  tailwindcss: {
+    configPath: "tailwind.config.ts",
+    exposeConfig: parseExplicitBoolean(process.env.EXPOSE_TAILWIND_CONFIG),
+  },
 
   colorMode: {
     preference: "light",
