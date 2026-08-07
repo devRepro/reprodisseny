@@ -127,51 +127,31 @@ const productLinkClass =
         </div>
 
         <!-- Compact: móvil, tablet y desktop pequeño -->
-        <div class="relative min-w-0 xl:hidden">
-          <div
-            class="pointer-events-none absolute inset-y-0 left-0 z-10 w-6 bg-gradient-to-r from-primary to-transparent"
-            aria-hidden="true"
-          />
-          <div
-            class="pointer-events-none absolute inset-y-0 right-0 z-10 w-6 bg-gradient-to-l from-primary to-transparent"
-            aria-hidden="true"
-          />
-
-          <div
-            class="no-scrollbar -mx-4 overflow-x-auto overscroll-x-contain px-4 sm:-mx-6 sm:px-6 lg:-mx-10 lg:px-10"
-          >
-            <div class="flex w-max min-w-full items-center justify-center gap-2">
-              <NuxtLink
-                v-for="cat in categories"
-                :key="nodeKeyOf(cat)"
-                :to="toCat(cat)"
-                class="shrink-0 rounded-full border px-3 py-2 text-xs font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground/60 focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
-                :class="
-                  isCategoryActive(cat)
-                    ? 'border-primary-foreground bg-primary-foreground text-primary shadow-sm'
-                    : 'border-primary-foreground/20 bg-primary-foreground/10 text-primary-foreground hover:border-primary-foreground/35 hover:bg-primary-foreground/15'
-                "
-              >
-                {{ labelOf(cat) }}
-              </NuxtLink>
-            </div>
+        <div class="min-w-0 xl:hidden">
+          <div class="flex w-full flex-wrap items-center justify-center gap-2">
+            <NuxtLink
+              v-for="cat in categories"
+              :key="nodeKeyOf(cat)"
+              :to="toCat(cat)"
+              class="rounded-full border px-3 py-2 text-xs font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-foreground/60 focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
+              :class="
+                isCategoryActive(cat)
+                  ? 'border-primary-foreground bg-primary-foreground text-primary shadow-sm'
+                  : 'border-primary-foreground/20 bg-primary-foreground/10 text-primary-foreground hover:border-primary-foreground/35 hover:bg-primary-foreground/15'
+              "
+            >
+              {{ labelOf(cat) }}
+            </NuxtLink>
           </div>
         </div>
 
         <!-- Desktop real -->
         <div class="hidden w-full min-w-0 xl:block">
-          <div
-            class="no-scrollbar -mx-[80px] overflow-x-auto overscroll-x-contain px-[80px]"
+          <Menubar
+            class="mx-auto flex h-auto w-full flex-wrap items-center justify-center gap-x-4 gap-y-1 !border-0 !bg-transparent !p-0 !shadow-none 2xl:gap-x-6"
           >
-            <Menubar
-              class="mx-auto flex w-max min-w-full flex-nowrap items-center justify-center gap-4 !border-0 !bg-transparent !p-0 !shadow-none 2xl:gap-6"
-            >
-              <MenubarMenu
-                v-for="cat in categories"
-                :key="nodeKeyOf(cat)"
-                class="shrink-0"
-              >
-                <template v-if="hasDropdown(cat)">
+            <MenubarMenu v-for="cat in categories" :key="nodeKeyOf(cat)">
+              <template v-if="hasDropdown(cat)">
                   <div class="inline-flex items-center gap-1">
                     <NuxtLink
                       :to="toCat(cat)"
@@ -337,32 +317,20 @@ const productLinkClass =
                       </div>
                     </template>
                   </MenubarContent>
-                </template>
+              </template>
 
-                <template v-else>
-                  <NuxtLink
-                    :to="toCat(cat)"
-                    :class="[desktopLinkClass, desktopLinkStateClass(cat)]"
-                  >
-                    {{ labelOf(cat) }}
-                  </NuxtLink>
-                </template>
-              </MenubarMenu>
-            </Menubar>
-          </div>
+              <template v-else>
+                <NuxtLink
+                  :to="toCat(cat)"
+                  :class="[desktopLinkClass, desktopLinkStateClass(cat)]"
+                >
+                  {{ labelOf(cat) }}
+                </NuxtLink>
+              </template>
+            </MenubarMenu>
+          </Menubar>
         </div>
       </template>
     </div>
   </nav>
 </template>
-
-<style scoped>
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-</style>
