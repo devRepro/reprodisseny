@@ -95,9 +95,9 @@ const shouldNoindex = computed(() => {
 
 useSeoMeta({
   title: () =>
-  selectedCategory.value
-    ? `Catálogo ${currentCategoryLabel.value || selectedCategory.value}`
-    : "Catálogo de productos",
+    selectedCategory.value
+      ? `Catálogo ${currentCategoryLabel.value || selectedCategory.value}`
+      : "Catálogo de productos",
 
   description:
     "Encuentra el soporte o formato que necesitas: adhesivos, gran formato, expositores y más. Solicita presupuesto online.",
@@ -109,7 +109,7 @@ useSeoMeta({
 
   ogDescription:
     "Soluciones de impresión profesional para empresas, retail, eventos y espacios corporativos.",
-
+  ogUrl: () => canonical.value,
   robots: () => (shouldNoindex.value ? "noindex,follow" : "index,follow"),
 });
 
