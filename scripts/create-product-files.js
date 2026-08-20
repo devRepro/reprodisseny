@@ -40,28 +40,9 @@ alt: ${JSON.stringify(p.alt || '')}
 slug: ${JSON.stringify(p.slug || '')}
 category: ${JSON.stringify(p.category || '')}
 sku: ${JSON.stringify(p.sku || '')}
-price: ${p.price || 0}
-priceCurrency: ${JSON.stringify(p.priceCurrency || 'EUR')}
 brand: ${JSON.stringify(p.brand || 'Repro Disseny')}
-inStock: ${p.inStock !== false}
 formFields: ${JSON.stringify(p.formFields || [])}
-ratingValue: ${p.ratingValue || 0}
-reviewCount: ${p.reviewCount || 0}
 type: 'producto'
-schema:
-  "@type": "Product"
-  "name": ${JSON.stringify(p.title || '')}
-  "description": ${JSON.stringify(p.description || '')}
-  "image": "https://reprodisseny.com${p.image || ''}"
-  "sku": ${JSON.stringify(p.sku || '')}
-  "brand":
-    "@type": "Organization"
-    "name": "Repro Disseny"
-  "offers":
-    "@type": "Offer"
-    "price": ${p.price || 0}
-    "priceCurrency": ${JSON.stringify(p.priceCurrency || 'EUR')}
-    "availability": "https://schema.org/InStock"
 ---
 
 ## ${p.title || 'Título del producto'}

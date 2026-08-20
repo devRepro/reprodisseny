@@ -2152,17 +2152,6 @@ function finalizeCatalog(categories: CategoryDto[], products: ProductDto[]): voi
     }
     product.breadcrumbs = buildProductBreadcrumbs(product, categoriesBySlug);
     product.seo.hreflang = normalizeHreflang(product.seo.hreflang, product.seo.canonical);
-    for (const product of products) {
-      if (!product.categorySlug && product.categorySlugs.length > 0) {
-        product.categorySlug = product.categorySlugs[0] || "";
-      }
-    
-      product.breadcrumbs = buildProductBreadcrumbs(product, categoriesBySlug);
-      product.seo.hreflang = normalizeHreflang(
-        product.seo.hreflang,
-        product.seo.canonical
-      );
-    }
   }
 }
 
