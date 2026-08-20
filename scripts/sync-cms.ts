@@ -233,7 +233,6 @@ type ProductDto = {
   mpn?: string;
   gtin13?: string;
   brand?: string;
-  price: number;
   attributes: unknown[];
   variants: unknown[];
   formFields: Array<{
@@ -365,7 +364,6 @@ const PRODUCT_FIELDS = {
   mpn: "Mpn",
   gtin13: "Gtin13",
   brand: "Brand",
-  price: "Price",
   shortDescription: "ShortDescription",
   bodyMd: "BodyMd",
   detailsMd: "DetailsMd",
@@ -676,26 +674,6 @@ function bool(value: unknown): boolean {
   if (typeof value === "boolean") return value;
   const raw = String(value ?? "").trim().toLowerCase();
   return ["1", "true", "verdadero", "yes", "si", "sí", "y", "on", "checked"].includes(raw);
-}
-
-function parsePrice(value: unknown): number {
-  const raw = str(value);
-  if (!raw) return 0;
-
-  let normalized = raw.replace(/[^\d,.-]/g, "");
-  if (!normalized) return 0;
-
-  if (normalized.includes(",") && normalized.includes(".")) {
-    normalized =
-      normalized.lastIndexOf(",") > normalized.lastIndexOf(".")
-        ? normalized.replace(/\./g, "").replace(",", ".")
-        : normalized.replace(/,/g, "");
-  } else if (normalized.includes(",")) {
-    normalized = normalized.replace(/,/g, ".");
-  }
-
-  const parsed = Number(normalized);
-  return Number.isFinite(parsed) ? parsed : 0;
 }
 
 function uniq<T>(items: T[]): T[] {
@@ -2089,7 +2067,6 @@ function buildProduct(
     mpn: str(fields[PRODUCT_FIELDS.mpn]),
     gtin13: str(fields[PRODUCT_FIELDS.gtin13]),
     brand: str(fields[PRODUCT_FIELDS.brand]),
-    price: parsePrice(fields[PRODUCT_FIELDS.price]),
     attributes: parseJsonLoose<unknown[]>(
       fields[PRODUCT_FIELDS.attributesJson],
       [],

@@ -8,7 +8,7 @@ import { useRoute } from "vue-router";
 import type { CategoryProductsListDto } from
   "~/server/services/cms/catalog.service";
 
-type ProductSort = "order" | "title" | "price";
+type ProductSort = "order" | "title";
 type SortDirection = "ASC" | "DESC";
 
 type Options = {
@@ -96,7 +96,7 @@ export async function useCategoriaProductos(
   const sort = computed<ProductSort>(() => {
     const value = toValue(options.sort);
 
-    if (value === "title" || value === "price") {
+    if (value === "title") {
       return value;
     }
 

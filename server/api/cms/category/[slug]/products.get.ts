@@ -16,15 +16,15 @@ function firstQueryValue(value: unknown) {
 
 function normalizeSort(
   value: unknown,
-): "order" | "title" | "price" {
+): "order" | "title" {
   const sort = String(
     firstQueryValue(value) || "",
   )
     .trim()
     .toLowerCase();
 
-  return sort === "title" || sort === "price"
-    ? sort
+    return sort === "title"
+    ? "title"
     : "order";
 }
 
