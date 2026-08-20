@@ -21,21 +21,14 @@ import { Menu } from "lucide-vue-next";
           <LogoMobile class="mb-4" />
 
           <nav class="flex flex-col space-y-2">
-            <NuxtLink
-              to="/categorias/adhesivos-personalizados"
-              class="menu-link"
-            >
+            <NuxtLink to="/categorias/adhesivos-personalizados" class="menu-link">
               Adhesivos
             </NuxtLink>
-            <NuxtLink
-              to="/categorias/libros-revistas-catalogos"
-              class="menu-link"
-            >
+            <NuxtLink to="/categorias/libros-revistas-catalogos" class="menu-link">
               Libros
             </NuxtLink>
             <NuxtLink to="/contacto" class="menu-link">Contacto</NuxtLink>
             <NuxtLink to="/novedades" class="menu-link">Novedades</NuxtLink>
-            <NuxtLink to="/blog" class="menu-link">Blog</NuxtLink>
           </nav>
         </div>
       </SheetContent>
