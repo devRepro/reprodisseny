@@ -234,10 +234,6 @@ type ProductDto = {
   gtin13?: string;
   brand?: string;
   price: number;
-  priceCurrency: string;
-  inStock: boolean;
-  ratingValue?: number;
-  reviewCount?: number;
   attributes: unknown[];
   variants: unknown[];
   formFields: Array<{
@@ -370,10 +366,6 @@ const PRODUCT_FIELDS = {
   gtin13: "Gtin13",
   brand: "Brand",
   price: "Price",
-  priceCurrency: "PriceCurrency",
-  inStock: "InStock",
-  ratingValue: "RatingValue",
-  reviewCount: "ReviewCount",
   shortDescription: "ShortDescription",
   bodyMd: "BodyMd",
   detailsMd: "DetailsMd",
@@ -1946,36 +1938,44 @@ function buildCategory(item: GraphItem<Record<string, unknown>>): CategoryDto | 
 }
 
 
-function buildProduct(item: GraphItem<Record<string, unknown>>): ProductDto | null {
+function buildProduct(
+  item: GraphItem<Record<string, unknown>>,
+): ProductDto | null {
   const fields = item.fields || {};
 
-  const rawSlug =
-    pickField(fields, ["ProductSlug", "Slug"]) ??
-    fields[PRODUCT_FIELDS.slug];
+  const rawSlug = pickField(fields, [
+    PRODUCT_FIELDS.slug,
+    "Slug",
+  ]);
 
-  const rawPrimaryCategory =
-    pickField(fields, [
-      PRODUCT_FIELDS.categorySlug,
-      PRODUCT_FIELDS.legacyCategorySlug,
-      "PrimaryCategory",
-      "CategorySlug",
-    ]) ??
-    fields[PRODUCT_FIELDS.categorySlug] ??
-    fields[PRODUCT_FIELDS.legacyCategorySlug];
+  const rawPrimaryCategory = pickField(fields, [
+    PRODUCT_FIELDS.categorySlug,
+    PRODUCT_FIELDS.legacyCategorySlug,
+  ]);
 
-  const rawCategories =
-    pickField(fields, ["Categories"]) ??
-    fields[PRODUCT_FIELDS.categories];
+  const rawCategories = fields[PRODUCT_FIELDS.categories];
 
   const slug =
     normalizeSlug(rawSlug) ||
-    slugFromPath(pathFromUrlLike(fields[PRODUCT_FIELDS.path]), "/productos") ||
-    slugFromPath(pathFromUrlLike(fields[PRODUCT_FIELDS.canonical]), "/productos");
+    slugFromPath(
+      pathFromUrlLike(fields[PRODUCT_FIELDS.path]),
+      "/productos",
+    ) ||
+    slugFromPath(
+      pathFromUrlLike(fields[PRODUCT_FIELDS.canonical]),
+      "/productos",
+    );
 
   if (!slug) {
-    warn(`Producto descartado: item ${String(item.id ?? "sin-id")} sin slug válido.`);
+    warn(
+      `Producto descartado: item ${String(
+        item.id ?? "sin-id",
+      )} sin slug válido.`,
+    );
     return null;
   }
+
+  const id = String(item.id || slug);
 
   const publicPath = normalizePublicPath(
     fields[PRODUCT_FIELDS.path],
@@ -1985,93 +1985,139 @@ function buildProduct(item: GraphItem<Record<string, unknown>>): ProductDto | nu
   );
 
   const title = str(fields[PRODUCT_FIELDS.title]) || "";
+  const shortDescription = str(
+    fields[PRODUCT_FIELDS.shortDescription],
+  );
+  const bodyMd = str(fields[PRODUCT_FIELDS.bodyMd]);
+  const detailsMd = str(fields[PRODUCT_FIELDS.detailsMd]);
+  const imageSrc = sanitizeImageSrc(
+    fields[PRODUCT_FIELDS.imageSrc],
+  );
 
   const additionalCategories = parseStringList(rawCategories)
     .map((value) => leafSlug(value))
-    .filter(Boolean) as string[];
+    .filter((value): value is string => Boolean(value));
 
-  const primaryCategorySlug = leafSlug(rawPrimaryCategory) || "";
-  const categorySlug = primaryCategorySlug || additionalCategories[0] || "";
-  const categorySlugs = uniq([categorySlug, ...additionalCategories].filter(Boolean)) as string[];
+  const primaryCategorySlug =
+    leafSlug(rawPrimaryCategory) || "";
 
-  const imageSrc = sanitizeImageSrc(fields[PRODUCT_FIELDS.imageSrc]);
-  const detailsMd = str(fields[PRODUCT_FIELDS.detailsMd]);
-  const bodyMd = str(fields[PRODUCT_FIELDS.bodyMd]);
+  const categorySlug =
+    primaryCategorySlug ||
+    additionalCategories[0] ||
+    "";
 
-  const shortDescription = str(fields[PRODUCT_FIELDS.shortDescription]);
+  const categorySlugs = uniq(
+    [categorySlug, ...additionalCategories].filter(
+      (value): value is string => Boolean(value),
+    ),
+  );
 
-  const brand = str(fields[PRODUCT_FIELDS.brand]);
-  const priceValue = parsePrice(fields[PRODUCT_FIELDS.price]);
-  const currency = str(fields[PRODUCT_FIELDS.priceCurrency]) || "EUR";
-  const inStock = bool(fields[PRODUCT_FIELDS.inStock]);
+  const sections = buildProductSections(
+    fields,
+    detailsMd,
+    shortDescription,
+  );
 
-  const sections = buildProductSections(fields, detailsMd, shortDescription);
-
-  const seo = buildProductSeo(fields, title, publicPath, imageSrc);
+  const seo = buildProductSeo(
+    fields,
+    title,
+    publicPath,
+    imageSrc,
+  );
 
   return {
-    id: String(item.id || slug),
+    id,
     updatedAt: str(item.lastModifiedDateTime),
     type: "producto",
+
     slug,
     path: publicPath,
     title,
+
     categorySlug,
     categorySlugs,
-    order: num(fields[PRODUCT_FIELDS.sortOrder]) ?? DEFAULT_SORT_ORDER,
-    isPublished: bool(fields[PRODUCT_FIELDS.isPublished]),
-    publishedAt: str(fields[PRODUCT_FIELDS.publishedAt]),
+
+    order:
+      num(fields[PRODUCT_FIELDS.sortOrder]) ??
+      DEFAULT_SORT_ORDER,
+
+    isPublished: bool(
+      fields[PRODUCT_FIELDS.isPublished],
+    ),
+    publishedAt: str(
+      fields[PRODUCT_FIELDS.publishedAt],
+    ),
+
     shortDescription,
-    description: undefined,
     bodyMd,
     sections,
-    faqs: parseFaqs(fields[PRODUCT_FIELDS.faqsJson], {
-      entityType: "product",
-      entityId: String(item.id || slug),
-      slug,
-    }),
+
+    faqs: parseFaqs(
+      fields[PRODUCT_FIELDS.faqsJson],
+      {
+        entityType: "product",
+        entityId: id,
+        slug,
+      },
+    ),
+
     breadcrumbs: [],
+
     image: {
       src: imageSrc,
-      width: parseImageDimension(fields[PRODUCT_FIELDS.imageWidth]),
-      height: parseImageDimension(fields[PRODUCT_FIELDS.imageHeight]),
+      width: parseImageDimension(
+        fields[PRODUCT_FIELDS.imageWidth],
+      ),
+      height: parseImageDimension(
+        fields[PRODUCT_FIELDS.imageHeight],
+      ),
       alt: str(fields[PRODUCT_FIELDS.imageAlt]),
     },
+
     galleryImages: parseJsonLoose<unknown[]>(
       fields[PRODUCT_FIELDS.galleryImagesJson],
       [],
     ),
+
     relatedProductsJson: parseRelatedProductsJson(
       fields[PRODUCT_FIELDS.relatedProductsJson],
       4,
       `Producto ${slug}: RelatedProductsJson`,
     ),
+
     sku: str(fields[PRODUCT_FIELDS.sku]),
     mpn: str(fields[PRODUCT_FIELDS.mpn]),
     gtin13: str(fields[PRODUCT_FIELDS.gtin13]),
-    brand,
-    price: priceValue,
-    priceCurrency: currency,
-    inStock,
-    ratingValue: num(fields[PRODUCT_FIELDS.ratingValue]),
-    reviewCount: num(fields[PRODUCT_FIELDS.reviewCount]),
+    brand: str(fields[PRODUCT_FIELDS.brand]),
+    price: parsePrice(fields[PRODUCT_FIELDS.price]),
     attributes: parseJsonLoose<unknown[]>(
       fields[PRODUCT_FIELDS.attributesJson],
       [],
     ),
+
     variants: parseJsonLoose<unknown[]>(
       fields[PRODUCT_FIELDS.variantsJson],
       [],
     ),
-    formFields: parseFormFields(fields[PRODUCT_FIELDS.formFieldsJson]),
-    legacySlugs: uniq(
-      parseStringList(fields[PRODUCT_FIELDS.legacySlugsJson])
-        .map((value) => normalizeSlug(value))
-        .filter(Boolean) as string[],
+
+    formFields: parseFormFields(
+      fields[PRODUCT_FIELDS.formFieldsJson],
     ),
+
+    legacySlugs: uniq(
+      parseStringList(
+        fields[PRODUCT_FIELDS.legacySlugsJson],
+      )
+        .map((value) => normalizeSlug(value))
+        .filter(
+          (value): value is string => Boolean(value),
+        ),
+    ),
+
     seo,
   };
 }
+
 function buildCategoryBreadcrumbs(
   category: CategoryDto,
   categoriesBySlug: Map<string, CategoryDto>,
