@@ -77,13 +77,6 @@ export type CmsProduct = CmsBase & {
   mpn?: string
   gtin13?: string
   brand?: string
-  price?: number
-  priceCurrency?: string
-  inStock?: boolean
-
-  // Opiniones
-  ratingValue?: number
-  reviewCount?: number
 
   // Atributos/variantes/form
   attributes?: { name: string; value: string }[]

@@ -24,14 +24,8 @@ export interface ProductFrontmatter {
 
   sku?: string
   brand?: string
-  inStock?: boolean
-
-  price?: number
-  priceCurrency?: "EUR"
 
   galleryImages?: string[]
-  ratingValue?: number
-  reviewCount?: number
 
   categorySlug: string
   categories?: string[]
@@ -63,7 +57,6 @@ export interface ProductListItem {
 
   order?: number
   featured?: boolean
-  inStock?: boolean
 
   searchTerms?: string[]
 }

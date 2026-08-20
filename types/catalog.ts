@@ -1,5 +1,5 @@
 // types/catalog.ts
-import type { FormField, FaqItem, ProductSchema, CollectionPageSchema, BaseSchema } from './seo'
+import type { FormField, FaqItem } from './seo'
 
 // Campos SEO comunes
 export interface SeoBase {
@@ -12,11 +12,7 @@ export interface SeoBase {
 export interface ListingFields {
   sku?: string
   price?: number
-  priceCurrency?: string
   brand?: string
-  inStock?: boolean
-  ratingValue?: number
-  reviewCount?: number
   featured?: boolean
   order?: number
   galleryImages?: string[] | any[]
@@ -36,7 +32,7 @@ export interface CatalogNodeBase extends SeoBase, ListingFields {
   nav?: string
   navigation?: boolean
   schemaType?: string
-  schema?: CollectionPageSchema | ProductSchema | BaseSchema | Record<string, any>
+  schema?: Record<string, unknown>
   faqs?: FaqItem[]
   formFields?: FormField[]
 }
@@ -59,11 +55,8 @@ export interface Producto extends CatalogNodeBase {
   type: 'producto'
   category: string            // slug de la categoría padre
   sku: string
-  price?: number
-  priceCurrency?: string
   brand?: string
-  inStock?: boolean
-  schema?: ProductSchema | BaseSchema
+  schema?: Record<string, unknown>
 }
 
 // Discriminated union para cualquier nodo
