@@ -399,7 +399,6 @@ const PRODUCT_FIELDS = {
   hreflangJson: "HrefLangJson",
   keywordsJson: "KeywordsJson",
   searchTermsJson: "SearchTermsJson",
-  schemaJson: "SchemaJson",
   legacySlugsJson: "LegacySlugsJson",
   noIndex: "NoIndex",
   robotsOverride: "RobotsOverride",
@@ -1789,7 +1788,7 @@ function buildProductSeo(
     hreflang: hreflang.length ? hreflang : [{ lang: "es-ES", url: canonical }],
     keywords: normalizeKeywordList(fields[PRODUCT_FIELDS.keywordsJson]),
     searchTerms: normalizeKeywordList(fields[PRODUCT_FIELDS.searchTermsJson]),
-    schema: parseJsonLoose<Record<string, JsonValue>>(fields[PRODUCT_FIELDS.schemaJson], {}),
+    schema: {},
     robotsOverride: bool(fields[PRODUCT_FIELDS.noIndex])
       ? "NOINDEX"
       : str(fields[PRODUCT_FIELDS.robotsOverride]) || "INHERIT",
