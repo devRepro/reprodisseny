@@ -207,7 +207,6 @@ type CatalogProduct = {
 
   sections?: CatalogProductSection[];
   faqs?: CatalogFaq[];
-  price?: number;
   seo?: CatalogSeo;
   formFields?: CatalogProductFormField[];
   image?: {
@@ -539,7 +538,6 @@ export type CategoryProductsListItem = {
     height?: number;
   } | null;
   order: number;
-  price?: number;
   categorySlug?: string | null;
 };
 
@@ -554,7 +552,7 @@ export type CategoryProductsListDto = {
 type CategoryProductsListOptions = {
   page?: number;
   limit?: number;
-  sort?: "order" | "title" | "price";
+  sort?: "order" | "title";
   direction?: "ASC" | "DESC";
   q?: string;
   includeSubcategories?: boolean;
@@ -2239,22 +2237,13 @@ function parseCategoryHowWeWork(value: unknown): CategoryHowWeWorkDto | null {
 
 function sortCategoryProducts(
   items: CategoryProductsListItem[],
-  sort: "order" | "title" | "price",
+  sort: "order" | "title",
   direction: "ASC" | "DESC"
 ) {
   const dir = direction === "DESC" ? -1 : 1;
 
   return items.slice().sort((a, b) => {
     if (sort === "title") {
-      return a.title.localeCompare(b.title, "es", { sensitivity: "base" }) * dir;
-    }
-
-    if (sort === "price") {
-      const priceA = Number.isFinite(a.price) ? Number(a.price) : DEFAULT_SORT_ORDER;
-      const priceB = Number.isFinite(b.price) ? Number(b.price) : DEFAULT_SORT_ORDER;
-
-      if (priceA !== priceB) return (priceA - priceB) * dir;
-
       return a.title.localeCompare(b.title, "es", { sensitivity: "base" }) * dir;
     }
 
@@ -2311,7 +2300,6 @@ export function getCategoryProductsBySlug(
       description: product.description || product.shortDescription || "",
       image: productImageDtoOf(product.image, product.title),
       order: Number.isFinite(product.order) ? Number(product.order) : DEFAULT_SORT_ORDER,
-      price: Number.isFinite(product.price) ? Number(product.price) : undefined,
       categorySlug: product.categorySlug || null,
     }));
 

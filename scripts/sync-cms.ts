@@ -233,11 +233,6 @@ type ProductDto = {
   mpn?: string;
   gtin13?: string;
   brand?: string;
-  price: number;
-  priceCurrency: string;
-  inStock: boolean;
-  ratingValue?: number;
-  reviewCount?: number;
   attributes: unknown[];
   variants: unknown[];
   formFields: Array<{
@@ -369,11 +364,6 @@ const PRODUCT_FIELDS = {
   mpn: "Mpn",
   gtin13: "Gtin13",
   brand: "Brand",
-  price: "Price",
-  priceCurrency: "PriceCurrency",
-  inStock: "InStock",
-  ratingValue: "RatingValue",
-  reviewCount: "ReviewCount",
   shortDescription: "ShortDescription",
   bodyMd: "BodyMd",
   detailsMd: "DetailsMd",
@@ -399,7 +389,6 @@ const PRODUCT_FIELDS = {
   hreflangJson: "HrefLangJson",
   keywordsJson: "KeywordsJson",
   searchTermsJson: "SearchTermsJson",
-  schemaJson: "SchemaJson",
   legacySlugsJson: "LegacySlugsJson",
   noIndex: "NoIndex",
   robotsOverride: "RobotsOverride",
@@ -685,26 +674,6 @@ function bool(value: unknown): boolean {
   if (typeof value === "boolean") return value;
   const raw = String(value ?? "").trim().toLowerCase();
   return ["1", "true", "verdadero", "yes", "si", "sí", "y", "on", "checked"].includes(raw);
-}
-
-function parsePrice(value: unknown): number {
-  const raw = str(value);
-  if (!raw) return 0;
-
-  let normalized = raw.replace(/[^\d,.-]/g, "");
-  if (!normalized) return 0;
-
-  if (normalized.includes(",") && normalized.includes(".")) {
-    normalized =
-      normalized.lastIndexOf(",") > normalized.lastIndexOf(".")
-        ? normalized.replace(/\./g, "").replace(",", ".")
-        : normalized.replace(/,/g, "");
-  } else if (normalized.includes(",")) {
-    normalized = normalized.replace(/,/g, ".");
-  }
-
-  const parsed = Number(normalized);
-  return Number.isFinite(parsed) ? parsed : 0;
 }
 
 function uniq<T>(items: T[]): T[] {
@@ -1789,7 +1758,7 @@ function buildProductSeo(
     hreflang: hreflang.length ? hreflang : [{ lang: "es-ES", url: canonical }],
     keywords: normalizeKeywordList(fields[PRODUCT_FIELDS.keywordsJson]),
     searchTerms: normalizeKeywordList(fields[PRODUCT_FIELDS.searchTermsJson]),
-    schema: parseJsonLoose<Record<string, JsonValue>>(fields[PRODUCT_FIELDS.schemaJson], {}),
+    schema: {},
     robotsOverride: bool(fields[PRODUCT_FIELDS.noIndex])
       ? "NOINDEX"
       : str(fields[PRODUCT_FIELDS.robotsOverride]) || "INHERIT",
@@ -1817,56 +1786,6 @@ function buildCategorySchemaGraph(category: CategoryDto): Record<string, JsonVal
   const graphItems: Array<Record<string, JsonValue | undefined>> = [primary];
   const breadcrumbSchema = buildBreadcrumbSchema(category.breadcrumbs);
   const faqSchema = buildFaqSchema(category.faqs);
-  if (breadcrumbSchema) graphItems.push(breadcrumbSchema);
-  if (faqSchema) graphItems.push(faqSchema);
-
-  return { "@context": "https://schema.org", "@graph": graphItems };
-}
-
-function buildProductSchemaGraph(product: ProductDto): Record<string, JsonValue | undefined> {
-  const primary: Record<string, JsonValue | undefined> = {
-    "@type": "Product",
-    name: product.title,
-    description:
-      product.seo.metaDescription ||
-      product.shortDescription ||
-      product.description ||
-      firstSentence(getMarkdownSectionBody(product.sections[0])) ||
-      undefined,
-    image: product.seo.ogImageSrc || product.image.src,
-    url: product.seo.canonical,
-    brand: { "@type": "Organization", name: product.brand || BRAND_NAME },
-    sku: product.sku,
-    mpn: product.mpn,
-    gtin13: product.gtin13,
-    ...schemaOverrideShape(product.seo.schema),
-  };
-
-  if (product.price > 0) {
-    primary.offers = {
-      "@type": "Offer",
-      price: product.price,
-      priceCurrency: product.priceCurrency || "EUR",
-      availability: product.inStock ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
-      url: product.seo.canonical,
-    };
-  }
-
-  if (
-    typeof product.ratingValue === "number" &&
-    typeof product.reviewCount === "number" &&
-    product.reviewCount > 0
-  ) {
-    primary.aggregateRating = {
-      "@type": "AggregateRating",
-      ratingValue: product.ratingValue,
-      reviewCount: product.reviewCount,
-    };
-  }
-
-  const graphItems: Array<Record<string, JsonValue | undefined>> = [primary];
-  const breadcrumbSchema = buildBreadcrumbSchema(product.breadcrumbs);
-  const faqSchema = buildFaqSchema(product.faqs);
   if (breadcrumbSchema) graphItems.push(breadcrumbSchema);
   if (faqSchema) graphItems.push(faqSchema);
 
@@ -1997,36 +1916,44 @@ function buildCategory(item: GraphItem<Record<string, unknown>>): CategoryDto | 
 }
 
 
-function buildProduct(item: GraphItem<Record<string, unknown>>): ProductDto | null {
+function buildProduct(
+  item: GraphItem<Record<string, unknown>>,
+): ProductDto | null {
   const fields = item.fields || {};
 
-  const rawSlug =
-    pickField(fields, ["ProductSlug", "Slug"]) ??
-    fields[PRODUCT_FIELDS.slug];
+  const rawSlug = pickField(fields, [
+    PRODUCT_FIELDS.slug,
+    "Slug",
+  ]);
 
-  const rawPrimaryCategory =
-    pickField(fields, [
-      PRODUCT_FIELDS.categorySlug,
-      PRODUCT_FIELDS.legacyCategorySlug,
-      "PrimaryCategory",
-      "CategorySlug",
-    ]) ??
-    fields[PRODUCT_FIELDS.categorySlug] ??
-    fields[PRODUCT_FIELDS.legacyCategorySlug];
+  const rawPrimaryCategory = pickField(fields, [
+    PRODUCT_FIELDS.categorySlug,
+    PRODUCT_FIELDS.legacyCategorySlug,
+  ]);
 
-  const rawCategories =
-    pickField(fields, ["Categories"]) ??
-    fields[PRODUCT_FIELDS.categories];
+  const rawCategories = fields[PRODUCT_FIELDS.categories];
 
   const slug =
     normalizeSlug(rawSlug) ||
-    slugFromPath(pathFromUrlLike(fields[PRODUCT_FIELDS.path]), "/productos") ||
-    slugFromPath(pathFromUrlLike(fields[PRODUCT_FIELDS.canonical]), "/productos");
+    slugFromPath(
+      pathFromUrlLike(fields[PRODUCT_FIELDS.path]),
+      "/productos",
+    ) ||
+    slugFromPath(
+      pathFromUrlLike(fields[PRODUCT_FIELDS.canonical]),
+      "/productos",
+    );
 
   if (!slug) {
-    warn(`Producto descartado: item ${String(item.id ?? "sin-id")} sin slug válido.`);
+    warn(
+      `Producto descartado: item ${String(
+        item.id ?? "sin-id",
+      )} sin slug válido.`,
+    );
     return null;
   }
+
+  const id = String(item.id || slug);
 
   const publicPath = normalizePublicPath(
     fields[PRODUCT_FIELDS.path],
@@ -2036,93 +1963,138 @@ function buildProduct(item: GraphItem<Record<string, unknown>>): ProductDto | nu
   );
 
   const title = str(fields[PRODUCT_FIELDS.title]) || "";
+  const shortDescription = str(
+    fields[PRODUCT_FIELDS.shortDescription],
+  );
+  const bodyMd = str(fields[PRODUCT_FIELDS.bodyMd]);
+  const detailsMd = str(fields[PRODUCT_FIELDS.detailsMd]);
+  const imageSrc = sanitizeImageSrc(
+    fields[PRODUCT_FIELDS.imageSrc],
+  );
 
   const additionalCategories = parseStringList(rawCategories)
     .map((value) => leafSlug(value))
-    .filter(Boolean) as string[];
+    .filter((value): value is string => Boolean(value));
 
-  const primaryCategorySlug = leafSlug(rawPrimaryCategory) || "";
-  const categorySlug = primaryCategorySlug || additionalCategories[0] || "";
-  const categorySlugs = uniq([categorySlug, ...additionalCategories].filter(Boolean)) as string[];
+  const primaryCategorySlug =
+    leafSlug(rawPrimaryCategory) || "";
 
-  const imageSrc = sanitizeImageSrc(fields[PRODUCT_FIELDS.imageSrc]);
-  const detailsMd = str(fields[PRODUCT_FIELDS.detailsMd]);
-  const bodyMd = str(fields[PRODUCT_FIELDS.bodyMd]);
+  const categorySlug =
+    primaryCategorySlug ||
+    additionalCategories[0] ||
+    "";
 
-  const shortDescription = str(fields[PRODUCT_FIELDS.shortDescription]);
+  const categorySlugs = uniq(
+    [categorySlug, ...additionalCategories].filter(
+      (value): value is string => Boolean(value),
+    ),
+  );
 
-  const brand = str(fields[PRODUCT_FIELDS.brand]);
-  const priceValue = parsePrice(fields[PRODUCT_FIELDS.price]);
-  const currency = str(fields[PRODUCT_FIELDS.priceCurrency]) || "EUR";
-  const inStock = bool(fields[PRODUCT_FIELDS.inStock]);
+  const sections = buildProductSections(
+    fields,
+    detailsMd,
+    shortDescription,
+  );
 
-  const sections = buildProductSections(fields, detailsMd, shortDescription);
-
-  const seo = buildProductSeo(fields, title, publicPath, imageSrc);
+  const seo = buildProductSeo(
+    fields,
+    title,
+    publicPath,
+    imageSrc,
+  );
 
   return {
-    id: String(item.id || slug),
+    id,
     updatedAt: str(item.lastModifiedDateTime),
     type: "producto",
+
     slug,
     path: publicPath,
     title,
+
     categorySlug,
     categorySlugs,
-    order: num(fields[PRODUCT_FIELDS.sortOrder]) ?? DEFAULT_SORT_ORDER,
-    isPublished: bool(fields[PRODUCT_FIELDS.isPublished]),
-    publishedAt: str(fields[PRODUCT_FIELDS.publishedAt]),
+
+    order:
+      num(fields[PRODUCT_FIELDS.sortOrder]) ??
+      DEFAULT_SORT_ORDER,
+
+    isPublished: bool(
+      fields[PRODUCT_FIELDS.isPublished],
+    ),
+    publishedAt: str(
+      fields[PRODUCT_FIELDS.publishedAt],
+    ),
+
     shortDescription,
-    description: undefined,
     bodyMd,
     sections,
-    faqs: parseFaqs(fields[PRODUCT_FIELDS.faqsJson], {
-      entityType: "product",
-      entityId: String(item.id || slug),
-      slug,
-    }),
+
+    faqs: parseFaqs(
+      fields[PRODUCT_FIELDS.faqsJson],
+      {
+        entityType: "product",
+        entityId: id,
+        slug,
+      },
+    ),
+
     breadcrumbs: [],
+
     image: {
       src: imageSrc,
-      width: parseImageDimension(fields[PRODUCT_FIELDS.imageWidth]),
-      height: parseImageDimension(fields[PRODUCT_FIELDS.imageHeight]),
+      width: parseImageDimension(
+        fields[PRODUCT_FIELDS.imageWidth],
+      ),
+      height: parseImageDimension(
+        fields[PRODUCT_FIELDS.imageHeight],
+      ),
       alt: str(fields[PRODUCT_FIELDS.imageAlt]),
     },
+
     galleryImages: parseJsonLoose<unknown[]>(
       fields[PRODUCT_FIELDS.galleryImagesJson],
       [],
     ),
+
     relatedProductsJson: parseRelatedProductsJson(
       fields[PRODUCT_FIELDS.relatedProductsJson],
       4,
       `Producto ${slug}: RelatedProductsJson`,
     ),
+
     sku: str(fields[PRODUCT_FIELDS.sku]),
     mpn: str(fields[PRODUCT_FIELDS.mpn]),
     gtin13: str(fields[PRODUCT_FIELDS.gtin13]),
-    brand,
-    price: priceValue,
-    priceCurrency: currency,
-    inStock,
-    ratingValue: num(fields[PRODUCT_FIELDS.ratingValue]),
-    reviewCount: num(fields[PRODUCT_FIELDS.reviewCount]),
+    brand: str(fields[PRODUCT_FIELDS.brand]),
     attributes: parseJsonLoose<unknown[]>(
       fields[PRODUCT_FIELDS.attributesJson],
       [],
     ),
+
     variants: parseJsonLoose<unknown[]>(
       fields[PRODUCT_FIELDS.variantsJson],
       [],
     ),
-    formFields: parseFormFields(fields[PRODUCT_FIELDS.formFieldsJson]),
-    legacySlugs: uniq(
-      parseStringList(fields[PRODUCT_FIELDS.legacySlugsJson])
-        .map((value) => normalizeSlug(value))
-        .filter(Boolean) as string[],
+
+    formFields: parseFormFields(
+      fields[PRODUCT_FIELDS.formFieldsJson],
     ),
+
+    legacySlugs: uniq(
+      parseStringList(
+        fields[PRODUCT_FIELDS.legacySlugsJson],
+      )
+        .map((value) => normalizeSlug(value))
+        .filter(
+          (value): value is string => Boolean(value),
+        ),
+    ),
+
     seo,
   };
 }
+
 function buildCategoryBreadcrumbs(
   category: CategoryDto,
   categoriesBySlug: Map<string, CategoryDto>,
@@ -2180,7 +2152,17 @@ function finalizeCatalog(categories: CategoryDto[], products: ProductDto[]): voi
     }
     product.breadcrumbs = buildProductBreadcrumbs(product, categoriesBySlug);
     product.seo.hreflang = normalizeHreflang(product.seo.hreflang, product.seo.canonical);
-    product.seo.schema = buildProductSchemaGraph(product);
+    for (const product of products) {
+      if (!product.categorySlug && product.categorySlugs.length > 0) {
+        product.categorySlug = product.categorySlugs[0] || "";
+      }
+    
+      product.breadcrumbs = buildProductBreadcrumbs(product, categoriesBySlug);
+      product.seo.hreflang = normalizeHreflang(
+        product.seo.hreflang,
+        product.seo.canonical
+      );
+    }
   }
 }
 
