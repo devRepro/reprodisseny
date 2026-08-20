@@ -1823,56 +1823,6 @@ function buildCategorySchemaGraph(category: CategoryDto): Record<string, JsonVal
   return { "@context": "https://schema.org", "@graph": graphItems };
 }
 
-function buildProductSchemaGraph(product: ProductDto): Record<string, JsonValue | undefined> {
-  const primary: Record<string, JsonValue | undefined> = {
-    "@type": "Product",
-    name: product.title,
-    description:
-      product.seo.metaDescription ||
-      product.shortDescription ||
-      product.description ||
-      firstSentence(getMarkdownSectionBody(product.sections[0])) ||
-      undefined,
-    image: product.seo.ogImageSrc || product.image.src,
-    url: product.seo.canonical,
-    brand: { "@type": "Organization", name: product.brand || BRAND_NAME },
-    sku: product.sku,
-    mpn: product.mpn,
-    gtin13: product.gtin13,
-    ...schemaOverrideShape(product.seo.schema),
-  };
-
-  if (product.price > 0) {
-    primary.offers = {
-      "@type": "Offer",
-      price: product.price,
-      priceCurrency: product.priceCurrency || "EUR",
-      availability: product.inStock ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
-      url: product.seo.canonical,
-    };
-  }
-
-  if (
-    typeof product.ratingValue === "number" &&
-    typeof product.reviewCount === "number" &&
-    product.reviewCount > 0
-  ) {
-    primary.aggregateRating = {
-      "@type": "AggregateRating",
-      ratingValue: product.ratingValue,
-      reviewCount: product.reviewCount,
-    };
-  }
-
-  const graphItems: Array<Record<string, JsonValue | undefined>> = [primary];
-  const breadcrumbSchema = buildBreadcrumbSchema(product.breadcrumbs);
-  const faqSchema = buildFaqSchema(product.faqs);
-  if (breadcrumbSchema) graphItems.push(breadcrumbSchema);
-  if (faqSchema) graphItems.push(faqSchema);
-
-  return { "@context": "https://schema.org", "@graph": graphItems };
-}
-
 function parseTypesMd(value: unknown): ContentTypeItem[] {
   const parsed = parseJsonLoose<unknown[]>(value, []);
   if (!Array.isArray(parsed)) return [];
