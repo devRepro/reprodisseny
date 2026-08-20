@@ -34,6 +34,15 @@ function isPublished(item) {
   return item?.isPublished !== false && item?.hidden !== true;
 }
 
+function isIndexable(item) {
+  if (!isPublished(item)) return false;
+
+  return !String(item?.seo?.robotsOverride ?? "")
+    .trim()
+    .toLowerCase()
+    .startsWith("noindex");
+}
+
 async function readJson(relativePath) {
   const source = await readFile(path.join(rootDir, relativePath), "utf8");
   return JSON.parse(source);
@@ -41,10 +50,10 @@ async function readJson(relativePath) {
 
 function collectCatalogPaths(catalog) {
   const categories = Array.isArray(catalog?.categories)
-    ? catalog.categories.filter(isPublished)
+    ? catalog.categories.filter(isIndexable)
     : [];
   const products = Array.isArray(catalog?.products)
-    ? catalog.products.filter(isPublished)
+    ? catalog.products.filter(isIndexable)
     : [];
 
   return new Set(
@@ -144,6 +153,10 @@ const canonicalCategoryPaths = new Set(
 const sitemapRoutes = new Set(
   (Array.isArray(routes) ? routes : []).map(normalizePath).filter(Boolean),
 );
+const parameterizedSitemapRoutes = (Array.isArray(routes) ? routes : [])
+  .map((route) => String(route ?? "").trim())
+  .filter((route) => route.includes("?") || /%(?:3f|26)/i.test(route))
+  .sort();
 
 const missingFromSitemap = [...canonicalCatalogPaths]
   .filter((route) => !sitemapRoutes.has(route))
@@ -173,6 +186,12 @@ if (missingFromSitemap.length) {
 if (staleSitemapRoutes.length) {
   failures.push(
     `Rutas obsoletas presentes en cms/routes.json:\n- ${staleSitemapRoutes.join("\n- ")}`,
+  );
+}
+
+if (parameterizedSitemapRoutes.length) {
+  failures.push(
+    `Rutas parametrizadas presentes en cms/routes.json:\n- ${parameterizedSitemapRoutes.join("\n- ")}`,
   );
 }
 

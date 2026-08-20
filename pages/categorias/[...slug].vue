@@ -16,6 +16,11 @@ import {
   buildCategoryPageSchema,
   type CategorySchemaItem,
 } from "~/utils/seo/buildCategoryPageSchema";
+import {
+  buildCatalogCanonicalUrl,
+  hasOnlyCatalogPaginationQuery,
+  parseCatalogPageQuery,
+} from "~/utils/seo/catalogUrls";
 
 type CategoryHowWeWork = {
   title?: string;
@@ -44,34 +49,8 @@ const nuxtApp = useNuxtApp();
 
 const PRODUCTS_PER_PAGE = 12;
 
-function parsePageQuery(value: unknown): number {
-  const raw = Array.isArray(value)
-    ? value[0]
-    : value;
-
-  if (
-    raw === undefined ||
-    raw === null ||
-    raw === ""
-  ) {
-    return 1;
-  }
-
-  const normalized = String(raw).trim();
-
-  if (!/^[1-9]\d*$/.test(normalized)) {
-    return 0;
-  }
-
-  const parsed = Number(normalized);
-
-  return Number.isSafeInteger(parsed)
-    ? parsed
-    : 0;
-}
-
 const currentPage = computed(() =>
-  parsePageQuery(route.query.page),
+  parseCatalogPageQuery(route.query.page),
 );
 
 if (currentPage.value === 0) {
@@ -394,20 +373,16 @@ const canonicalUrl = computed(() => {
     toAbsoluteUrl("/") ||
     "https://reprodisseny.com";
 
-  const url = new URL(baseUrl);
-
-  // Eliminamos cualquier query heredada del canonical del CMS.
-  url.search = "";
-
-  if (currentPage.value > 1) {
-    url.searchParams.set(
-      "page",
-      String(currentPage.value),
-    );
-  }
-
-  return url.toString();
+  return buildCatalogCanonicalUrl({
+    siteUrl: String(config.public.siteUrl || "https://reprodisseny.com"),
+    path: baseUrl,
+    page: currentPage.value,
+  });
 });
+
+const hasNonPaginationQuery = computed(() =>
+  !hasOnlyCatalogPaginationQuery(route.query)
+);
 
 const seoTitle = computed(() => {
   const baseTitle =
@@ -567,8 +542,10 @@ useSeoMeta({
   ogImage: () => ogImageUrl.value,
 
   robots: () =>
-    category.value?.seo?.robots ||
-    "index,follow",
+    hasNonPaginationQuery.value
+      ? "noindex,follow"
+      : category.value?.seo?.robots ||
+        "index,follow",
 
   twitterCard: () =>
     ogImageUrl.value

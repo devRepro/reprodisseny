@@ -91,7 +91,8 @@ const categoryRouteIndex = buildCategoryRouteIndex();
 export default defineEventHandler((event) => {
   if (event.method !== "GET" && event.method !== "HEAD") return;
 
-  const pathname = getRequestURL(event).pathname;
+  const requestUrl = getRequestURL(event);
+  const pathname = requestUrl.pathname;
   if (!pathname.startsWith(CATEGORY_PREFIX) || PAYLOAD_OR_ASSET_RE.test(pathname)) {
     return;
   }
@@ -101,12 +102,12 @@ export default defineEventHandler((event) => {
   const redirectTo = categoryRouteIndex.redirects.get(lookupPath);
 
   if (redirectTo) {
-    return sendRedirect(event, redirectTo, 301);
+    return sendRedirect(event, `${redirectTo}${requestUrl.search}`, 301);
   }
 
   if (categoryRouteIndex.canonicalPaths.has(lookupPath)) {
     if (pathname !== normalizedPath) {
-      return sendRedirect(event, normalizedPath, 301);
+      return sendRedirect(event, `${normalizedPath}${requestUrl.search}`, 301);
     }
 
     return;

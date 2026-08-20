@@ -92,6 +92,15 @@ const categorySlug = computed(() => {
   );
 });
 
+const categoryPath = computed(() => {
+  const explicitPath = normalizeText(props.category?.path);
+  if (explicitPath) return explicitPath;
+
+  return categorySlug.value
+    ? `/categorias/${categorySlug.value}`
+    : "";
+});
+
 const productAriaLabel = computed(() => {
   return `Página del producto ${productTitle.value}`;
 });
@@ -153,9 +162,13 @@ const extraFields = computed(() => {
 <template>
   <article class="product-hero" :aria-label="productAriaLabel">
     <header class="product-hero__header">
-      <p v-if="categoryLabel" class="product-hero__category-pill">
+      <NuxtLink
+        v-if="categoryLabel && categoryPath"
+        :to="categoryPath"
+        class="product-hero__category-pill"
+      >
         {{ categoryLabel }}
-      </p>
+      </NuxtLink>
 
       <h1 class="product-hero__title" :title="productTitle">
         {{ productTitle }}

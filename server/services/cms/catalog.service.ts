@@ -186,6 +186,7 @@ type CatalogProduct = {
   categorySlug?: string | null;
   categorySlugs?: string[];
   isPublished?: boolean;
+  hidden?: boolean;
   order?: number;
   featured?: boolean;
   description?: string;
@@ -218,6 +219,7 @@ type CatalogProduct = {
   galleryImages?: CatalogGalleryImage[];
   relatedProductsJson?: unknown;
   RelatedProductsJson?: unknown;
+  legacySlugs?: string[];
   gallery?: CatalogGalleryImage[];
   images?: CatalogGalleryImage[];
   media?: CatalogGalleryImage[];
@@ -965,6 +967,7 @@ function getTopLevelPublishedVisibleCategories(): CatalogCategory[] {
 function getPublishedProducts(): CatalogProduct[] {
   return getCatalogProducts()
     .filter((item) => item?.isPublished !== false)
+    .filter((item) => item?.hidden !== true)
     .sort(sortProducts);
 }
 
@@ -1049,6 +1052,21 @@ function getProductLookupKeys(product: CatalogProduct) {
   if (canonicalSlug) keys.add(canonicalSlug);
   if (internalSlug) keys.add(internalSlug);
   if (internalSlugAsPath) keys.add(internalSlugAsPath);
+
+  for (const legacy of Array.isArray(product.legacySlugs)
+    ? product.legacySlugs
+    : []) {
+    const rawLegacy = String(legacy || "").trim();
+    if (!rawLegacy) continue;
+
+    const legacyPath = normalizeProductPath(rawLegacy);
+    const legacySlug = normalizeSlug(rawLegacy);
+    const legacyLastSegment = getLastPathSegment(rawLegacy);
+
+    if (legacyPath) keys.add(legacyPath);
+    if (legacySlug) keys.add(legacySlug);
+    if (legacyLastSegment) keys.add(legacyLastSegment);
+  }
 
   return keys;
 }
@@ -1211,6 +1229,60 @@ function resolveRelatedProductItems(
       return items;
     }, [])
     .slice(0, limit);
+}
+
+function resolveProductRelatedItems(
+  product: CatalogProduct,
+  products: CatalogProduct[],
+  limit: number,
+  excludedPath: string
+): CategoryDetailProductItem[] {
+  const explicit = resolveRelatedProductItems(
+    product.relatedProductsJson ?? product.RelatedProductsJson,
+    products,
+    limit,
+    excludedPath
+  );
+
+  if (explicit.length >= limit) return explicit;
+
+  const categorySlug = String(product.categorySlug || "").trim();
+  if (!categorySlug) return explicit;
+
+  const seenPaths = new Set([
+    excludedPath,
+    ...explicit.map((item) => item.path),
+  ]);
+
+  const fallback = products
+    .filter((candidate) => {
+      const candidatePath = productPathOf(candidate);
+      if (!candidatePath || seenPaths.has(candidatePath)) return false;
+
+      const categorySlugs = [
+        String(candidate.categorySlug || "").trim(),
+        ...(Array.isArray(candidate.categorySlugs)
+          ? candidate.categorySlugs.map((value) => String(value || "").trim())
+          : []),
+      ];
+
+      return categorySlugs.includes(categorySlug);
+    })
+    .slice(0, Math.max(0, limit - explicit.length))
+    .map((candidate) => ({
+      slug: productPublicSlugOf(candidate),
+      path: productPathOf(candidate),
+      title: String(candidate.title || "").trim(),
+      description:
+        String(candidate.shortDescription || candidate.description || "").trim() ||
+        undefined,
+      image: productImageDtoOf(candidate.image, candidate.title),
+      order: Number.isFinite(candidate.order)
+        ? Number(candidate.order)
+        : DEFAULT_SORT_ORDER,
+    }));
+
+  return [...explicit, ...fallback].slice(0, limit);
 }
 
 const GALLERY_MEDIA_URL_KEYS = new Set([
@@ -2485,8 +2557,8 @@ export function getProductDetailBySlug(
   const sections = getProductSections(product);
   const productImage = productImageDtoOf(product.image, product.title);
   const galleryImages = normalizeProductGalleryImages(product, productImage?.src);
-  const relatedProducts = resolveRelatedProductItems(
-    product.relatedProductsJson ?? product.RelatedProductsJson,
+  const relatedProducts = resolveProductRelatedItems(
+    product,
     products,
     4,
     canonicalPath

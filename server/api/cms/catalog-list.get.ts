@@ -1,5 +1,6 @@
-import { defineEventHandler, getQuery } from "h3";
+import { createError, defineEventHandler, getQuery } from "h3";
 import { getCmsCatalog } from "~/server/utils/cmsCatalog.server";
+import { parseCatalogPageQuery } from "~/utils/seo/catalogUrls";
 
 type CatalogSort = "relevance" | "name-asc" | "name-desc";
 
@@ -638,12 +639,14 @@ function prepareProduct(
 export default defineEventHandler(async (event) => {
   const query = getQuery(event);
 
-  const requestedPage = clampInt(
-    query.page,
-    1,
-    1,
-    9999
-  );
+  const requestedPage = parseCatalogPageQuery(query.page);
+
+  if (requestedPage === 0) {
+    throw createError({
+      statusCode: 404,
+      statusMessage: "Página no encontrada",
+    });
+  }
 
   const perPage = clampInt(
     query.perPage,
@@ -775,10 +778,14 @@ export default defineEventHandler(async (event) => {
     Math.ceil(total / perPage)
   );
 
-  const page = Math.min(
-    requestedPage,
-    totalPages
-  );
+  if (requestedPage > totalPages) {
+    throw createError({
+      statusCode: 404,
+      statusMessage: "Página no encontrada",
+    });
+  }
+
+  const page = requestedPage;
 
   const start = (page - 1) * perPage;
 
