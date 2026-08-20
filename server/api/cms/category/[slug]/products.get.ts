@@ -7,6 +7,8 @@ import { defineCachedEventHandler } from "nitropack/runtime";
 
 import { getCategoryProductsBySlug } from
   "~/server/services/cms/catalog.service";
+import { parseCatalogPageQuery } from
+  "~/utils/seo/catalogUrls";
 
 function firstQueryValue(value: unknown) {
   return Array.isArray(value)
@@ -64,32 +66,6 @@ function normalizeBoolean(
   );
 }
 
-function parseRequestedPage(
-  value: unknown,
-): number | null {
-  const raw = firstQueryValue(value);
-
-  if (
-    raw === undefined ||
-    raw === null ||
-    raw === ""
-  ) {
-    return 1;
-  }
-
-  const normalized = String(raw).trim();
-
-  if (!/^[1-9]\d*$/.test(normalized)) {
-    return null;
-  }
-
-  const parsed = Number(normalized);
-
-  return Number.isSafeInteger(parsed)
-    ? parsed
-    : null;
-}
-
 function parseLimit(value: unknown) {
   const raw = firstQueryValue(value);
   const normalized = String(raw ?? "").trim();
@@ -122,11 +98,11 @@ export default defineCachedEventHandler(
     }
 
     const query = getQuery(event);
-    const requestedPage = parseRequestedPage(
+    const requestedPage = parseCatalogPageQuery(
       query.page,
     );
 
-    if (requestedPage === null) {
+    if (requestedPage === 0) {
       throw createError({
         statusCode: 404,
         statusMessage:

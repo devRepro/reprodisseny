@@ -40,6 +40,7 @@ type SitemapCatalogEntry = {
   }> | null;
   seo?: {
     ogImageSrc?: unknown;
+    robotsOverride?: unknown;
   } | null;
 };
 
@@ -138,6 +139,19 @@ function isPublishedEntry(entry: SitemapCatalogEntry) {
   return entry.isPublished !== false && entry.hidden !== true;
 }
 
+function isIndexableEntry(entry: SitemapCatalogEntry) {
+  if (!isPublishedEntry(entry)) return false;
+
+  return !String(entry.seo?.robotsOverride || "")
+    .trim()
+    .toLowerCase()
+    .startsWith("noindex");
+}
+
+function isCatalogPath(path: string) {
+  return path.startsWith("/categorias/") || path.startsWith("/productos/");
+}
+
 function getEntryLastmod(entry: SitemapCatalogEntry) {
   return (
     normalizeDate(entry.updatedAt) ||
@@ -181,7 +195,7 @@ function buildCatalogIndex() {
   >();
 
   for (const entry of getCatalogCollections()) {
-    if (!isPublishedEntry(entry)) continue;
+    if (!isIndexableEntry(entry)) continue;
 
     const path = getEntryPath(entry);
 
@@ -207,6 +221,7 @@ export default defineEventHandler(() => {
     .map(normalizeSitemapPath)
     .filter((path): path is string => Boolean(path))
     .filter(isAllowedPath)
+    .filter((path) => !isCatalogPath(path) || catalogIndex.has(path))
     .filter((path) => {
       if (seen.has(path)) return false;
       seen.add(path);

@@ -9,17 +9,27 @@ import ProductsFiltersPanel from "@/components/marketing/product/FiltersPanel.vu
 import ProductsToolbar from "@/components/marketing/product/Toolbar.vue";
 import ProductsResultsGrid from "@/components/marketing/product/ResultsGrid.vue";
 import ProductsEmptyState from "@/components/marketing/product/EmptyState.vue";
+import {
+  buildCatalogCanonicalUrl,
+  hasOnlyCatalogPaginationQuery,
+  parseCatalogPageQuery,
+} from "~/utils/seo/catalogUrls";
 
 const route = useRoute();
 const router = useRouter();
+const config = useRuntimeConfig();
 
 const perPage = 12;
 const basePath = "/productos";
 
-const page = computed(() => {
-  const raw = Number(route.query.page || 1);
-  return Number.isFinite(raw) && raw > 0 ? Math.floor(raw) : 1;
-});
+const page = computed(() => parseCatalogPageQuery(route.query.page));
+
+if (page.value === 0) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: "Página no encontrada",
+  });
+}
 
 const q = computed(() => (typeof route.query.q === "string" ? route.query.q.trim() : ""));
 
@@ -67,30 +77,44 @@ const total = computed(() => data.value?.total || 0);
 const totalPages = computed(() => data.value?.totalPages || 1);
 const categories = computed(() => data.value?.categories || []);
 
-const currentCategoryLabel = computed(() => {
-  const match = categories.value.find(
+if ((error.value as any)?.statusCode === 404) {
+  throw createError({
+    statusCode: 404,
+    statusMessage: "Página no encontrada",
+  });
+}
+
+const currentCategory = computed(() =>
+  categories.value.find(
     (item: any) =>
       String(item?.slug || "")
         .trim()
         .toLowerCase() === selectedCategory.value
-  );
+  )
+);
 
+const currentCategoryLabel = computed(() => {
+  const match = currentCategory.value;
   return match?.label || match?.nav || match?.title || "";
 });
 
+const hasNonPaginationQuery = computed(() =>
+  !hasOnlyCatalogPaginationQuery(route.query)
+);
+
 const canonical = computed(() => {
-  const url = new URL(`https://reprodisseny.com${basePath}`);
+  const categoryPath = String(currentCategory.value?.path || "").trim();
+  const isCleanPagination = !hasNonPaginationQuery.value;
 
-  if (selectedCategory.value) url.searchParams.set("category", selectedCategory.value);
-  if (page.value > 1) url.searchParams.set("page", String(page.value));
-
-  return url.toString();
+  return buildCatalogCanonicalUrl({
+    siteUrl: String(config.public.siteUrl || "https://reprodisseny.com"),
+    path: categoryPath && selectedCategory.value ? categoryPath : basePath,
+    page: isCleanPagination ? page.value : 1,
+  });
 });
 
 const shouldNoindex = computed(() => {
-  return (
-    Boolean(q.value) || sort.value !== "relevance" || Boolean(selectedCategory.value)
-  );
+  return hasNonPaginationQuery.value;
 });
 
 useSeoMeta({
