@@ -313,11 +313,6 @@ const SP_FIELDS = {
     Mpn: "Mpn",
     Gtin13: "Gtin13",
     Brand: "Brand",
-    Price: "Price",
-    PriceCurrency: "PriceCurrency",
-    InStock: "InStock",
-    RatingValue: "RatingValue",
-    ReviewCount: "ReviewCount",
     AttributesJson: "AttributesJson",
     VariantsJson: "VariantsJson",
     FormFieldsJson: "FormFieldsJson",
@@ -327,7 +322,6 @@ const SP_FIELDS = {
     HrefLangJson: "HrefLangJson",
     KeywordsJson: "KeywordsJson",
     SearchTermsJson: "SearchTermsJson",
-    SchemaJson: "SchemaJson",
   },
 };
 
@@ -439,11 +433,6 @@ function mapProductRow(headerMap, row) {
   const cMpn = col(headerMap, ["Mpn", "mpn"]);
   const cGtin = col(headerMap, ["Gtin13", "gtin13", "gtin"]);
   const cBrand = col(headerMap, ["Brand", "brand"]);
-  const cPrice = col(headerMap, ["Price", "price"]);
-  const cCur = col(headerMap, ["PriceCurrency", "priceCurrency"]);
-  const cStock = col(headerMap, ["InStock", "inStock"]);
-  const cRating = col(headerMap, ["RatingValue", "ratingValue"]);
-  const cReviews = col(headerMap, ["ReviewCount", "reviewCount"]);
   const cAttrs = col(headerMap, ["AttributesJson", "attributes", "attributesJson"]);
   const cVariants = col(headerMap, ["VariantsJson", "variants", "variantsJson"]);
   const cForm = col(headerMap, ["FormFieldsJson", "formFields", "formFieldsJson"]);
@@ -453,7 +442,6 @@ function mapProductRow(headerMap, row) {
   const cHref = col(headerMap, ["HrefLangJson", "hreflang", "hreflangJson"]);
   const cKeys = col(headerMap, ["KeywordsJson", "keywords", "keywordsJson"]);
   const cSearch = col(headerMap, ["SearchTermsJson", "searchTerms", "searchTermsJson"]);
-  const cSchema = col(headerMap, ["SchemaJson", "schema", "schemaJson"]);
 
   const slug = cSlug ? asString(row.getCell(cSlug).value) : undefined;
   if (!slug) return null;
@@ -486,13 +474,6 @@ function mapProductRow(headerMap, row) {
     ...(cGtin ? { [SP_FIELDS.prod.Gtin13]: asString(row.getCell(cGtin).value) || "" } : {}),
     ...(cBrand ? { [SP_FIELDS.prod.Brand]: asString(row.getCell(cBrand).value) || "Repro Disseny" } : { [SP_FIELDS.prod.Brand]: "Repro Disseny" }),
 
-    ...(cPrice ? (asNumber(row.getCell(cPrice).value) !== undefined ? { [SP_FIELDS.prod.Price]: asNumber(row.getCell(cPrice).value) } : {}) : {}),
-    ...(cCur ? { [SP_FIELDS.prod.PriceCurrency]: asString(row.getCell(cCur).value) || "EUR" } : { [SP_FIELDS.prod.PriceCurrency]: "EUR" }),
-    ...(cStock ? (asBool(row.getCell(cStock).value) !== undefined ? { [SP_FIELDS.prod.InStock]: asBool(row.getCell(cStock).value) } : {}) : {}),
-
-    ...(cRating ? (asNumber(row.getCell(cRating).value) !== undefined ? { [SP_FIELDS.prod.RatingValue]: asNumber(row.getCell(cRating).value) } : {}) : {}),
-    ...(cReviews ? (asNumber(row.getCell(cReviews).value) !== undefined ? { [SP_FIELDS.prod.ReviewCount]: asNumber(row.getCell(cReviews).value) } : {}) : {}),
-
     ...(cAttrs ? { [SP_FIELDS.prod.AttributesJson]: jsonStringify(row.getCell(cAttrs).value, "[]") } : {}),
     ...(cVariants ? { [SP_FIELDS.prod.VariantsJson]: jsonStringify(row.getCell(cVariants).value, "[]") } : {}),
     ...(cForm ? { [SP_FIELDS.prod.FormFieldsJson]: jsonStringify(row.getCell(cForm).value, "[]") } : {}),
@@ -504,7 +485,6 @@ function mapProductRow(headerMap, row) {
     ...(cHref ? { [SP_FIELDS.prod.HrefLangJson]: jsonStringify(row.getCell(cHref).value, "[]") } : {}),
     ...(cKeys ? { [SP_FIELDS.prod.KeywordsJson]: jsonStringify(row.getCell(cKeys).value, "[]") } : {}),
     ...(cSearch ? { [SP_FIELDS.prod.SearchTermsJson]: jsonStringify(row.getCell(cSearch).value, "[]") } : {}),
-    ...(cSchema ? { [SP_FIELDS.prod.SchemaJson]: jsonStringify(row.getCell(cSchema).value, "{}") } : {}),
   };
 
   if (!FORCE) {

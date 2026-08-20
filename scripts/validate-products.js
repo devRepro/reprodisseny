@@ -7,8 +7,6 @@ import matter from 'gray-matter'
 const baseDir = path.resolve('content/categorias')
 const defaultImage = '/img/productos/mockupProduct.webp'
 const defaultBrand = 'Reprodisseny'
-const defaultCurrency = 'EUR'
-const baseUrl = 'https://reprodisseny.com'
 const logPath = path.resolve('logs/changed-products.txt')
 
 const args = process.argv.slice(2)
@@ -47,9 +45,8 @@ function extractDescription(content) {
 function sortFrontmatter(data) {
   const preferredOrder = [
     'title', 'metaTitle', 'metaDescription', 'keywords', 'searchTerms',
-    'image', 'galleryImages', 'alt', 'slug', 'category', 'sku', 'price',
-    'priceCurrency', 'brand', 'inStock', 'formFields', 'ratingValue',
-    'reviewCount', 'type', 'schema'
+    'image', 'galleryImages', 'alt', 'slug', 'category', 'sku', 'brand',
+    'formFields', 'type'
   ]
   return Object.fromEntries(
     Object.entries(data).sort((a, b) => {
@@ -76,8 +73,6 @@ function updateProduct(filePath) {
   const slug = path.basename(filePath, '.md')
   const relDir = path.relative(baseDir, path.dirname(filePath))
   const parentCat = relDir.split(path.sep).filter(Boolean).pop() || 'sin-categoria'
-  const url = `${baseUrl}/categorias/${relDir}/${slug}`.replace(/\\/g, '/')
-
   const newTitle = data.title || extractTitle(content) || toTitleCase(slug)
   const newDescription = data.description || extractDescription(content)
 
@@ -93,30 +88,9 @@ function updateProduct(filePath) {
     slug,
     category: parentCat,
     sku: data.sku || '',
-    price: typeof data.price === 'number' ? data.price : 0,
-    priceCurrency: data.priceCurrency || defaultCurrency,
     brand: data.brand || defaultBrand,
-    inStock: typeof data.inStock === 'boolean' ? data.inStock : true,
     formFields: Array.isArray(data.formFields) ? data.formFields : [],
-    ratingValue: typeof data.ratingValue === 'number' ? data.ratingValue : 0,
-    reviewCount: typeof data.reviewCount === 'number' ? data.reviewCount : 0,
-    type: 'producto',
-    schema: {
-      '@type': 'Product',
-      name: newTitle,
-      description: newDescription,
-      image: `${baseUrl}${data.image || defaultImage}`,
-      url,
-      sku: data.sku || '',
-      mpn: `REF-${data.sku || slug.toUpperCase()}`,
-      brand: { '@type': 'Organization', name: data.brand || defaultBrand },
-      offers: {
-        '@type': 'Offer',
-        price: typeof data.price === 'number' ? data.price : 0,
-        priceCurrency: data.priceCurrency || defaultCurrency,
-        availability: (data.inStock === false ? 'https://schema.org/OutOfStock' : 'https://schema.org/InStock')
-      }
-    }
+    type: 'producto'
   }
 
   const serialized = matter.stringify(content, sortFrontmatter(updated))
