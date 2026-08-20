@@ -221,10 +221,20 @@ function paragraphs(value: string) {
     .filter(Boolean);
 }
 
+const pageUrl = "https://reprodisseny.com/sobre-nosotros";
 useSeoMeta({
   title: "Sobre nosotros | Reprodisseny",
   description:
     "Más de 40 años evolucionando en la comunicación gráfica, la impresión digital, el gran formato y los proyectos personalizados en Barcelona.",
+  ogUrl: pageUrl,
+});
+useHead({
+  link: [
+    {
+      rel: "canonical",
+      href: pageUrl,
+    },
+  ],
 });
 </script>
 

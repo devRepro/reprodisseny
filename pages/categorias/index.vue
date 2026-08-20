@@ -60,11 +60,22 @@ function categoryHref(category: CategoryCard) {
   if (category.slug) return `/categorias/${category.slug}`;
   return "/categorias";
 }
+const pageUrl = "https://reprodisseny.com/categorias";
 
 useSeoMeta({
   title: "Categorías de impresión | Reprodisseny",
   description:
     "Explora nuestras familias de producto: adhesivos, gran formato, expositores, publicaciones, eventos, publicidad y oficina, hostelería y restauración.",
+  ogUrl: pageUrl,
+});
+
+useHead({
+  link: [
+    {
+      rel: "canonical",
+      href: pageUrl,
+    },
+  ],
 });
 </script>
 

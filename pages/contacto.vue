@@ -4,10 +4,22 @@ import ContactForm from "@/components/marketing/contact/ContactForm.vue";
 import ContactInfoBand from "@/components/marketing/ContactInfoBand.vue";
 import LocationMapSection from "@/components/marketing/LocationMapSection.vue";
 
+const pageUrl = "https://reprodisseny.com/contacto";
+
 useSeoMeta({
   title: "Contacto | Imprenta en Barcelona | Repro Disseny",
   description:
     "Contacta con Repro Disseny para resolver dudas sobre impresión, gran formato, packaging, expositores o producción gráfica en Barcelona.",
+  ogUrl: pageUrl,
+});
+
+useHead({
+  link: [
+    {
+      rel: "canonical",
+      href: pageUrl,
+    },
+  ],
 });
 </script>
 

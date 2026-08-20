@@ -17,6 +17,8 @@ definePageMeta({
   layout: "landing",
 });
 
+const pageUrl = "https://reprodisseny.com/lp/laminas-solares";
+
 useSeoMeta({
   title: "Láminas solares para cristales en Barcelona",
   description:
@@ -25,6 +27,16 @@ useSeoMeta({
   ogDescription:
     "Protege tus espacios del calor y los reflejos con instalación profesional de láminas solares para cristales.",
   robots: "index, follow",
+  ogUrl: pageUrl,
+});
+
+useHead({
+  link: [
+    {
+      rel: "canonical",
+      href: pageUrl,
+    },
+  ],
 });
 
 

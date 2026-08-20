@@ -6,10 +6,20 @@ import QuoteFormSection from "@/components/marketing/quote/FormSection.vue";
 import ContactInfoBand from "@/components/marketing/ContactInfoBand.vue";
 import MarketingProductCategoryGrid from "@/components/marketing/ProductCategoryGrid.vue";
 import GuideBanner from "@/components/marketing/GuideBanner.vue";
+const pageUrl = "https://reprodisseny.com/pedir-presupuesto";
 useSeoMeta({
   title: "Solicitar presupuesto de impresión",
   description:
     "Solicita presupuesto para impresión digital, gran formato, packaging, expositores, eventos y materiales corporativos a medida.",
+  ogUrl: pageUrl,
+});
+useHead({
+  link: [
+    {
+      rel: "canonical",
+      href: pageUrl,
+    },
+  ],
 });
 
 const {
