@@ -90,7 +90,7 @@ const safeItems = computed(() =>
     <li
       v-for="item in safeItems"
       :key="item.label"
-      class="min-w-0"
+      class="min-w-0 max-w-full"
     >
       <span
         :class="[
@@ -98,21 +98,18 @@ const safeItems = computed(() =>
           `product-attribute-chip--${item.tone}`,
         ]"
       >
-        <span
-          class="product-attribute-chip__mark"
+        <Icon
+          v-if="item.icon"
+          :name="item.icon"
+          class="product-attribute-chip__icon"
           aria-hidden="true"
-        >
-          <Icon
-            v-if="item.icon"
-            :name="item.icon"
-            class="product-attribute-chip__icon"
-          />
+        />
 
-          <span
-            v-else
-            class="product-attribute-chip__dot"
-          />
-        </span>
+        <span
+          v-else
+          class="product-attribute-chip__dot"
+          aria-hidden="true"
+        />
 
         <span class="product-attribute-chip__label">
           {{ item.label }}

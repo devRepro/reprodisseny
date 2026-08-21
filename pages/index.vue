@@ -24,6 +24,8 @@
       container-class="home-section__inner py-10 md:py-14 lg:py-16"
     />
 
+    <HomeBusinessIntro />
+
     <MarketingServicesGrid />
 
     <MarketingProcessSection
@@ -42,17 +44,20 @@
     <GetFiles submit-endpoint="/api/price-requests" />
   </div>
 </template>
-
 <script setup lang="ts">
 import { computed } from "vue";
+
 import HomeHero from "@/components/marketing/HomeHero.vue";
 import HomeImageStrip from "@/components/marketing/HomeImageStrip.vue";
+import HomeBusinessIntro from "@/components/marketing/HomeBusinessIntro.vue";
 import MarketingProductCategoryGrid from "@/components/marketing/ProductCategoryGrid.vue";
 import MarketingProcessSection from "@/components/marketing/ProcessSection.vue";
 import ClientLogosBand from "@/components/marketing/ClientLogosBand.vue";
 import GetFiles from "@/components/marketing/GetFiles.vue";
 import SolarProtectionHeroBanner from "@/components/shared/banner/SolarProtectionHeroBanner.vue";
+
 import { useHomeCategoriesGrid } from "@/composables/useHomeCategoriesGrid";
+
 import { GoogleReviewsSection, MarketingServicesGrid } from "#components";
 
 import {
@@ -61,7 +66,9 @@ import {
   SITE_URL,
 } from "~/utils/seo/siteIdentity";
 
-definePageMeta({ layout: "home" });
+definePageMeta({
+  layout: "home",
+});
 
 const {
   categories: homeCategories,
@@ -70,12 +77,25 @@ const {
 
 const safeHomeCategories = computed(() => homeCategories.value ?? []);
 
-const HOME_TITLE = "Imprenta en Barcelona";
+/**
+ * SEO principal de la home.
+ *
+ * GSC está mostrando oportunidad para:
+ * - imprenta digital barcelona
+ * - imprenta barcelona
+ * - impresión digital barcelona
+ * - reprografía barcelona
+ *
+ * No intentamos introducir todas las variantes en el <title>.
+ * Las secundarias deben trabajarse en el contenido visible.
+ */
+const HOME_URL = `${SITE_URL}/`;
 
-const HOME_SOCIAL_TITLE = "Imprenta en Barcelona | Repro Disseny";
+const HOME_TITLE = "Imprenta digital en Barcelona | Repro Disseny";
 
 const HOME_DESCRIPTION =
-  "Impresión profesional en Barcelona: impresión digital y offset, gran formato, vinilos, PLV, packaging y soluciones gráficas para empresas.";
+  "Imprenta digital en Barcelona para empresas: impresión digital y offset, gran formato, vinilos, PLV y packaging. Solicita presupuesto.";
+
 const homeIdentitySchema = buildSiteIdentitySchema({
   title: HOME_TITLE,
   description: HOME_DESCRIPTION,
@@ -86,13 +106,14 @@ useSeoMeta({
   title: HOME_TITLE,
   description: HOME_DESCRIPTION,
 
-  ogTitle: HOME_SOCIAL_TITLE,
+  ogType: "website",
+  ogTitle: HOME_TITLE,
   ogDescription: HOME_DESCRIPTION,
-  ogUrl: `${SITE_URL}/`,
+  ogUrl: HOME_URL,
   ogImage: SITE_IDENTITY.imageUrl,
 
   twitterCard: "summary_large_image",
-  twitterTitle: HOME_SOCIAL_TITLE,
+  twitterTitle: HOME_TITLE,
   twitterDescription: HOME_DESCRIPTION,
   twitterImage: SITE_IDENTITY.imageUrl,
 });
@@ -101,7 +122,7 @@ useHead({
   link: [
     {
       rel: "canonical",
-      href: `${SITE_URL}/`,
+      href: HOME_URL,
     },
   ],
 
@@ -117,19 +138,19 @@ useHead({
 const stripImages = [
   {
     src: "https://webcms.blob.core.windows.net/media/home/preimpresion.webp",
-    alt: "Diseño y producción",
+    alt: "Preparación y preimpresión de trabajos gráficos",
   },
   {
     src: "https://webcms.blob.core.windows.net/media/home/impresion.webp",
-    alt: "Impresión profesional",
+    alt: "Producción de impresión profesional",
   },
   {
     src: "https://webcms.blob.core.windows.net/media/home/instalacion-vinilo.webp",
-    alt: "Instalación",
+    alt: "Instalación profesional de vinilo",
   },
   {
     src: "https://webcms.blob.core.windows.net/media/home/logistica.webp",
-    alt: "Logística",
+    alt: "Preparación y logística de trabajos gráficos",
   },
 ];
 
