@@ -210,51 +210,43 @@ const descriptionLines = computed(() =>
 @media (min-width: 1024px) {
   .landing-hero-claim {
     width: 759px;
-    height: 514px;
     min-height: 514px;
-    padding: 0;
+    height: auto;
+    padding: 48px 55px 42px;
     border-radius: 20px;
   }
 
   .landing-hero-claim__title {
-    position: absolute;
-    top: 65px;
-    left: 55px;
-    width: 650px;
-    font-size: 55px;
-    line-height: 66px;
+    position: static;
+    width: auto;
+    font-size: 50px;
+    line-height: 1.06;
     font-weight: 700;
   }
 
   .landing-hero-claim__description {
-    position: absolute;
-    top: 225px;
-    left: 55px;
-    width: 650px;
-    margin: 0;
-    font-size: 26px;
-    line-height: 31px;
+    position: static;
+    width: auto;
+    margin: 22px 0 0;
+    font-size: 23px;
+    line-height: 1.28;
     font-weight: 400;
   }
 
   .landing-hero-claim__button {
-    position: absolute !important;
-    top: 345px;
-    left: 55px;
-    margin: 0 !important;
+    position: static !important;
+    margin: 28px 0 0 !important;
     width: 291px !important;
     height: 60px !important;
   }
 
   .landing-hero-claim__phone {
-    position: absolute;
-    top: 362px;
-    left: 442px;
-    width: 262px;
-    height: 26px;
-    margin: 0;
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0 0 0 36px;
     gap: 14px;
-    transform: none;
+    transform: translateY(6px);
   }
 
   .landing-hero-claim__phone-icon {
@@ -269,11 +261,9 @@ const descriptionLines = computed(() =>
   }
 
   .landing-hero-claim__note {
-    position: absolute;
-    top: 441px;
-    left: 55px;
-    width: 380px;
-    margin: 0;
+    position: static;
+    width: auto;
+    margin: 24px 0 0;
     font-size: 18px;
     line-height: 22px;
   }

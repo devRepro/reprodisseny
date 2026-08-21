@@ -13,19 +13,23 @@ import LandingSplitFeature from "@/components/marketing/landing/LandingSplitFeat
 import LandingStatsGrid from "@/components/marketing/landing/LandingStatsGrid.vue";
 import SolarQuoteForm from "@/components/marketing/landing/SolarQuoteForm.vue";
 import type { TrackingContext } from "~/types/tracking";
+import { SITE_SCHEMA_IDS } from "~/utils/seo/siteIdentity";
+
 definePageMeta({
   layout: "landing",
 });
 
 const pageUrl = "https://reprodisseny.com/lp/laminas-solares";
+const pageTitle = "Láminas solares para ventanas en Barcelona | Instalación";
+const pageDescription =
+  "Instalamos láminas solares para ventanas y cristales en Barcelona. Reduce calor, reflejos y radiación UV en viviendas, oficinas y comercios, sin obras.";
 
 useSeoMeta({
-  title: "Láminas solares para cristales en Barcelona",
-  description:
-    "Instalación de láminas de protección solar para ventanas en oficinas, comercios, hoteles y viviendas de Barcelona. Reduce calor, reflejos y radiación UV sin obras.",
-  ogTitle: "Láminas de protección solar en Barcelona",
-  ogDescription:
-    "Protege tus espacios del calor y los reflejos con instalación profesional de láminas solares para cristales.",
+  title: pageTitle,
+  description: pageDescription,
+  ogType: "website",
+  ogTitle: pageTitle,
+  ogDescription: pageDescription,
   robots: "index, follow",
   ogUrl: pageUrl,
 });
@@ -170,17 +174,23 @@ const stats: StatItem[] = [
 const projects: ProjectItem[] = [
   {
     title: "Salón de banquetes",
+    context:
+      "Espacio de hostelería y eventos con grandes superficies acristaladas.",
     imageSrc: media("landing/laminas-solares/puertas_ventanas.webp"),
     imageAlt:
       "Salón de banquetes con cristales protegidos mediante láminas solares",
   },
   {
     title: "Edificio corporativo",
+    context:
+      "Oficinas y fachadas acristaladas con exposición solar prolongada.",
     imageSrc: media("landing/laminas-solares/edifici.webp"),
     imageAlt: "Edificio corporativo con protección solar en cristales",
   },
   {
     title: "Aulas de formación",
+    context:
+      "Centros educativos y salas donde reducir el calor y los reflejos.",
     imageSrc: media("landing/laminas-solares/sala_reunions.webp"),
     imageAlt: "Aulas de formación con menor calor y reflejos",
   },
@@ -195,9 +205,9 @@ const steps: StepItem[] = [
   },
   {
     number: "02",
-    title: "Producción",
+    title: "Preparación a medida",
     description:
-      "Preparamos el material adecuado para tu caso y cerramos fecha de instalación.",
+      "Preparamos la lámina según las medidas y características del proyecto y coordinamos la fecha de instalación.",
   },
   {
     number: "03",
@@ -274,7 +284,81 @@ const faqs: FaqItem[] = [
     answer:
       "Instalamos tanto en oficinas y comercios como en viviendas particulares.",
   },
+  {
+    question: "¿Las láminas solares reducen el calor que entra por las ventanas?",
+    answer:
+      "Sí. Las láminas de control solar están diseñadas para reducir parte de la energía solar que atraviesa el cristal, ayudando a mejorar el confort interior y a disminuir la necesidad de climatización.",
+  },
 ];
+
+const landingSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": `${pageUrl}#webpage`,
+      url: pageUrl,
+      name: pageTitle,
+      description: pageDescription,
+      inLanguage: "es-ES",
+      isPartOf: {
+        "@id": SITE_SCHEMA_IDS.website,
+      },
+      publisher: {
+        "@id": SITE_SCHEMA_IDS.organization,
+      },
+      mainEntity: {
+        "@id": `${pageUrl}#service`,
+      },
+      primaryImageOfPage: {
+        "@type": "ImageObject",
+        url: heroImage.src,
+      },
+    },
+    {
+      "@type": "Service",
+      "@id": `${pageUrl}#service`,
+      url: pageUrl,
+      name: "Instalación de láminas solares para ventanas y cristales en Barcelona",
+      description:
+        "Instalación profesional de láminas de protección solar para reducir calor, reflejos y radiación UV en viviendas y espacios profesionales.",
+      serviceType:
+        "Instalación de láminas de protección solar para ventanas y cristales",
+      areaServed: {
+        "@type": "City",
+        name: "Barcelona",
+      },
+      provider: {
+        "@id": SITE_SCHEMA_IDS.organization,
+      },
+      mainEntityOfPage: {
+        "@id": `${pageUrl}#webpage`,
+      },
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${pageUrl}#faq`,
+      mainEntity: faqs.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
+    },
+  ],
+};
+
+useHead({
+  script: [
+    {
+      key: "solar-films-service-schema",
+      type: "application/ld+json",
+      textContent: JSON.stringify(landingSchema),
+    },
+  ],
+});
 
 function scrollToQuote() {
   if (!import.meta.client) return;
@@ -287,10 +371,10 @@ function scrollToQuote() {
 </script>
 
 <template>
-  <main class="landing-solar-page bg-background text-foreground">
+  <div class="landing-solar-page bg-background text-foreground">
     <LandingHeroCard
-      :title="`Láminas de protección\nsolar en Barcelona`"
-      :description="`Instalamos láminas de protección solar para ventanas,\n en oficinas, comercios, hoteles y viviendas.\n Preparación propia e instalación profesional.`"
+      :title="`Láminas solares para\nventanas y cristales\nen Barcelona`"
+      description="Instalamos láminas de protección solar en viviendas, oficinas, comercios y hoteles para reducir calor, reflejos y radiación UV, sin necesidad de obras."
       :image-src="heroImage.src"
       :image-alt="heroImage.alt"
       @primary="scrollToQuote"
@@ -301,14 +385,14 @@ function scrollToQuote() {
     <section class="landing-benefits" aria-labelledby="landing-benefits-title">
       <div class="landing-benefits__inner">
         <h2 id="landing-benefits-title" class="landing-benefits__title">
-          Láminas de control solar:<br />
-          confort inmediato, instalación en un día
+          Instalación de láminas solares para ventanas y cristales
         </h2>
 
         <p class="landing-benefits__description">
-          Las láminas de protección solar se aplican directamente sobre el cristal,
-          reduciendo el calor, los reflejos y la radiación UV sin alterar la estética
-          del edificio y sin la necesidad de hacer obras.
+          Las láminas de protección solar se instalan directamente sobre el cristal para
+          reducir la entrada de calor, los reflejos y la radiación UV. Son una solución
+          limpia para mejorar el confort térmico de viviendas y espacios profesionales
+          sin realizar obras.
         </p>
 
         <LandingStatsGrid :items="stats" class="landing-benefits__stats" />
@@ -318,39 +402,46 @@ function scrollToQuote() {
     <section class="landing-cases" aria-labelledby="landing-cases-title">
       <div class="landing-cases__inner">
         <h2 id="landing-cases-title" class="landing-cases__title">
-          Espacios que ya disfrutan de más confort
+          Láminas solares para viviendas, oficinas y comercios
         </h2>
+
+        <p class="landing-cases__description">
+          Adaptamos el tipo de lámina al uso del espacio, la orientación, la superficie
+          acristalada y el nivel de protección solar necesario. Instalamos soluciones
+          tanto en viviendas particulares como en oficinas, locales comerciales,
+          hoteles, centros educativos y otros espacios profesionales.
+        </p>
 
         <LandingImageCards :items="projects" class="landing-cases__cards" />
       </div>
     </section>
 
-    <section class="landing-process" aria-labelledby="landing-process-title">
-  <div class="container-content">
-    <ContentSectionIntro
-  title="De la primera consulta a la instalación, en tres pasos"
-  centered
-  :line="false"
-  class="mx-auto w-full"
-  max-width-class="max-w-none"
-  title-class="text-white lg:whitespace-nowrap"
-/>
+    <section class="landing-process">
+      <div class="container-content">
+        <ContentSectionIntro
+          title="De la primera consulta a la instalación, en tres pasos"
+          centered
+          :line="false"
+          class="mx-auto w-full"
+          max-width-class="max-w-none"
+          title-class="text-white lg:whitespace-nowrap"
+        />
 
-    <LandingProcessSteps :steps="steps" class="mt-9" />
-  </div>
-</section>
+        <LandingProcessSteps :steps="steps" class="mt-9" />
+      </div>
+    </section>
 
-<section class="landing-why" aria-labelledby="landing-why-title">
-  <div class="container-content">
-    <LandingSplitFeature
-      :image-src="installationImage.src"
-      :image-alt="installationImage.alt"
-      title="¿Por qué Repro Disseny?"
-      intro="Más de 40 años aportando soluciones gráficas para empresas, comercios y comunicación visual."
-      :features="reasons"
-    />
-  </div>
-</section>
+    <section class="landing-why">
+      <div class="container-content">
+        <LandingSplitFeature
+          :image-src="installationImage.src"
+          :image-alt="installationImage.alt"
+          title="¿Por qué Repro Disseny?"
+          intro="Más de 40 años aportando soluciones gráficas para empresas, comercios y comunicación visual."
+          :features="reasons"
+        />
+      </div>
+    </section>
 
     <ClientLogosBand :logos="clientLogos" />
 
@@ -372,11 +463,11 @@ function scrollToQuote() {
         />
 
         <div class="mt-7">
-          <SolarQuoteForm  :tracking-context="trackingContext" />
+          <SolarQuoteForm :tracking-context="trackingContext" />
         </div>
       </div>
     </section>
-  </main>
+  </div>
 </template>
 
 <style scoped>
@@ -442,8 +533,18 @@ function scrollToQuote() {
   letter-spacing: -0.02em;
 }
 
+.landing-cases__description {
+  max-width: 900px;
+  margin: 24px auto 0;
+  color: hsl(var(--brand-ink-dark));
+  font-family: var(--font-sans);
+  font-size: clamp(17px, 1.35vw, 21px);
+  font-weight: 400;
+  line-height: 1.45;
+}
+
 .landing-cases__cards {
-  margin-top: 68px;
+  margin-top: 52px;
 }
 
 .landing-process {

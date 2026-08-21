@@ -13,6 +13,8 @@
         'Presupuesto en menos de 24 h laborales',
       ]"
       primary-to="/lp/laminas-solares#quote-form"
+      secondary-label="Ver láminas solares"
+      secondary-to="/lp/laminas-solares"
     />
 
     <MarketingProductCategoryGrid
