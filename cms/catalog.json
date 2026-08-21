@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-20T18:31:41.479Z",
+  "generatedAt": "2026-08-21T11:43:46.391Z",
   "categories": [
     {
       "id": "12",
@@ -4256,7 +4256,7 @@
     },
     {
       "id": "2",
-      "updatedAt": "2026-08-06T08:54:59Z",
+      "updatedAt": "2026-08-21T11:42:21Z",
       "type": "producto",
       "slug": "acreditaciones-personalizadas",
       "path": "/productos/acreditaciones-personalizadas",
@@ -4507,7 +4507,28 @@
       ],
       "sku": "01-EVEN-0003",
       "brand": "Reprodisseny",
-      "attributes": [],
+      "attributes": [
+        {
+          "key": "datos-variables",
+          "label": "Datos variables",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "qr-y-numeracion",
+          "label": "QR y numeración",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "opciones-de-soporte",
+          "label": "Varias opciones de soporte",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "lanyard-opcional",
+          "label": "Con lanyard opcional",
+          "placement": "hero-pills"
+        }
+      ],
       "variants": [],
       "formFields": [
         {
@@ -4594,8 +4615,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Acreditaciones Personalizadas para Eventos | Impresión Profesional",
-        "metaDescription": "Acreditaciones personalizadas para ferias, congresos y eventos corporativos. Con datos variables, QR y opciones con lanyard. Pide presupuesto a Repro Disseny.",
+        "metaTitle": "Acreditaciones personalizadas para eventos | Repro Disseny",
+        "metaDescription": "Acreditaciones personalizadas para ferias, congresos y eventos corporativos. Datos variables, QR y opciones con lanyard. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/acreditaciones-personalizadas",
         "hreflang": [
           {
@@ -4604,10 +4625,27 @@
           }
         ],
         "keywords": [
-          "acreditaciones"
+          "acreditaciones personalizadas",
+          "acreditaciones para eventos",
+          "acreditaciones para congresos",
+          "acreditaciones para ferias",
+          "acreditaciones corporativas",
+          "acreditaciones con QR",
+          "acreditaciones con lanyard"
         ],
         "searchTerms": [
-          "acreditaciones"
+          "acreditaciones personalizadas",
+          "acreditaciones para eventos",
+          "acreditaciones eventos",
+          "acreditaciones para congresos",
+          "acreditaciones para ferias",
+          "acreditaciones corporativas",
+          "acreditaciones con nombre",
+          "acreditaciones con qr",
+          "acreditaciones con lanyard",
+          "acreditaciones staff",
+          "acreditaciones para asistentes",
+          "acreditaciones datos variables"
         ],
         "schema": {},
         "robotsOverride": "INHERIT",
@@ -23281,7 +23319,16 @@
         "alt": "Lanyards personalizados para ferias, congresos y eventos corporativos"
       },
       "galleryImages": [],
-      "relatedProductsJson": [],
+      "relatedProductsJson": [
+        {
+          "label": "Acreditaciones personalizadas",
+          "productSlug": "acreditaciones-personalizadas"
+        },
+        {
+          "label": "Roll-up personalizado",
+          "productSlug": "roll-up-personalizado"
+        }
+      ],
       "sku": "01-EVEN-0004",
       "brand": "Reprodisseny",
       "attributes": [
