@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Check } from "lucide-vue-next";
+import { ArrowRight, Check } from "lucide-vue-next";
 
 definePageMeta({
   layout: "default",
@@ -105,6 +105,33 @@ const appNotes = [
     text: "Guarda el documento como PDF para impresión desde Compartir > Descargar. La versión Pro permite cambiar RGB a CMYK.",
   },
 ];
+
+const commercialDestinations = [
+  {
+    title: "Publicidad impresa y pequeño formato",
+    description:
+      "Flyers, folletos, invitaciones y otras piezas promocionales para campañas y punto de venta.",
+    to: "/categorias/publicidad-oficina/material-publicitario",
+  },
+  {
+    title: "Libros, revistas y catálogos",
+    description:
+      "Soluciones para documentos de varias páginas y distintos sistemas de encuadernación.",
+    to: "/categorias/libros-revistas-catalogos",
+  },
+  {
+    title: "Impresión en gran formato",
+    description:
+      "Lonas, vinilos y paneles rígidos para comunicación visual en interior o exterior.",
+    to: "/categorias/gran-formato",
+  },
+  {
+    title: "Adhesivos personalizados",
+    description:
+      "Pegatinas y etiquetas impresas en distintos formatos según la aplicación.",
+    to: "/categorias/adhesivos-personalizados",
+  },
+] as const;
 
 useSeoMeta({
   title: "Cómo preparar buenos archivos para impresión | Reprodisseny",
@@ -248,7 +275,7 @@ useHead({
       </div>
     </section>
 
-    <section :class="[pageContainerClass, 'pb-16 md:pb-24']" aria-label="Notas por programa">
+    <section :class="[pageContainerClass, 'pb-12 md:pb-16']" aria-label="Notas por programa">
       <div class="mx-auto max-w-5xl rounded-2xl bg-accent/75 p-6 ring-1 ring-primary/10 md:p-8">
         <p class="mb-5 text-body-s font-semibold text-brand-ink-dark">
           (*) Las capturas muestran procesos de trabajo utilizando Illustrator.
@@ -260,6 +287,68 @@ useHead({
             <span> {{ note.text }}</span>
           </li>
         </ul>
+      </div>
+    </section>
+
+    <section
+      :class="[pageContainerClass, 'pb-16 md:pb-24']"
+      aria-labelledby="elige-solucion-impresion"
+    >
+      <div class="rounded-[28px] border border-border/70 bg-card p-6 md:p-8 lg:p-10">
+        <div class="max-w-3xl">
+          <p class="section-eyebrow mb-4">Siguiente paso</p>
+
+          <h2
+            id="elige-solucion-impresion"
+            class="section-title section-title--subsection text-brand-ink-dark"
+          >
+            Elige la solución que vas a imprimir
+          </h2>
+
+          <p class="mt-4 text-body leading-7 text-foreground/80">
+            La preparación final depende del soporte, el formato y el acabado. Consulta
+            la familia correspondiente para revisar las opciones antes de enviarnos el
+            archivo.
+          </p>
+        </div>
+
+        <ul class="mt-8 grid gap-4 md:grid-cols-2">
+          <li v-for="destination in commercialDestinations" :key="destination.to">
+            <NuxtLink
+              :to="destination.to"
+              class="group flex h-full items-start justify-between gap-5 rounded-2xl border border-border/70 bg-background p-5 transition hover:border-primary/30 hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40"
+            >
+              <span>
+                <span class="block text-lg font-semibold text-foreground">
+                  {{ destination.title }}
+                </span>
+                <span class="mt-2 block text-body-s leading-6 text-muted-foreground">
+                  {{ destination.description }}
+                </span>
+              </span>
+
+              <ArrowRight
+                class="mt-1 h-5 w-5 shrink-0 text-primary transition-transform group-hover:translate-x-1"
+                aria-hidden="true"
+              />
+            </NuxtLink>
+          </li>
+        </ul>
+
+        <div class="mt-8 flex flex-col gap-4 border-t border-border/70 pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <p class="max-w-2xl text-body-s leading-6 text-foreground/78">
+            Si ya tienes el archivo y conoces las características del trabajo, envíanos
+            los datos para que podamos valorar la producción.
+          </p>
+
+          <NuxtLink
+            to="/pedir-presupuesto"
+            class="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-body-s-bold text-primary-foreground transition hover:bg-brand-base-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:ring-offset-2"
+          >
+            Pedir presupuesto
+            <ArrowRight class="h-4 w-4" aria-hidden="true" />
+          </NuxtLink>
+        </div>
       </div>
     </section>
   </main>

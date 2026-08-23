@@ -23,6 +23,8 @@ type ProductItem = {
 
 const props = withDefaults(
   defineProps<{
+    id?: string;
+    variant?: "catalog" | "featured";
     products?: ProductItem[] | null;
     eyebrow?: string;
     title?: string;
@@ -34,6 +36,8 @@ const props = withDefaults(
     basePath?: string;
   }>(),
   {
+    id: "productos",
+    variant: "catalog",
     products: () => [],
     eyebrow: "Productos",
     title: "Explora los productos de esta categoría",
@@ -52,6 +56,8 @@ const visibleProducts = computed(() =>
       Boolean(item) && Boolean(item.title || item.name) && Boolean(item.path || item.slug)
   )
 );
+
+const isFeatured = computed(() => props.variant === "featured");
 
 const gridClass = computed(() => {
   const count = visibleProducts.value.length;
@@ -107,9 +113,12 @@ function productDescription(product: ProductItem): string {
 <template>
   <section
     v-if="visibleProducts.length"
-    id="productos"
-    class="bg-background"
-    aria-label="Productos de la categoría"
+    :id="id"
+    :class="[
+      'bg-background',
+      isFeatured && 'border-y border-border/50 bg-muted/25',
+    ]"
+    :aria-label="isFeatured ? 'Productos destacados' : 'Productos de la categoría'"
   >
     <div :class="containerClass">
       <div class="max-w-3xl">
@@ -128,7 +137,13 @@ function productDescription(product: ProductItem): string {
         </p>
       </div>
 
-      <ul :class="['mt-6 grid auto-rows-fr gap-5 md:gap-6', gridClass]">
+      <ul
+        :class="[
+          'grid auto-rows-fr',
+          isFeatured ? 'mt-5 gap-4 md:gap-5' : 'mt-6 gap-5 md:gap-6',
+          gridClass,
+        ]"
+      >
         <li
           v-for="(product, index) in visibleProducts"
 :key="
@@ -152,6 +167,11 @@ function productDescription(product: ProductItem): string {
                     alt: productTitle(product) || 'Producto',
                   }
                 : null)
+            "
+            :variant="isFeatured ? 'featured' : 'default'"
+            :badge="isFeatured ? 'Destacado' : ''"
+            :image-aspect-class="
+              isFeatured ? 'aspect-[4/3] sm:aspect-[16/9]' : 'aspect-[4/3]'
             "
             cta-label="Ver producto"
             fallback-label="Producto"

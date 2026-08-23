@@ -192,7 +192,7 @@
   {
     "type": "categoria",
     "slug": "libros-revistas-catalogos",
-    "title": "Libros, revistas y catálogos en impresión digital",
+    "title": "Imprimir libros, catálogos y revistas en Barcelona",
     "path": "/categorias/libros-revistas-catalogos",
     "keywords": [
       "impresión de libros personalizados",
@@ -228,7 +228,7 @@
   {
     "type": "categoria",
     "slug": "eventos",
-    "title": "Impresión personalizada para eventos corporativos",
+    "title": "Impresión para eventos, ferias y congresos",
     "path": "/categorias/eventos",
     "keywords": [
       "Material gráfico para eventos corporativos",
@@ -1906,7 +1906,7 @@
   {
     "type": "producto",
     "slug": "laminas-solares-para-cristales",
-    "title": "Láminas solares para cristales",
+    "title": "Láminas solares para ventanas en Barcelona | Instalación",
     "path": "/productos/laminas-solares-para-cristales",
     "keywords": [
       "láminas solares para cristales",
@@ -1943,13 +1943,28 @@
   {
     "type": "producto",
     "slug": "lanyards-eventos-barcelona",
-    "title": "Lanyards personalizados para eventos",
+    "title": "Lanyards personalizados para eventos en Barcelona",
     "path": "/productos/lanyards-eventos-barcelona",
     "keywords": [
-      "lanyards"
+      "lanyards personalizados",
+      "lanyards personalizados barcelona",
+      "lanyards para eventos",
+      "lanyards para congresos",
+      "lanyards para ferias",
+      "lanyards con acreditación",
+      "lanyards corporativos"
     ],
     "searchTerms": [
-      "lanyards"
+      "lanyards personalizados",
+      "lanyards personalizados barcelona",
+      "lanyards barcelona",
+      "lanyards para eventos",
+      "lanyards para eventos barcelona",
+      "lanyards para congresos",
+      "lanyards para ferias",
+      "lanyard personalizado",
+      "lanyard con acreditación",
+      "cintas para acreditaciones"
     ]
   },
   {

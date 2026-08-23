@@ -111,7 +111,7 @@ const secondaryCta = computed<HeroCta | null>(() => {
     :class="
       cn(
         'relative w-full overflow-hidden bg-background',
-        'pt-6 pb-10 md:pt-8 md:pb-12 lg:pt-10 lg:pb-16',
+        'pt-4 pb-8 md:pt-6 md:pb-10 lg:pt-8 lg:pb-12',
         props.class
       )
     "
@@ -128,32 +128,32 @@ const secondaryCta = computed<HeroCta | null>(() => {
 
     <div :class="cn('container-content relative z-10', props.containerClass)">
       <div
-        class="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(340px,0.72fr)] lg:gap-14"
+        class="grid items-center gap-7 md:gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.68fr)] lg:gap-12"
       >
         <div class="min-w-0">
           <p
-            class="mb-5 inline-flex w-fit items-center gap-2 text-label-s font-semibold uppercase tracking-[0.22em] text-primary/80"
+            class="mb-4 inline-flex w-fit items-center gap-2 text-label-s font-semibold uppercase tracking-[0.22em] text-primary/80"
           >
             <span class="h-1.5 w-1.5 rounded-full bg-primary" aria-hidden="true" />
             {{ kicker }}
           </p>
 
           <h1
-            class="max-w-[14ch] text-balance text-[clamp(2.35rem,1.55rem+3vw,4.6rem)] font-semibold leading-[1.02] tracking-[-0.055em] text-foreground"
+            class="max-w-[18ch] text-balance text-[clamp(2.15rem,1.55rem+2.4vw,3.9rem)] font-semibold leading-[1.04] tracking-[-0.05em] text-foreground"
           >
             {{ title }}
           </h1>
 
           <p
             v-if="description"
-            class="mt-6 max-w-[62ch] text-pretty text-[17px] leading-8 text-foreground/74 md:text-[18px]"
+            class="mt-4 max-w-[62ch] text-pretty text-[16px] leading-7 text-foreground/74 md:text-[17px]"
           >
             {{ description }}
           </p>
 
           <ul
             v-if="highlights.length"
-            class="mt-7 flex flex-wrap gap-2.5"
+            class="mt-5 flex flex-wrap gap-2"
             aria-label="Puntos destacados de la categoría"
           >
             <li
@@ -167,7 +167,7 @@ const secondaryCta = computed<HeroCta | null>(() => {
 
           <div
             v-if="(showPrimaryCta && primaryCta) || (showSecondaryCta && secondaryCta)"
-            class="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center"
+            class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center"
           >
             <NuxtLink
               v-if="showPrimaryCta && primaryCta"
@@ -197,7 +197,7 @@ const secondaryCta = computed<HeroCta | null>(() => {
                 :alt="imgAlt"
                 :width="imgWidth"
                 :height="imgHeight"
-                class="aspect-[4/3] w-full object-cover"
+                class="aspect-[16/8] w-full object-cover sm:aspect-[16/10]"
                 loading="eager"
                 decoding="async"
                 fetchpriority="high"

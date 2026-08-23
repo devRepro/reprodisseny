@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-21T11:43:46.391Z",
+  "generatedAt": "2026-08-23T09:56:41.746Z",
   "categories": [
     {
       "id": "12",
@@ -1522,7 +1522,7 @@
     },
     {
       "id": "5",
-      "updatedAt": "2026-07-24T07:46:59Z",
+      "updatedAt": "2026-08-23T09:51:40Z",
       "type": "categoria",
       "slug": "gran-formato",
       "path": "/categorias/gran-formato",
@@ -1701,13 +1701,16 @@
       "galleryImages": [],
       "relatedProductsJson": [
         {
-          "productSlug": "vinilo-para-cristal"
-        },
-        {
-          "productSlug": "lona-publicitaria"
-        },
-        {
+          "label": "Panel de Forex",
           "productSlug": "panel-forex"
+        },
+        {
+          "label": "Panel Dibond",
+          "productSlug": "panel-dibond-personalizado"
+        },
+        {
+          "label": "Metacrilato",
+          "productSlug": "metacrilato-personalizado"
         }
       ],
       "breadcrumbs": [
@@ -2163,11 +2166,11 @@
     },
     {
       "id": "7",
-      "updatedAt": "2026-07-14T10:34:40Z",
+      "updatedAt": "2026-08-21T06:55:12Z",
       "type": "categoria",
       "slug": "libros-revistas-catalogos",
       "path": "/categorias/libros-revistas-catalogos",
-      "title": "Libros, revistas y catálogos en impresión digital",
+      "title": "Imprimir libros, catálogos y revistas en Barcelona",
       "nav": "Publicaciones",
       "order": 3,
       "hidden": false,
@@ -2386,7 +2389,7 @@
           "@graph": [
             {
               "@type": "CollectionPage",
-              "name": "Libros, revistas y catálogos en impresión digital",
+              "name": "Imprimir libros, catálogos y revistas en Barcelona",
               "description": "Impresión de libros, revistas y catálogos en Barcelona: tiradas cortas o medias, encuadernación a medida (grapado, fresado, tapa dura) con acabados premium.",
               "url": "https://reprodisseny.com/categorias/libros-revistas-catalogos",
               "image": "https://webcms.blob.core.windows.net/media/category/publicaciones.webp",
@@ -2473,11 +2476,11 @@
     },
     {
       "id": "3",
-      "updatedAt": "2026-07-16T08:26:33Z",
+      "updatedAt": "2026-08-21T06:53:45Z",
       "type": "categoria",
       "slug": "eventos",
       "path": "/categorias/eventos",
-      "title": "Impresión personalizada para eventos corporativos",
+      "title": "Impresión para eventos, ferias y congresos",
       "nav": "Eventos",
       "order": 4,
       "hidden": false,
@@ -2697,7 +2700,7 @@
           "@graph": [
             {
               "@type": "CollectionPage",
-              "name": "Impresión personalizada para eventos corporativos",
+              "name": "Impresión para eventos, ferias y congresos",
               "description": "Impresión para eventos: roll-ups, photocalls, lonas, flyers, acreditaciones y merchandising. Materiales interior/exterior, acabados premium y entrega rápida.",
               "url": "https://reprodisseny.com/categorias/eventos",
               "image": "https://webcms.blob.core.windows.net/media/category/eventos.webp",
@@ -2784,7 +2787,7 @@
     },
     {
       "id": "9",
-      "updatedAt": "2026-07-14T10:36:34Z",
+      "updatedAt": "2026-08-23T09:52:40Z",
       "type": "categoria",
       "slug": "publicidad-oficina",
       "path": "/categorias/publicidad-oficina",
@@ -2957,16 +2960,16 @@
       "galleryImages": [],
       "relatedProductsJson": [
         {
-          "label": "Flyers personalizados",
-          "productSlug": "flyers-personalizados"
-        },
-        {
           "label": "Folletos plegados",
           "productSlug": "folletos-plegados-personalizados"
         },
         {
-          "label": "Stoppers de lineal",
-          "productSlug": "stoppers-lineal-personalizados"
+          "label": "Archivadores personalizados",
+          "productSlug": "archivadores-personalizados"
+        },
+        {
+          "label": "Papel de carta",
+          "productSlug": "papel-de-carta"
         }
       ],
       "breadcrumbs": [
@@ -22653,11 +22656,11 @@
     },
     {
       "id": "170",
-      "updatedAt": "2026-06-11T12:36:35Z",
+      "updatedAt": "2026-08-21T06:49:53Z",
       "type": "producto",
       "slug": "laminas-solares-para-cristales",
       "path": "/productos/laminas-solares-para-cristales",
-      "title": "Láminas solares para cristales",
+      "title": "Láminas solares para ventanas en Barcelona | Instalación",
       "categorySlug": "material-flexible",
       "categorySlugs": [
         "material-flexible"
@@ -22888,7 +22891,7 @@
           "url": "/categorias/gran-formato/material-flexible"
         },
         {
-          "name": "Láminas solares para cristales",
+          "name": "Láminas solares para ventanas en Barcelona | Instalación",
           "url": "/productos/laminas-solares-para-cristales"
         }
       ],
@@ -23112,18 +23115,19 @@
     },
     {
       "id": "60",
-      "updatedAt": "2026-05-21T06:57:47Z",
+      "updatedAt": "2026-08-23T09:49:45Z",
       "type": "producto",
       "slug": "lanyards-eventos-barcelona",
       "path": "/productos/lanyards-eventos-barcelona",
-      "title": "Lanyards personalizados para eventos",
+      "title": "Lanyards personalizados para eventos en Barcelona",
       "categorySlug": "eventos",
       "categorySlugs": [
         "eventos"
       ],
       "order": 9999,
       "isPublished": true,
-      "shortDescription": "Los lanyards son un básico en cualquier evento: facilitan la identificación, ordenan accesos y refuerzan la imagen de marca en ferias, congresos y actos corporativos. Personalizamos lanyards para staff, ponentes, expositores o asistentes, con opciones de impresión a color y accesorios según el uso.",
+      "shortDescription": "Los lanyards son un básico en cualquier evento: facilitan la identificación, ordenan accesos y refuerzan la imagen de marca en ferias, congresos y actos corporativos. Personalizamos lanyards en Barcelona para staff, ponentes, expositores o asistentes, con opciones de impresión a color y accesorios según el uso.",
+      "bodyMd": "Los lanyards personalizados permiten identificar de forma rápida a asistentes, staff, ponentes, expositores o personal de organización y, al mismo tiempo, mantener visible la imagen de marca durante todo el evento.\n\nEn Repro Disseny preparamos lanyards personalizados para eventos, ferias y congresos en Barcelona, con diferentes anchos, sistemas de impresión y accesorios. También podemos combinarlos con acreditaciones y fundas para entregar el conjunto preparado para su distribución.",
       "sections": [
         {
           "id": "details",
@@ -23131,7 +23135,39 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "### ¿Qué es un lanyard y para qué se usa?\n\nUn lanyard personalizado es una cinta, normalmente para llevar al cuello, que permite colgar una acreditación, tarjeta, llave o identificador.\n\nEn eventos funciona como elemento de identificación visible, ayuda a diferenciar roles como VIP, prensa, staff, ponentes o expositores, y aporta coherencia visual con el resto del material gráfico del evento."
+          "body": "### Lanyards personalizados para identificación en eventos\n\nUn lanyard personalizado es una cinta para llevar al cuello que permite colgar una acreditación, tarjeta, llave o identificador de forma cómoda y visible.\n\nEn ferias, congresos y eventos corporativos facilita la identificación de asistentes y organización, ayuda a diferenciar perfiles como staff, VIP, prensa, ponentes o expositores y refuerza la identidad visual del evento.\n\nPodemos personalizar el diseño, el ancho y los accesorios según el uso previsto y combinar el lanyard con acreditaciones o porta-acreditaciones."
+        },
+        {
+          "id": "benefits",
+          "key": "benefits",
+          "title": "Beneficios",
+          "kind": "benefits",
+          "contentFormat": "json",
+          "benefitsData": {
+            "intro": "Los lanyards personalizados combinan identificación, comodidad y visibilidad de marca durante todo el evento.",
+            "benefits": [
+              {
+                "title": "Identificación inmediata",
+                "description": "Permiten reconocer rápidamente asistentes, organización, staff, ponentes, prensa, VIP o expositores."
+              },
+              {
+                "title": "Mejor control de accesos",
+                "description": "Combinados con acreditaciones, códigos QR o diferentes colores ayudan a organizar accesos y zonas restringidas."
+              },
+              {
+                "title": "Visibilidad de marca",
+                "description": "El logotipo, los colores corporativos o los patrocinadores permanecen visibles durante toda la jornada y también en fotografías."
+              },
+              {
+                "title": "Personalización por roles",
+                "description": "Es posible preparar diferentes colores o diseños para distinguir staff, asistentes, ponentes, prensa o perfiles VIP."
+              },
+              {
+                "title": "Entrega lista para el evento",
+                "description": "Podemos preparar el conjunto de lanyard, acreditación y funda organizado por participante, rol o grupo."
+              }
+            ]
+          }
         },
         {
           "id": "materials",
@@ -23140,19 +23176,19 @@
           "kind": "materials",
           "contentFormat": "json",
           "materialsData": {
-            "intro": "Seleccionamos el material del lanyard según la duración del evento, la comodidad de uso, la resistencia necesaria y la imagen que debe transmitir la marca.",
+            "intro": "Seleccionamos el tipo de cinta y el sistema de personalización según el diseño, la cantidad, la duración del evento y el acabado buscado.",
             "materials": [
               {
-                "title": "Lanyard estándar",
-                "description": "Opción práctica para ferias, congresos, eventos corporativos y acreditaciones de uso general."
+                "title": "Lanyard para uso general",
+                "description": "Configuración adecuada para ferias, congresos, acreditaciones y eventos corporativos."
               },
               {
-                "title": "Material premium",
-                "description": "Alternativa con mejor tacto y presencia visual, recomendable para eventos corporativos, VIP o acciones de marca cuidadas."
+                "title": "Opciones de mayor presencia visual",
+                "description": "Alternativas pensadas para proyectos donde el tacto, la imagen de marca o la calidad percibida tienen mayor importancia."
               },
               {
-                "title": "Material resistente",
-                "description": "Adecuado para eventos de varios días, mucha manipulación o uso intensivo por parte de staff y asistentes."
+                "title": "Opciones para uso intensivo",
+                "description": "Configuraciones adecuadas para eventos de varios días o situaciones con mayor manipulación."
               }
             ]
           }
@@ -23164,23 +23200,23 @@
           "kind": "formats",
           "contentFormat": "json",
           "formatsData": {
-            "intro": "Definimos el formato del lanyard según la visibilidad del logotipo, la comodidad de uso, el tipo de evento y el sistema de acreditación.",
+            "intro": "El ancho del lanyard se elige según la visibilidad del logotipo, la comodidad, el tipo de evento y el sistema de acreditación.",
             "shapes": [
               {
                 "title": "10 mm",
-                "description": "Formato estrecho y discreto, adecuado para eventos sencillos o identificaciones ligeras."
+                "description": "Formato estrecho y discreto para identificaciones ligeras y diseños sencillos."
               },
               {
                 "title": "15 mm",
-                "description": "Opción equilibrada para eventos corporativos, ferias y acreditaciones con buena comodidad de uso."
+                "description": "Opción equilibrada para eventos corporativos, congresos y acreditaciones."
               },
               {
                 "title": "20 mm",
-                "description": "Formato muy habitual cuando se busca mayor visibilidad de marca y buena lectura del logotipo."
+                "description": "Uno de los formatos más utilizados cuando se busca una buena visibilidad del logotipo."
               },
               {
                 "title": "25 mm",
-                "description": "Opción con más presencia visual, recomendable para patrocinadores, eventos de marca o diseños con más información."
+                "description": "Formato de mayor presencia visual para eventos de marca, patrocinadores o diseños con más información."
               }
             ],
             "deliveryFormats": [
@@ -23190,15 +23226,15 @@
               },
               {
                 "title": "Con cierre de seguridad",
-                "description": "Opción breakaway recomendada cuando se busca más seguridad durante el uso."
+                "description": "Sistema breakaway que permite abrir el lanyard ante un tirón."
               },
               {
                 "title": "Con hebilla desmontable",
-                "description": "Permite quitar la acreditación sin retirar el lanyard del cuello, muy práctico en eventos de varias horas o varios días."
+                "description": "Permite separar la acreditación sin retirar el lanyard del cuello."
               },
               {
-                "title": "Sets con acreditación",
-                "description": "Posibilidad de entregar lanyard, funda y acreditación preparados por asistente, rol o grupo."
+                "title": "Set con acreditación",
+                "description": "Posibilidad de entregar lanyard, funda y acreditación preparados conjuntamente."
               }
             ]
           }
@@ -23210,27 +23246,27 @@
           "kind": "finishes",
           "contentFormat": "json",
           "finishesData": {
-            "intro": "Los acabados y accesorios ayudan a mejorar la comodidad, la seguridad y la funcionalidad del lanyard durante el evento.",
+            "intro": "La impresión y los accesorios permiten adaptar cada lanyard a la identidad gráfica y a las necesidades operativas del evento.",
             "finishes": [
               {
                 "title": "Impresión a color",
-                "description": "Permite integrar logotipo, patrocinadores, claim, web o colores corporativos con buena visibilidad."
+                "description": "Personalización con logotipo, textos, patrocinadores, web o colores corporativos."
               },
               {
                 "title": "Impresión a doble cara",
-                "description": "Recomendada cuando se busca máxima presencia de marca o lectura desde ambos lados."
+                "description": "Opción para conseguir mayor visibilidad del diseño desde ambos lados."
               },
               {
                 "title": "Cierre de seguridad",
-                "description": "Sistema breakaway que mejora la seguridad durante el uso prolongado o en eventos con mucho movimiento."
+                "description": "Sistema breakaway pensado para facilitar la apertura del lanyard ante un tirón."
               },
               {
                 "title": "Hebilla desmontable",
-                "description": "Permite retirar la acreditación sin quitarse el lanyard del cuello."
+                "description": "Permite separar fácilmente la acreditación sin quitarse el lanyard."
               },
               {
-                "title": "Empaquetado por sets",
-                "description": "Opción útil para entregar lanyard, funda y acreditación organizados por asistente, empresa, rol o grupo."
+                "title": "Preparación por sets",
+                "description": "Lanyard, funda y acreditación pueden entregarse organizados por participante, empresa o rol."
               }
             ]
           }
@@ -23241,7 +23277,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "### Anchos y formato\n\n- **Anchos habituales:** 10, 15, 20 o 25 mm según la visibilidad del logotipo, la comodidad y el tipo de evento.\n- **Longitud estándar:** configuración habitual para llevar al cuello con acreditación, tarjeta o identificador.\n- **Formato a medida:** posibilidad de adaptar medidas, diseño o configuración si el proyecto requiere un uso específico.\n\n### Materiales\n\n- **Lanyard estándar:** opción práctica para uso general en ferias, congresos, eventos corporativos y acreditaciones.\n- **Acabado premium:** alternativa con tacto más cuidado o apariencia más visual cuando el evento requiere mayor calidad percibida.\n- **Opción resistente:** recomendable si el lanyard se utilizará durante varios días, en eventos intensivos o con mucha manipulación.\n\n### Impresión y personalización\n\n- **Impresión a color:** permite incorporar logotipo, patrocinadores, claim, web, colores corporativos o gráfica del evento.\n- **Impresión a doble cara:** recomendable cuando se busca máxima visibilidad o se necesita incluir más información.\n- **Variantes por rol:** posibilidad de crear diseños o colores distintos para staff, VIP, prensa, ponentes, expositores o asistentes.\n\n### Accesorios y configuraciones\n\n- **Mosquetón o gancho:** sistema habitual para colgar porta-acreditación, tarjeta, llave o identificador.\n- **Cierre de seguridad:** opción breakaway recomendable cuando prima la seguridad o el uso prolongado.\n- **Hebilla desmontable:** permite retirar la acreditación sin quitarse el lanyard, muy práctico en eventos de larga duración.\n- **Porta-acreditaciones:** fundas adaptadas al tamaño de la tarjeta o acreditación del evento.\n\n### Acabados y entrega\n\n- **Preparado para uso intensivo:** opciones pensadas para aguantar manipulación durante varias horas o varios días.\n- **Sets completos:** posibilidad de entregar lanyard junto con acreditación, funda o porta-tarjeta.\n- **Empaquetado por grupos:** útil para organizar la entrega por rol, empresa, equipo, listado, zona o punto de acreditación."
+          "body": "### Personalización\n\n- **Impresión:** sublimación o serigrafía según diseño, cantidad y acabado requerido.\n- **Impresión a color:** posibilidad de incorporar logotipo, colores corporativos, patrocinadores, textos o gráfica del evento.\n- **Una o dos caras:** según la visibilidad requerida y el sistema de producción.\n- **Variantes por rol:** posibilidad de preparar diferentes diseños o colores para staff, VIP, prensa, ponentes, expositores o asistentes.\n\n### Medidas\n\n- **Anchos habituales:** 10, 15, 20 o 25 mm.\n- **Longitud:** configuración estándar para uso alrededor del cuello.\n- **Configuraciones especiales:** otras medidas o soluciones pueden estudiarse según el proyecto.\n\n### Accesorios\n\n- **Mosquetón o gancho:** para acreditaciones, tarjetas, llaves o identificadores.\n- **Cierre de seguridad:** sistema breakaway para facilitar la apertura del lanyard.\n- **Hebilla desmontable:** permite separar la acreditación sin retirar el lanyard.\n- **Porta-acreditación:** fundas adaptadas al formato de la acreditación.\n\n### Preparación y entrega\n\n- **Sets completos:** lanyard, acreditación y funda preparados conjuntamente.\n- **Organización por grupos:** posibilidad de preparar el material por participante, empresa, rol o equipo."
         },
         {
           "id": "applications",
@@ -23250,27 +23286,27 @@
           "kind": "applications",
           "contentFormat": "json",
           "applicationsData": {
-            "intro": "Aplicaciones habituales de los lanyards personalizados en ferias, congresos, eventos corporativos, cultura, deporte y activaciones de marca.",
+            "intro": "Los lanyards personalizados se utilizan para identificar participantes y organizar accesos en todo tipo de eventos y acciones corporativas.",
             "applications": [
               {
                 "title": "Ferias y congresos",
-                "description": "acreditaciones para asistentes, expositores, ponentes, prensa, organización y visitantes profesionales."
+                "description": "Identificación de asistentes, expositores, ponentes, prensa, organización y visitantes profesionales."
               },
               {
                 "title": "Eventos corporativos",
-                "description": "convenciones internas, formaciones, presentaciones de marca, jornadas de empresa y encuentros con clientes."
+                "description": "Convenciones, formaciones, presentaciones de marca, reuniones de empresa y encuentros con clientes."
               },
               {
                 "title": "Eventos culturales y deportivos",
-                "description": "organización, prensa, backstage, staff técnico, voluntarios, accesos y zonas restringidas."
+                "description": "Staff, organización, prensa, backstage, voluntarios, participantes y control de zonas restringidas."
               },
               {
                 "title": "Acciones de marca y activaciones",
-                "description": "promotores, equipos itinerantes, campañas comerciales, acceso a zonas y personal de apoyo."
+                "description": "Promotores, equipos comerciales, campañas promocionales y personal de apoyo."
               },
               {
                 "title": "Centros y entidades",
-                "description": "identificación de personal, visitantes, proveedores, alumnos, equipos temporales o participantes."
+                "description": "Identificación de personal, visitantes, proveedores, alumnos, equipos temporales o participantes."
               }
             ]
           }
@@ -23279,19 +23315,23 @@
       "faqs": [
         {
           "question": "¿Se pueden hacer lanyards distintos para staff, ponentes y asistentes?",
-          "answer": "Sí. Es muy habitual preparar variantes por rol (color/diseño) para que la identificación sea inmediata."
+          "answer": "Sí. Podemos preparar diferentes colores o diseños según el rol para facilitar la identificación durante el evento."
         },
         {
-          "question": "¿Qué ancho recomendáis?",
-          "answer": "Para la mayoría de eventos, 15 o 20 mm suele ser el equilibrio ideal entre comodidad y visibilidad del logo."
+          "question": "¿Qué ancho de lanyard recomendáis?",
+          "answer": "Para la mayoría de eventos, 15 o 20 mm ofrece un buen equilibrio entre comodidad y visibilidad del logotipo. Los formatos de 10 y 25 mm pueden utilizarse cuando se busca una solución más discreta o con mayor presencia gráfica."
         },
         {
-          "question": "¿Podéis entregarlos con acreditación incluida?",
-          "answer": "Sí. Podemos preparar el pack completo: lanyard + acreditación (y, si hace falta, funda/clip), para que llegue listo para repartir."
+          "question": "¿Podéis entregar los lanyards con acreditación incluida?",
+          "answer": "Sí. Podemos preparar el conjunto completo de lanyard, acreditación y, si es necesario, funda o clip, listo para repartir."
         },
         {
-          "question": "¿Hay opciones más seguras o más cómodas?",
-          "answer": "Sí: cierre de seguridad y hebilla desmontable, según el tipo de evento y el público."
+          "question": "¿Hay opciones con cierre de seguridad?",
+          "answer": "Sí. Podemos incorporar cierre de seguridad tipo breakaway o hebilla desmontable según el uso previsto."
+        },
+        {
+          "question": "¿Qué necesitáis para preparar un presupuesto de lanyards personalizados?",
+          "answer": "Indícanos la cantidad, el ancho aproximado, el tipo de impresión, si necesitas una o dos caras y los accesorios que quieres incluir. Si todavía no tienes definida la configuración, podemos recomendarte la opción más adecuada."
         }
       ],
       "breadcrumbs": [
@@ -23308,7 +23348,7 @@
           "url": "/categorias/eventos"
         },
         {
-          "name": "Lanyards personalizados para eventos",
+          "name": "Lanyards personalizados para eventos en Barcelona",
           "url": "/productos/lanyards-eventos-barcelona"
         }
       ],
@@ -23338,23 +23378,18 @@
           "placement": "hero-pills"
         },
         {
-          "key": "mejor-control-de-accesos",
-          "label": "Mejor control de accesos",
-          "placement": "hero-pills"
-        },
-        {
-          "key": "marca-presente-todo-el-tiempo",
-          "label": "Marca presente todo el tiempo",
-          "placement": "hero-pills"
-        },
-        {
-          "key": "comodidad-y-seguridad",
-          "label": "Comodidad y seguridad",
+          "key": "control-de-accesos",
+          "label": "Control de accesos",
           "placement": "hero-pills"
         },
         {
           "key": "personalizacion-por-roles",
           "label": "Personalización por roles",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "lanyard-y-acreditacion",
+          "label": "Lanyard + acreditación",
           "placement": "hero-pills"
         }
       ],
@@ -23362,7 +23397,7 @@
       "formFields": [
         {
           "name": "impresion",
-          "label": "Tipo de impresion",
+          "label": "Tipo de impresión",
           "type": "select",
           "required": false,
           "options": [
@@ -23372,19 +23407,8 @@
           "readonly": false
         },
         {
-          "name": "tintas",
-          "label": "Tintas",
-          "type": "select",
-          "required": false,
-          "options": [
-            "1.2",
-            "Cuatricromía"
-          ],
-          "readonly": false
-        },
-        {
           "name": "ancho",
-          "label": "Ancho cinta",
+          "label": "Ancho de cinta",
           "type": "select",
           "required": false,
           "options": [
@@ -23399,7 +23423,7 @@
           "name": "cantidad",
           "label": "Cantidad",
           "type": "number",
-          "required": false,
+          "required": true,
           "options": [],
           "readonly": false
         },
@@ -23414,8 +23438,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Lanyards Personalizados para Eventos | Impresión y Personalización",
-        "metaDescription": "Lanyards personalizados para ferias, congresos y eventos corporativos. Con impresión a color, diferentes anchos y accesorios. Pide presupuesto a Repro Disseny.",
+        "metaTitle": "Lanyards personalizados en Barcelona para eventos",
+        "metaDescription": "Lanyards personalizados en Barcelona para ferias, congresos y eventos corporativos. Impresión a color, distintos anchos y accesorios. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/lanyards-eventos-barcelona",
         "hreflang": [
           {
@@ -23424,10 +23448,25 @@
           }
         ],
         "keywords": [
-          "lanyards"
+          "lanyards personalizados",
+          "lanyards personalizados barcelona",
+          "lanyards para eventos",
+          "lanyards para congresos",
+          "lanyards para ferias",
+          "lanyards con acreditación",
+          "lanyards corporativos"
         ],
         "searchTerms": [
-          "lanyards"
+          "lanyards personalizados",
+          "lanyards personalizados barcelona",
+          "lanyards barcelona",
+          "lanyards para eventos",
+          "lanyards para eventos barcelona",
+          "lanyards para congresos",
+          "lanyards para ferias",
+          "lanyard personalizado",
+          "lanyard con acreditación",
+          "cintas para acreditaciones"
         ],
         "schema": {},
         "robotsOverride": "INHERIT",

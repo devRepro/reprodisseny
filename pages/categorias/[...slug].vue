@@ -3,6 +3,7 @@ import { computed } from "vue";
 import type { CategoryDetailPageDto } from "~/server/services/cms/catalog.service";
 import SiteBreadcrumbs from "@/components/shared/SiteBreadcrumbs.vue";
 import CategoryHero from "@/components/marketing/category/CategoryHero.vue";
+import CategoryChildrenGrid from "@/components/marketing/category/CategoryChildrenGrid.vue";
 import CategoryProductsGrid from "@/components/marketing/category/CategoryProductsGrid.vue";
 import ContentSectionsRenderer from "@/components/marketing/content/ContentSectionsRenderer.vue";
 import FaqAccordion from "@/components/shared/blocks/FaqAccordion.vue";
@@ -63,7 +64,6 @@ if (currentPage.value === 0) {
 const pageContainerClass = "container-content";
 const pageFlowClass = "space-y-0";
 const pageBottomSpacingClass = "pb-8 md:pb-10";
-const sectionIntroClass = "max-w-2xl";
 const sectionSpacingClass = "mt-10 md:mt-12";
 const sectionSpacingCompactClass = "mt-8 md:mt-10";
 
@@ -284,6 +284,15 @@ const relatedProducts = computed(() =>
     : []
 );
 
+const editorialHighlightPaths = new Set([
+  "/categorias/gran-formato",
+  "/categorias/publicidad-oficina",
+]);
+
+const showEditorialHighlights = computed(() =>
+  editorialHighlightPaths.has(normalizePath(category.value?.path))
+);
+
 const isPending = computed(() => status.value === "pending");
 
 const showNotFound = computed(() => {
@@ -351,16 +360,6 @@ const secondaryCta = computed(() => {
   }
 
   return undefined;
-});
-
-const childrenGridClass = computed(() => {
-  const count = children.value.length;
-
-  if (count <= 1) return "mx-auto max-w-[420px] grid-cols-1";
-  if (count === 2) return "mx-auto max-w-[920px] grid-cols-1 sm:grid-cols-2";
-  if (count === 3) return "grid-cols-1 sm:grid-cols-2 xl:grid-cols-3";
-
-  return "grid-cols-1 sm:grid-cols-2 xl:grid-cols-4";
 });
 
 const canonicalUrl = computed(() => {
@@ -646,67 +645,29 @@ const closingBannerPills = computed(() => {
           <section aria-label="Presentación de la categoría">
             <CategoryHero
               :category="category"
-              :primary-cta="{ label: 'Pedir presupuesto', to: '/contacto' }"
+              :primary-cta="{ label: 'Pedir presupuesto', to: '/pedir-presupuesto' }"
               :secondary-cta="secondaryCta"
             />
           </section>
 
-          <section
+          <CategoryChildrenGrid
             v-if="currentPage === 1 && children.length"
-            id="subcategorias"
-            :class="pageContainerClass"
-            aria-label="Subcategorías"
-          >
-            <div class="space-y-8 md:space-y-10">
-              <div :class="sectionIntroClass">
-                <ContentSectionIntro
-                  eyebrow="Subcategorías"
-                  title="Explora esta línea de soluciones"
-                  description="Accede directamente a las subcategorías relacionadas con esta área."
-                />
-              </div>
+            :children="children"
+            eyebrow="Líneas de producto"
+            title="Explora nuestras soluciones"
+            description="Elige la familia que mejor encaja con tu proyecto para ver sus productos y opciones."
+          />
 
-              <div :class="['grid auto-rows-fr gap-6', childrenGridClass]">
-                <NuxtLink
-                  v-for="child in children"
-                  :key="child.slug || child.path"
-                  :to="child.path"
-                  class="group flex h-full flex-col overflow-hidden rounded-[28px] border border-border/70 bg-card shadow-[0_10px_30px_-24px_hsl(var(--foreground)/0.14)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/20 hover:shadow-[0_18px_40px_-26px_hsl(var(--foreground)/0.18)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:ring-offset-2"
-                >
-                  <div class="aspect-[16/10] overflow-hidden bg-muted/25">
-                    <img
-                      v-if="child.image?.src"
-                      :src="child.image.src"
-                      :alt="child.image.alt || child.title || 'Subcategoría'"
-                      class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                    <div v-else class="h-full w-full bg-muted/40" />
-                  </div>
-
-                  <div class="flex flex-1 flex-col px-5 py-5">
-                    <h3 class="text-[20px] font-semibold leading-[1.25] text-foreground">
-                      {{ child.title }}
-                    </h3>
-
-                    <p
-                      v-if="child.description"
-                      class="mt-3 line-clamp-3 text-body-s leading-[1.6] text-foreground/72"
-                    >
-                      {{ child.description }}
-                    </p>
-
-                    <span
-                      class="mt-5 inline-flex min-h-11 items-center justify-center self-start rounded-lg border border-border bg-background px-4 py-2.5 text-body-s-bold text-foreground transition group-hover:border-primary/25 group-hover:text-primary"
-                    >
-                      Ver subcategoría
-                    </span>
-                  </div>
-                </NuxtLink>
-              </div>
-            </div>
-          </section>
+          <CategoryProductsGrid
+            v-if="currentPage === 1 && showEditorialHighlights && relatedProducts.length"
+            id="soluciones-destacadas"
+            variant="featured"
+            :products="relatedProducts"
+            eyebrow="Selección destacada"
+            title="Soluciones destacadas"
+            description="Una selección breve de productos relevantes para acceder directamente a sus opciones."
+            container-class="container-content py-6 md:py-8"
+          />
 
           <div
             v-if="productsPending"
@@ -718,8 +679,8 @@ const closingBannerPills = computed(() => {
           <CategoryProductsGrid
             v-else
             :products="products"
-            eyebrow="Catálogo"
-            title="Productos de esta categoría"
+            eyebrow="Catálogo completo"
+            title="Todos los productos"
             description="Explora opciones, formatos y acabados disponibles."
             :current-page="productsMeta.page"
             :total-pages="productsMeta.pages"
@@ -775,7 +736,8 @@ const closingBannerPills = computed(() => {
           </div>
 
           <CategoryProductsGrid
-            v-if="currentPage === 1 && relatedProducts.length"
+            v-if="currentPage === 1 && !showEditorialHighlights && relatedProducts.length"
+            id="productos-relacionados"
             :products="relatedProducts"
             eyebrow="Productos relacionados"
             title="También te puede interesar"

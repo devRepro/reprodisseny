@@ -1506,6 +1506,66 @@
     @apply mt-auto px-1 pt-6;
   }
 
+  .catalog-card--category {
+    @apply rounded-2xl p-3 md:p-4;
+  }
+
+  .catalog-card--category .catalog-card__main-link {
+    @apply grid grid-cols-[112px_minmax(0,1fr)] items-center rounded-xl sm:flex sm:grid-cols-none;
+  }
+
+  .catalog-card--category .catalog-card__media {
+    @apply rounded-xl;
+  }
+
+  .catalog-card--category .catalog-card__content {
+    @apply gap-1.5 pl-4 pt-0 sm:pl-1 sm:pt-3;
+  }
+
+  .catalog-card--category .catalog-card__title {
+    @apply text-lg md:text-lg;
+  }
+
+  .catalog-card--category .catalog-card__description {
+    @apply line-clamp-2 text-sm leading-5;
+  }
+
+  .catalog-card--category .catalog-card__actions {
+    @apply px-1 pt-3;
+  }
+
+  .catalog-card--featured {
+    @apply rounded-2xl border-primary/15 bg-background p-3 shadow-none md:p-4;
+  }
+
+  .catalog-card--featured:hover {
+    @apply border-primary/30 shadow-sm;
+  }
+
+  .catalog-card--featured .catalog-card__main-link {
+    @apply grid grid-cols-[112px_minmax(0,1fr)] items-center rounded-xl sm:flex sm:grid-cols-none;
+  }
+
+  .catalog-card--featured .catalog-card__media {
+    @apply rounded-xl;
+  }
+
+  .catalog-card--featured .catalog-card__content {
+    @apply gap-1.5 pl-4 pt-0 sm:pl-1 sm:pt-3;
+  }
+
+  .catalog-card--featured .catalog-card__title {
+    @apply text-lg md:text-lg;
+  }
+
+  .catalog-card--featured .catalog-card__description {
+    @apply line-clamp-2 text-sm leading-5;
+  }
+
+  .catalog-card--featured .catalog-card__actions {
+    @apply px-1 pt-3;
+  }
+
   /* =========================================================
    SITE FOOTER
    ========================================================= */

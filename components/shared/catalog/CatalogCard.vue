@@ -21,6 +21,7 @@ type Props = {
   title: string
   description?: string | null
   image?: CardMedia
+  variant?: "default" | "category" | "featured"
   ctaLabel?: string
   imageAspectClass?: string
   fallbackLabel?: string
@@ -30,6 +31,7 @@ type Props = {
 const props = withDefaults(defineProps<Props>(), {
   description: "",
   image: null,
+  variant: "default",
   ctaLabel: "Ver más",
   imageAspectClass: "aspect-[4/3]",
   fallbackLabel: "Sin imagen",
@@ -74,7 +76,7 @@ const linkAriaLabel = computed(() => {
 </script>
 
 <template>
-  <article class="catalog-card">
+  <article :class="['catalog-card', `catalog-card--${props.variant}`]">
     <NuxtLink
       :to="props.href"
       :aria-label="linkAriaLabel"
@@ -124,7 +126,7 @@ const linkAriaLabel = computed(() => {
     <div class="catalog-card__actions">
       <AppButton
         :to="props.href"
-        variant="outline"
+        :variant="props.variant === 'default' ? 'outline' : 'link'"
         size="sm"
         arrow
         :aria-label="linkAriaLabel"

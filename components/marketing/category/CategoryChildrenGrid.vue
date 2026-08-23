@@ -31,7 +31,7 @@ const props = withDefaults(
     eyebrow: "Subcategorías",
     title: "Explora esta línea de soluciones",
     description: "Accede directamente a las subcategorías relacionadas con esta área.",
-    containerClass: "container-content",
+    containerClass: "container-content py-6 md:py-8",
   }
 );
 
@@ -60,7 +60,7 @@ const gridClass = computed(() => {
     aria-label="Subcategorías"
   >
     <div :class="containerClass">
-      <div class="space-y-8 md:space-y-10">
+      <div class="space-y-5 md:space-y-6">
         <ContentSectionIntro
           v-if="title || description || eyebrow"
           :eyebrow="eyebrow"
@@ -69,7 +69,7 @@ const gridClass = computed(() => {
           class="max-w-3xl"
         />
 
-        <ul :class="['grid auto-rows-fr gap-6', gridClass]">
+        <ul :class="['grid auto-rows-fr gap-4 md:gap-5', gridClass]">
           <li
             v-for="(child, index) in visibleChildren"
 :key="
@@ -86,8 +86,11 @@ const gridClass = computed(() => {
               :title="child.title || child.name || ''"
               :description="child.shortDescription || child.description || ''"
               :image="child.image"
-              cta-label="Ver subcategoría"
-              fallback-label="Subcategoría"
+              variant="category"
+              badge="Línea de solución"
+              image-aspect-class="aspect-[4/3] sm:aspect-[16/8]"
+              cta-label="Explorar solución"
+              fallback-label="Línea de solución"
             />
           </li>
         </ul>
