@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-08-23T09:56:41.746Z",
+  "generatedAt": "2026-08-23T17:30:12.225Z",
   "categories": [
     {
       "id": "12",
-      "updatedAt": "2026-07-14T10:38:10Z",
+      "updatedAt": "2026-08-23T16:28:30Z",
       "type": "subcategoria",
       "slug": "material-flexible",
       "path": "/categorias/gran-formato/material-flexible",
@@ -198,7 +198,7 @@
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Impresión en Materiales Flexibles | Lonas y Vinilos premium",
-        "metaDescription": "Impresión gran formato flexible en Barcelona: vinilos (pared, cristal, suelo y vehículo), lonas, textil, papel de pared, retroiluminados e imanes. Presupuesto rápido.",
+        "metaDescription": "Impresión gran formato flexible en Barcelona: vinilos, lonas, textil, papel de pared y retroiluminados para interior y exterior. Pide presupuesto.",
         "canonical": "https://reprodisseny.com/categorias/gran-formato/material-flexible",
         "hreflang": [
           {
@@ -236,7 +236,7 @@
             {
               "@type": "CollectionPage",
               "name": "Impresión en Materiales Flexibles - Gran Formato",
-              "description": "Impresión gran formato flexible en Barcelona: vinilos (pared, cristal, suelo y vehículo), lonas, textil, papel de pared, retroiluminados e imanes. Presupuesto rápido.",
+              "description": "Impresión gran formato flexible en Barcelona: vinilos, lonas, textil, papel de pared y retroiluminados para interior y exterior. Pide presupuesto.",
               "url": "https://reprodisseny.com/categorias/gran-formato/material-flexible",
               "image": "https://webcms.blob.core.windows.net/media/category/gran-formato-flexible.webp",
               "inLanguage": "es-ES",
@@ -320,7 +320,7 @@
     },
     {
       "id": "13",
-      "updatedAt": "2026-07-24T06:20:23Z",
+      "updatedAt": "2026-08-23T16:27:00Z",
       "type": "subcategoria",
       "slug": "material-rigido",
       "path": "/categorias/gran-formato/material-rigido",
@@ -491,7 +491,7 @@
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Gran formato rígido | Forex, Dibond, metacrilato y más",
-        "metaDescription": "Impresión gran formato rígido en Barcelona: foam/panel ligero, Forex, Dibond, cartón, metacrilato y madera. Para señalética, displays y ferias. Pide presupuesto.",
+        "metaDescription": "Impresión sobre rígidos en Barcelona: Forex, Dibond, metacrilato, foam y cartón para señalética, displays, retail y eventos. Pide presupuesto.",
         "canonical": "https://reprodisseny.com/categorias/gran-formato/material-rigido",
         "hreflang": [
           {
@@ -529,7 +529,7 @@
             {
               "@type": "CollectionPage",
               "name": "Impresión en Materiales Rígidos - Gran Formato",
-              "description": "Impresión gran formato rígido en Barcelona: foam/panel ligero, Forex, Dibond, cartón, metacrilato y madera. Para señalética, displays y ferias. Pide presupuesto.",
+              "description": "Impresión sobre rígidos en Barcelona: Forex, Dibond, metacrilato, foam y cartón para señalética, displays, retail y eventos. Pide presupuesto.",
               "url": "https://reprodisseny.com/categorias/gran-formato/material-rigido",
               "image": "https://webcms.blob.core.windows.net/media/category/gran-formato-rigidos.webp",
               "inLanguage": "es-ES",
@@ -1522,17 +1522,17 @@
     },
     {
       "id": "5",
-      "updatedAt": "2026-08-23T09:51:40Z",
+      "updatedAt": "2026-08-23T15:59:24Z",
       "type": "categoria",
       "slug": "gran-formato",
       "path": "/categorias/gran-formato",
-      "title": "Impresión gran formato (flexible y rígido)",
+      "title": "Impresión gran formato Barcelona | Vinilos, lonas y rígidos",
       "nav": "Gran Formato",
       "order": 2,
       "hidden": false,
       "featured": false,
       "isPublished": true,
-      "description": "Imprimimos en gran formato para exterior e interior: vinilos, lonas, cartelería, retroiluminados y soportes rígidos para punto de venta, escaparates, ferias, señalética y rotulación. Te asesoramos para elegir el material ideal según la superficie, la duración y las condiciones (sol, humedad, roce o tránsito).",
+      "description": "Realizamos impresión digital en gran formato en Barcelona para empresas, agencias, retail, eventos y espacios corporativos. Producimos vinilos, lonas, cartelería y soportes rígidos a medida para interior y exterior, seleccionando el material y acabado adecuados según la superficie, duración y sistema de instalación.",
       "bodyMd": "{\n  \"title\": \"Cómo trabajamos\",\n  \"description\": \"Te ayudamos a elegir, producir y entregar la solución gráfica más adecuada según la superficie, la ubicación y la duración prevista.\",\n  \"steps\": [\n    {\n      \"label\": \"01\",\n      \"title\": \"Definimos la ubicación, la superficie y la medida\",\n      \"description\": \"Nos dices dónde irá la pieza —pared, cristal, suelo, vehículo o exterior— y las medidas necesarias para orientar correctamente la solución.\"\n    },\n    {\n      \"label\": \"02\",\n      \"title\": \"Revisamos el archivo y elegimos material y adhesivo\",\n      \"description\": \"Comprobamos el diseño y definimos el material y el adhesivo más adecuados según la superficie, el uso y la duración prevista.\"\n    },\n    {\n      \"label\": \"03\",\n      \"title\": \"Imprimimos y aplicamos los acabados necesarios\",\n      \"description\": \"Producimos la pieza y aplicamos acabados como laminado, corte o refuerzos según los requisitos del proyecto.\"\n    },\n    {\n      \"label\": \"04\",\n      \"title\": \"Entregamos listo para instalar\",\n      \"description\": \"Preparamos el pedido para que llegue listo para su colocación y, si aplica, coordinamos la logística para facilitar la instalación.\"\n    }\n  ],\n  \"cta\": {\n    \"title\": \"¿Dudas entre vinilo, lona o rígido?\",\n    \"description\": \"Cuéntanos la superficie, la ubicación, la medida y la duración prevista, y te recomendaremos el material más adecuado para tu proyecto.\",\n    \"buttonLabel\": \"Solicitar asesoramiento\",\n    \"href\": \"/contacto\"\n  }\n}",
       "sections": [
         {
@@ -1755,7 +1755,7 @@
           "@graph": [
             {
               "@type": "CollectionPage",
-              "name": "Impresión gran formato (flexible y rígido)",
+              "name": "Impresión gran formato Barcelona | Vinilos, lonas y rígidos",
               "description": "Impresión gran formato en Barcelona: vinilos (pared, cristal, suelo y vehículo), lonas, retroiluminados y soportes rígidos (Forex, Dibond). Interior/exterior.",
               "url": "https://reprodisseny.com/categorias/gran-formato",
               "image": "https://webcms.blob.core.windows.net/media/category/gran-formato.webp",
@@ -13015,18 +13015,18 @@
     },
     {
       "id": "20",
-      "updatedAt": "2026-08-06T09:06:14Z",
+      "updatedAt": "2026-08-23T16:13:14Z",
       "type": "producto",
       "slug": "carteles-personalizados-gran-formato",
       "path": "/productos/carteles-personalizados-gran-formato",
-      "title": "Carteles personalizados (cartelería publicitaria)",
+      "title": "Carteles personalizados en gran formato",
       "categorySlug": "material-flexible",
       "categorySlugs": [
         "material-flexible"
       ],
       "order": 9999,
       "isPublished": true,
-      "shortDescription": "Los carteles siguen siendo una de las formas más rápidas y efectivas de comunicar: informan, atraen y refuerzan tu marca en escaparates, paredes, ferias y espacios públicos. En Repro Disseny imprimimos cartelería personalizada en gran formato, con diferentes papeles y acabados para que el resultado se vea profesional y se adapte al uso (interior/exterior, campaña temporal o comunicación estable).",
+      "shortDescription": "Imprimimos carteles personalizados en gran formato para escaparates, campañas, eventos, retail y comunicación corporativa. Trabajamos formatos A3, A2, A1, A0 y medidas a medida, con impresión a color y acabados adaptados al uso. Si necesitas imprimir un cartel grande, revisamos tamaño, resolución y distancia de lectura para conseguir una cartelería clara, visible y profesional.",
       "sections": [
         {
           "id": "details",
@@ -13034,7 +13034,39 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "### ¿Qué es un cartel y para qué se usa?\n\nUn cartel es una pieza impresa diseñada para comunicar un mensaje a distancia: promoción, evento, lanzamiento, señalización o información.\n\nPuede colocarse en pared, escaparate, paneles, marcos o expositores y se utiliza tanto en retail como en eventos, hostelería, centros y entornos corporativos."
+          "body": "## Impresión de cartelería en gran formato\n\nLos carteles personalizados son una solución directa para comunicar promociones, eventos, campañas, señalización o información en escaparates, paredes, marcos, expositores y espacios comerciales.\n\nEn Repro Disseny realizamos **impresión de cartelería en gran formato** para empresas, tiendas, eventos, hostelería y espacios corporativos. Podemos producir desde formatos habituales como A3, A2, A1 y A0 hasta carteles totalmente a medida.\n\n## Carteles pensados para verse a la distancia correcta\n\nAl imprimir un cartel grande no solo importa el tamaño. La distancia de lectura, el contraste, la jerarquía del mensaje y la calidad del archivo condicionan el resultado final.\n\nRevisamos las medidas y la resolución del archivo y te orientamos sobre el formato, papel y acabado más adecuados según dónde se colocará el cartel y durante cuánto tiempo se utilizará.\n\n## Interior, escaparate y aplicaciones de mayor exigencia\n\nPara interior podemos trabajar diferentes papeles y acabados mate o brillo. En escaparates o zonas con iluminación intensa, un acabado mate puede ayudar a reducir reflejos.\n\nCuando la pieza necesita mayor resistencia, irá en exterior o requiere una instalación específica, valoramos el soporte y el acabado más adecuados antes de producirla."
+        },
+        {
+          "id": "benefits",
+          "key": "benefits",
+          "title": "Beneficios",
+          "kind": "benefits",
+          "contentFormat": "json",
+          "benefitsData": {
+            "intro": "Ventajas de imprimir carteles personalizados para campañas, eventos, escaparates y comunicación corporativa.",
+            "benefits": [
+              {
+                "title": "Alta visibilidad",
+                "description": "Formatos pensados para comunicar con claridad tanto a corta distancia como en espacios donde el mensaje debe verse desde lejos."
+              },
+              {
+                "title": "Formatos estándar y a medida",
+                "description": "Trabajamos A3, A2, A1, A0 y medidas personalizadas según el espacio y la distancia de lectura."
+              },
+              {
+                "title": "Impresión a color",
+                "description": "Buena reproducción de textos, logotipos, gráficos e imágenes para mantener una comunicación de marca consistente."
+              },
+              {
+                "title": "Adaptado a cada campaña",
+                "description": "Podemos producir distintas versiones por tienda, idioma, promoción, ubicación o campaña manteniendo una imagen homogénea."
+              },
+              {
+                "title": "Acabados según el uso",
+                "description": "Seleccionamos papel, acabado mate o brillo y opciones de protección según la ubicación, iluminación y duración prevista."
+              }
+            ]
+          }
         },
         {
           "id": "materials",
@@ -13112,7 +13144,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "### Impresión\n\n- Impresión a todo color con buena definición para tipografías, logos e imágenes.\n- Recomendación de diseño: titular grande, contraste y jerarquía clara.\n\nUn cartel se lee en movimiento, por eso conviene priorizar mensajes claros y lectura rápida."
+          "body": "## Características de la impresión de carteles\n\n### Formatos y medidas\n\n- Formatos habituales A3, A2, A1 y A0.\n- Medidas totalmente personalizadas según el proyecto.\n- Orientación vertical u horizontal.\n- Preparación para marcos, escaparates, displays y expositores.\n\n### Impresión\n\n- Impresión a todo color para tipografías, logotipos, gráficos e imágenes.\n- Producción de una única pieza o series de carteles.\n- Posibilidad de crear versiones por idioma, precio, campaña, tienda o ubicación.\n\n### Preparación del archivo\n\nPara imprimir carteles en gran formato revisamos las medidas finales, el sangrado y la resolución del archivo.\n\nEn cartelería de gran tamaño también tenemos en cuenta la distancia de lectura: un cartel debe mantener buena legibilidad y jerarquía visual cuando se observa desde la distancia prevista.\n\n### Acabados\n\n- Opciones mate para reducir reflejos en determinadas ubicaciones.\n- Opciones brillo cuando se busca mayor viveza visual.\n- Laminado cuando se necesita protección adicional frente a manipulación o roce.\n- Preparación exacta para marcos y sistemas de exposición."
         },
         {
           "id": "applications",
@@ -13148,20 +13180,24 @@
       ],
       "faqs": [
         {
-          "question": "¿Qué tamaño necesito?",
-          "answer": "Depende de la distancia de lectura. Para escaparate o pared cercana, los formatos A3 o A2 suelen funcionar bien. Para captar atención a más distancia, los formatos A1 o A0 son más efectivos."
+          "question": "¿Qué tamaño necesito para imprimir un cartel?",
+          "answer": "Depende de la ubicación y de la distancia de lectura. Para escaparates o paredes cercanas pueden funcionar formatos A3 o A2, mientras que para ganar visibilidad a mayor distancia suelen utilizarse A1, A0 o medidas personalizadas."
         },
         {
-          "question": "¿Mate o brillo?",
-          "answer": "En interiores con iluminación, el acabado mate suele reducir reflejos y mejorar la lectura. El brillo puede aportar más viveza al color, pero también refleja más."
+          "question": "¿Qué resolución necesita un cartel de gran formato?",
+          "answer": "Depende del tamaño final y de la distancia desde la que se verá. Revisamos el archivo antes de imprimir para comprobar que la resolución, las medidas y el sangrado sean adecuados."
+        },
+        {
+          "question": "¿Puedo imprimir un cartel grande a medida?",
+          "answer": "Sí. Además de A3, A2, A1 y A0 trabajamos medidas personalizadas según el espacio, el diseño y el sistema donde se instalará."
+        },
+        {
+          "question": "¿Es mejor acabado mate o brillo?",
+          "answer": "En interiores con iluminación o focos, el mate suele reducir reflejos y facilitar la lectura. El brillo puede aportar más viveza al color, pero también refleja más."
         },
         {
           "question": "¿Podéis imprimir series de carteles para varias tiendas o campañas?",
-          "answer": "Sí. Podemos producir por lotes y versiones, por ejemplo por idioma, precio, ubicación o campaña, manteniendo la coherencia de marca."
-        },
-        {
-          "question": "¿Podéis revisar el archivo antes de imprimir?",
-          "answer": "Sí. Revisamos medidas, sangrado y resolución para evitar problemas antes de imprimir."
+          "answer": "Sí. Podemos producir por lotes y preparar versiones por idioma, precio, ubicación o campaña manteniendo una imagen de marca consistente."
         }
       ],
       "breadcrumbs": [
@@ -13182,7 +13218,7 @@
           "url": "/categorias/gran-formato/material-flexible"
         },
         {
-          "name": "Carteles personalizados (cartelería publicitaria)",
+          "name": "Carteles personalizados en gran formato",
           "url": "/productos/carteles-personalizados-gran-formato"
         }
       ],
@@ -13193,7 +13229,20 @@
         "alt": "Carteles personalizados de gran formato para escaparates, campañas y comunicación visual"
       },
       "galleryImages": [],
-      "relatedProductsJson": [],
+      "relatedProductsJson": [
+        {
+          "productSlug": "marcos-click-system-personalizados"
+        },
+        {
+          "productSlug": "caballetes-publicitarios-personalizados"
+        },
+        {
+          "productSlug": "vinilo-para-cristal"
+        },
+        {
+          "productSlug": "roll-up-personalizado"
+        }
+      ],
       "sku": "01-GRFO-0002",
       "brand": "Reprodisseny",
       "attributes": [
@@ -13280,8 +13329,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Carteles personalizados en gran formato",
-        "metaDescription": "Carteles personalizados para publicidad, eventos y punto de venta. Impresión a color en distintos papeles, tamaños A3–A0 y a medida.",
+        "metaTitle": "Impresión de carteles gran formato | Cartelería a medida",
+        "metaDescription": "Imprime carteles personalizados en gran formato, A3–A0 y a medida para escaparates, eventos y retail. Cartelería a color y acabados según uso.",
         "canonical": "https://reprodisseny.com/productos/carteles-personalizados-gran-formato",
         "hreflang": [
           {
@@ -13290,10 +13339,37 @@
           }
         ],
         "keywords": [
-          "carteles"
+          "impresión de cartelería",
+          "carteles personalizados",
+          "carteles gran formato",
+          "impresión de carteles",
+          "imprimir cartel grande",
+          "cartelería publicitaria",
+          "carteles a medida",
+          "carteles A0",
+          "carteles A1",
+          "carteles A2",
+          "carteles A3",
+          "carteles para escaparates"
         ],
         "searchTerms": [
-          "carteles"
+          "impresión de cartelería",
+          "imprimir cartel grande",
+          "imprimir carteles",
+          "carteles personalizados",
+          "carteles personalizados gran formato",
+          "carteles gran formato",
+          "cartelería gran formato",
+          "cartelería publicitaria",
+          "impresión carteles Barcelona",
+          "carteles a medida",
+          "carteles A0",
+          "carteles A1",
+          "carteles A2",
+          "carteles A3",
+          "carteles para escaparates",
+          "carteles para eventos",
+          "carteles para tiendas"
         ],
         "schema": {},
         "robotsOverride": "INHERIT",
@@ -23475,18 +23551,18 @@
     },
     {
       "id": "132",
-      "updatedAt": "2026-07-22T07:54:16Z",
+      "updatedAt": "2026-08-23T17:23:05Z",
       "type": "producto",
       "slug": "letras-corporeas-personalizadas",
       "path": "/productos/letras-corporeas-personalizadas",
       "title": "Letras corpóreas personalizadas",
-      "categorySlug": "material-oficina",
+      "categorySlug": "material-rigido",
       "categorySlugs": [
-        "material-oficina"
+        "material-rigido"
       ],
       "order": 9999,
       "isPublished": true,
-      "shortDescription": "Las letras corpóreas aportan volumen, presencia y una imagen muy profesional en recepciones, fachadas, stands y espacios comerciales. En Repro Disseny fabricamos letras 3D a medida con distintos materiales y acabados, para que tu marca destaque con un rótulo elegante, duradero y alineado con tu identidad.",
+      "shortDescription": "Fabricamos letras corpóreas y logotipos 3D personalizados a medida para recepciones, oficinas, retail, fachadas, stands y eventos. Trabajamos distintos materiales y grosores según el uso, con corte y fresado a medida y opciones de montaje directo o con separadores para crear volumen y presencia de marca.",
       "sections": [
         {
           "id": "details",
@@ -23494,7 +23570,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "### ¿Qué son las letras corpóreas y para qué se usan?\n\nLas letras corpóreas son letras o logotipos en relieve fabricados mediante corte y fresado en materiales rígidos. Se utilizan para rotulación y branding en interior y exterior: recepción de empresa, pared de marca, escaparate, fachada, señalética o decoración de eventos.\n\nAportan un efecto premium porque generan volumen y sombras, mejoran la visibilidad desde distintos ángulos y refuerzan la presencia visual de la marca en espacios corporativos, comerciales o promocionales."
+          "body": "## Fabricación de letras corpóreas a medida\n\nLas **letras corpóreas** son letras, símbolos o logotipos en relieve fabricados mediante corte y fresado de materiales rígidos. Se utilizan para crear rótulos y elementos de branding con volumen en recepciones, oficinas, tiendas, escaparates, fachadas, stands y eventos.\n\nEn Repro Disseny realizamos **letras corpóreas personalizadas a medida**, adaptando material, tamaño, grosor, acabado y sistema de fijación a cada proyecto.\n\n## ¿Qué material elegir para unas letras corpóreas?\n\nLa elección depende principalmente de dónde se instalarán, las dimensiones de la pieza, el acabado visual buscado y la exposición del espacio.\n\nPodemos valorar PVC/Forex, metacrilato, madera, Dibond y otras combinaciones según el proyecto. También es posible trabajar diferentes grosores o combinar capas para conseguir mayor volumen y contraste.\n\n## Letras corpóreas para interior, exterior y eventos\n\nEn interior son habituales en recepciones, paredes corporativas, showrooms y retail. Para fachadas o instalaciones exteriores es necesario escoger materiales y sistemas de fijación adecuados a las condiciones de exposición.\n\nTambién fabricamos corpóreos para stands, ferias y eventos cuando se necesita un logotipo o elemento de marca con volumen y presencia visual."
         },
         {
           "id": "benefits",
@@ -23549,12 +23625,12 @@
           "url": "/categorias"
         },
         {
-          "name": "Publicidad y Oficina",
-          "url": "/categorias/publicidad-oficina"
+          "name": "Gran Formato",
+          "url": "/categorias/gran-formato"
         },
         {
-          "name": "Material Oficina",
-          "url": "/categorias/publicidad-oficina/material-oficina"
+          "name": "Materiales Rígidos",
+          "url": "/categorias/gran-formato/material-rigido"
         },
         {
           "name": "Letras corpóreas personalizadas",
@@ -23568,7 +23644,20 @@
         "alt": "Letras corpóreas personalizadas para rótulos, oficinas y señalización corporativa"
       },
       "galleryImages": [],
-      "relatedProductsJson": [],
+      "relatedProductsJson": [
+        {
+          "productSlug": "panel-forex"
+        },
+        {
+          "productSlug": "panel-dibond-personalizado"
+        },
+        {
+          "productSlug": "metacrilato-personalizado"
+        },
+        {
+          "productSlug": "paneles-madera"
+        }
+      ],
       "brand": "Repro Disseny",
       "attributes": [],
       "variants": [],
@@ -23633,8 +23722,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Letras corpóreas personalizadas",
-        "metaDescription": "Letras corpóreas personalizadas para rótulos y decoración. PVC, metacrilato, madera o Dibond con corte/fresado a medida.",
+        "metaTitle": "Letras corpóreas personalizadas | Fabricación a medida",
+        "metaDescription": "Fabricación de letras corpóreas y logotipos a medida en PVC, metacrilato, madera y Dibond para oficinas, retail, fachadas y eventos.",
         "canonical": "https://reprodisseny.com/productos/letras-corporeas-personalizadas",
         "hreflang": [
           {
@@ -23642,8 +23731,37 @@
             "url": "https://reprodisseny.com/productos/letras-corporeas-personalizadas"
           }
         ],
-        "keywords": [],
-        "searchTerms": [],
+        "keywords": [
+          "letras corpóreas",
+          "letras corpóreas personalizadas",
+          "fabricación de corpóreos",
+          "letras corpóreas a medida",
+          "rótulos corpóreos",
+          "logotipos corpóreos",
+          "letras 3D personalizadas",
+          "corpóreos para eventos",
+          "letras corpóreas Cataluña"
+        ],
+        "searchTerms": [
+          "letras corpóreas",
+          "letras corporeas",
+          "letras corpóreas personalizadas",
+          "letras corporeas personalizadas",
+          "fabricación de corpóreos",
+          "fabricacion de corporeos",
+          "letras corpóreas a medida",
+          "letras corpóreas Barcelona",
+          "letras corpóreas Cataluña",
+          "corpóreos para eventos",
+          "letras 3D",
+          "letras 3D personalizadas",
+          "logotipos corpóreos",
+          "logos corpóreos",
+          "rótulos corpóreos",
+          "letras PVC",
+          "letras metacrilato",
+          "letras Dibond"
+        ],
         "schema": {},
         "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/letras corporeas ok.webp"
@@ -23995,18 +24113,18 @@
     },
     {
       "id": "63",
-      "updatedAt": "2026-07-22T07:26:05Z",
+      "updatedAt": "2026-08-23T16:19:55Z",
       "type": "producto",
       "slug": "lona-publicitaria",
       "path": "/productos/lona-publicitaria",
-      "title": "Lona publicitaria",
+      "title": "Lona publicitaria personalizada",
       "categorySlug": "material-flexible",
       "categorySlugs": [
         "material-flexible"
       ],
       "order": 9999,
       "isPublished": true,
-      "shortDescription": "La lona publicitaria es una de las soluciones más efectivas en gran formato: máxima visibilidad, instalación versátil y excelente relación impacto/precio. En Repro Disseny imprimimos lonas personalizadas para exterior e interior, con medidas a medida y acabados de confección (ojales, vaina, refuerzo) para que quede tensa, resistente y lista para colocar.",
+      "shortDescription": "La impresión en lona es una solución de gran formato para fachadas, vallas, ferias, eventos y campañas de alta visibilidad. En Repro Disseny imprimimos lonas publicitarias personalizadas a medida para interior y exterior, con opciones estándar o microperforadas y acabados de confección como ojales, vaina y refuerzo perimetral según el sistema de instalación.",
       "sections": [
         {
           "id": "details",
@@ -24014,7 +24132,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "### ¿Qué es una lona publicitaria y para qué se usa?\n\nUna lona publicitaria es un soporte flexible impreso en gran formato, pensado para comunicar a distancia en fachadas, vallas, estructuras, stands o recintos.\n\nSe utiliza para promoción, branding, señalización y campañas temporales, tanto en entornos comerciales como en eventos."
+          "body": "## Impresión en lona para publicidad y gran formato\n\nUna **lona publicitaria personalizada** es un soporte flexible impreso en gran formato pensado para comunicar a distancia en fachadas, vallas, estructuras, stands, recintos y eventos.\n\nLa impresión en lona permite producir piezas de gran tamaño con una instalación adaptable a cada proyecto. Podemos trabajar medidas personalizadas y preparar la confección según el sistema real de colocación.\n\n## Lonas para interior y exterior\n\nSeleccionamos el tipo de lona según la ubicación, la exposición, la duración prevista y el sistema de instalación.\n\nPara espacios expuestos al viento puede ser conveniente valorar una lona microperforada para reducir el efecto vela. En ubicaciones más controladas puede utilizarse una lona estándar, siempre definiendo correctamente los puntos de fijación y el tensado.\n\n## Una lona preparada para instalar\n\nAdemás de imprimir la gráfica, podemos preparar acabados como ojales, vaina, dobladillo o refuerzo perimetral.\n\nSi nos indicas dónde se instalará la lona, sus medidas, la duración prevista y las condiciones del entorno, podemos recomendarte la solución más adecuada para que quede correctamente tensada y mantenga una buena presencia durante la campaña."
         },
         {
           "id": "benefits",
@@ -24022,7 +24140,7 @@
           "title": "Beneficios",
           "kind": "benefits",
           "contentFormat": "markdown",
-          "body": "Alta visibilidad a distancia: ideal para fachada, valla, recinto o zonas de paso. \nVersátil en instalación: se adapta a múltiples sistemas (tensado, estructura, barandilla, andamio). \nResistente para exterior: materiales y acabados pensados para intemperie. \nMedidas a medida: desde piezas pequeñas hasta lonas de gran tamaño por paños. \nRentable: gran impacto visual con un coste muy eficiente."
+          "body": "- **Alta visibilidad a distancia:** adecuada para fachadas, vallas, recintos, eventos y zonas de paso.\n- **Medidas totalmente a medida:** desde piezas pequeñas hasta grandes superficies producidas por paños cuando es necesario.\n- **Adaptable a interior y exterior:** seleccionamos el tipo de lona según la ubicación, exposición y duración prevista.\n- **Distintos sistemas de instalación:** ojales, vaina, dobladillo y refuerzo perimetral según el montaje.\n- **Solución versátil de gran formato:** útil para campañas, eventos, branding, señalización y comunicación exterior."
         },
         {
           "id": "materials",
@@ -24093,7 +24211,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "### Impresión\n\n- Impresión a todo color con buena reproducción para logos, tipografías e imágenes.\n- Recomendación: mensajes directos, alto contraste y tipografías grandes, porque se lee en movimiento.\n\n### Instalación\n\n- La configuración debe adaptarse al sistema real de instalación: fachada, estructura, barandilla, valla o evento.\n- Si nos indicas el punto de instalación, podemos recomendar el material y la confección más adecuados.\n\n### Para presupuestar\n\nEnvíanos medidas, ubicación, si habrá viento, tipo de acabado si lo tienes claro y fecha de entrega."
+          "body": "## Características de la impresión en lona\n\n### Impresión\n\n- Impresión a todo color para logotipos, tipografías, gráficos e imágenes.\n- Medidas estándar o totalmente personalizadas.\n- Posibilidad de producir grandes superficies por paños cuando el tamaño o el montaje lo requieren.\n\n### Tipos de lona\n\n- **Lona estándar:** adecuada para múltiples aplicaciones de interior y exterior según ubicación.\n- **Lona microperforada:** opción a valorar cuando existe exposición al viento y se necesita reducir el efecto vela.\n- **Soluciones específicas:** disponibles según el tipo de estructura, sistema de montaje o necesidad técnica del proyecto.\n\n### Confección e instalación\n\n- Ojales para fijación y tensado.\n- Vaina para barras o determinadas estructuras.\n- Dobladillo y refuerzo perimetral para reforzar bordes y puntos de anclaje.\n- Configuración adaptada a fachada, valla, estructura, barandilla, stand o evento.\n\n### Preparación del archivo\n\nRevisamos las medidas finales y la calidad del archivo antes de imprimir. En lonas destinadas a verse a distancia también es importante utilizar mensajes directos, buen contraste y una jerarquía visual clara."
         },
         {
           "id": "applications",
@@ -24129,20 +24247,24 @@
       ],
       "faqs": [
         {
-          "question": "¿Qué acabado necesito: ojales o vaina?",
-          "answer": "Depende de cómo se instalará. Ojales para tensar con bridas o cable; vaina cuando va montada en barra o estructura. Si nos envías una foto del punto de instalación, lo definimos rápido."
+          "question": "¿Qué acabado necesito para una lona: ojales o vaina?",
+          "answer": "Depende del sistema de instalación. Los ojales permiten tensar mediante bridas o cable, mientras que la vaina se utiliza cuando la lona debe montarse sobre una barra o estructura. Si conocemos el punto de instalación podemos orientarte."
         },
         {
-          "question": "¿Es mejor lona normal o microperforada?",
-          "answer": "La microperforada suele recomendarse en zonas con viento o cuando interesa reducir resistencia. Para ubicaciones más controladas, la lona estándar suele ser suficiente."
+          "question": "¿Es mejor lona estándar o microperforada?",
+          "answer": "Depende de la ubicación. La microperforada puede ser adecuada en espacios expuestos al viento porque ayuda a reducir el efecto vela. En ubicaciones más controladas puede utilizarse lona estándar."
         },
         {
-          "question": "¿Se puede hacer a doble cara?",
-          "answer": "En lonas, lo más habitual es una cara. Si necesitas visibilidad por ambos lados, se valora la solución más adecuada según estructura."
+          "question": "¿Se pueden imprimir lonas a medida?",
+          "answer": "Sí. Trabajamos medidas personalizadas y, cuando el tamaño lo requiere, podemos plantear la producción por paños teniendo en cuenta las uniones y el montaje."
         },
         {
-          "question": "¿Podéis adaptar el diseño para que se lea desde lejos?",
-          "answer": "Sí, revisamos jerarquía, contraste y tamaño de texto para asegurar lectura a distancia."
+          "question": "¿Qué archivo necesito para imprimir una lona?",
+          "answer": "Necesitamos un archivo preparado a la medida final y con calidad suficiente para el tamaño y la distancia de visualización. Revisamos el archivo antes de producir para detectar posibles problemas."
+        },
+        {
+          "question": "¿Se puede imprimir una lona a doble cara?",
+          "answer": "Lo más habitual es imprimir una cara. Si necesitas visibilidad desde ambos lados, valoramos la solución más adecuada según el sistema de instalación y la estructura."
         }
       ],
       "breadcrumbs": [
@@ -24163,7 +24285,7 @@
           "url": "/categorias/gran-formato/material-flexible"
         },
         {
-          "name": "Lona publicitaria",
+          "name": "Lona publicitaria personalizada",
           "url": "/productos/lona-publicitaria"
         }
       ],
@@ -24174,7 +24296,20 @@
         "alt": "Lona publicitaria impresa para fachadas, eventos y comunicación exterior"
       },
       "galleryImages": [],
-      "relatedProductsJson": [],
+      "relatedProductsJson": [
+        {
+          "productSlug": "banderola-lona-fachada"
+        },
+        {
+          "productSlug": "banderolas-personalizadas"
+        },
+        {
+          "productSlug": "banner-golf-personalizado"
+        },
+        {
+          "productSlug": "vinilo-para-cristal"
+        }
+      ],
       "sku": "01-GRFO-0004",
       "brand": "Reprodisseny",
       "attributes": [
@@ -24287,8 +24422,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Lonas publicitarias personalizadas",
-        "metaDescription": "Lona publicitaria personalizada para fachadas, vallas y eventos. Impresión a color, medidas a medida y acabados con ojales, vaina o refuerzo perimetral.",
+        "metaTitle": "Impresión en lona Barcelona | Lona publicitaria a medida",
+        "metaDescription": "Impresión en lona a medida para fachadas, vallas, ferias y eventos. Lonas publicitarias con ojales, vaina o refuerzo para interior y exterior.",
         "canonical": "https://reprodisseny.com/productos/lona-publicitaria",
         "hreflang": [
           {
@@ -24297,37 +24432,44 @@
           }
         ],
         "keywords": [
+          "impresión en lona",
           "lona publicitaria",
           "lona publicitaria personalizada",
+          "lonas personalizadas",
           "lona personalizada",
           "lona impresa",
           "lona gran formato",
+          "impresión lona gran formato",
           "lona para fachada",
           "lona para vallas",
           "lona para eventos",
-          "lona exterior personalizada",
+          "lona exterior",
           "lona con ojales",
           "lona con vaina",
           "lona microperforada"
         ],
         "searchTerms": [
+          "impresión en lona",
+          "impresión de lonas",
+          "impresiones de lonas",
+          "impresión lona gran formato",
+          "lona publicitaria personalizada",
           "lona publicitaria",
+          "lonas personalizadas",
           "lona personalizada",
           "lona impresa",
           "lona gran formato",
-          "pancarta personalizada",
+          "lonas publicitarias Barcelona",
+          "impresión lona Barcelona",
+          "publicidad en lona",
           "lona para fachada",
+          "lona para valla",
           "lona para eventos",
-          "lona exterior personalizada",
-          "banderola de lona",
+          "lona para feria",
+          "lona para stand",
           "lona con ojales",
           "lona con vaina",
-          "lona microperforada",
-          "impresión lona publicitaria",
-          "lonas publicitarias Barcelona",
-          "lona para valla",
-          "lona para stand",
-          "lona para feria"
+          "lona microperforada"
         ],
         "schema": {},
         "robotsOverride": "INHERIT",
@@ -26513,7 +26655,7 @@
     },
     {
       "id": "52",
-      "updatedAt": "2026-07-24T07:44:08Z",
+      "updatedAt": "2026-08-23T16:22:29Z",
       "type": "producto",
       "slug": "panel-forex",
       "path": "/productos/panel-forex",
@@ -26524,7 +26666,7 @@
       ],
       "order": 9999,
       "isPublished": true,
-      "shortDescription": "El panel de Forex (PVC espumado) es uno de los soportes rígidos más versátiles para comunicación visual: tiene buena presencia, es ligero y aguanta bien el uso en cartelería, señalización y expositores. En Repro Disseny imprimimos Forex a medida con alta calidad, opción a una o dos caras y corte recto o a la forma para dejar la pieza lista para instalar.",
+      "shortDescription": "Imprimimos paneles de Forex (PVC espumado) a medida para cartelería rígida, señalética, PLV y displays. Es un soporte ligero y resistente, disponible en varios grosores, con impresión a una o dos caras, corte recto o a la forma y preparaciones de montaje según el proyecto.",
       "sections": [
         {
           "id": "details",
@@ -26532,7 +26674,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "## Qué es un panel de Forex\n\nUn **panel de Forex** es un soporte rígido de **PVC espumado**, muy utilizado en comunicación visual por su equilibrio entre **rigidez, ligereza y resistencia**.\n\nEs una buena opción para piezas que necesitan **presencia, estabilidad y un acabado profesional**, sin recurrir a materiales pesados o difíciles de manipular.\n\n## Principales ventajas\n\n- **Ligero y fácil de manipular:** facilita el transporte, la instalación y el montaje.\n- **Buena rigidez:** mantiene una presencia sólida en cartelería, señalética y comunicación visual.\n- **Acabado profesional:** ofrece una superficie adecuada para impresión directa con buena calidad visual.\n- **Versátil:** se adapta a múltiples usos en interior y a aplicaciones puntuales en exterior.\n- **Personalizable:** puede producirse a medida y con diferentes acabados según el proyecto.\n\n## Usos habituales\n\nEl panel de Forex se utiliza sobre todo para **cartelería rígida, señalética, PLV, paneles informativos, displays, rótulos temporales y comunicación en punto de venta**.\n\nTambién es una solución habitual para **tiendas, oficinas, ferias, eventos, campañas promocionales y espacios donde se necesita una comunicación visual estable y ligera**.\n\n## Uso en interior y exterior\n\nEl Forex funciona muy bien en **interior**, donde ofrece una solución ligera, estable y con buena presencia visual.\n\nTambién puede utilizarse en **aplicaciones puntuales de exterior**, siempre valorando la ubicación, la exposición al sol, la humedad y la duración prevista del proyecto.\n\nPara usos exteriores prolongados o más exigentes, conviene revisar el **grosor, el acabado y el sistema de fijación** más adecuados antes de producir la pieza."
+          "body": "## Impresión de paneles Forex en PVC espumado\n\nEl **Forex es un panel rígido de PVC espumado** utilizado en cartelería, señalética, PLV y comunicación visual por su combinación de ligereza, rigidez y facilidad de manipulación.\n\nEn Repro Disseny podemos **imprimir Forex a medida**, seleccionar diferentes grosores y producir la gráfica a una o dos caras. También podemos realizar corte recto o corte a la forma y preparar el panel según el sistema de fijación previsto.\n\n## ¿Cuándo elegir un panel de Forex?\n\nEl Forex es especialmente útil cuando se necesita un soporte rígido y ligero para carteles, señales, paneles informativos, displays, ferias, eventos, tiendas, oficinas o comunicación en punto de venta.\n\nFrente a soluciones ultraligeras como el foam, el Forex ofrece una mayor resistencia para piezas que deben manipularse o mantenerse instaladas durante más tiempo en interior.\n\n## Uso en interior y exterior\n\nEl panel de Forex funciona especialmente bien en interior y en aplicaciones protegidas, donde ofrece estabilidad, buena presencia y facilidad de instalación.\n\nTambién puede utilizarse en determinadas aplicaciones temporales de exterior. Cuando la exposición al sol, la humedad, el viento o la duración sean mayores, conviene revisar el grosor, el acabado, el sistema de fijación y si existe otro soporte más adecuado para el proyecto."
         },
         {
           "id": "benefits",
@@ -26690,20 +26832,24 @@
       ],
       "faqs": [
         {
+          "question": "¿Qué es el Forex o PVC espumado?",
+          "answer": "Forex es un panel rígido de PVC espumado muy utilizado en cartelería, señalética y PLV por su combinación de ligereza, rigidez y facilidad de manipulación."
+        },
+        {
           "question": "¿Forex o foam (cartón pluma)?",
-          "answer": "El foam es más ligero, pero el Forex suele ser más resistente y \"de batalla\" para señalética y uso continuado en interior."
+          "answer": "El foam es más ligero, mientras que el Forex suele ofrecer mayor resistencia para señalética, cartelería y piezas de uso continuado en interior. La elección depende del tamaño, el montaje y la duración prevista."
         },
         {
-          "question": "¿Se puede usar en exterior?",
-          "answer": "Puede funcionar en exterior en aplicaciones temporales o controladas, pero para exteriores prolongados conviene valorar el soporte más adecuado según exposición (sol, viento, humedad)."
+          "question": "¿Se puede imprimir Forex a dos caras?",
+          "answer": "Sí. Podemos imprimir a una o dos caras según cómo vaya a verse el panel y el sistema de instalación previsto."
         },
         {
-          "question": "¿Se puede hacer con forma personalizada?",
-          "answer": "Sí, mediante corte a medida, ideal para siluetas, flechas o PLV con forma."
+          "question": "¿Se puede utilizar Forex en exterior?",
+          "answer": "Puede utilizarse en aplicaciones temporales o controladas. Para exposiciones prolongadas conviene valorar las condiciones de sol, viento y humedad y seleccionar el soporte más adecuado."
         },
         {
-          "question": "¿Qué grosor necesito?",
-          "answer": "Depende del tamaño y del montaje (colgado, atornillado, autoportante). Con medidas y uso, te orientamos al momento."
+          "question": "¿Se puede cortar un panel Forex con forma personalizada?",
+          "answer": "Sí. Podemos realizar corte a medida para siluetas, flechas, formas de producto, señalética o piezas de PLV."
         }
       ],
       "breadcrumbs": [
@@ -26843,8 +26989,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Panel de Forex personalizado | Impresión en PVC espumado a medida",
-        "metaDescription": "Panel de Forex (PVC espumado) impreso a medida para cartelería, señalética y displays. Ligero, resistente y con corte recto o a la forma. Solicita presupuesto.",
+        "metaTitle": "Imprimir Forex en Barcelona | Panel PVC espumado a medida",
+        "metaDescription": "Impresión de panel Forex (PVC espumado) a medida para cartelería, señalética y PLV. Varios grosores, una o dos caras y corte personalizado.",
         "canonical": "https://reprodisseny.com/productos/panel-forex",
         "hreflang": [
           {
@@ -26853,15 +26999,35 @@
           }
         ],
         "keywords": [
-          "forex",
+          "imprimir forex",
+          "impresión forex",
           "panel forex",
+          "panel forex personalizado",
           "pvc espumado",
+          "pvc espumado impreso",
+          "panel pvc espumado",
+          "cartel forex",
           "cartelería rígida",
-          "señalética interior",
-          "panel pvc"
+          "señalética forex",
+          "panel pvc",
+          "forex a medida"
         ],
         "searchTerms": [
-          "forex"
+          "imprimir forex",
+          "impresión forex",
+          "impresión sobre forex",
+          "imprimir forex Barcelona",
+          "panel forex",
+          "panel forex personalizado",
+          "panel forex a medida",
+          "pvc espumado",
+          "pvc espumado impreso",
+          "panel pvc espumado",
+          "cartel forex",
+          "cartelería forex",
+          "señalética forex",
+          "panel rígido forex",
+          "impresión soportes rígidos"
         ],
         "schema": {},
         "robotsOverride": "INHERIT",
@@ -30898,7 +31064,7 @@
     },
     {
       "id": "92",
-      "updatedAt": "2026-07-22T07:23:20Z",
+      "updatedAt": "2026-08-23T17:20:43Z",
       "type": "producto",
       "slug": "stoppers-lineal-personalizados",
       "path": "/productos/stoppers-lineal-personalizados",
@@ -30917,7 +31083,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es un stopper y para qué se usa? \nUn stopper es un elemento publicitario que se coloca en estanterías o lineales y sobresale hacia el pasillo, “parando” la mirada del cliente. Se utiliza para destacar promociones, novedades, precio, packs, lanzamientos o información clave (producto recomendado, “nuevo”, “top ventas”, etc.)."
+          "body": "## ¿Qué es un stopper publicitario y para qué se usa?\n\nUn **stopper publicitario** es un elemento de PLV que se coloca en estanterías o lineales y sobresale hacia el pasillo para captar la atención del cliente.\n\nLos **stoppers personalizados** se utilizan para destacar promociones, novedades, precios, lanzamientos y productos prioritarios en supermercados, tiendas, farmacias y otros puntos de venta."
         },
         {
           "id": "benefits",
@@ -30991,7 +31157,20 @@
         "alt": "Stoppers personalizados para lineal, promociones en tienda y punto de venta"
       },
       "galleryImages": [],
-      "relatedProductsJson": [],
+      "relatedProductsJson": [
+        {
+          "productSlug": "tiras-de-lineal-personalizadas"
+        },
+        {
+          "productSlug": "banderolas-lineal-personalizadas"
+        },
+        {
+          "productSlug": "displays-de-mesa-personalizados"
+        },
+        {
+          "productSlug": "expositores-de-mesa-personalizados"
+        }
+      ],
       "sku": "01-OFICI-00010",
       "brand": "Reprodisseny",
       "attributes": [],
@@ -31060,8 +31239,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Stoppers personalizados para lineales",
-        "metaDescription": "Stoppers personalizados para estanterías y lineales: destaca ofertas y lanzamientos en el punto de decisión. Impresión a color, soportes rígidos.",
+        "metaTitle": "Stoppers publicitarios personalizados para lineales",
+        "metaDescription": "Stoppers publicitarios personalizados para lineales y punto de venta. Destaca promociones y productos con impresión a color y corte a medida.",
         "canonical": "https://reprodisseny.com/productos/stoppers-lineal-personalizados",
         "hreflang": [
           {
@@ -31070,10 +31249,30 @@
           }
         ],
         "keywords": [
-          "stoppers"
+          "stopper",
+          "stoppers personalizados",
+          "stoppers publicitarios",
+          "stopper publicitario",
+          "stoppers para lineales",
+          "stoppers supermercado",
+          "stopper punto de venta",
+          "PLV punto de venta"
         ],
         "searchTerms": [
-          "stoppers"
+          "stopper",
+          "stoppers",
+          "stopper personalizado",
+          "stoppers personalizados",
+          "stopper publicitario",
+          "stoppers publicitarios",
+          "stopper para lineal",
+          "stoppers para lineales",
+          "stopper supermercado",
+          "stoppers supermercado",
+          "stopper punto de venta",
+          "stoppers punto de venta",
+          "PLV stopper",
+          "publicidad en punto de venta"
         ],
         "schema": {},
         "robotsOverride": "INHERIT",
