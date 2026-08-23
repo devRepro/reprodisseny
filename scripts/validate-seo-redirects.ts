@@ -8,6 +8,7 @@ import {
   LEGACY_GONE_PREFIXES,
   LEGACY_NOT_FOUND_PATHS,
   MANUAL_LEGACY_REDIRECTS,
+  PRINT_ESTIMATE_DESTINATION_EXCEPTIONS,
 } from "../shared/seo/legacyRedirects";
 
 type RedirectRule = {
@@ -185,6 +186,9 @@ const generatedRedirects = collectGeneratedRedirects();
 const manualRedirects = collectManualRedirects();
 const allRedirects = [...generatedRedirects, ...manualRedirects];
 const effectiveRedirects = buildEffectiveRedirects(allRedirects);
+const printEstimateDestinationExceptions =
+  PRINT_ESTIMATE_DESTINATION_EXCEPTIONS as Record<string, string>;
+const usedPrintEstimateExceptions = new Set<string>();
 const errors: string[] = [];
 const warnings: string[] = [];
 
@@ -196,6 +200,39 @@ for (const entry of generatedRedirects) {
 
   if (!baseRedirect) {
     errors.push(`${entry.source} redirect ${entry.from}: falta la URL base equivalente ${basePath}`);
+    continue;
+  }
+
+  if (baseRedirect.to !== entry.to) {
+    const exceptionReason = printEstimateDestinationExceptions[basePath]?.trim();
+
+    if (!exceptionReason) {
+      errors.push(
+        `destino printestimate inconsistente: ${basePath} -> ${baseRedirect.to}, ${entry.from} -> ${entry.to}`,
+      );
+      continue;
+    }
+
+    usedPrintEstimateExceptions.add(basePath);
+  }
+}
+
+for (const [basePath, reason] of Object.entries(printEstimateDestinationExceptions)) {
+  validateConfiguredPath("excepcion printestimate", basePath, errors);
+
+  if (!reason.trim()) {
+    errors.push(`excepcion printestimate ${basePath}: falta motivo documentado`);
+  }
+
+  const baseRedirect = effectiveRedirects.get(basePath);
+  const printEstimateRedirect = effectiveRedirects.get(`${basePath}/printestimate`);
+
+  if (!baseRedirect || !printEstimateRedirect) {
+    errors.push(`excepcion printestimate ${basePath}: falta la regla base o su variante`);
+  } else if (baseRedirect.to === printEstimateRedirect.to) {
+    errors.push(`excepcion printestimate ${basePath}: es redundante porque los destinos ya coinciden`);
+  } else if (!usedPrintEstimateExceptions.has(basePath)) {
+    errors.push(`excepcion printestimate ${basePath}: no corresponde a una divergencia validada`);
   }
 }
 
@@ -278,6 +315,9 @@ console.log(
   `URLs 410 validadas: ${LEGACY_GONE_PATHS.length + LEGACY_GONE_PREFIXES.length} (${LEGACY_GONE_PATHS.length} paths, ${LEGACY_GONE_PREFIXES.length} prefijos)`,
 );
 console.log(`URLs 404 explícitas validadas: ${LEGACY_NOT_FOUND_PATHS.length}`);
+console.log(
+  `Excepciones base/printestimate documentadas: ${usedPrintEstimateExceptions.size}`,
+);
 
 if (errors.length) {
   console.error(`\nErrores bloqueantes (${errors.length})`);

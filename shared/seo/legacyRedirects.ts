@@ -13,6 +13,21 @@ export const LEGACY_HOSTS = [
  */
 export const MANUAL_LEGACY_REDIRECTS = {
   "/product/banderas-personalizadas-presupuesto": "/productos/banderolas-personalizadas",
+  "/manual-para-hacer-un-buen-flyer": "/como-preparar-archivos",
+} as const;
+
+/**
+ * Excepciones temporales aprobadas para pares base/printestimate cuyo destino
+ * semántico sigue pendiente de revisión. El validador exige que cualquier
+ * divergencia esté enumerada aquí con un motivo explícito.
+ */
+export const PRINT_ESTIMATE_DESTINATION_EXCEPTIONS = {
+  "/product/vinilo-alta-adherencia-presupuesto":
+    "Equivalencia semántica pendiente: no modificar base ni printestimate en esta fase.",
+  "/product/vinilo-removible-presupuesto":
+    "Equivalencia semántica pendiente: no modificar base ni printestimate en esta fase.",
+  "/product/vinilo-transparente-presupuesto":
+    "Equivalencia semántica pendiente: no modificar base ni printestimate en esta fase.",
 } as const;
 
 /**
@@ -50,7 +65,6 @@ export const LEGACY_GONE_PATHS = [
   "/adevinta-estrena-nuevas-oficinas",
   "/adevinta-estrena-nuevas-oficines",
   "/web2print-corporativa-adevinta",
-  "/manual-para-hacer-un-buen-flyer",
   "/product/plantilla-tarjeta-3",
   "/product/plantilla-tarjeta-4",
   "/product/plantilla-tarjeta-13",
