@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-23T17:30:12.225Z",
+  "generatedAt": "2026-08-23T17:55:47.999Z",
   "categories": [
     {
       "id": "12",
@@ -23551,7 +23551,7 @@
     },
     {
       "id": "132",
-      "updatedAt": "2026-08-23T17:23:05Z",
+      "updatedAt": "2026-08-23T17:54:41Z",
       "type": "producto",
       "slug": "letras-corporeas-personalizadas",
       "path": "/productos/letras-corporeas-personalizadas",
@@ -23578,7 +23578,7 @@
           "title": "Beneficios",
           "kind": "benefits",
           "contentFormat": "markdown",
-          "body": "Impacto visual y calidad percibida: la marca gana presencia gracias al volumen. \n\nAcabado profesional: ideal para recepciones, espacios corporativos y retail. \n\nPersonalización total: tipografía, tamaño, grosor, color y acabado. \n\nMateriales para cada entorno: opciones para interior y soluciones resistentes para exterior. \n\nInstalación limpia: posibilidad de montaje directo o con separadores (efecto flotante)."
+          "body": "## Ventajas de las letras corpóreas\n\n- **Mayor presencia de marca:** el volumen y las sombras aumentan el impacto visual del logotipo.\n- **Fabricación a medida:** adaptamos tamaño, tipografía, grosor, color y acabado al proyecto.\n- **Diferentes materiales:** seleccionamos el soporte según el entorno, la estética y la instalación.\n- **Interior y exterior:** podemos plantear soluciones para recepciones, retail, fachadas, stands y eventos.\n- **Diferentes sistemas de montaje:** instalación directa o mediante separadores para crear un efecto flotante."
         },
         {
           "id": "technical-specs",
@@ -23586,7 +23586,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "## Características técnicas \nMateriales habituales (según acabado y uso) \nPVC / Forex: muy versátil, buen volumen y acabado limpio (muy usado en interior). \nMetacrilato: efecto premium (brillo/transparente/opal) para un resultado más elegante. \nMadera (MDF / contrachapado): estética cálida y natural, ideal para interior y decoración. \nDibond: gran estabilidad y presencia, recomendable para piezas que deben mantener planitud. \nOtras combinaciones posibles según el proyecto (por ejemplo, base + frontal para efecto de color o contraste). \n\nGrosor y relieve \nDiferentes grosores según el tamaño y el nivel de presencia que buscas. \nPosibilidad de combinar capas para crear más volumen o efecto “doble material”. \n\nCorte y fresado \nCorte y mecanizado a medida para letras, logotipos y formas especiales. \nOpciones de cantos rectos o remates según el estilo del diseño. \n\nAcabados \nAcabado directo del material o con aplicación de color (según look deseado). Opciones premium (según proyecto): brillo, mate, texturas, etc. \n\nInstalación \nMontaje directo a pared o con separadores para efecto flotante. \nPreparación para instalación: plantillas de colocación, marcaje y sistemas de fijación (según superficie). \nRecomendación práctica: para elegir material y fijación conviene definir si irá en interior/exterior, la distancia de lectura y el tipo de pared/fachada."
+          "body": "## Características técnicas de las letras corpóreas\n\n### Materiales habituales\n\nSegún el acabado, la ubicación y el uso podemos fabricar letras y logotipos corpóreos en diferentes materiales:\n\n- **PVC / Forex:** ligero, versátil y especialmente adecuado para interior.\n- **Metacrilato:** acabado brillante, transparente u opal para proyectos de mayor presencia visual.\n- **Madera:** MDF o contrachapado para conseguir una estética cálida y natural.\n- **Dibond:** buena estabilidad y planitud para piezas que necesitan mayor rigidez.\n- **Combinaciones de materiales:** posibilidad de combinar capas, bases y frontales para crear volumen o contraste.\n\n### Grosor y relieve\n\n- Diferentes grosores según el tamaño y el efecto visual buscado.\n- Posibilidad de combinar varias capas para aumentar el volumen.\n- Fabricación de letras, símbolos, logotipos y formas especiales.\n\n### Corte y fresado\n\n- Corte y mecanizado a medida.\n- Producción de letras, logotipos y formas especiales.\n- Diferentes soluciones de canto y acabado según el diseño.\n\n### Acabados\n\n- Acabado directo del material.\n- Opciones mate o brillo según el proyecto.\n- Aplicación de color y combinación de diferentes materiales cuando el diseño lo requiere.\n\n### Instalación\n\n- Montaje directo sobre pared.\n- Instalación con separadores para crear efecto flotante.\n- Plantillas de colocación y preparación de sistemas de fijación según la superficie.\n\nPara seleccionar el material y el sistema de instalación necesitamos valorar si las letras estarán en interior o exterior, sus dimensiones, la distancia de lectura y el tipo de pared o fachada."
         },
         {
           "id": "applications",
@@ -23687,15 +23687,18 @@
           "type": "select",
           "required": false,
           "options": [
-            "Nido de abeja 16 mm",
-            "Nido de abeja 32 mm",
-            "PVC 10 mm"
+            "PVC / Forex",
+            "Metacrilato",
+            "Dibond",
+            "Madera",
+            "Cartón nido de abeja",
+            "Otro / a consultar"
           ],
           "readonly": false
         },
         {
-          "name": "acabados",
-          "label": "Acabados",
+          "name": "corte",
+          "label": "Corte",
           "type": "select",
           "required": false,
           "options": [
@@ -31064,11 +31067,11 @@
     },
     {
       "id": "92",
-      "updatedAt": "2026-08-23T17:20:43Z",
+      "updatedAt": "2026-08-23T17:51:12Z",
       "type": "producto",
       "slug": "stoppers-lineal-personalizados",
       "path": "/productos/stoppers-lineal-personalizados",
-      "title": "Stoppers personalizados (punto de venta)",
+      "title": "Stoppers publicitarios personalizados",
       "categorySlug": "material-publicitario",
       "categorySlugs": [
         "material-publicitario"
@@ -31091,7 +31094,7 @@
           "title": "Beneficios",
           "kind": "benefits",
           "contentFormat": "markdown",
-          "body": "Aumenta visibilidad en lineal: sobresale y se ve antes que una etiqueta o un cartel plano. \nImpulsa ventas: ideal para promociones y productos prioritarios. \nMensaje rápido y claro: perfecto para “2x1”, “nuevo”, “oferta”, “destacado”. \nPersonalización por campaña: variantes por categorías, tiendas, secciones o temporadas. \nFácil de instalar: soluciones pensadas para montaje rápido en tienda."
+          "body": "## Ventajas de los stoppers publicitarios\n\n- **Mayor visibilidad en el lineal:** sobresalen hacia el pasillo y destacan antes que una etiqueta o cartel plano.\n- **Refuerzo de promociones:** permiten destacar ofertas, novedades, lanzamientos y productos prioritarios.\n- **Mensaje rápido:** adecuados para precios, promociones, llamadas a la acción y mensajes breves.\n- **Personalización por campaña:** podemos producir diferentes versiones por tienda, sección, producto o temporada.\n- **Instalación sencilla:** adaptamos el sistema de fijación al tipo de estantería o lineal."
         },
         {
           "id": "technical-specs",
@@ -31099,7 +31102,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Formatos y diseño \nFormatos estándar o a medida según lineal y distancia de lectura. \nDiseños con jerarquía clara: titular corto + beneficio + precio/CTA. \nPosibilidad de formas especiales (flecha, bocadillo, silueta de producto). \nMateriales \nSoportes rígidos ligeros para mantener estabilidad y buen acabado (según uso y duración). \nOpciones más resistentes si la campaña es larga o hay mucha manipulación. \nImpresión \nImpresión a todo color con buena definición (textos grandes, logos, iconos). \nSeries por campañas, secciones o tiendas manteniendo coherencia visual. \nCorte y acabados \nCorte recto o corte a medida/troquelado para formas llamativas. \nOpción de laminado si necesitas más resistencia al roce o mayor durabilidad en tienda. \nEsquinas redondeadas (opcional) para mayor resistencia. \nSistema de fijación \nPreparación según el lineal: pinza, adhesivo, pestaña, encaje o sistema específico (según el soporte del cliente/tienda). \nSi nos indicas el tipo de estantería, te proponemos la opción más práctica."
+          "body": "## Características técnicas de los stoppers personalizados\n\n### Formatos y diseño\n\n- Formatos estándar o a medida según el lineal y la distancia de lectura.\n- Diseños con jerarquía clara para comunicar promociones, precios o lanzamientos.\n- Posibilidad de formas especiales como flechas, bocadillos o siluetas de producto.\n\n### Materiales\n\nSeleccionamos el soporte según el tamaño, la duración de la campaña y el sistema de fijación previsto.\n\n- Opciones ligeras para campañas promocionales.\n- Soportes de mayor rigidez cuando se necesita más estabilidad o resistencia.\n- Materiales adaptados al nivel de manipulación previsto en tienda.\n\n### Impresión\n\n- Impresión a todo color para textos, logotipos, gráficos e imágenes.\n- Producción de series por campañas, tiendas, categorías o promociones.\n\n### Corte y acabados\n\n- Corte recto o corte a la forma.\n- Posibilidad de laminado cuando se necesita mayor resistencia al roce.\n- Esquinas redondeadas cuando el diseño o la utilización lo requieren.\n\n### Sistemas de fijación\n\nPodemos preparar el stopper según el lineal mediante diferentes soluciones:\n\n- pinza;\n- adhesivo;\n- pestaña;\n- encaje;\n- sistema específico según la estantería.\n\nSi nos indicas el tipo de lineal o estantería, podemos recomendar la solución de montaje más adecuada."
         },
         {
           "id": "applications",
@@ -31107,7 +31110,7 @@
           "title": "Aplicaciones",
           "kind": "applications",
           "contentFormat": "markdown",
-          "body": "Retail y supermercados: promociones, lanzamientos, precios especiales, campañas estacionales. \nFarmacia y parafarmacia: novedades, recomendados, campañas por laboratorio. \nElectrónica y grandes superficies: highlights por gama, novedades y packs. \nTiendas especializadas: producto estrella, “últimas unidades”, lanzamiento. \nFerias y showrooms: señalización de producto y puntos destacados en exposición."
+          "body": "## Aplicaciones de los stoppers publicitarios\n\n- **Retail y supermercados:** promociones, lanzamientos, precios especiales y campañas estacionales.\n- **Farmacia y parafarmacia:** novedades, productos recomendados y campañas de laboratorio.\n- **Electrónica y grandes superficies:** novedades, gamas destacadas y packs promocionales.\n- **Tiendas especializadas:** productos prioritarios, lanzamientos y últimas unidades.\n- **Ferias y showrooms:** señalización de productos y puntos destacados de exposición."
         }
       ],
       "faqs": [
@@ -31146,7 +31149,7 @@
           "url": "/categorias/publicidad-oficina/material-publicitario"
         },
         {
-          "name": "Stoppers personalizados (punto de venta)",
+          "name": "Stoppers publicitarios personalizados",
           "url": "/productos/stoppers-lineal-personalizados"
         }
       ],
