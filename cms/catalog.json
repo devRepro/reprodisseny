@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-24T11:25:46.207Z",
+  "generatedAt": "2026-08-24T18:56:07.838Z",
   "categories": [
     {
       "id": "12",
@@ -1842,18 +1842,18 @@
     },
     {
       "id": "4",
-      "updatedAt": "2026-07-14T10:39:24Z",
+      "updatedAt": "2026-08-24T18:54:55Z",
       "type": "categoria",
       "slug": "expositores",
       "path": "/categorias/expositores",
-      "title": "Expositores personalizados para ferias y punto de venta",
+      "title": "Expositores publicitarios y PLV para tiendas, ferias y eventos",
       "nav": "Expositores",
       "order": 3,
       "hidden": false,
       "featured": false,
       "isPublished": true,
-      "description": "Diseñamos e imprimimos expositores publicitarios para que tu marca destaque en ferias, congresos, eventos y espacios comerciales. Desde soluciones rápidas como roll-ups y banners hasta montajes más impactantes como photocalls, tótems o cajas de luz, con materiales pensados para interior o exterior y un acabado profesional.",
-      "bodyMd": "{\n  \"title\": \"Cómo trabajamos\",\n  \"description\": \"Te ayudamos a definir, producir y entregar el expositor más adecuado según el espacio, el uso y la fecha del evento.\",\n  \"steps\": [\n    {\n      \"label\": \"01\",\n      \"title\": \"Definimos el expositor, las medidas y la instalación\",\n      \"description\": \"Nos indicas el tipo de expositor, las medidas y el lugar donde se instalará para orientar la solución desde el inicio.\"\n    },\n    {\n      \"label\": \"02\",\n      \"title\": \"Revisamos el diseño o lo adaptamos\",\n      \"description\": \"Comprobamos legibilidad, composición y márgenes de seguridad para que la pieza funcione correctamente una vez producida.\"\n    },\n    {\n      \"label\": \"03\",\n      \"title\": \"Recomendamos el material y el soporte adecuados\",\n      \"description\": \"Te orientamos según si el uso será en interior o exterior, la duración prevista y el resultado visual que necesitas.\"\n    },\n    {\n      \"label\": \"04\",\n      \"title\": \"Imprimimos, montamos y entregamos listo para usar\",\n      \"description\": \"Producimos el expositor, realizamos el montaje si aplica y lo entregamos preparado para su colocación o uso directo.\"\n    }\n  ],\n  \"cta\": {\n    \"title\": \"¿Necesitas un expositor para un evento o punto de venta?\",\n    \"description\": \"Cuéntanos dónde irá el expositor, las medidas y la fecha del evento, y te propondremos la opción más efectiva para que tu marca se vea impecable.\",\n    \"buttonLabel\": \"Solicitar asesoramiento\",\n    \"href\": \"/contacto\"\n  }\n}",
+      "description": "Diseñamos e imprimimos expositores publicitarios y soluciones PLV para tiendas, puntos de venta, ferias, congresos y eventos. Trabajamos desde sistemas portátiles para promociones y stands hasta expositores de mesa, suelo, photocalls, tótems y soluciones retroiluminadas, con medidas estándar o a medida y materiales adaptados a interior o exterior.",
+      "bodyMd": "{\n  \"title\": \"Cómo elegir y producir tu expositor\",\n  \"description\": \"Te ayudamos a definir el formato, los materiales y el sistema más adecuado según el espacio, el uso y la fecha en que lo necesitas.\",\n  \"steps\": [\n    {\n      \"label\": \"01\",\n      \"title\": \"Definimos el espacio y el objetivo\",\n      \"description\": \"Nos indicas si el expositor se utilizará en una tienda, feria, evento, exterior o punto de venta, junto con las medidas disponibles y el objetivo de comunicación.\"\n    },\n    {\n      \"label\": \"02\",\n      \"title\": \"Elegimos el tipo de expositor\",\n      \"description\": \"Valoramos visibilidad, transporte, estabilidad y frecuencia de uso para recomendar un roll-up, display, tótem, photocall, caja de luz u otra solución.\"\n    },\n    {\n      \"label\": \"03\",\n      \"title\": \"Adaptamos diseño, material y acabados\",\n      \"description\": \"Revisamos la gráfica y definimos soporte, medidas, márgenes y sistema de montaje para que el resultado funcione correctamente en su ubicación.\"\n    },\n    {\n      \"label\": \"04\",\n      \"title\": \"Producimos y entregamos listo para utilizar\",\n      \"description\": \"Imprimimos y preparamos el expositor, realizamos el montaje cuando corresponde y lo entregamos listo para instalar o transportar al evento.\"\n    }\n  ],\n  \"cta\": {\n    \"title\": \"¿Necesitas un expositor para una tienda, feria o evento?\",\n    \"description\": \"Cuéntanos dónde lo utilizarás, qué medidas tienes disponibles y cuándo lo necesitas. Te ayudaremos a escoger la solución más adecuada.\",\n    \"buttonLabel\": \"Solicitar presupuesto\",\n    \"href\": \"/pedir-presupuesto\"\n  }\n}",
       "sections": [
         {
           "id": "details",
@@ -1861,7 +1861,7 @@
           "title": "Detalles y características",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "Los expositores publicitarios deben combinar visibilidad, estabilidad y facilidad de montaje para presentar productos, promociones o mensajes de forma clara y atractiva en espacios comerciales, ferias y puntos de venta.\n\nPara que cumplan su función, es importante elegir bien el formato, la estructura, el soporte gráfico y el acabado, teniendo en cuenta el lugar de instalación, la duración de la campaña y el uso previsto. No requiere la misma solución un expositor temporal para una promoción que una pieza pensada para un uso continuado.\n\nTrabajamos los expositores publicitarios con criterios de funcionalidad, resistencia y presentación, para que cada soporte resulte práctico, transmita una imagen profesional y mantenga un buen acabado durante todo el tiempo de exposición."
+          "body": "Un expositor publicitario debe hacer algo más que mostrar una gráfica: tiene que captar la atención, mantener una buena estabilidad y presentar el mensaje de forma clara en el espacio donde se utiliza. Por eso elegimos el formato, el soporte y la estructura según la distancia de lectura, la duración de la campaña y si el expositor estará en una tienda, una feria, un evento o una zona exterior.\n\nPara ferias y congresos, los [roll-ups personalizados](/productos\roll-up-personalizado) son una de las soluciones más prácticas cuando necesitas transportar y montar el expositor con rapidez. Si buscas crear un fondo de marca o una zona de fotografía, un [photocall personalizado](/productos/photocall-personalizado) ofrece mucha más superficie visual, mientras que las [cajas de luz personalizadas](/productos/cajas-de-luz-personalizadas) permiten destacar la comunicación mediante gráfica retroiluminada.\n\nEn tiendas y puntos de venta, los [expositores de mesa personalizados](/productos/expositores-de-mesa-personalizados) funcionan bien para promociones e información cerca del cliente. Cuando necesitas ganar altura y visibilidad en una entrada, pasillo o zona de paso, los [tótems publicitarios](/productos/totems-publicitarios-personalizados) y los [expositores de suelo](/productos/expositores-suelo-personalizados) permiten presentar el mensaje a mayor distancia.\n\nTambién desarrollamos soluciones específicas para retail, como [cubrealarmas personalizados](/productos/cubrealarmas-tiendas-retail), que transforman los arcos de seguridad de una entrada en superficies de comunicación, o sistemas de cartelería intercambiable como los [marcos Click System](/productos/marcos-click-system-personalizados).\n\nEl objetivo no es utilizar siempre el expositor más grande, sino elegir el sistema que mejor se adapte al espacio, al recorrido del público y a la frecuencia con la que deberá utilizarse o cambiarse la gráfica."
         },
         {
           "id": "types",
@@ -1871,74 +1871,74 @@
           "contentFormat": "json",
           "items": [
             {
-              "title": "Expositores enrollables y portátiles",
-              "description": "Soluciones como roll-ups, banners o caballetes pensadas para transportar, montar y desmontar con facilidad, con una presencia visual eficaz y repetible.",
+              "title": "Expositores portátiles para ferias y eventos",
+              "description": "Roll-ups, X-Banners y otros sistemas ligeros pensados para transportar, montar y desmontar con facilidad. Son especialmente útiles cuando la gráfica debe acompañar a la marca en diferentes ferias, congresos o acciones promocionales.",
               "features": [
-                "Portátil",
-                "Rápido montaje",
-                "Reutilizable"
+                "Portátiles",
+                "Montaje rápido",
+                "Reutilizables"
               ],
-              "idealFor": "Eventos itinerantes, promociones y puntos de venta"
+              "idealFor": "Ferias, congresos, promociones y eventos itinerantes"
             },
             {
-              "title": "Señalización vertical de alto impacto",
-              "description": "Tótems, expositores de suelo y marcos system diseñados para ganar visibilidad en altura, dirigir el flujo de personas y destacar promociones o zonas concretas.",
+              "title": "Expositores PLV para tiendas y mostradores",
+              "description": "Soluciones compactas para presentar promociones, producto o información en el punto de venta, con buena lectura a corta distancia y formatos adaptados a mesas, barras, mostradores y recepciones.",
               "features": [
-                "Vertical",
-                "Visible",
-                "Impacto"
+                "PLV",
+                "Mostrador",
+                "Exposición de producto"
               ],
-              "idealFor": "Accesos, recorridos, promociones y espacios de marca"
+              "idealFor": "Tiendas, retail, recepciones y puntos de venta"
             },
             {
-              "title": "Fondos y sets para fotos",
-              "description": "Photocalls, marcos photocall y cubos pensados para crear un fondo de marca homogéneo, bien tensado y con una gráfica centrada y legible en fotos, prensa o redes.",
+              "title": "Expositores de suelo y tótems publicitarios",
+              "description": "Sistemas verticales que ganan visibilidad en entradas, pasillos, stands y zonas de circulación. Permiten destacar promociones, orientar al visitante o reforzar la presencia de marca.",
               "features": [
-                "Photocall",
-                "Sin arrugas",
-                "Imagen de marca"
+                "Verticales",
+                "Alta visibilidad",
+                "Autoportantes"
               ],
-              "idealFor": "Eventos, prensa, activaciones y redes sociales"
+              "idealFor": "Tiendas, stands, accesos, showrooms y promociones"
             },
             {
-              "title": "Visibilidad exterior",
-              "description": "Banderolas y banner golf concebidos para captar atención en zonas abiertas, con sistemas y refuerzos adaptados a la ubicación y a las condiciones de viento.",
+              "title": "Photocalls y fondos de marca",
+              "description": "Fondos, marcos y estructuras gráficas diseñados para crear una presencia de marca homogénea en fotografías, presentaciones, prensa y acciones promocionales.",
+              "features": [
+                "Gran formato",
+                "Imagen de marca",
+                "Eventos"
+              ],
+              "idealFor": "Eventos, congresos, prensa, fotografía y patrocinadores"
+            },
+            {
+              "title": "Expositores para exterior",
+              "description": "Banderolas, Banner Golf y otros sistemas preparados para captar la atención en espacios abiertos, donde la estabilidad, la estructura y los refuerzos deben adaptarse a las condiciones de instalación.",
               "features": [
                 "Exterior",
-                "Captación",
-                "Resistente"
+                "Alta visibilidad",
+                "Resistentes"
               ],
-              "idealFor": "Acciones al aire libre, accesos y ferias exteriores"
+              "idealFor": "Accesos, eventos exteriores, deporte y promociones al aire libre"
             },
             {
-              "title": "Iluminación y acabados premium",
-              "description": "Cajas de luz textiles o rígidas que aportan un extra de impacto visual gracias al efecto retroiluminado y a una presentación más premium.",
+              "title": "Cajas de luz y expositores retroiluminados",
+              "description": "Sistemas con gráfica iluminada pensados para aumentar el impacto visual en espacios con mucha competencia gráfica y conseguir una presentación más cuidada.",
               "features": [
-                "Retroiluminado",
+                "Retroiluminados",
                 "Premium",
                 "Alto impacto"
               ],
-              "idealFor": "Ferias, retail y espacios comerciales con alta competencia visual"
+              "idealFor": "Retail, escaparates, ferias y espacios corporativos"
             },
             {
-              "title": "Punto de venta y mostrador",
-              "description": "Expositores de mesa y displays compactos pensados para producto, ofertas o información, con buena lectura a corta distancia y rigidez adecuada.",
+              "title": "Expositores personalizados y a medida",
+              "description": "Cuando una solución estándar no encaja, podemos adaptar formato, dimensiones, material, corte y sistema de montaje para desarrollar una pieza adecuada al espacio y al uso previsto.",
               "features": [
-                "Compacto",
-                "Mostrador",
-                "Buena lectura"
+                "A medida",
+                "Personalizados",
+                "Adaptables"
               ],
-              "idealFor": "Retail, recepción, promociones y exposición de producto"
-            },
-            {
-              "title": "Soluciones específicas",
-              "description": "Piezas funcionales como cubrealarmas, contenedores de reciclaje o elementos estacionales personalizados para mantener una estética de marca coherente.",
-              "features": [
-                "Personalizado",
-                "Funcional",
-                "Corporativo"
-              ],
-              "idealFor": "Elementos técnicos, campañas temáticas y espacios corporativos"
+              "idealFor": "Proyectos especiales, campañas de marca y espacios singulares"
             }
           ]
         },
@@ -1949,27 +1949,31 @@
           "kind": "formats",
           "contentFormat": "json",
           "formatsData": {
-            "intro": "Definimos el formato, el soporte y el sistema de montaje según el espacio disponible, la distancia de lectura, el entorno de uso y el nivel de presencia que necesita la pieza.",
+            "intro": "El formato de un expositor depende del espacio disponible, la distancia de lectura, el entorno y el tiempo durante el que permanecerá instalado. Podemos producir soluciones estándar o adaptar medidas y materiales al proyecto.",
             "shapes": [
               {
                 "title": "Medidas estándar o a medida",
-                "description": "Se definen en función del espacio disponible y, sobre todo, de la distancia de lectura. Un mensaje pensado para 2 metros no se diseña igual que uno para 10."
+                "description": "Las dimensiones deben guardar relación con el espacio y la distancia desde la que se verá la comunicación. Cuando un formato estándar no encaja, podemos adaptar tamaño y configuración al proyecto."
               },
               {
-                "title": "Interior o exterior",
-                "description": "Condiciona el material, la protección y la estructura. En exterior se valora especialmente la resistencia al sol, la humedad y el viento, además de una base o estructura estable."
+                "title": "Expositores para interior",
+                "description": "En tiendas, stands, oficinas y espacios comerciales podemos priorizar ligereza, calidad de acabado, facilidad de montaje y una presentación limpia de la gráfica."
+              },
+              {
+                "title": "Expositores para exterior",
+                "description": "La instalación exterior exige valorar viento, humedad, exposición solar, estabilidad de la estructura y sistemas de fijación o refuerzo adecuados."
               },
               {
                 "title": "Soportes flexibles",
-                "description": "Lona, textil, vinilo o backlit. Son ideales para sistemas enrollables, banderolas, photocalls textiles y cajas de luz, ya que permiten transporte cómodo y grandes formatos con buen impacto visual."
+                "description": "Lona, textil, vinilo y materiales backlit son habituales en roll-ups, banderolas, photocalls y cajas de luz porque permiten producir grandes superficies gráficas con facilidad de transporte."
               },
               {
                 "title": "Soportes rígidos",
-                "description": "PVC, Forex, cartón pluma, Dibond y otros materiales similares. Se recomiendan cuando necesitas cuerpo, estabilidad o piezas autoportantes con mayor presencia."
+                "description": "PVC, Forex, cartón pluma, Dibond y otros paneles aportan cuerpo y estabilidad en tótems, displays, señalización y diferentes soluciones PLV."
               },
               {
-                "title": "Sistemas y montaje",
-                "description": "Estructuras, marcos, bases, perfiles y tensado. Aquí se decide gran parte del resultado profesional: un buen tensado evita arrugas, una base correcta evita vuelcos y un marco adecuado mejora la percepción de calidad."
+                "title": "Estructuras, bases y sistemas de montaje",
+                "description": "Marcos, perfiles, bases y sistemas de tensado condicionan la estabilidad y la presentación final. Una estructura adecuada facilita el uso y ayuda a mantener la gráfica correctamente colocada."
               }
             ],
             "deliveryFormats": []
@@ -1992,28 +1996,40 @@
       },
       "faqs": [
         {
-          "question": "¿Qué expositor es más práctico para ferias?",
-          "answer": "El roll-up suele ser el más rápido y fácil de transportar; para impacto visual, photocall, tótem o caja de luz."
+          "question": "¿Qué tipo de expositor funciona mejor en una tienda?",
+          "answer": "Depende del espacio y del objetivo. Para mostradores y zonas próximas al cliente funcionan bien los expositores de mesa y displays; para ganar visibilidad a distancia pueden utilizarse tótems, expositores de suelo o cajas de luz."
         },
         {
-          "question": "¿Qué material recomendáis para exterior?",
-          "answer": "Depende de la ubicación (viento/sol). Normalmente se usan lonas y sistemas con refuerzo y estructura estable."
+          "question": "¿Qué expositor es más práctico para una feria o congreso?",
+          "answer": "El roll-up es una de las soluciones más cómodas porque se transporta y monta rápidamente. Para conseguir mayor impacto visual pueden combinarse varios sistemas, como photocalls, tótems o cajas de luz."
         },
         {
-          "question": "¿Incluís la estructura (roll-up, marco, base)?",
-          "answer": "Puede ser solo impresión o impresión + sistema completo, según el producto."
+          "question": "¿Qué significa PLV y qué expositores se utilizan en punto de venta?",
+          "answer": "PLV significa publicidad en el lugar de venta. Incluye diferentes soportes utilizados dentro de tiendas y espacios comerciales para destacar productos, promociones o mensajes, como displays, expositores de mesa, tótems, stoppers o elementos de señalización."
         },
         {
-          "question": "¿Podéis hacerlo a medida (tamaño y forma)?",
-          "answer": "Sí, trabajamos medidas personalizadas y cortes a medida cuando el soporte lo permite."
+          "question": "¿Podéis fabricar expositores personalizados y a medida?",
+          "answer": "Sí. Podemos adaptar medidas, materiales, impresión, corte y determinados sistemas de montaje en función del espacio, la duración y el uso previsto."
         },
         {
-          "question": "¿Qué archivos necesitáis para imprimir?",
-          "answer": "PDF en alta calidad con medidas finales y sangrado. Si hay marco o sistema, confirmamos plantilla/márgenes antes de producir."
+          "question": "¿Qué diferencia hay entre un expositor de mesa y uno de suelo?",
+          "answer": "El expositor de mesa o mostrador está pensado para verse a corta distancia y ocupa poco espacio. El expositor de suelo ofrece una superficie gráfica mayor y permite captar la atención desde más lejos."
         },
         {
-          "question": "¿Puedo pedir un adhesivo con impresión personalizada y en cantidades pequeñas?",
-          "answer": "Claro, trabajamos desde pequeñas tiradas hasta grandes producciones, adaptándonos a las necesidades de cada cliente."
+          "question": "¿Qué material es adecuado para un expositor exterior?",
+          "answer": "Depende de la ubicación y del tiempo de exposición. Deben valorarse factores como viento, humedad y sol para seleccionar el material, los refuerzos, la base y el sistema de instalación adecuados."
+        },
+        {
+          "question": "¿Incluís la estructura, el marco o la base?",
+          "answer": "Depende del producto. Podemos realizar únicamente la gráfica impresa o suministrar una solución completa con estructura, base, marco o sistema de montaje."
+        },
+        {
+          "question": "¿Puedo cambiar la gráfica sin sustituir todo el expositor?",
+          "answer": "En algunos sistemas sí. Roll-ups, marcos Click System, cajas de luz y otras estructuras pueden admitir gráfica de recambio según el modelo y la configuración utilizada."
+        },
+        {
+          "question": "¿Qué archivo necesitáis para imprimir un expositor?",
+          "answer": "Preferiblemente un PDF en alta calidad preparado a la medida final. Según la estructura utilizada te indicaremos también sangrados, márgenes de seguridad o plantillas específicas."
         }
       ],
       "galleryImages": [],
@@ -2023,12 +2039,12 @@
           "productSlug": "roll-up-personalizado"
         },
         {
-          "label": "Photocall",
-          "productSlug": "photocall-personalizado"
-        },
-        {
           "label": "Expositores de mesa",
           "productSlug": "expositores-de-mesa-personalizados"
+        },
+        {
+          "label": "Tótems publicitarios",
+          "productSlug": "totems-publicitarios-personalizados"
         }
       ],
       "breadcrumbs": [
@@ -2071,7 +2087,7 @@
           "@graph": [
             {
               "@type": "CollectionPage",
-              "name": "Expositores personalizados para ferias y punto de venta",
+              "name": "Expositores publicitarios y PLV para tiendas, ferias y eventos",
               "description": "Expositores para ferias y punto de venta en Barcelona: roll-ups, banners, tótems, photocalls y cajas de luz. También displays, cubrealarmas y marcos a medida.",
               "url": "https://reprodisseny.com/categorias/expositores",
               "image": "https://webcms.blob.core.windows.net/media/category/expositores.webp",
@@ -2110,50 +2126,74 @@
               "mainEntity": [
                 {
                   "@type": "Question",
-                  "name": "¿Qué expositor es más práctico para ferias?",
+                  "name": "¿Qué tipo de expositor funciona mejor en una tienda?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "El roll-up suele ser el más rápido y fácil de transportar; para impacto visual, photocall, tótem o caja de luz."
+                    "text": "Depende del espacio y del objetivo. Para mostradores y zonas próximas al cliente funcionan bien los expositores de mesa y displays; para ganar visibilidad a distancia pueden utilizarse tótems, expositores de suelo o cajas de luz."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "¿Qué material recomendáis para exterior?",
+                  "name": "¿Qué expositor es más práctico para una feria o congreso?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Depende de la ubicación (viento/sol). Normalmente se usan lonas y sistemas con refuerzo y estructura estable."
+                    "text": "El roll-up es una de las soluciones más cómodas porque se transporta y monta rápidamente. Para conseguir mayor impacto visual pueden combinarse varios sistemas, como photocalls, tótems o cajas de luz."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "¿Incluís la estructura (roll-up, marco, base)?",
+                  "name": "¿Qué significa PLV y qué expositores se utilizan en punto de venta?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Puede ser solo impresión o impresión + sistema completo, según el producto."
+                    "text": "PLV significa publicidad en el lugar de venta. Incluye diferentes soportes utilizados dentro de tiendas y espacios comerciales para destacar productos, promociones o mensajes, como displays, expositores de mesa, tótems, stoppers o elementos de señalización."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "¿Podéis hacerlo a medida (tamaño y forma)?",
+                  "name": "¿Podéis fabricar expositores personalizados y a medida?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, trabajamos medidas personalizadas y cortes a medida cuando el soporte lo permite."
+                    "text": "Sí. Podemos adaptar medidas, materiales, impresión, corte y determinados sistemas de montaje en función del espacio, la duración y el uso previsto."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "¿Qué archivos necesitáis para imprimir?",
+                  "name": "¿Qué diferencia hay entre un expositor de mesa y uno de suelo?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "PDF en alta calidad con medidas finales y sangrado. Si hay marco o sistema, confirmamos plantilla/márgenes antes de producir."
+                    "text": "El expositor de mesa o mostrador está pensado para verse a corta distancia y ocupa poco espacio. El expositor de suelo ofrece una superficie gráfica mayor y permite captar la atención desde más lejos."
                   }
                 },
                 {
                   "@type": "Question",
-                  "name": "¿Puedo pedir un adhesivo con impresión personalizada y en cantidades pequeñas?",
+                  "name": "¿Qué material es adecuado para un expositor exterior?",
                   "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Claro, trabajamos desde pequeñas tiradas hasta grandes producciones, adaptándonos a las necesidades de cada cliente."
+                    "text": "Depende de la ubicación y del tiempo de exposición. Deben valorarse factores como viento, humedad y sol para seleccionar el material, los refuerzos, la base y el sistema de instalación adecuados."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Incluís la estructura, el marco o la base?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Depende del producto. Podemos realizar únicamente la gráfica impresa o suministrar una solución completa con estructura, base, marco o sistema de montaje."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Puedo cambiar la gráfica sin sustituir todo el expositor?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "En algunos sistemas sí. Roll-ups, marcos Click System, cajas de luz y otras estructuras pueden admitir gráfica de recambio según el modelo y la configuración utilizada."
+                  }
+                },
+                {
+                  "@type": "Question",
+                  "name": "¿Qué archivo necesitáis para imprimir un expositor?",
+                  "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Preferiblemente un PDF en alta calidad preparado a la medida final. Según la estructura utilizada te indicaremos también sangrados, márgenes de seguridad o plantillas específicas."
                   }
                 }
               ]
