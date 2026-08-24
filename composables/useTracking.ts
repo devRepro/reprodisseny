@@ -9,6 +9,43 @@ import { getAttribution } from "~/utils/tracking/attribution"
 
 type TrackingContextInput = Partial<TrackingContext>
 
+const PII_EMAIL_PATTERN = /[^\s@]+@[^\s@]+\.[^\s@]+/
+const PII_PHONE_PATTERN = /(?:\+?\d[\s().-]*){7,}/
+
+function safeTechnicalValue(value: unknown, maxLength = 120) {
+  if (typeof value !== "string") return null
+
+  const normalized = value.trim().slice(0, maxLength)
+  if (!normalized) return null
+  if (PII_EMAIL_PATTERN.test(normalized) || PII_PHONE_PATTERN.test(normalized)) {
+    return null
+  }
+
+  return normalized
+}
+
+function toPrivacySafeLeadPayload(
+  event: "form_start" | "form_validation_error" | "generate_lead",
+  payload: TrackingPayload,
+) {
+  if (event === "generate_lead") return { lead_type: "quote_request" }
+  if (event === "form_start") return {}
+
+  const invalidFields = Array.isArray(payload.invalid_fields)
+    ? payload.invalid_fields
+        .filter((field): field is string =>
+          typeof field === "string" && /^[A-Za-z][A-Za-z0-9_-]{0,63}$/.test(field),
+        )
+        .slice(0, 30)
+    : []
+
+  return {
+    error_type: "client_validation",
+    invalid_field_count: invalidFields.length,
+    invalid_fields: invalidFields,
+  }
+}
+
 declare global {
   interface Window {
     dataLayer?: Record<string, unknown>[]
@@ -19,16 +56,16 @@ function toDataLayerContext(context?: TrackingContextInput) {
   if (!context) return {}
 
   return {
-    page_type: context.pageType ?? null,
-    page_language: context.pageLanguage ?? null,
-    content_group: context.contentGroup ?? null,
-    service_name: context.serviceName ?? null,
-    campaign_name: context.campaignName ?? null,
-    campaign_id: context.campaignId ?? null,
-    product_slug: context.productSlug ?? null,
-    category_slug: context.categorySlug ?? null,
-    form_id: context.formId ?? null,
-    form_name: context.formName ?? null,
+    page_type: safeTechnicalValue(context.pageType),
+    page_language: safeTechnicalValue(context.pageLanguage),
+    content_group: safeTechnicalValue(context.contentGroup),
+    service_name: safeTechnicalValue(context.serviceName),
+    campaign_name: safeTechnicalValue(context.campaignName),
+    campaign_id: safeTechnicalValue(context.campaignId),
+    product_slug: safeTechnicalValue(context.productSlug),
+    category_slug: safeTechnicalValue(context.categorySlug),
+    form_id: safeTechnicalValue(context.formId),
+    form_name: safeTechnicalValue(context.formName),
   }
 }
 
@@ -40,6 +77,25 @@ function resolveAttributionForLead(attribution: ReturnType<typeof getAttribution
 }
 
 export function useTracking(defaultContext?: TrackingContextInput) {
+  function pushPrivacySafeEvent(
+    event: "form_start" | "form_validation_error" | "generate_lead",
+    payload: TrackingPayload = {},
+    context?: TrackingContextInput,
+  ) {
+    if (!import.meta.client) return
+
+    window.dataLayer = window.dataLayer || []
+    const mergedContext = { ...defaultContext, ...context }
+
+    // Estos eventos usan una lista cerrada de metadatos técnicos. No se añaden
+    // URLs, referrers, IDs de solicitud ni valores introducidos por el usuario.
+    window.dataLayer.push({
+      event,
+      ...toDataLayerContext(mergedContext),
+      ...toPrivacySafeLeadPayload(event, payload),
+    })
+  }
+
   function pushEvent(
     event: TrackingEventName,
     payload: TrackingPayload = {},
@@ -173,27 +229,9 @@ export function useTracking(defaultContext?: TrackingContextInput) {
     }
   }
 
-  function pushGenerateLeadEvent(params: {
-    requestKey: string
-    context?: TrackingContextInput
-    value?: number | null
-    currency?: string | null
-  }) {
-    pushEvent(
-      "generate_lead",
-      {
-        request_key: params.requestKey,
-        lead_id: params.requestKey,
-        value: params.value ?? null,
-        currency: params.currency ?? null,
-      },
-      params.context,
-    )
-  }
-
   return {
     pushEvent,
-    pushGenerateLeadEvent,
+    pushPrivacySafeEvent,
     getTrackingPayloadForLead,
     getSharePointTrackingFields,
   }

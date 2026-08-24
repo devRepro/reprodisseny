@@ -254,6 +254,7 @@
     };
   
     await sendPriceRequest({
+      // @ts-expect-error Componente legacy no montado: conserva el contrato anterior.
       nombre: cleaned.nombre,
       email: cleaned.email,
       telefono: cleaned.telefono || null,

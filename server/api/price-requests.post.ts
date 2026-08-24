@@ -8,79 +8,7 @@ import {
 
 import { createPriceRequest } from "~/server/services/priceRequests/priceRequestService.server"
 import { rateLimit, ipHash, getClientIp } from "~/server/utils/rateLimit.server"
-const ProductSchema = z.object({
-  name: z.string().min(1).max(200),
-  slug: z.string().optional().nullable(),
-  sku: z.string().optional().nullable(),
-  url: z.string().optional().nullable(),
-});
-
-const LooseObjectSchema = z.record(z.any());
-
-const TrackingSchema = z
-  .object({
-    context: LooseObjectSchema.optional().nullable(),
-    attribution: LooseObjectSchema.optional().nullable(),
-
-    // Compatibilidad si desde el frontend mandas campos ya normalizados
-    TrackingSource: z.string().optional().nullable(),
-    TrackingMedium: z.string().optional().nullable(),
-    TrackingCampaign: z.string().optional().nullable(),
-    TrackingCampaignId: z.string().optional().nullable(),
-    SourceUrl: z.string().optional().nullable(),
-    UtmJson: z.string().optional().nullable(),
-  })
-  .passthrough()
-  .optional()
-  .nullable();
-
-const PayloadSchema = z.object({
-  website: z.string().optional().nullable(), // honeypot
-
-  name: z.string().min(2).max(80),
-  email: z.string().email().max(120),
-
-  phone: z
-    .string({
-      required_error: "El teléfono es obligatorio",
-      invalid_type_error: "El teléfono debe ser un texto",
-    })
-    .trim()
-    .min(1, "El teléfono es obligatorio")
-    .min(9, "Introduce un teléfono válido")
-    .max(30, "El teléfono es demasiado largo"),
-  postalCode: z
-  .string()
-  .trim()
-  .max(20, "El código postal es demasiado largo")
-  .regex(/^[A-Za-z0-9\s-]*$/, "Código postal no válido")
-  .optional()
-  .nullable(),  
-  company: z.string().optional().nullable(),
-
-  message: z.string().max(4000).optional().nullable(),
-
-  categorySlug: z.string().min(1).max(120),
-  product: ProductSchema,
-  extras: z.record(z.any()).optional().default({}),
-
-  consent: z.boolean(),
-  sourceUrl: z.string().min(1).max(300),
-
-  // Legacy
-  utm: z.record(z.any()).optional().nullable(),
-
-  /**
-   * Tracking nuevo estándar:
-   * - contexto de landing/formulario
-   * - atribución first/last touch
-   * - gclid/gbraid/wbraid
-   * - campaña/anuncio/origen
-   */
-  tracking: TrackingSchema,
-
-  initialStatus: z.string().optional().nullable(),
-});
+import { priceRequestPayloadSchema } from "~/shared/schemas/priceRequest"
 
   
 const FileKindSchema = z
@@ -264,7 +192,7 @@ export default defineEventHandler(async (event) => {
     })
   }
 
-  const parsed = PayloadSchema.safeParse(rawPayload)
+  const parsed = priceRequestPayloadSchema.safeParse(rawPayload)
 
   if (!parsed.success) {
     console.error("[PRICE REQUEST][API][ZOD ERROR]", parsed.error.flatten())
@@ -276,13 +204,6 @@ export default defineEventHandler(async (event) => {
   }
 
   const p = parsed.data
-
-  if (!p.consent) {
-    throw createError({
-      statusCode: 400,
-      message: "Falta el consentiment",
-    })
-  }
 
   const fileKindRaw = fileKindPart?.data
     ? Buffer.from(fileKindPart.data).toString("utf8")

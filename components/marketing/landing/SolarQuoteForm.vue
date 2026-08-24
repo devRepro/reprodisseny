@@ -4,7 +4,20 @@ import { useRoute } from "#imports";
 import AppButton from "@/components/shared/button/AppButton.vue";
 import { cn } from "@/lib/utils";
 import RequestSuccessState from "@/components/marketing/quote/RequestSuccessState.vue";
-import { usePriceRequests } from "@/composables/usePriceRequests";
+import {
+  getPriceRequestClientValidationFields,
+  usePriceRequests,
+} from "@/composables/usePriceRequests";
+import { useTracking } from "@/composables/useTracking";
+import { useLeadFormTracking } from "@/composables/useLeadFormTracking";
+import type { TrackingContext } from "~/types/tracking";
+import {
+  priceRequestCompanySchema,
+  priceRequestEmailSchema,
+  priceRequestMessageSchema,
+  priceRequestNameSchema,
+  priceRequestPhoneSchema,
+} from "~/shared/schemas/priceRequest";
 
 type QuoteForm = {
   website: string;
@@ -18,23 +31,33 @@ type QuoteForm = {
   privacy: boolean;
 };
 
-type ValidationField = "name" | "email" | "phone" | "privacy" | null;
+type ValidationField =
+  | "name"
+  | "company"
+  | "email"
+  | "phone"
+  | "message"
+  | "privacy"
+  | null;
 
 const props = withDefaults(
   defineProps<{
     productName?: string;
     productSlug?: string;
     categorySlug?: string;
+    trackingContext?: TrackingContext;
   }>(),
   {
     productName: "Láminas solares para cristales",
     productSlug: "laminas-solares",
     categorySlug: "gran-formato",
+    trackingContext: undefined,
   },
 );
 
 const route = useRoute();
 const { sendPriceRequest, isLoading, error } = usePriceRequests();
+const tracking = useTracking();
 
 const success = ref(false);
 const validationError = ref("");
@@ -97,11 +120,8 @@ function resetForm() {
 
 function handleResetSuccessState() {
   success.value = false;
+  leadTracking.resetTrackingCycle();
   resetForm();
-}
-
-function isValidEmail(value: string) {
-  return /^\S+@\S+\.\S+$/.test(cleanString(value));
 }
 
 function setValidationError(field: ValidationField, message: string) {
@@ -117,24 +137,25 @@ function checkPanelClass(field?: ValidationField) {
   return cn("rd-form-check-panel", validationField.value === field && "rd-form-check-panel--error");
 }
 
-function pushLeadEvent(transactionId?: string | number | null) {
-  if (!import.meta.client) return;
-
-  const win = window as Window & { dataLayer?: Record<string, unknown>[] };
-  win.dataLayer = win.dataLayer || [];
-  win.dataLayer.push({
-    event: "generate_lead",
-    form_name: "landing_laminas_solares",
-    lead_type: "quote_request",
-    page_path: window.location.pathname,
-    category_slug: props.categorySlug,
-    product_slug: props.productSlug,
-    product_name: props.productName,
-    transaction_id: transactionId ? String(transactionId) : undefined,
-  });
+function getTrackingContext(): TrackingContext {
+  return {
+    pageType: "landing",
+    pageLanguage: "es",
+    contentGroup: "gran-formato",
+    serviceName: "Láminas solares",
+    productSlug: props.productSlug,
+    categorySlug: props.categorySlug,
+    formId: "solar_quote_form",
+    formName: "solar_quote_form",
+    ...props.trackingContext,
+  };
 }
 
+const leadTracking = useLeadFormTracking(getTrackingContext);
+
 async function onSubmit() {
+  if (isLoading.value) return;
+
   validationError.value = "";
   validationField.value = null;
   error.value = null;
@@ -152,23 +173,30 @@ async function onSubmit() {
     return;
   }
 
-  if (!name) {
-    setValidationError("name", "Indica tu nombre.");
-    return;
+  const invalidFields: Exclude<ValidationField, null>[] = [];
+  if (!priceRequestNameSchema.safeParse(name).success) invalidFields.push("name");
+  if (!priceRequestCompanySchema.safeParse(company || null).success) {
+    invalidFields.push("company");
   }
-
-  if (!isValidEmail(email)) {
-    setValidationError("email", "Introduce un email válido.");
-    return;
+  if (!priceRequestEmailSchema.safeParse(email).success) invalidFields.push("email");
+  if (!priceRequestPhoneSchema.safeParse(phone).success) invalidFields.push("phone");
+  if (!priceRequestMessageSchema.safeParse(message || null).success) {
+    invalidFields.push("message");
   }
+  if (!form.privacy) invalidFields.push("privacy");
 
-  if (!phone || phone.length < 9) {
-    setValidationError("phone", "Introduce un teléfono válido.");
-    return;
-  }
-
-  if (!form.privacy) {
-    setValidationError("privacy", "Debes aceptar la política de privacidad.");
+  if (invalidFields.length) {
+    const first = invalidFields[0];
+    const messages: Record<Exclude<ValidationField, null>, string> = {
+      name: "Indica un nombre válido.",
+      company: "El nombre de empresa es demasiado largo.",
+      email: "Introduce un email válido.",
+      phone: "Introduce un teléfono válido.",
+      message: "El mensaje es demasiado largo.",
+      privacy: "Debes aceptar la política de privacidad.",
+    };
+    setValidationError(first, messages[first]);
+    leadTracking.trackValidationError(invalidFields);
     return;
   }
 
@@ -178,8 +206,10 @@ async function onSubmit() {
     `Superficie aproximada: ${glassSurface || "sin indicar"}.`,
   ].join(" ");
 
-  const response = await sendPriceRequest(
-    {
+  try {
+    const response = await leadTracking.submitAndTrack(() =>
+      sendPriceRequest(
+        {
       website: null,
       name,
       email,
@@ -201,36 +231,20 @@ async function onSubmit() {
       consent: true,
       sourceUrl: sourceUrl.value,
       utm: utm.value,
+      tracking: tracking.getTrackingPayloadForLead(getTrackingContext()),
       initialStatus: "Nova",
-    },
-    { file: null, fileKind: "design" },
-  );
+        },
+        { file: null, fileKind: "design" },
+      ),
+    );
 
-  const result = response as {
-    ok?: boolean;
-    duplicated?: boolean;
-    itemId?: string | number | null;
-    requestKey?: string | null;
-    reference?: string | null;
-    requestId?: string | null;
-    id?: string | number | null;
-  } | null;
-
-  if (!error.value) {
-    const transactionId =
-      result?.reference ||
-      result?.requestId ||
-      result?.id ||
-      result?.itemId ||
-      result?.requestKey ||
-      null;
-
-    if (!result?.duplicated) {
-      pushLeadEvent(transactionId);
-    }
-
+    if (!response || error.value) return;
     success.value = true;
     resetForm();
+  } catch (submitError) {
+    const fields = getPriceRequestClientValidationFields(submitError);
+    if (fields) leadTracking.trackValidationError(fields);
+    // usePriceRequests muestra el error y conserva el contenido del formulario.
   }
 }
 </script>
@@ -249,6 +263,10 @@ async function onSubmit() {
       class="rd-form-shell"
       novalidate
       @submit.prevent="onSubmit"
+      @pointerdown.capture="leadTracking.onFormInteraction"
+      @keydown.capture="leadTracking.onFormInteraction"
+      @input.capture="leadTracking.onFormInteraction"
+      @change.capture="leadTracking.onFormInteraction"
     >
       <div class="rd-form-body">
         <div class="rd-form-stack">

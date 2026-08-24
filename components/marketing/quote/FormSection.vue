@@ -24,8 +24,21 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 
-import { usePriceRequests } from "@/composables/usePriceRequests";
+import {
+  getPriceRequestClientValidationFields,
+  usePriceRequests,
+} from "@/composables/usePriceRequests";
+import { useLeadFormTracking } from "@/composables/useLeadFormTracking";
+import { useTracking } from "@/composables/useTracking";
 import { cn } from "@/lib/utils";
+import {
+  priceRequestConsentSchema,
+  priceRequestEmailSchema,
+  priceRequestMessageSchema,
+  priceRequestNameSchema,
+  priceRequestPhoneSchema,
+} from "~/shared/schemas/priceRequest";
+import type { TrackingContext } from "~/types/tracking";
 
 const props = withDefaults(
   defineProps<{
@@ -82,31 +95,25 @@ const schema = toTypedSchema(
   z.object({
     website: z.string().optional(),
 
-    name: z.string().min(2, "Ingresa un nombre válido"),
+    name: priceRequestNameSchema,
 
-    email: z.string().email("Introduce un correo electrónico válido"),
+    email: priceRequestEmailSchema,
 
     phone: z.preprocess(
-      emptyToNull,
-      z
-        .string()
-        .regex(/^[\d\s+-]*$/, "Solo se permiten números y símbolos válidos")
-        .nullable()
-        .optional(),
+      (value) => (typeof value === "string" ? value.trim() : value),
+      priceRequestPhoneSchema,
     ),
 
     productType: z.preprocess(emptyToNull, z.string().nullable().optional()),
 
     message: z.preprocess(
       emptyToNull,
-      z.string().max(4000, "El mensaje no puede superar los 4000 caracteres").nullable().optional(),
+      priceRequestMessageSchema,
     ),
 
     needAdvice: z.boolean().optional(),
 
-    consent: z.boolean().refine((value) => value === true, {
-      message: "Es necesario aceptar la política de privacidad",
-    }),
+    consent: priceRequestConsentSchema,
   }),
 );
 
@@ -125,6 +132,22 @@ const { handleSubmit, resetForm } = useForm({
 });
 
 const { createPriceRequest, error, isLoading, success } = usePriceRequests();
+const tracking = useTracking();
+
+function getTrackingContext(): TrackingContext {
+  return {
+    pageType: "crm",
+    pageLanguage: "es",
+    contentGroup: "presupuesto",
+    serviceName: props.productName,
+    productSlug: props.productSlug || undefined,
+    categorySlug: props.categorySlug,
+    formId: "generic_quote_form",
+    formName: "price_request",
+  };
+}
+
+const leadTracking = useLeadFormTracking(getTrackingContext);
 
 function controlClass(errorMessage?: string) {
   return cn("rd-form-control", errorMessage && "rd-form-control--error");
@@ -145,6 +168,8 @@ function onPickFile(event: Event) {
 
 const onSubmit = handleSubmit(
   async (values) => {
+    if (isLoading.value) return;
+
     error.value = null;
     success.value = false;
 
@@ -162,7 +187,7 @@ const onSubmit = handleSubmit(
 
       name: cleanString(values.name),
       email: cleanString(values.email),
-      phone: cleanString(values.phone) || null,
+      phone: cleanString(values.phone),
       company: null,
 
       message: cleanString(values.message) || "Solicitud de presupuesto",
@@ -186,12 +211,22 @@ const onSubmit = handleSubmit(
       consent: values.consent === true,
       sourceUrl: sourceUrl.value,
       utm: utm.value,
+      tracking: tracking.getTrackingPayloadForLead(getTrackingContext()),
       initialStatus: "Nova",
     };
 
-    await createPriceRequest(payload, props.submitEndpoint, file.value, "design");
+    try {
+      const response = await leadTracking.submitAndTrack(() =>
+        createPriceRequest(
+          payload,
+          props.submitEndpoint,
+          file.value,
+          "design",
+        ),
+      );
 
-    if (success.value) {
+      if (!response || !success.value) return;
+
       resetForm();
       file.value = null;
 
@@ -199,9 +234,16 @@ const onSubmit = handleSubmit(
         path: "/gracias",
         query: { kind: "presupuesto" },
       });
+    } catch (submitError) {
+      const fields = getPriceRequestClientValidationFields(submitError);
+      if (fields) leadTracking.trackValidationError(fields);
+      // usePriceRequests conserva el mensaje de backend y los datos del formulario.
     }
   },
   (ctx) => {
+    if (isLoading.value) return;
+
+    leadTracking.trackValidationError(Object.keys(ctx.errors));
     const firstError = Object.values(ctx.errors)[0];
 
     error.value =
@@ -212,7 +254,15 @@ const onSubmit = handleSubmit(
 
 <template>
   <div class="rd-form-frame mx-auto max-w-xl">
-    <form @submit.prevent="onSubmit" novalidate class="rd-form-shell">
+    <form
+      @submit.prevent="onSubmit"
+      @pointerdown.capture="leadTracking.onFormInteraction"
+      @keydown.capture="leadTracking.onFormInteraction"
+      @input.capture="leadTracking.onFormInteraction"
+      @change.capture="leadTracking.onFormInteraction"
+      novalidate
+      class="rd-form-shell"
+    >
       <div v-if="error" class="rd-form-alert border border-destructive/20 bg-destructive/5 px-4 py-3">
         <p class="text-center text-sm font-medium text-destructive">
           {{ error }}
@@ -263,7 +313,7 @@ const onSubmit = handleSubmit(
           <FormField name="phone" v-slot="{ componentField, errorMessage }">
             <FormItem>
               <FormLabel class="rd-form-label">
-                Teléfono <span class="rd-form-inline-note">(Opcional)</span>
+                Teléfono <span class="rd-form-required">*</span>
               </FormLabel>
 
               <FormControl>
@@ -272,6 +322,7 @@ const onSubmit = handleSubmit(
                   type="tel"
                   inputmode="tel"
                   autocomplete="tel"
+                  required
                   placeholder="+34 600 000 000"
                   :class="controlClass(errorMessage)"
                 />
@@ -292,7 +343,7 @@ const onSubmit = handleSubmit(
                   :model-value="componentField.modelValue || undefined"
                   @update:model-value="componentField.onChange"
                 >
-                  <SelectTrigger :class="controlClass(errorMessage)">
+                  <SelectTrigger data-field-name="productType" :class="controlClass(errorMessage)">
                     <SelectValue placeholder="Selecciona una opción" />
                   </SelectTrigger>
 
@@ -355,6 +406,7 @@ const onSubmit = handleSubmit(
 
               <input
                 type="file"
+                name="attachment"
                 class="sr-only"
                 accept=".pdf,.jpg,.jpeg,.png,.ai,.eps,.svg,.zip"
                 @change="onPickFile"
@@ -368,6 +420,7 @@ const onSubmit = handleSubmit(
                 <FormControl>
                   <input
                     id="need-advice-check"
+                    name="needAdvice"
                     type="checkbox"
                     class="rd-form-checkbox"
                     :checked="componentField.modelValue === true"
@@ -394,6 +447,7 @@ const onSubmit = handleSubmit(
                 <FormControl>
                   <input
                     id="privacy-check"
+                    name="consent"
                     type="checkbox"
                     class="rd-form-checkbox"
                     :checked="componentField.modelValue === true"

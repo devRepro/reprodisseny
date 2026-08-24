@@ -21,6 +21,7 @@
     "validate:seo-http": "tsx scripts/validate-seo-http.ts",
     "test:canonical-host": "tsx --test tests/canonical-host-redirect.test.ts",
     "test:product-refactor": "tsx --test tests/product-refactor.test.ts tests/seo-redirects.test.ts",
+    "test:lead-form": "tsx --test tests/lead-form-flow.test.ts",
     "test:sync-cms": "tsx --test tests/sync-cms.test.ts",
     "validate:seo": "npm run validate:seo-routes && npm run validate:seo-redirects",
     "validate:all": "npm run validate-md && npm run validate-md-seo && npm run validate:categorias",

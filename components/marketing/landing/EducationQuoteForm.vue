@@ -4,10 +4,20 @@ import { useRoute } from "#imports";
 
 import { cn } from "@/lib/utils";
 import AppButton from "@/components/shared/button/AppButton.vue";
-import { usePriceRequests } from "@/composables/usePriceRequests";
+import {
+  getPriceRequestClientValidationFields,
+  usePriceRequests,
+} from "@/composables/usePriceRequests";
 import { useTracking } from "@/composables/useTracking";
-import type { TrackingContext, TrackingEventName } from "~/types/tracking";
-import { string } from "zod";
+import { useLeadFormTracking } from "@/composables/useLeadFormTracking";
+import type { TrackingContext } from "~/types/tracking";
+import {
+  PRICE_REQUEST_LIMITS,
+  priceRequestEmailSchema,
+  priceRequestMessageSchema,
+  priceRequestNameSchema,
+  priceRequestPhoneSchema,
+} from "~/shared/schemas/priceRequest";
 
 type QuoteForm = {
   website: string;
@@ -21,7 +31,14 @@ type QuoteForm = {
   privacy: boolean;
 };
 
-type ValidationField = "name" | "center" | "email" | "phone" | "privacy" | null;
+type ValidationField =
+  | "name"
+  | "center"
+  | "email"
+  | "phone"
+  | "message"
+  | "privacy"
+  | null;
 
 type PriceRequestResult = {
   ok?: boolean;
@@ -100,6 +117,7 @@ const copy = {
     center: "Indica el nom del centre educatiu.",
     email: "Introdueix un email vàlid.",
     phone: "Introdueix un telèfon vàlid.",
+    message: "El missatge és massa llarg.",
     privacy: "Has d’acceptar la política de privacitat.",
   },
 };
@@ -170,6 +188,8 @@ function getTrackingContext(): TrackingContext {
   };
 }
 
+const leadTracking = useLeadFormTracking(getTrackingContext);
+
 function resetFormFields() {
   form.website = "";
   form.name = "";
@@ -188,16 +208,8 @@ function resetFormFields() {
 function handleResetSuccessState() {
   success.value = false;
   submittedReference.value = null;
+  leadTracking.resetTrackingCycle();
   resetFormFields();
-}
-
-function isValidEmail(value: string) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim());
-}
-
-function isValidPhone(value: string) {
-  const digits = value.replace(/\D/g, "");
-  return digits.length >= 9;
 }
 
 function resolveRequestReference(result: PriceRequestResult) {
@@ -208,24 +220,6 @@ function resolveRequestReference(result: PriceRequestResult) {
     result?.id ||
     result?.itemId ||
     null
-  );
-}
-
-function pushLeadEvent(transactionId?: string | number | null) {
-  const requestKey = transactionId ? String(transactionId) : null;
-  const context = getTrackingContext();
-
-  tracking.pushEvent(
-    "generate_lead" as TrackingEventName,
-    {
-      lead_type: "quote_request",
-      request_key: requestKey,
-      lead_id: requestKey,
-      transaction_id: requestKey,
-      product_name: props.productName,
-      page_path: import.meta.client ? window.location.pathname : route.path,
-    },
-    context,
   );
 }
 
@@ -240,6 +234,8 @@ function getLeadTrackingPayload() {
 }
 
 async function onSubmit() {
+  if (isLoading.value) return;
+
   validationField.value = null;
   validationError.value = "";
   error.value = null;
@@ -249,33 +245,24 @@ async function onSubmit() {
     return;
   }
 
-  if (!form.name.trim()) {
-    validationField.value = "name";
-    validationError.value = copy.errors.name;
-    return;
+  const invalidFields: Exclude<ValidationField, null>[] = [];
+  if (!priceRequestNameSchema.safeParse(form.name).success) invalidFields.push("name");
+  if (
+    !form.center.trim() ||
+    form.center.trim().length > PRICE_REQUEST_LIMITS.companyMax
+  ) invalidFields.push("center");
+  if (!priceRequestEmailSchema.safeParse(form.email).success) invalidFields.push("email");
+  if (!priceRequestPhoneSchema.safeParse(form.phone).success) invalidFields.push("phone");
+  if (!priceRequestMessageSchema.safeParse(form.message || null).success) {
+    invalidFields.push("message");
   }
+  if (!form.privacy) invalidFields.push("privacy");
 
-  if (!form.center.trim()) {
-    validationField.value = "center";
-    validationError.value = copy.errors.center;
-    return;
-  }
-
-  if (!isValidEmail(form.email)) {
-    validationField.value = "email";
-    validationError.value = copy.errors.email;
-    return;
-  }
-
-  if (!isValidPhone(form.phone)) {
-    validationField.value = "phone";
-    validationError.value = copy.errors.phone;
-    return;
-  }
-
-  if (!form.privacy) {
-    validationField.value = "privacy";
-    validationError.value = copy.errors.privacy;
+  if (invalidFields.length) {
+    const first = invalidFields[0];
+    validationField.value = first;
+    validationError.value = copy.errors[first];
+    leadTracking.trackValidationError(invalidFields);
     return;
   }
 
@@ -319,24 +306,26 @@ async function onSubmit() {
     initialStatus: "Nova",
   };
 
-  const response = await sendPriceRequest(
-    priceRequestPayload as unknown as Parameters<typeof sendPriceRequest>[0],
-    { file: null, fileKind: "design" },
-  );
+  try {
+    const response = await leadTracking.submitAndTrack(() =>
+      sendPriceRequest(
+        priceRequestPayload as Parameters<typeof sendPriceRequest>[0],
+        { file: null, fileKind: "design" },
+      ),
+    );
 
-  const result = response as PriceRequestResult;
+    const result = response as PriceRequestResult;
+    if (!result || error.value) return;
 
-  if (error.value) return;
-
-  const transactionId = resolveRequestReference(result);
-
-  if (!result?.duplicated) {
-    pushLeadEvent(transactionId);
+    const transactionId = resolveRequestReference(result);
+    resetFormFields();
+    submittedReference.value = transactionId ? String(transactionId) : null;
+    success.value = true;
+  } catch (submitError) {
+    const fields = getPriceRequestClientValidationFields(submitError);
+    if (fields) leadTracking.trackValidationError(fields);
+    // usePriceRequests muestra el error y se conservan los datos del usuario.
   }
-
-  resetFormFields();
-  submittedReference.value = transactionId ? String(transactionId) : null;
-  success.value = true;
 }
 </script>
 
@@ -382,6 +371,10 @@ async function onSubmit() {
       class="rd-form-shell"
       novalidate
       @submit.prevent="onSubmit"
+      @pointerdown.capture="leadTracking.onFormInteraction"
+      @keydown.capture="leadTracking.onFormInteraction"
+      @input.capture="leadTracking.onFormInteraction"
+      @change.capture="leadTracking.onFormInteraction"
     >
       <div class="rd-form-body">
         <div class="rd-form-stack">

@@ -29,9 +29,21 @@ import {
 } from "@/components/ui/select";
 
 import RequestSuccessState from "@/components/marketing/quote/RequestSuccessState.vue";
-import { usePriceRequests } from "@/composables/usePriceRequests";
+import {
+  getPriceRequestClientValidationFields,
+  usePriceRequests,
+} from "@/composables/usePriceRequests";
 import { useTracking } from "@/composables/useTracking";
-import type { TrackingContext, TrackingEventName } from "~/types/tracking";
+import { useLeadFormTracking } from "@/composables/useLeadFormTracking";
+import type { TrackingContext } from "~/types/tracking";
+import {
+  priceRequestCompanySchema,
+  priceRequestEmailSchema,
+  priceRequestMessageSchema,
+  priceRequestNameSchema,
+  priceRequestPhoneSchema,
+  priceRequestPostalCodeSchema,
+} from "~/shared/schemas/priceRequest";
 import {
   getNamedValue,
   normalizeProductExtraField,
@@ -159,34 +171,22 @@ const validationSchema = computed(() => {
     ),
     nombre: z.preprocess(
       emptyToUndefined,
-      z.string({ required_error: "Obligatorio" }).min(2, "Nombre demasiado corto")
+      priceRequestNameSchema,
     ),
     email: z.preprocess(
       emptyToUndefined,
-      z.string({ required_error: "Obligatorio" }).email("Email no válido")
+      priceRequestEmailSchema,
     ),
     telefono: z.preprocess(
       emptyToUndefined,
-      z
-        .string({
-          required_error: "El teléfono es obligatorio",
-        })
-        .min(1, "El teléfono es obligatorio")
-        .min(9, "Introduce un teléfono válido")
-        .max(30, "El teléfono es demasiado largo")
-        .regex(/^[\d\s+\-()]*$/, "Formato no válido")
+      priceRequestPhoneSchema,
     ),
     codigoPostal: z.preprocess(
       emptyToUndefined,
-      z
-        .string()
-        .trim()
-        .max(20, "El código postal es demasiado largo")
-        .regex(/^[A-Za-z0-9\s-]*$/, "Formato no válido")
-        .optional()
+      priceRequestPostalCodeSchema,
     ),
-    empresa: z.preprocess(emptyToUndefined, z.string().optional()),
-    comentario: z.preprocess(emptyToUndefined, z.string().max(4000).optional()),
+    empresa: z.preprocess(emptyToUndefined, priceRequestCompanySchema),
+    comentario: z.preprocess(emptyToUndefined, priceRequestMessageSchema),
     privacy: z.literal(true, {
       errorMap: () => ({ message: "Debes aceptar la política" }),
     }),
@@ -241,6 +241,8 @@ function getTrackingContext(slug?: string | null): TrackingContext {
   };
 }
 
+const leadTracking = useLeadFormTracking(() => getTrackingContext());
+
 
 function getLeadTrackingPayload(slug: string) {
   const context = getTrackingContext(slug);
@@ -252,36 +254,12 @@ function getLeadTrackingPayload(slug: string) {
   };
 }
 
-function pushLeadEvent(params: {
-  slug?: string | null;
-  itemId?: string | number | null;
-  requestKey?: string | null;
-  quantity?: string | number | null;
-}) {
-  const requestKey =
-    params.requestKey ||
-    (params.itemId ? String(params.itemId) : null);
-
-  tracking.pushEvent(
-    "generate_lead" as TrackingEventName,
-    {
-      lead_type: "quote_request",
-      request_key: requestKey,
-      lead_id: requestKey,
-      transaction_id: params.itemId ? String(params.itemId) : undefined,
-      product_name: props.producto,
-      quantity: params.quantity ?? null,
-      page_path: import.meta.client ? window.location.pathname : route.path,
-    },
-    getTrackingContext(params.slug),
-  );
-}
-
 function handleResetSuccessState() {
   success.value = false;
   submittedEmail.value = "";
   submittedReference.value = null;
   file.value = null;
+  leadTracking.resetTrackingCycle();
 
   resetForm({
     values: initialValues.value,
@@ -350,6 +328,8 @@ function focusFirstInvalidField(errors: Record<string, string>) {
 
 const onSubmit = handleSubmit(
   async (values) => {
+    if (isLoading.value) return;
+
     localSubmitError.value = null;
 
     if (values.website?.trim()) {
@@ -378,8 +358,9 @@ const onSubmit = handleSubmit(
     }
 
     try {
-      const response = await sendPriceRequest(
-        {
+      const response = await leadTracking.submitAndTrack(() =>
+        sendPriceRequest(
+          {
           name: values.nombre.trim(),
           email: values.email.trim(),
           phone: values.telefono?.trim(),
@@ -399,8 +380,9 @@ const onSubmit = handleSubmit(
           utm: utm.value,
           tracking: getLeadTrackingPayload(slug || ""),
           initialStatus: "Nova",
-        },
-        { file: file.value, fileKind: "design" }
+          },
+          { file: file.value, fileKind: "design" },
+        ),
       );
 
       const result = response as {
@@ -436,18 +418,12 @@ const onSubmit = handleSubmit(
         result.requestKey ||
         null;
 
-      if (!result.duplicated) {
-        pushLeadEvent({
-          slug,
-          itemId: result.itemId,
-          requestKey: result.requestKey,
-          quantity: values.cantidad,
-        });
-      }
-
       success.value = true;
       emit("success");
     } catch (err) {
+      const validationFields = getPriceRequestClientValidationFields(err);
+      if (validationFields) leadTracking.trackValidationError(validationFields);
+
       console.error("[ProductLeadForm] submit error", err);
 
       const errorCandidates = err && typeof err === "object"
@@ -460,6 +436,9 @@ const onSubmit = handleSubmit(
     }
   },
   ({ errors }) => {
+    if (isLoading.value) return;
+
+    leadTracking.trackValidationError(Object.keys(errors));
     focusFirstInvalidField(errors as Record<string, string>);
   }
 );
@@ -469,7 +448,16 @@ const onSubmit = handleSubmit(
     <RequestSuccessState v-if="success" :product-name="producto" primary-to="/productos" class="h-full w-full flex-1"
       @reset="handleResetSuccessState" />
 
-    <form v-else @submit.prevent="onSubmit" novalidate class="rd-form-shell rd-form-shell--sticky">
+    <form
+      v-else
+      @submit.prevent="onSubmit"
+      @pointerdown.capture="leadTracking.onFormInteraction"
+      @keydown.capture="leadTracking.onFormInteraction"
+      @input.capture="leadTracking.onFormInteraction"
+      @change.capture="leadTracking.onFormInteraction"
+      novalidate
+      class="rd-form-shell rd-form-shell--sticky"
+    >
       <div class="rd-form-header">
         <p class="rd-form-eyebrow">Solicitud de presupuesto</p>
 
@@ -692,7 +680,7 @@ const onSubmit = handleSubmit(
                 }}
               </span>
 
-              <input type="file" class="sr-only" accept=".pdf,.jpg,.jpeg,.png,.ai,.zip" @change="onPickFile" />
+              <input name="attachment" type="file" class="sr-only" accept=".pdf,.jpg,.jpeg,.png,.ai,.zip" @change="onPickFile" />
             </label>
           </div>
 
