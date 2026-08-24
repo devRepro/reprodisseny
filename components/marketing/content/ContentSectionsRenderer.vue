@@ -9,6 +9,7 @@ import type {
 } from "~/types/contentSections";
 import ContentTabs from "@/components/marketing/content/ContentTabs.vue";
 import ContentSectionsPanel from "@/components/marketing/content/ContentSectionsPanel.vue";
+import { normalizeTechnicalHighlights } from "~/utils/content/technicalHighlights";
 
 type DetailSectionItem = CategoryDetailSectionItem | ProductDetailSectionItem;
 
@@ -200,7 +201,7 @@ function hasRenderableContent(section: DetailSectionItem) {
   if (source.materialsData && typeof source.materialsData === "object") return true;
   if (source.finishesData && typeof source.finishesData === "object") return true;
   if (source.applicationsData && typeof source.applicationsData === "object") return true;
-  if (source.technicalSpecsData && typeof source.technicalSpecsData === "object") return true;
+  if (normalizeTechnicalHighlights(source.technicalHighlights).length) return true;
 
   return false;
 }

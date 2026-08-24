@@ -15,6 +15,8 @@ import {
   type CatalogSnapshot,
   type SyncIssue,
 } from "./sync-cms-core";
+import type { TechnicalHighlight } from "../types/contentSections";
+import { normalizeTechnicalHighlights } from "../utils/content/technicalHighlights";
 
 dotenv.config({ path: ".env.imports", override: true });
 
@@ -137,7 +139,14 @@ type ApplicationsContentSection =
 
 type DetailsContentSection = MarkdownContentSection<"details">;
 
-type TechnicalSpecsContentSection = MarkdownContentSection<"technical-specs">;
+type TechnicalSpecsContentSection =
+  | (MarkdownContentSection<"technical-specs"> & {
+      technicalHighlights?: TechnicalHighlight[];
+    })
+  | (BaseContentSection<"technical-specs"> & {
+      contentFormat: "json";
+      technicalHighlights: TechnicalHighlight[];
+    });
 
 type ContentSection =
   | DetailsContentSection
@@ -406,6 +415,7 @@ const STRUCTURED_MD_FIELDS = [
   PRODUCT_FIELDS.materialsMd,
   PRODUCT_FIELDS.formatsMd,
   PRODUCT_FIELDS.finishesMd,
+  PRODUCT_FIELDS.technicalSpecsMd,
 ] as const;
 
 const CATEGORY_SECTION_TITLES: Record<string, string> = {
@@ -520,14 +530,35 @@ function createMarkdownSection<K extends ContentSectionKind>(
   };
 }
 
-function createLiteralMarkdownSection<K extends ContentSectionKind>(
-  id: K,
+function createTechnicalSpecsSection(
   title: string,
   value: unknown,
-): MarkdownContentSection<K> | null {
-  const body = normalizeMarkdown(value);
-  if (!body) return null;
-  return { id, key: id, title, kind: id, contentFormat: "markdown", body };
+): TechnicalSpecsContentSection | null {
+  const parsed = parseJsonLoose<unknown>(value, null);
+  const source = parsed && typeof parsed === "object" && !Array.isArray(parsed)
+    ? (parsed as Record<string, unknown>)
+    : null;
+
+  const body = normalizeMarkdown(
+    source
+      ? source.body ?? source.markdown ?? source.technicalSpecsMd
+      : value,
+  );
+  const technicalHighlights = normalizeTechnicalHighlights(
+    source?.technicalHighlights,
+  );
+
+  if (!body && !technicalHighlights.length) return null;
+
+  return {
+    id: "technical-specs",
+    key: "technical-specs",
+    title,
+    kind: "technical-specs",
+    contentFormat: body ? "markdown" : "json",
+    ...(body ? { body } : {}),
+    ...(technicalHighlights.length ? { technicalHighlights } : {}),
+  } as TechnicalSpecsContentSection;
 }
 
 function createTypesSection(
@@ -1662,8 +1693,7 @@ function buildProductSections(
     editorialSections.map((section) => [section.id, section] as const),
   );
 
-  const technicalSpecsSection = createLiteralMarkdownSection(
-    "technical-specs",
+  const technicalSpecsSection = createTechnicalSpecsSection(
     PRODUCT_SECTION_TITLES["technical-specs"],
     fields[PRODUCT_FIELDS.technicalSpecsMd],
   );

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-24T08:02:46.613Z",
+  "generatedAt": "2026-08-24T11:25:46.207Z",
   "categories": [
     {
       "id": "12",
@@ -3696,7 +3696,7 @@
   "products": [
     {
       "id": "157",
-      "updatedAt": "2026-07-22T07:55:04Z",
+      "updatedAt": "2026-08-24T10:55:23Z",
       "type": "producto",
       "slug": "colgador-puerta-personalizado",
       "path": "/productos/colgador-puerta-personalizado",
@@ -3707,7 +3707,7 @@
       ],
       "order": 100,
       "isPublished": true,
-      "shortDescription": "El colgador de puerta es una pieza sencilla, pero clave en la operativa diaria: ayuda a coordinar limpieza, descanso y servicios sin molestar al huésped. En Repro Disseny imprimimos colgadores personalizados para hoteles, hostales y apartamentos, con troquel preciso, materiales resistentes y opción de plastificado para que duren y se vean profesionales.",
+      "shortDescription": "Colgadores de puerta personalizados para hoteles, hostales y apartamentos turísticos. Impresión a una o dos caras, troquel para pomo, plastificado opcional, versiones por idioma y códigos QR para servicios. Fabricación a medida para una comunicación clara y profesional con el huésped.",
       "sections": [
         {
           "id": "details",
@@ -3715,7 +3715,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "### ¿Qué es un colgador de puerta y para qué se usa?\n\nUn colgador de puerta es una tarjeta troquelada que se cuelga en el pomo para comunicar mensajes como “No molestar”, “Hacer la habitación”, “Por favor, pasar más tarde” o avisos de servicio como lavandería, room service o mantenimiento.\n\nSe utiliza para mejorar la experiencia del huésped y facilitar la coordinación entre recepción, housekeeping y mantenimiento."
+          "body": "### Colgadores de puerta personalizados para hoteles y alojamientos\n\nLos colgadores de puerta personalizados son una solución práctica para comunicar con los huéspedes sin interrumpir su estancia. Se utilizan habitualmente para mensajes como “No molestar”, “Hacer la habitación”, “Por favor, pasar más tarde” o instrucciones relacionadas con limpieza y servicios.\n\nEn Repro Disseny fabricamos colgadores personalizados para hoteles, hostales, resorts y apartamentos turísticos, adaptando el diseño, la forma del troquel y los acabados a la imagen de cada establecimiento.\n\n### Comunicación y operativa hotelera\n\nUn buen colgador ayuda a coordinar recepción, housekeeping y mantenimiento, pero también puede convertirse en un punto de contacto adicional con el huésped.\n\nAdemás de los mensajes habituales de habitación, puede incorporar información sobre room service, desayuno, spa, late check-out, reutilización de toallas, promociones o servicios del alojamiento.\n\n### Personalización a medida\n\nPodemos preparar el colgador con impresión a una o dos caras, diferentes medidas, troquel para pomo o manilla, acabados resistentes, varios idiomas y códigos QR.\n\nSi necesitas una forma o medida específica, estudiamos el troquel para adaptarlo al uso real de las puertas de tu establecimiento."
         },
         {
           "id": "materials",
@@ -3724,14 +3724,19 @@
           "kind": "materials",
           "contentFormat": "json",
           "materialsData": {
+            "intro": "El soporte debe elegirse según la duración prevista, la frecuencia de manipulación y la imagen que quiera transmitir el alojamiento.",
             "materials": [
               {
-                "title": "Cartulinas de buen gramaje",
-                "description": "Para conseguir una sensación más sólida y una mejor durabilidad."
+                "title": "Cartulina gráfica de alto gramaje",
+                "description": "Solución adecuada para campañas, aperturas, eventos o colgadores que deben mantener una buena presencia con un coste contenido."
               },
               {
-                "title": "Material más resistente",
-                "description": "Opción de material más resistente si habrá mucha rotación, manipulación o uso continuado."
+                "title": "Soporte de mayor resistencia",
+                "description": "Recomendado para hoteles y alojamientos donde el colgador se reutiliza y se manipula de forma frecuente."
+              },
+              {
+                "title": "Material y acabado a valorar",
+                "description": "Si necesitas mayor resistencia a limpieza, humedad o manipulación continuada, podemos estudiar el soporte más adecuado para el proyecto."
               }
             ]
           }
@@ -3743,14 +3748,23 @@
           "kind": "formats",
           "contentFormat": "json",
           "formatsData": {
+            "intro": "Adaptamos el formato y el troquel al tipo de puerta, al mensaje y al uso previsto dentro del alojamiento.",
             "shapes": [
               {
-                "title": "Troquel específico para colgar en pomo",
-                "description": "Con ventana o corte adaptado al uso real."
+                "title": "Troquel para pomo o manilla",
+                "description": "Formato diseñado para colocarse directamente en la puerta de la habitación de forma rápida y visible."
               },
               {
-                "title": "Formas personalizadas",
-                "description": "Posibilidad de formas personalizadas, redondeos, siluetas o iconos si buscas un acabado diferencial."
+                "title": "Abertura abierta",
+                "description": "Permite colocar y retirar el colgador fácilmente sin necesidad de introducirlo completamente por el pomo."
+              },
+              {
+                "title": "Abertura cerrada",
+                "description": "Alternativa adecuada cuando se busca una sujeción más estable durante el uso."
+              },
+              {
+                "title": "Troquel y medida personalizados",
+                "description": "Podemos estudiar formas, medidas, ventanas, redondeos o siluetas específicas para adaptar la pieza al diseño y a las puertas del establecimiento."
               }
             ],
             "deliveryFormats": []
@@ -3763,18 +3777,23 @@
           "kind": "finishes",
           "contentFormat": "json",
           "finishesData": {
+            "intro": "El acabado permite adaptar la resistencia, el tacto y la apariencia del colgador al nivel de uso y a la imagen del establecimiento.",
             "finishes": [
               {
-                "title": "Plastificado o laminado mate/brillo",
-                "description": "Para mejorar la resistencia al roce y facilitar la limpieza."
+                "title": "Laminado mate",
+                "description": "Protege la impresión, reduce reflejos y ofrece una presentación sobria y especialmente adecuada para hoteles."
               },
               {
-                "title": "Acabado mate",
-                "description": "El acabado mate suele ser el más cómodo de leer y reduce reflejos."
+                "title": "Laminado brillo",
+                "description": "Aumenta la protección y aporta mayor intensidad a fotografías, colores corporativos y elementos gráficos."
               },
               {
-                "title": "Esquinas redondeadas",
-                "description": "Mejoran la durabilidad y evitan que los bordes se deterioren con facilidad."
+                "title": "Sin laminado",
+                "description": "Alternativa para campañas, eventos o producciones donde no se requiere una protección adicional."
+              },
+              {
+                "title": "Troquel personalizado",
+                "description": "Permite adaptar contorno, abertura y forma del colgador cuando el diseño o el tipo de puerta requiere una solución específica."
               }
             ]
           }
@@ -3785,33 +3804,69 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "### Impresión\n\n- Impresión a todo color o con diseños más sobrios y corporativos.\n- Normalmente se producen a dos caras, por ejemplo: “No molestar” por un lado y “Hacer la habitación” por el otro.\n- Posibilidad de preparar versiones por idioma si el alojamiento lo necesita.\n\n### Extras útiles\n\n- Código QR a WhatsApp, recepción, solicitud de amenities, incidencias, guía del hotel o encuesta.\n- Iconografía clara para facilitar la lectura rápida, especialmente en tareas de housekeeping."
+          "body": "### Tipos de archivador\n\n- **Archivador de palanca:** recomendado para archivo intensivo y documentación de gran capacidad.\n- **Archivador de anillas:** práctico para documentación que se actualiza, sustituye o reorganiza con frecuencia.\n\n### Formato\n\nHabitualmente se fabrican para documentación A4, adaptando las medidas y el ancho del lomo a la capacidad necesaria.\n\nPodemos estudiar diferentes configuraciones según el volumen de hojas y el sistema de anillas.\n\n### Personalización\n\n- Personalización de portada, contraportada y lomo.\n- Identificación por título, categoría, año, departamento o proyecto.\n- Posibilidad de producir series con diferentes colores, textos o referencias manteniendo una misma imagen corporativa.\n- Opción de incorporar códigos internos o QR cuando sean útiles para la gestión documental.\n\n### Acabados y resistencia\n\nPodemos aplicar acabados orientados a mejorar la resistencia frente al roce y la manipulación frecuente.\n\nPara archivadores de uso intensivo recomendamos prestar especial atención a la protección del lomo y los cantos, que son las zonas que más desgaste reciben.\n\n### Complementos\n\n- Separadores con pestañas para organizar la documentación por secciones.\n- Hojas sueltas perforadas para reposiciones y actualizaciones.\n- Etiquetas de lomo cuando se necesita un sistema de identificación editable."
         },
         {
           "id": "applications",
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "Los colgadores de puerta son especialmente útiles en alojamientos, resorts, apartamentos turísticos y eventos donde es necesario comunicar instrucciones de forma rápida y visible.\n\n- **Hoteles, hostales y apartamentos turísticos:** mensajes como “No molestar”, “Limpieza”, “Cambio de toallas” o instrucciones para housekeeping.\n- **Resorts:** control de servicios por horarios, zonas o tipos de estancia.\n- **Alojamientos con enfoque sostenible:** mensajes de reutilización de toallas, ahorro energético o reducción de consumos.\n- **Eventos y grupos:** instrucciones específicas por estancia, fecha, habitación o grupo."
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Los colgadores personalizados pueden utilizarse tanto para mejorar la operativa de las habitaciones como para comunicar servicios y generar nuevas oportunidades durante la estancia.",
+            "applications": [
+              {
+                "title": "No molestar / Hacer la habitación",
+                "description": "Uso clásico para coordinar descanso, limpieza y housekeeping sin interrumpir al huésped."
+              },
+              {
+                "title": "Hoteles, hostales y apartamentos",
+                "description": "Comunicación de limpieza, cambio de toallas, mantenimiento, horarios y servicios de habitación."
+              },
+              {
+                "title": "Room service y servicios del hotel",
+                "description": "Puede incorporar información o códigos QR para desayuno, restaurante, spa, amenities, recepción o late check-out."
+              },
+              {
+                "title": "Comunicación sostenible",
+                "description": "Mensajes relacionados con reutilización de toallas, cambio de ropa de cama, ahorro energético o reducción de consumos."
+              },
+              {
+                "title": "Promociones y venta cruzada",
+                "description": "Utiliza la puerta como punto de contacto para promocionar restaurante, bar, spa, actividades, eventos o servicios adicionales."
+              },
+              {
+                "title": "Grupos y eventos",
+                "description": "Versiones específicas por habitación, evento, grupo, idioma o tipo de estancia."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
         {
-          "question": "¿Se pueden hacer a doble cara con “No molestar / Hacer la habitación”?",
-          "answer": "Sí. Es el formato más habitual y el que mejor funciona en la operativa diaria de hoteles, hostales y apartamentos turísticos."
+          "question": "¿Se pueden imprimir colgadores de puerta a doble cara?",
+          "answer": "Sí. Es una de las configuraciones más habituales: por ejemplo, “No molestar” en una cara y “Hacer la habitación” o “Limpieza” en la otra."
         },
         {
-          "question": "¿Conviene plastificarlos?",
-          "answer": "Sí, especialmente si se reutilizan, se manipulan a diario o quieres que se puedan limpiar fácilmente. El plastificado aumenta la durabilidad y protege mejor la impresión."
+          "question": "¿Qué medida debe tener un colgador de puerta?",
+          "answer": "Depende del tipo de puerta, pomo o manilla y del espacio necesario para el diseño. Podemos trabajar con formatos habituales o preparar una medida y un troquel personalizados."
         },
         {
-          "question": "¿Podéis hacerlos en varios idiomas?",
-          "answer": "Sí. Podemos producir versiones por idioma manteniendo el mismo diseño, estilo gráfico e imagen de marca."
+          "question": "¿Podéis fabricar un troquel personalizado?",
+          "answer": "Sí. Podemos estudiar la forma exterior y la abertura para adaptar el colgador al diseño y al tipo de puerta del establecimiento."
         },
         {
-          "question": "¿Se puede añadir un código QR para servicios o contacto?",
-          "answer": "Sí. Podemos añadir QR a WhatsApp, recepción, solicitud de amenities, room service, incidencias, guía del hotel o encuestas, cuidando el tamaño y el contraste para que se escanee correctamente."
+          "question": "¿Conviene plastificar los colgadores de hotel?",
+          "answer": "Es recomendable cuando se reutilizan o se manipulan frecuentemente. El laminado protege la impresión frente al roce y facilita mantener una buena presencia durante más tiempo."
+        },
+        {
+          "question": "¿Se pueden fabricar en varios idiomas?",
+          "answer": "Sí. Podemos producir diferentes versiones manteniendo la misma imagen corporativa para adaptarlas a los idiomas habituales de los huéspedes."
+        },
+        {
+          "question": "¿Se puede añadir un código QR?",
+          "answer": "Sí. Puede enlazar con recepción, WhatsApp, room service, restaurante, spa, guía del hotel, encuestas, servicios o promociones."
         }
       ],
       "breadcrumbs": [
@@ -3839,45 +3894,106 @@
         "alt": "Colgador de puerta personalizado para hotel impreso a doble cara con troquel para pomo"
       },
       "galleryImages": [],
-      "relatedProductsJson": [],
+      "relatedProductsJson": [
+        {
+          "productSlug": "tarjeta-habitacion-hotel"
+        },
+        {
+          "productSlug": "cartas-restaurante-personalizadas"
+        },
+        {
+          "productSlug": "portacuentas-personalizados"
+        },
+        {
+          "productSlug": "posavasos"
+        }
+      ],
       "brand": "Repro Disseny",
       "attributes": [
         {
-          "key": "mejora-la-experiencia-del-huesped",
-          "label": "Mejora la experiencia del huésped",
-          "value": "Permite una comunicación clara sin interrupciones durante la estancia.",
+          "key": "impresion",
+          "label": "Impresión a 1 o 2 caras",
           "placement": "hero-pills"
         },
         {
-          "key": "optimiza-la-operativa-de-limpieza",
-          "label": "Optimiza la operativa de limpieza",
-          "value": "Ayuda a reducir incidencias, organizar prioridades y coordinar mejor el trabajo de housekeeping.",
+          "key": "troquel",
+          "label": "Troquel estándar o a medida",
           "placement": "hero-pills"
         },
         {
-          "key": "imagen-de-marca-cuidada",
-          "label": "Imagen de marca cuidada",
-          "value": "Refuerza la coherencia visual del alojamiento en todos los detalles de comunicación.",
+          "key": "acabados",
+          "label": "Laminado mate o brillo",
           "placement": "hero-pills"
         },
         {
-          "key": "durabilidad",
-          "label": "Durabilidad",
-          "value": "Puede fabricarse con materiales y acabados pensados para un uso repetido.",
-          "placement": "hero-pills"
-        },
-        {
-          "key": "mas-servicios-con-menos-friccion",
-          "label": "Más servicios con menos fricción",
-          "value": "Permite añadir códigos QR para solicitar amenities, late check-out, room service, incidencias o contacto con recepción.",
+          "key": "personalizacion",
+          "label": "QR y versiones por idioma",
           "placement": "hero-pills"
         }
       ],
       "variants": [],
-      "formFields": [],
+      "formFields": [
+        {
+          "name": "medidas",
+          "label": "Medidas aproximadas",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "placeholder": "Ej. 10 × 25 cm",
+          "readonly": false
+        },
+        {
+          "name": "impresion",
+          "label": "Impresión",
+          "type": "select",
+          "required": false,
+          "options": [
+            "1 cara",
+            "2 caras"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "material",
+          "label": "Material",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Cartulina de alto gramaje",
+            "Material de mayor resistencia",
+            "A valorar"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "acabado",
+          "label": "Acabado",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Sin laminado",
+            "Laminado mate",
+            "Laminado brillo",
+            "A valorar"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "troquel",
+          "label": "Troquel",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Estándar para pomo o manilla",
+            "Troquel personalizado",
+            "A valorar"
+          ],
+          "readonly": false
+        }
+      ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Colgadores de puerta para hoteles",
+        "metaTitle": "Colgadores de puerta personalizados para hoteles",
         "metaDescription": "Colgadores de puerta para hoteles, apartamentos y alojamientos. Troquelados, resistentes, con plastificado opcional y posibilidad de incorporar códigos QR.",
         "canonical": "https://reprodisseny.com/productos/colgador-puerta-personalizado",
         "hreflang": [
@@ -3887,35 +4003,48 @@
           }
         ],
         "keywords": [
-          "colgador de puerta personalizado",
+          "colgadores de puerta personalizados",
           "colgadores de puerta para hoteles",
-          "colgador no molestar",
+          "colgador de puerta personalizado hotel",
+          "colgador no molestar personalizado",
           "colgador hacer la habitación",
           "colgadores para habitaciones de hotel",
           "colgadores de puerta impresos",
-          "door hanger personalizado",
-          "tarjetas colgador de puerta",
-          "colgadores plastificados",
-          "colgadores con QR",
-          "cartelería para hoteles",
-          "material gráfico para hoteles"
+          "imprimir colgadores de puerta",
+          "poming personalizado",
+          "pomming personalizado",
+          "door hanger personalizado hotel",
+          "colgadores hotel Barcelona"
         ],
         "searchTerms": [
-          "colgador puerta hotel",
+          "colgadores de puerta personalizados",
+          "colgadores puerta hotel",
           "colgadores puerta personalizados",
+          "colgador de puerta personalizado",
           "colgador no molestar hotel",
-          "colgador hacer habitacion",
+          "no molestar hotel personalizado",
+          "colgador hacer la habitación",
+          "colgador limpieza habitación",
           "colgadores para hoteles",
           "colgadores habitaciones hotel",
           "imprimir colgadores puerta",
-          "colgador puerta plastificado",
-          "colgador puerta con qr",
-          "door hanger hotel",
-          "tarjeta colgador pomo puerta",
-          "cartel no molestar personalizado",
+          "impresión colgadores puerta",
+          "colgadores puerta doble cara",
+          "colgador puerta troquelado",
+          "colgadores con troquel personalizado",
+          "colgador pomo puerta",
+          "colgadores puerta plastificados",
+          "colgador puerta con QR",
           "colgadores housekeeping",
-          "colgadores apartamentos turisticos",
-          "material hotel personalizado"
+          "colgadores apartamentos turísticos",
+          "poming personalizado",
+          "poming hotel",
+          "pomming personalizado",
+          "pomming hotel",
+          "door hanger hotel",
+          "door hanger personalizado",
+          "cartel no molestar personalizado",
+          "material gráfico para hoteles"
         ],
         "schema": {},
         "robotsOverride": "INHERIT",
@@ -12518,7 +12647,7 @@
     },
     {
       "id": "17",
-      "updatedAt": "2026-08-06T09:03:18Z",
+      "updatedAt": "2026-08-24T10:14:26Z",
       "type": "producto",
       "slug": "cartas-restaurante-personalizadas",
       "path": "/productos/cartas-restaurante-personalizadas",
@@ -12757,31 +12886,33 @@
         "alt": "Cartas de restaurante personalizadas impresas para hostelería, bares y restaurantes"
       },
       "galleryImages": [],
-      "relatedProductsJson": [],
+      "relatedProductsJson": [
+        {
+          "productSlug": "portacuentas-personalizados"
+        },
+        {
+          "productSlug": "posavasos"
+        },
+        {
+          "productSlug": "tarjeta-habitacion-hotel"
+        },
+        {
+          "productSlug": "colgador-puerta-personalizado"
+        }
+      ],
       "sku": "01-HORE-0005",
       "brand": "Reprodisseny",
       "attributes": [],
       "variants": [],
       "formFields": [
         {
-          "name": "tamano",
-          "label": "Tamaño",
-          "type": "select",
+          "name": "medidas",
+          "label": "Medidas aproximadas",
+          "type": "text",
           "required": false,
-          "options": [
-            "Personalizado a demanda"
-          ],
-          "readonly": true
-        },
-        {
-          "name": "impresion",
-          "label": "Impresión",
-          "type": "select",
-          "required": false,
-          "options": [
-            "Cuatricromía 2 caras"
-          ],
-          "readonly": true
+          "options": [],
+          "placeholder": "Ej. A4 cerrado / A3 abierto",
+          "readonly": false
         },
         {
           "name": "material",
@@ -12789,9 +12920,10 @@
           "type": "select",
           "required": false,
           "options": [
-            "Estucado mate 170 gr",
-            "estucado mate 250 gr",
-            "estucado mate 350 gr"
+            "Estucado mate 170 g",
+            "Estucado mate 250 g",
+            "Estucado mate 350 g",
+            "A valorar"
           ],
           "readonly": false
         },
@@ -12801,27 +12933,12 @@
           "type": "select",
           "required": false,
           "options": [
-            "Plegadas",
-            "Grapadas",
+            "Plegada",
+            "Grapada",
             "Wire-O",
-            "Tapa dura"
+            "Tapa dura",
+            "A valorar"
           ],
-          "readonly": false
-        },
-        {
-          "name": "cantidad",
-          "label": "Cantidad",
-          "type": "number",
-          "required": false,
-          "options": [],
-          "readonly": false
-        },
-        {
-          "name": "observaciones",
-          "label": "Observaciones",
-          "type": "text",
-          "required": false,
-          "options": [],
           "readonly": false
         }
       ],
@@ -14984,192 +15101,6 @@
         "schema": {},
         "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/eventos/diplomas.webp"
-      }
-    },
-    {
-      "id": "34",
-      "updatedAt": "2026-07-23T07:25:22Z",
-      "type": "producto",
-      "slug": "tarjeta-habitacion-hotel",
-      "path": "/productos/tarjeta-habitacion-hotel",
-      "title": "Díptico tarjeta de habitación para hoteles",
-      "categorySlug": "hosteleria-restauracion",
-      "categorySlugs": [
-        "hosteleria-restauracion"
-      ],
-      "order": 9999,
-      "isPublished": true,
-      "shortDescription": "El díptico tarjeta de habitación es un básico en hostelería: acompaña al huésped desde el check-in y concentra la información que más se consulta durante la estancia (WiFi, horarios, servicios, contacto). En Repro Disseny imprimimos tarjetas de habitación plegadas con un acabado cuidado y opciones de resistencia para que se vean profesionales y aguanten el uso diario.",
-      "sections": [
-        {
-          "id": "details",
-          "key": "details",
-          "title": "Detalles",
-          "kind": "details",
-          "contentFormat": "markdown",
-          "body": "### ¿Qué es un díptico tarjeta de habitación y para qué se usa? \nEs una tarjeta plegada (en formato díptico) que se deja en la habitación o se entrega en recepción con información práctica del alojamiento. Suele incluir datos de WiFi, horarios (desayuno, recepción, check-out), servicios (room service, spa, parking), normas básicas, contacto y, si se desea, QR a carta digital, reservas o guía del hotel."
-        },
-        {
-          "id": "benefits",
-          "key": "benefits",
-          "title": "Beneficios",
-          "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "Mejora la experiencia del huésped: todo lo importante en una pieza clara y fácil de consultar. \nReduce preguntas repetidas en recepción: WiFi, horarios, teléfonos y procedimientos quedan “a mano”. \nRefuerza la imagen de marca: diseño alineado con el estilo del hotel (corporativo, boutique, vacacional…). \nInformación siempre actualizada: permite renovar por temporadas, cambios de servicios o campañas internas. \nImpulsa servicios adicionales: con QR o llamadas a la acción (spa, late check-out, restaurante, excursiones)."
-        },
-        {
-          "id": "technical-specs",
-          "key": "technical-specs",
-          "title": "Características técnicas",
-          "kind": "technical-specs",
-          "contentFormat": "markdown",
-          "body": "Formatos habituales \nDíptico en tamaños tipo DL, A6 o A5 (según cantidad de información). \nOrientación vertical u horizontal según el diseño y el soporte en habitación. \nPapel y resistencia \nCartulinas de buen gramaje para una sensación más “premium” y mayor durabilidad. \nOpción de plastificado/laminado (mate o brillo) si va a manipularse mucho o quieres facilitar limpieza. \nRecomendación práctica: el mate suele funcionar muy bien en interior (menos reflejos y lectura más cómoda). \nImpresión \nA todo color para mantener identidad visual y fotografías/íconos. \nA una o dos caras (en díptico suele aprovecharse todo el espacio disponible). \nPlegado \nHendido profesional para un plegado limpio (evita marcas y mejora la durabilidad). \nIdiomas y versiones \nPosibilidad de producir versiones por idioma o por tipo de habitación/edificio. \nSeries por temporada (verano/invierno) o por campañas (packs, upgrades, eventos).\nExtras útiles \nQR a carta digital, reservas, guía del hotel, WhatsApp de atención, encuestas o reseñas. \nEspacio para datos variables si necesitas añadir información específica (p. ej., códigos internos o referencias)."
-        },
-        {
-          "id": "applications",
-          "key": "applications",
-          "title": "Aplicaciones",
-          "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "Hoteles, hostales y apartamentos turísticos: información básica de estancia y contacto. \nCadenas y franquicias: piezas homogéneas por centro, con variantes por idioma. \nResorts y alojamientos con múltiples servicios: guía rápida de horarios, ubicaciones y reservas. \nAlojamientos con enfoque digital: QR a welcome page, guía de habitación, incidencias o check-out."
-        }
-      ],
-      "faqs": [
-        {
-          "question": "¿Qué tamaño es el más recomendado?",
-          "answer": "Depende de la cantidad de información. Si es \"lo esencial\", un formato tipo DL/A6 funciona muy bien; si incluyes más servicios o mapa, A5 suele ser más cómodo."
-        },
-        {
-          "question": "¿Conviene plastificar?",
-          "answer": "Si se va a manipular mucho o quieres que dure más y se limpie mejor, sí. Para un look más elegante, mate suele ser la opción más equilibrada."
-        },
-        {
-          "question": "¿Podéis hacerlo en varios idiomas?",
-          "answer": "Sí, podemos preparar versiones por idioma manteniendo el mismo diseño base para coherencia de marca."
-        },
-        {
-          "question": "¿Podéis incluir QR a una página de bienvenida?",
-          "answer": "Sí, y te ayudamos a colocarlo con tamaño y contraste adecuados para que se escanee a la primera."
-        }
-      ],
-      "breadcrumbs": [
-        {
-          "name": "Inicio",
-          "url": "/"
-        },
-        {
-          "name": "Categorías",
-          "url": "/categorias"
-        },
-        {
-          "name": "Hostelería y restauración",
-          "url": "/categorias/hosteleria-restauracion"
-        },
-        {
-          "name": "Díptico tarjeta de habitación para hoteles",
-          "url": "/productos/tarjeta-habitacion-hotel"
-        }
-      ],
-      "image": {
-        "src": "https://webcms.blob.core.windows.net/media/product/restauracion/diptico-tarjeta%20habitacion.webp",
-        "width": 1200,
-        "height": 1200,
-        "alt": "Díptico tarjeta de habitación personalizado para hoteles, eventos y servicios de alojamiento"
-      },
-      "galleryImages": [],
-      "relatedProductsJson": [],
-      "sku": "01-HORE-0001",
-      "brand": "Reprodisseny",
-      "attributes": [],
-      "variants": [],
-      "formFields": [
-        {
-          "name": "tamano",
-          "label": "Tamaño",
-          "type": "select",
-          "required": false,
-          "options": [
-            "7.5x12 cm"
-          ],
-          "readonly": true
-        },
-        {
-          "name": "impresion",
-          "label": "Impresión",
-          "type": "select",
-          "required": false,
-          "options": [
-            "2 caras"
-          ],
-          "readonly": true
-        },
-        {
-          "name": "tintas",
-          "label": "Tintas",
-          "type": "select",
-          "required": false,
-          "options": [
-            "Cuatricromía"
-          ],
-          "readonly": true
-        },
-        {
-          "name": "papel",
-          "label": "Papel",
-          "type": "select",
-          "required": false,
-          "options": [
-            "Cartulina gráfica de 240 gr."
-          ],
-          "readonly": true
-        },
-        {
-          "name": "troquelado",
-          "label": "Troquelado",
-          "type": "select",
-          "required": false,
-          "options": [
-            "Corte + ranuras"
-          ],
-          "readonly": true
-        },
-        {
-          "name": "cantidad",
-          "label": "Cantidad",
-          "type": "number",
-          "required": false,
-          "options": [],
-          "readonly": false
-        },
-        {
-          "name": "observaciones",
-          "label": "Observaciones",
-          "type": "text",
-          "required": false,
-          "options": [],
-          "readonly": false
-        }
-      ],
-      "legacySlugs": [],
-      "seo": {
-        "metaTitle": "Tarjetas de habitación para hoteles",
-        "metaDescription": "Díptico tarjeta de habitación para hoteles: info WiFi, horarios y servicios con diseño corporativo. Papel resistente, plastificado opcional y QR.",
-        "canonical": "https://reprodisseny.com/productos/tarjeta-habitacion-hotel",
-        "hreflang": [
-          {
-            "lang": "es-ES",
-            "url": "https://reprodisseny.com/productos/tarjeta-habitacion-hotel"
-          }
-        ],
-        "keywords": [
-          "díptico tarjeta habitación"
-        ],
-        "searchTerms": [
-          "díptico tarjeta habitación"
-        ],
-        "schema": {},
-        "robotsOverride": "INHERIT",
-        "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/restauracion/diptico-tarjeta%20habitacion.webp"
       }
     },
     {
@@ -24590,18 +24521,18 @@
     },
     {
       "id": "65",
-      "updatedAt": "2026-07-15T12:21:14Z",
+      "updatedAt": "2026-08-24T11:25:11Z",
       "type": "producto",
       "slug": "manteles-individuales-personalizados",
       "path": "/productos/manteles-individuales-personalizados",
-      "title": "Manteles individuales de mesa personalizados",
+      "title": "Manteles individuales personalizados",
       "categorySlug": "hosteleria-restauracion",
       "categorySlugs": [
         "hosteleria-restauracion"
       ],
       "order": 9999,
       "isPublished": true,
-      "shortDescription": "Los manteles individuales son una pieza muy rentable en hostelería: protegen la mesa y, al mismo tiempo, son un soporte perfecto para comunicar (menú, promociones, QR, juegos infantiles o mensajes de marca). En Repro Disseny imprimimos manteles individuales personalizados con formatos a medida y soportes pensados para el ritmo real de un restaurante.",
+      "shortDescription": "Manteles individuales personalizados para restaurantes, bares, cafeterías, hoteles y eventos. Combina protección de mesa, identidad de marca, menús, promociones, alérgenos y códigos QR en un soporte práctico para el servicio diario.",
       "sections": [
         {
           "id": "details",
@@ -24609,15 +24540,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es un mantel individual y para qué se usa? \nUn mantel individual es una lámina (normalmente de papel) que se coloca en cada puesto de mesa. Se utiliza para higiene y protección, pero también como soporte informativo y comercial: menú del día, carta rápida, sugerencias, bebidas, alérgenos, promociones, QR a carta digital o encuestas."
-        },
-        {
-          "id": "benefits",
-          "key": "benefits",
-          "title": "Beneficios",
-          "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "Mejora la experiencia en mesa: ordena la información y acompaña el servicio. \nHerramienta de venta directa: ideal para destacar sugerencias, postres, bebidas o combos. \nRefuerza la marca: puedes integrar identidad visual, mensajes y redes sociales. \nActualizable por temporadas: cambia fácil según carta, eventos o campañas. \nFuncional y rentable: una pieza sencilla que aporta higiene, comunicación y imagen."
+          "body": "### Manteles individuales personalizados para restaurantes\n\nLos manteles individuales personalizados protegen la mesa y, al mismo tiempo, convierten cada puesto en un espacio de comunicación visible durante todo el servicio.\n\nPueden incorporar la identidad gráfica del establecimiento, menú del día, bebidas, sugerencias, promociones, información de alérgenos, actividades infantiles o códigos QR.\n\n### Comunicación directamente en la mesa\n\nA diferencia de otros soportes promocionales, el mantel permanece delante del cliente durante buena parte de la experiencia.\n\nEsto permite utilizarlo para destacar platos, postres, bebidas, promociones, eventos o cualquier contenido que ayude a informar y mejorar el servicio.\n\n### Adaptados a cada campaña\n\nPodemos preparar distintas versiones por temporada, menú, idioma, establecimiento o tipo de público manteniendo una misma línea gráfica.\n\nTambién son una solución práctica para campañas temporales porque el contenido puede renovarse con facilidad."
         },
         {
           "id": "technical-specs",
@@ -24625,33 +24548,65 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Formatos habituales \nTamaños estándar o a medida según el tamaño de mesa y el estilo del local. \nOrientación horizontal o vertical según el diseño (menú/carta/juegos). \nSoportes recomendados (según uso) \nPapel para uso diario y alta rotación (muy práctico y económico). \nOpciones de papel con mejor cuerpo si quieres una sensación más “premium” o mejor resistencia en mesa. \nSi necesitas una opción más resistente o reutilizable, se puede valorar un soporte específico (según tu operativa y tipo de limpieza). \nImpresión \nImpresión a todo color para integrar marca y fotografía, o diseños sobrios según el estilo del restaurante. \nPosibilidad de series por zonas/idiomas o por tipo de menú (adulto/infantil/vegano, etc.). \nContenido útil \nQR a carta digital, reservas, reseñas o redes. \nIconos de alérgenos y mensajes de servicio (horarios, wifi, normas). \nEspacios para promociones: “menú del día”, “postre recomendado”, “cóctel”, “2x1”, etc. \nAcabados \nEn papel, el acabado se elige pensando en legibilidad y presencia. \nRecomendación práctica: si hay mucha luz o focos, un acabado menos reflectante ayuda a la lectura."
+          "body": "### Formatos\n\nDisponemos actualmente de formatos de 29,7 × 42 cm y 33 × 35 cm.\n\nLa elección depende del tamaño de la mesa, del espacio disponible y de la cantidad de información que deba incluir el diseño.\n\n### Papel\n\nTrabajamos con papel Offset de 90 g y 100 g para este producto.\n\nSon soportes adecuados para piezas de uso diario y alta rotación en restauración.\n\n### Impresión\n\nImpresión a una cara en cuatricromía para reproducir identidad gráfica, fotografías, iconos, textos, menús y promociones.\n\n### Contenido personalizado\n\nEl diseño puede incorporar:\n\n- Menús y sugerencias.\n- Promociones y campañas.\n- Información de alérgenos.\n- Códigos QR.\n- Redes sociales y reservas.\n- Juegos o actividades infantiles.\n- Diferentes versiones por idioma o establecimiento.\n\n### Acabado\n\nEl producto se entrega con corte recto.\n\n### Preparación del diseño\n\nEl archivo debe prepararse con las medidas finales, sangrado y una zona de seguridad suficiente alrededor de textos, logotipos y códigos QR.\n\n### Datos necesarios para preparar el presupuesto\n\nIndícanos la cantidad, el tamaño, el papel elegido, si habrá diferentes versiones y la fecha aproximada en la que necesitas el trabajo."
         },
         {
           "id": "applications",
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "Restaurantes y bares: menú del día, sugerencias, carta rápida, bebidas, alérgenos. \nCafeterías: desayunos, promos, QR a carta, campañas estacionales. \nHoteles: servicio de restaurante, eventos, bufé y room service (información en mesa). \nEventos y banquetes: manteles individuales para menús cerrados o información del evento. \nFamilias/infantil: juegos, coloreables y dinámicas para mejorar la espera."
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Los manteles individuales personalizados combinan protección, información y comunicación directamente sobre la mesa.",
+            "applications": [
+              {
+                "title": "Restaurantes",
+                "description": "Menú del día, sugerencias, bebidas, postres, promociones, alérgenos e información de servicio."
+              },
+              {
+                "title": "Bares y cafeterías",
+                "description": "Desayunos, promociones, novedades, cócteles, códigos QR y campañas de temporada."
+              },
+              {
+                "title": "Hoteles",
+                "description": "Restauración, desayuno, bufé, terrazas, room service y eventos dentro del establecimiento."
+              },
+              {
+                "title": "Eventos y banquetes",
+                "description": "Menús cerrados, información del evento, patrocinadores, horarios o mensajes específicos."
+              },
+              {
+                "title": "Menús infantiles",
+                "description": "Juegos, dibujos, actividades y contenidos pensados para mejorar la espera de familias con niños."
+              },
+              {
+                "title": "Campañas y promociones",
+                "description": "Producción de diferentes versiones por temporada, promoción, local, idioma o tipo de menú."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
         {
-          "question": "¿Qué tamaño es el más recomendable?",
-          "answer": "Depende de la mesa y de la cantidad de información. Con el tamaño de mesa y el uso (solo marca, menú, juegos, etc.) te proponemos el formato ideal."
+          "question": "¿Qué tamaños de mantel individual personalizado ofrecéis?",
+          "answer": "Actualmente trabajamos con formatos de 29,7 × 42 cm y 33 × 35 cm. Podemos ayudarte a elegir el más adecuado según el tamaño de la mesa y el contenido."
         },
         {
-          "question": "¿Se pueden hacer por temporadas o por campañas?",
-          "answer": "Sí, es lo más habitual: series para menú del día, promociones, Navidad, verano, etc."
+          "question": "¿Qué papel utilizáis para los manteles individuales?",
+          "answer": "Trabajamos con papel Offset de 90 g y 100 g, adecuados para piezas de uso diario y alta rotación."
         },
         {
-          "question": "¿Podéis incluir QR y alérgenos?",
-          "answer": "Sí. Preparamos el QR con tamaño y contraste adecuados para que se escanee a la primera e integramos iconos de alérgenos."
+          "question": "¿Se pueden imprimir diferentes versiones?",
+          "answer": "Sí. Podemos producir versiones por idioma, menú, establecimiento, temporada o tipo de público manteniendo una misma línea gráfica."
         },
         {
-          "question": "¿Se pueden imprimir distintas versiones (idiomas o menús)?",
-          "answer": "Sí, podemos producir lotes por idioma o por tipo de carta manteniendo coherencia visual."
+          "question": "¿Se pueden incluir códigos QR y alérgenos?",
+          "answer": "Sí. El diseño puede incorporar códigos QR, iconos de alérgenos, reservas, redes sociales, menús y otra información útil para el cliente."
+        },
+        {
+          "question": "¿Se pueden utilizar para promociones o menús de temporada?",
+          "answer": "Sí. Son especialmente adecuados para promociones, menús del día, campañas estacionales, eventos y contenidos que se renuevan periódicamente."
         }
       ],
       "breadcrumbs": [
@@ -24668,7 +24623,7 @@
           "url": "/categorias/hosteleria-restauracion"
         },
         {
-          "name": "Manteles individuales de mesa personalizados",
+          "name": "Manteles individuales personalizados",
           "url": "/productos/manteles-individuales-personalizados"
         }
       ],
@@ -24679,10 +24634,44 @@
         "alt": "Manteles individuales personalizados para restaurantes, hoteles y promociones de mesa"
       },
       "galleryImages": [],
-      "relatedProductsJson": [],
+      "relatedProductsJson": [
+        {
+          "productSlug": "cartas-restaurante-personalizadas"
+        },
+        {
+          "productSlug": "posavasos"
+        },
+        {
+          "productSlug": "portacuentas-personalizados"
+        },
+        {
+          "productSlug": "tabletens-personalizados"
+        }
+      ],
       "sku": "01-HORE-0003",
       "brand": "Reprodisseny",
-      "attributes": [],
+      "attributes": [
+        {
+          "key": "formatos",
+          "label": "29,7 × 42 o 33 × 35 cm",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "papel",
+          "label": "Offset 90 o 100 g",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "impresion",
+          "label": "Impresión a color a 1 cara",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "personalizacion",
+          "label": "Menús, promociones y QR",
+          "placement": "hero-pills"
+        }
+      ],
       "variants": [],
       "formFields": [
         {
@@ -24691,30 +24680,10 @@
           "type": "select",
           "required": false,
           "options": [
-            "29.7x42 cm",
-            "33x35 cm"
+            "29,7 × 42 cm",
+            "33 × 35 cm"
           ],
           "readonly": false
-        },
-        {
-          "name": "impresion",
-          "label": "Impresión",
-          "type": "select",
-          "required": false,
-          "options": [
-            "1 cara"
-          ],
-          "readonly": true
-        },
-        {
-          "name": "tintas",
-          "label": "Tintas",
-          "type": "select",
-          "required": false,
-          "options": [
-            "Cuatricromía"
-          ],
-          "readonly": true
         },
         {
           "name": "papel",
@@ -24722,42 +24691,25 @@
           "type": "select",
           "required": false,
           "options": [
-            "Offset 90 gr",
-            "offset 100 gr"
+            "Offset 90 g",
+            "Offset 100 g"
           ],
           "readonly": false
         },
         {
-          "name": "corte",
-          "label": "Corte",
-          "type": "select",
-          "required": false,
-          "options": [
-            "Recto"
-          ],
-          "readonly": true
-        },
-        {
-          "name": "cantidad",
-          "label": "Cantidad",
-          "type": "number",
-          "required": false,
-          "options": [],
-          "readonly": false
-        },
-        {
-          "name": "observaciones",
-          "label": "Observaciones",
+          "name": "versiones",
+          "label": "Versiones",
           "type": "text",
           "required": false,
           "options": [],
+          "placeholder": "Ej. español / inglés o menú adulto / infantil",
           "readonly": false
         }
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Manteles individuales personalizados | Hostelería y eventos",
-        "metaDescription": "Manteles individuales personalizados para restaurantes y eventos. Impresión a color, papeles resistentes y diseños a medida. Pide presupuesto.",
+        "metaTitle": "Manteles individuales personalizados para restaurantes",
+        "metaDescription": "Manteles individuales personalizados para restaurantes, bares y hoteles. Offset 90 o 100 g, impresión a color, promociones, menús y QR. Pide presupuesto.",
         "canonical": "https://reprodisseny.com/productos/manteles-individuales-personalizados",
         "hreflang": [
           {
@@ -29370,7 +29322,7 @@
     },
     {
       "id": "83",
-      "updatedAt": "2026-05-05T15:22:53Z",
+      "updatedAt": "2026-08-24T11:21:08Z",
       "type": "producto",
       "slug": "portacuentas-personalizados",
       "path": "/productos/portacuentas-personalizados",
@@ -29381,7 +29333,7 @@
       ],
       "order": 9999,
       "isPublished": true,
-      "shortDescription": "El portacuentas es el último punto de contacto antes de cerrar el servicio, y también uno de los más importantes para reforzar la imagen del local. En Repro Disseny fabricamos portacuentas personalizados para restaurantes, bares y hoteles, con materiales resistentes y acabados pensados para uso diario y fácil mantenimiento.",
+      "shortDescription": "Portacuentas personalizados para restaurantes, bares, cafeterías y hoteles. Presenta la cuenta con una imagen cuidada e incorpora logotipo, bolsillo o solapa, códigos QR y acabados resistentes para el uso diario.",
       "sections": [
         {
           "id": "details",
@@ -29389,15 +29341,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "¿Qué es un portacuentas y para qué se usa? \nUn portacuentas es una carpeta o soporte (normalmente rígido) que se entrega con la cuenta para presentarla de forma ordenada y profesional. Además de mejorar la experiencia del cliente, permite integrar marca, QR (reseñas, propinas, pago, carta digital), información de contacto o promociones."
-        },
-        {
-          "id": "benefits",
-          "key": "benefits",
-          "title": "Beneficios",
-          "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "Imagen más profesional: un detalle pequeño que eleva la percepción del servicio. \nMejor experiencia al cierre: entrega de cuenta ordenada y cómoda. \nResistencia para uso diario: opciones pensadas para manipulación constante. \nRefuerza marca y coherencia: alineado con carta, manteles, tabletens y señalética. \nMás conversiones post-servicio: QR a reseñas, reservas, newsletter o redes."
+          "body": "### Portacuentas personalizados para restaurantes y hoteles\n\nEl portacuentas es el último elemento que recibe el cliente antes de finalizar el servicio y forma parte de la experiencia y de la imagen del establecimiento.\n\nPermite presentar tickets, recibos o facturas de forma ordenada y profesional, evitando entregar la cuenta directamente sobre la mesa.\n\n### Un último punto de contacto con tu marca\n\nAdemás de incorporar logotipo, colores y elementos corporativos, el portacuentas puede utilizarse para mantener la comunicación con el cliente después del servicio.\n\nPuede incluir códigos QR hacia reseñas, reservas, redes sociales, promociones, carta digital o sistemas de pago cuando formen parte de la operativa del establecimiento.\n\n### Adaptado al servicio diario\n\nPodemos estudiar diferentes configuraciones según el tamaño del recibo, la forma de entrega y la frecuencia de uso.\n\nPuede incorporar solapas o bolsillos para sujetar el ticket, una tarjeta, una nota u otros elementos relacionados con el cierre del servicio.\n\n### Diferentes versiones\n\nEs posible producir versiones específicas por restaurante, bar, terraza, establecimiento, idioma o área de servicio manteniendo una imagen corporativa común."
         },
         {
           "id": "technical-specs",
@@ -29405,33 +29349,65 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Formatos habituales \nPortacuentas tipo carpeta (con solapa o bolsillo). \nFormatos compactos para ticket o más amplios para recibo + tarjeta. \nOpciones con espacio para tarjeta, propina o nota (según necesidad). \nMateriales \nSoportes rígidos con buen cuerpo para durabilidad y presencia. \nOpciones con acabado lavable o más resistente si el uso es intensivo. \nAlternativas con enfoque más sostenible (base papel) cuando el entorno lo permite. \nImpresión y personalización \nImpresión a color con logo, patrones, claim o información del local. \nPosibilidad de series por sala/terraza o por idioma. \nQR opcional: reseñas, pago, carta digital, reservas o WiFi. \nAcabados recomendados \nPlastificado/laminado mate o brillo para proteger y facilitar limpieza (mate suele evitar reflejos). \nEsquinas redondeadas para que duren más. \nAcabados premium opcionales (si aplica): barniz selectivo, soft touch, etc."
+          "body": "### Formato y configuración\n\nEl portacuentas puede plantearse como una carpeta compacta adaptada al tamaño del ticket o recibo.\n\nSegún el proyecto puede incorporar solapa, bolsillo u otros elementos para mantener la documentación correctamente colocada.\n\n### Impresión\n\nPodemos personalizarlo a una o dos caras con logotipo, colores corporativos, patrones, mensajes o información del establecimiento.\n\nTambién pueden producirse diferentes versiones por local, sala, terraza o idioma.\n\n### Acabado\n\nEl plastificado mate o brillo ayuda a proteger la impresión frente al roce y la manipulación frecuente.\n\nEl acabado mate resulta especialmente adecuado cuando se quiere reducir reflejos y obtener una presentación más sobria.\n\n### Códigos QR\n\nPuede incorporar códigos QR hacia reseñas, reservas, carta digital, promociones, redes sociales u otros servicios.\n\n### Preparación para uso diario\n\nEn proyectos de uso intensivo conviene valorar especialmente la resistencia de los pliegues, cantos y zonas de manipulación.\n\n### Datos necesarios para preparar el presupuesto\n\nIndícanos la cantidad, las medidas aproximadas, si quieres impresión a una o dos caras, el acabado y si necesitas bolsillo, solapa, QR o diferentes versiones."
         },
         {
           "id": "applications",
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "Restaurantes y bares: entrega de cuenta, sugerencias finales, fidelización. \nHoteles: restaurante, bar, room service y eventos. \nCafeterías: ticket\recibo con imagen cuidada. \nCaterings y eventos: cierres de servicio con acabado más premium. \nFranquicias: portacuentas homogéneos por local con versiones por zona/idioma."
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Los portacuentas personalizados combinan presentación, funcionalidad y comunicación en el último momento del servicio.",
+            "applications": [
+              {
+                "title": "Restaurantes",
+                "description": "Presentación cuidada de la cuenta y espacio adicional para información, promociones o códigos QR."
+              },
+              {
+                "title": "Bares y cafeterías",
+                "description": "Entrega de tickets y recibos manteniendo una imagen coherente con la identidad del local."
+              },
+              {
+                "title": "Hoteles",
+                "description": "Restaurante, bar, terrazas, room service, eventos y otros puntos de restauración del establecimiento."
+              },
+              {
+                "title": "Catering y eventos",
+                "description": "Presentación de la cuenta o documentación de servicio con una imagen más cuidada y personalizada."
+              },
+              {
+                "title": "Franquicias y cadenas",
+                "description": "Producción homogénea para diferentes locales con posibles variantes por establecimiento, zona o idioma."
+              },
+              {
+                "title": "Reseñas y fidelización",
+                "description": "Integración de códigos QR hacia reseñas, reservas, promociones, redes sociales u otros canales de relación con el cliente."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
         {
+          "question": "¿Qué tamaño puede tener un portacuentas personalizado?",
+          "answer": "Depende del tamaño del ticket o recibo y de los elementos que deba contener. Podemos estudiar la medida y la configuración más adecuada para cada establecimiento."
+        },
+        {
+          "question": "¿Se puede añadir un bolsillo o una solapa?",
+          "answer": "Sí. Puede diseñarse con una solapa o bolsillo para sujetar el ticket, una tarjeta, una nota u otros elementos."
+        },
+        {
           "question": "¿Conviene plastificar el portacuentas?",
-          "answer": "Si se usa a diario, sí. Ayuda a que dure más y facilita la limpieza."
+          "answer": "Es recomendable cuando se utiliza de forma intensiva. El plastificado protege la impresión frente al roce y facilita mantener una buena presentación durante más tiempo."
         },
         {
-          "question": "¿Se puede añadir un bolsillo para tickets o tarjetas?",
-          "answer": "Sí, se puede diseñar con solapas/bandas para sujetar recibo y tarjeta."
+          "question": "¿Se puede incluir un código QR?",
+          "answer": "Sí. Puede enlazar con reseñas, reservas, carta digital, promociones, redes sociales u otros servicios del establecimiento."
         },
         {
-          "question": "¿Podéis incluir QR para reseñas o pago?",
-          "answer": "Sí, y lo preparamos con el tamaño y contraste adecuados para que se escanee a la primera."
-        },
-        {
-          "question": "¿Se pueden hacer varios modelos (por ejemplo, bar y restaurante)?",
-          "answer": "Sí, manteniendo la misma línea gráfica y cambiando el contenido según el servicio."
+          "question": "¿Se pueden fabricar diferentes versiones?",
+          "answer": "Sí. Podemos producir variantes por restaurante, bar, terraza, establecimiento o idioma manteniendo una imagen gráfica común."
         }
       ],
       "breadcrumbs": [
@@ -29459,21 +29435,54 @@
         "alt": "Portacuentas personalizados para restaurantes, hoteles y presentación de la cuenta"
       },
       "galleryImages": [],
-      "relatedProductsJson": [],
+      "relatedProductsJson": [
+        {
+          "productSlug": "cartas-restaurante-personalizadas"
+        },
+        {
+          "productSlug": "posavasos"
+        },
+        {
+          "productSlug": "tarjeta-habitacion-hotel"
+        },
+        {
+          "productSlug": "colgador-puerta-personalizado"
+        }
+      ],
       "sku": "01-HORE-0010",
       "brand": "Reprodisseny",
-      "attributes": [],
+      "attributes": [
+        {
+          "key": "impresion",
+          "label": "Impresión a 1 o 2 caras",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "acabado",
+          "label": "Plastificado mate o brillo",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "configuracion",
+          "label": "Bolsillo o solapa opcional",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "qr",
+          "label": "Personalizable con código QR",
+          "placement": "hero-pills"
+        }
+      ],
       "variants": [],
       "formFields": [
         {
-          "name": "tamano",
-          "label": "Tamaño",
-          "type": "select",
+          "name": "medidas",
+          "label": "Medidas aproximadas",
+          "type": "text",
           "required": false,
-          "options": [
-            "21x10 cm"
-          ],
-          "readonly": true
+          "options": [],
+          "placeholder": "Ej. 21 × 10 cm",
+          "readonly": false
         },
         {
           "name": "impresion",
@@ -29481,63 +29490,40 @@
           "type": "select",
           "required": false,
           "options": [
-            "Cuatricromía 1 cara",
-            "Cuatricromía 2 caras"
+            "1 cara",
+            "2 caras"
           ],
           "readonly": false
         },
         {
-          "name": "papel",
-          "label": "Papel",
+          "name": "acabado",
+          "label": "Acabado",
           "type": "select",
           "required": false,
           "options": [
-            "Folding 250 gr"
-          ],
-          "readonly": true
-        },
-        {
-          "name": "acabados",
-          "label": "Acabados",
-          "type": "select",
-          "required": false,
-          "options": [
+            "Plastificado mate",
             "Plastificado brillo",
-            "Plastificado mate"
+            "A valorar"
           ],
           "readonly": false
         },
         {
-          "name": "troquelado",
-          "label": "Troquelado",
+          "name": "configuracion",
+          "label": "Configuración",
           "type": "select",
           "required": false,
           "options": [
-            "Corte+hendido"
+            "Sin bolsillo",
+            "Con bolsillo o solapa",
+            "A valorar"
           ],
-          "readonly": true
-        },
-        {
-          "name": "cantidad",
-          "label": "Cantidad",
-          "type": "number",
-          "required": false,
-          "options": [],
-          "readonly": false
-        },
-        {
-          "name": "observaciones",
-          "label": "Observaciones",
-          "type": "text",
-          "required": false,
-          "options": [],
           "readonly": false
         }
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Portacuentas personalizados para hostelería",
-        "metaDescription": "Portacuentas personalizados para hostelería: imagen premium, materiales resistentes y acabados lavables. Con bolsillo, inserto, QR o personalización. Solicita presupuesto.",
+        "metaTitle": "Portacuentas personalizados para restaurantes y hoteles",
+        "metaDescription": "Portacuentas personalizados para restaurantes, bares y hoteles. Con bolsillo, impresión a 1 o 2 caras, plastificado y opción de QR. Pide presupuesto.",
         "canonical": "https://reprodisseny.com/productos/portacuentas-personalizados",
         "hreflang": [
           {
@@ -29558,18 +29544,18 @@
     },
     {
       "id": "84",
-      "updatedAt": "2026-05-05T13:40:56Z",
+      "updatedAt": "2026-08-24T10:37:45Z",
       "type": "producto",
       "slug": "posavasos",
       "path": "/productos/posavasos",
-      "title": "Posavasos",
+      "title": "Posavasos personalizados",
       "categorySlug": "hosteleria-restauracion",
       "categorySlugs": [
         "hosteleria-restauracion"
       ],
       "order": 9999,
       "isPublished": true,
-      "shortDescription": "Posavasos personalizados para bares, restaurantes, cafeterías, hoteles, eventos y marcas de bebidas. Un soporte pequeño pero muy visible en mesa y barra, ideal para reforzar marca, comunicar promociones, añadir códigos QR y crear campañas por temporada o punto de consumo.",
+      "shortDescription": "Posavasos personalizados para bares, restaurantes, hoteles y eventos. Personalízalos con tu logotipo, promociones o códigos QR, con impresión a una o dos caras y diferentes formas para reforzar tu marca en cada servicio.",
       "sections": [
         {
           "id": "details",
@@ -29577,15 +29563,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "## ¿Qué es un posavasos y para qué se usa?\n\nUn posavasos es una pieza, normalmente de cartón absorbente o soporte rígido, que se coloca bajo vasos y copas para proteger la superficie y evitar manchas en mesa o barra.\n\nCuando está personalizado, además de cumplir una función práctica, funciona como una pequeña pieza publicitaria en el momento exacto de consumo. Puede llevar logotipo, mensaje de marca, promoción, patrocinio, código QR o una llamada a la acción.\n\nEn Repro Disseny producimos posavasos personalizados para bares, restaurantes, cafeterías, hoteles, eventos y marcas de bebidas en Barcelona, adaptando el formato, el material y la impresión según el uso real: campañas temporales, promociones, carta digital, reservas, redes sociales o activaciones en punto de consumo."
-        },
-        {
-          "id": "benefits",
-          "key": "benefits",
-          "title": "Beneficios",
-          "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "- **Branding continuo en mesa y barra:** tu marca permanece visible durante toda la consumición.\n- **Soporte ideal para promociones:** perfecto para happy hour, postres, cócteles, menús especiales, eventos o campañas de temporada.\n- **Muy útil para códigos QR:** permite enlazar a carta digital, reservas, WiFi, reseñas, redes sociales o promociones.\n- **Alta distribución:** se utilizan muchas unidades, se renuevan fácilmente y pueden rotar por local, temporada o campaña.\n- **Personalización total:** puedes adaptar formato, material, diseño, mensaje y creatividad según la acción comercial.\n- **Coste eficiente por impacto:** es una pieza pequeña, práctica y muy presente en el momento de consumo."
+          "body": "### Posavasos personalizados para hostelería y eventos\n\nLos posavasos personalizados son un soporte pequeño con una gran visibilidad en bares, restaurantes, cafeterías y hoteles: permanecen sobre la mesa o la barra durante toda la consumición y sitúan tu marca justo delante del cliente.\n\nAdemás de proteger la superficie, pueden utilizarse para mostrar el logotipo del establecimiento, promociones, campañas de temporada, patrocinadores o llamadas a la acción.\n\n### Convierte cada mesa en un punto de comunicación\n\nUn posavasos puede ir mucho más allá de mostrar el logotipo. Puedes utilizarlo para promocionar cócteles, postres, eventos, reservas o servicios del establecimiento, o incorporar un código QR que dirija a la carta digital, redes sociales, reseñas o una promoción.\n\nLa impresión a doble cara permite combinar, por ejemplo, identidad de marca en el anverso y una promoción o código QR en el reverso.\n\n### Personalizados para cada campaña\n\nPodemos preparar diferentes diseños por temporada, evento o campaña, así como estudiar formas personalizadas cuando buscas una pieza diferente al posavasos redondo o cuadrado habitual.\n\nSi nos explicas dónde se utilizarán y qué quieres comunicar, podemos orientarte sobre la configuración más adecuada para el proyecto."
         },
         {
           "id": "technical-specs",
@@ -29593,37 +29571,65 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "## Formatos habituales\n\n- Formato redondo y cuadrado, los más comunes en hostelería.\n- Posibilidad de formatos a medida si buscas una pieza más diferenciada.\n- Opción de esquinas redondeadas para mejorar el tacto, la durabilidad y la presentación.\n- Medidas adaptables según uso: mesa, barra, evento, catering o acción promocional.\n\n## Materiales\n\n- Cartón adecuado para hostelería, con buen comportamiento en mesa y barra.\n- Soportes pensados para resistir el uso real durante la consumición.\n- Opción de materiales más rígidos si buscas un acabado más premium o mayor durabilidad.\n- Selección del soporte según cantidad, presupuesto, duración de campaña y tipo de local.\n\n## Impresión\n\n- Impresión personalizada a todo color.\n- Posibilidad de impresión a una o dos caras.\n- La doble cara es muy útil para combinar marca o promoción en una cara y QR, condiciones o llamada a la acción en la otra.\n- Producción de series por temporada, evento, campaña, local o marca de bebida.\n\n## Acabados opcionales\n\n- Acabados pensados para mantener buena presencia durante el uso real en mesa o barra.\n- Preparación de versiones con QR, códigos promocionales, redes sociales o llamadas a reseñas.\n- Posibilidad de trabajar varios diseños dentro de una misma línea visual para campañas, bebidas o zonas distintas.\n- Revisión del archivo para asegurar contraste, legibilidad y correcto escaneo de códigos QR.\n\n## Recomendación de contenido\n\n- Mensaje corto, beneficio claro y llamada a la acción directa.\n- QR con tamaño suficiente, buen contraste y zona libre alrededor.\n- Tipografías grandes y legibles, pensadas para consultarse de un vistazo.\n- Evitar exceso de texto: el posavasos funciona mejor con una idea principal y una acción clara."
+          "body": "### Formatos y formas\n\nLos formatos redondo y cuadrado son las opciones más habituales para hostelería. También podemos estudiar otras medidas o formas personalizadas cuando el diseño o la campaña requiere una pieza diferente.\n\nLas esquinas redondeadas son una opción especialmente práctica en formatos cuadrados.\n\n### Material e impresión\n\nTrabajamos con soportes adecuados para el uso en mesa y barra, seleccionados según la resistencia, presentación y duración que requiera el proyecto.\n\nLa impresión puede realizarse a todo color a una o dos caras.\n\nLa impresión a doble cara permite aprovechar el anverso para la marca o el diseño principal y utilizar el reverso para promociones, información, condiciones de una campaña o un código QR.\n\n### Versiones y campañas\n\nPodemos producir diferentes diseños para campañas de temporada, eventos, establecimientos, marcas o promociones.\n\nEsto permite renovar el mensaje manteniendo la misma línea gráfica.\n\n### Códigos QR\n\nLos posavasos pueden incorporar códigos QR para enlazar con la carta digital, reservas, promociones, redes sociales, encuestas o reseñas.\n\nPara facilitar la lectura del código recomendamos utilizar suficiente tamaño, contraste y espacio libre alrededor del QR.\n\n### Preparación del diseño\n\nEl diseño debe respetar el perfil de corte, el sangrado y una zona de seguridad suficiente para textos, logotipos y códigos QR.\n\nSi ya dispones del diseño puedes adjuntarlo a la solicitud. Si necesitas adaptar el archivo para producción, podemos revisarlo antes de imprimir.\n\n### Datos necesarios para preparar el presupuesto\n\nPara preparar una propuesta necesitamos conocer la cantidad, la forma aproximada, si quieres impresión a una o dos caras, si llevará código QR y la fecha aproximada en la que necesitas el trabajo."
         },
         {
           "id": "applications",
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "- **Bares y cafeterías:** promociones de bebidas, combos, especialidades, eventos, redes sociales o QR a carta.\n- **Restaurantes:** sugerencias, postres, carta de vinos, reservas, menú digital o campañas por temporada.\n- **Hoteles:** bar, lounge, habitaciones, eventos internos y comunicación de servicios.\n- **Eventos y caterings:** marca del evento, patrocinadores, activaciones, señalización de bebida o mensajes promocionales.\n- **Marcas de bebidas:** acciones en punto de consumo, lanzamientos, promociones, sampling y campañas en hostelería.\n- **Campañas con QR:** reseñas, reservas, WiFi, redes sociales, carta digital, sorteos o códigos promocionales."
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Los posavasos personalizados combinan una función práctica con un espacio de comunicación situado directamente en la mesa o la barra.",
+            "applications": [
+              {
+                "title": "Bares y cafeterías",
+                "description": "Para reforzar la marca, promocionar bebidas, cócteles, especialidades, happy hour o próximos eventos."
+              },
+              {
+                "title": "Restaurantes",
+                "description": "Úsalos para comunicar sugerencias, postres, carta de vinos, promociones, reservas o un código QR hacia la carta digital."
+              },
+              {
+                "title": "Hoteles",
+                "description": "Una solución para bares, terrazas, lounges, restauración, eventos y comunicación de servicios del establecimiento."
+              },
+              {
+                "title": "Eventos y catering",
+                "description": "Personalización con la identidad del evento, patrocinadores, campañas, mensajes especiales o códigos promocionales."
+              },
+              {
+                "title": "Marcas de bebidas",
+                "description": "Soporte promocional en el punto de consumo para lanzamientos, activaciones de marca y campañas de producto."
+              },
+              {
+                "title": "Promociones con QR",
+                "description": "Dirige al cliente hacia reservas, carta digital, redes sociales, reseñas, sorteos o campañas específicas."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
         {
           "question": "¿Es mejor imprimir los posavasos a una o dos caras?",
-          "answer": "Depende del objetivo. Dos caras suele ser muy útil: una cara puede reforzar marca o promoción y la otra puede incluir QR, condiciones, redes sociales o llamada a la acción."
+          "answer": "Depende del uso. La impresión a doble cara permite utilizar una cara para la marca o promoción principal y aprovechar la otra para un código QR, condiciones de campaña u otro mensaje."
         },
         {
-          "question": "¿Se pueden hacer posavasos con QR?",
-          "answer": "Sí. Podemos preparar posavasos con QR para carta digital, reservas, WiFi, reseñas, redes sociales, promociones o códigos de campaña. Es importante que el QR tenga buen tamaño y contraste para escanearse fácilmente."
+          "question": "¿Se pueden hacer posavasos redondos y cuadrados?",
+          "answer": "Sí. Redondo y cuadrado son los formatos más habituales. También podemos valorar otras medidas o formas personalizadas según el proyecto."
         },
         {
-          "question": "¿Qué formatos de posavasos son los más habituales?",
-          "answer": "Los formatos más habituales son redondo y cuadrado, aunque también se pueden plantear formatos a medida o esquinas redondeadas si buscas una presentación más diferenciada."
+          "question": "¿Se pueden producir diferentes diseños para una misma campaña?",
+          "answer": "Sí. Podemos preparar diferentes versiones por temporada, evento, establecimiento o campaña manteniendo una misma línea gráfica."
         },
         {
-          "question": "¿Se pueden hacer diseños por temporada o evento?",
-          "answer": "Sí. Es muy habitual crear series para verano, Navidad, promociones, lanzamientos, eventos, marcas de bebida o campañas concretas de hostelería."
+          "question": "¿Funciona bien un código QR en un posavasos?",
+          "answer": "Sí, siempre que tenga tamaño, contraste y espacio libre suficientes. Puede enlazar con la carta digital, reservas, promociones, redes sociales, encuestas o reseñas."
         },
         {
-          "question": "¿Qué necesitáis para preparar el presupuesto?",
-          "answer": "Necesitamos formato, cantidad, si irá a una o dos caras, tipo de material deseado, número de diseños y uso previsto: bar, restaurante, hotel, evento, catering o campaña promocional."
+          "question": "¿Qué cantidad de posavasos debería pedir?",
+          "answer": "Depende de la rotación del establecimiento, el número de mesas y la duración de la campaña. Indícanos el uso previsto y la cantidad aproximada y te ayudaremos a valorar la opción más adecuada."
         }
       ],
       "breadcrumbs": [
@@ -29640,7 +29646,7 @@
           "url": "/categorias/hosteleria-restauracion"
         },
         {
-          "name": "Posavasos",
+          "name": "Posavasos personalizados",
           "url": "/productos/posavasos"
         }
       ],
@@ -29651,18 +29657,57 @@
         "alt": "Posavasos personalizados para bares, restaurantes, eventos y promociones"
       },
       "galleryImages": [],
-      "relatedProductsJson": [],
+      "relatedProductsJson": [
+        {
+          "productSlug": "cartas-restaurante-personalizadas"
+        },
+        {
+          "productSlug": "portacuentas-personalizados"
+        },
+        {
+          "productSlug": "colgador-puerta-personalizado"
+        },
+        {
+          "productSlug": "tarjeta-habitacion-hotel"
+        }
+      ],
       "sku": "01-HORE-0011",
-      "brand": "Reprodisseny",
-      "attributes": [],
+      "brand": "Repro Disseny",
+      "attributes": [
+        {
+          "key": "formas",
+          "label": "Redondos, cuadrados o a medida",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "impresion",
+          "label": "Impresión a 1 o 2 caras",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "qr",
+          "label": "Personalizables con código QR",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "horeca",
+          "label": "Bares, restaurantes y eventos",
+          "placement": "hero-pills"
+        }
+      ],
       "variants": [],
       "formFields": [
         {
-          "name": "formato",
-          "label": "Formato / medidas",
-          "type": "text",
+          "name": "forma",
+          "label": "Forma",
+          "type": "select",
           "required": false,
-          "options": [],
+          "options": [
+            "Redondo",
+            "Cuadrado",
+            "Forma personalizada",
+            "A valorar"
+          ],
           "readonly": false
         },
         {
@@ -29671,40 +29716,36 @@
           "type": "select",
           "required": false,
           "options": [
-            "Cuatricromía 1 cara",
-            "Cuatricromía 2 caras"
+            "1 cara",
+            "2 caras"
           ],
           "readonly": false
         },
         {
-          "name": "material",
-          "label": "Material",
-          "type": "text",
+          "name": "codigo_qr",
+          "label": "Código QR",
+          "type": "select",
           "required": false,
-          "options": [],
+          "options": [
+            "Sí",
+            "No"
+          ],
           "readonly": false
         },
         {
-          "name": "cantidad",
-          "label": "Cantidad",
-          "type": "number",
-          "required": false,
-          "options": [],
-          "readonly": false
-        },
-        {
-          "name": "observaciones",
-          "label": "Observaciones",
+          "name": "fecha_necesaria",
+          "label": "Fecha aproximada necesaria",
           "type": "text",
           "required": false,
           "options": [],
+          "placeholder": "Ej. antes del 15 de octubre",
           "readonly": false
         }
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Posavasos personalizados | Hostelería y eventos en Barcelona",
-        "metaDescription": "Posavasos personalizados para bares, restaurantes, hoteles, eventos y marcas. Ideales para branding, promociones, QR y campañas en mesa o barra.",
+        "metaTitle": "Posavasos personalizados para bares y restaurantes",
+        "metaDescription": "Posavasos personalizados para bares, restaurantes, hoteles y eventos. Impresión a color, 1 o 2 caras, formas a medida y opción de QR. Pide presupuesto.",
         "canonical": "https://reprodisseny.com/productos/posavasos",
         "hreflang": [
           {
@@ -31934,6 +31975,227 @@
         "schema": {},
         "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/talonarios-autocopiativos.webp"
+      }
+    },
+    {
+      "id": "34",
+      "updatedAt": "2026-08-24T11:17:26Z",
+      "type": "producto",
+      "slug": "tarjeta-habitacion-hotel",
+      "path": "/productos/tarjeta-habitacion-hotel",
+      "title": "Tarjetas de habitación para hoteles",
+      "categorySlug": "hosteleria-restauracion",
+      "categorySlugs": [
+        "hosteleria-restauracion"
+      ],
+      "order": 9999,
+      "isPublished": true,
+      "shortDescription": "Tarjetas de habitación personalizadas para hoteles, hostales, resorts y apartamentos turísticos. Presenta WiFi, horarios, servicios, contacto y códigos QR en una pieza corporativa clara, resistente y adaptada a la experiencia del huésped.",
+      "sections": [
+        {
+          "id": "details",
+          "key": "details",
+          "title": "Detalles",
+          "kind": "details",
+          "contentFormat": "markdown",
+          "body": "### Tarjetas de habitación personalizadas para hoteles\n\nLas tarjetas de habitación permiten reunir en una sola pieza la información que el huésped necesita consultar durante su estancia: acceso WiFi, horarios, teléfonos de contacto, servicios del hotel, normas, check-out o indicaciones prácticas.\n\nPueden entregarse durante el check-in o colocarse directamente en la habitación y personalizarse con la identidad visual del establecimiento.\n\n### Información clara desde el primer momento\n\nUna tarjeta bien organizada reduce consultas repetidas a recepción y facilita que el huésped encuentre rápidamente la información más importante.\n\nAdemás de los datos básicos de la estancia, puede utilizarse para comunicar servicios como restaurante, desayuno, room service, spa, parking, actividades o late check-out.\n\n### Una extensión de la experiencia del hotel\n\nEl diseño puede adaptarse a hoteles urbanos, resorts, apartamentos turísticos, hoteles boutique o cadenas con diferentes establecimientos.\n\nTambién podemos preparar versiones por idioma, edificio, tipo de habitación o temporada manteniendo una misma imagen corporativa.\n\n### Más servicios mediante códigos QR\n\nLa tarjeta puede incorporar códigos QR hacia una página de bienvenida, carta digital, reservas, WhatsApp de atención, guía del alojamiento, encuestas, reseñas o servicios adicionales."
+        },
+        {
+          "id": "technical-specs",
+          "key": "technical-specs",
+          "title": "Características técnicas",
+          "kind": "technical-specs",
+          "contentFormat": "markdown",
+          "body": "### Formato y diseño\n\nLa tarjeta puede plantearse como una pieza plegada para organizar la información de forma clara y facilitar su consulta durante la estancia.\n\nEl formato final debe adaptarse a la cantidad de contenido, al diseño y al lugar donde se entregará o colocará.\n\n### Impresión\n\nLa impresión a todo color permite reproducir logotipos, colores corporativos, fotografías, iconografía e información de servicio manteniendo la identidad visual del alojamiento.\n\n### Plegado y resistencia\n\nCuando la tarjeta es plegada, el hendido permite obtener un pliegue limpio y mejorar la presentación y la resistencia durante la manipulación.\n\nSegún el uso previsto, puede estudiarse un acabado protector que facilite su conservación durante más tiempo.\n\n### Idiomas y versiones\n\nPodemos producir diferentes versiones por idioma, establecimiento, temporada, edificio o tipo de habitación manteniendo un mismo diseño base.\n\n### Códigos QR\n\nLos códigos QR pueden enlazar con la carta digital, reservas, servicios, guía del hotel, WhatsApp, encuestas o reseñas.\n\nPara asegurar una lectura correcta deben tener suficiente tamaño, contraste y espacio libre alrededor.\n\n### Datos necesarios para preparar el presupuesto\n\nIndícanos la cantidad, el formato aproximado, el número de versiones o idiomas, si necesitas algún acabado especial y si la pieza incorporará códigos QR."
+        },
+        {
+          "id": "applications",
+          "key": "applications",
+          "title": "Aplicaciones",
+          "kind": "applications",
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Las tarjetas de habitación permiten informar al huésped y conectar los principales servicios del alojamiento desde una pieza sencilla y fácil de consultar.",
+            "applications": [
+              {
+                "title": "Hoteles y hostales",
+                "description": "Información de WiFi, recepción, desayuno, check-out, teléfonos y servicios básicos de la estancia."
+              },
+              {
+                "title": "Resorts",
+                "description": "Guía rápida de restaurantes, spa, actividades, horarios, ubicaciones y sistemas de reserva."
+              },
+              {
+                "title": "Apartamentos turísticos",
+                "description": "Información de acceso, contacto, normas, WiFi, salida y servicios asociados al alojamiento."
+              },
+              {
+                "title": "Servicios adicionales",
+                "description": "Promoción de room service, restaurante, spa, parking, late check-out, actividades o upgrades."
+              },
+              {
+                "title": "Alojamientos multilingües",
+                "description": "Producción de diferentes versiones por idioma manteniendo una misma identidad visual."
+              },
+              {
+                "title": "Experiencia digital",
+                "description": "Integración de códigos QR hacia páginas de bienvenida, reservas, guías, WhatsApp, encuestas o reseñas."
+              }
+            ]
+          }
+        }
+      ],
+      "faqs": [
+        {
+          "question": "¿Qué información puede incluir una tarjeta de habitación?",
+          "answer": "Puede incluir WiFi, horarios, teléfonos, servicios, normas, check-out, restaurante, spa, parking y cualquier otra información útil durante la estancia."
+        },
+        {
+          "question": "¿Se pueden fabricar tarjetas de habitación en varios idiomas?",
+          "answer": "Sí. Podemos producir diferentes versiones por idioma manteniendo el mismo diseño y la misma identidad visual."
+        },
+        {
+          "question": "¿Se puede añadir un código QR?",
+          "answer": "Sí. Puede enlazar con una página de bienvenida, carta digital, reservas, servicios, WhatsApp, guía del hotel, encuestas o reseñas."
+        },
+        {
+          "question": "¿Se pueden preparar versiones diferentes por habitación o establecimiento?",
+          "answer": "Sí. Podemos mantener un diseño común y preparar variantes por establecimiento, edificio, temporada, tipo de habitación o servicio."
+        },
+        {
+          "question": "¿Conviene plastificar las tarjetas de habitación?",
+          "answer": "Puede ser recomendable cuando se manipulan mucho o deben mantenerse en buen estado durante más tiempo. Podemos valorar el acabado según el uso previsto."
+        }
+      ],
+      "breadcrumbs": [
+        {
+          "name": "Inicio",
+          "url": "/"
+        },
+        {
+          "name": "Categorías",
+          "url": "/categorias"
+        },
+        {
+          "name": "Hostelería y restauración",
+          "url": "/categorias/hosteleria-restauracion"
+        },
+        {
+          "name": "Tarjetas de habitación para hoteles",
+          "url": "/productos/tarjeta-habitacion-hotel"
+        }
+      ],
+      "image": {
+        "src": "https://webcms.blob.core.windows.net/media/product/restauracion/diptico-tarjeta%20habitacion.webp",
+        "width": 1200,
+        "height": 1200,
+        "alt": "Díptico tarjeta de habitación personalizado para hoteles, eventos y servicios de alojamiento"
+      },
+      "galleryImages": [],
+      "relatedProductsJson": [
+        {
+          "productSlug": "colgador-puerta-personalizado"
+        },
+        {
+          "productSlug": "cartas-restaurante-personalizadas"
+        },
+        {
+          "productSlug": "portacuentas-personalizados"
+        },
+        {
+          "productSlug": "posavasos"
+        }
+      ],
+      "sku": "01-HORE-0001",
+      "brand": "Reprodisseny",
+      "attributes": [
+        {
+          "key": "informacion",
+          "label": "WiFi, horarios y servicios",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "versiones",
+          "label": "Versiones por idioma",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "qr",
+          "label": "Personalizable con códigos QR",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "hoteles",
+          "label": "Hoteles, resorts y apartamentos",
+          "placement": "hero-pills"
+        }
+      ],
+      "variants": [],
+      "formFields": [
+        {
+          "name": "medidas",
+          "label": "Medidas aproximadas",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "placeholder": "Ej. 7,5 × 12 cm",
+          "readonly": false
+        },
+        {
+          "name": "versiones_idiomas",
+          "label": "Versiones o idiomas",
+          "type": "text",
+          "required": false,
+          "options": [],
+          "placeholder": "Ej. español, inglés y francés",
+          "readonly": false
+        },
+        {
+          "name": "codigo_qr",
+          "label": "Código QR",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Sí",
+            "No",
+            "A valorar"
+          ],
+          "readonly": false
+        },
+        {
+          "name": "acabado",
+          "label": "Acabado protector",
+          "type": "select",
+          "required": false,
+          "options": [
+            "Sin plastificar",
+            "Plastificado mate",
+            "Plastificado brillo",
+            "A valorar"
+          ],
+          "readonly": false
+        }
+      ],
+      "legacySlugs": [],
+      "seo": {
+        "metaTitle": "Tarjetas de habitación personalizadas para hoteles",
+        "metaDescription": "Tarjetas de habitación para hoteles con WiFi, horarios, servicios, varios idiomas y códigos QR. Diseño corporativo y fabricación personalizada.",
+        "canonical": "https://reprodisseny.com/productos/tarjeta-habitacion-hotel",
+        "hreflang": [
+          {
+            "lang": "es-ES",
+            "url": "https://reprodisseny.com/productos/tarjeta-habitacion-hotel"
+          }
+        ],
+        "keywords": [
+          "díptico tarjeta habitación"
+        ],
+        "searchTerms": [
+          "díptico tarjeta habitación"
+        ],
+        "schema": {},
+        "robotsOverride": "INHERIT",
+        "ogImageSrc": "https://webcms.blob.core.windows.net/media/product/restauracion/diptico-tarjeta%20habitacion.webp"
       }
     },
     {

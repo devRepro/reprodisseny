@@ -1,11 +1,26 @@
 <script setup lang="ts">
-import { ClipboardCheck, FileCheck2, Palette, Ruler } from "lucide-vue-next";
+import { computed, type Component } from "vue";
+import {
+  CircleGauge,
+  ClipboardCheck,
+  FileCheck2,
+  Palette,
+  Printer,
+  Ruler,
+  Scissors,
+  Settings2,
+} from "lucide-vue-next";
 
-import type { ContentSectionHeaderMode, SectionInput } from "~/types/contentSections";
+import type {
+  ContentSectionHeaderMode,
+  SectionInput,
+  TechnicalHighlightIcon,
+} from "~/types/contentSections";
+import { normalizeTechnicalHighlights } from "~/utils/content/technicalHighlights";
 
 import ContentDetailsSection from "@/components/marketing/content/ContentDetailsSection.vue";
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
     section: SectionInput;
     showHeader?: boolean;
@@ -17,40 +32,47 @@ withDefaults(
   }
 );
 
-const highlights = [
-  {
-    icon: Ruler,
-    label: "01",
-    title: "Formato",
-    description: "Formato, medida y superficie imprimible.",
-  },
-  {
-    icon: FileCheck2,
-    label: "02",
-    title: "Archivo",
-    description: "PDF final, sangrado, márgenes y zona segura.",
-  },
-  {
-    icon: Palette,
-    label: "03",
-    title: "Acabado",
-    description: "Mate, brillo, impresión y corte especial.",
-  },
-  {
-    icon: ClipboardCheck,
-    label: "04",
-    title: "Presupuesto",
-    description: "Cantidad, fecha, diseño y adaptación gráfica.",
-  },
-];
+const iconComponents: Record<TechnicalHighlightIcon, Component> = {
+  "circle-gauge": CircleGauge,
+  "clipboard-check": ClipboardCheck,
+  "file-check-2": FileCheck2,
+  palette: Palette,
+  printer: Printer,
+  ruler: Ruler,
+  scissors: Scissors,
+  "settings-2": Settings2,
+};
+
+const highlights = computed(() =>
+  normalizeTechnicalHighlights(props.section.technicalHighlights)
+);
+
+const highlightsGridClass = computed(() => {
+  if (highlights.value.length === 1) return "lg:grid-cols-1";
+  if (highlights.value.length === 2) return "lg:grid-cols-2";
+  if (highlights.value.length === 3) return "lg:grid-cols-3";
+  return "lg:grid-cols-4";
+});
+
+const hasLongContent = computed(() =>
+  [props.section.body, props.section.text, props.section.html, props.section.intro]
+    .some((value) => typeof value === "string" && value.trim().length > 0)
+);
+
+function resolveIcon(icon?: TechnicalHighlightIcon): Component {
+  return icon ? iconComponents[icon] : Settings2;
+}
 </script>
 
 <template>
   <section class="space-y-6">
-    <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+    <div
+      v-if="highlights.length"
+      :class="['grid gap-3 sm:grid-cols-2', highlightsGridClass]"
+    >
       <article
-        v-for="item in highlights"
-        :key="item.title"
+        v-for="(item, index) in highlights"
+        :key="`${item.title}-${index}`"
         class="group relative overflow-hidden rounded-2xl border border-border/70 bg-card p-4 transition-colors hover:border-primary/30 hover:bg-primary/[0.03]"
       >
         <div
@@ -61,13 +83,13 @@ const highlights = [
           <div
             class="flex size-10 items-center justify-center rounded-2xl bg-primary/10 text-primary ring-1 ring-primary/15"
           >
-            <component :is="item.icon" class="size-4" aria-hidden="true" />
+            <component :is="resolveIcon(item.icon)" class="size-4" aria-hidden="true" />
           </div>
 
           <span
             class="rounded-full bg-muted px-2 py-0.5 text-[0.68rem] font-semibold text-muted-foreground"
           >
-            {{ item.label }}
+            {{ String(index + 1).padStart(2, "0") }}
           </span>
         </div>
 
@@ -81,7 +103,10 @@ const highlights = [
       </article>
     </div>
 
-    <div class="rounded-2xl border border-border/70 bg-card p-5 shadow-sm md:p-7">
+    <div
+      v-if="hasLongContent"
+      class="rounded-2xl border border-border/70 bg-card p-5 shadow-sm md:p-7"
+    >
       <ContentDetailsSection
         :section="section"
         :show-header="showHeader"

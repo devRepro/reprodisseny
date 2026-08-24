@@ -1,5 +1,7 @@
 import catalog from "~/cms/catalog.json";
 import { normalizeCmsMediaSrc } from "~/utils/cmsMedia";
+import type { TechnicalHighlight } from "~/types/contentSections";
+import { normalizeTechnicalHighlights } from "~/utils/content/technicalHighlights";
 
 import {
   getCategoryDetailGalleryBySlug,
@@ -141,6 +143,7 @@ type CatalogSection = {
   formatsData?: CatalogFormatsData;
   finishesData?: CatalogFinishesData;
   applicationsData?: CatalogApplicationsData;
+  technicalHighlights?: unknown;
 };
 
 type CatalogProductSection = CatalogSection;
@@ -382,6 +385,7 @@ export type CategoryDetailSectionItem = {
   formatsData?: NormalizedFormatsData;
   finishesData?: NormalizedFinishesData;
   applicationsData?: NormalizedApplicationsData;
+  technicalHighlights?: TechnicalHighlight[];
 };
 
 export type CategoryHowWeWorkStepItem = {
@@ -469,6 +473,7 @@ export type ProductDetailSectionItem = {
   formatsData?: NormalizedFormatsData;
   finishesData?: NormalizedFinishesData;
   applicationsData?: NormalizedApplicationsData;
+  technicalHighlights?: TechnicalHighlight[];
 };
 
 export type ProductDetailFaqItem = {
@@ -1796,7 +1801,8 @@ function hasSectionContent(section: CatalogSection | CatalogProductSection) {
     section.materialsData ||
     section.formatsData ||
     section.finishesData ||
-    section.applicationsData
+    section.applicationsData ||
+    normalizeTechnicalHighlights(section.technicalHighlights).length > 0
   );
 }
 
@@ -1835,6 +1841,7 @@ function resolveSectionContentFormat(section: {
   formatsData?: unknown;
   finishesData?: unknown;
   applicationsData?: unknown;
+  technicalHighlights?: unknown;
 }): CatalogContentFormat {
   if (section.contentFormat === "json" || section.contentFormat === "markdown") {
     return section.contentFormat;
@@ -1846,7 +1853,8 @@ function resolveSectionContentFormat(section: {
     section.materialsData ||
     section.formatsData ||
     section.finishesData ||
-    section.applicationsData
+    section.applicationsData ||
+    normalizeTechnicalHighlights(section.technicalHighlights).length > 0
   ) {
     return "json";
   }
@@ -1892,6 +1900,10 @@ function getCategorySections(category: CatalogCategory): CategoryDetailSectionIt
           ? normalizeApplicationsData(section.applicationsData)
           : undefined;
 
+      const technicalHighlights = normalizeTechnicalHighlights(
+        section?.technicalHighlights
+      );
+
       const contentFormat = resolveSectionContentFormat({
         contentFormat: section?.contentFormat,
         items: items.length ? items : undefined,
@@ -1900,6 +1912,7 @@ function getCategorySections(category: CatalogCategory): CategoryDetailSectionIt
         formatsData,
         finishesData,
         applicationsData,
+        technicalHighlights,
       });
 
       const hasContent =
@@ -1910,7 +1923,8 @@ function getCategorySections(category: CatalogCategory): CategoryDetailSectionIt
         Boolean(materialsData?.materials.length) ||
         Boolean(formatsData) ||
         Boolean(finishesData?.finishes.length) ||
-        Boolean(applicationsData?.applications.length);
+        Boolean(applicationsData?.applications.length) ||
+        technicalHighlights.length > 0;
 
       if (!id || !title || !hasContent) return null;
 
@@ -1928,6 +1942,7 @@ function getCategorySections(category: CatalogCategory): CategoryDetailSectionIt
         ...(formatsData ? { formatsData } : {}),
         ...(finishesData ? { finishesData } : {}),
         ...(applicationsData ? { applicationsData } : {}),
+        ...(technicalHighlights.length ? { technicalHighlights } : {}),
       };
     })
     .filter((section): section is CategoryDetailSectionItem => section !== null);
@@ -2465,6 +2480,10 @@ function getProductSections(product: CatalogProduct): ProductDetailSectionItem[]
           ? normalizeApplicationsData(section.applicationsData)
           : undefined;
 
+      const technicalHighlights = normalizeTechnicalHighlights(
+        section?.technicalHighlights
+      );
+
       const contentFormat = resolveSectionContentFormat({
         contentFormat: section?.contentFormat,
         items: items.length ? items : undefined,
@@ -2473,6 +2492,7 @@ function getProductSections(product: CatalogProduct): ProductDetailSectionItem[]
         formatsData,
         finishesData,
         applicationsData,
+        technicalHighlights,
       });
 
       const hasContent =
@@ -2483,7 +2503,8 @@ function getProductSections(product: CatalogProduct): ProductDetailSectionItem[]
         Boolean(materialsData?.materials.length) ||
         Boolean(formatsData) ||
         Boolean(finishesData?.finishes.length) ||
-        Boolean(applicationsData?.applications.length);
+        Boolean(applicationsData?.applications.length) ||
+        technicalHighlights.length > 0;
 
       if (!id || !title || !hasContent) return null;
 
@@ -2501,6 +2522,7 @@ function getProductSections(product: CatalogProduct): ProductDetailSectionItem[]
         ...(formatsData ? { formatsData } : {}),
         ...(finishesData ? { finishesData } : {}),
         ...(applicationsData ? { applicationsData } : {}),
+        ...(technicalHighlights.length ? { technicalHighlights } : {}),
       };
     })
     .filter((section): section is ProductDetailSectionItem => section !== null);

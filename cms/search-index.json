@@ -345,35 +345,48 @@
     "title": "Colgador de puerta personalizado",
     "path": "/productos/colgador-puerta-personalizado",
     "keywords": [
-      "colgador de puerta personalizado",
+      "colgadores de puerta personalizados",
       "colgadores de puerta para hoteles",
-      "colgador no molestar",
+      "colgador de puerta personalizado hotel",
+      "colgador no molestar personalizado",
       "colgador hacer la habitación",
       "colgadores para habitaciones de hotel",
       "colgadores de puerta impresos",
-      "door hanger personalizado",
-      "tarjetas colgador de puerta",
-      "colgadores plastificados",
-      "colgadores con QR",
-      "cartelería para hoteles",
-      "material gráfico para hoteles"
+      "imprimir colgadores de puerta",
+      "poming personalizado",
+      "pomming personalizado",
+      "door hanger personalizado hotel",
+      "colgadores hotel Barcelona"
     ],
     "searchTerms": [
-      "colgador puerta hotel",
+      "colgadores de puerta personalizados",
+      "colgadores puerta hotel",
       "colgadores puerta personalizados",
+      "colgador de puerta personalizado",
       "colgador no molestar hotel",
-      "colgador hacer habitacion",
+      "no molestar hotel personalizado",
+      "colgador hacer la habitación",
+      "colgador limpieza habitación",
       "colgadores para hoteles",
       "colgadores habitaciones hotel",
       "imprimir colgadores puerta",
-      "colgador puerta plastificado",
-      "colgador puerta con qr",
-      "door hanger hotel",
-      "tarjeta colgador pomo puerta",
-      "cartel no molestar personalizado",
+      "impresión colgadores puerta",
+      "colgadores puerta doble cara",
+      "colgador puerta troquelado",
+      "colgadores con troquel personalizado",
+      "colgador pomo puerta",
+      "colgadores puerta plastificados",
+      "colgador puerta con QR",
       "colgadores housekeeping",
-      "colgadores apartamentos turisticos",
-      "material hotel personalizado"
+      "colgadores apartamentos turísticos",
+      "poming personalizado",
+      "poming hotel",
+      "pomming personalizado",
+      "pomming hotel",
+      "door hanger hotel",
+      "door hanger personalizado",
+      "cartel no molestar personalizado",
+      "material gráfico para hoteles"
     ]
   },
   {
@@ -1294,18 +1307,6 @@
   },
   {
     "type": "producto",
-    "slug": "tarjeta-habitacion-hotel",
-    "title": "Díptico tarjeta de habitación para hoteles",
-    "path": "/productos/tarjeta-habitacion-hotel",
-    "keywords": [
-      "díptico tarjeta habitación"
-    ],
-    "searchTerms": [
-      "díptico tarjeta habitación"
-    ]
-  },
-  {
-    "type": "producto",
     "slug": "displays-de-mesa-personalizados",
     "title": "Displays de mesa personalizados",
     "path": "/productos/displays-de-mesa-personalizados",
@@ -2160,7 +2161,7 @@
   {
     "type": "producto",
     "slug": "manteles-individuales-personalizados",
-    "title": "Manteles individuales de mesa personalizados",
+    "title": "Manteles individuales personalizados",
     "path": "/productos/manteles-individuales-personalizados",
     "keywords": [
       "manteles individuales de mesa"
@@ -2553,7 +2554,7 @@
   {
     "type": "producto",
     "slug": "posavasos",
-    "title": "Posavasos",
+    "title": "Posavasos personalizados",
     "path": "/productos/posavasos",
     "keywords": [
       "posavasos personalizados",
@@ -2767,6 +2768,18 @@
       "talonarios con original y copia",
       "talonarios perforados",
       "talonarios a medida"
+    ]
+  },
+  {
+    "type": "producto",
+    "slug": "tarjeta-habitacion-hotel",
+    "title": "Tarjetas de habitación para hoteles",
+    "path": "/productos/tarjeta-habitacion-hotel",
+    "keywords": [
+      "díptico tarjeta habitación"
+    ],
+    "searchTerms": [
+      "díptico tarjeta habitación"
     ]
   },
   {

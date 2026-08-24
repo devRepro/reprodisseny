@@ -15,6 +15,22 @@ export type ContentCardVariant = "default" | "feature";
 
 export type ContentSectionHeaderMode = "default" | "intro-only" | "none";
 
+export type TechnicalHighlightIcon =
+  | "circle-gauge"
+  | "clipboard-check"
+  | "file-check-2"
+  | "palette"
+  | "printer"
+  | "ruler"
+  | "scissors"
+  | "settings-2";
+
+export type TechnicalHighlight = {
+  title: string;
+  description: string;
+  icon?: TechnicalHighlightIcon;
+};
+
 export type DetailsMediaItem = {
   image?: {
     src?: string;
@@ -93,6 +109,8 @@ export type SectionInput = {
     intro?: string;
     applications?: unknown[];
   } | null;
+
+  technicalHighlights?: TechnicalHighlight[];
 };
 
 export type ResolvedFormatsData = {
