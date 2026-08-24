@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-23T17:55:47.999Z",
+  "generatedAt": "2026-08-24T08:02:46.613Z",
   "categories": [
     {
       "id": "12",
@@ -5281,7 +5281,7 @@
     },
     {
       "id": "5",
-      "updatedAt": "2026-08-06T08:58:47Z",
+      "updatedAt": "2026-08-24T07:37:08Z",
       "type": "producto",
       "slug": "archivadores-personalizados",
       "path": "/productos/archivadores-personalizados",
@@ -5292,7 +5292,7 @@
       ],
       "order": 9999,
       "isPublished": true,
-      "shortDescription": "Los archivadores son básicos en cualquier oficina: ordenan documentación, facilitan el acceso y mantienen una imagen corporativa coherente. En Repro Disseny realizamos archivadores personalizados para empresas, con diseño de marca, lomo identificable y opciones de personalización para que tu documentación esté organizada y se vea profesional en estantería.",
+      "shortDescription": "Archivadores personalizados para empresas, formación y documentación corporativa. Personaliza formato, anillas, lomo, impresión y acabados para crear carpetas resistentes y totalmente adaptadas a tu imagen de marca.",
       "sections": [
         {
           "id": "details",
@@ -5382,7 +5382,20 @@
         "alt": "Archivadores personalizados para documentación corporativa y organización de oficina"
       },
       "galleryImages": [],
-      "relatedProductsJson": [],
+      "relatedProductsJson": [
+        {
+          "productSlug": "hojas-sueltas-archivadores"
+        },
+        {
+          "productSlug": "carpetas-de-presentacion-personalizadas"
+        },
+        {
+          "productSlug": "papel-de-carta"
+        },
+        {
+          "productSlug": "libretas-personalizadas"
+        }
+      ],
       "sku": "01-OFICI-0028",
       "brand": "Reprodisseny",
       "attributes": [],
@@ -5450,8 +5463,8 @@
             "20x35 mm",
             "25x40mm",
             "30x50 mm",
-            "35x60 cm",
-            "52x77 cm"
+            "35x60 mm",
+            "52x77 mm"
           ],
           "readonly": false
         },
@@ -5474,8 +5487,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Archivadores personalizados para empresas",
-        "metaDescription": "Archivadores personalizados para empresas, documentación y formación. Lomo personalizable, alta resistencia y acabados profesionales. Pide presupuesto.",
+        "metaTitle": "Archivadores personalizados para empresas | Barcelona",
+        "metaDescription": "Archivadores personalizados para empresas con impresión a color, anillas, lomo y acabados a medida. Para documentación, formación y catálogos. Pide presupuesto.",
         "canonical": "https://reprodisseny.com/productos/archivadores-personalizados",
         "hreflang": [
           {
@@ -5484,10 +5497,46 @@
           }
         ],
         "keywords": [
-          "archivadores"
+          "archivadores personalizados",
+          "archivadores personalizados para empresas",
+          "carpetas con anillas personalizadas",
+          "archivadores personalizados Barcelona",
+          "carpetas de anillas personalizadas",
+          "archivadores corporativos",
+          "archivadores con logo",
+          "archivadores A4 personalizados",
+          "carpetas archivadoras personalizadas",
+          "imprimir archivadores personalizados"
         ],
         "searchTerms": [
-          "archivadores"
+          "archivadores personalizados",
+          "archivadores personalizados Barcelona",
+          "archivadores personalizados para empresas",
+          "archivadores corporativos personalizados",
+          "archivadores con logo",
+          "archivadores impresos personalizados",
+          "archivadores A4 personalizados",
+          "archivadores de anillas personalizados",
+          "archivadores 2 anillas personalizados",
+          "archivadores 4 anillas personalizados",
+          "carpetas con anillas personalizadas",
+          "carpetas de anillas personalizadas",
+          "carpetas archivadoras personalizadas",
+          "carpetas corporativas con anillas",
+          "carpetas A4 con anillas personalizadas",
+          "imprimir archivadores",
+          "impresión de archivadores personalizados",
+          "fabricar archivadores personalizados",
+          "archivadores para empresas",
+          "archivadores para formación",
+          "archivadores para manuales",
+          "archivadores para documentación",
+          "archivadores para catálogos",
+          "archivadores para cursos",
+          "archivadores con lomo personalizado",
+          "archivadores plastificados personalizados",
+          "imprenta archivadores Barcelona",
+          "imprenta carpetas con anillas Barcelona"
         ],
         "schema": {},
         "robotsOverride": "INHERIT",
@@ -12062,7 +12111,7 @@
     },
     {
       "id": "16",
-      "updatedAt": "2026-08-06T11:30:34Z",
+      "updatedAt": "2026-08-24T07:59:59Z",
       "type": "producto",
       "slug": "carpetas-de-presentacion-personalizadas",
       "path": "/productos/carpetas-de-presentacion-personalizadas",
@@ -12073,7 +12122,7 @@
       ],
       "order": 9999,
       "isPublished": true,
-      "shortDescription": "Las carpetas de presentación son un básico cuando quieres entregar presupuestos, propuestas o documentación con una imagen cuidada y profesional. En Repro Disseny imprimimos carpetas corporativas personalizadas con diferentes formatos, solapas y acabados, para que tu marca destaque desde el primer momento y la documentación llegue ordenada.",
+      "shortDescription": "Carpetas de presentación personalizadas para empresas, propuestas comerciales, presupuestos, contratos y documentación corporativa. Disponibles en A4 y A5, con solapas, lomo opcional, impresión a color y acabados premium para presentar tu marca de forma profesional.",
       "sections": [
         {
           "id": "details",
@@ -12081,7 +12130,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "### ¿Qué es una carpeta de presentación y para qué se usa?\n\nUna carpeta de presentación es una carpeta impresa, normalmente con solapas, diseñada para contener documentos A4, catálogos, contratos o dossieres.\n\nSe utiliza en visitas comerciales, ferias, entregas a clientes y presentaciones internas para reforzar la imagen de marca y mejorar la organización de la documentación."
+          "body": "### Carpetas de presentación personalizadas para empresas\n\nLas carpetas de presentación personalizadas permiten entregar presupuestos, propuestas, contratos, catálogos y documentación comercial de forma ordenada y con una imagen corporativa coherente.\n\nSe fabrican a partir de cartulinas de alto gramaje y pueden personalizarse por completo con el logotipo, colores, fotografías, mensajes y elementos gráficos de tu empresa.\n\n### ¿Para qué se utilizan?\n\nSon especialmente útiles en visitas comerciales, reuniones con clientes, ferias, congresos, presentaciones de proyectos y entregas de documentación corporativa.\n\nAdemás de proteger y organizar los documentos, la carpeta forma parte de la presentación de la marca y ayuda a transmitir una imagen más profesional desde el primer contacto.\n\n### Configuración personalizada\n\nPodemos preparar carpetas para documentos A4 o A5, con o sin lomo, solapas interiores, ranura para tarjeta y diferentes acabados.\n\nSi necesitas una medida, estructura o troquel diferente, estudiamos el proyecto para adaptar la carpeta al contenido que debe contener."
         },
         {
           "id": "materials",
@@ -12090,18 +12139,19 @@
           "kind": "materials",
           "contentFormat": "json",
           "materialsData": {
+            "intro": "El papel determina la rigidez, el tacto y la reproducción del color de la carpeta. Elegimos el soporte según el uso, el diseño y el acabado final.",
             "materials": [
               {
-                "title": "Cartulinas de alto gramaje",
-                "description": "Aportan rigidez y presencia a la carpeta."
+                "title": "Cartulina gráfica 350 g",
+                "description": "Soporte rígido y resistente para carpetas corporativas que deben mantener una buena presencia durante la manipulación."
               },
               {
-                "title": "Opciones mate",
-                "description": "Indicadas si buscas un acabado más premium."
+                "title": "Estucado mate 350 g",
+                "description": "Ofrece una superficie uniforme y una excelente reproducción de imágenes, colores corporativos y elementos gráficos."
               },
               {
-                "title": "Opciones con textura",
-                "description": "Indicadas si buscas un acabado más premium."
+                "title": "Papeles especiales y texturados",
+                "description": "Alternativa para proyectos donde se busca un tacto diferente, una presentación más exclusiva o una identidad visual más marcada."
               }
             ]
           }
@@ -12113,26 +12163,31 @@
           "kind": "formats",
           "contentFormat": "json",
           "formatsData": {
+            "intro": "Configuramos cada carpeta según el tamaño de la documentación, el volumen de hojas y la forma en que se utilizará.",
             "shapes": [
               {
-                "title": "Carpeta para A4",
-                "description": "La opción más común, con opciones a medida según contenido."
+                "title": "Carpetas para A4",
+                "description": "Formato habitual para presupuestos, contratos, propuestas, catálogos, tarifas y documentación comercial."
+              },
+              {
+                "title": "Carpetas para A5",
+                "description": "Alternativa más compacta para documentación reducida, presentaciones, fichas y materiales comerciales."
               },
               {
                 "title": "Con o sin lomo",
-                "description": "Recomendable con lomo si llevarás mucho papel o catálogos."
+                "description": "Sin lomo para pocas hojas y documentación ligera; con lomo cuando la carpeta debe contener más páginas, catálogos o dossiers."
               },
               {
                 "title": "Solapas interiores",
-                "description": "Solapas interiores para sujetar documentación."
+                "description": "Permiten sujetar la documentación y mantener las hojas ordenadas durante el transporte y la presentación."
               },
               {
                 "title": "Ranura para tarjeta",
-                "description": "Opción muy útil en visitas comerciales."
+                "description": "Puede incorporarse una ranura para colocar una tarjeta de visita dentro de la carpeta."
               },
               {
-                "title": "Cierres o sistemas especiales",
-                "description": "Posibilidad de cierres o sistemas especiales si lo requiere el proyecto."
+                "title": "Formato o troquel a medida",
+                "description": "Podemos estudiar medidas, solapas, cierres o formas especiales cuando el proyecto requiere una carpeta diferente al formato estándar."
               }
             ],
             "deliveryFormats": []
@@ -12145,26 +12200,31 @@
           "kind": "finishes",
           "contentFormat": "json",
           "finishesData": {
+            "intro": "Los acabados mejoran la resistencia de la carpeta y permiten adaptar su aspecto al posicionamiento y a la imagen de cada empresa.",
             "finishes": [
               {
                 "title": "Hendido profesional",
-                "description": "Permite un plegado limpio y resistente."
+                "description": "Facilita un plegado limpio y preciso en lomos y solapas y evita roturas en cartulinas de alto gramaje."
               },
               {
-                "title": "Laminado mate o brillo",
-                "description": "Protege de roces y mejora la durabilidad. El mate suele ser más elegante."
+                "title": "Laminado mate",
+                "description": "Protege la impresión frente a roces y huellas y aporta un acabado corporativo sobrio y elegante."
+              },
+              {
+                "title": "Laminado brillo",
+                "description": "Refuerza la protección y aporta mayor intensidad visual a fotografías, colores y elementos gráficos."
               },
               {
                 "title": "Soft touch",
-                "description": "Aporta un tacto premium."
+                "description": "Laminado de tacto aterciopelado para carpetas donde se busca una percepción especialmente cuidada y premium."
               },
               {
                 "title": "Barniz selectivo",
-                "description": "Resalta logo o detalles."
+                "description": "Permite destacar logotipos, textos o elementos concretos mediante contraste de brillo sobre el acabado general."
               },
               {
                 "title": "Stamping",
-                "description": "Metalizados ideales para un acabado corporativo premium."
+                "description": "Aplicación metalizada para destacar logotipos, marcas o detalles gráficos en proyectos corporativos de alta presentación."
               }
             ]
           }
@@ -12175,7 +12235,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "### Formatos habituales\n\n- Carpeta para A4, la opción más común.\n- Opciones a medida según contenido.\n- Con o sin lomo.\n\n### Estructura\n\n- Solapas interiores para sujetar documentación.\n- Hendido profesional para un plegado limpio y resistente.\n- Ranura para tarjeta opcional.\n- Posibilidad de cierres o sistemas especiales si lo requiere el proyecto.\n\n### Papeles y soportes\n\n- Cartulinas de alto gramaje para aportar rigidez y presencia.\n- Opciones mate o con textura si buscas un acabado más premium.\n\n### Impresión\n\n- Impresión a todo color a una o dos caras, según diseño.\n- Series por sede o departamento manteniendo coherencia visual.\n\n### Acabados recomendados\n\n- Laminado mate o brillo.\n- Soft touch.\n- Barniz selectivo.\n- Stamping metalizado."
+          "body": "### Configuración\n\n- Formatos habituales A4 y A5, además de opciones personalizadas según proyecto.\n- Carpetas con o sin lomo según el número y grosor de los documentos.\n- Posibilidad de incorporar una o varias solapas interiores según diseño.\n- Ranura para tarjeta de visita opcional.\n- Troquel o estructura personalizada cuando el proyecto lo requiere.\n\n### Impresión\n\n- Impresión a todo color.\n- Posibilidad de imprimir exterior e interior según el diseño.\n- Reproducción de logotipos, fotografías, gráficos y colores corporativos.\n- Posibilidad de realizar versiones por departamento, sede, idioma o campaña.\n\n### Preparación del archivo\n\nPara obtener un resultado correcto recomendamos trabajar con un PDF preparado para impresión, con sangrado, márgenes de seguridad y las imágenes en resolución adecuada.\n\nCuando la carpeta incluye troquel, solapas, lomo o ranura para tarjeta, el diseño debe adaptarse correctamente a la plantilla de producción.\n\nSi no dispones del archivo preparado, podemos revisar la documentación y ayudarte a adaptarla antes de producir.\n\n### Datos necesarios para preparar el presupuesto\n\nPara calcular correctamente el proyecto necesitamos conocer:\n\n- Cantidad.\n- Formato de la carpeta.\n- Número aproximado de documentos que debe contener.\n- Impresión a una o dos caras.\n- Tipo de papel o cartulina.\n- Con o sin solapa.\n- Con o sin lomo.\n- Acabado deseado.\n- Fecha aproximada de entrega."
         },
         {
           "id": "applications",
@@ -12184,26 +12244,31 @@
           "kind": "applications",
           "contentFormat": "json",
           "applicationsData": {
+            "intro": "Las carpetas personalizadas son especialmente útiles cuando la documentación forma parte de una presentación comercial o corporativa.",
             "applications": [
               {
                 "title": "Propuestas comerciales y presupuestos",
-                "description": "Para entregar documentación comercial con una imagen cuidada y profesional."
+                "description": "Presenta ofertas, presupuestos y documentación comercial de forma ordenada y alineada con la imagen de la empresa."
               },
               {
-                "title": "Contratos y documentación legal",
-                "description": "Para organizar y presentar documentación importante de forma ordenada."
+                "title": "Dossiers y presentaciones corporativas",
+                "description": "Para memorias, catálogos, tarifas, fichas de servicios y documentación institucional."
               },
               {
-                "title": "Ferias y visitas comerciales",
-                "description": "Para preparar carpeta, dossier y tarjeta en acciones comerciales."
+                "title": "Contratos y documentación",
+                "description": "Permiten entregar contratos, informes y documentos importantes dentro de una presentación profesional."
               },
               {
-                "title": "Presentaciones corporativas",
-                "description": "Para memorias, catálogos, tarifas y documentación de empresa."
+                "title": "Ferias, congresos y visitas comerciales",
+                "description": "Útiles para entregar catálogos, fichas, tarifas y tarjetas a clientes y asistentes."
               },
               {
-                "title": "Formación y documentación interna",
-                "description": "Para manuales, onboarding y procedimientos."
+                "title": "Formación y onboarding",
+                "description": "Para manuales, procedimientos, documentación de bienvenida y materiales utilizados en cursos o formaciones."
+              },
+              {
+                "title": "Papelería corporativa",
+                "description": "Puede combinarse con papel de carta, sobres, tarjetas y otros impresos para mantener una identidad visual coherente."
               }
             ]
           }
@@ -12211,20 +12276,28 @@
       ],
       "faqs": [
         {
-          "question": "¿Con lomo o sin lomo?",
-          "answer": "Sin lomo para propuestas y documentación estándar. Con lomo si vas a incluir muchas hojas o un catálogo y quieres que cierre bien."
+          "question": "¿Qué tamaño de carpeta necesito para documentos A4?",
+          "answer": "Para documentación A4 utilizamos una carpeta ligeramente mayor que el documento para que las hojas puedan colocarse correctamente dentro de las solapas. También podemos preparar formatos A5 o medidas personalizadas."
         },
         {
-          "question": "¿Es recomendable laminado?",
-          "answer": "Sí, especialmente si se va a manipular mucho en ferias, visitas o uso comercial. Aumenta durabilidad y mejora presencia."
+          "question": "¿Es mejor una carpeta con lomo o sin lomo?",
+          "answer": "Sin lomo suele ser suficiente para presupuestos, propuestas o pocas hojas. Recomendamos incorporar lomo cuando la carpeta debe contener más documentación, un catálogo o un dossier de mayor grosor."
         },
         {
-          "question": "¿Se puede incluir ranura para tarjeta?",
-          "answer": "Sí, es una de las opciones más habituales para carpetas comerciales."
+          "question": "¿Se pueden fabricar carpetas con solapas y ranura para tarjeta?",
+          "answer": "Sí. Podemos incorporar solapas interiores para sujetar los documentos y una ranura para colocar una tarjeta de visita."
         },
         {
-          "question": "¿Podéis hacer un pack completo de papelería corporativa?",
-          "answer": "Sí: carpeta + papel de carta + sobres + tarjetas de visita, todo con la misma línea gráfica."
+          "question": "¿Se puede imprimir la carpeta por dentro y por fuera?",
+          "answer": "Sí. Podemos imprimir a una o dos caras según el diseño y el uso previsto de la carpeta."
+        },
+        {
+          "question": "¿Qué acabado recomendáis para una carpeta corporativa?",
+          "answer": "El laminado mate es una opción muy habitual porque protege la impresión y ofrece una presentación elegante. También podemos valorar brillo, soft touch, barniz selectivo o stamping según el proyecto."
+        },
+        {
+          "question": "¿Podéis preparar toda la papelería corporativa con el mismo diseño?",
+          "answer": "Sí. Podemos producir la carpeta junto con papel de carta, sobres y otros materiales impresos manteniendo una misma línea gráfica."
         }
       ],
       "breadcrumbs": [
@@ -12253,41 +12326,44 @@
         "src": "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/oficina/carpetas-de-presentacion.webp",
         "width": 1200,
         "height": 1200,
-        "alt": "Carpetas de presentación personalizadas para propuestas comerciales y documentación corporativa"
+        "alt": "Carpetas de presentación personalizadas para empresas y documentación corporativa"
       },
       "galleryImages": [],
-      "relatedProductsJson": [],
+      "relatedProductsJson": [
+        {
+          "productSlug": "archivadores-personalizados"
+        },
+        {
+          "productSlug": "hojas-sueltas-archivadores"
+        },
+        {
+          "productSlug": "papel-de-carta"
+        },
+        {
+          "productSlug": "sobres-personalizados"
+        }
+      ],
       "sku": "01-OFICI-0020",
       "brand": "Reprodisseny",
       "attributes": [
         {
-          "key": "calidad-percibida",
-          "label": "Mejora la calidad percibida",
-          "value": "Transmite profesionalidad y confianza en propuestas y entregas.",
+          "key": "formatos",
+          "label": "A4, A5 y formatos a medida",
           "placement": "hero-pills"
         },
         {
-          "key": "documentacion-ordenada",
-          "label": "Documentación ordenada",
-          "value": "Evita hojas sueltas y mejora la experiencia del cliente.",
+          "key": "solapas-lomo",
+          "label": "Solapas y lomo opcional",
           "placement": "hero-pills"
         },
         {
-          "key": "branding-coherente",
-          "label": "Branding coherente",
-          "value": "Alineada con tarjetas, papel de carta y sobres.",
+          "key": "acabados",
+          "label": "Acabados premium",
           "placement": "hero-pills"
         },
         {
-          "key": "opciones-funcionales",
-          "label": "Opciones funcionales",
-          "value": "Solapas, lomo, ranura para tarjeta, cierres… según uso.",
-          "placement": "hero-pills"
-        },
-        {
-          "key": "ventas-y-ferias",
-          "label": "Ideal para ventas y ferias",
-          "value": "Perfecta para entregar catálogos, tarifas o presentaciones.",
+          "key": "uso-corporativo",
+          "label": "Ideal para empresas y ferias",
           "placement": "hero-pills"
         }
       ],
@@ -12299,8 +12375,9 @@
           "type": "select",
           "required": false,
           "options": [
-            "Din A-5",
-            "Din A-4"
+            "DIN A5",
+            "DIN A4",
+            "Formato personalizado"
           ],
           "readonly": false
         },
@@ -12321,8 +12398,9 @@
           "type": "select",
           "required": false,
           "options": [
-            "Estucado mate 350 gr.",
-            "Cartulina gráfica 350 gr."
+            "Estucado mate 350 g",
+            "Cartulina gráfica 350 g",
+            "A valorar"
           ],
           "readonly": false
         },
@@ -12332,7 +12410,7 @@
           "type": "select",
           "required": false,
           "options": [
-            "Si",
+            "Sí",
             "No"
           ],
           "readonly": false
@@ -12343,32 +12421,43 @@
           "type": "select",
           "required": false,
           "options": [
-            "Si",
+            "Sí",
             "No"
           ],
           "readonly": false
         },
         {
-          "name": "cantidad",
-          "label": "Cantidad",
-          "type": "number",
+          "name": "ranura_tarjeta",
+          "label": "Ranura para tarjeta",
+          "type": "select",
           "required": false,
-          "options": [],
+          "options": [
+            "Sí",
+            "No"
+          ],
           "readonly": false
         },
         {
-          "name": "observaciones",
-          "label": "Observaciones",
-          "type": "text",
+          "name": "acabado",
+          "label": "Acabado",
+          "type": "select",
           "required": false,
-          "options": [],
+          "options": [
+            "Sin acabado especial",
+            "Laminado mate",
+            "Laminado brillo",
+            "Soft touch",
+            "Barniz selectivo",
+            "Stamping",
+            "A valorar"
+          ],
           "readonly": false
         }
       ],
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Carpetas de presentación personalizadas para empresas",
-        "metaDescription": "Carpetas de presentación personalizadas con solapas, lomo opcional y acabados premium. Ideales para propuestas, contratos y documentación comercial.",
+        "metaDescription": "Carpetas de presentación personalizadas para empresas: A4/A5, solapas, lomo, impresión a color y acabados premium. Fabricación a medida. Pide presupuesto.",
         "canonical": "https://reprodisseny.com/productos/carpetas-de-presentacion-personalizadas",
         "hreflang": [
           {
@@ -12378,42 +12467,49 @@
         ],
         "keywords": [
           "carpetas de presentación personalizadas",
-          "carpetas corporativas",
+          "carpetas corporativas personalizadas",
           "carpetas personalizadas para empresas",
-          "carpetas para documentación",
-          "carpetas con solapas",
-          "carpetas con lomo",
-          "carpetas con ranura para tarjeta",
+          "carpetas A4 personalizadas",
+          "carpetas A5 personalizadas",
+          "carpetas con solapas personalizadas",
+          "carpetas con lomo personalizadas",
           "carpetas impresas personalizadas",
-          "carpetas para propuestas comerciales",
-          "carpetas para ferias",
-          "carpetas con laminado",
-          "carpetas con stamping"
+          "carpetas para documentación corporativa",
+          "carpetas personalizadas Barcelona",
+          "imprimir carpetas corporativas",
+          "carpetas para propuestas comerciales"
         ],
         "searchTerms": [
           "carpetas de presentación",
-          "carpetas personalizadas",
+          "carpetas de presentación personalizadas",
           "carpetas corporativas",
-          "carpetas empresa",
-          "carpetas para documentos",
-          "carpetas A4",
-          "carpeta A4 personalizada",
+          "carpetas corporativas personalizadas",
+          "carpetas personalizadas empresa",
+          "carpetas personalizadas Barcelona",
+          "imprimir carpetas personalizadas",
+          "impresión carpetas corporativas",
+          "carpetas A4 personalizadas",
+          "carpetas A5 personalizadas",
+          "carpetas para documentos A4",
           "carpetas con solapa",
+          "carpetas con solapas personalizadas",
           "carpetas con lomo",
           "carpetas sin lomo",
-          "carpetas con ranura tarjeta",
+          "carpetas con ranura para tarjeta",
           "carpetas para presupuestos",
-          "carpetas para propuestas",
+          "carpetas para propuestas comerciales",
           "carpetas para contratos",
+          "carpetas para dossiers",
+          "carpetas para catálogos",
           "carpetas para ferias",
+          "carpetas para congresos",
           "carpetas comerciales",
-          "carpetas para visitas comerciales",
-          "carpetas con laminado",
+          "carpetas con laminado mate",
           "carpetas soft touch",
           "carpetas con barniz selectivo",
           "carpetas con stamping",
-          "papelería corporativa",
-          "pack papelería corporativa"
+          "carpetas de cartulina personalizadas",
+          "papelería corporativa personalizada"
         ],
         "schema": {},
         "robotsOverride": "INHERIT",
@@ -21251,7 +21347,7 @@
     },
     {
       "id": "55",
-      "updatedAt": "2026-05-05T13:55:40Z",
+      "updatedAt": "2026-08-24T07:41:17Z",
       "type": "producto",
       "slug": "hojas-sueltas-archivadores",
       "path": "/productos/hojas-sueltas-archivadores",
@@ -21344,7 +21440,20 @@
         "alt": "Hojas sueltas para archivadores impresas con perforado para manuales, tarifas y documentación"
       },
       "galleryImages": [],
-      "relatedProductsJson": [],
+      "relatedProductsJson": [
+        {
+          "productSlug": "archivadores-personalizados"
+        },
+        {
+          "productSlug": "carpetas-de-presentacion-personalizadas"
+        },
+        {
+          "productSlug": "encuadernacion-wire-o"
+        },
+        {
+          "productSlug": "papel-de-carta"
+        }
+      ],
       "sku": "01-PUBLI-0007",
       "brand": "Reprodisseny",
       "attributes": [],
