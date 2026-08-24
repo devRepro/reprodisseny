@@ -91,7 +91,7 @@ export const redirectRouteRules = {
   "/product/etiquetas-en-vinilo-adhesivo-presupuesto/printestimate": { redirect: { to: "/categorias/adhesivos-personalizados", statusCode: 301 } },
   "/product/expositor-de-mesa-peana-presupuesto/printestimate": { redirect: { to: "/productos/expositores-de-mesa-personalizados", statusCode: 301 } },
   "/product/expositor-de-suelo": { redirect: { to: "/productos/expositores-suelo-personalizados", statusCode: 301 } },
-  "/product/expositor-de-suelo-con-peana-presupuesto/printestimate": { redirect: { to: "/categorias/expositores", statusCode: 301 } },
+  "/product/expositor-de-suelo-con-peana-presupuesto/printestimate": { redirect: { to: "/productos/expositores-suelo-personalizados", statusCode: 301 } },
   "/product/expositores-de-mostrador-presupuesto/printestimate": { redirect: { to: "/productos/expositores-de-mesa-personalizados", statusCode: 301 } },
   "/product/flyers": { redirect: { to: "/productos/flyers-personalizados", statusCode: 301 } },
   "/product/flyers-presupuesto/printestimate": { redirect: { to: "/productos/flyers-personalizados", statusCode: 301 } },
@@ -304,7 +304,7 @@ export const redirectRouteRules = {
 
 "/product/expositor-de-suelo-con-peana-presupuesto": {
   redirect: {
-    to: "/categorias/expositores",
+    to: "/productos/expositores-suelo-personalizados",
     statusCode: 301,
   },
 },

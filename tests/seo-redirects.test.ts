@@ -39,6 +39,8 @@ test("confirmed exhibitor and Velleda base URLs match their estimate variants", 
   const confirmedRedirects = {
     "/product/expositor-de-mesa-peana-presupuesto":
       "/productos/expositores-de-mesa-personalizados",
+    "/product/expositor-de-suelo-con-peana-presupuesto":
+      "/productos/expositores-suelo-personalizados",
     "/product/expositores-de-mostrador-presupuesto":
       "/productos/expositores-de-mesa-personalizados",
     "/product/pizara-velleda-presupuesto": "/productos/pizarras-a-medida",
@@ -53,6 +55,23 @@ test("confirmed exhibitor and Velleda base URLs match their estimate variants", 
 test("base and printestimate destinations match unless explicitly documented", () => {
   const exceptions = PRINT_ESTIMATE_DESTINATION_EXCEPTIONS as Record<string, string>;
 
+  for (const [base, reason] of Object.entries(exceptions)) {
+    const baseRule = rules[base];
+    const printEstimateRule = rules[`${base}/printestimate`];
+
+    assert.ok(reason.trim(), `missing exception reason for ${base}`);
+    assert.ok(baseRule, `missing base redirect for documented exception ${base}`);
+    assert.ok(
+      printEstimateRule,
+      `missing printestimate redirect for documented exception ${base}`,
+    );
+    assert.notEqual(
+      baseRule.redirect.to,
+      printEstimateRule.redirect.to,
+      `stale exception: base and printestimate destinations already match for ${base}`,
+    );
+  }
+
   for (const [from, rule] of Object.entries(rules)) {
     if (!from.endsWith("/printestimate")) continue;
 
@@ -61,8 +80,7 @@ test("base and printestimate destinations match unless explicitly documented", (
 
     assert.ok(baseRule, `missing base redirect for ${from}`);
 
-    if (exceptions[base]) {
-      assert.ok(exceptions[base].trim(), `missing exception reason for ${base}`);
+    if (exceptions[base]?.trim()) {
       continue;
     }
 
