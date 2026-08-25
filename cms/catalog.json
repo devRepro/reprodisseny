@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-25T11:34:43.133Z",
+  "generatedAt": "2026-08-25T15:13:51.328Z",
   "categories": [
     {
       "id": "12",
@@ -875,7 +875,7 @@
     },
     {
       "id": "11",
-      "updatedAt": "2026-07-24T08:24:39Z",
+      "updatedAt": "2026-08-25T14:55:26Z",
       "type": "subcategoria",
       "slug": "material-publicitario",
       "path": "/categorias/publicidad-oficina/material-publicitario",
@@ -980,8 +980,37 @@
           "key": "finishes",
           "title": "Acabados",
           "kind": "finishes",
-          "contentFormat": "markdown",
-          "body": "- Laminado mate o brillo: protege y mejora presencia; muy útil en piezas que pasan por muchas manos (tarjetas, displays, mostrador).\n- Barniz selectivo y acabados premium: para resaltar logo o detalles y dirigir la atención donde interesa.\n- Troquelado: clave en flyers con forma y elementos de punto de venta para una silueta exacta.\n- Hendidos y plegados: imprescindibles en folletos plegados para un cierre limpio y una lectura cómoda.\n- Numeración / datos variables (si aplica): útil en acciones promocionales, control o identificación.\n## Usos habituales\n- Captación y campañas: reparto de flyers, envíos con postales e invitaciones, posters en local o escaparate.\n- Impulso en tienda: stoppers, banderolas y tiras de lineal, displays para vender más en el punto de decisión.\n- Acciones de marca: puntos de libro, imanes, tarjetas PVC o rasca para fidelización y recuerdo."
+          "contentFormat": "json",
+          "finishesData": {
+            "intro": "Los acabados permiten adaptar cada pieza publicitaria a la manipulación, la duración de la campaña y el impacto visual que necesita en punto de venta o comunicación promocional.",
+            "finishes": [
+              {
+                "title": "Laminado mate o brillo",
+                "description": "Protege la pieza frente al roce y permite elegir entre una presentación más sobria o una mayor intensidad visual.",
+                "idealFor": "Flyers especiales, tarjetas, displays y material promocional"
+              },
+              {
+                "title": "Barniz selectivo",
+                "description": "Resalta logotipos, titulares, imágenes o elementos promocionales mediante un contraste localizado de brillo.",
+                "idealFor": "Campañas premium y piezas de alto impacto"
+              },
+              {
+                "title": "Troquelado personalizado",
+                "description": "Permite crear contornos especiales en flyers, tarjetas y elementos de PLV para diferenciar la pieza en el punto de venta.",
+                "idealFor": "Retail, lanzamientos y promociones"
+              },
+              {
+                "title": "Hendido y plegado",
+                "description": "Facilita la apertura y el plegado correcto de dípticos, trípticos y folletos con varias caras.",
+                "idealFor": "Folletos plegados y material informativo"
+              },
+              {
+                "title": "Numeración y datos variables",
+                "description": "Permite generar piezas únicas con nombres, códigos, numeraciones, QR u otros datos para campañas segmentadas o controladas.",
+                "idealFor": "Promociones, invitaciones y campañas personalizadas"
+              }
+            ]
+          }
         }
       ],
       "image": {
@@ -2576,7 +2605,7 @@
     },
     {
       "id": "3",
-      "updatedAt": "2026-08-21T06:53:45Z",
+      "updatedAt": "2026-08-25T14:56:54Z",
       "type": "categoria",
       "slug": "eventos",
       "path": "/categorias/eventos",
@@ -2692,26 +2721,37 @@
                 "description": "Permite crear piezas con formas especiales, displays, identificadores o elementos visuales adaptados al diseño y al uso final."
               }
             ],
-            "deliveryFormats": [
-              {
-                "title": "Listo para instalar",
-                "description": "Se puede preparar con sistemas como ojales, dobladillo, vaina o estructuras de exposición para facilitar un montaje rápido y seguro."
-              },
-              {
-                "title": "Interior o exterior",
-                "description": "La elección del soporte y la protección se adapta al entorno de uso, teniendo en cuenta factores como luz, humedad, roce y duración prevista."
-              },
+            "deliveryFormats": []
+          }
+        },
+        {
+          "id": "finishes",
+          "key": "finishes",
+          "title": "Acabados",
+          "kind": "finishes",
+          "contentFormat": "json",
+          "finishesData": {
+            "intro": "Los acabados del material gráfico para eventos se definen según la duración, la manipulación, el entorno de instalación y la importancia visual de cada pieza.",
+            "finishes": [
               {
                 "title": "Laminado mate o brillo",
-                "description": "Mejora la presencia visual y añade protección, especialmente en piezas manipuladas o expuestas durante varios días."
+                "description": "Protege piezas manipuladas con frecuencia y permite ajustar el aspecto visual a la identidad del evento.",
+                "idealFor": "Acreditaciones, cartelería y piezas promocionales"
               },
               {
                 "title": "Soft touch y barniz selectivo",
-                "description": "Opciones pensadas para piezas corporativas o promocionales donde se busca una percepción más premium y un acabado más distintivo."
+                "description": "Acabados orientados a invitaciones, acreditaciones VIP y materiales corporativos donde se busca una mayor calidad percibida.",
+                "idealFor": "Eventos corporativos, protocolo y presentaciones"
+              },
+              {
+                "title": "Troquelado y corte personalizado",
+                "description": "Permite adaptar la forma de acreditaciones, señalética, displays y otros elementos al diseño del evento.",
+                "idealFor": "Branding, señalización y piezas especiales"
               },
               {
                 "title": "Refuerzos para uso intensivo",
-                "description": "Cuando el material debe soportar transporte, montaje, desmontaje o uso continuado, se contemplan soluciones de refuerzo según el soporte y la aplicación."
+                "description": "Preparación adicional de piezas que deberán soportar montaje, manipulación repetida o uso prolongado durante el evento.",
+                "idealFor": "Señalización, expositores y elementos reutilizables"
               }
             ]
           }
@@ -2887,7 +2927,7 @@
     },
     {
       "id": "9",
-      "updatedAt": "2026-08-23T09:52:40Z",
+      "updatedAt": "2026-08-25T14:54:16Z",
       "type": "categoria",
       "slug": "publicidad-oficina",
       "path": "/categorias/publicidad-oficina",
@@ -3025,8 +3065,62 @@
           "key": "finishes",
           "title": "Acabados",
           "kind": "finishes",
-          "contentFormat": "markdown",
-          "body": "- Laminado mate o brillo: protege y mejora presencia; muy útil en piezas que pasan por muchas manos (tarjetas, displays, materiales de mostrador). \n- Barniz selectivo y acabados premium: para resaltar logo, titular o detalles y dirigir la atención donde interesa (según necesidad del proyecto). \n- Troquelado: clave en flyers con forma y elementos de punto de venta para conseguir la silueta exacta y un resultado más diferencial. \n- Hendidos y plegados: imprescindibles en folletos plegados para un cierre limpio y una lectura cómoda (sin “romper” el papel). \n- Numeración y datos variables (cuando aplica): útil en talonarios, certificados o acciones promocionales que requieren control, identificación o personalización.\n## Usos habituales \n- Captación y campañas: reparto de flyers, envíos con postales e invitaciones, posters en local o escaparate. \n- Impulso en tienda: stoppers, banderolas lineal, tiras lineal y displays para vender más en el punto de decisión. \n- Imagen corporativa sólida: papelería alineada (tarjetas, sobres, carpetas, certificados) para dar consistencia a tu marca. \n- Gestión y operativa: talonarios autocopiativos, sellos, archivadores, calendarios y material interno. \n- Señalización y presencia: placa de dirección y letras corpóreas para reforzar visibilidad del negocio."
+          "contentFormat": "json",
+          "finishesData": {
+            "intro": "Los acabados se seleccionan según la manipulación, la durabilidad y el nivel de presentación que necesita cada pieza de publicidad impresa o papelería corporativa.",
+            "finishes": [
+              {
+                "title": "Laminado mate o brillo",
+                "description": "Protege la impresión frente al roce y mejora la presentación de tarjetas, carpetas, displays y otras piezas manipuladas con frecuencia.",
+                "features": [
+                  "Protección",
+                  "Mate o brillo",
+                  "Uso frecuente"
+                ],
+                "idealFor": "Papelería corporativa, carpetas y material promocional"
+              },
+              {
+                "title": "Barniz selectivo",
+                "description": "Permite destacar logotipos, titulares o detalles concretos mediante contraste de brillo y aumentar la calidad percibida de la pieza.",
+                "features": [
+                  "Contraste",
+                  "Marca",
+                  "Acabado premium"
+                ],
+                "idealFor": "Tarjetas, cubiertas, invitaciones y piezas promocionales"
+              },
+              {
+                "title": "Troquelado y corte con forma",
+                "description": "Permite fabricar flyers, etiquetas, displays y elementos de PLV con contornos personalizados adaptados al diseño y a su función.",
+                "features": [
+                  "Forma personalizada",
+                  "PLV",
+                  "Diferenciación"
+                ],
+                "idealFor": "Promociones, retail y acciones de marca"
+              },
+              {
+                "title": "Hendido y plegado",
+                "description": "Facilita un plegado limpio en dípticos, trípticos, carpetas y otras piezas, reduciendo roturas del papel y mejorando la presentación.",
+                "features": [
+                  "Plegado limpio",
+                  "Folletos",
+                  "Funcionalidad"
+                ],
+                "idealFor": "Folletos plegados, carpetas y material comercial"
+              },
+              {
+                "title": "Numeración y datos variables",
+                "description": "Permite personalizar certificados, talonarios y campañas con números, nombres, códigos, QR o referencias únicas cuando el proyecto lo requiere.",
+                "features": [
+                  "Personalización",
+                  "Control",
+                  "Datos variables"
+                ],
+                "idealFor": "Certificados, talonarios y campañas personalizadas"
+              }
+            ]
+          }
         }
       ],
       "image": {
@@ -3519,7 +3613,7 @@
     },
     {
       "id": "8",
-      "updatedAt": "2026-07-14T10:40:51Z",
+      "updatedAt": "2026-08-25T14:57:54Z",
       "type": "categoria",
       "slug": "packaging",
       "path": "/categorias/packaging",
@@ -3613,8 +3707,36 @@
           "key": "finishes",
           "title": "Acabados",
           "kind": "finishes",
-          "contentFormat": "markdown",
-          "body": "- Laminado mate o brillo: mejora presencia y añade protección frente a roces.\n- Acabados premium (según caja): barniz selectivo, stamping, soft touch… para elevar el valor percibido en packs corporativos.\n- Troquelado y pegado: esenciales para cierres, solapas, ventanas, formas especiales y un montaje fiable.\n- Impresión exterior e interior: muy recomendable en folding para unboxing (mensaje, instrucciones, QR).\n## Uso habitual\n- Packs corporativos / unboxing premium: folding (cajas cofre, cerilla, desplegables con tapa, envolventes y fajas).\n- Regalos y detalles de marca: folding (almohada, dulces mini, porta botellas).\n- Envío y logística: corrugado (caja de envío) para reducir incidencias y proteger el contenido.\n- Captación y dinámicas en punto de contacto: corrugado (urna) para sorteos, encuestas o recogida de tarjetas."
+          "contentFormat": "json",
+          "finishesData": {
+            "intro": "Los acabados de packaging se seleccionan para proteger la superficie, reforzar la identidad de marca y mejorar la experiencia de presentación y apertura.",
+            "finishes": [
+              {
+                "title": "Laminado mate",
+                "description": "Protege la impresión frente al roce y aporta una imagen sobria y corporativa."
+              },
+              {
+                "title": "Laminado brillo",
+                "description": "Aumenta la intensidad del color y resulta adecuado para campañas de mayor impacto visual."
+              },
+              {
+                "title": "Soft touch",
+                "description": "Añade un tacto suave y una percepción de mayor calidad en cajas y estuches de presentación."
+              },
+              {
+                "title": "Barniz selectivo",
+                "description": "Destaca logotipos, titulares o patrones mediante contraste localizado de brillo."
+              },
+              {
+                "title": "Stamping",
+                "description": "Añade detalles metalizados en cajas para regalos, lanzamientos y ediciones especiales."
+              },
+              {
+                "title": "Impresión interior",
+                "description": "Permite incorporar mensajes, instrucciones, patrones, códigos QR o elementos de marca durante la apertura."
+              }
+            ]
+          }
         }
       ],
       "image": {
@@ -3796,7 +3918,7 @@
   "products": [
     {
       "id": "157",
-      "updatedAt": "2026-08-24T10:55:23Z",
+      "updatedAt": "2026-08-25T15:05:38Z",
       "type": "producto",
       "slug": "colgador-puerta-personalizado",
       "path": "/productos/colgador-puerta-personalizado",
@@ -3904,7 +4026,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "### Tipos de archivador\n\n- **Archivador de palanca:** recomendado para archivo intensivo y documentación de gran capacidad.\n- **Archivador de anillas:** práctico para documentación que se actualiza, sustituye o reorganiza con frecuencia.\n\n### Formato\n\nHabitualmente se fabrican para documentación A4, adaptando las medidas y el ancho del lomo a la capacidad necesaria.\n\nPodemos estudiar diferentes configuraciones según el volumen de hojas y el sistema de anillas.\n\n### Personalización\n\n- Personalización de portada, contraportada y lomo.\n- Identificación por título, categoría, año, departamento o proyecto.\n- Posibilidad de producir series con diferentes colores, textos o referencias manteniendo una misma imagen corporativa.\n- Opción de incorporar códigos internos o QR cuando sean útiles para la gestión documental.\n\n### Acabados y resistencia\n\nPodemos aplicar acabados orientados a mejorar la resistencia frente al roce y la manipulación frecuente.\n\nPara archivadores de uso intensivo recomendamos prestar especial atención a la protección del lomo y los cantos, que son las zonas que más desgaste reciben.\n\n### Complementos\n\n- Separadores con pestañas para organizar la documentación por secciones.\n- Hojas sueltas perforadas para reposiciones y actualizaciones.\n- Etiquetas de lomo cuando se necesita un sistema de identificación editable."
+          "body": "### Formato y troquel\n\n- **Formato estándar o a medida:** adaptamos las dimensiones al diseño, al tamaño del mensaje y al tipo de puerta donde se utilizará.\n- **Abertura para pomo o manilla:** el troquel se define según el sistema de colocación y puede adaptarse a diferentes formas y diámetros.\n- **Troquel personalizado:** permite ajustar el contorno exterior o desarrollar una forma especial cuando la creatividad lo requiere.\n\n### Impresión\n\n- **Una o dos caras:** permite utilizar un único mensaje o diferenciar, por ejemplo, “No molestar” y “Hacer la habitación”.\n- **Impresión a color:** adecuada para identidad corporativa, pictogramas, fotografías, instrucciones y mensajes promocionales.\n- **Versiones por idioma:** pueden producirse variantes para diferentes idiomas, habitaciones, servicios o establecimientos.\n\n### Materiales y resistencia\n\n- **Cartulina gráfica de alto gramaje:** adecuada para usos temporales y piezas de buena presencia visual.\n- **Soportes de mayor resistencia:** recomendables cuando el colgador tendrá un uso repetido o una manipulación frecuente.\n- La elección final del material debe ajustarse a la duración prevista y a las condiciones de uso.\n\n### Acabados\n\n- **Sin laminado:** opción adecuada para campañas de corta duración o usos con poca manipulación.\n- **Laminado mate:** mejora la protección y reduce reflejos.\n- **Laminado brillo:** protege la impresión y aumenta la intensidad visual del color.\n\n### Personalización\n\n- Posibilidad de incorporar nombres, mensajes distintos por cara, varios idiomas y códigos QR.\n- Los códigos QR pueden dirigir a servicios del hotel, información para huéspedes, encuestas, restauración, spa o contenidos digitales.\n\n### Preparación del archivo\n\n- Recomendamos PDF final con las medidas correctas, sangrado y márgenes de seguridad.\n- Los textos y logotipos deben quedar alejados de la abertura y de las líneas de troquel.\n- Antes de producir se valida la posición del troquel y la legibilidad de ambas caras."
         },
         {
           "id": "applications",
@@ -4105,46 +4227,40 @@
         "keywords": [
           "colgadores de puerta personalizados",
           "colgadores de puerta para hoteles",
-          "colgador de puerta personalizado hotel",
           "colgador no molestar personalizado",
           "colgador hacer la habitación",
-          "colgadores para habitaciones de hotel",
-          "colgadores de puerta impresos",
-          "imprimir colgadores de puerta",
+          "colgadores personalizados hotel",
+          "door hanger personalizado",
           "poming personalizado",
           "pomming personalizado",
-          "door hanger personalizado hotel",
-          "colgadores hotel Barcelona"
+          "colgadores de puerta troquelados",
+          "colgadores hotel con QR",
+          "material gráfico para hoteles",
+          "impresión para hoteles Barcelona"
         ],
         "searchTerms": [
           "colgadores de puerta personalizados",
+          "colgador puerta hotel personalizado",
           "colgadores puerta hotel",
-          "colgadores puerta personalizados",
-          "colgador de puerta personalizado",
           "colgador no molestar hotel",
-          "no molestar hotel personalizado",
+          "cartel no molestar personalizado",
           "colgador hacer la habitación",
           "colgador limpieza habitación",
-          "colgadores para hoteles",
-          "colgadores habitaciones hotel",
-          "imprimir colgadores puerta",
-          "impresión colgadores puerta",
-          "colgadores puerta doble cara",
-          "colgador puerta troquelado",
-          "colgadores con troquel personalizado",
-          "colgador pomo puerta",
-          "colgadores puerta plastificados",
-          "colgador puerta con QR",
           "colgadores housekeeping",
-          "colgadores apartamentos turísticos",
-          "poming personalizado",
-          "poming hotel",
-          "pomming personalizado",
-          "pomming hotel",
           "door hanger hotel",
           "door hanger personalizado",
-          "cartel no molestar personalizado",
-          "material gráfico para hoteles"
+          "poming hotel",
+          "pomming hotel",
+          "colgador puerta doble cara",
+          "colgador puerta troquelado",
+          "colgadores puerta plastificados",
+          "colgador puerta con QR",
+          "colgadores apartamentos turísticos",
+          "imprimir colgadores de puerta",
+          "precio colgadores puerta personalizados",
+          "presupuesto colgadores hotel",
+          "imprenta material hotel Barcelona",
+          "colgadores de puerta personalizados Barcelona"
         ],
         "schema": {},
         "robotsOverride": "INHERIT",
@@ -4938,7 +5054,7 @@
     },
     {
       "id": "3",
-      "updatedAt": "2026-08-25T07:33:52Z",
+      "updatedAt": "2026-08-25T15:09:31Z",
       "type": "producto",
       "slug": "agendas-personalizadas",
       "path": "/productos/agendas-personalizadas",
@@ -4964,8 +5080,62 @@
           "key": "benefits",
           "title": "Beneficios",
           "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "Ventajas principales de las agendas personalizadas para organización interna, regalos corporativos, welcome packs y campañas de empresa.\n\n- **Marca presente todo el año:** es un producto de alta permanencia y uso frecuente, ideal para reforzar la visibilidad de marca.\n- **Útil de verdad:** ayuda a mejorar la organización de equipos, reuniones, tareas, objetivos y planificación diaria.\n- **Calidad percibida:** transmite profesionalidad y cuidado en regalos corporativos, campañas de fin de año o acciones comerciales.\n- **Personalización completa:** permite adaptar portada, contraportada e interior con plantillas, secciones, objetivos, reuniones o contenidos propios.\n- **Perfecta para acciones comerciales:** adecuada para fidelización, packs de bienvenida, campañas de Navidad y regalos a clientes o partners."
+          "contentFormat": "json",
+          "benefitsData": {
+            "intro": "Las agendas personalizadas combinan organización diaria, presencia de marca y una elevada permanencia, por lo que funcionan especialmente bien como herramienta interna y regalo corporativo.",
+            "benefits": [
+              {
+                "title": "Marca presente durante todo el año",
+                "description": "Una agenda de uso diario mantiene el logotipo y la identidad corporativa visibles durante meses en reuniones, desplazamientos y trabajo de oficina.",
+                "features": [
+                  "Alta permanencia",
+                  "Branding",
+                  "Uso diario"
+                ],
+                "idealFor": "Regalos corporativos y equipos internos"
+              },
+              {
+                "title": "Herramienta realmente útil",
+                "description": "Facilita la planificación de reuniones, tareas, objetivos, visitas comerciales y proyectos, evitando que el regalo se convierta en merchandising de poco uso.",
+                "features": [
+                  "Planificación",
+                  "Organización",
+                  "Funcional"
+                ],
+                "idealFor": "Equipos comerciales, dirección y oficina"
+              },
+              {
+                "title": "Personalización de portada e interior",
+                "description": "Además de la cubierta, el interior puede incorporar calendarios, reuniones, objetivos, proyectos, contactos, KPI y otras secciones adaptadas a la empresa.",
+                "features": [
+                  "Interior personalizado",
+                  "A medida",
+                  "Corporativo"
+                ],
+                "idealFor": "Empresas con procesos propios de planificación"
+              },
+              {
+                "title": "Diferentes encuadernaciones",
+                "description": "Formatos con Wire-O permiten apertura completa y escritura cómoda, mientras que soluciones cosidas o de tapa dura aportan una presentación más editorial y resistente.",
+                "features": [
+                  "Wire-O",
+                  "Tapa dura",
+                  "Tapa blanda"
+                ],
+                "idealFor": "Uso intensivo y regalo corporativo"
+              },
+              {
+                "title": "Acabados de mayor valor percibido",
+                "description": "Laminado mate, brillo, soft touch, barniz UVI selectivo o stamping pueden utilizarse según el proyecto para diferenciar la cubierta y destacar la identidad de marca.",
+                "features": [
+                  "Soft touch",
+                  "Barniz UVI",
+                  "Stamping"
+                ],
+                "idealFor": "Agendas premium y campañas de fin de año"
+              }
+            ]
+          }
         },
         {
           "id": "formats",
@@ -5058,8 +5228,32 @@
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "Aplicaciones habituales de las agendas personalizadas en empresas, equipos comerciales, formación, eventos y regalos corporativos.\n\n- **Agendas corporativas para empleados:** uso interno, planificación de equipos, reuniones, tareas y seguimiento de objetivos.\n- **Regalo a clientes y partners:** opción útil para Navidad, cierre de año, acciones comerciales o campañas de fidelización.\n- **Welcome packs:** complemento práctico para incorporaciones, formaciones, eventos internos o kits de bienvenida.\n- **Equipos comerciales:** seguimiento de leads, visitas, rutas, objetivos, reuniones y planificación semanal o mensual.\n- **Centros y entidades:** organización de cursos, academias, asociaciones, actividades formativas o planificación interna."
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Las agendas corporativas pueden adaptarse al trabajo interno, la planificación comercial y las acciones de fidelización o bienvenida.",
+            "applications": [
+              {
+                "title": "Agendas corporativas para empleados",
+                "description": "Planificación de reuniones, tareas, proyectos, objetivos y actividad diaria."
+              },
+              {
+                "title": "Equipos comerciales",
+                "description": "Seguimiento de visitas, reuniones con clientes, rutas, oportunidades y planificación semanal o mensual."
+              },
+              {
+                "title": "Regalos para clientes y partners",
+                "description": "Producto útil para Navidad, cierre de año, fidelización y campañas comerciales."
+              },
+              {
+                "title": "Welcome packs",
+                "description": "Complemento para nuevas incorporaciones, formación interna, eventos corporativos y kits de bienvenida."
+              },
+              {
+                "title": "Formación y centros educativos",
+                "description": "Planificación de cursos, sesiones, evaluaciones, programas y actividades."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
@@ -5119,7 +5313,7 @@
       "galleryImages": [],
       "relatedProductsJson": [],
       "sku": "01-OFICI-0024",
-      "brand": "Reprodisseny",
+      "brand": "Repro Disseny",
       "attributes": [],
       "variants": [],
       "formFields": [
@@ -5220,10 +5414,38 @@
           }
         ],
         "keywords": [
-          "agendas personalizadas"
+          "agendas personalizadas",
+          "agendas personalizadas para empresas",
+          "agendas corporativas",
+          "agendas con logo",
+          "agendas A5 personalizadas",
+          "agendas A4 personalizadas",
+          "agendas Wire-O",
+          "agendas tapa dura personalizadas",
+          "agendas para empleados",
+          "agendas para regalo corporativo",
+          "agendas personalizadas Barcelona"
         ],
         "searchTerms": [
-          "agendas personalizadas"
+          "agendas personalizadas",
+          "agenda personalizada empresa",
+          "agendas corporativas",
+          "agenda corporativa con logo",
+          "agendas personalizadas para empleados",
+          "agendas para clientes",
+          "agendas regalo empresa",
+          "agendas Navidad empresa",
+          "agendas A5 personalizadas",
+          "agendas A4 personalizadas",
+          "agenda Wire-O personalizada",
+          "agenda tapa dura personalizada",
+          "agenda interior personalizado",
+          "imprimir agendas personalizadas",
+          "fabricar agendas corporativas",
+          "precio agendas personalizadas",
+          "presupuesto agendas personalizadas",
+          "agendas personalizadas Barcelona",
+          "imprenta agendas Barcelona"
         ],
         "schema": {},
         "robotsOverride": "INHERIT",
@@ -5562,7 +5784,7 @@
     },
     {
       "id": "5",
-      "updatedAt": "2026-08-25T11:03:43Z",
+      "updatedAt": "2026-08-25T15:10:49Z",
       "type": "producto",
       "slug": "archivadores-personalizados",
       "path": "/productos/archivadores-personalizados",
@@ -5588,8 +5810,62 @@
           "key": "benefits",
           "title": "Beneficios",
           "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "- **Orden y acceso rápido:** documentación siempre localizada y clasificada.\n- **Imagen corporativa uniforme:** estanterías y archivo con branding consistente.\n- **Lomo identificable:** facilita la gestión por años, clientes, departamentos o proyectos.\n- **Resistencia para uso diario:** pensado para manipulación constante en oficina.\n- **Escalable por series:** permite estandarizar por colores, secciones o codificación interna."
+          "contentFormat": "json",
+          "benefitsData": {
+            "intro": "Los archivadores personalizados combinan organización documental, resistencia e identidad corporativa para entornos donde la documentación se consulta y actualiza de forma recurrente.",
+            "benefits": [
+              {
+                "title": "Organización rápida de la documentación",
+                "description": "Permiten clasificar documentación por cliente, proyecto, ejercicio, departamento o procedimiento y localizarla rápidamente.",
+                "features": [
+                  "Archivo",
+                  "Clasificación",
+                  "Organización"
+                ],
+                "idealFor": "Administración, RRHH, calidad y proyectos"
+              },
+              {
+                "title": "Lomo completamente identificable",
+                "description": "La personalización del lomo facilita reconocer el contenido en estanterías y crear sistemas visuales por colores, años o departamentos.",
+                "features": [
+                  "Lomo personalizado",
+                  "Codificación",
+                  "Visibilidad"
+                ],
+                "idealFor": "Archivos con gran número de carpetas"
+              },
+              {
+                "title": "Documentación actualizable",
+                "description": "Los mecanismos de anillas permiten añadir, sustituir o reorganizar páginas sin tener que reimprimir todo el documento.",
+                "features": [
+                  "Anillas",
+                  "Actualizable",
+                  "Modular"
+                ],
+                "idealFor": "Manuales, tarifas, formación y catálogos técnicos"
+              },
+              {
+                "title": "Imagen corporativa consistente",
+                "description": "Portada, contraportada y lomo pueden mantener una misma identidad gráfica en departamentos, sedes y series documentales.",
+                "features": [
+                  "Branding",
+                  "Corporativo",
+                  "Series"
+                ],
+                "idealFor": "Empresas y organizaciones"
+              },
+              {
+                "title": "Preparado para uso intensivo",
+                "description": "La selección adecuada de estructura, plastificado y protección de cantos mejora el comportamiento frente a roce y manipulación frecuente.",
+                "features": [
+                  "Durabilidad",
+                  "Plastificado",
+                  "Uso intensivo"
+                ],
+                "idealFor": "Archivo diario y documentación operativa"
+              }
+            ]
+          }
         },
         {
           "id": "technical-specs",
@@ -5604,8 +5880,32 @@
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "- **Administración y contabilidad:** facturas, albaranes, IVA y ejercicios por año.\n- **RRHH:** contratos, formación, prevención y documentación interna.\n- **Proyectos:** documentación por cliente, obra, expediente o fase.\n- **Calidad y procedimientos:** manuales ISO, registros, auditorías y checklists.\n- **Catálogos técnicos:** fichas y hojas sueltas actualizables en anillas."
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Los archivadores personalizados son especialmente útiles cuando la documentación debe permanecer ordenada, identificada y disponible para consulta o actualización.",
+            "applications": [
+              {
+                "title": "Administración y contabilidad",
+                "description": "Facturas, albaranes, impuestos, contratos y documentación organizada por ejercicios o sociedades."
+              },
+              {
+                "title": "Recursos humanos",
+                "description": "Formación, prevención, procedimientos, documentación laboral y materiales internos."
+              },
+              {
+                "title": "Manuales y documentación técnica",
+                "description": "Fichas, instrucciones, tarifas y contenidos que necesitan actualizarse sin sustituir todo el archivador."
+              },
+              {
+                "title": "Calidad y procedimientos",
+                "description": "Documentación ISO, protocolos, registros, auditorías, checklists y sistemas internos."
+              },
+              {
+                "title": "Formación y presentaciones",
+                "description": "Material para cursos, academias, onboarding, distribuidores y documentación comercial."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
