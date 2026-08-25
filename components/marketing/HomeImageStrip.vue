@@ -1,49 +1,54 @@
 <script setup lang="ts">
 defineProps<{
-  images: { src: string; alt: string }[];
+  images: {
+    src: string;
+    alt: string;
+    webpSrcset?: string;
+    avifSrcset?: string;
+    sizes?: string;
+  }[];
 }>();
 </script>
 
 <template>
   <div class="space-y-4 md:space-y-5">
-    <!-- Móvil: scroll horizontal elegante -->
-    <div class="md:hidden">
+    <div
+      class="-mx-6 w-[calc(100%+3rem)] overflow-x-auto overscroll-x-contain [scrollbar-width:thin] md:mx-0 md:w-auto md:overflow-visible"
+    >
       <div
-        class="-mx-6 w-[calc(100%+3rem)] overflow-x-auto overscroll-x-contain [scrollbar-width:thin]"
+        class="flex snap-x snap-mandatory gap-4 px-6 pb-3 md:grid md:snap-none md:grid-cols-2 md:gap-5 md:px-0 md:pb-0 xl:grid-cols-4 xl:gap-6"
       >
-        <div class="flex snap-x snap-mandatory gap-4 px-6 pb-3">
-          <article
-            v-for="img in images"
-            :key="`${img.src}-${img.alt}`"
-            class="w-[84%] max-w-[22rem] shrink-0 snap-start overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5"
-          >
+        <article
+          v-for="(img, index) in images"
+          :key="`${img.src}-${img.alt}`"
+          class="group w-[84%] max-w-[22rem] shrink-0 snap-start overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5 md:w-auto md:max-w-none md:snap-none"
+        >
+          <picture class="block">
+            <source
+              v-if="img.avifSrcset"
+              type="image/avif"
+              :srcset="img.avifSrcset"
+              :sizes="img.sizes"
+            />
+            <source
+              v-if="img.webpSrcset"
+              type="image/webp"
+              :srcset="img.webpSrcset"
+              :sizes="img.sizes"
+            />
             <img
               :src="img.src"
               :alt="img.alt"
-              class="aspect-[4/3] w-full object-cover"
-              loading="lazy"
+              width="1066"
+              height="800"
+              class="aspect-[4/3] w-full object-cover md:transition-transform md:duration-500 md:group-hover:scale-[1.02]"
+              :loading="index === 0 ? 'eager' : 'lazy'"
               decoding="async"
+              :fetchpriority="index === 0 ? 'high' : 'auto'"
             />
-          </article>
-        </div>
+          </picture>
+        </article>
       </div>
-    </div>
-
-    <!-- Tablet / desktop: grid estable -->
-    <div class="hidden md:grid md:grid-cols-2 md:gap-5 xl:grid-cols-4 xl:gap-6">
-      <article
-        v-for="img in images"
-        :key="`${img.src}-${img.alt}`"
-        class="group overflow-hidden rounded-2xl bg-white shadow-sm ring-1 ring-black/5"
-      >
-        <img
-          :src="img.src"
-          :alt="img.alt"
-          class="aspect-[4/3] w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-          loading="lazy"
-          decoding="async"
-        />
-      </article>
     </div>
 
     <p

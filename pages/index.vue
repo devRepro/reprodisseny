@@ -153,7 +153,12 @@ useHead({
 
 const stripImages = [
   {
-    src: "https://webcms.blob.core.windows.net/media/home/preimpresion.webp",
+    src: "/img/home/preimpresion-960.webp",
+    webpSrcset:
+      "/img/home/preimpresion-640.webp 640w, /img/home/preimpresion-960.webp 960w, /img/home/preimpresion-1066.webp 1066w",
+    avifSrcset:
+      "/img/home/preimpresion-640.avif 640w, /img/home/preimpresion-960.avif 960w, /img/home/preimpresion-1066.avif 1066w",
+    sizes: "(min-width: 1280px) 25vw, (min-width: 768px) 50vw, 84vw",
     alt: "Preparación y preimpresión de trabajos gráficos",
   },
   {
