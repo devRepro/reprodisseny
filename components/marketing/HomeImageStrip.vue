@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
-
 defineProps<{
   images: { src: string; alt: string }[];
 }>();
@@ -10,7 +8,9 @@ defineProps<{
   <div class="space-y-4 md:space-y-5">
     <!-- Móvil: scroll horizontal elegante -->
     <div class="md:hidden">
-      <ScrollArea class="-mx-6 w-[calc(100%+3rem)]">
+      <div
+        class="-mx-6 w-[calc(100%+3rem)] overflow-x-auto overscroll-x-contain [scrollbar-width:thin]"
+      >
         <div class="flex snap-x snap-mandatory gap-4 px-6 pb-3">
           <article
             v-for="img in images"
@@ -26,9 +26,7 @@ defineProps<{
             />
           </article>
         </div>
-
-        <ScrollBar orientation="horizontal" class="px-6" />
-      </ScrollArea>
+      </div>
     </div>
 
     <!-- Tablet / desktop: grid estable -->

@@ -12,6 +12,11 @@ const props = withDefaults(
     title: string;
     imageSrc: string;
     imageAlt?: string;
+    imageSrcset?: string;
+    imageAvifSrcset?: string;
+    imageSizes?: string;
+    imageWidth?: number;
+    imageHeight?: number;
     bullets?: string[];
     primaryLabel?: string;
     primaryTo?: LinkTarget;
@@ -72,16 +77,28 @@ const hasSecondaryAction = computed(() =>
   >
     <div :class="['grid lg:grid-cols-[42%_58%]', heightClass]">
       <div class="relative h-[250px] overflow-hidden bg-muted sm:h-[310px] lg:h-full">
-        <img
-          v-if="resolvedImageSrc"
-          :src="resolvedImageSrc"
-          :alt="resolvedImageAlt"
-          class="absolute inset-0 h-full w-full object-cover"
-          :style="{ objectPosition: imagePosition }"
-          :loading="eager ? 'eager' : 'lazy'"
-          decoding="async"
-          :fetchpriority="eager ? 'high' : 'auto'"
-        />
+        <picture v-if="resolvedImageSrc">
+          <source
+            v-if="imageAvifSrcset"
+            type="image/avif"
+            :srcset="imageAvifSrcset"
+            :sizes="imageSizes || undefined"
+          />
+
+          <img
+            :src="resolvedImageSrc"
+            :srcset="imageSrcset || undefined"
+            :sizes="imageSrcset ? imageSizes || undefined : undefined"
+            :alt="resolvedImageAlt"
+            :width="imageWidth"
+            :height="imageHeight"
+            class="absolute inset-0 h-full w-full object-cover"
+            :style="{ objectPosition: imagePosition }"
+            :loading="eager ? 'eager' : 'lazy'"
+            decoding="async"
+            :fetchpriority="eager ? 'high' : 'auto'"
+          />
+        </picture>
 
         <div
           aria-hidden="true"

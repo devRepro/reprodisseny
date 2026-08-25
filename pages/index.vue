@@ -6,7 +6,13 @@
 
     <SolarProtectionHeroBanner
       title="Láminas solares para cristales"
-      image-src="/img/banners/sala_reunions.webp"
+      image-src="/img/banners/sala_reunions-960.webp"
+      image-srcset="/img/banners/sala_reunions-640.webp 640w, /img/banners/sala_reunions-960.webp 960w, /img/banners/sala_reunions-1440.webp 1440w"
+      image-avif-srcset="/img/banners/sala_reunions-640.avif 640w, /img/banners/sala_reunions-960.avif 960w, /img/banners/sala_reunions-1440.avif 1440w"
+      image-sizes="(min-width: 1024px) 42vw, 100vw"
+      :image-width="1440"
+      :image-height="1313"
+      eager
       :bullets="[
         'Reduce calor y reflejos sin obras',
         'Instalación profesional en Barcelona',
@@ -125,6 +131,14 @@ useHead({
     {
       rel: "canonical",
       href: HOME_URL,
+    },
+    {
+      rel: "preconnect",
+      href: "https://webcms.blob.core.windows.net",
+    },
+    {
+      rel: "dns-prefetch",
+      href: "https://webcms.blob.core.windows.net",
     },
   ],
 
