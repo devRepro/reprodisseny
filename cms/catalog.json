@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-24T18:56:07.838Z",
+  "generatedAt": "2026-08-25T11:34:43.133Z",
   "categories": [
     {
       "id": "12",
@@ -1270,37 +1270,77 @@
             "shapes": [
               {
                 "title": "Adhesivos rectangulares o cuadrados",
-                "description": "Formato práctico para etiquetas de producto, packaging, códigos QR, identificación, promociones y comunicación corporativa."
+                "description": "Formato práctico para etiquetas de producto, packaging, códigos QR, identificación, promociones y comunicación corporativa.",
+                "features": [
+                  "Etiqueta clásica",
+                  "Fácil aplicación",
+                  "Muy versátil"
+                ]
               },
               {
                 "title": "Pegatinas redondas u ovaladas",
-                "description": "Opción visual y versátil para cierres de packaging, campañas promocionales, eventos, regalos de marca y aplicaciones decorativas."
+                "description": "Opción visual y versátil para cierres de packaging, campañas promocionales, eventos, regalos de marca y aplicaciones decorativas.",
+                "features": [
+                  "Promocional",
+                  "Decorativo",
+                  "Packaging"
+                ]
               },
               {
                 "title": "Corte con forma personalizada",
-                "description": "Troquelamos el adhesivo siguiendo el contorno del diseño, el logotipo o una silueta específica para conseguir una pieza más reconocible y diferencial."
+                "description": "Troquelamos el adhesivo siguiendo el contorno del diseño, el logotipo o una silueta específica para conseguir una pieza más reconocible y diferencial.",
+                "features": [
+                  "Troquelado",
+                  "Forma especial",
+                  "Mayor impacto"
+                ]
               },
               {
                 "title": "Vinilos para cristal, pared o escaparate",
-                "description": "Formatos a medida para señalización, decoración, campañas temporales o rotulación comercial sobre superficies lisas."
+                "description": "Formatos a medida para señalización, decoración, campañas temporales o rotulación comercial sobre superficies lisas.",
+                "features": [
+                  "Gran formato",
+                  "A medida",
+                  "Aplicación comercial"
+                ]
               }
             ],
             "deliveryFormats": [
               {
                 "title": "Adhesivos sueltos",
-                "description": "Indicados para reparto, acciones promocionales, packs comerciales o aplicaciones manuales de pocas unidades."
+                "description": "Indicados para reparto, acciones promocionales, packs comerciales o aplicaciones manuales de pocas unidades.",
+                "features": [
+                  "Promociones",
+                  "Eventos",
+                  "Reparto"
+                ]
               },
               {
                 "title": "En plancha",
-                "description": "Práctico para agrupar varias unidades en una misma hoja, facilitar la manipulación y mantener los adhesivos protegidos hasta su aplicación."
+                "description": "Práctico para agrupar varias unidades en una misma hoja, facilitar la manipulación y mantener los adhesivos protegidos hasta su aplicación.",
+                "features": [
+                  "Manipulación fácil",
+                  "Ordenado",
+                  "Uso manual"
+                ]
               },
               {
                 "title": "En bobina",
-                "description": "Recomendado para etiquetado recurrente, packaging, producción o aplicaciones con dispensador, según el material, la cantidad y el uso previsto."
+                "description": "Recomendado para etiquetado recurrente, packaging, producción o aplicaciones con dispensador, según el material, la cantidad y el uso previsto.",
+                "features": [
+                  "Producción",
+                  "Etiquetado repetitivo",
+                  "Dispensador"
+                ]
               },
               {
                 "title": "A medida",
-                "description": "Adaptamos tamaño, forma, presentación y acabado al soporte, al sistema de aplicación y al resultado visual que necesita el proyecto."
+                "description": "Adaptamos tamaño, forma, presentación y acabado al soporte, al sistema de aplicación y al resultado visual que necesita el proyecto.",
+                "features": [
+                  "Personalizado",
+                  "Flexible",
+                  "Proyecto especial"
+                ]
               }
             ]
           }
@@ -1316,19 +1356,39 @@
             "finishes": [
               {
                 "title": "Laminado mate o brillo",
-                "description": "Aporta protección adicional frente al roce y mejora la presencia final con un acabado más sobrio o más llamativo según el efecto buscado."
+                "description": "Aporta protección adicional frente al roce y mejora la presencia final con un acabado más sobrio o más llamativo según el efecto buscado.",
+                "features": [
+                  "Protección",
+                  "Mate",
+                  "Brillo"
+                ]
               },
               {
                 "title": "Barniz selectivo",
-                "description": "Permite destacar logotipos, textos o zonas concretas del diseño para conseguir un resultado más visual y premium."
+                "description": "Permite destacar logotipos, textos o zonas concretas del diseño para conseguir un resultado más visual y premium.",
+                "features": [
+                  "Premium",
+                  "Detalle visual",
+                  "Marca"
+                ]
               },
               {
                 "title": "Acabado soft touch",
-                "description": "Ofrece un tacto aterciopelado y una percepción más cuidada, ideal para packaging, cosmética, marca corporativa y piezas de presentación."
+                "description": "Ofrece un tacto aterciopelado y una percepción más cuidada, ideal para packaging, cosmética, marca corporativa y piezas de presentación.",
+                "features": [
+                  "Tacto premium",
+                  "Packaging",
+                  "Presentación"
+                ]
               },
               {
                 "title": "Refuerzo para exterior",
-                "description": "Según el material y el uso, mejora la resistencia en aplicaciones expuestas a humedad, roce, luz o condiciones más exigentes."
+                "description": "Según el material y el uso, mejora la resistencia en aplicaciones expuestas a humedad, roce, luz o condiciones más exigentes.",
+                "features": [
+                  "Exterior",
+                  "Resistencia",
+                  "Durabilidad"
+                ]
               }
             ]
           }
@@ -4093,7 +4153,7 @@
     },
     {
       "id": "1",
-      "updatedAt": "2026-08-06T08:54:16Z",
+      "updatedAt": "2026-08-25T07:33:32Z",
       "type": "producto",
       "slug": "abanicos-personalizados",
       "path": "/productos/abanicos-personalizados",
@@ -4157,15 +4217,33 @@
             "materials": [
               {
                 "title": "Cartulina gráfica",
-                "description": "Opción versátil para abanicos pai pai o piezas promocionales ligeras."
+                "description": "Opción versátil para abanicos pai pai o piezas promocionales ligeras.",
+                "features": [
+                  "Ligera",
+                  "Económica",
+                  "Promocional"
+                ],
+                "idealFor": "Campañas, ferias y reparto masivo"
               },
               {
                 "title": "Papel/cartulina para abanico plegable",
-                "description": "Soporte adecuado para impresión cuidada y plegado correcto en abanicos con varillas."
+                "description": "Soporte adecuado para impresión cuidada y plegado correcto en abanicos con varillas.",
+                "features": [
+                  "Buen plegado",
+                  "Buena impresión",
+                  "Evento"
+                ],
+                "idealFor": "Bodas, celebraciones y eventos corporativos"
               },
               {
                 "title": "Varillas o mango",
-                "description": "Elemento estructural elegido según formato, uso y acabado deseado."
+                "description": "Elemento estructural elegido según formato, uso y acabado deseado.",
+                "features": [
+                  "Estructural",
+                  "Funcional",
+                  "Personalizable"
+                ],
+                "idealFor": "Abanicos plegables o pai pai"
               }
             ]
           }
@@ -4181,15 +4259,30 @@
             "shapes": [
               {
                 "title": "Abanico plegable",
-                "description": "Formato clásico con varillas, mayor percepción de detalle y mejor encaje en bodas, celebraciones, regalos corporativos y eventos con imagen cuidada."
+                "description": "Formato clásico con varillas, mayor percepción de detalle y mejor encaje en bodas, celebraciones, regalos corporativos y eventos con imagen cuidada.",
+                "features": [
+                  "Evento premium",
+                  "Reutilizable",
+                  "Buena presencia"
+                ]
               },
               {
                 "title": "Abanico tipo pai pai",
-                "description": "Formato plano con mango, práctico para campañas, ferias, acciones promocionales y eventos donde se prioriza reparto rápido y coste controlado."
+                "description": "Formato plano con mango, práctico para campañas, ferias, acciones promocionales y eventos donde se prioriza reparto rápido y coste controlado.",
+                "features": [
+                  "Ligero",
+                  "Promocional",
+                  "Reparto ágil"
+                ]
               },
               {
                 "title": "Formato a medida",
-                "description": "Adaptamos tamaño, forma y superficie imprimible según diseño, cantidad y uso previsto."
+                "description": "Adaptamos tamaño, forma y superficie imprimible según diseño, cantidad y uso previsto.",
+                "features": [
+                  "Personalizable",
+                  "A medida",
+                  "Diseño flexible"
+                ]
               }
             ],
             "deliveryFormats": [
@@ -4215,15 +4308,30 @@
             "finishes": [
               {
                 "title": "Acabado mate",
-                "description": "Reduce reflejos y aporta una imagen más elegante y sobria."
+                "description": "Reduce reflejos y aporta una imagen más elegante y sobria.",
+                "features": [
+                  "Elegante",
+                  "Menos reflejos"
+                ],
+                "idealFor": "Bodas, eventos corporativos y diseños minimalistas"
               },
               {
                 "title": "Acabado brillo",
-                "description": "Refuerza la intensidad visual del color y aporta un acabado más llamativo."
+                "description": "Refuerza la intensidad visual del color y aporta un acabado más llamativo.",
+                "features": [
+                  "Color vivo",
+                  "Impacto"
+                ],
+                "idealFor": "Campañas promocionales y eventos de marca"
               },
               {
                 "title": "Troquelado o forma especial",
-                "description": "Permite adaptar la silueta al diseño, logo o concepto del evento."
+                "description": "Permite adaptar la silueta al diseño, logo o concepto del evento.",
+                "features": [
+                  "A medida",
+                  "Diferencial"
+                ],
+                "idealFor": "Acciones especiales y piezas con mayor recuerdo"
               }
             ]
           }
@@ -4247,19 +4355,23 @@
             "applications": [
               {
                 "title": "Bodas y celebraciones",
-                "description": "Detalle práctico para invitados, especialmente en ceremonias, banquetes de verano o eventos al aire libre."
+                "description": "Detalle práctico para invitados, especialmente en ceremonias, banquetes de verano o eventos al aire libre.",
+                "icon": "lucide:party-popper"
               },
               {
                 "title": "Ferias y congresos",
-                "description": "Pieza ligera para repartir en stands, zonas de espera o acreditación."
+                "description": "Pieza ligera para repartir en stands, zonas de espera o acreditación.",
+                "icon": "lucide:badge-check"
               },
               {
                 "title": "Eventos corporativos",
-                "description": "Merchandising útil para convenciones, presentaciones, jornadas internas o activaciones de marca."
+                "description": "Merchandising útil para convenciones, presentaciones, jornadas internas o activaciones de marca.",
+                "icon": "lucide:briefcase-business"
               },
               {
                 "title": "Campañas de verano",
-                "description": "Soporte promocional con alta utilidad en terrazas, playas, festivales y acciones exteriores."
+                "description": "Soporte promocional con alta utilidad en terrazas, playas, festivales y acciones exteriores.",
+                "icon": "lucide:sun"
               }
             ]
           }
@@ -4428,7 +4540,7 @@
     },
     {
       "id": "2",
-      "updatedAt": "2026-08-21T11:42:21Z",
+      "updatedAt": "2026-08-25T07:33:42Z",
       "type": "producto",
       "slug": "acreditaciones-personalizadas",
       "path": "/productos/acreditaciones-personalizadas",
@@ -4826,7 +4938,7 @@
     },
     {
       "id": "3",
-      "updatedAt": "2026-08-06T08:55:36Z",
+      "updatedAt": "2026-08-25T07:33:52Z",
       "type": "producto",
       "slug": "agendas-personalizadas",
       "path": "/productos/agendas-personalizadas",
@@ -5120,7 +5232,7 @@
     },
     {
       "id": "4",
-      "updatedAt": "2026-08-06T08:56:04Z",
+      "updatedAt": "2026-08-25T07:34:03Z",
       "type": "producto",
       "slug": "arbol-navidad-corporativo",
       "path": "/productos/arbol-navidad-corporativo",
@@ -5450,7 +5562,7 @@
     },
     {
       "id": "5",
-      "updatedAt": "2026-08-24T07:37:08Z",
+      "updatedAt": "2026-08-25T11:03:43Z",
       "type": "producto",
       "slug": "archivadores-personalizados",
       "path": "/productos/archivadores-personalizados",
@@ -5477,7 +5589,7 @@
           "title": "Beneficios",
           "kind": "benefits",
           "contentFormat": "markdown",
-          "body": "Orden y acceso rápido: documentación siempre localizada y clasificada. \nImagen corporativa uniforme: estanterías y archivo con branding consistente. \nLomo identificable: facilita la gestión por años, clientes, departamentos o proyectos. \nResistencia para uso diario: pensado para manipulación constante en oficina. \nEscalable por series: puedes estandarizar por colores, secciones o codificación interna."
+          "body": "- **Orden y acceso rápido:** documentación siempre localizada y clasificada.\n- **Imagen corporativa uniforme:** estanterías y archivo con branding consistente.\n- **Lomo identificable:** facilita la gestión por años, clientes, departamentos o proyectos.\n- **Resistencia para uso diario:** pensado para manipulación constante en oficina.\n- **Escalable por series:** permite estandarizar por colores, secciones o codificación interna."
         },
         {
           "id": "technical-specs",
@@ -5485,7 +5597,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Tipos de archivador \nArchivador de palanca: el más habitual para archivo intensivo (gran capacidad). \nArchivador de anillas: muy práctico para documentación que se actualiza con frecuencia. \nFormato \nHabitualmente para A4, con opciones según capacidad (lomo más estrecho o más ancho). \nPersonalización \nPersonalización de lomo (título, categoría, año, color por sección). \nPosibilidad de series por departamento, sede o tipo de documentación. \nOpción de incluir códigos internos o QR (si aporta valor en gestión documental). \nAcabados y resistencia \nOpciones de acabado orientadas a durabilidad (para archivo y manipulación frecuente). \nRecomendación práctica: si es un archivador de uso intensivo, conviene priorizar acabados resistentes en lomo y cantos. \nComplementos útiles \nSeparadores con pestañas para organizar por secciones. \nHojas sueltas perforadas (2 o 4 taladros) para reposiciones y actualizaciones. \nEtiquetas de lomo (si prefieres un sistema editable)."
+          "body": "### Tipos de archivador\n\n- **Archivador de palanca:** el más habitual para archivo intensivo y cuando se necesita gran capacidad.\n- **Archivador de anillas:** práctico para documentación que se actualiza con frecuencia.\n\n### Formato\n\n- Habitualmente para A4, con opciones según capacidad y anchura del lomo.\n\n### Personalización\n\n- Personalización del lomo con título, categoría, año o color por sección.\n- Posibilidad de crear series por departamento, sede o tipo de documentación.\n- Opción de incluir códigos internos o QR cuando aporten valor a la gestión documental.\n\n### Acabados y resistencia\n\n- Opciones de acabado orientadas a mejorar la durabilidad para archivo y manipulación frecuente.\n- Para archivadores de uso intensivo conviene priorizar acabados resistentes en lomo y cantos.\n\n### Complementos útiles\n\n- Separadores con pestañas para organizar el contenido por secciones.\n- Hojas sueltas perforadas de 2 o 4 taladros para reposiciones y actualizaciones.\n- Etiquetas de lomo cuando se prefiera un sistema de identificación editable."
         },
         {
           "id": "applications",
@@ -5493,7 +5605,7 @@
           "title": "Aplicaciones",
           "kind": "applications",
           "contentFormat": "markdown",
-          "body": "Administración y contabilidad: facturas, albaranes, IVA, ejercicios por año. \nRRHH: contratos, formación, prevención, documentación interna. \nProyectos: documentación por cliente, obra, expediente o fase. \nCalidad y procedimientos: manuales ISO, registros, auditorías, checklists. \nCatálogos técnicos: fichas y hojas sueltas actualizables en anillas."
+          "body": "- **Administración y contabilidad:** facturas, albaranes, IVA y ejercicios por año.\n- **RRHH:** contratos, formación, prevención y documentación interna.\n- **Proyectos:** documentación por cliente, obra, expediente o fase.\n- **Calidad y procedimientos:** manuales ISO, registros, auditorías y checklists.\n- **Catálogos técnicos:** fichas y hojas sueltas actualizables en anillas."
         }
       ],
       "faqs": [
@@ -6015,7 +6127,7 @@
     },
     {
       "id": "6",
-      "updatedAt": "2026-08-06T08:59:13Z",
+      "updatedAt": "2026-08-25T11:23:52Z",
       "type": "producto",
       "slug": "banderola-fachada-personalizada",
       "path": "/productos/banderola-fachada-personalizada",
@@ -6034,7 +6146,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "### ¿Qué es una banderola luminosa para fachada y para qué se usa? \nUna banderola luminosa es un elemento de comunicación exterior que incorpora iluminación (habitualmente LED) y una gráfica preparada para que, al iluminarse, el diseño se vea uniforme y con alto impacto. Se instala en fachada mediante soporte/brazo y se utiliza para identificar el negocio, reforzar marca y mejorar la localización desde distintos ángulos, especialmente en calles con competencia visual o zonas con poco contraste nocturno."
+          "body": "### ¿Qué es una banderola luminosa para fachada?\n\nUna banderola luminosa para fachada es un elemento de señalización exterior diseñado para identificar un negocio y mejorar su visibilidad desde la calle, especialmente cuando se observa la fachada de forma lateral.\n\nLa gráfica retroiluminada permite mantener el mensaje visible tanto de día como en condiciones de poca luz. Es una solución habitual para comercios, restaurantes, hoteles, clínicas y otros establecimientos que necesitan destacar su ubicación y reforzar su imagen de marca."
         },
         {
           "id": "benefits",
@@ -6042,7 +6154,7 @@
           "title": "Beneficios",
           "kind": "benefits",
           "contentFormat": "markdown",
-          "body": "Visibilidad 24/7: tu marca se ve con claridad también por la noche. \nMás impacto en calle: destaca frente a rótulos no iluminados y entornos cargados. \nMejor localización del negocio: ayuda a encontrar la entrada desde lejos y desde distintos sentidos. \nImagen más profesional: transmite presencia de marca y refuerza confianza. \nGráfica renovable (según sistema): opción práctica para campañas o cambios de imagen."
+          "body": "- **Mayor visibilidad del negocio:** facilita la identificación del establecimiento desde distintos puntos de la calle.\n- **Comunicación visible con poca luz:** la gráfica retroiluminada mantiene presencia cuando disminuye la iluminación exterior.\n- **Lectura desde ambos sentidos:** la configuración con dos pantallas permite aprovechar la visibilidad lateral de la fachada.\n- **Imagen corporativa consistente:** permite reproducir logotipo, colores y elementos gráficos de la marca.\n- **Solución preparada para fachada:** estructura, gráfica y sistema de sujeción se configuran según las necesidades de instalación."
         },
         {
           "id": "technical-specs",
@@ -6050,7 +6162,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Formato y medidas \nMedidas estándar o a medida según fachada, distancia de lectura y normativa del municipio/comunidad (si aplica). \nConfiguración para visibilidad frontal o perpendicular a la fachada (según brazo/soporte). \nGráfica retroiluminada \nImpresión en material backlit para que la luz se distribuya de forma uniforme y los colores mantengan presencia. \nPreparación del diseño para iluminación (contrastes y densidades adaptadas al encendido). \nIluminación \nSistemas con LED por eficiencia y buena uniformidad. \nRecomendación práctica: definir horarios de encendido y ubicación ayuda a elegir la configuración adecuada. \nUna o dos caras \nHabitualmente se plantea doble cara si la banderola se ve desde ambos sentidos de la calle. \nOpción de una cara en configuraciones específicas, según ubicación. \nEstructura y montaje \nPreparación para instalación en fachada mediante soporte/brazo (según el sistema del cliente o proveedor de rótulos). \nPosibilidad de preparar la gráfica para diferentes sistemas de sujeción y cambio. \nAcabados recomendados \nAcabado pensado para exterior y uso continuado. \nSi el entorno tiene mucha luz directa, se ajusta el diseño para mantener legibilidad también durante el día."
+          "body": "### Formatos disponibles\n\n- 50 × 50 cm.\n- 50 × 60 cm.\n- 70 × 40 cm.\n- 70 × 50 cm.\n- 80 × 50 cm.\n- 80 × 60 cm.\n- Para otras medidas, consulta la viabilidad del proyecto.\n\n### Gráfica retroiluminada\n\n- Impresión sobre vinilo especial para retroiluminación.\n- Gráfica preparada para mantener contraste, legibilidad y presencia cuando la banderola está iluminada.\n\n### Pantallas\n\n- Dos pantallas de metacrilato opal de 3 mm.\n- Configuración adecuada para visibilidad desde ambos sentidos de la calle.\n\n### Estructura\n\n- Estructura de aluminio.\n- Disponible en acabado blanco o negro.\n\n### Sujeción y conexión\n\n- Posibilidad de incluir kit de sujeción.\n- Posibilidad de incluir cableado de conexión.\n- La instalación debe adaptarse a las características de la fachada y a la normativa aplicable en cada ubicación.\n\n### Preparación del diseño\n\n- Recomendamos textos breves y tipografía de alta legibilidad.\n- El contraste entre fondo, logotipo y mensaje debe funcionar tanto con iluminación como durante el día."
         },
         {
           "id": "applications",
@@ -6058,7 +6170,7 @@
           "title": "Aplicaciones",
           "kind": "applications",
           "contentFormat": "markdown",
-          "body": "Comercios y franquicias: identificación exterior, campañas estacionales, rebajas. \nHostelería: restaurantes, cafeterías, hoteles y locales con actividad nocturna. \nServicios: clínicas, academias, gimnasios, centros de estética, oficinas a pie de calle. \nNaves y accesos: señalización de entrada y orientación en polígonos. \nEventos temporales: señalización exterior de acceso (según necesidades del proyecto)."
+          "body": "- **Comercios y franquicias:** identificación del establecimiento y refuerzo de marca en fachada.\n- **Hostelería:** restaurantes, cafeterías, bares, hoteles y otros locales con actividad diurna o nocturna.\n- **Servicios:** clínicas, academias, gimnasios, centros de estética y oficinas a pie de calle.\n- **Locales en calles comerciales:** mejora de la identificación cuando existen numerosos estímulos visuales.\n- **Accesos y establecimientos:** señalización visible para facilitar la localización de la entrada."
         }
       ],
       "faqs": [
@@ -6199,8 +6311,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Banderola luminosa para fachada | Visibilidad exterior día y noche",
-        "metaDescription": "Banderola luminosa para fachada con impresión retroiluminada (backlit) y luz LED. Ideal para identificar tu negocio y campañas exteriores. Medidas a medida. Solicita presupuesto.",
+        "metaTitle": "Banderola luminosa para fachada personalizada",
+        "metaDescription": "Banderolas luminosas para fachada con gráfica retroiluminada, metacrilato opal y estructura de aluminio. Varios formatos. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/banderola-fachada-personalizada",
         "hreflang": [
           {
@@ -6209,10 +6321,17 @@
           }
         ],
         "keywords": [
-          "banderola luminosa para fachada"
+          "banderola luminosa para fachada",
+          "banderola luminosa personalizada",
+          "banderola para fachada",
+          "rótulo luminoso tipo banderola"
         ],
         "searchTerms": [
-          "banderola luminosa para fachada"
+          "banderola luminosa",
+          "banderola fachada",
+          "banderola luminosa para fachada",
+          "banderola exterior",
+          "rótulo banderola"
         ],
         "schema": {},
         "robotsOverride": "INHERIT",
@@ -6221,7 +6340,7 @@
     },
     {
       "id": "8",
-      "updatedAt": "2026-08-06T09:18:33Z",
+      "updatedAt": "2026-08-25T07:34:59Z",
       "type": "producto",
       "slug": "banderolas-lineal-personalizadas",
       "path": "/productos/banderolas-lineal-personalizadas",
@@ -6479,7 +6598,7 @@
     },
     {
       "id": "9",
-      "updatedAt": "2026-07-22T07:45:43Z",
+      "updatedAt": "2026-08-25T07:35:20Z",
       "type": "producto",
       "slug": "banderolas-personalizadas",
       "path": "/productos/banderolas-personalizadas",
@@ -13631,7 +13750,7 @@
     },
     {
       "id": "23",
-      "updatedAt": "2026-08-06T09:07:58Z",
+      "updatedAt": "2026-08-25T11:31:45Z",
       "type": "producto",
       "slug": "certificados-personalizados",
       "path": "/productos/certificados-personalizados",
@@ -13650,7 +13769,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "### ¿Qué es un certificado y para qué se usa? \nUn certificado es un documento que acredita oficialmente algo: la asistencia a un curso, la superación de una formación, una participación en evento, una acreditación interna o un reconocimiento. Suele incluir nombre y apellidos, entidad emisora, fecha, firma/sello y, si se requiere, un identificador (numeración o QR) para control y validación."
+          "body": "### Certificados personalizados para empresas, formación y eventos\n\nLos certificados personalizados permiten acreditar una formación, asistencia, participación, reconocimiento o logro mediante un documento adaptado a la identidad de la entidad emisora.\n\nPueden incorporar nombre del destinatario, curso o actividad, fecha, horas de formación, firmas y otros datos necesarios. Para proyectos que requieren control individual también se pueden valorar recursos como numeración, datos variables o códigos QR."
         },
         {
           "id": "benefits",
@@ -13658,7 +13777,7 @@
           "title": "Beneficios",
           "kind": "benefits",
           "contentFormat": "markdown",
-          "body": "Imagen profesional y fiable: transmite seriedad en formación, RRHH y eventos. \nMejora la experiencia de entrega: un buen papel y diseño elevan el valor percibido. \nPersonalización por destinatario: nombres, cursos, fechas, niveles, etc. con datos variables. \nControl y trazabilidad: numeración, series y QR para verificación. \nAcabados premium: opciones para certificados con mayor valor (reconocimientos, programas oficiales)."
+          "body": "- **Presentación profesional:** refuerza la imagen de la empresa, academia o institución que emite el certificado.\n- **Personalización individual:** posibilidad de incorporar nombres, cursos, fechas y otros datos variables.\n- **Coherencia corporativa:** diseño adaptado a colores, tipografía y elementos gráficos de la entidad.\n- **Control documental:** se pueden valorar numeración, series o códigos QR según las necesidades del proyecto.\n- **Diferentes gramajes:** permite ajustar la presencia y rigidez del certificado al tipo de entrega."
         },
         {
           "id": "technical-specs",
@@ -13666,7 +13785,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Formatos habituales \nA4 (el estándar) y opciones a medida según diseño. \nOrientación vertical u horizontal. \nPapeles recomendados \nPapeles de mayor gramaje para un acabado más serio y “de diploma”. \nOpciones con textura para un look premium e institucional. \nOpciones recicladas si buscas un enfoque más sostenible (cuando encaja con el uso). \nImpresión \nImpresión a color o 1–2 tintas según estilo (corporativo o institucional). \nPosibilidad de fondo con marca de agua/elementos gráficos para reforzar seguridad visual. \nPersonalización y control \nDatos variables: nombre, DNI/ID (si aplica), curso, horas, edición, etc. \nNumeración correlativa por series. \nQR opcional: verificación online, descarga de certificado, ficha del curso o registro. \nAcabados (opcionales) \nRelieve en seco (gofrado) para un acabado institucional sin tinta. \nStamping (dorado/plata) para títulos o logotipo. \nBarniz selectivo para resaltar detalles. \nPreparación para firma y sello (zona reservada y legible)."
+          "body": "### Formatos\n\n- DIN A4.\n- DIN A3.\n- Orientación vertical u horizontal según el diseño.\n\n### Papel\n\n- Estucado mate de 250 g/m².\n- Estucado mate de 300 g/m².\n- Estucado mate de 350 g/m².\n\n### Impresión\n\n- Impresión en cuatricromía.\n- Disponible a una cara.\n- Disponible a dos caras.\n\n### Personalización\n\n- Posibilidad de trabajar con datos variables para nombres, cursos, fechas u otros campos.\n- Numeración o códigos QR cuando el proyecto necesite identificación o verificación individual.\n- Preparación de zonas para firma, sello u otros elementos administrativos.\n\n### Acabados especiales\n\n- Los acabados especiales pueden valorarse según el proyecto y el volumen.\n- Si necesitas stamping, relieve u otra terminación específica, indícalo al solicitar presupuesto."
         },
         {
           "id": "applications",
@@ -13674,7 +13793,7 @@
           "title": "Aplicaciones",
           "kind": "applications",
           "contentFormat": "markdown",
-          "body": "Formación y academias: diplomas y certificados de asistencia/aprovechamiento. \nEmpresas (RRHH): certificaciones internas, onboarding, compliance, PRL. \nEventos: participación, ponencias, jurados, voluntariado, acreditaciones. \nInstituciones y entidades: reconocimientos, premios, jornadas y programas. \nCalidad y procesos: auditorías internas, validación de procedimientos, acreditaciones."
+          "body": "- **Formación y academias:** certificados de asistencia, aprovechamiento y finalización de cursos.\n- **Empresas y RRHH:** formación interna, onboarding, prevención y programas corporativos.\n- **Eventos:** participación, ponencias, jornadas, jurados o voluntariado.\n- **Instituciones y entidades:** reconocimientos, programas y actividades.\n- **Procesos internos:** documentación vinculada a formación, calidad o procedimientos de empresa."
         }
       ],
       "faqs": [
@@ -13783,8 +13902,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Certificados personalizados para empresas",
-        "metaDescription": "Certificados personalizados para cursos, eventos y empresas. Papeles premium, datos variables, numeración y acabados como stamping, sellos o relieve.",
+        "metaTitle": "Certificados personalizados para empresas y formación",
+        "metaDescription": "Certificados personalizados para empresas y formación. DIN A4 o A3, papeles de 250 a 350 g/m², datos variables y acabados opcionales.",
         "canonical": "https://reprodisseny.com/productos/certificados-personalizados",
         "hreflang": [
           {
@@ -13793,10 +13912,18 @@
           }
         ],
         "keywords": [
-          "certificados"
+          "certificados personalizados",
+          "impresión de certificados",
+          "certificados para empresas",
+          "certificados para cursos"
         ],
         "searchTerms": [
-          "certificados"
+          "certificados personalizados",
+          "imprimir certificados",
+          "certificados empresa",
+          "certificados formación",
+          "certificados cursos",
+          "certificados impresos"
         ],
         "schema": {},
         "robotsOverride": "INHERIT",
@@ -13805,7 +13932,7 @@
     },
     {
       "id": "25",
-      "updatedAt": "2026-08-06T09:09:02Z",
+      "updatedAt": "2026-08-25T11:34:14Z",
       "type": "producto",
       "slug": "colgador-de-botellas-personalizado",
       "path": "/productos/colgador-de-botellas-personalizado",
@@ -13824,7 +13951,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "### ¿Qué es un colgador de botellas y para qué se usa? \nUn colgador de botellas es una tarjeta troquelada diseñada para colgarse del cuello de una botella (vino, cava, destilados, aceite gourmet, etc.). Se utiliza para destacar promociones, comunicar premios, proponer maridajes, incluir QR a ficha de producto o impulsar acciones como catas, packs regalo y lanzamientos."
+          "body": "### ¿Qué es un colgador de botellas personalizado?\n\nUn colgador de botellas es una pieza gráfica troquelada que se coloca directamente en el cuello de una botella para comunicar una promoción, destacar una referencia o ampliar la información del producto.\n\nSe utiliza habitualmente en vinos, cavas, destilados, aceites y otros productos embotellados. Puede incorporar mensajes promocionales, información de producto, premios, recomendaciones, referencias de campaña o códigos QR."
         },
         {
           "id": "benefits",
@@ -13832,7 +13959,7 @@
           "title": "Beneficios",
           "kind": "benefits",
           "contentFormat": "markdown",
-          "body": "Impacto directo en el punto de decisión: el mensaje está literalmente encima del producto. \nMejora la conversión en lineal: perfecto para promos, novedades y campañas estacionales. \nBranding y storytelling: comunica origen, notas de cata, maridaje o valores de marca. \nPersonalización total: por campaña, referencia, lote, tienda o distribuidor. \nFácil de colocar: pieza ligera, rápida de instalar y de gran visibilidad."
+          "body": "- **Visibilidad en el punto de decisión:** el mensaje se sitúa directamente sobre el producto.\n- **Comunicación promocional:** adecuado para ofertas, lanzamientos, ediciones especiales y campañas estacionales.\n- **Espacio adicional de información:** permite incorporar mensajes sin modificar la etiqueta principal de la botella.\n- **Personalización por referencia:** se pueden preparar versiones para diferentes productos, campañas o establecimientos.\n- **Colocación sencilla:** pieza ligera diseñada para adaptarse al cuello de la botella."
         },
         {
           "id": "technical-specs",
@@ -13840,7 +13967,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Formato y troquel \nTroquel específico para cuello de botella, con orificio o ranura adaptado para que quede bien colgado. \nFormatos habituales: rectangulares, con esquinas redondeadas o formas personalizadas (siluetas, medallas, etiquetas grandes). \nOpción de doble cara para aprovechar mejor el mensaje (promo delante + ficha/QR detrás). \nMaterial \nCartulinas de buen gramaje para que el colgador tenga cuerpo y no se deforme. \nOpciones más resistentes si va a manipularse mucho o se usa en campaña larga. \nImpresión \nImpresión a todo color para destacar marca y mensajes de promo. \nVersiones por referencia (vino tinto, blanco o rosado, añadas, formatos) sin perder coherencia visual. \nAcabados recomendados \nLaminado mate o brillo: mejora resistencia al roce y la presencia (mate suele reducir reflejos en tienda). \nEsquinas redondeadas: mayor durabilidad y mejor tacto. \nOpciones premium (si aplica): barniz selectivo para resaltar logo o claim. \nExtras útiles \nQR a ficha de producto, video, notas de cata, maridajes, promociones o registro.\nDatos variables (si necesitas series por lote o campañas con códigos)."
+          "body": "### Formatos\n\n- 6,5 × 11,7 cm.\n- 6,5 × 14,7 cm.\n\n### Material\n\n- Folding de 255 g/m².\n- Gramaje adecuado para aportar cuerpo a la pieza manteniendo una manipulación sencilla.\n\n### Impresión\n\n- Impresión en cuatricromía.\n- Disponible a una cara.\n- Disponible a dos caras.\n\n### Forma y troquel\n\n- Formato cuadrado o rectangular según configuración.\n- Corte a la forma.\n- El troquel se prepara para adaptar la pieza al cuello de la botella y al diseño del colgador.\n\n### Personalización\n\n- Posibilidad de crear diferentes versiones manteniendo una misma línea gráfica.\n- El diseño puede incorporar promociones, referencias, información de producto o códigos QR.\n\n### Acabados adicionales\n\n- Si el proyecto requiere un acabado especial para mejorar resistencia o presencia, se valorará según uso, cantidad y diseño."
         },
         {
           "id": "applications",
@@ -13848,7 +13975,7 @@
           "title": "Aplicaciones",
           "kind": "applications",
           "contentFormat": "markdown",
-          "body": "Retail y supermercados: promociones, descuentos, 2ª unidad, packs, regalo seguro. \nBodegas y marcas: lanzamientos, ediciones limitadas, premios/medallas, storytelling. \nHostelería: recomendación de vino/cóctel, QR a carta, sugerencias en barra. \nFerias y catas: identificación de referencias, notas de cata, acceso a ficha técnica. \nCampañas estacionales: Navidad, San Valentín, verano, lotes regalo."
+          "body": "- **Bodegas y marcas:** lanzamientos, ediciones especiales, premios e información adicional de producto.\n- **Retail y supermercados:** promociones, campañas y comunicación directamente en el lineal.\n- **Hostelería:** recomendaciones, información de producto y acceso mediante QR a cartas o contenidos digitales.\n- **Ferias y catas:** identificación de referencias y acceso a información técnica o comercial.\n- **Campañas estacionales:** Navidad, promociones especiales, packs regalo y acciones de lanzamiento."
         }
       ],
       "faqs": [
@@ -13973,7 +14100,7 @@
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Colgadores de botellas personalizados",
-        "metaDescription": "Colgadores de botellas personalizados para promociones en tienda y hostelería. Troquelados, resistentes e impresos a color para ofertas y lanzamientos.",
+        "metaDescription": "Colgadores de botellas personalizados en Folding de 255 g/m², impresos a 1 o 2 caras y troquelados a la forma para bodegas, retail y hostelería.",
         "canonical": "https://reprodisseny.com/productos/colgador-de-botellas-personalizado",
         "hreflang": [
           {
@@ -13982,10 +14109,18 @@
           }
         ],
         "keywords": [
-          "colgador de puerta"
+          "colgadores de botellas personalizados",
+          "colgador de botellas",
+          "colgador para cuello de botella",
+          "colgadores promocionales para botellas"
         ],
         "searchTerms": [
-          "colgador de puerta"
+          "colgador de botellas",
+          "colgadores de botellas",
+          "colgador botella personalizado",
+          "colgador cuello botella",
+          "colgadores vino",
+          "colgador promocional botella"
         ],
         "schema": {},
         "robotsOverride": "INHERIT",
@@ -15721,23 +15856,53 @@
             "applications": [
               {
                 "title": "Catálogos de producto y tarifas",
-                "description": "Solución práctica para documentos de consulta frecuente que deben mantener una imagen de marca cuidada."
+                "description": "Solución práctica para documentos de consulta frecuente que deben mantener una imagen de marca cuidada.",
+                "features": [
+                  "Consulta frecuente",
+                  "Imagen de marca",
+                  "Acabado editorial"
+                ],
+                "idealFor": "Catálogos comerciales, tarifas de precios y presentaciones de producto"
               },
               {
                 "title": "Dossiers comerciales y propuestas",
-                "description": "Permite entregar documentación clara, manejable y con una presencia más profesional en reuniones con clientes."
+                "description": "Permite entregar documentación clara, manejable y con una presencia más profesional en reuniones con clientes.",
+                "features": [
+                  "Presentación comercial",
+                  "Apertura cómoda",
+                  "Aspecto premium"
+                ],
+                "idealFor": "Propuestas para clientes, licitaciones, memorias y documentación corporativa"
               },
               {
                 "title": "Portfolios creativos",
-                "description": "Formato adecuado para mostrar trabajos visuales con buena apertura, lectura cómoda y una estética más cuidada."
+                "description": "Formato adecuado para mostrar trabajos visuales con buena apertura, lectura cómoda y una estética más cuidada.",
+                "features": [
+                  "Visual",
+                  "Profesional",
+                  "Consulta en plano"
+                ],
+                "idealFor": "Arquitectura, diseño gráfico, interiorismo, fotografía y agencias creativas"
               },
               {
                 "title": "Manuales corporativos y formativos",
-                "description": "Mantiene la funcionalidad del Wire-O en documentos de uso recurrente, pero con una presentación más sólida y corporativa."
+                "description": "Mantiene la funcionalidad del Wire-O en documentos de uso recurrente, pero con una presentación más sólida y corporativa.",
+                "features": [
+                  "Uso recurrente",
+                  "Formación",
+                  "Imagen corporativa"
+                ],
+                "idealFor": "Manuales internos, guías de formación, procesos, onboarding y documentación técnica"
               },
               {
                 "title": "Documentación interna de alta calidad",
-                "description": "Útil para empresas que quieren entregar documentación interna resistente, ordenada y con una imagen más cuidada."
+                "description": "Útil para empresas que quieren entregar documentación interna resistente, ordenada y con una imagen más cuidada.",
+                "features": [
+                  "Duradero",
+                  "Ordenado",
+                  "Corporativo"
+                ],
+                "idealFor": "Procedimientos, guías internas, documentación de marca y materiales para equipos"
               }
             ]
           }
@@ -16018,27 +16183,57 @@
             "benefits": [
               {
                 "title": "Más durabilidad",
-                "description": "El cosido aporta mayor resistencia al uso repetido y al paso del tiempo, especialmente en publicaciones que se consultan a menudo."
+                "description": "El cosido aporta mayor resistencia al uso repetido y al paso del tiempo, especialmente en publicaciones que se consultan a menudo.",
+                "tags": [
+                  "Duradera",
+                  "Cosida",
+                  "Uso frecuente"
+                ]
               },
               {
                 "title": "Mejor apertura y lectura",
-                "description": "La publicación se maneja mejor que una tapa blanda solo encolada y resulta más cómoda para catálogos, libros y manuales."
+                "description": "La publicación se maneja mejor que una tapa blanda solo encolada y resulta más cómoda para catálogos, libros y manuales.",
+                "tags": [
+                  "Cómoda",
+                  "Lectura",
+                  "Consulta"
+                ]
               },
               {
                 "title": "Acabado editorial con lomo",
-                "description": "Permite identificar la publicación en estantería con título, logotipo, colección o edición."
+                "description": "Permite identificar la publicación en estantería con título, logotipo, colección o edición.",
+                "tags": [
+                  "Editorial",
+                  "Lomo",
+                  "Marca"
+                ]
               },
               {
                 "title": "Imagen de marca más premium",
-                "description": "Ideal para catálogos comerciales, libros corporativos, memorias y publicaciones de empresa con una presentación cuidada."
+                "description": "Ideal para catálogos comerciales, libros corporativos, memorias y publicaciones de empresa con una presentación cuidada.",
+                "tags": [
+                  "Premium",
+                  "Corporativo",
+                  "Marca"
+                ]
               },
               {
                 "title": "Buena opción para muchas páginas",
-                "description": "Funciona especialmente bien en publicaciones de número medio o alto de páginas donde se busca estabilidad y resistencia."
+                "description": "Funciona especialmente bien en publicaciones de número medio o alto de páginas donde se busca estabilidad y resistencia.",
+                "tags": [
+                  "Muchas páginas",
+                  "Estable",
+                  "Resistente"
+                ]
               },
               {
                 "title": "Versátil en acabados",
-                "description": "Permite trabajar con laminados, papeles interiores, cubiertas especiales y detalles de portada para elevar la calidad percibida."
+                "description": "Permite trabajar con laminados, papeles interiores, cubiertas especiales y detalles de portada para elevar la calidad percibida.",
+                "tags": [
+                  "Acabados",
+                  "Cubierta",
+                  "Personalizable"
+                ]
               }
             ]
           }
@@ -18422,7 +18617,13 @@
             "materials": [
               {
                 "title": "Resina de poliuretano transparente",
-                "description": "Capa aproximada de 2 mm con efecto cúpula, volumen, profundidad visual y tacto tridimensional."
+                "description": "Capa aproximada de 2 mm con efecto cúpula, volumen, profundidad visual y tacto tridimensional.",
+                "features": [
+                  "Transparente",
+                  "2 mm",
+                  "Efecto cúpula"
+                ],
+                "idealFor": "Etiquetas doming con acabado 3D brillante"
               }
             ]
           }
@@ -21618,23 +21819,53 @@
             "applications": [
               {
                 "title": "Restaurantes y bares",
-                "description": "Hules lavables para mesas de interior con alta rotación, pensados para proteger la superficie y facilitar la limpieza entre servicios."
+                "description": "Hules lavables para mesas de interior con alta rotación, pensados para proteger la superficie y facilitar la limpieza entre servicios.",
+                "features": [
+                  "Lavable",
+                  "Uso diario",
+                  "Imagen uniforme"
+                ],
+                "idealFor": "Mesas de comedor, barras, menús de temporada y zonas con servicio continuo"
               },
               {
                 "title": "Terrazas",
-                "description": "Solución práctica para mesas exteriores donde interesa proteger, limpiar rápido y mantener una estética coherente con la marca."
+                "description": "Solución práctica para mesas exteriores donde interesa proteger, limpiar rápido y mantener una estética coherente con la marca.",
+                "features": [
+                  "Exterior",
+                  "Impermeable",
+                  "Fácil mantenimiento"
+                ],
+                "idealFor": "Terrazas de bares, restaurantes, cafeterías y chiringuitos"
               },
               {
                 "title": "Hoteles y bufés",
-                "description": "Hules personalizados para zonas de desayuno, buffet, mesas auxiliares o eventos internos, con diseño adaptado a la imagen del hotel."
+                "description": "Hules personalizados para zonas de desayuno, buffet, mesas auxiliares o eventos internos, con diseño adaptado a la imagen del hotel.",
+                "features": [
+                  "Corporativo",
+                  "Funcional",
+                  "A medida"
+                ],
+                "idealFor": "Buffets, desayunos, salas de eventos y zonas de apoyo"
               },
               {
                 "title": "Eventos y caterings",
-                "description": "Manteles de hule personalizados para barras, mesas de servicio, espacios promocionales o zonas infantiles en eventos temporales."
+                "description": "Manteles de hule personalizados para barras, mesas de servicio, espacios promocionales o zonas infantiles en eventos temporales.",
+                "features": [
+                  "Promocional",
+                  "Versátil",
+                  "Rápido de limpiar"
+                ],
+                "idealFor": "Caterings, ferias, fiestas, promociones y eventos de marca"
               },
               {
                 "title": "Centros y colectividades",
-                "description": "Hules resistentes para comedores, talleres, actividades y espacios donde la mesa tiene un uso frecuente e intensivo."
+                "description": "Hules resistentes para comedores, talleres, actividades y espacios donde la mesa tiene un uso frecuente e intensivo.",
+                "features": [
+                  "Resistente",
+                  "Práctico",
+                  "Uso intensivo"
+                ],
+                "idealFor": "Comedores, escuelas, centros cívicos, residencias y espacios infantiles"
               }
             ]
           }
@@ -22844,23 +23075,48 @@
             "benefits": [
               {
                 "title": "Menos calor interior",
-                "description": "Ayudan a reducir la entrada de calor en cristales con exposición solar directa, mejorando el confort en oficinas, comercios y viviendas."
+                "description": "Ayudan a reducir la entrada de calor en cristales con exposición solar directa, mejorando el confort en oficinas, comercios y viviendas.",
+                "features": [
+                  "Control solar",
+                  "Confort",
+                  "Cristal existente"
+                ]
               },
               {
                 "title": "Reducción del deslumbramiento",
-                "description": "Mejoran la visibilidad en zonas de trabajo, escaparates y espacios con pantallas o mucha luz natural."
+                "description": "Mejoran la visibilidad en zonas de trabajo, escaparates y espacios con pantallas o mucha luz natural.",
+                "features": [
+                  "Menos reflejos",
+                  "Oficinas",
+                  "Pantallas"
+                ]
               },
               {
                 "title": "Protección de mobiliario y producto",
-                "description": "Pueden ayudar a proteger muebles, materiales, escaparates y productos expuestos frente al desgaste provocado por la luz solar."
+                "description": "Pueden ayudar a proteger muebles, materiales, escaparates y productos expuestos frente al desgaste provocado por la luz solar.",
+                "features": [
+                  "Protección",
+                  "UV según modelo",
+                  "Escaparates"
+                ]
               },
               {
                 "title": "Más privacidad según acabado",
-                "description": "Las opciones tonalizadas o reflectantes pueden mejorar la privacidad visual sin bloquear completamente la entrada de luz."
+                "description": "Las opciones tonalizadas o reflectantes pueden mejorar la privacidad visual sin bloquear completamente la entrada de luz.",
+                "features": [
+                  "Privacidad",
+                  "Tonalizada",
+                  "Reflectante"
+                ]
               },
               {
                 "title": "Sin cambiar el cristal",
-                "description": "Permiten mejorar el comportamiento solar del vidrio existente con una intervención limpia y adaptable a cada ventana o escaparate."
+                "description": "Permiten mejorar el comportamiento solar del vidrio existente con una intervención limpia y adaptable a cada ventana o escaparate.",
+                "features": [
+                  "Rápido",
+                  "Limpio",
+                  "Adaptable"
+                ]
               }
             ]
           }
@@ -22876,23 +23132,58 @@
             "materials": [
               {
                 "title": "Lámina solar neutra",
-                "description": "Recomendada cuando se busca mejorar el confort manteniendo una imagen discreta y una buena entrada de luz natural."
+                "description": "Recomendada cuando se busca mejorar el confort manteniendo una imagen discreta y una buena entrada de luz natural.",
+                "features": [
+                  "Discreta",
+                  "Confort térmico",
+                  "Buena entrada de luz"
+                ],
+                "idealFor": "Oficinas, viviendas y cristales donde se quiere mantener una estética limpia",
+                "icon": "sun"
               },
               {
                 "title": "Lámina solar tonalizada",
-                "description": "Aporta control solar con un cambio visual moderado en el cristal, útil en espacios con mucha claridad o exposición directa."
+                "description": "Aporta control solar con un cambio visual moderado en el cristal, útil en espacios con mucha claridad o exposición directa.",
+                "features": [
+                  "Tonalizada",
+                  "Menos claridad",
+                  "Control solar"
+                ],
+                "idealFor": "Despachos, locales, ventanales y zonas con exceso de luz",
+                "icon": "contrast"
               },
               {
                 "title": "Lámina solar reflectante",
-                "description": "Indicada cuando se busca mayor rechazo solar y privacidad visual, valorando siempre el efecto desde el interior y el exterior."
+                "description": "Indicada cuando se busca mayor rechazo solar y privacidad visual, valorando siempre el efecto desde el interior y el exterior.",
+                "features": [
+                  "Reflectante",
+                  "Privacidad",
+                  "Mayor rechazo solar"
+                ],
+                "idealFor": "Escaparates, fachadas acristaladas y cristales con sol directo",
+                "icon": "shield"
               },
               {
                 "title": "Lámina para instalación interior",
-                "description": "Opción habitual en muchas aplicaciones por su mantenimiento sencillo y protección frente al uso diario."
+                "description": "Opción habitual en muchas aplicaciones por su mantenimiento sencillo y protección frente al uso diario.",
+                "features": [
+                  "Interior",
+                  "Mantenimiento sencillo",
+                  "Aplicación limpia"
+                ],
+                "idealFor": "Oficinas, mamparas, viviendas y locales comerciales",
+                "icon": "home"
               },
               {
                 "title": "Lámina para instalación exterior",
-                "description": "Solución a valorar cuando el tipo de vidrio, la orientación o las condiciones técnicas aconsejan trabajar por la cara exterior."
+                "description": "Solución a valorar cuando el tipo de vidrio, la orientación o las condiciones técnicas aconsejan trabajar por la cara exterior.",
+                "features": [
+                  "Exterior",
+                  "Uso técnico",
+                  "Alta exposición"
+                ],
+                "idealFor": "Vidrios específicos, fachadas y zonas con condiciones solares exigentes",
+                "icon": "building-2"
               }
             ]
           }
@@ -22908,19 +23199,39 @@
             "shapes": [
               {
                 "title": "Corte a medida por cristal",
-                "description": "La lámina se prepara según las medidas reales de cada paño de vidrio para conseguir un ajuste limpio y profesional."
+                "description": "La lámina se prepara según las medidas reales de cada paño de vidrio para conseguir un ajuste limpio y profesional.",
+                "features": [
+                  "A medida",
+                  "Por cristal",
+                  "Ajuste limpio"
+                ]
               },
               {
                 "title": "Instalación interior o exterior",
-                "description": "La cara de aplicación se define según el tipo de vidrio, la exposición solar, la orientación y las condiciones técnicas del proyecto."
+                "description": "La cara de aplicación se define según el tipo de vidrio, la exposición solar, la orientación y las condiciones técnicas del proyecto.",
+                "features": [
+                  "Interior",
+                  "Exterior",
+                  "Asesoramiento técnico"
+                ]
               },
               {
                 "title": "Ventanas, escaparates y mamparas",
-                "description": "Puede aplicarse en una ventana puntual, escaparates completos, mamparas, cerramientos o fachadas acristaladas."
+                "description": "Puede aplicarse en una ventana puntual, escaparates completos, mamparas, cerramientos o fachadas acristaladas.",
+                "features": [
+                  "Cristal",
+                  "Escaparate",
+                  "Mamparas"
+                ]
               },
               {
                 "title": "Diferentes niveles de protección",
-                "description": "Seleccionamos la lámina según transmisión de luz, rechazo solar, privacidad y aspecto visual deseado."
+                "description": "Seleccionamos la lámina según transmisión de luz, rechazo solar, privacidad y aspecto visual deseado.",
+                "features": [
+                  "Luz",
+                  "Privacidad",
+                  "Rechazo solar"
+                ]
               }
             ],
             "deliveryFormats": []
@@ -22937,23 +23248,58 @@
             "finishes": [
               {
                 "title": "Transparente o neutra",
-                "description": "Mantiene una imagen discreta y mejora el confort sin alterar en exceso la estética del vidrio."
+                "description": "Mantiene una imagen discreta y mejora el confort sin alterar en exceso la estética del vidrio.",
+                "features": [
+                  "Discreta",
+                  "Neutra",
+                  "Luz natural"
+                ],
+                "idealFor": "Cristales donde se quiere conservar una imagen limpia",
+                "icon": "eye"
               },
               {
                 "title": "Tonalizada",
-                "description": "Reduce luz y calor con un cambio visual moderado, adecuada cuando se busca mayor protección sin un efecto demasiado reflectante."
+                "description": "Reduce luz y calor con un cambio visual moderado, adecuada cuando se busca mayor protección sin un efecto demasiado reflectante.",
+                "features": [
+                  "Tonalizada",
+                  "Menos luz",
+                  "Confort"
+                ],
+                "idealFor": "Oficinas, viviendas, despachos y locales con mucha claridad",
+                "icon": "sliders-horizontal"
               },
               {
                 "title": "Reflectante",
-                "description": "Aporta mayor rechazo solar y puede mejorar la privacidad, siempre valorando el efecto visual exterior y la visibilidad desde el interior."
+                "description": "Aporta mayor rechazo solar y puede mejorar la privacidad, siempre valorando el efecto visual exterior y la visibilidad desde el interior.",
+                "features": [
+                  "Reflectante",
+                  "Privacidad",
+                  "Rechazo solar"
+                ],
+                "idealFor": "Escaparates, fachadas y cristales con exposición directa",
+                "icon": "sparkles"
               },
               {
                 "title": "Control de deslumbramiento",
-                "description": "Ayuda a reducir reflejos y exceso de claridad en zonas de trabajo, escaparates, salas y espacios con pantallas."
+                "description": "Ayuda a reducir reflejos y exceso de claridad en zonas de trabajo, escaparates, salas y espacios con pantallas.",
+                "features": [
+                  "Menos reflejos",
+                  "Pantallas",
+                  "Trabajo visual"
+                ],
+                "idealFor": "Oficinas, aulas, clínicas y espacios con pantallas",
+                "icon": "monitor"
               },
               {
                 "title": "Protección UV según modelo",
-                "description": "Algunas láminas ayudan a reducir la radiación UV y a proteger mobiliario, producto expuesto o materiales sensibles a la luz."
+                "description": "Algunas láminas ayudan a reducir la radiación UV y a proteger mobiliario, producto expuesto o materiales sensibles a la luz.",
+                "features": [
+                  "UV",
+                  "Protección",
+                  "Producto expuesto"
+                ],
+                "idealFor": "Escaparates, mobiliario y espacios con exposición prolongada",
+                "icon": "sun-dim"
               }
             ]
           }
@@ -22977,31 +23323,38 @@
             "applications": [
               {
                 "title": "Oficinas y despachos",
-                "description": "Mejora del confort térmico y reducción del deslumbramiento en zonas con mucha entrada de sol."
+                "description": "Mejora del confort térmico y reducción del deslumbramiento en zonas con mucha entrada de sol.",
+                "icon": "briefcase-business"
               },
               {
                 "title": "Escaparates comerciales",
-                "description": "Protección de productos expuestos, reducción de reflejos y mayor confort interior del local."
+                "description": "Protección de productos expuestos, reducción de reflejos y mayor confort interior del local.",
+                "icon": "store"
               },
               {
                 "title": "Locales, hoteles y restaurantes",
-                "description": "Control solar en espacios de atención al público con cristaleras, ventanales o fachadas acristaladas."
+                "description": "Control solar en espacios de atención al público con cristaleras, ventanales o fachadas acristaladas.",
+                "icon": "utensils"
               },
               {
                 "title": "Viviendas y comunidades",
-                "description": "Aplicación en ventanales, terrazas acristaladas, galerías, cerramientos y zonas con exposición solar directa."
+                "description": "Aplicación en ventanales, terrazas acristaladas, galerías, cerramientos y zonas con exposición solar directa.",
+                "icon": "house"
               },
               {
                 "title": "Mamparas y separaciones de cristal",
-                "description": "Control de luz, mejora visual y privacidad en interiores corporativos o espacios compartidos."
+                "description": "Control de luz, mejora visual y privacidad en interiores corporativos o espacios compartidos.",
+                "icon": "panels-top-left"
               },
               {
                 "title": "Fachadas acristaladas",
-                "description": "Soluciones de control solar para grandes superficies de vidrio y cerramientos exteriores."
+                "description": "Soluciones de control solar para grandes superficies de vidrio y cerramientos exteriores.",
+                "icon": "building-2"
               },
               {
                 "title": "Centros educativos, clínicas y gimnasios",
-                "description": "Reducción de calor y deslumbramiento en aulas, salas, consultas y espacios de uso continuado."
+                "description": "Reducción de calor y deslumbramiento en aulas, salas, consultas y espacios de uso continuado.",
+                "icon": "school"
               }
             ]
           }
@@ -25984,11 +26337,11 @@
     },
     {
       "id": "21",
-      "updatedAt": "2026-08-06T09:06:52Z",
+      "updatedAt": "2026-08-25T11:26:25Z",
       "type": "producto",
       "slug": "panel-carton-compacto-personalizado",
       "path": "/productos/panel-carton-compacto-personalizado",
-      "title": "Panel de cartón compacto",
+      "title": "Panel de cartón compacto personalizado",
       "categorySlug": "material-rigido",
       "categorySlugs": [
         "material-rigido"
@@ -26003,7 +26356,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "### ¿Qué es un panel de cartón compacto y para qué se usa? \nUn panel de cartón compacto (también conocido como cartón rígido o cartón gris, según acabados) es un soporte de alta densidad, pensado para piezas que deben mantener la forma y aguantar manipulación en campañas, punto de venta o eventos. Se puede imprimir directamente o, más habitualmente, montar una impresión sobre el cartón para conseguir un acabado más “premium” y consistente."
+          "body": "### ¿Qué es un panel de cartón compacto?\n\nEl panel de cartón compacto es un soporte rígido de base papel indicado para comunicación visual en interior. Su estabilidad y superficie permiten producir cartelería, señalética, displays y piezas de PLV con una presentación sólida y profesional.\n\nPuede imprimirse a una o dos caras y cortarse en formato rectangular o siguiendo la forma del diseño, por lo que resulta especialmente útil para campañas, puntos de venta, eventos y elementos promocionales personalizados."
         },
         {
           "id": "benefits",
@@ -26011,7 +26364,7 @@
           "title": "Beneficios",
           "kind": "benefits",
           "contentFormat": "markdown",
-          "body": "Muy rígido y estable: ideal para piezas que necesitan cuerpo y presencia. \nAcabado profesional: perfecto para comunicación corporativa y PLV. \nCorte y troquelado a medida: permite formas, siluetas y piezas funcionales. \nOpción más sostenible: al ser un soporte de base papel, es una alternativa interesante para campañas con enfoque eco (especialmente si se evita laminado plástico). \nVersátil: sirve como panel, base de display, soporte de mostrador o pieza estructural ligera."
+          "body": "- **Buena rigidez:** adecuado para piezas que necesitan mantener forma y presencia.\n- **Impresión a una o dos caras:** permite adaptar la gráfica a la ubicación y al sentido de visualización.\n- **Formato personalizado:** producción a medida según las necesidades de cada pieza.\n- **Corte recto o a la forma:** permite crear paneles convencionales y siluetas personalizadas.\n- **Adecuado para interior:** una solución práctica para PLV, señalética, displays y comunicación temporal."
         },
         {
           "id": "technical-specs",
@@ -26019,7 +26372,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Medidas y grosor \nFormatos estándar o totalmente a medida. \nDiferentes grosores según tamaño, rigidez necesaria y tipo de montaje. \nImpresión \nImpresión a todo color con buena definición. \nOpción a una o dos caras según visibilidad (por ejemplo, piezas en zonas de paso). \nMontaje (si aplica) \nPosibilidad de montar una impresión (papel impreso) sobre el cartón compacto para mejorar acabado y uniformidad, especialmente en piezas de marca. \nCorte y acabados \nCorte recto o troquel/corte a medida (formas, esquinas redondeadas, siluetas). \nPosibilidad de ranuras/encajes si la pieza debe ser automontable o formar parte de un display. \nSostenibilidad \nSoporte de base papel, reciclable en condiciones habituales.\nSi el objetivo es mantener la pieza “lo más reciclable posible”, conviene valorar acabados sin laminado plástico (te asesoramos según uso)."
+          "body": "### Material\n\n- Panel Serimatt de 2 mm.\n- Color blanco.\n\n### Formato\n\n- Tamaño personalizado según proyecto.\n- Las dimensiones finales se definen en función del diseño y de la aplicación.\n\n### Impresión\n\n- Impresión en cuatricromía.\n- Opción de impresión a una cara.\n- Opción de impresión a dos caras.\n\n### Corte\n\n- Corte recto para formatos convencionales.\n- Corte a la forma para siluetas y diseños personalizados.\n\n### Uso recomendado\n\n- Principalmente indicado para interior.\n- Adecuado para campañas temporales, comunicación comercial, señalética y PLV.\n- Para aplicaciones expuestas a humedad o exterior conviene valorar un soporte específicamente diseñado para esas condiciones.\n\n### Sostenibilidad\n\n- Soporte de base papel.\n- La reciclabilidad final de la pieza dependerá también de los acabados, adhesivos u otros materiales incorporados al proyecto."
         },
         {
           "id": "applications",
@@ -26027,7 +26380,7 @@
           "title": "Aplicaciones",
           "kind": "applications",
           "contentFormat": "markdown",
-          "body": "PLV y punto de venta: displays, stoppers, señalización interior y corners. \nExpositores de mesa: piezas rígidas para mostrador (promos, precios, QR). \nSeñalética interior: información, direcciones, normativa, pictogramas. \nEventos: cartelería rígida, paneles informativos, soportes temporales. \nPiezas creativas: siluetas troqueladas, letras, formas de producto y elementos decorativos."
+          "body": "- **PLV y punto de venta:** paneles promocionales, displays y comunicación de campaña.\n- **Expositores de mesa:** soportes rígidos para precios, promociones, mensajes o códigos QR.\n- **Señalética interior:** información, direcciones, normativa y pictogramas.\n- **Ferias y eventos:** paneles informativos y comunicación temporal.\n- **Piezas personalizadas:** siluetas, formas de producto y elementos gráficos cortados a la forma."
         }
       ],
       "faqs": [
@@ -26062,7 +26415,7 @@
           "url": "/categorias/gran-formato/material-rigido"
         },
         {
-          "name": "Panel de cartón compacto",
+          "name": "Panel de cartón compacto personalizado",
           "url": "/productos/panel-carton-compacto-personalizado"
         }
       ],
@@ -26150,8 +26503,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Panel de cartón compacto personalizado | PLV",
-        "metaDescription": "Panel de cartón compacto impreso a medida para displays, cartelería y PLV en interior. Muy rígido, corte a medida y opción una o dos caras. Solicita presupuesto.",
+        "metaTitle": "Panel de cartón compacto personalizado para PLV",
+        "metaDescription": "Panel de cartón compacto personalizado en Serimatt de 2 mm. Impresión a 1 o 2 caras y corte recto o a la forma para PLV y señalética.",
         "canonical": "https://reprodisseny.com/productos/panel-carton-compacto-personalizado",
         "hreflang": [
           {
@@ -26160,10 +26513,17 @@
           }
         ],
         "keywords": [
-          "cartón compacto"
+          "panel de cartón compacto",
+          "cartón compacto personalizado",
+          "panel rígido de cartón",
+          "panel de cartón para PLV"
         ],
         "searchTerms": [
-          "cartón compacto"
+          "cartón compacto",
+          "panel cartón compacto",
+          "panel rígido cartón",
+          "cartón compacto PLV",
+          "panel cartón personalizado"
         ],
         "schema": {},
         "robotsOverride": "INHERIT",
@@ -26172,11 +26532,11 @@
     },
     {
       "id": "22",
-      "updatedAt": "2026-08-06T09:07:34Z",
+      "updatedAt": "2026-08-25T11:28:58Z",
       "type": "producto",
       "slug": "panel-carton-corrugado-personalizado",
       "path": "/productos/panel-carton-corrugado-personalizado",
-      "title": "Panel de cartón corrugado",
+      "title": "Panel de cartón corrugado personalizado",
       "categorySlug": "material-rigido",
       "categorySlugs": [
         "material-rigido"
@@ -26191,7 +26551,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "### ¿Qué es un panel de cartón corrugado y para qué se usa? \nUn panel de cartón corrugado (cartón ondulado) es un soporte formado por una o varias capas de papel con una estructura interna ondulada que aporta rigidez sin aumentar demasiado el peso. Se utiliza principalmente en interior para comunicación temporal: cartelería rígida, displays, expositores sencillos, señalización y piezas promocionales que necesitan buena presencia con un coste contenido."
+          "body": "### ¿Qué es un panel de cartón corrugado?\n\nEl panel de cartón corrugado es un soporte ligero de base papel cuya estructura interior aporta rigidez con un peso reducido. Está especialmente indicado para comunicación visual temporal en interiores, campañas promocionales, señalética y PLV.\n\nSu combinación de ligereza, impresión a color y posibilidad de corte personalizado permite producir desde paneles rectangulares hasta siluetas y piezas gráficas para tiendas, ferias y eventos."
         },
         {
           "id": "benefits",
@@ -26199,7 +26559,7 @@
           "title": "Beneficios",
           "kind": "benefits",
           "contentFormat": "markdown",
-          "body": "Ligero y manejable: fácil de transportar, mover y montar en tienda o evento. \nBuena rigidez para campañas: ideal para piezas temporales y comunicación en punto de venta. \nEficiente en coste: opción muy competitiva para campañas por volumen o rotación frecuente. \nReciclable y más sostenible: al ser un soporte de base papel, es una alternativa eco para acciones temporales (especialmente si evitamos laminados plásticos). \nPersonalización total: tamaños a medida, impresión a color y corte/troquelado según el diseño."
+          "body": "- **Ligero y manejable:** facilita el transporte, la manipulación y el montaje de las piezas.\n- **Buena relación entre peso y rigidez:** adecuado para campañas y comunicación temporal.\n- **Impresión a una o dos caras:** permite adaptar el panel a diferentes ubicaciones.\n- **Corte personalizado:** disponible con corte recto o siguiendo la forma del diseño.\n- **Soporte de base papel:** una alternativa interesante cuando se busca reducir el uso de soportes plásticos en aplicaciones de interior."
         },
         {
           "id": "technical-specs",
@@ -26207,7 +26567,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "Estructura y grosores \nCartón ondulado con diferentes configuraciones según rigidez y uso (una onda o varias). \nElección de grosor en función de: tamaño del panel, si irá colgado, apoyado o autoportante. \nImpresión \nImpresión a todo color con buena definición para textos, iconos y gráfica corporativa. \nOpción a una o dos caras si se verá desde ambos sentidos. \nCorte y acabados \nCorte recto o corte/troquel a medida (formas, siluetas, esquinas redondeadas). \nPosibilidad de ranuras/encajes para piezas automontables o estructuras simples (según diseño). \nPreparación de taladros/puntos de fijación si se va a colgar o sujetar. \nMontaje e instalación \nPanel para colgar, fijar a pared, apoyar o integrar en un expositor. \nSi necesitas montaje rápido, podemos preparar la pieza pensada para instalación sencilla (por sets o por zonas). \nSostenibilidad \nSoporte de base papel reciclable. \nSi el objetivo es mantenerlo “lo más reciclable posible”, recomendamos evitar laminados plásticos o acabados no compatibles (te asesoramos según el uso y la duración). \nUso recomendado \nPrincipalmente interior. Para exterior o humedad prolongada, conviene valorar soportes más adecuados."
+          "body": "### Material\n\n- Cartón corrugado Microcanal E de 1700 µ.\n- Disponible en blanco o kraft.\n\n### Formato\n\n- Tamaño personalizado según las necesidades del proyecto.\n- Las dimensiones finales se definen en función de la gráfica, el montaje y el uso previsto.\n\n### Impresión\n\n- Impresión en cuatricromía.\n- Disponible a una cara.\n- Disponible a dos caras.\n\n### Corte\n\n- Corte recto para paneles convencionales.\n- Corte a la forma para siluetas y diseños personalizados.\n\n### Uso recomendado\n\n- Recomendado principalmente para interior.\n- Adecuado para campañas temporales, PLV, señalética, retail y eventos.\n- Para exposición prolongada a humedad o exterior conviene utilizar un soporte específicamente preparado para esas condiciones.\n\n### Sostenibilidad\n\n- Soporte de base papel.\n- Si se busca facilitar su reciclaje posterior, conviene evitar acabados o materiales adicionales que dificulten la separación de residuos."
         },
         {
           "id": "applications",
@@ -26215,7 +26575,7 @@
           "title": "Aplicaciones",
           "kind": "applications",
           "contentFormat": "markdown",
-          "body": "PLV y punto de venta: paneles promocionales, stoppers grandes, cartelería de campaña, corners. \nSeñalética interior: direcciones, normativa, zonas, información temporal. \nFerias y eventos: carteles informativos, señalización de espacios, soportes ligeros para montaje rápido. \nCampañas estacionales: rebajas, lanzamientos, promociones y comunicación por departamentos/tiendas. \nPiezas creativas: siluetas, flechas, formas de producto y elementos decorativos temporales."
+          "body": "- **PLV y retail:** paneles promocionales, cartelería de campaña y comunicación en punto de venta.\n- **Señalética interior:** direcciones, información temporal, zonas y mensajes corporativos.\n- **Ferias y eventos:** paneles ligeros para información y orientación de espacios.\n- **Campañas estacionales:** rebajas, promociones, lanzamientos y cambios frecuentes de comunicación.\n- **Piezas creativas:** siluetas, flechas, formas de producto y elementos decorativos temporales."
         }
       ],
       "faqs": [
@@ -26250,7 +26610,7 @@
           "url": "/categorias/gran-formato/material-rigido"
         },
         {
-          "name": "Panel de cartón corrugado",
+          "name": "Panel de cartón corrugado personalizado",
           "url": "/productos/panel-carton-corrugado-personalizado"
         }
       ],
@@ -26339,8 +26699,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Panel de cartón corrugado personalizado",
-        "metaDescription": "Panel de cartón corrugado impreso a medida para cartelería, señalética y PLV en interior. Ligero, económico y reciclable, con corte recto o a la forma.",
+        "metaTitle": "Panel de cartón corrugado personalizado para PLV",
+        "metaDescription": "Panel de cartón corrugado personalizado en Microcanal E. Impresión a 1 o 2 caras, color blanco o kraft y corte a la forma para PLV y señalética.",
         "canonical": "https://reprodisseny.com/productos/panel-carton-corrugado-personalizado",
         "hreflang": [
           {
@@ -26349,10 +26709,18 @@
           }
         ],
         "keywords": [
-          "cartón corrugado"
+          "panel de cartón corrugado",
+          "cartón corrugado personalizado",
+          "panel de cartón ondulado",
+          "cartón microcanal para PLV"
         ],
         "searchTerms": [
-          "cartón corrugado"
+          "cartón corrugado",
+          "panel cartón corrugado",
+          "cartón ondulado",
+          "panel microcanal",
+          "cartón corrugado PLV",
+          "panel cartón personalizado"
         ],
         "schema": {},
         "robotsOverride": "INHERIT",
@@ -26916,19 +27284,23 @@
             "applications": [
               {
                 "title": "Señalética interior",
-                "description": "Paneles ligeros para indicar zonas, recorridos, normas o información corporativa."
+                "description": "Paneles ligeros para indicar zonas, recorridos, normas o información corporativa.",
+                "icon": "lucide:signpost"
               },
               {
                 "title": "Retail y punto de venta",
-                "description": "Cartelería rígida para promociones, precios, campañas o comunicación en tienda."
+                "description": "Cartelería rígida para promociones, precios, campañas o comunicación en tienda.",
+                "icon": "lucide:store"
               },
               {
                 "title": "Ferias y eventos",
-                "description": "Soporte ligero y fácil de manipular para stands, presentaciones y montajes temporales."
+                "description": "Soporte ligero y fácil de manipular para stands, presentaciones y montajes temporales.",
+                "icon": "lucide:badge-check"
               },
               {
                 "title": "Decoración corporativa",
-                "description": "Piezas impresas para oficinas, salas, recepciones o espacios de marca."
+                "description": "Piezas impresas para oficinas, salas, recepciones o espacios de marca.",
+                "icon": "lucide:building-2"
               }
             ]
           }
@@ -32272,15 +32644,32 @@
             "materials": [
               {
                 "title": "PVC blanco",
-                "description": "Base más habitual para tarjetas impresas con buena presencia y durabilidad."
+                "description": "Base más habitual para tarjetas impresas con buena presencia y durabilidad.",
+                "features": [
+                  "Rígido",
+                  "Resistente",
+                  "Profesional"
+                ],
+                "idealFor": "Fidelización, tarjetas regalo, identificación y acceso"
               },
               {
                 "title": "PVC con impresión a todo color",
-                "description": "Permite reproducir marca, imágenes, fondos y datos con acabado consistente."
+                "description": "Permite reproducir marca, imágenes, fondos y datos con acabado consistente.",
+                "features": [
+                  "Color",
+                  "Marca",
+                  "Duradero"
+                ],
+                "idealFor": "Tarjetas comerciales y promociones"
               },
               {
                 "title": "Opciones especiales según proyecto",
-                "description": "Según necesidad, se puede estudiar perforación, numeración, QR o preparación para sistemas concretos."
+                "description": "Según necesidad, se puede estudiar perforación, numeración, QR o preparación para sistemas concretos.",
+                "features": [
+                  "Personalizable",
+                  "Funcional"
+                ],
+                "idealFor": "Acceso, control, campañas o identificación"
               }
             ]
           }
@@ -32296,15 +32685,28 @@
             "shapes": [
               {
                 "title": "Formato tipo tarjeta bancaria",
-                "description": "Formato compacto y reconocible, cómodo para cartera, control de acceso o fidelización."
+                "description": "Formato compacto y reconocible, cómodo para cartera, control de acceso o fidelización.",
+                "features": [
+                  "Estándar",
+                  "Cómodo",
+                  "Duradero"
+                ]
               },
               {
                 "title": "Formato a medida",
-                "description": "Medidas especiales cuando el proyecto necesita una tarjeta diferente, una credencial premium o una pieza promocional específica."
+                "description": "Medidas especiales cuando el proyecto necesita una tarjeta diferente, una credencial premium o una pieza promocional específica.",
+                "features": [
+                  "A medida",
+                  "Diferencial"
+                ]
               },
               {
                 "title": "Impresión una o dos caras",
-                "description": "Permite combinar marca, datos, QR, numeración, instrucciones o información legal según necesidad."
+                "description": "Permite combinar marca, datos, QR, numeración, instrucciones o información legal según necesidad.",
+                "features": [
+                  "1 o 2 caras",
+                  "Información variable"
+                ]
               }
             ],
             "deliveryFormats": [
@@ -32330,15 +32732,31 @@
             "finishes": [
               {
                 "title": "Acabado mate",
-                "description": "Aporta una presencia sobria y reduce reflejos."
+                "description": "Aporta una presencia sobria y reduce reflejos.",
+                "features": [
+                  "Sobrio",
+                  "Corporativo"
+                ],
+                "idealFor": "Empresas, clubs y tarjetas premium"
               },
               {
                 "title": "Acabado brillo",
-                "description": "Refuerza el color y genera una apariencia más llamativa."
+                "description": "Refuerza el color y genera una apariencia más llamativa.",
+                "features": [
+                  "Color vivo",
+                  "Promocional"
+                ],
+                "idealFor": "Campañas, promociones y tarjetas regalo"
               },
               {
                 "title": "Numeración, QR o datos variables",
-                "description": "Útil para identificar cada tarjeta, medir campañas o vincularla a una base de datos."
+                "description": "Útil para identificar cada tarjeta, medir campañas o vincularla a una base de datos.",
+                "features": [
+                  "Control",
+                  "Medición",
+                  "Personalización"
+                ],
+                "idealFor": "Fidelización, acceso y promociones"
               }
             ]
           }
@@ -32362,19 +32780,23 @@
             "applications": [
               {
                 "title": "Tarjetas de fidelización",
-                "description": "Soporte resistente para programas de cliente, promociones y acciones recurrentes."
+                "description": "Soporte resistente para programas de cliente, promociones y acciones recurrentes.",
+                "icon": "lucide:badge-percent"
               },
               {
                 "title": "Identificación",
-                "description": "Tarjetas para empleados, socios, alumnos, asistentes o acreditaciones."
+                "description": "Tarjetas para empleados, socios, alumnos, asistentes o acreditaciones.",
+                "icon": "lucide:id-card"
               },
               {
                 "title": "Control de acceso",
-                "description": "Tarjetas duraderas para gimnasios, oficinas, eventos, clubs o instalaciones."
+                "description": "Tarjetas duraderas para gimnasios, oficinas, eventos, clubs o instalaciones.",
+                "icon": "lucide:key-round"
               },
               {
                 "title": "Regalo o tarjeta premium",
-                "description": "Formato más resistente y profesional para tarjetas regalo, membresías o campañas especiales."
+                "description": "Formato más resistente y profesional para tarjetas regalo, membresías o campañas especiales.",
+                "icon": "lucide:gift"
               }
             ]
           }

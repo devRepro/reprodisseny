@@ -526,10 +526,17 @@
     "title": "Banderola luminosa para fachada",
     "path": "/productos/banderola-fachada-personalizada",
     "keywords": [
-      "banderola luminosa para fachada"
+      "banderola luminosa para fachada",
+      "banderola luminosa personalizada",
+      "banderola para fachada",
+      "rótulo luminoso tipo banderola"
     ],
     "searchTerms": [
-      "banderola luminosa para fachada"
+      "banderola luminosa",
+      "banderola fachada",
+      "banderola luminosa para fachada",
+      "banderola exterior",
+      "rótulo banderola"
     ]
   },
   {
@@ -1199,10 +1206,18 @@
     "title": "Certificados personalizados",
     "path": "/productos/certificados-personalizados",
     "keywords": [
-      "certificados"
+      "certificados personalizados",
+      "impresión de certificados",
+      "certificados para empresas",
+      "certificados para cursos"
     ],
     "searchTerms": [
-      "certificados"
+      "certificados personalizados",
+      "imprimir certificados",
+      "certificados empresa",
+      "certificados formación",
+      "certificados cursos",
+      "certificados impresos"
     ]
   },
   {
@@ -1211,10 +1226,18 @@
     "title": "Colgador de botellas personalizado",
     "path": "/productos/colgador-de-botellas-personalizado",
     "keywords": [
-      "colgador de puerta"
+      "colgadores de botellas personalizados",
+      "colgador de botellas",
+      "colgador para cuello de botella",
+      "colgadores promocionales para botellas"
     ],
     "searchTerms": [
-      "colgador de puerta"
+      "colgador de botellas",
+      "colgadores de botellas",
+      "colgador botella personalizado",
+      "colgador cuello botella",
+      "colgadores vino",
+      "colgador promocional botella"
     ]
   },
   {
@@ -2244,25 +2267,40 @@
   {
     "type": "producto",
     "slug": "panel-carton-compacto-personalizado",
-    "title": "Panel de cartón compacto",
+    "title": "Panel de cartón compacto personalizado",
     "path": "/productos/panel-carton-compacto-personalizado",
     "keywords": [
-      "cartón compacto"
+      "panel de cartón compacto",
+      "cartón compacto personalizado",
+      "panel rígido de cartón",
+      "panel de cartón para PLV"
     ],
     "searchTerms": [
-      "cartón compacto"
+      "cartón compacto",
+      "panel cartón compacto",
+      "panel rígido cartón",
+      "cartón compacto PLV",
+      "panel cartón personalizado"
     ]
   },
   {
     "type": "producto",
     "slug": "panel-carton-corrugado-personalizado",
-    "title": "Panel de cartón corrugado",
+    "title": "Panel de cartón corrugado personalizado",
     "path": "/productos/panel-carton-corrugado-personalizado",
     "keywords": [
-      "cartón corrugado"
+      "panel de cartón corrugado",
+      "cartón corrugado personalizado",
+      "panel de cartón ondulado",
+      "cartón microcanal para PLV"
     ],
     "searchTerms": [
-      "cartón corrugado"
+      "cartón corrugado",
+      "panel cartón corrugado",
+      "cartón ondulado",
+      "panel microcanal",
+      "cartón corrugado PLV",
+      "panel cartón personalizado"
     ]
   },
   {
