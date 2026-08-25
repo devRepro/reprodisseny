@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-25T15:13:51.328Z",
+  "generatedAt": "2026-08-25T15:43:22.734Z",
   "categories": [
     {
       "id": "12",
@@ -5054,7 +5054,7 @@
     },
     {
       "id": "3",
-      "updatedAt": "2026-08-25T15:09:31Z",
+      "updatedAt": "2026-08-25T15:19:18Z",
       "type": "producto",
       "slug": "agendas-personalizadas",
       "path": "/productos/agendas-personalizadas",
@@ -5311,7 +5311,20 @@
         "alt": "Agendas personalizadas para empresas, equipos y regalos corporativos"
       },
       "galleryImages": [],
-      "relatedProductsJson": [],
+      "relatedProductsJson": [
+        {
+          "label": "Blocs de notas personalizados",
+          "productSlug": "blocs-notas"
+        },
+        {
+          "label": "Calendarios personalizados",
+          "productSlug": "calendarios-personalizados"
+        },
+        {
+          "label": "Archivadores personalizados",
+          "productSlug": "archivadores-personalizados"
+        }
+      ],
       "sku": "01-OFICI-0024",
       "brand": "Repro Disseny",
       "attributes": [],
@@ -6126,7 +6139,7 @@
     },
     {
       "id": "7",
-      "updatedAt": "2026-08-06T09:00:04Z",
+      "updatedAt": "2026-08-25T15:23:50Z",
       "type": "producto",
       "slug": "banderola-lona-fachada",
       "path": "/productos/banderola-lona-fachada",
@@ -6152,8 +6165,42 @@
           "key": "materials",
           "title": "Materiales",
           "kind": "materials",
-          "contentFormat": "markdown",
-          "body": "La elección de la lona depende de la ubicación, la exposición al viento y el sistema real de instalación en fachada.\n\n- **Lona para exterior:** opción habitual para banderolas de fachada, con buena resistencia para campañas, identificación de negocio y comunicación exterior.\n- **Lona microperforada:** recomendable cuando hay viento o se necesita reducir el efecto “vela” en puntos expuestos.\n- **Material adaptado al soporte:** si ya existe una estructura, brazo o bastidor, ajustamos la preparación de la lona para que encaje correctamente."
+          "contentFormat": "json",
+          "materialsData": {
+            "intro": "La lona debe seleccionarse según la ubicación, la exposición al viento, el tamaño de la banderola y el sistema de instalación previsto en fachada.",
+            "materials": [
+              {
+                "title": "Lona PVC frontlit",
+                "description": "Soporte habitual para comunicación exterior por su equilibrio entre resistencia, flexibilidad y calidad de impresión. En la configuración actual trabajamos con lona PVC de 400 g/m².",
+                "features": [
+                  "Exterior",
+                  "Flexible",
+                  "Impresión gran formato"
+                ],
+                "idealFor": "Fachadas, comercios y campañas exteriores"
+              },
+              {
+                "title": "Lona microperforada mesh",
+                "description": "Su estructura perforada permite el paso parcial del aire y ayuda a reducir el efecto vela en banderolas grandes o ubicaciones más expuestas al viento.",
+                "features": [
+                  "Microperforada",
+                  "Menor presión del viento",
+                  "Exterior"
+                ],
+                "idealFor": "Fachadas expuestas y formatos de mayor superficie"
+              },
+              {
+                "title": "Confección adaptada al soporte",
+                "description": "El material debe prepararse de acuerdo con brazos, barras, bastidores, mástiles o sistemas de tensión existentes para evitar esfuerzos innecesarios.",
+                "features": [
+                  "Vainas",
+                  "Ojales",
+                  "Refuerzo"
+                ],
+                "idealFor": "Instalaciones sobre estructura existente"
+              }
+            ]
+          }
         },
         {
           "id": "formats",
@@ -6294,7 +6341,16 @@
         "alt": "Banderola de lona personalizada para fachada exterior e identificación de negocio"
       },
       "galleryImages": [],
-      "relatedProductsJson": [],
+      "relatedProductsJson": [
+        {
+          "label": "Banderola luminosa para fachada",
+          "productSlug": "banderola-fachada-personalizada"
+        },
+        {
+          "label": "Banderolas personalizadas",
+          "productSlug": "banderolas-personalizadas"
+        }
+      ],
       "sku": "01-GRFO-0007",
       "brand": "Reprodisseny",
       "attributes": [
@@ -6415,10 +6471,35 @@
           }
         ],
         "keywords": [
-          "banderola para fachada de lona"
+          "banderola de lona para fachada",
+          "banderola fachada personalizada",
+          "banderola exterior personalizada",
+          "lona para banderola",
+          "banderola publicitaria fachada",
+          "banderola lona exterior",
+          "banderola microperforada",
+          "impresión lona para fachada",
+          "banderola comercio personalizada",
+          "banderolas fachada Barcelona"
         ],
         "searchTerms": [
-          "banderola para fachada de lona"
+          "banderola lona fachada",
+          "banderola de lona personalizada",
+          "banderola exterior fachada",
+          "banderola publicitaria fachada",
+          "lona banderola exterior",
+          "banderola lona PVC",
+          "banderola lona 400 g",
+          "banderola microperforada",
+          "lona mesh fachada",
+          "banderola con vaina",
+          "banderola con ojales",
+          "imprimir banderola fachada",
+          "fabricar banderola exterior",
+          "precio banderola fachada",
+          "presupuesto banderola lona",
+          "banderola fachada Barcelona",
+          "impresión lona exterior Barcelona"
         ],
         "schema": {},
         "robotsOverride": "INHERIT",
@@ -6427,7 +6508,7 @@
     },
     {
       "id": "6",
-      "updatedAt": "2026-08-25T11:23:52Z",
+      "updatedAt": "2026-08-25T15:36:34Z",
       "type": "producto",
       "slug": "banderola-fachada-personalizada",
       "path": "/productos/banderola-fachada-personalizada",
@@ -6453,8 +6534,62 @@
           "key": "benefits",
           "title": "Beneficios",
           "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "- **Mayor visibilidad del negocio:** facilita la identificación del establecimiento desde distintos puntos de la calle.\n- **Comunicación visible con poca luz:** la gráfica retroiluminada mantiene presencia cuando disminuye la iluminación exterior.\n- **Lectura desde ambos sentidos:** la configuración con dos pantallas permite aprovechar la visibilidad lateral de la fachada.\n- **Imagen corporativa consistente:** permite reproducir logotipo, colores y elementos gráficos de la marca.\n- **Solución preparada para fachada:** estructura, gráfica y sistema de sujeción se configuran según las necesidades de instalación."
+          "contentFormat": "json",
+          "benefitsData": {
+            "intro": "Una banderola luminosa combina señalización exterior, retroiluminación y visibilidad lateral para facilitar la localización de un establecimiento tanto de día como de noche.",
+            "benefits": [
+              {
+                "title": "Mayor visibilidad desde la calle",
+                "description": "La instalación perpendicular a la fachada facilita identificar el establecimiento desde ambos sentidos de circulación.",
+                "features": [
+                  "Fachada",
+                  "Visibilidad lateral",
+                  "Señalización"
+                ],
+                "idealFor": "Comercios, hostelería y servicios"
+              },
+              {
+                "title": "Visible también con poca luz",
+                "description": "La retroiluminación mantiene logotipo y mensaje claramente visibles al anochecer o en calles con iluminación limitada.",
+                "features": [
+                  "Retroiluminada",
+                  "LED",
+                  "Uso nocturno"
+                ],
+                "idealFor": "Negocios con actividad de tarde o noche"
+              },
+              {
+                "title": "Gráfica preparada para backlight",
+                "description": "El vinilo especial de retroiluminación está pensado para trabajar con luz posterior y mantener contraste y legibilidad.",
+                "features": [
+                  "Backlit",
+                  "Vinilo especial",
+                  "Alta legibilidad"
+                ],
+                "idealFor": "Logotipos, señalización y marca"
+              },
+              {
+                "title": "Visibilidad a doble cara",
+                "description": "Las dos pantallas de metacrilato opal permiten presentar la gráfica hacia ambos sentidos de la calle.",
+                "features": [
+                  "Doble cara",
+                  "Metacrilato opal",
+                  "Exterior"
+                ],
+                "idealFor": "Calles comerciales y zonas peatonales"
+              },
+              {
+                "title": "Estructura profesional",
+                "description": "La estructura de aluminio aporta una solución limpia y estable que puede suministrarse en acabado blanco o negro.",
+                "features": [
+                  "Aluminio",
+                  "Blanco o negro",
+                  "Durabilidad"
+                ],
+                "idealFor": "Fachadas comerciales y corporativas"
+              }
+            ]
+          }
         },
         {
           "id": "technical-specs",
@@ -6469,26 +6604,54 @@
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "- **Comercios y franquicias:** identificación del establecimiento y refuerzo de marca en fachada.\n- **Hostelería:** restaurantes, cafeterías, bares, hoteles y otros locales con actividad diurna o nocturna.\n- **Servicios:** clínicas, academias, gimnasios, centros de estética y oficinas a pie de calle.\n- **Locales en calles comerciales:** mejora de la identificación cuando existen numerosos estímulos visuales.\n- **Accesos y establecimientos:** señalización visible para facilitar la localización de la entrada."
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Las banderolas luminosas son especialmente adecuadas para establecimientos que necesitan ser identificados rápidamente desde la vía pública.",
+            "applications": [
+              {
+                "title": "Comercios y franquicias",
+                "description": "Identificación de tiendas y refuerzo de marca en calles comerciales, centros urbanos y zonas peatonales."
+              },
+              {
+                "title": "Restaurantes, bares y cafeterías",
+                "description": "Señalización visible durante horarios de tarde y noche y en calles con elevada competencia visual."
+              },
+              {
+                "title": "Hoteles y alojamientos",
+                "description": "Identificación de accesos y establecimientos para clientes que llegan desde diferentes sentidos."
+              },
+              {
+                "title": "Clínicas y centros profesionales",
+                "description": "Facilita localizar clínicas, academias, gimnasios, centros de estética y otros servicios a pie de calle."
+              },
+              {
+                "title": "Oficinas y espacios corporativos",
+                "description": "Refuerzo de la identidad y señalización de accesos en edificios empresariales."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
         {
-          "question": "¿En qué se diferencia una banderola de lineal de un stopper?",
-          "answer": "El stopper suele sobresalir hacia el pasillo para captar la atención de forma más directa. La banderola de lineal funciona más como una señal vertical o una bandera visual dentro de la estantería, y es especialmente útil para identificar categorías o destacar una referencia concreta."
+          "question": "¿La banderola luminosa se ve desde ambos sentidos de la calle?",
+          "answer": "Sí. La configuración con dos pantallas permite mostrar la gráfica hacia ambos sentidos de circulación, lo que mejora la identificación del establecimiento."
         },
         {
-          "question": "¿Conviene fabricar las banderolas de lineal a doble cara?",
-          "answer": "Sí, especialmente cuando el lineal o el pasillo es visible desde ambos sentidos. En este tipo de ubicaciones, la doble cara mejora claramente la visibilidad y el impacto del mensaje."
+          "question": "¿Qué material se utiliza para la gráfica?",
+          "answer": "La configuración actual utiliza vinilo especial para retroiluminación aplicado sobre pantallas de metacrilato opal, de modo que la gráfica mantenga contraste y legibilidad cuando está iluminada."
         },
         {
-          "question": "¿Se pueden preparar por campañas o promociones para cambiarlas con rapidez?",
-          "answer": "Sí. Podemos producir juegos de banderolas por temporada, promoción o campaña, y adaptar el sistema de fijación para que la sustitución sea rápida, práctica y operativa en tienda."
+          "question": "¿Qué medidas están disponibles?",
+          "answer": "Disponemos de varios formatos habituales, entre ellos 50 × 50, 50 × 60, 70 × 40, 70 × 50, 80 × 50 y 80 × 60 cm. Para otras medidas es necesario revisar la viabilidad."
         },
         {
-          "question": "¿Podéis ayudar con el diseño para que el mensaje se entienda en pocos segundos?",
-          "answer": "Sí. Te ayudamos a plantear un diseño claro y efectivo, con titular corto, alto contraste, tipografía legible y un beneficio o llamada a la acción fácil de identificar de un vistazo."
+          "question": "¿La estructura puede ser blanca o negra?",
+          "answer": "Sí. La estructura de aluminio puede configurarse en acabado blanco o negro según el proyecto y la fachada."
+        },
+        {
+          "question": "¿Incluye sistema de fijación y cableado?",
+          "answer": "Puede suministrarse con kit de sujeción y cableado de conexión. La instalación final debe adaptarse a la fachada y a la normativa aplicable."
         }
       ],
       "breadcrumbs": [
@@ -6520,7 +6683,16 @@
         "alt": "Banderola luminosa personalizada para fachada, rótulos comerciales y visibilidad exterior"
       },
       "galleryImages": [],
-      "relatedProductsJson": [],
+      "relatedProductsJson": [
+        {
+          "label": "Banderola de lona para fachada",
+          "productSlug": "banderola-lona-fachada"
+        },
+        {
+          "label": "Banderolas personalizadas",
+          "productSlug": "banderolas-personalizadas"
+        }
+      ],
       "sku": "01-GRFO-0008",
       "brand": "Reprodisseny",
       "attributes": [],
@@ -6623,8 +6795,13 @@
         "keywords": [
           "banderola luminosa para fachada",
           "banderola luminosa personalizada",
-          "banderola para fachada",
-          "rótulo luminoso tipo banderola"
+          "rótulo banderola luminoso",
+          "banderola LED exterior",
+          "banderola retroiluminada",
+          "rótulo luminoso doble cara",
+          "banderola metacrilato opal",
+          "rótulo para comercio",
+          "banderola luminosa Barcelona"
         ],
         "searchTerms": [
           "banderola luminosa",
@@ -6640,7 +6817,7 @@
     },
     {
       "id": "8",
-      "updatedAt": "2026-08-25T07:34:59Z",
+      "updatedAt": "2026-08-25T15:42:44Z",
       "type": "producto",
       "slug": "banderolas-lineal-personalizadas",
       "path": "/productos/banderolas-lineal-personalizadas",
@@ -6659,15 +6836,59 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "### ¿Qué es una banderola de lineal y para qué se usa? \nUna banderola de lineal es un elemento publicitario que se coloca en estanterías o góndolas (normalmente en el borde o en un rail) y queda visible por encima o delante del producto. Se utiliza para destacar ofertas, novedades, packs, promociones temporales o mensajes como “Nuevo”, “Top ventas”, “Edición limitada”, etc."
+          "body": "Las **banderolas de lineal personalizadas** son elementos de publicidad en el punto de venta (PLV) diseñados para sobresalir de la estantería y captar la atención del comprador justo donde se produce la decisión de compra.\n\nSe utilizan en supermercados, farmacias, perfumerías, tiendas especializadas y otros espacios retail para **destacar promociones, lanzamientos, novedades, categorías o productos concretos**. Su posición perpendicular al lineal permite que el mensaje sea visible desde el pasillo y destaque frente al resto del packaging y la señalización de la estantería.\n\n## Banderolas PLV adaptadas a cada campaña\n\nPodemos producir banderolas de lineal en diferentes medidas, formas y configuraciones según el mobiliario, la duración de la campaña y la distancia de lectura.\n\nLa gráfica puede incorporar logotipos, imágenes de producto, precios, promociones, códigos QR o mensajes como **nuevo, oferta, recomendado, edición limitada o lanzamiento**.\n\nCuando una campaña requiere varias versiones, podemos mantener una misma línea gráfica y adaptar textos, referencias, idiomas, promociones o códigos para cada tienda, zona o producto.\n\n## Formatos personalizados para destacar en la estantería\n\nAdemás de formatos rectangulares o cuadrados, las banderolas pueden producirse con **corte o troquelado personalizado** para seguir la silueta de un producto, logotipo o elemento gráfico.\n\nEsta posibilidad permite crear piezas de PLV más reconocibles y diferenciadas sin ocupar una gran superficie dentro del establecimiento.\n\nSegún el proyecto, también podemos valorar impresión a doble cara para que la comunicación sea visible desde ambos sentidos del pasillo.\n\n## Materiales y sistema de fijación\n\nEl material debe seleccionarse según el tiempo de exposición, el tamaño de la pieza y el sistema utilizado para sujetarla al lineal.\n\nPodemos estudiar soluciones para diferentes tipos de estanterías, perfiles, rails y mobiliario comercial. El objetivo es conseguir una pieza suficientemente rígida para mantener la visibilidad y, al mismo tiempo, práctica de instalar y sustituir durante los cambios de campaña.\n\nSi ya dispones de un sistema de fijación concreto, puedes indicarlo al solicitar presupuesto. Si no lo tienes definido, revisamos la aplicación para determinar la solución más adecuada.\n\n## Producción para retail, cadenas y campañas multisede\n\nLas banderolas de lineal son especialmente útiles en campañas que deben desplegarse de forma homogénea en múltiples establecimientos.\n\nPodemos organizar la producción por **tienda, campaña, referencia, idioma o zona de instalación**, facilitando la distribución y el montaje del material de PLV.\n\nTambién pueden combinarse con otros elementos de publicidad en el punto de venta para construir una campaña visual coherente en toda la zona de exposición.\n\n## ¿Qué necesitamos para preparar el presupuesto?\n\nPara valorar una producción de banderolas de lineal necesitamos conocer, siempre que sea posible:\n\n- Cantidad de unidades.\n- Medidas aproximadas.\n- Impresión a una o dos caras.\n- Duración prevista de la campaña.\n- Tipo de establecimiento o mobiliario.\n- Sistema de fijación, si ya está definido.\n- Número de diseños o versiones diferentes.\n- Fecha y lugar de entrega.\n\nCon esta información podemos recomendar la configuración más adecuada y preparar un **presupuesto para banderolas de lineal personalizadas** adaptado a la campaña."
         },
         {
           "id": "benefits",
           "key": "benefits",
           "title": "Beneficios",
           "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "Más visibilidad en el lineal: destaca por encima del ruido visual de la estantería. \nMejora la conversión: ideal para empujar una referencia concreta (promo, lanzamiento, producto estrella). \nMensaje rápido: perfecto para claims cortos y directos (2x1, -20%, nuevo, recomendado).\nPersonalización por campaña y tienda: versiones por zona, idioma, categoría o tipo de punto de venta. \nFácil de instalar y cambiar: pensadas para rotación de campañas sin complicar la operativa."
+          "contentFormat": "json",
+          "benefitsData": {
+            "intro": "Las banderolas de lineal son elementos de PLV diseñados para sobresalir visualmente de la estantería y captar la atención del comprador justo en el punto de decisión.",
+            "benefits": [
+              {
+                "title": "Más visibilidad en el lineal",
+                "description": "Sobresalen respecto a etiquetas y packaging y ayudan a destacar una referencia concreta dentro de una estantería saturada.",
+                "features": [
+                  "PLV",
+                  "Retail",
+                  "Alta visibilidad"
+                ],
+                "idealFor": "Supermercados, farmacias y tiendas"
+              },
+              {
+                "title": "Mensaje promocional inmediato",
+                "description": "Funcionan especialmente bien con mensajes breves como nuevo, oferta, lanzamiento, recomendado o edición limitada.",
+                "features": [
+                  "Promoción",
+                  "Lectura rápida",
+                  "Conversión"
+                ],
+                "idealFor": "Campañas y lanzamientos"
+              },
+              {
+                "title": "Adaptables a cada punto de venta",
+                "description": "Pueden prepararse en diferentes formatos, versiones, idiomas o promociones manteniendo una misma línea gráfica.",
+                "features": [
+                  "Versiones",
+                  "Datos variables",
+                  "Multitienda"
+                ],
+                "idealFor": "Cadenas, franquicias y campañas nacionales"
+              },
+              {
+                "title": "Instalación rápida",
+                "description": "El sistema de fijación se selecciona según rail, estantería, mobiliario o soporte para facilitar cambios de campaña.",
+                "features": [
+                  "Montaje rápido",
+                  "Rail",
+                  "Retail"
+                ],
+                "idealFor": "Campañas con rotación frecuente"
+              }
+            ]
+          }
         },
         {
           "id": "formats",
@@ -6738,56 +6959,28 @@
           "kind": "technical-specs",
           "contentFormat": "markdown",
           "body": "Sistema de colocación\n\n- Pensadas para colocarse en lineales, estanterías, góndolas, rails, expositores o muebles de punto de venta.\n- La configuración puede adaptarse al tipo de soporte, duración de campaña y forma de instalación prevista.\n- Recomendamos validar el sistema de fijación antes de producir si el lineal tiene medidas, rails o acabados especiales.\n\nFormato y legibilidad\n\n- Formatos verticales u horizontales según el espacio disponible y la distancia de lectura.\n- Mensajes breves y directos para facilitar la lectura rápida en zonas de compra.\n- Diseño preparado para destacar promociones, novedades, precios, categorías o producto recomendado.\n\nProducción\n\n- Impresión a todo color sobre soporte adecuado para campañas de retail.\n- Posibilidad de corte recto, corte a medida o troquelado según diseño.\n- Acabados opcionales como laminado protector o esquinas redondeadas para mejorar resistencia y manipulación.\n\nUso recomendado\n\n- Indicadas para campañas temporales, lanzamientos, promociones, producto destacado o señalización por categoría.\n- Para campañas prolongadas o zonas con mucha manipulación, conviene valorar materiales y acabados más resistentes."
-        },
-        {
-          "id": "applications",
-          "key": "applications",
-          "title": "Aplicaciones",
-          "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "Supermercados y retail: campañas estacionales, promociones, lanzamientos y señalización por categoría. \nFarmacia/parafarmacia: novedades, recomendados, campañas por laboratorio. \nTiendas especializadas: producto destacado, packs, descuentos por tiempo limitado. \nShowrooms y corners: refuerzo visual en exposición de producto. \nFerias o pop-ups: señalización rápida en estanterías o muebles temporales."
         }
       ],
       "faqs": [
         {
-          "question": "¿Las láminas solares se colocan por dentro o por fuera del cristal?",
-          "answer": "Pueden colocarse por el interior o por el exterior, según el tipo de vidrio, la exposición solar y las necesidades del proyecto. En Repro Disseny te asesoramos para escoger la opción más adecuada."
+          "question": "¿Qué diferencia hay entre una banderola de lineal y un stopper?",
+          "answer": "Ambos son elementos de PLV. El stopper suele proyectarse más hacia el pasillo para captar la atención, mientras que la banderola puede utilizarse como señal visual de marca, promoción o categoría integrada en el lineal."
         },
         {
-          "question": "¿Las láminas solares reducen el calor?",
-          "answer": "Sí. Las láminas solares ayudan a reducir la entrada de calor provocada por la radiación solar. El nivel de protección dependerá del tipo de lámina instalada y de las características del cristal."
+          "question": "¿Se pueden imprimir a doble cara?",
+          "answer": "Sí. Es recomendable cuando el elemento será visible desde ambos sentidos del pasillo o desde diferentes puntos de la tienda."
         },
         {
-          "question": "¿Las láminas solares sirven para escaparates?",
-          "answer": "Sí. Son una buena solución para escaparates expuestos al sol, ya que ayudan a proteger los productos, reducir los reflejos y mejorar el confort interior del local."
+          "question": "¿Se pueden fabricar con forma personalizada?",
+          "answer": "Sí. El corte o troquelado puede adaptarse a logotipos, siluetas o creatividades especiales siempre que la configuración mantenga una instalación estable."
         },
         {
-          "question": "¿Las láminas solares quitan visibilidad desde el interior?",
-          "answer": "Depende del modelo de lámina. Existen opciones transparentes, ligeramente tonalizadas o reflectantes. Te recomendaremos la más adecuada según el nivel de luz, privacidad y estética que necesites."
+          "question": "¿Podéis producir versiones diferentes para cada tienda?",
+          "answer": "Sí. Podemos mantener una base gráfica común y cambiar mensajes, promociones, idiomas, precios o referencias según el punto de venta."
         },
         {
-          "question": "¿Se pueden instalar láminas solares en cualquier tipo de cristal?",
-          "answer": "No siempre. Antes de instalar una lámina solar conviene revisar el tipo de vidrio, su orientación y las condiciones de exposición para evitar problemas y garantizar un buen resultado."
-        },
-        {
-          "question": "¿Las láminas solares protegen frente a los rayos UV?",
-          "answer": "Según el modelo, las láminas solares pueden ayudar a reducir la exposición a la radiación UV y proteger mobiliario, productos expuestos, tejidos y otros materiales sensibles a la luz solar."
-        },
-        {
-          "question": "¿Las láminas solares reducen el deslumbramiento en oficinas?",
-          "answer": "Sí. Ayudan a reducir el deslumbramiento provocado por la entrada directa de luz y pueden mejorar el confort visual en oficinas, despachos, comercios, aulas y otros espacios de trabajo."
-        },
-        {
-          "question": "¿Las láminas solares aportan privacidad?",
-          "answer": "Algunos modelos pueden mejorar la privacidad, especialmente las láminas reflectantes o tonalizadas. El resultado dependerá de la iluminación interior y exterior, del tipo de lámina y del nivel de transmisión de luz."
-        },
-        {
-          "question": "¿Es necesario cambiar los cristales para instalar una lámina solar?",
-          "answer": "No. Las láminas solares se aplican sobre los cristales existentes, por lo que permiten mejorar el control solar, reducir el deslumbramiento y aumentar el confort sin sustituir las ventanas."
-        },
-        {
-          "question": "¿Cómo se elige la lámina solar más adecuada?",
-          "answer": "Se debe valorar el tipo de cristal, la orientación, las horas de exposición solar, el nivel de calor o deslumbramiento, la entrada de luz que se quiere mantener, la privacidad y si la instalación debe realizarse por el interior o por el exterior."
+          "question": "¿Qué necesitáis para presupuestar?",
+          "answer": "Necesitamos cantidad, medidas aproximadas, duración de la campaña, tipo de lineal o mobiliario y, si se conoce, el sistema de fijación."
         }
       ],
       "breadcrumbs": [
@@ -6819,9 +7012,14 @@
         "alt": "Banderola de lineal personalizada para promociones y productos en punto de venta"
       },
       "galleryImages": [],
-      "relatedProductsJson": [],
+      "relatedProductsJson": [
+        {
+          "label": "Banderolas personalizadas",
+          "productSlug": "banderolas-personalizadas"
+        }
+      ],
       "sku": "01-OFICI-0011",
-      "brand": "Reprodisseny",
+      "brand": "Repro Disseny",
       "attributes": [],
       "variants": [],
       "formFields": [
@@ -6889,7 +7087,23 @@
           "banderolas lineal"
         ],
         "searchTerms": [
-          "banderolas lineal"
+          "banderolas de lineal",
+          "banderola lineal personalizada",
+          "banderolas PLV",
+          "PLV para estanterías",
+          "banderola supermercado",
+          "banderola para retail",
+          "banderola para punto de venta",
+          "material PLV personalizado",
+          "publicidad en lineal",
+          "señalización estanterías",
+          "banderolas promociones tienda",
+          "banderola troquelada",
+          "banderola doble cara retail",
+          "fabricar banderolas PLV",
+          "precio banderolas lineal",
+          "presupuesto material PLV",
+          "imprenta PLV Barcelona"
         ],
         "schema": {},
         "robotsOverride": "INHERIT",
@@ -6898,7 +7112,7 @@
     },
     {
       "id": "9",
-      "updatedAt": "2026-08-25T07:35:20Z",
+      "updatedAt": "2026-08-25T15:37:19Z",
       "type": "producto",
       "slug": "banderolas-personalizadas",
       "path": "/productos/banderolas-personalizadas",
@@ -7046,8 +7260,36 @@
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "Eventos y festivales: accesos, perímetro, zonas de paso, recinto y parking. \nAyuntamientos y campañas: comunicación en vía pública, señalización temporal. \nRetail y centros comerciales: campañas estacionales, rebajas, entradas y pasillos. \nHoteles y hostelería: eventos, congresos, señalización de accesos y zonas. \nFachadas y calles comerciales: promoción de marca, aperturas e inauguraciones."
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Las banderolas publicitarias permiten reforzar marca, señalizar recorridos y aumentar la visibilidad en exteriores, ferias, instalaciones deportivas y espacios comerciales.",
+            "applications": [
+              {
+                "title": "Eventos y festivales",
+                "description": "Señalización de accesos, zonas de paso, escenarios, áreas de patrocinadores y perímetros."
+              },
+              {
+                "title": "Ferias y congresos",
+                "description": "Identificación de accesos, zonas exteriores, recorridos y espacios de marca."
+              },
+              {
+                "title": "Retail y centros comerciales",
+                "description": "Campañas estacionales, aperturas, rebajas y refuerzo visual en entradas y zonas promocionales."
+              },
+              {
+                "title": "Hoteles y hostelería",
+                "description": "Señalización de accesos, congresos, terrazas, eventos y espacios exteriores."
+              },
+              {
+                "title": "Eventos deportivos",
+                "description": "Patrocinio, señalización de recorridos, accesos, salidas, metas y zonas de público."
+              },
+              {
+                "title": "Campañas corporativas",
+                "description": "Branding temporal en sedes, inauguraciones, activaciones y eventos de empresa."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
@@ -7093,7 +7335,20 @@
         "alt": "Banderolas de lineal personalizadas para promociones, retail y punto de venta"
       },
       "galleryImages": [],
-      "relatedProductsJson": [],
+      "relatedProductsJson": [
+        {
+          "label": "Banderola de lona para fachada",
+          "productSlug": "banderola-lona-fachada"
+        },
+        {
+          "label": "Banderola luminosa para fachada",
+          "productSlug": "banderola-fachada-personalizada"
+        },
+        {
+          "label": "Banderolas de lineal personalizadas",
+          "productSlug": "banderolas-lineal-personalizadas"
+        }
+      ],
       "sku": "01-EXPO-0006",
       "brand": "Reprodisseny",
       "attributes": [
@@ -7652,7 +7907,7 @@
     },
     {
       "id": "12",
-      "updatedAt": "2026-08-06T11:09:21Z",
+      "updatedAt": "2026-08-25T15:38:06Z",
       "type": "producto",
       "slug": "blocs-notas",
       "path": "/productos/blocs-notas",
@@ -7679,8 +7934,52 @@
           "key": "benefits",
           "title": "Beneficios",
           "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "Alta utilidad y permanencia: se usa durante semanas, con tu marca siempre presente. \nImagen corporativa coherente: refuerza identidad en oficina, formaciones y eventos. \nMuy práctico para equipos: reuniones, llamadas, listas, checklists y briefing. \nPersonalizable por uso: plantillas (to-do, reuniones, planning, KPI) o hojas lisas. \nIdeal para packs: combinado con carpetas, bolígrafos, dosieres y tarjetas."
+          "contentFormat": "json",
+          "benefitsData": {
+            "intro": "Los blocs de notas personalizados son una pieza de papelería corporativa sencilla, útil y de alta permanencia para oficina, formación, eventos y atención comercial.",
+            "benefits": [
+              {
+                "title": "Uso frecuente y larga permanencia",
+                "description": "Cada hoja mantiene la marca visible durante reuniones, llamadas, formaciones y tareas cotidianas.",
+                "features": [
+                  "Uso diario",
+                  "Branding",
+                  "Funcional"
+                ],
+                "idealFor": "Oficina, recepción y equipos comerciales"
+              },
+              {
+                "title": "Interior completamente personalizable",
+                "description": "Puede incorporar líneas, cuadrícula, listas de tareas, reuniones, planning, checklists, formularios o KPI.",
+                "features": [
+                  "Plantillas",
+                  "A medida",
+                  "Productividad"
+                ],
+                "idealFor": "Procesos internos y formación"
+              },
+              {
+                "title": "Diferentes formatos",
+                "description": "A4 para formación y escritorio, A5 para uso corporativo general y A6 para notas rápidas, promociones y eventos.",
+                "features": [
+                  "A4",
+                  "A5",
+                  "A6"
+                ],
+                "idealFor": "Diferentes espacios y usos"
+              },
+              {
+                "title": "Fácil de integrar en packs",
+                "description": "Combina bien con carpetas, bolígrafos, acreditaciones, dossiers y otros materiales corporativos.",
+                "features": [
+                  "Welcome pack",
+                  "Eventos",
+                  "Merchandising útil"
+                ],
+                "idealFor": "Ferias, cursos y onboarding"
+              }
+            ]
+          }
         },
         {
           "id": "formats",
@@ -7769,8 +8068,32 @@
           "key": "applications",
           "title": "Aplicaciones",
           "kind": "applications",
-          "contentFormat": "markdown",
-          "body": "Aplicaciones habituales de los blocs de notas personalizados en oficina, formación, eventos, atención al cliente y acciones de marca.\n\n- **Oficina y reuniones:** notas internas, briefings, llamadas, seguimiento de tareas y documentación de trabajo.\n- **Formación y onboarding:** material práctico para cursos, sesiones internas, workshops, manuales y programas de bienvenida.\n- **Eventos y ferias:** complemento útil para welcome packs de asistentes, ponentes, expositores o clientes.\n- **Recepción y atención al cliente:** soporte para notas rápidas, avisos, seguimiento comercial y material corporativo visible.\n- **Promoción de marca:** merchandising útil para clientes, partners y campañas donde se busca permanencia real."
+          "contentFormat": "json",
+          "applicationsData": {
+            "intro": "Los blocs personalizados pueden utilizarse tanto como material operativo como soporte de comunicación de marca.",
+            "applications": [
+              {
+                "title": "Oficina y reuniones",
+                "description": "Notas, llamadas, briefings, listas de tareas y documentación de trabajo."
+              },
+              {
+                "title": "Formación y workshops",
+                "description": "Material para cursos, sesiones internas, talleres, jornadas y programas formativos."
+              },
+              {
+                "title": "Eventos y ferias",
+                "description": "Complemento útil para asistentes, ponentes, clientes y welcome packs."
+              },
+              {
+                "title": "Equipos comerciales",
+                "description": "Notas de visitas, seguimiento de clientes, reuniones y preparación de propuestas."
+              },
+              {
+                "title": "Recepción y atención al cliente",
+                "description": "Material corporativo visible y práctico para avisos, anotaciones y gestión diaria."
+              }
+            ]
+          }
         }
       ],
       "faqs": [
@@ -7820,9 +8143,22 @@
         "alt": "Blocs de notas personalizados para oficinas, reuniones y merchandising corporativo"
       },
       "galleryImages": [],
-      "relatedProductsJson": [],
+      "relatedProductsJson": [
+        {
+          "label": "Agendas personalizadas",
+          "productSlug": "agendas-personalizadas"
+        },
+        {
+          "label": "Calendarios personalizados",
+          "productSlug": "calendarios-personalizados"
+        },
+        {
+          "label": "Archivadores personalizados",
+          "productSlug": "archivadores-personalizados"
+        }
+      ],
       "sku": "01-OFICI-0021",
-      "brand": "Reprodisseny",
+      "brand": "Repro Disseny",
       "attributes": [],
       "variants": [],
       "formFields": [
@@ -7901,10 +8237,35 @@
           }
         ],
         "keywords": [
-          "bloc de notas"
+          "blocs de notas personalizados",
+          "bloc personalizado empresa",
+          "blocs corporativos",
+          "blocs con logo",
+          "bloc A4 personalizado",
+          "bloc A5 personalizado",
+          "bloc A6 personalizado",
+          "blocs encolados personalizados",
+          "blocs para empresas",
+          "blocs personalizados Barcelona"
         ],
         "searchTerms": [
-          "bloc de notas"
+          "blocs de notas personalizados",
+          "bloc de notas personalizado",
+          "bloc corporativo con logo",
+          "blocs para empresas",
+          "bloc A4 personalizado",
+          "bloc A5 personalizado",
+          "bloc A6 personalizado",
+          "blocs encolados personalizados",
+          "bloc para reuniones empresa",
+          "blocs para formación",
+          "blocs para eventos",
+          "blocs para welcome pack",
+          "imprimir blocs personalizados",
+          "precio blocs de notas personalizados",
+          "presupuesto blocs personalizados",
+          "blocs personalizados Barcelona",
+          "imprenta blocs Barcelona"
         ],
         "schema": {},
         "robotsOverride": "INHERIT",
@@ -10817,7 +11178,7 @@
     },
     {
       "id": "135",
-      "updatedAt": "2026-07-24T07:38:47Z",
+      "updatedAt": "2026-08-25T15:35:02Z",
       "type": "producto",
       "slug": "caja-estandar",
       "path": "/productos/caja-estandar",
@@ -10843,8 +11204,62 @@
           "key": "benefits",
           "title": "Beneficios",
           "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "- Imagen de marca inmediata: la caja es lo primero que se ve al recibir el pack.\n- Protección y orden: mantiene el contenido seguro y bien presentado.\n- Versátil para muchos usos: desde documentación hasta packs con varios elementos.\n- Personalización completa: exterior, interior, mensajes y elementos de campaña.\n- Escalable: ideal para series (onboarding, campañas trimestrales, envíos a sedes)."
+          "contentFormat": "json",
+          "benefitsData": {
+            "intro": "La caja estándar personalizada es una solución versátil para presentar, ordenar y proteger kits corporativos, documentación, muestras y regalos de empresa.",
+            "benefits": [
+              {
+                "title": "Packaging adaptado al contenido",
+                "description": "Definir correctamente las medidas reduce holguras, mejora la presentación y evita utilizar una caja sobredimensionada.",
+                "features": [
+                  "A medida",
+                  "Optimización",
+                  "Protección"
+                ],
+                "idealFor": "Producto, documentación y kits"
+              },
+              {
+                "title": "Identidad de marca desde la entrega",
+                "description": "La impresión exterior convierte la caja en un soporte de comunicación desde el primer contacto con el destinatario.",
+                "features": [
+                  "Branding",
+                  "Impresión",
+                  "Presentación"
+                ],
+                "idealFor": "Welcome packs y regalos corporativos"
+              },
+              {
+                "title": "Personalización interior",
+                "description": "Puede incorporar mensajes, instrucciones, patrones gráficos, códigos QR o información de campaña en las superficies interiores.",
+                "features": [
+                  "Unboxing",
+                  "QR",
+                  "Interior impreso"
+                ],
+                "idealFor": "Campañas y lanzamientos"
+              },
+              {
+                "title": "Preparada para varias piezas",
+                "description": "Los separadores o encajes permiten ordenar diferentes elementos y reducir movimientos durante la manipulación.",
+                "features": [
+                  "Separadores",
+                  "Orden",
+                  "Protección"
+                ],
+                "idealFor": "Kits y packs multiproducto"
+              },
+              {
+                "title": "Acabados para distintos niveles de presentación",
+                "description": "Según el proyecto puede complementarse con laminado mate o brillo, barniz UVI selectivo, stamping o etiquetas de cierre.",
+                "features": [
+                  "Laminado",
+                  "Barniz UVI",
+                  "Stamping"
+                ],
+                "idealFor": "Packaging corporativo y promociones"
+              }
+            ]
+          }
         },
         {
           "id": "formats",
@@ -12297,7 +12712,7 @@
     },
     {
       "id": "15",
-      "updatedAt": "2026-07-16T08:31:12Z",
+      "updatedAt": "2026-08-25T15:38:58Z",
       "type": "producto",
       "slug": "calendarios-personalizados",
       "path": "/productos/calendarios-personalizados",
@@ -12323,8 +12738,62 @@
           "key": "benefits",
           "title": "Beneficios",
           "kind": "benefits",
-          "contentFormat": "markdown",
-          "body": "Visibilidad diaria de marca: presencia constante durante 12 meses. \nRegalo útil y apreciado: perfecto para clientes, partners y equipos. \nPersonalización total: diseño, fotos, mensajes, datos de contacto y QR. \nCoherencia corporativa: mantiene identidad visual en oficina y en clientes. \nOpciones para cada espacio: pared, sobremesa, bolsillo o formatos especiales."
+          "contentFormat": "json",
+          "benefitsData": {
+            "intro": "Los calendarios personalizados mantienen la marca visible durante doce meses y combinan una utilidad diaria con una elevada permanencia en oficinas, hogares y puntos de venta.",
+            "benefits": [
+              {
+                "title": "Visibilidad durante todo el año",
+                "description": "La marca permanece presente de forma continuada en escritorios, paredes, recepciones y zonas de atención al cliente.",
+                "features": [
+                  "12 meses",
+                  "Alta permanencia",
+                  "Branding"
+                ],
+                "idealFor": "Clientes, equipos y proveedores"
+              },
+              {
+                "title": "Regalo corporativo útil",
+                "description": "Es una pieza práctica y fácil de integrar en campañas de Navidad, fidelización y cierre de año.",
+                "features": [
+                  "Regalo corporativo",
+                  "Navidad",
+                  "Fidelización"
+                ],
+                "idealFor": "Campañas de final de año"
+              },
+              {
+                "title": "Formatos para cada espacio",
+                "description": "Puede producirse como calendario de pared, sobremesa, bolsillo o en formatos personalizados.",
+                "features": [
+                  "Pared",
+                  "Sobremesa",
+                  "Bolsillo"
+                ],
+                "idealFor": "Oficina, retail y distribución"
+              },
+              {
+                "title": "Contenido corporativo personalizado",
+                "description": "Permite incorporar fotografías, productos, campañas, festivos, teléfonos, fechas internas, códigos QR y contenidos propios.",
+                "features": [
+                  "QR",
+                  "Fechas",
+                  "Datos corporativos"
+                ],
+                "idealFor": "Empresas y redes de establecimientos"
+              },
+              {
+                "title": "Versiones por sede o departamento",
+                "description": "Puede mantenerse un diseño general y adaptar teléfonos, direcciones, calendarios, festivos o contenidos para diferentes ubicaciones.",
+                "features": [
+                  "Datos variables",
+                  "Multisede",
+                  "Personalización"
+                ],
+                "idealFor": "Franquicias y organizaciones"
+              }
+            ]
+          }
         },
         {
           "id": "materials",
@@ -12539,7 +13008,20 @@
         "alt": "Calendarios personalizados impresos para empresas, oficinas y regalos corporativos"
       },
       "galleryImages": [],
-      "relatedProductsJson": [],
+      "relatedProductsJson": [
+        {
+          "label": "Agendas personalizadas",
+          "productSlug": "agendas-personalizadas"
+        },
+        {
+          "label": "Blocs de notas personalizados",
+          "productSlug": "blocs-notas"
+        },
+        {
+          "label": "Archivadores personalizados",
+          "productSlug": "archivadores-personalizados"
+        }
+      ],
       "sku": "01-OFICI-0025",
       "brand": "Reprodisseny",
       "attributes": [
@@ -12660,37 +13142,28 @@
           "calendarios personalizados",
           "calendarios personalizados para empresas",
           "calendarios corporativos",
-          "calendarios de pared personalizados",
-          "calendarios de sobremesa personalizados",
-          "calendarios de bolsillo personalizados",
-          "calendarios publicitarios",
           "calendarios con logo",
-          "calendarios para regalar a clientes",
-          "impresión de calendarios personalizados",
-          "calendarios empresariales",
-          "calendarios a medida"
+          "calendarios de pared personalizados",
+          "calendarios sobremesa personalizados",
+          "calendarios Wire-O",
+          "calendarios para regalo empresa",
+          "calendarios personalizados Barcelona"
         ],
         "searchTerms": [
           "calendarios personalizados",
-          "calendarios corporativos",
-          "calendarios para empresas",
-          "calendarios con logo",
-          "calendarios publicitarios",
-          "calendario empresa personalizado",
-          "calendario de pared personalizado",
-          "calendarios pared empresa",
+          "calendarios personalizados para empresas",
+          "calendario corporativo con logo",
           "calendario sobremesa personalizado",
-          "calendarios de mesa personalizados",
-          "calendario triangular de mesa",
-          "calendario sobremesa wire-o",
-          "calendarios de bolsillo personalizados",
-          "calendarios personalizados para clientes",
+          "calendario pared personalizado",
+          "calendario Wire-O personalizado",
+          "calendario bolsillo personalizado",
           "calendarios regalo empresa",
-          "calendarios corporativos navidad",
-          "calendarios anuales personalizados",
-          "calendarios mensuales personalizados",
+          "calendarios Navidad empresa",
           "imprimir calendarios personalizados",
-          "calendarios personalizados barcelona"
+          "precio calendarios personalizados",
+          "presupuesto calendarios empresa",
+          "calendarios personalizados Barcelona",
+          "imprenta calendarios Barcelona"
         ],
         "schema": {},
         "robotsOverride": "INHERIT",
