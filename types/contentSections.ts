@@ -6,8 +6,24 @@ export type ContentSectionKey =
   | "materials"
   | "finishes"
   | "applications"
-  | "technical-specs"
-  | string;
+  | "technical-specs";
+
+export type ContentSectionPattern =
+  | "editorial"
+  | "structured-grid"
+  | "technical-specs";
+
+export type ContentSectionSource =
+  | "DetailsMd"
+  | "BenefitsMd"
+  | "TypesMd"
+  | "FormatsMd"
+  | "MaterialsMd"
+  | "FinishesMd"
+  | "ApplicationsMd"
+  | "UsesMd"
+  | "TechnicalSpecsMd"
+  | "unknown";
 
 export type ContentSectionKind = "details" | "cards" | "default";
 
@@ -44,12 +60,15 @@ export type DetailsMediaItem = {
 };
 
 export type NormalizedCardItem = {
+  id?: string;
   title: string;
   description: string;
+  descriptionHtml?: string;
   meta?: string;
   tags?: string[];
   features?: string[];
   idealFor?: string;
+  icon?: string;
 };
 
 export type SimpleGridItem = {
@@ -67,6 +86,46 @@ export type ContentCardGroup = {
   intro?: string;
   items: NormalizedCardItem[];
   columns?: 1 | 2 | 3 | 4;
+};
+
+export type SectionViewModel = {
+  id: ContentSectionKey;
+  key: ContentSectionKey;
+  kind: ContentSectionKey;
+  title: string;
+  source: ContentSectionSource;
+  sourceKey: string;
+  contentFormat: "markdown" | "structured" | "text";
+  pattern: ContentSectionPattern;
+  intro?: string;
+  html?: string;
+  groups: ContentCardGroup[];
+  technicalHighlights: TechnicalHighlight[];
+};
+
+export type SectionEntityType = "product" | "category";
+
+export type ContentSectionDiagnostic = {
+  url: string;
+  entityType: SectionEntityType;
+  sectionId: string;
+  sectionKey: string;
+  sectionKind: string;
+  canonicalId: ContentSectionKey | "";
+  source: ContentSectionSource;
+  detectedFormat: "empty" | "json" | "markdown" | "text" | "unknown";
+  expectedRenderer: ContentSectionPattern | "none";
+  actualRenderer: ContentSectionPattern | "none";
+  structuredValid: boolean;
+  jsonValidity: "valid" | "invalid" | "not-applicable";
+  markdownValid: boolean;
+  fallbackUsed: boolean;
+  plainTextRisk: boolean;
+  empty: boolean;
+  duplicate: boolean;
+  unknownAlias: boolean;
+  problem: string;
+  action: string;
 };
 
 export type SectionInput = {

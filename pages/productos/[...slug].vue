@@ -509,7 +509,7 @@ useSeoMeta({
             id="informacion-producto"
             theme="muted"
             eyebrow="Información del producto"
-            title="Detalles, beneficios y opciones"
+            title="Detalles y opciones del producto"
             description="Consulta la información clave de este producto en un formato claro y fácil de revisar."
           >
             <ContentSectionsRenderer

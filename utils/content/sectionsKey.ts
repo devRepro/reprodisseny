@@ -1,10 +1,6 @@
-import type {
-  ContentCardVariant,
-  ContentSectionKey,
-  SectionInput,
-} from "~/types/contentSections";
+import type { ContentCardVariant, ContentSectionKey, SectionInput } from "~/types/contentSections";
 
-const CANONICAL_SECTION_KEYS = [
+export const CANONICAL_SECTION_KEYS = [
   "details",
   "benefits",
   "types",
@@ -15,7 +11,7 @@ const CANONICAL_SECTION_KEYS = [
   "technical-specs",
 ] as const;
 
-const SECTION_ALIASES: Record<string, ContentSectionKey> = {
+export const SECTION_ALIASES: Record<string, ContentSectionKey> = {
   details: "details",
   detail: "details",
   detalles: "details",
@@ -78,7 +74,7 @@ const SECTION_ALIASES: Record<string, ContentSectionKey> = {
   "especificaciones-tecnicas": "technical-specs",
 };
 
-export function normalizeSectionKey(value?: unknown): ContentSectionKey {
+export function normalizeSectionKey(value?: unknown): string {
   const key = String(value || "")
     .trim()
     .toLowerCase()
@@ -94,14 +90,16 @@ export function isCanonicalSectionKey(value?: unknown) {
   return CANONICAL_SECTION_KEYS.includes(value as typeof CANONICAL_SECTION_KEYS[number]);
 }
 
-export function resolveSectionKey(section?: Partial<SectionInput> | null) {
+export function resolveSectionKey(
+  section?: Partial<SectionInput> | null
+): ContentSectionKey | "" {
   const candidates = [section?.kind, section?.key, section?.id]
     .map((value) => normalizeSectionKey(value))
     .filter(Boolean);
 
   const canonical = candidates.find((candidate) => isCanonicalSectionKey(candidate));
 
-  return canonical || candidates[0] || "";
+  return (canonical as ContentSectionKey | undefined) || "";
 }
 
 export function eyebrowForCards(key?: string) {

@@ -149,9 +149,10 @@ function onTabKeydown(event: KeyboardEvent, item: TabItem) {
 
 <template>
   <section v-if="safeItems.length" :class="cn('w-full', sectionClass)">
-    <div class="w-full overflow-x-auto pb-1">
+    <div class="content-tabs__scroller w-full overflow-x-auto pb-1">
       <div
         role="tablist"
+        aria-orientation="horizontal"
         :aria-label="ariaLabel"
         :class="
           cn(
@@ -174,7 +175,7 @@ function onTabKeydown(event: KeyboardEvent, item: TabItem) {
           :disabled="item.disabled"
           :class="
             cn(
-              'shrink-0 rounded-xl px-4 py-2.5 text-sm font-semibold leading-none transition-all duration-200',
+              'min-h-11 shrink-0 whitespace-nowrap rounded-xl px-4 py-3 text-sm font-semibold leading-none transition-all duration-200',
               'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/35 focus-visible:ring-offset-2',
               activeId === item.id
                 ? 'bg-primary text-primary-foreground shadow-sm ring-1 ring-primary/20'
@@ -207,3 +208,17 @@ function onTabKeydown(event: KeyboardEvent, item: TabItem) {
     </div>
   </section>
 </template>
+
+<style scoped>
+.content-tabs__scroller {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--border)) transparent;
+}
+
+@media (max-width: 767px) {
+  .content-tabs__scroller {
+    mask-image: linear-gradient(to right, transparent 0, black 12px, black calc(100% - 24px), transparent 100%);
+    padding-inline: 0.25rem;
+  }
+}
+</style>

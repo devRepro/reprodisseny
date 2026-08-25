@@ -41,6 +41,11 @@ type ContentTypeItem = {
 type ContentNamedItem = {
   title: string;
   description: string;
+  features?: string[];
+  tags?: string[];
+  idealFor?: string;
+  meta?: string;
+  icon?: string;
 };
 
 type ContentFormatsData = {
@@ -1444,13 +1449,24 @@ function parseNamedContentItems(value: unknown): ContentNamedItem[] {
       const record = (item ?? {}) as Record<string, unknown>;
 
       const title = str(record.title) || "";
-      const description = str(record.description) || "";
+      const description = str(record.description ?? record.text) || "";
 
       if (!title || !description) return null;
+
+      const features = parseStringList(record.features);
+      const tags = parseStringList(record.tags);
+      const idealFor = str(record.idealFor);
+      const meta = str(record.meta);
+      const icon = str(record.icon);
 
       return {
         title,
         description,
+        ...(features.length ? { features } : {}),
+        ...(tags.length ? { tags } : {}),
+        ...(idealFor ? { idealFor } : {}),
+        ...(meta ? { meta } : {}),
+        ...(icon ? { icon } : {}),
       };
     })
     .filter((item): item is ContentNamedItem => Boolean(item));

@@ -692,7 +692,7 @@ const closingBannerPills = computed(() => {
             v-if="currentPage === 1 && hasSections"
             theme="muted"
             eyebrow="Soluciones gráficas"
-            title="Características, tipos, formatos y acabados"
+            title="Detalles y opciones de la categoría"
             description="Consulta la información clave de esta categoría en un formato más claro y fácil de comparar."
           >
             <ContentSectionsRenderer

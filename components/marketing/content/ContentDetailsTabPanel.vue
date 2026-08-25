@@ -3,21 +3,12 @@
 import { computed, ref, watch } from "vue"
 import { cn } from "@/lib/utils"
 import { normalizeCmsMediaSrc } from "@/utils/cmsMedia"
+import type { SectionViewModel } from "~/types/contentSections"
 
 import CmsImage from "@/components/shared/blocks/CmsImage.vue"
 import AppChip from "@/components/shared/pills/AppChip.vue"
 import CategoryShowcaseCta from "@/components/marketing/category/CategoryShowcaseCta.vue"
-import ContentDetailsSection from "@/components/marketing/content/ContentDetailsSection.vue"
-
-type DetailsSection = {
-  id?: string
-  key?: string
-  title?: string
-  intro?: string
-  body?: string
-  text?: string
-  html?: string
-}
+import ContentRichText from "@/components/marketing/content/ContentRichText.vue"
 
 type DetailsMediaItem = {
   image?: {
@@ -34,7 +25,7 @@ type DetailsMediaItem = {
 
 const props = withDefaults(
   defineProps<{
-    section: DetailsSection
+    section: SectionViewModel
     detailsMedia?: DetailsMediaItem | null
     featuredProduct?: Record<string, unknown> | null
     headerMode?: "default" | "intro-only" | "none"
@@ -122,8 +113,6 @@ const pills = computed(() =>
 
 const hasLeadImage = computed(() => Boolean(leadImage.value))
 
-const showDetailsHeader = computed(() => props.headerMode === "default")
-
 const layoutClass = computed(() =>
   cn(
     "content-details-panel__layout",
@@ -139,11 +128,10 @@ const layoutClass = computed(() =>
     <section :aria-label="section.title || 'Detalle'" class="content-details-panel__card">
       <div :class="layoutClass">
         <div class="content-details-panel__body">
-          <ContentDetailsSection
-            :section="section"
-            eyebrow="Información"
-            :show-header="showDetailsHeader"
-            content-class="content-details-panel__richtext"
+          <ContentRichText
+            :html="section.html"
+            :intro="section.intro"
+            class="content-details-panel__richtext"
           />
 
           <aside

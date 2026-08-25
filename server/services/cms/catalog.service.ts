@@ -1,7 +1,8 @@
 import catalog from "~/cms/catalog.json";
 import { normalizeCmsMediaSrc } from "~/utils/cmsMedia";
-import type { TechnicalHighlight } from "~/types/contentSections";
+import type { SectionViewModel, TechnicalHighlight } from "~/types/contentSections";
 import { normalizeTechnicalHighlights } from "~/utils/content/technicalHighlights";
+import { normalizeContentSections } from "~/utils/content/sectionViewModel";
 
 import {
   getCategoryDetailGalleryBySlug,
@@ -64,6 +65,7 @@ type CatalogNamedContentItem = {
   tags?: unknown[];
   idealFor?: unknown;
   meta?: unknown;
+  icon?: unknown;
 };
 
 type CatalogFormatItem = CatalogNamedContentItem;
@@ -72,7 +74,10 @@ type NormalizedNamedContentItem = {
   title: string;
   description: string;
   features?: string[];
+  tags?: string[];
   idealFor?: string;
+  meta?: string;
+  icon?: string;
 };
 
 
@@ -371,22 +376,7 @@ export type CategoryCardGroup = {
   columns?: 2 | 3 | 4;
 };
 
-export type CategoryDetailSectionItem = {
-  id: string;
-  key?: string;
-  kind: CatalogContentSectionKind;
-  contentFormat: CatalogContentFormat;
-  title: string;
-  intro?: string;
-  body?: string;
-  items?: NormalizedNamedContentItem[];
-  benefitsData?: NormalizedBenefitsData;
-  materialsData?: NormalizedMaterialsData;
-  formatsData?: NormalizedFormatsData;
-  finishesData?: NormalizedFinishesData;
-  applicationsData?: NormalizedApplicationsData;
-  technicalHighlights?: TechnicalHighlight[];
-};
+export type CategoryDetailSectionItem = SectionViewModel;
 
 export type CategoryHowWeWorkStepItem = {
   label?: string;
@@ -458,23 +448,7 @@ export type ProductDetailFormFieldItem = {
   helpText?: string;
 };
 
-export type ProductDetailSectionItem = {
-  id: string;
-  key?: string;
-  kind: CatalogContentSectionKind;
-  contentFormat: CatalogContentFormat;
-  title: string;
-  intro?: string;
-  body?: string;
-  text?: string;
-  items?: NormalizedNamedContentItem[];
-  benefitsData?: NormalizedBenefitsData;
-  materialsData?: NormalizedMaterialsData;
-  formatsData?: NormalizedFormatsData;
-  finishesData?: NormalizedFinishesData;
-  applicationsData?: NormalizedApplicationsData;
-  technicalHighlights?: TechnicalHighlight[];
-};
+export type ProductDetailSectionItem = SectionViewModel;
 
 export type ProductDetailFaqItem = {
   q: string;
@@ -704,12 +678,20 @@ function normalizeNamedContentItems(value: unknown): NormalizedNamedContentItem[
         .filter(Boolean);
 
       const idealFor = String(record.idealFor ?? record.meta ?? "").trim();
+      const meta = String(record.meta ?? "").trim();
+      const tags = Array.isArray(record.tags)
+        ? record.tags.map((tag) => String(tag ?? "").trim()).filter(Boolean)
+        : [];
+      const icon = String(record.icon ?? "").trim();
 
       return {
         title,
         description,
         ...(features.length ? { features } : {}),
+        ...(tags.length ? { tags } : {}),
         ...(idealFor ? { idealFor } : {}),
+        ...(meta ? { meta } : {}),
+        ...(icon ? { icon } : {}),
       };
     })
     .filter((item): item is NormalizedNamedContentItem => Boolean(item));
@@ -1864,88 +1846,10 @@ function resolveSectionContentFormat(section: {
 
 
 function getCategorySections(category: CatalogCategory): CategoryDetailSectionItem[] {
-  return getMergedCategorySections(category)
-    .map<CategoryDetailSectionItem | null>((section, index) => {
-      const id = String(section?.id || section?.key || `section-${index + 1}`).trim();
-      const key = String(section?.key || id).trim();
-      const title = String(section?.title || `Sección ${index + 1}`).trim();
-      const intro = String(section?.intro || "").trim() || undefined;
-      const body = String(section?.body || "").trim();
-
-      const items = normalizeCategoryTypeItems(section?.items);
-      const kind = resolveCatalogSectionKind(section);
-
-      const benefitsData =
-        section?.benefitsData && typeof section.benefitsData === "object"
-          ? normalizeBenefitsData(section.benefitsData)
-          : undefined;
-
-      const materialsData =
-        section?.materialsData && typeof section.materialsData === "object"
-          ? normalizeMaterialsData(section.materialsData)
-          : undefined;
-
-      const formatsData =
-        section?.formatsData && typeof section.formatsData === "object"
-          ? normalizeFormatsData(section.formatsData)
-          : undefined;
-
-      const finishesData =
-        section?.finishesData && typeof section.finishesData === "object"
-          ? normalizeFinishesData(section.finishesData)
-          : undefined;
-
-      const applicationsData =
-        section?.applicationsData && typeof section.applicationsData === "object"
-          ? normalizeApplicationsData(section.applicationsData)
-          : undefined;
-
-      const technicalHighlights = normalizeTechnicalHighlights(
-        section?.technicalHighlights
-      );
-
-      const contentFormat = resolveSectionContentFormat({
-        contentFormat: section?.contentFormat,
-        items: items.length ? items : undefined,
-        benefitsData,
-        materialsData,
-        formatsData,
-        finishesData,
-        applicationsData,
-        technicalHighlights,
-      });
-
-      const hasContent =
-        Boolean(body) ||
-        Boolean(intro) ||
-        items.length > 0 ||
-        Boolean(benefitsData?.benefits.length) ||
-        Boolean(materialsData?.materials.length) ||
-        Boolean(formatsData) ||
-        Boolean(finishesData?.finishes.length) ||
-        Boolean(applicationsData?.applications.length) ||
-        technicalHighlights.length > 0;
-
-      if (!id || !title || !hasContent) return null;
-
-      return {
-        id,
-        key,
-        kind,
-        contentFormat,
-        title,
-        ...(intro ? { intro } : {}),
-        ...(body ? { body } : {}),
-        ...(items.length ? { items } : {}),
-        ...(benefitsData ? { benefitsData } : {}),
-        ...(materialsData ? { materialsData } : {}),
-        ...(formatsData ? { formatsData } : {}),
-        ...(finishesData ? { finishesData } : {}),
-        ...(applicationsData ? { applicationsData } : {}),
-        ...(technicalHighlights.length ? { technicalHighlights } : {}),
-      };
-    })
-    .filter((section): section is CategoryDetailSectionItem => section !== null);
+  return normalizeContentSections(getMergedCategorySections(category), {
+    entityType: "category",
+    url: categoryPathOf(category),
+  }).sections;
 }
 
 
@@ -2444,88 +2348,10 @@ function resolveProductBySlugOrPath(
 
 
 function getProductSections(product: CatalogProduct): ProductDetailSectionItem[] {
-  return getMergedProductSections(product)
-    .map<ProductDetailSectionItem | null>((section, index) => {
-      const id = String(section?.id || section?.key || `section-${index + 1}`).trim();
-      const key = String(section?.key || id).trim();
-      const title = String(section?.title || `Sección ${index + 1}`).trim();
-      const intro = String(section?.intro || "").trim() || undefined;
-      const body = String(section?.body || "").trim();
-
-      const items = normalizeCategoryTypeItems(section?.items);
-      const kind = resolveCatalogSectionKind(section);
-
-      const benefitsData =
-        section?.benefitsData && typeof section.benefitsData === "object"
-          ? normalizeBenefitsData(section.benefitsData)
-          : undefined;
-
-      const materialsData =
-        section?.materialsData && typeof section.materialsData === "object"
-          ? normalizeMaterialsData(section.materialsData)
-          : undefined;
-
-      const formatsData =
-        section?.formatsData && typeof section.formatsData === "object"
-          ? normalizeFormatsData(section.formatsData)
-          : undefined;
-
-      const finishesData =
-        section?.finishesData && typeof section.finishesData === "object"
-          ? normalizeFinishesData(section.finishesData)
-          : undefined;
-
-      const applicationsData =
-        section?.applicationsData && typeof section.applicationsData === "object"
-          ? normalizeApplicationsData(section.applicationsData)
-          : undefined;
-
-      const technicalHighlights = normalizeTechnicalHighlights(
-        section?.technicalHighlights
-      );
-
-      const contentFormat = resolveSectionContentFormat({
-        contentFormat: section?.contentFormat,
-        items: items.length ? items : undefined,
-        benefitsData,
-        materialsData,
-        formatsData,
-        finishesData,
-        applicationsData,
-        technicalHighlights,
-      });
-
-      const hasContent =
-        Boolean(body) ||
-        Boolean(intro) ||
-        items.length > 0 ||
-        Boolean(benefitsData?.benefits.length) ||
-        Boolean(materialsData?.materials.length) ||
-        Boolean(formatsData) ||
-        Boolean(finishesData?.finishes.length) ||
-        Boolean(applicationsData?.applications.length) ||
-        technicalHighlights.length > 0;
-
-      if (!id || !title || !hasContent) return null;
-
-      return {
-        id,
-        key,
-        kind,
-        contentFormat,
-        title,
-        ...(intro ? { intro } : {}),
-        ...(body ? { body, text: body } : {}),
-        ...(items.length ? { items } : {}),
-        ...(benefitsData ? { benefitsData } : {}),
-        ...(materialsData ? { materialsData } : {}),
-        ...(formatsData ? { formatsData } : {}),
-        ...(finishesData ? { finishesData } : {}),
-        ...(applicationsData ? { applicationsData } : {}),
-        ...(technicalHighlights.length ? { technicalHighlights } : {}),
-      };
-    })
-    .filter((section): section is ProductDetailSectionItem => section !== null);
+  return normalizeContentSections(getMergedProductSections(product), {
+    entityType: "product",
+    url: productPathOf(product),
+  }).sections;
 }
 
 export function getProductDetailBySlug(
