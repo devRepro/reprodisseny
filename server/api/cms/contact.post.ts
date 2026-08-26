@@ -10,7 +10,7 @@ import {
 
 import { createPriceRequest } from "~/server/services/priceRequests/priceRequestService.server"
 import { rateLimit, ipHash, getClientIp } from "~/server/utils/rateLimit.server"
-import { normalizeLeadTracking } from "~/utils/tracking/leadAttribution"
+import { normalizeServerLeadTracking } from "~/server/services/priceRequests/leadTrackingNormalization"
 
 const ContactPayloadSchema = z.object({
   website: z.string().optional().nullable(), // honeypot
@@ -151,7 +151,7 @@ if (!userMessage) {
   })
 }
 
-const normalizedTracking = normalizeLeadTracking({
+const normalizedTracking = normalizeServerLeadTracking({
   tracking: p.tracking ?? null,
   utm: p.utm ?? null,
   sourceUrl,

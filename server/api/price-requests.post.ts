@@ -9,7 +9,7 @@ import {
 import { createPriceRequest } from "~/server/services/priceRequests/priceRequestService.server"
 import { rateLimit, ipHash, getClientIp } from "~/server/utils/rateLimit.server"
 import { priceRequestPayloadSchema } from "~/shared/schemas/priceRequest"
-import { normalizeLeadTracking } from "~/utils/tracking/leadAttribution"
+import { normalizeServerLeadTracking } from "~/server/services/priceRequests/leadTrackingNormalization"
 
   
 const FileKindSchema = z
@@ -121,7 +121,7 @@ export default defineEventHandler(async (event) => {
 });
 }
 
-  const normalizedTracking = normalizeLeadTracking({
+  const normalizedTracking = normalizeServerLeadTracking({
   tracking: p.tracking ?? null,
   utm: p.utm ?? null,
   sourceUrl: p.sourceUrl,

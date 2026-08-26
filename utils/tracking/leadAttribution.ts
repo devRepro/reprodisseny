@@ -19,6 +19,7 @@ export const TRACKING_PARAM_KEYS = [
   "utm_medium",
   "utm_campaign",
   "utm_id",
+  "gad_campaignid",
   "utm_term",
   "utm_content",
   "gclid",
@@ -29,7 +30,29 @@ export const TRACKING_PARAM_KEYS = [
 ] as const
 
 const GOOGLE_ADS_CLICK_ID_KEYS = ["gclid", "gbraid", "wbraid"] as const
+const PAID_CLICK_ID_KEYS = ["gclid", "gbraid", "wbraid", "msclkid", "fbclid"] as const
 const OWN_HOSTS = new Set(["reprodisseny.com", "www.reprodisseny.com"])
+const PAID_MEDIUMS = new Set([
+  "cpc",
+  "ppc",
+  "paid",
+  "paid_search",
+  "paid_social",
+  "paid_display",
+  "display",
+  "retargeting",
+  "remarketing",
+])
+const ORGANIC_MEDIUMS = new Set(["organic", "seo"])
+const REFERRAL_MEDIUMS = new Set(["referral", "referrer"])
+
+export type AttributionTouchClass =
+  | "paid_click_id"
+  | "paid"
+  | "organic"
+  | "referral"
+  | "direct"
+  | "unknown"
 
 function isRecord(value: unknown): value is Record<string, any> {
   return Boolean(value) && typeof value === "object" && !Array.isArray(value)
@@ -43,8 +66,12 @@ function cleanString(value: unknown, max = 300) {
 }
 
 function firstString(...values: unknown[]) {
+  return firstStringMax(300, ...values)
+}
+
+function firstStringMax(max: number, ...values: unknown[]) {
   for (const value of values) {
-    const cleaned = cleanString(value)
+    const cleaned = cleanString(value, max)
     if (cleaned) return cleaned
   }
 
@@ -59,6 +86,10 @@ function hasGoogleAdsClickId(touch: Record<string, any>) {
   return GOOGLE_ADS_CLICK_ID_KEYS.some((key) => cleanString(touch[key]))
 }
 
+function hasPaidClickId(touch: Record<string, any>) {
+  return PAID_CLICK_ID_KEYS.some((key) => cleanString(touch[key]))
+}
+
 function hasCampaignFields(touch: Record<string, any>) {
   return Boolean(
     firstString(
@@ -66,6 +97,7 @@ function hasCampaignFields(touch: Record<string, any>) {
       touch.medium,
       touch.campaign,
       touch.campaignId,
+      touch.gadCampaignId,
       touch.term,
       touch.content,
       touch.gclid,
@@ -81,12 +113,31 @@ function hasExplicitCampaignEvidence(touch: Record<string, any>) {
   return Boolean(
     hasGoogleAdsClickId(touch) ||
       getTrackingParamsFromUrl(firstString(touch.landingUrl) || "") ||
-      firstString(touch.campaign, touch.campaignId, touch.term, touch.content),
+      firstString(touch.campaign, touch.campaignId, touch.gadCampaignId, touch.term, touch.content),
   )
 }
 
+function normalizeMedium(value: unknown) {
+  return cleanString(value)?.toLowerCase().replace(/[\s-]+/g, "_") || null
+}
+
+function isPaidMedium(value: unknown) {
+  const medium = normalizeMedium(value)
+  return Boolean(medium && PAID_MEDIUMS.has(medium))
+}
+
+function isOrganicMedium(value: unknown) {
+  const medium = normalizeMedium(value)
+  return Boolean(medium && ORGANIC_MEDIUMS.has(medium))
+}
+
+function isReferralMedium(value: unknown) {
+  const medium = normalizeMedium(value)
+  return Boolean(medium && REFERRAL_MEDIUMS.has(medium))
+}
+
 function hostnameFromUrl(value: unknown) {
-  const text = cleanString(value, 1000)
+  const text = cleanString(value, 2000)
   if (!text) return null
 
   try {
@@ -107,6 +158,76 @@ function isOwnReferrer(referrer: unknown, landingUrl: unknown) {
   if (!referrerHost) return false
 
   return isOwnHost(referrerHost, hostnameFromUrl(landingUrl))
+}
+
+function classifySearchEngineHost(hostname: string | null) {
+  if (!hostname) return null
+
+  const host = hostname.toLowerCase().replace(/^www\./, "")
+
+  if (/(^|\.)google\.[a-z.]{2,}$/.test(host)) return "google"
+  if (host === "bing.com" || host.endsWith(".bing.com")) return "bing"
+  if (host === "duckduckgo.com" || host.endsWith(".duckduckgo.com")) return "duckduckgo"
+  if (host === "search.yahoo.com" || host.startsWith("search.yahoo.")) return "yahoo"
+
+  return null
+}
+
+function classifySearchEngineReferrer(referrer: unknown) {
+  return classifySearchEngineHost(hostnameFromUrl(referrer))
+}
+
+function normalizePaidClickIdTouch(touch: AttributionData) {
+  const source = cleanString(touch.source)?.toLowerCase() || null
+  const medium = normalizeMedium(touch.medium)
+  const sourceLooksFallback =
+    !source ||
+    source === "direct" ||
+    source === "referral" ||
+    source === "referrer" ||
+    source === "www.google.com" ||
+    source === "google.com" ||
+    source === "www.google.es" ||
+    source === "google.es"
+  const mediumLooksFallback =
+    !medium ||
+    medium === "none" ||
+    medium === "direct" ||
+    isOrganicMedium(medium) ||
+    isReferralMedium(medium)
+
+  if (hasGoogleAdsClickId(touch)) {
+    if (sourceLooksFallback || classifySearchEngineHost(source) === "google") {
+      touch.source = "google"
+    }
+    if (mediumLooksFallback) touch.medium = "cpc"
+    return
+  }
+
+  if (firstStringMax(1000, touch.msclkid)) {
+    if (sourceLooksFallback) touch.source = "bing"
+    if (mediumLooksFallback) touch.medium = "cpc"
+    return
+  }
+
+  if (firstStringMax(1000, touch.fbclid)) {
+    if (sourceLooksFallback) touch.source = "facebook"
+    if (mediumLooksFallback) touch.medium = "paid_social"
+  }
+}
+
+function normalizeSearchEngineTouch(touch: AttributionData) {
+  if (hasPaidClickId(touch) || hasExplicitCampaignEvidence(touch)) return
+  if (!isReferralMedium(touch.medium) && firstString(touch.medium)) return
+
+  const searchSource =
+    classifySearchEngineHost(cleanString(touch.source)?.toLowerCase() || null) ||
+    classifySearchEngineReferrer(touch.referrer)
+
+  if (!searchSource) return
+
+  touch.source = searchSource
+  touch.medium = "organic"
 }
 
 export function normalizeTrackingParams(query: Record<string, unknown> | null | undefined) {
@@ -142,27 +263,26 @@ export function normalizeAttributionTouch(value: unknown): AttributionData | nul
     source: firstString(value.source),
     medium: firstString(value.medium),
     campaign: firstString(value.campaign),
-    campaignId: firstString(value.campaignId, value.campaign_id),
+    campaignId: firstString(value.campaignId, value.campaign_id, value.gad_campaignid, value.gadCampaignId),
+    gadCampaignId: firstString(value.gadCampaignId, value.gad_campaignid),
     term: firstString(value.term),
     content: firstString(value.content),
 
-    gclid: firstString(value.gclid),
-    gbraid: firstString(value.gbraid),
-    wbraid: firstString(value.wbraid),
-    fbclid: firstString(value.fbclid),
-    msclkid: firstString(value.msclkid),
+    gclid: firstStringMax(1000, value.gclid),
+    gbraid: firstStringMax(1000, value.gbraid),
+    wbraid: firstStringMax(1000, value.wbraid),
+    fbclid: firstStringMax(1000, value.fbclid),
+    msclkid: firstStringMax(1000, value.msclkid),
 
-    landingPath: firstString(value.landingPath, value.landing_page, value.landingPage),
-    landingUrl: firstString(value.landingUrl, value.landing_url, value.landingPage),
-    referrer: firstString(value.referrer),
+    landingPath: firstStringMax(2000, value.landingPath, value.landing_page, value.landingPage),
+    landingUrl: firstStringMax(2000, value.landingUrl, value.landing_url, value.landingPage),
+    referrer: firstStringMax(2000, value.referrer),
     firstSeenAt: firstString(value.firstSeenAt, value.capturedAt),
     lastSeenAt: firstString(value.lastSeenAt, value.capturedAt),
   }
 
-  if (hasGoogleAdsClickId(normalized)) {
-    normalized.source = normalized.source || "google"
-    normalized.medium = normalized.medium || "cpc"
-  }
+  normalizePaidClickIdTouch(normalized)
+  normalizeSearchEngineTouch(normalized)
 
   if (!hasCampaignFields(normalized) && !firstString(normalized.referrer, normalized.landingUrl)) {
     return null
@@ -181,13 +301,15 @@ export function createAttributionTouchFromUrl(input: {
   const params = url.searchParams
   const hasTrackingParams = TRACKING_PARAM_KEYS.some((key) => params.has(key))
   const hasGoogleClickId = GOOGLE_ADS_CLICK_ID_KEYS.some((key) => params.has(key))
+  const hasGoogleAdsEvidence = hasGoogleClickId || params.has("gad_campaignid")
 
   if (hasTrackingParams) {
     return normalizeAttributionTouch({
-      source: getParamValue(params, "utm_source") || (hasGoogleClickId ? "google" : null),
-      medium: getParamValue(params, "utm_medium") || (hasGoogleClickId ? "cpc" : null),
+      source: getParamValue(params, "utm_source") || (hasGoogleAdsEvidence ? "google" : null),
+      medium: getParamValue(params, "utm_medium") || (hasGoogleAdsEvidence ? "cpc" : null),
       campaign: getParamValue(params, "utm_campaign"),
-      campaignId: getParamValue(params, "utm_id"),
+      campaignId: getParamValue(params, "utm_id") || getParamValue(params, "gad_campaignid"),
+      gadCampaignId: getParamValue(params, "gad_campaignid"),
       term: getParamValue(params, "utm_term"),
       content: getParamValue(params, "utm_content"),
       gclid: getParamValue(params, "gclid"),
@@ -204,9 +326,11 @@ export function createAttributionTouchFromUrl(input: {
   }
 
   if (input.referrer && !isOwnReferrer(input.referrer, url.href)) {
+    const searchSource = classifySearchEngineReferrer(input.referrer)
+
     return {
-      source: hostnameFromUrl(input.referrer) || "referral",
-      medium: "referral",
+      source: searchSource || hostnameFromUrl(input.referrer) || "referral",
+      medium: searchSource ? "organic" : "referral",
       landingPath: url.pathname,
       landingUrl: url.href,
       referrer: input.referrer,
@@ -231,6 +355,41 @@ export function isDirectAttributionTouch(touch: AttributionData | null | undefin
   const medium = cleanString(touch?.medium)?.toLowerCase()
 
   return source === "direct" && (!medium || medium === "none" || medium === "direct")
+}
+
+export function classifyAttributionTouch(touch: AttributionData | null | undefined): AttributionTouchClass {
+  const normalized = normalizeAttributionTouch(touch)
+  if (!normalized) return "unknown"
+  if (isDirectAttributionTouch(normalized)) return "direct"
+  if (hasPaidClickId(normalized)) return "paid_click_id"
+  if (isPaidMedium(normalized.medium)) return "paid"
+  if (isOrganicMedium(normalized.medium)) return "organic"
+  if (isReferralMedium(normalized.medium) || firstString(normalized.referrer)) return "referral"
+  return hasCampaignFields(normalized) ? "unknown" : "direct"
+}
+
+export function rankAttributionTouch(touch: AttributionData | null | undefined) {
+  const classification = classifyAttributionTouch(touch)
+
+  switch (classification) {
+    case "paid_click_id":
+      return 50
+    case "paid":
+      return 40
+    case "organic":
+      return 30
+    case "referral":
+      return 20
+    case "unknown":
+      return 10
+    case "direct":
+    default:
+      return 0
+  }
+}
+
+function isPaidAttributionClass(classification: AttributionTouchClass) {
+  return classification === "paid_click_id" || classification === "paid"
 }
 
 export function isExternalAttributionTouch(touch: AttributionData | null | undefined) {
@@ -279,8 +438,20 @@ export function updateLeadAttribution(
 export function selectLeadAttributionTouch(attribution: LeadAttribution) {
   const normalized = normalizeLeadAttribution(attribution)
 
-  if (isExternalAttributionTouch(normalized.last)) return normalized.last
-  return normalized.first
+  const first = normalized.first
+  const last = normalized.last
+
+  if (!first) return last
+  if (!last) return first
+
+  const firstClass = classifyAttributionTouch(first)
+  const lastClass = classifyAttributionTouch(last)
+
+  if (isPaidAttributionClass(firstClass) && isPaidAttributionClass(lastClass)) {
+    return last
+  }
+
+  return rankAttributionTouch(last) > rankAttributionTouch(first) ? last : first
 }
 
 function createTouchFromTrackingParams(input: {
@@ -292,13 +463,15 @@ function createTouchFromTrackingParams(input: {
 
   const searchParams = new URLSearchParams(params)
   const hasGoogleClickId = GOOGLE_ADS_CLICK_ID_KEYS.some((key) => searchParams.has(key))
+  const hasGoogleAdsEvidence = hasGoogleClickId || searchParams.has("gad_campaignid")
   const now = new Date().toISOString()
 
   return normalizeAttributionTouch({
-    source: firstString(params.utm_source) || (hasGoogleClickId ? "google" : null),
-    medium: firstString(params.utm_medium) || (hasGoogleClickId ? "cpc" : null),
+    source: firstString(params.utm_source) || (hasGoogleAdsEvidence ? "google" : null),
+    medium: firstString(params.utm_medium) || (hasGoogleAdsEvidence ? "cpc" : null),
     campaign: firstString(params.utm_campaign),
-    campaignId: firstString(params.utm_id, params.campaign_id),
+    campaignId: firstString(params.utm_id, params.gad_campaignid, params.campaign_id),
+    gadCampaignId: firstString(params.gad_campaignid),
     term: firstString(params.utm_term),
     content: firstString(params.utm_content),
     gclid: firstString(params.gclid),
@@ -342,7 +515,17 @@ function createLegacyTouch(tracking: Record<string, any>, sourceUrl: string) {
       tracking.TrackingCampaignId,
       tracking.trackingCampaignId,
       normalized.trackingCampaignId,
+      tracking.gad_campaignid,
+      tracking.gadCampaignId,
     ),
+    gadCampaignId: firstString(tracking.gadCampaignId, tracking.gad_campaignid),
+    term: firstString(tracking.utm_term, tracking.term),
+    content: firstString(tracking.utm_content, tracking.content),
+    gclid: firstStringMax(1000, tracking.gclid),
+    gbraid: firstStringMax(1000, tracking.gbraid),
+    wbraid: firstStringMax(1000, tracking.wbraid),
+    fbclid: firstStringMax(1000, tracking.fbclid),
+    msclkid: firstStringMax(1000, tracking.msclkid),
     landingUrl: firstString(tracking.SourceUrl, tracking.sourceUrl, normalized.sourceUrl, sourceUrl),
   })
 }
@@ -426,6 +609,7 @@ export function normalizeLeadTracking(input: LeadTrackingNormalizationInput) {
 
   return {
     ...normalized,
+    formType: input.formType ?? null,
     attribution,
     selectedTouch,
     routeUtm: routeParams,

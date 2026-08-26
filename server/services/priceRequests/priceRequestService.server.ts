@@ -4,6 +4,7 @@ import { getHeader } from "h3"
 import { useRuntimeConfig } from "#imports"
 
 import { SPF } from "~/shared/utils/sharepoint/spfPriceRequests"
+import { normalizeServerLeadTracking } from "~/server/services/priceRequests/leadTrackingNormalization"
 import {
   getGraphToken,
   resolveSiteId,
@@ -39,6 +40,7 @@ export type PriceRequestTrackingInput = {
   trackingCampaignId: string | null;
   sourceUrl: string;
   utmJson: string;
+  [key: string]: any;
 };
 
 export type FormField =
@@ -362,14 +364,14 @@ const sourceUrlField =
         file: input.attachment,
       })
     }
-      const tracking = input.tracking ?? {
-  trackingSource: "direct",
-  trackingMedium: "none",
-  trackingCampaign: null,
-  trackingCampaignId: null,
+      const tracking = normalizeServerLeadTracking({
+  tracking: input.tracking ?? null,
+  utm: input.utm ?? null,
   sourceUrl: input.sourceUrl || getHeader(event, "referer") || "",
-  utmJson: input.utm ? JSON.stringify(input.utm) : "",
-};
+  categorySlug: categorySlug || null,
+  productSlug,
+  formType: "price_request",
+});
     // 3) Compose product snapshot
     const productJson = {
       name: input.product.name,

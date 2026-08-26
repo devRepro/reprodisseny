@@ -3,8 +3,10 @@ import test from "node:test"
 
 import { getAttribution } from "../utils/tracking/attribution"
 import {
+  classifyAttributionTouch,
   createAttributionTouchFromUrl,
   normalizeLeadTracking,
+  selectLeadAttributionTouch,
   updateLeadAttribution,
 } from "../utils/tracking/leadAttribution"
 
@@ -302,6 +304,271 @@ test("regresion: payload incoherente direct/none con first google/cpc se corrige
   assert.equal(result.trackingMedium, "cpc")
   assert.equal(result.trackingCampaign, "22573931882")
   assert.equal(result.trackingCampaignId, null)
+})
+
+test("selector: first google/cpc con gclid gana frente a last direct/none", () => {
+  const first = createAttributionTouchFromUrl({
+    url: `${productUrl}?gclid=ABC123`,
+  })
+  const selected = selectLeadAttributionTouch({
+    first,
+    last: {
+      source: "direct",
+      medium: "none",
+      landingUrl: "https://reprodisseny.com/pedir-presupuesto",
+    },
+  })
+
+  assert.equal(selected?.source, "google")
+  assert.equal(selected?.medium, "cpc")
+  assert.equal(selected?.gclid, "ABC123")
+})
+
+test("regresion bug real: paid first no se degrada por Google organic posterior", () => {
+  const result = normalize({
+    sourceUrl: "https://reprodisseny.com/productos/hojas-pegatinas-personalizadas",
+    tracking: {
+      TrackingSource: "www.google.com",
+      TrackingMedium: "referral",
+      attribution: {
+        first: {
+          source: "google",
+          medium: "cpc",
+          campaign: "22573931882",
+          term: "stickers personalizadas",
+          content: "182804005827|753099936187|b|c",
+          gclid: "TEST_GCLID",
+          gbraid: "TEST_GBRAID",
+          landingPath: "/",
+          referrer: "https://www.google.com/",
+        },
+        last: {
+          source: "www.google.com",
+          medium: "referral",
+          campaign: null,
+          gclid: null,
+          landingPath: "/productos/hojas-pegatinas-personalizadas",
+          referrer: "https://www.google.com/",
+        },
+      },
+    },
+  })
+
+  assert.equal(result.attribution.last?.source, "google")
+  assert.equal(result.attribution.last?.medium, "organic")
+  assert.equal(result.selectedTouch?.source, "google")
+  assert.equal(result.selectedTouch?.medium, "cpc")
+  assert.equal(result.selectedTouch?.campaign, "22573931882")
+  assert.equal(result.selectedTouch?.term, "stickers personalizadas")
+  assert.equal(result.selectedTouch?.content, "182804005827|753099936187|b|c")
+  assert.equal(result.selectedTouch?.gclid, "TEST_GCLID")
+  assert.equal(result.selectedTouch?.gbraid, "TEST_GBRAID")
+  assert.equal(result.trackingSource, "google")
+  assert.equal(result.trackingMedium, "cpc")
+  assert.equal(result.trackingCampaign, "22573931882")
+})
+
+test("selector: paid posterior reemplaza paid anterior", () => {
+  const selected = selectLeadAttributionTouch({
+    first: {
+      source: "google",
+      medium: "cpc",
+      campaign: "campaign_A",
+    },
+    last: {
+      source: "google",
+      medium: "cpc",
+      campaign: "campaign_B",
+    },
+  })
+
+  assert.equal(selected?.campaign, "campaign_B")
+})
+
+test("selector: referral inicial pierde frente a paid posterior con gclid", () => {
+  const selected = selectLeadAttributionTouch({
+    first: {
+      source: "partner.example",
+      medium: "referral",
+    },
+    last: {
+      gclid: "ABC123",
+      landingUrl: productUrl,
+    },
+  })
+
+  assert.equal(selected?.source, "google")
+  assert.equal(selected?.medium, "cpc")
+})
+
+test("selector: first organic gana frente a last direct", () => {
+  const selected = selectLeadAttributionTouch({
+    first: {
+      source: "google",
+      medium: "organic",
+    },
+    last: {
+      source: "direct",
+      medium: "none",
+    },
+  })
+
+  assert.equal(selected?.source, "google")
+  assert.equal(selected?.medium, "organic")
+})
+
+test("selector: first referral externo gana frente a last direct", () => {
+  const selected = selectLeadAttributionTouch({
+    first: {
+      source: "partner.example",
+      medium: "referral",
+    },
+    last: {
+      source: "direct",
+      medium: "none",
+    },
+  })
+
+  assert.equal(selected?.source, "partner.example")
+  assert.equal(selected?.medium, "referral")
+})
+
+test("Google Search sin UTM se clasifica como organic", () => {
+  const touch = createAttributionTouchFromUrl({
+    url: productUrl,
+    referrer: "https://www.google.com/",
+  })
+
+  assert.equal(touch.source, "google")
+  assert.equal(touch.medium, "organic")
+  assert.equal(classifyAttributionTouch(touch), "organic")
+})
+
+test("Google Search regional sin UTM se clasifica como organic", () => {
+  const touch = createAttributionTouchFromUrl({
+    url: productUrl,
+    referrer: "https://www.google.es/search?q=adhesivos",
+  })
+
+  assert.equal(touch.source, "google")
+  assert.equal(touch.medium, "organic")
+})
+
+test("otros buscadores se clasifican como organic", () => {
+  for (const [referrer, source] of [
+    ["https://www.bing.com/search?q=vinilos", "bing"],
+    ["https://search.yahoo.com/search?p=vinilos", "yahoo"],
+    ["https://duckduckgo.com/?q=vinilos", "duckduckgo"],
+  ] as const) {
+    const touch = createAttributionTouchFromUrl({ url: productUrl, referrer })
+
+    assert.equal(touch.source, source)
+    assert.equal(touch.medium, "organic")
+  }
+})
+
+test("self-referral www no crea nuevo touch atribuible", () => {
+  const first = createAttributionTouchFromUrl({
+    url: `${productUrl}?utm_source=google&utm_medium=cpc&utm_campaign=gran_formato`,
+  })
+  const ownReferrer = createAttributionTouchFromUrl({
+    url: "https://reprodisseny.com/productos/otro-producto",
+    referrer: "https://www.reprodisseny.com/productos/panel-dibond-personalizado",
+  })
+  const attribution = updateLeadAttribution(
+    updateLeadAttribution({ first: null, last: null }, first),
+    ownReferrer,
+  )
+
+  assert.equal(attribution.last?.source, "google")
+  assert.equal(attribution.last?.medium, "cpc")
+})
+
+test("gclid sin UTMs normaliza google/cpc", () => {
+  const touch = createAttributionTouchFromUrl({
+    url: `${productUrl}?gclid=ABC123`,
+  })
+
+  assert.equal(touch.source, "google")
+  assert.equal(touch.medium, "cpc")
+})
+
+test("gbraid sin UTMs normaliza google/cpc", () => {
+  const touch = createAttributionTouchFromUrl({
+    url: `${productUrl}?gbraid=ABC123`,
+  })
+
+  assert.equal(touch.source, "google")
+  assert.equal(touch.medium, "cpc")
+})
+
+test("wbraid sin UTMs normaliza google/cpc", () => {
+  const touch = createAttributionTouchFromUrl({
+    url: `${productUrl}?wbraid=ABC123`,
+  })
+
+  assert.equal(touch.source, "google")
+  assert.equal(touch.medium, "cpc")
+})
+
+test("otros click IDs paid se conservan y no se degradan a direct", () => {
+  for (const [param, source, medium] of [
+    ["msclkid", "bing", "cpc"],
+    ["fbclid", "facebook", "paid_social"],
+  ] as const) {
+    const result = normalize({
+      sourceUrl: `${productUrl}?${param}=CLICK123`,
+    })
+
+    assert.equal(result.trackingSource, source)
+    assert.equal(result.trackingMedium, medium)
+    assert.notEqual(result.trackingSource, "direct")
+  }
+})
+
+test("gad_campaignid alimenta campaignId sin inventar campaign", () => {
+  const result = normalize({
+    sourceUrl: `${productUrl}?gad_campaignid=22573931882`,
+  })
+
+  assert.equal(result.trackingSource, "google")
+  assert.equal(result.trackingMedium, "cpc")
+  assert.equal(result.trackingCampaign, null)
+  assert.equal(result.trackingCampaignId, "22573931882")
+  assert.equal(result.selectedTouch?.gadCampaignId, "22573931882")
+})
+
+test("click IDs estructurados no se truncan a 300 caracteres", () => {
+  const longGclid = "G".repeat(450)
+  const result = normalize({
+    sourceUrl: productUrl,
+    tracking: {
+      attribution: {
+        first: {
+          gclid: longGclid,
+        },
+      },
+    },
+  })
+
+  assert.equal(result.selectedTouch?.gclid, longGclid)
+})
+
+test("payload legacy con click ID top-level se reproyecta como paid", () => {
+  const result = normalize({
+    sourceUrl: productUrl,
+    tracking: {
+      TrackingSource: "direct",
+      TrackingMedium: "none",
+      gclid: "LEGACY_GCLID",
+      gad_campaignid: "22573931882",
+    },
+  })
+
+  assert.equal(result.trackingSource, "google")
+  assert.equal(result.trackingMedium, "cpc")
+  assert.equal(result.trackingCampaignId, "22573931882")
+  assert.equal(result.selectedTouch?.gclid, "LEGACY_GCLID")
 })
 
 test("invariante: campana sin source real no se clasifica como direct/none", () => {

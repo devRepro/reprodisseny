@@ -23,6 +23,7 @@ export type AttributionData = {
   medium?: string | null
   campaign?: string | null
   campaignId?: string | null
+  gadCampaignId?: string | null
   term?: string | null
   content?: string | null
 
