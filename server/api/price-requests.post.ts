@@ -9,139 +9,13 @@ import {
 import { createPriceRequest } from "~/server/services/priceRequests/priceRequestService.server"
 import { rateLimit, ipHash, getClientIp } from "~/server/utils/rateLimit.server"
 import { priceRequestPayloadSchema } from "~/shared/schemas/priceRequest"
+import { normalizeLeadTracking } from "~/utils/tracking/leadAttribution"
 
   
 const FileKindSchema = z
   .enum(["design", "brief", "proof", "final", "other"])
   .optional()
   .default("design")
-
-function isRecord(value: unknown): value is Record<string, any> {
-  return Boolean(value) && typeof value === "object" && !Array.isArray(value);
-}
-
-function cleanString(value: unknown, max = 300) {
-  if (typeof value !== "string") return null;
-
-  const trimmed = value.trim();
-
-  if (!trimmed) return null;
-
-  return trimmed.slice(0, max);
-}
-
-function firstString(...values: unknown[]) {
-  for (const value of values) {
-    const cleaned = cleanString(value);
-
-    if (cleaned) return cleaned;
-  }
-
-  return null;
-}
-
-function normalizeLeadTracking(input: {
-  tracking?: Record<string, any> | null;
-  utm?: Record<string, any> | null;
-  sourceUrl: string;
-  categorySlug: string;
-  productSlug?: string | null;
-}) {
-  const tracking = isRecord(input.tracking) ? input.tracking : {};
-  const utm = isRecord(input.utm) ? input.utm : {};
-
-  const context = isRecord(tracking.context) ? tracking.context : {};
-  const attribution = isRecord(tracking.attribution) ? tracking.attribution : {};
-
-  const firstTouch = isRecord(attribution.first) ? attribution.first : {};
-  const lastTouch = isRecord(attribution.last) ? attribution.last : {};
-  const selectedTouch = Object.keys(lastTouch).length ? lastTouch : firstTouch;
-
-  const trackingSource =
-    firstString(
-      tracking.TrackingSource,
-      tracking.trackingSource,
-      selectedTouch.source,
-      lastTouch.source,
-      firstTouch.source,
-      utm.utm_source,
-      utm.source,
-    ) || "direct";
-
-  const trackingMedium =
-    firstString(
-      tracking.TrackingMedium,
-      tracking.trackingMedium,
-      selectedTouch.medium,
-      lastTouch.medium,
-      firstTouch.medium,
-      utm.utm_medium,
-      utm.medium,
-    ) || "direct";
-
-  const trackingCampaign = firstString(
-    tracking.TrackingCampaign,
-    tracking.trackingCampaign,
-    selectedTouch.campaign,
-    lastTouch.campaign,
-    firstTouch.campaign,
-    context.campaignName,
-    utm.utm_campaign,
-    utm.campaign,
-  );
-
-  const trackingCampaignId = firstString(
-    tracking.TrackingCampaignId,
-    tracking.trackingCampaignId,
-    selectedTouch.campaignId,
-    lastTouch.campaignId,
-    firstTouch.campaignId,
-    context.campaignId,
-    utm.utm_id,
-    utm.campaign_id,
-  );
-
-  const sourceUrl =
-    firstString(
-      tracking.SourceUrl,
-      tracking.sourceUrl,
-      selectedTouch.landingUrl,
-      lastTouch.landingUrl,
-      firstTouch.landingUrl,
-      input.sourceUrl,
-    ) || input.sourceUrl;
-
-  const raw = {
-    schemaVersion: 1,
-    receivedAt: new Date().toISOString(),
-
-    normalized: {
-      trackingSource,
-      trackingMedium,
-      trackingCampaign,
-      trackingCampaignId,
-      sourceUrl,
-      categorySlug: input.categorySlug,
-      productSlug: input.productSlug ?? null,
-    },
-
-    context,
-    attribution,
-    utm,
-
-    rawTracking: tracking,
-  };
-
-  return {
-    trackingSource,
-    trackingMedium,
-    trackingCampaign,
-    trackingCampaignId,
-    sourceUrl,
-    utmJson: JSON.stringify(raw),
-  };
-}
-
 
 export default defineEventHandler(async (event) => {
   const parts = await readMultipartFormData(event)
@@ -253,6 +127,7 @@ export default defineEventHandler(async (event) => {
   sourceUrl: p.sourceUrl,
   categorySlug: p.categorySlug,
   productSlug: p.product.slug ?? null,
+  formType: "price_request",
 });
 
   try {

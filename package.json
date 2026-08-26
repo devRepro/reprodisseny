@@ -12,6 +12,7 @@
     "generate": "npm run sync:cms && nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
+    "test": "node --import tsx --test \"tests/*.test.ts\"",
     "dev:clean": "rm -rf .nuxt .output node_modules/.cache && nuxi dev",
     "validate-md": "node scripts/validate-md-structure.js",
     "validate:categorias": "node scripts/validate-seo-routes.mjs",

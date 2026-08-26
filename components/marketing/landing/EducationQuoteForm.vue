@@ -127,27 +127,6 @@ const sourceUrl = computed(() => {
   return String(value).slice(0, 300);
 });
 
-const routeUtm = computed(() => {
-  const out: Record<string, string> = {};
-
-  for (const [key, value] of Object.entries(route.query || {})) {
-    const normalizedKey = key.toLowerCase();
-
-    if (
-      !normalizedKey.startsWith("utm_") &&
-      !["gclid", "gbraid", "wbraid", "fbclid", "msclkid"].includes(normalizedKey)
-    ) {
-      continue;
-    }
-
-    out[key] = Array.isArray(value)
-      ? String(value[0] ?? "")
-      : String(value ?? "");
-  }
-
-  return Object.keys(out).length ? out : null;
-});
-
 const errorMessage = computed(() => {
   if (validationError.value) return validationError.value;
   if (!error.value) return "";
@@ -226,11 +205,7 @@ function resolveRequestReference(result: PriceRequestResult) {
 function getLeadTrackingPayload() {
   const context = getTrackingContext();
 
-  return {
-    ...tracking.getTrackingPayloadForLead(context),
-    routeUtm: routeUtm.value,
-    sourceUrl: sourceUrl.value,
-  };
+  return tracking.getTrackingPayloadForLead(context);
 }
 
 async function onSubmit() {
@@ -300,8 +275,8 @@ async function onSubmit() {
       deadline: form.deadline.trim() || null,
     },
     consent: true,
-    sourceUrl: sourceUrl.value,
-    utm: routeUtm.value,
+    sourceUrl: trackingPayload.sourceUrl || sourceUrl.value,
+    utm: trackingPayload.routeUtm,
     tracking: trackingPayload,
     initialStatus: "Nova",
   };

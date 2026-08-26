@@ -364,7 +364,7 @@ const sourceUrlField =
     }
       const tracking = input.tracking ?? {
   trackingSource: "direct",
-  trackingMedium: "direct",
+  trackingMedium: "none",
   trackingCampaign: null,
   trackingCampaignId: null,
   sourceUrl: input.sourceUrl || getHeader(event, "referer") || "",
@@ -421,7 +421,7 @@ const sourceUrlField =
   [SPF.PRODUCT_SLUG || "ProductSlug"]: productSlug || "",
 
   [trackingSourceField]: tracking.trackingSource || "direct",
-  [trackingMediumField]: tracking.trackingMedium || "direct",
+  [trackingMediumField]: tracking.trackingMedium || "none",
   [trackingCampaignField]: tracking.trackingCampaign || "",
   [trackingCampaignIdField]: tracking.trackingCampaignId || "",
   [utmJsonField]: tracking.utmJson || (input.utm ? JSON.stringify(input.utm) : ""),

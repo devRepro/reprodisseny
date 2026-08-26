@@ -80,17 +80,6 @@ const sourceUrl = computed(() => {
   return String(value).slice(0, 300);
 });
 
-const utm = computed(() => {
-  const out: Record<string, string> = {};
-
-  for (const [key, value] of Object.entries(route.query || {})) {
-    if (!key.toLowerCase().startsWith("utm_")) continue;
-    out[key] = Array.isArray(value) ? String(value[0] ?? "") : String(value ?? "");
-  }
-
-  return Object.keys(out).length ? out : null;
-});
-
 const errorMessage = computed(() => {
   if (validationError.value) return validationError.value;
   if (!error.value) return "";
@@ -207,6 +196,8 @@ async function onSubmit() {
   ].join(" ");
 
   try {
+    const trackingPayload = tracking.getTrackingPayloadForLead(getTrackingContext());
+
     const response = await leadTracking.submitAndTrack(() =>
       sendPriceRequest(
         {
@@ -229,9 +220,9 @@ async function onSubmit() {
         glassSurface: glassSurface || null,
       },
       consent: true,
-      sourceUrl: sourceUrl.value,
-      utm: utm.value,
-      tracking: tracking.getTrackingPayloadForLead(getTrackingContext()),
+      sourceUrl: trackingPayload.sourceUrl || sourceUrl.value,
+      utm: trackingPayload.routeUtm,
+      tracking: trackingPayload,
       initialStatus: "Nova",
         },
         { file: null, fileKind: "design" },

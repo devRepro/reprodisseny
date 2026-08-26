@@ -69,22 +69,6 @@ function cleanString(value: unknown) {
   return typeof value === "string" ? value.trim() : "";
 }
 
-function normalizeUtm(query: Record<string, unknown>) {
-  const out: Record<string, string> = {};
-
-  for (const [key, value] of Object.entries(query || {})) {
-    if (!key.toLowerCase().startsWith("utm_")) continue;
-
-    if (Array.isArray(value)) out[key] = String(value[0] ?? "");
-    else if (value == null) out[key] = "";
-    else out[key] = String(value);
-  }
-
-  return Object.keys(out).length ? out : null;
-}
-
-const utm = computed(() => normalizeUtm(route.query as Record<string, unknown>));
-
 // El endpoint limita sourceUrl a 300 caracteres.
 const sourceUrl = computed(() => {
   const url = import.meta.client ? window.location.href : route.fullPath || "/";
@@ -182,6 +166,8 @@ const onSubmit = handleSubmit(
       return;
     }
 
+    const trackingPayload = tracking.getTrackingPayloadForLead(getTrackingContext());
+
     const payload = {
       website: cleanString(values.website) || null,
 
@@ -209,9 +195,9 @@ const onSubmit = handleSubmit(
       },
 
       consent: values.consent === true,
-      sourceUrl: sourceUrl.value,
-      utm: utm.value,
-      tracking: tracking.getTrackingPayloadForLead(getTrackingContext()),
+      sourceUrl: trackingPayload.sourceUrl || sourceUrl.value,
+      utm: trackingPayload.routeUtm,
+      tracking: trackingPayload,
       initialStatus: "Nova",
     };
 

@@ -19,24 +19,24 @@ export type TrackingEventName =
   | "file_download"
 
 export type AttributionData = {
-  source?: string
-  medium?: string
-  campaign?: string
-  campaignId?: string
-  term?: string
-  content?: string
+  source?: string | null
+  medium?: string | null
+  campaign?: string | null
+  campaignId?: string | null
+  term?: string | null
+  content?: string | null
 
-  gclid?: string
-  gbraid?: string
-  wbraid?: string
-  fbclid?: string
-  msclkid?: string
+  gclid?: string | null
+  gbraid?: string | null
+  wbraid?: string | null
+  fbclid?: string | null
+  msclkid?: string | null
 
-  landingPath?: string
-  landingUrl?: string
-  referrer?: string
-  firstSeenAt?: string
-  lastSeenAt?: string
+  landingPath?: string | null
+  landingUrl?: string | null
+  referrer?: string | null
+  firstSeenAt?: string | null
+  lastSeenAt?: string | null
 }
 
 export type TrackingContext = {

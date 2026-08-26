@@ -5,6 +5,8 @@ import { toTypedSchema } from "@vee-validate/zod";
 import { useRoute } from "#imports";
 import { cn } from "@/lib/utils";
 import { useSendContact } from "@/composables/useSendContact";
+import { useTracking } from "@/composables/useTracking";
+import type { TrackingContext } from "~/types/tracking";
 
 import {
   FormField,
@@ -61,17 +63,18 @@ const { handleSubmit } = useForm({
 });
 
 const { sendContact, isLoading, error, success } = useSendContact();
+const tracking = useTracking();
 
-function normalizeUtm(q: Record<string, any>) {
-  const out: Record<string, string> = {};
-
-  for (const [k, v] of Object.entries(q || {})) {
-    if (Array.isArray(v)) out[k] = String(v[0] ?? "");
-    else if (v == null) out[k] = "";
-    else out[k] = String(v);
-  }
-
-  return out;
+function getTrackingContext(): TrackingContext {
+  return {
+    pageType: "contact",
+    pageLanguage: "es",
+    contentGroup: "contacto",
+    serviceName: "Consulta web",
+    categorySlug: "contacte",
+    formId: "contact_form",
+    formName: "contact_form",
+  };
 }
 
 function controlClass(errorMessage?: string) {
@@ -94,6 +97,8 @@ const onSubmit = handleSubmit(async (values) => {
     return;
   }
 
+  const trackingPayload = tracking.getTrackingPayloadForLead(getTrackingContext());
+
   await sendContact({
     nombre: values.nombre.trim(),
     email: values.email.trim(),
@@ -102,8 +107,9 @@ const onSubmit = handleSubmit(async (values) => {
     consulta: values.consulta.trim(),
     consent: values.consent,
     origen: "contact-page",
-    utm: normalizeUtm(route.query as any),
-    sourceUrl: route.fullPath,
+    utm: trackingPayload.routeUtm ?? {},
+    sourceUrl: trackingPayload.sourceUrl || route.fullPath,
+    tracking: trackingPayload,
     website: values.website,
   });
 

@@ -5,7 +5,11 @@ import type {
   TrackingEventName,
   TrackingPayload,
 } from "~/types/tracking"
-import { getAttribution } from "~/utils/tracking/attribution"
+import { captureAttribution, getAttribution } from "~/utils/tracking/attribution"
+import {
+  getTrackingParamsFromUrl,
+  normalizeLeadTracking,
+} from "~/utils/tracking/leadAttribution"
 
 type TrackingContextInput = Partial<TrackingContext>
 
@@ -69,14 +73,88 @@ function toDataLayerContext(context?: TrackingContextInput) {
   }
 }
 
-function resolveAttributionForLead(attribution: ReturnType<typeof getAttribution>) {
-  const last = attribution.last
-  const first = attribution.first
-
-  return last || first || null
-}
-
 export function useTracking(defaultContext?: TrackingContextInput) {
+  function getCurrentSourceUrl() {
+    if (!import.meta.client) return null
+
+    return window.location.href
+  }
+
+  function getLeadTrackingSnapshot(context?: TrackingContextInput) {
+    const mergedContext = {
+      ...defaultContext,
+      ...context,
+    }
+
+    if (!import.meta.client) {
+      return {
+        context: mergedContext,
+        attribution: {
+          first: null,
+          last: null,
+        },
+        routeUtm: null,
+        sourceUrl: null,
+        normalized: {
+          trackingSource: "direct",
+          trackingMedium: "none",
+          trackingCampaign: null,
+          trackingCampaignId: null,
+          sourceUrl: null,
+          categorySlug: mergedContext.categorySlug ?? null,
+          productSlug: mergedContext.productSlug ?? null,
+        },
+        TrackingSource: "direct",
+        TrackingMedium: "none",
+        TrackingCampaign: null,
+        TrackingCampaignId: null,
+        SourceUrl: null,
+        UtmJson: "{}",
+      }
+    }
+
+    captureAttribution()
+
+    const sourceUrl = getCurrentSourceUrl() || ""
+    const attribution = getAttribution()
+    const routeUtm = getTrackingParamsFromUrl(sourceUrl)
+    const normalized = normalizeLeadTracking({
+      tracking: {
+        context: mergedContext,
+        attribution,
+        routeUtm,
+        sourceUrl,
+      },
+      utm: routeUtm,
+      sourceUrl,
+      categorySlug: mergedContext.categorySlug ?? null,
+      productSlug: mergedContext.productSlug ?? null,
+      formType: mergedContext.formName ?? null,
+    })
+
+    return {
+      context: mergedContext,
+      attribution: normalized.attribution,
+      routeUtm: normalized.routeUtm,
+      sourceUrl,
+      normalized: {
+        trackingSource: normalized.trackingSource,
+        trackingMedium: normalized.trackingMedium,
+        trackingCampaign: normalized.trackingCampaign,
+        trackingCampaignId: normalized.trackingCampaignId,
+        sourceUrl: normalized.sourceUrl,
+        categorySlug: mergedContext.categorySlug ?? null,
+        productSlug: mergedContext.productSlug ?? null,
+      },
+      TrackingSource: normalized.trackingSource,
+      TrackingMedium: normalized.trackingMedium,
+      TrackingCampaign: normalized.trackingCampaign,
+      TrackingCampaignId: normalized.trackingCampaignId,
+      SourceUrl: normalized.sourceUrl,
+      UtmJson: normalized.utmJson,
+    }
+  }
+
   function pushPrivacySafeEvent(
     event: "form_start" | "form_validation_error" | "generate_lead",
     payload: TrackingPayload = {},
@@ -142,90 +220,18 @@ export function useTracking(defaultContext?: TrackingContextInput) {
   }
 
   function getTrackingPayloadForLead(context?: TrackingContextInput) {
-    if (!import.meta.client) {
-      return {
-        context: {
-          ...defaultContext,
-          ...context,
-        },
-        attribution: {
-          first: null,
-          last: null,
-        },
-      }
-    }
-
-    const attribution = getAttribution()
-
-    const mergedContext = {
-      ...defaultContext,
-      ...context,
-    }
-
-    return {
-      context: mergedContext,
-      attribution,
-    }
+    return getLeadTrackingSnapshot(context)
   }
 
   function getSharePointTrackingFields(context?: TrackingContextInput) {
-    if (!import.meta.client) {
-      return {
-        TrackingSource: "unknown",
-        TrackingMedium: "unknown",
-        TrackingCampaign: null,
-        TrackingCampaignId: null,
-        SourceUrl: null,
-        UtmJson: "{}",
-      }
-    }
-
-    const attribution = getAttribution()
-
-    const mergedContext = {
-      ...defaultContext,
-      ...context,
-    }
-
-    const selected = resolveAttributionForLead(attribution)
-
-    const sourceUrl =
-      selected?.landingUrl ||
-      window.location.href
-
-    const trackingSource =
-      selected?.source ||
-      "direct"
-
-    const trackingMedium =
-      selected?.medium ||
-      "direct"
-
-    const trackingCampaign =
-      selected?.campaign ||
-      mergedContext.campaignName ||
-      null
-
-    const trackingCampaignId =
-      selected?.campaignId ||
-      mergedContext.campaignId ||
-      null
-
+    const snapshot = getLeadTrackingSnapshot(context)
     return {
-      TrackingSource: trackingSource,
-      TrackingMedium: trackingMedium,
-      TrackingCampaign: trackingCampaign,
-      TrackingCampaignId: trackingCampaignId,
-      SourceUrl: sourceUrl,
-
-      UtmJson: JSON.stringify({
-        context: mergedContext,
-        attribution,
-        selectedTouch: selected,
-        currentUrl: window.location.href,
-        currentPath: window.location.pathname,
-        capturedFor: "price_request",
-      }),
+      TrackingSource: snapshot.TrackingSource,
+      TrackingMedium: snapshot.TrackingMedium,
+      TrackingCampaign: snapshot.TrackingCampaign,
+      TrackingCampaignId: snapshot.TrackingCampaignId,
+      SourceUrl: snapshot.SourceUrl,
+      UtmJson: snapshot.UtmJson,
     }
   }
 

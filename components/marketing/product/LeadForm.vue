@@ -99,19 +99,6 @@ function onPickFile(e: Event) {
   file.value = input.files?.[0] || null;
 }
 
-function normalizeUtm(q: Record<string, unknown>) {
-  const out: Record<string, string> = {};
-
-  for (const [k, v] of Object.entries(q || {})) {
-    if (!k.toLowerCase().startsWith("utm_")) continue;
-    out[k] = Array.isArray(v) ? String(v[0] ?? "") : String(v ?? "");
-  }
-
-  return Object.keys(out).length ? out : null;
-}
-
-const utm = computed(() => normalizeUtm(route.query));
-
 const sourceUrl = computed(() => {
   const url = process.client ? location.href : route.fullPath || "/";
   return String(url).slice(0, 300);
@@ -247,11 +234,7 @@ const leadTracking = useLeadFormTracking(() => getTrackingContext());
 function getLeadTrackingPayload(slug: string) {
   const context = getTrackingContext(slug);
 
-  return {
-    ...tracking.getTrackingPayloadForLead(context),
-    routeUtm: utm.value,
-    sourceUrl: sourceUrl.value,
-  };
+  return tracking.getTrackingPayloadForLead(context);
 }
 
 function handleResetSuccessState() {
@@ -358,6 +341,8 @@ const onSubmit = handleSubmit(
     }
 
     try {
+      const trackingPayload = getLeadTrackingPayload(slug || "");
+
       const response = await leadTracking.submitAndTrack(() =>
         sendPriceRequest(
           {
@@ -376,9 +361,9 @@ const onSubmit = handleSubmit(
           },
           extras,
           consent: true,
-          sourceUrl: sourceUrl.value,
-          utm: utm.value,
-          tracking: getLeadTrackingPayload(slug || ""),
+          sourceUrl: trackingPayload.sourceUrl || sourceUrl.value,
+          utm: trackingPayload.routeUtm,
+          tracking: trackingPayload,
           initialStatus: "Nova",
           },
           { file: file.value, fileKind: "design" },
