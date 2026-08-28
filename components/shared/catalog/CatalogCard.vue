@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue"
 import type { RouteLocationRaw } from "vue-router"
-import CmsImage from "@/components/shared/blocks/CmsImage.vue"
 import AppButton from "@/components/shared/button/AppButton.vue"
 import { normalizeCmsMediaSrc } from "@/utils/cmsMedia"
 
@@ -24,6 +23,7 @@ type Props = {
   variant?: "default" | "category" | "featured"
   ctaLabel?: string
   imageAspectClass?: string
+  imageSizes?: string
   fallbackLabel?: string
   badge?: string | null
 }
@@ -34,6 +34,7 @@ const props = withDefaults(defineProps<Props>(), {
   variant: "default",
   ctaLabel: "Ver más",
   imageAspectClass: "aspect-[4/3]",
+  imageSizes: "xs:100vw sm:46vw xl:30vw xxl:340px",
   fallbackLabel: "Sin imagen",
   badge: "",
 })
@@ -84,12 +85,16 @@ const linkAriaLabel = computed(() => {
     >
       <div class="catalog-card__media">
         <div :class="['catalog-card__media-frame', props.imageAspectClass]">
-          <CmsImage
+          <NuxtImg
             v-if="hasMedia"
             :src="media.src"
             :alt="media.alt"
             :width="media.width || undefined"
             :height="media.height || undefined"
+            :sizes="props.imageSizes"
+            loading="lazy"
+            decoding="async"
+            fetchpriority="auto"
             class="catalog-card__image"
           />
 

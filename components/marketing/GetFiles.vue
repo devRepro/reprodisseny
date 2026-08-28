@@ -109,9 +109,9 @@ function handleImageError() {
             width="485"
             height="309"
             class="aspect-[485/309] w-full rounded-[24px] object-cover shadow-[0_24px_70px_-42px_hsl(var(--foreground)/0.45)]"
-            loading="eager"
+            loading="lazy"
             decoding="async"
-            fetchpriority="high"
+            fetchpriority="auto"
             @error="handleImageError"
           />
 

@@ -12,7 +12,6 @@
       image-sizes="(min-width: 1024px) 42vw, 100vw"
       :image-width="1440"
       :image-height="1313"
-      eager
       :bullets="[
         'Reduce calor y reflejos sin obras',
         'Instalación profesional en Barcelona',
@@ -154,6 +153,8 @@ useHead({
 const stripImages = [
   {
     src: "/img/home/preimpresion-960.webp",
+    width: 1066,
+    height: 800,
     webpSrcset:
       "/img/home/preimpresion-640.webp 640w, /img/home/preimpresion-960.webp 960w, /img/home/preimpresion-1066.webp 1066w",
     avifSrcset:
@@ -163,14 +164,20 @@ const stripImages = [
   },
   {
     src: "https://webcms.blob.core.windows.net/media/home/impresion.webp",
+    width: 1200,
+    height: 800,
     alt: "Producción de impresión profesional",
   },
   {
     src: "https://webcms.blob.core.windows.net/media/home/instalacion-vinilo.webp",
+    width: 1200,
+    height: 800,
     alt: "Instalación profesional de vinilo",
   },
   {
     src: "https://webcms.blob.core.windows.net/media/home/logistica.webp",
+    width: 1200,
+    height: 800,
     alt: "Preparación y logística de trabajos gráficos",
   },
 ];
