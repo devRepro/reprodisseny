@@ -60,6 +60,7 @@ defineProps<{
             :width="img.width"
             :height="img.height"
             :sizes="img.sizes || 'xs:84vw md:46vw xl:22vw xxl:330px'"
+            quality="80"
             class="aspect-[4/3] w-full object-cover md:transition-transform md:duration-500 md:group-hover:scale-[1.02]"
             :loading="index === 0 ? 'eager' : 'lazy'"
             decoding="async"

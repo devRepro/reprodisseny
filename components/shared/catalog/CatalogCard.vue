@@ -24,6 +24,7 @@ type Props = {
   ctaLabel?: string
   imageAspectClass?: string
   imageSizes?: string
+  imageQuality?: number
   fallbackLabel?: string
   badge?: string | null
 }
@@ -92,6 +93,7 @@ const linkAriaLabel = computed(() => {
             :width="media.width || undefined"
             :height="media.height || undefined"
             :sizes="props.imageSizes"
+            :quality="props.imageQuality"
             loading="lazy"
             decoding="async"
             fetchpriority="auto"

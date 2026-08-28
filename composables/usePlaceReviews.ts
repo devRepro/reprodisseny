@@ -1,5 +1,6 @@
 import { computed } from "vue"
 import type { ReviewsQuery, ReviewsResponseDTO, ReviewDTO, ReviewCardItem } from "@/types/reviews"
+import { optimizeGoogleAvatarUrl } from "@/utils/googleAvatar"
 
 export function usePlaceReviews(queryIn?: ReviewsQuery & { limit?: number }) {
   const config = useRuntimeConfig()
@@ -38,7 +39,7 @@ export function usePlaceReviews(queryIn?: ReviewsQuery & { limit?: number }) {
       rating: r.rating || 0,
       text: r.text || "",
       time: r.relativeTime || (r.publishTime ? toYMD(r.publishTime) : ""),
-      avatar: r.profilePhotoUri ?? null,
+      avatar: optimizeGoogleAvatarUrl(r.profilePhotoUri, 64) ?? null,
       url: data.value?.mapsUrl, // útil si quieres enlazar “Ver en Google”
     }))
   )
