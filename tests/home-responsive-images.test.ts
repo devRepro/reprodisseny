@@ -33,7 +33,7 @@ test("Home category cards request responsive CMS image variants", () => {
   const grid = readSource("components/marketing/ProductCategoryGrid.vue");
   const card = readSource("components/shared/catalog/CatalogCard.vue");
 
-  assert.match(grid, /image-sizes="xs:78vw sm:46vw xl:22vw xxl:260px"/);
+  assert.match(grid, /image-sizes="xs:78vw sm:46vw 1279:22vw xl:22vw 2xl:300px"/);
   assert.match(card, /<NuxtImg/);
   assert.match(card, /:sizes="props\.imageSizes"/);
   assert.match(card, /loading="lazy"/);
