@@ -130,7 +130,7 @@ const hasHeader = computed(() =>
               :title="item.title"
               :description="item.shortDescription || item.description || ''"
               :image="item.image"
-              image-sizes="xs:78vw sm:46vw xl:22vw xxl:260px"
+              image-sizes="xs:78vw sm:46vw 1279:22vw xl:22vw 2xl:300px"
               :image-quality="80"
               cta-label="Ver categoría"
               fallback-label="Categoría"

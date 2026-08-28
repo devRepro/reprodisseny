@@ -164,6 +164,15 @@ test("CatalogCard renders bounded responsive CMS image requests", async () => {
   assert.doesNotMatch(html, /loading="eager"|fetchpriority="high"/);
 });
 
+test("Home category grid uses the refined responsive image sizing", () => {
+  const template = readTemplate("components/marketing/ProductCategoryGrid.vue");
+
+  assert.match(
+    template,
+    /image-sizes="xs:78vw sm:46vw 1279:22vw xl:22vw 2xl:300px"/,
+  );
+});
+
 test("the desktop-only anniversary logo is not eagerly fetched on mobile", () => {
   const template = readTemplate("components/marketing/HomeHero.vue");
   const ast = parseTemplate(template);
