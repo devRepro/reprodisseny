@@ -12,6 +12,7 @@
       image-sizes="(min-width: 1024px) 42vw, 100vw"
       :image-width="1440"
       :image-height="1313"
+      eager
       :bullets="[
         'Reduce calor y reflejos sin obras',
         'Instalación profesional en Barcelona',

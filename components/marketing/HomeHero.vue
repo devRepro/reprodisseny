@@ -43,7 +43,7 @@ import AppButton from "@/components/shared/button/AppButton.vue";
             <div
               class="relative flex h-44 w-44 items-center justify-center overflow-hidden rounded-full border border-primary/10 bg-background/85 shadow-[0_18px_45px_-28px_hsl(var(--foreground)/0.35)] ring-1 ring-background/70">
               <img src="/img/logo/reprodisseny_1983.svg" alt="Reprodisseny desde 1983"
-                class="h-full w-full object-cover" loading="eager" decoding="async" />
+                class="h-full w-full object-cover" loading="lazy" decoding="async" />
             </div>
           </div>
         </div>

@@ -49,7 +49,7 @@ defineProps<{
               class="aspect-[4/3] w-full object-cover md:transition-transform md:duration-500 md:group-hover:scale-[1.02]"
               :loading="index === 0 ? 'eager' : 'lazy'"
               decoding="async"
-              :fetchpriority="index === 0 ? 'high' : 'auto'"
+              fetchpriority="auto"
             />
           </picture>
 
@@ -64,7 +64,7 @@ defineProps<{
             class="aspect-[4/3] w-full object-cover md:transition-transform md:duration-500 md:group-hover:scale-[1.02]"
             :loading="index === 0 ? 'eager' : 'lazy'"
             decoding="async"
-            :fetchpriority="index === 0 ? 'high' : 'auto'"
+            fetchpriority="auto"
           />
         </article>
       </div>
