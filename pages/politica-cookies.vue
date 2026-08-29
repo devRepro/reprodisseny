@@ -4,13 +4,7 @@ import { CalendarDays, Cookie, Mail, Settings2, ShieldCheck } from "lucide-vue-n
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 
-declare global {
-  interface Window {
-    UC_UI?: {
-      showSecondLayer?: () => void;
-    };
-  }
-}
+const { openCookiePreferences } = useCookieConsent();
 
 type CookieCategory = {
   title: string;
@@ -107,19 +101,6 @@ const cookieCategories: CookieCategory[] = [
   },
 ];
 
-function openCookieSettings() {
-  if (!import.meta.client) return;
-
-  if (typeof window.UC_UI?.showSecondLayer === "function") {
-    window.UC_UI.showSecondLayer();
-    return;
-  }
-
-  console.warn(
-    "No se ha podido abrir el panel de Usercentrics. Revisa que la CMP se haya cargado correctamente."
-  );
-}
-
 useSeoMeta({
   title: "Política de cookies",
   description:
@@ -176,7 +157,7 @@ useHead({
             <button
               type="button"
               class="inline-flex items-center gap-2 font-medium text-primary underline-offset-4 hover:underline"
-              @click="openCookieSettings"
+              @click="openCookiePreferences"
             >
               <Settings2 class="size-4" aria-hidden="true" />
               Configurar cookies
@@ -403,8 +384,8 @@ useHead({
             </h2>
 
             <p class="leading-relaxed text-muted-foreground">
-              El inventario actualizado de tecnologías utilizadas se encuentra en el panel
-              de configuración de consentimiento gestionado mediante Usercentrics.
+              El inventario de tecnologías utilizadas se encuentra en este documento y en
+              el panel de configuración de consentimiento de la web.
             </p>
 
             <p class="leading-relaxed text-muted-foreground">
@@ -428,13 +409,13 @@ useHead({
 
                     <p class="text-sm leading-relaxed text-muted-foreground">
                       Abra el panel para ver los servicios detectados y cambiar su
-                      consentimiento por categoría o proveedor.
+                      consentimiento por categoría y consultar las tecnologías asociadas.
                     </p>
 
                     <button
                       type="button"
                       class="inline-flex min-h-11 items-center justify-center rounded-lg bg-primary px-5 py-2.5 text-sm font-semibold text-primary-foreground transition hover:opacity-90"
-                      @click="openCookieSettings"
+                      @click="openCookiePreferences"
                     >
                       Abrir configuración de cookies
                     </button>
@@ -470,7 +451,7 @@ useHead({
             <button
               type="button"
               class="inline-flex min-h-11 items-center gap-2 rounded-lg border border-border bg-background px-5 py-2.5 text-sm font-semibold text-foreground transition hover:border-primary/25 hover:text-primary"
-              @click="openCookieSettings"
+              @click="openCookiePreferences"
             >
               <Settings2 class="size-4" aria-hidden="true" />
               Modificar preferencias

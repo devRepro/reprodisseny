@@ -2,6 +2,7 @@
 import { Phone } from "lucide-vue-next";
 
 const brandLogo = "/img/logo/reprodisseny.svg";
+const { openCookiePreferences } = useCookieConsent();
 
 function scrollToQuote() {
   if (!import.meta.client) return;
@@ -129,6 +130,14 @@ function scrollToQuote() {
             <NuxtLink to="/politica-privacidad" class="hover:text-white">
               Privacidad
             </NuxtLink>
+
+            <button
+              type="button"
+              class="hover:text-white"
+              @click="openCookiePreferences"
+            >
+              Configurar cookies
+            </button>
           </div>
         </div>
       </div>

@@ -3,6 +3,7 @@ import { defineNuxtConfig } from "nuxt/config";
 import { redirectRouteRules } from "./redirect-rules.generated";
 import { MANUAL_NOINDEX_PATHS } from "./shared/seo/legacyRedirects";
 import { parseExplicitBoolean } from "./utils/explicitBoolean";
+import { createGoogleConsentDefaultScript } from "./utils/googleConsent";
 
 const siteUrl =
   process.env.NUXT_SITE_URL ||
@@ -15,9 +16,6 @@ const siteEnv =
   process.env.NODE_ENV;
 
 const isIndexable = siteEnv === "production";
-
-const usercentricsSettingsId =
-  process.env.NUXT_PUBLIC_USERCENTRICS_SETTINGS_ID || "";
 
 const gtmId = process.env.NUXT_PUBLIC_GTM_ID || "";
 
@@ -328,7 +326,6 @@ export default defineNuxtConfig({
       mediaBaseUrl,
       mediaBlobOrigin,
     
-      usercentricsSettingsId,
       gtmId,
       googleSiteVerification,
     
@@ -357,7 +354,11 @@ export default defineNuxtConfig({
     "shadcn-nuxt",
   ],
 
-  css: ["@/assets/styles/main.scss"],
+  css: [
+    "vanilla-cookieconsent/dist/cookieconsent.css",
+    "@/assets/styles/main.scss",
+    "@/assets/styles/cookie-consent.scss",
+  ],
 
   image: {
     domains: [
@@ -430,32 +431,7 @@ link: [
             {
               id: "google-consent-default",
               tagPriority: "critical" as const,
-              innerHTML: `
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('consent', 'default', {
-  ad_storage: 'denied',
-  ad_user_data: 'denied',
-  ad_personalization: 'denied',
-  analytics_storage: 'denied',
-  functionality_storage: 'denied',
-  personalization_storage: 'denied',
-  security_storage: 'granted',
-  wait_for_update: 2000
-});
-          `.trim(),
-            },
-          ]
-          : []),
-
-        ...(usercentricsSettingsId
-          ? [
-            {
-              id: "usercentrics-cmp",
-              tagPriority: "high" as const,
-              src: "https://web.cmp.usercentrics.eu/ui/loader.js",
-              "data-settings-id": usercentricsSettingsId,
-              async: true,
+              innerHTML: createGoogleConsentDefaultScript(),
             },
           ]
           : []),

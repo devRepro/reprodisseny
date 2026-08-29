@@ -2,6 +2,8 @@
 import LinkedinIcon from "@/components/shared/icons/social/LinkedinIcon.vue";
 import InstagramIcon from "@/components/shared/icons/social/InstagramIcon.vue";
 
+const { openCookiePreferences } = useCookieConsent();
+
 type LinkItem = { label: string; to: string };
 
 const props = withDefaults(
@@ -128,6 +130,14 @@ const props = withDefaults(
           <NuxtLink to="/politica-cookies" class="site-footer__legal-link">
             Política de cookies
           </NuxtLink>
+
+          <button
+            type="button"
+            class="site-footer__legal-link site-footer__cookie-settings"
+            @click="openCookiePreferences"
+          >
+            Configurar cookies
+          </button>
         </nav>
       </div>
     </div>

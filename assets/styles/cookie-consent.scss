@@ -1,0 +1,41 @@
+#cc-main {
+  --cc-font-family: "Figtree", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --cc-modal-border-radius: 1rem;
+  --cc-btn-border-radius: 0.6rem;
+  --cc-bg: hsl(var(--background));
+  --cc-primary-color: hsl(var(--foreground));
+  --cc-secondary-color: hsl(var(--muted-foreground));
+  --cc-btn-primary-bg: hsl(var(--primary));
+  --cc-btn-primary-color: hsl(var(--primary-foreground));
+  --cc-btn-primary-border-color: hsl(var(--primary));
+  --cc-btn-primary-hover-bg: hsl(var(--brand-base-dark));
+  --cc-btn-primary-hover-color: hsl(var(--primary-foreground));
+  --cc-btn-primary-hover-border-color: hsl(var(--brand-base-dark));
+  --cc-btn-secondary-bg: hsl(var(--background));
+  --cc-btn-secondary-color: hsl(var(--primary));
+  --cc-btn-secondary-border-color: hsl(var(--primary));
+  --cc-btn-secondary-hover-bg: hsl(var(--brand-base-light));
+  --cc-btn-secondary-hover-color: hsl(var(--brand-base-dark));
+  --cc-btn-secondary-hover-border-color: hsl(var(--primary));
+  --cc-toggle-on-bg: hsl(var(--primary));
+  --cc-cookie-category-block-bg: hsl(var(--muted) / 0.55);
+  --cc-cookie-category-block-border: hsl(var(--border));
+  --cc-cookie-category-block-hover-bg: hsl(var(--muted));
+  --cc-cookie-category-block-hover-border: hsl(var(--border));
+  --cc-separator-border-color: hsl(var(--border));
+  --cc-footer-bg: hsl(var(--muted) / 0.45);
+  --cc-footer-border-color: hsl(var(--border));
+}
+
+#cc-main .cm,
+#cc-main .pm {
+  border: 1px solid hsl(var(--border));
+}
+
+#cc-main .cm__btn:focus-visible,
+#cc-main .pm__btn:focus-visible,
+#cc-main .pm__close-btn:focus-visible,
+#cc-main .section__toggle:focus-visible ~ .toggle__icon {
+  outline: 3px solid hsl(var(--primary) / 0.3);
+  outline-offset: 2px;
+}
