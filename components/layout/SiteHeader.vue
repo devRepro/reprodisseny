@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import { ref, computed, unref, watch, type Ref } from "vue";
 import BrandLockup from "@/components/shared/brand/Lockup.vue";
-import type { CategoriaNode } from "~/composables/useCategoriasNav";
+import type {
+  CategoriaNode,
+  ProductoNode,
+} from "~/composables/useCategoriasNav";
 
 import AppButton from "@/components/shared/button/AppButton.vue";
 import {
@@ -20,10 +23,12 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 import HeaderSearch from "@/components/layout/HeaderSearch.vue";
-import CategoriasMenu from "@/components/shared/menu/Categorias.vue";
-
 import { Search, Menu, Phone, X, ChevronDown } from "lucide-vue-next";
-import { categoryHref } from "@/utils/categoryHref";
+
+const CategoriasMenu = defineLazyHydrationComponent(
+  "mediaQuery",
+  () => import("@/components/shared/menu/Categorias.vue"),
+);
 
 type MaybeRef<T> = T | Ref<T>;
 
@@ -60,24 +65,25 @@ const categories = computed<CategoriaNode[]>(() =>
 );
 
 const labelOf = (c: Partial<CategoriaNode> | null | undefined) =>
-  c?.nav || c?.title || c?.slug || "";
+  c?.label || "";
 
 const nodeKeyOf = (c: Partial<CategoriaNode> | null | undefined) =>
-  c?.path || c?.slug || "";
+  c?.path || "";
 
-const toCat = (c: Partial<CategoriaNode> | null | undefined) => categoryHref(c);
+const toCat = (c: Partial<CategoriaNode> | null | undefined) =>
+  c?.path || "/categorias";
 
-const toProd = (p: any) =>
-  p?.path || (p?.slug ? `/productos/${p.slug}` : "/productos");
+const toProd = (p: Partial<ProductoNode> | null | undefined) =>
+  p?.path || "/productos";
 
 const hasChildren = (c: CategoriaNode | null | undefined) =>
   Array.isArray(c?.children) && c.children.length > 0;
 
 const hasProducts = (c: CategoriaNode | null | undefined) =>
-  (c?.productCount ?? 0) > 0 && Array.isArray(c?.products) && c.products.length > 0;
+  Array.isArray(c?.products) && c.products.length > 0;
 
 const hasDropdown = (c: CategoriaNode) =>
-  hasChildren(c) || (c?.productCount ?? 0) > 0;
+  hasChildren(c) || hasProducts(c);
 
 const previewProducts = (c: CategoriaNode | null | undefined) =>
   Array.isArray(c?.products) ? c.products.slice(0, 8) : [];
@@ -333,7 +339,7 @@ const staticLinks = [
                               <div class="grid grid-cols-1 gap-1">
                                 <NuxtLink
                                   v-for="prod in previewProducts(sub)"
-                                  :key="prod.path || prod.slug || prod.title"
+                                  :key="prod.path"
                                   :to="toProd(prod)"
                                   class="truncate rounded-md p-2 text-xs text-slate-600 transition-colors hover:bg-slate-100 hover:text-slate-900"
                                   @click="closeMobileMenu"
@@ -355,7 +361,7 @@ const staticLinks = [
                           <div class="grid grid-cols-1 gap-1 sm:grid-cols-2">
                             <NuxtLink
                               v-for="prod in previewProducts(cat)"
-                              :key="prod.path || prod.slug || prod.title"
+                              :key="prod.path"
                               :to="toProd(prod)"
                               class="truncate rounded-md border border-slate-100 bg-white p-2 text-sm text-slate-600 transition-colors hover:bg-slate-50"
                               @click="closeMobileMenu"
@@ -408,7 +414,12 @@ const staticLinks = [
     </Transition>
 
     <div v-if="showMenu" class="hidden border-t border-border/60 lg:block">
-      <CategoriasMenu :tree="categories" :pending="pendingValue" :error="errorValue" />
+      <CategoriasMenu
+        hydrate-on-media-query="(min-width: 1024px)"
+        :tree="categories"
+        :pending="pendingValue"
+        :error="errorValue"
+      />
     </div>
   </header>
 </template>

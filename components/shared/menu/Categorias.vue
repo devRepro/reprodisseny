@@ -21,8 +21,8 @@ import {
   MenubarSubTrigger,
 } from "@/components/ui/menubar";
 import { ChevronDownIcon } from "lucide-vue-next";
-import { categoryHref } from "@/utils/categoryHref";
 import CmsImage from "@/components/shared/blocks/CmsImage.vue";
+import type { ProductoNode } from "~/composables/useCategoriasNav";
 
 const props = withDefaults(
   defineProps<{
@@ -60,19 +60,19 @@ const overflowCategories = computed(() =>
 );
 
 const labelOf = (category: Partial<CategoriaNode> | null | undefined) =>
-  category?.nav || category?.title || category?.slug || "";
+  category?.label || "";
 
 const nodeKeyOf = (category: Partial<CategoriaNode> | null | undefined) =>
-  category?.path || category?.slug || category?.id || category?.title || "";
+  category?.path || "";
 
 const toCat = (category: Partial<CategoriaNode> | null | undefined) =>
-  categoryHref(category);
+  category?.path || "/categorias";
 
-const toProd = (product: any) =>
-  product?.path || (product?.slug ? `/productos/${product.slug}` : "/productos");
+const toProd = (product: Partial<ProductoNode> | null | undefined) =>
+  product?.path || "/productos";
 
-const productLabelOf = (product: any) =>
-  product?.title || product?.nav || product?.slug || "Producto";
+const productLabelOf = (product: Partial<ProductoNode> | null | undefined) =>
+  product?.title || "Producto";
 
 const childrenOf = (category: CategoriaNode | null | undefined) =>
   Array.isArray(category?.children) ? category.children : [];
@@ -89,15 +89,8 @@ const hasPreviewProducts = (category: CategoriaNode | null | undefined) =>
 const hasDropdown = (category: CategoriaNode) =>
   hasChildren(category) || hasPreviewProducts(category);
 
-const imageSrcOf = (item: any) => {
-  if (!item) return "";
-
-  if (typeof item.image === "string") {
-    return item.image;
-  }
-
-  return item.image?.src || item.imageSrc || "";
-};
+const imageSrcOf = (item: Partial<ProductoNode> | null | undefined) =>
+  item?.imageSrc || "";
 
 const isCategoryActive = (
   category: Partial<CategoriaNode> | null | undefined
@@ -291,16 +284,6 @@ const productLinkClass =
                             :to="toCat(sub)"
                             class="mb-3 flex items-center gap-3 border-b border-border/50 pb-3 transition-opacity hover:opacity-90"
                           >
-                            <CmsImage
-                              v-if="imageSrcOf(sub)"
-                              :src="imageSrcOf(sub)"
-                              alt=""
-                              aria-hidden="true"
-                              width="36"
-                              height="36"
-                              class="h-9 w-9 shrink-0 rounded-full border border-border object-cover"
-                            />
-
                             <span
                               class="min-w-0 truncate text-sm font-bold uppercase tracking-[0.08em] text-foreground"
                             >
@@ -314,7 +297,7 @@ const productLinkClass =
                           >
                             <MenubarItem
                               v-for="prod in previewProducts(sub)"
-                              :key="prod.path || prod.slug || prod.title"
+                              :key="prod.path"
                               as-child
                             >
                               <NuxtLink
@@ -365,16 +348,6 @@ const productLinkClass =
                           :to="toCat(cat)"
                           class="mb-3 flex items-center gap-3 border-b border-border/50 pb-3 transition-opacity hover:opacity-90"
                         >
-                          <CmsImage
-                            v-if="imageSrcOf(cat)"
-                            :src="imageSrcOf(cat)"
-                            alt=""
-                            aria-hidden="true"
-                            width="36"
-                            height="36"
-                            class="h-9 w-9 shrink-0 rounded-full border border-border object-cover"
-                          />
-
                           <span
                             class="min-w-0 truncate text-sm font-bold uppercase tracking-[0.08em] text-foreground"
                           >
@@ -385,7 +358,7 @@ const productLinkClass =
                         <div class="grid gap-1">
                           <MenubarItem
                             v-for="prod in previewProducts(cat)"
-                            :key="prod.path || prod.slug || prod.title"
+                            :key="prod.path"
                             as-child
                           >
                             <NuxtLink
@@ -493,7 +466,7 @@ const productLinkClass =
 
                       <MenubarItem
                         v-for="prod in hasChildren(cat) ? [] : previewProducts(cat)"
-                        :key="prod.path || prod.slug || prod.title"
+                        :key="prod.path"
                         as-child
                       >
                         <NuxtLink

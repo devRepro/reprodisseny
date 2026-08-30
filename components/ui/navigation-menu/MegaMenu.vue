@@ -1,12 +1,12 @@
 <template>
   <nav class="w-full bg-white border-b border-gray-200">
     <ul class="flex space-x-8 px-6 py-4">
-      <li v-for="cat in categorias" :key="cat.slug" class="relative group">
+      <li v-for="cat in categorias" :key="cat.path" class="relative group">
         <button
           class="inline-flex items-center text-sm font-semibold text-gray-800 hover:text-black transition"
           type="button"
         >
-          {{ cat.nav || cat.title || cat.slug }}
+          {{ cat.label }}
           <svg
             class="ml-1 w-4 h-4 text-gray-500 group-hover:text-gray-800 transition"
             fill="none"
@@ -26,19 +26,13 @@
         >
           <div class="flex items-center justify-between mb-4">
             <div class="flex items-center gap-3 min-w-0">
-              <NuxtImg
-                v-if="cat.image"
-                :src="cat.image"
-                alt=""
-                class="h-10 w-10 object-cover rounded-md"
-              />
               <span class="text-base font-semibold text-gray-900 truncate">
-                {{ cat.nav || cat.title || cat.slug }}
+                {{ cat.label }}
               </span>
             </div>
 
             <NuxtLink
-              :to="cat.path || `/categorias/${cat.slug}`"
+              :to="cat.path"
               class="text-xs font-semibold text-primary hover:underline whitespace-nowrap"
             >
               Ver todo →
@@ -47,28 +41,22 @@
 
           <!-- Subcategorías -->
           <div v-if="hasSubcats(cat)" class="grid grid-cols-2 gap-x-6 gap-y-4">
-            <div v-for="sub in cat.children" :key="sub.slug">
+            <div v-for="sub in cat.children" :key="sub.path">
               <NuxtLink
-                :to="sub.path || `/categorias/${sub.slug}`"
+                :to="sub.path"
                 class="flex items-center gap-2 text-sm font-medium text-gray-700 hover:text-primary transition"
               >
-                <NuxtImg
-                  v-if="sub.image"
-                  :src="sub.image"
-                  alt=""
-                  class="h-6 w-6 object-cover rounded"
-                />
-                {{ sub.nav || sub.title || sub.slug }}
+                {{ sub.label }}
               </NuxtLink>
 
               <!-- Productos “preview” de esa subcategoría -->
               <ul v-if="sub.products?.length" class="mt-1 pl-6 space-y-1 text-xs text-gray-600">
-                <li v-for="prod in sub.products" :key="prod.slug">
+                <li v-for="prod in sub.products" :key="prod.path">
                   <NuxtLink
-                    :to="prod.path || `/productos/${prod.slug}`"
+                    :to="prod.path"
                     class="hover:underline block"
                   >
-                    {{ prod.title || prod.slug }}
+                    {{ prod.title }}
                   </NuxtLink>
                 </li>
               </ul>
@@ -80,12 +68,12 @@
             v-else-if="cat.products?.length"
             class="grid grid-cols-2 gap-y-2 text-xs text-gray-700"
           >
-            <li v-for="prod in cat.products" :key="prod.slug">
+            <li v-for="prod in cat.products" :key="prod.path">
               <NuxtLink
-                :to="prod.path || `/productos/${prod.slug}`"
+                :to="prod.path"
                 class="hover:underline"
               >
-                {{ prod.title || prod.slug }}
+                {{ prod.title }}
               </NuxtLink>
             </li>
           </ul>
@@ -105,7 +93,7 @@ import { computed } from "vue";
 import {useCategoriasNav } from "~/composables/useCategoriasNav";
 
 const { data } = await useCategoriasNav({ productLimit: 6 });
-const categorias = computed(() => data.value?.menuItems || []);
+const categorias = computed(() => data.value?.tree || []);
 
 const hasSubcats = (cat: any) => Array.isArray(cat.children) && cat.children.length > 0;
 </script>

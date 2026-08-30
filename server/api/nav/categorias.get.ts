@@ -1,29 +1,13 @@
 import { getQuery } from "h3";
+import { getNavigationCategories } from "~/server/services/cms/catalog.service";
 import {
-  getNavigationCategories,
-  type NavCategoryItem,
-} from "~/server/services/cms/catalog.service";
+  toNavigationDto,
+  type NavigationCategoryDto,
+} from "~/shared/navigation";
 
 type ReturnShape = {
-  tree: NavCategoryItem[];
-  indexBySlug: Record<string, NavCategoryItem>;
-  menuItems: NavCategoryItem[];
+  tree: NavigationCategoryDto[];
 };
-
-function buildIndexBySlug(
-  nodes: NavCategoryItem[],
-  acc: Record<string, NavCategoryItem> = {}
-) {
-  for (const node of nodes) {
-    acc[node.slug] = node;
-
-    if (node.children?.length) {
-      buildIndexBySlug(node.children, acc);
-    }
-  }
-
-  return acc;
-}
 
 function parseProductLimit(value: unknown, fallback = 8) {
   const parsed = Number(value);
@@ -49,16 +33,12 @@ export default defineEventHandler((event): ReturnShape => {
   const includeProducts = parseBoolean(query.includeProducts, true);
   const productLimit = parseProductLimit(query.productLimit, 8);
 
-  const tree = getNavigationCategories({
-    includeProducts,
-    productLimit,
-  });
-
-  const indexBySlug = buildIndexBySlug(tree);
-
   return {
-    tree,
-    indexBySlug,
-    menuItems: tree,
+    tree: toNavigationDto(
+      getNavigationCategories({
+        includeProducts,
+        productLimit,
+      }),
+    ),
   };
 });

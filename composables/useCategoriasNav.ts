@@ -1,11 +1,11 @@
-import { computed, watch } from "vue";
+import { computed } from "vue";
 import type {
-  NavCategoryItem,
-  NavProductItem,
-} from "~/server/services/cms/catalog.service";
+  NavigationCategoryDto,
+  NavigationProductDto,
+} from "~/shared/navigation";
 
-export type ProductoNode = NavProductItem;
-export type CategoriaNode = NavCategoryItem;
+export type ProductoNode = NavigationProductDto;
+export type CategoriaNode = NavigationCategoryDto;
 
 type Options = {
   includeProducts?: boolean;
@@ -14,14 +14,10 @@ type Options = {
 
 type ReturnShape = {
   tree: CategoriaNode[];
-  indexBySlug: Record<string, CategoriaNode>;
-  menuItems: CategoriaNode[];
 };
 
 const EMPTY_NAV: ReturnShape = {
   tree: [],
-  indexBySlug: {},
-  menuItems: [],
 };
 
 export async function useCategoriasNav(opts: Options = {}) {
@@ -29,12 +25,6 @@ export async function useCategoriasNav(opts: Options = {}) {
   const productLimit = Math.max(0, Math.min(opts.productLimit ?? 8, 12));
 
   const cacheKey = `nav-categorias:ip${includeProducts ? 1 : 0}:pl${productLimit}`;
-
-  const stableNav = useState<ReturnShape>(`${cacheKey}:stable`, () => ({
-    tree: [],
-    indexBySlug: {},
-    menuItems: [],
-  }));
 
   const request = await useFetch<ReturnShape>("/api/nav/categorias", {
     key: cacheKey,
@@ -45,33 +35,11 @@ export async function useCategoriasNav(opts: Options = {}) {
     server: true,
     lazy: false,
     dedupe: "defer",
-    default: () => ({
-      tree: [],
-      indexBySlug: {},
-      menuItems: [],
-    }),
+    default: () => ({ tree: [] }),
     transform: (value) => value ?? EMPTY_NAV,
   });
 
-  watch(
-    () => request.data.value,
-    (value) => {
-      if (value?.tree?.length) {
-        stableNav.value = value;
-      }
-    },
-    { immediate: true, deep: false }
-  );
-
-  const resolvedData = computed<ReturnShape>(() => {
-    if (request.data.value?.tree?.length) return request.data.value;
-    if (stableNav.value?.tree?.length) return stableNav.value;
-    return EMPTY_NAV;
-  });
-
-  const tree = computed(() => resolvedData.value.tree ?? []);
-  const indexBySlug = computed(() => resolvedData.value.indexBySlug ?? {});
-  const menuItems = computed(() => resolvedData.value.menuItems ?? []);
+  const tree = computed(() => request.data.value?.tree ?? []);
 
   const pending = computed(() => request.pending.value && !tree.value.length);
   const error = computed(() => (tree.value.length ? null : request.error.value));
@@ -81,8 +49,5 @@ export async function useCategoriasNav(opts: Options = {}) {
     pending,
     error,
     tree,
-    indexBySlug,
-    menuItems,
-    data: resolvedData,
   };
 }
