@@ -3,7 +3,10 @@ import { defineNuxtConfig } from "nuxt/config";
 import { redirectRouteRules } from "./redirect-rules.generated";
 import { MANUAL_NOINDEX_PATHS } from "./shared/seo/legacyRedirects";
 import { parseExplicitBoolean } from "./utils/explicitBoolean";
-import { createGoogleConsentDefaultScript } from "./utils/googleConsent";
+import {
+  createDeferredGtmLoaderScript,
+  createGoogleConsentDefaultScript,
+} from "./utils/googleConsent";
 
 const siteUrl =
   process.env.NUXT_SITE_URL ||
@@ -439,15 +442,9 @@ link: [
         ...(gtmId
           ? [
             {
-              id: "gtm-script",
+              id: "gtm-deferred-loader",
               tagPriority: "low" as const,
-              innerHTML: `
-(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','${gtmId}');
-          `.trim(),
+              innerHTML: createDeferredGtmLoaderScript(gtmId),
             },
           ]
           : []),

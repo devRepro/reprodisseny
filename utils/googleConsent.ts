@@ -16,6 +16,7 @@ export type CookieConsentSelection = {
 };
 
 export const GOOGLE_CONSENT_WAIT_FOR_UPDATE_MS = 2000;
+export const GTM_FALLBACK_DELAY_MS = 7000;
 
 export const GOOGLE_CONSENT_DEFAULT: Readonly<GoogleConsentState> = Object.freeze({
   ad_storage: "denied",
@@ -55,6 +56,40 @@ window.gtag = window.gtag || function(){window.dataLayer.push(arguments);};
 window.gtag('consent', 'default', ${defaultState});`;
 }
 
+export function createDeferredGtmLoaderScript(gtmId: string) {
+  const serializedGtmId = JSON.stringify(gtmId).replace(/</g, "\\u003c");
+
+  return `(function(w,d,i){
+var loaded=false,timer;
+var events=['pointerdown','keydown','touchstart'];
+function cleanup(){
+  events.forEach(function(eventName){w.removeEventListener(eventName,load);});
+  if(timer!==undefined)w.clearTimeout(timer);
+}
+function load(){
+  if(loaded)return;
+  if(d.getElementById('gtm-script')){
+    loaded=true;
+    cleanup();
+    return;
+  }
+  loaded=true;
+  cleanup();
+  w.dataLayer=w.dataLayer||[];
+  w.dataLayer.push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+  var script=d.createElement('script');
+  script.id='gtm-script';
+  script.async=true;
+  script.src='https://www.googletagmanager.com/gtm.js?id='+encodeURIComponent(i);
+  d.head.appendChild(script);
+}
+events.forEach(function(eventName){
+  w.addEventListener(eventName,load,{once:true,passive:true});
+});
+timer=w.setTimeout(load,${GTM_FALLBACK_DELAY_MS});
+})(window,document,${serializedGtmId});`;
+}
+
 export type GoogleConsentDispatcher = (state: GoogleConsentState) => boolean | void;
 
 export function createGoogleConsentUpdater(dispatch: GoogleConsentDispatcher) {
@@ -82,7 +117,7 @@ type GoogleTagTarget = {
 
 export function dispatchGoogleConsentUpdate(
   state: GoogleConsentState,
-  target: GoogleTagTarget = window,
+  target: GoogleTagTarget = window as unknown as GoogleTagTarget,
 ) {
   if (typeof target.gtag !== "function") return false;
 

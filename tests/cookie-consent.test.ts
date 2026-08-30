@@ -14,6 +14,8 @@ import {
 import {
   GOOGLE_CONSENT_DEFAULT,
   GOOGLE_CONSENT_WAIT_FOR_UPDATE_MS,
+  GTM_FALLBACK_DELAY_MS,
+  createDeferredGtmLoaderScript,
   createGoogleConsentDefaultScript,
   createGoogleConsentUpdater,
   dispatchGoogleConsentUpdate,
@@ -25,6 +27,62 @@ const deniedAds = {
   ad_user_data: "denied",
   ad_personalization: "denied",
 } as const;
+
+function createDeferredGtmEnvironment() {
+  type Listener = () => void;
+  const listeners = new Map<string, Set<Listener>>();
+  const scripts: Array<Record<string, unknown>> = [];
+  let fallback: Listener | undefined;
+  let fallbackDelay: number | undefined;
+  let timeoutCleared = false;
+
+  const windowObject: Record<string, any> = {
+    dataLayer: [],
+    addEventListener(eventName: string, listener: Listener) {
+      const eventListeners = listeners.get(eventName) ?? new Set<Listener>();
+      eventListeners.add(listener);
+      listeners.set(eventName, eventListeners);
+    },
+    removeEventListener(eventName: string, listener: Listener) {
+      listeners.get(eventName)?.delete(listener);
+    },
+    setTimeout(callback: Listener, delay: number) {
+      fallback = callback;
+      fallbackDelay = delay;
+      return 1;
+    },
+    clearTimeout() {
+      timeoutCleared = true;
+    },
+  };
+
+  const documentObject = {
+    createElement: () => ({}),
+    getElementById: (id: string) => scripts.find((script) => script.id === id),
+    head: {
+      appendChild(script: Record<string, unknown>) {
+        scripts.push(script);
+      },
+    },
+  };
+
+  const run = () =>
+    vm.runInNewContext(createDeferredGtmLoaderScript("GTM-TEST123"), {
+      window: windowObject,
+      document: documentObject,
+      encodeURIComponent,
+    });
+
+  return {
+    run,
+    scripts,
+    listeners,
+    windowObject,
+    getFallback: () => fallback,
+    getFallbackDelay: () => fallbackDelay,
+    wasTimeoutCleared: () => timeoutCleared,
+  };
+}
 
 test("el default de Consent Mode es conservador y se encola antes de medir", () => {
   const windowObject: { dataLayer?: IArguments[]; gtag?: (...args: unknown[]) => void } = {};
@@ -39,6 +97,83 @@ test("el default de Consent Mode es conservador y se encola antes de medir", () 
     ...GOOGLE_CONSENT_DEFAULT,
     wait_for_update: GOOGLE_CONSENT_WAIT_FOR_UPDATE_MS,
   });
+});
+
+test("GTM no carga inmediatamente y espera interacción o el fallback", () => {
+  const environment = createDeferredGtmEnvironment();
+
+  environment.run();
+
+  assert.equal(environment.scripts.length, 0);
+  assert.equal(environment.windowObject.dataLayer.length, 0);
+  assert.equal(environment.getFallbackDelay(), GTM_FALLBACK_DELAY_MS);
+  assert.deepEqual(
+    [...environment.listeners.keys()],
+    ["pointerdown", "keydown", "touchstart"],
+  );
+});
+
+test("GTM carga en la primera interacción y limpia listeners y timeout", () => {
+  const environment = createDeferredGtmEnvironment();
+  environment.run();
+
+  const pointerListener = [...environment.listeners.get("pointerdown")!][0];
+  pointerListener();
+
+  assert.equal(environment.scripts.length, 1);
+  assert.equal(environment.scripts[0].id, "gtm-script");
+  assert.equal(
+    environment.scripts[0].src,
+    "https://www.googletagmanager.com/gtm.js?id=GTM-TEST123",
+  );
+  assert.equal(environment.windowObject.dataLayer.length, 1);
+  assert.equal(environment.windowObject.dataLayer[0].event, "gtm.js");
+  assert.equal(environment.wasTimeoutCleared(), true);
+  assert.equal(
+    [...environment.listeners.values()].every((eventListeners) => !eventListeners.size),
+    true,
+  );
+});
+
+test("GTM carga por fallback y nunca se inserta dos veces", () => {
+  const environment = createDeferredGtmEnvironment();
+  environment.run();
+
+  const keydownListener = [...environment.listeners.get("keydown")!][0];
+  const fallback = environment.getFallback();
+  assert.ok(fallback);
+
+  fallback();
+  keydownListener();
+  fallback();
+
+  assert.equal(environment.scripts.length, 1);
+  assert.equal(environment.windowObject.dataLayer.length, 1);
+});
+
+test("las actualizaciones de consentimiento quedan en dataLayer antes de cargar GTM", () => {
+  const environment = createDeferredGtmEnvironment();
+  vm.runInNewContext(createGoogleConsentDefaultScript(), {
+    window: environment.windowObject,
+  });
+
+  const grantedAnalytics = mapCookieConsentToGoogleConsent({
+    analytics: true,
+    marketing: false,
+  });
+  assert.equal(
+    dispatchGoogleConsentUpdate(grantedAnalytics, environment.windowObject),
+    true,
+  );
+
+  environment.run();
+  [...environment.listeners.get("touchstart")!][0]();
+
+  const queue = environment.windowObject.dataLayer;
+  assert.equal(queue.length, 3);
+  assert.deepEqual(Array.from(queue[0]).slice(0, 2), ["consent", "default"]);
+  assert.deepEqual(Array.from(queue[1]), ["consent", "update", grantedAnalytics]);
+  assert.equal(queue[2].event, "gtm.js");
 });
 
 test("accept all concede analítica y las tres señales publicitarias", () => {
@@ -97,7 +232,9 @@ test("marketing only concede Ads sin conceder Analytics ni personalización gene
 
 test("los cambios se envían en la misma página y se deduplican por estado", () => {
   const updates: unknown[] = [];
-  const update = createGoogleConsentUpdater((state) => updates.push(state));
+  const update = createGoogleConsentUpdater((state) => {
+    updates.push(state);
+  });
 
   assert.equal(update({ analytics: false, marketing: false }), true);
   assert.equal(update({ analytics: false, marketing: false }), false);
@@ -204,13 +341,14 @@ test("las traducciones ES/CA son completas y el idioma real tiene fallback ES", 
   assert.equal(resolveCookieConsentLanguage(undefined), "es");
 });
 
-test("el código fuente no conserva el loader legado y mantiene un único GTM", async () => {
+test("el código fuente no conserva el loader legado y usa el loader diferido", async () => {
   const legacyProduct = ["user", "centrics"].join("");
   const legacyHost = ["web.cmp.", legacyProduct, ".eu"].join("");
   const files = [
     "nuxt.config.ts",
     "pages/politica-cookies.vue",
     "plugins/cookie-consent.client.ts",
+    "utils/googleConsent.ts",
   ];
 
   const sources = await Promise.all(files.map((file) => readFile(file, "utf8")));
@@ -220,9 +358,13 @@ test("el código fuente no conserva el loader legado y mantiene un único GTM", 
   }
 
   const nuxtConfig = sources[0];
+  assert.equal(nuxtConfig.includes("createDeferredGtmLoaderScript(gtmId)"), true);
+  assert.equal(nuxtConfig.includes("new Date().getTime(),event:'gtm.js'"), false);
+  assert.equal(nuxtConfig.match(/createGoogleConsentDefaultScript\(\)/g)?.length, 1);
   assert.equal(
-    nuxtConfig.match(/https:\/\/www\.googletagmanager\.com\/gtm\.js/g)?.length,
+    sources
+      .join("\n")
+      .match(/https:\/\/www\.googletagmanager\.com\/gtm\.js/g)?.length,
     1,
   );
-  assert.equal(nuxtConfig.match(/createGoogleConsentDefaultScript\(\)/g)?.length, 1);
 });
