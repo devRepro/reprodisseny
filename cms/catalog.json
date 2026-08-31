@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-25T15:43:22.734Z",
+  "generatedAt": "2026-08-31T11:10:02.187Z",
   "categories": [
     {
       "id": "12",
@@ -4656,7 +4656,7 @@
     },
     {
       "id": "2",
-      "updatedAt": "2026-08-25T07:33:42Z",
+      "updatedAt": "2026-08-31T10:58:50Z",
       "type": "producto",
       "slug": "acreditaciones-personalizadas",
       "path": "/productos/acreditaciones-personalizadas",
@@ -4667,7 +4667,7 @@
       ],
       "order": 9999,
       "isPublished": true,
-      "shortDescription": "Las acreditaciones son clave para organizar accesos, identificar asistentes y reforzar la imagen del evento. Imprimimos acreditaciones personalizadas con materiales pensados para la duración y la manipulación, y opciones como datos variables, numeración o QR para un control más ágil.",
+      "shortDescription": "Acreditaciones personalizadas para ferias, congresos y eventos corporativos. Personalizamos nombres, empresas, cargos y tipos de acceso, y podemos incorporar datos variables, numeración, QR o códigos de barras. Disponibles en diferentes formatos, con opciones de lanyard, funda y acabados adaptados a la duración y al uso del evento.",
       "sections": [
         {
           "id": "details",
@@ -4675,7 +4675,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "### ¿Qué es una acreditación y para qué se usa?\n\nUna acreditación personalizada es una tarjeta de identificación para asistentes, ponentes, staff, proveedores o invitados de un evento. Normalmente incluye nombre, empresa, cargo, tipo de acceso, fecha y elementos de control como QR, código de barras o numeración.\n\nAdemás de ordenar el evento, ayuda a que el equipo y los asistentes se identifiquen rápidamente, mejora la gestión de accesos y transmite una imagen más profesional desde el primer momento."
+          "body": "### Acreditaciones personalizadas para ferias, congresos y eventos\n\nUna acreditación personalizada permite identificar de forma rápida a asistentes, ponentes, staff, prensa, expositores, proveedores o invitados y, al mismo tiempo, organizar mejor los accesos durante el evento.\n\nAdemás del diseño corporativo, cada acreditación puede incorporar información diferente para cada participante: nombre, empresa, cargo, categoría, tipo de acceso o zona. También puede incluir numeración, códigos QR o códigos de barras cuando el proyecto requiere identificación o control adicional.\n\nEn Repro Disseny producimos acreditaciones para ferias, congresos, convenciones, formaciones y eventos corporativos. Definimos el formato, el soporte y el acabado según la duración del evento, el nivel de manipulación y el sistema de sujeción previsto.\n\nPodemos preparar además el conjunto completo con acreditación, lanyard y funda y organizarlo por participante, empresa, grupo o rol para facilitar la entrega el día del evento."
         },
         {
           "id": "benefits",
@@ -4684,27 +4684,27 @@
           "kind": "benefits",
           "contentFormat": "json",
           "benefitsData": {
-            "intro": "Ventajas principales de las acreditaciones personalizadas para eventos, congresos, ferias, formaciones y controles de acceso.",
+            "intro": "Las acreditaciones personalizadas combinan identificación, control de accesos y presencia de marca durante todo el evento.",
             "benefits": [
               {
-                "title": "Control y organización",
-                "description": "Permiten identificar rápidamente roles como staff, ponente, invitado, expositor, prensa o proveedor."
+                "title": "Identificación inmediata",
+                "description": "Permiten distinguir rápidamente asistentes, staff, ponentes, prensa, VIP, expositores, proveedores u otros perfiles."
               },
               {
-                "title": "Más fluidez en accesos",
-                "description": "Pueden incorporar QR, código de barras o numeración para validación, check-in o control interno."
+                "title": "Datos variables para cada asistente",
+                "description": "Podemos personalizar cada acreditación con nombre, empresa, cargo, categoría, zona o tipo de acceso."
+              },
+              {
+                "title": "Control y organización",
+                "description": "La numeración, los códigos QR o los códigos de barras pueden incorporarse cuando el evento necesita identificación o validación adicional."
               },
               {
                 "title": "Imagen coherente de marca",
-                "description": "Se diseñan alineadas con la identidad del evento, patrocinadores, señalética y materiales corporativos."
+                "description": "El diseño puede coordinarse con los lanyards, la señalética, los patrocinadores y el resto del material gráfico del evento."
               },
               {
-                "title": "Personalización eficiente",
-                "description": "Permiten imprimir datos variables para listas grandes, como nombres, empresas, cargos o categorías."
-              },
-              {
-                "title": "Comodidad durante el evento",
-                "description": "Se pueden preparar para llevar con lanyard, funda, clip u otros sistemas según la necesidad."
+                "title": "Entrega preparada",
+                "description": "Podemos preparar acreditación, lanyard y funda conjuntamente y organizar los sets por participante, empresa, grupo o rol."
               }
             ]
           }
@@ -4716,19 +4716,19 @@
           "kind": "materials",
           "contentFormat": "json",
           "materialsData": {
-            "intro": "Seleccionamos el material de la acreditación según la duración del evento, la manipulación prevista, la resistencia necesaria y la imagen que se quiere transmitir.",
+            "intro": "Elegimos el soporte de la acreditación según la duración del evento, la manipulación prevista, la resistencia necesaria y la imagen que se quiere transmitir.",
             "materials": [
               {
                 "title": "Cartulina",
-                "description": "Opción práctica para eventos de corta duración con buena presencia y coste ajustado."
+                "description": "Una solución práctica para congresos, ferias y eventos de corta duración donde se busca buena presencia y una identificación cómoda de llevar."
               },
               {
                 "title": "Material sintético",
-                "description": "Tipo papel plástico, recomendado cuando habrá mucho uso, manipulación frecuente o riesgo de humedad o roce."
+                "description": "Opción más resistente a la manipulación, el roce y la humedad, adecuada para eventos de varios días o acreditaciones de uso intensivo."
               },
               {
                 "title": "PVC",
-                "description": "Opción de máxima durabilidad, ideal para acreditaciones reutilizables o de larga vida, como personal interno, accesos recurrentes o eventos de varios días."
+                "description": "Alternativa de alta durabilidad para acreditaciones reutilizables, personal interno, accesos recurrentes o identificaciones que deben conservarse durante más tiempo."
               }
             ]
           }
@@ -4778,23 +4778,27 @@
           "kind": "finishes",
           "contentFormat": "json",
           "finishesData": {
-            "intro": "Los acabados se eligen según la duración del evento, el sistema de sujeción, la manipulación prevista y la calidad percibida que se quiere transmitir.",
+            "intro": "Los acabados se seleccionan según la duración del evento, el sistema de sujeción, la manipulación prevista y la calidad visual que necesita cada proyecto.",
             "finishes": [
               {
-                "title": "Troquelado y perforado",
-                "description": "Agujero, redondeo de esquinas o troquel según el formato y el uso, por ejemplo para colgar con lanyard o encajar en fundas."
+                "title": "Orificio superior",
+                "description": "Preparación para colocar la acreditación directamente en determinados sistemas de lanyard o sujeción."
               },
               {
-                "title": "Laminado protector",
-                "description": "Acabado mate o brillo que protege frente a roces y mejora la durabilidad, especialmente en acreditaciones de uso intensivo."
+                "title": "Esquinas redondeadas",
+                "description": "Opción que mejora el acabado y evita esquinas pronunciadas en acreditaciones manipuladas durante el evento."
+              },
+              {
+                "title": "Laminado mate o brillo",
+                "description": "Añade protección frente a la manipulación y el roce cuando la acreditación debe utilizarse durante más tiempo."
               },
               {
                 "title": "Acabados premium",
-                "description": "Opciones como soft touch o barniz selectivo para eventos VIP, congresos corporativos o proyectos donde se busca una mayor calidad percibida."
+                "description": "Opciones especiales como soft touch o barniz selectivo pueden estudiarse para acreditaciones VIP, eventos corporativos y proyectos de mayor calidad percibida."
               },
               {
-                "title": "Preparación para lanyard o funda",
-                "description": "Adaptación del formato para facilitar el uso durante el evento con cinta, funda, clip u otros sistemas de sujeción."
+                "title": "Preparación para lanyard y funda",
+                "description": "Adaptamos formato y acabado al sistema de identificación que utilizará el participante."
               }
             ]
           }
@@ -4805,7 +4809,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "### Formato e impresión\n\n- **Formato tipo acreditación:** medidas estándar o formato a medida según el diseño, la visibilidad necesaria y el sistema de sujeción.\n- **Orientación vertical u horizontal:** se define según el contenido, el logotipo, la jerarquía visual y la forma de lectura durante el evento.\n- **Impresión a una o dos caras:** por ejemplo, datos principales en el frontal y agenda, plano, normas o información adicional en el reverso.\n- **Impresión a color o a una tinta:** según el diseño del evento, la identidad visual y el presupuesto disponible.\n\n### Personalización y control\n\n- **Datos variables:** nombre, empresa, cargo, categoría, tipo de acceso, mesa, zona o información específica de cada asistente.\n- **QR o código de barras:** útil para check-in, validación de entrada, descarga de agenda, acceso a mapas o control de asistencia.\n- **Numeración:** permite control interno, organización por lotes, gestión de accesos o trazabilidad durante el evento.\n- **Versiones por rol:** posibilidad de diferenciar visualmente staff, ponentes, prensa, VIP, expositores, invitados o proveedores.\n\n### Preparación y entrega\n\n- **Preparación por grupos:** las acreditaciones pueden organizarse por empresa, mesa, zona, categoría, listado o pack de bienvenida.\n- **Sistemas de sujeción:** compatibles con lanyard, funda, clip o perforado según el uso previsto.\n- **Archivo recomendado:** base gráfica en PDF con medidas correctas, márgenes de seguridad y listado de datos variables revisado."
+          "body": "### Formatos e impresión\n\n- **Medidas habituales:** 5,5 × 8,5 cm y 9 × 12 cm.\n- **Otros formatos:** podemos estudiar medidas personalizadas según el diseño y el sistema de sujeción.\n- **Orientación:** vertical u horizontal según el contenido y la visibilidad necesaria.\n- **Impresión:** cuatricromía a una o dos caras.\n- **Reverso personalizado:** puede utilizarse para agenda, mapa, normas, patrocinadores o información complementaria.\n\n### Papeles y soportes\n\nEntre las configuraciones habituales disponemos de opciones como estucado mate de 300 g, cartulina de 300 g y papeles de gama corporativa como Conqueror de 300 g.\n\nPara eventos de varios días o acreditaciones sometidas a mayor manipulación también pueden plantearse soportes más resistentes según las necesidades del proyecto.\n\n### Datos variables\n\nCada acreditación puede contener información diferente, como:\n\n- nombre y apellidos;\n- empresa;\n- cargo;\n- categoría o rol;\n- tipo de acceso;\n- zona;\n- mesa;\n- numeración;\n- otros datos específicos del participante.\n\nEsto permite producir en una misma tirada acreditaciones diferentes para asistentes, staff, ponentes, prensa, VIP, expositores o proveedores.\n\n### QR, códigos y numeración\n\nLas acreditaciones pueden incorporar códigos QR, códigos de barras o numeraciones dentro del diseño cuando el sistema de acceso o identificación del evento lo requiere.\n\n### Corte y preparación\n\n- **Corte recto.**\n- **Orificio superior** cuando la configuración lo necesita.\n- **Esquinas redondeadas:** opcionales.\n- **Lanyard, funda o clip:** podemos preparar el conjunto completo según el sistema de identificación elegido.\n\n### Archivos necesarios\n\nPara preparar la producción necesitamos el diseño correctamente preparado y, cuando exista personalización individual, un listado estructurado con los datos que debe contener cada acreditación.\n\nAntes de imprimir revisamos el planteamiento del archivo y la correcta disposición de los datos variables."
         },
         {
           "id": "applications",
@@ -4814,27 +4818,27 @@
           "kind": "applications",
           "contentFormat": "json",
           "applicationsData": {
-            "intro": "Aplicaciones habituales de las acreditaciones personalizadas en eventos, ferias, congresos, formaciones y acciones de marca.",
+            "intro": "Producimos acreditaciones personalizadas para identificación, organización y control en eventos profesionales de distintos tipos.",
             "applications": [
               {
                 "title": "Ferias y congresos",
-                "description": "Identificación de asistentes, expositores, ponentes, prensa, staff y organización."
+                "description": "Acreditaciones para asistentes, expositores, ponentes, prensa, staff y organización."
               },
               {
                 "title": "Eventos corporativos y formaciones",
-                "description": "Convenciones internas, presentaciones, entregas, jornadas, cursos y encuentros de empresa."
+                "description": "Convenciones, reuniones, jornadas, cursos, presentaciones y encuentros de empresa."
               },
               {
                 "title": "Eventos culturales y deportivos",
-                "description": "Festivales, competiciones, zonas de acceso, personal técnico, staff y participantes."
+                "description": "Identificación de participantes, organización, personal técnico, prensa, voluntarios y zonas de acceso."
               },
               {
-                "title": "Acciones de marca y activaciones",
-                "description": "Control de acceso, identificación de equipos itinerantes, promotores, invitados o zonas reservadas."
+                "title": "Acciones de marca",
+                "description": "Acreditaciones para invitados, promotores, equipos itinerantes y activaciones promocionales."
               },
               {
                 "title": "Control interno",
-                "description": "Acreditaciones para proveedores, personal temporal, visitas, accesos por zonas o equipos de trabajo."
+                "description": "Identificación temporal de proveedores, visitas, personal externo o equipos de trabajo."
               }
             ]
           }
@@ -4843,27 +4847,31 @@
       "faqs": [
         {
           "question": "¿Se pueden imprimir acreditaciones con nombres, empresas o cargos diferentes?",
-          "answer": "Sí. Trabajamos con datos variables para personalizar cada acreditación con nombres, empresas, cargos, numeraciones, códigos o cualquier otro dato que necesites."
+          "answer": "Sí. Trabajamos con datos variables para personalizar cada acreditación con nombre, empresa, cargo, categoría, zona, numeración u otros datos específicos."
         },
         {
           "question": "¿Qué material recomendáis para acreditaciones de varios días?",
-          "answer": "Para eventos de varios días solemos recomendar soportes más resistentes, como materiales sintéticos o acabados laminados, ya que soportan mejor el uso continuado, el roce y la manipulación."
+          "answer": "Para eventos de varios días conviene utilizar una configuración más resistente a la manipulación y al roce. Te recomendamos el soporte y acabado más adecuados según la duración y el uso previsto."
         },
         {
-          "question": "¿Se pueden incluir códigos QR o códigos de barras para control de acceso?",
-          "answer": "Sí. Podemos integrar códigos QR, códigos de barras, numeración o identificadores variables para facilitar el acceso, el check-in o la gestión interna del evento."
+          "question": "¿Se pueden incluir códigos QR o códigos de barras?",
+          "answer": "Sí. Las acreditaciones pueden incorporar QR, códigos de barras y numeración cuando el proyecto necesita identificación, check-in o control adicional."
         },
         {
           "question": "¿Podéis suministrar las acreditaciones con lanyard?",
-          "answer": "Sí. Podemos preparar el pack completo con acreditación, lanyard y la configuración más adecuada según el tipo de evento, el sistema de acceso y el uso previsto."
+          "answer": "Sí. Podemos preparar el conjunto completo con acreditación, lanyard y funda o sistema de sujeción según las necesidades del evento."
         },
         {
-          "question": "¿Qué formato de acreditación es más recomendable para congresos, ferias o eventos corporativos?",
-          "answer": "Depende del tipo de evento y de la información que deba mostrarse. Podemos ayudarte a elegir el tamaño, la orientación y el acabado más adecuados para garantizar visibilidad, comodidad y resistencia."
+          "question": "¿Qué tamaños de acreditación trabajáis?",
+          "answer": "Entre los formatos habituales trabajamos 5,5 × 8,5 cm y 9 × 12 cm, aunque podemos estudiar otras medidas según el diseño y el sistema de sujeción."
         },
         {
-          "question": "¿Qué archivo necesitáis para imprimir acreditaciones personalizadas?",
-          "answer": "Lo ideal es recibir un PDF listo para imprenta o un archivo editable bien preparado. Si además hay datos variables, también necesitaremos el listado en un formato ordenado para vincular correctamente la personalización."
+          "question": "¿Podéis preparar acreditaciones diferentes para staff, asistentes, ponentes o VIP?",
+          "answer": "Sí. Podemos cambiar diseño, color, información y datos variables para diferenciar cada rol dentro del mismo evento."
+        },
+        {
+          "question": "¿Qué necesitáis para preparar un presupuesto?",
+          "answer": "Indícanos cantidad, medida aproximada, duración del evento, soporte deseado si lo conoces, si necesitas lanyard y si habrá datos variables, numeración o códigos. Si todavía no tienes definida la configuración, podemos asesorarte."
         }
       ],
       "breadcrumbs": [
@@ -4893,38 +4901,42 @@
       "galleryImages": [],
       "relatedProductsJson": [
         {
+          "label": "Lanyards personalizados",
           "productSlug": "lanyards-eventos-barcelona"
         },
         {
+          "label": "Entradas personalizadas",
           "productSlug": "entradas-personalizadas"
         },
         {
+          "label": "Photocall personalizado",
           "productSlug": "photocall-personalizado"
         },
         {
+          "label": "Roll-up personalizado",
           "productSlug": "roll-up-personalizado"
         }
       ],
       "sku": "01-EVEN-0003",
-      "brand": "Reprodisseny",
+      "brand": "Repro Disseny",
       "attributes": [
         {
           "key": "datos-variables",
-          "label": "Datos variables",
+          "label": "Nombres y datos variables",
           "placement": "hero-pills"
         },
         {
-          "key": "qr-y-numeracion",
+          "key": "qr-numeracion",
           "label": "QR y numeración",
           "placement": "hero-pills"
         },
         {
-          "key": "opciones-de-soporte",
-          "label": "Varias opciones de soporte",
+          "key": "formatos",
+          "label": "5,5 × 8,5 y 9 × 12 cm",
           "placement": "hero-pills"
         },
         {
-          "key": "lanyard-opcional",
+          "key": "lanyard",
           "label": "Con lanyard opcional",
           "placement": "hero-pills"
         }
@@ -5016,7 +5028,7 @@
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Acreditaciones personalizadas para eventos | Repro Disseny",
-        "metaDescription": "Acreditaciones personalizadas para ferias, congresos y eventos corporativos. Datos variables, QR y opciones con lanyard. Solicita presupuesto.",
+        "metaDescription": "Acreditaciones personalizadas para ferias, congresos y eventos con datos variables, numeración, QR y opción de lanyard. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/acreditaciones-personalizadas",
         "hreflang": [
           {
@@ -5030,8 +5042,10 @@
           "acreditaciones para congresos",
           "acreditaciones para ferias",
           "acreditaciones corporativas",
+          "acreditaciones con nombre",
           "acreditaciones con QR",
-          "acreditaciones con lanyard"
+          "acreditaciones con lanyard",
+          "acreditaciones datos variables"
         ],
         "searchTerms": [
           "acreditaciones personalizadas",
@@ -18477,7 +18491,7 @@
     },
     {
       "id": "42",
-      "updatedAt": "2026-05-21T06:56:47Z",
+      "updatedAt": "2026-08-31T11:04:32Z",
       "type": "producto",
       "slug": "entradas-personalizadas",
       "path": "/productos/entradas-personalizadas",
@@ -18488,7 +18502,7 @@
       ],
       "order": 9999,
       "isPublished": true,
-      "shortDescription": "Las entradas son el primer contacto “físico” con tu evento: informan, ordenan el acceso y refuerzan la imagen de marca. En Repro Disseny imprimimos entradas personalizadas con opciones de numeración, perforado, datos variables y QR/código de barras, para que el control sea ágil y el diseño quede profesional.",
+      "shortDescription": "Entradas personalizadas para conciertos, festivales, ferias, congresos y eventos corporativos. Imprimimos tickets a una o dos caras con opciones de numeración, microcorte, talón desprendible, datos variables y códigos QR o de barras según el proyecto.",
       "sections": [
         {
           "id": "details",
@@ -18496,7 +18510,7 @@
           "title": "Detalles",
           "kind": "details",
           "contentFormat": "markdown",
-          "body": "### ¿Qué es una entrada personalizada y para qué se usa?\n\nUna entrada impresa personalizada es el documento que acredita el acceso a un evento, como un concierto, gala, feria, congreso, festival, teatro, sorteo o actividad corporativa.\n\nSuele incluir datos del evento, zona o sector, fecha y hora, condiciones básicas y elementos de control como numeración, talón desprendible, código QR o código de barras.\n\nAdemás de gestionar el acceso, la entrada ayuda a proyectar una imagen cuidada y coherente con la identidad visual del evento."
+          "body": "### Entradas personalizadas para eventos y control de acceso\n\nLas entradas personalizadas permiten gestionar el acceso a conciertos, festivales, ferias, congresos, teatros, eventos deportivos, galas, convenciones y otros actos con una pieza impresa adaptada a la identidad del evento.\n\nAdemás de la información básica —fecha, horario, recinto, sesión o zona— podemos incorporar numeración correlativa, series, microcortes, talones desprendibles y datos diferentes en cada entrada cuando el proyecto necesita un mayor control.\n\nLas entradas también pueden utilizarse para distinguir sesiones, zonas, precios, categorías o tipos de acceso y coordinarse visualmente con acreditaciones, lanyards, cartelería y señalética.\n\nEn Repro Disseny definimos el tamaño, el papel, el número de caras y la configuración del talón o numeración según la operativa real del evento, para que la entrada sea fácil de manipular y el control en puerta resulte ágil."
         },
         {
           "id": "materials",
@@ -18529,37 +18543,41 @@
           "kind": "formats",
           "contentFormat": "json",
           "formatsData": {
-            "intro": "Definimos el formato de la entrada según el tipo de evento, el sistema de acceso, la información necesaria y la experiencia del asistente.",
+            "intro": "Trabajamos diferentes formatos de ticket según la cantidad de información, el sistema de control y si la entrada necesita uno o varios talones.",
             "shapes": [
               {
-                "title": "Ticket alargado",
-                "description": "Formato práctico para conciertos, festivales, sorteos, sesiones y eventos con control rápido de acceso."
+                "title": "21 × 10 cm",
+                "description": "Formato amplio para entradas con mayor cantidad de información, diseño gráfico o zonas de control."
               },
               {
-                "title": "A6",
-                "description": "Opción compacta con más presencia visual, adecuada para invitaciones, eventos corporativos o entradas con más información."
+                "title": "21 × 7 cm",
+                "description": "Formato alargado y práctico para entradas de eventos y sistemas con talón."
               },
               {
-                "title": "Formato personalizado",
-                "description": "Permite adaptar tamaño, orientación y diseño a la identidad visual del evento o al sistema de validación."
+                "title": "14 × 7 cm",
+                "description": "Formato compacto con suficiente superficie para información, numeración y elementos gráficos."
+              },
+              {
+                "title": "14 × 5 cm",
+                "description": "Ticket compacto para accesos, sorteos, controles y eventos que requieren una pieza pequeña y manejable."
               }
             ],
             "deliveryFormats": [
               {
-                "title": "Entrada simple",
-                "description": "Pieza individual para acceso, invitación o control básico de asistencia."
+                "title": "Hojas sueltas",
+                "description": "Entradas entregadas individualmente cuando no se necesita presentación en talonario."
               },
               {
-                "title": "Entrada con talón desprendible",
-                "description": "Incluye una parte separable para control en puerta, sorteos, guardarropa, consumición o validación interna."
+                "title": "Talonarios de 25 entradas",
+                "description": "Presentación agrupada para facilitar reparto, venta o control operativo."
               },
               {
-                "title": "Series numeradas",
-                "description": "Permite organizar entradas por sesiones, zonas, tipos de acceso, precios, días o categorías."
+                "title": "Talonarios de 50 entradas",
+                "description": "Opción para gestionar series o mayores cantidades de entradas de forma ordenada."
               },
               {
-                "title": "Datos variables",
-                "description": "Opción para personalizar cada entrada con nombre, asiento, fila, sector, código, QR o tipo de pase."
+                "title": "Con microcorte y numeración",
+                "description": "Configuraciones con uno o varios microcortes y numeraciones según las necesidades de control del evento."
               }
             ]
           }
@@ -18571,27 +18589,27 @@
           "kind": "finishes",
           "contentFormat": "json",
           "finishesData": {
-            "intro": "Los acabados ayudan a mejorar la resistencia, la legibilidad y el control de las entradas personalizadas según el tipo de evento.",
+            "intro": "Configuramos microcortes, numeración y presentación de la entrada según el sistema de acceso, el número de resguardos y la operativa del evento.",
             "finishes": [
               {
-                "title": "Perforado para talón",
-                "description": "Permite separar matriz, resguardo o cupón de forma limpia durante el control de acceso o la gestión del evento."
+                "title": "Talón desprendible",
+                "description": "El microcorte permite separar limpiamente una matriz o resguardo durante el control de acceso."
               },
               {
-                "title": "Acabado mate",
-                "description": "Reduce reflejos y mejora la lectura bajo focos, luz exterior o situaciones de validación rápida."
+                "title": "Numeración correlativa",
+                "description": "Permite identificar y organizar las entradas por series, sesiones, zonas, lotes o tipos de acceso."
               },
               {
-                "title": "Laminado protector",
-                "description": "Aporta más resistencia frente a manipulación, roce o uso prolongado durante el evento."
+                "title": "Datos variables",
+                "description": "La información puede cambiar entre entradas cuando se necesitan nombres, sesiones, zonas, filas, asientos o categorías diferentes."
               },
               {
-                "title": "Numeración y códigos",
-                "description": "Facilita control interno, validación, trazabilidad y organización por series, zonas o sesiones."
+                "title": "Una o dos caras",
+                "description": "El reverso puede utilizarse para normativa, agenda, patrocinadores, mapa, condiciones o información complementaria."
               },
               {
-                "title": "Diferenciación visual",
-                "description": "Uso de colores, fondos, tramas o elementos gráficos para distinguir categorías, días, zonas o tipos de acceso."
+                "title": "QR o código de barras",
+                "description": "Pueden incorporarse al diseño cuando el proyecto necesita identificación o validación mediante códigos."
               }
             ]
           }
@@ -18602,7 +18620,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "### Formatos habituales\n\n- **Entrada tipo ticket:** formato alargado, práctico para control de acceso, conciertos, sorteos, sesiones y eventos con gran volumen de asistentes.\n- **A6:** formato compacto con más presencia visual, adecuado para invitaciones, eventos corporativos o entradas con más información.\n- **Formato personalizado:** posibilidad de adaptar tamaño, orientación y diseño al estilo del evento.\n- **Una o dos caras:** el reverso puede incluir mapa, agenda, normas, patrocinadores, condiciones o información complementaria.\n\n### Talón desprendible\n\n- **Perforado para matriz o talón:** útil para control en puerta, sorteos, guardarropa, consumición o validación interna.\n- **Entrada más resguardo:** configuración en una sola pieza para agilizar la operativa durante el acceso.\n- **Separación limpia:** el perforado permite retirar el talón sin deteriorar la entrada principal.\n\n### Numeración y datos variables\n\n- **Numeración correlativa:** permite organizar entradas por series, zonas, sesiones, precios o tipos de acceso.\n- **Datos variables:** nombre, sesión, asiento, fila, sector, tipo de entrada, pase VIP, prensa, general u otras categorías.\n- **Códigos únicos:** opción alfanumérica para validaciones más estrictas, control antifraude o gestión interna.\n\n### QR y código de barras\n\n- **Lectura rápida:** integración de QR o código de barras para validación con móvil, lector o sistema de control.\n- **Información ampliada:** el QR también puede enlazar a landing, normativa, agenda, mapa, formulario o información del evento.\n- **Control de acceso:** recomendable cuando se necesita registrar asistencia, validar entradas o reducir duplicidades.\n\n### Materiales recomendados\n\n- **Papeles con buen cuerpo:** aportan resistencia, mejor manipulación y una presencia más cuidada.\n- **Opciones resistentes:** recomendables cuando habrá mucha manipulación, uso exterior o control durante varias horas.\n- **Elección según evento:** el soporte debe definirse según duración, volumen de asistentes, método de validación y calidad percibida buscada.\n\n### Acabados y seguridad\n\n- **Acabado mate:** reduce reflejos y mejora la lectura bajo focos, luz exterior o situaciones de control rápido.\n- **Laminado protector:** aporta más resistencia si la entrada se manipulará mucho o debe conservarse en buen estado.\n- **Diferenciación por color:** útil para zonas, sesiones, categorías, días, precios o niveles de acceso.\n- **Elementos gráficos de validación:** marcas de agua, fondos, tramas o recursos visuales para dificultar copias y mejorar el control."
+          "body": "### Medidas disponibles\n\nEntre los formatos habituales trabajamos:\n\n- **21 × 10 cm**\n- **21 × 7 cm**\n- **14 × 7 cm**\n- **14 × 5 cm**\n\nSi el proyecto necesita otro formato, podemos estudiar la configuración más adecuada según el diseño y el sistema de control.\n\n### Impresión\n\n- **Cuatricromía a una cara.**\n- **Cuatricromía a dos caras.**\n- El reverso puede utilizarse para patrocinadores, normativa, agenda, condiciones, información del recinto u otros contenidos.\n\n### Papeles\n\n- **Offset 90 g.**\n- **Estucado brillo 135 g.**\n\nLa elección depende del tipo de entrada, la manipulación prevista y la presencia gráfica buscada.\n\n### Talonarios\n\nLas entradas pueden entregarse:\n\n- en hojas sueltas;\n- en talonarios de 25 unidades;\n- en talonarios de 50 unidades.\n\n### Microcorte y talón desprendible\n\nPodemos realizar entradas con microcorte para generar una matriz o resguardo separable. Es una solución útil para control de acceso, sorteos, guardarropa, consumiciones u otros procesos donde una parte de la entrada debe conservarse.\n\n### Numeración y datos variables\n\nLas entradas pueden incorporar numeración correlativa y organizarse por series o categorías.\n\nSegún el proyecto también pueden utilizarse datos variables como:\n\n- nombre;\n- sesión;\n- fecha;\n- zona;\n- fila;\n- asiento;\n- categoría;\n- tipo de acceso;\n- códigos identificativos.\n\n### QR y códigos de barras\n\nLos códigos QR o códigos de barras pueden integrarse en la gráfica de la entrada cuando el sistema de gestión o control del evento los utiliza.\n\n### Preparación del archivo\n\nPara presupuestar correctamente necesitamos conocer la cantidad, el formato, si habrá uno o varios microcortes, la numeración necesaria y si existen datos variables o códigos.\n\nSi ya dispones del diseño, revisamos su preparación antes de iniciar la producción."
         },
         {
           "id": "applications",
@@ -18611,26 +18629,27 @@
           "kind": "applications",
           "contentFormat": "json",
           "applicationsData": {
+            "intro": "Las entradas personalizadas pueden adaptarse a diferentes sistemas de acceso, sesiones, zonas y tipos de evento.",
             "applications": [
               {
                 "title": "Conciertos, festivales y teatro",
-                "description": "entradas por sesión, zona o asiento."
+                "description": "Entradas por sesión, fecha, zona, localidad o tipo de acceso."
               },
               {
                 "title": "Ferias y congresos",
-                "description": "pases de día, invitaciones, accesos por áreas."
+                "description": "Pases de día, invitaciones, accesos por áreas y entradas para visitantes profesionales."
               },
               {
                 "title": "Eventos corporativos",
-                "description": "cenas, galas, convenciones y presentaciones."
+                "description": "Galas, convenciones, cenas, presentaciones, jornadas y encuentros de empresa."
               },
               {
                 "title": "Eventos deportivos",
-                "description": "acceso a grada, control de participantes o acompañantes."
+                "description": "Entradas para grada, participantes, acompañantes, zonas y diferentes categorías de acceso."
               },
               {
                 "title": "Sorteos y promociones",
-                "description": "tickets numerados para rifas, premios o control de participación."
+                "description": "Tickets numerados y con talón desprendible para rifas, sorteos, premios o controles de participación."
               }
             ]
           }
@@ -18639,19 +18658,35 @@
       "faqs": [
         {
           "question": "¿Se pueden hacer entradas con talón desprendible?",
-          "answer": "Sí, mediante perforado, ideal para control en accesos, sorteos o guardarropa."
+          "answer": "Sí. Podemos incorporar microcorte para crear una matriz o resguardo separable, útil para control de accesos, sorteos, guardarropa, consumiciones u otras operaciones del evento."
         },
         {
-          "question": "¿Podéis numerarlas y hacer series por zonas?",
-          "answer": "Sí. Podemos hacer numeración correlativa y organizar por sectores, sesiones o tipos de entrada."
+          "question": "¿Podéis numerar las entradas y crear diferentes series?",
+          "answer": "Sí. Podemos trabajar con numeración correlativa y organizar las entradas por series, sesiones, zonas, categorías o tipos de acceso según las necesidades del evento."
         },
         {
-          "question": "¿Se puede añadir QR o código de barras?",
-          "answer": "Sí, y también códigos únicos para validación o check-in."
+          "question": "¿Se pueden añadir datos diferentes a cada entrada?",
+          "answer": "Sí. Según el proyecto podemos trabajar con datos variables como nombre, sesión, fecha, zona, fila, asiento, categoría o tipo de acceso."
         },
         {
-          "question": "¿Qué formato recomendáis para controlar rápido en puerta?",
-          "answer": "Entradas tipo ticket con perforado + numeración y/o QR suele ser la combinación más ágil."
+          "question": "¿Se puede añadir un código QR o código de barras?",
+          "answer": "Sí. Podemos incorporar códigos QR o códigos de barras dentro del diseño de la entrada cuando el sistema de gestión o control del evento los utiliza."
+        },
+        {
+          "question": "¿Qué tamaños de entrada trabajáis?",
+          "answer": "Entre los formatos habituales trabajamos 21 × 10 cm, 21 × 7 cm, 14 × 7 cm y 14 × 5 cm. Si necesitas otra medida, podemos estudiar la configuración del proyecto."
+        },
+        {
+          "question": "¿Podéis entregar las entradas en talonarios?",
+          "answer": "Sí. Además de hojas sueltas, trabajamos configuraciones en talonarios de 25 o 50 entradas."
+        },
+        {
+          "question": "¿Qué formato recomendáis para agilizar el control de acceso?",
+          "answer": "Depende de la operativa del evento. Un formato tipo ticket con numeración y, cuando es necesario, microcorte, talón desprendible o código QR permite organizar el acceso de forma práctica."
+        },
+        {
+          "question": "¿Qué necesitáis para preparar un presupuesto de entradas personalizadas?",
+          "answer": "Necesitamos la cantidad, el formato, el papel, si habrá microcorte o talón, numeración y si el proyecto necesita datos variables o códigos. También es importante conocer la fecha prevista del evento."
         }
       ],
       "breadcrumbs": [
@@ -18679,10 +18714,48 @@
         "alt": "Entradas personalizadas impresas para eventos, espectáculos y control de accesos"
       },
       "galleryImages": [],
-      "relatedProductsJson": [],
+      "relatedProductsJson": [
+        {
+          "label": "Acreditaciones personalizadas",
+          "productSlug": "acreditaciones-personalizadas"
+        },
+        {
+          "label": "Lanyards personalizados",
+          "productSlug": "lanyards-eventos-barcelona"
+        },
+        {
+          "label": "Photocall personalizado",
+          "productSlug": "photocall-personalizado"
+        },
+        {
+          "label": "Roll-up personalizado",
+          "productSlug": "roll-up-personalizado"
+        }
+      ],
       "sku": "01-EVEN-0012",
-      "brand": "Reprodisseny",
-      "attributes": [],
+      "brand": "Repro Disseny",
+      "attributes": [
+        {
+          "key": "numeracion",
+          "label": "Numeración correlativa",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "microcorte",
+          "label": "Microcorte y talón",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "datos-variables",
+          "label": "Datos variables",
+          "placement": "hero-pills"
+        },
+        {
+          "key": "qr-codigo",
+          "label": "QR y código de barras",
+          "placement": "hero-pills"
+        }
+      ],
       "variants": [],
       "formFields": [
         {
@@ -18715,8 +18788,8 @@
           "type": "select",
           "required": false,
           "options": [
-            "Ofset 90 gr",
-            "Estucado brillo de 135 gr."
+            "Offset 90 g",
+            "Estucado brillo 135 g"
           ],
           "readonly": false
         },
@@ -18726,7 +18799,7 @@
           "type": "select",
           "required": false,
           "options": [
-            "Hoja sueltas",
+            "Hojas sueltas",
             "25 hojas",
             "50 hojas"
           ],
@@ -18740,7 +18813,7 @@
           "options": [
             "Sin microcorte + 1 numerador",
             "1 microcorte + 2 numeradores",
-            "2 microcorte + 3 numeradores"
+            "2 microcortes + 3 numeradores"
           ],
           "readonly": false
         },
@@ -18748,7 +18821,7 @@
           "name": "cantidad",
           "label": "Cantidad",
           "type": "number",
-          "required": false,
+          "required": true,
           "options": [],
           "readonly": false
         },
@@ -18763,7 +18836,7 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Entradas Personalizadas para Eventos | Numeración, QR y Perforado",
+        "metaTitle": "Entradas personalizadas para eventos | Numeración y QR",
         "metaDescription": "Entradas personalizadas para conciertos, ferias y eventos. Numeración correlativa, datos variables, QR/código de barras y talón desprendible. Pide presupuesto.",
         "canonical": "https://reprodisseny.com/productos/entradas-personalizadas",
         "hreflang": [
@@ -18773,10 +18846,48 @@
           }
         ],
         "keywords": [
-          "entradas"
+          "entradas personalizadas",
+          "entradas personalizadas para eventos",
+          "imprimir entradas personalizadas",
+          "tickets personalizados",
+          "entradas numeradas",
+          "entradas con talón",
+          "entradas con QR",
+          "entradas con microcorte",
+          "entradas para conciertos",
+          "talonarios de entradas"
         ],
         "searchTerms": [
-          "entradas"
+          "entradas personalizadas",
+          "entrada personalizada",
+          "entradas personalizadas para eventos",
+          "entradas para eventos",
+          "entradas eventos",
+          "imprimir entradas personalizadas",
+          "impresión de entradas",
+          "impresión entradas eventos",
+          "tickets personalizados",
+          "ticket personalizado",
+          "tickets personalizados para eventos",
+          "entradas numeradas",
+          "tickets numerados",
+          "entradas numeración correlativa",
+          "entradas con talón",
+          "entradas con talón desprendible",
+          "tickets con talón",
+          "entradas con microcorte",
+          "entradas con qr",
+          "entradas qr",
+          "entradas con código de barras",
+          "entradas datos variables",
+          "entradas para conciertos",
+          "entradas para festivales",
+          "entradas para ferias",
+          "entradas para congresos",
+          "entradas para eventos corporativos",
+          "tickets para sorteos",
+          "talonarios de entradas",
+          "talonarios numerados"
         ],
         "schema": {},
         "robotsOverride": "INHERIT",
@@ -24397,7 +24508,7 @@
     },
     {
       "id": "60",
-      "updatedAt": "2026-08-23T09:49:45Z",
+      "updatedAt": "2026-08-31T09:03:01Z",
       "type": "producto",
       "slug": "lanyards-eventos-barcelona",
       "path": "/productos/lanyards-eventos-barcelona",
@@ -24458,19 +24569,27 @@
           "kind": "materials",
           "contentFormat": "json",
           "materialsData": {
-            "intro": "Seleccionamos el tipo de cinta y el sistema de personalización según el diseño, la cantidad, la duración del evento y el acabado buscado.",
+            "intro": "Nuestros lanyards están fabricados en poliéster 100 %. Elegimos el sistema de impresión según el diseño, los colores y el resultado visual que necesita cada evento.",
             "materials": [
               {
-                "title": "Lanyard para uso general",
-                "description": "Configuración adecuada para ferias, congresos, acreditaciones y eventos corporativos."
+                "title": "Poliéster 100 % con sublimación",
+                "description": "Recomendado para diseños a todo color, fotografías, degradados o gráficos con mucho detalle. La impresión queda integrada en el tejido y permite crear lanyards muy visuales para ferias, congresos y eventos de marca.",
+                "features": [
+                  "Todo color",
+                  "Fotografías y degradados",
+                  "Buen nivel de detalle"
+                ],
+                "idealFor": "Ferias, congresos, eventos corporativos y diseños multicolor"
               },
               {
-                "title": "Opciones de mayor presencia visual",
-                "description": "Alternativas pensadas para proyectos donde el tacto, la imagen de marca o la calidad percibida tienen mayor importancia."
-              },
-              {
-                "title": "Opciones para uso intensivo",
-                "description": "Configuraciones adecuadas para eventos de varios días o situaciones con mayor manipulación."
+                "title": "Poliéster 100 % con serigrafía",
+                "description": "Adecuado para logotipos, textos y diseños sencillos con uno o pocos colores planos. Es una opción muy eficaz cuando el diseño corporativo no necesita fotografías ni degradados.",
+                "features": [
+                  "Colores planos",
+                  "Logotipos sencillos",
+                  "Buena resistencia"
+                ],
+                "idealFor": "Identificación corporativa y diseños de uno o pocos colores"
               }
             ]
           }
@@ -24482,7 +24601,7 @@
           "kind": "formats",
           "contentFormat": "json",
           "formatsData": {
-            "intro": "El ancho del lanyard se elige según la visibilidad del logotipo, la comodidad, el tipo de evento y el sistema de acreditación.",
+            "intro": "Trabajamos habitualmente con anchos de 10, 15, 20 y 25 mm. La disponibilidad exacta debe confirmarse según el modelo, el tipo de impresión y la configuración elegida.",
             "shapes": [
               {
                 "title": "10 mm",
@@ -24490,33 +24609,33 @@
               },
               {
                 "title": "15 mm",
-                "description": "Opción equilibrada para eventos corporativos, congresos y acreditaciones."
+                "description": "Formato versátil para acreditaciones, eventos corporativos, ferias y congresos."
               },
               {
                 "title": "20 mm",
-                "description": "Uno de los formatos más utilizados cuando se busca una buena visibilidad del logotipo."
+                "description": "Ofrece más superficie para logotipos, textos y diseños con mayor presencia visual."
               },
               {
                 "title": "25 mm",
-                "description": "Formato de mayor presencia visual para eventos de marca, patrocinadores o diseños con más información."
+                "description": "Formato ancho cuando se busca maximizar la superficie gráfica y la visibilidad de marca."
               }
             ],
             "deliveryFormats": [
               {
-                "title": "Con mosquetón o gancho",
-                "description": "Sistema habitual para colgar acreditaciones, tarjetas, llaves o identificadores."
+                "title": "Mosquetón",
+                "description": "Sistema habitual para sujetar acreditaciones, tarjetas, llaves o identificadores."
               },
               {
-                "title": "Con cierre de seguridad",
+                "title": "Cierre de seguridad",
                 "description": "Sistema breakaway que permite abrir el lanyard ante un tirón."
               },
               {
-                "title": "Con hebilla desmontable",
-                "description": "Permite separar la acreditación sin retirar el lanyard del cuello."
+                "title": "Hebilla desmontable",
+                "description": "Permite separar fácilmente la acreditación sin quitarse el lanyard."
               },
               {
-                "title": "Set con acreditación",
-                "description": "Posibilidad de entregar lanyard, funda y acreditación preparados conjuntamente."
+                "title": "Funda y clip",
+                "description": "Podemos suministrar fundas para acreditaciones y clips para completar el conjunto."
               }
             ]
           }
@@ -24559,7 +24678,7 @@
           "title": "Características técnicas",
           "kind": "technical-specs",
           "contentFormat": "markdown",
-          "body": "### Personalización\n\n- **Impresión:** sublimación o serigrafía según diseño, cantidad y acabado requerido.\n- **Impresión a color:** posibilidad de incorporar logotipo, colores corporativos, patrocinadores, textos o gráfica del evento.\n- **Una o dos caras:** según la visibilidad requerida y el sistema de producción.\n- **Variantes por rol:** posibilidad de preparar diferentes diseños o colores para staff, VIP, prensa, ponentes, expositores o asistentes.\n\n### Medidas\n\n- **Anchos habituales:** 10, 15, 20 o 25 mm.\n- **Longitud:** configuración estándar para uso alrededor del cuello.\n- **Configuraciones especiales:** otras medidas o soluciones pueden estudiarse según el proyecto.\n\n### Accesorios\n\n- **Mosquetón o gancho:** para acreditaciones, tarjetas, llaves o identificadores.\n- **Cierre de seguridad:** sistema breakaway para facilitar la apertura del lanyard.\n- **Hebilla desmontable:** permite separar la acreditación sin retirar el lanyard.\n- **Porta-acreditación:** fundas adaptadas al formato de la acreditación.\n\n### Preparación y entrega\n\n- **Sets completos:** lanyard, acreditación y funda preparados conjuntamente.\n- **Organización por grupos:** posibilidad de preparar el material por participante, empresa, rol o equipo."
+          "body": "### Sublimación o serigrafía: ¿qué impresión elegir?\n\n- **Sublimación:** recomendada para diseños a todo color, fotografías, sombras, degradados o gráficos con detalles finos. Permite imprimir toda la superficie de la cinta y conseguir un acabado visual muy integrado.\n- **Serigrafía:** indicada para logotipos, textos y diseños sencillos de uno o pocos colores planos. Es una solución eficaz para diseños corporativos simples.\n- **Ferias y congresos:** cuando se busca un lanyard llamativo y colorista, normalmente recomendamos sublimación.\n- **Uso intensivo:** tanto sublimación como serigrafía pueden utilizarse en eventos de varios días; la elección depende principalmente del diseño y de la configuración necesaria.\n\n### Preparación del diseño\n\n- **Textos pequeños:** el ancho reducido de la cinta limita la legibilidad. Como criterio prudente recomendamos evitar textos excesivamente pequeños y revisar siempre el diseño a tamaño real.\n- **Líneas finas:** en serigrafía deben evitarse filetes extremadamente finos, especialmente cuando aparecen en negativo.\n- **Fotografías y degradados:** recomendamos sublimación.\n- **Impresión a sangre:** la sublimación permite diseños que ocupan toda la superficie de la cinta. El arte debe prepararse siguiendo la plantilla de producción.\n- **Zona de seguridad:** no conviene colocar textos o logotipos importantes pegados al borde.\n- **Mosquetones y cierres:** evita situar información imprescindible cerca del mosquetón, cierre de seguridad, costuras o uniones porque puede quedar parcialmente oculta.\n- **Impresión a dos caras:** puede realizarse cuando la configuración lo permite, aunque no debe diseñarse esperando un registro perfecto entre una cara y la otra.\n\n### Reproducción del color\n\nLos colores que vemos en pantalla en RGB no constituyen una referencia contractual del resultado impreso. Si el proyecto utiliza colores corporativos concretos, revisamos la técnica de impresión más adecuada y las posibles tolerancias derivadas del tejido, la tinta y el proceso de producción.\n\n### Accesorios disponibles\n\nPodemos configurar el lanyard con mosquetón, cierre de seguridad, hebilla desmontable, funda para acreditación o clip. También podemos preparar el conjunto completo de lanyard y acreditación listo para repartir durante el evento."
         },
         {
           "id": "applications",
@@ -24596,24 +24715,32 @@
       ],
       "faqs": [
         {
-          "question": "¿Se pueden hacer lanyards distintos para staff, ponentes y asistentes?",
-          "answer": "Sí. Podemos preparar diferentes colores o diseños según el rol para facilitar la identificación durante el evento."
+          "question": "¿De qué material son los lanyards personalizados?",
+          "answer": "Trabajamos nuestros lanyards en poliéster 100 %, un material adecuado para ferias, congresos, eventos corporativos y sistemas de identificación."
         },
         {
-          "question": "¿Qué ancho de lanyard recomendáis?",
-          "answer": "Para la mayoría de eventos, 15 o 20 mm ofrece un buen equilibrio entre comodidad y visibilidad del logotipo. Los formatos de 10 y 25 mm pueden utilizarse cuando se busca una solución más discreta o con mayor presencia gráfica."
+          "question": "¿Qué diferencia hay entre sublimación y serigrafía en un lanyard?",
+          "answer": "La sublimación es la opción recomendada para fotografías, degradados, muchos colores o diseños con bastante detalle. La serigrafía funciona especialmente bien con logotipos, textos y diseños sencillos de uno o pocos colores planos."
         },
         {
-          "question": "¿Podéis entregar los lanyards con acreditación incluida?",
-          "answer": "Sí. Podemos preparar el conjunto completo de lanyard, acreditación y, si es necesario, funda o clip, listo para repartir."
+          "question": "¿Qué impresión recomendáis para un congreso o una feria?",
+          "answer": "Cuando se busca un diseño vistoso y colorista solemos recomendar sublimación, ya que permite trabajar a todo color y reproducir degradados y gráficos complejos."
         },
         {
-          "question": "¿Hay opciones con cierre de seguridad?",
-          "answer": "Sí. Podemos incorporar cierre de seguridad tipo breakaway o hebilla desmontable según el uso previsto."
+          "question": "¿Qué anchos de lanyard están disponibles?",
+          "answer": "Trabajamos habitualmente con anchos de 10, 15, 20 y 25 mm, aunque la disponibilidad exacta debe confirmarse según el modelo y la configuración elegida."
         },
         {
-          "question": "¿Qué necesitáis para preparar un presupuesto de lanyards personalizados?",
-          "answer": "Indícanos la cantidad, el ancho aproximado, el tipo de impresión, si necesitas una o dos caras y los accesorios que quieres incluir. Si todavía no tienes definida la configuración, podemos recomendarte la opción más adecuada."
+          "question": "¿Qué accesorios puedo añadir al lanyard?",
+          "answer": "Podemos suministrar mosquetón, cierre de seguridad, hebilla desmontable, funda para acreditación y clip, entre otras configuraciones habituales."
+        },
+        {
+          "question": "¿Podéis entregar los lanyards con las acreditaciones preparadas?",
+          "answer": "Sí. Podemos preparar el conjunto de lanyard, funda y acreditación para que llegue listo para repartir y, si es necesario, organizado por participante, empresa o rol."
+        },
+        {
+          "question": "¿Se pueden hacer lanyards diferentes para staff, ponentes y asistentes?",
+          "answer": "Sí. Podemos preparar diferentes colores o diseños para facilitar la identificación de staff, asistentes, ponentes, prensa, VIP o expositores."
         }
       ],
       "breadcrumbs": [
@@ -24655,22 +24782,22 @@
       "brand": "Reprodisseny",
       "attributes": [
         {
-          "key": "identificacion-inmediata",
-          "label": "Identificación inmediata",
+          "key": "poliester-100",
+          "label": "Poliéster 100 %",
           "placement": "hero-pills"
         },
         {
-          "key": "control-de-accesos",
-          "label": "Control de accesos",
+          "key": "sublimacion-serigrafia",
+          "label": "Sublimación o serigrafía",
           "placement": "hero-pills"
         },
         {
-          "key": "personalizacion-por-roles",
-          "label": "Personalización por roles",
+          "key": "anchos-personalizables",
+          "label": "10–25 mm según modelo",
           "placement": "hero-pills"
         },
         {
-          "key": "lanyard-y-acreditacion",
+          "key": "lanyard-acreditacion",
           "label": "Lanyard + acreditación",
           "placement": "hero-pills"
         }
@@ -24720,8 +24847,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Lanyards personalizados en Barcelona para eventos",
-        "metaDescription": "Lanyards personalizados en Barcelona para ferias, congresos y eventos corporativos. Impresión a color, distintos anchos y accesorios. Solicita presupuesto.",
+        "metaTitle": "Lanyards personalizados en Barcelona | Eventos y congresos",
+        "metaDescription": "Lanyards personalizados en Barcelona para ferias, congresos y eventos. Poliéster 100 %, sublimación o serigrafía y accesorios. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/lanyards-eventos-barcelona",
         "hreflang": [
           {
@@ -24746,9 +24873,18 @@
           "lanyards para eventos barcelona",
           "lanyards para congresos",
           "lanyards para ferias",
+          "lanyards corporativos",
           "lanyard personalizado",
-          "lanyard con acreditación",
-          "cintas para acreditaciones"
+          "lanyard personalizado barcelona",
+          "cintas para acreditaciones",
+          "cintas para acreditaciones personalizadas",
+          "lanyards de poliéster",
+          "lanyard poliéster",
+          "lanyards sublimados",
+          "lanyard sublimación",
+          "lanyards serigrafiados",
+          "lanyard serigrafía",
+          "lanyard con acreditación"
         ],
         "schema": {},
         "robotsOverride": "INHERIT",

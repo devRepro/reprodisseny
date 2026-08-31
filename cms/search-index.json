@@ -406,8 +406,10 @@
       "acreditaciones para congresos",
       "acreditaciones para ferias",
       "acreditaciones corporativas",
+      "acreditaciones con nombre",
       "acreditaciones con QR",
-      "acreditaciones con lanyard"
+      "acreditaciones con lanyard",
+      "acreditaciones datos variables"
     ],
     "searchTerms": [
       "acreditaciones personalizadas",
@@ -1600,10 +1602,48 @@
     "title": "Entradas personalizadas para eventos",
     "path": "/productos/entradas-personalizadas",
     "keywords": [
-      "entradas"
+      "entradas personalizadas",
+      "entradas personalizadas para eventos",
+      "imprimir entradas personalizadas",
+      "tickets personalizados",
+      "entradas numeradas",
+      "entradas con talón",
+      "entradas con QR",
+      "entradas con microcorte",
+      "entradas para conciertos",
+      "talonarios de entradas"
     ],
     "searchTerms": [
-      "entradas"
+      "entradas personalizadas",
+      "entrada personalizada",
+      "entradas personalizadas para eventos",
+      "entradas para eventos",
+      "entradas eventos",
+      "imprimir entradas personalizadas",
+      "impresión de entradas",
+      "impresión entradas eventos",
+      "tickets personalizados",
+      "ticket personalizado",
+      "tickets personalizados para eventos",
+      "entradas numeradas",
+      "tickets numerados",
+      "entradas numeración correlativa",
+      "entradas con talón",
+      "entradas con talón desprendible",
+      "tickets con talón",
+      "entradas con microcorte",
+      "entradas con qr",
+      "entradas qr",
+      "entradas con código de barras",
+      "entradas datos variables",
+      "entradas para conciertos",
+      "entradas para festivales",
+      "entradas para ferias",
+      "entradas para congresos",
+      "entradas para eventos corporativos",
+      "tickets para sorteos",
+      "talonarios de entradas",
+      "talonarios numerados"
     ]
   },
   {
@@ -2140,9 +2180,18 @@
       "lanyards para eventos barcelona",
       "lanyards para congresos",
       "lanyards para ferias",
+      "lanyards corporativos",
       "lanyard personalizado",
-      "lanyard con acreditación",
-      "cintas para acreditaciones"
+      "lanyard personalizado barcelona",
+      "cintas para acreditaciones",
+      "cintas para acreditaciones personalizadas",
+      "lanyards de poliéster",
+      "lanyard poliéster",
+      "lanyards sublimados",
+      "lanyard sublimación",
+      "lanyards serigrafiados",
+      "lanyard serigrafía",
+      "lanyard con acreditación"
     ]
   },
   {
