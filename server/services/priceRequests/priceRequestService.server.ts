@@ -11,6 +11,10 @@ import {
   resolveListId,
 } from "~/server/utils/graphClient.server"
 import { getCmsCatalog } from "~/server/utils/cmsCatalog.server"
+import {
+  CALENDAR_LANDING_SLUG,
+  CALENDAR_PRODUCT_SLUG,
+} from "~/shared/data/calendarProducts"
 
 import type {
   AttachmentInput,
@@ -139,7 +143,42 @@ function computeRequestKey(args: {
     .slice(0, 32)
 }
 
-function sanitizeExtras(extras: Record<string, unknown>, formFields: FormField[]) {
+function sanitizeCalendarLandingExtra(key: string, value: unknown) {
+  if (
+    ![
+      "landing",
+      "campaign",
+      "cantidad",
+      "calendarModelId",
+      "calendarSizeId",
+      "cmsProductSlug",
+    ].includes(key)
+  ) {
+    return { keep: false as const }
+  }
+
+  if (key === "cantidad") {
+    if (value === null || value === undefined || value === "") {
+      return { keep: true as const, value: null }
+    }
+
+    const parsed = typeof value === "number" ? value : Number(String(value))
+    if (!Number.isFinite(parsed) || parsed < 1) return { keep: false as const }
+
+    return { keep: true as const, value: parsed }
+  }
+
+  const text = String(value ?? "").trim().slice(0, 200)
+  if (!text) return { keep: false as const }
+
+  return { keep: true as const, value: text }
+}
+
+function sanitizeExtras(
+  extras: Record<string, unknown>,
+  formFields: FormField[],
+  options: { allowCalendarLandingExtras?: boolean } = {},
+) {
   const allowed = new Map<string, FormField>()
   for (const f of formFields || []) allowed.set(f.name, f)
 
@@ -147,7 +186,13 @@ function sanitizeExtras(extras: Record<string, unknown>, formFields: FormField[]
 
   for (const [k, v] of Object.entries(extras || {})) {
     const field = allowed.get(k)
-    if (!field) continue
+    if (!field) {
+      if (options.allowCalendarLandingExtras) {
+        const extra = sanitizeCalendarLandingExtra(k, v)
+        if (extra.keep) clean[k] = extra.value
+      }
+      continue
+    }
 
     if (field.type === "checkbox") {
       clean[k] = Boolean(v)
@@ -232,7 +277,15 @@ export async function createPriceRequest(event: any, input: PriceRequestInput) {
   const formFields: FormField[] = (productDef?.formFields || []) as FormField[]
 
   const extrasRaw = (input.extras || {}) as Record<string, unknown>
-  const { clean: extrasClean, missing } = sanitizeExtras(extrasRaw, formFields)
+  const allowCalendarLandingExtras =
+    productSlug === CALENDAR_PRODUCT_SLUG &&
+    extrasRaw.landing === CALENDAR_LANDING_SLUG
+
+  const { clean: extrasClean, missing } = sanitizeExtras(
+    extrasRaw,
+    formFields,
+    { allowCalendarLandingExtras },
+  )
 
   if (formFields.length > 0 && missing.length > 0) {
     const msg = `Falten camps obligatoris: ${missing.join(", ")}`

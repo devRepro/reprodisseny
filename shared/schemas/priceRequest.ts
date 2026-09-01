@@ -1,4 +1,9 @@
 import { z } from "zod";
+import {
+  CALENDAR_LANDING_SLUG,
+  CALENDAR_PRODUCT_SLUG,
+  isValidCalendarSelection,
+} from "../data/calendarProducts";
 
 export const PRICE_REQUEST_LIMITS = {
   nameMax: 80,
@@ -115,6 +120,40 @@ export const priceRequestPayloadSchema = z.object({
   utm: z.record(z.unknown()).optional().nullable(),
   tracking: priceRequestTrackingSchema,
   initialStatus: z.string().optional().nullable(),
+}).superRefine((payload, ctx) => {
+  const extras = payload.extras || {};
+  const isCalendarLandingLead =
+    payload.product.slug === CALENDAR_PRODUCT_SLUG &&
+    extras.landing === CALENDAR_LANDING_SLUG;
+
+  if (!isCalendarLandingLead) return;
+
+  const model = extras.calendarModelId || extras.tipoCalendario;
+  const size = extras.calendarSizeId || extras.tamano;
+
+  if (!model) {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      path: ["extras", "tipoCalendario"],
+      message: "Selecciona un modelo de calendario.",
+    });
+  }
+
+  if (!size) {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      path: ["extras", "tamano"],
+      message: "Selecciona una medida para el calendario.",
+    });
+  }
+
+  if (model && size && !isValidCalendarSelection(model, size)) {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      path: ["extras", "tamano"],
+      message: "La medida seleccionada no corresponde al modelo de calendario.",
+    });
+  }
 });
 
 export type CreatePriceRequestInput = z.input<typeof priceRequestPayloadSchema>;

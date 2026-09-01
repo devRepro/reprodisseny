@@ -1,9 +1,13 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
 import ThankYouPanel from "@/components/marketing/quote/ThankYouPanel.vue";
 import SectionHeading from "@/components/marketing/content/SectionHeading.vue";
 import ContactInfoBand from "@/components/marketing/ContactInfoBand.vue";
 import AppButton from "@/components/shared/button/AppButton.vue";
+import {
+  getCalendarQuoteThankYouTrackingContext,
+  isCalendarQuoteThankYouConversion,
+} from "~/utils/tracking/thankYouConversion";
 
 definePageMeta({
   layout: "default",
@@ -12,6 +16,7 @@ definePageMeta({
 type ThankYouKind = "contacto" | "presupuesto";
 
 const route = useRoute();
+const tracking = useTracking();
 
 const pageContainerClass = "container-content";
 
@@ -54,12 +59,23 @@ useHead({
     },
   ],
 });
+
+onMounted(() => {
+  if (!isCalendarQuoteThankYouConversion(route.query)) return;
+
+  tracking.pushPrivacySafeEvent(
+    "generate_lead",
+    { lead_type: "quote_request" },
+    getCalendarQuoteThankYouTrackingContext(),
+  );
+});
 </script>
 
 <template>
   <main class="min-h-screen bg-background">
-    <section :class="[pageContainerClass, 'pt-10 pb-14 md:pt-14 md:pb-20']">
+    <section :class="[pageContainerClass, 'flex min-h-[calc(100vh-18rem)] items-center pt-10 pb-14 md:min-h-[calc(100vh-22rem)] md:pt-14 md:pb-20']">
       <ThankYouPanel
+        class="w-full"
         :kind="kind"
         :primary-label="primaryLabel"
         :primary-to="primaryTo"
