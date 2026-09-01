@@ -43,7 +43,7 @@ let pending: any = computed(() => false);
 let error: any = computed(() => null);
 
 if (useAuto.value) {
-  const r = useHomeCategoriesGrid();
+  const r = await useHomeCategoriesGrid();
   categoriasNav = r.data;
   pending = r.pending;
   error = r.error;

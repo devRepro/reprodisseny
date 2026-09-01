@@ -204,3 +204,181 @@ test("the desktop-only anniversary logo is not eagerly fetched on mobile", () =>
   visit(ast);
   assert.equal(loading, "lazy");
 });
+test("Home category endpoint items survive hydration fallback and render as cards", async () => {
+  const sampleCategories = [
+    {
+      id: "2",
+      title: "Adhesivos personalizados para branding e interiorismo",
+      slug: "adhesivos-personalizados",
+      href: "/categorias/adhesivos-personalizados",
+      image: {
+        src: "https://media.reprodisseny.com/media/category/adhesivos.webp",
+        alt: "Adhesivos personalizados",
+        width: 350,
+        height: 321,
+      },
+    },
+    {
+      id: "5",
+      title: "Impresión gran formato Barcelona | Vinilos, lonas y rígidos",
+      slug: "gran-formato",
+      href: "/categorias/gran-formato",
+      image: {
+        src: "https://media.reprodisseny.com/media/category/gran-formato.webp",
+        alt: "Gran formato",
+        width: 2400,
+        height: 1200,
+      },
+    },
+  ];
+
+  const previousUseFetch = (globalThis as Record<string, unknown>).useFetch;
+  const previousUseState = (globalThis as Record<string, unknown>).useState;
+  const stateRefs = new Map<string, ReturnType<typeof vueRuntime.ref>>();
+  let fetchMode: "items" | "null" = "items";
+
+  (globalThis as Record<string, unknown>).useState = (key: string, init: () => unknown) => {
+    if (!stateRefs.has(key)) {
+      stateRefs.set(key, vueRuntime.ref(init()));
+    }
+
+    return stateRefs.get(key);
+  };
+
+  (globalThis as Record<string, unknown>).useFetch = async (
+    url: string,
+    options: { query?: unknown; transform?: (input: unknown) => unknown },
+  ) => {
+    assert.equal(url, "/api/home/categorias");
+    assert.deepEqual(options.query, { limit: 8 });
+
+    const value = fetchMode === "items"
+      ? options.transform?.({ items: sampleCategories })
+      : null;
+
+    return {
+      data: vueRuntime.ref(value),
+      pending: vueRuntime.ref(false),
+      error: vueRuntime.ref(null),
+      status: vueRuntime.ref("success"),
+      refresh: async () => undefined,
+      execute: async () => undefined,
+      clear: () => undefined,
+    };
+  };
+
+  try {
+    const moduleUrl = `${new URL("../composables/useHomeCategoriesGrid.ts", import.meta.url).href}?home-grid-regression=${Date.now()}`;
+    const { useHomeCategoriesGrid } = await import(moduleUrl);
+
+    const firstRequest = await useHomeCategoriesGrid(8);
+    assert.equal(firstRequest.data.value.items.length, 2);
+    assert.equal(firstRequest.categories.value.length, 2);
+    assert.equal(
+      (stateRefs.get("home-categorias-items-8")?.value as typeof sampleCategories | undefined)?.length,
+      2,
+    );
+
+    fetchMode = "null";
+    const hydratedRequest = await useHomeCategoriesGrid(8);
+    assert.equal(hydratedRequest.data.value, null);
+    assert.equal(hydratedRequest.categories.value.length, 2);
+    assert.equal(
+      hydratedRequest.categories.value[0].title,
+      "Adhesivos personalizados para branding e interiorismo",
+    );
+  } finally {
+    if (previousUseFetch === undefined) {
+      delete (globalThis as Record<string, unknown>).useFetch;
+    } else {
+      (globalThis as Record<string, unknown>).useFetch = previousUseFetch;
+    }
+
+    if (previousUseState === undefined) {
+      delete (globalThis as Record<string, unknown>).useState;
+    } else {
+      (globalThis as Record<string, unknown>).useState = previousUseState;
+    }
+  }
+
+  const pageSource = readSource("pages/index.vue");
+  assert.match(pageSource, /await\s+useHomeCategoriesGrid\(8\)/);
+  assert.match(pageSource, /:categories="safeHomeCategories"/);
+
+  const render = compileRender("components/marketing/ProductCategoryGrid.vue");
+  const component: Component = defineComponent({
+    props: {
+      id: { type: String, default: "home-product-category-grid" },
+      title: { type: String, default: "Productos y soluciones de impresión" },
+      description: { type: String, default: "" },
+      categories: { type: Array, default: () => [] },
+      totalSlots: { type: Number, default: 8 },
+      pending: { type: Boolean, default: false },
+      sectionClass: { type: String, default: "" },
+      containerClass: { type: String, default: "home-section__inner" },
+    },
+    setup(componentProps) {
+      const props = componentProps as {
+        id: string;
+        title: string;
+        description: string;
+        categories: typeof sampleCategories;
+        totalSlots: number;
+        pending: boolean;
+        sectionClass: string;
+        containerClass: string;
+      };
+      const headingId = vueRuntime.computed(() => `${props.id}-title`);
+      const safeTitle = vueRuntime.computed(() => String(props.title || "").trim());
+      const safeDescription = vueRuntime.computed(() => String(props.description || "").trim());
+      const safeTotalSlots = vueRuntime.computed(() => Math.max(0, Math.floor(Number(props.totalSlots) || 8)));
+      const sourceCategories = vueRuntime.computed(() => props.categories);
+      const visibleItems = vueRuntime.computed(() => sourceCategories.value.slice(0, safeTotalSlots.value));
+      const skeletonCount = vueRuntime.computed(() => props.pending ? Math.max(0, safeTotalSlots.value - visibleItems.value.length) : 0);
+      const hasHeader = vueRuntime.computed(() => Boolean(safeTitle.value || safeDescription.value));
+
+      return {
+        props,
+        headingId,
+        safeTitle,
+        safeDescription,
+        safeTotalSlots,
+        sourceCategories,
+        visibleItems,
+        skeletonCount,
+        hasHeader,
+      };
+    },
+    render,
+  });
+
+  const SectionHeadingStub = defineComponent({
+    props: ["id", "as", "title"],
+    setup(stubProps) {
+      return () => h(stubProps.as || "h2", { id: stubProps.id }, stubProps.title);
+    },
+  });
+
+  const CatalogCardStub = defineComponent({
+    props: ["href", "title"],
+    setup(stubProps) {
+      return () => h("article", { class: "catalog-card-stub" }, [
+        h("a", { href: String(stubProps.href) }, String(stubProps.title)),
+      ]);
+    },
+  });
+
+  const app = createSSRApp(component, {
+    categories: sampleCategories,
+    totalSlots: 8,
+    pending: false,
+  });
+  app.component("SectionHeading", SectionHeadingStub);
+  app.component("CatalogCard", CatalogCardStub);
+  silenceExpectedTemplateWarnings(app);
+
+  const html = await renderToString(app);
+  assert.equal((html.match(/home-category-grid__item/g) || []).length, 2);
+  assert.equal((html.match(/catalog-card-stub/g) || []).length, 2);
+  assert.match(html, /Adhesivos personalizados para branding e interiorismo/);
+});

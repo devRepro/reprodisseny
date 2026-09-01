@@ -25,7 +25,7 @@ useHead({
 const {
   categories: homeCategories,
   pending: homeCategoriesPending,
-} = useHomeCategoriesGrid(8);
+} = await useHomeCategoriesGrid(8);
 </script>
 
 <template>

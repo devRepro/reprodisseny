@@ -24,8 +24,8 @@
     />
 
     <MarketingProductCategoryGrid
-      title="Ofrecemos una amplia gama de productos"
-      description="Explora las principales categorías y encuentra la solución que mejor encaja con tu proyecto."
+      title="Productos y soluciones de impresión"
+      description="Explora nuestras soluciones de impresión, gran formato, adhesivos, packaging, eventos y producción gráfica para empresas."
       :categories="safeHomeCategories"
       :total-slots="8"
       :pending="homeCategoriesPending"
@@ -81,7 +81,7 @@ definePageMeta({
 const {
   categories: homeCategories,
   pending: homeCategoriesPending,
-} = useHomeCategoriesGrid(8);
+} = await useHomeCategoriesGrid(8);
 
 const safeHomeCategories = computed(() => homeCategories.value ?? []);
 
@@ -99,10 +99,10 @@ const safeHomeCategories = computed(() => homeCategories.value ?? []);
  */
 const HOME_URL = `${SITE_URL}/`;
 
-const HOME_TITLE = "Imprenta digital en Barcelona | Repro Disseny";
+const HOME_TITLE = "Imprenta en Barcelona | Digital, offset y gran formato";
 
 const HOME_DESCRIPTION =
-  "Imprenta digital en Barcelona para empresas: impresión digital y offset, gran formato, vinilos, PLV y packaging. Solicita presupuesto.";
+  "Imprenta en Barcelona para empresas: impresión digital, offset, gran formato, vinilos, PLV y packaging. Producción, acabados y logística. Pide presupuesto.";
 
 const homeIdentitySchema = buildSiteIdentitySchema({
   title: HOME_TITLE,

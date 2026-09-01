@@ -38,6 +38,10 @@
             Soluciones destacadas
           </h3>
 
+          <p class="home-business-intro__nav-description">
+            Explora algunas de nuestras principales soluciones de impresión para empresas.
+          </p>
+
           <ul class="home-business-intro__links">
             <li>
               <NuxtLink
@@ -84,18 +88,15 @@
               </NuxtLink>
             </li>
           </ul>
+
+          <NuxtLink to="/productos" class="home-business-intro__all-products-link">
+            <span>Ver todos los productos</span>
+            <span class="home-business-intro__link-arrow" aria-hidden="true">
+              →
+            </span>
+          </NuxtLink>
         </nav>
       </div>
-
-      <ul
-        class="home-business-intro__trust"
-        aria-label="Fortalezas de Repro Disseny"
-      >
-        <li class="home-business-intro__trust-item">Desde 1983</li>
-        <li class="home-business-intro__trust-item">Producción para empresas</li>
-        <li class="home-business-intro__trust-item">Asesoramiento técnico</li>
-        <li class="home-business-intro__trust-item">Instalación y logística</li>
-      </ul>
     </div>
   </section>
 </template>

@@ -1,5 +1,19 @@
 import { computed } from "vue";
-import type { HomeCategoryCardItem } from "~/server/services/catalog.service";
+
+type HomeCategoryCardItem = {
+  id: string;
+  title: string;
+  slug: string;
+  href: string;
+  image: {
+    src?: string | null;
+    alt?: string | null;
+    width?: number | null;
+    height?: number | null;
+  } | null;
+  shortDescription?: string | null;
+  description?: string | null;
+};
 
 type HomeCategoriesResponse =
   | {
@@ -10,7 +24,7 @@ type HomeCategoriesResponse =
   | undefined;
 
 function normalizeHomeCategoriesResponse(
-  value: HomeCategoriesResponse
+  value: unknown
 ): HomeCategoryCardItem[] {
   if (Array.isArray(value)) return value.filter(Boolean);
 
@@ -21,8 +35,13 @@ function normalizeHomeCategoriesResponse(
   return [];
 }
 
-export function useHomeCategoriesGrid(limit = 8) {
-  const request = useFetch<HomeCategoriesResponse>("/api/home/categorias", {
+export async function useHomeCategoriesGrid(limit = 8) {
+  const hydratedCategories = useState<HomeCategoryCardItem[]>(
+    `home-categorias-items-${limit}`,
+    () => []
+  );
+
+  const request = await useFetch<HomeCategoriesResponse>("/api/home/categorias", {
     query: { limit },
     key: `home-categorias-${limit}`,
     default: () => ({ items: [] }),
@@ -35,8 +54,16 @@ export function useHomeCategoriesGrid(limit = 8) {
     },
   });
 
+  const requestItems = computed<HomeCategoryCardItem[]>(() => {
+    return normalizeHomeCategoriesResponse(request.data.value);
+  });
+
+  if (requestItems.value.length) {
+    hydratedCategories.value = requestItems.value;
+  }
+
   const categories = computed<HomeCategoryCardItem[]>(() => {
-    return request.data.value?.items ?? [];
+    return requestItems.value.length ? requestItems.value : hydratedCategories.value;
   });
 
   return {
