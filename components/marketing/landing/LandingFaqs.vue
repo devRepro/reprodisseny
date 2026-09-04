@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
-import { ChevronUp } from "lucide-vue-next";
+import { ChevronUp, Plus } from "lucide-vue-next";
 
 type FaqItem = {
   question: string;
@@ -12,10 +12,12 @@ const props = withDefaults(
     title?: string;
     items: FaqItem[];
     defaultOpen?: boolean;
+    variant?: "default" | "calendar";
   }>(),
   {
     title: "Preguntas frecuentes",
     defaultOpen: true,
+    variant: "default",
   }
 );
 
@@ -43,7 +45,11 @@ function toggleItem(index: number) {
 </script>
 
 <template>
-  <section class="landing-faqs" aria-labelledby="landing-faqs-title">
+  <section
+    class="landing-faqs"
+    :class="{ 'landing-faqs--calendar': props.variant === 'calendar' }"
+    aria-labelledby="landing-faqs-title"
+  >
     <div class="landing-faqs__inner">
       <h2 id="landing-faqs-title" class="landing-faqs__title">
         {{ title }}
@@ -65,7 +71,8 @@ function toggleItem(index: number) {
           >
             <span>{{ item.question }}</span>
 
-            <ChevronUp class="landing-faqs__icon" aria-hidden="true" />
+            <Plus v-if="props.variant === 'calendar'" class="landing-faqs__icon" aria-hidden="true" />
+            <ChevronUp v-else class="landing-faqs__icon" aria-hidden="true" />
           </button>
 
           <div
@@ -162,6 +169,62 @@ function toggleItem(index: number) {
   font-size: clamp(15px, 1.15vw, 17px);
   font-weight: 400;
   line-height: 1.42;
+}
+
+.landing-faqs--calendar {
+  padding-block: 68px 78px;
+}
+
+.landing-faqs--calendar .landing-faqs__inner {
+  width: min(100% - 40px, 960px);
+}
+
+.landing-faqs--calendar .landing-faqs__list {
+  gap: 0;
+  margin-top: 38px;
+  border-top: 1px solid rgb(33 33 33 / 18%);
+}
+
+.landing-faqs--calendar .landing-faqs__item {
+  border: 0;
+  border-bottom: 1px solid rgb(33 33 33 / 18%);
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.landing-faqs--calendar .landing-faqs__trigger {
+  min-height: 64px;
+  padding: 18px 4px;
+  border-bottom: 0;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.landing-faqs--calendar .landing-faqs__icon {
+  width: 19px;
+  height: 19px;
+}
+
+.landing-faqs--calendar .landing-faqs__content {
+  padding: 0 40px 18px 4px;
+}
+
+@media (max-width: 767px) {
+  .landing-faqs--calendar {
+    padding-block: 56px 64px;
+  }
+
+  .landing-faqs--calendar .landing-faqs__inner {
+    width: min(100% - 32px, 828px);
+  }
+
+  .landing-faqs--calendar .landing-faqs__list {
+    margin-top: 30px;
+  }
+
+  .landing-faqs--calendar .landing-faqs__trigger {
+    padding-block: 16px;
+  }
 }
 
 @media (max-width: 767px) {

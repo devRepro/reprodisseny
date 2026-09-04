@@ -357,7 +357,7 @@ async function onSubmit() {
 
           <div class="rd-form-field">
             <label for="calendar-size" class="rd-form-label">
-              Medida <span class="rd-form-required">*</span>
+              Tamaño
             </label>
 
             <select

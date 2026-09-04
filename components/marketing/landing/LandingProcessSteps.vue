@@ -11,9 +11,11 @@ type Step = {
 const props = withDefaults(
   defineProps<{
     steps?: Step[];
+    variant?: "default" | "calendar";
   }>(),
   {
     steps: () => [],
+    variant: "default",
   }
 );
 
@@ -30,7 +32,7 @@ const safeSteps = computed(() =>
 
 <template>
   <div
-    v-if="safeSteps.length"
+    v-if="safeSteps.length && props.variant === 'default'"
     class="grid gap-5 md:grid-cols-[1fr_auto_1fr_auto_1fr] md:items-stretch"
   >
     <template v-for="(step, index) in safeSteps" :key="step.number">
@@ -68,4 +70,59 @@ const safeSteps = computed(() =>
       </div>
     </template>
   </div>
+
+  <div v-else-if="safeSteps.length" class="calendar-process-steps">
+    <article v-for="step in safeSteps" :key="step.number" class="calendar-process-step">
+      <p class="calendar-process-step__number" aria-hidden="true">{{ step.number }}</p>
+      <h3 class="calendar-process-step__title">{{ step.title }}</h3>
+    </article>
+  </div>
 </template>
+
+<style scoped>
+.calendar-process-steps {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.calendar-process-step {
+  min-width: 0;
+  border-radius: 8px;
+  background: #eaf6fb;
+  padding: 16px 18px;
+  color: #004f78;
+}
+
+.calendar-process-step__number {
+  color: #0076b3;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.calendar-process-step__title {
+  margin-top: 10px;
+  color: #004f78;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+@media (max-width: 1023px) {
+  .calendar-process-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 639px) {
+  .calendar-process-steps {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .calendar-process-step {
+    padding: 20px;
+  }
+}
+</style>
