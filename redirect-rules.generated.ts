@@ -102,8 +102,8 @@ export const redirectRouteRules = {
   "/product/impresion-en-lona-presupuesto/printestimate": { redirect: { to: "/productos/lona-publicitaria", statusCode: 301 } },
   "/product/impresion-en-metacrilato-presupuesto/printestimate": { redirect: { to: "/productos/metacrilato-personalizado", statusCode: 301 } },
   "/product/impresion-en-pvc-presupuesto/printestimate": { redirect: { to: "/productos/tarjetas-pvc-personalizadas", statusCode: 301 } },
-  "/product/imprimir-fotos-en-lienzos-presupuesto": { redirect: { to: "/productos/carteles-personalizados-gran-formato", statusCode: 301 } },
-  "/product/imprimir-fotos-en-lienzos-presupuesto/printestimate": { redirect: { to: "/productos/carteles-personalizados-gran-formato", statusCode: 301 } },
+  "/product/imprimir-fotos-en-lienzos-presupuesto": { redirect: { to: "/categorias/gran-formato", statusCode: 301 } },
+  "/product/imprimir-fotos-en-lienzos-presupuesto/printestimate": { redirect: { to: "/categorias/gran-formato", statusCode: 301 } },
   "/product/imprimir-photocall-presupuesto/printestimate": { redirect: { to: "/productos/photocall-personalizado", statusCode: 301 } },
   "/product/imprimir-tarjeta-de-citas": { redirect: { to: "/productos/tarjetas-de-visita-personalizadas", statusCode: 301 } },
   "/product/imprimir-tarjeta-de-citas-presupuesto/printestimate": { redirect: { to: "/productos/tarjetas-de-visita-personalizadas", statusCode: 301 } },
@@ -331,7 +331,7 @@ export const redirectRouteRules = {
 },
   "/category/articulos-promocionales": {
     redirect: {
-      to: "/categorias/eventos",
+      to: "/categorias/publicidad-oficina/material-publicitario",
       statusCode: 301,
     },
   },
@@ -395,7 +395,7 @@ export const redirectRouteRules = {
   "/page/como-preparar-archivos": { redirect: { to: "/como-preparar-archivos", statusCode: 301 } },
   "/product/agendas-personalizadas-presupuesto": { redirect: { to: "/productos/agendas-personalizadas", statusCode: 301 } },
   "/product/bobina-de-etiquetas-adhesivas-presupuesto": { redirect: { to: "/productos/etiquetas-adhesivas-en-bobina", statusCode: 301 } },
-  "/product/vinilo-transparente-presupuesto": { redirect: { to: "/categorias/adhesivos-personalizados", statusCode: 301 } },
+  "/product/vinilo-transparente-presupuesto": { redirect: { to: "/productos/vinilo-para-cristal", statusCode: 301 } },
   "/product/mantel-hule-presupuesto": { redirect: { to: "/productos/hule-personalizado", statusCode: 301 } },
   "/product/sobrespara-cartas-presupuesto": { redirect: { to: "/productos/sobres-personalizados", statusCode: 301 } },
   "/product/etiquetas-adhesivas-presupuesto": { redirect: { to: "/categorias/adhesivos-personalizados", statusCode: 301 } },

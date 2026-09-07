@@ -287,6 +287,16 @@ export async function createPriceRequest(event: any, input: PriceRequestInput) {
     { allowCalendarLandingExtras },
   )
 
+
+  const quantityRaw = extrasRaw.cantidad
+const quantity =
+  typeof quantityRaw === "number"
+    ? quantityRaw
+    : Number(String(quantityRaw ?? "").replace(",", "."))
+
+if (Number.isFinite(quantity) && quantity >= 1) {
+  extrasClean.cantidad = quantity
+}
   if (formFields.length > 0 && missing.length > 0) {
     const msg = `Falten camps obligatoris: ${missing.join(", ")}`
     const err: any = new Error(msg)

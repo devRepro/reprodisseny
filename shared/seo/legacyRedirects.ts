@@ -26,8 +26,6 @@ export const PRINT_ESTIMATE_DESTINATION_EXCEPTIONS = {
     "Equivalencia semántica pendiente: no modificar base ni printestimate en esta fase.",
   "/product/vinilo-removible-presupuesto":
     "Equivalencia semántica pendiente: no modificar base ni printestimate en esta fase.",
-  "/product/vinilo-transparente-presupuesto":
-    "Equivalencia semántica pendiente: no modificar base ni printestimate en esta fase.",
 } as const;
 
 /**
