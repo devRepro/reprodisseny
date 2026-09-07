@@ -470,9 +470,15 @@ link: [
       { robots },
     ]),
   ),
-    "/": {
+  "/": {
       isr: 600,
     },
+  "/lp/calendarios": {
+    redirect: {
+      to: "/calendarios/calendarios-corporativos-2027",
+      statusCode: 301,
+    },
+  },
   "/categorias/**": {
     cache: false,
   },

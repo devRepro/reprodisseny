@@ -88,25 +88,25 @@ const safeSteps = computed(() =>
 
 .calendar-process-step {
   min-width: 0;
-  border-radius: 8px;
-  background: #eaf6fb;
+  border-radius: var(--button-radius);
+  background: hsl(var(--brand-base-light));
   padding: 16px 18px;
-  color: #004f78;
+  color: hsl(var(--brand-base-dark));
 }
 
 .calendar-process-step__number {
-  color: #0076b3;
-  font-size: 18px;
-  font-weight: 700;
+  color: hsl(var(--primary));
+  font-size: var(--font-h4);
+  font-weight: var(--weight-h4);
   line-height: 1;
 }
 
 .calendar-process-step__title {
   margin-top: 10px;
-  color: #004f78;
-  font-size: 17px;
-  font-weight: 700;
-  line-height: 1.2;
+  color: hsl(var(--brand-base-dark));
+  font-size: var(--font-body);
+  font-weight: var(--weight-body-bold);
+  line-height: var(--line-body);
 }
 
 @media (max-width: 1023px) {

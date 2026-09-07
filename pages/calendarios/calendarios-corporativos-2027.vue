@@ -43,7 +43,7 @@ type GuaranteeCard = {
 
 const selectedModelId = ref("");
 
-const pageUrl = "https://reprodisseny.com/lp/calendarios";
+const pageUrl = "https://reprodisseny.com/calendarios/calendarios-corporativos-2027";
 const pageTitle = "Calendarios corporativos personalizados en Barcelona | Repro Disseny";
 const pageDescription =
   "Diseño e impresión de calendarios corporativos personalizados en Barcelona con producción propia, asesoramiento incluido y acabados profesionales.";
@@ -305,7 +305,7 @@ function selectCalendarModel(modelId: string) {
 <template>
   <div class="calendar-page">
     <section class="calendar-hero" aria-labelledby="calendar-hero-title">
-      <div class="calendar-container calendar-hero__grid">
+      <div class="container-content calendar-container calendar-hero__grid">
         <div class="calendar-hero__media">
           <NuxtImg
             :src="calendarImage.src"
@@ -348,7 +348,7 @@ function selectCalendarModel(modelId: string) {
     </section>
 
     <section class="calendar-section calendar-section--soft" aria-labelledby="calendar-problems-title">
-      <div class="calendar-container">
+      <div class="container-content calendar-container">
         <h2 id="calendar-problems-title" class="calendar-section__title calendar-section__title--wide">
           Cada año pasa lo mismo:<br />
           llega diciembre y los calendarios se convierten en un problema
@@ -364,7 +364,7 @@ function selectCalendarModel(modelId: string) {
     </section>
 
     <section class="calendar-section calendar-section--white" aria-labelledby="calendar-guarantees-title">
-      <div class="calendar-container">
+      <div class="container-content calendar-container">
         <h2 id="calendar-guarantees-title" class="calendar-section__title">
           Calendarios corporativos de calidad y con garantía
         </h2>
@@ -386,7 +386,7 @@ function selectCalendarModel(modelId: string) {
     </section>
 
     <section class="calendar-section calendar-section--models" aria-labelledby="calendar-models-title">
-      <div class="calendar-container">
+      <div class="container-content calendar-container">
         <h2 id="calendar-models-title" class="calendar-section__title calendar-section__title--models">
           Elige el calendario que más se ajusta a tus necesidades
         </h2>
@@ -434,7 +434,7 @@ function selectCalendarModel(modelId: string) {
     </section>
 
     <section class="calendar-process" aria-labelledby="calendar-process-title">
-      <div class="calendar-container">
+      <div class="container-content calendar-container">
         <h2 id="calendar-process-title" class="calendar-process__title">
           Tus calendarios corporativos para el 2027, listos en cinco pasos
         </h2>
@@ -448,7 +448,7 @@ function selectCalendarModel(modelId: string) {
     </section>
 
     <section class="calendar-why" aria-labelledby="calendar-why-title">
-      <div class="calendar-container calendar-why__grid">
+      <div class="container-content calendar-container calendar-why__grid">
         <div class="calendar-why__media">
           <NuxtImg
             :src="teamImage.src"
@@ -494,7 +494,7 @@ function selectCalendarModel(modelId: string) {
     />
 
     <section id="quote-form" class="calendar-form-section" aria-labelledby="calendar-form-title">
-      <div class="calendar-container calendar-form-section__inner">
+      <div class="container-content calendar-container calendar-form-section__inner">
         <div class="calendar-form-section__heading">
           <h2 id="calendar-form-title" class="calendar-form-section__title">
             ¿Qué calendario quieres?
@@ -515,15 +515,8 @@ function selectCalendarModel(modelId: string) {
 
 <style scoped>
 .calendar-page {
-  --calendar-blue: #0076b3;
-  --calendar-blue-dark: #004f78;
-  --calendar-soft: #e8f5fb;
-  --calendar-cream: #f8f1df;
-  --calendar-cream-card: #f6edd8;
-  --calendar-ink: #1f2529;
-  --calendar-muted: #4e6672;
-  background: #ffffff;
-  color: var(--calendar-ink);
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
   overflow-x: clip;
 }
 
@@ -537,12 +530,11 @@ function selectCalendarModel(modelId: string) {
 }
 
 .calendar-container {
-  width: min(100% - 40px, 1200px);
-  margin-inline: auto;
+  min-width: 0;
 }
 
 .calendar-hero {
-  background: #ffffff;
+  background: hsl(var(--background));
   padding: 48px 0 70px;
 }
 
@@ -572,12 +564,11 @@ function selectCalendarModel(modelId: string) {
 }
 
 .calendar-hero__title {
-  color: var(--calendar-ink);
-  font-family: var(--font-sans);
-  font-size: 60px;
-  font-weight: 700;
-  line-height: 1.05;
-  letter-spacing: 0;
+  color: hsl(var(--foreground));
+  font-size: var(--font-h1);
+  font-weight: var(--weight-h1);
+  line-height: var(--line-h1);
+  letter-spacing: var(--tracking-heading);
 }
 
 .calendar-hero__title span {
@@ -587,27 +578,21 @@ function selectCalendarModel(modelId: string) {
 .calendar-hero__description {
   max-width: 540px;
   margin-top: 26px;
-  color: var(--calendar-muted);
-  font-size: 21px;
-  font-weight: 400;
-  line-height: 1.38;
+  color: hsl(var(--muted-foreground));
+  font-size: var(--font-body);
+  font-weight: var(--weight-body);
+  line-height: var(--line-body);
 }
 
 .calendar-hero__microcopy {
   margin-top: 22px;
-  color: var(--calendar-ink);
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1.4;
+  color: hsl(var(--foreground));
+  font-size: var(--font-body-s);
+  font-weight: var(--weight-body-s-bold);
+  line-height: var(--line-body-s);
 }
 
 .calendar-cta {
-  min-height: 52px !important;
-  border-radius: 8px !important;
-  padding-inline: 24px !important;
-  font-size: 14px !important;
-  font-weight: 700 !important;
-  letter-spacing: 0 !important;
   white-space: normal !important;
   text-align: center !important;
 }
@@ -623,23 +608,22 @@ function selectCalendarModel(modelId: string) {
 .calendar-section--soft,
 .calendar-section--models,
 .calendar-form-section {
-  background: var(--calendar-soft);
+  background: hsl(var(--brand-base-light));
 }
 
 .calendar-section--white {
-  background: #ffffff;
+  background: hsl(var(--background));
 }
 
 .calendar-section__title,
 .calendar-process__title,
 .calendar-why__title,
 .calendar-form-section__title {
-  color: var(--calendar-ink);
-  font-family: var(--font-sans);
-  font-size: clamp(34px, 3vw, 44px);
-  font-weight: 700;
-  line-height: 1.16;
-  letter-spacing: 0;
+  color: hsl(var(--foreground));
+  font-size: var(--font-h2);
+  font-weight: var(--weight-h2);
+  line-height: var(--line-h2);
+  letter-spacing: var(--tracking-heading);
   text-align: left;
 }
 
@@ -669,25 +653,25 @@ function selectCalendarModel(modelId: string) {
 }
 
 .calendar-icon-grid--white .calendar-icon-card {
-  background: #ffffff;
+  background: hsl(var(--background));
 }
 
 .calendar-icon-grid--cream .calendar-icon-card {
-  background: var(--calendar-cream-card);
+  background: hsl(var(--brand-bg-2));
 }
 
 .calendar-icon-card__icon {
   width: 42px;
   height: 42px;
-  color: var(--calendar-blue);
+  color: hsl(var(--primary));
   stroke-width: 1.8;
 }
 
 .calendar-icon-card__title {
-  color: var(--calendar-ink);
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 1.22;
+  color: hsl(var(--foreground));
+  font-size: var(--font-h4);
+  font-weight: var(--weight-h4);
+  line-height: var(--line-h4);
 }
 
 .calendar-promo {
@@ -695,22 +679,22 @@ function selectCalendarModel(modelId: string) {
   min-height: 132px;
   place-items: center;
   gap: 8px;
-  background: var(--calendar-blue-dark);
+  background: hsl(var(--brand-base-dark));
   padding: 28px 20px;
   color: #ffffff;
   text-align: center;
 }
 
 .calendar-promo__title {
-  font-size: 30px;
-  font-weight: 700;
-  line-height: 1.12;
+  font-size: var(--font-h3);
+  font-weight: var(--weight-h3);
+  line-height: var(--line-h3);
 }
 
 .calendar-promo__text {
   color: rgb(255 255 255 / 0.84);
-  font-size: 16px;
-  line-height: 1.35;
+  font-size: var(--font-body);
+  line-height: var(--line-body);
 }
 
 .calendar-section--models {
@@ -737,7 +721,7 @@ function selectCalendarModel(modelId: string) {
   gap: 10px;
   border: 1px solid transparent;
   border-radius: 8px;
-  background: #ffffff;
+  background: hsl(var(--background));
   padding: 14px;
   color: inherit;
   text-align: left;
@@ -749,7 +733,7 @@ function selectCalendarModel(modelId: string) {
 .calendar-model-card:hover,
 .calendar-model-card:focus-visible,
 .calendar-model-card--selected {
-  border-color: var(--calendar-blue);
+  border-color: hsl(var(--primary));
   box-shadow: 0 16px 36px rgb(0 118 179 / 15%);
   transform: translateY(-2px);
 }
@@ -759,7 +743,7 @@ function selectCalendarModel(modelId: string) {
   overflow: hidden;
   border-radius: 6px;
   aspect-ratio: 1000 / 747;
-  background: #ffffff;
+  background: hsl(var(--background));
 }
 
 .calendar-model-card__image {
@@ -771,25 +755,25 @@ function selectCalendarModel(modelId: string) {
 
 .calendar-model-card__title {
   display: block;
-  color: var(--calendar-ink);
-  font-size: 18px;
-  font-weight: 700;
-  line-height: 1.22;
+  color: hsl(var(--foreground));
+  font-size: var(--font-h4);
+  font-weight: var(--weight-h4);
+  line-height: var(--line-h4);
 }
 
 .calendar-model-card__context {
   display: block;
-  color: var(--calendar-muted);
-  font-size: 15px;
-  line-height: 1.35;
+  color: hsl(var(--muted-foreground));
+  font-size: var(--font-body-s);
+  line-height: var(--line-body-s);
 }
 
 .calendar-models__note {
   max-width: 790px;
   margin: 34px auto 0;
-  color: var(--calendar-muted);
-  font-size: 18px;
-  line-height: 1.45;
+  color: hsl(var(--muted-foreground));
+  font-size: var(--font-body);
+  line-height: var(--line-body);
   text-align: center;
 }
 
@@ -800,7 +784,7 @@ function selectCalendarModel(modelId: string) {
 }
 
 .calendar-process {
-  background: var(--calendar-blue);
+  background: hsl(var(--primary));
   padding: 70px 0 78px;
   color: #ffffff;
 }
@@ -816,7 +800,7 @@ function selectCalendarModel(modelId: string) {
 }
 
 .calendar-why {
-  background: #ffffff;
+  background: hsl(var(--background));
   padding: 72px 0 76px;
 }
 
@@ -856,16 +840,16 @@ function selectCalendarModel(modelId: string) {
   grid-template-columns: 22px minmax(0, 1fr);
   align-items: center;
   gap: 12px;
-  color: var(--calendar-ink);
-  font-size: 19px;
-  font-weight: 600;
-  line-height: 1.3;
+  color: hsl(var(--foreground));
+  font-size: var(--font-body);
+  font-weight: var(--weight-body-bold);
+  line-height: var(--line-body);
 }
 
 .calendar-why__check {
   width: 21px;
   height: 21px;
-  color: var(--calendar-blue);
+  color: hsl(var(--primary));
   stroke-width: 2.4;
 }
 
@@ -885,9 +869,9 @@ function selectCalendarModel(modelId: string) {
 
 .calendar-form-section__subtitle {
   margin-top: 10px;
-  color: var(--calendar-muted);
-  font-size: 18px;
-  line-height: 1.4;
+  color: hsl(var(--muted-foreground));
+  font-size: var(--font-body);
+  line-height: var(--line-body);
 }
 
 @media (max-width: 1023px) {
@@ -919,10 +903,6 @@ function selectCalendarModel(modelId: string) {
 }
 
 @media (max-width: 639px) {
-  .calendar-container {
-    width: min(100% - 32px, 392px);
-  }
-
   .calendar-hero {
     padding: 28px 0 52px;
   }
@@ -940,8 +920,8 @@ function selectCalendarModel(modelId: string) {
   }
 
   .calendar-hero__title {
-    font-size: 36px;
-    line-height: 1.07;
+    font-size: var(--font-h1);
+    line-height: var(--line-h1);
   }
 
   .calendar-hero__title span {
@@ -950,13 +930,13 @@ function selectCalendarModel(modelId: string) {
 
   .calendar-hero__description {
     margin-top: 20px;
-    font-size: 18px;
-    line-height: 1.36;
+    font-size: var(--font-body);
+    line-height: var(--line-body);
   }
 
   .calendar-hero__microcopy {
     margin-top: 18px;
-    font-size: 14px;
+    font-size: var(--font-body-s);
   }
 
   .calendar-hero__cta,
@@ -973,8 +953,8 @@ function selectCalendarModel(modelId: string) {
   .calendar-process__title,
   .calendar-why__title,
   .calendar-form-section__title {
-    font-size: 29px;
-    line-height: 1.16;
+    font-size: var(--font-h2);
+    line-height: var(--line-h2);
   }
 
   .calendar-section__title--wide br {
@@ -998,8 +978,8 @@ function selectCalendarModel(modelId: string) {
   }
 
   .calendar-icon-card__title {
-    font-size: 15px;
-    line-height: 1.2;
+    font-size: var(--font-label);
+    line-height: var(--line-label);
   }
 
   .calendar-promo {
@@ -1008,11 +988,11 @@ function selectCalendarModel(modelId: string) {
   }
 
   .calendar-promo__title {
-    font-size: 25px;
+    font-size: var(--font-h3);
   }
 
   .calendar-promo__text {
-    font-size: 14px;
+    font-size: var(--font-body-s);
   }
 
   .calendar-models-grid {
@@ -1023,7 +1003,7 @@ function selectCalendarModel(modelId: string) {
 
   .calendar-models__note {
     margin-top: 28px;
-    font-size: 16px;
+    font-size: var(--font-body);
     text-align: left;
   }
 
@@ -1058,7 +1038,7 @@ function selectCalendarModel(modelId: string) {
   }
 
   .calendar-why__item {
-    font-size: 16px;
+    font-size: var(--font-body);
   }
 
   .calendar-form-section {
@@ -1066,25 +1046,8 @@ function selectCalendarModel(modelId: string) {
   }
 
   .calendar-form-section__subtitle {
-    font-size: 16px;
+    font-size: var(--font-body);
   }
 }
 
-@media (max-width: 360px) {
-  .calendar-hero__title {
-    font-size: 32px;
-  }
-
-  .calendar-section__title,
-  .calendar-process__title,
-  .calendar-why__title,
-  .calendar-form-section__title {
-    font-size: 26px;
-  }
-
-  .calendar-cta {
-    padding-inline: 18px !important;
-    font-size: 13px !important;
-  }
-}
 </style>

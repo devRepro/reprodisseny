@@ -21,6 +21,10 @@ const excludedPrefixes = [
   "/panel",
 ];
 
+const staticIndexablePaths = [
+  "/calendarios/calendarios-corporativos-2027",
+];
+
 type UnknownRecord = Record<string, unknown>;
 
 type SitemapCatalogEntry = {
@@ -217,7 +221,7 @@ export default defineEventHandler(() => {
   const seen = new Set<string>();
   const catalogIndex = buildCatalogIndex();
 
-  const urls: SitemapUrlInput[] = (routes as unknown[])
+  const urls: SitemapUrlInput[] = [...(routes as unknown[]), ...staticIndexablePaths]
     .map(normalizeSitemapPath)
     .filter((path): path is string => Boolean(path))
     .filter(isAllowedPath)

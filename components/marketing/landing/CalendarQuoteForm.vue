@@ -287,7 +287,7 @@ async function onSubmit() {
     if (!response || error.value) return;
 
     await navigateTo({
-      path: "/gracias",
+      path: "/lp/calendarios/gracias",
       query: {
         kind: "presupuesto",
         conversion: CALENDAR_QUOTE_CONVERSION,
@@ -492,11 +492,6 @@ async function onSubmit() {
 </template>
 
 <style scoped>
-.calendar-quote-form :deep(.rd-form-shell) {
-  border-radius: 8px;
-  box-shadow: 0 14px 32px rgb(0 0 0 / 6%);
-}
-
 .calendar-quote-form :deep(.rd-form-body) {
   padding: 24px;
 }
@@ -507,11 +502,7 @@ async function onSubmit() {
 }
 
 .calendar-quote-form__submit {
-  min-height: 50px !important;
-  border-radius: 8px !important;
-  font-size: 14px !important;
-  font-weight: 700 !important;
-  letter-spacing: 0 !important;
+  width: 100%;
 }
 
 @media (max-width: 639px) {

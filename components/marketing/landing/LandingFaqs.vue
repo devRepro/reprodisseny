@@ -196,8 +196,8 @@ function toggleItem(index: number) {
   min-height: 64px;
   padding: 18px 4px;
   border-bottom: 0;
-  font-size: 17px;
-  font-weight: 500;
+  font-size: var(--font-body);
+  font-weight: var(--weight-body);
 }
 
 .landing-faqs--calendar .landing-faqs__icon {
@@ -207,6 +207,12 @@ function toggleItem(index: number) {
 
 .landing-faqs--calendar .landing-faqs__content {
   padding: 0 40px 18px 4px;
+}
+
+.landing-faqs--calendar .landing-faqs__content p {
+  color: hsl(var(--foreground));
+  font-size: var(--font-body);
+  line-height: var(--line-body);
 }
 
 @media (max-width: 767px) {
