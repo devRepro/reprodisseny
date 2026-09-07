@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import test from "node:test";
 
 import { redirectRouteRules } from "../redirect-rules.generated";
@@ -10,10 +11,16 @@ import {
 
 type Rule = { redirect: { to: string; statusCode: number } };
 const rules: Record<string, Rule> = redirectRouteRules;
+const cmsRoutes = new Set(JSON.parse(readFileSync("cms/routes.json", "utf8")) as string[]);
 
 function assertDirectRedirect(from: string, to: string) {
   assert.deepEqual(rules[from], { redirect: { to, statusCode: 301 } });
   assert.equal(rules[to], undefined, `redirect chain detected at ${to}`);
+}
+
+function assertDirectRedirectToExistingRoute(from: string, to: string) {
+  assertDirectRedirect(from, to);
+  assert.ok(cmsRoutes.has(to), `missing destination route ${to}`);
 }
 
 test("bloc notes legacy base and estimate variant redirect directly", () => {
@@ -49,6 +56,20 @@ test("confirmed exhibitor and Velleda base URLs match their estimate variants", 
   for (const [base, destination] of Object.entries(confirmedRedirects)) {
     assertDirectRedirect(base, destination);
     assertDirectRedirect(`${base}/printestimate`, destination);
+  }
+});
+
+
+test("final approved legacy migration redirects resolve directly", () => {
+  const approvedRedirects = {
+    "/product/imprimir-fotos-en-lienzos-presupuesto": "/categorias/gran-formato",
+    "/category/articulos-promocionales":
+      "/categorias/publicidad-oficina/material-publicitario",
+    "/product/vinilo-transparente-presupuesto": "/productos/vinilo-para-cristal",
+  };
+
+  for (const [from, destination] of Object.entries(approvedRedirects)) {
+    assertDirectRedirectToExistingRoute(from, destination);
   }
 });
 
