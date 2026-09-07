@@ -224,7 +224,7 @@ useSeoMeta({
   ogImage: calendarImage.src,
   ogUrl: pageUrl,
   twitterCard: "summary_large_image",
-  robots: "noindex,follow",
+  robots: "index,follow",
 });
 
 useHead({
