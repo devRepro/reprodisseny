@@ -43,25 +43,25 @@ const props = withDefaults(
 
       <!-- Contenido de Texto -->
       <div class="flex flex-col">
-        <p v-if="props.eyebrow" class="text-xs font-bold uppercase tracking-widest text-black/40">
+        <p v-if="props.eyebrow" class="section-eyebrow text-black/40">
           {{ props.eyebrow }}
         </p>
         
-        <h2 class="mt-2 text-[clamp(2rem,3vw,3rem)] font-bold tracking-tight text-black/90">
+        <h2 class="section-title section-title--section mt-2 text-black/90">
           {{ props.title }}
         </h2>
 
-        <p v-if="props.intro" class="mt-4 text-lg font-medium text-black/90">
+        <p v-if="props.intro" class="mt-4 text-body font-medium text-black/90">
           {{ props.intro }}
         </p>
 
         <!-- Lista de Features Refactorizada -->
         <div class="mt-10 space-y-8">
           <div v-for="(feature, index) in props.features" :key="index" class="group">
-            <h3 class="text-base font-bold text-black/90">
+            <h3 class="text-h4 text-black/90">
               {{ feature.title }}
             </h3>
-            <p class="mt-1 text-[15px] leading-relaxed text-black/90">
+            <p class="mt-1 text-body-s text-black/90">
               {{ feature.description }}
             </p>
           </div>

@@ -295,7 +295,7 @@ useHead({
           </p>
 
           <div class="education-hero__row">
-            <button type="button" class="education-hero__cta" @click="scrollToQuote">
+            <button type="button" class="education-hero__cta btn-primary btn-lg" @click="scrollToQuote">
               Planifiquem-ho junts
             </button>
 
@@ -537,8 +537,6 @@ useHead({
 .education-hero__text {
   max-width: 620px;
   margin-top: 18px;
-  font-size: clamp(var(--font-body), 1.8vw, var(--font-h3));
-  line-height: var(--line-h3);
 }
 
 .education-hero__row {
@@ -550,34 +548,6 @@ useHead({
   margin-top: 24px;
 }
 
-
-
-.education-hero__cta {
-  display: inline-flex;
-  min-height: 46px;
-  align-items: center;
-  justify-content: center;
-  border: 0;
-  border-radius: 8px;
-  background: hsl(var(--brand-base));
-  padding: 10px 24px;
-  color: hsl(var(--brand-white));
-  font-size: var(--font-body);
-  font-weight: 500;
-  line-height: var(--line-body);
-  text-decoration: none;
-  cursor: pointer;
-  transition:
-    background-color 160ms ease,
-    box-shadow 160ms ease,
-    transform 160ms ease;
-}
-
-.education-hero__cta:hover {
-  background: hsl(var(--brand-base-dark));
-  box-shadow: 0 12px 26px hsl(var(--brand-base-dark) / 0.22);
-  transform: translateY(-1px);
-}
 
 
 .education-hero__phone {
@@ -773,9 +743,9 @@ useHead({
 
 .education-trust__lead {
   margin-top: 14px;
-  font-size: var(--font-h3);
+  font-size: var(--font-body);
   font-weight: var(--weight-body-bold);
-  line-height: var(--line-h3);
+  line-height: var(--line-body);
 }
 
 .education-trust__list {
@@ -787,8 +757,8 @@ useHead({
 .education-trust__list li {
   position: relative;
   padding-left: 22px;
-  font-size: var(--font-h4);
-  line-height: var(--line-h4);
+  font-size: var(--font-body);
+  line-height: var(--line-body);
 }
 
 .education-trust__list li::before {
@@ -813,9 +783,9 @@ useHead({
 .education-logos .education-title--sm {
   margin: 0;
   color: hsl(var(--foreground));
-  font-size: var(--font-h1);
-  font-weight: var(--weight-h1);
-  line-height: var(--line-h1);
+  font-size: var(--font-h2);
+  font-weight: var(--weight-h2);
+  line-height: var(--line-h2);
   text-align: center;
 }
 
@@ -957,13 +927,11 @@ useHead({
 }
 
 .education-service-card__subtitle,
-.education-trust__lead,
 .education-problems__text,
 .education-faq-section :deep(summary) {
   font-size: var(--font-h4);
   line-height: var(--line-h4);
 }
-
 .education-faq-section :deep(summary) {
   min-height: 56px;
   padding: 17px 20px 15px;
@@ -982,10 +950,6 @@ useHead({
   margin-top: 24px;
 }
 
-.education-hero__cta {
-  min-height: 46px;
-  width: fit-content;
-}
 
 .education-hero__phone {
   font-size: var(--font-body-s);
@@ -1023,10 +987,6 @@ useHead({
     width: min(100% - 32px, 560px);
   }
 
-  .education-logos .education-title--sm {
-    font-size: var(--font-h2);
-    line-height: var(--line-h2);
-  }
 
   .education-logos__row {
     grid-template-columns: repeat(2, minmax(120px, 1fr));
@@ -1115,16 +1075,6 @@ useHead({
     padding: 28px 22px 24px;
   }
 
-  .education-hero__title,
-  .education-problems__title,
-  .education-services__title,
-  .education-process__title,
-  .education-faq-section__title,
-  .education-title--sm,
-  .education-title--xs {
-    font-size: var(--font-h2);
-    line-height: var(--line-h2);
-  }
 
   .education-hero__title {
     white-space: normal;

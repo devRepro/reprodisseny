@@ -47,11 +47,11 @@ const safeSteps = computed(() =>
         </p>
 
         <div class="relative z-10 -mt-2">
-          <h3 class="text-[17px] font-semibold leading-6 text-white md:text-[18px]">
+          <h3 class="text-h4 text-white">
             {{ step.title }}
           </h3>
 
-          <p class="mt-3 max-w-[30rem] text-[14px] leading-6 text-white/74">
+          <p class="mt-3 max-w-[30rem] text-body-s text-white/74">
             {{ step.description }}
           </p>
         </div>
@@ -74,7 +74,7 @@ const safeSteps = computed(() =>
   <div v-else-if="safeSteps.length" class="calendar-process-steps">
     <article v-for="step in safeSteps" :key="step.number" class="calendar-process-step">
       <p class="calendar-process-step__number" aria-hidden="true">{{ step.number }}</p>
-      <h3 class="calendar-process-step__title">{{ step.title }}</h3>
+      <h3 class="calendar-process-step__title text-h4">{{ step.title }}</h3>
     </article>
   </div>
 </template>
@@ -104,9 +104,6 @@ const safeSteps = computed(() =>
 .calendar-process-step__title {
   margin-top: 10px;
   color: hsl(var(--brand-base-dark));
-  font-size: var(--font-body);
-  font-weight: var(--weight-body-bold);
-  line-height: var(--line-body);
 }
 
 @media (max-width: 1023px) {

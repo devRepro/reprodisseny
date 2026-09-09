@@ -313,17 +313,17 @@ async function onSubmit() {
       aria-live="polite"
     >
       <div class="rd-form-body text-center">
-        <h3 class="text-xl font-semibold text-foreground">
+        <h3 class="text-h4">
           {{ copy.successTitle }}
         </h3>
 
-        <p class="mt-3 text-sm leading-6 text-muted-foreground">
+        <p class="mt-3 text-body-s text-muted-foreground">
           {{ copy.successMessage }}
         </p>
 
         <p
           v-if="submittedReference"
-          class="mt-3 text-xs font-medium text-muted-foreground"
+          class="mt-3 text-label-s font-medium text-muted-foreground"
         >
           {{ copy.referenceLabel }}: {{ submittedReference }}
         </p>

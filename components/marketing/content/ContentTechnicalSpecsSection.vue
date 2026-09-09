@@ -39,7 +39,7 @@ function resolveIcon(icon?: TechnicalHighlightIcon): Component {
 
 <template>
   <section :aria-label="section.title" class="space-y-5 md:space-y-6">
-    <p v-if="section.intro" class="mb-0 max-w-3xl text-base leading-7 text-muted-foreground">
+    <p v-if="section.intro" class="mb-0 max-w-3xl text-body text-muted-foreground">
       {{ section.intro }}
     </p>
 
@@ -49,13 +49,13 @@ function resolveIcon(icon?: TechnicalHighlightIcon): Component {
         :key="`${item.title}-${index}`"
         class="rounded-xl border border-border/70 bg-card p-4"
       >
-        <dt class="flex items-center gap-2.5 text-sm font-semibold text-foreground">
+        <dt class="flex items-center gap-2.5 text-body-s-bold text-foreground">
           <span class="flex size-8 shrink-0 items-center justify-center rounded-lg bg-primary/8 text-primary" aria-hidden="true">
             <component :is="resolveIcon(item.icon)" class="size-4" />
           </span>
           {{ item.title }}
         </dt>
-        <dd class="mb-0 mt-2 text-sm leading-6 text-muted-foreground">
+        <dd class="mb-0 mt-2 text-body-s text-muted-foreground">
           {{ item.description }}
         </dd>
       </div>

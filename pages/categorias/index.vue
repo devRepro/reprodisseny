@@ -89,7 +89,7 @@ useHead({
           Categorías
         </p>
 
-        <h1 class="font-h1 text-balance text-foreground">
+        <h1 class="text-h1 text-balance">
           Explora nuestras familias de producto
         </h1>
 
@@ -125,7 +125,7 @@ useHead({
 
       <div v-else>
         <div class="mb-8 max-w-3xl">
-          <h2 class="font-h2 text-balance text-foreground">Familias de producto</h2>
+          <h2 class="text-h2 text-balance">Familias de producto</h2>
 
           <p class="mt-4 text-body leading-7 text-muted-foreground">
             Elige una categoría para ver productos, formatos y soluciones relacionadas.
@@ -150,7 +150,7 @@ useHead({
             </div>
 
             <div class="p-5 md:p-6">
-              <h3 class="font-h3 text-balance text-foreground">
+              <h3 class="text-h3 text-balance">
                 {{ categoryTitle(category) }}
               </h3>
 
@@ -159,7 +159,7 @@ useHead({
               </p>
 
               <div
-                class="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary"
+                class="mt-5 inline-flex items-center gap-2 text-label font-semibold text-primary"
               >
                 Ver categoría
                 <ArrowRight
@@ -182,7 +182,7 @@ useHead({
           Catálogo completo
         </p>
 
-        <h2 class="font-h2 text-balance text-foreground">
+        <h2 class="text-h2 text-balance">
           ¿Prefieres buscar directamente entre todos los productos?
         </h2>
 
@@ -193,7 +193,7 @@ useHead({
 
         <NuxtLink
           to="/productos"
-          class="mt-6 inline-flex h-11 items-center justify-center rounded-2xl bg-primary px-5 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90"
+          class="btn-primary btn-lg mt-6"
         >
           Ver todos los productos
         </NuxtLink>

@@ -71,24 +71,6 @@ export const calendarModels = [
     imageAlt: "Calendario de pared tipo revista personalizado",
     sizes: [calendarSizes.dinA4, calendarSizes.dinA3, calendarSizes.wall34x48, calendarSizes.custom],
   },
-  {
-    id: "bolsillo",
-    label: "Bolsillo",
-    title: "Calendario de bolsillo",
-    context: "Compacto y fácil de distribuir en campañas de gran volumen.",
-    imagePath: "landing/calendarios/bolsillo.webp",
-    imageAlt: "Calendario de bolsillo personalizado",
-    sizes: [calendarSizes.custom],
-  },
-  {
-    id: "otro-formato",
-    label: "Otro formato a medida",
-    title: "Otro formato a medida",
-    context: "Para calendarios especiales definidos a partir de tu diseño.",
-    imagePath: "landing/calendarios/hero.webp",
-    imageAlt: "Calendarios corporativos personalizados",
-    sizes: [calendarSizes.custom],
-  },
 ] as const satisfies readonly CalendarModel[];
 
 function normalizeOptionValue(value: unknown) {

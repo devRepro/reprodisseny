@@ -51,13 +51,13 @@ const safeItems = computed(() =>
         {{ item.value }}
       </p>
 
-      <p class="mt-3 text-[15px] font-semibold leading-5 text-foreground">
+      <p class="mt-3 text-body-s-bold text-foreground">
         {{ item.label }}
       </p>
 
       <p
         v-if="item.note"
-        class="mt-auto pt-5 text-[13px] leading-5 text-foreground/62"
+        class="mt-auto pt-5 text-label text-foreground/62"
       >
         {{ item.note }}
       </p>

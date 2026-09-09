@@ -207,7 +207,7 @@ function markLogoAsFailed(logo: DisplayLogo, index: number) {
 
             <span
               v-else
-              class="max-w-[150px] text-center text-sm font-semibold leading-snug text-foreground/75 sm:max-w-[165px]"
+              class="max-w-[150px] text-center text-body-s-bold text-foreground/75 sm:max-w-[165px]"
             >
               {{ logo.alt }}
             </span>

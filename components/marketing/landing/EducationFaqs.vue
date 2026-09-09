@@ -56,7 +56,7 @@ function toggleItem(index: number) {
       <h2
         v-if="showTitle"
         id="education-faqs-title"
-        class="education-faqs__title"
+        class="education-faqs__title section-title section-title--section"
       >
         {{ title }}
       </h2>
@@ -76,7 +76,7 @@ function toggleItem(index: number) {
             :aria-controls="`education-faq-answer-${index}`"
             @click="toggleItem(index)"
           >
-            <span class="education-faqs__question">{{ item.question }}</span>
+            <span class="education-faqs__question text-h4">{{ item.question }}</span>
             <ChevronUp class="education-faqs__icon" aria-hidden="true" />
           </button>
 
@@ -85,7 +85,7 @@ function toggleItem(index: number) {
             :id="`education-faq-answer-${index}`"
             class="education-faqs__content"
           >
-            <p>{{ item.answer }}</p>
+            <p class="text-body">{{ item.answer }}</p>
           </div>
         </article>
       </div>
@@ -109,11 +109,6 @@ function toggleItem(index: number) {
 .education-faqs__title {
   margin: 0 0 56px;
   color: hsl(var(--brand-ink-dark));
-  font-family: var(--font-sans);
-  font-size: var(--font-h1);
-  font-weight: var(--weight-h1);
-  line-height: var(--line-h1);
-  letter-spacing: 0;
   text-align: center;
 }
 
@@ -152,11 +147,6 @@ function toggleItem(index: number) {
   display: block;
   min-width: 0;
   color: hsl(var(--brand-ink-dark));
-  font-family: var(--font-sans);
-  font-size: var(--font-h4);
-  font-weight: var(--weight-h4);
-  line-height: var(--line-h4);
-  letter-spacing: 0;
 }
 
 .education-faqs__icon {
@@ -183,11 +173,6 @@ function toggleItem(index: number) {
 .education-faqs__content p {
   margin: 0;
   color: hsl(var(--brand-ink-medium));
-  font-family: var(--font-sans);
-  font-size: var(--font-body);
-  font-weight: var(--weight-body);
-  line-height: var(--line-body);
-  letter-spacing: 0;
 }
 
 @media (max-width: 1023px) {
@@ -207,9 +192,6 @@ function toggleItem(index: number) {
 
   .education-faqs__title {
     margin-bottom: 36px;
-    font-size: var(--font-h2);
-    font-weight: var(--weight-h2);
-    line-height: var(--line-h2);
   }
 
   .education-faqs__list {
@@ -228,12 +210,6 @@ function toggleItem(index: number) {
     padding: 17px 20px 15px;
   }
 
-  .education-faqs__question {
-    font-size: var(--font-body);
-    font-weight: var(--weight-body-bold);
-    line-height: var(--line-body);
-  }
-
   .education-faqs__icon {
     width: 18px;
     height: 18px;
@@ -241,11 +217,6 @@ function toggleItem(index: number) {
 
   .education-faqs__content {
     padding: 14px 20px 18px;
-  }
-
-  .education-faqs__content p {
-    font-size: var(--font-body-s);
-    line-height: var(--line-body-s);
   }
 }
 </style>

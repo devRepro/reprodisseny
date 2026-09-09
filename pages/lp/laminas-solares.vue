@@ -384,11 +384,11 @@ function scrollToQuote() {
 
     <section class="landing-benefits" aria-labelledby="landing-benefits-title">
       <div class="landing-benefits__inner">
-        <h2 id="landing-benefits-title" class="landing-benefits__title">
+        <h2 id="landing-benefits-title" class="landing-benefits__title section-title section-title--section">
           Instalación de láminas solares para ventanas y cristales
         </h2>
 
-        <p class="landing-benefits__description">
+        <p class="landing-benefits__description text-body">
           Las láminas de protección solar se instalan directamente sobre el cristal para
           reducir la entrada de calor, los reflejos y la radiación UV. Son una solución
           limpia para mejorar el confort térmico de viviendas y espacios profesionales
@@ -401,11 +401,11 @@ function scrollToQuote() {
 
     <section class="landing-cases" aria-labelledby="landing-cases-title">
       <div class="landing-cases__inner">
-        <h2 id="landing-cases-title" class="landing-cases__title">
+        <h2 id="landing-cases-title" class="landing-cases__title section-title section-title--section">
           Láminas solares para viviendas, oficinas y comercios
         </h2>
 
-        <p class="landing-cases__description">
+        <p class="landing-cases__description text-body">
           Adaptamos el tipo de lámina al uso del espacio, la orientación, la superficie
           acristalada y el nivel de protección solar necesario. Instalamos soluciones
           tanto en viviendas particulares como en oficinas, locales comerciales,
@@ -458,7 +458,7 @@ function scrollToQuote() {
           centered
           :line="false"
           class="mx-auto"
-          title-class="max-w-3xl text-[clamp(1.35rem,2.1vw,2rem)]"
+          title-class="max-w-3xl"
           description-class="text-foreground/70"
         />
 
@@ -492,21 +492,12 @@ function scrollToQuote() {
 .landing-benefits__title {
   margin: 0;
   color: hsl(var(--brand-ink-dark));
-  font-family: var(--font-sans);
-  font-size: clamp(30px, 3vw, 44px);
-  font-weight: 700;
-  line-height: 1.16;
-  letter-spacing: -0.02em;
 }
 
 .landing-benefits__description {
   max-width: 930px;
   margin: 46px auto 0;
   color: hsl(var(--brand-ink-dark));
-  font-family: var(--font-sans);
-  font-size: clamp(17px, 1.45vw, 23px);
-  font-weight: 400;
-  line-height: 1.35;
 }
 
 .landing-benefits__stats {
@@ -526,21 +517,12 @@ function scrollToQuote() {
 .landing-cases__title {
   margin: 0;
   color: hsl(var(--brand-ink-dark));
-  font-family: var(--font-sans);
-  font-size: clamp(30px, 3vw, 42px);
-  font-weight: 700;
-  line-height: 1.16;
-  letter-spacing: -0.02em;
 }
 
 .landing-cases__description {
   max-width: 900px;
   margin: 24px auto 0;
   color: hsl(var(--brand-ink-dark));
-  font-family: var(--font-sans);
-  font-size: clamp(17px, 1.35vw, 21px);
-  font-weight: 400;
-  line-height: 1.45;
 }
 
 .landing-cases__cards {

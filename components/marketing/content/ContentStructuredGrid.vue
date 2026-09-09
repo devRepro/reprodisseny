@@ -35,16 +35,16 @@ const hasContent = computed(() => props.section.groups.some((group) => group.ite
 
 <template>
   <section v-if="hasContent" :aria-label="section.title" class="space-y-7 md:space-y-9">
-    <p v-if="section.intro" class="mb-0 max-w-3xl text-base leading-7 text-muted-foreground">
+    <p v-if="section.intro" class="mb-0 max-w-3xl text-body text-muted-foreground">
       {{ section.intro }}
     </p>
 
     <section v-for="group in section.groups" :key="group.id" class="space-y-5">
       <div v-if="showGroupTitle(group)" class="space-y-2">
-        <h3 class="mb-0 text-lg font-semibold tracking-tight text-foreground md:text-xl">
+        <h3 class="mb-0 text-h4">
           {{ group.title }}
         </h3>
-        <p v-if="group.intro" class="mb-0 max-w-3xl text-sm leading-7 text-muted-foreground">
+        <p v-if="group.intro" class="mb-0 max-w-3xl text-body-s text-muted-foreground">
           {{ group.intro }}
         </p>
       </div>

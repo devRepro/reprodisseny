@@ -29,11 +29,11 @@ const emit = defineEmits<{
       </svg>
     </div>
 
-    <p class="mt-6 text-xs font-semibold uppercase tracking-[0.16em] text-primary/75">
+    <p class="mt-6 text-label-s font-semibold uppercase tracking-[0.16em] text-primary/75">
       Catálogo
     </p>
 
-    <h2 class="mt-2 text-[28px] font-semibold leading-[1.15] text-foreground">
+    <h2 class="mt-2 text-h2">
       No hemos encontrado resultados
     </h2>
 
@@ -45,7 +45,7 @@ const emit = defineEmits<{
     <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
       <button
         type="button"
-        class="inline-flex min-h-12 items-center justify-center rounded-lg bg-primary px-6 py-3 text-body-s-bold text-primary-foreground transition hover:opacity-90"
+        class="btn-primary btn-lg"
         @click="emit('clear')"
       >
         Limpiar filtros
@@ -53,7 +53,7 @@ const emit = defineEmits<{
 
       <NuxtLink
         to="/contacto"
-        class="inline-flex min-h-12 items-center justify-center rounded-lg border border-border bg-background px-6 py-3 text-body-s-bold text-foreground transition hover:border-primary/25 hover:text-primary"
+        class="btn-outline btn-lg"
       >
         Solicitar ayuda
       </NuxtLink>

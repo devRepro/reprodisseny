@@ -35,31 +35,31 @@ const features = computed(() => {
         <Icon :name="icon" class="size-4.5" />
       </span>
 
-      <span v-if="item.meta" class="rounded-full bg-muted/70 px-2.5 py-1 text-[0.68rem] font-semibold uppercase tracking-wide text-muted-foreground">
+      <span v-if="item.meta" class="rounded-full bg-muted/70 px-2.5 py-1 text-label-s font-semibold uppercase tracking-wide text-muted-foreground">
         {{ item.meta }}
       </span>
     </div>
 
-    <h4 class="mb-0 text-base font-semibold leading-snug tracking-tight text-foreground md:text-lg">
+    <h4 class="mb-0 text-h4">
       {{ item.title }}
     </h4>
 
     <div
       v-if="item.descriptionHtml"
-      class="mt-2 text-sm leading-7 text-muted-foreground [&_a]:font-medium [&_a]:text-primary [&_a]:underline [&_strong]:font-semibold [&_strong]:text-foreground"
+      class="mt-2 text-body-s text-muted-foreground [&_a]:font-medium [&_a]:text-primary [&_a]:underline [&_strong]:font-semibold [&_strong]:text-foreground"
       v-html="item.descriptionHtml"
     />
-    <p v-else class="mb-0 mt-2 text-sm leading-7 text-muted-foreground">
+    <p v-else class="mb-0 mt-2 text-body-s text-muted-foreground">
       {{ item.description }}
     </p>
 
     <ul v-if="features.length" class="mt-5 flex list-none flex-wrap gap-2 p-0" aria-label="Características">
-      <li v-for="feature in features" :key="feature" class="rounded-full border border-border/70 bg-muted/50 px-3 py-1 text-xs font-medium text-foreground/75">
+      <li v-for="feature in features" :key="feature" class="rounded-full border border-border/70 bg-muted/50 px-3 py-1 text-label-s font-medium text-foreground/75">
         {{ feature }}
       </li>
     </ul>
 
-    <p v-if="item.idealFor" class="mb-0 mt-5 rounded-xl border border-primary/10 bg-primary/5 px-4 py-3 text-sm leading-6 text-muted-foreground">
+    <p v-if="item.idealFor" class="mb-0 mt-5 rounded-xl border border-primary/10 bg-primary/5 px-4 py-3 text-body-s text-muted-foreground">
       <strong class="font-semibold text-foreground">Ideal para: </strong>{{ item.idealFor }}
     </p>
   </article>

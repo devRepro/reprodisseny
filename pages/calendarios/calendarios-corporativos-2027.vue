@@ -321,17 +321,17 @@ function selectCalendarModel(modelId: string) {
         </div>
 
         <div class="calendar-hero__content">
-          <h1 id="calendar-hero-title" class="calendar-hero__title">
+          <h1 id="calendar-hero-title" class="calendar-hero__title section-title section-title--hero">
             <span>El calendario que</span>
             <span>mostrará tu marca</span>
             <span>los 365 días del año</span>
           </h1>
 
-          <p class="calendar-hero__description">
+          <p class="calendar-hero__description text-body">
             Diseño e impresión de calendarios corporativos en Barcelona. Cuatro formatos diferentes, papel de calidad y acabados profesionales.
           </p>
 
-          <p class="calendar-hero__microcopy">
+          <p class="calendar-hero__microcopy text-body-s-bold">
             Desde 1983 · Producción propia · Asesoramiento incluido
           </p>
 
@@ -349,7 +349,7 @@ function selectCalendarModel(modelId: string) {
 
     <section class="calendar-section calendar-section--soft" aria-labelledby="calendar-problems-title">
       <div class="container-content calendar-container">
-        <h2 id="calendar-problems-title" class="calendar-section__title calendar-section__title--wide">
+        <h2 id="calendar-problems-title" class="calendar-section__title calendar-section__title--wide section-title section-title--section">
           Cada año pasa lo mismo:<br />
           llega diciembre y los calendarios se convierten en un problema
         </h2>
@@ -357,7 +357,7 @@ function selectCalendarModel(modelId: string) {
         <ul class="calendar-icon-grid calendar-icon-grid--white" role="list">
           <li v-for="item in painPoints" :key="item.title" class="calendar-icon-card">
             <component :is="item.icon" class="calendar-icon-card__icon" aria-hidden="true" />
-            <h3 class="calendar-icon-card__title">{{ item.title }}</h3>
+            <h3 class="calendar-icon-card__title text-h4">{{ item.title }}</h3>
           </li>
         </ul>
       </div>
@@ -365,29 +365,29 @@ function selectCalendarModel(modelId: string) {
 
     <section class="calendar-section calendar-section--white" aria-labelledby="calendar-guarantees-title">
       <div class="container-content calendar-container">
-        <h2 id="calendar-guarantees-title" class="calendar-section__title">
+        <h2 id="calendar-guarantees-title" class="calendar-section__title section-title section-title--section">
           Calendarios corporativos de calidad y con garantía
         </h2>
 
         <ul class="calendar-icon-grid calendar-icon-grid--cream" role="list">
           <li v-for="item in guarantees" :key="item.title" class="calendar-icon-card">
             <component :is="item.icon" class="calendar-icon-card__icon" aria-hidden="true" />
-            <h3 class="calendar-icon-card__title">{{ item.title }}</h3>
+            <h3 class="calendar-icon-card__title text-h4">{{ item.title }}</h3>
           </li>
         </ul>
       </div>
     </section>
 
     <section class="calendar-promo" aria-label="Promoción">
-      <p class="calendar-promo__title">Tu diseño a medida, gratis</p>
-      <p class="calendar-promo__text">
+      <p class="calendar-promo__title text-h3">Tu diseño a medida, gratis</p>
+      <p class="calendar-promo__text text-body">
         Promoción válida para pedidos realizados hasta el 1 de diciembre.
       </p>
     </section>
 
     <section class="calendar-section calendar-section--models" aria-labelledby="calendar-models-title">
       <div class="container-content calendar-container">
-        <h2 id="calendar-models-title" class="calendar-section__title calendar-section__title--models">
+        <h2 id="calendar-models-title" class="calendar-section__title calendar-section__title--models section-title section-title--section">
           Elige el calendario que más se ajusta a tus necesidades
         </h2>
         <div class="calendar-models-grid" role="list">
@@ -413,12 +413,12 @@ function selectCalendarModel(modelId: string) {
               />
             </span>
 
-            <span class="calendar-model-card__title">{{ model.title }}</span>
-            <span class="calendar-model-card__context">{{ model.context }}</span>
+            <span class="calendar-model-card__title text-h4">{{ model.title }}</span>
+            <span class="calendar-model-card__context text-body-s">{{ model.context }}</span>
           </button>
         </div>
 
-        <p class="calendar-models__note">
+        <p class="calendar-models__note text-body">
           Todos nuestros calendarios se personalizan según las necesidades de cada empresa. Si tienes dudas, te asesoramos para elegir la mejor opción.
         </p>
 
@@ -435,7 +435,7 @@ function selectCalendarModel(modelId: string) {
 
     <section class="calendar-process" aria-labelledby="calendar-process-title">
       <div class="container-content calendar-container">
-        <h2 id="calendar-process-title" class="calendar-process__title">
+        <h2 id="calendar-process-title" class="calendar-process__title section-title section-title--section">
           Tus calendarios corporativos para el 2027, listos en cinco pasos
         </h2>
 
@@ -464,12 +464,12 @@ function selectCalendarModel(modelId: string) {
         </div>
 
         <div class="calendar-why__content">
-          <h2 id="calendar-why-title" class="calendar-why__title">
+          <h2 id="calendar-why-title" class="calendar-why__title section-title section-title--section">
             Por qué nos siguen eligiendo año tras año
           </h2>
 
           <ul class="calendar-why__list" role="list">
-            <li v-for="reason in reasons" :key="reason" class="calendar-why__item">
+            <li v-for="reason in reasons" :key="reason" class="calendar-why__item text-body-bold">
               <Check class="calendar-why__check" aria-hidden="true" />
               <span>{{ reason }}</span>
             </li>
@@ -496,10 +496,10 @@ function selectCalendarModel(modelId: string) {
     <section id="quote-form" class="calendar-form-section" aria-labelledby="calendar-form-title">
       <div class="container-content calendar-container calendar-form-section__inner">
         <div class="calendar-form-section__heading">
-          <h2 id="calendar-form-title" class="calendar-form-section__title">
+          <h2 id="calendar-form-title" class="calendar-form-section__title section-title section-title--section">
             ¿Qué calendario quieres?
           </h2>
-          <p class="calendar-form-section__subtitle">
+          <p class="calendar-form-section__subtitle text-body">
             Recibirás tu presupuesto en pocos minutos
           </p>
         </div>
@@ -565,10 +565,6 @@ function selectCalendarModel(modelId: string) {
 
 .calendar-hero__title {
   color: hsl(var(--foreground));
-  font-size: var(--font-h1);
-  font-weight: var(--weight-h1);
-  line-height: var(--line-h1);
-  letter-spacing: var(--tracking-heading);
 }
 
 .calendar-hero__title span {
@@ -579,17 +575,11 @@ function selectCalendarModel(modelId: string) {
   max-width: 540px;
   margin-top: 26px;
   color: hsl(var(--muted-foreground));
-  font-size: var(--font-body);
-  font-weight: var(--weight-body);
-  line-height: var(--line-body);
 }
 
 .calendar-hero__microcopy {
   margin-top: 22px;
   color: hsl(var(--foreground));
-  font-size: var(--font-body-s);
-  font-weight: var(--weight-body-s-bold);
-  line-height: var(--line-body-s);
 }
 
 .calendar-cta {
@@ -620,10 +610,6 @@ function selectCalendarModel(modelId: string) {
 .calendar-why__title,
 .calendar-form-section__title {
   color: hsl(var(--foreground));
-  font-size: var(--font-h2);
-  font-weight: var(--weight-h2);
-  line-height: var(--line-h2);
-  letter-spacing: var(--tracking-heading);
   text-align: left;
 }
 
@@ -669,9 +655,6 @@ function selectCalendarModel(modelId: string) {
 
 .calendar-icon-card__title {
   color: hsl(var(--foreground));
-  font-size: var(--font-h4);
-  font-weight: var(--weight-h4);
-  line-height: var(--line-h4);
 }
 
 .calendar-promo {
@@ -685,16 +668,8 @@ function selectCalendarModel(modelId: string) {
   text-align: center;
 }
 
-.calendar-promo__title {
-  font-size: var(--font-h3);
-  font-weight: var(--weight-h3);
-  line-height: var(--line-h3);
-}
-
 .calendar-promo__text {
   color: rgb(255 255 255 / 0.84);
-  font-size: var(--font-body);
-  line-height: var(--line-body);
 }
 
 .calendar-section--models {
@@ -756,24 +731,17 @@ function selectCalendarModel(modelId: string) {
 .calendar-model-card__title {
   display: block;
   color: hsl(var(--foreground));
-  font-size: var(--font-h4);
-  font-weight: var(--weight-h4);
-  line-height: var(--line-h4);
 }
 
 .calendar-model-card__context {
   display: block;
   color: hsl(var(--muted-foreground));
-  font-size: var(--font-body-s);
-  line-height: var(--line-body-s);
 }
 
 .calendar-models__note {
   max-width: 790px;
   margin: 34px auto 0;
   color: hsl(var(--muted-foreground));
-  font-size: var(--font-body);
-  line-height: var(--line-body);
   text-align: center;
 }
 
@@ -841,9 +809,7 @@ function selectCalendarModel(modelId: string) {
   align-items: center;
   gap: 12px;
   color: hsl(var(--foreground));
-  font-size: var(--font-body);
   font-weight: var(--weight-body-bold);
-  line-height: var(--line-body);
 }
 
 .calendar-why__check {
@@ -870,8 +836,6 @@ function selectCalendarModel(modelId: string) {
 .calendar-form-section__subtitle {
   margin-top: 10px;
   color: hsl(var(--muted-foreground));
-  font-size: var(--font-body);
-  line-height: var(--line-body);
 }
 
 @media (max-width: 1023px) {
@@ -919,24 +883,16 @@ function selectCalendarModel(modelId: string) {
     text-align: left;
   }
 
-  .calendar-hero__title {
-    font-size: var(--font-h1);
-    line-height: var(--line-h1);
-  }
-
   .calendar-hero__title span {
     display: inline;
   }
 
   .calendar-hero__description {
     margin-top: 20px;
-    font-size: var(--font-body);
-    line-height: var(--line-body);
   }
 
   .calendar-hero__microcopy {
     margin-top: 18px;
-    font-size: var(--font-body-s);
   }
 
   .calendar-hero__cta,
@@ -947,14 +903,6 @@ function selectCalendarModel(modelId: string) {
 
   .calendar-section {
     padding: 54px 0 58px;
-  }
-
-  .calendar-section__title,
-  .calendar-process__title,
-  .calendar-why__title,
-  .calendar-form-section__title {
-    font-size: var(--font-h2);
-    line-height: var(--line-h2);
   }
 
   .calendar-section__title--wide br {
@@ -977,22 +925,10 @@ function selectCalendarModel(modelId: string) {
     height: 32px;
   }
 
-  .calendar-icon-card__title {
-    font-size: var(--font-label);
-    line-height: var(--line-label);
-  }
 
   .calendar-promo {
     min-height: 112px;
     padding: 24px 24px;
-  }
-
-  .calendar-promo__title {
-    font-size: var(--font-h3);
-  }
-
-  .calendar-promo__text {
-    font-size: var(--font-body-s);
   }
 
   .calendar-models-grid {
@@ -1003,7 +939,6 @@ function selectCalendarModel(modelId: string) {
 
   .calendar-models__note {
     margin-top: 28px;
-    font-size: var(--font-body);
     text-align: left;
   }
 
@@ -1037,17 +972,10 @@ function selectCalendarModel(modelId: string) {
     margin-top: 24px;
   }
 
-  .calendar-why__item {
-    font-size: var(--font-body);
-  }
-
   .calendar-form-section {
     padding: 56px 0 64px;
   }
 
-  .calendar-form-section__subtitle {
-    font-size: var(--font-body);
-  }
 }
 
 </style>

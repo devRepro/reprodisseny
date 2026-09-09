@@ -774,7 +774,7 @@ const closingBannerPills = computed(() => {
 
     <div v-else-if="showNotFound" class="container-content py-16 md:py-20">
       <div class="rounded-[28px] border border-border/70 bg-card p-8 shadow-sm">
-        <h1 class="text-[28px] font-semibold leading-[1.2] text-foreground">
+        <h1 class="text-h2">
           Categoría no encontrada
         </h1>
 

@@ -178,20 +178,20 @@ const contentOrderClass = computed(() =>
           <div class="space-y-3">
             <p
               v-if="eyebrow"
-              class="text-[11px] font-semibold uppercase tracking-[0.14em] text-primary/80"
+              class="text-label-s font-semibold uppercase tracking-[0.14em] text-primary/80"
             >
               {{ eyebrow }}
             </p>
 
             <h3
-              class="max-w-[20ch] text-balance text-[clamp(1.6rem,2.8vw,2.4rem)] font-bold leading-[1.08] text-foreground"
+              class="section-title section-title--subsection max-w-[20ch]"
             >
               {{ displayTitle }}
             </h3>
 
             <p
               v-if="displayDescription"
-              class="max-w-[62ch] text-base leading-7 text-foreground/78"
+              class="max-w-[62ch] text-body text-foreground/78"
             >
               {{ displayDescription }}
             </p>
@@ -201,7 +201,7 @@ const contentOrderClass = computed(() =>
             <span
               v-for="badge in displayBadges"
               :key="badge"
-              class="inline-flex items-center rounded-full border border-primary/15 bg-primary/5 px-3 py-1.5 text-xs font-medium text-primary"
+              class="inline-flex items-center rounded-full border border-primary/15 bg-primary/5 px-3 py-1.5 text-label-s font-medium text-primary"
             >
               {{ badge }}
             </span>
@@ -209,7 +209,7 @@ const contentOrderClass = computed(() =>
 
           <ul
             v-if="highlights.length"
-            class="grid gap-3 text-sm leading-6 text-foreground/78 md:grid-cols-2"
+            class="grid gap-3 text-body-s text-foreground/78 md:grid-cols-2"
           >
             <li
               v-for="highlight in highlights"
@@ -231,7 +231,7 @@ const contentOrderClass = computed(() =>
             <NuxtLink
               v-if="primaryCta"
               :to="primaryCta.to"
-              class="inline-flex min-h-12 items-center justify-center rounded-lg bg-primary px-5 py-3 text-body-s-bold text-primary-foreground transition hover:opacity-90"
+              class="btn-primary btn-lg"
             >
               {{ primaryCta.label }}
             </NuxtLink>
@@ -239,7 +239,7 @@ const contentOrderClass = computed(() =>
             <NuxtLink
               v-if="secondaryCta"
               :to="secondaryCta.to"
-              class="inline-flex min-h-12 items-center justify-center rounded-lg border border-border bg-background px-5 py-3 text-body-s-bold text-foreground transition hover:border-primary/25 hover:text-primary"
+              class="btn-outline btn-lg"
             >
               {{ secondaryCta.label }}
             </NuxtLink>

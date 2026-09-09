@@ -181,28 +181,25 @@ function markImageFailed(key: string) {
 
 .landing-image-card__fallback-text {
   color: hsl(var(--muted-foreground));
-  font-family: var(--font-sans);
-  font-size: 14px;
-  line-height: 1.3;
+  font-size: var(--font-body-s);
+  line-height: var(--line-body-s);
 }
 
 .landing-image-card__title {
   margin: 26px 0 0;
   color: hsl(var(--brand-ink-dark));
-  font-family: var(--font-sans);
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.01em;
+  font-size: var(--font-h4);
+  font-weight: var(--weight-h4);
+  line-height: var(--line-h4);
+  letter-spacing: var(--tracking-heading);
 }
 
 .landing-image-card__context {
   margin: 8px 0 0;
   color: hsl(var(--muted-foreground));
-  font-family: var(--font-sans);
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 1.35;
+  font-size: var(--font-body-s);
+  font-weight: var(--weight-body-s);
+  line-height: var(--line-body-s);
 }
 
 @media (max-width: 1023px) {
@@ -224,8 +221,12 @@ function markImageFailed(key: string) {
   }
 
   .landing-image-card__title {
-    margin-top: 18px;
-    font-size: 18px;
-  }
+  margin: 26px 0 0;
+  color: hsl(var(--brand-ink-dark));
+  font-size: var(--font-h4);
+  font-weight: var(--weight-h4);
+  line-height: var(--line-h4);
+  letter-spacing: var(--tracking-heading);
+}
 }
 </style>

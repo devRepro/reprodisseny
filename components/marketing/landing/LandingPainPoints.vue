@@ -150,11 +150,10 @@ const safeItems = computed(() =>
   width: 100%;
   margin: 0 auto;
   color: var(--solar-pain-ink);
-  font-family: var(--font-sans);
-  font-size: 36px;
-  font-weight: 700;
-  line-height: 1.16;
-  letter-spacing: -0.01em;
+  font-size: var(--font-h2);
+  font-weight: var(--weight-h2);
+  line-height: var(--line-h2);
+  letter-spacing: var(--tracking-heading);
   text-align: center;
 }
 
@@ -226,21 +225,18 @@ const safeItems = computed(() =>
 .landing-pain-points__item-title {
   margin: 0;
   color: var(--solar-pain-ink);
-  font-family: var(--font-sans);
-  font-size: 22px;
-  font-weight: 700;
-  line-height: 1.18;
-  letter-spacing: -0.01em;
+  font-size: var(--font-h4);
+  font-weight: var(--weight-h4);
+  line-height: var(--line-h4);
+  letter-spacing: var(--tracking-heading);
 }
 
 .landing-pain-points__description {
   margin: 8px 0 0;
   color: var(--solar-pain-ink);
-  font-family: var(--font-sans);
-  font-size: 21px;
-  font-weight: 400;
-  line-height: 1.24;
-  letter-spacing: -0.01em;
+  font-size: var(--font-body);
+  font-weight: var(--weight-body);
+  line-height: var(--line-body);
 }
 
 @media (max-width: 1023px) {
@@ -252,7 +248,6 @@ const safeItems = computed(() =>
   .landing-pain-points__title {
     max-width: 760px;
     padding-inline: 24px;
-    font-size: clamp(30px, 4.2vw, 36px);
   }
 
   .landing-pain-points__list {
@@ -269,8 +264,6 @@ const safeItems = computed(() =>
 
   .landing-pain-points__title {
     padding-inline: 20px;
-    font-size: 29px;
-    line-height: 1.12;
     text-align: left;
   }
 
@@ -302,15 +295,8 @@ const safeItems = computed(() =>
     stroke-width: 4.2;
   }
 
-  .landing-pain-points__item-title {
-    font-size: 20px;
-    line-height: 1.2;
-  }
-
   .landing-pain-points__description {
     margin-top: 6px;
-    font-size: 17px;
-    line-height: 1.35;
   }
 }
 </style>

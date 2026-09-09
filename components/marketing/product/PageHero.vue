@@ -115,17 +115,17 @@ const resultsLabel = computed(() => {
   <section class="border-b border-slate-100 bg-slate-50/50 py-10 lg:py-16">
     <PageContainer>
       <div class="max-w-3xl">
-        <p class="text-xs font-bold uppercase tracking-widest text-primary/60">
+        <p class="section-eyebrow">
           {{ kickerText }}
         </p>
 
         <h1
-          class="mt-3 text-4xl font-extrabold tracking-tight text-slate-900 lg:text-5xl"
+          class="section-title section-title--hero mt-3"
         >
           {{ displayTitle }}
         </h1>
 
-        <p class="mt-4 max-w-2xl text-lg leading-relaxed text-slate-600">
+        <p class="mt-4 max-w-2xl text-body text-muted-foreground">
           {{ introText }}
         </p>
 
@@ -165,7 +165,7 @@ const resultsLabel = computed(() => {
             autocomplete="off"
             spellcheck="false"
             placeholder="Buscar en el catálogo: productos, materiales o usos"
-            class="catalog-search-input w-full rounded-xl border border-slate-200 py-4 pl-12 pr-12 shadow-sm outline-none transition-all placeholder:text-slate-400 focus:border-primary focus:ring-4 focus:ring-primary/10"
+            class="catalog-search-input rd-form-control w-full pl-12 pr-12"
             @input="onInput"
             @keydown="onKeydown"
           />
@@ -193,7 +193,7 @@ const resultsLabel = computed(() => {
           </button>
         </form>
 
-        <p class="mt-4 flex items-center gap-2 text-sm text-slate-500" aria-live="polite">
+        <p class="mt-4 flex items-center gap-2 text-body-s text-muted-foreground" aria-live="polite">
           <span class="inline-flex h-2 w-2 rounded-full bg-emerald-500" />
           <strong>{{ props.total }}</strong>
           <span>{{ resultsLabel }}</span>

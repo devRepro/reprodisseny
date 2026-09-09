@@ -215,11 +215,11 @@ function clearFilters() {
           <div
             class="h-12 w-12 animate-spin rounded-full border-4 border-primary/20 border-t-primary"
           />
-          <p class="mt-4 font-medium text-muted-foreground">Actualizando catálogo...</p>
+          <p class="mt-4 text-body-s font-medium text-muted-foreground">Actualizando catálogo...</p>
         </div>
 
         <div v-else-if="error" class="mx-auto max-w-md py-20 text-center">
-          <h2 class="text-xl font-bold text-foreground">
+          <h2 class="text-h4">
             No pudimos cargar los productos
           </h2>
 
@@ -229,7 +229,7 @@ function clearFilters() {
 
           <button
             @click="refresh()"
-            class="rounded-lg bg-primary px-6 py-2 text-primary-foreground shadow-sm transition-all hover:opacity-90"
+            class="btn-primary"
           >
             Reintentar ahora
           </button>
@@ -241,7 +241,7 @@ function clearFilters() {
               class="custom-scrollbar sticky top-28 max-h-[calc(100vh-140px)] overflow-y-auto pr-4"
             >
               <h3
-                class="mb-6 text-sm font-bold uppercase tracking-wider text-muted-foreground"
+                class="mb-6 text-label-s font-bold uppercase tracking-[0.22em] text-muted-foreground"
               >
                 Filtrar por
               </h3>

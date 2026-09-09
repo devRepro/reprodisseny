@@ -2,6 +2,7 @@
 import { computed } from "vue";
 import { cn } from "@/lib/utils";
 import { normalizeCmsMediaSrc } from "@/utils/cmsMedia";
+import AppButton from "@/components/shared/button/AppButton.vue";
 
 type HeroCta = {
   label: string;
@@ -139,14 +140,14 @@ const secondaryCta = computed<HeroCta | null>(() => {
           </p>
 
           <h1
-            class="max-w-[18ch] text-balance text-[clamp(2.15rem,1.55rem+2.4vw,3.9rem)] font-semibold leading-[1.04] tracking-[-0.05em] text-foreground"
+            class="section-title section-title--hero max-w-[18ch]"
           >
             {{ title }}
           </h1>
 
           <p
             v-if="description"
-            class="mt-4 max-w-[62ch] text-pretty text-[16px] leading-7 text-foreground/74 md:text-[17px]"
+            class="mt-4 max-w-[62ch] text-pretty text-body text-foreground/74"
           >
             {{ description }}
           </p>
@@ -169,21 +170,22 @@ const secondaryCta = computed<HeroCta | null>(() => {
             v-if="(showPrimaryCta && primaryCta) || (showSecondaryCta && secondaryCta)"
             class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center"
           >
-            <NuxtLink
+            <AppButton
               v-if="showPrimaryCta && primaryCta"
               :to="primaryCta.to"
-              class="inline-flex min-h-12 items-center justify-center rounded-xl bg-primary px-5 py-3 text-body-s-bold text-primary-foreground transition hover:bg-brand-base-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:ring-offset-2"
+              size="lg"
             >
               {{ primaryCta.label }}
-            </NuxtLink>
+            </AppButton>
 
-            <NuxtLink
+            <AppButton
               v-if="showSecondaryCta && secondaryCta"
               :to="secondaryCta.to"
-              class="inline-flex min-h-12 items-center justify-center rounded-xl border border-border bg-background px-5 py-3 text-body-s-bold text-foreground transition hover:border-primary/25 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 focus-visible:ring-offset-2"
+              variant="outline"
+              size="lg"
             >
               {{ secondaryCta.label }}
-            </NuxtLink>
+            </AppButton>
           </div>
         </div>
 

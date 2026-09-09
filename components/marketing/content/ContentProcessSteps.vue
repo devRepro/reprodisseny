@@ -59,11 +59,11 @@ const normalizedSteps = computed(() =>
       </div>
 
       <div class="mt-6 flex flex-1 flex-col">
-        <h3 class="font-h4 text-foreground text-balance">
+        <h3 class="text-h4 text-foreground text-balance">
           {{ step.title }}
         </h3>
 
-        <p class="mt-3 text-body-s leading-[1.7] text-muted-foreground text-pretty">
+        <p class="mt-3 text-body-s text-muted-foreground text-pretty">
           {{ step.description }}
         </p>
       </div>

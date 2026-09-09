@@ -62,7 +62,7 @@ onMounted(() => {
         <div class="calendar-thank-you__header-actions">
           <a
             href="tel:932749890"
-            class="calendar-thank-you__phone"
+            class="calendar-thank-you__phone text-body-s-bold"
             aria-label="Llamar al 93 274 98 90"
           >
             <Phone aria-hidden="true" />
@@ -87,15 +87,15 @@ onMounted(() => {
           <CheckCircle2 class="calendar-thank-you__icon-mark" />
         </div>
 
-        <h1 id="calendar-thank-you-title" class="calendar-thank-you__title">
+        <h1 id="calendar-thank-you-title" class="calendar-thank-you__title section-title section-title--hero">
           Hemos recibido tu solicitud
         </h1>
 
-        <p class="calendar-thank-you__message">
+        <p class="calendar-thank-you__message text-body">
           Estamos revisando toda la información, nos pondremos en contacto en cuestión de minutos.
         </p>
 
-        <p class="calendar-thank-you__contact">
+        <p class="calendar-thank-you__contact text-body">
           ¿Tienes dudas? Llámanos al
           <a href="tel:932749890">93 274 98 90</a>
         </p>
@@ -138,7 +138,7 @@ onMounted(() => {
             </a>
           </nav>
 
-          <address class="calendar-thank-you__contact-list">
+          <address class="calendar-thank-you__contact-list text-body-s">
             <div>
               <MapPin aria-hidden="true" />
               <span>Juan de Mena 19, 08035 Barcelona</span>
@@ -154,7 +154,7 @@ onMounted(() => {
           </address>
         </div>
 
-        <div class="calendar-thank-you__footer-bottom">
+        <div class="calendar-thank-you__footer-bottom text-label-s">
           <span>Copyright © Repro Disseny</span>
           <NuxtLink to="/politica-privacidad">Aviso legal</NuxtLink>
         </div>
@@ -212,8 +212,6 @@ onMounted(() => {
   align-items: center;
   gap: 8px;
   color: hsl(var(--muted-foreground));
-  font-size: var(--font-body-s);
-  font-weight: var(--weight-body-s-bold);
   white-space: nowrap;
 }
 
@@ -221,9 +219,6 @@ onMounted(() => {
   width: 18px;
   height: 18px;
   color: hsl(var(--primary));
-}
-
-.calendar-thank-you__header-cta {
 }
 
 .calendar-thank-you__header-cta-short {
@@ -268,11 +263,6 @@ onMounted(() => {
 .calendar-thank-you__title {
   margin: 30px 0 0;
   color: hsl(var(--foreground));
-  font-family: var(--font-sans);
-  font-size: var(--font-h1);
-  font-weight: var(--weight-h1);
-  line-height: var(--line-h1);
-  letter-spacing: var(--tracking-heading);
   text-wrap: balance;
 }
 
@@ -280,15 +270,11 @@ onMounted(() => {
   max-width: 640px;
   margin: 24px 0 0;
   color: hsl(var(--muted-foreground));
-  font-size: var(--font-body);
-  line-height: var(--line-body);
   text-wrap: pretty;
 }
 
 .calendar-thank-you__contact {
   margin: 24px 0 0;
-  font-size: var(--font-body);
-  line-height: var(--line-body);
 }
 
 .calendar-thank-you__contact a {
@@ -362,9 +348,7 @@ onMounted(() => {
   gap: 10px;
   justify-self: end;
   color: rgb(255 255 255 / 76%);
-  font-size: 14px;
   font-style: normal;
-  line-height: 1.35;
 }
 
 .calendar-thank-you__contact-list a {
@@ -393,7 +377,6 @@ onMounted(() => {
   gap: 12px;
   border-top: 1px solid rgb(255 255 255 / 18%);
   color: rgb(255 255 255 / 64%);
-  font-size: 12px;
 }
 
 .calendar-thank-you__footer-bottom a {
@@ -432,7 +415,6 @@ onMounted(() => {
   .calendar-thank-you__header-cta {
     min-height: 38px !important;
     padding-inline: 14px !important;
-    font-size: 12px !important;
   }
 
   .calendar-thank-you__header-cta-full {
@@ -461,19 +443,16 @@ onMounted(() => {
   .calendar-thank-you__title {
     max-width: 350px;
     margin-top: 26px;
-    font-size: var(--font-h1);
   }
 
   .calendar-thank-you__message {
     max-width: 350px;
     margin-top: 20px;
-    font-size: var(--font-body);
   }
 
   .calendar-thank-you__contact {
     max-width: 330px;
     margin-top: 22px;
-    font-size: var(--font-body);
   }
 
   .calendar-thank-you__cta {
@@ -500,7 +479,6 @@ onMounted(() => {
     align-items: center;
     gap: 10px;
     justify-self: auto;
-    font-size: 14px;
   }
 
   .calendar-thank-you__footer-bottom {

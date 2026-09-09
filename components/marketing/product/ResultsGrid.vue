@@ -200,7 +200,7 @@ function buildPageLocation(targetPage: number) {
 
             <div v-if="getProductCategory(product)" class="absolute left-4 top-4">
               <span
-                class="inline-flex items-center rounded-full border border-white/50 bg-white/90 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-primary shadow-sm backdrop-blur"
+                class="inline-flex items-center rounded-full border border-white/50 bg-white/90 px-3 py-1 text-label-s font-semibold uppercase tracking-[0.14em] text-primary shadow-sm backdrop-blur"
               >
                 {{ getProductCategory(product) }}
               </span>
@@ -211,7 +211,7 @@ function buildPageLocation(targetPage: number) {
         <div class="flex flex-1 flex-col p-5 md:p-6">
           <NuxtLink :to="getProductHref(product)" class="group/title">
             <h3
-              class="text-[20px] font-semibold leading-tight text-foreground transition group-hover/title:text-primary"
+              class="text-h4 transition group-hover/title:text-primary"
             >
               {{ getProductTitle(product) }}
             </h3>
@@ -228,7 +228,7 @@ function buildPageLocation(targetPage: number) {
             <span
               v-for="tag in getProductTags(product)"
               :key="tag"
-              class="inline-flex items-center rounded-full border border-border/70 bg-background px-2.5 py-1 text-xs font-medium text-foreground/65"
+              class="inline-flex items-center rounded-full border border-border/70 bg-background px-2.5 py-1 text-label-s font-medium text-foreground/65"
             >
               {{ tag }}
             </span>
@@ -260,7 +260,7 @@ function buildPageLocation(targetPage: number) {
       <template v-for="(p, index) in paginationPages" :key="`page-${p}`">
         <span
           v-if="index > 0 && paginationPages[index - 1] !== p - 1"
-          class="px-2 text-sm text-muted-foreground"
+          class="px-2 text-label-s text-muted-foreground"
           aria-hidden="true"
         >
           …
@@ -268,7 +268,7 @@ function buildPageLocation(targetPage: number) {
 
         <NuxtLink
           :to="buildPageLocation(p)"
-          class="inline-flex min-h-9 min-w-9 items-center justify-center rounded-2xl border px-3 py-2 text-sm font-semibold transition"
+          class="inline-flex min-h-9 min-w-9 items-center justify-center rounded-2xl border px-3 py-2 text-label font-semibold transition"
           :class="
             p === safePage
               ? 'border-primary bg-primary text-primary-foreground'

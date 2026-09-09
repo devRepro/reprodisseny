@@ -51,7 +51,7 @@ function toggleItem(index: number) {
     aria-labelledby="landing-faqs-title"
   >
     <div class="landing-faqs__inner">
-      <h2 id="landing-faqs-title" class="landing-faqs__title">
+      <h2 id="landing-faqs-title" class="landing-faqs__title section-title section-title--section">
         {{ title }}
       </h2>
 
@@ -64,7 +64,7 @@ function toggleItem(index: number) {
         >
           <button
             type="button"
-            class="landing-faqs__trigger"
+            class="landing-faqs__trigger text-body"
             :aria-expanded="openItems.has(index)"
             :aria-controls="`landing-faq-answer-${index}`"
             @click="toggleItem(index)"
@@ -80,7 +80,7 @@ function toggleItem(index: number) {
             :id="`landing-faq-answer-${index}`"
             class="landing-faqs__content"
           >
-            <p>{{ item.answer }}</p>
+            <p class="text-body">{{ item.answer }}</p>
           </div>
         </article>
       </div>
@@ -90,8 +90,8 @@ function toggleItem(index: number) {
 <style scoped>
 .landing-faqs {
   width: 100%;
-  background: #ffffff;
-  color: #212121;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
   padding: 86px 0 106px;
 }
 
@@ -102,13 +102,8 @@ function toggleItem(index: number) {
 
 .landing-faqs__title {
   margin: 0;
+  color: hsl(var(--foreground));
   text-align: center;
-  font-family: var(--font-sans);
-  font-size: clamp(30px, 3vw, 42px);
-  font-weight: 700;
-  line-height: 1.16;
-  letter-spacing: -0.02em;
-  color: #212121;
 }
 
 .landing-faqs__list {
@@ -119,10 +114,10 @@ function toggleItem(index: number) {
 
 .landing-faqs__item {
   overflow: hidden;
-  border: 1px solid rgb(33 33 33 / 18%);
+  border: 1px solid hsl(var(--foreground) / 0.18);
   border-radius: 8px;
-  background: #ffffff;
-  box-shadow: 0 10px 32px rgb(0 0 0 / 8%);
+  background: hsl(var(--background));
+  box-shadow: 0 10px 32px hsl(var(--foreground) / 0.08);
 }
 
 .landing-faqs__trigger {
@@ -134,14 +129,10 @@ function toggleItem(index: number) {
   gap: 24px;
   padding: 20px 22px 13px;
   border: 0;
-  border-bottom: 1px solid rgb(33 33 33 / 35%);
+  border-bottom: 1px solid hsl(var(--foreground) / 0.35);
   background: transparent;
-  color: #212121;
+  color: hsl(var(--foreground));
   text-align: left;
-  font-family: var(--font-sans);
-  font-size: clamp(17px, 1.35vw, 20px);
-  font-weight: 400;
-  line-height: 1.25;
   cursor: pointer;
 }
 
@@ -149,7 +140,7 @@ function toggleItem(index: number) {
   width: 18px;
   height: 18px;
   flex: 0 0 auto;
-  color: #212121;
+  color: hsl(var(--foreground));
   stroke-width: 1.8;
   transition: transform 180ms ease;
 }
@@ -164,11 +155,7 @@ function toggleItem(index: number) {
 
 .landing-faqs__content p {
   margin: 0;
-  color: #212121;
-  font-family: var(--font-sans);
-  font-size: clamp(15px, 1.15vw, 17px);
-  font-weight: 400;
-  line-height: 1.42;
+  color: hsl(var(--foreground));
 }
 
 .landing-faqs--calendar {
@@ -182,12 +169,12 @@ function toggleItem(index: number) {
 .landing-faqs--calendar .landing-faqs__list {
   gap: 0;
   margin-top: 38px;
-  border-top: 1px solid rgb(33 33 33 / 18%);
+  border-top: 1px solid hsl(var(--foreground) / 0.18);
 }
 
 .landing-faqs--calendar .landing-faqs__item {
   border: 0;
-  border-bottom: 1px solid rgb(33 33 33 / 18%);
+  border-bottom: 1px solid hsl(var(--foreground) / 0.18);
   border-radius: 0;
   box-shadow: none;
 }
@@ -196,8 +183,6 @@ function toggleItem(index: number) {
   min-height: 64px;
   padding: 18px 4px;
   border-bottom: 0;
-  font-size: var(--font-body);
-  font-weight: var(--weight-body);
 }
 
 .landing-faqs--calendar .landing-faqs__icon {
@@ -209,41 +194,14 @@ function toggleItem(index: number) {
   padding: 0 40px 18px 4px;
 }
 
-.landing-faqs--calendar .landing-faqs__content p {
-  color: hsl(var(--foreground));
-  font-size: var(--font-body);
-  line-height: var(--line-body);
-}
-
-@media (max-width: 767px) {
-  .landing-faqs--calendar {
-    padding-block: 56px 64px;
-  }
-
-  .landing-faqs--calendar .landing-faqs__inner {
-    width: min(100% - 32px, 828px);
-  }
-
-  .landing-faqs--calendar .landing-faqs__list {
-    margin-top: 30px;
-  }
-
-  .landing-faqs--calendar .landing-faqs__trigger {
-    padding-block: 16px;
-  }
-}
-
 @media (max-width: 767px) {
   .landing-faqs {
     padding: 64px 0 76px;
   }
 
-  .landing-faqs__inner {
+  .landing-faqs__inner,
+  .landing-faqs--calendar .landing-faqs__inner {
     width: min(100% - 32px, 828px);
-  }
-
-  .landing-faqs__title {
-    font-size: 30px;
   }
 
   .landing-faqs__list {
@@ -257,6 +215,19 @@ function toggleItem(index: number) {
 
   .landing-faqs__content {
     padding: 12px 18px 18px;
+  }
+
+  .landing-faqs--calendar {
+    padding-block: 56px 64px;
+  }
+
+  .landing-faqs--calendar .landing-faqs__list {
+    gap: 0;
+    margin-top: 30px;
+  }
+
+  .landing-faqs--calendar .landing-faqs__trigger {
+    padding: 16px 4px;
   }
 }
 </style>

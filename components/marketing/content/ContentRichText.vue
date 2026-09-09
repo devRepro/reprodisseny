@@ -36,11 +36,11 @@ const hasContent = computed(() => Boolean(props.intro.trim() || props.html.trim(
 
 <style scoped>
 .content-rich-text {
-  @apply max-w-[76ch] space-y-5 text-[15px] leading-7 text-muted-foreground md:text-base;
+  @apply max-w-[76ch] space-y-5 text-body text-muted-foreground;
 }
 
 .content-rich-text__intro {
-  @apply mb-0 text-base leading-7 text-foreground/80 md:text-lg;
+  @apply mb-0 text-body text-foreground/80;
 }
 
 .content-rich-text__body {
@@ -56,15 +56,15 @@ const hasContent = computed(() => Boolean(props.intro.trim() || props.html.trim(
 }
 
 :deep(.content-rich-text__body p) {
-  @apply my-4 leading-7 text-muted-foreground;
+  @apply my-4 text-body text-muted-foreground;
 }
 
 :deep(.content-rich-text__body h3) {
-  @apply mb-3 mt-8 text-xl font-semibold leading-tight tracking-tight text-foreground md:text-2xl;
+  @apply mb-3 mt-8 text-h3 text-foreground;
 }
 
 :deep(.content-rich-text__body h4) {
-  @apply mb-2 mt-6 text-base font-semibold leading-tight tracking-tight text-foreground md:text-lg;
+  @apply mb-2 mt-6 text-h4 text-foreground;
 }
 
 :deep(.content-rich-text__body strong) {
@@ -89,7 +89,7 @@ const hasContent = computed(() => Boolean(props.intro.trim() || props.html.trim(
 }
 
 :deep(.content-rich-text__body li) {
-  @apply pl-1 leading-7 text-muted-foreground marker:text-primary;
+  @apply pl-1 text-body text-muted-foreground marker:text-primary;
 }
 
 :deep(.content-rich-text__body blockquote) {
@@ -105,7 +105,7 @@ const hasContent = computed(() => Boolean(props.intro.trim() || props.html.trim(
 }
 
 :deep(.content-rich-text__body table) {
-  @apply my-6 block w-full max-w-full overflow-x-auto rounded-xl border border-border/70 text-sm;
+  @apply my-6 block w-full max-w-full overflow-x-auto rounded-xl border border-border/70 text-body-s;
   border-collapse: separate;
   border-spacing: 0;
 }
@@ -124,10 +124,10 @@ const hasContent = computed(() => Boolean(props.intro.trim() || props.html.trim(
 }
 
 .content-rich-text--compact {
-  @apply max-w-none text-sm md:text-[15px];
+  @apply max-w-none text-body-s;
 }
 
 .content-rich-text--compact :deep(h3) {
-  @apply mt-6 text-base md:text-lg;
+  @apply mt-6 text-h4;
 }
 </style>

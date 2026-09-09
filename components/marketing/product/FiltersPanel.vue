@@ -113,13 +113,13 @@ function clearAll() {
     <div class="rounded-[24px] border border-border/70 bg-card p-5 shadow-sm">
       <div class="flex items-start justify-between gap-3">
         <div>
-          <p class="text-xs font-semibold uppercase tracking-[0.16em] text-primary/75">
+          <p class="text-label-s font-semibold uppercase tracking-[0.16em] text-primary/75">
             Catálogo
           </p>
-          <h3 class="mt-2 text-lg font-semibold leading-tight text-foreground">
+          <h3 class="mt-2 text-h4">
             Categorías
           </h3>
-          <p class="mt-2 text-sm leading-relaxed text-muted-foreground">
+          <p class="mt-2 text-body-s text-muted-foreground">
             Filtra el catálogo por familia de producto.
           </p>
         </div>
@@ -127,7 +127,7 @@ function clearAll() {
         <button
           v-if="hasActiveFilter || localCategoryQuery"
           type="button"
-          class="inline-flex min-h-10 items-center justify-center rounded-lg border border-border bg-background px-3 py-2 text-sm font-medium text-foreground transition hover:border-primary/25 hover:text-primary"
+          class="btn-outline btn-sm"
           @click="clearAll"
         >
           Limpiar
@@ -164,7 +164,7 @@ function clearAll() {
             inputmode="search"
             autocomplete="off"
             placeholder="Buscar categoría"
-            class="w-full rounded-xl border border-input bg-background py-3 pl-10 pr-4 text-sm text-foreground outline-none transition placeholder:text-muted-foreground focus:border-primary/35 focus:ring-4 focus:ring-ring/20"
+            class="rd-form-control w-full pl-10 pr-4"
           />
         </div>
       </div>
@@ -186,10 +186,10 @@ function clearAll() {
             aria-hidden="true"
           />
           <span class="min-w-0 flex-1">
-            <span class="block text-sm font-medium text-foreground">
+            <span class="block text-label text-foreground">
               Todas las categorías
             </span>
-            <span class="mt-1 block text-xs text-muted-foreground">
+            <span class="mt-1 block text-label-s text-muted-foreground">
               Mostrar el catálogo completo
             </span>
           </span>
@@ -217,7 +217,7 @@ function clearAll() {
 
           <span class="min-w-0 flex-1">
             <span
-              class="block text-sm font-medium leading-[1.45] text-foreground"
+              class="block text-label text-foreground"
               :style="{ paddingLeft: `${item.depth * 14}px` }"
             >
               {{ item.label }}
@@ -225,7 +225,7 @@ function clearAll() {
 
             <span
               v-if="typeof item.count === 'number'"
-              class="mt-1 block text-xs text-muted-foreground"
+              class="mt-1 block text-label-s text-muted-foreground"
               :style="{ paddingLeft: `${item.depth * 14}px` }"
             >
               {{ item.count === 1 ? "1 producto" : `${item.count} productos` }}
@@ -235,7 +235,7 @@ function clearAll() {
 
         <div
           v-if="!filteredCategories.length"
-          class="rounded-2xl border border-dashed border-border/70 bg-muted/15 px-4 py-4 text-sm text-muted-foreground"
+          class="rounded-2xl border border-dashed border-border/70 bg-muted/15 px-4 py-4 text-body-s text-muted-foreground"
         >
           No hay categorías que coincidan con tu búsqueda.
         </div>

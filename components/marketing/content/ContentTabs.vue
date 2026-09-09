@@ -175,7 +175,7 @@ function onTabKeydown(event: KeyboardEvent, item: TabItem) {
           :disabled="item.disabled"
           :class="
             cn(
-              'min-h-11 shrink-0 whitespace-nowrap rounded-xl px-4 py-3 text-sm font-semibold leading-none transition-all duration-200',
+              'min-h-11 shrink-0 whitespace-nowrap rounded-xl px-4 py-3 text-label font-semibold transition-all duration-200',
               'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/35 focus-visible:ring-offset-2',
               activeId === item.id
                 ? 'bg-primary text-primary-foreground shadow-sm ring-1 ring-primary/20'

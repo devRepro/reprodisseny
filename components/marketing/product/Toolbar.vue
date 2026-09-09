@@ -94,17 +94,17 @@ function onSortChange(event: Event) {
         class="flex flex-col gap-3 md:flex-row md:items-center md:justify-between"
       >
         <div class="min-w-0">
-          <p class="text-xs font-semibold uppercase tracking-[0.16em] text-primary/75">
+          <p class="text-label-s font-semibold uppercase tracking-[0.16em] text-primary/75">
             Catálogo
           </p>
 
           <div class="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1">
-            <h2 class="text-lg font-semibold leading-tight text-foreground">
+            <h2 class="text-h4">
               Resultados
             </h2>
 
             <span
-              class="inline-flex min-h-8 items-center justify-center rounded-full border border-border/60 bg-muted/25 px-3 py-1 text-xs font-medium text-foreground/70"
+              class="inline-flex min-h-8 items-center justify-center rounded-full border border-border/60 bg-muted/25 px-3 py-1 text-label-s font-medium text-foreground/70"
             >
               {{ summaryText }}
             </span>
@@ -114,7 +114,7 @@ function onSortChange(event: Event) {
         <div class="flex w-full flex-col gap-2 sm:w-auto">
           <label
             for="catalog-sort"
-            class="text-xs font-semibold uppercase tracking-[0.12em] text-foreground/60"
+            class="text-label-s font-semibold uppercase tracking-[0.12em] text-foreground/60"
           >
             Ordenar por
           </label>
@@ -123,7 +123,7 @@ function onSortChange(event: Event) {
             <select
               id="catalog-sort"
               :value="sort"
-              class="min-h-12 w-full appearance-none rounded-xl border border-input bg-background px-4 pr-10 text-sm font-medium text-foreground outline-none transition focus:border-primary/35 focus:ring-4 focus:ring-ring/20"
+              class="rd-form-control w-full appearance-none pr-10 font-medium"
               @change="onSortChange"
             >
               <option
@@ -160,20 +160,20 @@ function onSortChange(event: Event) {
         class="flex flex-wrap items-center gap-2 border-t border-border/60 pt-4"
       >
         <span
-          class="inline-flex min-h-9 items-center justify-center rounded-full border border-border/60 bg-background px-3 py-2 text-sm text-foreground/70"
+          class="inline-flex min-h-9 items-center justify-center rounded-full border border-border/60 bg-background px-3 py-2 text-label text-foreground/70"
         >
           Página {{ safePage }}
         </span>
 
         <span
-          class="inline-flex min-h-9 items-center justify-center rounded-full border border-border/60 bg-background px-3 py-2 text-sm text-foreground/70"
+          class="inline-flex min-h-9 items-center justify-center rounded-full border border-border/60 bg-background px-3 py-2 text-label text-foreground/70"
         >
           {{ safePerPage }} por página
         </span>
 
         <span
           v-if="safeTotal > 0"
-          class="inline-flex min-h-9 items-center justify-center rounded-full border border-border/60 bg-background px-3 py-2 text-sm text-foreground/70"
+          class="inline-flex min-h-9 items-center justify-center rounded-full border border-border/60 bg-background px-3 py-2 text-label text-foreground/70"
         >
           {{ safeTotal === 1 ? "1 producto" : `${safeTotal} productos` }}
         </span>
