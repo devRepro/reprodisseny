@@ -3,25 +3,16 @@
 import { computed, ref, watch } from "vue"
 import { cn } from "@/lib/utils"
 import { normalizeCmsMediaSrc } from "@/utils/cmsMedia"
-import type { SectionViewModel } from "~/types/contentSections"
+import type {
+  DetailsMediaImage,
+  DetailsMediaItem,
+  SectionViewModel,
+} from "~/types/contentSections"
 
 import CmsImage from "@/components/shared/blocks/CmsImage.vue"
 import AppChip from "@/components/shared/pills/AppChip.vue"
 import CategoryShowcaseCta from "@/components/marketing/category/CategoryShowcaseCta.vue"
 import ContentRichText from "@/components/marketing/content/ContentRichText.vue"
-
-type DetailsMediaItem = {
-  image?: {
-    src?: string
-    alt?: string
-    caption?: string
-  } | null
-  pills?: Array<{
-    label?: string
-    to?: string
-    ariaLabel?: string
-  }>
-}
 
 const props = withDefaults(
   defineProps<{
@@ -29,12 +20,16 @@ const props = withDefaults(
     detailsMedia?: DetailsMediaItem | null
     featuredProduct?: Record<string, unknown> | null
     headerMode?: "default" | "intro-only" | "none"
+    presentation?: "default" | "product"
+    showIntro?: boolean
     class?: string
   }>(),
   {
     detailsMedia: null,
     featuredProduct: null,
     headerMode: "default",
+    presentation: "default",
+    showIntro: true,
     class: "",
   },
 )
@@ -66,22 +61,23 @@ const productTitle = computed(() =>
   readString(productRecord.value, ["title", "name"]),
 )
 
-const hasImageLoadError = ref(false)
+const failedImageSrcs = ref<Set<string>>(new Set())
 
 watch(
-  () => props.detailsMedia?.image?.src,
+  () =>
+    [
+      props.detailsMedia?.image?.src,
+      ...(props.detailsMedia?.images || []).map((image) => image?.src),
+    ].join("|"),
   () => {
-    hasImageLoadError.value = false
+    failedImageSrcs.value = new Set()
   },
 )
 
-const leadImage = computed(() => {
-  if (hasImageLoadError.value) return null
-
-  const image = props.detailsMedia?.image
+function normalizeDetailsImage(image: DetailsMediaImage | null | undefined) {
   const src = normalizeCmsMediaSrc(image?.src || "")
 
-  if (!src) return null
+  if (!src || failedImageSrcs.value.has(src)) return null
 
   return {
     src,
@@ -92,7 +88,27 @@ const leadImage = computed(() => {
         "",
     ).trim(),
     caption: String(image?.caption || "").trim(),
+    width: image?.width || 840,
+    height: image?.height || 630,
   }
+}
+
+const mediaImages = computed(() => {
+  const images = props.detailsMedia?.images?.length
+    ? props.detailsMedia.images
+    : props.detailsMedia?.image
+      ? [props.detailsMedia.image]
+      : []
+
+  const seen = new Set<string>()
+
+  return images
+    .map((image) => normalizeDetailsImage(image))
+    .filter((image): image is NonNullable<ReturnType<typeof normalizeDetailsImage>> => {
+      if (!image?.src || seen.has(image.src)) return false
+      seen.add(image.src)
+      return true
+    })
 })
 
 const pills = computed(() =>
@@ -111,7 +127,10 @@ const pills = computed(() =>
     .filter((item) => item.label && item.to),
 )
 
-const hasLeadImage = computed(() => Boolean(leadImage.value))
+const hasLeadImage = computed(() => mediaImages.value.length > 0)
+const hasBodyContent = computed(() =>
+  Boolean((props.showIntro && props.section.intro) || props.section.html || pills.value.length),
+)
 
 const layoutClass = computed(() =>
   cn(
@@ -119,18 +138,24 @@ const layoutClass = computed(() =>
     hasLeadImage.value
       ? "content-details-panel__layout--with-media"
       : "content-details-panel__layout--text-only",
+    hasLeadImage.value && !hasBodyContent.value && "content-details-panel__layout--media-only",
   ),
 )
+
+function onImageError(src: string) {
+  failedImageSrcs.value = new Set([...failedImageSrcs.value, src])
+}
 </script>
 
 <template>
-  <div :class="cn('content-details-panel', props.class)">
+  <div :class="cn('content-details-panel', props.presentation === 'product' && 'content-details-panel--product', props.class)">
     <section :aria-label="section.title || 'Detalle'" class="content-details-panel__card">
       <div :class="layoutClass">
-        <div class="content-details-panel__body">
+        <div v-if="hasBodyContent" class="content-details-panel__body">
           <ContentRichText
+            v-if="section.html || (showIntro && section.intro)"
             :html="section.html"
-            :intro="section.intro"
+            :intro="showIntro ? section.intro : ''"
             class="content-details-panel__richtext"
           />
 
@@ -161,20 +186,29 @@ const layoutClass = computed(() =>
           </aside>
         </div>
 
-        <figure v-if="leadImage" class="content-details-panel__media">
-          <CmsImage
-            :src="leadImage.src"
-            :alt="leadImage.alt"
-            width="840"
-            height="630"
-            class="content-details-panel__image"
-            @error="hasImageLoadError = true"
-          />
+        <div
+          v-if="mediaImages.length"
+          :class="cn('content-details-panel__media-list', mediaImages.length === 1 && 'content-details-panel__media-list--single')"
+        >
+          <figure
+            v-for="image in mediaImages"
+            :key="image.src"
+            class="content-details-panel__media"
+          >
+            <CmsImage
+              :src="image.src"
+              :alt="image.alt"
+              :width="image.width"
+              :height="image.height"
+              class="content-details-panel__image"
+              @error="onImageError(image.src)"
+            />
 
-          <figcaption v-if="leadImage.caption" class="content-details-panel__caption">
-            {{ leadImage.caption }}
-          </figcaption>
-        </figure>
+            <figcaption v-if="image.caption" class="content-details-panel__caption">
+              {{ image.caption }}
+            </figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 

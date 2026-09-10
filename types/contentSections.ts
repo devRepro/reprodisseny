@@ -47,15 +47,21 @@ export type TechnicalHighlight = {
   icon?: TechnicalHighlightIcon;
 };
 
+export type DetailsMediaImage = {
+  src?: string;
+  alt?: string;
+  caption?: string;
+  width?: number | null;
+  height?: number | null;
+};
+
 export type DetailsMediaItem = {
-  image?: {
-    src?: string;
-    alt?: string;
-    caption?: string;
-  } | null;
+  image?: DetailsMediaImage | null;
+  images?: DetailsMediaImage[];
   pills?: Array<{
     label?: string;
     to?: string;
+    ariaLabel?: string;
   }>;
 };
 

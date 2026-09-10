@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, type Component } from "vue";
+import { cn } from "@/lib/utils";
 import {
   CircleGauge,
   ClipboardCheck,
@@ -17,7 +18,17 @@ import type {
 } from "~/types/contentSections";
 import ContentRichText from "./ContentRichText.vue";
 
-const props = defineProps<{ section: SectionViewModel }>();
+const props = withDefaults(
+  defineProps<{
+    section: SectionViewModel;
+    presentation?: "default" | "product";
+    showIntro?: boolean;
+  }>(),
+  {
+    presentation: "default",
+    showIntro: true,
+  }
+);
 
 const iconComponents: Record<TechnicalHighlightIcon, Component> = {
   "circle-gauge": CircleGauge,
@@ -31,6 +42,7 @@ const iconComponents: Record<TechnicalHighlightIcon, Component> = {
 };
 
 const highlights = computed(() => props.section.technicalHighlights || []);
+const isProductPresentation = computed(() => props.presentation === "product");
 
 function resolveIcon(icon?: TechnicalHighlightIcon): Component {
   return icon ? iconComponents[icon] : Settings2;
@@ -38,31 +50,66 @@ function resolveIcon(icon?: TechnicalHighlightIcon): Component {
 </script>
 
 <template>
-  <section :aria-label="section.title" class="space-y-5 md:space-y-6">
-    <p v-if="section.intro" class="mb-0 max-w-3xl text-body text-muted-foreground">
+  <section
+    :aria-label="section.title"
+    :class="cn(isProductPresentation ? 'space-y-6 md:space-y-8 content-technical-specs--product' : 'space-y-5 md:space-y-6')"
+  >
+    <p v-if="showIntro && section.intro" class="mb-0 max-w-3xl text-body text-muted-foreground">
       {{ section.intro }}
     </p>
 
-    <dl v-if="highlights.length" class="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+    <dl
+      v-if="highlights.length"
+      :class="
+        cn(
+          isProductPresentation
+            ? 'content-technical-specs__highlights'
+            : 'grid gap-3 sm:grid-cols-2 lg:grid-cols-4'
+        )
+      "
+    >
       <div
         v-for="(item, index) in highlights"
         :key="`${item.title}-${index}`"
-        class="rounded-xl border border-border/70 bg-card p-4"
+        :class="
+          cn(
+            isProductPresentation
+              ? 'content-technical-specs__highlight'
+              : 'rounded-xl border border-border/70 bg-card p-4'
+          )
+        "
       >
         <dt class="flex items-center gap-2.5 text-body-s-bold text-foreground">
-          <span class="flex size-8 shrink-0 items-center justify-center rounded-lg bg-primary/8 text-primary" aria-hidden="true">
+          <span
+            :class="
+              cn(
+                'flex shrink-0 items-center justify-center text-primary',
+                isProductPresentation ? 'size-5' : 'size-8 rounded-lg bg-primary/8'
+              )
+            "
+            aria-hidden="true"
+          >
             <component :is="resolveIcon(item.icon)" class="size-4" />
           </span>
           {{ item.title }}
         </dt>
-        <dd class="mb-0 mt-2 text-body-s text-muted-foreground">
+        <dd class="mb-0 mt-2 text-body-s leading-6 text-muted-foreground">
           {{ item.description }}
         </dd>
       </div>
     </dl>
 
-    <div v-if="section.html" class="overflow-hidden rounded-2xl border border-border/70 bg-card p-5 md:p-7">
-      <ContentRichText :html="section.html" compact />
+    <div
+      v-if="section.html"
+      :class="
+        cn(
+          isProductPresentation
+            ? 'min-w-0'
+            : 'overflow-hidden rounded-2xl border border-border/70 bg-card p-5 md:p-7'
+        )
+      "
+    >
+      <ContentRichText :html="section.html" :compact="!isProductPresentation" />
     </div>
   </section>
 </template>
