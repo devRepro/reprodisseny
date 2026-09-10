@@ -17,6 +17,10 @@ import {
 } from "./sync-cms-core";
 import type { TechnicalHighlight } from "../types/contentSections";
 import { normalizeTechnicalHighlights } from "../utils/content/technicalHighlights";
+import {
+  buildProductDetailsMediaManifestFromAzure,
+  findDuplicateProductSlugs,
+} from "./product-details-media-manifest";
 
 dotenv.config({ path: ".env.imports", override: true });
 
@@ -268,6 +272,18 @@ type SyncCatalog = {
   categories: CategoryDto[];
   products: ProductDto[];
 };
+async function assertJsonOutputCurrent(filePath: string, data: unknown, label: string): Promise<void> {
+  const expected = `${JSON.stringify(data, null, 2)}\n`;
+
+  try {
+    const current = await fs.readFile(filePath, "utf8");
+    if (current === expected) return;
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException)?.code !== "ENOENT") throw error;
+  }
+
+  throw new Error(`${label} no esta actualizado. Ejecuta npm run sync:cms:write para regenerarlo.`);
+}
 
 const DEFAULT_SORT_ORDER = 9999;
 
@@ -299,6 +315,10 @@ const SP_LIST_PRODUCTS_ID =
   process.env.SP_LIST_PRODUCTS_ID ||
   process.env.CMS_PRODUCTS_LIST_ID ||
   process.env.NUXT_SHAREPOINT_CMS_PRODUCTS_LIST_ID;
+
+const AZURE_STORAGE_ACCOUNT = process.env.AZURE_STORAGE_ACCOUNT || "webcms";
+const AZURE_STORAGE_CONTAINER = process.env.AZURE_STORAGE_CONTAINER || "media";
+const PRODUCT_DETAILS_MEDIA_MANIFEST_PATH = path.resolve("cms/product-details-media.json");
 
 const REQUIRED_BASE_ENV = [
   ["TENANT_ID", TENANT_ID],
@@ -2416,6 +2436,39 @@ async function run(): Promise<void> {
     })),
   ];
 
+  const duplicateProductSlugs = findDuplicateProductSlugs(products);
+  if (duplicateProductSlugs.length) {
+    throw new Error(
+      `No se puede generar product-details-media.json con productSlug duplicado: ${duplicateProductSlugs.join(", ")}`
+    );
+  }
+
+  const {
+    manifest: productDetailsMediaManifest,
+    totalScanned: totalProductBlobsScanned,
+  } = await buildProductDetailsMediaManifestFromAzure({
+    tenantId: TENANT_ID!,
+    clientId: CLIENT_ID!,
+    clientSecret: CLIENT_SECRET!,
+    storageAccount: AZURE_STORAGE_ACCOUNT,
+    containerName: AZURE_STORAGE_CONTAINER,
+    prefix: "product/",
+  });
+  const totalDetailsImages = Object.values(productDetailsMediaManifest.products).reduce(
+    (count, entries) => count + entries.length,
+    0,
+  );
+  console.log(
+    `Azure details media: ${totalDetailsImages} imagenes, ${Object.keys(productDetailsMediaManifest.products).length} productos (${totalProductBlobsScanned} blobs product/ escaneados)`,
+  );
+
+  if (options.check) {
+    await assertJsonOutputCurrent(
+      PRODUCT_DETAILS_MEDIA_MANIFEST_PATH,
+      productDetailsMediaManifest,
+      "cms/product-details-media.json",
+    );
+  }
   const previousSnapshot = previousCatalog as unknown as CatalogSnapshot;
   const nextSnapshot = catalog as unknown as CatalogSnapshot;
   const diff = buildCatalogDiff(previousSnapshot, nextSnapshot);
@@ -2463,6 +2516,7 @@ async function run(): Promise<void> {
     { filePath: path.resolve("cms/catalog.json"), data: catalog },
     { filePath: path.resolve("cms/routes.json"), data: routes },
     { filePath: path.resolve("cms/search-index.json"), data: searchIndex },
+    { filePath: PRODUCT_DETAILS_MEDIA_MANIFEST_PATH, data: productDetailsMediaManifest },
   ]);
 
   if (options.check) {
@@ -2472,6 +2526,7 @@ async function run(): Promise<void> {
     console.log("   cms/catalog.json");
     console.log("   cms/routes.json");
     console.log("   cms/search-index.json");
+    console.log("   cms/product-details-media.json");
   }
 
   if (report.warnings.length > 0) {

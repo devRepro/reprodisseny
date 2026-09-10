@@ -2,6 +2,7 @@
 import { computed } from "vue";
 import type { ProductDetailDto } from "~/server/services/cms/catalog.service";
 import type { DetailsMediaItem } from "~/types/contentSections";
+import { resolveProductDetailsImages } from "~/utils/productDetailsMedia";
 import { buildProductPageSchema } from "~/utils/seo/buildProductPageSchema";
 
 import SiteBreadcrumbs from "@/components/shared/SiteBreadcrumbs.vue";
@@ -161,98 +162,42 @@ const galleryImages = computed<GalleryImage[]>(() =>
   )
 );
 
-function readDetailsImageSource(value: unknown): GalleryImage | null {
-  if (!value) return null;
-
-  if (typeof value === "string") {
-    const src = value.trim();
-    return src ? { src } : null;
-  }
-
-  if (typeof value !== "object" || Array.isArray(value)) {
-    return null;
-  }
-
-  const record = value as Record<string, unknown>;
-
-  const src = String(
-    record.src || record.url || record.imageSrc || record.detailImageSrc || ""
-  ).trim();
-
-  if (!src) return null;
-
-  const alt = String(record.alt || "").trim();
-  const caption = String(record.caption || "").trim();
-
-  return {
-    src,
-    ...(alt ? { alt } : {}),
-    ...(caption ? { caption } : {}),
-    width: typeof record.width === "number" ? record.width : null,
-    height: typeof record.height === "number" ? record.height : null,
-  };
-}
-
-function getExplicitDetailsImage(current: ProductDetailDto): GalleryImage | null {
-  const record = current as ProductDetailDto & Record<string, unknown>;
-
-  return (
-    readDetailsImageSource(record.detailsImage) ||
-    readDetailsImageSource(record.detailsImageSrc) ||
-    readDetailsImageSource(record.DetailImage) ||
-    readDetailsImageSource(record.DetailImageSrc) ||
-    readDetailsImageSource(record.detailsMedia)
-  );
-}
-
-function resolveDetailsImageFromProduct(
-  current: ProductDetailDto
-): GalleryImage | null {
-  const explicitImage = getExplicitDetailsImage(current);
-
-  if (!explicitImage?.src) {
-    return null;
-  }
-
-  return {
-    src: explicitImage.src,
-    alt:
-      explicitImage.alt ||
-      (current.title
-        ? `Detalle de ${current.title}`
-        : "Detalle del producto"),
-    caption:
-      explicitImage.caption ||
-      current.title ||
-      undefined,
-    width: explicitImage.width ?? null,
-    height: explicitImage.height ?? null,
-  };
-}
-
 const detailsMedia = computed<DetailsMediaItem | null>(() => {
   const current = product.value;
   if (!current) return null;
 
-  const detailsImage = resolveDetailsImageFromProduct(current);
+  const detailsImages = resolveProductDetailsImages(current);
 
-  if (!detailsImage?.src) return null;
+  if (!detailsImages.length) return null;
+
+  const detailsImage = detailsImages[0];
+  if (!detailsImage) return null;
 
   return {
     image: {
       src: detailsImage.src,
       alt: detailsImage.alt || current.title || "Imagen de detalle del producto",
-      caption: detailsImage.caption || current.title || undefined,
+      caption: detailsImage.caption || undefined,
+      width: detailsImage.width ?? null,
+      height: detailsImage.height ?? null,
     },
+    images: detailsImages.map((image) => ({
+      src: image.src,
+      alt: image.alt || current.title || "Imagen de detalle del producto",
+      caption: image.caption || undefined,
+      width: image.width ?? null,
+      height: image.height ?? null,
+    })),
     pills: [],
   };
 });
-
 const faqs = computed(() =>
   Array.isArray(product.value?.faqs) ? product.value.faqs.filter(Boolean) : []
 );
 
-const hasSections = computed(() => sections.value.length > 0);
+const hasProductInformation = computed(
+  () => sections.value.length > 0 || Boolean(detailsMedia.value?.image?.src)
+);
 const hasFaqs = computed(() => faqs.value.length > 0);
 
 const heroImage = computed(() => product.value?.image?.src || "");
@@ -505,9 +450,11 @@ useSeoMeta({
           </section>
 
           <ContentSectionShell
-            v-if="hasSections"
+            v-if="hasProductInformation"
             id="informacion-producto"
             theme="muted"
+            density="compact"
+            intro-spacing="tight"
             eyebrow="Información del producto"
             title="Detalles y opciones del producto"
             description="Consulta la información clave de este producto en un formato claro y fácil de revisar."

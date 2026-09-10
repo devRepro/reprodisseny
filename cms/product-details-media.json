@@ -1,0 +1,390 @@
+{
+  "version": 1,
+  "source": {
+    "storageAccount": "webcms",
+    "containerName": "media",
+    "prefix": "product/"
+  },
+  "products": {
+    "banderola-lona-fachada": [
+      {
+        "productSlug": "banderola-lona-fachada",
+        "categoryPath": "gran-formato/material-flexible",
+        "blobPath": "product/gran-formato/material-flexible/details/banderola-lona-fachada/01-detail.webp",
+        "mediaPath": "/media/product/gran-formato/material-flexible/details/banderola-lona-fachada/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "caballetes-publicitarios-personalizados": [
+      {
+        "productSlug": "caballetes-publicitarios-personalizados",
+        "categoryPath": "expositores",
+        "blobPath": "product/expositores/details/caballetes-publicitarios-personalizados/01-detail.webp",
+        "mediaPath": "/media/product/expositores/details/caballetes-publicitarios-personalizados/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "carteles-inmobiliaria-personalizados": [
+      {
+        "productSlug": "carteles-inmobiliaria-personalizados",
+        "categoryPath": "gran-formato/material-rigido",
+        "blobPath": "product/gran-formato/material-rigido/details/carteles-inmobiliaria-personalizados/01-detail.webp",
+        "mediaPath": "/media/product/gran-formato/material-rigido/details/carteles-inmobiliaria-personalizados/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "carteles-personalizados-gran-formato": [
+      {
+        "productSlug": "carteles-personalizados-gran-formato",
+        "categoryPath": "gran-formato/material-flexible",
+        "blobPath": "product/gran-formato/material-flexible/details/carteles-personalizados-gran-formato/01-detail.webp",
+        "mediaPath": "/media/product/gran-formato/material-flexible/details/carteles-personalizados-gran-formato/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "contenedores-de-reciclaje": [
+      {
+        "productSlug": "contenedores-de-reciclaje",
+        "categoryPath": "expositores",
+        "blobPath": "product/expositores/details/contenedores-de-reciclaje/01-detail.webp",
+        "mediaPath": "/media/product/expositores/details/contenedores-de-reciclaje/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "cubrealarmas-tiendas-retail": [
+      {
+        "productSlug": "cubrealarmas-tiendas-retail",
+        "categoryPath": "expositores",
+        "blobPath": "product/expositores/details/cubrealarmas-tiendas-retail/01-detail.webp",
+        "mediaPath": "/media/product/expositores/details/cubrealarmas-tiendas-retail/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "displays-de-mesa-personalizados": [
+      {
+        "productSlug": "displays-de-mesa-personalizados",
+        "categoryPath": "expositores",
+        "blobPath": "product/expositores/details/displays-de-mesa-personalizados/01-detail.webp",
+        "mediaPath": "/media/product/expositores/details/displays-de-mesa-personalizados/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "encuadernacion-cosida-tapa-dura": [
+      {
+        "productSlug": "encuadernacion-cosida-tapa-dura",
+        "categoryPath": "publicaciones",
+        "blobPath": "product/publicaciones/details/encuadernacion-cosida-tapa-dura/01-detail.webp",
+        "mediaPath": "/media/product/publicaciones/details/encuadernacion-cosida-tapa-dura/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "enmarcados-personalizados": [
+      {
+        "productSlug": "enmarcados-personalizados",
+        "categoryPath": "gran-formato/material-rigido",
+        "blobPath": "product/gran-formato/material-rigido/details/enmarcados-personalizados/01-detail.webp",
+        "mediaPath": "/media/product/gran-formato/material-rigido/details/enmarcados-personalizados/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "etiquetas-adhesivas-en-bobina": [
+      {
+        "productSlug": "etiquetas-adhesivas-en-bobina",
+        "categoryPath": "adhesivos",
+        "blobPath": "product/adhesivos/details/etiquetas-adhesivas-en-bobina/01-detail.webp",
+        "mediaPath": "/media/product/adhesivos/details/etiquetas-adhesivas-en-bobina/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "etiquetas-colgantes": [
+      {
+        "productSlug": "etiquetas-colgantes",
+        "categoryPath": "publicidad-oficina/publicidad",
+        "blobPath": "product/publicidad-oficina/publicidad/details/etiquetas-colgantes/01-detail.webp",
+        "mediaPath": "/media/product/publicidad-oficina/publicidad/details/etiquetas-colgantes/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "etiquetas-doming": [
+      {
+        "productSlug": "etiquetas-doming",
+        "categoryPath": "adhesivos",
+        "blobPath": "product/adhesivos/details/etiquetas-doming/01-detail.webp",
+        "mediaPath": "/media/product/adhesivos/details/etiquetas-doming/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "expositores-de-mesa-personalizados": [
+      {
+        "productSlug": "expositores-de-mesa-personalizados",
+        "categoryPath": "expositores",
+        "blobPath": "product/expositores/details/expositores-de-mesa-personalizados/01-detail.webp",
+        "mediaPath": "/media/product/expositores/details/expositores-de-mesa-personalizados/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "expositores-suelo-personalizados": [
+      {
+        "productSlug": "expositores-suelo-personalizados",
+        "categoryPath": "expositores",
+        "blobPath": "product/expositores/details/expositores-suelo-personalizados/01-detail.webp",
+        "mediaPath": "/media/product/expositores/details/expositores-suelo-personalizados/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "flyers-personalizados": [
+      {
+        "productSlug": "flyers-personalizados",
+        "categoryPath": "publicidad-oficina/publicidad",
+        "blobPath": "product/publicidad-oficina/publicidad/details/flyers-personalizados/01-detail.webp",
+        "mediaPath": "/media/product/publicidad-oficina/publicidad/details/flyers-personalizados/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "folletos-plegados-personalizados": [
+      {
+        "productSlug": "folletos-plegados-personalizados",
+        "categoryPath": "publicidad-oficina/publicidad",
+        "blobPath": "product/publicidad-oficina/publicidad/details/folletos-plegados-personalizados/01-detail.webp",
+        "mediaPath": "/media/product/publicidad-oficina/publicidad/details/folletos-plegados-personalizados/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "hojas-pegatinas-personalizadas": [
+      {
+        "productSlug": "hojas-pegatinas-personalizadas",
+        "categoryPath": "adhesivos",
+        "blobPath": "product/adhesivos/details/hojas-pegatinas-personalizadas/01-detail.webp",
+        "mediaPath": "/media/product/adhesivos/details/hojas-pegatinas-personalizadas/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "invitaciones-y-tarjetones-personalizados": [
+      {
+        "productSlug": "invitaciones-y-tarjetones-personalizados",
+        "categoryPath": "publicidad-oficina/publicidad",
+        "blobPath": "product/publicidad-oficina/publicidad/details/invitaciones-y-tarjetones-personalizados/01-detail.webp",
+        "mediaPath": "/media/product/publicidad-oficina/publicidad/details/invitaciones-y-tarjetones-personalizados/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "lamina-magnetica-impresa": [
+      {
+        "productSlug": "lamina-magnetica-impresa",
+        "categoryPath": "gran-formato/material-flexible",
+        "blobPath": "product/gran-formato/material-flexible/details/lamina-magnetica-impresa/01-detail.webp",
+        "mediaPath": "/media/product/gran-formato/material-flexible/details/lamina-magnetica-impresa/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "laminas-solares-para-cristales": [
+      {
+        "productSlug": "laminas-solares-para-cristales",
+        "categoryPath": "gran-formato/material-flexible",
+        "blobPath": "product/gran-formato/material-flexible/details/laminas-solares-para-cristales/01-detail.webp",
+        "mediaPath": "/media/product/gran-formato/material-flexible/details/laminas-solares-para-cristales/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "marcos-click-system-personalizados": [
+      {
+        "productSlug": "marcos-click-system-personalizados",
+        "categoryPath": "expositores",
+        "blobPath": "product/expositores/details/marcos-click-system-personalizados/01-detail.webp",
+        "mediaPath": "/media/product/expositores/details/marcos-click-system-personalizados/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "metacrilato-personalizado": [
+      {
+        "productSlug": "metacrilato-personalizado",
+        "categoryPath": "gran-formato/material-rigido",
+        "blobPath": "product/gran-formato/material-rigido/details/metacrilato-personalizado/01-detail.webp",
+        "mediaPath": "/media/product/gran-formato/material-rigido/details/metacrilato-personalizado/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "papel-de-pared-personalizado": [
+      {
+        "productSlug": "papel-de-pared-personalizado",
+        "categoryPath": "gran-formato/material-flexible",
+        "blobPath": "product/gran-formato/material-flexible/details/papel-de-pared-personalizado/01-detail.webp",
+        "mediaPath": "/media/product/gran-formato/material-flexible/details/papel-de-pared-personalizado/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "pegatinas-personalizadas": [
+      {
+        "productSlug": "pegatinas-personalizadas",
+        "categoryPath": "adhesivos",
+        "blobPath": "product/adhesivos/details/pegatinas-personalizadas/01-detail.webp",
+        "mediaPath": "/media/product/adhesivos/details/pegatinas-personalizadas/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "posters-personalizados": [
+      {
+        "productSlug": "posters-personalizados",
+        "categoryPath": "publicidad-oficina/publicidad",
+        "blobPath": "product/publicidad-oficina/publicidad/details/posters-personalizados/01-detail.webp",
+        "mediaPath": "/media/product/publicidad-oficina/publicidad/details/posters-personalizados/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "puntos-de-libro-personalizados": [
+      {
+        "productSlug": "puntos-de-libro-personalizados",
+        "categoryPath": "publicidad-oficina/publicidad",
+        "blobPath": "product/publicidad-oficina/publicidad/details/puntos-de-libro-personalizados/01-detail.webp",
+        "mediaPath": "/media/product/publicidad-oficina/publicidad/details/puntos-de-libro-personalizados/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "revista-grapas": [
+      {
+        "productSlug": "revista-grapas",
+        "categoryPath": "publicaciones",
+        "blobPath": "product/publicaciones/details/revista-grapas/01-detail.webp",
+        "mediaPath": "/media/product/publicaciones/details/revista-grapas/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "roll-up-personalizado": [
+      {
+        "productSlug": "roll-up-personalizado",
+        "categoryPath": "expositores",
+        "blobPath": "product/expositores/details/roll-up-personalizado/01-detail.webp",
+        "mediaPath": "/media/product/expositores/details/roll-up-personalizado/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "stoppers-lineal-personalizados": [
+      {
+        "productSlug": "stoppers-lineal-personalizados",
+        "categoryPath": "publicidad-oficina/publicidad",
+        "blobPath": "product/publicidad-oficina/publicidad/details/stoppers-lineal-personalizados/01-detail.webp",
+        "mediaPath": "/media/product/publicidad-oficina/publicidad/details/stoppers-lineal-personalizados/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "tarjeta-rasca": [
+      {
+        "productSlug": "tarjeta-rasca",
+        "categoryPath": "publicidad-oficina/publicidad",
+        "blobPath": "product/publicidad-oficina/publicidad/details/tarjeta-rasca/01-detail.webp",
+        "mediaPath": "/media/product/publicidad-oficina/publicidad/details/tarjeta-rasca/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "tarjetas-pvc-personalizadas": [
+      {
+        "productSlug": "tarjetas-pvc-personalizadas",
+        "categoryPath": "publicidad-oficina/publicidad",
+        "blobPath": "product/publicidad-oficina/publicidad/details/tarjetas-pvc-personalizadas/01-detail.webp",
+        "mediaPath": "/media/product/publicidad-oficina/publicidad/details/tarjetas-pvc-personalizadas/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "tiras-de-lineal-personalizadas": [
+      {
+        "productSlug": "tiras-de-lineal-personalizadas",
+        "categoryPath": "publicidad-oficina/publicidad",
+        "blobPath": "product/publicidad-oficina/publicidad/details/tiras-de-lineal-personalizadas/01-detail.webp",
+        "mediaPath": "/media/product/publicidad-oficina/publicidad/details/tiras-de-lineal-personalizadas/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "vinilo-de-corte": [
+      {
+        "productSlug": "vinilo-de-corte",
+        "categoryPath": "gran-formato/material-flexible",
+        "blobPath": "product/gran-formato/material-flexible/details/vinilo-de-corte/01-detail.webp",
+        "mediaPath": "/media/product/gran-formato/material-flexible/details/vinilo-de-corte/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "vinilo-para-cristal": [
+      {
+        "productSlug": "vinilo-para-cristal",
+        "categoryPath": "gran-formato/material-flexible",
+        "blobPath": "product/gran-formato/material-flexible/details/vinilo-para-cristal/01-detail.webp",
+        "mediaPath": "/media/product/gran-formato/material-flexible/details/vinilo-para-cristal/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "vinilo-pizarra": [
+      {
+        "productSlug": "vinilo-pizarra",
+        "categoryPath": "gran-formato/material-flexible",
+        "blobPath": "product/gran-formato/material-flexible/details/vinilo-pizarra/01-detail.webp",
+        "mediaPath": "/media/product/gran-formato/material-flexible/details/vinilo-pizarra/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "vinilo-suelo-personalizado": [
+      {
+        "productSlug": "vinilo-suelo-personalizado",
+        "categoryPath": "gran-formato/material-flexible",
+        "blobPath": "product/gran-formato/material-flexible/details/vinilo-suelo-personalizado/01-detail.webp",
+        "mediaPath": "/media/product/gran-formato/material-flexible/details/vinilo-suelo-personalizado/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "vinilo-vehiculos-personalizado": [
+      {
+        "productSlug": "vinilo-vehiculos-personalizado",
+        "categoryPath": "gran-formato/material-flexible",
+        "blobPath": "product/gran-formato/material-flexible/details/vinilo-vehiculos-personalizado/01-detail.webp",
+        "mediaPath": "/media/product/gran-formato/material-flexible/details/vinilo-vehiculos-personalizado/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "vinilos-superficies-planas": [
+      {
+        "productSlug": "vinilos-superficies-planas",
+        "categoryPath": "gran-formato/material-flexible",
+        "blobPath": "product/gran-formato/material-flexible/details/vinilos-superficies-planas/01-detail.webp",
+        "mediaPath": "/media/product/gran-formato/material-flexible/details/vinilos-superficies-planas/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ]
+  }
+}
