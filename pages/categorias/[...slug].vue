@@ -731,7 +731,7 @@ const closingBannerPills = computed(() => {
               density="compact"
               intro-spacing="tight"
             >
-              <FaqAccordion :items="faqs" />
+              <FaqAccordion :items="faqs" variant="editorial" />
             </ContentSectionShell>
           </div>
 

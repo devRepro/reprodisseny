@@ -472,7 +472,7 @@ useSeoMeta({
             title="Preguntas frecuentes"
             description="Resolvemos las consultas más habituales sobre materiales, medidas, acabados, preparación y entrega."
           >
-            <FaqAccordion :items="faqs" />
+            <FaqAccordion :items="faqs" variant="editorial" />
           </ContentSectionShell>
 
           <CategoryProductsGrid
