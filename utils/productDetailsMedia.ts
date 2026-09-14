@@ -70,6 +70,8 @@ const MEDIA_ORIGINS = new Set([
 ]);
 const PRODUCT_SLUG_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const FILE_EXTENSION_RE = /\.[a-z0-9]+$/i;
+const MANIFEST_DETAIL_IMAGE_WIDTH = 1200;
+const MANIFEST_DETAIL_IMAGE_HEIGHT = 1200;
 
 function text(value: unknown): string {
   return String(value ?? "").trim();
@@ -244,10 +246,12 @@ function getManifestProductDetailsImages(
   manifest: ProductDetailsMediaManifest = DEFAULT_PRODUCT_DETAILS_MEDIA_MANIFEST
 ): ProductDetailsImage[] {
   return getManifestEntries(product.slug, manifest)
-    .map((entry) => ({
+    .map<ProductDetailsImage>((entry) => ({
       src: text(entry.mediaPath) || (text(entry.blobPath) ? `/media/${text(entry.blobPath)}` : ""),
+      width: MANIFEST_DETAIL_IMAGE_WIDTH,
+      height: MANIFEST_DETAIL_IMAGE_HEIGHT,
     }))
-    .filter((image): image is ProductDetailsImage => Boolean(image.src));
+    .filter((image) => Boolean(image.src));
 }
 
 function withProductDetailsImageDefaults(

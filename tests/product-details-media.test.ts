@@ -191,6 +191,10 @@ test("resolver usa manifest para una imagen", () => {
     images.map((image) => image.src),
     ["/media/product/adhesivos/details/hojas-pegatinas-personalizadas/01-detail.webp"]
   );
+  assert.deepEqual(
+    images.map((image) => ({ width: image.width, height: image.height })),
+    [{ width: 1200, height: 1200 }]
+  );
 });
 
 test("resolver usa manifest para varias imagenes", () => {
