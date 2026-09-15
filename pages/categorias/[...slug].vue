@@ -5,6 +5,7 @@ import SiteBreadcrumbs from "@/components/shared/SiteBreadcrumbs.vue";
 import CategoryHero from "@/components/marketing/category/CategoryHero.vue";
 import CategoryChildrenGrid from "@/components/marketing/category/CategoryChildrenGrid.vue";
 import CategoryProductsGrid from "@/components/marketing/category/CategoryProductsGrid.vue";
+import CommercialSolutions from "@/components/marketing/category/CommercialSolutions.vue";
 import ContentSectionsRenderer from "@/components/marketing/content/ContentSectionsRenderer.vue";
 import FaqAccordion from "@/components/shared/blocks/FaqAccordion.vue";
 import ContentSectionIntro from "@/components/marketing/content/ContentSectionIntro.vue";
@@ -13,6 +14,8 @@ import ContentProcessSteps, {
   type ProcessStepItem,
 } from "@/components/marketing/content/ContentProcessSteps.vue";
 import GuideBanner from "@/components/marketing/GuideBanner.vue";
+import AppButton from "@/components/shared/button/AppButton.vue";
+import { getCommercialClusterConfig } from "@/utils/config/commercialClusters";
 import {
   buildCategoryPageSchema,
   type CategorySchemaItem,
@@ -288,6 +291,24 @@ const relatedProducts = computed(() =>
     : []
 );
 
+const commercialCluster = computed(() => {
+  if (currentPage.value !== 1) return null;
+
+  return getCommercialClusterConfig(category.value?.slug || slug.value);
+});
+
+const hasCommercialCluster = computed(() => Boolean(commercialCluster.value));
+
+const categoryHeroModel = computed(() => {
+  if (!category.value || !commercialCluster.value) {
+    return category.value;
+  }
+
+  return {
+    ...category.value,
+    heroKicker: commercialCluster.value.hero.kicker,
+  };
+});
 const editorialHighlightPaths = new Set([
   "/categorias/gran-formato",
   "/categorias/publicidad-oficina",
@@ -366,6 +387,16 @@ const secondaryCta = computed(() => {
   return undefined;
 });
 
+const heroPrimaryCta = computed(() =>
+  commercialCluster.value?.hero.primaryCta || {
+    label: "Pedir presupuesto",
+    to: "/pedir-presupuesto",
+  }
+);
+
+const heroSecondaryCta = computed(() =>
+  commercialCluster.value?.hero.secondaryCta || secondaryCta.value
+);
 const canonicalUrl = computed(() => {
   const baseUrl =
     toAbsoluteUrl(
@@ -648,14 +679,22 @@ const closingBannerPills = computed(() => {
         <div :class="pageFlowClass">
           <section aria-label="Presentación de la categoría">
             <CategoryHero
-              :category="category"
-              :primary-cta="{ label: 'Pedir presupuesto', to: '/pedir-presupuesto' }"
-              :secondary-cta="secondaryCta"
+              :category="categoryHeroModel"
+              :variant="hasCommercialCluster ? 'commercial' : 'default'"
+              :primary-cta="heroPrimaryCta"
+              :secondary-cta="heroSecondaryCta"
             />
           </section>
 
+          <CommercialSolutions
+            v-if="hasCommercialCluster"
+            :category-slug="category.slug"
+            :products="products"
+            :related-products="relatedProducts"
+          />
+
           <CategoryChildrenGrid
-            v-if="currentPage === 1 && children.length"
+            v-if="currentPage === 1 && !hasCommercialCluster && children.length"
             :children="children"
             eyebrow="Líneas de producto"
             title="Explora nuestras soluciones"
@@ -663,7 +702,7 @@ const closingBannerPills = computed(() => {
           />
 
           <CategoryProductsGrid
-            v-if="currentPage === 1 && showEditorialHighlights && relatedProducts.length"
+            v-if="currentPage === 1 && !hasCommercialCluster && showEditorialHighlights && relatedProducts.length"
             id="soluciones-destacadas"
             variant="featured"
             :products="relatedProducts"
@@ -719,7 +758,7 @@ const closingBannerPills = computed(() => {
             </ContentSectionShell>
           </div>
 
-          <div v-if="currentPage === 1" :class="sectionSpacingCompactClass">
+          <div v-if="currentPage === 1 && !hasCommercialCluster" :class="sectionSpacingCompactClass">
             <GuideBanner
               title="¿Tienes dudas con el archivo, el tamaño o el acabado?"
               description="Consulta la guía rápida para preparar artes finales y evitar incidencias antes de imprimir."
@@ -739,8 +778,27 @@ const closingBannerPills = computed(() => {
             </ContentSectionShell>
           </div>
 
+          <ContentSectionShell
+            v-if="currentPage === 1 && commercialCluster"
+            :eyebrow="commercialCluster.finalCta.eyebrow"
+            :title="commercialCluster.finalCta.title"
+            :description="commercialCluster.finalCta.description"
+            density="compact"
+            intro-spacing="tight"
+            section-class="commercial-cluster-final-cta"
+            intro-class="max-w-3xl"
+            body-class="commercial-cluster-final-cta__body"
+          >
+            <AppButton
+              :to="commercialCluster.finalCta.primaryCta.to"
+              size="lg"
+              arrow
+            >
+              {{ commercialCluster.finalCta.primaryCta.label }}
+            </AppButton>
+          </ContentSectionShell>
           <CategoryProductsGrid
-            v-if="currentPage === 1 && !showEditorialHighlights && relatedProducts.length"
+            v-if="currentPage === 1 && !hasCommercialCluster && !showEditorialHighlights && relatedProducts.length"
             id="productos-relacionados"
             :products="relatedProducts"
             eyebrow="Productos relacionados"

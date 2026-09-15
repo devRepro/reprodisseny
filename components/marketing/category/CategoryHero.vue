@@ -34,6 +34,7 @@ type CategoryLike = {
 const props = withDefaults(
   defineProps<{
     category: CategoryLike | null;
+    variant?: "default" | "commercial";
     showPrimaryCta?: boolean;
     showSecondaryCta?: boolean;
     primaryCta?: Partial<HeroCta> | null;
@@ -42,6 +43,7 @@ const props = withDefaults(
     containerClass?: string;
   }>(),
   {
+    variant: "default",
     showPrimaryCta: true,
     showSecondaryCta: true,
     primaryCta: () => ({ label: "Pedir presupuesto", to: "/contacto" }),
@@ -50,6 +52,8 @@ const props = withDefaults(
     containerClass: "",
   }
 );
+
+const isCommercial = computed(() => props.variant === "commercial");
 
 const title = computed(() => props.category?.title || props.category?.nav || "Categoría");
 
@@ -81,10 +85,67 @@ const isLowResolutionImage = computed(() => {
   return width > 0 && width < 900;
 });
 
+const headerClass = computed(() =>
+  cn(
+    "relative w-full overflow-hidden bg-background",
+    isCommercial.value
+      ? "pt-4 pb-10 md:pt-6 md:pb-12 lg:pt-8 lg:pb-16"
+      : "pt-4 pb-8 md:pt-6 md:pb-10 lg:pt-8 lg:pb-12",
+    props.class
+  )
+);
+
+const gridClass = computed(() =>
+  cn(
+    "grid items-center",
+    isCommercial.value
+      ? "gap-8 md:gap-10 lg:grid-cols-[minmax(0,0.98fr)_minmax(360px,0.82fr)] lg:gap-14"
+      : "gap-7 md:gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.68fr)] lg:gap-12"
+  )
+);
+
+const titleClass = computed(() =>
+  cn(
+    "section-title section-title--hero",
+    isCommercial.value ? "max-w-[15ch]" : "max-w-[18ch]"
+  )
+);
+
+const descriptionClass = computed(() =>
+  cn(
+    "mt-4 max-w-[62ch] text-pretty text-body text-foreground/74",
+    isCommercial.value ? "md:text-[1.0625rem] md:leading-8" : ""
+  )
+);
+
 const mediaWrapperClass = computed(() =>
   cn(
     "relative mx-auto w-full",
-    isLowResolutionImage.value ? "max-w-[420px]" : "max-w-[520px]"
+    isCommercial.value
+      ? isLowResolutionImage.value
+        ? "max-w-[420px]"
+        : "max-w-[560px]"
+      : isLowResolutionImage.value
+        ? "max-w-[420px]"
+        : "max-w-[520px]"
+  )
+);
+
+const mediaFrameClass = computed(() =>
+  cn(
+    "relative overflow-hidden bg-card",
+    isCommercial.value
+      ? "rounded-lg border border-border/60"
+      : "rounded-[28px] border border-border/70"
+  )
+);
+
+const imageClass = computed(() =>
+  cn(
+    "w-full object-cover",
+    isCommercial.value
+      ? "aspect-[4/3] sm:aspect-[5/4] lg:aspect-[4/3]"
+      : "aspect-[16/8] sm:aspect-[16/10]"
   )
 );
 
@@ -108,29 +169,21 @@ const secondaryCta = computed<HeroCta | null>(() => {
 </script>
 
 <template>
-  <header
-    :class="
-      cn(
-        'relative w-full overflow-hidden bg-background',
-        'pt-4 pb-8 md:pt-6 md:pb-10 lg:pt-8 lg:pb-12',
-        props.class
-      )
-    "
-  >
+  <header :class="headerClass">
     <div
+      v-if="!isCommercial"
       aria-hidden="true"
       class="pointer-events-none absolute inset-x-0 top-0 h-[360px] bg-[linear-gradient(180deg,hsl(var(--brand-base-light)/0.48)_0%,hsl(var(--background))_72%)]"
     />
 
     <div
+      v-if="!isCommercial"
       aria-hidden="true"
       class="pointer-events-none absolute left-0 top-16 hidden h-72 w-72 rounded-full bg-[hsl(var(--brand-base-light)/0.55)] blur-3xl lg:block"
     />
 
     <div :class="cn('container-content relative z-10', props.containerClass)">
-      <div
-        class="grid items-center gap-7 md:gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.68fr)] lg:gap-12"
-      >
+      <div :class="gridClass">
         <div class="min-w-0">
           <p
             class="mb-4 inline-flex w-fit items-center gap-2 text-label-s font-semibold uppercase tracking-[0.22em] text-primary/80"
@@ -139,15 +192,13 @@ const secondaryCta = computed<HeroCta | null>(() => {
             {{ kicker }}
           </p>
 
-          <h1
-            class="section-title section-title--hero max-w-[18ch]"
-          >
+          <h1 :class="titleClass">
             {{ title }}
           </h1>
 
           <p
             v-if="description"
-            class="mt-4 max-w-[62ch] text-pretty text-body text-foreground/74"
+            :class="descriptionClass"
           >
             {{ description }}
           </p>
@@ -191,15 +242,13 @@ const secondaryCta = computed<HeroCta | null>(() => {
 
         <div v-if="imgSrc" class="relative min-w-0 lg:justify-self-end">
           <figure :class="mediaWrapperClass">
-            <div
-              class="relative overflow-hidden rounded-[28px] border border-border/70 bg-card"
-            >
+            <div :class="mediaFrameClass">
               <img
                 :src="imgSrc"
                 :alt="imgAlt"
                 :width="imgWidth"
                 :height="imgHeight"
-                class="aspect-[16/8] w-full object-cover sm:aspect-[16/10]"
+                :class="imageClass"
                 loading="eager"
                 decoding="async"
                 fetchpriority="high"
@@ -212,6 +261,7 @@ const secondaryCta = computed<HeroCta | null>(() => {
             </div>
 
             <div
+              v-if="!isCommercial"
               aria-hidden="true"
               class="absolute -bottom-4 left-8 right-8 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"
             />

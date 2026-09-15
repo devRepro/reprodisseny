@@ -1842,6 +1842,286 @@
     @apply px-1 pt-3;
   }
 
+  .commercial-cluster {
+    @apply bg-background text-foreground;
+  }
+
+  .commercial-cluster__eyebrow {
+    @apply mb-4 text-label-s font-semibold uppercase text-primary;
+    letter-spacing: 0.18em;
+  }
+
+  .commercial-cluster-trust {
+    @apply border-y border-border/60 bg-background;
+  }
+
+  .commercial-cluster-trust__container {
+    @apply container-content py-5 md:py-6;
+  }
+
+  .commercial-cluster-trust__grid {
+    @apply grid gap-x-8 gap-y-5 sm:grid-cols-2 lg:grid-cols-4;
+  }
+
+  .commercial-cluster-trust__item {
+    @apply min-w-0 border-l border-border/70 pl-4;
+  }
+
+  .commercial-cluster-trust__label {
+    @apply text-label-s font-semibold uppercase text-muted-foreground;
+    letter-spacing: 0.14em;
+  }
+
+  .commercial-cluster-trust__value {
+    @apply mt-1 text-body-s font-semibold leading-6 text-foreground/90;
+  }
+
+  .commercial-cluster-solutions {
+    @apply bg-background;
+  }
+
+  .commercial-cluster-solutions__container {
+    @apply container-content py-10 md:py-14 lg:py-16;
+  }
+
+  .commercial-cluster-solutions__intro {
+    @apply max-w-3xl;
+  }
+
+  .commercial-cluster-priority {
+    @apply mt-9 grid gap-8 border-y border-border/70 py-8 md:mt-11 md:gap-10 md:py-11 lg:grid-cols-[minmax(0,0.42fr)_minmax(0,1fr)] lg:gap-14;
+  }
+
+  .commercial-cluster-priority__content {
+    @apply max-w-[34rem] self-start lg:pt-2;
+  }
+
+  .commercial-cluster-priority__title {
+    @apply max-w-[13ch] text-balance text-h2 text-foreground;
+  }
+
+  .commercial-cluster-priority__description {
+    @apply mt-4 max-w-[36ch] text-body leading-7 text-foreground/75;
+  }
+
+  .commercial-cluster-priority__products {
+    @apply grid gap-6 sm:grid-cols-2 md:gap-7;
+  }
+
+  .commercial-cluster-priority-product {
+    @apply block min-w-0 text-foreground no-underline outline-none;
+  }
+
+  .commercial-cluster-priority-product:focus-visible,
+  .commercial-cluster-solution__featured:focus-visible,
+  .commercial-cluster-inline-links__link:focus-visible,
+  .commercial-cluster-product-list__link:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 4px;
+  }
+
+  .commercial-cluster-priority-product__media {
+    @apply block overflow-hidden rounded-lg bg-muted/30;
+  }
+
+  .commercial-cluster-priority-product__image {
+    @apply aspect-[4/5] w-full object-cover transition duration-300 sm:aspect-[5/6] lg:aspect-[4/5];
+  }
+
+  .commercial-cluster-priority-product:hover .commercial-cluster-priority-product__image {
+    @apply scale-[1.02];
+  }
+
+  .commercial-cluster-priority-product__body {
+    @apply block border-b border-border/70 pb-5 pt-5;
+  }
+
+  .commercial-cluster-priority-product__title {
+    @apply block text-h3 text-foreground;
+  }
+
+  .commercial-cluster-priority-product__description {
+    @apply mt-2 block max-w-[32rem] text-body leading-7 text-foreground/70 line-clamp-2;
+  }
+
+  .commercial-cluster-product-link {
+    @apply mt-4 inline-flex items-center gap-2 text-label font-semibold text-primary underline-offset-4 transition-colors;
+  }
+
+  .commercial-cluster-priority-product:hover .commercial-cluster-product-link,
+  .commercial-cluster-solution__featured:hover .commercial-cluster-product-link,
+  .commercial-cluster-inline-links__link:hover,
+  .commercial-cluster-product-list__link:hover {
+    @apply text-primary underline;
+  }
+
+  .commercial-cluster-inline-links {
+    @apply mt-6 grid gap-0 border-y border-border/70 sm:grid-cols-2 lg:col-start-2;
+  }
+
+  .commercial-cluster-inline-links__item {
+    @apply list-none border-b border-border/70 last:border-b-0 sm:odd:border-r sm:odd:pr-5 sm:even:pl-5;
+  }
+
+  .commercial-cluster-inline-links__link {
+    @apply flex min-h-14 items-center justify-between gap-4 py-4 text-body-s font-semibold leading-6 text-foreground underline-offset-4 transition-colors hover:text-primary;
+  }
+
+  @screen sm {
+    .commercial-cluster-inline-links__item:nth-last-child(-n + 2) {
+      @apply border-b-0;
+    }
+  }
+
+  .commercial-cluster-solution-list {
+    @apply divide-y divide-border/70;
+  }
+
+  .commercial-cluster-solution {
+    @apply grid gap-7 py-9 md:py-12 lg:grid-cols-[minmax(0,0.86fr)_minmax(320px,0.64fr)] lg:items-center lg:gap-14;
+  }
+
+  .commercial-cluster-solution--reverse .commercial-cluster-solution__content {
+    @apply lg:col-start-2 lg:row-start-1;
+  }
+
+  .commercial-cluster-solution--reverse .commercial-cluster-solution__featured {
+    @apply lg:col-start-1 lg:row-start-1;
+  }
+
+  .commercial-cluster-solution__content {
+    @apply min-w-0;
+  }
+
+  .commercial-cluster-solution__label {
+    @apply mb-3 text-label-s font-semibold uppercase text-foreground/50;
+    letter-spacing: 0.14em;
+  }
+
+  .commercial-cluster-solution__title,
+  .commercial-cluster-project__title,
+  .commercial-cluster-use-cases__title {
+    @apply text-balance text-h3 text-foreground;
+  }
+
+  .commercial-cluster-solution__description,
+  .commercial-cluster-project__description,
+  .commercial-cluster-use-cases__description {
+    @apply mt-3 max-w-[62ch] text-body leading-7 text-foreground/75;
+  }
+
+  .commercial-cluster-product-list {
+    @apply mt-6 border-y border-border/70;
+  }
+
+  .commercial-cluster-product-list__item {
+    @apply list-none border-b border-border/70 last:border-b-0;
+  }
+
+  .commercial-cluster-product-list__link {
+    @apply flex min-h-14 items-center justify-between gap-4 py-4 text-body-s font-semibold leading-6 text-foreground underline-offset-4 transition-colors hover:text-primary;
+  }
+
+  .commercial-cluster-solution__featured {
+    @apply block min-w-0 text-foreground no-underline outline-none;
+  }
+
+  .commercial-cluster-solution__image {
+    @apply aspect-[16/11] w-full rounded-lg bg-muted/30 object-cover transition duration-300;
+  }
+
+  .commercial-cluster-solution--reverse .commercial-cluster-solution__image {
+    @apply lg:aspect-[4/3];
+  }
+
+  .commercial-cluster-solution__featured:hover .commercial-cluster-solution__image {
+    @apply scale-[1.012];
+  }
+
+  .commercial-cluster-solution__featured-body {
+    @apply block border-b border-border/70 pb-4 pt-4;
+  }
+
+  .commercial-cluster-solution__featured-title {
+    @apply block text-body-bold leading-6 text-foreground;
+  }
+
+  .commercial-cluster-project {
+    @apply border-y border-border/60 bg-muted/20;
+  }
+
+  .commercial-cluster-project__container {
+    @apply container-content grid gap-9 py-11 md:py-14 lg:grid-cols-[minmax(0,0.78fr)_minmax(320px,0.72fr)] lg:items-center lg:gap-14;
+  }
+
+  .commercial-cluster-project__content {
+    @apply max-w-2xl;
+  }
+
+  .commercial-cluster-project__title {
+    @apply max-w-[17ch] text-h2;
+  }
+
+  .commercial-cluster-project__description {
+    @apply max-w-[58ch] text-foreground/80;
+  }
+
+  .commercial-cluster-project__cta {
+    @apply mt-6;
+  }
+
+  .commercial-cluster-project__points {
+    @apply grid gap-0 border-y border-border/70 bg-background/60;
+  }
+
+  .commercial-cluster-project__point {
+    @apply list-none border-b border-border/70 px-5 py-5 text-body font-semibold leading-7 text-foreground last:border-b-0 md:px-6;
+  }
+
+  .commercial-cluster-project__point::before {
+    content: "";
+    @apply mr-3 inline-block h-2 w-2 rounded-full bg-primary align-middle;
+  }
+
+  .commercial-cluster-use-cases {
+    @apply bg-background;
+  }
+
+  .commercial-cluster-use-cases__container {
+    @apply container-content py-11 md:py-14;
+  }
+
+  .commercial-cluster-use-cases__intro {
+    @apply max-w-[46rem];
+  }
+
+  .commercial-cluster-use-cases__title {
+    @apply max-w-[18ch] text-h2;
+  }
+
+  .commercial-cluster-use-cases__list {
+    @apply mt-8 grid gap-x-8 gap-y-7 border-t border-border/70 pt-7 sm:grid-cols-2 lg:grid-cols-5;
+  }
+
+  .commercial-cluster-use-cases__item {
+    @apply list-none;
+  }
+
+  .commercial-cluster-use-cases__item-title {
+    @apply text-body-bold leading-6 text-foreground;
+  }
+
+  .commercial-cluster-use-cases__item-description {
+    @apply mt-2 text-body-s leading-6 text-foreground/70;
+  }
+
+  .commercial-cluster-final-cta {
+    @apply border-t border-border/60 bg-background;
+  }
+
+  .commercial-cluster-final-cta__body {
+    @apply flex flex-col items-start gap-4 sm:flex-row sm:items-center;
+  }
   /* =========================================================
    SITE FOOTER
    ========================================================= */
