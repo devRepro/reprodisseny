@@ -2,8 +2,10 @@
 defineOptions({ inheritAttrs: false })
 
 import { computed, useAttrs, type HTMLAttributes } from "vue"
+import type { RouteLocationRaw } from "vue-router"
 import { ArrowRight, LoaderCircle } from "lucide-vue-next"
 import { Button } from "@/components/ui/button"
+import type { ButtonVariants } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 
 type AppButtonVariant =
@@ -18,7 +20,7 @@ type AppButtonSize = "sm" | "md" | "lg" | "icon"
 
 const props = withDefaults(
   defineProps<{
-    to?: string | Record<string, unknown> | null
+    to?: RouteLocationRaw | null
     href?: string | null
     target?: string | null
     rel?: string | null
@@ -51,7 +53,7 @@ const attrs = useAttrs()
 
 const isDisabled = computed(() => props.disabled || props.loading)
 
-const shadcnVariant = computed(() => {
+const shadcnVariant = computed<ButtonVariants["variant"]>(() => {
   /**
    * Usamos shadcn como primitivo estructural.
    * El look real lo controla main.scss con .btn-*.
@@ -59,7 +61,7 @@ const shadcnVariant = computed(() => {
   return "ghost"
 })
 
-const shadcnSize = computed(() => {
+const shadcnSize = computed<ButtonVariants["size"]>(() => {
   return props.size === "icon" ? "icon" : "default"
 })
 
@@ -127,13 +129,13 @@ const externalRel = computed(() => {
     v-bind="attrs"
   >
     <NuxtLink
-  :to="to"
-  :target="target || undefined"
-  :rel="externalRel"
-  :aria-disabled="isDisabled || undefined"
-  :tabindex="isDisabled ? -1 : undefined"
-  @click="isDisabled && $event.preventDefault()"
->
+      :to="to"
+      :target="target || undefined"
+      :rel="externalRel"
+      :aria-disabled="isDisabled || undefined"
+      :tabindex="isDisabled ? -1 : undefined"
+      @click="isDisabled && $event.preventDefault()"
+    >
       <LoaderCircle v-if="loading" class="btn-icon-svg animate-spin" />
       <slot />
       <ArrowRight v-if="arrow && !loading" class="btn-icon-svg" />
@@ -149,12 +151,12 @@ const externalRel = computed(() => {
     v-bind="attrs"
   >
     <a
-  :href="isDisabled ? undefined : href"
-  :target="target || undefined"
-  :rel="externalRel"
-  :aria-disabled="isDisabled || undefined"
-  :tabindex="isDisabled ? -1 : undefined"
->
+      :href="isDisabled ? undefined : href"
+      :target="target || undefined"
+      :rel="externalRel"
+      :aria-disabled="isDisabled || undefined"
+      :tabindex="isDisabled ? -1 : undefined"
+    >
       <LoaderCircle v-if="loading" class="btn-icon-svg animate-spin" />
       <slot />
       <ArrowRight v-if="arrow && !loading" class="btn-icon-svg" />

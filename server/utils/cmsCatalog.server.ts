@@ -5,6 +5,7 @@ import catalogJson from "~/cms/catalog.json";
 type CmsCatalog = {
   categories: any[];
   products: any[];
+  updatedAt?: string;
   __index?: {
     byPath: Map<string, any>;
     bySlug: Map<string, any>;

@@ -101,7 +101,11 @@ if (!slug.value || isAssetLike(slug.value)) {
 
 const { data, pending, error } = await useAsyncData<ProductDetailDto | null>(
   () => `cms:product:${slug.value}`,
-  () => $fetch(`/api/cms/product/${encodeURIComponent(slug.value)}`),
+  () => {
+    const productApiPath: string = `/api/cms/product/${encodeURIComponent(slug.value)}`;
+
+    return $fetch<ProductDetailDto | null>(productApiPath);
+  },
   {
     server: true,
     watch: [slug],

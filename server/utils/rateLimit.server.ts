@@ -139,7 +139,7 @@ export async function rateLimitWithHeaders(
     "RateLimit-Reset",
     String(Math.max(0, Math.ceil((res.resetAt - now()) / 1000)))
   )
-  if (!res.ok) setResponseHeader(event, "Retry-After", String(res.retryAfterSec))
+  if (!res.ok) setResponseHeader(event, "Retry-After", res.retryAfterSec)
 
   return res
 }

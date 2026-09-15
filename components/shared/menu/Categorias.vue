@@ -33,7 +33,6 @@ const props = withDefaults(
   {
     tree: () => [],
     pending: false,
-    error: null,
   }
 );
 

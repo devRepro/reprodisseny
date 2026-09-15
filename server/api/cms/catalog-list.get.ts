@@ -221,37 +221,35 @@ function parseAttributes(value: unknown): CatalogProductAttribute[] {
     return [];
   }
 
-  return value
-    .map((item) => {
-      if (!item || typeof item !== "object") {
-        return null;
-      }
+  const attributes: CatalogProductAttribute[] = [];
 
-      const record = item as Record<string, unknown>;
+  for (const item of value) {
+    if (!item || typeof item !== "object") {
+      continue;
+    }
 
-      const label = text(
-        record.label ||
-          record.value ||
-          record.key
-      );
+    const record = item as Record<string, unknown>;
 
-      if (!label) {
-        return null;
-      }
+    const label = text(
+      record.label ||
+        record.value ||
+        record.key
+    );
 
-      return {
-        key: text(record.key) || undefined,
-        label,
-        value: text(record.value) || undefined,
-        icon: text(record.icon) || undefined,
-        tone: text(record.tone) || undefined,
-      };
-    })
-    .filter(
-      (item): item is CatalogProductAttribute =>
-        item !== null
-    )
-    .slice(0, 4);
+    if (!label) {
+      continue;
+    }
+
+    attributes.push({
+      key: text(record.key) || undefined,
+      label,
+      value: text(record.value) || undefined,
+      icon: text(record.icon) || undefined,
+      tone: text(record.tone) || undefined,
+    });
+  }
+
+  return attributes.slice(0, 4);
 }
 
 function isPublishedCategory(category: CatalogCategory) {

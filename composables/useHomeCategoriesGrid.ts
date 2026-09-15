@@ -28,8 +28,12 @@ function normalizeHomeCategoriesResponse(
 ): HomeCategoryCardItem[] {
   if (Array.isArray(value)) return value.filter(Boolean);
 
-  if (value && Array.isArray(value.items)) {
-    return value.items.filter(Boolean);
+  if (value && typeof value === "object" && "items" in value) {
+    const { items } = value;
+
+    if (Array.isArray(items)) {
+      return items.filter(Boolean);
+    }
   }
 
   return [];

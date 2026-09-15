@@ -13,7 +13,7 @@ function sleep(ms: number) {
 
 export async function fetchWithBackoff<T>(
   url: string,
-  opts: FetchOptions = {},
+  opts: FetchOptions<"json"> = {},
   { retries = 3, baseDelay = 400, maxDelay = 6000 }: BackoffOptions = {}
 ): Promise<T> {
   let attempt = 0

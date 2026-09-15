@@ -12,6 +12,8 @@ import {
 type Rule = { redirect: { to: string; statusCode: number } };
 const rules: Record<string, Rule> = redirectRouteRules;
 const cmsRoutes = new Set(JSON.parse(readFileSync("cms/routes.json", "utf8")) as string[]);
+const isLegacyGonePath = (path: string) =>
+  LEGACY_GONE_PATHS.some((gonePath) => gonePath === path);
 
 function assertDirectRedirect(from: string, to: string) {
   assert.deepEqual(rules[from], { redirect: { to, statusCode: 301 } });
@@ -120,11 +122,11 @@ test("the Spanish flyer guide redirects to the current guide and is not gone", (
     MANUAL_LEGACY_REDIRECTS[legacyPath],
     "/como-preparar-archivos",
   );
-  assert.equal(LEGACY_GONE_PATHS.includes(legacyPath), false);
+  assert.equal(isLegacyGonePath(legacyPath), false);
 });
 
 test("legacy URLs without an equivalent remain classified as gone", () => {
   const gone = "/product/plantilla-tarjeta-3";
-  assert.ok(LEGACY_GONE_PATHS.includes(gone));
+  assert.ok(isLegacyGonePath(gone));
   assert.equal(rules[gone], undefined);
 });

@@ -1,23 +1,30 @@
 // server/api/auth/callback.get.ts
-import { navigateTo } from '#app'
+
+type GoogleTokenResponse = {
+  access_token?: string;
+  refresh_token?: string;
+  expires_in?: number;
+};
 
 export default defineEventHandler(async (event) => {
   const code = getQuery(event).code as string
   const config = useRuntimeConfig()
+  const clientId = String(config.googleClientId || "")
+  const clientSecret = String(config.googleClientSecret || "")
 
-  const tokenRes = await $fetch('https://oauth2.googleapis.com/token', {
+  const tokenRes = await $fetch<GoogleTokenResponse>('https://oauth2.googleapis.com/token', {
     method: 'POST',
     body: new URLSearchParams({
       code,
-      client_id: config.googleClientId,
-      client_secret: config.googleClientSecret,
+      client_id: clientId,
+      client_secret: clientSecret,
       redirect_uri: 'http://localhost:3000/api/auth/callback',
       grant_type: 'authorization_code'
     }).toString(),
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
   })
 
-  const { access_token, refresh_token, expires_in } = tokenRes as any
+  const { access_token, refresh_token, expires_in = 0 } = tokenRes
 
   // ✅ Guardamos en caché segura (RAM + disco)
   const storage = useStorage()

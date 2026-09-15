@@ -12,6 +12,11 @@ import {
 } from "../server/services/cms/catalog.service";
 import catalog from "../cms/catalog.json";
 
+type CatalogIndexableProduct = {
+  isPublished?: boolean;
+  hidden?: boolean;
+};
+
 test("catalog pagination accepts only canonical positive integers", () => {
   assert.equal(parseCatalogPageQuery(undefined), 1);
   assert.equal(parseCatalogPageQuery("1"), 1);
@@ -70,7 +75,8 @@ test("product legacy slugs resolve to the canonical product URL", () => {
 
 test("every published product is linked from its primary category and back to it", () => {
   const publishedProducts = catalog.products.filter(
-    (product) => product.isPublished !== false && product.hidden !== true,
+    (product: CatalogIndexableProduct) =>
+      product.isPublished !== false && product.hidden !== true,
   );
   const categoryListings = new Map<string, Set<string>>();
 

@@ -89,6 +89,7 @@ export type CmsProduct = CmsBase & {
 
 export type CmsCatalog = {
   generatedAt: string
+  updatedAt?: string
   categories: CmsCategory[]
   products: CmsProduct[]
 

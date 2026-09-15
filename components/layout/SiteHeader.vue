@@ -42,7 +42,6 @@ const props = withDefaults(
   {
     menuTree: () => [],
     menuPending: false,
-    menuError: null,
     showMenu: true,
   }
 );
@@ -54,7 +53,7 @@ const expandedCategories = ref<Set<string>>(new Set());
 const pendingValue = computed(() => Boolean(unref(props.menuPending)));
 
 const errorValue = computed(() => {
-  const v = unref(props.menuError as any);
+  const v = props.menuError == null ? null : unref(props.menuError);
   if (v == null || v === false) return null;
   if (typeof v === "string" && v.trim() === "") return null;
   return v;

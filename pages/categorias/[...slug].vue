@@ -170,6 +170,10 @@ const apiSlug = computed(() =>
   slugParts.value.map((part) => encodeURIComponent(part)).join("/")
 );
 
+const categoryApiPath = computed<string>(
+  () => `/api/cms/category/${apiSlug.value}`
+);
+
 if (!slug.value || isAssetLike(slug.value) || looksLikeProductPath(slug.value)) {
   throw createError({
     statusCode: 404,
@@ -182,7 +186,7 @@ const { data, status, pending, error } =
   await useAsyncData<CategoryDetailPageDto | null>(
     `cms:category:${slug.value}`,
     () =>
-      $fetch(`/api/cms/category/${apiSlug.value}`, {
+      $fetch<CategoryDetailPageDto | null>(categoryApiPath.value, {
        query: {
   includeProducts: 0,
   includeChildren: 1,

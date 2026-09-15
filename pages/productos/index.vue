@@ -15,12 +15,71 @@ import {
   parseCatalogPageQuery,
 } from "~/utils/seo/catalogUrls";
 
+type CatalogProductAttribute = {
+  key?: string;
+  label?: string;
+  value?: string;
+  icon?: string;
+  tone?: string;
+};
+
+type CatalogProductItem = {
+  id?: string | number;
+  slug?: string;
+  path?: string;
+  href?: string;
+  title?: string;
+  description?: string;
+  shortDescription?: string;
+  excerpt?: string;
+  summary?: string;
+  image?:
+    | string
+    | {
+        src?: string;
+        alt?: string;
+      }
+    | null;
+  categoryTitle?: string;
+  categoryLabel?: string;
+  categoryName?: string;
+  tags?: string[];
+  attributes?: CatalogProductAttribute[];
+};
+
+type CatalogCategoryItem = {
+  slug: string;
+  label: string;
+  nav?: string;
+  title?: string;
+  path?: string;
+  count?: number;
+};
+
+type CatalogListResponse = {
+  items: CatalogProductItem[];
+  total: number;
+  totalPages: number;
+  categories: CatalogCategoryItem[];
+};
+
+function getErrorStatusCode(value: unknown) {
+  if (!value || typeof value !== "object" || !("statusCode" in value)) {
+    return 0;
+  }
+
+  const { statusCode } = value;
+
+  return typeof statusCode === "number" ? statusCode : 0;
+}
+
 const route = useRoute();
 const router = useRouter();
 const config = useRuntimeConfig();
 
 const perPage = 12;
 const basePath = "/productos";
+const catalogListApiPath: string = "/api/cms/catalog-list";
 
 const page = computed(() => parseCatalogPageQuery(route.query.page));
 
@@ -55,10 +114,10 @@ const catalogKey = computed(() =>
   ].join(":")
 );
 
-const { data, pending, error, refresh } = await useAsyncData(
+const { data, pending, error, refresh } = await useAsyncData<CatalogListResponse>(
   () => catalogKey.value,
   () =>
-    $fetch("/api/cms/catalog-list", {
+    $fetch<CatalogListResponse>(catalogListApiPath, {
       query: {
         page: page.value,
         perPage,
@@ -77,7 +136,7 @@ const total = computed(() => data.value?.total || 0);
 const totalPages = computed(() => data.value?.totalPages || 1);
 const categories = computed(() => data.value?.categories || []);
 
-if ((error.value as any)?.statusCode === 404) {
+if (getErrorStatusCode(error.value) === 404) {
   throw createError({
     statusCode: 404,
     statusMessage: "Página no encontrada",
@@ -86,7 +145,7 @@ if ((error.value as any)?.statusCode === 404) {
 
 const currentCategory = computed(() =>
   categories.value.find(
-    (item: any) =>
+    (item: CatalogCategoryItem) =>
       String(item?.slug || "")
         .trim()
         .toLowerCase() === selectedCategory.value
