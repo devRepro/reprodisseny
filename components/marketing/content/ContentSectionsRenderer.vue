@@ -188,16 +188,13 @@ function toggleMobileSection(id: string) {
                 </span>
               </h3>
 
-              <p v-if="section.intro" class="product-content-section__intro">
-                {{ section.intro }}
-              </p>
             </div>
 
             <div
               :id="sectionPanelId(section.id)"
               :class="cn('product-content-section__body', section.id === 'details' || isMobileSectionOpen(section.id) ? 'block' : 'hidden lg:block')"
             >
-              <p v-if="section.intro" class="product-content-section__mobile-intro">
+              <p v-if="section.intro" class="product-content-section__intro">
                 {{ section.intro }}
               </p>
 

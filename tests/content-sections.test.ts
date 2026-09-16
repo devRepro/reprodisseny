@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
 import test from "node:test";
 
 import {
@@ -15,6 +16,46 @@ const productOptions = {
 function normalize(section: Record<string, unknown>) {
   return normalizeContentSections([section], productOptions);
 }
+
+function readSource(relativePath: string) {
+  return readFileSync(new URL(`../${relativePath}`, import.meta.url), "utf8");
+}
+
+test("ContentSectionsRenderer renderiza el intro de producto una sola vez", () => {
+  const source = readSource("components/marketing/content/ContentSectionsRenderer.vue");
+  const introBindings = source.match(/{{\s*section\.intro\s*}}/g) || [];
+
+  assert.equal(introBindings.length, 1);
+  assert.doesNotMatch(source, /product-content-section__mobile-intro/);
+  assert.match(source, /<ContentSectionsPanel[\s\S]*:show-intro="false"/);
+});
+
+test("intro y body distintos se conservan sin colapsarse", () => {
+  const result = normalize({
+    id: "details",
+    intro: "Intro editorial propio.",
+    body: "Body **rico** distinto.",
+  });
+  const section = result.sections[0];
+
+  assert.equal(section?.intro, "Intro editorial propio.");
+  assert.match(section?.html || "", /Body <strong>rico<\/strong> distinto\./);
+  assert.doesNotMatch(section?.html || "", /Intro editorial propio/);
+});
+
+test("las secciones estructuradas mantienen intro e items distintos", () => {
+  const result = normalize({
+    id: "materials",
+    materialsData: {
+      intro: "Intro estructurado propio.",
+      materials: [{ title: "PVC", description: "Card estructurada distinta." }],
+    },
+  });
+  const section = result.sections[0];
+
+  assert.equal(section?.intro, "Intro estructurado propio.");
+  assert.equal(section?.groups[0]?.items[0]?.description, "Card estructurada distinta.");
+});
 
 test("MaterialsMd acepta JSON estructurado válido", () => {
   const result = normalize({

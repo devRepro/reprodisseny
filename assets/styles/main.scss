@@ -761,11 +761,7 @@
   }
 
   .product-content-section__intro {
-    @apply mb-0 mt-2 hidden max-w-[64ch] text-body-s leading-6 text-muted-foreground lg:block;
-  }
-
-  .product-content-section__mobile-intro {
-    @apply mb-4 max-w-[64ch] text-body-s leading-6 text-muted-foreground lg:hidden;
+    @apply mb-4 max-w-[64ch] text-body-s leading-6 text-muted-foreground;
   }
 
   .product-content-section__accordion-button {
