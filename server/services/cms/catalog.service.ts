@@ -3,6 +3,7 @@ import { normalizeCmsMediaSrc } from "~/utils/cmsMedia";
 import type { SectionViewModel, TechnicalHighlight } from "~/types/contentSections";
 import { normalizeTechnicalHighlights } from "~/utils/content/technicalHighlights";
 import { normalizeContentSections } from "~/utils/content/sectionViewModel";
+import { resolveMigratedSeoPath } from "~/shared/seo/routeMigrations";
 
 import {
   getCategoryDetailGalleryBySlug,
@@ -990,6 +991,10 @@ function productPathOf(product: CatalogProduct) {
   return normalizeProductPath(product.path || product.slug);
 }
 
+function productInternalPathOf(product: CatalogProduct) {
+  return resolveMigratedSeoPath(productPathOf(product));
+}
+
 function categoryPublicSlugOf(category: CatalogCategory) {
   return getLastPathSegment(categoryPathOf(category)) || normalizeSlug(category.slug);
 }
@@ -1195,7 +1200,7 @@ function resolveRelatedProductItems(
 
       if (!relatedProduct) return items;
 
-      const path = productPathOf(relatedProduct);
+      const path = productInternalPathOf(relatedProduct);
       if (!path || path === excludedPath || seenPaths.has(path)) return items;
 
       seenPaths.add(path);
@@ -1243,7 +1248,7 @@ function resolveProductRelatedItems(
 
   const fallback = products
     .filter((candidate) => {
-      const candidatePath = productPathOf(candidate);
+      const candidatePath = productInternalPathOf(candidate);
       if (!candidatePath || seenPaths.has(candidatePath)) return false;
 
       const categorySlugs = [
@@ -1258,7 +1263,7 @@ function resolveProductRelatedItems(
     .slice(0, Math.max(0, limit - explicit.length))
     .map((candidate) => ({
       slug: productPublicSlugOf(candidate),
-      path: productPathOf(candidate),
+      path: productInternalPathOf(candidate),
       title: String(candidate.title || "").trim(),
       description:
         String(candidate.shortDescription || candidate.description || "").trim() ||
@@ -1533,7 +1538,7 @@ function getDirectProductsOfCategory(
     .slice(0, safeLimit)
     .map((product) => ({
       slug: productPublicSlugOf(product),
-      path: productPathOf(product),
+      path: productInternalPathOf(product),
       title: product.title,
       description: product.description || product.shortDescription || "",
       image: productImageDtoOf(product.image, product.title),
@@ -1885,7 +1890,7 @@ function toNavProductItem(product: CatalogProduct): NavProductItem {
     id: String(product.id ?? product.slug),
     slug: productPublicSlugOf(product),
     title: product.title,
-    path: productPathOf(product),
+    path: productInternalPathOf(product),
     order: Number.isFinite(product.order) ? Number(product.order) : DEFAULT_SORT_ORDER,
     image: productImageDtoOf(product.image, product.title),
   };
@@ -2286,7 +2291,7 @@ export function getCategoryProductsBySlug(
     .map((product) => ({
       id: String(product.id ?? product.slug),
       slug: productPublicSlugOf(product),
-      path: productPathOf(product),
+      path: productInternalPathOf(product),
       title: product.title,
       description: product.description || product.shortDescription || "",
       image: productImageDtoOf(product.image, product.title),

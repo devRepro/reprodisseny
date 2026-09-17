@@ -4,23 +4,18 @@
       <HomeImageStrip :images="stripImages" />
     </HomeHero>
 
-    <SolarProtectionHeroBanner
-      title="Láminas solares para cristales"
-      image-src="/img/banners/sala_reunions-960.webp"
-      image-srcset="/img/banners/sala_reunions-640.webp 640w, /img/banners/sala_reunions-960.webp 960w, /img/banners/sala_reunions-1440.webp 1440w"
-      image-avif-srcset="/img/banners/sala_reunions-640.avif 640w, /img/banners/sala_reunions-960.avif 960w, /img/banners/sala_reunions-1440.avif 1440w"
-      image-sizes="(min-width: 1024px) 42vw, 100vw"
-      :image-width="1440"
-      :image-height="1313"
+    <HomeCampaignBanner
+      title="Calendarios de empresa para 2027"
+      description="Personaliza tus calendarios con tu imagen de marca y tenlos listos con tiempo para empezar 2027 sin prisas de última hora."
+      image-src="https://webcms.blob.core.windows.net/media/landing/calendarios/hero.webp"
+      image-sizes="(min-width: 1024px) 34vw, 100vw"
+      :image-width="1667"
+      :image-height="1244"
+      image-alt="Calendarios corporativos personalizados impresos para empresas"
       eager
-      :bullets="[
-        'Reduce calor y reflejos sin obras',
-        'Instalación profesional en Barcelona',
-        'Presupuesto en menos de 24 h laborales',
-      ]"
-      primary-to="/lp/laminas-solares#quote-form"
-      secondary-label="Ver láminas solares"
-      secondary-to="/lp/laminas-solares"
+      :benefits="calendarBannerBenefits"
+      primary-label="Ver calendarios 2027"
+      primary-to="/calendarios/calendarios-corporativos-2027#quote-form"
     />
 
     <MarketingProductCategoryGrid
@@ -62,7 +57,7 @@ import MarketingProductCategoryGrid from "@/components/marketing/ProductCategory
 import MarketingProcessSection from "@/components/marketing/ProcessSection.vue";
 import ClientLogosBand from "@/components/marketing/ClientLogosBand.vue";
 import GetFiles from "@/components/marketing/GetFiles.vue";
-import SolarProtectionHeroBanner from "@/components/shared/banner/SolarProtectionHeroBanner.vue";
+import HomeCampaignBanner from "@/components/shared/banner/HomeCampaignBanner.vue";
 
 import { useHomeCategoriesGrid } from "@/composables/useHomeCategoriesGrid";
 
@@ -150,6 +145,24 @@ useHead({
     },
   ],
 });
+
+const calendarBannerBenefits = [
+  {
+    icon: "calendar" as const,
+    title: "4 formatos",
+    description: "De mesa y de pared",
+  },
+  {
+    icon: "design" as const,
+    title: "Diseño a medida, gratis",
+    description: "Adaptado a tu empresa",
+  },
+  {
+    icon: "production" as const,
+    title: "Producción propia",
+    description: "En Barcelona",
+  },
+];
 
 const stripImages = [
   {

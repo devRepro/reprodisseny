@@ -154,6 +154,223 @@
     @apply border-t border-border/50 bg-background;
   }
 
+  .campaign-banner {
+    @apply relative w-full overflow-hidden text-primary-foreground;
+    background-color: hsl(var(--brand-base-dark));
+  }
+
+  .campaign-banner__grid {
+    @apply grid;
+    align-items: stretch;
+  }
+
+  .campaign-banner__media {
+    @apply relative min-h-0 overflow-hidden;
+    aspect-ratio: 4 / 3;
+    background-color: hsl(var(--brand-base-dark));
+  }
+
+  .campaign-banner__picture {
+    @apply block h-full w-full;
+  }
+
+  .campaign-banner__image {
+    @apply h-full w-full object-cover;
+    object-position: 48% center;
+  }
+
+  .campaign-banner__content {
+    @apply grid px-6 py-8 sm:px-10 md:py-10;
+    gap: 1.5rem;
+    background-color: hsl(var(--brand-base-dark));
+  }
+
+  .campaign-banner__main {
+    @apply min-w-0;
+  }
+
+  .campaign-banner__title {
+    @apply section-title text-primary-foreground;
+    max-width: 100%;
+    font-size: clamp(1.625rem, 1.42rem + 0.85vw, 1.875rem);
+    line-height: 1.14;
+    font-weight: var(--weight-h1);
+    letter-spacing: 0;
+  }
+
+  .campaign-banner__description {
+    margin-top: 1rem;
+    max-width: 56rem;
+    color: hsl(var(--primary-foreground) / 0.9);
+    font-size: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
+    line-height: 1.5;
+    font-weight: var(--weight-body);
+  }
+
+  .campaign-banner__cta.btn,
+  .campaign-banner__cta.btn.btn-secondary {
+    margin-top: 1.5rem;
+    min-height: 2.75rem;
+    padding: 0 1.2rem;
+    border-color: hsl(var(--brand-yellow));
+    background-color: hsl(var(--brand-yellow));
+    color: hsl(var(--brand-ink-dark));
+    font-size: var(--font-body);
+    line-height: 1.2;
+    font-weight: var(--weight-body-bold);
+  }
+
+  .campaign-banner__cta.btn:hover,
+  .campaign-banner__cta.btn.btn-secondary:hover {
+    border-color: hsl(var(--brand-yellow-hover));
+    background-color: hsl(var(--brand-yellow-hover));
+    color: hsl(var(--brand-ink-dark));
+  }
+
+  .campaign-banner__benefits {
+    @apply grid;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid hsl(var(--primary-foreground) / 0.22);
+  }
+
+  .campaign-banner__benefit {
+    @apply flex min-w-0 items-start;
+    gap: 0.75rem;
+  }
+
+  .campaign-banner__benefit-icon {
+    @apply flex shrink-0 items-center justify-center text-primary-foreground;
+    width: 1.625rem;
+    height: 1.625rem;
+  }
+
+  .campaign-banner__benefit-icon svg {
+    width: 100%;
+    height: 100%;
+    stroke-width: 1.8;
+  }
+
+  .campaign-banner__benefit-copy {
+    @apply grid min-w-0;
+    gap: 0.15rem;
+  }
+
+  .campaign-banner__benefit-title {
+    color: hsl(var(--primary-foreground));
+    font-size: clamp(1rem, 0.98rem + 0.1vw, 1.0625rem);
+    line-height: 1.25;
+    font-weight: var(--weight-h3);
+  }
+
+  .campaign-banner__benefit-description {
+    color: hsl(var(--primary-foreground) / 0.86);
+    font-size: clamp(0.875rem, 0.85rem + 0.12vw, 0.9375rem);
+    line-height: 1.35;
+    font-weight: var(--weight-body);
+  }
+
+  @screen md {
+    .campaign-banner__media {
+      aspect-ratio: 16 / 9;
+    }
+
+    .campaign-banner__benefits {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+  }
+
+  @screen lg {
+    .campaign-banner__content {
+      align-content: center;
+      padding: 2rem 2.25rem 2rem 2.5rem;
+    }
+
+    .campaign-banner__title {
+      font-size: clamp(2.125rem, 2.35vw, 2.65rem);
+      line-height: 1.1;
+    }
+
+    .campaign-banner__description {
+      margin-top: 1.125rem;
+      font-size: clamp(1.125rem, 1.2vw, 1.3125rem);
+      line-height: 1.45;
+    }
+
+    .campaign-banner__cta.btn,
+    .campaign-banner__cta.btn.btn-secondary {
+      margin-top: 1.75rem;
+      min-height: 3rem;
+      padding: 0 1.35rem;
+      font-size: clamp(1rem, 0.95rem + 0.15vw, 1.125rem);
+    }
+
+    .campaign-banner__benefits {
+      padding-top: 1.6rem;
+    }
+
+    .campaign-banner__benefit-icon {
+      width: 1.75rem;
+      height: 1.75rem;
+    }
+  }
+
+  @screen xl {
+    .campaign-banner__grid {
+      grid-template-columns: minmax(22rem, 27%) minmax(0, 1fr);
+    }
+
+    .campaign-banner__media {
+      aspect-ratio: auto;
+    }
+
+    .campaign-banner__content {
+      grid-template-columns: minmax(0, 1fr) minmax(16.5rem, 0.38fr);
+      align-items: stretch;
+      gap: 2rem;
+      padding: 2rem 2.75rem 2rem 2.5rem;
+    }
+
+    .campaign-banner__main {
+      align-self: center;
+    }
+
+    .campaign-banner__benefits {
+      grid-template-columns: 1fr;
+      align-self: stretch;
+      align-content: space-between;
+      gap: 1.2rem;
+      padding: 1.35rem 0 1.35rem 2rem;
+      border-top: 0;
+      border-left: 1px solid hsl(var(--primary-foreground) / 0.34);
+    }
+
+    .campaign-banner__benefit {
+      gap: 0.9rem;
+    }
+
+    .campaign-banner__benefit-icon {
+      width: clamp(1.75rem, 1.55vw, 2rem);
+      height: clamp(1.75rem, 1.55vw, 2rem);
+    }
+
+    .campaign-banner__benefit-title {
+      font-size: clamp(1rem, 0.9vw, 1.125rem);
+      line-height: 1.25;
+    }
+
+    .campaign-banner__benefit-description {
+      font-size: clamp(0.875rem, 0.75vw, 1rem);
+      line-height: 1.35;
+    }
+  }
+
+  @media (min-width: 90rem) {
+    .campaign-banner__title {
+      white-space: nowrap;
+    }
+  }
   .menubar {
     @apply flex w-full justify-center gap-4;
     background-color: hsl(var(--menubar-bg));
@@ -2642,3 +2859,4 @@
   }
 }
 }
+

@@ -33,8 +33,8 @@ test("bloc notes legacy base and estimate variant redirect directly", () => {
 
 test("approved legacy base URLs redirect directly like their estimate variants", () => {
   const approvedRedirects = {
-    "/product/calendario-de-mesa-7-21x10": "/productos/calendarios-personalizados",
-    "/product/calendario-pared-espiral": "/productos/calendarios-personalizados",
+    "/product/calendario-de-mesa-7-21x10": "/calendarios/calendarios-corporativos-2027",
+    "/product/calendario-pared-espiral": "/calendarios/calendarios-corporativos-2027",
     "/product/imprimir-tarjeta-de-citas-presupuesto": "/productos/tarjetas-de-visita-personalizadas",
   };
 

@@ -5,6 +5,7 @@ import type { SitemapUrlInput } from "#sitemap/types";
 import routes from "~/cms/routes.json";
 import catalog from "~/cms/catalog.json";
 import { MANUAL_NOINDEX_PATHS } from "~/shared/seo/legacyRedirects";
+import { CALENDAR_PERSONALIZADOS_OLD_PRODUCT_PATH } from "~/shared/seo/routeMigrations";
 
 const SITE_URL = "https://reprodisseny.com";
 const MEDIA_BLOB_ORIGIN = "https://webcms.blob.core.windows.net";
@@ -13,6 +14,7 @@ const MEDIA_CDN_ORIGIN = "https://media.reprodisseny.com";
 const excludedExactPaths = new Set([
   ...Object.keys(MANUAL_NOINDEX_PATHS),
   "/promo-test",
+  CALENDAR_PERSONALIZADOS_OLD_PRODUCT_PATH,
 ]);
 
 const excludedPrefixes = [

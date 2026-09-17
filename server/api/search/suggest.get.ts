@@ -1,5 +1,6 @@
 import { defineEventHandler, getQuery } from "h3";
-import { getCmsCatalog } from "~/server/utils/cmsCatalog.server";
+import { getCmsCatalog } from "~/server/utils/cmsCatalog.server"
+import { resolveMigratedSeoPath } from "~/shared/seo/routeMigrations";
 
 type Kind = "producto" | "categoria";
 
@@ -109,7 +110,7 @@ export default defineEventHandler(async (event) => {
           id: s(product?.id || product?.slug || product?.path),
           kind: "producto" as const,
           title,
-          href: s(product?.path || `/productos/${product?.slug}`),
+          href: resolveMigratedSeoPath(s(product?.path || `/productos/${product?.slug}`)),
           image:
             (typeof product?.image === "string"
               ? product.image

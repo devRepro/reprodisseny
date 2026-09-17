@@ -2,6 +2,10 @@
 import { defineNuxtConfig } from "nuxt/config";
 import { redirectRouteRules } from "./redirect-rules.generated";
 import { MANUAL_NOINDEX_PATHS } from "./shared/seo/legacyRedirects";
+import {
+  CALENDAR_2027_LANDING_URL,
+  CALENDAR_PERSONALIZADOS_OLD_PRODUCT_PATH,
+} from "./shared/seo/routeMigrations";
 import { parseExplicitBoolean } from "./utils/explicitBoolean";
 import {
   createDeferredGtmLoaderScript,
@@ -495,6 +499,13 @@ link: [
   },
 
   ...redirectRouteRules,
+
+  [CALENDAR_PERSONALIZADOS_OLD_PRODUCT_PATH]: {
+    redirect: {
+      to: CALENDAR_2027_LANDING_URL,
+      statusCode: 301,
+    },
+  },
 },
 
   hooks: {

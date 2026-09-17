@@ -11,6 +11,7 @@ import {
   getProductDetailBySlug,
 } from "../server/services/cms/catalog.service";
 import catalog from "../cms/catalog.json";
+import { resolveMigratedSeoPath } from "../shared/seo/routeMigrations";
 
 type CatalogIndexableProduct = {
   isPublished?: boolean;
@@ -61,7 +62,9 @@ test("product details expose a canonical category path and reliable related prod
   assert.ok(product?.relatedProducts.length);
   assert.ok(
     product?.relatedProducts.every(
-      (related) => related.path !== product.path && related.path.startsWith("/productos/"),
+      (related) =>
+        related.path !== product.path &&
+        (related.path.startsWith("/productos/") || related.path.startsWith("/calendarios/")),
     ),
   );
 });
@@ -99,7 +102,7 @@ test("every published product is linked from its primary category and back to it
     }
 
     assert.ok(
-      categoryListings.get(categorySlug)?.has(product.path),
+      categoryListings.get(categorySlug)?.has(resolveMigratedSeoPath(product.path)),
       `${product.path}: no enlazado desde ${categorySlug}`,
     );
 

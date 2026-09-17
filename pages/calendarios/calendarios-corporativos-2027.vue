@@ -44,9 +44,9 @@ type GuaranteeCard = {
 const selectedModelId = ref("");
 
 const pageUrl = "https://reprodisseny.com/calendarios/calendarios-corporativos-2027";
-const pageTitle = "Calendarios corporativos personalizados en Barcelona | Repro Disseny";
+const pageTitle = "Calendarios personalizados para empresas 2027 | Repro Disseny";
 const pageDescription =
-  "Diseño e impresión de calendarios corporativos personalizados en Barcelona con producción propia, asesoramiento incluido y acabados profesionales.";
+  "Diseño e impresión de calendarios personalizados para empresas: pared y sobremesa, marca y fechas corporativas. Pide presupuesto para 2027.";
 
 const config = useRuntimeConfig();
 
@@ -167,6 +167,42 @@ const reasons = [
   "Un único interlocutor de principio a fin",
 ];
 
+
+const seoSupportGroups = [
+  {
+    title: "Formatos según el uso",
+    items: [
+      "Calendarios de pared para oficinas, recepciones y puntos de venta.",
+      "Calendarios de sobremesa triangulares o con Wire-O para mesas de trabajo.",
+      "Diseños anuales o mensuales según la planificación de tu campaña.",
+    ],
+  },
+  {
+    title: "Materiales y acabados",
+    items: [
+      "Papeles estucados mate o brillo, offset y opciones recicladas según proyecto.",
+      "Wire-O, grapado, perforación y bases rígidas para cada formato.",
+      "Laminados protectores y acabados pensados para uso continuado durante el año.",
+    ],
+  },
+  {
+    title: "Personalización corporativa",
+    items: [
+      "Logotipo, colores, imágenes, mensajes, datos de contacto y códigos QR.",
+      "Festivos, campañas, lanzamientos, eventos y fechas importantes de empresa.",
+      "Versiones por sede, departamento, equipo comercial o red de puntos de venta.",
+    ],
+  },
+  {
+    title: "Archivo y producción",
+    items: [
+      "Revisión de PDF, sangrado, resolución y márgenes de seguridad antes de imprimir.",
+      "Comprobación de meses, fechas, teléfonos, direcciones y QR cuando procede.",
+      "Asesoramiento para ajustar formato, cantidad y plazo antes del presupuesto.",
+    ],
+  },
+];
+
 const clientLogos = [
   { src: "/img/customers/vallhebron.svg", alt: "Vall d'Hebron" },
   { src: "/img/customers/fcf.svg", alt: "FCF" },
@@ -224,7 +260,10 @@ useSeoMeta({
   ogImage: calendarImage.src,
   ogUrl: pageUrl,
   twitterCard: "summary_large_image",
-  robots: "index,follow",
+  twitterTitle: pageTitle,
+  twitterDescription: pageDescription,
+  twitterImage: calendarImage.src,
+  robots: "index, follow",
 });
 
 useHead({
@@ -267,7 +306,7 @@ useHead({
             "@type": "Service",
             "@id": `${pageUrl}#service`,
             url: pageUrl,
-            name: "Calendarios corporativos personalizados",
+            name: "Calendarios personalizados para empresas 2027",
             description: pageDescription,
             serviceType: "Diseño e impresión de calendarios corporativos personalizados",
             areaServed: {
@@ -280,6 +319,18 @@ useHead({
             mainEntityOfPage: {
               "@id": `${pageUrl}#webpage`,
             },
+          },
+          {
+            "@type": "FAQPage",
+            "@id": `${pageUrl}#faq`,
+            mainEntity: faqs.map((item) => ({
+              "@type": "Question",
+              name: item.question,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: item.answer,
+              },
+            })),
           },
         ],
       }),
@@ -444,6 +495,35 @@ function selectCalendarModel(modelId: string) {
           variant="calendar"
           class="calendar-process__steps"
         />
+      </div>
+    </section>
+
+    <section class="calendar-seo-support" aria-labelledby="calendar-seo-support-title">
+      <div class="container-content calendar-container">
+        <div class="calendar-seo-support__intro">
+          <h2 id="calendar-seo-support-title" class="calendar-seo-support__title section-title section-title--section">
+            Calendarios personalizados para empresas, listos para tu campaña 2027
+          </h2>
+          <p class="calendar-seo-support__description text-body">
+            Además de los cuatro modelos principales, ajustamos materiales, acabados, contenido corporativo y preparación de archivos para que el calendario funcione como regalo de empresa, herramienta de oficina o soporte visible en puntos de venta.
+          </p>
+        </div>
+
+        <div class="calendar-seo-support__grid">
+          <article
+            v-for="group in seoSupportGroups"
+            :key="group.title"
+            class="calendar-seo-support__group"
+          >
+            <h3 class="calendar-seo-support__group-title text-h4">{{ group.title }}</h3>
+            <ul class="calendar-seo-support__list" role="list">
+              <li v-for="item in group.items" :key="item" class="calendar-seo-support__item text-body-s">
+                <Check class="calendar-seo-support__check" aria-hidden="true" />
+                <span>{{ item }}</span>
+              </li>
+            </ul>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -767,6 +847,62 @@ function selectCalendarModel(modelId: string) {
   margin-top: 28px;
 }
 
+.calendar-seo-support {
+  background: hsl(var(--background));
+  padding: 70px 0 76px;
+}
+
+.calendar-seo-support__intro {
+  max-width: 860px;
+}
+
+.calendar-seo-support__title {
+  color: hsl(var(--foreground));
+}
+
+.calendar-seo-support__description {
+  margin-top: 18px;
+  color: hsl(var(--muted-foreground));
+}
+
+.calendar-seo-support__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  margin-top: 34px;
+  border-top: 1px solid hsl(var(--border));
+  padding-top: 30px;
+}
+
+.calendar-seo-support__group {
+  min-width: 0;
+}
+
+.calendar-seo-support__group-title {
+  color: hsl(var(--foreground));
+}
+
+.calendar-seo-support__list {
+  display: grid;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.calendar-seo-support__item {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  gap: 10px;
+  color: hsl(var(--muted-foreground));
+}
+
+.calendar-seo-support__check {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  color: hsl(var(--primary));
+  stroke-width: 2;
+}
+
 .calendar-why {
   background: hsl(var(--background));
   padding: 72px 0 76px;
@@ -857,7 +993,8 @@ function selectCalendarModel(modelId: string) {
   }
 
   .calendar-icon-grid,
-  .calendar-models-grid {
+  .calendar-models-grid,
+  .calendar-seo-support__grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 

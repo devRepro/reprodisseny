@@ -1,5 +1,6 @@
 import { defineEventHandler, getQuery, createError } from "h3"
 import { getCmsCatalog } from "~/server/utils/cmsCatalog.server"
+import { resolveMigratedSeoPath } from "~/shared/seo/routeMigrations"
 
 type Kind = "producto" | "categoria"
 type SuggestItem = {
@@ -93,7 +94,7 @@ export default defineEventHandler(async (event) => {
           id: s(p.id || p.slug || p.path),
           kind: "producto" as const,
           title,
-          href: s(p.path || `/productos/${p.slug}`),
+          href: resolveMigratedSeoPath(s(p.path || `/productos/${p.slug}`)),
           image: (typeof p.image === "string" ? p.image : p.image?.src) || null,
         },
       }

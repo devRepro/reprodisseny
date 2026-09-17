@@ -83,15 +83,16 @@ test("Home image strip renders responsive images without competing high priority
   assert.doesNotMatch(html, /fetchpriority="high"/);
 });
 
-test("Home marks the current solar banner as the only image-priority owner", () => {
+test("Home marks the calendar banner as the only image-priority owner", () => {
+  const source = readSource("pages/index.vue");
   const ast = parseTemplate(readTemplate("pages/index.vue"));
-  const elements: Array<{ tag: string; props: Array<{ type: number; name?: string }> }> = [];
+  const elements: Array<{ tag: string; props: Array<{ type: number; name?: string; value?: { content?: string } }> }> = [];
 
   function visit(node: { type: number; children?: unknown[]; tag?: string; props?: unknown[] }) {
     if (node.type === NodeTypes.ELEMENT) {
       elements.push({
         tag: node.tag || "",
-        props: (node.props || []) as Array<{ type: number; name?: string }>,
+        props: (node.props || []) as Array<{ type: number; name?: string; value?: { content?: string } }>,
       });
     }
 
@@ -104,11 +105,23 @@ test("Home marks the current solar banner as the only image-priority owner", () 
 
   visit(ast);
 
-  const banner = elements.find((element) => element.tag === "SolarProtectionHeroBanner");
-  assert.ok(banner, "SolarProtectionHeroBanner must remain on Home");
+  assert.doesNotMatch(source, /Láminas solares|laminas-solares/);
+  assert.match(source, /Calendarios de empresa para 2027/);
+
+  const banner = elements.find((element) => element.tag === "HomeCampaignBanner");
+  assert.ok(banner, "HomeCampaignBanner must remain on Home");
   assert.ok(
     banner.props.some((prop) => prop.type === NodeTypes.ATTRIBUTE && prop.name === "eager"),
-    "the measured Home LCP must be eagerly loaded",
+    "the measured Home campaign image must be eagerly loaded",
+  );
+  assert.ok(
+    banner.props.some(
+      (prop) =>
+        prop.type === NodeTypes.ATTRIBUTE &&
+        prop.name === "primary-to" &&
+        prop.value?.content === "/calendarios/calendarios-corporativos-2027#quote-form",
+    ),
+    "the calendar banner CTA must point to the existing quote-form anchor",
   );
 });
 
