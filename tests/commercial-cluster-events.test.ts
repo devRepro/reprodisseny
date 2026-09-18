@@ -19,6 +19,36 @@ type ItemListSchema = {
 };
 
 const routeSet = new Set(routes as string[]);
+function collectEventClusterCopy(cluster: NonNullable<ReturnType<typeof getCommercialClusterConfig>>): string[] {
+  return [
+    ...cluster.facts.flatMap((item) => [item.label, item.value]),
+    cluster.intro.eyebrow,
+    cluster.intro.title,
+    cluster.intro.description,
+    ...cluster.products.flatMap((product) => [
+      product.title,
+      product.description,
+      product.image.alt,
+    ]),
+    ...cluster.solutions.flatMap((solution) => [
+      solution.eyebrow,
+      solution.title,
+      solution.description,
+    ]),
+    cluster.project.eyebrow,
+    cluster.project.title,
+    cluster.project.description,
+    ...cluster.project.points,
+    cluster.useCases.eyebrow,
+    cluster.useCases.title,
+    cluster.useCases.description,
+    ...cluster.useCases.items.flatMap((item) => [item.title, item.description]),
+    cluster.finalCta.eyebrow,
+    cluster.finalCta.title,
+    cluster.finalCta.description,
+    cluster.finalCta.primaryCta.label,
+  ];
+}
 
 test("commercial cluster is strictly opt-in for eventos", () => {
   assert.ok(getCommercialClusterConfig("eventos"));
@@ -60,6 +90,33 @@ test("eventos cluster links only to existing canonical product URLs", () => {
   }
 });
 
+
+test("eventos commercial copy keeps Spanish accents and normalized terms", () => {
+  const cluster = getCommercialClusterConfig("eventos");
+  assert.ok(cluster);
+
+  const visibleCopy = collectEventClusterCopy(cluster).join("\n");
+
+  for (const typo of [
+    /\bidentificacion\b/i,
+    /\bacreditacion\b/i,
+    /funciónen/i,
+    /presentaciónes/i,
+    /promociónes/i,
+    /recepciónes/i,
+    /formaciónes/i,
+    /\bsenaletica\b/i,
+    /\bfacil\b/i,
+    /\brapido\b/i,
+    /\bestandar\b/i,
+    /\btransito\b/i,
+    /\bcombinacion\b/i,
+    /Documentacion/,
+    /Impresion/,
+  ]) {
+    assert.equal(typo.test(visibleCopy), false, `${typo} should not appear in visible copy`);
+  }
+});
 test("eventos keeps canonical category data, pagination and ItemList semantics", () => {
   const category = getCategoryDetailByPath("/categorias/eventos");
   assert.ok(category);

@@ -197,18 +197,18 @@
   .campaign-banner__title {
     @apply section-title text-primary-foreground;
     max-width: 100%;
-    font-size: clamp(1.625rem, 1.42rem + 0.85vw, 1.875rem);
-    line-height: 1.14;
-    font-weight: var(--weight-h1);
-    letter-spacing: 0;
+    font-size: clamp(var(--font-h2), 4.5vw, calc(var(--font-h2) + 0.125rem));
+    line-height: var(--line-h2);
+    font-weight: var(--weight-h2);
+    letter-spacing: var(--tracking-heading);
   }
 
   .campaign-banner__description {
     margin-top: 1rem;
     max-width: 56rem;
     color: hsl(var(--primary-foreground) / 0.9);
-    font-size: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
-    line-height: 1.5;
+    font-size: var(--font-body);
+    line-height: var(--line-body);
     font-weight: var(--weight-body);
   }
 
@@ -221,8 +221,8 @@
     background-color: hsl(var(--brand-yellow));
     color: hsl(var(--brand-ink-dark));
     font-size: var(--font-body);
-    line-height: 1.2;
-    font-weight: var(--weight-body-bold);
+    line-height: var(--line-body);
+    font-weight: var(--weight-label);
   }
 
   .campaign-banner__cta.btn:hover,
@@ -263,16 +263,16 @@
 
   .campaign-banner__benefit-title {
     color: hsl(var(--primary-foreground));
-    font-size: clamp(1rem, 0.98rem + 0.1vw, 1.0625rem);
-    line-height: 1.25;
-    font-weight: var(--weight-h3);
+    font-size: var(--font-body);
+    line-height: var(--line-body);
+    font-weight: var(--weight-body-bold);
   }
 
   .campaign-banner__benefit-description {
     color: hsl(var(--primary-foreground) / 0.86);
-    font-size: clamp(0.875rem, 0.85rem + 0.12vw, 0.9375rem);
-    line-height: 1.35;
-    font-weight: var(--weight-body);
+    font-size: var(--font-body-s);
+    line-height: var(--line-body-s);
+    font-weight: var(--weight-body-s);
   }
 
   @screen md {
@@ -293,14 +293,14 @@
     }
 
     .campaign-banner__title {
-      font-size: clamp(2.125rem, 2.35vw, 2.65rem);
-      line-height: 1.1;
+      font-size: clamp(calc(var(--font-h2) + 0.125rem), 2.1vw, var(--font-h1));
+      line-height: var(--line-h2);
     }
 
     .campaign-banner__description {
       margin-top: 1.125rem;
-      font-size: clamp(1.125rem, 1.2vw, 1.3125rem);
-      line-height: 1.45;
+      font-size: clamp(var(--font-body), 1.15vw, 1.125rem);
+      line-height: var(--line-body);
     }
 
     .campaign-banner__cta.btn,
@@ -308,7 +308,7 @@
       margin-top: 1.75rem;
       min-height: 3rem;
       padding: 0 1.35rem;
-      font-size: clamp(1rem, 0.95rem + 0.15vw, 1.125rem);
+      font-size: var(--font-body);
     }
 
     .campaign-banner__benefits {
@@ -361,13 +361,13 @@
     }
 
     .campaign-banner__benefit-title {
-      font-size: clamp(1rem, 0.9vw, 1.125rem);
-      line-height: 1.25;
+      font-size: var(--font-body);
+      line-height: var(--line-body);
     }
 
     .campaign-banner__benefit-description {
-      font-size: clamp(0.875rem, 0.75vw, 1rem);
-      line-height: 1.35;
+      font-size: var(--font-body-s);
+      line-height: var(--line-body-s);
     }
   }
 

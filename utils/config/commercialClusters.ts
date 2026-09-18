@@ -105,7 +105,7 @@ const EVENTOS_PRODUCTS: CommercialClusterProduct[] = [
     title: "Entradas personalizadas para eventos",
     path: "/productos/entradas-personalizadas",
     description:
-      "Tickets impresos con opciones de numeración, microcorte, talon desprendible, datos variables y códigos QR o de barras.",
+      "Tickets impresos con opciones de numeración, microcorte, talón desprendible, datos variables y códigos QR o de barras.",
     image: {
       src: "https://webcms.blob.core.windows.net/media/product/eventos/entradas.webp",
       alt: "Entradas personalizadas impresas para eventos, espectáculos y control de accesos",
@@ -131,10 +131,10 @@ const EVENTOS_PRODUCTS: CommercialClusterProduct[] = [
     title: "Photocall personalizado",
     path: "/productos/photocall-personalizado",
     description:
-      "Fondos personalizados para puntos de foto, prensa, redes y presentaciónes con materiales y sistemas pensados para montaje profesional.",
+      "Fondos personalizados para puntos de foto, prensa, redes y presentaciones con materiales y sistemas pensados para montaje profesional.",
     image: {
       src: "https://webcms.blob.core.windows.net/media/product/expositores/photocall.webp",
-      alt: "Photocall personalizado impreso para eventos, presentaciónes y campañas de marca",
+      alt: "Photocall personalizado impreso para eventos, presentaciones y campañas de marca",
       width: 1200,
       height: 1200,
     },
@@ -144,10 +144,10 @@ const EVENTOS_PRODUCTS: CommercialClusterProduct[] = [
     title: "Roll Up personalizado",
     path: "/productos/roll-up-personalizado",
     description:
-      "Expositor enrollable para ferias, eventos, recepciónes y puntos de información, facil de transportar y montar.",
+      "Expositor enrollable para ferias, eventos, recepciones y puntos de información, fácil de transportar y montar.",
     image: {
       src: "https://webcms.blob.core.windows.net/media/product/expositores/roll-up.webp",
-      alt: "Roll up personalizado impreso para ferias, eventos y presentaciónes corporativas",
+      alt: "Roll up personalizado impreso para ferias, eventos y presentaciones corporativas",
       width: 1200,
       height: 1200,
     },
@@ -157,10 +157,10 @@ const EVENTOS_PRODUCTS: CommercialClusterProduct[] = [
     title: "X-Banner personalizado",
     path: "/productos/xbanner-personalizado",
     description:
-      "Soporte ligero para promociónes, puntos de información, ferias y campañas temporales con montaje rapido.",
+      "Soporte ligero para promociones, puntos de información, ferias y campañas temporales con montaje rápido.",
     image: {
       src: "https://webcms.blob.core.windows.net/media/product/expositores/xbanner.webp",
-      alt: "X-Banner personalizado con gráfica impresa para ferias, tiendas y presentaciónes",
+      alt: "X-Banner personalizado con gráfica impresa para ferias, tiendas y presentaciones",
       width: 1200,
       height: 1200,
     },
@@ -170,10 +170,10 @@ const EVENTOS_PRODUCTS: CommercialClusterProduct[] = [
     title: "Displays de mesa personalizados",
     path: "/productos/displays-de-mesa-personalizados",
     description:
-      "Displays para mostradores, recepciónes, mesas de acreditacion, promociónes y códigos QR.",
+      "Displays para mostradores, recepciones, mesas de acreditación, promociones y códigos QR.",
     image: {
       src: "https://webcms.blob.core.windows.net/media/product/expositores/display.webp",
-      alt: "Displays de mesa personalizados para mostradores, promociónes y punto de venta",
+      alt: "Displays de mesa personalizados para mostradores, promociones y punto de venta",
       width: 1200,
       height: 1200,
     },
@@ -196,7 +196,7 @@ const EVENTOS_PRODUCTS: CommercialClusterProduct[] = [
     title: "Carteles personalizados en gran formato",
     path: "/productos/carteles-personalizados-gran-formato",
     description:
-      "Cartelería grande para campañas, eventos, retail y comunicación corporativa con formatos estandar o a medida.",
+      "Cartelería grande para campañas, eventos, retail y comunicación corporativa con formatos estándar o a medida.",
     image: {
       src: "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/carteles.webp",
       alt: "Carteles personalizados de gran formato para escaparates, campañas y comunicación visual",
@@ -209,7 +209,7 @@ const EVENTOS_PRODUCTS: CommercialClusterProduct[] = [
     title: "Vinilo para suelo personalizado",
     path: "/productos/vinilo-suelo-personalizado",
     description:
-      "Vinilos de suelo para recorridos, indicaciones, zonas de espera y mensajes en areas de transito.",
+      "Vinilos de suelo para recorridos, indicaciones, zonas de espera y mensajes en áreas de tránsito.",
     image: {
       src: "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-para-suelo.webp",
       alt: "Vinilo para suelo personalizado para señalización, campañas y recorridos comerciales",
@@ -235,7 +235,7 @@ const EVENTOS_PRODUCTS: CommercialClusterProduct[] = [
     title: "Vinilo para cristal personalizado",
     path: "/productos/vinilo-para-cristal",
     description:
-      "Vinilos para cristales, ventanas y mamparas con opciones transparentes, microperforadas, efecto acido o corte.",
+      "Vinilos para cristales, ventanas y mamparas con opciones transparentes, microperforadas, efecto ácido o corte.",
     image: {
       src: "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/vinilo-cristal.webp",
       alt: "Vinilo para cristal personalizado para escaparates, oficinas y campañas temporales",
@@ -248,10 +248,10 @@ const EVENTOS_PRODUCTS: CommercialClusterProduct[] = [
     title: "Flyers personalizados",
     path: "/productos/flyers-personalizados",
     description:
-      "Flyers para promoción, reparto, ferias y acciones comerciales, con combinacion de formato, papel y acabado.",
+      "Flyers para promoción, reparto, ferias y acciones comerciales, con combinación de formato, papel y acabado.",
     image: {
       src: "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/flyers.webp",
-      alt: "Flyers personalizados impresos para campañas comerciales, promociónes y reparto publicitario",
+      alt: "Flyers personalizados impresos para campañas comerciales, promociones y reparto publicitario",
       width: 1200,
       height: 1200,
     },
@@ -264,7 +264,7 @@ const EVENTOS_PRODUCTS: CommercialClusterProduct[] = [
       "Dípticos, trípticos y folletos plegables para ordenar información de servicios, ponencias, mapas o programas.",
     image: {
       src: "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/folletos-plegados.webp",
-      alt: "Folletos plegados personalizados para comunicación comercial, ferias y presentaciónes",
+      alt: "Folletos plegados personalizados para comunicación comercial, ferias y presentaciones",
       width: 1200,
       height: 1200,
     },
@@ -274,7 +274,7 @@ const EVENTOS_PRODUCTS: CommercialClusterProduct[] = [
     title: "Invitaciones y tarjetones personalizados",
     path: "/productos/invitaciones-y-tarjetones-personalizados",
     description:
-      "Tarjetones para convocatorias, inauguraciones, presentaciónes, promociónes o acciones de marca.",
+      "Tarjetones para convocatorias, inauguraciones, presentaciones, promociones o acciones de marca.",
     image: {
       src: "https://webcms.blob.core.windows.net/media/product/publicidad-oficina/publicidad/tarjetones-e-invitaciones.webp",
       alt: "Invitaciones y tarjetones personalizados para eventos, celebraciones y comunicación premium",
@@ -300,7 +300,7 @@ const EVENTOS_PRODUCTS: CommercialClusterProduct[] = [
     title: "Diplomas personalizados para eventos",
     path: "/productos/diplomas-personalizados",
     description:
-      "Diplomas para formaciónes, entregas de premios y actos corporativos, cuidando papel, color y acabados.",
+      "Diplomas para formaciones, entregas de premios y actos corporativos, cuidando papel, color y acabados.",
     image: {
       src: "https://webcms.blob.core.windows.net/media/product/eventos/diplomas.webp",
       alt: "Diplomas personalizados impresos para eventos, formación y ceremonias corporativas",
@@ -339,20 +339,20 @@ const EVENTOS_CLUSTER: CommercialClusterConfig = {
     },
     {
       label: "Producción",
-      value: "Impresion, acabados y soportes gráficos",
+      value: "Impresión, acabados y soportes gráficos",
     },
   ],
   intro: {
     eyebrow: "Soluciones para tu evento",
     title: "Todo lo que necesita tu evento",
     description:
-      "Agrupamos los soportes gráficos por necesidad real para que puedas preparar identificacion, visibilidad, orientación y material impreso dentro de un mismo proyecto.",
+      "Agrupamos los soportes gráficos por necesidad real para que puedas preparar identificación, visibilidad, orientación y material impreso dentro de un mismo proyecto.",
   },
   products: EVENTOS_PRODUCTS,
   solutions: [
     {
       id: "identificacion-acreditacion",
-      eyebrow: "Identificación y acreditacion",
+      eyebrow: "Identificación y acreditación",
       title: "Acreditaciones y lanyards preparados como un sistema",
       description:
         "Ordena asistentes, equipo, ponentes y accesos con piezas coordinadas desde el primer punto de contacto.",
@@ -396,9 +396,9 @@ const EVENTOS_CLUSTER: CommercialClusterConfig = {
     {
       id: "material-impreso",
       eyebrow: "Material impreso",
-      title: "Documentacion y piezas impresas para acompañar la experiencia",
+      title: "Documentación y piezas impresas para acompañar la experiencia",
       description:
-        "Prepara la información que se entrega antes, durante y despues del evento con formatos faciles de distribuir.",
+        "Prepara la información que se entrega antes, durante y después del evento con formatos fáciles de distribuir.",
       primaryProductSlug: "folletos-plegados-personalizados",
       productSlugs: [
         "flyers-personalizados",
@@ -413,7 +413,7 @@ const EVENTOS_CLUSTER: CommercialClusterConfig = {
     eyebrow: "Un proyecto, varios soportes",
     title: "Coordina la producción gráfica del evento desde una misma conversación",
     description:
-      "Puedes pedir una pieza concreta o plantearnos el conjunto de materiales que necesitas. Revisamos medidas, usos, archivos y acabados para que las piezas funciónen juntas en feria, congreso o acto corporativo.",
+      "Puedes pedir una pieza concreta o plantearnos el conjunto de materiales que necesitas. Revisamos medidas, usos, archivos y acabados para que las piezas funcionen juntas en feria, congreso o acto corporativo.",
     points: [
       "Identificación de asistentes y equipos",
       "Visibilidad de marca en stand y zonas de paso",
@@ -425,7 +425,7 @@ const EVENTOS_CLUSTER: CommercialClusterConfig = {
     eyebrow: "Casos de uso",
     title: "Pensado para eventos donde cada soporte cumple una función",
     description:
-      "La composición se adapta a eventos profesionales con necesidades de identificacion, comunicación visual, orientación y material de apoyo.",
+      "La composición se adapta a eventos profesionales con necesidades de identificación, comunicación visual, orientación y material de apoyo.",
     items: [
       {
         title: "Ferias profesionales",
@@ -435,12 +435,12 @@ const EVENTOS_CLUSTER: CommercialClusterConfig = {
       {
         title: "Congresos",
         description:
-          "Acreditaciones, lanyards, programas, senaletica de salas y material para ponentes o asistentes.",
+          "Acreditaciones, lanyards, programas, señalética de salas y material para ponentes o asistentes.",
       },
       {
         title: "Eventos corporativos",
         description:
-          "Piezas impresas para presentaciónes, jornadas internas, formaciónes, inauguraciones y encuentros de empresa.",
+          "Piezas impresas para presentaciones, jornadas internas, formaciones, inauguraciones y encuentros de empresa.",
       },
       {
         title: "Convenciones",
@@ -456,7 +456,7 @@ const EVENTOS_CLUSTER: CommercialClusterConfig = {
   },
   finalCta: {
     eyebrow: "Presupuesto para eventos",
-    title: "Cuéntanos que necesitas para tu evento",
+    title: "Cuéntanos qué necesitas para tu evento",
     description:
       "Indícanos fecha, ubicación, soportes previstos y archivos disponibles. Te orientamos sobre materiales, formatos y acabados adecuados para cada pieza.",
     primaryCta: {
