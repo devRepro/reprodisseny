@@ -46,7 +46,7 @@ const props = withDefaults(
     imageHeight: undefined,
     benefits: () => [],
     primaryLabel: "Ver calendarios 2027",
-    primaryTo: "/calendarios/calendarios-corporativos-2027#quote-form",
+    primaryTo: "/calendarios/calendarios-corporativos-2027",
     sectionClass: "",
     eager: false,
   },

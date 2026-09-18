@@ -107,7 +107,17 @@ test("Home marks the calendar banner as the only image-priority owner", () => {
 
   assert.doesNotMatch(source, /Láminas solares|laminas-solares/);
   assert.match(source, /Calendarios de empresa para 2027/);
-
+  assert.match(
+    source,
+    /<div class="home-section__inner">\s*<HomeCampaignBanner/,
+    "the Home campaign banner must stay inside the shared Home container",
+  );
+  assert.match(
+    source,
+    /<div class="home-campaign-band">\s*<div class="home-section__inner">/,
+    "the Home campaign banner must sit on the full-width campaign band",
+  );
+  assert.doesNotMatch(source, /calendarios-corporativos-2027#quote-form/);
   const banner = elements.find((element) => element.tag === "HomeCampaignBanner");
   assert.ok(banner, "HomeCampaignBanner must remain on Home");
   assert.ok(
@@ -119,9 +129,9 @@ test("Home marks the calendar banner as the only image-priority owner", () => {
       (prop) =>
         prop.type === NodeTypes.ATTRIBUTE &&
         prop.name === "primary-to" &&
-        prop.value?.content === "/calendarios/calendarios-corporativos-2027#quote-form",
+        prop.value?.content === "/calendarios/calendarios-corporativos-2027",
     ),
-    "the calendar banner CTA must point to the existing quote-form anchor",
+    "the calendar banner CTA must point to the calendar landing start",
   );
 });
 

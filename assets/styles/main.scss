@@ -146,6 +146,11 @@
     @apply translate-x-1;
   }
 
+  .home-campaign-band {
+    @apply w-full;
+    background-color: hsl(var(--brand-base-dark));
+  }
+
   .home-trust-block {
     @apply bg-[hsl(var(--brand-bg-2))];
   }
@@ -180,7 +185,7 @@
   }
 
   .campaign-banner__content {
-    @apply grid px-6 py-8 sm:px-10 md:py-10;
+    @apply grid min-w-0 px-6 py-8 sm:px-10 md:py-10;
     gap: 1.5rem;
     background-color: hsl(var(--brand-base-dark));
   }
@@ -228,7 +233,7 @@
   }
 
   .campaign-banner__benefits {
-    @apply grid;
+    @apply grid min-w-0;
     gap: 1rem;
     padding-top: 1.5rem;
     border-top: 1px solid hsl(var(--primary-foreground) / 0.22);
@@ -366,11 +371,6 @@
     }
   }
 
-  @media (min-width: 90rem) {
-    .campaign-banner__title {
-      white-space: nowrap;
-    }
-  }
   .menubar {
     @apply flex w-full justify-center gap-4;
     background-color: hsl(var(--menubar-bg));

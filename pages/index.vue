@@ -4,19 +4,23 @@
       <HomeImageStrip :images="stripImages" />
     </HomeHero>
 
-    <HomeCampaignBanner
-      title="Calendarios de empresa para 2027"
-      description="Personaliza tus calendarios con tu imagen de marca y tenlos listos con tiempo para empezar 2027 sin prisas de última hora."
-      image-src="https://webcms.blob.core.windows.net/media/landing/calendarios/hero.webp"
-      image-sizes="(min-width: 1024px) 34vw, 100vw"
-      :image-width="1667"
-      :image-height="1244"
-      image-alt="Calendarios corporativos personalizados impresos para empresas"
-      eager
-      :benefits="calendarBannerBenefits"
-      primary-label="Ver calendarios 2027"
-      primary-to="/calendarios/calendarios-corporativos-2027#quote-form"
-    />
+    <div class="home-campaign-band">
+      <div class="home-section__inner">
+        <HomeCampaignBanner
+          title="Calendarios de empresa para 2027"
+          description="Personaliza tus calendarios con tu imagen de marca y tenlos listos con tiempo para empezar 2027 sin prisas de última hora."
+          image-src="https://webcms.blob.core.windows.net/media/landing/calendarios/hero.webp"
+          image-sizes="(min-width: 1024px) 34vw, 100vw"
+          :image-width="1667"
+          :image-height="1244"
+          image-alt="Calendarios corporativos personalizados impresos para empresas"
+          eager
+          :benefits="calendarBannerBenefits"
+          primary-label="Ver calendarios 2027"
+          primary-to="/calendarios/calendarios-corporativos-2027"
+        />
+      </div>
+    </div>
 
     <MarketingProductCategoryGrid
       title="Productos y soluciones de impresión"
