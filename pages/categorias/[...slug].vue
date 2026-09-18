@@ -566,6 +566,16 @@ useHead(() => ({
     : [],
 }));
 
+if (import.meta.server) {
+  useSeoMeta({
+    robots: () =>
+      hasNonPaginationQuery.value
+        ? "noindex,follow"
+        : category.value?.seo?.robots ||
+          "index,follow",
+  });
+}
+
 useSeoMeta({
   title: () => seoTitle.value,
   description: () => seoDescription.value,
@@ -574,12 +584,6 @@ useSeoMeta({
   ogDescription: () => seoDescription.value,
   ogUrl: () => canonicalUrl.value,
   ogImage: () => ogImageUrl.value,
-
-  robots: () =>
-    hasNonPaginationQuery.value
-      ? "noindex,follow"
-      : category.value?.seo?.robots ||
-        "index,follow",
 
   twitterCard: () =>
     ogImageUrl.value
