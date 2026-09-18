@@ -310,6 +310,373 @@ const EVENTOS_PRODUCTS: CommercialClusterProduct[] = [
   },
 ];
 
+
+const EXPOSITORES_PRODUCTS: CommercialClusterProduct[] = [
+  {
+    slug: "roll-up-personalizado",
+    title: "Roll Up personalizado",
+    path: "/productos/roll-up-personalizado",
+    description:
+      "Expositor enrollable para ferias, congresos, recepciones y puntos de venta donde necesitas visibilidad rápida y montaje sencillo.",
+    priority: true,
+    image: {
+      src: "https://webcms.blob.core.windows.net/media/product/expositores/roll-up.webp",
+      alt: "Roll up personalizado impreso para ferias, eventos y presentaciones corporativas",
+      width: 1200,
+      height: 1200,
+    },
+  },
+  {
+    slug: "photocall-personalizado",
+    title: "Photocall personalizado",
+    path: "/productos/photocall-personalizado",
+    description:
+      "Fondo gráfico para eventos, prensa, redes y presentaciones donde la marca necesita una superficie visual protagonista.",
+    priority: true,
+    image: {
+      src: "https://webcms.blob.core.windows.net/media/product/expositores/photocall.webp",
+      alt: "Photocall personalizado impreso para eventos, presentaciones y campañas de marca",
+      width: 1200,
+      height: 1200,
+    },
+  },
+  {
+    slug: "xbanner-personalizado",
+    title: "X-Banner personalizado",
+    path: "/productos/xbanner-personalizado",
+    description:
+      "Sistema ligero para promociones, ferias y puntos de información que necesitan montaje rápido y fácil transporte.",
+    image: {
+      src: "https://webcms.blob.core.windows.net/media/product/expositores/xbanner.webp",
+      alt: "X-Banner personalizado con gráfica impresa para ferias, tiendas y presentaciones",
+      width: 1200,
+      height: 1200,
+    },
+  },
+  {
+    slug: "marcos-photocall-personalizados",
+    title: "Marcos para photocall personalizados",
+    path: "/productos/marcos-photocall-personalizados",
+    description:
+      "Piezas rígidas y troqueladas para fotos, activaciones y campañas donde el usuario interactúa con la marca.",
+    image: {
+      src: "https://webcms.blob.core.windows.net/media/product/eventos/marcos-photocall.webp",
+      alt: "Marco para photocall personalizado para eventos y acciones de marca",
+      width: 1200,
+      height: 1200,
+    },
+  },
+  {
+    slug: "cajas-de-luz-personalizadas",
+    title: "Cajas de luz personalizadas",
+    path: "/productos/cajas-de-luz-personalizadas",
+    description:
+      "Expositores retroiluminados para destacar mensajes en escaparates, stands, puntos de venta y espacios corporativos.",
+    image: {
+      src: "https://webcms.blob.core.windows.net/media/product/expositores/cajas-de-luz.webp",
+      alt: "Caja de luz LED personalizada con gráfica retroiluminada",
+      width: 1200,
+      height: 1200,
+    },
+  },
+  {
+    slug: "expositores-de-mesa-personalizados",
+    title: "Expositores de mesa personalizados",
+    path: "/productos/expositores-de-mesa-personalizados",
+    description:
+      "Displays de sobremesa para mostradores, barras, recepciones y puntos de decisión cercanos al cliente.",
+    image: {
+      src: "https://webcms.blob.core.windows.net/media/product/expositores/expositor-mesa.webp",
+      alt: "Expositores de mesa personalizados para mostradores, promociones y venta de producto",
+      width: 1200,
+      height: 1200,
+    },
+  },
+  {
+    slug: "expositores-suelo-personalizados",
+    title: "Expositores de suelo personalizados",
+    path: "/productos/expositores-suelo-personalizados",
+    description:
+      "Displays de pie para ganar visibilidad en entradas, pasillos, tiendas, ferias y zonas de promoción.",
+    image: {
+      src: "https://webcms.blob.core.windows.net/media/product/expositores/expositor-suelo.webp",
+      alt: "Expositores de suelo personalizados para retail, ferias y campañas promocionales",
+      width: 1200,
+      height: 1200,
+    },
+  },
+  {
+    slug: "totems-publicitarios-personalizados",
+    title: "Tótems publicitarios personalizados",
+    path: "/productos/totems-publicitarios-personalizados",
+    description:
+      "Expositores verticales de suelo para comunicar a distancia en zonas de paso, stands, tiendas y recepciones.",
+    image: {
+      src: "https://webcms.blob.core.windows.net/media/product/expositores/totem.webp",
+      alt: "Tótems publicitarios personalizados para ferias, retail y comunicación de gran formato",
+      width: 1200,
+      height: 1200,
+    },
+  },
+  {
+    slug: "cubrealarmas-tiendas-retail",
+    title: "Cubrealarmas personalizados para tiendas",
+    path: "/productos/cubrealarmas-tiendas-retail",
+    description:
+      "Soluciones PLV para convertir los arcos de seguridad en soportes de comunicación de alto impacto.",
+    image: {
+      src: "https://webcms.blob.core.windows.net/media/product/expositores/cubre-alarmas.webp",
+      alt: "Cubrealarmas personalizados para tiendas, retail y campañas de punto de venta",
+      width: 1200,
+      height: 1200,
+    },
+  },
+  {
+    slug: "marcos-click-system-personalizados",
+    title: "Marcos Click System",
+    path: "/productos/marcos-click-system-personalizados",
+    description:
+      "Marcos porta pósters para campañas, precios y señalización que cambian con frecuencia en tienda u oficina.",
+    image: {
+      src: "https://webcms.blob.core.windows.net/media/product/expositores/marco-click-system.webp",
+      alt: "Marcos Click System personalizados para pósters, cartelería y cambio rápido de gráfica",
+      width: 1200,
+      height: 1200,
+    },
+  },
+  {
+    slug: "banderolas-personalizadas",
+    title: "Banderolas personalizadas",
+    path: "/productos/banderolas-personalizadas",
+    description:
+      "Soportes textiles o de lona para ganar visibilidad en accesos, fachadas, recintos, eventos y espacios exteriores.",
+    image: {
+      src: "https://webcms.blob.core.windows.net/media/product/expositores/banderolas.webp",
+      alt: "Banderolas personalizadas para exterior, eventos y comunicación de marca",
+      width: 1200,
+      height: 1200,
+    },
+  },
+  {
+    slug: "banner-golf-personalizado",
+    title: "Banner Golf personalizado",
+    path: "/productos/banner-golf-personalizado",
+    description:
+      "Expositor exterior ligero para acciones promocionales, eventos deportivos, accesos y señalización temporal.",
+    image: {
+      src: "https://webcms.blob.core.windows.net/media/product/expositores/banner-golf.webp",
+      alt: "Banner Golf personalizado para eventos deportivos y señalización exterior",
+      width: 1200,
+      height: 1200,
+    },
+  },
+  {
+    slug: "caballetes-publicitarios-personalizados",
+    title: "Caballetes publicitarios personalizados",
+    path: "/productos/caballetes-publicitarios-personalizados",
+    description:
+      "Soportes de entrada para promociones, menús, horarios y señalización con opción de doble cara o cambio de gráfica.",
+    image: {
+      src: "https://webcms.blob.core.windows.net/media/product/expositores/caballetes.webp",
+      alt: "Caballetes publicitarios personalizados para tiendas, restaurantes y promociones exteriores",
+      width: 1200,
+      height: 1200,
+    },
+  },
+  {
+    slug: "cubos-publicitarios-personalizados",
+    title: "Cubos publicitarios personalizados",
+    path: "/productos/cubos-publicitarios-personalizados",
+    description:
+      "Piezas de volumen para escaparates, eventos, promociones y puntos de foto con impresión a todo color.",
+    image: {
+      src: "https://webcms.blob.core.windows.net/media/product/expositores/cubos.webp",
+      alt: "Cubos publicitarios personalizados para eventos, escaparates y campañas promocionales",
+      width: 1200,
+      height: 1200,
+    },
+  },
+  {
+    slug: "contenedores-de-reciclaje",
+    title: "Contenedores de reciclaje personalizados",
+    path: "/productos/contenedores-de-reciclaje",
+    description:
+      "Puntos funcionales con gráfica corporativa para oficinas, eventos, espacios públicos y campañas de sostenibilidad.",
+    image: {
+      src: "https://webcms.blob.core.windows.net/media/product/expositores/contenedor-reciclaje.webp",
+      alt: "Contenedores de reciclaje personalizados para oficinas, eventos y espacios corporativos",
+      width: 1200,
+      height: 1200,
+    },
+  },
+  {
+    slug: "arbol-navidad-corporativo",
+    title: "Árbol de Navidad corporativo personalizado",
+    path: "/productos/arbol-navidad-corporativo",
+    description:
+      "Pieza estacional de marca para escaparates, oficinas y eventos corporativos donde interesa crear un punto visual singular.",
+    image: {
+      src: "https://webcms.blob.core.windows.net/media/product/eventos/arbol-de-navidad.webp",
+      alt: "Árbol de Navidad corporativo personalizado para espacios comerciales y eventos",
+      width: 1200,
+      height: 1200,
+    },
+  },
+];
+
+const EXPOSITORES_CLUSTER: CommercialClusterConfig = {
+  slug: "expositores",
+  anchorId: "soluciones-expositores",
+  hero: {
+    kicker: "Expositores, PLV y displays",
+    primaryCta: {
+      label: "Solicitar presupuesto",
+      to: "/pedir-presupuesto",
+    },
+    secondaryCta: {
+      label: "Ver soluciones",
+      to: "#soluciones-expositores",
+    },
+  },
+  facts: [
+    {
+      label: "Trayectoria",
+      value: "Desde 1983",
+    },
+    {
+      label: "Enfoque",
+      value: "Ferias, retail y PLV",
+    },
+    {
+      label: "Acompañamiento",
+      value: "Formatos, materiales y montaje",
+    },
+    {
+      label: "Producción",
+      value: "Impresión, acabados y estructuras",
+    },
+  ],
+  intro: {
+    eyebrow: "Soluciones de exposición y PLV",
+    title: "El expositor adecuado para cada espacio y objetivo",
+    description:
+      "No todos los espacios necesitan el mismo sistema. Organizamos las principales soluciones según el entorno, la visibilidad necesaria y la frecuencia de uso para que puedas comparar rápidamente qué expositor encaja mejor en tu proyecto.",
+  },
+  products: EXPOSITORES_PRODUCTS,
+  solutions: [
+    {
+      id: "ferias-congresos-stands",
+      eyebrow: "Ferias, congresos y stands",
+      title: "Soportes preparados para montar y comunicar la marca",
+      description:
+        "Sistemas transportables y soluciones de gran impacto para presentar la marca, crear zonas de comunicación y preparar espacios expositivos profesionales.",
+      primaryProductSlug: "roll-up-personalizado",
+      productSlugs: [
+        "roll-up-personalizado",
+        "photocall-personalizado",
+        "xbanner-personalizado",
+        "marcos-photocall-personalizados",
+        "cajas-de-luz-personalizadas",
+      ],
+    },
+    {
+      id: "retail-punto-venta",
+      eyebrow: "Retail y punto de venta",
+      title: "PLV para mostradores, entradas, pasillos y zonas comerciales",
+      description:
+        "PLV para mostradores, entradas, pasillos y zonas comerciales donde el mensaje debe captar la atención y facilitar la decisión de compra.",
+      primaryProductSlug: "expositores-de-mesa-personalizados",
+      productSlugs: [
+        "expositores-de-mesa-personalizados",
+        "expositores-suelo-personalizados",
+        "totems-publicitarios-personalizados",
+        "cubrealarmas-tiendas-retail",
+        "marcos-click-system-personalizados",
+      ],
+    },
+    {
+      id: "exterior-accesos-promociones",
+      eyebrow: "Exterior, accesos y promociones",
+      title: "Sistemas visuales para entradas y acciones promocionales",
+      description:
+        "Expositores y sistemas visuales para entradas, espacios abiertos y acciones promocionales donde deben valorarse estabilidad, visibilidad y condiciones de instalación.",
+      primaryProductSlug: "banderolas-personalizadas",
+      productSlugs: [
+        "banderolas-personalizadas",
+        "banner-golf-personalizado",
+        "caballetes-publicitarios-personalizados",
+      ],
+    },
+    {
+      id: "proyectos-especiales-medida",
+      eyebrow: "Proyectos especiales y a medida",
+      title: "Piezas personalizadas para campañas y activaciones",
+      description:
+        "Piezas personalizadas para campañas, activaciones y espacios donde un sistema estándar no resuelve la forma, las dimensiones o la función requerida.",
+      primaryProductSlug: "cubos-publicitarios-personalizados",
+      productSlugs: [
+        "cubos-publicitarios-personalizados",
+        "contenedores-de-reciclaje",
+        "arbol-navidad-corporativo",
+      ],
+    },
+  ],
+  project: {
+    eyebrow: "Un proyecto, diferentes soportes",
+    title: "Coordina tus expositores y gráficas desde una misma producción",
+    description:
+      "Una campaña puede necesitar desde un roll-up o un display de mostrador hasta un photocall, un tótem o una caja de luz. Revisamos conjuntamente formatos, medidas, materiales, gráficas y sistemas de montaje para que todas las piezas mantengan una imagen coherente y lleguen preparadas para su espacio final.",
+    points: [
+      "Soluciones para ferias y congresos",
+      "PLV para tiendas y puntos de venta",
+      "Sistemas de interior y exterior",
+      "Formatos estándar o a medida",
+    ],
+  },
+  useCases: {
+    eyebrow: "Casos de uso",
+    title: "Expositores pensados para espacios y campañas reales",
+    description:
+      "Seleccionamos soportes según el espacio, la duración de la campaña y la distancia a la que debe leerse el mensaje.",
+    items: [
+      {
+        title: "Ferias y congresos",
+        description:
+          "Roll-ups, X-Banners, photocalls, tótems y cajas de luz para stands, zonas de registro, presentaciones y espacios de marca.",
+      },
+      {
+        title: "Tiendas y retail",
+        description:
+          "Displays, expositores de mesa y suelo, cubrealarmas y otros sistemas PLV para promociones, lanzamientos y campañas en punto de venta.",
+      },
+      {
+        title: "Showrooms, recepciones y espacios corporativos",
+        description:
+          "Sistemas de presentación de marca, señalización e información para entradas, oficinas y zonas de atención.",
+      },
+      {
+        title: "Exterior y acciones promocionales",
+        description:
+          "Banderolas, Banner Golf, caballetes y otras soluciones preparadas según el espacio, la estabilidad necesaria y la duración de la acción.",
+      },
+      {
+        title: "Campañas y proyectos especiales",
+        description:
+          "Cubos, piezas troqueladas y soluciones a medida para activaciones, campañas estacionales y montajes singulares.",
+      },
+    ],
+  },
+  finalCta: {
+    eyebrow: "Presupuesto para expositores",
+    title: "Cuéntanos qué necesitas exponer o comunicar",
+    description:
+      "Indícanos el espacio, la fecha, las medidas aproximadas y los soportes previstos. Te orientamos sobre materiales, formatos y sistemas adecuados para cada pieza.",
+    primaryCta: {
+      label: "Solicitar presupuesto",
+      to: "/pedir-presupuesto",
+    },
+  },
+};
 const EVENTOS_CLUSTER: CommercialClusterConfig = {
   slug: "eventos",
   anchorId: "soluciones-evento",
@@ -468,6 +835,7 @@ const EVENTOS_CLUSTER: CommercialClusterConfig = {
 
 const COMMERCIAL_CLUSTERS: Record<string, CommercialClusterConfig> = {
   eventos: EVENTOS_CLUSTER,
+  expositores: EXPOSITORES_CLUSTER,
 };
 
 export function getCommercialClusterConfig(
@@ -487,3 +855,4 @@ export function getCommercialClusterProductSlugs(
 ): string[] {
   return config.products.map((product) => product.slug);
 }
+
