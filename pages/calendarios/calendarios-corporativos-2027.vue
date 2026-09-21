@@ -740,16 +740,27 @@ function selectCalendarModel(modelId: string) {
 .calendar-promo {
   display: grid;
   min-height: 132px;
-  place-items: center;
+  align-content: center;
+  justify-items: center;
   gap: 8px;
   background: hsl(var(--brand-base-dark));
   padding: 28px 20px;
-  color: #ffffff;
+  color: hsl(var(--primary-foreground));
   text-align: center;
 }
 
+.calendar-promo__title {
+  max-width: min(100%, 48rem);
+  margin: 0;
+  color: hsl(var(--primary-foreground));
+  text-wrap: balance;
+}
+
 .calendar-promo__text {
-  color: rgb(255 255 255 / 0.84);
+  max-width: min(100%, 44rem);
+  margin: 0;
+  color: hsl(var(--primary-foreground) / 0.84);
+  text-align: center;
 }
 
 .calendar-section--models {
