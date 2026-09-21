@@ -15,6 +15,7 @@ export type CatalogEntity = {
   galleryImages?: Array<{ src?: string; alt?: string }>;
   faqs?: Array<{ question?: string; answer?: string }>;
   relatedProductsJson?: Array<{ productSlug?: string }>;
+  commercialJson?: unknown;
   seo?: { canonical?: string; metaTitle?: string; metaDescription?: string; schema?: unknown; [key: string]: unknown };
   [key: string]: unknown;
 };
@@ -301,6 +302,269 @@ function duplicateIssues(
     }));
 }
 
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return Boolean(value && typeof value === "object" && !Array.isArray(value));
+}
+
+function isSafeInternalTarget(value: unknown): boolean {
+  const target = text(value);
+  if (!target) return false;
+  if (/^[a-z][a-z0-9+.-]*:/i.test(target)) return false;
+  if (target.includes("\\") || /\s/.test(target)) return false;
+  return target.startsWith("/") || target.startsWith("#");
+}
+
+function containsHtmlLikeMarkup(value: unknown): boolean {
+  return typeof value === "string" && /<\/?[a-z][\s\S]*?>/i.test(value);
+}
+
+function validateCommercialText(
+  issues: SyncIssue[],
+  entity: CatalogEntity,
+  field: string,
+  value: unknown,
+): void {
+  if (value === undefined || value === null || value === "") return;
+  if (typeof value !== "string") {
+    issues.push(commercialIssue("error", "invalid_commercial_json", `Categoría ${entity.slug}: ${field} debe ser texto`, entity, field));
+    return;
+  }
+  if (containsHtmlLikeMarkup(value)) {
+    issues.push(commercialIssue("error", "unsafe_commercial_html", `Categoría ${entity.slug}: ${field} no debe contener HTML`, entity, field));
+  }
+}
+
+function validateCommercialTextBlock(
+  issues: SyncIssue[],
+  entity: CatalogEntity,
+  field: string,
+  value: unknown,
+): void {
+  if (value === undefined) return;
+  if (!isRecord(value)) {
+    issues.push(commercialIssue("error", "invalid_commercial_json", `Categoría ${entity.slug}: ${field} debe ser un objeto`, entity, field));
+    return;
+  }
+
+  validateCommercialText(issues, entity, `${field}.eyebrow`, value.eyebrow);
+  validateCommercialText(issues, entity, `${field}.title`, value.title);
+  validateCommercialText(issues, entity, `${field}.description`, value.description);
+}
+
+function validateCommercialCta(
+  issues: SyncIssue[],
+  entity: CatalogEntity,
+  field: string,
+  value: unknown,
+): void {
+  if (value === undefined) return;
+  if (!isRecord(value)) {
+    issues.push(commercialIssue("error", "invalid_commercial_json", `Categoría ${entity.slug}: ${field} debe ser un objeto`, entity, field));
+    return;
+  }
+
+  validateCommercialText(issues, entity, `${field}.label`, value.label);
+  if (!isSafeInternalTarget(value.to)) {
+    issues.push(commercialIssue("error", "invalid_commercial_cta", `Categoría ${entity.slug}: CTA comercial con destino no permitido (${text(value.to) || "vacío"})`, entity, `${field}.to`));
+  }
+}
+function commercialIssue(
+  severity: SyncIssue["severity"],
+  code: string,
+  message: string,
+  entity: CatalogEntity,
+  field: string,
+): SyncIssue {
+  return {
+    severity,
+    code,
+    message,
+    entityType: "category",
+    entityId: entity.id,
+    slug: entity.slug,
+    field,
+  };
+}
+
+function collectCommercialProductRefs(value: unknown): Array<{ slug: string; field: string }> {
+  if (!isRecord(value)) return [];
+
+  const refs: Array<{ slug: string; field: string }> = [];
+  const solutions = value.solutions;
+  const groups = isRecord(solutions) && Array.isArray(solutions.groups)
+    ? solutions.groups
+    : [];
+
+  groups.forEach((group, index) => {
+    if (!isRecord(group)) return;
+
+    const groupField = `commercialJson.solutions.groups[${index}]`;
+    const primaryProductSlug = text(group.primaryProductSlug);
+    if (primaryProductSlug) refs.push({ slug: primaryProductSlug, field: `${groupField}.primaryProductSlug` });
+
+    if (Array.isArray(group.productSlugs)) {
+      group.productSlugs.forEach((slug, productIndex) => {
+        const productSlug = text(slug);
+        if (productSlug) {
+          refs.push({
+            slug: productSlug,
+            field: `${groupField}.productSlugs[${productIndex}]`,
+          });
+        }
+      });
+    }
+  });
+
+  return refs;
+}
+
+function validateCommercialJson(entity: CatalogEntity, productSlugs: Set<string>): SyncIssue[] {
+  const value = entity.commercialJson;
+  if (value == null || value === "") return [];
+
+  const issues: SyncIssue[] = [];
+
+  if (!isRecord(value)) {
+    return [
+      commercialIssue(
+        "error",
+        "invalid_commercial_json",
+        `Categoría ${entity.slug}: CommercialJson debe ser un objeto JSON`,
+        entity,
+        "commercialJson",
+      ),
+    ];
+  }
+
+  const groups = isRecord(value.solutions) && Array.isArray(value.solutions.groups)
+    ? value.solutions.groups
+    : [];
+
+  if (value.solutions !== undefined && !isRecord(value.solutions)) {
+    issues.push(commercialIssue("error", "invalid_commercial_json", `Categoría ${entity.slug}: commercialJson.solutions debe ser un objeto`, entity, "commercialJson.solutions"));
+  }
+
+  if (isRecord(value.solutions) && value.solutions.groups !== undefined && !Array.isArray(value.solutions.groups)) {
+    issues.push(commercialIssue("error", "invalid_commercial_json", `Categoría ${entity.slug}: commercialJson.solutions.groups debe ser un array`, entity, "commercialJson.solutions.groups"));
+  }
+
+  const groupIds = new Set<string>();
+  groups.forEach((group, index) => {
+    const field = `commercialJson.solutions.groups[${index}]`;
+
+    if (!isRecord(group)) {
+      issues.push(commercialIssue("error", "invalid_commercial_json", `Categoría ${entity.slug}: ${field} debe ser un objeto`, entity, field));
+      return;
+    }
+
+    const id = text(group.id);
+    if (!id) {
+      issues.push(commercialIssue("error", "invalid_commercial_json", `Categoría ${entity.slug}: ${field}.id es obligatorio`, entity, `${field}.id`));
+    } else if (groupIds.has(id)) {
+      issues.push(commercialIssue("error", "duplicate_commercial_group_id", `Categoría ${entity.slug}: grupo comercial duplicado (${id})`, entity, `${field}.id`));
+    } else {
+      groupIds.add(id);
+    }
+
+    if (!text(group.title)) {
+      issues.push(commercialIssue("error", "invalid_commercial_json", `Categoría ${entity.slug}: ${field}.title es obligatorio`, entity, `${field}.title`));
+    }
+
+    if (!text(group.primaryProductSlug)) {
+      issues.push(commercialIssue("error", "invalid_commercial_json", `Categoría ${entity.slug}: ${field}.primaryProductSlug es obligatorio`, entity, `${field}.primaryProductSlug`));
+    }
+
+    if (!Array.isArray(group.productSlugs) || !group.productSlugs.every((slug) => text(slug))) {
+      issues.push(commercialIssue("error", "invalid_commercial_json", `Categoría ${entity.slug}: ${field}.productSlugs debe ser un array de slugs`, entity, `${field}.productSlugs`));
+    } else {
+      const groupProductSlugs = new Set<string>();
+      group.productSlugs.forEach((slug, productIndex) => {
+        const productSlug = text(slug);
+        if (groupProductSlugs.has(productSlug)) {
+          issues.push(commercialIssue("error", "duplicate_commercial_product_slug", `Categoría ${entity.slug}: producto comercial duplicado en ${field}.productSlugs (${productSlug})`, entity, `${field}.productSlugs[${productIndex}]`));
+        } else {
+          groupProductSlugs.add(productSlug);
+        }
+      });
+    }
+
+    validateCommercialText(issues, entity, `${field}.eyebrow`, group.eyebrow);
+    validateCommercialText(issues, entity, `${field}.title`, group.title);
+    validateCommercialText(issues, entity, `${field}.description`, group.description);
+
+    for (const duplicatedMasterField of ["path", "url", "canonical", "description", "image", "imageSrc", "alt"]) {
+      if (group[duplicatedMasterField] !== undefined) {
+        issues.push(commercialIssue("warning", "duplicated_commercial_product_data", `Categoría ${entity.slug}: ${field}.${duplicatedMasterField} duplica datos maestros del producto`, entity, `${field}.${duplicatedMasterField}`));
+      }
+    }
+  });
+
+  for (const { slug, field } of collectCommercialProductRefs(value)) {
+    if (!productSlugs.has(slug)) {
+      issues.push(commercialIssue("error", "commercial_product_reference_not_found", `Categoría ${entity.slug}: referencia comercial a producto inexistente o no publicado (${slug})`, entity, field));
+    }
+  }
+
+  if (value.hero !== undefined) {
+    if (!isRecord(value.hero)) {
+      issues.push(commercialIssue("error", "invalid_commercial_json", `Categoría ${entity.slug}: commercialJson.hero debe ser un objeto`, entity, "commercialJson.hero"));
+    } else {
+      validateCommercialText(issues, entity, "commercialJson.hero.kicker", value.hero.kicker);
+      validateCommercialCta(issues, entity, "commercialJson.hero.primaryCta", value.hero.primaryCta);
+      validateCommercialCta(issues, entity, "commercialJson.hero.secondaryCta", value.hero.secondaryCta);
+    }
+  }
+
+  if (value.facts !== undefined) {
+    if (!Array.isArray(value.facts)) {
+      issues.push(commercialIssue("error", "invalid_commercial_json", `Categoría ${entity.slug}: commercialJson.facts debe ser un array`, entity, "commercialJson.facts"));
+    } else {
+      value.facts.forEach((fact, index) => {
+        const field = `commercialJson.facts[${index}]`;
+        if (!isRecord(fact)) {
+          issues.push(commercialIssue("error", "invalid_commercial_json", `Categoría ${entity.slug}: ${field} debe ser un objeto`, entity, field));
+          return;
+        }
+        validateCommercialText(issues, entity, `${field}.label`, fact.label);
+        validateCommercialText(issues, entity, `${field}.value`, fact.value);
+      });
+    }
+  }
+
+  validateCommercialTextBlock(issues, entity, "commercialJson.intro", value.intro);
+  validateCommercialTextBlock(issues, entity, "commercialJson.project", value.project);
+  if (isRecord(value.project) && value.project.points !== undefined) {
+    if (!Array.isArray(value.project.points)) {
+      issues.push(commercialIssue("error", "invalid_commercial_json", `Categoría ${entity.slug}: commercialJson.project.points debe ser un array`, entity, "commercialJson.project.points"));
+    } else {
+      value.project.points.forEach((point, index) => validateCommercialText(issues, entity, `commercialJson.project.points[${index}]`, point));
+    }
+  }
+
+  validateCommercialTextBlock(issues, entity, "commercialJson.useCases", value.useCases);
+  if (isRecord(value.useCases) && value.useCases.items !== undefined) {
+    if (!Array.isArray(value.useCases.items)) {
+      issues.push(commercialIssue("error", "invalid_commercial_json", `Categoría ${entity.slug}: commercialJson.useCases.items debe ser un array`, entity, "commercialJson.useCases.items"));
+    } else {
+      value.useCases.items.forEach((item, index) => {
+        const field = `commercialJson.useCases.items[${index}]`;
+        if (!isRecord(item)) {
+          issues.push(commercialIssue("error", "invalid_commercial_json", `Categoría ${entity.slug}: ${field} debe ser un objeto`, entity, field));
+          return;
+        }
+        validateCommercialText(issues, entity, `${field}.title`, item.title);
+        validateCommercialText(issues, entity, `${field}.description`, item.description);
+      });
+    }
+  }
+
+  validateCommercialTextBlock(issues, entity, "commercialJson.finalCta", value.finalCta);
+  if (isRecord(value.finalCta)) {
+    validateCommercialCta(issues, entity, "commercialJson.finalCta.primaryCta", value.finalCta.primaryCta);
+  }
+
+  return issues;
+}
 function requiredFieldIssues(previous: CatalogSnapshot, next: CatalogSnapshot): SyncIssue[] {
   const issues: SyncIssue[] = [];
   const required = {
@@ -351,10 +615,12 @@ export function validateCatalogState(
 
   const categorySlugs = new Set(next.categories.map((item) => item.slug));
   const productSlugs = new Set(next.products.map((item) => item.slug));
+  const publishedProductSlugs = new Set(next.products.filter((item) => item.isPublished !== false).map((item) => item.slug));
   for (const category of next.categories) {
     if (category.parent && !categorySlugs.has(category.parent)) {
       issues.push({ severity: "error", code: "missing_category_relation", message: `Categoría ${category.slug}: parent inexistente (${category.parent})`, entityType: "category", entityId: category.id, slug: category.slug, field: "parent" });
     }
+    issues.push(...validateCommercialJson(category, publishedProductSlugs));
   }
   for (const product of next.products) {
     if (!product.categorySlug) {

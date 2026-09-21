@@ -221,6 +221,7 @@ type CategoryDto = {
   faqs: Array<{ question: string; answer: string }>;
   galleryImages: unknown[];
   relatedProductsJson: RelatedProductReference[];
+  commercialJson?: unknown;
   breadcrumbs: Array<{ name: string; url: string }>;
   legacySlugs: string[];
   seo: SeoDto;
@@ -319,6 +320,7 @@ const SP_LIST_PRODUCTS_ID =
 const AZURE_STORAGE_ACCOUNT = process.env.AZURE_STORAGE_ACCOUNT || "webcms";
 const AZURE_STORAGE_CONTAINER = process.env.AZURE_STORAGE_CONTAINER || "media";
 const PRODUCT_DETAILS_MEDIA_MANIFEST_PATH = path.resolve("cms/product-details-media.json");
+const CATEGORY_COMMERCIAL_JSON_FIELD = (process.env.CMS_CATEGORY_COMMERCIAL_JSON_FIELD || "").trim();
 
 const REQUIRED_BASE_ENV = [
   ["TENANT_ID", TENANT_ID],
@@ -429,10 +431,18 @@ const PRODUCT_FIELDS = {
   robotsAdvanced: "RobotsAdvanced",
 } as const;
 
-const CATEGORY_SELECT = [...new Set(Object.values(CATEGORY_FIELDS))];
+const CATEGORY_SELECT = [
+  ...new Set([
+    ...Object.values(CATEGORY_FIELDS),
+    ...(CATEGORY_COMMERCIAL_JSON_FIELD ? [CATEGORY_COMMERCIAL_JSON_FIELD] : []),
+  ]),
+];
 const PRODUCT_SELECT = [...new Set(Object.values(PRODUCT_FIELDS))];
 
-const CATEGORY_JSON_FIELDS = Object.entries(CATEGORY_FIELDS).filter(([key]) => key.endsWith("Json"));
+const CATEGORY_JSON_FIELDS = [
+  ...Object.entries(CATEGORY_FIELDS).filter(([key]) => key.endsWith("Json")),
+  ...(CATEGORY_COMMERCIAL_JSON_FIELD ? [["commercialJson", CATEGORY_COMMERCIAL_JSON_FIELD] as [string, string]] : []),
+];
 const PRODUCT_JSON_FIELDS = Object.entries(PRODUCT_FIELDS).filter(([key]) => key.endsWith("Json"));
 const STRUCTURED_MD_FIELDS = [
   CATEGORY_FIELDS.formatsMd,
@@ -1375,6 +1385,25 @@ function mergeSectionSources(
 }
 
 
+function parseCategoryCommercialJson(
+  fields: Record<string, unknown>,
+  context: { entityType: "category"; entityId: string; slug: string },
+): unknown | undefined {
+  if (!CATEGORY_COMMERCIAL_JSON_FIELD) return undefined;
+
+  const rawValue = fields[CATEGORY_COMMERCIAL_JSON_FIELD];
+  if (str(rawValue) === "") return undefined;
+
+  return parseEditorialJson<unknown>(
+    rawValue,
+    null,
+    {
+      ...context,
+      field: CATEGORY_COMMERCIAL_JSON_FIELD,
+    },
+    editorialIssues,
+  ) ?? undefined;
+}
 function buildCategorySections(
   fields: Record<string, unknown>,
   detailsMd?: string,
@@ -1937,6 +1966,11 @@ function buildCategory(item: GraphItem<Record<string, unknown>>): CategoryDto | 
       : undefined;
 
   const seo = buildCategorySeo(fields, title, publicPath, imageSrc);
+  const commercialJson = parseCategoryCommercialJson(fields, {
+    entityType: "category",
+    entityId: String(item.id || slug),
+    slug,
+  });
 
   return {
     id: String(item.id || slug),
@@ -1971,6 +2005,7 @@ function buildCategory(item: GraphItem<Record<string, unknown>>): CategoryDto | 
       3,
       `Categoría ${slug}: RelatedProductsJson`,
     ),
+    ...(commercialJson !== undefined ? { commercialJson } : {}),
     breadcrumbs: [],
     legacySlugs: uniq(
       parseStringList(fields[CATEGORY_FIELDS.legacySlugsJson])

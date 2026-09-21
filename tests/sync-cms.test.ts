@@ -68,6 +68,13 @@ function errors(previous: CatalogSnapshot, next: CatalogSnapshot, editorial: Syn
   }).filter((issue) => issue.severity === "error");
 }
 
+function allIssues(previous: CatalogSnapshot, next: CatalogSnapshot, editorial: SyncIssue[] = []) {
+  const diff = buildCatalogDiff(previous, next);
+  return validateCatalogState(previous, next, diff, editorial, {
+    strict: true,
+    allowBreakingChanges: false,
+  });
+}
 test("JSON editorial roto produce un error bloqueante sin repararlo", () => {
   const issues: SyncIssue[] = [];
   const result = parseEditorialJson('[{"question":"Sin cierre"}', [], {
@@ -81,6 +88,199 @@ test("JSON editorial roto produce un error bloqueante sin repararlo", () => {
   assert.equal(issues[0]?.severity, "error");
 });
 
+
+test("CommercialJson ausente o vacío conserva la validación heredada", () => {
+  assert.deepEqual(errors(snapshot(), snapshot([category({ commercialJson: undefined })])), []);
+  assert.deepEqual(errors(snapshot(), snapshot([category({ commercialJson: "" })])), []);
+});
+
+test("CommercialJson válido acepta referencias a productos publicados de otras categorías", () => {
+  const secondaryCategory = category({
+    id: "c2",
+    slug: "otra",
+    path: "/categorias/otra",
+    seo: { canonical: "https://reprodisseny.com/categorias/otra" },
+  });
+  const secondaryProduct = product({
+    id: "p2",
+    slug: "producto-otra-categoria",
+    path: "/productos/producto-otra-categoria",
+    categorySlug: "otra",
+    categorySlugs: ["otra"],
+    sku: "SKU-2",
+    seo: { canonical: "https://reprodisseny.com/productos/producto-otra-categoria" },
+  });
+  const current = snapshot([category(), secondaryCategory], [product(), secondaryProduct]);
+  const next = snapshot([
+    category({
+      commercialJson: {
+        hero: { primaryCta: { label: "Pedir presupuesto", to: "/contacto" } },
+        solutions: {
+          groups: [
+            {
+              id: "solucion-1",
+              title: "Solución comercial",
+              primaryProductSlug: "producto-otra-categoria",
+              productSlugs: ["producto", "producto-otra-categoria"],
+            },
+          ],
+        },
+      },
+    }),
+    secondaryCategory,
+  ], [product(), secondaryProduct]);
+
+  assert.deepEqual(errors(current, next), []);
+});
+
+
+test("CommercialJson bloquea referencias a productos no publicados", () => {
+  const unpublishedProduct = product({
+    id: "p2",
+    slug: "producto-no-publicado",
+    path: "/productos/producto-no-publicado",
+    sku: "SKU-2",
+    isPublished: false,
+    seo: { canonical: "https://reprodisseny.com/productos/producto-no-publicado" },
+  });
+  const next = snapshot([
+    category({
+      commercialJson: {
+        solutions: {
+          groups: [
+            {
+              id: "solucion-1",
+              title: "Solución comercial",
+              primaryProductSlug: "producto-no-publicado",
+              productSlugs: ["producto-no-publicado"],
+            },
+          ],
+        },
+      },
+    }),
+  ], [product(), unpublishedProduct]);
+
+  assert.ok(errors(snapshot([category()], [product(), unpublishedProduct]), next).some((issue) => issue.code === "commercial_product_reference_not_found"));
+});
+test("CommercialJson malformado produce un error bloqueante sin publicar el valor", () => {
+  const issues: SyncIssue[] = [];
+  const result = parseEditorialJson('{"solutions":', null, {
+    field: "CommercialJson",
+    entityType: "category",
+    entityId: "c1",
+    slug: "cat",
+  }, issues);
+
+  assert.equal(result, null);
+  assert.equal(issues[0]?.code, "malformed_editorial_json");
+  assert.equal(issues[0]?.severity, "error");
+});
+
+test("CommercialJson incompatible, referencias inexistentes, ids duplicados y CTAs externos se bloquean", () => {
+  const next = snapshot([
+    category({
+      commercialJson: {
+        hero: { primaryCta: { label: "Comprar", to: "https://example.com" } },
+        solutions: {
+          groups: [
+            { id: "duplicado", title: "Grupo", primaryProductSlug: "producto", productSlugs: ["producto"] },
+            { id: "duplicado", title: "Grupo duplicado", primaryProductSlug: "no-existe", productSlugs: ["no-existe"] },
+            { id: "invalido", title: "Grupo inválido", primaryProductSlug: "producto", productSlugs: "producto" },
+          ],
+        },
+      },
+    }),
+  ]);
+  const codes = errors(snapshot(), next).map((issue) => issue.code);
+
+  assert.ok(codes.includes("duplicate_commercial_group_id"));
+  assert.ok(codes.includes("commercial_product_reference_not_found"));
+  assert.ok(codes.includes("invalid_commercial_json"));
+  assert.ok(codes.includes("invalid_commercial_cta"));
+});
+
+
+test("CommercialJson bloquea productos duplicados dentro de un grupo", () => {
+  const next = snapshot([
+    category({
+      commercialJson: {
+        solutions: {
+          groups: [
+            {
+              id: "solucion-1",
+              title: "Solución comercial",
+              primaryProductSlug: "producto",
+              productSlugs: ["producto", "producto"],
+            },
+          ],
+        },
+      },
+    }),
+  ]);
+
+  assert.ok(errors(snapshot(), next).some((issue) => issue.code === "duplicate_commercial_product_slug"));
+});
+
+test("CommercialJson bloquea HTML en campos comerciales de texto", () => {
+  const next = snapshot([
+    category({
+      commercialJson: {
+        hero: {
+          kicker: "<strong>Texto no permitido</strong>",
+          primaryCta: { label: "Pedir presupuesto", to: "/pedir-presupuesto" },
+        },
+        facts: [{ label: "Trayectoria", value: "Desde 1983" }],
+        intro: { eyebrow: "Intro", title: "Título", description: "Descripción" },
+        solutions: {
+          groups: [
+            {
+              id: "solucion-1",
+              eyebrow: "Grupo",
+              title: "Solución comercial",
+              description: "Descripción",
+              primaryProductSlug: "producto",
+              productSlugs: ["producto"],
+            },
+          ],
+        },
+        project: { eyebrow: "Proyecto", title: "Título", description: "Descripción", points: ["Punto"] },
+        useCases: { eyebrow: "Usos", title: "Título", description: "Descripción", items: [{ title: "Caso", description: "Descripción" }] },
+        finalCta: { eyebrow: "CTA", title: "Título", description: "Descripción", primaryCta: { label: "Pedir presupuesto", to: "/pedir-presupuesto" } },
+      },
+    }),
+  ]);
+
+  assert.ok(errors(snapshot(), next).some((issue) => issue.code === "unsafe_commercial_html"));
+});
+test("CommercialJson no debe duplicar datos maestros de producto", () => {
+  const next = snapshot([
+    category({
+      commercialJson: {
+        solutions: {
+          groups: [
+            {
+              id: "solucion-1",
+              title: "Solución comercial",
+              primaryProductSlug: "producto",
+              productSlugs: ["producto"],
+              path: "/productos/producto",
+              imageSrc: "/producto.webp",
+            },
+          ],
+        },
+      },
+    }),
+  ]);
+  const warnings = allIssues(snapshot(), next).filter((issue) => issue.severity === "warning");
+
+  assert.ok(warnings.some((issue) => issue.code === "duplicated_commercial_product_data"));
+});
+
+test("el catálogo actual sigue validando sin CommercialJson", async () => {
+  const catalogPath = path.join(process.cwd(), "cms", "catalog.json");
+  const catalog = JSON.parse(await fs.readFile(catalogPath, "utf8")) as CatalogSnapshot;
+  assert.deepEqual(errors(catalog, catalog), []);
+});
 test("detecta slug duplicado", () => {
   const next = snapshot([category(), category({ id: "c2", path: "/categorias/otra" })]);
   assert.ok(errors(snapshot(), next).some((issue) => issue.code === "duplicate_slug"));
