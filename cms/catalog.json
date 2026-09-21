@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-09T07:39:41.038Z",
+  "generatedAt": "2026-09-21T12:40:31.727Z",
   "categories": [
     {
       "id": "12",
@@ -2605,7 +2605,7 @@
     },
     {
       "id": "3",
-      "updatedAt": "2026-08-25T14:56:54Z",
+      "updatedAt": "2026-09-21T12:16:44Z",
       "type": "categoria",
       "slug": "eventos",
       "path": "/categorias/eventos",
@@ -2800,6 +2800,147 @@
           "productSlug": "entradas-personalizadas"
         }
       ],
+      "commercialJson": {
+        "hero": {
+          "kicker": "Eventos, ferias y congresos",
+          "primaryCta": {
+            "label": "Solicitar presupuesto",
+            "to": "/pedir-presupuesto"
+          },
+          "secondaryCta": {
+            "label": "Ver soluciones",
+            "to": "#soluciones-evento"
+          }
+        },
+        "facts": [
+          {
+            "label": "Trayectoria",
+            "value": "Desde 1983"
+          },
+          {
+            "label": "Proximidad",
+            "value": "Barcelona"
+          },
+          {
+            "label": "Acompañamiento",
+            "value": "Asesoramiento en materiales y formatos"
+          },
+          {
+            "label": "Producción",
+            "value": "Impresión, acabados y soportes gráficos"
+          }
+        ],
+        "intro": {
+          "eyebrow": "Soluciones para tu evento",
+          "title": "Todo lo que necesita tu evento",
+          "description": "Agrupamos los soportes gráficos por necesidad real para que puedas preparar identificación, visibilidad, orientación y material impreso dentro de un mismo proyecto."
+        },
+        "solutions": {
+          "groups": [
+            {
+              "id": "identificacion-acreditacion",
+              "eyebrow": "Identificación y acreditación",
+              "title": "Acreditaciones y lanyards preparados como un sistema",
+              "description": "Ordena asistentes, equipo, ponentes y accesos con piezas coordinadas desde el primer punto de contacto.",
+              "primaryProductSlug": "acreditaciones-personalizadas",
+              "productSlugs": [
+                "acreditaciones-personalizadas",
+                "lanyards-eventos-barcelona",
+                "entradas-personalizadas",
+                "nombres-sobremesa-personalizados"
+              ]
+            },
+            {
+              "id": "visibilidad-stand",
+              "eyebrow": "Visibilidad y stand",
+              "title": "Soportes para que la marca se vea en el espacio",
+              "description": "Combina fondos, expositores y displays para presentar tu marca, señalizar zonas clave y reforzar mensajes comerciales.",
+              "primaryProductSlug": "photocall-personalizado",
+              "productSlugs": [
+                "photocall-personalizado",
+                "roll-up-personalizado",
+                "xbanner-personalizado",
+                "displays-de-mesa-personalizados",
+                "expositores-suelo-personalizados"
+              ]
+            },
+            {
+              "id": "senaletica-orientacion",
+              "eyebrow": "Señalética y orientación",
+              "title": "Piezas para guiar recorridos y ordenar la visita",
+              "description": "Refuerza accesos, salas, recorridos y puntos de información con soportes visibles adaptados al espacio.",
+              "primaryProductSlug": "carteles-personalizados-gran-formato",
+              "productSlugs": [
+                "carteles-personalizados-gran-formato",
+                "vinilo-suelo-personalizado",
+                "vinilos-superficies-planas",
+                "vinilo-para-cristal"
+              ]
+            },
+            {
+              "id": "material-impreso",
+              "eyebrow": "Material impreso",
+              "title": "Documentación y piezas impresas para acompañar la experiencia",
+              "description": "Prepara la información que se entrega antes, durante y después del evento con formatos fáciles de distribuir.",
+              "primaryProductSlug": "folletos-plegados-personalizados",
+              "productSlugs": [
+                "flyers-personalizados",
+                "folletos-plegados-personalizados",
+                "invitaciones-y-tarjetones-personalizados",
+                "carpetas-de-presentacion-personalizadas",
+                "diplomas-personalizados"
+              ]
+            }
+          ]
+        },
+        "project": {
+          "eyebrow": "Un proyecto, varios soportes",
+          "title": "Coordina la producción gráfica del evento desde una misma conversación",
+          "description": "Puedes pedir una pieza concreta o plantearnos el conjunto de materiales que necesitas. Revisamos medidas, usos, archivos y acabados para que las piezas funcionen juntas en feria, congreso o acto corporativo.",
+          "points": [
+            "Identificación de asistentes y equipos",
+            "Visibilidad de marca en stand y zonas de paso",
+            "Señalización para orientar recorridos",
+            "Material impreso para informar, entregar o acreditar"
+          ]
+        },
+        "useCases": {
+          "eyebrow": "Casos de uso",
+          "title": "Pensado para eventos donde cada soporte cumple una función",
+          "description": "La composición se adapta a eventos profesionales con necesidades de identificación, comunicación visual, orientación y material de apoyo.",
+          "items": [
+            {
+              "title": "Ferias profesionales",
+              "description": "Material de stand, expositores, acreditaciones, folletos y señalización para puntos de contacto con visitantes."
+            },
+            {
+              "title": "Congresos",
+              "description": "Acreditaciones, lanyards, programas, señalética de salas y material para ponentes o asistentes."
+            },
+            {
+              "title": "Eventos corporativos",
+              "description": "Piezas impresas para presentaciones, jornadas internas, formaciones, inauguraciones y encuentros de empresa."
+            },
+            {
+              "title": "Convenciones",
+              "description": "Soportes coordinados para recepción, escenario, mesas, recorridos y documentación de asistentes."
+            },
+            {
+              "title": "Presentaciones y lanzamientos",
+              "description": "Photocalls, roll ups, invitaciones, tarjetones y material comercial para activar una marca o producto."
+            }
+          ]
+        },
+        "finalCta": {
+          "eyebrow": "Presupuesto para eventos",
+          "title": "Cuéntanos qué necesitas para tu evento",
+          "description": "Indícanos fecha, ubicación, soportes previstos y archivos disponibles. Te orientamos sobre materiales, formatos y acabados adecuados para cada pieza.",
+          "primaryCta": {
+            "label": "Solicitar presupuesto",
+            "to": "/pedir-presupuesto"
+          }
+        }
+      },
       "breadcrumbs": [
         {
           "name": "Inicio",
@@ -23526,7 +23667,7 @@
     },
     {
       "id": "99",
-      "updatedAt": "2026-09-09T07:08:45Z",
+      "updatedAt": "2026-09-09T08:13:09Z",
       "type": "producto",
       "slug": "invitaciones-y-tarjetones-personalizados",
       "path": "/productos/invitaciones-y-tarjetones-personalizados",

@@ -6,6 +6,26 @@
     "prefix": "product/"
   },
   "products": {
+    "acreditaciones-personalizadas": [
+      {
+        "productSlug": "acreditaciones-personalizadas",
+        "categoryPath": "eventos",
+        "blobPath": "product/eventos/details/acreditaciones-personalizadas/01-detail.webp",
+        "mediaPath": "/media/product/eventos/details/acreditaciones-personalizadas/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "agendas-personalizadas": [
+      {
+        "productSlug": "agendas-personalizadas",
+        "categoryPath": "publicidad-oficina/oficina",
+        "blobPath": "product/publicidad-oficina/oficina/details/agendas-personalizadas/01-detail.webp",
+        "mediaPath": "/media/product/publicidad-oficina/oficina/details/agendas-personalizadas/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
     "banderola-lona-fachada": [
       {
         "productSlug": "banderola-lona-fachada",
@@ -92,6 +112,16 @@
         "categoryPath": "gran-formato/material-rigido",
         "blobPath": "product/gran-formato/material-rigido/details/enmarcados-personalizados/01-detail.webp",
         "mediaPath": "/media/product/gran-formato/material-rigido/details/enmarcados-personalizados/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "entradas-personalizadas": [
+      {
+        "productSlug": "entradas-personalizadas",
+        "categoryPath": "eventos",
+        "blobPath": "product/eventos/details/entradas-personalizadas/01-detail.webp",
+        "mediaPath": "/media/product/eventos/details/entradas-personalizadas/01-detail.webp",
         "filename": "01-detail.webp",
         "order": 1
       }
@@ -206,6 +236,26 @@
         "order": 1
       }
     ],
+    "letras-corporeas-personalizadas": [
+      {
+        "productSlug": "letras-corporeas-personalizadas",
+        "categoryPath": "publicidad-oficina/oficina",
+        "blobPath": "product/publicidad-oficina/oficina/details/letras-corporeas-personalizadas/01-detail.webp",
+        "mediaPath": "/media/product/publicidad-oficina/oficina/details/letras-corporeas-personalizadas/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
+    "lona-publicitaria": [
+      {
+        "productSlug": "lona-publicitaria",
+        "categoryPath": "gran-formato/material-flexible",
+        "blobPath": "product/gran-formato/material-flexible/details/lona-publicitaria/01-detail.webp",
+        "mediaPath": "/media/product/gran-formato/material-flexible/details/lona-publicitaria/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
     "marcos-click-system-personalizados": [
       {
         "productSlug": "marcos-click-system-personalizados",
@@ -286,6 +336,16 @@
         "order": 1
       }
     ],
+    "sobres-personalizados": [
+      {
+        "productSlug": "sobres-personalizados",
+        "categoryPath": "publicidad-oficina/oficina",
+        "blobPath": "product/publicidad-oficina/oficina/details/sobres-personalizados/01-detail.webp",
+        "mediaPath": "/media/product/publicidad-oficina/oficina/details/sobres-personalizados/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      }
+    ],
     "stoppers-lineal-personalizados": [
       {
         "productSlug": "stoppers-lineal-personalizados",
@@ -352,6 +412,14 @@
         "categoryPath": "gran-formato/material-flexible",
         "blobPath": "product/gran-formato/material-flexible/details/vinilo-pizarra/01-detail.webp",
         "mediaPath": "/media/product/gran-formato/material-flexible/details/vinilo-pizarra/01-detail.webp",
+        "filename": "01-detail.webp",
+        "order": 1
+      },
+      {
+        "productSlug": "vinilo-pizarra",
+        "categoryPath": "publicidad-oficina/oficina",
+        "blobPath": "product/publicidad-oficina/oficina/details/vinilo-pizarra/01-detail.webp",
+        "mediaPath": "/media/product/publicidad-oficina/oficina/details/vinilo-pizarra/01-detail.webp",
         "filename": "01-detail.webp",
         "order": 1
       }
