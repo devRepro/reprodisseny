@@ -257,11 +257,28 @@ type CatalogCategory = {
   howWeWork?: unknown;
   relatedProductsJson?: unknown;
   RelatedProductsJson?: unknown;
+  commercialJson?: CommercialCategoryConfig;
   sections?: CatalogSection[];
   faqs?: CatalogFaq[];
   image?: CatalogImage | null;
   legacySlugs?: string[];
   seo?: CatalogSeo;
+};
+
+export type CommercialCta = { label: string; to: string };
+export type CommercialFact = { label: string; value: string };
+export type CommercialTextBlock = { eyebrow?: string; title?: string; description?: string };
+export type CommercialSolutionGroup = CommercialTextBlock & { id: string; primaryProductSlug: string; productSlugs: string[] };
+export type CommercialUseCase = { title: string; description: string };
+export type CommercialCategoryConfig = {
+  anchorId?: string;
+  hero?: { kicker?: string; primaryCta?: CommercialCta; secondaryCta?: CommercialCta };
+  facts?: CommercialFact[];
+  intro?: CommercialTextBlock;
+  solutions?: { groups?: CommercialSolutionGroup[] };
+  project?: CommercialTextBlock & { points?: string[] };
+  useCases?: CommercialTextBlock & { items?: CommercialUseCase[] };
+  finalCta?: CommercialTextBlock & { primaryCta?: CommercialCta };
 };
 
 type CatalogShape = {
@@ -420,6 +437,8 @@ export type CategoryDetailPageDto = {
   keywordPills: KeywordPillItem[];
   relatedProducts: CategoryDetailProductItem[];
   products: CategoryDetailProductItem[];
+  commercialProducts: CategoryDetailProductItem[];
+  commercialJson?: CommercialCategoryConfig;
   sections: CategoryDetailSectionItem[];
   faqs: CategoryDetailFaqItem[];
   breadcrumbs: BreadcrumbItem[];
@@ -1164,6 +1183,38 @@ function resolveCategoryKeywordPills(
       return acc;
     }, [])
     .slice(0, 3);
+}
+
+function resolveCommercialProductItems(
+  value: CommercialCategoryConfig | undefined,
+  products: CatalogProduct[],
+): CategoryDetailProductItem[] {
+  const groups = value?.solutions?.groups ?? [];
+  const requestedSlugs = [...new Set(groups.flatMap((group) => [group.primaryProductSlug, ...group.productSlugs]))];
+  if (!requestedSlugs.length || !products.length) return [];
+
+  const productIndex = new Map<string, CatalogProduct>();
+  for (const product of products) {
+    for (const key of getProductLookupKeys(product)) productIndex.set(key, product);
+  }
+
+  const seenPaths = new Set<string>();
+  return requestedSlugs.reduce<CategoryDetailProductItem[]>((items, slug) => {
+    const product = getRelatedProductLookupCandidates(slug).map((key) => productIndex.get(key)).find(Boolean);
+    if (!product) return items;
+    const path = productInternalPathOf(product);
+    if (!path || seenPaths.has(path)) return items;
+    seenPaths.add(path);
+    items.push({
+      slug: productPublicSlugOf(product),
+      path,
+      title: String(product.title || '').trim(),
+      description: String(product.shortDescription || product.description || '').trim() || undefined,
+      image: productImageDtoOf(product.image, product.title),
+      order: Number.isFinite(product.order) ? Number(product.order) : DEFAULT_SORT_ORDER,
+    });
+    return items;
+  }, []);
 }
 
 function resolveRelatedProductItems(
@@ -2080,6 +2131,8 @@ export function getCategoryDetailByPath(
     image: imageDtoOf(category.image, category.title),
     children: getDirectChildrenOf(category, categories, options.childLimit ?? 50),
     products: getDirectProductsOfCategory(category, options.productLimit ?? 24),
+    commercialProducts: resolveCommercialProductItems(category.commercialJson, publishedProducts),
+    commercialJson: category.commercialJson,
     sections: getCategorySections(category),
     faqs: getCategoryFaqs(category),
     detailGallery: normalizeDetailGalleryItems(

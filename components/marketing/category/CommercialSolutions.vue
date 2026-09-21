@@ -4,12 +4,7 @@ import { computed } from "vue";
 import CmsImage from "@/components/shared/blocks/CmsImage.vue";
 import AppButton from "@/components/shared/button/AppButton.vue";
 import ContentSectionIntro from "@/components/marketing/content/ContentSectionIntro.vue";
-import {
-  getCommercialClusterConfig,
-  type CommercialClusterConfig,
-  type CommercialClusterProduct,
-  type CommercialClusterSolution,
-} from "@/utils/config/commercialClusters";
+import type { CommercialCategoryConfig, CommercialSolutionGroup } from "~/server/services/cms/catalog.service";
 
 type ProductLike = {
   slug?: string | null;
@@ -18,119 +13,94 @@ type ProductLike = {
   name?: string | null;
   shortDescription?: string | null;
   description?: string | null;
-  image?: {
-    src?: string | null;
-    alt?: string | null;
-    width?: number | null;
-    height?: number | null;
-  } | null;
+  image?: { src?: string | null; alt?: string | null; width?: number | null; height?: number | null } | null;
   imageSrc?: string | null;
 };
 
-type ResolvedCommercialProduct = CommercialClusterProduct;
-
-type ResolvedCommercialSolution = CommercialClusterSolution & {
-  primaryProduct: ResolvedCommercialProduct | null;
-  products: ResolvedCommercialProduct[];
+type ResolvedCommercialProduct = {
+  slug: string;
+  title: string;
+  path: string;
+  description: string;
+  image: { src: string; alt: string; width?: number; height?: number };
 };
 
-const props = withDefaults(
-  defineProps<{
-    categorySlug?: string | null;
-    products?: ProductLike[] | null;
-    relatedProducts?: ProductLike[] | null;
-  }>(),
-  {
-    categorySlug: "",
-    products: () => [],
-    relatedProducts: () => [],
-  },
-);
+type ResolvedCommercialSolution = CommercialSolutionGroup & { primaryProduct: ResolvedCommercialProduct | null; products: ResolvedCommercialProduct[] };
 
-const cluster = computed<CommercialClusterConfig | null>(() =>
-  getCommercialClusterConfig(props.categorySlug),
-);
+const props = withDefaults(defineProps<{
+  commercialConfig?: CommercialCategoryConfig | null;
+  commercialProducts?: ProductLike[] | null;
+  products?: ProductLike[] | null;
+  relatedProducts?: ProductLike[] | null;
+}>(), {
+  commercialConfig: null,
+  commercialProducts: () => [],
+  products: () => [],
+  relatedProducts: () => [],
+});
+
+const config = computed(() => props.commercialConfig);
 
 const runtimeProductsBySlug = computed(() => {
   const map = new Map<string, ProductLike>();
-  const items = [...(props.products ?? []), ...(props.relatedProducts ?? [])];
-
+  const items = [...(props.commercialProducts ?? []), ...(props.products ?? []), ...(props.relatedProducts ?? [])];
   for (const item of items) {
     const slug = String(item?.slug || "").trim();
-    if (slug && !map.has(slug)) {
-      map.set(slug, item);
-    }
+    if (slug && !map.has(slug)) map.set(slug, item);
   }
-
   return map;
 });
 
 const resolvedProductsBySlug = computed(() => {
   const map = new Map<string, ResolvedCommercialProduct>();
-
-  for (const fallback of cluster.value?.products ?? []) {
-    const runtime = runtimeProductsBySlug.value.get(fallback.slug);
-    const title = String(runtime?.title || runtime?.name || fallback.title).trim();
-    const path = String(runtime?.path || fallback.path).trim();
-    const description = String(
-      runtime?.shortDescription || runtime?.description || fallback.description,
-    ).trim();
-    const runtimeImage = runtime?.image;
-    const imageSrc = String(runtimeImage?.src || runtime?.imageSrc || fallback.image.src).trim();
-    const imageAlt = String(runtimeImage?.alt || fallback.image.alt || title).trim();
-
-    map.set(fallback.slug, {
-      ...fallback,
+  for (const [slug, runtime] of runtimeProductsBySlug.value) {
+    const title = String(runtime.title || runtime.name || "").trim();
+    const path = String(runtime.path || "").trim();
+    const image = runtime.image;
+    const imageSrc = String(image?.src || runtime.imageSrc || "").trim();
+    if (!title || !path || !imageSrc) continue;
+    map.set(slug, {
+      slug,
       title,
       path,
-      description,
-      image: {
-        src: imageSrc,
-        alt: imageAlt,
-        width: runtimeImage?.width || fallback.image.width,
-        height: runtimeImage?.height || fallback.image.height,
-      },
+      description: String(runtime.shortDescription || runtime.description || "").trim(),
+      image: { src: imageSrc, alt: String(image?.alt || title).trim(), width: image?.width ?? undefined, height: image?.height ?? undefined },
     });
   }
-
   return map;
 });
 
 const resolvedSolutions = computed<ResolvedCommercialSolution[]>(() => {
-  return (cluster.value?.solutions ?? [])
-    .map((solution) => {
-      const products = solution.productSlugs
-        .map((slug) => resolvedProductsBySlug.value.get(slug) ?? null)
-        .filter((product): product is ResolvedCommercialProduct => Boolean(product));
-      const primaryProduct =
-        resolvedProductsBySlug.value.get(solution.primaryProductSlug) ?? products[0] ?? null;
-
-      return {
-        ...solution,
-        products,
-        primaryProduct,
-      };
-    })
-    .filter((solution) => solution.products.length > 0);
+  return (config.value?.solutions?.groups ?? []).map((solution) => {
+    const products = solution.productSlugs
+      .map((slug) => resolvedProductsBySlug.value.get(slug) ?? null)
+      .filter((product): product is ResolvedCommercialProduct => Boolean(product));
+    const primaryProduct = resolvedProductsBySlug.value.get(solution.primaryProductSlug) ?? null;
+    return { ...solution, products, primaryProduct };
+  }).filter((solution) => solution.products.length > 0);
 });
 
 const prioritySolution = computed(() => resolvedSolutions.value[0] ?? null);
 const secondarySolutions = computed(() => resolvedSolutions.value.slice(1));
+const solutionsAnchorId = computed(() => {
+  const explicit = String(config.value?.anchorId || "").trim();
+  if (explicit) return explicit;
+  const target = String(config.value?.hero?.secondaryCta?.to || "");
+  return target.startsWith("#") ? target.slice(1) : "soluciones-comerciales";
+});
 
 function secondaryProducts(solution: ResolvedCommercialSolution) {
-  return solution.products.filter(
-    (product) => product.slug !== solution.primaryProduct?.slug,
-  );
+  return solution.products.filter((product) => product.slug !== solution.primaryProduct?.slug);
 }
 </script>
 
 <template>
-  <div v-if="cluster" class="commercial-cluster">
-    <section v-if="cluster.facts.length" class="commercial-cluster-trust" aria-label="Datos de confianza">
+  <div v-if="config" class="commercial-cluster">
+    <section v-if="config?.facts?.length" class="commercial-cluster-trust" aria-label="Datos de confianza">
       <div class="commercial-cluster-trust__container">
         <dl class="commercial-cluster-trust__grid">
           <div
-            v-for="fact in cluster.facts"
+            v-for="fact in config?.facts"
             :key="`${fact.label}-${fact.value}`"
             class="commercial-cluster-trust__item"
           >
@@ -141,12 +111,12 @@ function secondaryProducts(solution: ResolvedCommercialSolution) {
       </div>
     </section>
 
-    <section :id="cluster.anchorId" class="commercial-cluster-solutions" aria-labelledby="commercial-solutions-title">
+    <section :id="solutionsAnchorId" class="commercial-cluster-solutions" :aria-label="config?.intro?.title || 'Soluciones comerciales'">
       <div class="commercial-cluster-solutions__container">
         <ContentSectionIntro
-          :eyebrow="cluster.intro.eyebrow"
-          :title="cluster.intro.title"
-          :description="cluster.intro.description"
+          :eyebrow="config?.intro?.eyebrow"
+          :title="config?.intro?.title || ''"
+          :description="config?.intro?.description || ''"
           :line="false"
           class="commercial-cluster-solutions__intro"
         />
@@ -164,7 +134,7 @@ function secondaryProducts(solution: ResolvedCommercialSolution) {
 
           <div class="commercial-cluster-priority__products">
             <NuxtLink
-              v-for="product in prioritySolution.products.slice(0, 2)"
+              v-for="product in prioritySolution?.products.slice(0, 2) || []"
               :key="product.slug"
               :to="product.path"
               class="commercial-cluster-priority-product"
@@ -191,7 +161,7 @@ function secondaryProducts(solution: ResolvedCommercialSolution) {
             </NuxtLink>
           </div>
 
-          <ul v-if="prioritySolution.products.length > 2" class="commercial-cluster-inline-links" aria-label="Productos complementarios de identificación">
+          <ul v-if="prioritySolution && prioritySolution.products.length > 2" class="commercial-cluster-inline-links" aria-label="Productos complementarios de identificación">
             <li
               v-for="product in prioritySolution.products.slice(2)"
               :key="product.slug"
@@ -260,27 +230,28 @@ function secondaryProducts(solution: ResolvedCommercialSolution) {
       </div>
     </section>
 
-    <section class="commercial-cluster-project" aria-labelledby="commercial-project-title">
+    <section v-if="config?.project" class="commercial-cluster-project" aria-labelledby="commercial-project-title">
       <div class="commercial-cluster-project__container">
         <div class="commercial-cluster-project__content">
-          <p class="commercial-cluster__eyebrow">{{ cluster.project.eyebrow }}</p>
+          <p class="commercial-cluster__eyebrow">{{ config?.project?.eyebrow }}</p>
           <h2 id="commercial-project-title" class="commercial-cluster-project__title">
-            {{ cluster.project.title }}
+            {{ config?.project?.title || "" }}
           </h2>
-          <p class="commercial-cluster-project__description">{{ cluster.project.description }}</p>
+          <p class="commercial-cluster-project__description">{{ config?.project?.description || "" }}</p>
           <AppButton
-            :to="cluster.finalCta.primaryCta.to"
+            v-if="config?.finalCta?.primaryCta"
+            :to="config.finalCta.primaryCta.to"
             size="lg"
             arrow
             class="commercial-cluster-project__cta"
           >
-            {{ cluster.finalCta.primaryCta.label }}
+            {{ config?.finalCta?.primaryCta?.label || "" }}
           </AppButton>
         </div>
 
         <ul class="commercial-cluster-project__points" aria-label="Soportes coordinables">
           <li
-            v-for="point in cluster.project.points"
+            v-for="point in config?.project?.points || []"
             :key="point"
             class="commercial-cluster-project__point"
           >
@@ -290,21 +261,21 @@ function secondaryProducts(solution: ResolvedCommercialSolution) {
       </div>
     </section>
 
-    <section class="commercial-cluster-use-cases" aria-labelledby="commercial-use-cases-title">
+    <section v-if="config?.useCases" class="commercial-cluster-use-cases" aria-labelledby="commercial-use-cases-title">
       <div class="commercial-cluster-use-cases__container">
         <div class="commercial-cluster-use-cases__intro">
-          <p class="commercial-cluster__eyebrow">{{ cluster.useCases.eyebrow }}</p>
+          <p class="commercial-cluster__eyebrow">{{ config?.useCases?.eyebrow }}</p>
           <h2 id="commercial-use-cases-title" class="commercial-cluster-use-cases__title">
-            {{ cluster.useCases.title }}
+            {{ config?.useCases?.title || "" }}
           </h2>
           <p class="commercial-cluster-use-cases__description">
-            {{ cluster.useCases.description }}
+            {{ config?.useCases?.description || "" }}
           </p>
         </div>
 
         <ul class="commercial-cluster-use-cases__list">
           <li
-            v-for="item in cluster.useCases.items"
+            v-for="item in config?.useCases?.items || []"
             :key="item.title"
             class="commercial-cluster-use-cases__item"
           >

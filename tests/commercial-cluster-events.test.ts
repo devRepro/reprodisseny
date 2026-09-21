@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import routes from "../cms/routes.json";
+import catalog from "../cms/catalog.json";
 import {
   getCommercialClusterConfig,
   getCommercialClusterProductSlugs,
@@ -19,6 +20,42 @@ type ItemListSchema = {
 };
 
 const routeSet = new Set(routes as string[]);
+type MutableCategoryCatalog = { categories?: Array<Record<string, unknown>> };
+const mutableCatalog = catalog as MutableCategoryCatalog;
+
+test("Category DTO conserva CommercialJson y resuelve sus productos canonicos", () => {
+  const category = mutableCatalog.categories?.find((item) => item.slug === "eventos");
+  assert.ok(category);
+  const previous = category.commercialJson;
+  const commercialJson = {
+    solutions: {
+      groups: [{
+        id: "identificacion",
+        title: "Identificacion",
+        primaryProductSlug: "acreditaciones-personalizadas",
+        productSlugs: ["acreditaciones-personalizadas"],
+      }],
+    },
+  };
+
+  category.commercialJson = commercialJson;
+  try {
+    const detail = getCategoryDetailByPath("/categorias/eventos");
+    assert.deepEqual(detail?.commercialJson, commercialJson);
+    assert.deepEqual(detail?.commercialProducts.map((item) => item.slug), ["acreditaciones-personalizadas"]);
+    assert.equal(detail?.commercialProducts[0]?.path, "/productos/acreditaciones-personalizadas");
+  } finally {
+    if (previous === undefined) delete category.commercialJson;
+    else category.commercialJson = previous;
+  }
+});
+
+test("Category DTO mantiene la compatibilidad sin CommercialJson", () => {
+  const detail = getCategoryDetailByPath("/categorias/adhesivos-personalizados");
+  assert.equal(detail?.commercialJson, undefined);
+  assert.deepEqual(detail?.commercialProducts, []);
+});
+
 function collectEventClusterCopy(cluster: NonNullable<ReturnType<typeof getCommercialClusterConfig>>): string[] {
   return [
     ...cluster.facts.flatMap((item) => [item.label, item.value]),

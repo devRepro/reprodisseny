@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import type { CategoryDetailPageDto } from "~/server/services/cms/catalog.service";
+import type { CategoryDetailPageDto, CommercialCategoryConfig } from "~/server/services/cms/catalog.service";
 import SiteBreadcrumbs from "@/components/shared/SiteBreadcrumbs.vue";
 import CategoryHero from "@/components/marketing/category/CategoryHero.vue";
 import CategoryChildrenGrid from "@/components/marketing/category/CategoryChildrenGrid.vue";
@@ -39,6 +39,21 @@ type GalleryImage = {
   width?: number | null;
   height?: number | null;
 };
+
+function toCommercialPresentationConfig(
+  config: NonNullable<ReturnType<typeof getCommercialClusterConfig>>,
+): CommercialCategoryConfig {
+  return {
+    anchorId: config.anchorId,
+    hero: config.hero,
+    facts: config.facts,
+    intro: config.intro,
+    solutions: { groups: config.solutions },
+    project: config.project,
+    useCases: config.useCases,
+    finalCta: config.finalCta,
+  };
+}
 
 function isCategorySchemaItem(
   item: CategorySchemaItem | null,
@@ -291,13 +306,28 @@ const relatedProducts = computed(() =>
     : []
 );
 
-const commercialCluster = computed(() => {
+const legacyCommercialCluster = computed(() => {
   if (currentPage.value !== 1) return null;
-
   return getCommercialClusterConfig(category.value?.slug || slug.value);
 });
 
+const commercialCluster = computed(() => {
+  if (currentPage.value !== 1) return null;
+  if (category.value?.commercialJson) return category.value.commercialJson;
+  return legacyCommercialCluster.value
+    ? toCommercialPresentationConfig(legacyCommercialCluster.value)
+    : null;
+});
+
+const commercialProducts = computed(() =>
+  category.value?.commercialJson
+    ? category.value.commercialProducts
+    : legacyCommercialCluster.value?.products ?? [],
+);
+
 const hasCommercialCluster = computed(() => Boolean(commercialCluster.value));
+
+const finalCommercialCta = computed(() => commercialCluster.value?.finalCta?.primaryCta ?? null);
 
 const categoryHeroModel = computed(() => {
   if (!category.value || !commercialCluster.value) {
@@ -306,7 +336,7 @@ const categoryHeroModel = computed(() => {
 
   return {
     ...category.value,
-    heroKicker: commercialCluster.value.hero.kicker,
+    heroKicker: commercialCluster.value?.hero?.kicker,
   };
 });
 const editorialHighlightPaths = new Set([
@@ -388,14 +418,14 @@ const secondaryCta = computed(() => {
 });
 
 const heroPrimaryCta = computed(() =>
-  commercialCluster.value?.hero.primaryCta || {
+  commercialCluster.value?.hero?.primaryCta || {
     label: "Pedir presupuesto",
     to: "/pedir-presupuesto",
   }
 );
 
 const heroSecondaryCta = computed(() =>
-  commercialCluster.value?.hero.secondaryCta || secondaryCta.value
+  commercialCluster.value?.hero?.secondaryCta || secondaryCta.value
 );
 const canonicalUrl = computed(() => {
   const baseUrl =
@@ -692,7 +722,8 @@ const closingBannerPills = computed(() => {
 
           <CommercialSolutions
             v-if="hasCommercialCluster"
-            :category-slug="category.slug"
+            :commercial-config="commercialCluster"
+            :commercial-products="commercialProducts"
             :products="products"
             :related-products="relatedProducts"
           />
@@ -783,10 +814,10 @@ const closingBannerPills = computed(() => {
           </div>
 
           <ContentSectionShell
-            v-if="currentPage === 1 && commercialCluster"
-            :eyebrow="commercialCluster.finalCta.eyebrow"
-            :title="commercialCluster.finalCta.title"
-            :description="commercialCluster.finalCta.description"
+            v-if="currentPage === 1 && commercialCluster?.finalCta && finalCommercialCta"
+            :eyebrow="commercialCluster.finalCta.eyebrow || ''"
+            :title="commercialCluster.finalCta.title || ''"
+            :description="commercialCluster.finalCta.description || ''"
             density="compact"
             intro-spacing="tight"
             section-class="commercial-cluster-final-cta"
@@ -794,11 +825,11 @@ const closingBannerPills = computed(() => {
             body-class="commercial-cluster-final-cta__body"
           >
             <AppButton
-              :to="commercialCluster.finalCta.primaryCta.to"
+              :to="finalCommercialCta.to"
               size="lg"
               arrow
             >
-              {{ commercialCluster.finalCta.primaryCta.label }}
+              {{ finalCommercialCta.label }}
             </AppButton>
           </ContentSectionShell>
           <CategoryProductsGrid

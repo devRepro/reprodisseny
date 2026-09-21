@@ -486,13 +486,17 @@ function validateCommercialJson(entity: CatalogEntity, productSlugs: Set<string>
           groupProductSlugs.add(productSlug);
         }
       });
+      const primaryProductSlug = text(group.primaryProductSlug);
+      if (primaryProductSlug && !groupProductSlugs.has(primaryProductSlug)) {
+        issues.push(commercialIssue("error", "commercial_primary_product_not_in_group", `Categoria ${entity.slug}: el producto principal ${primaryProductSlug} no pertenece al grupo ${id || index}`, entity, `${field}.primaryProductSlug`));
+      }
     }
 
     validateCommercialText(issues, entity, `${field}.eyebrow`, group.eyebrow);
     validateCommercialText(issues, entity, `${field}.title`, group.title);
     validateCommercialText(issues, entity, `${field}.description`, group.description);
 
-    for (const duplicatedMasterField of ["path", "url", "canonical", "description", "image", "imageSrc", "alt"]) {
+    for (const duplicatedMasterField of ["path", "url", "canonical", "image", "imageSrc", "alt"]) {
       if (group[duplicatedMasterField] !== undefined) {
         issues.push(commercialIssue("warning", "duplicated_commercial_product_data", `Categoría ${entity.slug}: ${field}.${duplicatedMasterField} duplica datos maestros del producto`, entity, `${field}.${duplicatedMasterField}`));
       }

@@ -134,6 +134,22 @@ test("CommercialJson válido acepta referencias a productos publicados de otras 
 });
 
 
+test("CommercialJson permite la descripcion editorial del grupo sin warning de producto duplicado", () => {
+  const next = snapshot([
+    category({ commercialJson: { solutions: { groups: [{ id: "solucion-1", title: "Solucion comercial", description: "Descripcion editorial del grupo", primaryProductSlug: "producto", productSlugs: ["producto"] }] } } }),
+  ]);
+  const issues = allIssues(snapshot(), next);
+  assert.equal(issues.some((issue) => issue.code === "duplicated_commercial_product_data"), false);
+  assert.equal(issues.some((issue) => issue.severity === "error"), false);
+});
+
+test("CommercialJson bloquea un producto principal que no pertenece a su grupo", () => {
+  const next = snapshot([
+    category({ commercialJson: { solutions: { groups: [{ id: "solucion-1", title: "Solucion comercial", primaryProductSlug: "producto-otra-categoria", productSlugs: ["producto"] }] } } }),
+  ], [product(), product({ id: "p2", slug: "producto-otra-categoria", path: "/productos/producto-otra-categoria", sku: "SKU-2", seo: { canonical: "https://reprodisseny.com/productos/producto-otra-categoria" } })]);
+  const issues = errors(snapshot(), next);
+  assert.ok(issues.some((issue) => issue.code === "commercial_primary_product_not_in_group"));
+});
 test("CommercialJson bloquea referencias a productos no publicados", () => {
   const unpublishedProduct = product({
     id: "p2",
