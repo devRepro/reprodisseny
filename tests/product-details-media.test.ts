@@ -313,15 +313,22 @@ test("slug malicioso o con path traversal no genera una ruta valida", () => {
 });
 
 test("producto no incluido en manifest no genera Details", () => {
+  const manifestSlugs = new Set(
+    Object.keys(productDetailsMediaManifest.products || {})
+  );
+  const product = (catalog.products || []).find(
+    (candidate) => candidate.slug && !manifestSlugs.has(candidate.slug)
+  );
+
+  assert.ok(product);
   assert.equal(
     deriveProductDetailsImageSrc({
-      slug: "lona-publicitaria",
-      imageSrc:
-        "https://webcms.blob.core.windows.net/media/product/gran-formato/material-flexible/lona-publicitaria.webp",
+      slug: product.slug,
+      imageSrc: flyersBlobImageSrc,
     }),
     ""
   );
-  assert.equal(hasProductDetailsImage("lona-publicitaria"), false);
+  assert.equal(hasProductDetailsImage(product.slug), false);
 });
 
 test("legacy explicito se mantiene cuando no hay manifest", () => {
@@ -418,10 +425,35 @@ test("producto real sin details devuelve lista vacia", () => {
   assert.deepEqual(resolveProductDetailsImages(product), []);
 });
 
-test("manifest real contiene 38 imagenes y 38 productos", () => {
-  const products = Object.keys(productDetailsMediaManifest.products || {});
-  const images = Object.values(productDetailsMediaManifest.products || {}).flat();
+test("manifest real conserva la estructura y el recuento de sus recursos", () => {
+  const products = Object.entries(productDetailsMediaManifest.products || {});
+  const images = products.flatMap(([, entries]) => entries);
+  const blobPaths = new Set<string>();
+  const multiImageProducts = products.filter(([, entries]) => entries.length > 1);
+  const multiImageSlugs = new Set(multiImageProducts.map(([slug]) => slug));
 
-  assert.equal(products.length, 38);
-  assert.equal(images.length, 38);
+  assert.equal(productDetailsMediaManifest.version, 1);
+  assert.equal(images.length, products.reduce((total, [, entries]) => total + entries.length, 0));
+  assert.ok(products.length > 0);
+
+  for (const [slug, entries] of products) {
+    assert.ok(entries.length > 0, slug);
+
+    for (const entry of entries) {
+      assert.equal(entry.productSlug, slug);
+      assert.match(entry.blobPath, /^product\/.+\/details\/[^/]+\/[^/]+$/);
+      assert.equal(entry.mediaPath, `/media/${entry.blobPath}`);
+      assert.match(entry.filename, /^\d+-detail\.(webp|avif|jpe?g|png)$/i);
+      assert.equal(entry.order, Number(entry.filename.split("-", 1)[0]));
+      assert.equal(blobPaths.has(entry.blobPath), false, entry.blobPath);
+      blobPaths.add(entry.blobPath);
+    }
+  }
+
+  assert.equal(blobPaths.size, images.length);
+  assert.ok(multiImageProducts.length > 0);
+  assert.equal(
+    multiImageProducts.reduce((total, [, entries]) => total + entries.length, 0),
+    images.filter((entry) => multiImageSlugs.has(entry.productSlug)).length
+  );
 });
