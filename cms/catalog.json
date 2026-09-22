@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-21T12:40:31.727Z",
+  "generatedAt": "2026-09-22T09:53:43.565Z",
   "categories": [
     {
       "id": "12",
@@ -1931,7 +1931,7 @@
     },
     {
       "id": "4",
-      "updatedAt": "2026-08-24T18:54:55Z",
+      "updatedAt": "2026-09-22T09:50:24Z",
       "type": "categoria",
       "slug": "expositores",
       "path": "/categorias/expositores",
@@ -2136,6 +2136,146 @@
           "productSlug": "totems-publicitarios-personalizados"
         }
       ],
+      "commercialJson": {
+        "anchorId": "soluciones-expositores",
+        "hero": {
+          "kicker": "Expositores, PLV y displays",
+          "primaryCta": {
+            "label": "Solicitar presupuesto",
+            "to": "/pedir-presupuesto"
+          },
+          "secondaryCta": {
+            "label": "Ver soluciones",
+            "to": "#soluciones-expositores"
+          }
+        },
+        "facts": [
+          {
+            "label": "Trayectoria",
+            "value": "Desde 1983"
+          },
+          {
+            "label": "Enfoque",
+            "value": "Ferias, retail y PLV"
+          },
+          {
+            "label": "Acompañamiento",
+            "value": "Formatos, materiales y montaje"
+          },
+          {
+            "label": "Producción",
+            "value": "Impresión, acabados y estructuras"
+          }
+        ],
+        "intro": {
+          "eyebrow": "Soluciones de exposición y PLV",
+          "title": "El expositor adecuado para cada espacio y objetivo",
+          "description": "No todos los espacios necesitan el mismo sistema. Organizamos las principales soluciones según el entorno, la visibilidad necesaria y la frecuencia de uso para que puedas comparar rápidamente qué expositor encaja mejor en tu proyecto."
+        },
+        "solutions": {
+          "groups": [
+            {
+              "id": "ferias-congresos-stands",
+              "eyebrow": "Ferias, congresos y stands",
+              "title": "Soportes preparados para montar y comunicar la marca",
+              "description": "Sistemas transportables y soluciones de gran impacto para presentar la marca, crear zonas de comunicación y preparar espacios expositivos profesionales.",
+              "primaryProductSlug": "roll-up-personalizado",
+              "productSlugs": [
+                "roll-up-personalizado",
+                "photocall-personalizado",
+                "xbanner-personalizado",
+                "marcos-photocall-personalizados",
+                "cajas-de-luz-personalizadas"
+              ]
+            },
+            {
+              "id": "retail-punto-venta",
+              "eyebrow": "Retail y punto de venta",
+              "title": "PLV para mostradores, entradas, pasillos y zonas comerciales",
+              "description": "PLV para mostradores, entradas, pasillos y zonas comerciales donde el mensaje debe captar la atención y facilitar la decisión de compra.",
+              "primaryProductSlug": "expositores-de-mesa-personalizados",
+              "productSlugs": [
+                "expositores-de-mesa-personalizados",
+                "expositores-suelo-personalizados",
+                "totems-publicitarios-personalizados",
+                "cubrealarmas-tiendas-retail",
+                "marcos-click-system-personalizados"
+              ]
+            },
+            {
+              "id": "exterior-accesos-promociones",
+              "eyebrow": "Exterior, accesos y promociones",
+              "title": "Sistemas visuales para entradas y acciones promocionales",
+              "description": "Expositores y sistemas visuales para entradas, espacios abiertos y acciones promocionales donde deben valorarse estabilidad, visibilidad y condiciones de instalación.",
+              "primaryProductSlug": "banderolas-personalizadas",
+              "productSlugs": [
+                "banderolas-personalizadas",
+                "banner-golf-personalizado",
+                "caballetes-publicitarios-personalizados"
+              ]
+            },
+            {
+              "id": "proyectos-especiales-medida",
+              "eyebrow": "Proyectos especiales y a medida",
+              "title": "Piezas personalizadas para campañas y activaciones",
+              "description": "Piezas personalizadas para campañas, activaciones y espacios donde un sistema estándar no resuelve la forma, las dimensiones o la función requerida.",
+              "primaryProductSlug": "cubos-publicitarios-personalizados",
+              "productSlugs": [
+                "cubos-publicitarios-personalizados",
+                "contenedores-de-reciclaje",
+                "arbol-navidad-corporativo"
+              ]
+            }
+          ]
+        },
+        "project": {
+          "eyebrow": "Un proyecto, diferentes soportes",
+          "title": "Coordina tus expositores y gráficas desde una misma producción",
+          "description": "Una campaña puede necesitar desde un roll-up o un display de mostrador hasta un photocall, un tótem o una caja de luz. Revisamos conjuntamente formatos, medidas, materiales, gráficas y sistemas de montaje para que todas las piezas mantengan una imagen coherente y lleguen preparadas para su espacio final.",
+          "points": [
+            "Soluciones para ferias y congresos",
+            "PLV para tiendas y puntos de venta",
+            "Sistemas de interior y exterior",
+            "Formatos estándar o a medida"
+          ]
+        },
+        "useCases": {
+          "eyebrow": "Casos de uso",
+          "title": "Expositores pensados para espacios y campañas reales",
+          "description": "Seleccionamos soportes según el espacio, la duración de la campaña y la distancia a la que debe leerse el mensaje.",
+          "items": [
+            {
+              "title": "Ferias y congresos",
+              "description": "Roll-ups, X-Banners, photocalls, tótems y cajas de luz para stands, zonas de registro, presentaciones y espacios de marca."
+            },
+            {
+              "title": "Tiendas y retail",
+              "description": "Displays, expositores de mesa y suelo, cubrealarmas y otros sistemas PLV para promociones, lanzamientos y campañas en punto de venta."
+            },
+            {
+              "title": "Showrooms, recepciones y espacios corporativos",
+              "description": "Sistemas de presentación de marca, señalización e información para entradas, oficinas y zonas de atención."
+            },
+            {
+              "title": "Exterior y acciones promocionales",
+              "description": "Banderolas, Banner Golf, caballetes y otras soluciones preparadas según el espacio, la estabilidad necesaria y la duración de la acción."
+            },
+            {
+              "title": "Campañas y proyectos especiales",
+              "description": "Cubos, piezas troqueladas y soluciones a medida para activaciones, campañas estacionales y montajes singulares."
+            }
+          ]
+        },
+        "finalCta": {
+          "eyebrow": "Presupuesto para expositores",
+          "title": "Cuéntanos qué necesitas exponer o comunicar",
+          "description": "Indícanos el espacio, la fecha, las medidas aproximadas y los soportes previstos. Te orientamos sobre materiales, formatos y sistemas adecuados para cada pieza.",
+          "primaryCta": {
+            "label": "Solicitar presupuesto",
+            "to": "/pedir-presupuesto"
+          }
+        }
+      },
       "breadcrumbs": [
         {
           "name": "Inicio",
