@@ -320,7 +320,7 @@ const SP_LIST_PRODUCTS_ID =
 const AZURE_STORAGE_ACCOUNT = process.env.AZURE_STORAGE_ACCOUNT || "webcms";
 const AZURE_STORAGE_CONTAINER = process.env.AZURE_STORAGE_CONTAINER || "media";
 const PRODUCT_DETAILS_MEDIA_MANIFEST_PATH = path.resolve("cms/product-details-media.json");
-const CATEGORY_COMMERCIAL_JSON_FIELD = (process.env.CMS_CATEGORY_COMMERCIAL_JSON_FIELD || "").trim();
+const CATEGORY_COMMERCIAL_JSON_FIELD = (process.env.CMS_CATEGORY_COMMERCIAL_JSON_FIELD || "CommercialJson").trim();
 
 const REQUIRED_BASE_ENV = [
   ["TENANT_ID", TENANT_ID],

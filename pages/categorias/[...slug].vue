@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import type { CategoryDetailPageDto, CommercialCategoryConfig } from "~/server/services/cms/catalog.service";
+import type { CategoryDetailPageDto } from "~/server/services/cms/catalog.service";
 import SiteBreadcrumbs from "@/components/shared/SiteBreadcrumbs.vue";
 import CategoryHero from "@/components/marketing/category/CategoryHero.vue";
 import CategoryChildrenGrid from "@/components/marketing/category/CategoryChildrenGrid.vue";
@@ -15,7 +15,6 @@ import ContentProcessSteps, {
 } from "@/components/marketing/content/ContentProcessSteps.vue";
 import GuideBanner from "@/components/marketing/GuideBanner.vue";
 import AppButton from "@/components/shared/button/AppButton.vue";
-import { getCommercialClusterConfig } from "@/utils/config/commercialClusters";
 import {
   buildCategoryPageSchema,
   type CategorySchemaItem,
@@ -39,21 +38,6 @@ type GalleryImage = {
   width?: number | null;
   height?: number | null;
 };
-
-function toCommercialPresentationConfig(
-  config: NonNullable<ReturnType<typeof getCommercialClusterConfig>>,
-): CommercialCategoryConfig {
-  return {
-    anchorId: config.anchorId,
-    hero: config.hero,
-    facts: config.facts,
-    intro: config.intro,
-    solutions: { groups: config.solutions },
-    project: config.project,
-    useCases: config.useCases,
-    finalCta: config.finalCta,
-  };
-}
 
 function isCategorySchemaItem(
   item: CategorySchemaItem | null,
@@ -306,23 +290,15 @@ const relatedProducts = computed(() =>
     : []
 );
 
-const legacyCommercialCluster = computed(() => {
-  if (currentPage.value !== 1) return null;
-  return getCommercialClusterConfig(category.value?.slug || slug.value);
-});
-
 const commercialCluster = computed(() => {
   if (currentPage.value !== 1) return null;
-  if (category.value?.commercialJson) return category.value.commercialJson;
-  return legacyCommercialCluster.value
-    ? toCommercialPresentationConfig(legacyCommercialCluster.value)
-    : null;
+  return category.value?.commercialJson ?? null;
 });
 
 const commercialProducts = computed(() =>
   category.value?.commercialJson
     ? category.value.commercialProducts
-    : legacyCommercialCluster.value?.products ?? [],
+    : [],
 );
 
 const hasCommercialCluster = computed(() => Boolean(commercialCluster.value));

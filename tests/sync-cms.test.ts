@@ -93,6 +93,16 @@ test("CommercialJson ausente o vacío conserva la validación heredada", () => {
   assert.deepEqual(errors(snapshot(), snapshot([category({ commercialJson: undefined })])), []);
   assert.deepEqual(errors(snapshot(), snapshot([category({ commercialJson: "" })])), []);
 });
+test("sync CMS lee CommercialJson por defecto aunque no se declare la variable local", async () => {
+  const source = await fs.readFile(path.join(process.cwd(), "scripts", "sync-cms.ts"), "utf8");
+
+  assert.match(
+    source,
+    /const CATEGORY_COMMERCIAL_JSON_FIELD = \(process\.env\.CMS_CATEGORY_COMMERCIAL_JSON_FIELD \|\| "CommercialJson"\)\.trim\(\);/,
+  );
+  assert.match(source, /CATEGORY_COMMERCIAL_JSON_FIELD \? \[CATEGORY_COMMERCIAL_JSON_FIELD\] : \[\]/);
+  assert.match(source, /\["commercialJson", CATEGORY_COMMERCIAL_JSON_FIELD\]/);
+});
 
 test("CommercialJson válido acepta referencias a productos publicados de otras categorías", () => {
   const secondaryCategory = category({

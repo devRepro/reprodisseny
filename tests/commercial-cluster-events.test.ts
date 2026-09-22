@@ -4,10 +4,6 @@ import test from "node:test";
 import routes from "../cms/routes.json";
 import catalog from "../cms/catalog.json";
 import {
-  getCommercialClusterConfig,
-  getCommercialClusterProductSlugs,
-} from "../utils/config/commercialClusters";
-import {
   getCategoryDetailByPath,
   getCategoryProductsBySlug,
 } from "../server/services/cms/catalog.service";
@@ -19,9 +15,54 @@ type ItemListSchema = {
   itemListElement?: Array<{ position?: number }>;
 };
 
-const routeSet = new Set(routes as string[]);
 type MutableCategoryCatalog = { categories?: Array<Record<string, unknown>> };
 const mutableCatalog = catalog as MutableCategoryCatalog;
+const routeSet = new Set(routes as string[]);
+
+function commercialSlugs(category: NonNullable<ReturnType<typeof getCategoryDetailByPath>>): string[] {
+  return [
+    ...new Set(
+      category.commercialJson?.solutions?.groups?.flatMap((group) => group.productSlugs || []) || [],
+    ),
+  ];
+}
+
+function collectCommercialCopy(category: NonNullable<ReturnType<typeof getCategoryDetailByPath>>): string[] {
+  const commercial = category.commercialJson;
+  assert.ok(commercial);
+
+  return [
+    commercial.hero?.kicker,
+    commercial.hero?.primaryCta?.label,
+    commercial.hero?.secondaryCta?.label,
+    ...(commercial.facts || []).flatMap((item) => [item.label, item.value]),
+    commercial.intro?.eyebrow,
+    commercial.intro?.title,
+    commercial.intro?.description,
+    ...(category.commercialProducts || []).flatMap((product) => [
+      product.title,
+      product.description,
+      product.image?.alt,
+    ]),
+    ...(commercial.solutions?.groups || []).flatMap((solution) => [
+      solution.eyebrow,
+      solution.title,
+      solution.description,
+    ]),
+    commercial.project?.eyebrow,
+    commercial.project?.title,
+    commercial.project?.description,
+    ...(commercial.project?.points || []),
+    commercial.useCases?.eyebrow,
+    commercial.useCases?.title,
+    commercial.useCases?.description,
+    ...(commercial.useCases?.items || []).flatMap((item) => [item.title, item.description]),
+    commercial.finalCta?.eyebrow,
+    commercial.finalCta?.title,
+    commercial.finalCta?.description,
+    commercial.finalCta?.primaryCta?.label,
+  ].filter((value): value is string => Boolean(value));
+}
 
 test("Category DTO conserva CommercialJson y resuelve sus productos canonicos", () => {
   const category = mutableCatalog.categories?.find((item) => item.slug === "eventos");
@@ -50,89 +91,60 @@ test("Category DTO conserva CommercialJson y resuelve sus productos canonicos", 
   }
 });
 
-test("Category DTO mantiene la compatibilidad sin CommercialJson", () => {
+test("Category DTO mantiene categorias sin CommercialJson en modo estándar", () => {
   const detail = getCategoryDetailByPath("/categorias/adhesivos-personalizados");
   assert.equal(detail?.commercialJson, undefined);
   assert.deepEqual(detail?.commercialProducts, []);
 });
 
-function collectEventClusterCopy(cluster: NonNullable<ReturnType<typeof getCommercialClusterConfig>>): string[] {
-  return [
-    ...cluster.facts.flatMap((item) => [item.label, item.value]),
-    cluster.intro.eyebrow,
-    cluster.intro.title,
-    cluster.intro.description,
-    ...cluster.products.flatMap((product) => [
-      product.title,
-      product.description,
-      product.image.alt,
-    ]),
-    ...cluster.solutions.flatMap((solution) => [
-      solution.eyebrow,
-      solution.title,
-      solution.description,
-    ]),
-    cluster.project.eyebrow,
-    cluster.project.title,
-    cluster.project.description,
-    ...cluster.project.points,
-    cluster.useCases.eyebrow,
-    cluster.useCases.title,
-    cluster.useCases.description,
-    ...cluster.useCases.items.flatMap((item) => [item.title, item.description]),
-    cluster.finalCta.eyebrow,
-    cluster.finalCta.title,
-    cluster.finalCta.description,
-    cluster.finalCta.primaryCta.label,
-  ];
-}
+test("eventos obtiene su presentación comercial desde CommercialJson del CMS", () => {
+  const category = getCategoryDetailByPath("/categorias/eventos");
+  assert.ok(category);
+  assert.ok(category.commercialJson);
+  assert.equal(category.commercialJson.hero?.primaryCta?.to, "/pedir-presupuesto");
+  assert.equal(category.commercialJson.hero?.secondaryCta?.to, "#soluciones-evento");
+  assert.deepEqual(
+    category.commercialJson.solutions?.groups?.map((group) => group.id),
+    [
+      "identificacion-acreditacion",
+      "visibilidad-stand",
+      "senaletica-orientacion",
+      "material-impreso",
+    ],
+  );
 
-test("commercial cluster is strictly opt-in for eventos", () => {
-  assert.ok(getCommercialClusterConfig("eventos"));
-  assert.ok(getCommercialClusterConfig("/categorias/eventos"));
-
-  for (const slug of [
-    "gran-formato",
-    "adhesivos-personalizados",
-    "libros-revistas-catalogos",
-    "hosteleria-restauracion",
-    "publicidad-oficina",
-  ]) {
-    assert.equal(getCommercialClusterConfig(slug), null, `${slug} must keep default layout`);
-  }
-});
-
-test("eventos cluster links only to existing canonical product URLs", () => {
-  const cluster = getCommercialClusterConfig("eventos");
-  assert.ok(cluster);
-
-  assert.equal(cluster.anchorId, "soluciones-evento");
-  assert.equal(cluster.hero.primaryCta.to, "/pedir-presupuesto");
-  assert.equal(cluster.hero.secondaryCta.to, "#soluciones-evento");
-
-  assert.equal(routeSet.has("/eventos-ferias-congresos"), false);
-  assert.equal(routeSet.has("/soluciones/eventos"), false);
-  assert.equal(routeSet.has("/categorias/eventos"), true);
-
-  const slugs = getCommercialClusterProductSlugs(cluster);
+  const slugs = commercialSlugs(category);
+  assert.equal(slugs.length, 18);
+  assert.deepEqual(new Set(category.commercialProducts.map((product) => product.slug)), new Set(slugs));
   assert.ok(slugs.includes("acreditaciones-personalizadas"));
   assert.ok(slugs.includes("lanyards-eventos-barcelona"));
 
-  const paths = new Set(cluster.products.map((product) => product.path));
-  assert.equal(paths.size, cluster.products.length, "cluster product paths must be unique");
-
-  for (const product of cluster.products) {
+  for (const product of category.commercialProducts) {
     assert.ok(routeSet.has(product.path), `${product.path} must exist`);
     assert.ok(product.path.startsWith("/productos/"), `${product.path} must be a product URL`);
   }
 });
 
+test("eventos conserva hero, facts, intro, project, useCases y finalCta del CMS", () => {
+  const category = getCategoryDetailByPath("/categorias/eventos");
+  assert.ok(category?.commercialJson);
+  const commercial = category.commercialJson;
+
+  assert.ok(commercial.hero?.kicker);
+  assert.ok((commercial.facts || []).length >= 4);
+  assert.ok(commercial.intro?.title);
+  assert.ok(commercial.project?.title);
+  assert.ok((commercial.project?.points || []).length > 0);
+  assert.ok(commercial.useCases?.title);
+  assert.ok((commercial.useCases?.items || []).length > 0);
+  assert.ok(commercial.finalCta?.title);
+  assert.equal(commercial.finalCta?.primaryCta?.to, "/pedir-presupuesto");
+});
 
 test("eventos commercial copy keeps Spanish accents and normalized terms", () => {
-  const cluster = getCommercialClusterConfig("eventos");
-  assert.ok(cluster);
-
-  const visibleCopy = collectEventClusterCopy(cluster).join("\n");
+  const category = getCategoryDetailByPath("/categorias/eventos");
+  assert.ok(category);
+  const visibleCopy = collectCommercialCopy(category).join("\n");
 
   for (const typo of [
     /\bidentificacion\b/i,
@@ -154,6 +166,7 @@ test("eventos commercial copy keeps Spanish accents and normalized terms", () =>
     assert.equal(typo.test(visibleCopy), false, `${typo} should not appear in visible copy`);
   }
 });
+
 test("eventos keeps canonical category data, pagination and ItemList semantics", () => {
   const category = getCategoryDetailByPath("/categorias/eventos");
   assert.ok(category);
@@ -181,12 +194,6 @@ test("eventos keeps canonical category data, pagination and ItemList semantics",
   assert.ok(secondPage);
   assert.equal(secondPage.items.length, 6);
 
-  const schemaItems = listing.items.map((product) => ({
-    name: product.title,
-    url: product.path,
-    image: product.image?.src,
-  }));
-
   const schema = buildCategoryPageSchema({
     siteUrl: "https://reprodisseny.com",
     canonicalUrl: category.seo.canonical,
@@ -196,7 +203,11 @@ test("eventos keeps canonical category data, pagination and ItemList semantics",
     breadcrumbs: category.breadcrumbs
       .map((item) => ({ name: item.label, url: item.to || category.seo.canonical }))
       .filter((item) => item.name && item.url),
-    items: schemaItems,
+    items: listing.items.map((product) => ({
+      name: product.title,
+      url: product.path,
+      image: product.image?.src,
+    })),
     positionOffset: 0,
     inLanguage: "es-ES",
   });
@@ -216,12 +227,14 @@ test("eventos keeps canonical category data, pagination and ItemList semantics",
 test("default category controls keep children, related products and pagination sources", () => {
   const categoryWithChildren = getCategoryDetailByPath("/categorias/gran-formato");
   assert.ok(categoryWithChildren);
-  assert.equal(getCommercialClusterConfig(categoryWithChildren.slug), null);
+  assert.equal(categoryWithChildren.commercialJson, undefined);
+  assert.deepEqual(categoryWithChildren.commercialProducts, []);
   assert.ok(categoryWithChildren.children.length > 0);
 
   const categoryWithRelated = getCategoryDetailByPath("/categorias/adhesivos-personalizados");
   assert.ok(categoryWithRelated);
-  assert.equal(getCommercialClusterConfig(categoryWithRelated.slug), null);
+  assert.equal(categoryWithRelated.commercialJson, undefined);
+  assert.deepEqual(categoryWithRelated.commercialProducts, []);
   assert.ok(categoryWithRelated.relatedProducts.length > 0);
 
   const listing = getCategoryProductsBySlug("gran-formato", {

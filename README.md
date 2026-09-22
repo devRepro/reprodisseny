@@ -73,3 +73,10 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+## CMS synchronization
+
+Commercial category presentations are read from the SharePoint category field `CommercialJson`. The sync script defaults to this field; local import environments may also declare it explicitly:
+
+```bash
+CMS_CATEGORY_COMMERCIAL_JSON_FIELD=CommercialJson
+```

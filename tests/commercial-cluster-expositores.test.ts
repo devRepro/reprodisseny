@@ -4,10 +4,6 @@ import test from "node:test";
 
 import routes from "../cms/routes.json";
 import {
-  getCommercialClusterConfig,
-  getCommercialClusterProductSlugs,
-} from "../utils/config/commercialClusters";
-import {
   getCategoryDetailByPath,
   getCategoryProductsBySlug,
   getProductDetailBySlug,
@@ -27,26 +23,44 @@ const categoryPageSource = readFileSync(
   "utf8",
 );
 
-function getExpositoresCluster() {
-  const cluster = getCommercialClusterConfig("expositores");
-  assert.ok(cluster);
-  return cluster;
+function getExpositoresCategory() {
+  const category = getCategoryDetailByPath("/categorias/expositores");
+  assert.ok(category);
+  assert.ok(category.commercialJson);
+  return category;
 }
 
-test("expositores opts into the commercial cluster without altering eventos", () => {
-  const cluster = getExpositoresCluster();
+function commercialSlugs(category: ReturnType<typeof getExpositoresCategory>): string[] {
+  return [
+    ...new Set(
+      category.commercialJson?.solutions?.groups?.flatMap((group) => group.productSlugs || []) || [],
+    ),
+  ];
+}
 
-  assert.ok(getCommercialClusterConfig("/categorias/expositores"));
-  assert.ok(getCommercialClusterConfig("eventos"));
-  assert.equal(cluster.slug, "expositores");
-  assert.equal(cluster.anchorId, "soluciones-expositores");
-  assert.equal(cluster.hero.primaryCta.to, "/pedir-presupuesto");
-  assert.equal(cluster.hero.secondaryCta.to, "#soluciones-expositores");
-  assert.equal(cluster.finalCta.primaryCta.to, "/pedir-presupuesto");
+test("expositores obtiene su presentación comercial desde CommercialJson sin alterar eventos", () => {
+  const category = getExpositoresCategory();
+  const eventos = getCategoryDetailByPath("/categorias/eventos");
+
+  assert.ok(eventos?.commercialJson);
+  assert.equal(category.slug, "expositores");
+  assert.equal(category.commercialJson?.anchorId, "soluciones-expositores");
+  assert.equal(category.commercialJson?.hero?.primaryCta?.to, "/pedir-presupuesto");
+  assert.equal(category.commercialJson?.hero?.secondaryCta?.to, "#soluciones-expositores");
+  assert.equal(category.commercialJson?.finalCta?.primaryCta?.to, "/pedir-presupuesto");
+  assert.deepEqual(
+    category.commercialJson?.solutions?.groups?.map((group) => group.id),
+    [
+      "ferias-congresos-stands",
+      "retail-punto-venta",
+      "exterior-accesos-promociones",
+      "proyectos-especiales-medida",
+    ],
+  );
 });
 
-test("expositores cluster links only to existing canonical product URLs", () => {
-  const cluster = getExpositoresCluster();
+test("expositores resuelve productos comerciales desde el catálogo CMS", () => {
+  const category = getExpositoresCategory();
 
   assert.equal(routeSet.has("/categorias/expositores"), true);
   assert.equal(routeSet.has("/expositores-personalizados"), false);
@@ -56,6 +70,7 @@ test("expositores cluster links only to existing canonical product URLs", () => 
     "roll-up-personalizado",
     "photocall-personalizado",
     "xbanner-personalizado",
+    "marcos-photocall-personalizados",
     "cajas-de-luz-personalizadas",
     "expositores-de-mesa-personalizados",
     "expositores-suelo-personalizados",
@@ -66,17 +81,18 @@ test("expositores cluster links only to existing canonical product URLs", () => 
     "banner-golf-personalizado",
     "caballetes-publicitarios-personalizados",
     "cubos-publicitarios-personalizados",
+    "contenedores-de-reciclaje",
+    "arbol-navidad-corporativo",
   ];
 
-  const slugs = getCommercialClusterProductSlugs(cluster);
-  for (const slug of expectedSlugs) {
-    assert.ok(slugs.includes(slug), `${slug} should be available in the cluster`);
-  }
+  const slugs = commercialSlugs(category);
+  assert.deepEqual(slugs, expectedSlugs);
+  assert.deepEqual(category.commercialProducts.map((product) => product.slug), expectedSlugs);
 
-  const paths = new Set(cluster.products.map((product) => product.path));
-  assert.equal(paths.size, cluster.products.length, "cluster product paths must be unique");
+  const paths = new Set(category.commercialProducts.map((product) => product.path));
+  assert.equal(paths.size, category.commercialProducts.length, "commercial product paths must be unique");
 
-  for (const product of cluster.products) {
+  for (const product of category.commercialProducts) {
     assert.ok(routeSet.has(product.path), `${product.path} must exist`);
     assert.ok(product.path.startsWith("/productos/"), `${product.path} must be a product URL`);
 
@@ -90,8 +106,8 @@ test("expositores cluster links only to existing canonical product URLs", () => 
 });
 
 test("expositores keeps displays de mesa in the catalog but not as a highlighted duplicate", () => {
-  const cluster = getExpositoresCluster();
-  const slugs = getCommercialClusterProductSlugs(cluster);
+  const category = getExpositoresCategory();
+  const slugs = commercialSlugs(category);
 
   assert.equal(slugs.includes("displays-de-mesa-personalizados"), false);
   assert.ok(slugs.includes("expositores-de-mesa-personalizados"));
@@ -108,9 +124,23 @@ test("expositores keeps displays de mesa in the catalog but not as a highlighted
   assert.ok(catalogSlugs.includes("expositores-de-mesa-personalizados"));
 });
 
+test("expositores conserva hero, facts, intro, project, useCases y finalCta del CMS", () => {
+  const category = getExpositoresCategory();
+  const commercial = category.commercialJson;
+
+  assert.ok(commercial?.hero?.kicker);
+  assert.ok((commercial?.facts || []).length >= 4);
+  assert.ok(commercial?.intro?.title);
+  assert.ok(commercial?.project?.title);
+  assert.ok((commercial?.project?.points || []).length > 0);
+  assert.ok(commercial?.useCases?.title);
+  assert.ok((commercial?.useCases?.items || []).length > 0);
+  assert.ok(commercial?.finalCta?.title);
+  assert.equal(commercial?.finalCta?.primaryCta?.to, "/pedir-presupuesto");
+});
+
 test("expositores keeps category SEO, indexability and catalog pagination", () => {
-  const category = getCategoryDetailByPath("/categorias/expositores");
-  assert.ok(category);
+  const category = getExpositoresCategory();
   assert.equal(category.path, "/categorias/expositores");
   assert.equal(
     category.title,
@@ -158,8 +188,7 @@ test("expositores keeps category SEO, indexability and catalog pagination", () =
 });
 
 test("expositores category schema keeps ItemList semantics", () => {
-  const category = getCategoryDetailByPath("/categorias/expositores");
-  assert.ok(category);
+  const category = getExpositoresCategory();
 
   const listing = getCategoryProductsBySlug("expositores", {
     page: 1,
@@ -198,16 +227,18 @@ test("expositores category schema keeps ItemList semantics", () => {
   );
 });
 
-test("expositores commercial cluster is only rendered on the canonical first page", () => {
+test("commercial presentation is rendered only from CMS CommercialJson on the canonical first page", () => {
   assert.equal((categoryPageSource.match(/<CategoryHero/g) || []).length, 1);
+  assert.doesNotMatch(
+    categoryPageSource,
+    /commercialClusters|getCommercialClusterConfig|legacyCommercialCluster|toCommercialPresentationConfig/,
+  );
   assert.match(
     categoryPageSource,
-    /const commercialCluster = computed\(\(\) => \{\s*if \(currentPage\.value !== 1\) return null;/,
+    /const commercialCluster = computed\(\(\) => \{\s*if \(currentPage\.value !== 1\) return null;\s*return category\.value\?\.commercialJson \?\? null;/,
   );
   assert.match(
     categoryPageSource,
     /<CommercialSolutions\s+v-if="hasCommercialCluster"/,
   );
 });
-
-
