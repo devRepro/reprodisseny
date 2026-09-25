@@ -109,6 +109,26 @@ test("Home marks the calendar banner as the only image-priority owner", () => {
   assert.match(source, /Calendarios de empresa para 2027/);
   assert.match(
     source,
+    /image-src="\/img\/banners\/calendarios\/hero-1667\.webp"/,
+    "the calendar banner must use the optimized local WebP fallback",
+  );
+  assert.match(
+    source,
+    /image-srcset="\/img\/banners\/calendarios\/hero-640\.webp 640w, \/img\/banners\/calendarios\/hero-960\.webp 960w, \/img\/banners\/calendarios\/hero-1667\.webp 1667w"/,
+    "the calendar banner must expose real WebP responsive variants",
+  );
+  assert.match(
+    source,
+    /image-avif-srcset="\/img\/banners\/calendarios\/hero-640\.avif 640w, \/img\/banners\/calendarios\/hero-960\.avif 960w, \/img\/banners\/calendarios\/hero-1667\.avif 1667w"/,
+    "the calendar banner must expose real AVIF responsive variants",
+  );
+  assert.match(
+    source,
+    /image-sizes="\(min-width: 1280px\) min\(27vw, 368px\), \(min-width: 1024px\) calc\(100vw - 5rem\), calc\(100vw - 3rem\)"/,
+    "the calendar banner sizes must follow its rendered container",
+  );
+  assert.match(
+    source,
     /<div class="home-section__inner">\s*<HomeCampaignBanner/,
     "the Home campaign banner must stay inside the shared Home container",
   );

@@ -217,8 +217,13 @@ function toggleMobileSection(id: string) {
       :items="tabItems"
       aria-label="Información detallada"
       :keep-mounted="true"
-      section-class="space-y-0"
-      panel-class="min-w-0"
+      :section-class="variant === 'category' ? 'category-details-card category-content-tabs' : 'space-y-0'"
+      :scroller-class="variant === 'category' ? 'category-content-tabs__scroller' : ''"
+      :list-class="variant === 'category' ? 'category-content-tabs__list' : ''"
+      :tab-class="variant === 'category' ? 'category-content-tabs__tab' : ''"
+      :active-tab-class="variant === 'category' ? 'category-content-tabs__tab--active' : ''"
+      :inactive-tab-class="variant === 'category' ? 'category-content-tabs__tab--idle' : ''"
+      :panel-class="variant === 'category' ? 'category-content-tabs__panel min-w-0' : 'min-w-0'"
     >
       <template #panel="{ item }">
         <ContentSectionsPanel

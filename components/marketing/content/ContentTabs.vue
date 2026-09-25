@@ -16,7 +16,11 @@ const props = withDefaults(
     ariaLabel?: string;
     keepMounted?: boolean;
     sectionClass?: string;
+    scrollerClass?: string;
     listClass?: string;
+    tabClass?: string;
+    activeTabClass?: string;
+    inactiveTabClass?: string;
     panelClass?: string;
   }>(),
   {
@@ -25,7 +29,11 @@ const props = withDefaults(
     ariaLabel: "Contenido",
     keepMounted: true,
     sectionClass: "",
+    scrollerClass: "",
     listClass: "",
+    tabClass: "",
+    activeTabClass: "",
+    inactiveTabClass: "",
     panelClass: "",
   }
 );
@@ -45,26 +53,31 @@ const safeItems = computed<TabItem[]>(() =>
     .filter((item) => item.id && item.label)
 );
 
+const safeItemIds = computed(() => safeItems.value.map((item) => item.id));
+
 const activeId = computed({
-  get: () => props.modelValue || safeItems.value[0]?.id || "",
-  set: (value: string) => emit("update:modelValue", value),
+  get: () => safeItemIds.value.includes(props.modelValue)
+    ? props.modelValue
+    : safeItemIds.value[0] || "",
+  set: (value: string) => {
+    if (!safeItems.value.some((item) => item.id === value && !item.disabled)) return;
+    emit("update:modelValue", value);
+  },
 });
 
 watch(
-  () => safeItems.value.map((item) => item.id),
-  (ids) => {
-    if (!ids.length) {
-      if (props.modelValue) emit("update:modelValue", "");
-      return;
-    }
+  [() => props.modelValue, () => safeItemIds.value.join("|")],
+  () => {
+    const nextActiveId = safeItemIds.value.includes(props.modelValue)
+      ? props.modelValue
+      : safeItemIds.value[0] || "";
 
-    if (!props.modelValue || !ids.includes(props.modelValue)) {
-      emit("update:modelValue", ids[0]);
+    if (props.modelValue !== nextActiveId) {
+      emit("update:modelValue", nextActiveId);
     }
   },
   { immediate: true }
 );
-
 function domId(value: string, prefix: string) {
   const normalized = String(value || "")
     .toLowerCase()
@@ -149,7 +162,7 @@ function onTabKeydown(event: KeyboardEvent, item: TabItem) {
 
 <template>
   <section v-if="safeItems.length" :class="cn('w-full', sectionClass)">
-    <div class="content-tabs__scroller w-full overflow-x-auto pb-1">
+    <div :class="cn('content-tabs__scroller w-full overflow-x-auto pb-1', scrollerClass)">
       <div
         role="tablist"
         aria-orientation="horizontal"
@@ -175,11 +188,12 @@ function onTabKeydown(event: KeyboardEvent, item: TabItem) {
           :disabled="item.disabled"
           :class="
             cn(
-              'min-h-11 shrink-0 whitespace-nowrap rounded-xl px-4 py-3 text-label font-semibold transition-all duration-200',
+              'min-h-11 shrink-0 whitespace-nowrap rounded-xl px-4 py-3 text-label font-semibold transition-colors duration-200',
               'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/35 focus-visible:ring-offset-2',
+              tabClass,
               activeId === item.id
-                ? 'bg-primary text-primary-foreground shadow-sm ring-1 ring-primary/20'
-                : 'text-muted-foreground hover:bg-card/80 hover:text-foreground',
+                ? cn('bg-primary text-primary-foreground shadow-sm ring-1 ring-primary/20', activeTabClass)
+                : cn('text-muted-foreground hover:bg-card/80 hover:text-foreground', inactiveTabClass),
               item.disabled && 'cursor-not-allowed opacity-50'
             )
           "

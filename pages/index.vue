@@ -9,8 +9,10 @@
         <HomeCampaignBanner
           title="Calendarios de empresa para 2027"
           description="Personaliza tus calendarios con tu imagen de marca y tenlos listos con tiempo para empezar 2027 sin prisas de última hora."
-          image-src="https://webcms.blob.core.windows.net/media/landing/calendarios/hero.webp"
-          image-sizes="(min-width: 1024px) 34vw, 100vw"
+          image-src="/img/banners/calendarios/hero-1667.webp"
+          image-srcset="/img/banners/calendarios/hero-640.webp 640w, /img/banners/calendarios/hero-960.webp 960w, /img/banners/calendarios/hero-1667.webp 1667w"
+          image-avif-srcset="/img/banners/calendarios/hero-640.avif 640w, /img/banners/calendarios/hero-960.avif 960w, /img/banners/calendarios/hero-1667.avif 1667w"
+          image-sizes="(min-width: 1280px) min(27vw, 368px), (min-width: 1024px) calc(100vw - 5rem), calc(100vw - 3rem)"
           :image-width="1667"
           :image-height="1244"
           image-alt="Calendarios corporativos personalizados impresos para empresas"
