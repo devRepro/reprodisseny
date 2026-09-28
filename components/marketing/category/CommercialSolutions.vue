@@ -41,6 +41,8 @@ const props = withDefaults(defineProps<{
 
 const config = computed(() => props.commercialConfig);
 
+const commercialFacts = computed(() => config.value?.facts ?? []);
+
 const runtimeProductsBySlug = computed(() => {
   const map = new Map<string, ProductLike>();
   const items = [...(props.commercialProducts ?? []), ...(props.products ?? []), ...(props.relatedProducts ?? [])];
@@ -96,11 +98,11 @@ function secondaryProducts(solution: ResolvedCommercialSolution) {
 
 <template>
   <div v-if="config" class="commercial-cluster">
-    <section v-if="config?.facts?.length" class="commercial-cluster-trust" aria-label="Datos de confianza">
+    <section v-if="commercialFacts.length" class="commercial-cluster-trust" aria-label="Datos de confianza">
       <div class="commercial-cluster-trust__container">
         <dl class="commercial-cluster-trust__grid">
           <div
-            v-for="fact in config?.facts"
+            v-for="fact in commercialFacts"
             :key="`${fact.label}-${fact.value}`"
             class="commercial-cluster-trust__item"
           >
@@ -130,6 +132,19 @@ function secondaryProducts(solution: ResolvedCommercialSolution) {
             <p class="commercial-cluster-priority__description">
               {{ prioritySolution.description }}
             </p>
+
+            <ul v-if="prioritySolution && prioritySolution.products.length > 2" class="commercial-cluster-inline-links" aria-label="Productos complementarios">
+              <li
+                v-for="product in prioritySolution.products.slice(2)"
+                :key="product.slug"
+                class="commercial-cluster-inline-links__item"
+              >
+                <NuxtLink :to="product.path" class="commercial-cluster-inline-links__link">
+                  <span>{{ product.title }}</span>
+                  <span aria-hidden="true">&rarr;</span>
+                </NuxtLink>
+              </li>
+            </ul>
           </div>
 
           <div class="commercial-cluster-priority__products">
@@ -139,7 +154,7 @@ function secondaryProducts(solution: ResolvedCommercialSolution) {
               :to="product.path"
               class="commercial-cluster-priority-product"
             >
-              <span class="commercial-cluster-priority-product__media">
+              <span class="commercial-cluster-priority-product__media media-frame media-frame--product">
                 <CmsImage
                   :src="product.image.src"
                   :alt="product.image.alt"
@@ -161,18 +176,6 @@ function secondaryProducts(solution: ResolvedCommercialSolution) {
             </NuxtLink>
           </div>
 
-          <ul v-if="prioritySolution && prioritySolution.products.length > 2" class="commercial-cluster-inline-links" aria-label="Productos complementarios de identificación">
-            <li
-              v-for="product in prioritySolution.products.slice(2)"
-              :key="product.slug"
-              class="commercial-cluster-inline-links__item"
-            >
-              <NuxtLink :to="product.path" class="commercial-cluster-inline-links__link">
-                <span>{{ product.title }}</span>
-                <span aria-hidden="true">&rarr;</span>
-              </NuxtLink>
-            </li>
-          </ul>
         </article>
 
         <div class="commercial-cluster-solution-list">
@@ -208,13 +211,15 @@ function secondaryProducts(solution: ResolvedCommercialSolution) {
               :to="solution.primaryProduct.path"
               class="commercial-cluster-solution__featured"
             >
-              <CmsImage
-                :src="solution.primaryProduct.image.src"
-                :alt="solution.primaryProduct.image.alt"
-                :width="solution.primaryProduct.image.width"
-                :height="solution.primaryProduct.image.height"
-                class="commercial-cluster-solution__image"
-              />
+              <span class="commercial-cluster-solution__media media-frame media-frame--product">
+                <CmsImage
+                  :src="solution.primaryProduct.image.src"
+                  :alt="solution.primaryProduct.image.alt"
+                  :width="solution.primaryProduct.image.width"
+                  :height="solution.primaryProduct.image.height"
+                  class="commercial-cluster-solution__image"
+                />
+              </span>
               <span class="commercial-cluster-solution__featured-body">
                 <span class="commercial-cluster-solution__featured-title">
                   {{ solution.primaryProduct.title }}

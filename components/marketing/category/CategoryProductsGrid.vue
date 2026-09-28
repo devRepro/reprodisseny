@@ -42,7 +42,7 @@ const props = withDefaults(
     eyebrow: "Productos",
     title: "Explora los productos de esta categoría",
     description: "Consulta formatos y soluciones disponibles dentro de esta categoría.",
-    containerClass: "container-content py-8 md:py-10",
+    containerClass: "category-products-grid__container",
     currentPage: 1,
     totalPages: 0,
     totalItems: 0,
@@ -62,19 +62,11 @@ const isFeatured = computed(() => props.variant === "featured");
 const gridClass = computed(() => {
   const count = visibleProducts.value.length;
 
-  if (count <= 1) {
-    return "mx-auto max-w-[420px] grid-cols-1";
-  }
+  if (count <= 1) return "category-products-grid__list--single";
+  if (count === 2) return "category-products-grid__list--pair";
+  if (count === 3) return "category-products-grid__list--trio";
 
-  if (count === 2) {
-    return "mx-auto max-w-[920px] grid-cols-1 sm:grid-cols-2";
-  }
-
-  if (count === 3) {
-    return "grid-cols-1 sm:grid-cols-2 xl:grid-cols-3";
-  }
-
-  return "grid-cols-1 sm:grid-cols-2 xl:grid-cols-4";
+  return "category-products-grid__list--catalog";
 });
 
 const resultSummary = computed(() => {
@@ -115,13 +107,13 @@ function productDescription(product: ProductItem): string {
     v-if="visibleProducts.length"
     :id="id"
     :class="[
-      'bg-background',
-      isFeatured && 'border-y border-border/50 bg-muted/25',
+      'category-products-grid',
+      isFeatured && 'category-products-grid--featured',
     ]"
     :aria-label="isFeatured ? 'Productos destacados' : 'Productos de la categoría'"
   >
     <div :class="containerClass">
-      <div class="max-w-3xl">
+      <div class="category-products-grid__intro">
         <ContentSectionIntro
           :eyebrow="eyebrow"
           :title="title"
@@ -132,15 +124,15 @@ function productDescription(product: ProductItem): string {
           title-tone="foreground"
         />
 
-        <p v-if="resultSummary" class="mt-3 text-body-s text-muted-foreground">
+        <p v-if="resultSummary" class="category-products-grid__summary">
           {{ resultSummary }}
         </p>
       </div>
 
       <ul
         :class="[
-          'grid auto-rows-fr',
-          isFeatured ? 'mt-5 gap-4 md:gap-5' : 'mt-6 gap-5 md:gap-6',
+          'category-products-grid__list',
+          isFeatured && 'category-products-grid__list--featured',
           gridClass,
         ]"
       >
@@ -168,10 +160,10 @@ function productDescription(product: ProductItem): string {
                   }
                 : null)
             "
-            :variant="isFeatured ? 'featured' : 'default'"
+            :variant="isFeatured ? 'featured' : 'product'"
             :badge="isFeatured ? 'Destacado' : ''"
             :image-aspect-class="
-              isFeatured ? 'aspect-[4/3] sm:aspect-[16/9]' : 'aspect-[4/3]'
+              isFeatured ? 'catalog-card__media-frame--featured-product' : 'catalog-card__media-frame--product'
             "
             cta-label="Ver producto"
             fallback-label="Producto"

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
-import { ArrowRight } from "lucide-vue-next";
+import CatalogCard from "@/components/shared/catalog/CatalogCard.vue";
 
 type CategoryCard = {
   slug?: string;
@@ -80,120 +80,93 @@ useHead({
 </script>
 
 <template>
-  <main class="min-h-screen bg-background">
-    <section :class="[pageContainerClass, 'pt-12 pb-8 md:pt-16 md:pb-10']">
-      <div class="max-w-3xl">
-        <p
-          class="mb-5 text-body-s font-semibold uppercase tracking-[0.22em] text-primary"
-        >
+  <main class="categories-index-page">
+    <section class="categories-index-hero">
+      <div class="categories-index-hero__content">
+        <p class="categories-index-hero__eyebrow">
           Categorías
         </p>
 
-        <h1 class="text-h1 text-balance">
+        <h1 class="categories-index-hero__title">
           Explora nuestras familias de producto
         </h1>
 
-        <p class="mt-5 max-w-2xl text-body leading-8 text-muted-foreground">
+        <p class="categories-index-hero__description">
           Accede a las principales líneas de soluciones y navega por familias para
           encontrar el formato, soporte o servicio más adecuado para tu proyecto.
         </p>
       </div>
     </section>
 
-    <section :class="[pageContainerClass, 'pb-14 md:pb-20']">
-      <div v-if="pending" class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+    <section class="categories-index-grid">
+      <div v-if="pending" class="categories-index-grid__skeleton-list">
         <div
           v-for="i in 6"
           :key="i"
-          class="h-[260px] animate-pulse rounded-[28px] border border-border/70 bg-muted/40"
+          class="categories-index-grid__skeleton-card"
         />
       </div>
 
       <div
         v-else-if="error"
-        class="rounded-[28px] border border-red-100 bg-red-50 px-6 py-8 text-red-700"
+        class="categories-index-grid__notice categories-index-grid__notice--error"
       >
         No se han podido cargar las categorías.
       </div>
 
       <div
         v-else-if="categories.length === 0"
-        class="rounded-[28px] border border-border/70 bg-card px-6 py-8 text-muted-foreground"
+        class="categories-index-grid__notice"
       >
         No hay categorías disponibles en este momento.
       </div>
 
       <div v-else>
-        <div class="mb-8 max-w-3xl">
-          <h2 class="text-h2 text-balance">Familias de producto</h2>
+        <div class="categories-index-grid__header">
+          <h2 class="categories-index-grid__title">Familias de producto</h2>
 
-          <p class="mt-4 text-body leading-7 text-muted-foreground">
+          <p class="categories-index-grid__description">
             Elige una categoría para ver productos, formatos y soluciones relacionadas.
           </p>
         </div>
 
-        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          <NuxtLink
+        <ul class="categories-index-grid__list">
+          <li
             v-for="category in categories"
             :key="category.slug || category.path || categoryTitle(category)"
-            :to="categoryHref(category)"
-            class="group overflow-hidden rounded-[28px] border border-border/70 bg-card shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-md"
+            class="categories-index-grid__item"
           >
-            <div class="aspect-[16/9] bg-muted">
-              <img
-                v-if="category.image?.src"
-                :src="category.image.src"
-                :alt="category.image.alt || categoryTitle(category)"
-                class="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
-                loading="lazy"
-              />
-            </div>
-
-            <div class="p-5 md:p-6">
-              <h3 class="text-h3 text-balance">
-                {{ categoryTitle(category) }}
-              </h3>
-
-              <p class="mt-3 line-clamp-3 text-body-s leading-6 text-muted-foreground">
-                {{ categoryDescription(category) }}
-              </p>
-
-              <div
-                class="mt-5 inline-flex items-center gap-2 text-label font-semibold text-primary"
-              >
-                Ver categoría
-                <ArrowRight
-                  class="h-4 w-4 transition-transform group-hover:translate-x-0.5"
-                />
-              </div>
-            </div>
-          </NuxtLink>
-        </div>
+            <CatalogCard
+              :href="categoryHref(category)"
+              :title="categoryTitle(category)"
+              :description="categoryDescription(category)"
+              :image="category.image"
+              cta-label="Ver categoría"
+              fallback-label="Categoría"
+            />
+          </li>
+        </ul>
       </div>
     </section>
 
-    <section :class="[pageContainerClass, 'pt-2 pb-14 md:pt-4 md:pb-20']">
-      <div
-        class="rounded-[28px] border border-border/70 bg-card px-6 py-8 md:px-8 md:py-10"
-      >
-        <p
-          class="mb-4 text-body-s font-semibold uppercase tracking-[0.22em] text-primary"
-        >
+    <section class="categories-index-search-cta">
+      <div class="categories-index-search-cta__panel">
+        <p class="categories-index-search-cta__eyebrow">
           Catálogo completo
         </p>
 
-        <h2 class="text-h2 text-balance">
+        <h2 class="categories-index-search-cta__title">
           ¿Prefieres buscar directamente entre todos los productos?
         </h2>
 
-        <p class="mt-4 max-w-2xl text-body leading-7 text-muted-foreground">
+        <p class="categories-index-search-cta__description">
           También puedes consultar el catálogo completo y encontrar productos concretos
           por nombre, familia o tipo de aplicación.
         </p>
 
         <NuxtLink
           to="/productos"
-          class="btn-primary btn-lg mt-6"
+          class="categories-index-search-cta__button"
         >
           Ver todos los productos
         </NuxtLink>

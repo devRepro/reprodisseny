@@ -20,7 +20,7 @@ type Props = {
   title: string
   description?: string | null
   image?: CardMedia
-  variant?: "default" | "category" | "featured"
+  variant?: "default" | "category" | "featured" | "product"
   ctaLabel?: string
   imageAspectClass?: string
   imageSizes?: string
@@ -84,7 +84,15 @@ const linkAriaLabel = computed(() => {
       :aria-label="linkAriaLabel"
       class="catalog-card__main-link"
     >
-      <div class="catalog-card__media">
+      <div
+        :class="[
+          'catalog-card__media',
+          'media-frame',
+          props.variant === 'product' || props.variant === 'featured'
+            ? 'media-frame--product'
+            : 'media-frame--category',
+        ]"
+      >
         <div :class="['catalog-card__media-frame', props.imageAspectClass]">
           <NuxtImg
             v-if="hasMedia"
@@ -133,7 +141,7 @@ const linkAriaLabel = computed(() => {
     <div class="catalog-card__actions">
       <AppButton
         :to="props.href"
-        :variant="props.variant === 'default' ? 'outline' : 'link'"
+        :variant="props.variant === 'featured' ? 'link' : 'outline'"
         size="sm"
         arrow
         :aria-label="linkAriaLabel"

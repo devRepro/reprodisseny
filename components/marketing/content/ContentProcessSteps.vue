@@ -39,7 +39,7 @@ const normalizedSteps = computed(() =>
       v-for="(step, index) in normalizedSteps"
       :key="`${step.label}-${index}-${step.title}`"
       :class="[
-        'catalog-panel group relative flex h-full min-h-[260px] flex-col overflow-hidden rounded-[28px] border border-border/70 bg-card p-6 shadow-[0_10px_30px_-24px_hsl(var(--foreground)/0.14)] transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/20 hover:shadow-[0_18px_40px_-26px_hsl(var(--foreground)/0.16)]',
+        'catalog-panel group relative flex h-full min-h-[260px] flex-col overflow-hidden rounded-[28px] border border-border/70 bg-card p-6 shadow-[0_10px_30px_-24px_hsl(var(--foreground)/0.14)] transition-colors duration-300 hover:border-primary/20',
         cardClass,
       ]"
     >

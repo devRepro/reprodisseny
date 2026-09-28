@@ -87,65 +87,53 @@ const isLowResolutionImage = computed(() => {
 
 const headerClass = computed(() =>
   cn(
-    "relative w-full overflow-hidden bg-background",
-    isCommercial.value
-      ? "pt-4 pb-10 md:pt-6 md:pb-12 lg:pt-8 lg:pb-16"
-      : "pt-4 pb-8 md:pt-6 md:pb-10 lg:pt-8 lg:pb-12",
+    "category-hero",
+    isCommercial.value ? "category-hero--commercial" : "category-hero--default",
     props.class
   )
 );
 
 const gridClass = computed(() =>
   cn(
-    "grid items-center",
-    isCommercial.value
-      ? "gap-8 md:gap-10 lg:grid-cols-[minmax(0,0.98fr)_minmax(360px,0.82fr)] lg:gap-14"
-      : "gap-7 md:gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.68fr)] lg:gap-12"
+    "category-hero__grid",
+    isCommercial.value ? "category-hero__grid--commercial" : "category-hero__grid--default"
   )
 );
 
 const titleClass = computed(() =>
   cn(
-    "section-title section-title--hero",
-    isCommercial.value ? "max-w-[15ch]" : "max-w-[18ch]"
+    "category-hero__title",
+    isCommercial.value ? "category-hero__title--commercial" : "category-hero__title--default"
   )
 );
 
 const descriptionClass = computed(() =>
   cn(
-    "mt-4 max-w-[62ch] text-pretty text-body text-foreground/74",
-    isCommercial.value ? "md:text-[1.0625rem] md:leading-8" : ""
+    "category-hero__description",
+    isCommercial.value && "category-hero__description--commercial"
   )
 );
 
 const mediaWrapperClass = computed(() =>
   cn(
-    "relative mx-auto w-full",
-    isCommercial.value
-      ? isLowResolutionImage.value
-        ? "max-w-[420px]"
-        : "max-w-[560px]"
-      : isLowResolutionImage.value
-        ? "max-w-[420px]"
-        : "max-w-[520px]"
+    "category-hero__media-wrapper",
+    isLowResolutionImage.value && "category-hero__media-wrapper--low-resolution"
   )
 );
 
 const mediaFrameClass = computed(() =>
   cn(
-    "relative overflow-hidden bg-card",
-    isCommercial.value
-      ? "rounded-lg border border-border/60"
-      : "rounded-[28px] border border-border/70"
+    "category-hero__media-frame",
+    "media-frame",
+    "media-frame--editorial",
+    isCommercial.value ? "category-hero__media-frame--commercial" : "category-hero__media-frame--default"
   )
 );
 
 const imageClass = computed(() =>
   cn(
-    "w-full object-cover",
-    isCommercial.value
-      ? "aspect-[4/3] sm:aspect-[5/4] lg:aspect-[4/3]"
-      : "aspect-[16/8] sm:aspect-[16/10]"
+    "category-hero__image",
+    isCommercial.value ? "category-hero__image--commercial" : "category-hero__image--default"
   )
 );
 
@@ -173,22 +161,22 @@ const secondaryCta = computed<HeroCta | null>(() => {
     <div
       v-if="!isCommercial"
       aria-hidden="true"
-      class="pointer-events-none absolute inset-x-0 top-0 h-[360px] bg-[linear-gradient(180deg,hsl(var(--brand-base-light)/0.48)_0%,hsl(var(--background))_72%)]"
+      class="category-hero__wash"
     />
 
     <div
       v-if="!isCommercial"
       aria-hidden="true"
-      class="pointer-events-none absolute left-0 top-16 hidden h-72 w-72 rounded-full bg-[hsl(var(--brand-base-light)/0.55)] blur-3xl lg:block"
+      class="category-hero__glow"
     />
 
     <div :class="cn('container-content relative z-10', props.containerClass)">
       <div :class="gridClass">
-        <div class="min-w-0">
+        <div class="category-hero__content">
           <p
-            class="mb-4 inline-flex w-fit items-center gap-2 text-label-s font-semibold uppercase tracking-[0.22em] text-primary/80"
+            class="category-hero__kicker"
           >
-            <span class="h-1.5 w-1.5 rounded-full bg-primary" aria-hidden="true" />
+            <span class="category-hero__kicker-dot" aria-hidden="true" />
             {{ kicker }}
           </p>
 
@@ -205,13 +193,13 @@ const secondaryCta = computed<HeroCta | null>(() => {
 
           <ul
             v-if="highlights.length"
-            class="mt-5 flex flex-wrap gap-2"
+            class="category-hero__highlights"
             aria-label="Puntos destacados de la categoría"
           >
             <li
               v-for="item in highlights"
               :key="item"
-              class="inline-flex items-center rounded-full border border-border bg-card px-3 py-1.5 text-body-s text-foreground/76"
+              class="category-hero__highlight"
             >
               {{ item }}
             </li>
@@ -219,7 +207,7 @@ const secondaryCta = computed<HeroCta | null>(() => {
 
           <div
             v-if="(showPrimaryCta && primaryCta) || (showSecondaryCta && secondaryCta)"
-            class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center"
+            class="category-hero__actions"
           >
             <AppButton
               v-if="showPrimaryCta && primaryCta"
@@ -240,7 +228,7 @@ const secondaryCta = computed<HeroCta | null>(() => {
           </div>
         </div>
 
-        <div v-if="imgSrc" class="relative min-w-0 lg:justify-self-end">
+        <div v-if="imgSrc" class="category-hero__media">
           <figure :class="mediaWrapperClass">
             <div :class="mediaFrameClass">
               <img
@@ -256,14 +244,14 @@ const secondaryCta = computed<HeroCta | null>(() => {
 
               <div
                 aria-hidden="true"
-                class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/30"
+                class="category-hero__media-ring"
               />
             </div>
 
             <div
               v-if="!isCommercial"
               aria-hidden="true"
-              class="absolute -bottom-4 left-8 right-8 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"
+              class="category-hero__media-line"
             />
           </figure>
         </div>

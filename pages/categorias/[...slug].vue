@@ -64,10 +64,10 @@ if (currentPage.value === 0) {
 }
 
 const pageContainerClass = "container-content";
-const pageFlowClass = "space-y-0";
-const pageBottomSpacingClass = "pb-8 md:pb-10";
-const sectionSpacingClass = "mt-10 md:mt-12";
-const sectionSpacingCompactClass = "mt-8 md:mt-10";
+const pageFlowClass = "category-page-flow";
+const pageBottomSpacingClass = "category-page-bottom";
+const sectionSpacingClass = "category-section-offset";
+const sectionSpacingCompactClass = "category-section-offset category-section-offset--compact";
 
 function safeDecode(value: unknown) {
   try {
@@ -744,7 +744,10 @@ const closingBannerPills = computed(() => {
 
           <ContentSectionShell
             v-if="currentPage === 1 && hasSections"
-            theme="muted"
+            theme="default"
+            section-class="category-details-editorial"
+            body-class="category-details-editorial__body"
+            intro-class="category-details-editorial__intro"
             eyebrow="Soluciones gráficas"
             title="Detalles y opciones de la categoría"
             description="Consulta la información clave de esta categoría en un formato más claro y fácil de comparar."
@@ -759,13 +762,20 @@ const closingBannerPills = computed(() => {
           <div v-if="currentPage === 1 && hasProcessSteps" :class="sectionSpacingClass">
             <ContentSectionShell
               id="como-trabajamos"
+              section-class="category-process-editorial"
+              body-class="category-process-editorial__body"
+              intro-class="category-process-editorial__intro"
               eyebrow="Cómo realizamos tu pedido"
               :title="processTitle"
               :description="processDescription"
               density="compact"
               intro-spacing="tight"
             >
-              <ContentProcessSteps :steps="processSteps" />
+              <ContentProcessSteps
+                :steps="processSteps"
+                grid-class="category-process-steps"
+                card-class="category-process-step"
+              />
             </ContentSectionShell>
           </div>
 
