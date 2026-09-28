@@ -42,10 +42,6 @@ const props = withDefaults(defineProps<{
 const config = computed(() => props.commercialConfig);
 
 const commercialFacts = computed(() => config.value?.facts ?? []);
-const featuredCommercialFact = computed(() => commercialFacts.value[0] ?? null);
-const supportingCommercialFacts = computed(() =>
-  commercialFacts.value.slice(1),
-);
 
 const runtimeProductsBySlug = computed(() => {
   const map = new Map<string, ProductLike>();
@@ -104,24 +100,14 @@ function secondaryProducts(solution: ResolvedCommercialSolution) {
   <div v-if="config" class="commercial-cluster">
     <section v-if="commercialFacts.length" class="commercial-cluster-trust" aria-label="Datos de confianza">
       <div class="commercial-cluster-trust__container">
-        <dl :class="[
-          'commercial-cluster-trust__grid',
-          !supportingCommercialFacts.length && 'commercial-cluster-trust__grid--single',
-        ]">
-          <div v-if="featuredCommercialFact" class="commercial-cluster-trust__featured">
-            <dt class="commercial-cluster-trust__featured-label">{{ featuredCommercialFact.label }}</dt>
-            <dd class="commercial-cluster-trust__featured-value">{{ featuredCommercialFact.value }}</dd>
-          </div>
-
-          <div v-if="supportingCommercialFacts.length" class="commercial-cluster-trust__supporting">
-            <div
-              v-for="fact in supportingCommercialFacts"
-              :key="`${fact.label}-${fact.value}`"
-              class="commercial-cluster-trust__item"
-            >
-              <dt class="commercial-cluster-trust__label">{{ fact.label }}</dt>
-              <dd class="commercial-cluster-trust__value">{{ fact.value }}</dd>
-            </div>
+        <dl class="commercial-cluster-trust__grid">
+          <div
+            v-for="fact in commercialFacts"
+            :key="`${fact.label}-${fact.value}`"
+            class="commercial-cluster-trust__item"
+          >
+            <dt class="commercial-cluster-trust__label">{{ fact.label }}</dt>
+            <dd class="commercial-cluster-trust__value">{{ fact.value }}</dd>
           </div>
         </dl>
       </div>
