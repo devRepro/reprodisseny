@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T16:54:49.940Z",
+  "generatedAt": "2026-10-13T17:11:06.560Z",
   "categories": [
     {
       "id": "12",
@@ -24785,7 +24785,7 @@
     },
     {
       "id": "60",
-      "updatedAt": "2026-10-13T16:38:11Z",
+      "updatedAt": "2026-10-13T17:10:51Z",
       "type": "producto",
       "slug": "lanyards-eventos-barcelona",
       "path": "/productos/lanyards-eventos-barcelona",
@@ -25046,17 +25046,17 @@
       },
       "galleryImages": [
         {
-          "src": "https://media.reprodisseny.com/product/eventos/gallery/lanyard/lanyards-sublimacion.webp",
+          "src": "https://webcms.blob.core.windows.net/media/product/eventos/gallery/lanyard/lanyards-sublimacion.webp",
           "alt": "Lanyard personalizado a todo color mediante sublimación",
           "caption": "Lanyard personalizado con impresión por sublimación"
         },
         {
-          "src": "https://media.reprodisseny.com/product/eventos/gallery/lanyard/lanyards-serigrafia.webp",
+          "src": "https://webcms.blob.core.windows.net/media/product/eventos/gallery/lanyard/lanyards-serigrafia.webp",
           "alt": "Lanyard azul marino con logotipo blanco mediante serigrafía",
           "caption": "Lanyard corporativo personalizado mediante serigrafía"
         },
         {
-          "src": "https://media.reprodisseny.com/product/eventos/gallery/lanyard/lanyards-acreditacion.webp",
+          "src": "https://webcms.blob.core.windows.net/media/product/eventos/gallery/lanyard/lanyards-acreditacion.webp",
           "alt": "Lanyard personalizado con acreditación para congresos y eventos",
           "caption": "Conjunto de lanyard y acreditación personalizada"
         }
