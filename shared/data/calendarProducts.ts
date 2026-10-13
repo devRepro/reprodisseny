@@ -127,6 +127,13 @@ export function coerceCalendarSizeForModel(modelValue: unknown, sizeValue: unkno
   return getCalendarSize(model, sizeValue)?.id ?? "";
 }
 
+export function isValidCalendarQuantity(value: unknown) {
+  const normalized = String(value ?? "").trim();
+  if (!normalized) return true;
+
+  return /^\d{1,7}$/.test(normalized) && Number(normalized) > 0;
+}
+
 export function createCalendarLeadExtras(selection: CalendarLeadSelection) {
   const model = getCalendarModel(selection.modelId);
   const size = model ? getCalendarSize(model, selection.sizeId) : null;

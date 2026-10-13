@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import {
+  PRICE_REQUEST_LIMITS,
   priceRequestContactSchema,
   priceRequestPayloadSchema,
 } from "../shared/schemas/priceRequest";
@@ -209,6 +210,46 @@ test("usePriceRequests libera requestInFlight e isLoading después de un error",
     assert.deepEqual(retryResponse, createdResponse);
     assert.equal(postCount, 2);
     assert.equal(requests.isLoading.value, false);
+  } finally {
+    if (previousFetch) runtime.$fetch = previousFetch;
+    else delete runtime.$fetch;
+
+    if (previousUseNotify) runtime.useNotify = previousUseNotify;
+    else delete runtime.useNotify;
+  }
+});
+
+test("usePriceRequests normaliza una URL larga antes de validar y hacer el POST", async () => {
+  const runtime = globalThis as Record<string, any>;
+  const previousFetch = runtime.$fetch;
+  const previousUseNotify = runtime.useNotify;
+  const campaignUrl =
+    "https://reprodisseny.com/calendarios/calendarios-corporativos-2027" +
+    `?utm_source=google&utm_medium=cpc&utm_campaign=${"calendarios-".repeat(20)}` +
+    `&gclid=${"A".repeat(180)}`;
+  let postCount = 0;
+  let sentSourceUrl = "";
+
+  runtime.useNotify = () => ({ show: () => undefined });
+  runtime.$fetch = async (_endpoint: string, options: { body: FormData }) => {
+    postCount += 1;
+    const sentPayload = JSON.parse(
+      String(options.body.get("payload")),
+    ) as Record<string, unknown>;
+    sentSourceUrl = String(sentPayload.sourceUrl);
+    return createdResponse;
+  };
+
+  try {
+    const requests = usePriceRequests();
+    const response = await requests.sendPriceRequest({
+      ...validPriceRequestPayload,
+      sourceUrl: campaignUrl,
+    });
+
+    assert.deepEqual(response, createdResponse);
+    assert.equal(postCount, 1);
+    assert.equal(sentSourceUrl.length, PRICE_REQUEST_LIMITS.sourceUrlMax);
   } finally {
     if (previousFetch) runtime.$fetch = previousFetch;
     else delete runtime.$fetch;

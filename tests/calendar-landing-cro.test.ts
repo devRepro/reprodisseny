@@ -172,6 +172,23 @@ test("el formulario conserva los campos obligatorios y no convierte cantidad en 
   );
 });
 
+test("los errores de validación se muestran junto al campo y desplazan el foco", () => {
+  assert.match(form, /import \{ computed, nextTick, reactive, ref, watch \} from "vue"/);
+  assert.match(form, /control\.focus\(\{ preventScroll: true \}\)/);
+  assert.match(
+    form,
+    /control\.scrollIntoView\(\{ behavior: "smooth", block: "center" \}\)/,
+  );
+
+  for (const field of ["model", "size", "quantity", "name", "email", "phone", "privacy"]) {
+    assert.match(form, new RegExp(`aria-describedby="[^"]*calendar-${field}-error`));
+    assert.match(form, new RegExp(`id="calendar-${field}-error"`));
+  }
+
+  assert.match(form, /Introduce un teléfono válido\./);
+  assert.match(form, /Debes aceptar la política de privacidad\./);
+});
+
 test("solo una creación confirmada genera conversión y los errores o duplicados no convierten", async () => {
   const events: string[] = [];
   const tracker = createLeadFormTracker((event) => {

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, reactive, ref, watch } from "vue";
+import { computed, nextTick, reactive, ref, watch } from "vue";
 import { useRoute } from "#imports";
 
 import AppButton from "@/components/shared/button/AppButton.vue";
@@ -24,6 +24,7 @@ import {
   createCalendarLeadExtras,
   getCalendarModel,
   getCalendarSizesForModel,
+  isValidCalendarQuantity,
   isValidCalendarSelection,
 } from "~/shared/data/calendarProducts";
 
@@ -47,6 +48,28 @@ type ValidationField =
   | "phone"
   | "privacy"
   | null;
+
+type InvalidField = Exclude<ValidationField, null>;
+
+const VALIDATION_CONTROL_IDS: Record<InvalidField, string> = {
+  modelId: "calendar-model",
+  sizeId: "calendar-size",
+  quantity: "calendar-quantity",
+  nameOrCompany: "calendar-name",
+  email: "calendar-email",
+  phone: "calendar-phone",
+  privacy: "calendar-privacy",
+};
+
+const VALIDATION_MESSAGES: Record<InvalidField, string> = {
+  modelId: "Selecciona un modelo de calendario.",
+  sizeId: "Selecciona una medida disponible para ese modelo.",
+  quantity: "Indica una cantidad válida.",
+  nameOrCompany: "Indica un nombre o empresa válido.",
+  email: "Introduce un email válido.",
+  phone: "Introduce un teléfono válido.",
+  privacy: "Debes aceptar la política de privacidad.",
+};
 
 const props = withDefaults(
   defineProps<{
@@ -95,8 +118,7 @@ const sourceUrl = computed(() => {
   return String(value).slice(0, 300);
 });
 
-const errorMessage = computed(() => {
-  if (validationError.value) return validationError.value;
+const submissionErrorMessage = computed(() => {
   if (!error.value) return "";
 
   return typeof error.value === "string"
@@ -167,15 +189,22 @@ function checkPanelClass(field?: ValidationField) {
   return cn("rd-form-check-panel", validationField.value === field && "rd-form-check-panel--error");
 }
 
-function setValidationError(field: ValidationField, message: string) {
-  validationField.value = field;
-  validationError.value = message;
+function focusValidationField(field: InvalidField) {
+  if (!import.meta.client) return;
+
+  void nextTick(() => {
+    const control = document.getElementById(VALIDATION_CONTROL_IDS[field]);
+    if (!control) return;
+
+    control.focus({ preventScroll: true });
+    control.scrollIntoView({ behavior: "smooth", block: "center" });
+  });
 }
 
-function isValidQuantity(value: string) {
-  const normalized = cleanString(value);
-  if (!normalized) return true;
-  return /^\d{1,7}$/.test(normalized) && Number(normalized) > 0;
+function setValidationError(field: InvalidField, message: string) {
+  validationField.value = field;
+  validationError.value = message;
+  focusValidationField(field);
 }
 
 function validateForm() {
@@ -186,10 +215,10 @@ function validateForm() {
   const email = cleanString(form.email);
   const phone = cleanString(form.phone);
 
-  const invalidFields: Exclude<ValidationField, null>[] = [];
+  const invalidFields: InvalidField[] = [];
   if (!getCalendarModel(modelId)) invalidFields.push("modelId");
   if (!isValidCalendarSelection(modelId, sizeId)) invalidFields.push("sizeId");
-  if (!isValidQuantity(quantity)) invalidFields.push("quantity");
+  if (!isValidCalendarQuantity(quantity)) invalidFields.push("quantity");
   if (!priceRequestNameSchema.safeParse(nameOrCompany).success) invalidFields.push("nameOrCompany");
   if (!priceRequestEmailSchema.safeParse(email).success) invalidFields.push("email");
   if (!priceRequestPhoneSchema.safeParse(phone).success) invalidFields.push("phone");
@@ -203,17 +232,7 @@ function validateForm() {
   }
 
   const first = invalidFields[0];
-  const messages: Record<Exclude<ValidationField, null>, string> = {
-    modelId: "Selecciona un modelo de calendario.",
-    sizeId: "Selecciona una medida disponible para ese modelo.",
-    quantity: "Indica una cantidad válida.",
-    nameOrCompany: "Indica un nombre o empresa válido.",
-    email: "Introduce un email válido.",
-    phone: "Introduce un teléfono válido.",
-    privacy: "Debes aceptar la política de privacidad.",
-  };
-
-  setValidationError(first, messages[first]);
+  setValidationError(first, VALIDATION_MESSAGES[first]);
   leadTracking.trackValidationError(invalidFields);
 
   return { ok: false as const };
@@ -317,12 +336,12 @@ async function onSubmit() {
       <div class="rd-form-body">
         <div class="rd-form-stack">
           <div
-            v-if="errorMessage"
-            id="calendar-form-error"
+            v-if="submissionErrorMessage"
+            id="calendar-submission-error"
             class="rd-form-alert rd-form-alert--destructive"
             role="alert"
           >
-            {{ errorMessage }}
+            {{ submissionErrorMessage }}
           </div>
 
           <input
@@ -347,7 +366,7 @@ async function onSubmit() {
               required
               :class="controlClass('modelId')"
               :aria-invalid="validationField === 'modelId'"
-              :aria-describedby="validationField === 'modelId' ? 'calendar-form-error' : undefined"
+              :aria-describedby="validationField === 'modelId' ? 'calendar-model-error' : undefined"
               @change="handleModelChange"
             >
               <option value="">Selecciona una opción</option>
@@ -355,6 +374,14 @@ async function onSubmit() {
                 {{ model.label }}
               </option>
             </select>
+            <p
+              v-if="validationField === 'modelId'"
+              id="calendar-model-error"
+              class="calendar-quote-form__field-error"
+              role="alert"
+            >
+              {{ validationError }}
+            </p>
           </div>
 
           <div class="rd-form-field">
@@ -370,7 +397,7 @@ async function onSubmit() {
               :disabled="!selectedModel"
               :class="controlClass('sizeId')"
               :aria-invalid="validationField === 'sizeId'"
-              :aria-describedby="validationField === 'sizeId' ? 'calendar-form-error' : undefined"
+              :aria-describedby="validationField === 'sizeId' ? 'calendar-size-error' : undefined"
               @change="handleSizeChange"
             >
               <option value="">
@@ -380,6 +407,14 @@ async function onSubmit() {
                 {{ size.label }}
               </option>
             </select>
+            <p
+              v-if="validationField === 'sizeId'"
+              id="calendar-size-error"
+              class="calendar-quote-form__field-error"
+              role="alert"
+            >
+              {{ validationError }}
+            </p>
           </div>
 
           <div class="rd-form-field">
@@ -396,8 +431,17 @@ async function onSubmit() {
               min="1"
               :class="controlClass('quantity')"
               :aria-invalid="validationField === 'quantity'"
-              :aria-describedby="validationField === 'quantity' ? 'calendar-form-error' : undefined"
+              :aria-describedby="validationField === 'quantity' ? 'calendar-quantity-error' : undefined"
+              @input="clearValidation"
             />
+            <p
+              v-if="validationField === 'quantity'"
+              id="calendar-quantity-error"
+              class="calendar-quote-form__field-error"
+              role="alert"
+            >
+              {{ validationError }}
+            </p>
           </div>
 
           <div class="rd-form-field">
@@ -414,8 +458,17 @@ async function onSubmit() {
               required
               :class="controlClass('nameOrCompany')"
               :aria-invalid="validationField === 'nameOrCompany'"
-              :aria-describedby="validationField === 'nameOrCompany' ? 'calendar-form-error' : undefined"
+              :aria-describedby="validationField === 'nameOrCompany' ? 'calendar-name-error' : undefined"
+              @input="clearValidation"
             />
+            <p
+              v-if="validationField === 'nameOrCompany'"
+              id="calendar-name-error"
+              class="calendar-quote-form__field-error"
+              role="alert"
+            >
+              {{ validationError }}
+            </p>
           </div>
 
           <div class="rd-form-field">
@@ -432,8 +485,17 @@ async function onSubmit() {
               required
               :class="controlClass('email')"
               :aria-invalid="validationField === 'email'"
-              :aria-describedby="validationField === 'email' ? 'calendar-form-error' : undefined"
+              :aria-describedby="validationField === 'email' ? 'calendar-email-error' : undefined"
+              @input="clearValidation"
             />
+            <p
+              v-if="validationField === 'email'"
+              id="calendar-email-error"
+              class="calendar-quote-form__field-error"
+              role="alert"
+            >
+              {{ validationError }}
+            </p>
           </div>
 
           <div class="rd-form-field">
@@ -451,29 +513,49 @@ async function onSubmit() {
               required
               :class="controlClass('phone')"
               :aria-invalid="validationField === 'phone'"
-              :aria-describedby="validationField === 'phone' ? 'calendar-form-error' : undefined"
+              :aria-describedby="validationField === 'phone' ? 'calendar-phone-error' : undefined"
+              @input="clearValidation"
             />
+            <p
+              v-if="validationField === 'phone'"
+              id="calendar-phone-error"
+              class="calendar-quote-form__field-error"
+              role="alert"
+            >
+              {{ validationError }}
+            </p>
           </div>
 
-          <label :class="checkPanelClass('privacy')" for="calendar-privacy">
-            <input
-              id="calendar-privacy"
-              v-model="form.privacy"
-              name="privacy"
-              type="checkbox"
-              required
-              class="rd-form-checkbox"
-              :aria-invalid="validationField === 'privacy'"
-              :aria-describedby="validationField === 'privacy' ? 'calendar-form-error' : undefined"
-            />
+          <div class="rd-form-field">
+            <label :class="checkPanelClass('privacy')" for="calendar-privacy">
+              <input
+                id="calendar-privacy"
+                v-model="form.privacy"
+                name="privacy"
+                type="checkbox"
+                required
+                class="rd-form-checkbox"
+                :aria-invalid="validationField === 'privacy'"
+                :aria-describedby="validationField === 'privacy' ? 'calendar-privacy-error' : undefined"
+                @change="clearValidation"
+              />
 
-            <span class="rd-form-privacy-text">
-              He leído y acepto la
-              <NuxtLink to="/politica-privacidad" target="_blank" class="rd-form-link">
-                política de privacidad
-              </NuxtLink>.
-            </span>
-          </label>
+              <span class="rd-form-privacy-text">
+                He leído y acepto la
+                <NuxtLink to="/politica-privacidad" target="_blank" class="rd-form-link">
+                  política de privacidad
+                </NuxtLink>.
+              </span>
+            </label>
+            <p
+              v-if="validationField === 'privacy'"
+              id="calendar-privacy-error"
+              class="calendar-quote-form__field-error"
+              role="alert"
+            >
+              {{ validationError }}
+            </p>
+          </div>
         </div>
       </div>
 
@@ -505,6 +587,13 @@ async function onSubmit() {
 
 .calendar-quote-form__submit {
   width: 100%;
+}
+
+.calendar-quote-form__field-error {
+  color: hsl(var(--destructive));
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.25rem;
 }
 
 @media (max-width: 639px) {

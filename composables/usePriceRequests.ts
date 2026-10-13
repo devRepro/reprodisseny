@@ -1,6 +1,7 @@
 // composables/usePriceRequests.ts
 import { ref } from "vue";
 import {
+  normalizePriceRequestSourceUrl,
   priceRequestPayloadSchema,
   type CreatePriceRequestInput,
 } from "~/shared/schemas/priceRequest";
@@ -46,7 +47,10 @@ export function usePriceRequests() {
   ): Promise<PriceRequestResponse | null> => {
     if (requestInFlight) return null;
 
-    const parsedPayload = priceRequestPayloadSchema.safeParse(payload);
+    const parsedPayload = priceRequestPayloadSchema.safeParse({
+      ...payload,
+      sourceUrl: normalizePriceRequestSourceUrl(payload.sourceUrl),
+    });
     if (!parsedPayload.success) {
       const invalidFields = [
         ...new Set(
