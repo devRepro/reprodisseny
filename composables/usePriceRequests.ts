@@ -1,7 +1,7 @@
 // composables/usePriceRequests.ts
 import { ref } from "vue";
 import {
-  normalizePriceRequestSourceUrl,
+  normalizePriceRequestPayloadForTransport,
   priceRequestPayloadSchema,
   type CreatePriceRequestInput,
 } from "~/shared/schemas/priceRequest";
@@ -9,6 +9,7 @@ import {
   isConfirmedPriceRequestResponse,
   type PriceRequestResponse,
 } from "~/utils/priceRequestResponse";
+import { getPriceRequestErrorMessage } from "~/utils/priceRequestError";
 
 type FileKind = "design" | "brief" | "proof" | "final" | "other";
 
@@ -47,10 +48,9 @@ export function usePriceRequests() {
   ): Promise<PriceRequestResponse | null> => {
     if (requestInFlight) return null;
 
-    const parsedPayload = priceRequestPayloadSchema.safeParse({
-      ...payload,
-      sourceUrl: normalizePriceRequestSourceUrl(payload.sourceUrl),
-    });
+    const parsedPayload = priceRequestPayloadSchema.safeParse(
+      normalizePriceRequestPayloadForTransport(payload),
+    );
     if (!parsedPayload.success) {
       const invalidFields = [
         ...new Set(
@@ -100,13 +100,8 @@ export function usePriceRequests() {
 
       success.value = true;
       return res;
-    } catch (e: any) {
-      error.value =
-        e?.data?.statusMessage ||
-        e?.statusMessage ||
-        e?.data?.message ||
-        e?.message ||
-        "No se ha podido enviar la solicitud. Inténtalo de nuevo.";
+    } catch (e: unknown) {
+      error.value = getPriceRequestErrorMessage(e);
 
       throw e;
     } finally {

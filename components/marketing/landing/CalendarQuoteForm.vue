@@ -12,6 +12,7 @@ import { useLeadFormTracking } from "@/composables/useLeadFormTracking";
 import { useTracking } from "@/composables/useTracking";
 import type { TrackingContext } from "~/types/tracking";
 import {
+  PRICE_REQUEST_LIMITS,
   priceRequestEmailSchema,
   priceRequestNameSchema,
   priceRequestPhoneSchema,
@@ -115,7 +116,7 @@ const availableSizes = computed(() => getCalendarSizesForModel(form.modelId));
 
 const sourceUrl = computed(() => {
   const value = import.meta.client ? window.location.href : route.fullPath || "/";
-  return String(value).slice(0, 300);
+  return String(value).slice(0, PRICE_REQUEST_LIMITS.sourceUrlMax);
 });
 
 const submissionErrorMessage = computed(() => {
