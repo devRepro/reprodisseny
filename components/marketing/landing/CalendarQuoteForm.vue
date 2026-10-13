@@ -19,7 +19,6 @@ import {
 import {
   CALENDAR_LANDING_CAMPAIGN,
   CALENDAR_PRODUCT_SLUG,
-  CALENDAR_QUOTE_CONVERSION,
   calendarModels,
   coerceCalendarSizeForModel,
   createCalendarLeadExtras,
@@ -259,29 +258,33 @@ async function onSubmit() {
   try {
     const trackingPayload = tracking.getTrackingPayloadForLead(getTrackingContext());
 
-    const response = await sendPriceRequest(
-      {
-        website: null,
-        name: validation.values.nameOrCompany,
-        email: validation.values.email,
-        phone: validation.values.phone,
-        company: validation.values.nameOrCompany,
-        message: fallbackMessage,
-        categorySlug: props.categorySlug,
-        product: {
-          name: props.productName,
-          slug: props.productSlug,
-          sku: null,
-          url: sourceUrl.value,
-        },
-        extras,
-        consent: true,
-        sourceUrl: trackingPayload.sourceUrl || sourceUrl.value,
-        utm: trackingPayload.routeUtm,
-        tracking: trackingPayload,
-        initialStatus: "Nova",
-      },
-      { file: null, fileKind: "design" },
+    const response = await leadTracking.submitAndTrack(
+      () =>
+        sendPriceRequest(
+          {
+            website: null,
+            name: validation.values.nameOrCompany,
+            email: validation.values.email,
+            phone: validation.values.phone,
+            company: validation.values.nameOrCompany,
+            message: fallbackMessage,
+            categorySlug: props.categorySlug,
+            product: {
+              name: props.productName,
+              slug: props.productSlug,
+              sku: null,
+              url: sourceUrl.value,
+            },
+            extras,
+            consent: true,
+            sourceUrl: trackingPayload.sourceUrl || sourceUrl.value,
+            utm: trackingPayload.routeUtm,
+            tracking: trackingPayload,
+            initialStatus: "Nova",
+          },
+          { file: null, fileKind: "design" },
+        ),
+      { waitForTracking: true },
     );
 
     if (!response || error.value) return;
@@ -290,7 +293,6 @@ async function onSubmit() {
       path: "/lp/calendarios/gracias",
       query: {
         kind: "presupuesto",
-        conversion: CALENDAR_QUOTE_CONVERSION,
       },
     });
   } catch (submitError) {

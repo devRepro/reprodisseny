@@ -341,7 +341,7 @@ useHead({
 function scrollToQuote() {
   if (!import.meta.client) return;
 
-  document.querySelector("#quote-form")?.scrollIntoView({
+  document.querySelector("#solicitar-presupuesto")?.scrollIntoView({
     behavior: "smooth",
     block: "start",
   });
@@ -387,10 +387,10 @@ function selectCalendarModel(modelId: string) {
           </p>
 
           <AppButton
-            type="button"
+            href="#solicitar-presupuesto"
             size="lg"
             class="calendar-cta calendar-hero__cta"
-            @click="scrollToQuote"
+            @click.prevent="scrollToQuote"
           >
             SOLICITA TU PRESUPUESTO SIN COMPROMISO
           </AppButton>
@@ -441,7 +441,7 @@ function selectCalendarModel(modelId: string) {
         <h2 id="calendar-models-title" class="calendar-section__title calendar-section__title--models section-title section-title--section">
           Elige el calendario que más se ajusta a tus necesidades
         </h2>
-        <div class="calendar-models-grid" role="list">
+        <div class="calendar-models-grid">
           <button
             v-for="model in modelCards"
             :key="model.id"
@@ -474,13 +474,35 @@ function selectCalendarModel(modelId: string) {
         </p>
 
         <AppButton
-          type="button"
+          href="#solicitar-presupuesto"
           size="lg"
           class="calendar-cta calendar-models__cta"
-          @click="scrollToQuote"
+          @click.prevent="scrollToQuote"
         >
           SOLICITA TU PRESUPUESTO SIN COMPROMISO
         </AppButton>
+      </div>
+    </section>
+
+    <section
+      id="solicitar-presupuesto"
+      class="calendar-form-section"
+      aria-labelledby="calendar-form-title"
+    >
+      <div class="container-content calendar-container calendar-form-section__inner">
+        <div class="calendar-form-section__heading">
+          <h2 id="calendar-form-title" class="calendar-form-section__title section-title section-title--section">
+            ¿Qué calendario quieres?
+          </h2>
+          <p class="calendar-form-section__subtitle text-body">
+            Cuéntanos qué necesitas y te prepararemos un presupuesto personalizado, sin compromiso
+          </p>
+        </div>
+        <CalendarQuoteForm
+          :preselected-model-id="selectedModelId"
+          :tracking-context="trackingContext"
+          @model-change="selectedModelId = $event"
+        />
       </div>
     </section>
 
@@ -572,24 +594,6 @@ function selectCalendarModel(modelId: string) {
       :default-open="false"
       variant="calendar"
     />
-
-    <section id="quote-form" class="calendar-form-section" aria-labelledby="calendar-form-title">
-      <div class="container-content calendar-container calendar-form-section__inner">
-        <div class="calendar-form-section__heading">
-          <h2 id="calendar-form-title" class="calendar-form-section__title section-title section-title--section">
-            ¿Qué calendario quieres?
-          </h2>
-          <p class="calendar-form-section__subtitle text-body">
-            Recibirás tu presupuesto en pocos minutos
-          </p>
-        </div>
-        <CalendarQuoteForm
-          :preselected-model-id="selectedModelId"
-          :tracking-context="trackingContext"
-          @model-change="selectedModelId = $event"
-        />
-      </div>
-    </section>
   </div>
 </template>
 
@@ -968,6 +972,7 @@ function selectCalendarModel(modelId: string) {
 
 .calendar-form-section {
   scroll-margin-top: 84px;
+  border-top: 1px solid hsl(var(--primary) / 0.16);
   padding: 68px 0 78px;
 }
 
@@ -977,7 +982,13 @@ function selectCalendarModel(modelId: string) {
 }
 
 .calendar-form-section__heading {
-  text-align: left;
+  max-width: 720px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.calendar-form-section__title {
+  text-align: center;
 }
 
 .calendar-form-section__subtitle {

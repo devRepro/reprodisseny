@@ -7,7 +7,7 @@ const { openCookiePreferences } = useCookieConsent();
 function scrollToQuote() {
   if (!import.meta.client) return;
 
-  document.querySelector("#quote-form")?.scrollIntoView({
+  document.querySelector("#solicitar-presupuesto, #quote-form")?.scrollIntoView({
     behavior: "smooth",
     block: "start",
   });

@@ -6,6 +6,10 @@ import {
   priceRequestPayloadSchema,
 } from "../shared/schemas/priceRequest";
 import { usePriceRequests } from "../composables/usePriceRequests";
+import {
+  DATA_LAYER_EVENT_TIMEOUT_MS,
+  pushDataLayerEventAndWait,
+} from "../utils/tracking/dataLayer";
 import { createLeadFormTracker } from "../utils/tracking/leadForm";
 
 type TrackedEvent = {
@@ -233,6 +237,79 @@ test("caso 10: doble submit concurrente hace un POST y una conversión", async (
 
   assert.equal(postCount, 1);
   assert.equal(events.filter(({ event }) => event === "generate_lead").length, 1);
+});
+
+test("la navegación puede esperar a que GTM procese generate_lead", async () => {
+  let releaseTracking!: () => void;
+  let submissionResolved = false;
+  let postCount = 0;
+  const events: Array<{ event: string; waitForTags: boolean }> = [];
+  const tracker = createLeadFormTracker((event, _payload, options) => {
+    events.push({ event, waitForTags: options?.waitForTags === true });
+    if (!options?.waitForTags) return;
+
+    return new Promise<void>((resolve) => {
+      releaseTracking = resolve;
+    });
+  });
+
+  const submission = tracker
+    .submitAndTrack(async () => {
+      postCount += 1;
+      return createdResponse;
+    }, { waitForTracking: true })
+    .then(() => {
+      submissionResolved = true;
+    });
+
+  await Promise.resolve();
+  const repeatedSubmit = await tracker.submitAndTrack(async () => {
+    postCount += 1;
+    return createdResponse;
+  }, { waitForTracking: true });
+
+  assert.equal(submissionResolved, false);
+  assert.equal(repeatedSubmit, null);
+  assert.equal(postCount, 1);
+  assert.deepEqual(events, [{ event: "generate_lead", waitForTags: true }]);
+
+  releaseTracking();
+  await submission;
+  assert.equal(submissionResolved, true);
+});
+
+test("el evento con espera incorpora callback y timeout sin duplicar el push", async () => {
+  let timeoutCallback!: () => void;
+  let clearedTimeout: number | null = null;
+  const target = {
+    dataLayer: [] as Record<string, unknown>[],
+    setTimeout(callback: () => void, timeout: number) {
+      assert.equal(timeout, DATA_LAYER_EVENT_TIMEOUT_MS);
+      timeoutCallback = callback;
+      return 7;
+    },
+    clearTimeout(timeoutId: number) {
+      clearedTimeout = timeoutId;
+    },
+  };
+
+  const delivery = pushDataLayerEventAndWait(target, {
+    event: "generate_lead",
+    lead_type: "quote_request",
+  });
+  const pushed = target.dataLayer[0];
+
+  assert.equal(target.dataLayer.length, 1);
+  assert.equal(pushed.event, "generate_lead");
+  assert.equal(pushed.eventTimeout, DATA_LAYER_EVENT_TIMEOUT_MS);
+  assert.equal(typeof pushed.eventCallback, "function");
+
+  (pushed.eventCallback as () => void)();
+  assert.equal(await delivery, "processed");
+  assert.equal(clearedTimeout, 7);
+
+  timeoutCallback();
+  assert.equal(target.dataLayer.length, 1);
 });
 
 test("caso 11: form_validation_error solo contiene metadatos técnicos", () => {

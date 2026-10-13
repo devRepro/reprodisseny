@@ -1,14 +1,9 @@
 <script setup lang="ts">
-import { onMounted } from "vue";
 import { CheckCircle2, Mail, MapPin, Phone } from "lucide-vue-next";
 
 import AppButton from "@/components/shared/button/AppButton.vue";
 import InstagramIcon from "@/components/shared/icons/social/InstagramIcon.vue";
 import LinkedinIcon from "@/components/shared/icons/social/LinkedinIcon.vue";
-import {
-  getCalendarQuoteThankYouTrackingContext,
-  isCalendarQuoteThankYouConversion,
-} from "~/utils/tracking/thankYouConversion";
 
 definePageMeta({ layout: false });
 
@@ -23,21 +18,8 @@ useHead({
   meta: [{ name: "robots", content: "noindex,nofollow" }],
 });
 
-const route = useRoute();
-const tracking = useTracking();
-
 const linkedinUrl = "https://www.linkedin.com/company/repro-disseny-s.l";
 const instagramUrl = "https://www.instagram.com/reprodissenybcn/";
-
-onMounted(() => {
-  if (!isCalendarQuoteThankYouConversion(route.query)) return;
-
-  tracking.pushPrivacySafeEvent(
-    "generate_lead",
-    { lead_type: "quote_request" },
-    getCalendarQuoteThankYouTrackingContext(),
-  );
-});
 </script>
 
 <template>

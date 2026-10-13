@@ -1,13 +1,9 @@
 <script setup lang="ts">
-import { computed, onMounted } from "vue";
+import { computed } from "vue";
 import ThankYouPanel from "@/components/marketing/quote/ThankYouPanel.vue";
 import SectionHeading from "@/components/marketing/content/SectionHeading.vue";
 import ContactInfoBand from "@/components/marketing/ContactInfoBand.vue";
 import AppButton from "@/components/shared/button/AppButton.vue";
-import {
-  getCalendarQuoteThankYouTrackingContext,
-  isCalendarQuoteThankYouConversion,
-} from "~/utils/tracking/thankYouConversion";
 
 definePageMeta({
   layout: "default",
@@ -16,7 +12,6 @@ definePageMeta({
 type ThankYouKind = "contacto" | "presupuesto";
 
 const route = useRoute();
-const tracking = useTracking();
 
 const pageContainerClass = "container-content";
 
@@ -58,16 +53,6 @@ useHead({
       content: "noindex, nofollow",
     },
   ],
-});
-
-onMounted(() => {
-  if (!isCalendarQuoteThankYouConversion(route.query)) return;
-
-  tracking.pushPrivacySafeEvent(
-    "generate_lead",
-    { lead_type: "quote_request" },
-    getCalendarQuoteThankYouTrackingContext(),
-  );
 });
 </script>
 

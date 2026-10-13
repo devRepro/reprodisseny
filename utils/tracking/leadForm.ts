@@ -14,7 +14,12 @@ export type LeadFormInteraction = {
 type EventSink = (
   event: LeadFormAnalyticsEvent,
   payload: Record<string, unknown>,
-) => void;
+  options?: { waitForTags?: boolean },
+) => void | Promise<unknown>;
+
+type SubmitAndTrackOptions = {
+  waitForTracking?: boolean;
+};
 
 const TECHNICAL_FIELD_NAME = /^[A-Za-z][A-Za-z0-9_-]{0,63}$/;
 
@@ -67,18 +72,39 @@ export function createLeadFormTracker(push: EventSink) {
     return true;
   }
 
+  async function trackConversionAndWait(response: unknown) {
+    if (conversionTracked || !isCreatedPriceRequestResponse(response)) {
+      return false;
+    }
+
+    conversionTracked = true;
+    await push(
+      "generate_lead",
+      { lead_type: "quote_request" },
+      { waitForTags: true },
+    );
+    return true;
+  }
+
   function resetCycle() {
     started = false;
     conversionTracked = false;
   }
 
-  async function submitAndTrack<T>(send: () => Promise<T>) {
+  async function submitAndTrack<T>(
+    send: () => Promise<T>,
+    options: SubmitAndTrackOptions = {},
+  ) {
     if (submissionPending) return null;
 
     submissionPending = true;
     try {
       const response = await send();
-      trackConversion(response);
+      if (options.waitForTracking) {
+        await trackConversionAndWait(response);
+      } else {
+        trackConversion(response);
+      }
       return response;
     } finally {
       submissionPending = false;
@@ -89,6 +115,7 @@ export function createLeadFormTracker(push: EventSink) {
     trackInteraction,
     trackValidationError,
     trackConversion,
+    trackConversionAndWait,
     submitAndTrack,
     resetCycle,
   };
