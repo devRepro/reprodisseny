@@ -3,6 +3,7 @@ import {
   CALENDAR_LANDING_SLUG,
   CALENDAR_PRODUCT_SLUG,
   isValidCalendarSelection,
+  isValidCalendarQuantity,
 } from "../data/calendarProducts";
 
 export const PRICE_REQUEST_LIMITS = {
@@ -20,6 +21,12 @@ export const PRICE_REQUEST_LIMITS = {
 
 export const PRICE_REQUEST_PHONE_PATTERN = /^[\d\s+\-()]+$/;
 export const PRICE_REQUEST_POSTAL_CODE_PATTERN = /^[A-Za-z0-9\s-]*$/;
+
+export function normalizePriceRequestSourceUrl(value: unknown) {
+  if (typeof value !== "string") return "";
+
+  return value.trim().slice(0, PRICE_REQUEST_LIMITS.sourceUrlMax);
+}
 
 export const priceRequestNameSchema = z
   .string({ required_error: "El nombre es obligatorio" })
@@ -130,6 +137,7 @@ export const priceRequestPayloadSchema = z.object({
 
   const model = extras.calendarModelId || extras.tipoCalendario;
   const size = extras.calendarSizeId || extras.tamano;
+  const quantity = extras.cantidad;
 
   if (!model) {
     ctx.addIssue({
@@ -152,6 +160,14 @@ export const priceRequestPayloadSchema = z.object({
       code: z.ZodIssueCode.custom,
       path: ["extras", "tamano"],
       message: "La medida seleccionada no corresponde al modelo de calendario.",
+    });
+  }
+
+  if (!isValidCalendarQuantity(quantity)) {
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      path: ["extras", "cantidad"],
+      message: "Indica una cantidad válida.",
     });
   }
 });

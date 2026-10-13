@@ -358,6 +358,7 @@ test("el código fuente no conserva el loader legado y usa el loader diferido", 
   }
 
   const nuxtConfig = sources[0];
+  const consentPlugin = sources[2];
   assert.equal(nuxtConfig.includes("createDeferredGtmLoaderScript(gtmId)"), true);
   assert.equal(nuxtConfig.includes("new Date().getTime(),event:'gtm.js'"), false);
   assert.equal(nuxtConfig.match(/createGoogleConsentDefaultScript\(\)/g)?.length, 1);
@@ -366,5 +367,9 @@ test("el código fuente no conserva el loader legado y usa el loader diferido", 
       .join("\n")
       .match(/https:\/\/www\.googletagmanager\.com\/gtm\.js/g)?.length,
     1,
+  );
+  assert.equal(
+    consentPlugin.includes("setAttributionStorageAllowed(selection.marketing)"),
+    true,
   );
 });

@@ -5,7 +5,11 @@ type ContextProvider = () => Partial<TrackingContext>;
 
 export function useLeadFormTracking(getContext: ContextProvider) {
   const tracking = useTracking();
-  const tracker = createLeadFormTracker((event, payload) => {
+  const tracker = createLeadFormTracker((event, payload, options) => {
+    if (options?.waitForTags) {
+      return tracking.pushPrivacySafeEventAndWait(event, payload, getContext());
+    }
+
     tracking.pushPrivacySafeEvent(event, payload, getContext());
   });
 
@@ -38,6 +42,7 @@ export function useLeadFormTracking(getContext: ContextProvider) {
     onFormInteraction,
     trackValidationError: tracker.trackValidationError,
     trackConversion: tracker.trackConversion,
+    trackConversionAndWait: tracker.trackConversionAndWait,
     submitAndTrack: tracker.submitAndTrack,
     resetTrackingCycle: tracker.resetCycle,
   };

@@ -1,7 +1,10 @@
 import assert from "node:assert/strict"
 import test from "node:test"
 
-import { getAttribution } from "../utils/tracking/attribution"
+import {
+  getAttribution,
+  syncAttributionStorage,
+} from "../utils/tracking/attribution"
 import {
   classifyAttributionTouch,
   createAttributionTouchFromUrl,
@@ -602,4 +605,38 @@ test("SSR: leer atribucion no accede a window/document/localStorage", () => {
     const attribution = getAttribution()
     assert.deepEqual(attribution, { first: null, last: null })
   })
+})
+
+test("la atribucion publicitaria solo persiste cuando marketing está permitido", () => {
+  const values = new Map<string, string>()
+  const storage = {
+    getItem(key: string) {
+      return values.get(key) ?? null
+    },
+    setItem(key: string, value: string) {
+      values.set(key, value)
+    },
+    removeItem(key: string) {
+      values.delete(key)
+    },
+  }
+  const attribution = {
+    first: createAttributionTouchFromUrl({
+      url: `${productUrl}?gclid=CONSENT_TEST`,
+    }),
+    last: null,
+  }
+
+  syncAttributionStorage(storage, attribution, false)
+  assert.equal(values.size, 0)
+
+  syncAttributionStorage(storage, attribution, true)
+  assert.equal(values.size, 1)
+  assert.equal(
+    JSON.parse(values.get("rd_first_attribution") || "{}").gclid,
+    "CONSENT_TEST",
+  )
+
+  syncAttributionStorage(storage, attribution, false)
+  assert.equal(values.size, 0)
 })

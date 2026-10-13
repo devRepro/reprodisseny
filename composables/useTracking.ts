@@ -10,6 +10,7 @@ import {
   getTrackingParamsFromUrl,
   normalizeLeadTracking,
 } from "~/utils/tracking/leadAttribution"
+import { pushDataLayerEventAndWait } from "~/utils/tracking/dataLayer"
 
 type TrackingContextInput = Partial<TrackingContext>
 
@@ -70,6 +71,18 @@ function toDataLayerContext(context?: TrackingContextInput) {
     category_slug: safeTechnicalValue(context.categorySlug),
     form_id: safeTechnicalValue(context.formId),
     form_name: safeTechnicalValue(context.formName),
+  }
+}
+
+function createPrivacySafeDataLayerEvent(
+  event: "form_start" | "form_validation_error" | "generate_lead",
+  payload: TrackingPayload,
+  context?: TrackingContextInput,
+) {
+  return {
+    event,
+    ...toDataLayerContext(context),
+    ...toPrivacySafeLeadPayload(event, payload),
   }
 }
 
@@ -167,11 +180,24 @@ export function useTracking(defaultContext?: TrackingContextInput) {
 
     // Estos eventos usan una lista cerrada de metadatos técnicos. No se añaden
     // URLs, referrers, IDs de solicitud ni valores introducidos por el usuario.
-    window.dataLayer.push({
-      event,
-      ...toDataLayerContext(mergedContext),
-      ...toPrivacySafeLeadPayload(event, payload),
-    })
+    window.dataLayer.push(
+      createPrivacySafeDataLayerEvent(event, payload, mergedContext),
+    )
+  }
+
+  async function pushPrivacySafeEventAndWait(
+    event: "form_start" | "form_validation_error" | "generate_lead",
+    payload: TrackingPayload = {},
+    context?: TrackingContextInput,
+  ) {
+    if (!import.meta.client) return "timeout" as const
+
+    const mergedContext = { ...defaultContext, ...context }
+
+    return pushDataLayerEventAndWait(
+      window,
+      createPrivacySafeDataLayerEvent(event, payload, mergedContext),
+    )
   }
 
   function pushEvent(
@@ -238,6 +264,7 @@ export function useTracking(defaultContext?: TrackingContextInput) {
   return {
     pushEvent,
     pushPrivacySafeEvent,
+    pushPrivacySafeEventAndWait,
     getTrackingPayloadForLead,
     getSharePointTrackingFields,
   }

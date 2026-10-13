@@ -9,6 +9,7 @@ import {
   createGoogleConsentUpdater,
   dispatchGoogleConsentUpdate,
 } from "~/utils/googleConsent";
+import { setAttributionStorageAllowed } from "~/utils/tracking/attribution";
 
 const initializeCookieConsent = createCookieConsentInitializer(CookieConsent.run);
 
@@ -17,11 +18,15 @@ export default defineNuxtPlugin(async () => {
     dispatchGoogleConsentUpdate(state),
   );
 
-  const syncGoogleConsent = () =>
-    updateGoogleConsent({
+  const syncGoogleConsent = () => {
+    const selection = {
       analytics: CookieConsent.acceptedCategory("analytics"),
       marketing: CookieConsent.acceptedCategory("marketing"),
-    });
+    };
+
+    setAttributionStorageAllowed(selection.marketing);
+    return updateGoogleConsent(selection);
+  };
 
   await initializeCookieConsent(
     createCookieConsentConfig({ onConsentChange: syncGoogleConsent }),

@@ -1,7 +1,6 @@
 export const CALENDAR_PRODUCT_SLUG = "calendarios-personalizados";
 export const CALENDAR_LANDING_SLUG = "calendarios";
 export const CALENDAR_LANDING_CAMPAIGN = "calendarios-2027";
-export const CALENDAR_QUOTE_CONVERSION = "calendar_quote";
 
 export type CalendarSize = {
   id: string;
@@ -126,6 +125,13 @@ export function coerceCalendarSizeForModel(modelValue: unknown, sizeValue: unkno
   if (!model) return "";
 
   return getCalendarSize(model, sizeValue)?.id ?? "";
+}
+
+export function isValidCalendarQuantity(value: unknown) {
+  const normalized = String(value ?? "").trim();
+  if (!normalized) return true;
+
+  return /^\d{1,7}$/.test(normalized) && Number(normalized) > 0;
 }
 
 export function createCalendarLeadExtras(selection: CalendarLeadSelection) {
