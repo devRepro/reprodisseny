@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-22T09:53:43.565Z",
+  "generatedAt": "2026-10-13T16:54:49.940Z",
   "categories": [
     {
       "id": "12",
@@ -18352,7 +18352,7 @@
     },
     {
       "id": "40",
-      "updatedAt": "2026-07-22T11:34:43Z",
+      "updatedAt": "2026-10-13T16:51:58Z",
       "type": "producto",
       "slug": "encuadernado-con-grapas",
       "path": "/productos/encuadernado-con-grapas",
@@ -18379,7 +18379,7 @@
           "title": "Beneficios",
           "kind": "benefits",
           "contentFormat": "markdown",
-          "body": "Acabado tipo libro: presencia premium y formato profesional para presentar marca y contenido. \nLomo imprimible: ideal para identificar en estantería (título, logo, edición). \nMás durabilidad que el grapado en publicaciones con muchas páginas. \nVersátil: funciona muy bien en catálogos comerciales, dossiers y libros corporativos. \nOpciones de acabado: laminados, barnices y detalles para elevar la calidad percibida."
+          "body": "Encuadernación económica: solución práctica y profesional para revistas, folletos, catálogos y publicaciones de pocas páginas.\n\nApertura cómoda: permite consultar el contenido fácilmente y abrir la publicación por el centro.\n\nAcabado ligero y funcional: ideal para publicaciones comerciales, programas, manuales y material promocional.\n\nVersatilidad de formatos: disponible en A4, A5 y otros tamaños personalizados según las necesidades del proyecto.\n\nOpciones de personalización: diferentes tipos de papel, gramajes y cubiertas, con posibilidad de incorporar acabados como laminado mate o brillo."
         },
         {
           "id": "technical-specs",
@@ -23236,7 +23236,7 @@
     },
     {
       "id": "57",
-      "updatedAt": "2026-09-09T06:53:55Z",
+      "updatedAt": "2026-10-13T16:54:11Z",
       "type": "producto",
       "slug": "identificador-maleta",
       "path": "/productos/identificador-maleta",
@@ -23264,19 +23264,19 @@
           "kind": "materials",
           "contentFormat": "json",
           "materialsData": {
-            "intro": "Seleccionamos el material según la duración del evento, la estabilidad necesaria y el nivel de calidad percibida que debe transmitir la pieza.",
+            "intro": "Seleccionamos el material del identificador de maleta según la resistencia necesaria, la duración del uso y el acabado deseado.",
             "materials": [
               {
                 "title": "Cartulina de alto gramaje",
-                "description": "Solución práctica y con buena presencia para nombres de sobremesa de eventos, reuniones, banquetes y congresos."
+                "description": "Opción ligera y económica para identificadores de equipaje de uso temporal, promociones y eventos. Puede protegerse mediante laminado."
               },
               {
-                "title": "Soporte rígido",
-                "description": "Recomendado cuando se busca más estabilidad, durabilidad o reutilización en eventos recurrentes."
+                "title": "PVC o soporte plástico",
+                "description": "Alternativa resistente y duradera para identificadores que requieren mayor rigidez y uso continuado. Su disponibilidad debe confirmarse según el proyecto."
               },
               {
-                "title": "Material para uso intensivo",
-                "description": "Adecuado para eventos de varios días, piezas con mucha manipulación o montajes que deben mantenerse firmes durante más tiempo."
+                "title": "Material sintético resistente",
+                "description": "Opción adecuada para aplicaciones que requieren flexibilidad y resistencia a la manipulación, según el soporte disponible."
               }
             ]
           }
@@ -23288,33 +23288,33 @@
           "kind": "formats",
           "contentFormat": "json",
           "formatsData": {
-            "intro": "Definimos el formato del nombre de sobremesa según el tipo de evento, la distancia de lectura, la estabilidad necesaria y si debe verse desde uno o ambos lados.",
+            "intro": "Personalizamos los identificadores de maleta según el tamaño, la forma, el sistema de sujeción y la información que deben contener.",
             "shapes": [
               {
-                "title": "Formato tipo tienda",
-                "description": "Pieza plegada o triangular, estable y visible por ambos lados, muy habitual en mesas de ponentes, congresos y eventos corporativos."
+                "title": "Formato rectangular",
+                "description": "Diseño habitual para identificadores de equipaje con espacio para logotipo y datos de contacto."
               },
               {
-                "title": "Formato en L con base",
-                "description": "Opción adecuada cuando se busca más rigidez, presencia y estabilidad sobre la mesa."
+                "title": "Formato troquelado",
+                "description": "Permite adaptar el contorno del identificador a la identidad de marca o al diseño del proyecto."
               },
               {
                 "title": "Formato a medida",
-                "description": "Permite adaptar tamaño, orientación y diseño al espacio disponible, al tipo de evento y al volumen de información."
+                "description": "Dimensiones y orientación adaptadas a las necesidades de personalización, legibilidad y uso."
               }
             ],
             "deliveryFormats": [
               {
-                "title": "Una cara",
-                "description": "Recomendado cuando la pieza solo debe leerse desde una dirección concreta."
+                "title": "Impresión a una o dos caras",
+                "description": "Permite incorporar identidad corporativa y datos de identificación según la configuración elegida."
               },
               {
-                "title": "Doble cara",
-                "description": "Adecuado para mesas de ponentes, banquetes, mostradores o zonas donde debe leerse desde ambos lados."
+                "title": "Orificio y sistema de sujeción",
+                "description": "Preparación para incorporar cinta, anilla u otro sistema compatible con el identificador."
               },
               {
                 "title": "Datos variables",
-                "description": "Permite personalizar nombres, cargos, empresas, números de mesa, idiomas, zonas o equipos manteniendo una misma línea visual."
+                "description": "Personalización con nombres, referencias, numeración u otros datos individuales cuando el proyecto lo requiera."
               }
             ]
           }
@@ -23326,27 +23326,23 @@
           "kind": "finishes",
           "contentFormat": "json",
           "finishesData": {
-            "intro": "Los acabados ayudan a mejorar la resistencia, la estabilidad y la calidad visual del nombre de sobremesa durante el evento.",
+            "intro": "Los acabados permiten adaptar el identificador de maleta a la manipulación del equipaje, la resistencia requerida y la imagen corporativa.",
             "finishes": [
               {
-                "title": "Hendido profesional",
-                "description": "Permite un plegado limpio y estable para que la pieza se mantenga firme sobre la mesa."
-              },
-              {
                 "title": "Laminado mate o brillo",
-                "description": "Protege frente a roces, manchas y manipulación, mejorando la durabilidad durante el evento."
+                "description": "Acabado protector para soportes compatibles que ayuda a mejorar la resistencia al roce y la manipulación."
               },
               {
-                "title": "Soft touch",
-                "description": "Aporta un tacto premium y una percepción más cuidada en eventos corporativos o institucionales."
+                "title": "Troquelado personalizado",
+                "description": "Corte del identificador con forma rectangular, esquinas redondeadas o silueta especial según el diseño."
               },
               {
-                "title": "Barniz selectivo",
-                "description": "Permite destacar logotipos, nombres, cargos o detalles gráficos concretos."
+                "title": "Perforación para sujeción",
+                "description": "Incorporación de un orificio para colocar una cinta, anilla o accesorio de fijación compatible."
               },
               {
-                "title": "Numeración o QR",
-                "description": "Opción útil para seating, agenda, turnos, ficha del ponente o información ampliada del evento."
+                "title": "Impresión personalizada",
+                "description": "Incorporación de logotipos, colores corporativos, nombres, numeración o información individual."
               }
             ]
           }
@@ -24789,7 +24785,7 @@
     },
     {
       "id": "60",
-      "updatedAt": "2026-08-31T09:03:01Z",
+      "updatedAt": "2026-10-13T16:38:11Z",
       "type": "producto",
       "slug": "lanyards-eventos-barcelona",
       "path": "/productos/lanyards-eventos-barcelona",
@@ -24800,7 +24796,7 @@
       ],
       "order": 9999,
       "isPublished": true,
-      "shortDescription": "Los lanyards son un básico en cualquier evento: facilitan la identificación, ordenan accesos y refuerzan la imagen de marca en ferias, congresos y actos corporativos. Personalizamos lanyards en Barcelona para staff, ponentes, expositores o asistentes, con opciones de impresión a color y accesorios según el uso.",
+      "shortDescription": "Personalizamos lanyards en Barcelona para empresas, ferias, congresos y eventos corporativos. Disponibles en diferentes anchos, con impresión por sublimación o serigrafía, logotipos a color y accesorios como mosquetones, cierres de seguridad y fundas.\n\nTambién podemos preparar conjuntos completos de lanyard y acreditación, personalizados para asistentes, ponentes, personal de organización o expositores. **Solicita un presupuesto adaptado a la cantidad y características de tu evento.**",
       "bodyMd": "Los lanyards personalizados permiten identificar de forma rápida a asistentes, staff, ponentes, expositores o personal de organización y, al mismo tiempo, mantener visible la imagen de marca durante todo el evento.\n\nEn Repro Disseny preparamos lanyards personalizados para eventos, ferias y congresos en Barcelona, con diferentes anchos, sistemas de impresión y accesorios. También podemos combinarlos con acreditaciones y fundas para entregar el conjunto preparado para su distribución.",
       "sections": [
         {
@@ -25048,7 +25044,23 @@
         "height": 1200,
         "alt": "Lanyards personalizados para ferias, congresos y eventos corporativos"
       },
-      "galleryImages": [],
+      "galleryImages": [
+        {
+          "src": "https://media.reprodisseny.com/product/eventos/gallery/lanyard/lanyards-sublimacion.webp",
+          "alt": "Lanyard personalizado a todo color mediante sublimación",
+          "caption": "Lanyard personalizado con impresión por sublimación"
+        },
+        {
+          "src": "https://media.reprodisseny.com/product/eventos/gallery/lanyard/lanyards-serigrafia.webp",
+          "alt": "Lanyard azul marino con logotipo blanco mediante serigrafía",
+          "caption": "Lanyard corporativo personalizado mediante serigrafía"
+        },
+        {
+          "src": "https://media.reprodisseny.com/product/eventos/gallery/lanyard/lanyards-acreditacion.webp",
+          "alt": "Lanyard personalizado con acreditación para congresos y eventos",
+          "caption": "Conjunto de lanyard y acreditación personalizada"
+        }
+      ],
       "relatedProductsJson": [
         {
           "label": "Acreditaciones personalizadas",
@@ -25128,8 +25140,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Lanyards personalizados en Barcelona | Eventos y congresos",
-        "metaDescription": "Lanyards personalizados en Barcelona para ferias, congresos y eventos. Poliéster 100 %, sublimación o serigrafía y accesorios. Solicita presupuesto.",
+        "metaTitle": "Lanyards personalizados Barcelona | Repro Disseny",
+        "metaDescription": "Personalizamos lanyards en Barcelona para empresas, ferias y congresos. Sublimación, serigrafía y accesorios. Pide presupuesto a Repro Disseny.",
         "canonical": "https://reprodisseny.com/productos/lanyards-eventos-barcelona",
         "hreflang": [
           {
