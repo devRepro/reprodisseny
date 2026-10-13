@@ -1,4 +1,10 @@
 import type { AttributionData, TrackingContext } from "../../types/tracking"
+import {
+  getLeadTrackingParamMax,
+  LEAD_TRACKING_LIMITS,
+  LEAD_TRACKING_PARAM_KEYS,
+  type LeadTrackingParamKey,
+} from "~/shared/tracking/leadTrackingLimits"
 
 export type LeadAttribution = {
   first: AttributionData | null
@@ -14,20 +20,7 @@ export type LeadTrackingNormalizationInput = {
   formType?: string | null
 }
 
-export const TRACKING_PARAM_KEYS = [
-  "utm_source",
-  "utm_medium",
-  "utm_campaign",
-  "utm_id",
-  "gad_campaignid",
-  "utm_term",
-  "utm_content",
-  "gclid",
-  "gbraid",
-  "wbraid",
-  "fbclid",
-  "msclkid",
-] as const
+export const TRACKING_PARAM_KEYS = LEAD_TRACKING_PARAM_KEYS
 
 const GOOGLE_ADS_CLICK_ID_KEYS = ["gclid", "gbraid", "wbraid"] as const
 const PAID_CLICK_ID_KEYS = ["gclid", "gbraid", "wbraid", "msclkid", "fbclid"] as const
@@ -58,7 +51,10 @@ function isRecord(value: unknown): value is Record<string, any> {
   return Boolean(value) && typeof value === "object" && !Array.isArray(value)
 }
 
-function cleanString(value: unknown, max = 300) {
+function cleanString(
+  value: unknown,
+  max: number = LEAD_TRACKING_LIMITS.technicalValueMax,
+) {
   if (typeof value !== "string") return null
 
   const trimmed = value.trim()
@@ -66,7 +62,7 @@ function cleanString(value: unknown, max = 300) {
 }
 
 function firstString(...values: unknown[]) {
-  return firstStringMax(300, ...values)
+  return firstStringMax(LEAD_TRACKING_LIMITS.technicalValueMax, ...values)
 }
 
 function firstStringMax(max: number, ...values: unknown[]) {
@@ -79,7 +75,11 @@ function firstStringMax(max: number, ...values: unknown[]) {
 }
 
 function getParamValue(params: URLSearchParams, key: string) {
-  return cleanString(params.get(key))
+  const normalizedKey = key.toLowerCase() as LeadTrackingParamKey
+  const max = TRACKING_PARAM_KEYS.includes(normalizedKey)
+    ? getLeadTrackingParamMax(normalizedKey)
+    : LEAD_TRACKING_LIMITS.technicalValueMax
+  return cleanString(params.get(key), max)
 }
 
 function hasGoogleAdsClickId(touch: Record<string, any>) {
@@ -235,13 +235,16 @@ export function normalizeTrackingParams(query: Record<string, unknown> | null | 
 
   for (const [rawKey, value] of Object.entries(query || {})) {
     const normalizedKey = rawKey.toLowerCase()
-    if (!TRACKING_PARAM_KEYS.includes(normalizedKey as (typeof TRACKING_PARAM_KEYS)[number])) {
+    if (!TRACKING_PARAM_KEYS.includes(normalizedKey as LeadTrackingParamKey)) {
       continue
     }
 
-    out[normalizedKey] = Array.isArray(value)
+    const rawValue = Array.isArray(value)
       ? String(value[0] ?? "")
       : String(value ?? "")
+    out[normalizedKey] = rawValue
+      .trim()
+      .slice(0, getLeadTrackingParamMax(normalizedKey as LeadTrackingParamKey))
   }
 
   return Object.keys(out).length ? out : null
@@ -268,15 +271,15 @@ export function normalizeAttributionTouch(value: unknown): AttributionData | nul
     term: firstString(value.term),
     content: firstString(value.content),
 
-    gclid: firstStringMax(1000, value.gclid),
-    gbraid: firstStringMax(1000, value.gbraid),
-    wbraid: firstStringMax(1000, value.wbraid),
-    fbclid: firstStringMax(1000, value.fbclid),
-    msclkid: firstStringMax(1000, value.msclkid),
+    gclid: firstStringMax(LEAD_TRACKING_LIMITS.clickIdMax, value.gclid),
+    gbraid: firstStringMax(LEAD_TRACKING_LIMITS.clickIdMax, value.gbraid),
+    wbraid: firstStringMax(LEAD_TRACKING_LIMITS.clickIdMax, value.wbraid),
+    fbclid: firstStringMax(LEAD_TRACKING_LIMITS.clickIdMax, value.fbclid),
+    msclkid: firstStringMax(LEAD_TRACKING_LIMITS.clickIdMax, value.msclkid),
 
-    landingPath: firstStringMax(2000, value.landingPath, value.landing_page, value.landingPage),
-    landingUrl: firstStringMax(2000, value.landingUrl, value.landing_url, value.landingPage),
-    referrer: firstStringMax(2000, value.referrer),
+    landingPath: firstStringMax(LEAD_TRACKING_LIMITS.attributionUrlMax, value.landingPath, value.landing_page, value.landingPage),
+    landingUrl: firstStringMax(LEAD_TRACKING_LIMITS.attributionUrlMax, value.landingUrl, value.landing_url, value.landingPage),
+    referrer: firstStringMax(LEAD_TRACKING_LIMITS.attributionUrlMax, value.referrer),
     firstSeenAt: firstString(value.firstSeenAt, value.capturedAt),
     lastSeenAt: firstString(value.lastSeenAt, value.capturedAt),
   }
@@ -474,11 +477,11 @@ function createTouchFromTrackingParams(input: {
     gadCampaignId: firstString(params.gad_campaignid),
     term: firstString(params.utm_term),
     content: firstString(params.utm_content),
-    gclid: firstString(params.gclid),
-    gbraid: firstString(params.gbraid),
-    wbraid: firstString(params.wbraid),
-    fbclid: firstString(params.fbclid),
-    msclkid: firstString(params.msclkid),
+    gclid: firstStringMax(LEAD_TRACKING_LIMITS.clickIdMax, params.gclid),
+    gbraid: firstStringMax(LEAD_TRACKING_LIMITS.clickIdMax, params.gbraid),
+    wbraid: firstStringMax(LEAD_TRACKING_LIMITS.clickIdMax, params.wbraid),
+    fbclid: firstStringMax(LEAD_TRACKING_LIMITS.clickIdMax, params.fbclid),
+    msclkid: firstStringMax(LEAD_TRACKING_LIMITS.clickIdMax, params.msclkid),
     landingUrl: input.sourceUrl,
     landingPath: (() => {
       try {
@@ -521,12 +524,18 @@ function createLegacyTouch(tracking: Record<string, any>, sourceUrl: string) {
     gadCampaignId: firstString(tracking.gadCampaignId, tracking.gad_campaignid),
     term: firstString(tracking.utm_term, tracking.term),
     content: firstString(tracking.utm_content, tracking.content),
-    gclid: firstStringMax(1000, tracking.gclid),
-    gbraid: firstStringMax(1000, tracking.gbraid),
-    wbraid: firstStringMax(1000, tracking.wbraid),
-    fbclid: firstStringMax(1000, tracking.fbclid),
-    msclkid: firstStringMax(1000, tracking.msclkid),
-    landingUrl: firstString(tracking.SourceUrl, tracking.sourceUrl, normalized.sourceUrl, sourceUrl),
+    gclid: firstStringMax(LEAD_TRACKING_LIMITS.clickIdMax, tracking.gclid),
+    gbraid: firstStringMax(LEAD_TRACKING_LIMITS.clickIdMax, tracking.gbraid),
+    wbraid: firstStringMax(LEAD_TRACKING_LIMITS.clickIdMax, tracking.wbraid),
+    fbclid: firstStringMax(LEAD_TRACKING_LIMITS.clickIdMax, tracking.fbclid),
+    msclkid: firstStringMax(LEAD_TRACKING_LIMITS.clickIdMax, tracking.msclkid),
+    landingUrl: firstStringMax(
+      LEAD_TRACKING_LIMITS.attributionUrlMax,
+      tracking.SourceUrl,
+      tracking.sourceUrl,
+      normalized.sourceUrl,
+      sourceUrl,
+    ),
   })
 }
 
@@ -579,7 +588,8 @@ export function normalizeLeadTracking(input: LeadTrackingNormalizationInput) {
     medium = "unknown"
   }
   const sourceUrl =
-    firstString(
+    firstStringMax(
+      LEAD_TRACKING_LIMITS.sourceUrlMax,
       input.sourceUrl,
       tracking.SourceUrl,
       tracking.sourceUrl,
@@ -602,9 +612,64 @@ export function normalizeLeadTracking(input: LeadTrackingNormalizationInput) {
     normalized,
     context,
     attribution,
-    selectedTouch,
     utm: routeParams,
-    rawTracking: tracking,
+  }
+
+  let utmJson = JSON.stringify(raw)
+  if (utmJson.length > LEAD_TRACKING_LIMITS.sharePointJsonMax) {
+    const compactRaw = {
+      ...raw,
+      attribution: {
+        first: attribution.first
+          ? { ...attribution.first, landingUrl: undefined, referrer: undefined }
+          : null,
+        last: attribution.last
+          ? { ...attribution.last, landingUrl: undefined, referrer: undefined }
+          : null,
+      },
+      utm: routeParams
+        ? Object.fromEntries(
+            Object.entries(routeParams).filter(
+              ([key]) => !["gclid", "gbraid", "wbraid", "fbclid", "msclkid"].includes(key),
+            ),
+          )
+        : null,
+    }
+    utmJson = JSON.stringify(compactRaw)
+  }
+
+  if (utmJson.length > LEAD_TRACKING_LIMITS.sharePointJsonMax) {
+    utmJson = JSON.stringify({
+      schemaVersion: raw.schemaVersion,
+      receivedAt: raw.receivedAt,
+      formType: raw.formType,
+      normalized,
+      context,
+      selectedTouch,
+    })
+  }
+
+  if (utmJson.length > LEAD_TRACKING_LIMITS.sharePointJsonMax) {
+    const safeSelectedTouch = selectedTouch
+      ? {
+          source: selectedTouch.source,
+          medium: selectedTouch.medium,
+          campaign: selectedTouch.campaign,
+          campaignId: selectedTouch.campaignId,
+          gclid: selectedTouch.gclid,
+          gbraid: selectedTouch.gbraid,
+          wbraid: selectedTouch.wbraid,
+          fbclid: selectedTouch.fbclid,
+          msclkid: selectedTouch.msclkid,
+        }
+      : null
+    utmJson = JSON.stringify({
+      schemaVersion: raw.schemaVersion,
+      receivedAt: raw.receivedAt,
+      formType: raw.formType,
+      normalized,
+      selectedTouch: safeSelectedTouch,
+    })
   }
 
   return {
@@ -613,6 +678,6 @@ export function normalizeLeadTracking(input: LeadTrackingNormalizationInput) {
     attribution,
     selectedTouch,
     routeUtm: routeParams,
-    utmJson: JSON.stringify(raw),
+    utmJson,
   }
 }

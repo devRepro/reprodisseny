@@ -259,6 +259,65 @@ test("usePriceRequests normaliza una URL larga antes de validar y hacer el POST"
   }
 });
 
+for (const scenario of [
+  {
+    statusCode: 400,
+    errorCode: "PRICE_REQUEST_INVALID",
+    expected: "Revisa los campos de la solicitud antes de enviarla.",
+  },
+  {
+    statusCode: 422,
+    errorCode: "PRICE_REQUEST_INVALID",
+    expected: "Revisa los campos de la solicitud antes de enviarla.",
+  },
+  {
+    statusCode: 429,
+    errorCode: "PRICE_REQUEST_RATE_LIMITED",
+    expected: "Has realizado demasiados intentos. Espera unos minutos y vuelve a intentarlo.",
+  },
+  {
+    statusCode: 500,
+    errorCode: "PRICE_REQUEST_INTERNAL",
+    expected: "No hemos podido enviar la solicitud. Inténtalo de nuevo o llámanos al +34 932 749 890. Referencia: req-safe-123.",
+  },
+] as const) {
+  test(`usePriceRequests traduce HTTP ${scenario.statusCode} sin mostrar Server Error`, async () => {
+    const runtime = globalThis as Record<string, any>;
+    const previousFetch = runtime.$fetch;
+    const previousUseNotify = runtime.useNotify;
+    const fetchError = Object.assign(new Error("Server Error"), {
+      statusCode: scenario.statusCode,
+      statusMessage: "Server Error",
+      data: {
+        statusCode: scenario.statusCode,
+        statusMessage: "Server Error",
+        data: {
+          errorCode: scenario.errorCode,
+          requestId: "req-safe-123",
+        },
+      },
+    });
+
+    runtime.useNotify = () => ({ show: () => undefined });
+    runtime.$fetch = async () => {
+      throw fetchError;
+    };
+
+    try {
+      const requests = usePriceRequests();
+      await assert.rejects(requests.sendPriceRequest(validPriceRequestPayload));
+      assert.equal(requests.error.value, scenario.expected);
+      assert.doesNotMatch(requests.error.value || "", /server error/i);
+    } finally {
+      if (previousFetch) runtime.$fetch = previousFetch;
+      else delete runtime.$fetch;
+
+      if (previousUseNotify) runtime.useNotify = previousUseNotify;
+      else delete runtime.useNotify;
+    }
+  });
+}
+
 test("caso 10: doble submit concurrente hace un POST y una conversión", async () => {
   const { tracker, events } = setupTracker();
   let resolveRequest!: (value: typeof createdResponse) => void;

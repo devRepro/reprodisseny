@@ -557,6 +557,55 @@ test("click IDs estructurados no se truncan a 300 caracteres", () => {
   assert.equal(result.selectedTouch?.gclid, longGclid)
 })
 
+test("el tracking de una URL larga de Google Ads queda acotado y conserva el gclid", () => {
+  const gclid = "G".repeat(180)
+  const sourceUrl =
+    `${productUrl}?utm_source=google&utm_medium=cpc` +
+    `&utm_campaign=calendarios-2027&gclid=${gclid}`
+  const attribution = {
+    first: createAttributionTouchFromUrl({ url: sourceUrl }),
+    last: null,
+  }
+  const routeUtm = {
+    utm_source: "google",
+    utm_medium: "cpc",
+    utm_campaign: "calendarios-2027",
+    gclid,
+  }
+  const client = normalize({
+    tracking: { attribution, routeUtm, sourceUrl },
+    utm: routeUtm,
+    sourceUrl,
+  })
+  const server = normalize({
+    tracking: {
+      context: { formName: "calendar_quote_form" },
+      attribution: client.attribution,
+      routeUtm: client.routeUtm,
+      sourceUrl,
+      normalized: {
+        trackingSource: client.trackingSource,
+        trackingMedium: client.trackingMedium,
+        trackingCampaign: client.trackingCampaign,
+        trackingCampaignId: client.trackingCampaignId,
+        sourceUrl: client.sourceUrl,
+      },
+      TrackingSource: client.trackingSource,
+      TrackingMedium: client.trackingMedium,
+      TrackingCampaign: client.trackingCampaign,
+      TrackingCampaignId: client.trackingCampaignId,
+      SourceUrl: client.sourceUrl,
+      UtmJson: client.utmJson,
+    },
+    utm: client.routeUtm,
+    sourceUrl: sourceUrl.slice(0, 300),
+  })
+
+  assert.ok(server.utmJson.length <= 12_000)
+  assert.doesNotThrow(() => JSON.parse(server.utmJson))
+  assert.equal(server.selectedTouch?.gclid, gclid)
+})
+
 test("payload legacy con click ID top-level se reproyecta como paid", () => {
   const result = normalize({
     sourceUrl: productUrl,

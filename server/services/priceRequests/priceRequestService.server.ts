@@ -15,6 +15,7 @@ import {
   CALENDAR_LANDING_SLUG,
   CALENDAR_PRODUCT_SLUG,
 } from "~/shared/data/calendarProducts"
+import { LEAD_TRACKING_LIMITS } from "~/shared/tracking/leadTrackingLimits"
 
 import type {
   AttachmentInput,
@@ -253,6 +254,32 @@ function compactFields(obj: Record<string, any>) {
   )
 }
 
+function boundSharePointTrackingJson(value: unknown) {
+  if (typeof value !== "string") return ""
+
+  const cleaned = value.trim()
+  if (!cleaned) return ""
+
+  try {
+    JSON.parse(cleaned)
+  } catch {
+    return JSON.stringify({ schemaVersion: 2, invalid: true })
+  }
+
+  if (cleaned.length <= LEAD_TRACKING_LIMITS.sharePointJsonMax) return cleaned
+  return JSON.stringify({ schemaVersion: 2, truncated: true })
+}
+
+function getPriceRequestCorrelationHeaders(event: any): Record<string, string> {
+  const requestId = String(event?.context?.priceRequestRequestId || "").trim()
+  if (!requestId) return {}
+
+  return {
+    "client-request-id": requestId.slice(0, 80),
+    "return-client-request-id": "true",
+  }
+}
+
 function cleanPostalCode(value: unknown) {
   if (typeof value !== "string") return null;
 
@@ -400,7 +427,10 @@ const sourceUrlField =
 
   const existing = await ofetch(checkUrl, {
     method: "GET",
-    headers: { Authorization: `Bearer ${token}` },
+    headers: {
+      Authorization: `Bearer ${token}`,
+      ...getPriceRequestCorrelationHeaders(event),
+    },
   }).catch(() => null)
 
   const ex = (existing as any)?.value?.[0]
@@ -489,8 +519,13 @@ const sourceUrlField =
   [trackingMediumField]: tracking.trackingMedium || "none",
   [trackingCampaignField]: tracking.trackingCampaign || "",
   [trackingCampaignIdField]: tracking.trackingCampaignId || "",
-  [utmJsonField]: tracking.utmJson || (input.utm ? JSON.stringify(input.utm) : ""),
-  [sourceUrlField]: tracking.sourceUrl || input.sourceUrl,
+  [utmJsonField]: boundSharePointTrackingJson(
+    tracking.utmJson || (input.utm ? JSON.stringify(input.utm) : ""),
+  ),
+  [sourceUrlField]: String(tracking.sourceUrl || input.sourceUrl || "").slice(
+    0,
+    LEAD_TRACKING_LIMITS.sourceUrlMax,
+  ),
 
   [hasAttachmentField]: Boolean(uploadedFile),
   [primaryFileDriveItemIdField]: uploadedFile?.driveItemId || "",
@@ -512,6 +547,7 @@ const sourceUrlField =
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
+        ...getPriceRequestCorrelationHeaders(event),
       },
       body: { fields },
     })
@@ -556,12 +592,14 @@ const sourceUrlField =
       })
     }
 
-    console.error("PRICE REQUEST SERVICE ERROR", {
-      message: err?.message,
-      status: err?.response?.status,
-      statusText: err?.response?.statusText,
-      data: err?.data,
-      responseText: err?.response?._data,
+    console.error("[PRICE REQUEST][SERVICE ERROR]", {
+      requestId: event?.context?.priceRequestRequestId || null,
+      status: err?.response?.status || err?.statusCode || null,
+      upstreamRequestId:
+        err?.response?.headers?.get?.("request-id") ||
+        err?.response?.headers?.get?.("client-request-id") ||
+        null,
+      upstreamCode: err?.response?._data?.error?.code || null,
     })
 
     throw err
