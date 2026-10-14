@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T17:11:06.560Z",
+  "generatedAt": "2026-10-14T16:09:45.665Z",
   "categories": [
     {
       "id": "12",
@@ -4937,7 +4937,7 @@
     },
     {
       "id": "2",
-      "updatedAt": "2026-08-31T10:58:50Z",
+      "updatedAt": "2026-10-14T16:07:16Z",
       "type": "producto",
       "slug": "acreditaciones-personalizadas",
       "path": "/productos/acreditaciones-personalizadas",
@@ -4948,7 +4948,7 @@
       ],
       "order": 9999,
       "isPublished": true,
-      "shortDescription": "Acreditaciones personalizadas para ferias, congresos y eventos corporativos. Personalizamos nombres, empresas, cargos y tipos de acceso, y podemos incorporar datos variables, numeración, QR o códigos de barras. Disponibles en diferentes formatos, con opciones de lanyard, funda y acabados adaptados a la duración y al uso del evento.",
+      "shortDescription": "Imprimimos acreditaciones personalizadas para congresos, ferias y eventos corporativos, con nombres, empresas, cargos, códigos QR y numeración individual.\n\nDisponibles en diferentes formatos y soportes, con impresión a una o dos caras y opciones de lanyard, funda o clip. Podemos preparar acreditaciones diferenciadas para asistentes, ponentes, staff, prensa y personal VIP.\n\n**Solicita presupuesto indicando cantidades, fecha del evento y tipo de personalización.**",
       "sections": [
         {
           "id": "details",
@@ -5179,19 +5179,31 @@
         "height": 1200,
         "alt": "Acreditaciones personalizadas impresas para congresos, ferias y eventos corporativos"
       },
-      "galleryImages": [],
+      "galleryImages": [
+        {
+          "src": "https://webcms.blob.core.windows.net/media/product/eventos/gallery/acreditaciones/acreditaciones-con-qr.webp",
+          "alt": "Acreditaciones personalizadas con código QR para congresos y eventos",
+          "caption": "Acreditaciones para asistentes con impresión personalizada y código QR"
+        },
+        {
+          "src": "https://webcms.blob.core.windows.net/media/product/eventos/gallery/acreditaciones/acreditaciones-roles.webp",
+          "alt": "Acreditaciones para ponentes, staff, prensa y VIP en eventos",
+          "caption": "Acreditaciones diferenciadas por funciones y tipos de acceso"
+        },
+        {
+          "src": "https://webcms.blob.core.windows.net/media/product/eventos/gallery/acreditaciones/acreditaciones-con-lanyard.webp",
+          "alt": "Acreditaciones personalizadas con funda y lanyard para congresos",
+          "caption": "Acreditaciones con funda protectora y cinta de sujeción"
+        }
+      ],
       "relatedProductsJson": [
         {
-          "label": "Lanyards personalizados",
-          "productSlug": "lanyards-eventos-barcelona"
+          "label": "Acreditaciones personalizadas",
+          "productSlug": "acreditaciones-personalizadas"
         },
         {
           "label": "Entradas personalizadas",
           "productSlug": "entradas-personalizadas"
-        },
-        {
-          "label": "Photocall personalizado",
-          "productSlug": "photocall-personalizado"
         },
         {
           "label": "Roll-up personalizado",
@@ -5308,7 +5320,7 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Acreditaciones personalizadas para eventos | Repro Disseny",
+        "metaTitle": "Acreditaciones para eventos y congresos | Repro Disseny",
         "metaDescription": "Acreditaciones personalizadas para ferias, congresos y eventos con datos variables, numeración, QR y opción de lanyard. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/productos/acreditaciones-personalizadas",
         "hreflang": [
@@ -24785,11 +24797,11 @@
     },
     {
       "id": "60",
-      "updatedAt": "2026-10-13T17:10:51Z",
+      "updatedAt": "2026-10-14T16:05:29Z",
       "type": "producto",
       "slug": "lanyards-eventos-barcelona",
       "path": "/productos/lanyards-eventos-barcelona",
-      "title": "Lanyards personalizados para eventos en Barcelona",
+      "title": "Lanyards personalizados en Barcelona para empresas y eventos",
       "categorySlug": "eventos",
       "categorySlugs": [
         "eventos"
@@ -25034,7 +25046,7 @@
           "url": "/categorias/eventos"
         },
         {
-          "name": "Lanyards personalizados para eventos en Barcelona",
+          "name": "Lanyards personalizados en Barcelona para empresas y eventos",
           "url": "/productos/lanyards-eventos-barcelona"
         }
       ],
@@ -25065,6 +25077,10 @@
         {
           "label": "Acreditaciones personalizadas",
           "productSlug": "acreditaciones-personalizadas"
+        },
+        {
+          "label": "Entradas personalizadas",
+          "productSlug": "entradas-personalizadas"
         },
         {
           "label": "Roll-up personalizado",
