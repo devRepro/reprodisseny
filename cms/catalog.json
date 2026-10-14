@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-14T16:09:45.665Z",
+  "generatedAt": "2026-10-14T16:26:39.199Z",
   "categories": [
     {
       "id": "12",
@@ -1198,17 +1198,17 @@
     },
     {
       "id": "2",
-      "updatedAt": "2026-07-14T10:35:48Z",
+      "updatedAt": "2026-10-14T16:25:55Z",
       "type": "categoria",
       "slug": "adhesivos-personalizados",
       "path": "/categorias/adhesivos-personalizados",
-      "title": "Adhesivos personalizados para branding e interiorismo",
+      "title": "Adhesivos personalizados en Barcelona para empresas",
       "nav": "Adhesivos",
       "order": 1,
       "hidden": false,
       "featured": false,
       "isPublished": true,
-      "description": "Diseñamos e imprimimos adhesivos personalizados para marcas y empresas: etiquetas de producto, pegatinas promocionales, vinilos para escaparates, soluciones para packaging y elementos de señalización. Te ayudamos a elegir el material, la forma y el acabado más adecuados para conseguir un resultado resistente, profesional y con colores fieles.",
+      "description": "Imprimimos adhesivos personalizados en Barcelona para empresas, comercios y marcas. Fabricamos pegatinas, etiquetas adhesivas, vinilos para escaparates y adhesivos para packaging, con diferentes materiales, formas y acabados.\n\nOfrecemos adhesivos en papel o vinilo, con corte personalizado y opciones de entrega en hojas, unidades sueltas o bobinas según el proyecto. Te asesoramos para elegir el soporte más adecuado según la superficie, la cantidad y la duración prevista.\n\nSolicita presupuesto para tus adhesivos personalizados y cuéntanos qué necesitas imprimir.",
       "bodyMd": "{\n  \"id\": \"how-we-work\",\n  \"key\": \"howWeWork\",\n  \"title\": \"Cómo trabajamos tus adhesivos personalizados\",\n  \"description\": \"Te acompañamos desde la definición del adhesivo y la revisión del archivo hasta la producción y la entrega final.\",\n  \"steps\": [\n    {\n      \"label\": \"01\",\n      \"title\": \"Analizamos la aplicación y las medidas\",\n      \"description\": \"Nos indicas qué necesitas, dónde se aplicará, las dimensiones, las cantidades y la duración prevista.\"\n    },\n    {\n      \"label\": \"02\",\n      \"title\": \"Revisamos el diseño y preparamos el archivo\",\n      \"description\": \"Comprobamos la legibilidad, los márgenes, los cortes y la correcta preparación para impresión, o te ayudamos a adaptar el diseño si lo necesitas.\"\n    },\n    {\n      \"label\": \"03\",\n      \"title\": \"Definimos el material y el acabado más adecuados\",\n      \"description\": \"Te recomendamos el adhesivo, el formato y el acabado según la superficie, el uso previsto y el resultado visual que quieres conseguir.\"\n    },\n    {\n      \"label\": \"04\",\n      \"title\": \"Imprimimos y entregamos listo para aplicar\",\n      \"description\": \"Producimos las piezas con buena definición, consistencia de color y acabados profesionales para que lleguen preparadas para su colocación.\"\n    }\n  ],\n  \"cta\": {\n    \"title\": \"¿No tienes claro qué adhesivo elegir?\",\n    \"description\": \"Cuéntanos si es para producto, escaparate, packaging, señalización o promoción, en qué superficie se aplicará y cuánto tiempo debe durar. Te recomendaremos la opción más adecuada y te prepararemos presupuesto sin compromiso.\",\n    \"label\": \"Pedir presupuesto\",\n    \"href\": \"#presupuesto\"\n  }\n}",
       "sections": [
         {
@@ -1447,23 +1447,7 @@
           "answer": "Depende del tipo de adhesivo y del uso. Te recomendamos el formato más práctico."
         }
       ],
-      "galleryImages": [
-        {
-          "src": "https://media.reprodisseny.com/media/category/adhesivos%20imatges/detalles.webp",
-          "alt": "Adhesivos personalizados aplicados en packaging y superficies comerciales",
-          "caption": "Aplicaciones de adhesivos personalizados en packaging y comunicación de marca"
-        },
-        {
-          "src": "https://media.reprodisseny.com/media/category/adhesivos%20imatges/acabados.webp",
-          "alt": "Acabados para adhesivos personalizados con diferentes materiales y efectos de impresión",
-          "caption": "Acabados disponibles para adhesivos personalizados"
-        },
-        {
-          "src": "https://media.reprodisseny.com/media/category/adhesivos%20imatges/tipos.webp",
-          "alt": "Tipos de adhesivos personalizados en papel, vinilo y materiales especiales",
-          "caption": "Tipos de adhesivos según uso, material y formato"
-        }
-      ],
+      "galleryImages": [],
       "relatedProductsJson": [
         {
           "label": "Etiquetas en bobina",
@@ -1495,7 +1479,7 @@
       "legacySlugs": [],
       "seo": {
         "metaTitle": "Adhesivos personalizados | Stickers y vinilos a medida",
-        "metaDescription": "Adhesivos y pegatinas personalizadas en papel o vinilo, con troquelado a medida y acabados premium. Para etiquetas, packaging y escaparates.",
+        "metaDescription": "Imprimimos adhesivos y pegatinas personalizados en Barcelona. Etiquetas en bobina, vinilos y adhesivos troquelados para empresas. Solicita presupuesto.",
         "canonical": "https://reprodisseny.com/categorias/adhesivos-personalizados",
         "hreflang": [
           {
@@ -1532,8 +1516,8 @@
           "@graph": [
             {
               "@type": "CollectionPage",
-              "name": "Adhesivos personalizados para branding e interiorismo",
-              "description": "Adhesivos y pegatinas personalizadas en papel o vinilo, con troquelado a medida y acabados premium. Para etiquetas, packaging y escaparates.",
+              "name": "Adhesivos personalizados en Barcelona para empresas",
+              "description": "Imprimimos adhesivos y pegatinas personalizados en Barcelona. Etiquetas en bobina, vinilos y adhesivos troquelados para empresas. Solicita presupuesto.",
               "url": "https://reprodisseny.com/categorias/adhesivos-personalizados",
               "image": "https://webcms.blob.core.windows.net/media/category/adhesivos.webp",
               "inLanguage": "es-ES",
