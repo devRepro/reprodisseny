@@ -387,10 +387,9 @@ function selectCalendarModel(modelId: string) {
           </p>
 
           <AppButton
-            type="button"
+            href="#quote-form"
             size="lg"
             class="calendar-cta calendar-hero__cta"
-            @click="scrollToQuote"
           >
             SOLICITA TU PRESUPUESTO SIN COMPROMISO
           </AppButton>
@@ -474,10 +473,9 @@ function selectCalendarModel(modelId: string) {
         </p>
 
         <AppButton
-          type="button"
+          href="#quote-form"
           size="lg"
           class="calendar-cta calendar-models__cta"
-          @click="scrollToQuote"
         >
           SOLICITA TU PRESUPUESTO SIN COMPROMISO
         </AppButton>

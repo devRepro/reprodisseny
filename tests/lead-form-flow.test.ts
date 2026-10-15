@@ -7,6 +7,8 @@ import {
 } from "../shared/schemas/priceRequest";
 import { usePriceRequests } from "../composables/usePriceRequests";
 import { createLeadFormTracker } from "../utils/tracking/leadForm";
+import { createCalendarLeadExtras } from "../shared/data/calendarProducts";
+import { sanitizeGenericQuoteExtras } from "../server/services/priceRequests/genericQuoteExtras";
 
 type TrackedEvent = {
   event: string;
@@ -199,6 +201,7 @@ test("usePriceRequests libera requestInFlight e isLoading después de un error",
       new TypeError("fetch failed"),
     );
     assert.equal(requests.isLoading.value, false);
+    assert.match(requests.error.value || "", /No hay conexi/);
 
     const retryResponse = await requests.sendPriceRequest(validPriceRequestPayload);
 
@@ -292,4 +295,116 @@ test("respuestas duplicadas o incompletas no son conversiones", () => {
   tracker.trackConversion(null);
 
   assert.deepEqual(events, []);
+});
+
+test("calendario completo y sin cantidad opcional respetan el contrato del endpoint", () => {
+  for (const quantity of ["500", ""]) {
+    const extras = createCalendarLeadExtras({
+      modelId: "pared-wire-o",
+      sizeId: "din-a4",
+      quantity,
+    });
+    assert.ok(extras);
+    assert.equal(extras.cantidad, quantity || null);
+    assert.equal(priceRequestPayloadSchema.safeParse({
+      ...validPriceRequestPayload,
+      categorySlug: "material-oficina",
+      product: {
+        name: "Calendarios corporativos",
+        slug: "calendarios-personalizados",
+      },
+      extras,
+      sourceUrl: "/calendarios/calendarios-corporativos-2027",
+    }).success, true);
+  }
+});
+
+test("presupuesto de 500 folletos conserva los datos opcionales permitidos", () => {
+  const payload = {
+    ...validPriceRequestPayload,
+    message: "500 folletos comerciales, impresión a color a doble cara",
+    extras: {
+      productType: "publicaciones",
+      needAdvice: true,
+      injectedField: "discard",
+    },
+  };
+  assert.equal(priceRequestPayloadSchema.safeParse(payload).success, true);
+  assert.deepEqual(sanitizeGenericQuoteExtras("presupuesto-generico", payload.extras), {
+    productType: "publicaciones",
+    needAdvice: true,
+  });
+  assert.deepEqual(sanitizeGenericQuoteExtras("otro-producto", payload.extras), {});
+  assert.deepEqual(sanitizeGenericQuoteExtras("presupuesto-generico", {
+    productType: "valor-no-permitido",
+    needAdvice: "true",
+  }), {});
+});
+
+test("producto configurado y consentido pasa el esquema compartido", () => {
+  const payload = {
+    ...validPriceRequestPayload,
+    categorySlug: "publicidad",
+    product: {
+      name: "Folletos plegados personalizados",
+      slug: "folletos-plegados-personalizados",
+      url: "/productos/folletos-plegados-personalizados",
+    },
+    extras: { cantidad: 500, impresion: "Cuatricromía 2 caras" },
+    message: "500 folletos comerciales",
+  };
+  assert.equal(priceRequestPayloadSchema.safeParse(payload).success, true);
+});
+
+test("un fallo de red de $fetch muestra texto comprensible y permite reintentar", async () => {
+  const runtime = globalThis as Record<string, any>;
+  const previousFetch = runtime.$fetch;
+  const previousUseNotify = runtime.useNotify;
+  let attempts = 0;
+  runtime.useNotify = () => ({ show: () => undefined });
+  runtime.$fetch = async () => {
+    attempts += 1;
+    if (attempts === 1) {
+      throw new Error('[POST] "/api/price-requests": <no response> Failed to fetch');
+    }
+    return createdResponse;
+  };
+
+  try {
+    const requests = usePriceRequests();
+    await assert.rejects(requests.sendPriceRequest(validPriceRequestPayload));
+    assert.match(requests.error.value || "", /No hay conexión con el servidor/);
+    assert.equal(requests.isLoading.value, false);
+    assert.deepEqual(await requests.sendPriceRequest(validPriceRequestPayload), createdResponse);
+    assert.equal(attempts, 2);
+  } finally {
+    if (previousFetch) runtime.$fetch = previousFetch;
+    else delete runtime.$fetch;
+    if (previousUseNotify) runtime.useNotify = previousUseNotify;
+    else delete runtime.useNotify;
+  }
+});
+
+test("un error HTTP muestra el mensaje del API antes que el estado genérico", async () => {
+  const runtime = globalThis as Record<string, any>;
+  const previousFetch = runtime.$fetch;
+  const previousUseNotify = runtime.useNotify;
+  runtime.useNotify = () => ({ show: () => undefined });
+  runtime.$fetch = async () => {
+    throw {
+      statusMessage: "Internal Server Error",
+      data: { message: "No hemos podido registrar tu solicitud." },
+    };
+  };
+  try {
+    const requests = usePriceRequests();
+    await assert.rejects(requests.sendPriceRequest(validPriceRequestPayload));
+    assert.equal(requests.error.value, "No hemos podido registrar tu solicitud.");
+    assert.equal(requests.isLoading.value, false);
+  } finally {
+    if (previousFetch) runtime.$fetch = previousFetch;
+    else delete runtime.$fetch;
+    if (previousUseNotify) runtime.useNotify = previousUseNotify;
+    else delete runtime.useNotify;
+  }
 });

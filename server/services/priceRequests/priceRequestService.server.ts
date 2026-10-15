@@ -11,6 +11,7 @@ import {
   resolveListId,
 } from "~/server/utils/graphClient.server"
 import { getCmsCatalog } from "~/server/utils/cmsCatalog.server"
+import { sanitizeGenericQuoteExtras } from "~/server/services/priceRequests/genericQuoteExtras"
 import {
   CALENDAR_LANDING_SLUG,
   CALENDAR_PRODUCT_SLUG,
@@ -286,6 +287,7 @@ export async function createPriceRequest(event: any, input: PriceRequestInput) {
     formFields,
     { allowCalendarLandingExtras },
   )
+  Object.assign(extrasClean, sanitizeGenericQuoteExtras(productSlug, extrasRaw))
 
 
   const quantityRaw = extrasRaw.cantidad

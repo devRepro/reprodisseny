@@ -157,12 +157,8 @@ const onSubmit = handleSubmit(
     error.value = null;
     success.value = false;
 
-    // Honeypot: respuesta silenciosa, sin crear solicitud real.
     if (cleanString(values.website)) {
-      await navigateTo({
-        path: "/gracias",
-        query: { kind: "presupuesto" },
-      });
+      error.value = "No hemos podido enviar la solicitud. Inténtalo de nuevo.";
       return;
     }
 
@@ -249,7 +245,7 @@ const onSubmit = handleSubmit(
       novalidate
       class="rd-form-shell"
     >
-      <div v-if="error" class="rd-form-alert border border-destructive/20 bg-destructive/5 px-4 py-3">
+      <div v-if="error" role="alert" class="rd-form-alert border border-destructive/20 bg-destructive/5 px-4 py-3">
         <p class="text-center text-sm font-medium text-destructive">
           {{ error }}
         </p>

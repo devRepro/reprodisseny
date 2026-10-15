@@ -19,7 +19,6 @@ import {
 import {
   CALENDAR_LANDING_CAMPAIGN,
   CALENDAR_PRODUCT_SLUG,
-  CALENDAR_QUOTE_CONVERSION,
   calendarModels,
   coerceCalendarSizeForModel,
   createCalendarLeadExtras,
@@ -227,7 +226,7 @@ async function onSubmit() {
   error.value = null;
 
   if (cleanString(form.website)) {
-    await navigateTo({ path: "/gracias", query: { kind: "presupuesto" } });
+    error.value = "No hemos podido enviar la solicitud. Inténtalo de nuevo.";
     return;
   }
 
@@ -259,7 +258,7 @@ async function onSubmit() {
   try {
     const trackingPayload = tracking.getTrackingPayloadForLead(getTrackingContext());
 
-    const response = await sendPriceRequest(
+    const response = await leadTracking.submitAndTrack(() => sendPriceRequest(
       {
         website: null,
         name: validation.values.nameOrCompany,
@@ -282,16 +281,13 @@ async function onSubmit() {
         initialStatus: "Nova",
       },
       { file: null, fileKind: "design" },
-    );
+    ));
 
     if (!response || error.value) return;
 
     await navigateTo({
       path: "/lp/calendarios/gracias",
-      query: {
-        kind: "presupuesto",
-        conversion: CALENDAR_QUOTE_CONVERSION,
-      },
+      query: { kind: "presupuesto" },
     });
   } catch (submitError) {
     const fields = getPriceRequestClientValidationFields(submitError);

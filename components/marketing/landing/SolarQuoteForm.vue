@@ -158,7 +158,7 @@ async function onSubmit() {
   const message = cleanString(form.message);
 
   if (cleanString(form.website)) {
-    success.value = true;
+    error.value = "No hemos podido enviar la solicitud. Inténtalo de nuevo.";
     return;
   }
 

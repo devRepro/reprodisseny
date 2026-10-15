@@ -216,7 +216,7 @@ async function onSubmit() {
   error.value = null;
 
   if (form.website.trim()) {
-    success.value = true;
+    error.value = copy.genericError;
     return;
   }
 

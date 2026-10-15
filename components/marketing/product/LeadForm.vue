@@ -316,7 +316,7 @@ const onSubmit = handleSubmit(
     localSubmitError.value = null;
 
     if (values.website?.trim()) {
-      success.value = true;
+      localSubmitError.value = "No hemos podido enviar la solicitud. Inténtalo de nuevo.";
       return;
     }
 

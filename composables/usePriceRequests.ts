@@ -98,9 +98,16 @@ export function usePriceRequests() {
       return res;
     } catch (e: any) {
       error.value =
+        (e instanceof TypeError ||
+        (!e?.response &&
+          !e?.statusCode &&
+          typeof e?.message === "string" &&
+          /failed to fetch|fetch failed|<no response>|networkerror|load failed/i.test(e.message))
+          ? "No hay conexión con el servidor. Comprueba tu conexión e inténtalo de nuevo."
+          : null) ||
+        e?.data?.message ||
         e?.data?.statusMessage ||
         e?.statusMessage ||
-        e?.data?.message ||
         e?.message ||
         "No se ha podido enviar la solicitud. Inténtalo de nuevo.";
 
