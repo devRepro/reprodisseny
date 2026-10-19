@@ -1,5 +1,8 @@
 import { ref } from "vue"
-import { useNotify } from "@/composables/useNotify"
+import { useNotify } from "./useNotify"
+import { contactPayloadSchema, CONTACT_SUBMISSION_ERROR } from "../shared/schemas/contact"
+import { getConfirmedContactResponse } from "../utils/contactResponse"
+import { getPriceRequestErrorMessage } from "../utils/priceRequestError"
 
 export interface ContactPayload {
   nombre: string
@@ -25,16 +28,6 @@ function getFallbackSourceUrl() {
   return window.location.href
 }
 
-function getErrorMessage(error: any) {
-  return (
-    error?.data?.message ||
-    error?.data?.statusMessage ||
-    error?.statusMessage ||
-    error?.message ||
-    "Error al enviar"
-  )
-}
-
 export function useSendContact() {
   const isLoading = ref(false)
   const success = ref(false)
@@ -42,6 +35,14 @@ export function useSendContact() {
   const notify = useNotify()
 
   const sendContact = async (payload: ContactPayload) => {
+    if (isLoading.value || success.value) return null
+
+    error.value = null
+    if (cleanString(payload.website)) {
+      error.value = CONTACT_SUBMISSION_ERROR
+      return null
+    }
+
     isLoading.value = true
     success.value = false
     error.value = null
@@ -52,7 +53,7 @@ export function useSendContact() {
       telefono: cleanString(payload.telefono) || null,
       codigoPostal: cleanString(payload.codigoPostal) || null,
       consulta: cleanString(payload.consulta),
-      consent: Boolean(payload.consent),
+      consent: payload.consent,
 
       origen: cleanString(payload.origen) || "contact-page",
       utm: payload.utm ?? {},
@@ -63,25 +64,34 @@ export function useSendContact() {
     }
 
     try {
-      const request = $fetch("/api/cms/contact", {
+      const parsed = contactPayloadSchema.safeParse(body)
+      if (!parsed.success) {
+        error.value = "Revisa los campos de la solicitud antes de enviarla."
+        return null
+      }
+
+      const request = $fetch<unknown>("/api/cms/contact", {
         method: "POST",
-        body,
+        body: parsed.data,
+        retry: 0,
+      }).then((value) => {
+        const confirmed = getConfirmedContactResponse(value)
+        if (!confirmed) throw new Error("Unconfirmed contact response")
+        return confirmed
       })
 
-      const res = await notify.promise(request, {
+      // The notification handle is not the HTTP promise.
+      notify.promise(request, {
         loading: "Enviando solicitud…",
-        success: "Mensaje enviado",
-        error: (e) => getErrorMessage(e),
+        success: (res) => res.duplicated ? "La consulta ya estaba registrada" : "Mensaje enviado",
+        error: (e) => getPriceRequestErrorMessage(e),
       })
 
+      const res = await request
       success.value = true
       return res
-    } catch (e: any) {
-      const message = getErrorMessage(e)
-
-      error.value = message
-      notify.error("No se pudo enviar", message)
-
+    } catch (e: unknown) {
+      error.value = getPriceRequestErrorMessage(e)
       return null
     } finally {
       isLoading.value = false

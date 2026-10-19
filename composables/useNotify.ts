@@ -18,7 +18,7 @@ export function useNotify() {
   const info    = (title: string, description?: string, opts: Omit<Opts, 'description'> = {}) =>
     toast.message(title, { description, ...opts })
 
-  // envolver promesas (carga/ok/error)
+  // Devuelve el handle del aviso, no la promesa HTTP. El llamador debe esperar p.
   const promise = <T>(
     p: Promise<T>,
     msgs: { loading: string; success: string | ((v: T) => string); error: string | ((e: any) => string) }

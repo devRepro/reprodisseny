@@ -1,11 +1,12 @@
 <script setup lang="ts">
 import { useForm } from "vee-validate";
-import { z } from "zod";
 import { toTypedSchema } from "@vee-validate/zod";
 import { useRoute } from "#imports";
 import { cn } from "@/lib/utils";
 import { useSendContact } from "@/composables/useSendContact";
 import { useTracking } from "@/composables/useTracking";
+import { useLeadFormTracking } from "@/composables/useLeadFormTracking";
+import { contactFormSchema } from "~/shared/schemas/contact";
 import type { TrackingContext } from "~/types/tracking";
 
 import {
@@ -21,33 +22,7 @@ import AppButton from "@/components/shared/button/AppButton.vue";
 
 const route = useRoute();
 
-const schema = toTypedSchema(
-  z.object({
-    nombre: z.string().min(2, "Ingresa un nombre válido"),
-    email: z.string().email("Introduce un correo electrónico válido"),
-    telefono: z
-      .string()
-      .regex(/^[\d\s\+\-]*$/, "Solo se permiten números y símbolos válidos")
-      .optional()
-      .nullable(),
-    codigoPostal: z
-      .string()
-      .trim()
-      .refine((value) => !value || /^\d{5}$/.test(value), {
-        message: "Introduce un código postal válido de 5 dígitos",
-      })
-      .optional()
-      .nullable(),
-    consulta: z
-      .string()
-      .min(10, "Cuéntanos un poco más (mínimo 10 caracteres)")
-      .max(5000),
-    consent: z.boolean().refine((value) => value === true, {
-      message: "Es necesario aceptar la política de privacidad",
-    }),
-    website: z.string().optional(),
-  })
-);
+const schema = toTypedSchema(contactFormSchema);
 
 const { handleSubmit } = useForm({
   validationSchema: schema,
@@ -64,6 +39,7 @@ const { handleSubmit } = useForm({
 
 const { sendContact, isLoading, error, success } = useSendContact();
 const tracking = useTracking();
+const leadTracking = useLeadFormTracking(getTrackingContext);
 
 function getTrackingContext(): TrackingContext {
   return {
@@ -89,17 +65,11 @@ function checkPanelClass(errorMessage?: string) {
   return cn("rd-form-check-panel", errorMessage && "rd-form-check-panel--error");
 }
 const onSubmit = handleSubmit(async (values) => {
-  error.value = null;
-  success.value = false;
-
-  // Honeypot
-  if (values.website && values.website.trim()) {
-    return;
-  }
+  if (isLoading.value || success.value) return;
 
   const trackingPayload = tracking.getTrackingPayloadForLead(getTrackingContext());
 
-  await sendContact({
+  const response = await leadTracking.submitAndTrack(() => sendContact({
     nombre: values.nombre.trim(),
     email: values.email.trim(),
     telefono: values.telefono?.trim() || null,
@@ -111,9 +81,9 @@ const onSubmit = handleSubmit(async (values) => {
     sourceUrl: trackingPayload.sourceUrl || route.fullPath,
     tracking: trackingPayload,
     website: values.website,
-  });
+  }), { waitForTracking: true });
 
-  if (success.value) {
+  if (response && success.value) {
     await navigateTo({
       path: "/gracias",
       query: { kind: "contacto" },
@@ -124,7 +94,11 @@ const onSubmit = handleSubmit(async (values) => {
 
 <template>
   <div class="rd-form-frame mx-auto max-w-xl">
-    <form @submit.prevent="onSubmit" novalidate class="rd-form-shell">
+    <form @submit.prevent="onSubmit" novalidate class="rd-form-shell"
+      @pointerdown.capture="leadTracking.onFormInteraction"
+      @keydown.capture="leadTracking.onFormInteraction"
+      @input.capture="leadTracking.onFormInteraction"
+      @change.capture="leadTracking.onFormInteraction">
       <div class="rd-form-body">
         <div class="rd-form-stack">
           <FormField v-slot="{ componentField, errorMessage }" name="nombre">
@@ -288,7 +262,7 @@ const onSubmit = handleSubmit(async (values) => {
           {{ isLoading ? "Enviando mensaje..." : "Contactar con un experto" }}
         </AppButton>
 
-        <div v-if="error" class="rd-form-alert rd-form-alert--destructive animate-in fade-in">
+        <div v-if="error" role="alert" class="rd-form-alert rd-form-alert--destructive animate-in fade-in">
           <p class="text-center">
             {{ error }}
           </p>
