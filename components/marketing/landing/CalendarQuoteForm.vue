@@ -246,7 +246,7 @@ async function onSubmit() {
   error.value = null;
 
   if (cleanString(form.website)) {
-    await navigateTo({ path: "/gracias", query: { kind: "presupuesto" } });
+    error.value = "No hemos podido enviar la solicitud. Inténtalo de nuevo.";
     return;
   }
 
