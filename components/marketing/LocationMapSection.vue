@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, ref } from "vue";
 
 const props = withDefaults(
   defineProps<{
@@ -47,6 +47,8 @@ const mapsHref = computed(() => {
   )}`;
 });
 
+const mapRequested = ref(false);
+
 // Iframe embed (sin API key)
 const embedSrc = computed(() => {
   return `https://www.google.com/maps?q=${encodeURIComponent(
@@ -86,6 +88,7 @@ const embedSrc = computed(() => {
       <ClientOnly>
         <div class="w-full" :class="props.heightClass">
           <iframe
+            v-if="mapRequested"
             class="h-full w-full"
             :src="embedSrc"
             loading="lazy"
@@ -93,6 +96,35 @@ const embedSrc = computed(() => {
             allowfullscreen
             title="Mapa"
           />
+
+          <div
+            v-else
+            class="flex h-full w-full flex-col items-center justify-center gap-4 bg-muted px-6 text-center"
+          >
+            <p class="max-w-xl text-body text-muted-foreground">
+              El mapa de Google no se carga automáticamente. Puedes activarlo aquí o
+              abrir la ubicación directamente en Google Maps.
+            </p>
+
+            <div class="flex flex-wrap justify-center gap-3">
+              <button
+                type="button"
+                class="btn-primary"
+                @click="mapRequested = true"
+              >
+                Cargar mapa de Google
+              </button>
+
+              <a
+                :href="mapsHref"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-secondary"
+              >
+                Abrir en Google Maps
+              </a>
+            </div>
+          </div>
         </div>
 
         <!-- CTA flotante opcional (si lo quieres) -->
@@ -111,7 +143,7 @@ const embedSrc = computed(() => {
             <div
               class="flex h-full w-full items-center justify-center bg-muted text-body text-muted-foreground"
             >
-              Cargando mapa…
+              Mapa disponible bajo petición.
             </div>
           </div>
         </template>
