@@ -6,11 +6,13 @@ import { fileURLToPath } from "node:url";
 
 import * as XLSX from "xlsx";
 
+import { redirectRouteRules } from "../redirect-rules.generated";
 import {
   LEGACY_GONE_PATHS,
   LEGACY_GONE_PREFIXES,
   LEGACY_NOT_FOUND_PATHS,
   MANUAL_LEGACY_REDIRECTS,
+  PRINT_ESTIMATE_DESTINATION_EXCEPTIONS,
 } from "../shared/seo/legacyRedirects";
 
 const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
@@ -57,6 +59,33 @@ type RowResult = {
   notes: string[];
   proposedDestinationStatus?: number | null;
 };
+
+function getLocalSeoInventory() {
+  const redirectPaths = new Set(
+    Object.entries(
+      redirectRouteRules as Record<
+        string,
+        { redirect?: { to?: string; statusCode?: number } }
+      >,
+    )
+      .filter(([, rule]) => Boolean(rule.redirect?.to))
+      .map(([from]) => from),
+  );
+
+  for (const from of Object.keys(MANUAL_LEGACY_REDIRECTS)) {
+    redirectPaths.add(from);
+  }
+
+  return {
+    redirects: redirectPaths.size,
+    gonePaths: LEGACY_GONE_PATHS.length,
+    gonePrefixes: LEGACY_GONE_PREFIXES.length,
+    notFoundPaths: LEGACY_NOT_FOUND_PATHS.length,
+    printEstimateExceptions: Object.keys(
+      PRINT_ESTIMATE_DESTINATION_EXCEPTIONS,
+    ).length,
+  };
+}
 
 function normalizePath(value: string) {
   if (!value) return "/";
@@ -397,6 +426,7 @@ async function validateReview(row: AuditRow): Promise<RowResult> {
 
 function makeMainReport(results: RowResult[], totalSeconds: number) {
   const summary = summarize(results);
+  const localInventory = getLocalSeoInventory();
   const failed301 = summary.actions["301"].filter((result) => !result.ok);
   const failed410 = summary.actions["410"].filter((result) => !result.ok);
   const failed404 = summary.actions["404"].filter((result) => !result.ok);
@@ -413,12 +443,13 @@ function makeMainReport(results: RowResult[], totalSeconds: number) {
     `- 404 correctos: ${summary.actions["404"].length - failed404.length}/${summary.actions["404"].length}`,
     `- REVISAR documentados: ${summary.actions.REVISAR.length}`,
     "",
-    "## Validaciones previas",
+    "## Inventario local de configuración",
     "",
-    "- validate:seo-redirects: OK, codigo 0, 357 redirects efectivos y 31 reglas 410 validadas.",
-    "- validate:seo-routes: OK, codigo 0, 130 rutas de catalogo y 12 categorias canonicas validadas.",
-    "- build: OK, codigo 0 segun la fase previa indicada.",
-    "- typecheck: vue-tsc termino con codigo 2 por errores generales existentes; no hay errores asociados a redirect-rules.generated.ts, server/middleware/legacy-notfound-redirect.ts, scripts/validate-seo-redirects.ts ni shared/seo/legacyRedirects.ts.",
+    `- Redirects configurados al generar el informe: ${localInventory.redirects}.`,
+    `- Reglas 410: ${localInventory.gonePaths} paths exactos y ${localInventory.gonePrefixes} prefijos.`,
+    `- Paths 404 explicitos: ${localInventory.notFoundPaths}.`,
+    `- Excepciones printestimate documentadas: ${localInventory.printEstimateExceptions}.`,
+    "- Este script valida respuestas HTTP; build, typecheck y validadores locales deben registrarse con su salida real en el cierre de la ejecucion.",
     "",
     "## 301",
     "",
