@@ -130,3 +130,12 @@ test("legacy URLs without an equivalent remain classified as gone", () => {
   assert.ok(isLegacyGonePath(gone));
   assert.equal(rules[gone], undefined);
 });
+
+test("el informe HTTP deriva el inventario local y no conserva resultados históricos fijos", () => {
+  const source = readFileSync("scripts/validate-seo-http.ts", "utf8");
+
+  assert.match(source, /function getLocalSeoInventory\(\)/);
+  assert.match(source, /localInventory\.redirects/);
+  assert.doesNotMatch(source, /357 redirects efectivos/);
+  assert.doesNotMatch(source, /typecheck: vue-tsc termino con codigo 2/);
+});

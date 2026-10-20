@@ -5,6 +5,7 @@ import { useRuntimeConfig } from "#imports"
 
 import { SPF } from "~/shared/utils/sharepoint/spfPriceRequests"
 import { normalizeServerLeadTracking } from "~/server/services/priceRequests/leadTrackingNormalization"
+import { sanitizeGenericQuoteExtras } from "~/server/services/priceRequests/genericQuoteExtras"
 import {
   getGraphToken,
   resolveSiteId,
@@ -313,6 +314,8 @@ export async function createPriceRequest(event: any, input: PriceRequestInput) {
     formFields,
     { allowCalendarLandingExtras },
   )
+
+  Object.assign(extrasClean, sanitizeGenericQuoteExtras(productSlug, extrasRaw))
 
 
   const quantityRaw = extrasRaw.cantidad

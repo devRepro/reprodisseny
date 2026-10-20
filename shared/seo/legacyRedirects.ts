@@ -8,6 +8,12 @@ export const LEGACY_HOSTS = [
 ] as const;
 
 /**
+ * Hosts retirados de forma definitiva. Solo las rutas con una equivalencia
+ * explícita deben redirigir; el resto responde 410 para evitar soft 404.
+ */
+export const RETIRED_HOSTS = ["blog.reprodisseny.com"] as const;
+
+/**
  * Redirecciones manuales decididas en la revisión de Google Search Console.
  * No duplicar estos orígenes en redirect-rules.generated.ts.
  */

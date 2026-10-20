@@ -5,6 +5,7 @@ import {
   getQuery,
   getRequestURL,
   sendRedirect,
+  setResponseHeader,
 } from "h3"
 
 import { redirectRouteRules } from "../../redirect-rules.generated"
@@ -14,6 +15,7 @@ import {
   LEGACY_GONE_PREFIXES,
   LEGACY_HOSTS,
   MANUAL_LEGACY_REDIRECTS,
+  RETIRED_HOSTS,
 } from "../../shared/seo/legacyRedirects"
 
 /**
@@ -22,7 +24,8 @@ import {
  * Responsabilidades:
  * - Resolver /error/notfound?aspxerrorpath=/ruta-antigua.
  * - Devolver 410 Gone para endpoints/descargas/feed legacy sin equivalente real.
- * - Canonicalizar hosts legacy hacia https://reprodisseny.com.
+ * - Canonicalizar hosts legacy activos hacia https://reprodisseny.com.
+ * - Retirar hosts cancelados con 410 salvo equivalencias explícitas.
  * - Redirigir queries legacy conocidas hacia URLs limpias.
  *
  * Mantener los 301 generales en redirect-rules.generated.ts y las decisiones
@@ -30,6 +33,7 @@ import {
  */
 
 const legacyHosts = new Set<string>(LEGACY_HOSTS)
+const retiredHosts = new Set<string>(RETIRED_HOSTS)
 
 const legacyGonePaths = new Set<string>(LEGACY_GONE_PATHS)
 
@@ -158,17 +162,30 @@ function redirectInternalOrCanonical(
   return sendRedirect(event, path, statusCode)
 }
 
-function throwGone() {
+function throwGone(event: Parameters<typeof setResponseHeader>[0]) {
+  setResponseHeader(event, "X-Robots-Tag", "noindex, follow")
+
   throw createError({
     statusCode: 410,
     statusMessage: "Gone",
   })
 }
 
+function renderRetiredHostRobots(event: Parameters<typeof setResponseHeader>[0]) {
+  setResponseHeader(event, "Content-Type", "text/plain; charset=utf-8")
+  setResponseHeader(event, "Cache-Control", "public, max-age=0, s-maxage=86400")
+  return "User-agent: *\nAllow: /\n"
+}
+
 export default defineEventHandler((event) => {
-  const url = getRequestURL(event)
+  const url = getRequestURL(event, { xForwardedHost: true })
   const currentPath = normalizeLegacyPath(url.pathname)
   const isLegacyHost = legacyHosts.has(url.hostname)
+  const isRetiredHost = retiredHosts.has(url.hostname)
+
+  if (isRetiredHost && currentPath === "/robots.txt") {
+    return renderRetiredHostRobots(event)
+  }
 
   const rootQueryDestination = resolveLegacyRootQuery(url)
 
@@ -180,7 +197,7 @@ export default defineEventHandler((event) => {
   }
 
   if (isLegacyGonePath(currentPath)) {
-    return throwGone()
+    return throwGone(event)
   }
 
   if (currentPath === "/error/notfound") {
@@ -188,7 +205,7 @@ export default defineEventHandler((event) => {
     const legacyPath = normalizeLegacyPath(query.aspxerrorpath)
 
     if (!legacyPath || isLegacyGonePath(legacyPath)) {
-      return throwGone()
+      return throwGone(event)
     }
 
     const mappedLegacyDestination = getMappedRedirect(legacyPath)
@@ -207,7 +224,7 @@ export default defineEventHandler((event) => {
       })
     }
 
-    return throwGone()
+    return throwGone(event)
   }
 
   const mappedDestination = getMappedRedirect(currentPath)
@@ -217,6 +234,10 @@ export default defineEventHandler((event) => {
       forceCanonical: isLegacyHost,
       statusCode: mappedDestination.statusCode,
     })
+  }
+
+  if (isRetiredHost) {
+    return throwGone(event)
   }
 
   if (isLegacyHost) {

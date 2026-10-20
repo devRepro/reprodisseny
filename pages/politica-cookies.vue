@@ -13,6 +13,14 @@ type CookieCategory = {
   examples: string[];
 };
 
+type CookieInventoryItem = {
+  names: string;
+  provider: string;
+  category: string;
+  purpose: string;
+  duration: string;
+};
+
 const controller = {
   name: "Repro Disseny",
   address: "Carrer de Juan de Mena, 19, 08035 Barcelona",
@@ -21,8 +29,8 @@ const controller = {
 };
 
 const lastUpdated = {
-  text: "13 de julio de 2026",
-  datetime: "2026-07-13",
+  text: "20 de octubre de 2026",
+  datetime: "2026-10-20",
 };
 
 const sections = [
@@ -44,23 +52,10 @@ const cookieCategories: CookieCategory[] = [
     title: "Cookies necesarias",
     required: true,
     description:
-      "Permiten el funcionamiento básico y seguro de la web. Se utilizan, entre otras finalidades, para recordar las preferencias de consentimiento, proteger formularios, mantener la seguridad y prestar servicios solicitados expresamente.",
+      "Permiten guardar y aplicar la elección de consentimiento. No pueden desactivarse desde el panel porque son necesarias para respetar esa preferencia.",
     examples: [
       "Gestión del consentimiento",
-      "Seguridad y prevención de abusos",
-      "Funcionamiento de formularios",
-      "Preferencias imprescindibles de navegación",
-    ],
-  },
-  {
-    title: "Cookies de preferencias",
-    required: false,
-    description:
-      "Permiten recordar decisiones del usuario que modifican el comportamiento o la apariencia de la web, como determinadas preferencias de visualización, idioma o región.",
-    examples: [
-      "Idioma o región",
-      "Preferencias de visualización",
-      "Opciones seleccionadas por el usuario",
+      "Aplicación de las categorías aceptadas o rechazadas",
     ],
   },
   {
@@ -87,17 +82,31 @@ const cookieCategories: CookieCategory[] = [
       "Personalización publicitaria",
     ],
   },
+];
+
+const cookieInventory: CookieInventoryItem[] = [
   {
-    title: "Contenido y servicios externos",
-    required: false,
-    description:
-      "Determinados mapas, vídeos, recursos multimedia, tipografías, widgets o servicios integrados pueden utilizar cookies o tecnologías similares cuando el usuario autoriza su carga.",
-    examples: [
-      "Mapas interactivos",
-      "Vídeos externos",
-      "Widgets de terceros",
-      "Recursos multimedia integrados",
-    ],
+    names: "repro_cookie_consent",
+    provider: "Repro Disseny",
+    category: "Necesarias",
+    purpose: "Guardar las categorías de consentimiento elegidas.",
+    duration: "182 días",
+  },
+  {
+    names: "_ga, _ga_*, _gid",
+    provider: "Google Analytics 4",
+    category: "Analítica (opt-in)",
+    purpose:
+      "Medir visitas e interacciones cuando la categoría Analítica ha sido aceptada.",
+    duration: "Según la configuración vigente de Google Analytics.",
+  },
+  {
+    names: "_gcl_*, _gac_*",
+    provider: "Google Ads",
+    category: "Marketing (opt-in)",
+    purpose:
+      "Atribuir campañas y conversiones cuando la categoría Marketing ha sido aceptada.",
+    duration: "Según la configuración vigente de Google Ads.",
   },
 ];
 
@@ -384,15 +393,31 @@ useHead({
             </h2>
 
             <p class="leading-relaxed text-muted-foreground">
-              El inventario de tecnologías utilizadas se encuentra en este documento y en
-              el panel de configuración de consentimiento de la web.
+              Este es el inventario técnico configurado actualmente. Las cookies
+              opcionales sólo pueden utilizarse después de aceptar su categoría.
             </p>
 
-            <p class="leading-relaxed text-muted-foreground">
-              En ese panel puede consultar, para cada servicio o tecnología, su proveedor,
-              finalidad, categoría, duración, almacenamiento utilizado y la información
-              facilitada por el tercero.
-            </p>
+            <div class="grid gap-4">
+              <Card
+                v-for="item in cookieInventory"
+                :key="item.names"
+                class="border-border/60"
+              >
+                <CardContent class="grid gap-3 p-5 md:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] md:p-6">
+                  <div>
+                    <p class="font-semibold text-foreground">{{ item.names }}</p>
+                    <p class="mt-1 text-sm text-muted-foreground">
+                      {{ item.provider }} · {{ item.category }}
+                    </p>
+                  </div>
+
+                  <div class="space-y-1 text-sm leading-relaxed text-muted-foreground">
+                    <p>{{ item.purpose }}</p>
+                    <p><strong class="text-foreground">Duración:</strong> {{ item.duration }}</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
 
             <Card class="border-primary/15 bg-primary/5">
               <CardContent class="space-y-4 p-5 md:p-6">
@@ -408,8 +433,8 @@ useHead({
                     </h3>
 
                     <p class="text-sm leading-relaxed text-muted-foreground">
-                      Abra el panel para ver los servicios detectados y cambiar su
-                      consentimiento por categoría y consultar las tecnologías asociadas.
+                      Abra el panel para aceptar, rechazar o cambiar las categorías de
+                      Analítica y Marketing. La categoría Necesarias permanece activa.
                     </p>
 
                     <button
@@ -443,6 +468,12 @@ useHead({
             </p>
 
             <p class="leading-relaxed text-muted-foreground">
+              Google Tag Manager administra la carga de las etiquetas de medición. Google
+              Consent Mode comienza con el almacenamiento analítico y publicitario
+              denegado y lo actualiza cuando se guardan las preferencias.
+            </p>
+
+            <p class="leading-relaxed text-muted-foreground">
               Puede retirar o modificar su consentimiento en cualquier momento. La
               retirada no afecta a la licitud del tratamiento realizado antes de modificar
               las preferencias.
@@ -464,21 +495,27 @@ useHead({
             <h2 class="text-2xl font-bold tracking-tight">7. Cookies de terceros</h2>
 
             <p class="leading-relaxed text-muted-foreground">
-              Algunos servicios integrados pueden almacenar o consultar información desde
-              dominios externos a Repro Disseny.
+              Google Analytics y Google Ads pueden tratar información cuando se acepta su
+              categoría. Puede consultar la
+              <a
+                href="https://policies.google.com/privacy"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="font-medium text-primary underline-offset-4 hover:underline"
+              >política de privacidad de Google</a
+              >.
             </p>
 
             <p class="leading-relaxed text-muted-foreground">
-              Estos terceros son responsables de sus propias tecnologías y tratamientos.
-              El panel de configuración identifica los proveedores actualmente
-              incorporados y permite consultar su información de privacidad.
+              El mapa integrado de Google no se solicita al proveedor al abrir la página:
+              sólo se carga si la persona pulsa «Cargar mapa de Google». También se ofrece
+              un enlace para abrir la ubicación fuera de esta web.
             </p>
 
             <p class="leading-relaxed text-muted-foreground">
-              La disponibilidad, finalidad y duración de las cookies de terceros pueden
-              cambiar cuando el proveedor actualiza sus servicios. Por este motivo, el
-              inventario del panel de consentimiento constituye la relación más
-              actualizada.
+              Los proveedores externos son responsables de sus propias tecnologías y
+              pueden modificar su duración. Repro Disseny revisará este inventario cuando
+              cambie la configuración publicada.
             </p>
           </section>
 
@@ -501,8 +538,8 @@ useHead({
             </p>
 
             <p class="leading-relaxed text-muted-foreground">
-              Puede consultar la identidad del proveedor y su documentación de privacidad
-              desde el panel de configuración.
+              La identidad del proveedor y su documentación de privacidad se indican en
+              el inventario y en la sección anterior.
             </p>
           </section>
 

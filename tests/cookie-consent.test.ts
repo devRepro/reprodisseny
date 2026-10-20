@@ -373,3 +373,26 @@ test("el código fuente no conserva el loader legado y usa el loader diferido", 
     true,
   );
 });
+
+test("el mapa externo requiere una acción explícita antes de crear el iframe", async () => {
+  const source = await readFile(
+    "components/marketing/LocationMapSection.vue",
+    "utf8",
+  );
+
+  assert.match(source, /const mapRequested = ref\(false\)/);
+  assert.match(source, /<iframe\s+v-if="mapRequested"/);
+  assert.match(source, /@click="mapRequested = true"/);
+  assert.match(source, /Cargar mapa de Google/);
+});
+
+test("la política publicada refleja las categorías y el inventario configurados", async () => {
+  const source = await readFile("pages/politica-cookies.vue", "utf8");
+
+  assert.match(source, /datetime: "2026-10-20"/);
+  assert.match(source, /repro_cookie_consent/);
+  assert.match(source, /Google Analytics 4/);
+  assert.match(source, /Google Ads/);
+  assert.match(source, /Google\s+Consent Mode comienza/);
+  assert.doesNotMatch(source, /servicios detectados/i);
+});
