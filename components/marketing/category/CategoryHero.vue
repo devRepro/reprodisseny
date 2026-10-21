@@ -53,7 +53,20 @@ const props = withDefaults(
   }
 );
 
+const CATEGORY_HERO_IMAGE_QUALITY = 85;
+const DEFAULT_CATEGORY_HERO_IMAGE_SIZES =
+  "xs:100vw sm:100vw md:100vw lg:38vw xl:38vw 2xl:435px";
+const COMMERCIAL_CATEGORY_HERO_IMAGE_SIZES =
+  "xs:100vw sm:100vw md:100vw lg:53vw xl:52vw 2xl:622px";
+const categoryHeroImagePreload = { fetchPriority: "high" as const };
+
 const isCommercial = computed(() => props.variant === "commercial");
+
+const categoryHeroImageSizes = computed(() =>
+  isCommercial.value
+    ? COMMERCIAL_CATEGORY_HERO_IMAGE_SIZES
+    : DEFAULT_CATEGORY_HERO_IMAGE_SIZES
+);
 
 const title = computed(() => props.category?.title || props.category?.nav || "Categoría");
 
@@ -231,16 +244,27 @@ const secondaryCta = computed<HeroCta | null>(() => {
         <div v-if="imgSrc" class="category-hero__media">
           <figure :class="mediaWrapperClass">
             <div :class="mediaFrameClass">
-              <img
+              <NuxtImg
+                v-slot="{ src, imgAttrs }"
+                custom
                 :src="imgSrc"
                 :alt="imgAlt"
-                :width="imgWidth"
-                :height="imgHeight"
-                :class="imageClass"
+                :sizes="categoryHeroImageSizes"
+                :quality="CATEGORY_HERO_IMAGE_QUALITY"
+                densities="1x 2x"
+                :preload="categoryHeroImagePreload"
                 loading="eager"
                 decoding="async"
                 fetchpriority="high"
-              />
+              >
+                <img
+                  v-bind="imgAttrs"
+                  :src="src"
+                  :width="imgWidth"
+                  :height="imgHeight"
+                  :class="imageClass"
+                />
+              </NuxtImg>
 
               <div
                 aria-hidden="true"
