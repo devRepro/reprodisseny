@@ -75,7 +75,7 @@ export function usePriceRequests() {
     success.value = false;
     error.value = null;
 
-    notify.show("Enviando solicitud…");
+    const loadingNotice = notify.show("Enviando solicitud…");
 
     try {
       const formData = new FormData();
@@ -105,6 +105,7 @@ export function usePriceRequests() {
 
       throw e;
     } finally {
+      if (loadingNotice !== undefined) notify.dismiss(loadingNotice);
       requestInFlight = false;
       isLoading.value = false;
     }

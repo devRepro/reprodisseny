@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { computed, nextTick, onMounted, ref } from "vue";
+import { computed, ref } from "vue";
+import { useConfirmationFocus } from "@/composables/useConfirmationFocus";
 import AppButton from "@/components/shared/button/AppButton.vue";
 import {
   CheckCircle2,
@@ -35,6 +36,7 @@ const props = withDefaults(
 );
 
 const headingRef = ref<HTMLElement | null>(null);
+if (props.autofocusTitle) useConfirmationFocus(headingRef);
 
 const panelContent = computed(() => {
   if (props.kind === "presupuesto") {
@@ -88,77 +90,72 @@ const panelContent = computed(() => {
   };
 });
 
-onMounted(async () => {
-  if (!props.autofocusTitle) return;
-  await nextTick();
-  headingRef.value?.focus();
-});
 </script>
 
 <template>
   <section
-    class="rounded-3xl border border-border bg-brand-bg-2 shadow-sm"
+    class="confirmation-surface rounded-3xl border border-border bg-brand-bg-2 shadow-sm"
     role="status"
     aria-live="polite"
   >
     <div
-      class="mx-auto flex max-w-4xl flex-col items-center gap-6 px-6 py-10 text-center md:px-10 md:py-14"
+      class="mx-auto flex min-w-0 max-w-4xl flex-col items-center gap-5 px-4 py-6 text-center md:gap-6 md:px-10 md:py-10"
     >
       <div
-        class="flex h-16 w-16 items-center justify-center rounded-full bg-background text-primary shadow-sm"
+        class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-background text-primary shadow-sm md:h-16 md:w-16"
       >
-        <CheckCircle2 class="h-8 w-8" />
+        <CheckCircle2 class="h-7 w-7" aria-hidden="true" />
       </div>
 
-      <div class="space-y-4">
+      <div class="min-w-0 max-w-full space-y-3">
         <h1
           ref="headingRef"
           tabindex="-1"
-          class="text-balance text-3xl font-semibold tracking-tight text-foreground md:text-4xl"
+          class="confirmation-heading text-balance text-2xl font-semibold tracking-tight text-foreground md:text-4xl"
         >
           {{ panelContent.title }}
         </h1>
 
         <p
-          class="mx-auto max-w-3xl text-pretty text-base leading-7 text-muted-foreground md:text-lg"
+          class="mx-auto max-w-3xl text-pretty text-base leading-6 text-muted-foreground md:text-lg md:leading-7"
         >
           {{ panelContent.message }}
         </p>
       </div>
 
-      <div class="grid w-full gap-3 md:grid-cols-3">
+      <div class="confirmation-actions confirmation-actions--pair max-w-2xl">
+        <AppButton :to="primaryTo" size="lg" class="confirmation-action">
+          <Home class="h-4 w-4" aria-hidden="true" />
+          <span>{{ primaryLabel }}</span>
+        </AppButton>
+        <AppButton :to="secondaryTo" variant="outline" size="lg" class="confirmation-action">
+          <span>{{ secondaryLabel }}</span>
+          <ArrowRight class="h-4 w-4" aria-hidden="true" />
+        </AppButton>
+      </div>
+
+      <div class="grid w-full min-w-0 grid-cols-1 gap-3 md:grid-cols-3">
         <article
           v-for="(step, index) in panelContent.steps"
           :key="index"
-          class="rounded-2xl border border-border/70 bg-background/80 p-4 text-left"
+          class="confirmation-step min-w-0 rounded-2xl border border-border/70 bg-background/80 p-3 text-left md:p-4"
         >
           <div
-            class="mb-3 flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary"
+            class="flex h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-primary"
           >
-            <component :is="step.icon" class="h-5 w-5" />
+            <component :is="step.icon" class="h-4 w-4" aria-hidden="true" />
           </div>
 
-          <h2 class="text-sm font-semibold text-foreground md:text-base">
+          <h2 class="self-center text-sm font-semibold text-foreground md:text-base">
             {{ step.title }}
           </h2>
 
-          <p class="mt-2 text-sm leading-6 text-muted-foreground">
+          <p class="text-sm leading-5 text-muted-foreground md:leading-6">
             {{ step.text }}
           </p>
         </article>
       </div>
 
-      <div class="flex flex-col gap-3 pt-2 sm:flex-row">
-        <AppButton :to="primaryTo" size="lg">
-          <Home class="mr-2 h-4 w-4" />
-          {{ primaryLabel }}
-        </AppButton>
-
-        <AppButton :to="secondaryTo" variant="outline" size="lg">
-          {{ secondaryLabel }}
-          <ArrowRight class="ml-2 h-4 w-4" />
-        </AppButton>
-      </div>
     </div>
   </section>
 </template>

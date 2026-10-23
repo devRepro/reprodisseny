@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ref } from "vue";
+import { useConfirmationFocus } from "@/composables/useConfirmationFocus";
 import { CheckCircle2, Mail, MapPin, Phone } from "lucide-vue-next";
 
 import AppButton from "@/components/shared/button/AppButton.vue";
@@ -20,11 +22,13 @@ useHead({
 
 const linkedinUrl = "https://www.linkedin.com/company/repro-disseny-s.l";
 const instagramUrl = "https://www.instagram.com/reprodissenybcn/";
+const headingRef = ref<HTMLElement | null>(null);
+useConfirmationFocus(headingRef);
 </script>
 
 <template>
   <div class="calendar-thank-you">
-    <header class="calendar-thank-you__header">
+    <header data-site-header class="calendar-thank-you__header">
       <div class="container-content calendar-thank-you__header-inner">
         <NuxtLink
           to="/"
@@ -63,13 +67,13 @@ const instagramUrl = "https://www.instagram.com/reprodissenybcn/";
       </div>
     </header>
 
-    <main class="calendar-thank-you__main" aria-labelledby="calendar-thank-you-title">
+    <main class="confirmation-surface calendar-thank-you__main" aria-labelledby="calendar-thank-you-title">
       <div class="calendar-thank-you__content">
         <div class="calendar-thank-you__icon" aria-hidden="true">
           <CheckCircle2 class="calendar-thank-you__icon-mark" />
         </div>
 
-        <h1 id="calendar-thank-you-title" class="calendar-thank-you__title section-title section-title--hero">
+        <h1 ref="headingRef" tabindex="-1" id="calendar-thank-you-title" class="confirmation-heading calendar-thank-you__title section-title section-title--hero">
           Hemos recibido tu solicitud
         </h1>
 
@@ -82,7 +86,7 @@ const instagramUrl = "https://www.instagram.com/reprodissenybcn/";
           <a href="tel:932749890">93 274 98 90</a>
         </p>
 
-        <AppButton to="/productos" size="lg" class="calendar-thank-you__cta">
+        <AppButton to="/productos" size="lg" class="confirmation-action calendar-thank-you__cta">
           DESCUBRE OTROS PRODUCTOS
         </AppButton>
       </div>
@@ -219,6 +223,7 @@ const instagramUrl = "https://www.instagram.com/reprodissenybcn/";
 
 .calendar-thank-you__content {
   display: flex;
+  min-width: 0;
   width: min(100%, 760px);
   flex-direction: column;
   align-items: center;
@@ -260,7 +265,7 @@ const instagramUrl = "https://www.instagram.com/reprodissenybcn/";
 }
 
 .calendar-thank-you__contact a {
-  color: hsl(var(--primary));
+  color: hsl(var(--brand-base-dark));
   font-weight: var(--weight-body-bold);
   text-decoration: underline;
   text-underline-offset: 3px;

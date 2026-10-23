@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ref } from "vue";
+import { useConfirmationFocus } from "@/composables/useConfirmationFocus";
 import { CheckCircle2, RotateCcw, ArrowRight, Clock3 } from "lucide-vue-next";
 import AppButton from "@/components/shared/button/AppButton.vue";
 
@@ -20,6 +22,8 @@ const props = withDefaults(
 const emit = defineEmits<{
   reset: [];
 }>();
+const headingRef = ref<HTMLElement | null>(null);
+useConfirmationFocus(headingRef);
 </script>
 
 <template>
@@ -27,28 +31,30 @@ const emit = defineEmits<{
     role="status"
     aria-live="polite"
     aria-atomic="true"
-    class="flex h-full min-h-0 w-full flex-1"
+    class="confirmation-surface flex h-full min-h-0 w-full flex-1"
   >
     <div
-      class="flex h-full w-full flex-1 flex-col rounded-[28px] border border-border/60 bg-[#FAF0DA] p-4 md:p-6"
+      class="flex h-full min-w-0 w-full flex-1 flex-col rounded-[28px] border border-border/60 bg-[#FAF0DA] p-4 md:p-6"
     >
       <div class="flex items-center gap-3">
         <div
           class="flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-primary/10 bg-background/70 text-primary"
         >
-          <CheckCircle2 class="h-5 w-5" />
+          <CheckCircle2 class="h-5 w-5" aria-hidden="true" />
         </div>
 
         <div
-          class="inline-flex items-center rounded-full border border-primary/10 bg-background/55 px-3 py-1 text-label-s font-semibold uppercase tracking-[0.12em] text-primary"
+          class="inline-flex min-w-0 items-center rounded-full border border-primary/10 bg-background/55 px-3 py-1 text-label-s font-semibold uppercase tracking-[0.12em] text-primary"
         >
           Solicitud recibida
         </div>
       </div>
 
-      <div class="mt-5 max-w-[42ch]">
+      <div class="mt-5 min-w-0 max-w-[42ch]">
         <h2
-          class="text-h2 text-balance"
+          ref="headingRef"
+          tabindex="-1"
+          class="confirmation-heading text-h2 text-balance"
         >
           {{ title }}
         </h2>
@@ -61,22 +67,23 @@ const emit = defineEmits<{
       </div>
 
       <div
-        class="mt-5 inline-flex w-fit items-center gap-2 rounded-full border border-border/50 bg-background/55 px-3 py-2 text-body-s text-foreground/72"
+        class="mt-5 inline-flex max-w-full items-center gap-2 self-start rounded-2xl border border-border/50 bg-background/55 px-3 py-2 text-body-s text-foreground/72"
       >
         <Clock3 class="h-4 w-4 shrink-0 text-primary" />
-        <span>{{ etaText }}</span>
+        <span class="min-w-0">{{ etaText }}</span>
       </div>
 
       <div class="mt-auto pt-6">
-        <div class="grid gap-3">
+        <div class="confirmation-actions">
           <AppButton
             type="button"
             size="lg"
             block
+            class="confirmation-action"
             @click="emit('reset')"
           >
-            <RotateCcw class="btn-icon-svg" />
-            Enviar otra solicitud
+            <RotateCcw class="btn-icon-svg" aria-hidden="true" />
+            <span>Enviar otra solicitud</span>
           </AppButton>
 
           <AppButton
@@ -84,9 +91,10 @@ const emit = defineEmits<{
             variant="outline"
             size="lg"
             block
+            class="confirmation-action"
           >
             <span>Ver catálogo de productos</span>
-            <ArrowRight class="btn-icon-svg" />
+            <ArrowRight class="btn-icon-svg" aria-hidden="true" />
           </AppButton>
         </div>
       </div>

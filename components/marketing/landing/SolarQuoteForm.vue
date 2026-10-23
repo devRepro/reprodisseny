@@ -245,7 +245,7 @@ async function onSubmit() {
       v-if="success"
       :product-name="props.productName"
       title="Solicitud enviada correctamente"
-      primary-to="/"
+      primary-to="/productos"
       @reset="handleResetSuccessState"
     />
 
