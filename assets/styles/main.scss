@@ -2023,12 +2023,85 @@
     @apply shrink-0;
   }
 
+  @media (max-width: 479px) {
+    // Layout switching lives on the component classes (Tailwind utilities win
+    // over @layer components), so only sizing/placement is defined here.
+    .site-header__cta.btn {
+      grid-column: 1 / -1;
+      grid-row: 2;
+      width: 100%;
+      min-height: 44px;
+      height: auto;
+      white-space: normal;
+    }
+
+    .site-header__icon-button.btn {
+      width: 44px;
+      height: 44px;
+    }
+  }
+
+  .confirmation-surface {
+    // 38% gray exceeds 4.5:1 on white, cream and pale blue confirmation surfaces.
+    --muted-foreground: 0 0% 38%;
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+  }
+
+  .confirmation-heading {
+    scroll-margin-top: calc(var(--site-header-height, 80px) + 16px);
+  }
+
+  .confirmation-actions {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .confirmation-action.btn {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    min-height: 44px;
+    height: auto;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .confirmation-action.btn > span {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .confirmation-step {
+    display: grid;
+    grid-template-columns: 32px minmax(0, 1fr);
+    align-items: start;
+    gap: 4px 12px;
+  }
+
+  .confirmation-step > p { grid-column: 2; }
+
+  @screen sm {
+    .confirmation-actions--pair { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  @screen md {
+    .confirmation-step { display: block; }
+    .confirmation-step > div { margin-bottom: 12px; }
+    .confirmation-step > p { margin-top: 8px; }
+  }
+
   .guide-banner {
     @apply relative;
   }
 
   .guide-banner--full-bleed {
-    @apply left-1/2 right-1/2 -mx-[50vw] w-[100vw] overflow-x-clip;
+    // Callers place the banner outside their content container.
+    @apply w-full;
   }
 
   .guide-banner__frame {

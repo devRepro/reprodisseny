@@ -37,5 +37,7 @@ export function useNotify() {
     error(title: string, description?: string) { error(title, description) }
   }
 
-  return { show, success, error, info, promise, safe }
+  const dismiss = (id: string | number) => toast.dismiss(id)
+
+  return { show, success, error, info, promise, safe, dismiss }
 }

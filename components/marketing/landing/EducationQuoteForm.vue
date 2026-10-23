@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed, reactive, ref } from "vue";
+import { useConfirmationFocus } from "@/composables/useConfirmationFocus";
 import { useRoute } from "#imports";
 
 import { cn } from "@/lib/utils";
@@ -70,6 +71,8 @@ const { sendPriceRequest, isLoading, error } = usePriceRequests();
 const tracking = useTracking();
 
 const success = ref(false);
+const headingRef = ref<HTMLElement | null>(null);
+useConfirmationFocus(headingRef);
 const validationError = ref("");
 const validationField = ref<ValidationField>(null);
 const submittedReference = ref<string | null>(null);
@@ -308,22 +311,22 @@ async function onSubmit() {
   <div class="rd-form-frame mx-auto max-w-xl">
     <div
       v-if="success"
-      class="rd-form-shell"
+      class="confirmation-surface rd-form-shell"
       role="status"
       aria-live="polite"
     >
-      <div class="rd-form-body text-center">
-        <h3 class="text-h4">
+      <div class="rd-form-body flex flex-col gap-3 text-center">
+        <h3 ref="headingRef" tabindex="-1" class="confirmation-heading text-h4">
           {{ copy.successTitle }}
         </h3>
 
-        <p class="mt-3 text-body-s text-muted-foreground">
+        <p class="text-body-s text-muted-foreground">
           {{ copy.successMessage }}
         </p>
 
         <p
           v-if="submittedReference"
-          class="mt-3 text-label-s font-medium text-muted-foreground"
+          class="min-w-0 text-label-s font-medium text-muted-foreground"
         >
           {{ copy.referenceLabel }}: {{ submittedReference }}
         </p>
@@ -334,6 +337,7 @@ async function onSubmit() {
           type="button"
           size="lg"
           block
+          class="confirmation-action"
           @click="handleResetSuccessState"
         >
           {{ copy.sendAnother }}

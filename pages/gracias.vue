@@ -58,7 +58,7 @@ useHead({
 
 <template>
   <main class="min-h-screen bg-background">
-    <section :class="[pageContainerClass, 'flex min-h-[calc(100vh-18rem)] items-center pt-10 pb-14 md:min-h-[calc(100vh-22rem)] md:pt-14 md:pb-20']">
+    <section :class="[pageContainerClass, 'py-6 md:py-12']">
       <ThankYouPanel
         class="w-full"
         :kind="kind"
@@ -66,7 +66,6 @@ useHead({
         :primary-to="primaryTo"
         secondary-label="Ver productos"
         secondary-to="/productos"
-        heading-tag="h1"
       />
     </section>
 

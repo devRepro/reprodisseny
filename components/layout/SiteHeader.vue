@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { ref, computed, unref, watch, type Ref } from "vue";
+import { ref, computed, unref, watch, onBeforeUnmount, type Ref } from "vue";
+import { useResizeObserver } from "@vueuse/core";
 import BrandLockup from "@/components/shared/brand/Lockup.vue";
 import type {
   CategoriaNode,
@@ -29,6 +30,18 @@ const CategoriasMenu = defineLazyHydrationComponent(
   "mediaQuery",
   () => import("@/components/shared/menu/Categorias.vue"),
 );
+
+const headerRef = ref<HTMLElement | null>(null);
+useResizeObserver(headerRef, () => {
+  if (headerRef.value) {
+    document.documentElement.style.setProperty(
+      "--site-header-height", `${headerRef.value.getBoundingClientRect().height}px`,
+    );
+  }
+});
+onBeforeUnmount(() => {
+  document.documentElement.style.removeProperty("--site-header-height");
+});
 
 type MaybeRef<T> = T | Ref<T>;
 
@@ -126,9 +139,9 @@ const staticLinks = [
 </script>
 
 <template>
-  <header class="sticky top-0 z-50 w-full border-b border-border/70 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/85">
+  <header ref="headerRef" data-site-header class="sticky top-0 z-50 w-full border-b border-border/70 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/85">
     <div
-      class="mx-auto flex h-16 w-full max-w-[1440px] items-center justify-between gap-3 px-4 sm:px-6 md:h-20 md:gap-6 md:px-10 lg:px-16 2xl:px-[120px]"
+      class="site-header__main mx-auto flex min-h-16 w-full max-w-[1440px] items-center justify-between gap-3 px-4 max-[479px]:grid max-[479px]:grid-cols-[minmax(0,1fr)_auto_auto] max-[479px]:gap-2 max-[479px]:py-2 sm:px-6 md:min-h-20 md:gap-6 md:px-10 lg:px-16 2xl:px-[120px]"
     >
       <NuxtLink
         to="/"
@@ -145,7 +158,7 @@ const staticLinks = [
         </div>
       </div>
 
-      <div class="flex shrink-0 items-center gap-1.5 md:gap-3">
+      <div class="site-header__actions flex shrink-0 items-center gap-1.5 max-[479px]:contents md:gap-3">
         <AppButton
           variant="ghost"
           size="icon"
