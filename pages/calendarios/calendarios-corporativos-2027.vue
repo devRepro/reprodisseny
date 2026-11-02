@@ -373,9 +373,7 @@ function selectCalendarModel(modelId: string) {
 
         <div class="calendar-hero__content">
           <h1 id="calendar-hero-title" class="calendar-hero__title section-title section-title--hero">
-            <span>El calendario que</span>
-            <span>mostrará tu marca</span>
-            <span>los 365 días del año</span>
+            El calendario que mostrará tu marca los 365 días del año
           </h1>
 
           <p class="calendar-hero__description text-body">
@@ -658,11 +656,8 @@ function selectCalendarModel(modelId: string) {
 }
 
 .calendar-hero__title {
+  max-width: 18ch;
   color: hsl(var(--foreground));
-}
-
-.calendar-hero__title span {
-  display: block;
 }
 
 .calendar-hero__description {
@@ -1042,6 +1037,10 @@ function selectCalendarModel(modelId: string) {
     text-align: center;
   }
 
+  .calendar-hero__title {
+    margin-inline: auto;
+  }
+
   .calendar-hero__description {
     margin-inline: auto;
   }
@@ -1079,8 +1078,9 @@ function selectCalendarModel(modelId: string) {
     text-align: left;
   }
 
-  .calendar-hero__title span {
-    display: inline;
+  .calendar-hero__title {
+    margin-inline: 0;
+    font-size: clamp(2rem, 10vw, var(--font-h1));
   }
 
   .calendar-hero__description {
