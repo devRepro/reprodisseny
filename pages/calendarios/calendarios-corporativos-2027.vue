@@ -386,14 +386,24 @@ function selectCalendarModel(modelId: string) {
             Desde 1983 · Producción propia · Asesoramiento incluido
           </p>
 
-          <AppButton
-            href="#solicitar-presupuesto"
-            size="lg"
-            class="calendar-cta calendar-hero__cta"
-            @click.prevent="scrollToQuote"
-          >
-            SOLICITA TU PRESUPUESTO SIN COMPROMISO
-          </AppButton>
+          <div class="calendar-hero__actions calendar-hero__cta">
+            <AppButton
+              href="#solicitar-presupuesto"
+              size="lg"
+              class="calendar-cta"
+              @click.prevent="scrollToQuote"
+            >
+              SOLICITA TU PRESUPUESTO SIN COMPROMISO
+            </AppButton>
+            <AppButton
+              href="#calendar-models"
+              variant="outline"
+              size="lg"
+              class="calendar-cta calendar-hero__formats"
+            >
+              VER LOS 4 FORMATOS
+            </AppButton>
+          </div>
         </div>
       </div>
     </section>
@@ -436,7 +446,7 @@ function selectCalendarModel(modelId: string) {
       </p>
     </section>
 
-    <section class="calendar-section calendar-section--models" aria-labelledby="calendar-models-title">
+    <section id="calendar-models" class="calendar-section calendar-section--models" aria-labelledby="calendar-models-title">
       <div class="container-content calendar-container">
         <h2 id="calendar-models-title" class="calendar-section__title calendar-section__title--models section-title section-title--section">
           Elige el calendario que más se ajusta a tus necesidades
@@ -675,6 +685,27 @@ function selectCalendarModel(modelId: string) {
   margin-top: 32px;
 }
 
+.calendar-hero__actions {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  grid-auto-rows: 1fr;
+  gap: 24px;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.calendar-hero__formats {
+  border-color: #0076b3;
+  background: #ffffff;
+  color: #0076b3;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :global(html:has(#calendar-models:target)) {
+    scroll-behavior: smooth;
+  }
+}
+
 .calendar-section {
   padding: 70px 0 76px;
 }
@@ -768,6 +799,7 @@ function selectCalendarModel(modelId: string) {
 }
 
 .calendar-section--models {
+  scroll-margin-top: 84px;
   padding-bottom: 72px;
 }
 
@@ -1011,6 +1043,11 @@ function selectCalendarModel(modelId: string) {
   }
 
   .calendar-hero__description {
+    margin-inline: auto;
+  }
+
+  .calendar-hero__actions {
+    gap: 20px;
     margin-inline: auto;
   }
 
