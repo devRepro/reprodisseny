@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { computed } from 'vue';
+import { EDITORIAL_MEDIA } from '~/shared/data/editorialMedia';
 import type { CategoryDetailPageDto } from '~/server/services/cms/catalog.service';
 import type { EditorialLandingContent } from '~/shared/data/editorialLandings';
 import { EDITORIAL_LANDING_PATHS, EDITORIAL_SEO, EDITORIAL_QUOTE_CONTEXTS, PUBLICATIONS_PATH, type EditorialPublication } from '~/shared/seo/editorialRoutes';
-import { SITE_SCHEMA_IDS } from '~/utils/seo/siteIdentity';
+import { SITE_SCHEMA_IDS, SITE_URL } from '~/utils/seo/siteIdentity';
 import SiteBreadcrumbs from '~/components/shared/SiteBreadcrumbs.vue';
 import CategoryHero from '~/components/marketing/category/CategoryHero.vue';
 import CommercialSolutions from '~/components/marketing/category/CommercialSolutions.vue';
@@ -14,7 +15,6 @@ import QuoteFormSection from '~/components/marketing/quote/FormSection.vue';
 import AppButton from '~/components/shared/button/AppButton.vue';
 
 const props = defineProps<{ publication: EditorialPublication; content: EditorialLandingContent }>();
-const config = useRuntimeConfig();
 const { data: category, error } = await useAsyncData(
   'cms:editorial-publications',
   () => $fetch<CategoryDetailPageDto>('/api/cms/category/libros-revistas-catalogos', {
@@ -25,15 +25,20 @@ if (error.value || !category.value) throw createError({statusCode: 503, statusMe
 
 const seo = computed(() => EDITORIAL_SEO[props.publication]);
 const path = computed(() => EDITORIAL_LANDING_PATHS[props.publication]);
-const canonical = computed(() => new URL(path.value, String(config.public.siteUrl)).href);
+const canonical = computed(() => new URL(path.value, SITE_URL).href);
 const quoteContext = computed(() => EDITORIAL_QUOTE_CONTEXTS[props.publication]);
 const products = computed(() => category.value?.commercialProducts || []);
-const heroProduct = computed(() => products.value.find(item => item.slug === props.content.heroProductSlug));
+const heroImage = computed(() => {
+  const selection = EDITORIAL_MEDIA[props.publication];
+  if (selection.type === 'product') return products.value.find(item => item.slug === selection.slug)?.image;
+  const detail = category.value?.detailGallery?.find(item => item.role === selection.role);
+  return detail ? {src: detail.src, alt: selection.alt, width: 1200, height: 1200} : category.value?.image;
+});
 const hero = computed(() => ({
   title: props.content.title,
   description: props.content.description,
   heroKicker: 'Impresión editorial y corporativa',
-  image: heroProduct.value?.image || category.value?.image,
+  image: heroImage.value || category.value?.image,
 }));
 const commercial = computed(() => ({
   ...props.content.commercial,
@@ -64,7 +69,7 @@ const schema = computed(() => ({
       '@type': 'BreadcrumbList', '@id': `${canonical.value}#breadcrumb`,
       itemListElement: breadcrumbs.value.map((item, index) => ({
         '@type': 'ListItem', position: index + 1, name: item.label,
-        item: new URL(item.to || path.value, String(config.public.siteUrl)).href,
+        item: new URL(item.to || path.value, SITE_URL).href,
       })),
     },
     {

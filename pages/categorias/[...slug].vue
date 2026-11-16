@@ -756,6 +756,7 @@ const closingBannerPills = computed(() => {
               :sections="sections"
               variant="category"
               :details-media="detailsMedia"
+              :section-headings="category.slug === 'libros-revistas-catalogos'"
             />
           </ContentSectionShell>
 

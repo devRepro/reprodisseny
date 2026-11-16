@@ -28,12 +28,14 @@ const props = withDefaults(
     variant?: "product" | "category";
     detailsMedia?: DetailsMediaItem | null;
     featuredProduct?: Record<string, unknown> | null;
+    sectionHeadings?: boolean;
   }>(),
   {
     sections: () => [],
     variant: "product",
     detailsMedia: null,
     featuredProduct: null,
+    sectionHeadings: false,
   }
 );
 
@@ -226,6 +228,7 @@ function toggleMobileSection(id: string) {
       :panel-class="variant === 'category' ? 'category-content-tabs__panel min-w-0' : 'min-w-0'"
     >
       <template #panel="{ item }">
+        <h3 v-if="sectionHeadings" class="sr-only">{{ item.label }}</h3>
         <ContentSectionsPanel
           v-if="sectionsById[item.id]"
           :section="sectionsById[item.id]"

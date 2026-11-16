@@ -13,7 +13,6 @@ export type EditorialLandingContent = {
   label: string;
   title: string;
   description: string;
-  heroProductSlug: string;
   commercial: CommercialCategoryConfig;
   sections: EditorialSection[];
   process: {title: string; description: string}[];
@@ -26,7 +25,6 @@ export const editorialLandings = {
     label: 'Catálogos',
     title: 'Imprimir catálogos profesionales en Barcelona',
     description: 'Convierte tu colección, tus productos o tus servicios en una herramienta comercial. En Repro Disseny imprimimos catálogos personalizados y te ayudamos a decidir formato, papel y encuadernación según la imagen de marca, el contenido y el uso que tendrá cada ejemplar.',
-    heroProductSlug: 'encuadernacion-encolada-tapa-blanda',
     commercial: {
       anchorId: 'encuadernaciones-catalogos',
       intro: {eyebrow: 'Encuadernaciones recomendadas', title: 'Un catálogo que funciona en cada presentación', description: 'La paginación, el papel y la frecuencia de consulta orientan la elección. La rústica fresada aporta lomo; las grapas permiten una pieza ligera y el cosido refuerza las publicaciones de uso continuado.'},
@@ -94,7 +92,6 @@ export const editorialLandings = {
     label: 'Revistas',
     title: 'Impresión de revistas personalizadas en Barcelona',
     description: 'Damos forma impresa a revistas corporativas, editoriales y publicaciones periódicas. Cuidamos la reproducción del color, el papel y la lectura de cada número, con una producción adaptada a su paginación, su frecuencia y su distribución.',
-    heroProductSlug: 'encuadernado-con-grapas',
     commercial: {
       anchorId: 'encuadernaciones-revistas',
       intro: {eyebrow: 'Grapado y fresado', title: 'La encuadernación que necesita cada edición', description: 'El número de páginas y el grosor del papel condicionan la solución. Comparamos las opciones contigo para mantener una revista manejable y cómoda de leer.'},
