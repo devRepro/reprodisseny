@@ -2,6 +2,7 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
+import { EDITORIAL_LANDING_PATHS } from "../shared/seo/editorialRoutes";
 import { redirectRouteRules } from "../redirect-rules.generated";
 import {
   LEGACY_GONE_PATHS,
@@ -177,7 +178,7 @@ function formatList(items: string[]) {
 
 const routesJson = await readJson("cms/routes.json");
 const cmsRoutes = new Set(
-  (Array.isArray(routesJson) ? routesJson : [])
+  [...(Array.isArray(routesJson) ? routesJson : []), ...Object.values(EDITORIAL_LANDING_PATHS)]
     .map((route) => normalizeConfiguredPath(route))
     .filter(Boolean),
 );

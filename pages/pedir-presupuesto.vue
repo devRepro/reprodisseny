@@ -6,6 +6,10 @@ import QuoteFormSection from "@/components/marketing/quote/FormSection.vue";
 import ContactInfoBand from "@/components/marketing/ContactInfoBand.vue";
 import MarketingProductCategoryGrid from "@/components/marketing/ProductCategoryGrid.vue";
 import GuideBanner from "@/components/marketing/GuideBanner.vue";
+import { resolveEditorialQuoteContext } from "~/shared/seo/editorialRoutes";
+const route = useRoute();
+const quoteContext = computed(() => resolveEditorialQuoteContext(route.query.publicacion));
+
 const pageUrl = "https://reprodisseny.com/pedir-presupuesto";
 useSeoMeta({
   title: "Solicitar presupuesto de impresión",
@@ -38,7 +42,7 @@ const {
     <section class="bg-background py-12">
       <div class="container-wide">
         <div class="mx-auto w-full max-w-[549px]">
-          <QuoteFormSection submit-endpoint="/api/price-requests" />
+          <QuoteFormSection v-bind="quoteContext || {}" submit-endpoint="/api/price-requests" />
         </div>
       </div>
     </section>
