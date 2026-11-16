@@ -90,5 +90,83 @@ export const editorialLandings = {
     ],
     quoteDescription: 'Indica el formato cerrado, las páginas, la cantidad, el uso comercial y la fecha prevista. Si dudas sobre papeles o encuadernación, te ayudamos a definirlos.',
   },
-} satisfies Partial<Record<EditorialPublication, EditorialLandingContent>>;
+  revistas: {
+    label: 'Revistas',
+    title: 'Impresión de revistas personalizadas en Barcelona',
+    description: 'Damos forma impresa a revistas corporativas, editoriales y publicaciones periódicas. Cuidamos la reproducción del color, el papel y la lectura de cada número, con una producción adaptada a su paginación, su frecuencia y su distribución.',
+    heroProductSlug: 'encuadernado-con-grapas',
+    commercial: {
+      anchorId: 'encuadernaciones-revistas',
+      intro: {eyebrow: 'Grapado y fresado', title: 'La encuadernación que necesita cada edición', description: 'El número de páginas y el grosor del papel condicionan la solución. Comparamos las opciones contigo para mantener una revista manejable y cómoda de leer.'},
+      solutions: {groups: [{
+        id: 'encuadernaciones', eyebrow: 'De la revista ligera a la edición con lomo', title: 'Grapas para ligereza, fresado para más contenido',
+        description: 'El caballito une los pliegos con grapas y facilita una publicación ligera. La rústica fresada reúne las páginas en un lomo encolado. Para ediciones que requieren mayor resistencia también podemos valorar cosido en tapa blanda.',
+        primaryProductSlug: 'encuadernado-con-grapas',
+        productSlugs: ['encuadernado-con-grapas', 'encuadernacion-encolada-tapa-blanda', 'cosida-tapa-blanda'],
+      }]},
+    },
+    sections: [
+      {
+        id: 'aplicaciones', eyebrow: 'Revistas editoriales y corporativas', title: 'Cada número, una nueva conversación con tus lectores',
+        description: 'El contenido y el público definen la revista: una herramienta de comunicación interna, un proyecto cultural o una publicación para suscriptores necesitan decisiones diferentes.',
+        items: [
+          {title: 'Revistas corporativas', description: 'Publicaciones de empresa y de marca para compartir novedades, proyectos, entrevistas y contenidos con equipos, clientes o colaboradores.'},
+          {title: 'Revistas editoriales y culturales', description: 'Ediciones con identidad propia, donde el ritmo de lectura, la fotografía, las ilustraciones y el papel forman parte de la experiencia.'},
+          {title: 'Asociaciones e instituciones', description: 'Revistas de entidades, boletines y documentación informativa para mantener una relación periódica con socios y comunidades.'},
+          {title: 'Publicaciones periódicas y promocionales', description: 'Planificamos contigo cada número según la fecha de salida, la cantidad y las necesidades de distribución. Las características se revisan antes de cada producción.'},
+        ],
+      },
+      {
+        id: 'paginacion-archivos', eyebrow: 'Paginación y preparación de archivos', title: 'Prepara la revista pensando en cómo se encuaderna',
+        description: 'La elección de encuadernación debe entrar en la maqueta antes de cerrar el PDF. Revisamos páginas, márgenes y cubierta para evitar ajustes de última hora.',
+        items: [
+          {title: 'Revistas grapadas', description: 'La paginación total se plantea en múltiplos de cuatro, incluyendo la cubierta cuando forma parte del mismo conjunto de pliegos. El gramaje y el número de páginas afectan al grosor y al desplazamiento de las hojas; confirmamos la solución antes de imprimir.'},
+          {title: 'Revistas fresadas', description: 'Necesitan una cubierta ajustada al ancho real del lomo y márgenes interiores que faciliten la lectura. Definimos el lomo según el papel y las páginas; no conviene reutilizar su medida de otro número sin comprobarla.'},
+          {title: 'PDF y revisión técnica', description: 'Prepara un PDF de alta calidad con tipografías incrustadas, sangrado e imágenes adecuadas al tamaño final. Entrega las páginas en orden de lectura y consulta la preparación de la cubierta y de las separaciones de acabados.'},
+        ],
+      },
+      {
+        id: 'papeles-cubiertas', eyebrow: 'Papeles interiores y cubiertas', title: 'Equilibrio entre imagen, lectura y peso',
+        description: 'El papel influye en la reproducción del color, la opacidad, el tacto y el peso de cada ejemplar. Lo valoramos junto con el formato y la distribución de la revista.',
+        items: [
+          {title: 'Interiores estucados', description: 'Acabados mate o brillo para publicaciones con protagonismo de fotografía, ilustración y color.'},
+          {title: 'Offset y reciclados', description: 'Alternativas para revistas donde interesan una lectura cómoda, un tacto diferente o una propuesta de materiales concreta.'},
+          {title: 'Cubierta diferenciada o mismo papel', description: 'Una cubierta de mayor gramaje aporta protección y presencia. En publicaciones ligeras se puede valorar el mismo papel del interior, según la encuadernación y el uso.'},
+        ],
+      },
+      {
+        id: 'acabados', eyebrow: 'Acabados disponibles', title: 'Una portada reconocible en cada número',
+        description: 'Desde una cubierta sencilla hasta una edición especial, elegimos los acabados por su función y por su compatibilidad con el soporte.',
+        items: [
+          {title: 'Protección y tacto', description: 'Laminados mate, brillo o soft touch para cubiertas que necesitan mayor protección o una sensación específica al tacto.'},
+          {title: 'Detalles de portada', description: 'Barniz selectivo, stamping o gofrado para destacar elementos de una edición especial. Se presupuestan y preparan según el diseño y los materiales.'},
+          {title: 'Solapas', description: 'Una opción para determinadas cubiertas en rústica que permite ampliar la información editorial o de marca.'},
+        ],
+      },
+      {
+        id: 'tiradas', eyebrow: 'Tiradas y continuidad editorial', title: 'Produce cada edición según sus necesidades',
+        description: 'Valoramos tiradas cortas, reimpresiones y producciones más amplias. No hay una cantidad universal: el papel, las páginas, el sistema de impresión y la distribución determinan la propuesta.',
+        items: [
+          {title: 'Nuevos números y reimpresiones', description: 'Podemos ajustar la cantidad a cada edición y revisar si se mantienen papel, formato y acabados. Facilita un ejemplar anterior si necesitas continuidad entre números.'},
+          {title: 'Calendario de publicación', description: 'Indica la fecha de distribución y cuándo estarán disponibles los archivos definitivos. Confirmamos la planificación de producción a partir de las características del trabajo.'},
+        ],
+      },
+    ],
+    process: [
+      {title: 'Planificamos la edición', description: 'Concretamos formato, periodicidad, fecha de distribución, páginas y cantidad de ejemplares.'},
+      {title: 'Definimos papel y encuadernación', description: 'Revisamos la combinación de interiores, cubierta y grapado o fresado para ese número.'},
+      {title: 'Comprobamos el PDF e imprimimos', description: 'Verificamos medidas, orden de páginas, márgenes, sangrado y preparación de la cubierta.'},
+      {title: 'Encuadernamos y entregamos', description: 'Terminamos la revista para su distribución y conservamos las especificaciones acordadas como referencia para siguientes ediciones.'},
+    ],
+    faqs: [
+      {question: '¿Cuándo conviene grapar una revista y cuándo fresarla?', answer: 'Las grapas son habituales en revistas ligeras y de pocas páginas. Cuando el volumen necesita un lomo, se valora el fresado. La decisión depende también del grosor del papel y del uso, por lo que comprobamos la combinación antes de producir.'},
+      {question: '¿Cuántas páginas debe tener una revista grapada?', answer: 'Se planifica en múltiplos de cuatro por la estructura de los pliegos. Si la cubierta se produce por separado hay que concretar su preparación. No existe un máximo único: depende del formato y del grosor de los materiales.'},
+      {question: '¿Podéis imprimir revistas corporativas periódicas?', answer: 'Sí. Trabajamos publicaciones de empresa, entidades y proyectos editoriales. Indica la frecuencia, las fechas de salida y las características previstas para planificar cada edición.'},
+      {question: '¿Se pueden imprimir tiradas cortas y números especiales?', answer: 'Sí. Valoramos cantidad, papel, páginas y acabados para elegir el sistema de impresión y presupuestar cada número, sin exigir que todas las ediciones tengan las mismas características.'},
+      {question: '¿Cómo preparo el PDF de una revista?', answer: 'Con páginas en orden de lectura, tipografías incrustadas, sangrado y calidad de imagen suficiente. Consulta con nosotros la preparación de la cubierta y, si hay fresado, confirma el ancho del lomo antes de cerrarla.'},
+      {question: '¿Puedo usar un papel distinto en la cubierta?', answer: 'Sí. Es habitual valorar una cubierta de mayor gramaje para dar presencia y protección. La compatibilidad del papel y de los acabados se revisa junto con la encuadernación.'},
+    ],
+    quoteDescription: 'Cuéntanos el formato, las páginas, los ejemplares por edición y la fecha de distribución. Puedes indicar la periodicidad y si necesitas asesoramiento entre grapado y fresado.',
+  },
+} satisfies Record<EditorialPublication, EditorialLandingContent>;
 
