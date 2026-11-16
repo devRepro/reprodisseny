@@ -133,6 +133,13 @@ function secondaryProducts(solution: ResolvedCommercialSolution) {
               {{ prioritySolution.description }}
             </p>
 
+            <ul v-if="prioritySolution.applications?.length" class="mt-4 list-inside list-disc space-y-1 text-body-s text-muted-foreground" aria-label="Aplicaciones">
+              <li v-for="application in prioritySolution.applications" :key="application">{{ application }}</li>
+            </ul>
+            <AppButton v-if="prioritySolution.cta" :to="prioritySolution.cta.to" variant="outline" class="mt-6">
+              {{ prioritySolution.cta.label }}
+            </AppButton>
+
             <ul v-if="prioritySolution && prioritySolution.products.length > 2" class="commercial-cluster-inline-links" aria-label="Productos complementarios">
               <li
                 v-for="product in prioritySolution.products.slice(2)"
@@ -192,6 +199,13 @@ function secondaryProducts(solution: ResolvedCommercialSolution) {
               <h3 class="commercial-cluster-solution__title">{{ solution.title }}</h3>
               <p class="commercial-cluster-solution__description">{{ solution.description }}</p>
 
+              <ul v-if="solution.applications?.length" class="mt-4 list-inside list-disc space-y-1 text-body-s text-muted-foreground" aria-label="Aplicaciones">
+                <li v-for="application in solution.applications" :key="application">{{ application }}</li>
+              </ul>
+              <AppButton v-if="solution.cta" :to="solution.cta.to" variant="outline" class="mt-6">
+                {{ solution.cta.label }}
+              </AppButton>
+
               <ul class="commercial-cluster-product-list" :aria-label="`Productos de ${solution.eyebrow}`">
                 <li
                   v-for="product in secondaryProducts(solution)"
@@ -244,13 +258,13 @@ function secondaryProducts(solution: ResolvedCommercialSolution) {
           </h2>
           <p class="commercial-cluster-project__description">{{ config?.project?.description || "" }}</p>
           <AppButton
-            v-if="config?.finalCta?.primaryCta"
-            :to="config.finalCta.primaryCta.to"
+            v-if="config.project.cta || config?.finalCta?.primaryCta"
+            :to="(config.project.cta || config.finalCta?.primaryCta)?.to"
             size="lg"
             arrow
             class="commercial-cluster-project__cta"
           >
-            {{ config?.finalCta?.primaryCta?.label || "" }}
+            {{ (config.project.cta || config.finalCta?.primaryCta)?.label || "" }}
           </AppButton>
         </div>
 

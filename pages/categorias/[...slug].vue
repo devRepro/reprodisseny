@@ -733,9 +733,9 @@ const closingBannerPills = computed(() => {
           <CategoryProductsGrid
             v-else
             :products="products"
-            eyebrow="Catálogo completo"
-            title="Todos los productos"
-            description="Explora opciones, formatos y acabados disponibles."
+            :eyebrow="commercialCluster?.catalog?.eyebrow || 'Catálogo completo'"
+            :title="commercialCluster?.catalog?.title || 'Todos los productos'"
+            :description="commercialCluster?.catalog?.description || 'Explora opciones, formatos y acabados disponibles.'"
             :current-page="productsMeta.page"
             :total-pages="productsMeta.pages"
             :total-items="productsMeta.total"
