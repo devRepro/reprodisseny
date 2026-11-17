@@ -1,6 +1,6 @@
 # REF-PUBLICACIONES-SEO-01 — Entrega técnica y dirección de arte
 
-Implementación en `feat/publicaciones-editorial-seo`, sobre `b4f0686`, con dirección de arte aprobada. No se ha desplegado ni fusionado. El estado de preparación, las operaciones pendientes en CMS y las instrucciones de publicación y rollback están en [el informe de readiness](REF-PUBLICACIONES-SEO-01-readiness.md). La auditoría previa está en [audits/REF-PUBLICACIONES-SEO-01.md](audits/REF-PUBLICACIONES-SEO-01.md).
+Implementación en `feat/publicaciones-editorial-seo`, sobre `b4f0686`, con dirección de arte y publicación autorizadas el 17/11/2026. La integración de los siete campos del CMS está ejecutada y verificada, sin diferencias semánticas con el snapshot aprobado. El procedimiento de publicación y rollback está en [el informe de readiness](REF-PUBLICACIONES-SEO-01-readiness.md). La auditoría previa está en [audits/REF-PUBLICACIONES-SEO-01.md](audits/REF-PUBLICACIONES-SEO-01.md).
 
 Reanudado el 17/11/2026 desde el WIP `7ebb55c`, conservando los seis commits de implementación y el árbol limpio inicial. El cierre continúa sus verificadores y documenta los resultados de la revisión local, sin alterar ni reemplazar el WIP.
 
@@ -89,7 +89,7 @@ Validación local terminada el 17/11/2026 con Node `22.23.1`, sobre el build fin
 | `node scripts/verify-publicaciones-integrity.mjs` | 118 productos y otras 11 categorías conservados; contenido técnico y estilos intactos | `integrity.json` |
 | `node scripts/verify-publicaciones-http.mjs` | 159/159 | `http-results.json`, `http-art.log`, HTML de las cuatro páginas y `robots.txt` |
 | `node scripts/verify-publicaciones-responsive.mjs` | 137/137 | `responsive/results.json`, `browser-art.log` y capturas PNG |
-| `node scripts/prepare-publicaciones-cms.mjs --read-cms` | Payload local coherente; esquema confirmado; siete campos pendientes de autorización e integración | `cms-preflight.json` y backup inmutable `cms-before-<fecha>.json` |
+| Preflight CMS y actualización autorizada de siete campos | Integración verificada; cero campos pendientes; sincronización con cero diferencias y cero errores | `release/cms-applied.json`, backup fresco `release/cms-seven-before-<fecha>.json`, `release/cms-sync-after.log` |
 
 La comprobación HTTP valida respuestas 200, un único H1 y canonical autorreferente, títulos y descripciones propios, idioma, indexabilidad por meta y cabecera, imágenes prioritarias y alt, JSON-LD y correspondencia de FAQs, contenido técnico en SSR, siete fichas, enlaces de homepage y navegación comercial, CTA secundarios personalizados, sitemap público, robots, anclas y los dos 301 directos de revistas.
 
@@ -140,8 +140,8 @@ Es el output de producción de Nuxt enlazado exclusivamente a loopback. El helpe
 
 ## Publicación y rollback
 
-1. Dirección de arte aprobada. Conservar la misma rama para revisión del cierre; no fusionar ni promover deployments sin autorización.
-2. La lectura del CMS confirma que los siete campos están pendientes y que `CommercialJson` existe como texto plano multilínea editable, sin anexado. El payload exacto y el preflight de lectura están preparados. Seguir [la integración de CMS](REF-PUBLICACIONES-SEO-01-readiness.md) antes de sincronizar; no ejecutar `generate` como sustituto del build. No hay overrides ni un segundo CMS.
+1. Dirección de arte y publicación autorizadas. Fusionar únicamente tras verificar CI, pruebas e integración del CMS; detener y revertir ante una comprobación crítica fallida.
+2. Los siete campos están integrados. Se confirma `CommercialJson` como texto plano multilínea editable, sin anexado, y cero diferencias semánticas en la sincronización. Se conserva la copia previa con eTag y el payload exacto para reproducir la operación. Seguir [el procedimiento de CMS](REF-PUBLICACIONES-SEO-01-readiness.md); no ejecutar `generate` como sustituto del build. No hay overrides ni un segundo CMS.
 3. El check del commit de `main` confirma integración con el proyecto Vercel existente. La configuración privada de Production Branch y Build Command se confirma en ese proyecto antes de publicar; no se cambia en esta entrega. El procedimiento y rollback están en [readiness](REF-PUBLICACIONES-SEO-01-readiness.md).
 4. Construir con el origen público de producción configurado: `NUXT_SITE_ENV=production`, `NUXT_SITE_URL=https://reprodisseny.com`, `NUXT_PUBLIC_SITE_URL=https://reprodisseny.com`. En previsualizaciones compartidas conservar las protecciones de noindex del entorno.
 5. Ejecutar tests, typecheck, validadores SEO y build. Sobre un preview aislado comprobar las tres páginas, siete fichas, sitemap, canonical, 301 y formulario con transporte simulado. El directorio `reports` y el bootstrap de Windows son solo herramientas locales.
