@@ -268,7 +268,13 @@ type CatalogCategory = {
 export type CommercialCta = { label: string; to: string };
 export type CommercialFact = { label: string; value: string };
 export type CommercialTextBlock = { eyebrow?: string; title?: string; description?: string };
-export type CommercialSolutionGroup = CommercialTextBlock & { id: string; primaryProductSlug: string; productSlugs: string[] };
+export type CommercialSolutionGroup = CommercialTextBlock & {
+  id: string;
+  primaryProductSlug: string;
+  productSlugs: string[];
+  applications?: string[];
+  cta?: CommercialCta;
+};
 export type CommercialUseCase = { title: string; description: string };
 export type CommercialCategoryConfig = {
   anchorId?: string;
@@ -276,7 +282,8 @@ export type CommercialCategoryConfig = {
   facts?: CommercialFact[];
   intro?: CommercialTextBlock;
   solutions?: { groups?: CommercialSolutionGroup[] };
-  project?: CommercialTextBlock & { points?: string[] };
+  catalog?: CommercialTextBlock;
+  project?: CommercialTextBlock & { points?: string[]; cta?: CommercialCta };
   useCases?: CommercialTextBlock & { items?: CommercialUseCase[] };
   finalCta?: CommercialTextBlock & { primaryCta?: CommercialCta };
 };

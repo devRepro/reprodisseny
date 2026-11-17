@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
+import '~/assets/styles/editorial.scss';
+import { EDITORIAL_LANDING_PATHS } from '~/shared/seo/editorialRoutes';
 import type { CategoryDetailPageDto } from "~/server/services/cms/catalog.service";
 import SiteBreadcrumbs from "@/components/shared/SiteBreadcrumbs.vue";
 import CategoryHero from "@/components/marketing/category/CategoryHero.vue";
@@ -669,7 +671,7 @@ const closingBannerPills = computed(() => {
 </script>
 
 <template>
-  <main class="min-h-screen bg-background">
+  <main class="min-h-screen bg-background" :class="{'editorial-page': category?.slug === 'libros-revistas-catalogos'}">
     <div v-if="isPending && !category" class="container-content py-16 md:py-20">
       <div
         class="flex min-h-[30vh] items-center justify-center rounded-[28px] border border-border/70 bg-card/70"
@@ -702,7 +704,11 @@ const closingBannerPills = computed(() => {
             :commercial-products="commercialProducts"
             :products="products"
             :related-products="relatedProducts"
-          />
+          >
+            <template v-if="category.slug === 'eventos'" #project-context>
+              {{ ' Para acompañar las presentaciones de producto, consulta nuestros ' }}<NuxtLink :to="EDITORIAL_LANDING_PATHS.catalogos" class="commercial-cluster-product-link">catálogos comerciales para ferias</NuxtLink>.
+            </template>
+          </CommercialSolutions>
 
           <CategoryChildrenGrid
             v-if="currentPage === 1 && !hasCommercialCluster && children.length"
@@ -733,9 +739,9 @@ const closingBannerPills = computed(() => {
           <CategoryProductsGrid
             v-else
             :products="products"
-            eyebrow="Catálogo completo"
-            title="Todos los productos"
-            description="Explora opciones, formatos y acabados disponibles."
+            :eyebrow="commercialCluster?.catalog?.eyebrow || 'Catálogo completo'"
+            :title="commercialCluster?.catalog?.title || 'Todos los productos'"
+            :description="commercialCluster?.catalog?.description || 'Explora opciones, formatos y acabados disponibles.'"
             :current-page="productsMeta.page"
             :total-pages="productsMeta.pages"
             :total-items="productsMeta.total"
@@ -756,6 +762,7 @@ const closingBannerPills = computed(() => {
               :sections="sections"
               variant="category"
               :details-media="detailsMedia"
+              :section-headings="category.slug === 'libros-revistas-catalogos'"
             />
           </ContentSectionShell>
 

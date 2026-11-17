@@ -2423,13 +2423,13 @@
       "type": "categoria",
       "slug": "libros-revistas-catalogos",
       "path": "/categorias/libros-revistas-catalogos",
-      "title": "Imprimir libros, catálogos y revistas en Barcelona",
+      "title": "Impresión de catálogos, revistas y libros en Barcelona",
       "nav": "Publicaciones",
       "order": 3,
       "hidden": false,
       "featured": false,
       "isPublished": true,
-      "description": "Imprimimos libros, revistas y catálogos para empresas, marcas y editoriales: desde tiradas cortas y reimpresiones rápidas hasta producciones más amplias. Te asesoramos en papeles, encuadernación y acabados para lograr un resultado profesional, resistente y alineado con tu imagen.",
+      "description": "En Repro Disseny imprimimos catálogos comerciales, revistas, libros y publicaciones corporativas para empresas, marcas, agencias y editoriales. Te asesoramos en la elección del papel, formato, encuadernación y acabados para conseguir una publicación que transmita la calidad y el valor de tu proyecto.",
       "bodyMd": "{\n  \"title\": \"Cómo trabajamos\",\n  \"description\": \"Te ayudamos a definir, producir y entregar la publicación más adecuada según el formato, el uso previsto y la imagen que quieres transmitir.\",\n  \"steps\": [\n    {\n      \"label\": \"01\",\n      \"title\": \"Definimos el formato y el tipo de publicación\",\n      \"description\": \"Analizamos el contenido, el número de páginas, el uso previsto y la tirada para plantear una solución coherente con el proyecto.\"\n    },\n    {\n      \"label\": \"02\",\n      \"title\": \"Seleccionamos papel, encuadernación y acabados\",\n      \"description\": \"Te ayudamos a elegir los materiales y acabados más adecuados según el tipo de pieza, la frecuencia de uso y la imagen que quieres transmitir.\"\n    },\n    {\n      \"label\": \"03\",\n      \"title\": \"Revisamos el archivo y preparamos la producción\",\n      \"description\": \"Comprobamos que la maquetación, las imágenes, los márgenes y el sangrado estén listos para imprimir con garantías.\"\n    },\n    {\n      \"label\": \"04\",\n      \"title\": \"Imprimimos y entregamos la publicación terminada\",\n      \"description\": \"Producimos el trabajo con el sistema más adecuado y entregamos el material listo para su distribución o uso.\"\n    }\n  ],\n  \"cta\": {\n    \"title\": \"¿Dudas entre fresado, grapado o espiral?\",\n    \"description\": \"Cuéntanos el tipo de publicación, el número de páginas, la tirada y el uso previsto, y te orientaremos sobre la opción más adecuada.\",\n    \"buttonLabel\": \"Solicitar asesoramiento\",\n    \"href\": \"/contacto\"\n  }\n}",
       "sections": [
         {
@@ -2541,8 +2541,8 @@
       ],
       "image": {
         "src": "https://webcms.blob.core.windows.net/media/category/publicaciones.webp",
-        "width": 350,
-        "height": 321,
+        "width": 2400,
+        "height": 2400,
         "alt": "Imagen de libros, catálogos y revistas impresas de alta calidad para empresas en Barcelona"
       },
       "faqs": [
@@ -2598,8 +2598,8 @@
       ],
       "legacySlugs": [],
       "seo": {
-        "metaTitle": "Imprimir libros, revistas y catálogos | Impresión digital",
-        "metaDescription": "Impresión de libros, revistas y catálogos en Barcelona: tiradas cortas o medias, encuadernación a medida (grapado, fresado, tapa dura) con acabados premium.",
+        "metaTitle": "Catálogos, revistas y libros en Barcelona | Repro Disseny",
+        "metaDescription": "Impresión editorial y corporativa en Barcelona: catálogos, revistas, libros y manuales. Te asesoramos en papel, encuadernación y acabados. Pide presupuesto.",
         "canonical": "https://reprodisseny.com/categorias/libros-revistas-catalogos",
         "hreflang": [
           {
@@ -2642,8 +2642,8 @@
           "@graph": [
             {
               "@type": "CollectionPage",
-              "name": "Imprimir libros, catálogos y revistas en Barcelona",
-              "description": "Impresión de libros, revistas y catálogos en Barcelona: tiradas cortas o medias, encuadernación a medida (grapado, fresado, tapa dura) con acabados premium.",
+              "name": "Impresión de catálogos, revistas y libros en Barcelona",
+              "description": "Impresión editorial y corporativa en Barcelona: catálogos, revistas, libros y manuales. Te asesoramos en papel, encuadernación y acabados. Pide presupuesto.",
               "url": "https://reprodisseny.com/categorias/libros-revistas-catalogos",
               "image": "https://webcms.blob.core.windows.net/media/category/publicaciones.webp",
               "inLanguage": "es-ES",
@@ -2725,6 +2725,179 @@
         },
         "robotsOverride": "INHERIT",
         "ogImageSrc": "https://webcms.blob.core.windows.net/media/category/publicaciones.webp"
+      },
+      "commercialJson": {
+        "anchorId": "soluciones-editoriales",
+        "hero": {
+          "kicker": "Impresión editorial y corporativa",
+          "primaryCta": {
+            "label": "Solicitar presupuesto",
+            "to": "/pedir-presupuesto?publicacion=editorial"
+          },
+          "secondaryCta": {
+            "label": "Explorar publicaciones",
+            "to": "#soluciones-editoriales"
+          }
+        },
+        "facts": [
+          {
+            "label": "Trayectoria",
+            "value": "Desde 1983"
+          },
+          {
+            "label": "Proximidad",
+            "value": "Barcelona"
+          },
+          {
+            "label": "Acompañamiento",
+            "value": "Asesoramiento editorial y técnico"
+          },
+          {
+            "label": "Producción",
+            "value": "Impresión, encuadernación y acabados"
+          }
+        ],
+        "intro": {
+          "eyebrow": "Soluciones editoriales",
+          "title": "Una publicación para cada proyecto",
+          "description": "Cada publicación tiene una finalidad diferente. Agrupamos nuestras soluciones según el uso, el contenido y la imagen que necesitas transmitir, para ayudarte a elegir el formato y la encuadernación más adecuados."
+        },
+        "solutions": {
+          "groups": [
+            {
+              "id": "catalogos",
+              "eyebrow": "Catálogos comerciales y de producto",
+              "title": "Catálogos que ponen en valor tus productos",
+              "description": "Imprimimos catálogos comerciales y de producto para presentar colecciones, servicios y soluciones de empresa. Adaptamos el formato, el papel, la encuadernación y los acabados a la imagen de marca, al número de páginas y al uso comercial de cada proyecto.",
+              "applications": [
+                "Catálogos comerciales",
+                "Catálogos de producto",
+                "Catálogos para ferias y showrooms",
+                "Catálogos de colecciones",
+                "Tarifas y documentación comercial",
+                "Catálogos premium"
+              ],
+              "primaryProductSlug": "encuadernacion-encolada-tapa-blanda",
+              "productSlugs": [
+                "encuadernacion-encolada-tapa-blanda",
+                "encuadernado-con-grapas",
+                "cosida-tapa-blanda",
+                "encuadernacion-wire-o-oculto"
+              ],
+              "cta": {
+                "label": "Ver soluciones de impresión de catálogos",
+                "to": "/productos/impresion-catalogos-barcelona"
+              }
+            },
+            {
+              "id": "revistas",
+              "eyebrow": "Revistas y publicaciones periódicas",
+              "title": "Revistas que conectan con tus lectores",
+              "description": "Producimos revistas corporativas, editoriales y publicaciones periódicas cuidando la reproducción del color, la elección del papel y la comodidad de lectura. Adaptamos cada edición a su contenido, distribución, paginación y frecuencia de publicación.",
+              "applications": [
+                "Revistas corporativas",
+                "Revistas editoriales",
+                "Revistas de asociaciones y entidades",
+                "Publicaciones periódicas",
+                "Revistas culturales",
+                "Publicaciones promocionales"
+              ],
+              "primaryProductSlug": "encuadernado-con-grapas",
+              "productSlugs": [
+                "encuadernado-con-grapas",
+                "encuadernacion-encolada-tapa-blanda",
+                "cosida-tapa-blanda"
+              ],
+              "cta": {
+                "label": "Ver soluciones de impresión de revistas",
+                "to": "/productos/impresion-revistas-barcelona"
+              }
+            },
+            {
+              "id": "libros",
+              "eyebrow": "Libros y ediciones especiales",
+              "title": "Publicaciones pensadas para perdurar",
+              "description": "Imprimimos libros y ediciones especiales con soluciones de encuadernación adaptadas a la durabilidad, el contenido y la calidad editorial que requiere cada proyecto.",
+              "primaryProductSlug": "encuadernacion-cosida-tapa-dura",
+              "productSlugs": [
+                "encuadernacion-cosida-tapa-dura",
+                "cosida-tapa-blanda",
+                "encuadernacion-encolada-tapa-blanda"
+              ]
+            },
+            {
+              "id": "manuales-dossiers",
+              "eyebrow": "Documentación corporativa",
+              "title": "Documentación preparada para el uso diario",
+              "description": "Producimos manuales, memorias, dossiers y documentación técnica con soluciones de impresión y encuadernación que facilitan la lectura, la consulta y la actualización de contenidos.",
+              "primaryProductSlug": "encuadernacion-wire-o",
+              "productSlugs": [
+                "encuadernacion-wire-o",
+                "encuadernacion-wire-o-oculto",
+                "hojas-sueltas-archivadores",
+                "encuadernacion-encolada-tapa-blanda"
+              ]
+            }
+          ]
+        },
+        "project": {
+          "eyebrow": "Un proyecto editorial, múltiples posibilidades",
+          "title": "Te acompañamos desde la elección del papel hasta la publicación terminada",
+          "description": "Cada catálogo, revista o libro necesita una combinación adecuada de formato, papel, impresión y encuadernación. Te ayudamos a definir las características técnicas y los acabados para conseguir un resultado coherente con tu marca, el uso previsto y las necesidades de distribución.",
+          "points": [
+            "Selección de papeles y gramajes",
+            "Formatos y paginaciones adaptadas",
+            "Asesoramiento en encuadernación",
+            "Acabados especiales para cubiertas",
+            "Revisión técnica de archivos",
+            "Producción adaptada a las características del proyecto"
+          ],
+          "cta": {
+            "label": "Solicitar presupuesto",
+            "to": "/pedir-presupuesto?publicacion=editorial"
+          }
+        },
+        "useCases": {
+          "eyebrow": "Aplicaciones profesionales",
+          "title": "Soluciones editoriales para empresas y profesionales",
+          "description": "Adaptamos cada publicación a sus lectores, su función y su contexto de uso.",
+          "items": [
+            {
+              "title": "Departamentos de marketing",
+              "description": "Catálogos, memorias, revistas corporativas y publicaciones de marca."
+            },
+            {
+              "title": "Agencias de comunicación y diseño",
+              "description": "Producción editorial adaptada a la identidad visual de sus clientes."
+            },
+            {
+              "title": "Editoriales",
+              "description": "Libros, revistas y publicaciones con diferentes necesidades de paginación, papel y encuadernación."
+            },
+            {
+              "title": "Fabricantes y distribuidores",
+              "description": "Catálogos de producto, tarifas y manuales comerciales."
+            },
+            {
+              "title": "Asociaciones e instituciones",
+              "description": "Revistas periódicas, memorias anuales y documentación informativa."
+            }
+          ]
+        },
+        "catalog": {
+          "eyebrow": "Catálogo completo",
+          "title": "Todos los tipos de encuadernación",
+          "description": "Explora nuestros sistemas de encuadernación y encuentra la solución técnica más adecuada para tu publicación."
+        },
+        "finalCta": {
+          "eyebrow": "Tu proyecto editorial",
+          "title": "Cuéntanos qué quieres imprimir",
+          "description": "Indícanos el tipo de publicación, el formato, las páginas, la cantidad y la fecha prevista. Te orientaremos sobre papel, encuadernación y acabados.",
+          "primaryCta": {
+            "label": "Solicitar presupuesto",
+            "to": "/pedir-presupuesto?publicacion=editorial"
+          }
+        }
       }
     },
     {

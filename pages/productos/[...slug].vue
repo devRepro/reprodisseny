@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
+import { EDITORIAL_PRODUCT_LINKS } from '~/shared/seo/editorialRoutes';
 import type { ProductDetailDto } from "~/server/services/cms/catalog.service";
 import type { DetailsMediaItem } from "~/types/contentSections";
 import { resolveProductDetailsImages } from "~/utils/productDetailsMedia";
@@ -139,6 +140,7 @@ if (!data.value) {
 }
 
 const product = computed(() => data.value as ProductDetailDto);
+const editorialLink = computed(() => EDITORIAL_PRODUCT_LINKS[product.value?.slug]);
 
 const category = computed(() => {
   const current = product.value?.category;
@@ -451,6 +453,9 @@ useSeoMeta({
         <div :class="pageFlowClass">
           <section :class="pageContainerClass" aria-label="Presentación del producto">
             <ProductHero :product="heroProduct" :category="category" />
+            <p v-if="editorialLink" class="mt-6 max-w-3xl text-body-s text-foreground/75">
+              {{ editorialLink.prefix }}<NuxtLink :to="editorialLink.to" class="commercial-cluster-product-link">{{ editorialLink.label }}</NuxtLink>.
+            </p>
           </section>
 
           <ContentSectionShell

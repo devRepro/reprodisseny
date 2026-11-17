@@ -1,0 +1,38 @@
+// Editorial pages only: retain corporate colors, geometry and the Events stylesheet.
+.editorial-page {
+  // Existing accessible secondary-text value used by confirmation-surface.
+  --muted-foreground: 0 0% 38%;
+
+  .category-hero__actions .btn {
+    white-space: normal;
+    height: auto;
+    text-align: center;
+  }
+
+  nav[aria-label="breadcrumb"] :is(a, span, svg),
+  .rd-form-upload-text,
+  [data-placeholder] {
+    color: hsl(var(--brand-ink-dark) / 0.75);
+  }
+
+  .section-eyebrow,
+  .category-hero__kicker {
+    color: hsl(var(--primary));
+  }
+
+  .category-content-tabs .category-content-tabs__tab--active {
+    color: hsl(var(--brand-base-dark));
+  }
+
+  .rd-form-required {
+    color: hsl(var(--brand-ink-dark));
+  }
+
+  .commercial-cluster-solution__label {
+    color: hsl(var(--foreground) / 0.72);
+  }
+
+  .category-process-steps > .category-process-step > div:nth-child(2) span:first-child {
+    color: hsl(var(--primary));
+  }
+}

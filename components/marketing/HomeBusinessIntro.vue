@@ -70,7 +70,7 @@
                 to="/categorias/libros-revistas-catalogos"
                 class="home-business-intro__link"
               >
-                <span>Libros, revistas y catálogos</span>
+                <span>Publicaciones y encuadernaciones</span>
                 <span class="home-business-intro__link-arrow" aria-hidden="true">
                   →
                 </span>
@@ -85,6 +85,18 @@
                 <span class="home-business-intro__link-arrow" aria-hidden="true">
                   →
                 </span>
+              </NuxtLink>
+            </li>
+            <li>
+              <NuxtLink to="/productos/impresion-catalogos-barcelona" class="home-business-intro__link">
+                <span>Impresión de catálogos</span>
+                <span class="home-business-intro__link-arrow" aria-hidden="true">→</span>
+              </NuxtLink>
+            </li>
+            <li>
+              <NuxtLink to="/productos/impresion-revistas-barcelona" class="home-business-intro__link">
+                <span>Impresión de revistas</span>
+                <span class="home-business-intro__link-arrow" aria-hidden="true">→</span>
               </NuxtLink>
             </li>
           </ul>

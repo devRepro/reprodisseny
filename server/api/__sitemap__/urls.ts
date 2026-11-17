@@ -7,6 +7,8 @@ import catalog from "~/cms/catalog.json";
 import { MANUAL_NOINDEX_PATHS } from "~/shared/seo/legacyRedirects";
 import { CALENDAR_PERSONALIZADOS_OLD_PRODUCT_PATH } from "~/shared/seo/routeMigrations";
 
+import { EDITORIAL_LANDING_PATHS } from "~/shared/seo/editorialRoutes";
+
 const SITE_URL = "https://reprodisseny.com";
 const MEDIA_BLOB_ORIGIN = "https://webcms.blob.core.windows.net";
 const MEDIA_CDN_ORIGIN = "https://media.reprodisseny.com";
@@ -24,6 +26,7 @@ const excludedPrefixes = [
 ];
 
 const staticIndexablePaths = [
+  ...Object.values(EDITORIAL_LANDING_PATHS),
   "/calendarios/calendarios-corporativos-2027",
 ];
 
@@ -227,7 +230,7 @@ export default defineEventHandler(() => {
     .map(normalizeSitemapPath)
     .filter((path): path is string => Boolean(path))
     .filter(isAllowedPath)
-    .filter((path) => !isCatalogPath(path) || catalogIndex.has(path))
+    .filter((path) => !isCatalogPath(path) || catalogIndex.has(path) || staticIndexablePaths.includes(path))
     .filter((path) => {
       if (seen.has(path)) return false;
       seen.add(path);

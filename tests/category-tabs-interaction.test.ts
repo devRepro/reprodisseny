@@ -117,10 +117,17 @@ test(
   async () => {
     assert.ok(browserPath, "Chrome or Edge is required for this interaction test");
 
-    const nuxtPort = 3137;
+    // Reuse an isolated local production preview when supplied; keep the existing dev default.
+    const previewBase = process.env.CATEGORY_TABS_BASE_URL;
+    if (previewBase) {
+      const preview = new URL(previewBase);
+      assert.equal(preview.protocol, 'http:');
+      assert.ok(['localhost', '127.0.0.1'].includes(preview.hostname));
+    }
+    const nuxtPort = previewBase ? Number(new URL(previewBase).port || 80) : 3137;
     const cdpPort = 9337;
     const logs: string[] = [];
-    const nuxt = spawn(
+    const nuxt = previewBase ? null : spawn(
       process.execPath,
       [join(repoRoot, "node_modules", "nuxt", "bin", "nuxt.mjs"), "dev", "--host", "127.0.0.1", "--port", String(nuxtPort)],
       {
@@ -133,8 +140,8 @@ test(
       },
     );
 
-    nuxt.stdout.on("data", (chunk) => logs.push(String(chunk).trim()));
-    nuxt.stderr.on("data", (chunk) => logs.push(String(chunk).trim()));
+    nuxt?.stdout.on("data", (chunk) => logs.push(String(chunk).trim()));
+    nuxt?.stderr.on("data", (chunk) => logs.push(String(chunk).trim()));
 
     let chrome: ChildProcessWithoutNullStreams | null = null;
     const userDataDir = mkdtempSync(join(tmpdir(), "rd-tabs-e2e-"));
