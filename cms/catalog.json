@@ -2735,7 +2735,7 @@
             "to": "/pedir-presupuesto?publicacion=editorial"
           },
           "secondaryCta": {
-            "label": "Ver soluciones",
+            "label": "Explorar publicaciones",
             "to": "#soluciones-editoriales"
           }
         },
@@ -2853,7 +2853,7 @@
             "Producción adaptada a las características del proyecto"
           ],
           "cta": {
-            "label": "Solicitar presupuesto personalizado",
+            "label": "Solicitar presupuesto",
             "to": "/pedir-presupuesto?publicacion=editorial"
           }
         },

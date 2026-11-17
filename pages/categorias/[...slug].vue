@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from "vue";
+import '~/assets/styles/editorial.scss';
 import type { CategoryDetailPageDto } from "~/server/services/cms/catalog.service";
 import SiteBreadcrumbs from "@/components/shared/SiteBreadcrumbs.vue";
 import CategoryHero from "@/components/marketing/category/CategoryHero.vue";
@@ -669,7 +670,7 @@ const closingBannerPills = computed(() => {
 </script>
 
 <template>
-  <main class="min-h-screen bg-background">
+  <main class="min-h-screen bg-background" :class="{'editorial-page': category?.slug === 'libros-revistas-catalogos'}">
     <div v-if="isPending && !category" class="container-content py-16 md:py-20">
       <div
         class="flex min-h-[30vh] items-center justify-center rounded-[28px] border border-border/70 bg-card/70"

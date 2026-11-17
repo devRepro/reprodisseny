@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { EDITORIAL_MEDIA } from '~/shared/data/editorialMedia';
+import '~/assets/styles/editorial.scss';
+import { EDITORIAL_MEDIA, EDITORIAL_FINISH_MEDIA } from '~/shared/data/editorialMedia';
+import CmsImage from '~/components/shared/blocks/CmsImage.vue';
 import type { CategoryDetailPageDto } from '~/server/services/cms/catalog.service';
 import type { EditorialLandingContent } from '~/shared/data/editorialLandings';
 import { EDITORIAL_LANDING_PATHS, EDITORIAL_SEO, EDITORIAL_QUOTE_CONTEXTS, PUBLICATIONS_PATH, type EditorialPublication } from '~/shared/seo/editorialRoutes';
@@ -30,10 +32,10 @@ const quoteContext = computed(() => EDITORIAL_QUOTE_CONTEXTS[props.publication])
 const products = computed(() => category.value?.commercialProducts || []);
 const heroImage = computed(() => {
   const selection = EDITORIAL_MEDIA[props.publication];
-  if (selection.type === 'product') return products.value.find(item => item.slug === selection.slug)?.image;
-  const detail = category.value?.detailGallery?.find(item => item.role === selection.role);
-  return detail ? {src: detail.src, alt: selection.alt, width: 1200, height: 1200} : category.value?.image;
+  const image = products.value.find(item => item.slug === selection.slug)?.image;
+  return image && 'alt' in selection ? {...image, alt: selection.alt} : image;
 });
+const finishImage = computed(() => category.value?.detailGallery?.find(item => item.role === EDITORIAL_FINISH_MEDIA.role));
 const hero = computed(() => ({
   title: props.content.title,
   description: props.content.description,
@@ -94,7 +96,7 @@ useHead(() => ({
 </script>
 
 <template>
-  <main class="min-h-screen bg-background category-page-bottom">
+  <main class="min-h-screen bg-background category-page-bottom editorial-page">
     <div class="container-content pt-4 pb-2 md:pt-6 md:pb-3">
       <SiteBreadcrumbs :items="breadcrumbs" :auto="false" :json-ld="false" />
     </div>
@@ -103,7 +105,7 @@ useHead(() => ({
         :category="hero"
         variant="commercial"
         :primary-cta="{label: 'Solicitar presupuesto', to: '#presupuesto-editorial'}"
-        :secondary-cta="{label: 'Ver soluciones', to: `#${content.commercial.anchorId}`}"
+        :secondary-cta="{label: publication === 'catalogos' ? 'Ver tipos de catálogos' : 'Ver tipos de revistas', to: `#${content.commercial.anchorId}`}"
       />
       <CommercialSolutions :commercial-config="commercial" :commercial-products="products" />
       <ContentSectionShell
@@ -115,12 +117,17 @@ useHead(() => ({
         :description="section.description"
         intro-class="max-w-3xl"
       >
-        <ul class="commercial-cluster-use-cases__list">
-          <li v-for="item in section.items" :key="item.title" class="commercial-cluster-use-cases__item">
-            <h3 class="commercial-cluster-use-cases__item-title">{{ item.title }}</h3>
-            <p class="commercial-cluster-use-cases__item-description">{{ item.description }}</p>
-          </li>
-        </ul>
+        <div :class="publication === 'catalogos' && section.id === 'acabados' && finishImage ? 'grid gap-7 lg:grid-cols-2 lg:items-start' : ''">
+          <ul class="commercial-cluster-use-cases__list" :class="publication === 'catalogos' && section.id === 'acabados' && finishImage ? 'lg:grid-cols-1' : ''">
+            <li v-for="item in section.items" :key="item.title" class="commercial-cluster-use-cases__item">
+              <h3 class="commercial-cluster-use-cases__item-title">{{ item.title }}</h3>
+              <p class="commercial-cluster-use-cases__item-description">{{ item.description }}</p>
+            </li>
+          </ul>
+          <figure v-if="publication === 'catalogos' && section.id === 'acabados' && finishImage" class="m-0 overflow-hidden rounded-lg border border-border/70 bg-muted/30">
+            <CmsImage :src="finishImage.src" :alt="EDITORIAL_FINISH_MEDIA.alt" :width="1200" :height="1200" class="aspect-[4/3] w-full object-cover" />
+          </figure>
+        </div>
       </ContentSectionShell>
       <ContentSectionShell
         eyebrow="Proceso de producción"

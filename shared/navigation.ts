@@ -1,3 +1,5 @@
+import { EDITORIAL_LANDING_PATHS, PUBLICATIONS_PATH } from './seo/editorialRoutes';
+
 export type NavigationProductDto = {
   title: string;
   path: string;
@@ -9,6 +11,7 @@ export type NavigationCategoryDto = {
   path: string;
   children: NavigationCategoryDto[];
   products: NavigationProductDto[];
+  commercialLinks?: NavigationProductDto[];
 };
 
 type NavigationSourceProduct = {
@@ -32,6 +35,10 @@ export function toNavigationDto(
     label: category.nav || category.title,
     path: category.path,
     children: toNavigationDto(category.children),
+    ...(category.path === PUBLICATIONS_PATH ? {commercialLinks: [
+      {title: 'Impresión de catálogos', path: EDITORIAL_LANDING_PATHS.catalogos},
+      {title: 'Impresión de revistas', path: EDITORIAL_LANDING_PATHS.revistas},
+    ]} : {}),
     products: category.products.map((product) => ({
       title: product.title,
       path: product.path,

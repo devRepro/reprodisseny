@@ -92,13 +92,13 @@ const hasChildren = (c: CategoriaNode | null | undefined) =>
   Array.isArray(c?.children) && c.children.length > 0;
 
 const hasProducts = (c: CategoriaNode | null | undefined) =>
-  Array.isArray(c?.products) && c.products.length > 0;
+  Boolean(c?.commercialLinks?.length || c?.products?.length);
 
 const hasDropdown = (c: CategoriaNode) =>
   hasChildren(c) || hasProducts(c);
 
 const previewProducts = (c: CategoriaNode | null | undefined) =>
-  Array.isArray(c?.products) ? c.products.slice(0, 8) : [];
+  [...(c?.commercialLinks ?? []), ...(c?.products ?? [])].slice(0, 8);
 
 const toggleExpand = (key: string) => {
   if (!key) return;

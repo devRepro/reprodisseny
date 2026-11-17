@@ -20,4 +20,4 @@
 
 Se amplía la configuración comercial existente con aplicaciones, CTA por grupo y texto del catálogo. Valores opcionales: Eventos y Expositores conservan su configuración y comportamiento. Dos páginas comerciales estáticas comparten un componente que usa los productos vivos del catálogo y el formulario actual. No hay dependencias nuevas, nueva landing de libros, despliegue ni merge automático.
 
-El navegador integrado no ha podido arrancar por un error de infraestructura (`sandboxPolicy` ausente). Se intentará la revisión con el verificador de Chrome local ya utilizado por el repositorio y se registrarán las limitaciones reales.
+El navegador integrado no ha podido arrancar por un error de infraestructura (`sandboxPolicy` ausente), repetido al reanudar el 17/11/2026. La revisión se realiza con Chrome local y el verificador del repositorio: capturas, mediciones responsive, navegación por teclado y formularios interceptados, sin escrituras externas.

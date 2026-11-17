@@ -77,7 +77,7 @@ const childrenOf = (category: CategoriaNode | null | undefined) =>
   Array.isArray(category?.children) ? category.children : [];
 
 const previewProducts = (category: CategoriaNode | null | undefined) =>
-  Array.isArray(category?.products) ? category.products.slice(0, 6) : [];
+  [...(category?.commercialLinks ?? []), ...(category?.products ?? [])].slice(0, 6);
 
 const hasChildren = (category: CategoriaNode | null | undefined) =>
   childrenOf(category).length > 0;

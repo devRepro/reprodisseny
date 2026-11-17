@@ -3,12 +3,26 @@ import { readFileSync, existsSync } from 'node:fs';
 import test from 'node:test';
 import catalog from '../cms/catalog.json';
 import routes from '../cms/routes.json';
-import { getCategoryDetailByPath, getCategoryProductsBySlug, getProductDetailBySlug } from '../server/services/cms/catalog.service';
+import { getCategoryDetailByPath, getCategoryProductsBySlug, getProductDetailBySlug, getNavigationCategories } from '../server/services/cms/catalog.service';
+import { toNavigationDto } from '../shared/navigation';
 import { editorialLandings } from '../shared/data/editorialLandings';
 import { EDITORIAL_LANDING_PATHS, EDITORIAL_SEO, PUBLICATIONS_PATH, resolveEditorialQuoteContext } from '../shared/seo/editorialRoutes';
 import { redirectRouteRules } from '../redirect-rules.generated';
 
 const expectedSlugs = ['encuadernacion-wire-o-oculto', 'cosida-tapa-blanda', 'encuadernacion-cosida-tapa-dura', 'encuadernacion-encolada-tapa-blanda', 'encuadernacion-wire-o', 'encuadernado-con-grapas', 'hojas-sueltas-archivadores'];
+
+test('la navegación editorial añade las dos landings sin convertirlas en productos ni modificar otras categorías', () => {
+  const source = getNavigationCategories({includeProducts: true, productLimit: 12});
+  const menu = toNavigationDto(source);
+  const publications = menu.find(item => item.path === PUBLICATIONS_PATH);
+  assert.ok(publications);
+  assert.deepEqual(publications.commercialLinks?.map(item => item.path), Object.values(EDITORIAL_LANDING_PATHS));
+  assert.equal(publications.products.length, 7);
+  assert.equal(publications.products.some(item => Object.values(EDITORIAL_LANDING_PATHS).some(path => path === item.path)), false);
+  for (const item of menu.filter(item => item.path !== PUBLICATIONS_PATH)) {
+    assert.equal(item.commercialLinks, undefined);
+  }
+});
 
 test('Publicaciones conserva sus siete productos originales y sus URL canónicas', () => {
   const category = getCategoryDetailByPath(PUBLICATIONS_PATH);
