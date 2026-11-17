@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 import '~/assets/styles/editorial.scss';
+import { EDITORIAL_LANDING_PATHS } from '~/shared/seo/editorialRoutes';
 import type { CategoryDetailPageDto } from "~/server/services/cms/catalog.service";
 import SiteBreadcrumbs from "@/components/shared/SiteBreadcrumbs.vue";
 import CategoryHero from "@/components/marketing/category/CategoryHero.vue";
@@ -703,7 +704,11 @@ const closingBannerPills = computed(() => {
             :commercial-products="commercialProducts"
             :products="products"
             :related-products="relatedProducts"
-          />
+          >
+            <template v-if="category.slug === 'eventos'" #project-context>
+              {{ ' Para acompañar las presentaciones de producto, consulta nuestros ' }}<NuxtLink :to="EDITORIAL_LANDING_PATHS.catalogos" class="commercial-cluster-product-link">catálogos comerciales para ferias</NuxtLink>.
+            </template>
+          </CommercialSolutions>
 
           <CategoryChildrenGrid
             v-if="currentPage === 1 && !hasCommercialCluster && children.length"

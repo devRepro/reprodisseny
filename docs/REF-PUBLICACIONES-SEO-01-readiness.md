@@ -1,5 +1,9 @@
 # REF-PUBLICACIONES-SEO-01 — Readiness para producción
 
+## Continuación SEO-PUBLICACIONES-02
+
+La publicación de REF aún no se había fusionado cuando se recibió la ampliación SEO-PUBLICACIONES-02. Se conservan la integración CMS y su backup: este incremento no cambia ninguno de los siete campos. El PR #7 incorpora la consolidación comercial incremental descrita en [SEO-PUBLICACIONES-02](SEO-PUBLICACIONES-02.md). La autorización anterior corresponde a REF; no autoriza automáticamente el nuevo SHA ampliado. La fusión y publicación de esta versión requieren revisión y autorización vigentes del SHA final, además de sus checks satisfactorios.
+
 ## Autorización e integración verificadas
 
 El 17/11/2026 se recibe autorización expresa para actualizar exclusivamente los siete campos, fusionar si las comprobaciones son satisfactorias y publicar en Vercel. La actualización del CMS está ejecutada y verificada con eTag: solo se enviaron los siete campos aprobados y se comprobó que el resto del contenido permanecía intacto.
@@ -48,7 +52,7 @@ El payload completo está versionado en [cms/publicaciones-editorial.fields.json
 
 ## Instrucciones de publicación
 
-1. Revisar el [PR #7](https://github.com/devRepro/reprodisseny/pull/7) de `feat/publicaciones-editorial-seo` contra `main`. La autorización de publicación y la integración de CMS ya están verificadas; exigir CI en verde antes de fusionar. No habilitar auto-merge ni ampliar el alcance.
+1. Revisar el [PR #7](https://github.com/devRepro/reprodisseny/pull/7) de `feat/publicaciones-editorial-seo` contra `main`. La integración de CMS está verificada; obtener autorización para el SHA final ampliado por SEO-PUBLICACIONES-02 y exigir CI en verde antes de fusionar. No habilitar auto-merge ni ampliar el alcance.
 2. El repositorio tiene una integración Vercel verificada por el check del commit actual de `main`: proyecto `reprodisseny`, equipo `reprodevs-projects-838aa4b3`. En ese proyecto confirmar Production Branch y Build Command antes de fusionar; no cambiar estos ajustes como parte de esta entrega. La configuración privada del proyecto no está en el checkout. Una rama/PR puede generar un Preview automático; no equivale a una promoción a producción. [Funcionamiento oficial de la integración GitHub/Vercel](https://vercel.com/docs/git/vercel-for-github#updating-the-production-domain).
 3. Construir el mismo SHA aprobado con Node 22, las dependencias del lockfile y el snapshot versionado. Para producción:
 

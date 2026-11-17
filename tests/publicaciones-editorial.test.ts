@@ -6,7 +6,7 @@ import routes from '../cms/routes.json';
 import { getCategoryDetailByPath, getCategoryProductsBySlug, getProductDetailBySlug, getNavigationCategories } from '../server/services/cms/catalog.service';
 import { toNavigationDto } from '../shared/navigation';
 import { editorialLandings } from '../shared/data/editorialLandings';
-import { EDITORIAL_LANDING_PATHS, EDITORIAL_SEO, PUBLICATIONS_PATH, resolveEditorialQuoteContext } from '../shared/seo/editorialRoutes';
+import { EDITORIAL_LANDING_PATHS, EDITORIAL_SEO, EDITORIAL_PRODUCT_LINKS, PUBLICATIONS_PATH, resolveEditorialQuoteContext } from '../shared/seo/editorialRoutes';
 import { redirectRouteRules } from '../redirect-rules.generated';
 
 const expectedSlugs = ['encuadernacion-wire-o-oculto', 'cosida-tapa-blanda', 'encuadernacion-cosida-tapa-dura', 'encuadernacion-encolada-tapa-blanda', 'encuadernacion-wire-o', 'encuadernado-con-grapas', 'hojas-sueltas-archivadores'];
@@ -90,4 +90,25 @@ test('la antigua URL de revistas redirige directamente a su landing con 301', ()
   assert.equal(rules[EDITORIAL_LANDING_PATHS.revistas], undefined);
   const sitemap = readFileSync('server/api/__sitemap__/urls.ts','utf8');
   assert.ok(sitemap.includes('Object.values(EDITORIAL_LANDING_PATHS)'));
+});
+
+test('SEO-02 completa formatos y presupuesto sin duplicar secciones ni alterar las rutas técnicas', () => {
+  const magazine = editorialLandings.revistas;
+  const formats = magazine.sections.find(section => section.id === 'formatos');
+  assert.ok(formats);
+  assert.match(JSON.stringify(formats), /210 × 297 mm/);
+  assert.match(JSON.stringify(formats), /148 × 210 mm/);
+  for (const content of Object.values(editorialLandings)) {
+    assert.equal(new Set(content.sections.map(section => section.id)).size, content.sections.length);
+    assert.match(content.quoteDescription, /cubierta/);
+    assert.match(content.quoteDescription, /entrega/);
+    assert.doesNotMatch(JSON.stringify(content), /blog\.reprodisseny\.com/);
+  }
+  for (const [slug, link] of Object.entries(EDITORIAL_PRODUCT_LINKS)) {
+    assert.ok(expectedSlugs.includes(slug));
+    assert.ok(getProductDetailBySlug(`/productos/${slug}`));
+    assert.ok([PUBLICATIONS_PATH, ...Object.values(EDITORIAL_LANDING_PATHS)].includes(link.to));
+  }
+  assert.equal(EDITORIAL_PRODUCT_LINKS['encuadernado-con-grapas'].to, EDITORIAL_LANDING_PATHS.revistas);
+  assert.equal(EDITORIAL_PRODUCT_LINKS['encuadernacion-encolada-tapa-blanda'].to, EDITORIAL_LANDING_PATHS.catalogos);
 });

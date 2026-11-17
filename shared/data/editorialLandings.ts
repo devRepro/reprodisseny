@@ -7,6 +7,7 @@ export type EditorialSection = {
   title: string;
   description: string;
   items: Array<{title: string; description: string}>;
+  links?: Array<{label: string; to: string}>;
 };
 
 export type EditorialLandingContent = {
@@ -30,9 +31,9 @@ export const editorialLandings = {
       intro: {eyebrow: 'Encuadernaciones recomendadas', title: 'Un catálogo que funciona en cada presentación', description: 'La paginación, el papel y la frecuencia de consulta orientan la elección. La rústica fresada aporta lomo; las grapas permiten una pieza ligera y el cosido refuerza las publicaciones de uso continuado.'},
       solutions: {groups: [{
         id: 'encuadernaciones', eyebrow: 'Del catálogo ligero a la edición con lomo', title: 'Elige la presencia y la apertura de tu catálogo',
-        description: 'Te orientamos sobre el sistema adecuado sin que tengas que definir todos los detalles técnicos de antemano. Para catálogos de consulta sobre mesa también podemos valorar Wire-O oculto.',
+        description: 'Te orientamos según el volumen y el uso. Las grapas facilitan una pieza ligera; el fresado aporta lomo y el cosido refuerza la consulta frecuente. Podemos valorar Wire-O para apertura sobre mesa y tapa dura para ediciones de conservación.',
         primaryProductSlug: 'encuadernacion-encolada-tapa-blanda',
-        productSlugs: ['encuadernacion-encolada-tapa-blanda', 'encuadernado-con-grapas', 'cosida-tapa-blanda', 'encuadernacion-wire-o-oculto'],
+        productSlugs: ['encuadernacion-encolada-tapa-blanda', 'encuadernado-con-grapas', 'cosida-tapa-blanda', 'encuadernacion-wire-o-oculto', 'encuadernacion-wire-o', 'encuadernacion-cosida-tapa-dura'],
       }]},
     },
     sections: [
@@ -40,11 +41,12 @@ export const editorialLandings = {
         id: 'aplicaciones', eyebrow: 'Aplicaciones y tipos de catálogos', title: 'Presenta tu oferta con una publicación hecha para vender',
         description: 'Definimos la pieza según dónde se entrega, cómo se consulta y qué imagen debe transmitir.',
         items: [
-          {title: 'Catálogos comerciales y de producto', description: 'Colecciones, referencias, fotografías, fichas y servicios organizados para ayudar a tu equipo comercial y a tus clientes.'},
-          {title: 'Ferias, showrooms y colecciones', description: 'Publicaciones para acompañar muestras, presentar novedades o entregar en una visita profesional, con un formato cómodo de transportar.'},
+          {title: 'Catálogos comerciales y de producto', description: 'Colecciones de mobiliario o moda, referencias industriales, productos y servicios: fotografías y fichas organizadas para ayudar al equipo comercial y a sus clientes.'},
+          {title: 'Ferias, showrooms y colecciones', description: 'Catálogos para ferias profesionales, congresos, showrooms y lanzamientos. Acompañan muestras y presentaciones, y permiten retomar la información después de una reunión comercial.'},
           {title: 'Tarifas y documentación comercial', description: 'Información de consulta que puede necesitar nuevas versiones. Valoramos una encuadernación práctica y la facilidad de actualización.'},
           {title: 'Catálogos premium', description: 'Papeles, cubiertas y acabados elegidos para reforzar la percepción de marca en colecciones y presentaciones especiales.'},
         ],
+        links: [{label: 'Material gráfico para eventos y ferias', to: '/categorias/eventos'}],
       },
       {
         id: 'formatos-papeles', eyebrow: 'Formato y materiales', title: 'Papel y formato al servicio de tus productos',
@@ -65,8 +67,8 @@ export const editorialLandings = {
         ],
       },
       {
-        id: 'produccion', eyebrow: 'Preparación y tiradas', title: 'Una producción adaptada a tu campaña comercial',
-        description: 'Trabajamos tiradas cortas, reimpresiones y producciones más amplias. La elección del sistema de impresión depende de la cantidad, los materiales y las características del catálogo.',
+        id: 'produccion', eyebrow: 'Preparación y tiradas', title: 'Producción de catálogos para tu campaña comercial',
+        description: 'Valoramos impresión digital u offset según la cantidad, los materiales y las características del catálogo. Como imprenta de catálogos, revisamos contigo la reproducción de imágenes y los archivos antes de concretar la producción.',
         items: [
           {title: 'Preparación de archivos', description: 'Entrega un PDF de alta calidad con páginas ordenadas, tipografías incrustadas y sangrado. Si hay lomo, definimos su ancho según el papel y la paginación antes de cerrar la cubierta.'},
           {title: 'Revisión técnica', description: 'Comprobamos medidas, márgenes, imágenes y acabados antes de producir. Si necesitas reproducir un catálogo anterior, aporta un ejemplar o una referencia para valorar materiales y color.'},
@@ -86,12 +88,12 @@ export const editorialLandings = {
       {question: '¿Se pueden hacer catálogos con medidas personalizadas y solapas?', answer: 'Sí. Revisamos el formato, las solapas, la encuadernación y el papel para confirmar la viabilidad de la propuesta antes de producir.'},
       {question: '¿Qué necesitáis para presupuestar un catálogo?', answer: 'Formato cerrado, páginas interiores, cantidad, idea de papel y acabados, y fecha prevista. Si todavía no has decidido la encuadernación o los materiales, te orientamos a partir del uso y del contenido.'},
     ],
-    quoteDescription: 'Indica el formato cerrado, las páginas, la cantidad, el uso comercial y la fecha prevista. Si dudas sobre papeles o encuadernación, te ayudamos a definirlos.',
+    quoteDescription: 'Indica los ejemplares, el formato cerrado, las páginas interiores, el papel y el tipo de cubierta. Añade la encuadernación, los acabados y la fecha y el lugar de entrega. Si todavía no has elegido materiales, te ayudamos a definirlos.',
   },
   revistas: {
     label: 'Revistas',
     title: 'Impresión de revistas personalizadas en Barcelona',
-    description: 'Damos forma impresa a revistas corporativas, editoriales y publicaciones periódicas. Cuidamos la reproducción del color, el papel y la lectura de cada número, con una producción adaptada a su paginación, su frecuencia y su distribución.',
+    description: 'Imprimimos revistas personalizadas para empresas, editoriales, agencias y entidades. Adaptamos formato, paginación, papel y acabados a la identidad de cada publicación, cuidando la reproducción del color y la lectura de cada número, con una producción ajustada a su periodicidad y distribución.',
     commercial: {
       anchorId: 'encuadernaciones-revistas',
       intro: {eyebrow: 'Grapado y fresado', title: 'La encuadernación que necesita cada edición', description: 'El número de páginas y el grosor del papel condicionan la solución. Comparamos las opciones contigo para mantener una revista manejable y cómoda de leer.'},
@@ -111,6 +113,15 @@ export const editorialLandings = {
           {title: 'Revistas editoriales y culturales', description: 'Ediciones con identidad propia, donde el ritmo de lectura, la fotografía, las ilustraciones y el papel forman parte de la experiencia.'},
           {title: 'Asociaciones e instituciones', description: 'Revistas de entidades, boletines y documentación informativa para mantener una relación periódica con socios y comunidades.'},
           {title: 'Publicaciones periódicas y promocionales', description: 'Planificamos contigo cada número según la fecha de salida, la cantidad y las necesidades de distribución. Las características se revisan antes de cada producción.'},
+        ],
+      },
+      {
+        id: 'formatos', eyebrow: 'Revistas A4, A5 y formatos especiales', title: 'Un formato pensado para el contenido y la distribución',
+        description: 'Elegimos el tamaño junto con el diseño, la encuadernación y la manera en que se entrega y consulta cada edición.',
+        items: [
+          {title: 'Revistas A4 · 210 × 297 mm', description: 'Espacio para reportajes, fotografía, entrevistas y documentación profesional. Un formato habitual cuando conviven imágenes e información detallada.'},
+          {title: 'Revistas A5 · 148 × 210 mm', description: 'Una opción compacta para boletines, revistas de asociaciones y publicaciones promocionales que se entregan en mano o se transportan con frecuencia.'},
+          {title: 'Formatos personalizados', description: 'Podemos valorar medidas especiales según la propuesta editorial. Comprobamos su compatibilidad con el papel, la paginación, la encuadernación y las necesidades de entrega.'},
         ],
       },
       {
@@ -142,7 +153,7 @@ export const editorialLandings = {
       },
       {
         id: 'tiradas', eyebrow: 'Tiradas y continuidad editorial', title: 'Produce cada edición según sus necesidades',
-        description: 'Valoramos tiradas cortas, reimpresiones y producciones más amplias. No hay una cantidad universal: el papel, las páginas, el sistema de impresión y la distribución determinan la propuesta.',
+        description: 'Valoramos tiradas cortas, reimpresiones y producciones más amplias con impresión digital u offset según las características del trabajo. El papel, las páginas, el sistema de impresión y la distribución determinan la propuesta; no hay una cantidad universal.',
         items: [
           {title: 'Nuevos números y reimpresiones', description: 'Podemos ajustar la cantidad a cada edición y revisar si se mantienen papel, formato y acabados. Facilita un ejemplar anterior si necesitas continuidad entre números.'},
           {title: 'Calendario de publicación', description: 'Indica la fecha de distribución y cuándo estarán disponibles los archivos definitivos. Confirmamos la planificación de producción a partir de las características del trabajo.'},
@@ -162,8 +173,9 @@ export const editorialLandings = {
       {question: '¿Se pueden imprimir tiradas cortas y números especiales?', answer: 'Sí. Valoramos cantidad, papel, páginas y acabados para elegir el sistema de impresión y presupuestar cada número, sin exigir que todas las ediciones tengan las mismas características.'},
       {question: '¿Cómo preparo el PDF de una revista?', answer: 'Con páginas en orden de lectura, tipografías incrustadas, sangrado y calidad de imagen suficiente. Consulta con nosotros la preparación de la cubierta y, si hay fresado, confirma el ancho del lomo antes de cerrarla.'},
       {question: '¿Puedo usar un papel distinto en la cubierta?', answer: 'Sí. Es habitual valorar una cubierta de mayor gramaje para dar presencia y protección. La compatibilidad del papel y de los acabados se revisa junto con la encuadernación.'},
+      {question: '¿Podéis imprimir revistas A4 y A5?', answer: 'Sí. A4 mide 210 × 297 mm y A5, 148 × 210 mm. El primero ofrece espacio para fotografía e información detallada; el segundo es más compacto para entrega y lectura en movimiento. También valoramos medidas personalizadas según los materiales y la encuadernación.'},
     ],
-    quoteDescription: 'Cuéntanos el formato, las páginas, los ejemplares por edición y la fecha de distribución. Puedes indicar la periodicidad y si necesitas asesoramiento entre grapado y fresado.',
+    quoteDescription: 'Para imprimir una revista personalizada, indícanos ejemplares, formato cerrado, páginas, papel interior y tipo de cubierta. Añade encuadernación, acabados, periodicidad y necesidades de entrega. Si dudas entre grapado y fresado, te orientamos antes de preparar el presupuesto.',
   },
 } satisfies Record<EditorialPublication, EditorialLandingContent>;
 

@@ -17,6 +17,10 @@ for(const page of pages){
   await writeFile(`${output}/${page.split('/').at(-1)}.html`,html);
   check(`${page}: HTTP 200`,response.status===200,response.status);
   check(`${page}: único H1`,(html.match(/<h1\b/g)||[]).length===1);
+  if(page!==pages[3]) {
+    check(`${page}: sin meta keywords`,!/<meta[^>]*name="keywords"/i.test(html));
+    check(`${page}: sin enlaces al blog excluido`,!/<a\b[^>]*href="[^"]*blog\.reprodisseny\.com/i.test(html));
+  }
   const canonicals=[...html.matchAll(/<link\b[^>]*>/g)].map(m=>m[0]).filter(tag=>/\brel="canonical"/.test(tag));
   check(`${page}: canonical único y autorreferente`,canonicals.length===1 && canonicals[0].includes(`href="https://reprodisseny.com${page}"`),canonicals);
   check(`${page}: metadescripción`,/<meta[^>]*name="description"[^>]*content="[^"]+"/.test(html));
@@ -50,6 +54,10 @@ check('Publicaciones: encabezados accesibles en pestañas SSR', categoryHTML.inc
 check('Catálogos: imagen editorial definitiva en SSR', htmlByPage.get(pages[1]).includes('Detalle de una cubierta impresa con acabado metalizado'));
 check('Catálogos: hero muestra impresión interior', /<img[^>]*alt="Publicación abierta con impresión interior a color y encuadernación cosida"/.test(htmlByPage.get(pages[1])));
 for(const [page,label] of [[pages[0],'Explorar publicaciones'],[pages[1],'Ver tipos de catálogos'],[pages[2],'Ver tipos de revistas']]) check(`${page}: CTA secundario personalizado`,htmlByPage.get(page).includes(label));
+for(const [page,label] of [[pages[1],'Solicitar presupuesto de catálogos'],[pages[2],'Solicitar presupuesto de revistas']]) check(`${page}: CTA principal específico`,htmlByPage.get(page).includes(label));
+for(const term of ['210 × 297 mm','148 × 210 mm','imprimir una revista personalizada']) check(`Revistas: intención visible ${term}`,htmlByPage.get(pages[2]).includes(term));
+check('Catálogos enlaza Eventos',htmlByPage.get(pages[1]).includes('href="/categorias/eventos"'));
+check('Eventos enlaza Catálogos de forma contextual',htmlByPage.get(pages[3]).includes('catálogos comerciales para ferias'));
 const navigation=await(await fetch(new URL('/api/nav/categorias',base),{signal:timeout()})).json();
 const publicationsNav=navigation.tree.find(item=>item.path===pages[0]);
 for(const page of pages.slice(1,3)) check(`navegación comercial ${page}`,publicationsNav?.commercialLinks?.some(item=>item.path===page));
@@ -60,6 +68,8 @@ for(const product of products){
   check(`enlace rastreable ${product.path}`,categoryHTML.includes(`href="${product.path}"`));
   const response=await fetch(new URL(product.path,base),{signal:timeout()});
   check(`producto existente ${product.path}`,response.status===200,response.status);
+  const target=product.slug==='encuadernado-con-grapas'?pages[2]:product.slug==='encuadernacion-encolada-tapa-blanda'?pages[1]:['cosida-tapa-blanda','encuadernacion-wire-o'].includes(product.slug)?pages[0]:null;
+  if(target) check(`enlace editorial contextual ${product.slug}`,(await response.text()).includes(`href="${target}"`));
 }
 for(const path of ['/product/imprimir-revista-presupuesto','/product/imprimir-revista-presupuesto/printestimate']){
   const response=await fetch(new URL(path,base),{redirect:'manual',signal:timeout()});

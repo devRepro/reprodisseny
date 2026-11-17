@@ -256,7 +256,7 @@ function secondaryProducts(solution: ResolvedCommercialSolution) {
           <h2 id="commercial-project-title" class="commercial-cluster-project__title">
             {{ config?.project?.title || "" }}
           </h2>
-          <p class="commercial-cluster-project__description">{{ config?.project?.description || "" }}</p>
+          <p class="commercial-cluster-project__description">{{ config?.project?.description || "" }}<slot name="project-context" /></p>
           <AppButton
             v-if="config.project.cta || config?.finalCta?.primaryCta"
             :to="(config.project.cta || config.finalCta?.primaryCta)?.to"

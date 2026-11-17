@@ -29,6 +29,7 @@ const seo = computed(() => EDITORIAL_SEO[props.publication]);
 const path = computed(() => EDITORIAL_LANDING_PATHS[props.publication]);
 const canonical = computed(() => new URL(path.value, SITE_URL).href);
 const quoteContext = computed(() => EDITORIAL_QUOTE_CONTEXTS[props.publication]);
+const quoteLabel = computed(() => `Solicitar presupuesto de ${props.content.label.toLowerCase()}`);
 const products = computed(() => category.value?.commercialProducts || []);
 const heroImage = computed(() => {
   const selection = EDITORIAL_MEDIA[props.publication];
@@ -104,7 +105,7 @@ useHead(() => ({
       <CategoryHero
         :category="hero"
         variant="commercial"
-        :primary-cta="{label: 'Solicitar presupuesto', to: '#presupuesto-editorial'}"
+        :primary-cta="{label: quoteLabel, to: '#presupuesto-editorial'}"
         :secondary-cta="{label: publication === 'catalogos' ? 'Ver tipos de catálogos' : 'Ver tipos de revistas', to: `#${content.commercial.anchorId}`}"
       />
       <CommercialSolutions :commercial-config="commercial" :commercial-products="products" />
@@ -128,6 +129,9 @@ useHead(() => ({
             <CmsImage :src="finishImage.src" :alt="EDITORIAL_FINISH_MEDIA.alt" :width="1200" :height="1200" class="aspect-[4/3] w-full object-cover" />
           </figure>
         </div>
+        <p v-if="section.links?.length" class="mt-5 text-body-s">
+          <NuxtLink v-for="link in section.links" :key="link.to" :to="link.to" class="commercial-cluster-product-link">{{ link.label }} →</NuxtLink>
+        </p>
       </ContentSectionShell>
       <ContentSectionShell
         eyebrow="Proceso de producción"

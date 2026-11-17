@@ -25,7 +25,7 @@ chrome.on('error',error=>console.error(error));
 chrome.on('exit',(code,signal)=>console.log('Chrome exit',code,signal));
 const pause = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 let ws;
-const checks = [], measurements = [], mockedRequests = [], browserErrors = [], designSignatures = [];
+const checks = [], measurements = [], mockedRequests = [], browserErrors = [], designSignatures = [], laboratory = [];
 const check = (name, condition, detail = '') => {
   checks.push({ name, pass: Boolean(condition), detail });
   if (!condition) console.error(`FAIL ${name}: ${detail}`);
@@ -122,7 +122,10 @@ try {
     }
     window.scrollTo(0,0);
   })()`);
-  await send('Page.addScriptToEvaluateOnNewDocument', {source: `window.__editorialCls = 0; new PerformanceObserver(list => {for(const entry of list.getEntries()) if(!entry.hadRecentInput) window.__editorialCls += entry.value}).observe({type:'layout-shift',buffered:true});`});
+  await send('Page.addScriptToEvaluateOnNewDocument', {source: `window.__editorialCls=0;window.__editorialLcp=null;window.__editorialMaxEventDuration=null;
+    new PerformanceObserver(list=>{for(const entry of list.getEntries())if(!entry.hadRecentInput)window.__editorialCls+=entry.value}).observe({type:'layout-shift',buffered:true});
+    new PerformanceObserver(list=>{for(const entry of list.getEntries())window.__editorialLcp=entry.startTime}).observe({type:'largest-contentful-paint',buffered:true});
+    if(PerformanceObserver.supportedEntryTypes.includes('event'))new PerformanceObserver(list=>{for(const entry of list.getEntries())if(entry.interactionId)window.__editorialMaxEventDuration=Math.max(window.__editorialMaxEventDuration||0,entry.duration)}).observe({type:'event',buffered:true,durationThreshold:16});`});
   const cases = reference ? [['eventos-before', '/categorias/eventos']] : [
     ['publicaciones','/categorias/libros-revistas-catalogos'],
     ['catalogos','/productos/impresion-catalogos-barcelona'],
@@ -132,6 +135,12 @@ try {
   for(const [name, route] of cases) {
     console.log(`Reviewing ${name}`);
     await resize(1440); await navigate(route);
+    if(!reference && !contrastAudit && !diagnoseLayout) {
+      await evaluate("document.querySelector('main .category-hero img')?.decode().catch(()=>null)");
+      await pause(200);
+      const initial=await evaluate("(()=>{const n=performance.getEntriesByType('navigation')[0];return {lcpMs:window.__editorialLcp,clsBeforeResize:window.__editorialCls,ttfbMs:n?n.responseStart-n.requestStart:null}})()");
+      laboratory.push({name,origin:base.origin,viewport:1440,throttling:'none',...initial});
+    }
     if(contrastAudit && name !== 'eventos-after') {
       await evaluate(`(()=>{document.querySelector('main').classList.add('editorial-page');const style=document.createElement('style');style.textContent=${JSON.stringify(proposedCss)};document.head.append(style)})()`);
       await pause(350); // Let existing color transitions settle before measuring the proposed palette.
@@ -245,6 +254,8 @@ try {
         const full=await send('Page.captureScreenshot',{format:'png',captureBeyondViewport:true,clip:{x:0,y:0,width:1440,height:metrics.cssContentSize.height,scale:1}});
         await writeFile(path.join(reportDir,`${name}-full-1440.png`),Buffer.from(full.data,'base64'));
       }
+      const lab=laboratory.find(item=>item.name===name);
+      if(lab) lab.maxObservedEventDurationMs=await evaluate('window.__editorialMaxEventDuration');
     }
   }
   if(!reference && !diagnoseLayout && !contrastAudit) {
@@ -260,7 +271,11 @@ try {
       ['revistas','/pedir-presupuesto?publicacion=revistas'],
       ['editorial','/pedir-presupuesto?publicacion=editorial'],
     ]) {
-      await resize(390);await navigate(route);
+      const destination=new URL(route,base);
+      if(route.startsWith('/productos/')) {
+        for(const [key,value] of Object.entries({utm_source:'google',utm_medium:'cpc',utm_campaign:'editorial-local-audit',utm_id:'seo-02-local',gclid:'local-audit-click'})) destination.searchParams.set(key,value);
+      }
+      await resize(390);await navigate(destination.pathname+destination.search);
       const before=mockedRequests.length;
       await evaluate(`(() => {const form=document.querySelector('.rd-form-frame form');
         for(const e of form.querySelectorAll('input,textarea')){
@@ -277,6 +292,10 @@ try {
       const payload=mockedRequests.at(-1)?.payload;
       const expectedSlug = publication === 'editorial' ? 'publicaciones-editoriales' : `impresion-${publication}-barcelona`;
       check(`${route}: publication attribution`,payload?.product?.slug===expectedSlug&&payload?.categorySlug==='libros-revistas-catalogos',payload?.product);
+      if(route.startsWith('/productos/')) {
+        check(`${route}: UTM and GCLID preserved`,payload?.sourceUrl?.includes('utm_campaign=editorial-local-audit')&&payload?.sourceUrl?.includes('gclid=local-audit-click'));
+        check(`${route}: advertising attribution`,payload?.tracking?.normalized?.trackingSource==='google'&&payload?.tracking?.normalized?.trackingMedium==='cpc',payload?.tracking?.normalized);
+      }
       check(`${route}: one conversion`,await evaluate("(window.dataLayer||[]).filter(e=>e.event==='generate_lead').length")===1);
     }
   }
@@ -285,7 +304,7 @@ try {
 } catch(error) {check('runner completed',false,String(error.stack||error));}
 finally {
   ws?.close();chrome.kill();
-  await writeFile(path.join(reportDir,'results.json'),JSON.stringify({checks,measurements,designSignatures,mockedRequests,browserErrors},null,2));
+  await writeFile(path.join(reportDir,'results.json'),JSON.stringify({checks,measurements,designSignatures,laboratory,mockedRequests,browserErrors},null,2));
   console.log(`${checks.filter(item=>item.pass).length}/${checks.length} browser checks passed`);
   if(checks.some(item=>!item.pass))process.exitCode=1;
 }

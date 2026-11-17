@@ -3,6 +3,12 @@
   // Existing accessible secondary-text value used by confirmation-surface.
   --muted-foreground: 0 0% 38%;
 
+  .category-hero__actions .btn {
+    white-space: normal;
+    height: auto;
+    text-align: center;
+  }
+
   nav[aria-label="breadcrumb"] :is(a, span, svg),
   .rd-form-upload-text,
   [data-placeholder] {

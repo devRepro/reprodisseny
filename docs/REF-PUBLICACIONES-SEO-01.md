@@ -1,5 +1,7 @@
 # REF-PUBLICACIONES-SEO-01 — Entrega técnica y dirección de arte
 
+Este informe recoge el cierre REF. El incremento posterior, los metadatos definitivos, enlaces y resultados actuales están en [SEO-PUBLICACIONES-02](SEO-PUBLICACIONES-02.md). La publicación del SHA ampliado requiere autorización para esa versión; el CMS de REF ya está integrado.
+
 Implementación en `feat/publicaciones-editorial-seo`, sobre `b4f0686`, con dirección de arte y publicación autorizadas el 17/11/2026. La integración de los siete campos del CMS está ejecutada y verificada, sin diferencias semánticas con el snapshot aprobado. El procedimiento de publicación y rollback está en [el informe de readiness](REF-PUBLICACIONES-SEO-01-readiness.md). La auditoría previa está en [audits/REF-PUBLICACIONES-SEO-01.md](audits/REF-PUBLICACIONES-SEO-01.md).
 
 Reanudado el 17/11/2026 desde el WIP `7ebb55c`, conservando los seis commits de implementación y el árbol limpio inicial. El cierre continúa sus verificadores y documenta los resultados de la revisión local, sin alterar ni reemplazar el WIP.
@@ -54,7 +56,7 @@ Homepage: se conserva el enlace a Publicaciones y se añaden enlaces HTML a amba
 
 Las dos landings también aparecen al inicio del menú de Publicaciones, en desktop y móvil. Los enlaces comerciales se mantienen separados de los productos en los datos de navegación; no se crean fichas ficticias en el CMS.
 
-Blog externo: [la URL indicada](https://blog.reprodisseny.com/como-imprimir-una-revista/) no respondió en la consulta (502). El código actual clasifica ese host como retirado. No se modifica ese sistema. Si el artículo se mantiene o recupera en otro CMS, añadir en su contenido un enlace HTML con texto contextual «impresión de revistas en Barcelona» hacia la nueva landing; confirmar antes quién gestiona ese host. No se ha recuperado contenido histórico íntegro de la antigua ficha; el contenido técnico reutilizado procede del catálogo actual.
+El blog antiguo queda expresamente excluido por SEO-PUBLICACIONES-02. Se retira la recomendación anterior de incorporar enlaces desde ese blog: no utilizar, recuperar, adaptar ni enlazar sus contenidos y no modificar su funcionamiento ni sus redirecciones. Los contenidos comerciales son originales y la información técnica procede del catálogo actual.
 
 ## Multimedia y fotografías pendientes
 
