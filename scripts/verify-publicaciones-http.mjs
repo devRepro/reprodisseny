@@ -3,7 +3,7 @@ import { mkdir, writeFile, readFile } from 'node:fs/promises';
 import { XMLParser } from 'fast-xml-parser';
 const base = new URL(process.env.BASE_URL || 'http://127.0.0.1:3100');
 assert.ok(['127.0.0.1','localhost','[::1]'].includes(base.hostname), 'Local preview only');
-const output = 'reports/publicaciones-seo';
+const output = process.env.REPORT_DIR || 'reports/publicaciones-seo';
 await mkdir(output,{recursive:true});
 const checks=[];
 const check=(name, pass, detail='')=>{checks.push({name,pass:Boolean(pass),detail});if(!pass) console.error(name,detail);};
@@ -41,7 +41,15 @@ for(const page of pages){
     for(const type of ['WebPage','Service','BreadcrumbList','FAQPage']) check(`${page}: schema ${type}`,entities.some(item=>item['@type']===type));
     const faq=entities.find(item=>item['@type']==='FAQPage');
     check(`${page}: preguntas schema presentes en HTML`,faq?.mainEntity?.every(item=>html.includes(item.name) && html.includes(item.acceptedAnswer.text)));
-    check(`${page}: formulario en SSR`,html.includes('type="email"')&&html.includes('name="consent"'));
+    const publication=page.includes('catalogos')?'catalogos':'revistas';
+    const quotePath=`/pedir-presupuesto?publicacion=${publication}`;
+    check(`${page}: sin formulario incrustado`,!html.includes('rd-form-frame') && !/<form\b/.test(html.match(/<main\b[\s\S]*?<\/main>/)?.[0]||''));
+    check(`${page}: hero y CTA inferior al presupuesto contextual`,(html.match(new RegExp(`href="${quotePath.replace('?', '\\?')}"`,'g'))||[]).length===2);
+    check(`${page}: ancla inferior compatible`,html.includes('id="presupuesto-editorial"'));
+    const quoteResponse=await fetch(new URL(quotePath,base),{signal:timeout()});
+    const quoteHtml=await quoteResponse.text();
+    check(`${page}: formulario dedicado accesible`,quoteResponse.status===200 && quoteHtml.includes('type="email"') && quoteHtml.includes('name="consent"'));
+    check(`${page}: canonical del presupuesto sin query`,quoteHtml.includes('rel="canonical" href="https://reprodisseny.com/pedir-presupuesto"'));
     check(`${page}: sin ofertas o reseñas inventadas`,!scripts.some(m=>/@type":"(?:Offer|AggregateRating|Review)"/.test(m[1])));
     check(`${page}: FAQs en SSR`,html.includes('<details')&&html.includes('Preguntas frecuentes'));
   }

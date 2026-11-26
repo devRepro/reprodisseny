@@ -8,6 +8,8 @@ import { toNavigationDto } from '../shared/navigation';
 import { editorialLandings } from '../shared/data/editorialLandings';
 import { EDITORIAL_LANDING_PATHS, EDITORIAL_SEO, EDITORIAL_PRODUCT_LINKS, PUBLICATIONS_PATH, resolveEditorialQuoteContext } from '../shared/seo/editorialRoutes';
 import { redirectRouteRules } from '../redirect-rules.generated';
+import { buildEditorialQuotePath } from '../utils/tracking/editorialQuote';
+import { createAttributionTouchFromUrl, normalizeLeadTracking, updateLeadAttribution } from '../utils/tracking/leadAttribution';
 
 const expectedSlugs = ['encuadernacion-wire-o-oculto', 'cosida-tapa-blanda', 'encuadernacion-cosida-tapa-dura', 'encuadernacion-encolada-tapa-blanda', 'encuadernacion-wire-o', 'encuadernado-con-grapas', 'hojas-sueltas-archivadores'];
 
@@ -80,6 +82,46 @@ test('presupuesto conserva contexto editorial con una lista cerrada y sin campos
   assert.equal(resolveEditorialQuoteContext('revistas')?.categorySlug, 'libros-revistas-catalogos');
   assert.equal(resolveEditorialQuoteContext('editorial')?.productName, 'Publicaciones editoriales');
   for (const value of [undefined, null, ['revistas'], '__proto__', 'constructor', 'inexistente']) assert.equal(resolveEditorialQuoteContext(value), undefined);
+});
+
+test('los dos CTA editoriales llevan al presupuesto dedicado sin formulario incrustado', () => {
+  const source = readFileSync('components/marketing/landing/EditorialLanding.vue', 'utf8');
+  assert.doesNotMatch(source, /QuoteFormSection|<form\b|to: '#presupuesto-editorial'/);
+  assert.match(source, /primary-cta="\{label: quoteLabel, to: quoteTo\}"/);
+  assert.match(source, /<AppButton :to="quoteTo" size="lg"/);
+  assert.match(source, /id="presupuesto-editorial"/);
+  assert.doesNotMatch(source, /generate_lead|submitAndTrack|trackConversion/);
+  const formPage = readFileSync('pages/pedir-presupuesto.vue', 'utf8');
+  assert.match(formPage, /resolveEditorialQuoteContext\(route.query.publicacion\)/);
+  assert.match(formPage, /v-bind="quoteContext \|\| \{\}"/);
+  for (const publication of ['catalogos', 'revistas'] as const) {
+    assert.equal(buildEditorialQuotePath(publication), `/pedir-presupuesto?publicacion=${publication}`);
+  }
+});
+
+test('el enlace editorial conserva solo parámetros publicitarios permitidos y su atribución al solicitar presupuesto', () => {
+  const query = { utm_source: 'google', utm_medium: 'cpc', utm_campaign: 'editorial', utm_id: 'campaign-01',
+    gad_campaignid: 'ads-01', utm_term: 'imprimir catálogo', utm_content: 'hero',
+    gclid: 'test-click', gbraid: 'test-gbraid', wbraid: 'test-wbraid',
+    publicacion: 'revistas', email: 'private@example.test', redirect: 'https://example.test' };
+  for (const publication of ['catalogos', 'revistas'] as const) {
+    const sourceUrl = `https://reprodisseny.com${buildEditorialQuotePath(publication, query)}`;
+    const params = new URL(sourceUrl).searchParams;
+    assert.equal(params.get('publicacion'), publication);
+    for (const key of ['email', 'redirect']) assert.equal(params.has(key), false);
+    for (const key of ['utm_campaign', 'gclid', 'gbraid', 'wbraid', 'gad_campaignid']) assert.equal(params.get(key), query[key as keyof typeof query]);
+    const landing = createAttributionTouchFromUrl({url: `https://reprodisseny.com${EDITORIAL_LANDING_PATHS[publication]}?${new URLSearchParams(query)}`});
+    const attribution = updateLeadAttribution({first: null, last: null}, landing);
+    const normalized = normalizeLeadTracking({sourceUrl, tracking: {attribution}});
+    assert.equal(normalized.trackingSource, 'google');
+    assert.equal(normalized.trackingMedium, 'cpc');
+    assert.equal(normalized.trackingCampaign, 'editorial');
+    assert.equal(normalized.attribution.first?.landingPath, EDITORIAL_LANDING_PATHS[publication]);
+    assert.equal(normalized.attribution.last?.gclid, 'test-click');
+    // A fresh page (new tab or reload), with no in-memory attribution, retains the campaign.
+    assert.equal(normalizeLeadTracking({sourceUrl}).trackingCampaign, 'editorial');
+  }
+  assert.equal(new URL(buildEditorialQuotePath('catalogos', {UTM_SOURCE: ['google', 'ignored'], gclid: ' x ', unknown: 'x'}), 'https://reprodisseny.com').searchParams.get('utm_source'), 'google');
 });
 
 test('la antigua URL de revistas redirige directamente a su landing con 301', () => {

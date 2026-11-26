@@ -25,6 +25,14 @@ for (const file of ['assets/styles/main.scss', 'components/marketing/category/Ca
 const result = { base, productsUnchanged: after.products.length,
   otherCategoriesUnchanged: after.categories.length - 1, technicalContentUnchanged: true,
   eventsConfigUnchanged: true, globalStylesUnchanged: true, categoryHeroUnchanged: true };
+// FIX-PUBLICACIONES-CTA-01: compare protected source with the merged editorial release.
+const ctaBase = 'f1c37de';
+const changedSource = execFileSync('git', ['diff', '--name-only', ctaBase, '--',
+  'cms', 'pages', 'components', 'shared', 'assets', 'composables', 'plugins', 'server',
+  'utils', 'nuxt.config.ts', 'redirect-rules.generated.ts'], {encoding:'utf8'}).trim().split(/\r?\n/).filter(Boolean);
+const allowedSource = new Set(['components/marketing/landing/EditorialLanding.vue', 'utils/tracking/editorialQuote.ts']);
+assert.deepEqual(changedSource.filter(file => !allowedSource.has(file)), [], 'CTA fix must preserve other forms, content, SEO and tracking');
+Object.assign(result, {ctaBase, ctaProtectedSourceUnchanged:true});
 await mkdir('reports/publicaciones-seo', { recursive: true });
 await writeFile('reports/publicaciones-seo/integrity.json', JSON.stringify(result, null, 2));
 console.log(result);
