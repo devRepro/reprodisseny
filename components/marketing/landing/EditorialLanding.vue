@@ -13,10 +13,11 @@ import CommercialSolutions from '~/components/marketing/category/CommercialSolut
 import ContentSectionShell from '~/components/marketing/content/ContentSectionShell.vue';
 import ContentProcessSteps from '~/components/marketing/content/ContentProcessSteps.vue';
 import FaqAccordion from '~/components/shared/blocks/FaqAccordion.vue';
-import QuoteFormSection from '~/components/marketing/quote/FormSection.vue';
 import AppButton from '~/components/shared/button/AppButton.vue';
+import { buildEditorialQuotePath } from '~/utils/tracking/editorialQuote';
 
 const props = defineProps<{ publication: EditorialPublication; content: EditorialLandingContent }>();
+const route = useRoute();
 const { data: category, error } = await useAsyncData(
   'cms:editorial-publications',
   () => $fetch<CategoryDetailPageDto>('/api/cms/category/libros-revistas-catalogos', {
@@ -30,6 +31,7 @@ const path = computed(() => EDITORIAL_LANDING_PATHS[props.publication]);
 const canonical = computed(() => new URL(path.value, SITE_URL).href);
 const quoteContext = computed(() => EDITORIAL_QUOTE_CONTEXTS[props.publication]);
 const quoteLabel = computed(() => `Solicitar presupuesto de ${props.content.label.toLowerCase()}`);
+const quoteTo = computed(() => buildEditorialQuotePath(props.publication, route.query));
 const products = computed(() => category.value?.commercialProducts || []);
 const heroImage = computed(() => {
   const selection = EDITORIAL_MEDIA[props.publication];
@@ -105,7 +107,7 @@ useHead(() => ({
       <CategoryHero
         :category="hero"
         variant="commercial"
-        :primary-cta="{label: quoteLabel, to: '#presupuesto-editorial'}"
+        :primary-cta="{label: quoteLabel, to: quoteTo}"
         :secondary-cta="{label: publication === 'catalogos' ? 'Ver tipos de catálogos' : 'Ver tipos de revistas', to: `#${content.commercial.anchorId}`}"
       />
       <CommercialSolutions :commercial-config="commercial" :commercial-products="products" />
@@ -158,8 +160,8 @@ useHead(() => ({
         section-class="commercial-cluster-final-cta scroll-mt-28"
         intro-class="max-w-3xl"
       >
-        <div class="max-w-2xl">
-          <QuoteFormSection v-bind="quoteContext" />
+        <div class="commercial-cluster-final-cta__body">
+          <AppButton :to="quoteTo" size="lg" class="max-w-full whitespace-normal">{{ quoteLabel }}</AppButton>
         </div>
       </ContentSectionShell>
       <div class="container-content flex flex-wrap gap-4 py-8">

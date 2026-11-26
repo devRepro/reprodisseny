@@ -7,6 +7,7 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 
 const reference = process.argv.includes('--reference');
+const captureOnly = process.argv.includes('--capture-only');
 const diagnoseLayout = process.argv.includes('--diagnose-layout');
 // Diagnostic only: audit the proposed scoped palette on an existing preview before rebuilding.
 const contrastAudit = process.argv.includes('--contrast-audit');
@@ -25,6 +26,7 @@ chrome.on('error',error=>console.error(error));
 chrome.on('exit',(code,signal)=>console.log('Chrome exit',code,signal));
 const pause = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 let ws;
+let mockNextFailure = false;
 const checks = [], measurements = [], mockedRequests = [], browserErrors = [], designSignatures = [], laboratory = [];
 const check = (name, condition, detail = '') => {
   checks.push({ name, pass: Boolean(condition), detail });
@@ -71,13 +73,15 @@ try {
         if (!reference && url.origin === base.origin && ['/api/price-requests', '/api/cms/contact'].includes(url.pathname)) {
           const body = request.postData?.match(/\r\n\r\n(\{[\s\S]*\})\r\n--/)?.[1];
           mockedRequests.push({ path: url.pathname, method: request.method, payload: body ? JSON.parse(body) : null });
+          const fail = mockNextFailure;
+          mockNextFailure = false;
           const response = url.pathname.endsWith('/contact')
             ? { ok: true, duplicated: false, item: { id: 'local-42', requestKey: 'local-confirmation' } }
             : { ok: true, duplicated: false, itemId: 'local-42', requestKey: 'local-confirmation' };
           await pause(150);
-          await send('Fetch.fulfillRequest', { requestId, responseCode: 201,
+          await send('Fetch.fulfillRequest', { requestId, responseCode: fail ? 500 : 201,
             responseHeaders: [{ name: 'Content-Type', value: 'application/json' }],
-            body: Buffer.from(JSON.stringify(response)).toString('base64') });
+            body: Buffer.from(JSON.stringify(fail ? {statusMessage:'Fallo simulado de prueba local',requestId:'local-failed-request'} : response)).toString('base64') });
         } else await send('Fetch.failRequest', { requestId, errorReason: 'BlockedByClient' });
       } else if (url.origin !== base.origin && !['media.reprodisseny.com', 'webcms.blob.core.windows.net'].includes(url.hostname)) {
         await send('Fetch.failRequest', { requestId, errorReason: 'BlockedByClient' });
@@ -133,8 +137,18 @@ try {
     ['eventos-after','/categorias/eventos'],
   ];
   for(const [name, route] of cases) {
+    if(captureOnly && !['catalogos','revistas'].includes(name)) continue;
     console.log(`Reviewing ${name}`);
     await resize(1440); await navigate(route);
+    if(captureOnly) {
+      for(const width of [390,1440]) {
+        await resize(width); await loadPageImages();
+        await screenshot(`${name}-hero-${width}`);
+        await evaluate("document.getElementById('presupuesto-editorial').scrollIntoView({block:'start',behavior:'instant'})");
+        await screenshot(`${name}-cta-${width}`);
+      }
+      continue;
+    }
     if(!reference && !contrastAudit && !diagnoseLayout) {
       await evaluate("document.querySelector('main .category-hero img')?.decode().catch(()=>null)");
       await pause(200);
@@ -202,6 +216,10 @@ try {
       check(`${name} ${width}: one H1`,result.h1===1);
       check(`${name} ${width}: visible images load`,result.images.every(image=>image.loaded),result.images.filter(image=>!image.loaded));
       await screenshot(`${name}-${width}`);
+      if(['catalogos','revistas'].includes(name) && [390,1440].includes(width)) {
+        await evaluate("document.getElementById('presupuesto-editorial').scrollIntoView({block:'start',behavior:'instant'})");
+        await screenshot(`${name}-cta-${width}`);
+      }
     }
     if(!reference) {
       if(name === 'publicaciones') {
@@ -258,25 +276,52 @@ try {
       if(lab) lab.maxObservedEventDurationMs=await evaluate('window.__editorialMaxEventDuration');
     }
   }
-  if(!reference && !diagnoseLayout && !contrastAudit) {
+  if(!reference && !diagnoseLayout && !contrastAudit && !captureOnly) {
     const events = designSignatures.find(item => item.name === 'eventos-after')?.signature;
     for(const item of designSignatures.filter(item => item.name !== 'eventos-after')) {
       check(`${item.name}: typography, container and primary CTA match Eventos`,
         Boolean(events) && JSON.stringify(item.signature) === JSON.stringify(events), item.signature);
     }
-    for(const [publication,route] of [
-      ['catalogos','/productos/impresion-catalogos-barcelona'],
-      ['revistas','/productos/impresion-revistas-barcelona'],
-      ['catalogos','/pedir-presupuesto?publicacion=catalogos'],
-      ['revistas','/pedir-presupuesto?publicacion=revistas'],
-      ['editorial','/pedir-presupuesto?publicacion=editorial'],
-    ]) {
-      const destination=new URL(route,base);
-      if(route.startsWith('/productos/')) {
-        for(const [key,value] of Object.entries({utm_source:'google',utm_medium:'cpc',utm_campaign:'editorial-local-audit',utm_id:'seo-02-local',gclid:'local-audit-click'})) destination.searchParams.set(key,value);
+    const campaign={utm_source:'google',utm_medium:'cpc',utm_campaign:'editorial-local-audit',utm_id:'cta-01-local',gclid:'local-audit-click'};
+    const journeys=[];
+    for(const publication of ['catalogos','revistas']) {
+      for(const width of [390,1440]) for(const cta of ['hero','bottom']) {
+        journeys.push({publication,route:`/productos/impresion-${publication}-barcelona`,width,cta,params:campaign});
       }
-      await resize(390);await navigate(destination.pathname+destination.search);
+      for(const params of [{}, {gclid:'local-audit-click'}, {utm_source:'google',utm_medium:'cpc',utm_campaign:'editorial-local-audit'}, {gbraid:'local-braid'}, {wbraid:'local-braid'}]) {
+        journeys.push({publication,route:`/productos/impresion-${publication}-barcelona`,width:390,cta:'bottom',params,reload:true});
+      }
+      journeys.push({publication,route:`/pedir-presupuesto?publicacion=${publication}`,width:390,params:{}});
+    }
+    journeys.push({publication:'editorial',route:'/pedir-presupuesto?publicacion=editorial',width:390,params:{}});
+    for(const [journeyIndex,{publication,route,width,cta,params,reload}] of journeys.entries()) {
+      const label=`${publication} ${width} ${cta||'direct'} ${Object.keys(params).join(',')||'organic'}${reload?' reload':''}`;
+      const destination=new URL(route,base);
+      for(const [key,value] of Object.entries(params)) destination.searchParams.set(key,value);
+      // Every journey starts without attribution from an earlier test.
+      await evaluate("localStorage.removeItem('rd_first_attribution');localStorage.removeItem('rd_last_attribution')");
+      await resize(width);await navigate(destination.pathname+destination.search);
       const before=mockedRequests.length;
+      const testFailure=journeyIndex===0;
+      if(cta) {
+        check(`${label}: no embedded form`,await evaluate("!document.querySelector('main form')"));
+        const selector=cta==='hero'?'.category-hero__actions a': '#presupuesto-editorial a';
+        const href=await evaluate(`document.querySelector(${JSON.stringify(selector)}).getAttribute('href')`);
+        const target=new URL(href,base);
+        check(`${label}: contextual destination`,target.pathname==='/pedir-presupuesto'&&target.searchParams.get('publicacion')===publication,href);
+        check(`${label}: campaign on both link destinations`,await evaluate(`['.category-hero__actions a','#presupuesto-editorial a'].every(s=>document.querySelector(s).getAttribute('href')===${JSON.stringify(href)})`));
+        for(const [key,value] of Object.entries(params)) check(`${label}: link preserves ${key}`,target.searchParams.get(key)===value);
+        await evaluate(`document.querySelector(${JSON.stringify(selector)}).click()`);
+        await waitFor("location.pathname==='/pedir-presupuesto' && !!document.querySelector('.rd-form-frame form')");
+        if(reload) await navigate(target.pathname+target.search);
+        check(`${label}: click creates no request or conversion`,mockedRequests.length===before && await evaluate("(window.dataLayer||[]).filter(e=>e.event==='generate_lead').length")===0);
+        if(params===campaign && cta==='hero') await screenshot(`${publication}-form-${width}`);
+      }
+      if(testFailure) {
+        await evaluate("document.querySelector('.rd-form-frame button[type=submit]').click()");
+        await waitFor("!!document.querySelector('.rd-form-alert')");
+        check('invalid form: no request or conversion',mockedRequests.length===before && await evaluate("(window.dataLayer||[]).filter(e=>e.event==='generate_lead').length")===0);
+      }
       await evaluate(`(() => {const form=document.querySelector('.rd-form-frame form');
         for(const e of form.querySelectorAll('input,textarea')){
           if(e.type==='checkbox'){if(!e.checked)e.click();continue}
@@ -286,17 +331,25 @@ try {
           Object.getOwnPropertyDescriptor(proto,'value').set.call(e,value);e.dispatchEvent(new Event('input',{bubbles:true}));e.dispatchEvent(new Event('change',{bubbles:true}));
         }
       })()`);
+      if(testFailure) {
+        mockNextFailure=true;
+        await evaluate("document.querySelector('.rd-form-frame button[type=submit]').click()");
+        await waitFor("document.querySelector('.rd-form-alert')?.textContent.includes('local-failed-request') && !document.querySelector('.rd-form-frame button[type=submit]').disabled");
+        check('failed response: no conversion or thank-you navigation',mockedRequests.length===before+1 && await evaluate("location.pathname==='/pedir-presupuesto'&&(window.dataLayer||[]).filter(e=>e.event==='generate_lead').length===0"));
+      }
       await evaluate("document.querySelector('.rd-form-frame button[type=submit]').click()");
       await waitFor("location.pathname==='/gracias'");
-      check(`${route}: one mocked submission`,mockedRequests.length===before+1);
+      check(`${label}: one successful mocked submission`,mockedRequests.length===before+(testFailure?2:1));
       const payload=mockedRequests.at(-1)?.payload;
       const expectedSlug = publication === 'editorial' ? 'publicaciones-editoriales' : `impresion-${publication}-barcelona`;
-      check(`${route}: publication attribution`,payload?.product?.slug===expectedSlug&&payload?.categorySlug==='libros-revistas-catalogos',payload?.product);
-      if(route.startsWith('/productos/')) {
-        check(`${route}: UTM and GCLID preserved`,payload?.sourceUrl?.includes('utm_campaign=editorial-local-audit')&&payload?.sourceUrl?.includes('gclid=local-audit-click'));
-        check(`${route}: advertising attribution`,payload?.tracking?.normalized?.trackingSource==='google'&&payload?.tracking?.normalized?.trackingMedium==='cpc',payload?.tracking?.normalized);
+      check(`${label}: publication attribution`,payload?.product?.slug===expectedSlug&&payload?.categorySlug==='libros-revistas-catalogos' && payload?.product?.name===(publication==='editorial'?'Publicaciones editoriales':`Impresión de ${publication==='catalogos'?'catálogos':'revistas'}`),payload?.product);
+      for(const [key,value] of Object.entries(params)) check(`${label}: payload preserves ${key}`,payload?.utm?.[key]===value,payload?.utm);
+      if(Object.keys(params).length) {
+        check(`${label}: advertising attribution`,payload?.tracking?.normalized?.trackingSource==='google'&&payload?.tracking?.normalized?.trackingMedium==='cpc',payload?.tracking?.normalized);
+        if(params.utm_campaign) check(`${label}: CRM campaign`,payload?.tracking?.TrackingCampaign===params.utm_campaign,payload?.tracking?.TrackingCampaign);
+        if(!reload) check(`${label}: initial editorial landing`,payload?.tracking?.attribution?.first?.landingPath===destination.pathname,payload?.tracking?.attribution);
       }
-      check(`${route}: one conversion`,await evaluate("(window.dataLayer||[]).filter(e=>e.event==='generate_lead').length")===1);
+      check(`${label}: one conversion after success`,await evaluate("(window.dataLayer||[]).filter(e=>e.event==='generate_lead').length")===1);
     }
   }
   check('browser: no runtime errors',browserErrors.length===0,browserErrors);
